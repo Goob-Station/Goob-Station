@@ -40,7 +40,6 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
@@ -52,15 +51,18 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Common.Flash; // Goob edit
+using Content.Goobstation.Shared.Flashbang; // Goob edit
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -84,7 +86,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Flash
 {
@@ -105,12 +106,11 @@ namespace Content.Server.Flash
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
-        public static readonly ProtoId<TagPrototype> FlashVulnerableTag = "FlashVulnerable"; // Goobstation
 
         public override void Initialize()
         {
             base.Initialize();
-
+            SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<FlashComponent, MeleeHitEvent>(OnFlashMeleeHit);
             // ran before toggling light for extra-bright lantern
             SubscribeLocalEvent<FlashComponent, UseInHandEvent>(OnFlashUseInHand, before: new[] { typeof(HandheldLightSystem) });
@@ -119,7 +119,13 @@ namespace Content.Server.Flash
             SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
             SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         }
+        
+        private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
 
+        {
+            args.PushMarkup(Loc.GetString("flash-protection"));
+        }
+        
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
         {
             if (!args.IsHit ||
@@ -185,7 +191,9 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, FlashVulnerableTag))
+            if (used == null
+                || !_tag.HasTag(used.Value, IgnoreResistancesTag)
+                && !HasComp<FlashVulnerableComponent>(target))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);
