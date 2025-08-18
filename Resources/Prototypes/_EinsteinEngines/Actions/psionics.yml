@@ -9,7 +9,7 @@
       useDelay: 45
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 6
     - type: EntityTargetAction
       canTargetSelf: false
@@ -30,7 +30,7 @@
       useDelay: 60
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 8
     - type: WorldTargetAction
       event: !type:MassSleepPowerActionEvent
@@ -46,7 +46,7 @@
       useDelay: 240
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 8
     - type: EntityTargetAction
       blacklist:
@@ -99,7 +99,7 @@
       itemIconStyle: BigAction
     - type: TargetAction
       range: 6
-      checkCanAccess: false
+      #checkCanAccess: false
     - type: EntityTargetAction
       event: !type:PyrokinesisPowerActionEvent
 
@@ -171,7 +171,7 @@
       useDelay: 10
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 6
     - type: EntityTargetAction
       canTargetSelf: true
@@ -179,6 +179,9 @@
         components:
           - PsionicInsulation
           - Mindbroken
+      whitelist:
+      components:
+      - Body
       event: !type:PsionicHealOtherPowerActionEvent
         healingAmount:
           groups: # These all get divided by the number of damage types in the group. So they're all -2.5.
@@ -210,7 +213,7 @@
       useDelay: 120
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 2
     - type: EntityTargetAction
       canTargetSelf: false
@@ -405,7 +408,7 @@
       useDelay: 45
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 2
     - type: EntityTargetAction
       canTargetSelf: true
@@ -427,3 +430,6 @@
     itemIconStyle: BigAction
   - type: EntityTargetAction
     event: !type:AnoigoPowerActionEvent
+  - type: TargetAction
+    #checkCanAccess: false
+    range: 2
