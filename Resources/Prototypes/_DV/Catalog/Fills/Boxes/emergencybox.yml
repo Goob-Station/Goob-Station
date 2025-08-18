@@ -1,0 +1,180 @@
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsWaterVapor
+  suffix: Standard H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalSlotsEngineering
+  id: BoxSurvivalSlotsEngineeringWaterVapor
+  suffix: Extended H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+  - type: Sprite
+    state: box_extend
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsSecurityWaterVapor
+  suffix: Security H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+  - type: Sprite
+    state: box_sec
+
+- type: entity
+  parent: BoxSurvivalSlotsMedical
+  id: BoxSurvivalSlotsMedicalWaterVapor
+  suffix: Medical H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+  - type: Sprite
+    state: box_med
+
+- type: entity
+  parent: BoxHugSlots
+  id: BoxHugSlotsWaterVapor
+  suffix: Emergency H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+
+- type: entity
+  parent: BoxSurvivalSlotsSyndicate
+  id: BoxSurvivalSlotsSyndicateWaterVapor
+  suffix: Syndicate H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water
+  - type: Sprite
+    state: box_syndie
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxMimeSlotsWaterVapor
+  suffix: Mime, Emergency H2O
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyWaterVaporTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-water

@@ -56,7 +56,7 @@ public sealed class BodySetupTest
     };
 
     // This test is kinda useless for us since the only place where we use InnateToolComponent is fuckin behonkers lmao.
-    /*[Test]
+    /*[Test, MaxTime(2000)]
     public async Task InnateToolTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -110,7 +110,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }*/
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllSpeciesHaveLegs()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -150,7 +150,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllSpeciesHaveHands()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -187,7 +187,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllSpeciesAreConscious()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -229,7 +229,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllSpeciesCanBeRejuvenated()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -287,7 +287,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllSpeciesHaveValidWoundables()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -328,7 +328,7 @@ public sealed class BodySetupTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
+    [Test, MaxTime(2000)]
     public async Task AllMobsCanDie()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

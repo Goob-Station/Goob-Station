@@ -256,3 +256,16 @@
   - type: RandomMetadata
     nameSegments:
     - NamesChitinidFirstMale
+
+- type: entity
+  parent: MobFeroxi
+  id: MobFeroxiRandom
+  name: Urist McFin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFeroxiFirstMale
+    - NamesFeroxiLast
+    nameFormat: name-format-standard
