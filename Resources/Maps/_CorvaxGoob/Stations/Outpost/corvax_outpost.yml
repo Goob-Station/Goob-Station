@@ -39560,6 +39560,192 @@ entities:
     - type: Transform
       pos: -6.6010437,23.892723
       parent: 2
+- proto: ChairOfficeDark
+  entities:
+  - uid: 995664
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 2
+  - uid: 995665
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-17.5
+      parent: 2
+  - uid: 995666
+    components:
+    - type: Transform
+      pos: -38.5,-10.5
+      parent: 2
+  - uid: 995667
+    components:
+    - type: Transform
+      pos: 3.5,-43.5
+      parent: 2
+  - uid: 995668
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,16.5
+      parent: 2
+  - uid: 995669
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,15.5
+      parent: 2
+  - uid: 995670
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,-23.5
+      parent: 2
+  - uid: 995671
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,6.5
+      parent: 2
+  - uid: 995672
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.406205,23.922968
+      parent: 2
+  - uid: 995673
+    components:
+    - type: Transform
+      pos: 19.5,2.5
+      parent: 2
+  - uid: 995674
+    components:
+    - type: Transform
+      pos: 20.5,1.5
+      parent: 2
+  - uid: 995675
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,46.5
+      parent: 2
+  - uid: 995676
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,46.5
+      parent: 2
+  - uid: 995677
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.502527,32.230858
+      parent: 2
+  - uid: 995678
+    components:
+    - type: Transform
+      pos: -22.5,30.5
+      parent: 2
+  - uid: 995679
+    components:
+    - type: Transform
+      pos: -23.5,18.5
+      parent: 2
+  - uid: 995680
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.559701,29.99049
+      parent: 2
+  - uid: 995681
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9.57808,23.891718
+      parent: 2
+  - uid: 995682
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.98433,23.907343
+      parent: 2
+  - uid: 995683
+    components:
+    - type: Transform
+      pos: -5.9843307,23.891718
+      parent: 2
+  - uid: 995684
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.3593307,23.922968
+      parent: 2
+- proto: ChairOfficeLight
+  entities:
+  - uid: 995685
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-27.5
+      parent: 2
+  - uid: 995686
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-27.5
+      parent: 2
+  - uid: 995687
+    components:
+    - type: Transform
+      pos: 6.5,-43.5
+      parent: 2
+  - uid: 995688
+    components:
+    - type: Transform
+      pos: 13.5,-56.5
+      parent: 2
+  - uid: 995689
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,8.5
+      parent: 2
+  - uid: 995690
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,30.5
+      parent: 2
+  - uid: 995691
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,32.5
+      parent: 2
+  - uid: 995692
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,32.5
+      parent: 2
+  - uid: 995693
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,32.5
+      parent: 2
+  - uid: 995694
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,25.5
+      parent: 2
+  - uid: 995695
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.6234584,25.632315
+      parent: 2
 - proto: ChairRitual
   entities:
   - uid: 5696
