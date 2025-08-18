@@ -16,6 +16,11 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+  - type: Appearance # Goob Edit - Fix PDA
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-admin-assistant
   - type: Pda
     id: AdminAssistantIDCard
     state: pda-admin-assistant
