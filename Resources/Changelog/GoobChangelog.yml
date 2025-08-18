@@ -13374,3 +13374,9 @@ Entries:
       message: Added a filled variant to the Corporate Modsuit
   id: 1481
   time: '2025-08-18T02:51:04.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: 'You can now place cable on reinforced hull plating! Engies rejoice! '
+  id: 1482
+  time: '2025-08-18T02:55:07.0000000+00:00'
