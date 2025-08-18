@@ -43,5 +43,5 @@ public sealed partial class SiliconLawUpdaterComponent : Component
     /// Goob edit: the last lawset that was loaded with this updater.
     /// </summary>
     [ViewVariables]
-    public ProtoId<SiliconLawsetPrototype> LastLawset = "Asimov";
+    public ProtoId<SiliconLawsetPrototype> LastLawset = "Crewsimov";
 }
