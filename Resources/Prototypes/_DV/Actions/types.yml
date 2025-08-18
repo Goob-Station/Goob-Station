@@ -2,45 +2,69 @@
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionOpenRadioImplant
   name: Open Radio Implant
   description: Opens the bluespace key compartment of the radio implant embedded in your skull.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -20
     icon:
       sprite: Clothing/Ears/Headsets/base.rsi
       state: icon
+  - type: InstantAction
     event: !type:OpenStorageImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionOpenMouthStorage
   name: Open cheek storage
-  description: Allows you to store items in your cheeks. 
+  description: Allows you to store items in your cheeks.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -10
     icon: _DV/Interface/Actions/mouthStorageOpen.png
+  - type: InstantAction
     event: !type:OpenStorageImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleSneakMode
   name: Toggle sneak mode
-  description: Sneak underneath tables. 
+  description: Sneak underneath tables.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 3
     icon:
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
+  - type: InstantAction
     event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  id: ActionChitzite
+  name: Cough Up Chitzite
+  description: Purge the excess radiation build-up from your body, and gain a cool danger rock.
+  components:
+  - type: Action
+    enabled: false
+    icon:
+      sprite: _DV/Objects/Specific/Species/chitinid.rsi
+      state: chitzite
+    useDelay: 300
+  - type: InstantAction
+    event: !type:CoughItemActionEvent
