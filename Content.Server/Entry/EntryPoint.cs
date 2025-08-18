@@ -129,12 +129,12 @@
 // SPDX-FileCopyrightText: 2025 Palladinium <patrick.chieppe@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <malchanceux@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Goobstation.Antag;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -184,6 +184,7 @@ namespace Content.Server.Entry
         private IServerDbManager? _dbManager;
         private IWatchlistWebhookManager _watchlistWebhookManager = default!;
         private IConnectionManager? _connectionManager;
+        private LastRolledAntagManager? _lastAntagManager; // Goobstation
 
         /// <inheritdoc />
         public override void Init()
@@ -250,6 +251,10 @@ namespace Content.Server.Entry
                 _updateManager.Initialize();
                 _playTimeTracking.Initialize();
                 _watchlistWebhookManager.Initialize();
+                IoCManager.Resolve<JobWhitelistManager>().Initialize();
+                IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
+                _lastAntagManager = IoCManager.Resolve<LastRolledAntagManager>(); // Goobstation
+                _lastAntagManager.Initialize(); // Goobstation
             }
         }
 
