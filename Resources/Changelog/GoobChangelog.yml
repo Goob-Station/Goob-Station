@@ -13495,3 +13495,13 @@ Entries:
       message: Reduced the rate at which Blobs spawn. You're free of slop.
   id: 1498
   time: '2025-08-18T03:41:10.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Bingles got their own language, but they can't understand any language
+        anymore (including their own language)!
+    - type: Remove
+      message: Bingle accent was removed.
+  id: 1499
+  time: '2025-08-18T03:43:59.0000000+00:00'
