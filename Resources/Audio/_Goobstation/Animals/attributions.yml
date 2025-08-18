@@ -16,3 +16,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Goonstation 13"
   source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["breath1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from VStation 13"
+  source: "https://github.com/VOREStation/VOREStation/tree/b8e46bc7717e705b40ba6a99ccaa444666facc9c/sound"
