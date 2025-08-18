@@ -393,6 +393,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
+                modMessage = FormattedMessage.RemoveMarkupOrThrow(modMessage); // Sanitize it so markup cannot be shown.
+
                 if (collective != null && collective.RespectAccents)
                 {
                     modMessage = TransformSpeech(source, modMessage, language); // Einstein Engines - Languages (I made null since it requires a language input)
@@ -585,7 +587,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (_mobStateSystem.IsDead(uid))
                 continue;
 
-            if ((collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll) && uid != source)
+            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll)
             {
                 if (collectMindComp.SeeAllNames)
                     clientsSeeNames.AddPlayer(actorComp.PlayerSession);
@@ -594,7 +596,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
-        var number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
+        var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
 
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
@@ -602,7 +604,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", number));
+            ("number", Number));
         string namedMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
             ("source", source),
             ("message", message),
@@ -611,7 +613,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("source", source),
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", number));
+            ("number", Number));
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
 
@@ -661,7 +663,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = TransformSpeech(source, originalMessage, language);
+        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
+        message = TransformSpeech(source, message, language);
 
         if (message.Length == 0)
             return;
@@ -1121,7 +1124,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     // Einstein Engines - Language begin
-    /// <summary>
+       /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null)

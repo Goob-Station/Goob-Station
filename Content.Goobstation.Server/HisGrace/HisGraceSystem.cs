@@ -21,7 +21,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs;
@@ -113,10 +112,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         hisGrace.Comp.Holder = args.User;
     }
 
-    private void OnUnequipped(EntityUid uid, HisGraceComponent component, ref GotUnequippedHandEvent args)
+    private void OnUnequipped(Entity<HisGraceComponent> hisGrace, ref GotUnequippedHandEvent args)
     {
-        component.IsHeld = false;
-        component.Holder = null;
+        hisGrace.Comp.IsHeld = false;
+        hisGrace.Comp.Holder = null;
     }
 
     private void OnMeleeHit(Entity<HisGraceComponent> hisGrace, ref MeleeHitEvent args)
@@ -190,7 +189,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             || args.OldState == HisGraceState.Ascended)
             return false;
 
-        EnsureComp<UnremoveableComponent>(hisGrace);
+        SetUnremovable(hisGrace, true);
+
         DoAscension(hisGrace);
         DoAscensionVisuals(hisGrace, "ascended");
         return true;
@@ -450,17 +450,17 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         return (FixedPoint2)(comp.HungerOnDevourMultiplier * criticalThreshold); // solstice try not to cast challenge (impossible)
     }
 
-    private void SetUnremovable(EntityUid uid, bool enabled)
+    private void SetUnremovable(Entity<HisGraceComponent> hisGrace, bool enabled)
     {
         if (enabled)
         {
-            EnsureComp<UnremoveableComponent>(uid).DeleteOnDrop = false;
-            EnsureComp<JitteringComponent>(uid);
+            // hisGrace.Comp.PreventDrop = true; - Disabled until someone fixes it :P
+            EnsureComp<JitteringComponent>(hisGrace);
         }
         else
         {
-            RemComp<UnremoveableComponent>(uid);
-            RemComp<JitteringComponent>(uid);
+            // hisGrace.Comp.PreventDrop = false;
+            RemComp<JitteringComponent>(hisGrace);
         }
     }
 
