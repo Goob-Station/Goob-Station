@@ -12,7 +12,7 @@
 
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Actions;
-using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
@@ -46,7 +46,7 @@ public sealed class ChangelingArmorTest
 
         var urist = EntityUid.Invalid;
         ChangelingIdentityComponent changelingIdentity;
-        Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
+        Entity<ActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
         {
@@ -64,7 +64,7 @@ public sealed class ChangelingArmorTest
             if (armorActionEntityNullable is not { } armorActionEntity)
                 return;
 
-            armorAction = (armorActionEntity, entMan.GetComponent<InstantActionComponent>(armorActionEntity));
+            armorAction = (armorActionEntity, entMan.GetComponent<ActionComponent>(armorActionEntity));
             if (armorAction.Comp is not { BaseEvent: { } armorActionBaseEvent } armorActionComp)
                 return;
 
