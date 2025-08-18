@@ -4,12 +4,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.CCVar;
-using Content.Shared.HeightAdjust;
 using Robust.Shared.Configuration;
+using Content.Shared._EinsteinEngines.HeightAdjust;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Shared._EinsteinEngines.Flight;
 
-namespace Content.Server.HeightAdjust;
+namespace Content.Server._Goobstation.HeightAdjust;
 
 public sealed class MovementAdjustSystem : EntitySystem
 {

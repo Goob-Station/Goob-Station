@@ -12,7 +12,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared.HeightAdjust;
+namespace Content.Shared._EinsteinEngines.HeightAdjust;
 
 public sealed class HeightAdjustSystem : EntitySystem
 {

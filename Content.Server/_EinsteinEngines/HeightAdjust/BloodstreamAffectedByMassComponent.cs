@@ -5,7 +5,7 @@
 
 using Content.Server.Body.Components;
 
-namespace Content.Server.HeightAdjust;
+namespace Content.Server._EinsteinEngines.HeightAdjust;
 
 /// <summary>
 ///     When applied to a humanoid or any mob, adjusts their blood level based on the mass contest between them

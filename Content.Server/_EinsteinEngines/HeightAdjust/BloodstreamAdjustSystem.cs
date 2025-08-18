@@ -9,10 +9,10 @@ using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared.HeightAdjust;
+using Content.Shared._EinsteinEngines.HeightAdjust;
 using Robust.Shared.Configuration;
 
-namespace Content.Server.HeightAdjust;
+namespace Content.Server._EinsteinEngines.HeightAdjust;
 
 public sealed class BloodstreamAdjustSystem : EntitySystem
 {

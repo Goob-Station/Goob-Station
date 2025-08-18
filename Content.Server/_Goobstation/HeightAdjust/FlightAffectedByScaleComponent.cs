@@ -3,9 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
-
-namespace Content.Server.HeightAdjust;
+namespace Content.Server._Goobstation.HeightAdjust;
 
 /// <summary>
 ///     When applied to a humanoid or any mob with a FlightComponent (harpies mostly), adjusts their flight speed and stamina drain based on their scale after entity initialization.
