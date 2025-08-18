@@ -97,6 +97,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     public const string CameraAddressData = "surveillance_camera_data_origin";
     public const string CameraNameData = "surveillance_camera_data_name";
     public const string CameraSubnetData = "surveillance_camera_data_subnet";
+    public const string CameraNetEntity = "surveillance_camera_net_entity"; // Goobstation
 
     public const int CameraNameLimit = 32;
 
@@ -165,6 +166,14 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
                     dest = args.SenderAddress;
                     payload[CameraSubnetData] = subnet;
+                    // Goobstation start
+                    TransformComponent? transformComponent;
+                    TryComp(uid, out transformComponent);
+                    if (transformComponent != null)
+                    {
+                        payload[CameraNetEntity] = (GetNetEntity(uid), GetNetCoordinates(transformComponent.Coordinates));
+                    }
+                    // Goobstation end
                     payload[DeviceNetworkConstants.Command] = CameraDataMessage;
                     break;
             }

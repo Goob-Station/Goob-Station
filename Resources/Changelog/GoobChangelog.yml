@@ -13655,3 +13655,37 @@ Entries:
         certain MIDI files.
   id: 1517
   time: '2025-08-18T04:06:35.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Made Chinese more BOLD!!
+  id: 1518
+  time: '2025-08-18T04:22:52.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Add
+      message: The color of the energy sword can now be customized.
+  id: 1519
+  time: '2025-08-18T04:29:51.0000000+00:00'
+- author: CerberusWolfie, Superlagg, Mnemotechnician, ashkitten, RadsammyT
+  changes:
+    - type: Tweak
+      message: Emotes are now restricted by Line of Sight.
+    - type: Tweak
+      message: Sign Languages now require Line of Sight.
+    - type: Tweak
+      message: >-
+        Sign Languages act like emotes for identity. You can now hide your face
+        and use sign language without exposing your name (similar to emotes).
+    - type: Fix
+      message: Languages that do not require speech do not make noise.
+  id: 1520
+  time: '2025-08-18T04:45:33.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Nukeops war declaration now shows a badass animation to everyone on the
+        station. (Power Point Ops)
+  id: 1521
+  time: '2025-08-18T05:01:53.0000000+00:00'
