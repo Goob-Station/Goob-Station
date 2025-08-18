@@ -18,7 +18,6 @@
   id: gondola
   fullReplacements:
   - accent-words-gondola-1
-<<<<<<< HEAD
 
 - type: accent
   id: bingle
@@ -43,5 +42,4 @@
   - accent-words-horse-3
   - accent-words-horse-4
   - accent-words-horse-5
-=======
->>>>>>> a341fc5b306dcde421de687720797684282a2b31
+
