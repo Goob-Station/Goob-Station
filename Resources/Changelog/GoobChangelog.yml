@@ -13237,3 +13237,181 @@ Entries:
         and security.
   id: 1462
   time: '2025-08-16T17:48:18.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Dwarves can now blow a BAC of 1.00
+  id: 1463
+  time: '2025-08-18T02:21:50.0000000+00:00'
+- author: JrInventor05
+  changes:
+    - type: Fix
+      message: Fixed possibility research HONKWeapons!
+  id: 1464
+  time: '2025-08-18T02:22:17.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        You no longer need to have a salvage id to use the mining shuttle
+        console!
+  id: 1465
+  time: '2025-08-18T02:23:51.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Add
+      message: Added Security contraband markers to Security headgear where missing.
+  id: 1466
+  time: '2025-08-18T02:26:05.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Plasma cutter now has Normal size instead of Large.
+  id: 1467
+  time: '2025-08-18T02:26:28.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: >-
+        Command members can't roll sleeper agents anymore (they can still roll
+        corporate agent)
+  id: 1468
+  time: '2025-08-18T02:26:46.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Fix
+      message: Procenyl Lazide vial names now show up correctly.
+  id: 1469
+  time: '2025-08-18T02:27:40.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed language fonts not working when talking on Radio or when shouting.
+    - type: Fix
+      message: >-
+        Fixed Chinese from Sol Common showing up as broken character emojis when
+        being bolded.
+  id: 1470
+  time: '2025-08-18T02:28:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: NTR can no longer be an antag. No more Devil NTR.
+  id: 1471
+  time: '2025-08-18T02:28:55.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The judo belt now shares the secbelt whitelist.
+  id: 1472
+  time: '2025-08-18T02:29:19.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Squackroach languages. They can now speak Tau-Ceti Basic and
+        Valyrian Standard (Harpy).
+  id: 1473
+  time: '2025-08-18T02:30:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun's sprite has been reverted to upstream's.
+  id: 1474
+  time: '2025-08-18T02:31:53.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Removed Wizard Helm from Magivend
+  id: 1475
+  time: '2025-08-18T02:32:58.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Cursed Heart now heals burn damage
+  id: 1476
+  time: '2025-08-18T02:33:34.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        More items that could fit into basic recharger can now be fit into turbo
+        recharger.
+    - type: Tweak
+      message: >-
+        Greatshield now be reactivated after full discharge if it's charge more
+        than 10% of max charge.
+  id: 1477
+  time: '2025-08-18T02:35:09.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: 'Added a command for adding implants to an entity: AddImplant'
+  id: 1478
+  time: '2025-08-18T02:35:51.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Unpowered doors now can be bolted and unbolted with wrench if it's wire
+        panel is open and not secured. Cut wire allows bolting and unbolting
+        powered doors.
+  id: 1479
+  time: '2025-08-18T02:47:02.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Core Roleplay rule 16 - Atmos Tech
+  id: 1480
+  time: '2025-08-18T02:48:58.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the Corporate Modsuit so that no error sign shows up when the
+        gauntlets are sealed
+    - type: Add
+      message: Added a filled variant to the Corporate Modsuit
+  id: 1481
+  time: '2025-08-18T02:51:04.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: 'You can now place cable on reinforced hull plating! Engies rejoice! '
+  id: 1482
+  time: '2025-08-18T02:55:07.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: A new plushie exists, modeled after Mnwaar the shadowkin.
+  id: 1483
+  time: '2025-08-18T02:56:44.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Forced Zombies to have Xeno language and understand nothing when they
+        are zombified. You no longer retain your language knowledge when
+        zombified.
+    - type: Fix
+      message: Fixed Zombies being able to use sign languages without breaking accent.
+  id: 1484
+  time: '2025-08-18T02:57:55.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Merged mining and PKA modules.
+  id: 1485
+  time: '2025-08-18T02:58:30.0000000+00:00'
+- author: Bokser815
+  changes:
+    - type: Add
+      message: Added new emag loot from vending machines!
+  id: 1486
+  time: '2025-08-18T03:03:26.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Zeds, blob zeds and borgs cannot pilot mechs anymore.
+  id: 1487
+  time: '2025-08-18T03:06:57.0000000+00:00'
