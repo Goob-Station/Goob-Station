@@ -1,0 +1,40 @@
+# Command
+## Administrative Assistant
+- type: loadoutGroup
+  id: AdminAssistantJumpsuit
+  name: loadout-group-admin-assistant-jumpsuit
+  loadouts:
+  - AdminAssistantJumpsuit
+  - AdminAssistantJumpskirt
+
+- type: loadoutGroup
+  id: AdminAssistantShoes
+  name: loadout-group-admin-assistant-shoes
+  loadouts:
+  - BrownLeatherShoes
+  - WhiteLeatherShoes
+  - LaceupShoes
+
+- type: loadoutGroup
+  id: AdminAssistantOuter
+  name: loadout-group-admin-assistant-outerclothing
+  loadouts:
+  - BartenderVest
+  # - WinterCoatBlack
+  # - WinterCoatBrown
+  # - CorporateJacket
+
+- type: loadoutGroup
+  id: AdminAssistantEar
+  name: loadout-group-admin-assistant-headset
+  loadouts:
+  - AdminAssistantHeadset
+  - AdminAssistantAltHeadset
+
+- type: loadoutGroup
+  id: AdminAssistantGloves
+  name: loadout-group-admin-assistant-gloves
+  minLimit: 0
+  loadouts:
+  - HoPGloves
+  - InspectionGloves

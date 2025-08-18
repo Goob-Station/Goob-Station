@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "aPDA retexture by ZweiHawke @ zweihawke.net, added admin assistant by Radezolid",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pda-admin-assistant"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+- type: job
+  id: AdministrativeAssistant
+  name: job-name-admin-assistant
+  description: job-description-admin-assistant
+  playTimeTracker: JobAdminAssistant
+  requirements:
+  - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
+    time: 36000 # 10 hours - Goob Edit
+  goobcoins: 20 # Goob Content
+  startingGear: AdminAssistantGear
+  icon: "JobIconAdminAssitant"
+  supervisors: job-supervisors-command
+  canBeAntag: true # Goob - Changed to true for Corpo Agents
+  access:
+  - Command
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff # Goob - Left this here so they won't be other antags; BSO should just not implant them.
+
+- type: startingGear
+  id: AdminAssistantGear
+  equipment:
+    eyes: ClothingEyesHudCommand
+    belt: BoxFolderClipboard
+    id: AdminAssistantPDA
+    pocket1: RubberStampAdminAssistant
+  storage:
+    back:
+    - Flash
