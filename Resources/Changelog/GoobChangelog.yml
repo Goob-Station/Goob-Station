@@ -13707,3 +13707,9 @@ Entries:
       message: SM Piping on Fland has been simplified to be more engineer friendly
   id: 1523
   time: '2025-08-18T05:17:47.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Barratry mapping
+  id: 1524
+  time: '2025-08-18T05:20:44.0000000+00:00'
