@@ -69074,74 +69074,6 @@ entities:
     - type: Transform
       pos: 27.665216,6.7443295
       parent: 2
-- proto: LampGold
-  entities:
-  - uid: 10110
-    components:
-    - type: Transform
-      pos: 10.438802,4.97286
-      parent: 2
-  - uid: 10111
-    components:
-    - type: Transform
-      pos: 20.544691,33.624443
-      parent: 2
-  - uid: 10112
-    components:
-    - type: Transform
-      pos: 20.529066,29.655691
-      parent: 2
-  - uid: 10113
-    components:
-    - type: Transform
-      pos: 22.507973,40.51647
-      parent: 2
-  - uid: 10114
-    components:
-    - type: Transform
-      pos: 32.49905,41.93212
-      parent: 2
-  - uid: 10115
-    components:
-    - type: Transform
-      pos: 67.5,37.5
-      parent: 2
-  - uid: 10116
-    components:
-    - type: Transform
-      pos: 54.632915,-10.081582
-      parent: 2
-  - uid: 10117
-    components:
-    - type: Transform
-      pos: 43.42459,20.75337
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 10005
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 10005
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
-  - uid: 10118
-    components:
-    - type: Transform
-      pos: 37.37405,43.99462
-      parent: 2
-  - uid: 10119
-    components:
-    - type: Transform
-      pos: 9.400621,-42.048656
-      parent: 2
 - proto: LampInterrogator
   entities:
   - uid: 12649
@@ -70534,7 +70466,7 @@ entities:
       content: >-
         For the love of gods do not kill the station power with ptl...
 
-        Use SMES as somekind of safety net. 
+        Use SMES as somekind of safety net.
 
 
         Here the instruction:
@@ -70560,7 +70492,7 @@ entities:
 
         it be better if you have isolated power source for ptl but this will do just fine.
 
-        - From Bradley, 
+        - From Bradley,
 
         Centcom Engineering Team
 - proto: PaperBin10

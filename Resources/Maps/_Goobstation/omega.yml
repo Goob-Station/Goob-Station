@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/16/2025 00:08:55
-  entityCount: 13907
+  time: 08/18/2025 05:02:19
+  entityCount: 13906
 maps:
 - 1
 grids:
@@ -4715,26 +4715,6 @@ entities:
     - type: Transform
       pos: -10.386757,8.623476
       parent: 2
-- proto: ActionToggleBlock
-  entities:
-  - uid: 5130
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 5102
-    - type: Action
-      container: 5102
-      originalIconColor: '#FFFFFFFF'
-  - uid: 6265
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 5313
-    - type: Action
-      container: 5313
-      originalIconColor: '#FFFFFFFF'
 - proto: ActionToggleInternals
   entities:
   - uid: 8901
@@ -66542,6 +66522,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -28.5,27.5
       parent: 2
+  - uid: 5313
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,14.5
+      parent: 2
   - uid: 9864
     components:
     - type: Transform
@@ -70780,30 +70766,13 @@ entities:
   - uid: 5102
     components:
     - type: Transform
-      pos: -33.28248,21.435314
+      pos: -33.257385,21.490671
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 5130
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 5130
-  - uid: 5313
+  - uid: 5130
     components:
     - type: Transform
-      pos: -33.28248,21.643648
+      pos: -33.29765,21.348454
       parent: 2
-    - type: Blocking
-      blockingToggleActionEntity: 6265
-      user: invalid
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6265
 - proto: RiotLaserShield
   entities:
   - uid: 5131
