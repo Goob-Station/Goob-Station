@@ -5,14 +5,14 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.CleaningTool;
+namespace Content.Goobstation.Shared.FloorCleaner;
 
 /// <summary>
 /// This component is for items that can clean stuff like footprints, stains, etcetera.
 /// Cleaning != Cleaning forensics.
 /// </summary>
 [RegisterComponent]
-public sealed partial class CleaningToolComponent : Component
+public sealed partial class FloorCleanerComponent : Component
 {
     /// <summary>
     /// How long it takes to destroy footprints, strain, etcetera off of things using this entity

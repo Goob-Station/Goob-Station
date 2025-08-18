@@ -3,18 +3,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Goobstation.Shared.CleaningTool;
+namespace Content.Goobstation.Shared.FloorCleaner;
 
-public sealed class CleaningToolSystem : EntitySystem
+public sealed class FloorCleanerSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -28,11 +26,11 @@ public sealed class CleaningToolSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CleaningToolComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<CleaningToolComponent, CleaningToolDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<FloorCleanerComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<FloorCleanerComponent, FloorCleanerDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnAfterInteract(Entity<CleaningToolComponent> cleaningTool, ref AfterInteractEvent args)
+    private void OnAfterInteract(Entity<FloorCleanerComponent> floorCleaner, ref AfterInteractEvent args)
     {
         if (!args.CanReach
             || args.Handled
@@ -45,17 +43,17 @@ public sealed class CleaningToolSystem : EntitySystem
         var gridUid = _transform.GetGrid(args.ClickLocation);
 
         _lookup.GetEntitiesInRange(args.ClickLocation,
-            cleaningTool.Comp.Radius,
+            floorCleaner.Comp.Radius,
             foundEntities);
 
         if (TryComp<MapGridComponent>(gridUid, out var mapgrid))
         {
             var tileRef =  _map.GetTileRef(gridUid.Value, mapgrid, args.ClickLocation);
-            foundDecals = _decal.GetDecalsInRange(tileRef.GridUid, tileRef.GridIndices, cleaningTool.Comp.Radius);
+            foundDecals = _decal.GetDecalsInRange(tileRef.GridUid, tileRef.GridIndices, floorCleaner.Comp.Radius);
         }
 
         foundEntities.RemoveWhere(ent =>
-            !_interaction.InRangeUnobstructed(user, ent, cleaningTool.Comp.Radius)
+            !_interaction.InRangeUnobstructed(user, ent, floorCleaner.Comp.Radius)
             || !HasComp<FootprintComponent>(ent)); // Otherwise you can mop people :P
 
         foundDecals.RemoveWhere(decal =>
@@ -65,21 +63,21 @@ public sealed class CleaningToolSystem : EntitySystem
             && foundDecals.Count == 0)
             return;
 
-        args.Handled = TryStartCleaning(cleaningTool, args.User, foundEntities, foundDecals);
+        args.Handled = TryStartCleaning(floorCleaner, args.User, foundEntities, foundDecals);
     }
 
     private bool TryStartCleaning(
-        Entity<CleaningToolComponent> cleaningTool,
+        Entity<FloorCleanerComponent> floorCleaner,
         EntityUid user,
         HashSet<EntityUid> targets,
         HashSet<(uint Index, Decal Decal)> decals)
     {
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
-            cleaningTool.Comp.CleanDelay,
-            new CleaningToolDoAfterEvent(GetNetEntityList(targets), decals),
-            cleaningTool,
-            used: cleaningTool)
+            floorCleaner.Comp.CleanDelay,
+            new FloorCleanerDoAfterEvent(GetNetEntityList(targets), decals),
+            floorCleaner,
+            used: floorCleaner)
         {
             NeedHand = true,
             BreakOnDamage = true,
@@ -91,7 +89,7 @@ public sealed class CleaningToolSystem : EntitySystem
         return _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnDoAfter(Entity<CleaningToolComponent> cleaningTool, ref CleaningToolDoAfterEvent args)
+    private void OnDoAfter(Entity<FloorCleanerComponent> floorCleaner, ref FloorCleanerDoAfterEvent args)
     {
         if (args.Handled
             || args.Cancelled)
@@ -102,7 +100,7 @@ public sealed class CleaningToolSystem : EntitySystem
 
         foreach (var (index, _) in args.Decals)
         {
-            var gridNullable = Transform(cleaningTool).GridUid;
+            var gridNullable = Transform(floorCleaner).GridUid;
 
             if (gridNullable is {} grid)
                 _decal.RemoveDecal(grid, index);
