@@ -13325,3 +13325,9 @@ Entries:
       message: Removed Wizard Helm from Magivend
   id: 1475
   time: '2025-08-18T02:32:58.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Cursed Heart now heals burn damage
+  id: 1476
+  time: '2025-08-18T02:33:34.0000000+00:00'
