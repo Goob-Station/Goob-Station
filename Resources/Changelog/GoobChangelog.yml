@@ -13449,3 +13449,11 @@ Entries:
         receive radio messages with headgear.
   id: 1492
   time: '2025-08-18T03:27:33.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: >-
+        Borgs now produce sound when using certain emotes which were silent
+        before.
+  id: 1493
+  time: '2025-08-18T03:29:40.0000000+00:00'
