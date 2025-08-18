@@ -55,6 +55,7 @@
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 2 ]
             Chef: [ 1, 1 ]

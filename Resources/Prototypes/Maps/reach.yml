@@ -45,6 +45,7 @@
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V # Delta V
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]
             CargoTechnician: [ 1, 1 ]

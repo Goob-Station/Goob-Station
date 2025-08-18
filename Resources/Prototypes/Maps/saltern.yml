@@ -55,6 +55,7 @@
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V # Delta V
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 2 ]
             Chef: [ 1, 1 ]

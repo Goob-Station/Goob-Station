@@ -56,6 +56,7 @@
             BlueshieldOfficer: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 1, 2 ]
             Botanist: [ 3, 4 ]
             Chef: [ 2, 3 ]
