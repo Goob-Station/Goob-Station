@@ -13415,3 +13415,15 @@ Entries:
       message: Zeds, blob zeds and borgs cannot pilot mechs anymore.
   id: 1487
   time: '2025-08-18T03:06:57.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Fix
+      message: Translators respect cell charge again
+  id: 1488
+  time: '2025-08-18T03:18:08.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Tweak
+      message: Librarian can now speak and understand most languages.
+  id: 1489
+  time: '2025-08-18T03:23:44.0000000+00:00'
