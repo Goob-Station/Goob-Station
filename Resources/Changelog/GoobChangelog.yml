@@ -13637,3 +13637,21 @@ Entries:
         American processed cheese). 
   id: 1515
   time: '2025-08-18T04:04:07.0000000+00:00'
+- author: CometVoid
+  changes:
+    - type: Add
+      message: >-
+        Ports syringe cases from EE, so you don't have to store your syringes in
+        cigarette boxes!
+  id: 1516
+  time: '2025-08-18T04:05:55.0000000+00:00'
+- author: Topicranger
+  changes:
+    - type: Tweak
+      message: The MIDI Channel Selector now shows the instrument name of the track!
+    - type: Fix
+      message: >-
+        Fixed admin logs not being saved to the databases when a player played
+        certain MIDI files.
+  id: 1517
+  time: '2025-08-18T04:06:35.0000000+00:00'
