@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;
@@ -20,16 +19,22 @@ public sealed class SurveillanceCameraMonitorUiState : BoundUserInterfaceState
 
     // Currently available subnets. Does not send the entirety of the possible
     // cameras to view because that could be really, really large
+    public HashSet<string> Subnets { get; }
 
     public string ActiveAddress;
 
-    // Known cameras, by address and name.
-    public Dictionary<string, (NetEntity, NetCoordinates)> Cameras { get; } // Goobstation
+    // Currently active subnet.
+    public string ActiveSubnet { get; }
 
-    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, string activeAddress, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
+    // Known cameras, by address and name.
+    public Dictionary<string, string> Cameras { get; }
+
+    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras)
     {
         ActiveCamera = activeCamera;
+        Subnets = subnets;
         ActiveAddress = activeAddress;
+        ActiveSubnet = activeSubnet;
         Cameras = cameras;
     }
 }
