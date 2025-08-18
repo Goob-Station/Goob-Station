@@ -50,6 +50,7 @@
     - type: ZombieImmune
     - type: DoAfter
     - type: RotationVisuals
+      defaultRotation: 90
       horizontalRotation: 90
     - type: Examiner
     # - type: Recyclable
