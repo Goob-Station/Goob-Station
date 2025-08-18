@@ -13358,3 +13358,9 @@ Entries:
         powered doors.
   id: 1479
   time: '2025-08-18T02:47:02.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Core Roleplay rule 16 - Atmos Tech
+  id: 1480
+  time: '2025-08-18T02:48:58.0000000+00:00'
