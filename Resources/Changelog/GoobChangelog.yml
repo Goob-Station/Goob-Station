@@ -13364,3 +13364,13 @@ Entries:
       message: Core Roleplay rule 16 - Atmos Tech
   id: 1480
   time: '2025-08-18T02:48:58.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the Corporate Modsuit so that no error sign shows up when the
+        gauntlets are sealed
+    - type: Add
+      message: Added a filled variant to the Corporate Modsuit
+  id: 1481
+  time: '2025-08-18T02:51:04.0000000+00:00'
