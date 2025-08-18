@@ -5,9 +5,10 @@
   description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Devices/pda.rsi
+    sprite: Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -16,11 +17,6 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-  - type: Appearance # Goob Edit - Fix PDA
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-admin-assistant
   - type: Pda
     id: AdminAssistantIDCard
     state: pda-admin-assistant
@@ -30,6 +26,17 @@
       whitelist:
         tags:
         - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lawyer
   - type: Icon
-    sprite: _DV/Objects/Devices/pda.rsi
-    state: pda-admin-assistant
+    sprite: Objects/Devices/pda.rsi
+    state: pda-lawyer
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge
