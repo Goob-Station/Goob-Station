@@ -87,7 +87,6 @@ public sealed partial class MedipenRefillerWindow : FancyWindow
 
                 ToggleApplyButton(true);
             }
-
         };
 
         ApplySettingsButton.OnButtonDown += _ =>
@@ -124,7 +123,6 @@ public sealed partial class MedipenRefillerWindow : FancyWindow
             UpdateAccess(false);
         else
             UpdateAccess(_appliedSettings);
-
     }
     private void UpdateAccess(bool locked)
     {
@@ -149,8 +147,6 @@ public sealed partial class MedipenRefillerWindow : FancyWindow
         }
         else
             MedipenPreview.SetEntity(_entManager.SpawnEntity("Error", MapCoordinates.Nullspace));
-
-        
     }
 
     private void UpdateColor(Color? color)
@@ -210,17 +206,16 @@ public sealed partial class MedipenRefillerWindow : FancyWindow
                     Orientation = LayoutOrientation.Horizontal,
 
                     Children =
-                {
-                    new Label { Text = $"{name}: ", FontColorOverride = reagentColor },
-                    new Label
-                        {
-                        Text = $"{reagent.Quantity}u",
-                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
-                    },
-                }
+                    {
+                        new Label { Text = $"{name}: ", FontColorOverride = reagentColor },
+                        new Label
+                            {
+                            Text = $"{reagent.Quantity}u",
+                            StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+                        },
+                    }
                 });
             }
         }
-
     }
 }
