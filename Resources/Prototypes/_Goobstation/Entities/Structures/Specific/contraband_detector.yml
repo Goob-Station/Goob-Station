@@ -129,7 +129,7 @@
         density: 1500
         mask:
         - DoorPassable
-        layer:      - Structure
+        layer:
         - AirlockLayer
   - type: Construction
     graph: ContrabandDetector
@@ -146,7 +146,7 @@
     state: security
   - type: Tag
     tags:
-      - ContrabandDetectorCircuitboard
-      - Structure
+    - ContrabandDetectorCircuitboard
+    - Structure
   - type: StaticPrice
     price: 25

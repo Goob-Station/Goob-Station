@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Astends <elliotnrothman@gmail.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
@@ -223,7 +224,7 @@
 - type: entity
   name: lootbug
   id: MobLootbug
-  parent: SimpleMobBase
+  parent: SimpleSpaceMobBase
   description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
@@ -283,12 +284,25 @@
     - Trash
     - VimPilot
   - type: Butcherable
-    spawned:
-    - id: SpawnLootLootbug
+    spawned: []
+    #- id: SpawnLootLootbug
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
+
 
 - type: entity
   name: space carp
@@ -553,6 +567,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.05
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -568,14 +591,6 @@
         Base: brullbar
       Dead:
         Base: dead
-  - type: Vocal
-    sounds:
-      Male: Brullbar
-      Female: Brullbar
-      Unsexed: Brullbar
-  - type: AutoEmote
-    emotes:
-    - BrullbarHowl
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -777,4 +792,3 @@
     attributes:
       proper: true
       gender: male
-
