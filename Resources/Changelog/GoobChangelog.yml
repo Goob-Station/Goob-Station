@@ -13299,3 +13299,9 @@ Entries:
       message: NTR can no longer be an antag. No more Devil NTR.
   id: 1471
   time: '2025-08-18T02:28:55.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The judo belt now shares the secbelt whitelist.
+  id: 1472
+  time: '2025-08-18T02:29:19.0000000+00:00'
