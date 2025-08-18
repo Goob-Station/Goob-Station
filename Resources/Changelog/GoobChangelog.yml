@@ -13597,3 +13597,11 @@ Entries:
         Behonker.
   id: 1510
   time: '2025-08-18T03:52:26.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added a new long, twin-tailed hairstyle inspired by a certain virtual
+        pop idol.
+  id: 1511
+  time: '2025-08-18T03:53:06.0000000+00:00'
