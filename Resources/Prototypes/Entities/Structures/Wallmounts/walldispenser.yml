@@ -121,6 +121,12 @@
           Quantity: 1000
   - type: ReagentTank
     tankType: Fuel
+    fuelWhitelist: #imp PIRATE V
+      tags:
+        - WeldingTool
+    fuelBlacklist: #imp
+      tags:
+        - EchionGun # PIRATE ^
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:

@@ -1,0 +1,81 @@
+- type: entity
+  id: BulletBazookaExp
+  name: rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+      - state: explosiveproj
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 25
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 30
+    intensitySlope: 3
+    totalIntensity: 300
+    maxTileBreak: 1
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: BulletBazookaCon
+  name: rocket
+  parent: BaseBullet
+  # parent: ImpstationBaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+      - state: concussionproj
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        Piercing: 0
+        Blunt: 125
+        Structural: 300
+    penetrationThreshold: 500
+    penetrationDamageTypeRequirement:
+    - Structural
+    soundHit:
+      path: /Audio/Weapons/genhit3.ogg
+  - type: StaminaDamageOnCollide
+    damage: 100
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: BulletBazookaInc
+  name: rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+      - state: incendiaryproj
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 300
+    intensitySlope: 1
+    maxIntensity: 150
+    canCreateVacuum: false
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5

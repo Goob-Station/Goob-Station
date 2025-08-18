@@ -1,0 +1,44 @@
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: EchionCanister
+  name: Echion Canister
+  description: A special, disposable containment device designed for quickly refueling Echion plasma weapons.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncanister.rsi
+    layers:
+      - state: canister
+        map: ["enum.GunVisualLayers.Base"]
+      - state: canister-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        shader: unshaded
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: canister-
+  - type: ExaminableSolution
+    solution: tank
+  - type: SolutionItemStatus
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+    fuelWhitelist:
+      tags:
+        - EchionGun
+    fuelBlacklist:
+      tags:
+        - WeldingTool
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75
+  - type: DrainableSolution
+    solution: tank
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100

@@ -1,0 +1,39 @@
+- type: entity
+  name: adder plasma bolt
+  id: BulletPlasmaAdder
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  # - type: Sprite
+  #   sprite: _Pirate/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+  #   layers:
+  #   - state: mediumsynd
+  #     shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffect
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Heat: 10
+        Piercing: 10
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: akurra plasma bolt
+  id: BulletPlasmaAkurra
+  parent: BulletPlasmaAdder
+  categories: [ HideSpawnMenu ]
+  components:
+  # - type: Sprite
+  #   sprite: _Pirate/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+  #   layers:
+  #   - state: lightsynd
+  #     shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 7.5
+        Piercing: 7.5
