@@ -25,7 +25,6 @@ public sealed class WerewolfCounterSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-
         _bodyQuery = GetEntityQuery<BodyComponent>();
 
         SubscribeLocalEvent<WerewolfCounterComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
@@ -33,7 +32,9 @@ public sealed class WerewolfCounterSystem : EntitySystem
 
     private void OnBeforeDamageChanged(Entity<WerewolfCounterComponent> ent, ref BeforeDamageChangedEvent args)
     {
-        if (args.Origin == null || !_bodyQuery.TryComp(args.Origin, out var bodyComponent))
+        if (args.Origin == null
+            || !_bodyQuery.TryComp(args.Origin, out var bodyComponent)
+            || HasComp<WerewolfComponent>(args.Origin))
             return;
 
         var hand = _handSystem.GetActiveHand(args.Origin.Value);

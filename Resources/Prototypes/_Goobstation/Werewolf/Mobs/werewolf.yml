@@ -25,6 +25,7 @@
     - ActionWerewolfGut
     - ActionWerewolfAmbush
     - ActionWerewolfHowl
+    - ActionWerewolfSmokescreen
   - type: Fixtures
     fixtures:
       fix1:
@@ -50,4 +51,6 @@
     newDamageModifier: WerewolfHowl
   - type: GrantWerewolfMoves
   - type: WerewolfCounter
+  - type: WerewolfSmokescreen
+    spreadAmount: 30
 

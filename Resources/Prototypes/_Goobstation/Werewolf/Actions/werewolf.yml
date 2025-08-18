@@ -11,11 +11,12 @@
   description: Transforms you into a werewolf instantly.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: absorb_dna
+  - type: InstantAction
     event: !type:WerewolfTransformEvent
 # todo: add confirmable action
 
@@ -25,11 +26,12 @@
   description: Opens the mutation shop.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: evolution_menu
+  - type: InstantAction
     event: !type:OpenMutationShopEvent
 
 - type: entity
@@ -38,13 +40,15 @@
   description: Activate Heightened Senses.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: augmented_eyesight
     event: !type:HeightenedSensesEvent
     useDelay: 60
+  - type: InstantAction
+    event: !type:HeightenedSensesEvent
 # Pre-Werewolf Abilities end
 
 # Werewolf Abilities:
@@ -55,11 +59,12 @@
   description: Spill the organs of a deceased victim.
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: fleshmend
+  - type: EntityTargetAction
     event: !type:WerewolfGutEvent
 
 - type: entity
@@ -68,12 +73,13 @@
   description: Ambush. # todo: add
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     itemIconStyle: NoItem
     range: 16
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: hammer
+  - type: EntityTargetAction
     event: !type:WerewolfAmbushEvent
 
 - type: entity
@@ -82,11 +88,44 @@
   description: Howl. # todo: add
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: stasis_exit
-    event: !type:WerewolfHowlEvent
     # useDelay: X
+  - type: InstantAction
+    event: !type:WerewolfHowlEvent
 # Werewolf Abilities end
+
+# Werewolf Form Specific Abilities:
+# Smokescreen, Cursed Bite
+- type: entity
+  id: ActionWerewolfSmokescreen
+  name: Smokescreen.
+  description: Smokescreen. # todo: add
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: space_adaptation
+    # useDelay: X
+  - type: InstantAction
+    event: !type:WerewolfSmokescreenlEvent
+
+- type: entity
+  id: ActionWerewolfCursedBite
+  name: Cursed Bite.
+  description: Cursed Bite. # todo: add
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: regrow
+    # useDelay: X
+  - type: EntityTargetAction
+    event: !type:WerewolfCursedBiteEvent

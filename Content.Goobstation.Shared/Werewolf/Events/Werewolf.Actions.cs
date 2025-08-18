@@ -20,7 +20,10 @@ public sealed partial class WerewolfGutEvent : EntityTargetActionEvent;
 public sealed partial class WerewolfAmbushEvent : EntityTargetActionEvent;
 public sealed partial class WerewolfHowlEvent : InstantActionEvent;
 #endregion
-
+#region Events - In-Form Werewolf
+public sealed partial class WerewolfSmokescreenlEvent : InstantActionEvent;
+public sealed partial class WerewolfCursedBiteEvent : EntityTargetActionEvent;
+#endregion
 #region Events - Do After
 public sealed partial class WerewolfGutDoAfterEvent : SimpleDoAfterEvent;
 #endregion

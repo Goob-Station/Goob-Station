@@ -49,7 +49,7 @@ public sealed class WerewolfHeightenedSensesSystem : EntitySystem
         ent.Comp.AccumulationTime = _timing.CurTime + ent.Comp.Duration;
         ent.Comp.Activated = true;
 
-        _actions.StartUseDelay(args.Action);
+        args.Handled = true;
     }
 
     /// <summary>
