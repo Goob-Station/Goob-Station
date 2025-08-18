@@ -5,7 +5,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.CleaningTool;
+namespace Content.Goobstation.Shared.CleaningTool;
 
 /// <summary>
 /// This component is for items that can clean stuff like footprints, stains, etcetera.
@@ -26,10 +26,4 @@ public sealed partial class CleaningToolComponent : Component
     /// </summary>
     [DataField]
     public int Radius = 1;
-
-    /// <summary>
-    /// The prototype for the sparkle effect to spawn.
-    /// </summary>
-    [DataField]
-    public EntProtoId SparkleProto = "PuddleSparkle";
 }

@@ -7,8 +7,4 @@
 namespace Content.Goobstation.Server.Footprints;
 
 [RegisterComponent]
-public sealed partial class NoFootprintsComponent : Component
-{
-    [DataField]
-    public bool Enabled = true;
-}
+public sealed partial class NoFootprintsComponent : Component;

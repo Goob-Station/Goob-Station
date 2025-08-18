@@ -5,9 +5,10 @@
 
 using Content.Shared.Access;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Keyring;
+namespace Content.Goobstation.Shared.Keyring;
 
 [RegisterComponent]
 public sealed partial class KeyringComponent : Component
@@ -23,6 +24,9 @@ public sealed partial class KeyringComponent : Component
     /// </summary>
     [DataField]
     public HashSet<ProtoId<AccessLevelPrototype>> PossibleAccesses = [];
+
+    [DataField]
+    public HashSet<ProtoId<AccessLevelPrototype>> Tags = [];
 
     /// <summary>
     /// How many access levels will be chosen.
