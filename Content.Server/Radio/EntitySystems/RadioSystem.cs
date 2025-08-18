@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
@@ -51,6 +52,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -66,6 +68,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Whitelisted radio channels
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -77,13 +80,16 @@ public sealed class RadioSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
+        SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveAttemptEvent>(OnIntrinsicReceiveAttempt); // Goobstation
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
     {
-        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        if (args.Channel != null
+            && component.Channels.Contains(args.Channel.ID)
+            && _whitelist.IsWhitelistPassOrNull(args.Channel.SendWhitelist, uid)) // Goobstation - Whitelisted radio channels
         {
             SendRadioMessage(uid, args.Message, args.Channel, uid, args.Language); // Einstein Engines - Language
             args.Channel = null; // prevent duplicate messages from other listeners.
@@ -104,6 +110,12 @@ public sealed class RadioSystem : EntitySystem
             _netMan.ServerSendMessage(new MsgChatMessage { Message = msg }, actor.PlayerSession.Channel);
             // Einstein Engines - Languages end
         }
+    }
+
+    // Goobstation - Whitelisted radio channels
+    private void OnIntrinsicReceiveAttempt(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveAttemptEvent args)
+    {
+        args.Cancelled = _whitelist.IsWhitelistFail(args.Channel.ReceiveWhitelist, uid);
     }
 
     /// <summary>
