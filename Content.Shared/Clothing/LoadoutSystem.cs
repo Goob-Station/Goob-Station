@@ -271,7 +271,7 @@ public sealed class LoadoutSystem : EntitySystem
     {
         // First, randomly pick a startingGear profile from those specified, and equip it.
         if (startingGear != null && startingGear.Count > 0)
-            _station.EquipStartingGear(uid, _random.Pick(startingGear));
+            _station.EquipStartingGear(uid, _random.Pick(startingGear), false);
 
         if (loadoutGroups == null)
         {
