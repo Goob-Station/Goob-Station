@@ -129,7 +129,7 @@
         density: 1500
         mask:
         - DoorPassable
-        layer:      - Structure
+        layer:
         - AirlockLayer
   - type: Construction
     graph: ContrabandDetector

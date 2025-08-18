@@ -13374,3 +13374,32 @@ Entries:
       message: Added a filled variant to the Corporate Modsuit
   id: 1481
   time: '2025-08-18T02:51:04.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: 'You can now place cable on reinforced hull plating! Engies rejoice! '
+  id: 1482
+  time: '2025-08-18T02:55:07.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: A new plushie exists, modeled after Mnwaar the shadowkin.
+  id: 1483
+  time: '2025-08-18T02:56:44.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Forced Zombies to have Xeno language and understand nothing when they
+        are zombified. You no longer retain your language knowledge when
+        zombified.
+    - type: Fix
+      message: Fixed Zombies being able to use sign languages without breaking accent.
+  id: 1484
+  time: '2025-08-18T02:57:55.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Merged mining and PKA modules.
+  id: 1485
+  time: '2025-08-18T02:58:30.0000000+00:00'
