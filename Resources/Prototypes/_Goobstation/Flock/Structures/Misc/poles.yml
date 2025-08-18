@@ -1,0 +1,43 @@
+- type: entity
+  id: BaseFlockPole
+  parent: BaseStructure
+  name: fibrous pole
+  description: Huh. Weird.
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Goobstation/Flock/Structures/Misc/pole.rsi
+    layers:
+      - state: pole
+
+- type: entity
+  id: FlockPoleEnd
+  parent: BaseFlockPole
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Goobstation/Flock/Structures/Misc/pole.rsi
+    layers:
+      - state: poleend
+
+
+- type: entity
+  id: BaseFlockPoleBroken
+  parent: BaseFlockPole
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Goobstation/Flock/Structures/Misc/pole.rsi
+    layers:
+      - state: broken1
+
+
+- type: entity
+  id: FlockPoleBroken2
+  parent: BaseFlockPole
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Goobstation/Flock/Structures/Misc/pole.rsi
+    layers:
+      - state: broken2
