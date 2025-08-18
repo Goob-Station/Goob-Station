@@ -13527,3 +13527,11 @@ Entries:
       message: Moths can now eat mail, books, spesos, and devil contracts.
   id: 1502
   time: '2025-08-18T03:46:05.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Fix
+      message: >-
+        Modsuits no longer hide all your clothing when equipped (and not
+        activated).
+  id: 1503
+  time: '2025-08-18T03:46:56.0000000+00:00'
