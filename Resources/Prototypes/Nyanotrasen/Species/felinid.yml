@@ -69,8 +69,6 @@
     LeftArm:
       points: 2
       required: false
-    Arms:
-      points: 2
     LeftHand:
       points: 3
       required: false
