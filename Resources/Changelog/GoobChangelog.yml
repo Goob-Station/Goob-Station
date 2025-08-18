@@ -13435,3 +13435,9 @@ Entries:
         tool.
   id: 1490
   time: '2025-08-18T03:25:06.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Joints and blunts can now be sold for spesos.
+  id: 1491
+  time: '2025-08-18T03:26:38.0000000+00:00'
