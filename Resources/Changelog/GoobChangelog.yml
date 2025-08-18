@@ -13547,3 +13547,13 @@ Entries:
       message: Abductor Victims, Abductees, are Free Agents now.
   id: 1505
   time: '2025-08-18T03:47:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Lowered the frequency of derelict syndicate assault borg, as they were
+        spawning every single round.
+    - type: Tweak
+      message: Derelict syndicate assault borgs are generally less crew alligned now.
+  id: 1506
+  time: '2025-08-18T03:49:51.0000000+00:00'
