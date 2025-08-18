@@ -13263,3 +13263,9 @@ Entries:
       message: Added Security contraband markers to Security headgear where missing.
   id: 1466
   time: '2025-08-18T02:26:05.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Plasma cutter now has Normal size instead of Large.
+  id: 1467
+  time: '2025-08-18T02:26:28.0000000+00:00'
