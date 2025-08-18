@@ -13380,3 +13380,9 @@ Entries:
       message: 'You can now place cable on reinforced hull plating! Engies rejoice! '
   id: 1482
   time: '2025-08-18T02:55:07.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: A new plushie exists, modeled after Mnwaar the shadowkin.
+  id: 1483
+  time: '2025-08-18T02:56:44.0000000+00:00'
