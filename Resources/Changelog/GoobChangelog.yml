@@ -13331,3 +13331,15 @@ Entries:
       message: Cursed Heart now heals burn damage
   id: 1476
   time: '2025-08-18T02:33:34.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        More items that could fit into basic recharger can now be fit into turbo
+        recharger.
+    - type: Tweak
+      message: >-
+        Greatshield now be reactivated after full discharge if it's charge more
+        than 10% of max charge.
+  id: 1477
+  time: '2025-08-18T02:35:09.0000000+00:00'
