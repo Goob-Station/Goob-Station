@@ -340,6 +340,10 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
+    // used by secret+
+    public static readonly CVarDef<float> RoundstartChaosScoreMultiplier =
+        CVarDef.Create("gamedirector.roundstart_chaos_score_multiplier", 1f, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
 
@@ -417,24 +421,6 @@ public sealed partial class GoobCVars
     #endregion
 
     #region Chat
-
-    /// <summary>
-    /// A string containing a list of newline-separated words to be highlighted in the chat.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlights =
-        CVarDef.Create("chat.highlights", "", CVar.CLIENTONLY | CVar.ARCHIVE, "A list of newline-separated words to be highlighted in the chat.");
-
-    /// <summary>
-    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
-    /// </summary>
-    public static readonly CVarDef<bool> ChatAutoFillHighlights =
-        CVarDef.Create("chat.auto_fill_highlights", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles automatically filling the highlights with the character's information.");
-
-    /// <summary>
-    /// The color in which the highlights will be displayed.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlightsColor =
-        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
     /// <summary>
     /// Whether or not to log actions in the chat.
@@ -541,6 +527,13 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Movement
+
+    public static readonly CVarDef<float> MaxSpeed =
+        CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
 
     #endregion
 

@@ -283,7 +283,7 @@
   name: red cap
 
 - type: entity
-  parent: ClothingHeadHeadHatBaseFlippable
+  parent: [ClothingHeadHeadHatBaseFlippable, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatSecsoft
   name: security cap
   description: It's a robust baseball hat in tasteful red colour.

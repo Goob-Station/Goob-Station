@@ -41,3 +41,5 @@
   components:
   - type: LimitedCharges
   - type: AutoRecharge
+  - type: StaticPrice
+    price: 2500

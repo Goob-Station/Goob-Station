@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "FZShuttle1",
+            "directions": 1
+        },
+        {
+            "name": "FZShuttle2",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "FZDiagonal",
+            "directions": 1
+        },
+        {
+            "name": "FZ1_Wall",
+            "directions": 1
+        }
+    ]
+}
