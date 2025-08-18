@@ -13577,3 +13577,23 @@ Entries:
         trigerred too many times per round.
   id: 1509
   time: '2025-08-18T03:51:22.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added more mapping options, using textures from multiple codebases.
+        Textures from RMC, Goonstation, and more!
+    - type: Add
+      message: >-
+        Added multiple new mobs, such as Gunbots, Flock drones, more xeno
+        variants, clown creatures, and more!
+    - type: Add
+      message: >-
+        More vent critter events. Don't be too hasty to rush to their location,
+        you might find yourself out of your depth...
+    - type: Tweak
+      message: >-
+        Behonker's eye laser is no longer a guaranteed drop upon butchering the
+        Behonker.
+  id: 1510
+  time: '2025-08-18T03:52:26.0000000+00:00'
