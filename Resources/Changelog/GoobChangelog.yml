@@ -13557,3 +13557,9 @@ Entries:
       message: Derelict syndicate assault borgs are generally less crew alligned now.
   id: 1506
   time: '2025-08-18T03:49:51.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added a new song "Abductor" to jukebox!
+  id: 1507
+  time: '2025-08-18T03:50:14.0000000+00:00'
