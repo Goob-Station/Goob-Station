@@ -49,6 +49,7 @@
     interfaces:
       enum.PowerChargeUiKey.Key:
         type: PowerChargeBoundUserInterface
+  - type: WiresPanel
   # Low power stats by default
   - type: ApcPowerReceiver
     powerLoad: 500
