@@ -13489,3 +13489,9 @@ Entries:
         made by Zethine
   id: 1497
   time: '2025-08-18T03:38:05.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Reduced the rate at which Blobs spawn. You're free of slop.
+  id: 1498
+  time: '2025-08-18T03:41:10.0000000+00:00'
