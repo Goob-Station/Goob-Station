@@ -87,7 +87,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         NavMap.Owner = uid;
 
         // Set nav map grid uid
-        var stationName = Loc.GetString("power-monitoring-window-unknown-location");
+        var stationName = Loc.GetString("surveillance-camera-monitor-ui-unknown-location");
 
         if (_entManager.TryGetComponent<TransformComponent>(uid, out var xform))
         {
@@ -98,7 +98,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
                 stationName = stationMetaData.EntityName;
 
             var msg = new FormattedMessage();
-            msg.AddMarkupOrThrow(Loc.GetString("power-monitoring-window-station-name", ("stationName", stationName)));
+            msg.AddMarkupOrThrow(Loc.GetString("surveillance-camera-monitor-ui-station-name", ("stationName", stationName)));
 
             StationName.SetMessage(msg);
         }
