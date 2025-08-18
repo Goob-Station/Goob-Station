@@ -13397,3 +13397,9 @@ Entries:
       message: Fixed Zombies being able to use sign languages without breaking accent.
   id: 1484
   time: '2025-08-18T02:57:55.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Merged mining and PKA modules.
+  id: 1485
+  time: '2025-08-18T02:58:30.0000000+00:00'
