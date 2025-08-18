@@ -18,3 +18,15 @@
   id: AdminAssistantAltHeadset
   equipment:
     ears: ClothingHeadsetAltAdminAssistant
+
+# Head
+- type: loadout
+  id: AdminAssistanthat
+  equipment:
+    head: ClothingHeadHatAdministrasive
+  # effects:
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobAdminAssistant
+  #     time: 180000 #50 hrs

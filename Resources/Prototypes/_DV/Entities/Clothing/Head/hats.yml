@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatAdministrasive
+  name: administrative hat
+  description: A hat for those dedicated to assisting Command.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
