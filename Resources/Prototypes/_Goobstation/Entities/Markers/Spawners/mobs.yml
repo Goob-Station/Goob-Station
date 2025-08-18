@@ -72,3 +72,399 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLivingCurse
+
+- type: entity
+  name: Fermid Small Spawner
+  id: SpawnMobFermidSmall
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: fermid_small
+      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFermidSmall
+
+- type: entity
+  name: Fermid Large Spawner
+  id: SpawnMobFermidLarge
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: fermid_large
+      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFermidLarge
+
+- type: entity
+  name: Fermid Warrior Spawner
+  id: SpawnMobFermidWarrior
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: fermid_hulk
+      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid64x64.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFermidWarrior
+
+- type: entity
+  name: Fermid Queen Spawner
+  id: SpawnMobFermidQueen
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: fermid_queen
+      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid64x64.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFermidQueen
+
+- type: entity
+  name: Spooky Ghost Spawner
+  id: SpawnMobSpookyGhost1
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: spookyghost
+      sprite: _Goobstation/Mobs/Demons/spookyghost/ghost1.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSpookyGhost1
+
+- type: entity
+  name: Glutton Spawner
+  id: SpawnBaseMobGlutton
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: glutton
+      sprite: _Goobstation/Mobs/Demons/glutton.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - BaseMobGlutton
+
+- type: entity
+  name: Nanite Swarm Spawner
+  id: SpawnMobNanites
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: nanites_attack
+      sprite: /Textures/_Goobstation/Mobs/Silicon/nanites.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobNanites
+
+- type: entity
+  name: Gunbot Spawner
+  id: SpawnGunBot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: gunbot
+      sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - GunBot
+
+- type: entity
+  name: NukeBot Spawner
+  id: SpawnNukeBot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: nukebot
+      sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - NukeBot
+
+- type: entity
+  name: Flock Drone Spawner
+  id: SpawnMobFlockDrone
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: flock_drone
+      sprite: /Textures/_Goobstation/Flock/Mobs/drone.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFlockDrone
+
+- type: entity
+  name: Flock Bit Spawner
+  id: SpawnMobFlockBit
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: flock_bit
+      sprite: /Textures/_Goobstation/Flock/Mobs/bit.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFlockBit
+
+- type: entity
+  name: Abyss crawler Spawner
+  id: SpawnMobAbyssCrawler
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: abyss_crawler
+      sprite: /Textures/_Goobstation/Mobs/Animals/abysscrawler.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobAbyssCrawler
+
+#Xenos
+- type: entity
+  name: salvage Ancient Drone Spawner
+  id: SpawnCMMobXenoDrone
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: drone
+      sprite: _Goobstation/Mobs/Xenos/drone.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoDrone
+
+- type: entity
+  name: salvage Ancient Burrower Spawner
+  id: SpawnCMMobXenoBurrower
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: burrower
+      sprite: _Goobstation/Mobs/Xenos/burrower.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoBurrower
+
+- type: entity
+  name: salvage Ancient Warrior Spawner
+  id: SpawnCMMobXenoWarrior
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: warrior
+      sprite: _Goobstation/Mobs/Xenos/warrior.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoWarrior
+
+- type: entity
+  name: salvage Ancient Crusher Spawner
+  id: SpawnCMMobXenoCrusher
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crusher
+      sprite: _Goobstation/Mobs/Xenos/crusher.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoCrusher
+
+- type: entity
+  name: salvage Ancient Ravager Spawner
+  id: SpawnCMMobXenoRavager
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ravager
+      sprite: _Goobstation/Mobs/Xenos/ravager.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoRavager
+
+- type: entity
+  name: salvage Ancient King Spawner
+  id: SpawnCMMobXenoKing
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: king
+      sprite: _Goobstation/Mobs/Xenos/king.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoKing
+
+- type: entity
+  name: salvage Ancient Queen Spawner
+  id: SpawnCMMobXenoQueen
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: queen
+      sprite: _Goobstation/Mobs/Xenos/queen.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoQueen
+
+- type: entity
+  name: salvage Ancient Rogue King Spawner
+  id: SpawnCMMobXenoRogueKing
+  parent: MarkerBase
+  suffix: DO NOT MAP #Too srong to be mapped
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: rogue
+      sprite: _Goobstation/Mobs/Xenos/king.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoRogueKing
+
+#Sentient xenos
+- type: entity
+  name: Ancient Drone Spawner
+  id: SpawnCMMobXenoDroneSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: drone
+      sprite: _Goobstation/Mobs/Xenos/drone.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoDroneSentient
+
+- type: entity
+  name: Ancient Burrower Spawner
+  id: SpawnCMMobXenoBurrowerSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: burrower
+      sprite: _Goobstation/Mobs/Xenos/burrower.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoBurrowerSentient
+
+- type: entity
+  name: Ancient Warrior Spawner
+  id: SpawnCMMobXenoWarriorSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: warrior
+      sprite: _Goobstation/Mobs/Xenos/warrior.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoWarriorSentient
+
+- type: entity
+  name: Ancient Crusher Spawner
+  id: SpawnCMMobXenoCrusherSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crusher
+      sprite: _Goobstation/Mobs/Xenos/crusher.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoCrusherSentient
+
+- type: entity
+  name: Ancient Ravager Spawner
+  id: SpawnCMMobXenoRavagerSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ravager
+      sprite: _Goobstation/Mobs/Xenos/ravager.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoRavagerSentient
+
+- type: entity
+  name: Ancient King Spawner
+  id: SpawnCMMobXenoKingSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: king
+      sprite: _Goobstation/Mobs/Xenos/king.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoKingSentient
+
+- type: entity
+  name: Ancient Queen Spawner
+  id: SpawnCMMobXenoQueenSentient
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: queen
+      sprite: _Goobstation/Mobs/Xenos/queen.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoQueenSentient
+
+- type: entity
+  name: Ancient Rogue King Spawner
+  id: SpawnCMMobXenoRogueKingSentient
+  parent: MarkerBase
+  suffix: DO NOT MAP #Too srong to be mapped
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: rogue
+      sprite: _Goobstation/Mobs/Xenos/king.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - CMMobXenoRogueKingSentient
