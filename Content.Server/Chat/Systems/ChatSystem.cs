@@ -402,6 +402,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
+                modMessage = FormattedMessage.RemoveMarkupOrThrow(modMessage); // Sanitize it so markup cannot be shown.
+
                 if (collective != null && collective.RespectAccents)
                 {
                     modMessage = TransformSpeech(source, modMessage, language); // Einstein Engines - Languages (I made null since it requires a language input)
