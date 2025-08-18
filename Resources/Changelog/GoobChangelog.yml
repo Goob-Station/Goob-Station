@@ -13535,3 +13535,9 @@ Entries:
         activated).
   id: 1503
   time: '2025-08-18T03:46:56.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Moved the SOP to Stations and Shifts and renamed some of the folders.
+  id: 1504
+  time: '2025-08-18T03:47:18.0000000+00:00'
