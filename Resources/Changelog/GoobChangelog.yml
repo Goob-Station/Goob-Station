@@ -13681,3 +13681,11 @@ Entries:
       message: Languages that do not require speech do not make noise.
   id: 1520
   time: '2025-08-18T04:45:33.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Nukeops war declaration now shows a badass animation to everyone on the
+        station. (Power Point Ops)
+  id: 1521
+  time: '2025-08-18T05:01:53.0000000+00:00'
