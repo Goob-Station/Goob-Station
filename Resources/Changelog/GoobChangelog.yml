@@ -13349,3 +13349,12 @@ Entries:
       message: 'Added a command for adding implants to an entity: AddImplant'
   id: 1478
   time: '2025-08-18T02:35:51.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Unpowered doors now can be bolted and unbolted with wrench if it's wire
+        panel is open and not secured. Cut wire allows bolting and unbolting
+        powered doors.
+  id: 1479
+  time: '2025-08-18T02:47:02.0000000+00:00'
