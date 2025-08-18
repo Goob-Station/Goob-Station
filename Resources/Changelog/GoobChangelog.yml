@@ -13237,3 +13237,9 @@ Entries:
         and security.
   id: 1462
   time: '2025-08-16T17:48:18.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Dwarves can now blow a BAC of 1.00
+  id: 1463
+  time: '2025-08-18T02:21:50.0000000+00:00'
