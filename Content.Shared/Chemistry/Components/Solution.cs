@@ -979,41 +979,47 @@ namespace Content.Shared.Chemistry.Components
             // Goobstation Start
             Dictionary<string, TimeSpan> DNAs = new();
 
-            for (var i = 0; i < otherSolution.Contents.Count; i++)
+            // Collect fresher DNA from otherSolution
+            foreach (var content in otherSolution.Contents)
             {
-                otherSolution.Contents[i].Reagent.Data?.ForEach(data =>
+                if (content.Reagent.Data == null)
+                    continue;
+
+                foreach (var data in content.Reagent.Data)
                 {
-                    if (data is DnaData dna)
+                    if (data is not DnaData dna)
+                        continue;
+
+                    if (DNAs.TryGetValue(dna.DNA, out var existingFreshness))
                     {
-                        if (DNAs.ContainsKey(dna.DNA))
-                        {
-                            // if dna older than current, replace it
-                            if (DNAs[dna.DNA] < dna.Freshness)
-                                DNAs[dna.DNA] = dna.Freshness;
-                        }
-                        else
-                        {
+                        // replace if dna is fresher
+                        if (existingFreshness < dna.Freshness)
                             DNAs[dna.DNA] = dna.Freshness;
-                        }
                     }
-                });
+                    else
+                    {
+                        DNAs[dna.DNA] = dna.Freshness;
+                    }
+                }
             }
 
-            for (var i = 0; i < Contents.Count; i++)
+            // Update current solution with fresher DNA from otherSolution
+            foreach (var content in Contents)
             {
-                Contents[i].Reagent.Data?.ForEach(data =>
+                if (content.Reagent.Data == null)
+                    continue;
+
+                foreach (var data in content.Reagent.Data)
                 {
-                    if (data is DnaData dna)
+                    if (data is not DnaData dna)
+                        continue;
+
+                    if (DNAs.TryGetValue(dna.DNA, out var otherFreshness))
                     {
-                        // if other solution had this dna
-                        if (DNAs.ContainsKey(dna.DNA))
-                        {
-                            // if other solution is fresher, replace current
-                            if (DNAs[dna.DNA] > dna.Freshness)
-                                dna.Freshness = DNAs[dna.DNA];
-                        }
+                        if (otherFreshness > dna.Freshness)
+                            dna.Freshness = otherFreshness;
                     }
-                });
+                }
             }
             // Goobstation End
 
