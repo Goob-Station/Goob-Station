@@ -13689,3 +13689,11 @@ Entries:
         station. (Power Point Ops)
   id: 1521
   time: '2025-08-18T05:01:53.0000000+00:00'
+- author: Froffy025
+  changes:
+    - type: Add
+      message: >-
+        Added makeup, jewelry, and underwear to the markings category in
+        character customization.
+  id: 1522
+  time: '2025-08-18T05:12:19.0000000+00:00'
