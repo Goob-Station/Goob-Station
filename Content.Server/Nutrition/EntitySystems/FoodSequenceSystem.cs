@@ -125,7 +125,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return; // Prevent Backpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
-                EnsureComp<FoodSequenceElementComponent>(args.Used);
+            EnsureComp<FoodSequenceElementComponent>(args.Used);
 
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
