@@ -13313,3 +13313,9 @@ Entries:
         Valyrian Standard (Harpy).
   id: 1473
   time: '2025-08-18T02:30:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun's sprite has been reverted to upstream's.
+  id: 1474
+  time: '2025-08-18T02:31:53.0000000+00:00'
