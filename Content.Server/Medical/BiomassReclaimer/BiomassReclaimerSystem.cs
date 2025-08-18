@@ -281,13 +281,9 @@ namespace Content.Server.Medical.BiomassReclaimer
         private void OnDragDropTarget(Entity<BiomassReclaimerComponent> reclaimer, ref DragDropTargetEvent args)
         {
             // Safety Check that a target actually exists other wise the game freaks out & crahses
-            if (args.Dragged == null)
-                return;
-            // Saffety Check for if the biomass reclaimer has safety on & if the target has a soul or is alive.
-            if (!CanGib(reclaimer, args.Dragged))
-                return;
-
-            if (!TryComp<PhysicsComponent>(args.Dragged, out var physics))
+            if (args.Dragged == null
+            || !CanGib(reclaimer, args.Dragged)
+            || !TryComp<PhysicsComponent>(args.Dragged, out var physics))
                 return;
             // How long should it take the player to insert an object into the Biomass reclaimer.
             var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
