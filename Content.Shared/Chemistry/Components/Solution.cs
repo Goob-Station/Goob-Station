@@ -976,52 +976,31 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
-            // Goobstation Start
-            Dictionary<string, TimeSpan> DNAs = new();
+			// Goobstation Start
+			
+			// Find the maximum freshness for each unique DNA string in the other solution.
+			// This is done by flattening the nested lists, filtering for DnaData objects,
+			// grouping them by the DNA string, and creating a dictionary with the max freshness for each.
+			var freshestDnasFromOther = otherSolution.Contents
+			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+			    .OfType<DnaData>()
+			    .GroupBy(dna => dna.DNA)
+			    .ToDictionary(
+			        group => group.Key,
+			        group => group.Max(dna => dna.Freshness));
+			
+			// Get all DnaData objects in the current solution to be updated.
+			var allCurrentDna = Contents
+			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+			    .OfType<DnaData>();
+			
+			// Iterate through the current solution's DNA and update its freshness
+			// if a fresher version exists in the other solution.
+			foreach (var dna in allCurrentDna)
+			    if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
+			        dna.Freshness = fresherFreshness;
 
-            // Collect fresher DNA from otherSolution
-            foreach (var content in otherSolution.Contents)
-            {
-                if (content.Reagent.Data == null)
-                    continue;
-
-                foreach (var data in content.Reagent.Data)
-                {
-                    if (data is not DnaData dna)
-                        continue;
-
-                    if (DNAs.TryGetValue(dna.DNA, out var existingFreshness))
-                    {
-                        // replace if dna is fresher
-                        if (existingFreshness < dna.Freshness)
-                            DNAs[dna.DNA] = dna.Freshness;
-                    }
-                    else
-                    {
-                        DNAs[dna.DNA] = dna.Freshness;
-                    }
-                }
-            }
-
-            // Update current solution with fresher DNA from otherSolution
-            foreach (var content in Contents)
-            {
-                if (content.Reagent.Data == null)
-                    continue;
-
-                foreach (var data in content.Reagent.Data)
-                {
-                    if (data is not DnaData dna)
-                        continue;
-
-                    if (DNAs.TryGetValue(dna.DNA, out var otherFreshness))
-                    {
-                        if (otherFreshness > dna.Freshness)
-                            dna.Freshness = otherFreshness;
-                    }
-                }
-            }
-            // Goobstation End
+			// Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();
