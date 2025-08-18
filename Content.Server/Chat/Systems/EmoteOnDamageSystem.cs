@@ -22,6 +22,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Collections.Generic;
 
 public sealed class EmoteOnDamageSystem : EntitySystem
 {
@@ -116,7 +117,12 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         DebugTools.Assert(emoteOnDamage.LifeStage <= ComponentLifeStage.Running);
         DebugTools.Assert(_prototypeManager.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
 
-        return emoteOnDamage.EmotesThreshold[threshold].Add(emotePrototypeId); // CorvaxGoob-AutoEmote : Changes
+        // CorvaxGoob-AutoEmote-Start
+        if (!emoteOnDamage.EmotesThreshold.TryGetValue(threshold, out var emotes))
+            return emoteOnDamage.EmotesThreshold.TryAdd(threshold, [emotePrototypeId]);
+        else
+            return emoteOnDamage.EmotesThreshold[threshold].Add(emotePrototypeId);
+        // CorvaxGoob-AutoEmote-End
     }
 
     /// <summary>
@@ -128,6 +134,9 @@ public sealed class EmoteOnDamageSystem : EntitySystem
             return false;
 
         DebugTools.Assert(_prototypeManager.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
+
+        if (!emoteOnDamage.EmotesThreshold.TryGetValue(threshold, out var emotes))// CorvaxGoob-AutoEmote
+            return false;
 
         if (!emoteOnDamage.EmotesThreshold[threshold].Remove(emotePrototypeId)) // CorvaxGoob-AutoEmote : Changes
             return false;
