@@ -60,7 +60,7 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLsayer: sealed
+    spriteLayer: sealed
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
