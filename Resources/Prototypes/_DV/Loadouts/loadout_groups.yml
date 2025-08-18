@@ -11,9 +11,12 @@
   id: AdminAssistantShoes
   name: loadout-group-admin-assistant-shoes
   loadouts:
-  - BrownLeatherShoes
-  - WhiteLeatherShoes
-  - LaceupShoes
+  - BlackShoes
+  - BrownShoes
+  - WhiteShoes
+  # - BrownLeatherShoes
+  # - WhiteLeatherShoes
+  # - LaceupShoes
 
 - type: loadoutGroup
   id: AdminAssistantOuter
