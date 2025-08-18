@@ -13569,3 +13569,11 @@ Entries:
       message: The syndicate elite voidsuit now has a reptilian helmet sprite.
   id: 1508
   time: '2025-08-18T03:50:53.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Frequency of visitor shuttles has been reduced, as it was being
+        trigerred too many times per round.
+  id: 1509
+  time: '2025-08-18T03:51:22.0000000+00:00'
