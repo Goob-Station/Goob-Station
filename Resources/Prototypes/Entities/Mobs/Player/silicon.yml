@@ -383,7 +383,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: Asimov
+    laws: Crewsimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
