@@ -481,6 +481,37 @@
   categories:
     -  UplinkWeaponry
 
+- type: listing
+  id: UplinkBookOfGrudgesLibrarian
+  name: book-of-grudges-uplink-name
+  description: book-of-grudges-uplink-desc
+  productEntity: BookOfGrudges
+  cost:
+    Telecrystal: 33
+  categories:
+  -  UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Librarian
+
+- type: listing
+  id: UplinkBookOfGrudgesDwarf
+  name: book-of-grudges-uplink-name
+  description: book-of-grudges-uplink-desc
+  productEntity: BookOfGrudges
+  cost:
+    Telecrystal: 33
+  categories:
+  -  UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    blacklist:
+    - Librarian
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Dwarf
+
 # Wearables
 
 - type: listing
