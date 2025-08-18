@@ -13739,3 +13739,9 @@ Entries:
         cartridges.
   id: 1527
   time: '2025-08-18T05:28:05.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Fixed an issue with toggleable items.
+  id: 1528
+  time: '2025-08-18T05:29:10.0000000+00:00'
