@@ -11,8 +11,7 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Capacitor: 2
-      Manipulator: 2
+      Manipulator: 4
 
 - type: entity
   id: MachineGCSMediumCircuitboard
@@ -27,8 +26,7 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Capacitor: 2
-      Manipulator: 2
+      Manipulator: 4
 
 - type: entity
   id: MachineGCSHighCircuitboard
@@ -43,8 +41,7 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Capacitor: 2
-      Manipulator: 2
+      Manipulator: 4
 
 - type: entity
   id: MachineGCSUltraCircuitboard
@@ -59,5 +56,4 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Capacitor: 2
-      Manipulator: 2
+      Manipulator: 4
