@@ -13505,3 +13505,11 @@ Entries:
       message: Bingle accent was removed.
   id: 1499
   time: '2025-08-18T03:43:59.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Resomi now take 15% more brute damage instead of 30% more.
+    - type: Tweak
+      message: Rodentia now take 15% more blunt damage instead of 30% more.
+  id: 1500
+  time: '2025-08-18T03:44:41.0000000+00:00'
