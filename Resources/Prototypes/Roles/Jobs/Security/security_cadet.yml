@@ -106,14 +106,6 @@
       department: Security
       time: 18000 #5 hrs
       inverted: true # stop playing intern if you're good at security!
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Tajaran
-      - Resomi
-      - Shadowkin
-      - Rodentia
-      - Harpy
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
