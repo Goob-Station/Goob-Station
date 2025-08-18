@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -47,6 +48,12 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   abstract: true
@@ -155,6 +162,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - Envirohelm
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
 
 - type: entity
   parent: BaseClothingModsuitHelmet

@@ -210,6 +210,16 @@
   id: DrinkGlassBase
   abstract: true
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/drinkglass_pickup.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/drinkglass_drop.ogg
+  # Goobstation edit end
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass
@@ -320,10 +330,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 30
+        maxVol: 20
         reagents:
         - ReagentId: Absinthe
-          Quantity: 30
+          Quantity: 20
   - type: Icon
     sprite: Objects/Consumable/Drinks/absintheglass.rsi
     state: icon

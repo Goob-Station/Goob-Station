@@ -431,10 +431,13 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             return;
 
         // TODO probably cache this or something. humans get hurt a lot
-        if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers)) // Shitmed Change
+        if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers))
             return;
 
-        var bloodloss = DamageSpecifier.ApplyModifierSet(args.DamageDelta, modifiers);
+        // some reagents may deal and heal different damage types in the same tick, which means DamageIncreased will be true
+        // but we only want to consider the dealt damage when causing bleeding
+        var damage = DamageSpecifier.GetPositive(args.DamageDelta);
+        var bloodloss = DamageSpecifier.ApplyModifierSet(damage, modifiers);
 
         if (bloodloss.Empty)
             return;
@@ -453,7 +456,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && _robustRandom.Prob(prob))
         {
-            TryModifyBloodLevel(ent, (-total) / 5, ent);
+            TryModifyBloodLevel(ent, -total / 5, ent);
             _audio.PlayPvs(ent.Comp.InstantBloodSound, ent);
         }
 
