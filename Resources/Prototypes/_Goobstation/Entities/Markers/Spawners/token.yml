@@ -87,3 +87,14 @@
     name: roles-wizard-name-token
     description: ghost-role-information-description-token-generic
     rules: ghost-role-information-antagonist-rules
+
+- type: entity
+  id: AncientRogueKingToken
+  parent: CMMobXenoRogueKingSentient
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ancient-rogue-king-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-ancient-rogue-king-rules
+    raffle:
+      settings: short
