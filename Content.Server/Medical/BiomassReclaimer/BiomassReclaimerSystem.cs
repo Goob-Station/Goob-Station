@@ -133,7 +133,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
-using Content.Shared.DragDrop;
+using Content.Shared.DragDrop; // # GoobStation
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -210,7 +210,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
-            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget); # Goobstation
+            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget);
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
         }
 
@@ -278,14 +278,12 @@ namespace Content.Server.Medical.BiomassReclaimer
             });
         }
 
-        private void OnDragDropTarget(Entity<BiomassReclaimerComponent> reclaimer, ref DragDropTargetEvent args)
-        {
-            // Safety Check that a target actually exists other wise the game freaks out & crahses
+        private void OnDragDropTarget(Entity<BiomassReclaimerComponent> reclaimer, ref DragDropTargetEvent args) // # GoobStation
+        {   // Safety Checks, If the machine is on safety & if the target is vaild to avoid crashes.
             if (args.Dragged == null
             || !CanGib(reclaimer, args.Dragged)
             || !TryComp<PhysicsComponent>(args.Dragged, out var physics))
                 return;
-            // How long should it take the player to insert an object into the Biomass reclaimer.
             var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
 
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(
