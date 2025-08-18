@@ -13621,3 +13621,11 @@ Entries:
         like a resomi
   id: 1513
   time: '2025-08-18T03:54:01.0000000+00:00'
+- author: Froffy025
+  changes:
+    - type: Add
+      message: Added slime bubbling, slime popping emotes
+    - type: Add
+      message: Added knuckle cracking emotes
+  id: 1514
+  time: '2025-08-18T03:59:44.0000000+00:00'
