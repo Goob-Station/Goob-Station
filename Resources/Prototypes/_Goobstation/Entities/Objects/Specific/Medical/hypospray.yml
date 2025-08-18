@@ -24,6 +24,7 @@
   abstract: true
   components:
   - type: Item
+    size: Normal
     sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
@@ -132,7 +133,7 @@
   abstract: true
   components:
   - type: Item
-    size: Tiny
+    size: Small
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
     layers:
