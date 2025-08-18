@@ -210,7 +210,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
-            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget);
+            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget); # Goobstation
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
         }
 
