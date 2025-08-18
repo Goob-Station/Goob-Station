@@ -747,7 +747,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Horse
-    speechSounds: Alto
+    speechSounds: HorseSpeech
   - type: ReplacementAccent
     accent: horse
   - type: LanguageSpeaker # Einstein Engines - Language
