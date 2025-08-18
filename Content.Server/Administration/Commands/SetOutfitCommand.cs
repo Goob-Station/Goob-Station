@@ -163,7 +163,7 @@ namespace Content.Server.Administration.Commands
             var doSpecial = true;
 
             // Parse optional boolean argument
-            if (args.Length == 2)
+            if (args.Length == 3)
             {
                 if (!bool.TryParse(args[2], out doSpecial))
                 {

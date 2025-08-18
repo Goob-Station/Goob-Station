@@ -284,8 +284,8 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: fill-
-    inHandsMaxFillLevels: 2
-    inHandsFillBaseName: -fill-
+    #inHandsMaxFillLevels: 2
+    #inHandsFillBaseName: -fill-
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
