@@ -13427,3 +13427,11 @@ Entries:
       message: Librarian can now speak and understand most languages.
   id: 1489
   time: '2025-08-18T03:23:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Weldbots now will try to fix all stuff that can be fix with welding
+        tool.
+  id: 1490
+  time: '2025-08-18T03:25:06.0000000+00:00'
