@@ -1,0 +1,26 @@
+- type: entity
+  name: Вогняне намисто
+  description: Намисто, зачароване на вогняний щит. Тільки не запускай вогняну кулю з увімкнутим щитом, бо він її не пропустить!
+  id: WizardFireNecklace
+  parent: ClothingNeckBase
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Neck/necklace.rsi
+    layers:
+      - state: icon
+  - type: ContainerContainer
+  - type: EnergyDomeGenerator
+    alwaysCharge: true
+    damageEnergyDraw: 1
+    domePrototype: DomeSmallFire
+    turnOffSound: /Audio/Items/match_strike.ogg
+    turnOnSound: /Audio/Items/match_strike.ogg
+    parrySound: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: UseDelay
+    delay: 5.0
+  - type: Battery
+    maxCharge: 60          #<- max supply
+    startingCharge: 60
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
