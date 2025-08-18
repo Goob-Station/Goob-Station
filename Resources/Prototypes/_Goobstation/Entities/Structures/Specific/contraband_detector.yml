@@ -146,7 +146,7 @@
     state: security
   - type: Tag
     tags:
-      - ContrabandDetectorCircuitboard
-      - Structure
+    - ContrabandDetectorCircuitboard
+    - Structure
   - type: StaticPrice
     price: 25
