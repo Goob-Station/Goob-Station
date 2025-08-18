@@ -31,3 +31,12 @@
   - bingle-accent-3
   - bingle-accent-4
   - bingle-accent-5
+
+- type: accent
+  id: horse
+  fullReplacements:
+  - accent-words-horse-1
+  - accent-words-horse-2
+  - accent-words-horse-3
+  - accent-words-horse-4
+  - accent-words-horse-5

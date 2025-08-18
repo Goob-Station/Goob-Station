@@ -42,8 +42,6 @@
     raffle: null
     allowSpeech: true
     allowMovement: true
-  - type: Speech
-    speechSounds: Alto
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -76,25 +74,11 @@
     attributes:
       proper: true
       gender: male
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    understands:
-    - TauCetiBasic
   - type: Access
     enabled: true
     tags:
     - Maintenance
     - Security
     - Brig
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Common
-    - Security
-  - type: ActiveRadio
-    channels:
-    - Common
-    - Security
   - type: Puller
     needsHands: false

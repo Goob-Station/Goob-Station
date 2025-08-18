@@ -730,6 +730,17 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: horse
   - type: Physics
+  - type: Speech
+    speechVerb: Horse
+    speechSounds: Alto
+  - type: ReplacementAccent
+    accent: horse
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
+    understands:
+    - TauCetiBasic
   - type: Fixtures
     fixtures:
       fix1:
