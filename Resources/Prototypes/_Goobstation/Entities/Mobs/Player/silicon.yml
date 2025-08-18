@@ -50,6 +50,10 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [ NamesBorg ]
+  - type: StartIonStormed
+    ionStormAmount: 2
+  - type: SiliconLawProvider
+    laws: OverlordLawset
 
 - type: entity
   id: PlayerBorgDerelictSyndicateAssaultGhostRole
