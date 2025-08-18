@@ -173,6 +173,21 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
+        // Goobstation start - Loud command
+        int? fontSizeIncrease = null;
+        if (TryComp<EncryptionKeyHolderComponent>(radioSource, out var holder))
+        {
+            foreach (var ent in holder.KeyContainer.ContainedEntities)
+            {
+                if (TryComp<EncryptionKeyComponent>(ent, out var key) && key.Channels.Contains(channel.ID))
+                {
+                    fontSizeIncrease = key.FontSizeIncrease;
+                    break;
+                }
+            }
+        }
+        // Goobstation end
+
         // var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
         //     ("color", channel.Color),
         //     ("fontType", speech.FontId),
@@ -181,7 +196,12 @@ public sealed class RadioSystem : EntitySystem
         //     ("channel", $"\\[{channel.LocalizedName}\\]"),
         //     ("name", name),
         //     ("message", content));
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language); // Einstein Engines - Language
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, fontSizeIncrease); // Einstein Engines - Language // fontSizeIncrease Goobstation - Loud command
+
+        //  Goobstation - Loud command start
+        if (fontSizeIncrease != null)
+            wrappedMessage = WrapRadioMessageFontSizeOnly(wrappedMessage, fontSizeIncrease.Value);
+        // Goobstation - Loud command end
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         // var chat = new ChatMessage(
@@ -196,7 +216,7 @@ public sealed class RadioSystem : EntitySystem
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
-        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language);
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, fontSizeIncrease); // fontSizeIncrease Goobstation - Loud command
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
@@ -254,7 +274,8 @@ public sealed class RadioSystem : EntitySystem
         RadioChannelPrototype channel,
         string name,
         string message,
-        LanguagePrototype language)
+        LanguagePrototype language,
+        int? fontSizeOverride = null) // Goobstation - Loud command
     {
         // TODO: code duplication with ChatSystem.WrapMessage
         var speech = _chat.GetSpeechVerb(source, message);
@@ -273,11 +294,13 @@ public sealed class RadioSystem : EntitySystem
             boldId = language.SpeechOverride.FontId;
         // Goobstation Edit - end
 
+        var fontSize = fontSizeOverride ?? language.SpeechOverride.FontSize ?? speech.FontSize; // Goobstation loud command
+
         return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
-            ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
+            ("fontSize", fontSize),
             ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
@@ -286,6 +309,13 @@ public sealed class RadioSystem : EntitySystem
             ("language", languageDisplay));
     }
     // Einstein Engines - Language end
+
+    // Goobstation - Loud command start
+    private string WrapRadioMessageFontSizeOnly(string wrappedMessage, int fontSize)
+    {
+        return Loc.GetString("chat-radio-message-wrap-fontsizeonly", ("fontSize", fontSize), ("wrappedMessage", wrappedMessage));
+    }
+    // Goobstation - Loud command end
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveServer(MapId mapId, string channelId)

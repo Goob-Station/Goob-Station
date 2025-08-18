@@ -31,3 +31,143 @@
     layers:
     - state: crypt_silver
     - state: nano_label
+
+# Loud command
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeyStationMasterLoud
+  name: station master encryption key loudspeaker
+  description: An encryption key used by station's bosses.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    defaultChannel: Command
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gold
+    - state: cap_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeyCargoLoud
+  name: cargo encryption key loudspeaker
+  description: An encryption key used by the Quartermaster.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Supply
+    defaultChannel: Supply
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: cargo_label
+  - type: Tag
+    tags:
+    - EncryptionCargo
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeyEngineeringLoud
+  name: engineering encryption key loudspeaker
+  description: An encryption key used by the Chief Engineer.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Engineering
+    defaultChannel: Engineering
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: eng_label
+  - type: Tag
+    tags:
+    - EncryptionEngineering
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeyMedicalLoud
+  name: medical encryption key loudspeaker
+  description: An encryption key used by the Chief Medical Officer.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Medical
+    defaultChannel: Medical
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: med_label
+  - type: Tag
+    tags:
+    - EncryptionMedical
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeyScienceLoud
+  name: science encryption key loudspeaker
+  description: An encryption key used by the Research Director.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Science
+    defaultChannel: Science
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sci_label
+  - type: Tag
+    tags:
+    - EncryptionScience
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
+  id: EncryptionKeySecurityLoud
+  name: security encryption key Loudspeaker
+  description: An encryption key used by the Head of Security.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    defaultChannel: Security
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label
+  - type: Tag
+    tags:
+    - EncryptionSecurity
+
+# For nukie commanders
+
+- type: entity
+  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  id: EncryptionKeySyndieLoud
+  name: blood-red encryption key loudspeaker
+  description: An encryption key used by... wait... Who is the owner of this chip?
+  components:
+  - type: EncryptionKey
+    channels:
+    - Syndicate
+    defaultChannel: Syndicate
+    fontSizeIncrease: 18
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: synd_label
+  - type: StaticPrice
+    price: 500 # 1000 for 2

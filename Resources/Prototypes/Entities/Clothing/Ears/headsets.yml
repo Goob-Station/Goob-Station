@@ -182,7 +182,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCargo
+      - EncryptionKeyCargoLoud # Goobstation loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
 
@@ -196,7 +196,7 @@
     containers:
       key_slots:
       - EncryptionKeyCentCom
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterLoud # Goobstation loud command
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Clothing
@@ -211,7 +211,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterLoud # Goobstation loud command
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Clothing
@@ -242,7 +242,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
+      - EncryptionKeyEngineeringLoud # Goobstation loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
 
@@ -271,7 +271,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyMedical
+      - EncryptionKeyMedicalLoud # Goobstation loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
 
@@ -332,7 +332,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyScience
+      - EncryptionKeyScienceLoud # Goobstation loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
 

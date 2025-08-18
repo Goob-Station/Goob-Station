@@ -46,7 +46,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeySecurity
+      - EncryptionKeySecurityLoud
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -101,3 +101,21 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseSyndicateContraband]
+  id: ClothingHeadsetAltSyndicateCommander
+  name: blood-red over-ear headset
+  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
+  components:
+  - type: Headset
+  - type: EncryptionKeyHolder
+    keySlots: 5
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndieLoud
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/syndicate.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/syndicate.rsi

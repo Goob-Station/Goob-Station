@@ -373,7 +373,7 @@
       - IntercomElectronics
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterLoud # Goobstation - Loud Command
 
 - type: entity
   id: IntercomFreelance
