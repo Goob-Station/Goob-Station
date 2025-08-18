@@ -13481,3 +13481,11 @@ Entries:
       message: Metal pipe was stopped. Throwed pipe no longer makes funny noise.
   id: 1496
   time: '2025-08-18T03:37:26.0000000+00:00'
+- author: GnKonkort
+  changes:
+    - type: Add
+      message: >-
+        Added new sprites for resomi, vox, lizard Blueshield officers. Sprites
+        made by Zethine
+  id: 1497
+  time: '2025-08-18T03:38:05.0000000+00:00'
