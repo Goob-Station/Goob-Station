@@ -65,13 +65,10 @@ public sealed class ChangelingArmorTest
                 return;
 
             armorAction = (armorActionEntity, entMan.GetComponent<ActionComponent>(armorActionEntity));
-            if (armorAction.Comp is not { BaseEvent: { } armorActionBaseEvent } armorActionComp)
-                return;
-
             actionSys.SetUseDelay(armorAction, null);
 
             // Armor up
-            actionSys.PerformAction(urist, null, armorAction, armorActionComp, armorActionBaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction);
         });
 
         await server.WaitRunTicks(5);
@@ -93,7 +90,7 @@ public sealed class ChangelingArmorTest
         await server.WaitPost(() =>
         {
             // Armor down
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist,  armorAction);
         });
 
         await server.WaitRunTicks(5);
@@ -124,7 +121,7 @@ public sealed class ChangelingArmorTest
             Assert.That(invSys.TryEquip(urist, helm, "head", force: true));
 
             // Try to armor up, should fail due to helmet and not equip anything
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction);
         });
 
         await server.WaitRunTicks(5);
