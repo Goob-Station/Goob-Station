@@ -13457,3 +13457,9 @@ Entries:
         before.
   id: 1493
   time: '2025-08-18T03:29:40.0000000+00:00'
+- author: Nyx
+  changes:
+    - type: Add
+      message: Added section on plastic production to Chemistry and Medical guidebooks!
+  id: 1494
+  time: '2025-08-18T03:35:35.0000000+00:00'
