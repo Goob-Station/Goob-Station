@@ -13513,3 +13513,11 @@ Entries:
       message: Rodentia now take 15% more blunt damage instead of 30% more.
   id: 1500
   time: '2025-08-18T03:44:41.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Changed Moth Mime emergency boxes to be slotted.
+    - type: Fix
+      message: Fixed Non-Wizden species not getting Mime emergency boxes.
+  id: 1501
+  time: '2025-08-18T03:45:24.0000000+00:00'
