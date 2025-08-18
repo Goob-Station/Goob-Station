@@ -13409,3 +13409,9 @@ Entries:
       message: Added new emag loot from vending machines!
   id: 1486
   time: '2025-08-18T03:03:26.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Zeds, blob zeds and borgs cannot pilot mechs anymore.
+  id: 1487
+  time: '2025-08-18T03:06:57.0000000+00:00'
