@@ -13249,3 +13249,11 @@ Entries:
       message: Fixed possibility research HONKWeapons!
   id: 1464
   time: '2025-08-18T02:22:17.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        You no longer need to have a salvage id to use the mining shuttle
+        console!
+  id: 1465
+  time: '2025-08-18T02:23:51.0000000+00:00'
