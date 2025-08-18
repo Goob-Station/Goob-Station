@@ -13521,3 +13521,9 @@ Entries:
       message: Fixed Non-Wizden species not getting Mime emergency boxes.
   id: 1501
   time: '2025-08-18T03:45:24.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Tweak
+      message: Moths can now eat mail, books, spesos, and devil contracts.
+  id: 1502
+  time: '2025-08-18T03:46:05.0000000+00:00'
