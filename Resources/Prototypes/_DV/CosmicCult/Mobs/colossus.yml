@@ -160,6 +160,10 @@
       reverseWhenFinished: true
   - type: ContentEye
     maxZoom: 1.2, 1.2
+  - type: Eye
+    visMask:
+      - Normal
+      - CosmicCultMonument
   - type: StatusEffects
     allowed:
     - Stutter
