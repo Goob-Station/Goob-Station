@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 
@@ -60,6 +66,9 @@ public sealed partial class SpeechOverrideInfo
 
     [DataField]
     public int? FontSize;
+
+    [DataField]
+    public string? BoldFontId; // Goob Edit - Custom Bolded Fonts
 
     [DataField]
     public bool AllowRadio = true;
