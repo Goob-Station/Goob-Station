@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -90,6 +91,14 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Trill:
+      collection: Trill
+    Yip:
+      collection: Yip
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -164,6 +173,16 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Trill:
+      collection: Trill
+    Yip:
+      collection: Yip
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    Mars:
+      collection: Mars
 
 - type: emoteSounds
   id: FemaleVulpkanin
