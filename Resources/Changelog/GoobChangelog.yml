@@ -13293,3 +13293,68 @@ Entries:
         being bolded.
   id: 1470
   time: '2025-08-18T02:28:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: NTR can no longer be an antag. No more Devil NTR.
+  id: 1471
+  time: '2025-08-18T02:28:55.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The judo belt now shares the secbelt whitelist.
+  id: 1472
+  time: '2025-08-18T02:29:19.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Squackroach languages. They can now speak Tau-Ceti Basic and
+        Valyrian Standard (Harpy).
+  id: 1473
+  time: '2025-08-18T02:30:59.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun's sprite has been reverted to upstream's.
+  id: 1474
+  time: '2025-08-18T02:31:53.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Removed Wizard Helm from Magivend
+  id: 1475
+  time: '2025-08-18T02:32:58.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Cursed Heart now heals burn damage
+  id: 1476
+  time: '2025-08-18T02:33:34.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        More items that could fit into basic recharger can now be fit into turbo
+        recharger.
+    - type: Tweak
+      message: >-
+        Greatshield now be reactivated after full discharge if it's charge more
+        than 10% of max charge.
+  id: 1477
+  time: '2025-08-18T02:35:09.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: 'Added a command for adding implants to an entity: AddImplant'
+  id: 1478
+  time: '2025-08-18T02:35:51.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Unpowered doors now can be bolted and unbolted with wrench if it's wire
+        panel is open and not secured. Cut wire allows bolting and unbolting
+        powered doors.
+  id: 1479
+  time: '2025-08-18T02:47:02.0000000+00:00'
