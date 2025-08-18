@@ -130,3 +130,22 @@
         Heat: 0.75
   - type: PressureProtection
     lowPressureMultiplier: 1000
+
+- type: entity  # Helmets hide / show hair verb
+  parent: [ClothingHeadHelmetBase, BaseFoldable]
+  id: ClothingHeadHelmetBaseFoldable 
+  abstract: true
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-hidehair-verb
+    foldVerbText: fold-showhair-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: ""
+    foldedSlots:
+    - HEAD
+    unfoldedSlots:
+    - HEAD
+    unfoldedHideLayers:
+    - Hair
+    foldedHideLayers: []

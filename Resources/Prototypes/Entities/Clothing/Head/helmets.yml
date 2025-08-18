@@ -140,29 +140,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing #Goobstation
   #  layers:
   #    HeadTop : HEAD
   #    HeadSide : HEAD
-
-- type: entity
-  parent: [ClothingHeadHelmetBase, BaseFoldable]
-  id: ClothingHeadHelmetBaseFoldable  #Goob Proto
-  abstract: true
-  components:
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-hidehair-verb
-    foldVerbText: fold-showhair-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: ""
-    foldedSlots:
-    - HEAD
-    unfoldedSlots:
-    - HEAD
-    unfoldedHideLayers:
-    - Hair
-    foldedHideLayers: []
 
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -187,7 +168,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing #Goobstation
   #  slots:
   #  - HeadTop
   #  - HeadSide
@@ -207,7 +188,7 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -222,7 +203,7 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -257,7 +238,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: FlashSoundSuppression # Goobstation
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing    #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -273,7 +254,7 @@
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -297,7 +278,7 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.8
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -366,7 +347,7 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -413,7 +394,7 @@
     sprite: Clothing/Head/Helmets/templar.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
   - type: Tag
@@ -431,7 +412,7 @@
     sprite: Clothing/Head/Helmets/thunderdome.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/thunderdome.rsi
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -457,7 +438,7 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -577,7 +558,7 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -593,7 +574,7 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
- # - type: HideLayerClothing
+ # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD
 
@@ -608,7 +589,7 @@
     sprite: Clothing/Head/Helmets/ert_security.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_security.rsi
- # - type: HideLayerClothing
+ # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD
 
@@ -623,7 +604,7 @@
     sprite: Clothing/Head/Helmets/ert_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_medic.rsi
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -639,7 +620,7 @@
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
   - type: EyeProtection # goob - it literally has them in the sprite.
- # - type: HideLayerClothing
+ # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD
 
@@ -654,7 +635,7 @@
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
-  #- type: HideLayerClothing
+  #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
 
@@ -684,7 +665,7 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.35
- # - type: HideLayerClothing
+ # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD
 
@@ -715,7 +696,7 @@
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
- # - type: HideLayerClothing
+ # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD
 
