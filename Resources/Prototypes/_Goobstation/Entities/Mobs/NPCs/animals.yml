@@ -302,6 +302,8 @@
       - Steel
       - Ore
       - Telecrystal
+  - type: MobPrice
+    price: 1000
 
 
 - type: entity
