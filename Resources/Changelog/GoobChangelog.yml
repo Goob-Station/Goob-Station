@@ -13269,3 +13269,11 @@ Entries:
       message: Plasma cutter now has Normal size instead of Large.
   id: 1467
   time: '2025-08-18T02:26:28.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: >-
+        Command members can't roll sleeper agents anymore (they can still roll
+        corporate agent)
+  id: 1468
+  time: '2025-08-18T02:26:46.0000000+00:00'
