@@ -41,7 +41,7 @@ public sealed class WireBurnoutRule : StationEventSystem<WireBurnoutRuleComponen
         while (query.MoveNext(out var wire, out var cable,out var electric, out var xform))
         {
             if ( xform.GridUid == grid && //only affects cables on the main station
-                 IsPowered(wire,electric, xform) //does not affect wires without power
+                 IsPowered(wire, electric) //does not affect wires without power
                 )
                 stationWires.Add((wire,xform));
         }
@@ -59,9 +59,12 @@ public sealed class WireBurnoutRule : StationEventSystem<WireBurnoutRuleComponen
         }
     }
 
-    private bool IsPowered(EntityUid uid, ElectrifiedComponent electrified, TransformComponent transform)
+    private bool IsPowered(EntityUid uid, ElectrifiedComponent electrified)
     {
-        if (!electrified.Enabled && electrified.RequirePower && PoweredNode(uid, electrified) == null)
+        if (!electrified.Enabled)
+            return false;
+
+        if (electrified.RequirePower && PoweredNode(uid, electrified) == null)
             return false;
 
         return true;

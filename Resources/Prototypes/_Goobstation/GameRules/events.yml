@@ -56,11 +56,10 @@
     weight: 7
     duration: 1
     minimumPlayers: 15
-    chaos: # Goobstation
+    chaos:
       Power: 100
-    eventType: Maintenance # Goobstation
+    eventType: Maintenance
     startAnnouncement: station-event-wire-burn-announcement
-  # Goobstation
   - type: GameRule
     chaosScore: 60
   - type: WireBurnoutRule
