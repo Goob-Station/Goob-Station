@@ -13655,3 +13655,9 @@ Entries:
         certain MIDI files.
   id: 1517
   time: '2025-08-18T04:06:35.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Made Chinese more BOLD!!
+  id: 1518
+  time: '2025-08-18T04:22:52.0000000+00:00'
