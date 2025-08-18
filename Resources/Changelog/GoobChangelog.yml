@@ -13243,3 +13243,9 @@ Entries:
       message: Dwarves can now blow a BAC of 1.00
   id: 1463
   time: '2025-08-18T02:21:50.0000000+00:00'
+- author: JrInventor05
+  changes:
+    - type: Fix
+      message: Fixed possibility research HONKWeapons!
+  id: 1464
+  time: '2025-08-18T02:22:17.0000000+00:00'
