@@ -1,4 +1,4 @@
-book-of-grudges-target = You feel a strong hatered towards you
+book-of-grudges-target = You feel a strong hatred towards you
 book-of-grudges-name-added = A name has been added to the book of grudges
 book-of-grudges-removed = A name has been removed from the book of grudges
 
