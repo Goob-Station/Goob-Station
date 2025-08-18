@@ -13475,3 +13475,9 @@ Entries:
         lavaland).
   id: 1495
   time: '2025-08-18T03:36:57.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Remove
+      message: Metal pipe was stopped. Throwed pipe no longer makes funny noise.
+  id: 1496
+  time: '2025-08-18T03:37:26.0000000+00:00'
