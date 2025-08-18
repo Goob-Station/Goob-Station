@@ -1,4 +1,15 @@
 - type: entity
+  parent: LockerBase
+  id: LockerBaseDeltaV
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Storage/closet.rsi
+
+- type: entity
+  parent: [ LockerBaseDeltaV, LockerBaseSecure ]
+  id: LockerBaseSecureDeltaV
+
+- type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerAdministrativeAssistant
   name: administrative assistant's locker
