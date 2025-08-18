@@ -50,25 +50,6 @@
     back: ClothingBackpackMessengerBrigmedic
 
 - type: loadout
-
-  id: SecurityMeleeKnife
-  storage:
-    back:
-    - CombatKnife
-
-- type: loadout
-  id: SecurityMeleePolyBaton
-  storage:
-    back:
-    - PolymerBaton
-
-- type: loadout
-  id: SecurityMeleeSpear
-  storage:
-    back:
-    - SpearTelescopic
-
-- type: loadout
   id: BrigmedicEnvirosuit
   equipment:
     jumpsuit: ClothingUniformEnvirosuitBrigmedic
