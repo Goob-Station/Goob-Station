@@ -1,0 +1,100 @@
+- type: entity
+  abstract: true
+  id: BingleShroomBase
+  parent: BaseStructure
+  name: Bungus
+  components:
+  - type: PointLight
+    radius: 5.0
+    energy: 2.0
+    color: "#7777FF"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: AtmosDevice
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.4,0.15,0.6"
+        density: 100
+        hard: true
+        layer:
+        - Impassable
+        masl:
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  id: BingleShroomCap
+  parent: BingleShroomBase
+  components:
+  - type: GasMiner
+    spawnGas: NitrousOxide
+    spawnAmount: 1
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Objects/Decoration/fungal.rsi
+      state: bungus_1
+
+- type: entity
+  id: BingleShroomMorel
+  parent: BingleShroomBase
+  components:
+  - type: GasMiner
+    spawnGas: BZ
+    spawnAmount: 1
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Objects/Decoration/fungal.rsi
+      state: bungus_2
+
+- type: entity
+  id: BingleShroomSpawnerCap
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Objects/Decoration/fungal.rsi
+      state: bungus_1_grow
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: SpawnOnDespawn
+    prototype: BingleShroomCap
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 1
+        hard: false
+
+- type: entity
+  id: BingleShroomSpawnerMorel
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Objects/Decoration/fungal.rsi
+      state: bungus_2_grow
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: SpawnOnDespawn
+    prototype: BingleShroomMorel
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 1
+        hard: false
