@@ -18,7 +18,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: Clothing
-    sprite: _EinsteinEngines/Weapons/Guns/Pistols/mk58.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
