@@ -20,6 +20,12 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 RenQ <164364533+ImRenQ@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 # SPDX-FileCopyrightText: 2024 Wertan <48354940+Wertanchik@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
@@ -32,6 +38,8 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
@@ -256,9 +264,9 @@
     Squish:
       collection: Squishes
     Scream:
-      collection: MaleScreams
+      collection: SlimeMaleScreams
     Laugh:
-      collection: MaleLaugh
+      collection: SlimeMaleLaughs
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -302,9 +310,9 @@
     Squish:
       collection: Squishes
     Scream:
-      collection: FemaleScreams
+      collection: SlimeFemaleScreams
     Laugh:
-      collection: FemaleLaugh
+      collection: SlimeFemaleLaughs
     Sneeze:
       collection: FemaleSneezes
     Cough:
