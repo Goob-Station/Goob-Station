@@ -13667,3 +13667,17 @@ Entries:
       message: The color of the energy sword can now be customized.
   id: 1519
   time: '2025-08-18T04:29:51.0000000+00:00'
+- author: CerberusWolfie, Superlagg, Mnemotechnician, ashkitten, RadsammyT
+  changes:
+    - type: Tweak
+      message: Emotes are now restricted by Line of Sight.
+    - type: Tweak
+      message: Sign Languages now require Line of Sight.
+    - type: Tweak
+      message: >-
+        Sign Languages act like emotes for identity. You can now hide your face
+        and use sign language without exposing your name (similar to emotes).
+    - type: Fix
+      message: Languages that do not require speech do not make noise.
+  id: 1520
+  time: '2025-08-18T04:45:33.0000000+00:00'
