@@ -197,7 +197,7 @@
   description: thief-backpack-category-communicator-description
   sprite:
     sprite: Objects/Devices/communication.rsi
-    state: old-radio
+    state: radio
   content:
   - EncryptionKeyStationMaster
   - CyberPen

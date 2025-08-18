@@ -253,12 +253,9 @@
   name: uplink-hypereutactic-blade-name
   description: uplink-hypereutactic-blade-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 15
   productEntity: HyperEutacticBlade
   cost:
-    Telecrystal: 18
+    Telecrystal: 74 # goob - desword is 74 and this should be the same
   categories:
   - UplinkWeaponry
   conditions:
@@ -1228,7 +1225,7 @@
   categories:
   - UplinkDisruption
 # Goob - Antimov was given the same price for traitors and nukies
-#  conditions:                     
+#  conditions:
 #  - !type:StoreWhitelistCondition
 #     blacklist:
 #       tags:
@@ -1248,7 +1245,7 @@
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - NukeOpsUplink 
+#      - NukeOpsUplink
 
 
 

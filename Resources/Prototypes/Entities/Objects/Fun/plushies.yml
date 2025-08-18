@@ -67,9 +67,9 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ThronglerPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ThronglerPlushie
 
 
 - type: entity
@@ -105,9 +105,9 @@
     accumulatorRatio: 0.5
     maxSpeed: 1
     minSpeed: 0.25
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: GhostPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: GhostPlushie
   - type: Tag
     tags:
     - ForceableFollow
@@ -131,9 +131,9 @@
   - type: Construction
     graph: PlushieGhostRevenant
     node: plushie
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RevenantPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RevenantPlushie
 
 - type: entity
   parent: BasePlushie
@@ -167,9 +167,9 @@
     sprite: Objects/Fun/Plushies/bee.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: BeePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: BeePlushie
 
 - type: entity
   parent: BasePlushie
@@ -212,9 +212,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HamptrPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HamptrPlushie
 
 - type: entity
   parent: PlushieBee
@@ -259,9 +259,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: NukiePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: NukiePlushie
 
 - type: entity
   parent: BasePlushie
@@ -282,9 +282,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RounyPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RounyPlushie
 
 - type: entity
   parent: BasePlushie
@@ -299,9 +299,9 @@
     radius: 1.5
     energy: 2
     netsync: false
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: LampPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: LampPlushie
 
 - type: entity
   parent: BasePlushie
@@ -340,9 +340,9 @@
     sprite: Objects/Fun/Plushies/arachnid.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ArachnidPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ArachnidPlushie
 
 - type: entity
   parent: BasePlushie
@@ -399,9 +399,9 @@
     - HEAD
   - type: Speech
     speechVerb: Reptilian # for pais (In the secret stash)
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: LizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: LizardPlushie
   - type: Tag
     tags:
     - Payload
@@ -458,9 +458,9 @@
     sprite: Objects/Fun/Plushies/expi.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: ExperimentPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: ExperimentPlushie
   - type: Tag
     tags:
     - Payload
@@ -546,9 +546,9 @@
       head:
       - state: spacelizard-equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SpaceLizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SpaceLizardPlushie
 
 - type: entity
   parent: PlushieLizard
@@ -600,9 +600,9 @@
     equippedPrefix: plushielizardinversed
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: InversedLizardPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: InversedLizardPlushie
 
 
 - type: entity
@@ -692,9 +692,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.09"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: DionaPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: DionaPlushie
 
 - type: entity
   parent: BasePlushie
@@ -728,9 +728,9 @@
   - type: Item
     heldPrefix: blue
     storedRotation: -90
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: BlueSharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: BlueSharkPlushie
   - type: Tag
     tags:
     - PlushieSharkBlue
@@ -748,9 +748,9 @@
     state: pink
   - type: Item
     heldPrefix: pink
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: PinkSharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: PinkSharkPlushie
   - type: Tag
     tags:
     - PlushieSharkPink
@@ -768,9 +768,9 @@
     state: grey
   - type: Item
     heldPrefix: grey
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: GreySharkPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: GreySharkPlushie
   - type: Tag
     tags:
     - PlushieSharkGrey
@@ -795,9 +795,9 @@
     sprite: Objects/Fun/Plushies/ratvar.rsi
     slots:
     - neck
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: RatvarPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: RatvarPlushie
 
 - type: entity
   parent: BasePlushie
@@ -817,9 +817,9 @@
     sprite: Objects/Fun/Plushies/narsie.rsi
     slots:
     - neck
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: NarPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: NarPlushie
 
 - type: entity
   parent: BasePlushie
@@ -859,9 +859,16 @@
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite # Rrrr!
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: CarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: CarpPlushie
+  - type: GibThisGuy  # Goobstation
+    requireBoth: false
+    icNames:
+    - Aubrey White
+    ocNames:
+    - TheAmped #Removed when I "make something fun"
+    - SolsticeOfTheWinter
   - type: Tag
     tags:
     - Payload
@@ -876,9 +883,9 @@
   components:
   - type: Sprite
     state: magicplush
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MagicarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MagicarpPlushie
 
 - type: entity
   parent: PlushieCarp
@@ -910,9 +917,9 @@
   components:
   - type: Sprite
     state: holoplush
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HolocarpPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HolocarpPlushie
 
 - type: entity
   parent: BasePlushie
@@ -944,9 +951,9 @@
     sprite: Objects/Fun/Plushies/slime.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SlimePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SlimePlushie
 
 - type: entity
   parent: BasePlushie
@@ -989,9 +996,9 @@
     - NECK
   - type: Speech
     speechVerb: Reptilian # for pais (In the secret stash)
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: SnakePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: SnakePlushie
 
 - type: entity
   parent: BasePlushie
@@ -1030,9 +1037,9 @@
     sprite: Objects/Fun/toy_mouse.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MousePlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MousePlushie
 
 - type: entity
   parent: BasePlushie
@@ -1075,9 +1082,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.09"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: VoxPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: VoxPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1097,9 +1104,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: AtmosianPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: AtmosianPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1144,9 +1151,9 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: XenoPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: XenoPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1162,9 +1169,9 @@
     sprite: Objects/Fun/Plushies/penguin.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: PenguinPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: PenguinPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1202,9 +1209,9 @@
     sprite: Objects/Fun/Plushies/human.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: HumanPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: HumanPlushie
 
 - type: entity
   parent: BasePlushie
@@ -1242,6 +1249,6 @@
     sprite: Objects/Fun/Plushies/moth.rsi
     slots:
     - HEAD
-  - type: FoodSequenceElement
-    entries:
-      CottonBurger: MothPlushie
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: MothPlushie

@@ -177,8 +177,6 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
-
     public override void Initialize()
     {
         base.Initialize();
