@@ -11,7 +11,11 @@
   path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
 
 - type: font
-  id: Eatday
+  id: NotoSansSCBold
+  path: /Fonts/NotoSans/NotoSansSC-Bold.ttf
+
+- type: font
+  id: Eatday # Bingles
   path: /Fonts/Eatday/Eatday.ttf
 
 - type: font # Bubblish (Slimes)

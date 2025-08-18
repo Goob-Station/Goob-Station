@@ -69,6 +69,9 @@ public sealed partial class SpeechOverrideInfo
     public int? FontSize;
 
     [DataField]
+    public string? BoldFontId; // Goob Edit - Custom Bolded Fonts
+
+    [DataField]
     public bool AllowRadio = true;
 
     /// <summary>
