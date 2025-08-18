@@ -13343,3 +13343,9 @@ Entries:
         than 10% of max charge.
   id: 1477
   time: '2025-08-18T02:35:09.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: 'Added a command for adding implants to an entity: AddImplant'
+  id: 1478
+  time: '2025-08-18T02:35:51.0000000+00:00'
