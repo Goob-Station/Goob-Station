@@ -6,6 +6,7 @@ cosmicability-siphon-cultist-success = Your attempts to draw entropy chill {CAPI
 cosmicability-siphon-success = You silently draw Entropy from {CAPITALIZE(THE($target))}.
 cosmicability-siphon-fail = You can't seem to siphon Entropy from {CAPITALIZE(THE($target))}.
 cosmicability-siphon-full = You can't hold any more Entropy!
+cosmicability-siphon-crit = {CAPITALIZE(THE($user))}'s eyes flash with energy, and {THE($target)} drops dead!
 
 cosmicability-blank-begin = {CAPITALIZE(THE($target))} attempts to grab hold of you!
 cosmicability-blank-success = You shunt {CAPITALIZE(THE($target))}'s mind unto the cosmic dark.
