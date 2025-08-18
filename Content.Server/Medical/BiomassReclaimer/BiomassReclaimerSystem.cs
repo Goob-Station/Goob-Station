@@ -133,6 +133,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Content.Shared.DragDrop;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -209,6 +210,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
+            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget);
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
         }
 
@@ -256,6 +258,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         {
             args.Cancel();
         }
+
         private void OnAfterInteractUsing(Entity<BiomassReclaimerComponent> reclaimer, ref AfterInteractUsingEvent args)
         {
             if (!args.CanReach || args.Target == null)
@@ -271,6 +274,34 @@ namespace Content.Server.Medical.BiomassReclaimer
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
                 NeedHand = true,
+                BreakOnMove = true,
+            });
+        }
+
+        private void OnDragDropTarget(Entity<BiomassReclaimerComponent> reclaimer, ref DragDropTargetEvent args)
+        {
+            // Safety Check that a target actually exists other wise the game freaks out & crahses
+            if (args.Dragged == null)
+                return;
+            // Saffety Check for if the biomass reclaimer has safety on & if the target has a soul or is alive.
+            if (!CanGib(reclaimer, args.Dragged))
+                return;
+
+            if (!TryComp<PhysicsComponent>(args.Dragged, out var physics))
+                return;
+            // How long should it take the player to insert an object into the Biomass reclaimer.
+            var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
+
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(
+                EntityManager,
+                args.User,
+                delay,
+                new ReclaimerDoAfterEvent(),
+                reclaimer,
+                target: reclaimer,
+                used: args.Dragged)
+            {
+                NeedHand = false,
                 BreakOnMove = true,
             });
         }
