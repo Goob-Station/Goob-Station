@@ -7,7 +7,7 @@
     - id: ClothingUniformJumpsuitAdminAssistant
     - id: ClothingUniformJumpskirtAdminAssistant
     - id: ClothingHeadsetAltAdminAssistant
-    - id: AdminAssistantIDCard
+    # - id: AdminAssistantIDCard
 
 - type: entity
   parent: LockerAdministrativeAssistant
