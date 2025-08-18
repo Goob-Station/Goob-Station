@@ -746,7 +746,7 @@
       state: horse
   - type: Physics
   - type: Speech
-    speechVerb: Horse
+    speechVerb: HorseVerb
     speechSounds: HorseSpeech
   - type: ReplacementAccent
     accent: horse
