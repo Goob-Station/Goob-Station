@@ -22,7 +22,7 @@
   - chat-speech-verb-gondola-2
 
 - type: speechVerb
-  id: Horse
+  id: HorseVerb
   name: chat-speech-verb-name-horse
   speechVerbStrings:
   - chat-speech-verb-horse-1
