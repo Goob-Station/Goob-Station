@@ -13713,3 +13713,9 @@ Entries:
       message: Barratry mapping
   id: 1524
   time: '2025-08-18T05:20:44.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: Cog Station
+  id: 1525
+  time: '2025-08-18T05:21:37.0000000+00:00'
