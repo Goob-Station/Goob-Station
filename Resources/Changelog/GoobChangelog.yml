@@ -13731,3 +13731,11 @@ Entries:
       message: 'Deathmatch map dm-entryway.yml no longer be cursed with darkness. '
   id: 1526
   time: '2025-08-18T05:23:45.0000000+00:00'
+- author: hrrrnggg my name is turbotracker and im a stupid chuddddddddd
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the size of Medical and Security autoinjectors, and the
+        cartridges.
+  id: 1527
+  time: '2025-08-18T05:28:05.0000000+00:00'
