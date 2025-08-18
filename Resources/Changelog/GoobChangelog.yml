@@ -13441,3 +13441,11 @@ Entries:
       message: Joints and blunts can now be sold for spesos.
   id: 1491
   time: '2025-08-18T03:26:38.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: >-
+        Common radio message now can be sent only with intercom. You still can
+        receive radio messages with headgear.
+  id: 1492
+  time: '2025-08-18T03:27:33.0000000+00:00'
