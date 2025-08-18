@@ -20,8 +20,7 @@
     mode: SnapgridCenter
   components:
   - type: BinglePit
-    levelForBungus: 3
-    bungusPrototypes:
+    mushroomPrototypes:
     - BingleShroomSpawnerCap
     - BingleShroomSpawnerMorel
   - type: StepTrigger

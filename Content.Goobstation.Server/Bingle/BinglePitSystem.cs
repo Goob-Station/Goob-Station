@@ -320,19 +320,21 @@ public sealed class BinglePitSystem : EntitySystem
                 !_random.Prob(0.1f))
                 continue;
 
-            var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
-
-            if (
-                !_lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
-                && component.Level >= component.LevelForBungus
-                && component.TilesUntilNextBungus-- <= 0)
-            {
-                Spawn(_random.Pick(component.BungusPrototypes), coords);
-                component.TilesUntilNextBungus = component.TilesPerBungus;
-            }
-
             _tile.ReplaceTile(tile, convertTile);
             _tile.PickVariant(convertTile);
+
+            var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
+
+            // Why not just slap an RNG check and call it a day?
+            // Well because the placement looks ugly and with this the mushrooms
+            // are spread out evenly.
+            if (component.Level < component.LevelForMushroom
+                || _lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
+                || component.TilesUntilNextMushroom-- > 0)
+                return;
+
+            Spawn(_random.Pick(component.MushroomPrototypes), coords);
+            component.TilesUntilNextMushroom = component.TilesPerMushroom;
         }
 
     }
