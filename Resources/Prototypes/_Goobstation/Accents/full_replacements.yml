@@ -18,30 +18,14 @@
   id: gondola
   fullReplacements:
   - accent-words-gondola-1
-<<<<<<< HEAD
 
-- type: accent
-  id: bingle
-  fullReplacements:
-  - bingle-accent-1  # for the odds
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-2
-  - bingle-accent-3
-  - bingle-accent-4
-  - bingle-accent-5
 
 - type: accent
   id: horse
   fullReplacements:
-  - accent-words-horse-1
-  - accent-words-horse-2
-  - accent-words-horse-3
-  - accent-words-horse-4
-  - accent-words-horse-5
-=======
->>>>>>> a341fc5b306dcde421de687720797684282a2b31
+  - accent-words-horsemob-1
+  - accent-words-horsemob-2
+  - accent-words-horsemob-3
+  - accent-words-horsemob-4
+  - accent-words-horsemob-5
+
