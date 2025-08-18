@@ -13697,3 +13697,13 @@ Entries:
         character customization.
   id: 1522
   time: '2025-08-18T05:12:19.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Fland has office chairs again
+    - type: Add
+      message: Trevor now spawns in Security on Fland
+    - type: Tweak
+      message: SM Piping on Fland has been simplified to be more engineer friendly
+  id: 1523
+  time: '2025-08-18T05:17:47.0000000+00:00'
