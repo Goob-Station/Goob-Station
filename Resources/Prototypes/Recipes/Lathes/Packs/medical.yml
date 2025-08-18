@@ -105,6 +105,7 @@
   - SyringeBluespace
   - BluespaceBodyBag # Corvax-Goob-AdvancedBodyBags
   - MedkitCombat #goob - Move combat kit to research
+  - FillableMedipen # CorvaxGoob-RefillableMedipens
 
 - type: latheRecipePack
   id: MedicalBoards
@@ -113,3 +114,4 @@
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   - StasisOperatingTableCircuitboard # Corvax-Goob-StasisOperatingTable
+  - MachineMedipenRefillerCircuitboard # CorvaxGoob-RefillableMedipens

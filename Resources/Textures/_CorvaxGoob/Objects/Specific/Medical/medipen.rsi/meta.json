@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tgstation at 986af32e22a88dae14fd147d812a5a4d27c1bc30. In-hand sprites by SeamLesss (github), stimpen sprites made by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "medipen"
+    },
+    {
+      "name": "medipen_empty"
+    },
+	{
+      "name": "medipen_visual"
+    },
+    {
+      "name": "medipen_empty_visual"
+    },
+	{
+	  "name": "medipen_solution-1"
+	},
+	{
+      "name": "microstimpen"
+    },
+    {
+      "name": "microstimpen_empty"
+    },
+	{
+      "name": "microstimpen_visual"
+    },
+    {
+      "name": "microstimpen_empty_visual"
+    },
+	{
+	  "name": "microstimpen_solution-1"
+	},
+    {
+      "name": "base-needle-inhand-left",
+        "directions": 4
+    },
+    {
+      "name": "base-needle-inhand-right",
+        "directions": 4
+    },
+    {
+      "name": "base-colorA-inhand-left",
+        "directions": 4
+    },
+    {
+      "name": "base-colorA-inhand-right",
+        "directions": 4
+    },
+    {
+      "name": "base-colorB-inhand-left",
+        "directions": 4
+    },
+    {
+      "name": "base-colorB-inhand-right",
+        "directions": 4
+    }
+  ]
+}

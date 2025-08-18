@@ -59,4 +59,18 @@ public sealed partial class HyposprayComponent : Component
     /// </summary>
     [DataField]
     public bool InjectOnly = false;
+
+    // CorvaxGoob-RefillableMedipens-Start
+    /// <summary>
+    /// Doafter delay to inject solution to self. Set 0 to skip it.
+    /// </summary>
+    [DataField]
+    public TimeSpan SelfDelay = TimeSpan.Zero;
+
+    /// <summary>
+    /// Doafter delay to inject solution to other. Set 0 to skip it.
+    /// </summary>
+    [DataField]
+    public TimeSpan OtherDelay = TimeSpan.FromSeconds(1);
+    // CorvaxGoob-RefillableMedipens-End
 }

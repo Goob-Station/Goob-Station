@@ -13,3 +13,12 @@
   materials:
     Uranium: 40
     Steel: 100
+
+- type: latheRecipe
+  id: FillableMedipen
+  result: FillableMedipen
+  completetime: 3
+  materials:
+    Steel: 100
+    Glass: 100
+    Plastic: 300

@@ -21,23 +21,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.Administration.Logs;
+using static Content.Shared.Chemistry.Hypospray.Events.AfterHyposprayInjectsTargetEvent;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -49,6 +50,7 @@ public sealed class HypospraySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
 
     public override void Initialize()
     {
@@ -58,6 +60,7 @@ public sealed class HypospraySystem : EntitySystem
         SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<HyposprayComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleModeVerb);
+        SubscribeLocalEvent<HyposprayComponent, HyposprayTryInjectDoAfterEvent>(TryDoInjectDoAfter); // CorvaxGoob-RefillableMedipens
     }
 
     #region Ref events
@@ -168,45 +171,89 @@ public sealed class HypospraySystem : EntitySystem
 
         _popup.PopupClient(Loc.GetString(msgFormat ?? "hypospray-component-inject-other-message", ("other", target)), target, user);
 
-        if (target != user)
-        {
-            _popup.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, target);
-            // TODO: This should just be using melee attacks...
-            // meleeSys.SendLunge(angle, user);
-        }
 
-        _audio.PlayPredicted(component.InjectSound, target, user);
+        // CorvaxGoob-RefillableMedipens-Start
+        if (target != user && component.OtherDelay != TimeSpan.Zero || target == user && component.SelfDelay != TimeSpan.Zero)
+        {
+            var doAfterCancelled = !_doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, target != user ? component.OtherDelay : component.SelfDelay, new HyposprayTryInjectDoAfterEvent(), entity, target: target, used: entity)
+            {
+                BreakOnMove = true,
+                NeedHand = true,
+                BreakOnDamage = true
+            });
+
+            if (doAfterCancelled)
+                return false;
+        }
+        else
+            DoInject(entity, user, target);
+        // CorvaxGoob-RefillableMedipens-End
+
+        return true;
+    }
+
+    // CorvaxGoob-RefillableMedipens-Start
+    private void DoInject(Entity<HyposprayComponent> entity, EntityUid user, EntityUid target)
+    {
+        if (!_solutionContainers.TryGetInjectableSolution(target, out var targetSoln, out var targetSolution))
+            return;
+
+        if (!_solutionContainers.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var hypoSpraySoln, out var hypoSpraySolution) || hypoSpraySolution.Volume == 0)
+            return;
+
+        if (target != user)
+            _popup.PopupEntity(Loc.GetString("hypospray-injected-other", ("target", target), ("user", user)), target);
+        else
+            _popup.PopupEntity(Loc.GetString("hypospray-injected-self", ("user", user)), user);
+
+        _audio.PlayPredicted(entity.Comp.InjectSound, target, user);
 
         // Medipens and such use this system and don't have a delay, requiring extra checks
         // BeginDelay function returns if item is already on delay
-        if (delayComp != null)
-            _useDelay.TryResetDelay((uid, delayComp));
+        if (TryComp(entity, out UseDelayComponent? delayComp))
+            _useDelay.TryResetDelay(entity);
 
         // Get transfer amount. May be smaller than component.TransferAmount if not enough room
-        var realTransferAmount = FixedPoint2.Min(component.TransferAmount, targetSolution.AvailableVolume);
+        var realTransferAmount = FixedPoint2.Min(entity.Comp.TransferAmount, targetSolution.AvailableVolume);
 
         if (realTransferAmount <= 0)
         {
             _popup.PopupClient(Loc.GetString("hypospray-component-transfer-already-full-message", ("owner", target)), target, user);
-            return true;
+            return;
         }
 
         // Move units from attackSolution to targetSolution
         var removedSolution = _solutionContainers.SplitSolution(hypoSpraySoln.Value, realTransferAmount);
 
         if (!targetSolution.CanAddSolution(removedSolution))
-            return true;
+            return;
+
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
         _solutionContainers.TryAddSolution(targetSoln.Value, removedSolution);
 
-        var ev = new TransferDnaEvent { Donor = target, Recipient = uid };
+        var ev = new TransferDnaEvent { Donor = target, Recipient = entity.Owner };
         RaiseLocalEvent(target, ref ev);
 
-        // same LogType as syringes...
-        _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");
+        var injectEvent = new AfterHyposprayInjectsTargetEvent(user, entity.Owner, target);
+        RaiseLocalEvent(entity, injectEvent);
 
-        return true;
+        // same LogType as syringes...
+        _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(entity.Owner):using}");
     }
+
+    private void TryDoInjectDoAfter(Entity<HyposprayComponent> entity, ref HyposprayTryInjectDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (!args.Target.HasValue)
+            return;
+
+        DoInject(entity, args.User, args.Target.Value);
+
+        args.Handled = true;
+    }
+    // CorvaxGoob-RefillableMedipens-End
 
     private bool TryDraw(Entity<HyposprayComponent> entity, EntityUid target, Entity<SolutionComponent> targetSolution, EntityUid user)
     {
