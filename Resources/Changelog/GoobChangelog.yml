@@ -13305,3 +13305,11 @@ Entries:
       message: The judo belt now shares the secbelt whitelist.
   id: 1472
   time: '2025-08-18T02:29:19.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Squackroach languages. They can now speak Tau-Ceti Basic and
+        Valyrian Standard (Harpy).
+  id: 1473
+  time: '2025-08-18T02:30:59.0000000+00:00'
