@@ -37,6 +37,9 @@ public partial record struct NtrTaskData
     public bool IsActive = false;
 
     [DataField]
+    public bool IsAccepted = false;
+
+    [DataField]
     public TimeSpan ActiveTime;
 
     [DataField]
@@ -47,6 +50,7 @@ public partial record struct NtrTaskData
         Task = task.ID;
         Id = $"{task.IdPrefix}{uniqueIdentifier:D3}";
         IsActive = false;
+        IsAccepted = false;
         ActiveTime = TimeSpan.Zero;
     }
     public NtrTaskData AsActive(TimeSpan time)

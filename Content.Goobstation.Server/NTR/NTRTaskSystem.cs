@@ -49,7 +49,6 @@ public sealed class NtrTaskSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
@@ -106,14 +105,14 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private void OnPrintLabelMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskPrintLabelMessage args)
     {
-        if (_timing.CurTime < component.NextPrintTime)
-            return;
+        //if (_timing.CurTime < component.NextPrintTime)
+        //return;
 
-        if (component.ActiveTaskIds.Contains(args.TaskId))
-        {
-            _audio.PlayPvs(component.DenySound, uid);
-            return;
-        }
+        //if (component.ActiveTaskIds.Contains(args.TaskId))
+        //{
+        //    _audio.PlayPvs(component.DenySound, uid);
+        //    return;
+        //}
 
         if (_station.GetOwningStation(uid) is not { } station
             || !TryComp<NtrTaskDatabaseComponent>(station, out var db)
@@ -128,6 +127,7 @@ public sealed class NtrTaskSystem : EntitySystem
             {
                 var updated = db.Tasks[i];
                 updated.IsActive = true;
+                updated.IsAccepted = true;
                 updated.ActiveTime = _timing.CurTime;
                 db.Tasks[i] = updated;
                 break;
@@ -136,7 +136,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
         var vial = Spawn(taskProto.Proto, Transform(uid).Coordinates);
         component.ActiveTaskIds.Add(args.TaskId);
-        component.NextPrintTime = _timing.CurTime + component.PrintDelay;
+        component.NextPrintTime = component.NextSoundTime = _timing.CurTime + component.Delay;
         _audio.PlayPvs(component.PrintSound, uid);
         UpdateTaskConsoles();
     }
@@ -210,7 +210,7 @@ public sealed class NtrTaskSystem : EntitySystem
         _audio.PlayPvs(component.DenySound, uid);
 
         if (Exists(args.User))
-            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail-insert"), uid, args.User);
+            _popup.PopupEntity(Loc.GetString("ntr-console-task-fail-insert"), uid, args.User);
     }
 
     private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskData taskData, bool success)
@@ -298,7 +298,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
         if (!ValidateDocumentStamps(item))
         {
-            _popup.PopupEntity(_loc.GetString("ntr-console-insert-deny-stamps"), console);
+            _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny-stamps"), console);
             _audio.PlayPvs(component.DenySound, console);
             return true;
         }
@@ -375,7 +375,7 @@ public sealed class NtrTaskSystem : EntitySystem
     {
         if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out _, out var solution))
         {
-            _popup.PopupEntity(_loc.GetString("ntr-console-no-solution", ("solutionName", task.SolutionName)), container);
+            _popup.PopupEntity(Loc.GetString("ntr-console-no-solution", ("solutionName", task.SolutionName)), container);
             return false;
         }
 
@@ -383,7 +383,7 @@ public sealed class NtrTaskSystem : EntitySystem
         {
             if (!_prototypes.TryIndex(reagentProtoId, out var requiredReagentProto))
             {
-                _popup.PopupEntity(_loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
+                _popup.PopupEntity(Loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
                 return false;
             }
 
@@ -399,7 +399,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
             if (actualAmount < requiredAmount)
             {
-                _popup.PopupEntity(_loc.GetString("ntr-console-insufficient-reagent-debug",
+                _popup.PopupEntity(Loc.GetString("ntr-console-insufficient-reagent-debug",
                         ("requiredReagent", requiredReagentProto.ID),
                         ("actualReagent", actualReagent),
                         ("required", requiredAmount),

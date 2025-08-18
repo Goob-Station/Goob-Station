@@ -46,13 +46,16 @@ public sealed partial class TaskEntry : BoxContainer
         if (!_prototype.TryIndex(task.Task, out var taskPrototype))
             return;
 
+        if (task.IsAccepted)
+            PrintButton.Disabled = true;
+
         var items = new List<string>();
 
         foreach (var entry in taskPrototype.Entries)
             items.Add(Loc.GetString("ntr-bounty-console-manifest-entry",
                 ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
-        
+
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
         RewardLabel.SetMarkup(Loc.GetString("ntr-bounty-console-reward-label", ("reward", taskPrototype.Reward)));
         DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(taskPrototype.Description))));
