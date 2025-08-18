@@ -503,17 +503,20 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void UpdateTimer(float frameTime)
         {
-            HashSet<EntityUid> toRemove = new();
-            var query = EntityQueryEnumerator<ActiveTimerTriggerComponent>();
-            while (query.MoveNext(out var uid, out var timer))
+            // Pirate VVV
+            var query = AllEntityQuery<ActiveTimerTriggerComponent, MetaDataComponent>();
+            var toTrigger = new List<Entity<ActiveTimerTriggerComponent>>();
+            while (query.MoveNext(out var uid, out var timer, out var meta))
             {
+                if (meta.EntityLifeStage > EntityLifeStage.MapInitialized)
+                    continue;
+
                 timer.TimeRemaining -= frameTime;
                 timer.TimeUntilBeep -= frameTime;
 
                 if (timer.TimeRemaining <= 0)
                 {
-                    Trigger(uid, timer.User);
-                    toRemove.Add(uid);
+                    toTrigger.Add(new(uid, timer));
                     continue;
                 }
 
@@ -524,14 +527,19 @@ namespace Content.Server.Explosion.EntitySystems
                 _audio.PlayPvs(timer.BeepSound, uid, timer.BeepSound.Params);
             }
 
-            foreach (var uid in toRemove)
+            foreach (var ent in toTrigger)
             {
-                RemComp<ActiveTimerTriggerComponent>(uid);
+                if (Deleted(ent))
+                    continue;
+
+                Trigger(ent, ent.Comp.User);
+                RemComp<ActiveTimerTriggerComponent>(ent);
 
                 // In case this is a re-usable grenade, un-prime it.
-                if (TryComp<AppearanceComponent>(uid, out var appearance))
-                    _appearance.SetData(uid, TriggerVisuals.VisualState, TriggerVisualState.Unprimed, appearance);
+                if (TryComp<AppearanceComponent>(ent, out var appearance))
+                    _appearance.SetData(ent, TriggerVisuals.VisualState, TriggerVisualState.Unprimed, appearance);
             }
+            // Pirate ^^^
         }
 
         private void UpdateRepeat()

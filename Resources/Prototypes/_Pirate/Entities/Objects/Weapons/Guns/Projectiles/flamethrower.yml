@@ -1,0 +1,28 @@
+- type: entity
+  name : flamethrower fireball
+  id: BulletFlamethrower
+  parent: BaseBulletIncendiary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/flamer.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    impactEffect: BulletImpactEffectFlamer
+    damage:
+      types:
+        Blunt: 0
+        Heat: 5
+    soundHit:
+      path: /Audio/Effects/lightburn.ogg
+    forceSound: true
+  - type: IgniteOnCollide
+    fireStacks: 0.12
+  - type: IgnitionSource
+    temperature: 700

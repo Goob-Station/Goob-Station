@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by DVD Player for Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "concussion"
+    },
+	{
+	  "name": "explosive"
+	},
+	{
+	  "name": "incendiary"
+	},
+    {
+      "name": "concussionproj",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+       ]
+    },
+    {
+      "name": "explosiveproj",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+       ]
+    },
+    {
+      "name": "incendiaryproj",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+       ]
+	}
+  ]
+}
