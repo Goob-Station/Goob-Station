@@ -13293,3 +13293,9 @@ Entries:
         being bolded.
   id: 1470
   time: '2025-08-18T02:28:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: NTR can no longer be an antag. No more Devil NTR.
+  id: 1471
+  time: '2025-08-18T02:28:55.0000000+00:00'
