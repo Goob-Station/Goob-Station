@@ -13463,3 +13463,15 @@ Entries:
       message: Added section on plastic production to Chemistry and Medical guidebooks!
   id: 1494
   time: '2025-08-18T03:35:35.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Added flares, powercells and double gas tanks to the salvage vendor.
+    - type: Fix
+      message: Fixed jackboots and seclites being contaband for salvagers.
+    - type: Remove
+      message: >-
+        Removed grappling gun from a salvage vendor (it is completely useless on
+        lavaland).
+  id: 1495
+  time: '2025-08-18T03:36:57.0000000+00:00'
