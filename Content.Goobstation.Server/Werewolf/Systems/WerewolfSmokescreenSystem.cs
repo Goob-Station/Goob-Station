@@ -32,7 +32,7 @@ public sealed class WerewolfSmokescreenSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<WerewolfSmokescreenComponent, WerewolfSmokescreenlEvent>(OnSmokescreen);
+        SubscribeLocalEvent<WerewolfSmokescreenComponent, WerewolfSmokescreenEvent>(OnSmokescreen);
     }
 
     public override void Update(float frameTime)
@@ -53,7 +53,7 @@ public sealed class WerewolfSmokescreenSystem : EntitySystem
         }
     }
 
-    private void OnSmokescreen(Entity<WerewolfSmokescreenComponent> ent, ref WerewolfSmokescreenlEvent args)
+    private void OnSmokescreen(Entity<WerewolfSmokescreenComponent> ent, ref WerewolfSmokescreenEvent args)
     {
         StartTheSmoke(ent.Owner, ent.Comp);
 

@@ -26,6 +26,7 @@
     - ActionWerewolfAmbush
     - ActionWerewolfHowl
     - ActionWerewolfSmokescreen
+    - ActionWerewolfCursedBite
   - type: Fixtures
     fixtures:
       fix1:
@@ -53,4 +54,14 @@
   - type: WerewolfCounter
   - type: WerewolfSmokescreen
     spreadAmount: 30
+  - type: WerewolfCursedBite
+    startingForm: DefaultFormWerewolf
+    pathLockedForm: DefaultFormWerewolf
+    formsToTransfer:
+    - DefaultFormWerewolf
+    - ExplosiveFormWerewolf
+    bleedingAmount: -50
+    damage:
+      types:
+       Piercing: 45
 

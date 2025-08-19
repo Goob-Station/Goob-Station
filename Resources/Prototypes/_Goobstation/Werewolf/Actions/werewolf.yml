@@ -45,7 +45,6 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: augmented_eyesight
-    event: !type:HeightenedSensesEvent
     useDelay: 60
   - type: InstantAction
     event: !type:HeightenedSensesEvent
@@ -64,6 +63,8 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: fleshmend
+  - type: TargetAction
+    range: 1.5
   - type: EntityTargetAction
     event: !type:WerewolfGutEvent
 
@@ -75,10 +76,11 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    range: 16
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: hammer
+  - type: TargetAction
+    range: 16
   - type: EntityTargetAction
     event: !type:WerewolfAmbushEvent
 
@@ -113,7 +115,7 @@
       state: space_adaptation
     # useDelay: X
   - type: InstantAction
-    event: !type:WerewolfSmokescreenlEvent
+    event: !type:WerewolfSmokescreenEvent
 
 - type: entity
   id: ActionWerewolfCursedBite
@@ -126,6 +128,7 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: regrow
-    # useDelay: X
+  - type: TargetAction
+    range: 1.5
   - type: EntityTargetAction
     event: !type:WerewolfCursedBiteEvent
