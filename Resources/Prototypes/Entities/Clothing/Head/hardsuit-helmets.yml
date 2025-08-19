@@ -873,7 +873,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     clothingVisuals:
       head:
       - state: equipped-HELMET-light
