@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 11:31:15
-  entityCount: 217
+  time: 08/19/2025 18:30:43
+  entityCount: 223
 maps: []
 grids:
 - 1
@@ -671,6 +671,30 @@ entities:
     - type: Transform
       pos: 12.5,5.5
       parent: 1
+  - uid: 89
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,4.5
+      parent: 1
+  - uid: 90
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,3.5
+      parent: 1
+  - uid: 92
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,3.5
+      parent: 1
+  - uid: 216
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,4.5
+      parent: 1
 - proto: CrateTrashCartFilled
   entities:
   - uid: 73
@@ -756,42 +780,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: FenceWoodHighEnd
-  entities:
-  - uid: 89
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,2.5
-      parent: 1
-  - uid: 90
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,2.5
-      parent: 1
-- proto: FenceWoodHighStraight
-  entities:
-  - uid: 91
-    components:
-    - type: Transform
-      pos: 7.5,3.5
-      parent: 1
-  - uid: 92
-    components:
-    - type: Transform
-      pos: 7.5,4.5
-      parent: 1
-  - uid: 93
-    components:
-    - type: Transform
-      pos: 4.5,3.5
-      parent: 1
-  - uid: 94
-    components:
-    - type: Transform
-      pos: 4.5,4.5
-      parent: 1
 - proto: FoodBakedWaffle
   entities:
   - uid: 95
@@ -857,6 +845,12 @@ entities:
     - type: InsideEntityStorage
 - proto: Grille
   entities:
+  - uid: 93
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,3.5
+      parent: 1
   - uid: 102
     components:
     - type: Transform
@@ -880,6 +874,24 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,5.5
+      parent: 1
+  - uid: 219
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,4.5
+      parent: 1
+  - uid: 220
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,3.5
+      parent: 1
+  - uid: 221
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,4.5
       parent: 1
 - proto: KitchenMicrowave
   entities:
@@ -1034,6 +1046,21 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+- proto: RMCOverheadRoadsignAlt3
+  entities:
+  - uid: 218
+    components:
+    - type: Transform
+      pos: 9.5,2.5
+      parent: 1
+- proto: RMCOverheadSignNeonCafe
+  entities:
+  - uid: 94
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
 - proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 122
@@ -1220,6 +1247,12 @@ entities:
       parent: 1
 - proto: WallWood
   entities:
+  - uid: 91
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,2.5
+      parent: 1
   - uid: 151
     components:
     - type: Transform
@@ -1476,6 +1509,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,13.5
       parent: 1
+  - uid: 215
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,2.5
+      parent: 1
 - proto: WeldingFuelTankHighCapacity
   entities:
   - uid: 200
@@ -1567,17 +1606,17 @@ entities:
       parent: 1
 - proto: WoodenSupport
   entities:
-  - uid: 215
+  - uid: 222
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,2.5
+      rot: 1.5707963267948966 rad
+      pos: 9.5,2.5
       parent: 1
-  - uid: 216
+  - uid: 223
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,2.5
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
       parent: 1
 - proto: Wrench
   entities:

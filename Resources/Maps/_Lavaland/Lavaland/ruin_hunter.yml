@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 11:03:23
-  entityCount: 102
+  time: 08/19/2025 18:18:22
+  entityCount: 105
 maps: []
 grids:
 - 1
@@ -643,6 +643,27 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-2.5
+      parent: 1
+- proto: RMCContainerNovarisLeft
+  entities:
+  - uid: 105
+    components:
+    - type: Transform
+      pos: 15.5,-2.5
+      parent: 1
+- proto: RMCContainerNovarisMiddle
+  entities:
+  - uid: 104
+    components:
+    - type: Transform
+      pos: 16.5,-2.5
+      parent: 1
+- proto: RMCContainerNovarisRight
+  entities:
+  - uid: 103
+    components:
+    - type: Transform
+      pos: 17.5,-2.5
       parent: 1
 - proto: ScrapGeneratorPlasmaLeaking
   entities:
