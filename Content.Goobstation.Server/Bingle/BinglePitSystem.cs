@@ -154,11 +154,14 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >= (component.SpawnNewAt * component.Level))
-        {
-            SpawnBingle(uid, component);
-            component.BinglePoints -= (component.SpawnNewAt * component.Level);
-        }
+        if (component.BinglePoints < component.SpawnNewAt * component.Level)
+            return;
+
+        component.BinglePoints -= component.SpawnNewAt * component.Level;
+
+        SpawnBingle(uid, component);
+        
+        SpawnTiles(uid, component);
     }
 
     private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
@@ -192,7 +195,6 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
-        OnSpawnTile(uid, component.Level * 2, component);
 
         component.MinionsMade++;
         if (component.MinionsMade < component.UpgradeMinionsAfter)
@@ -304,39 +306,52 @@ public sealed class BinglePitSystem : EntitySystem
         ev.AddLine("");
     }
 
-    private void OnSpawnTile(EntityUid uid, float radius, BinglePitComponent component)
+    private void SpawnTiles(EntityUid uid, BinglePitComponent component)
+    {
+        var angle = _random.Next();
+
+        for (var i = 0; i < component.Level; i++)
+        {
+            TrySpawnTile(uid, i + 1, angle, component);
+
+            angle += _random.Next(-1, 1);
+        }
+    }
+
+    private void TrySpawnTile(EntityUid uid, float radius, int angle, BinglePitComponent component)
     {
         var tgtPos = Transform(uid);
+
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
-        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
         var convertTile = (ContentTileDefinition) _tiledef[FloorTile];
 
-        while (tileEnumerator.MoveNext(out var tile))
-        {
-            if (tile.Tile.TypeId == convertTile.TileId
-                || tile.GetContentTileDefinition().Name == convertTile.Name ||
-                !_random.Prob(0.1f))
-                continue;
+        var xPos = Math.Floor(tgtPos.LocalPosition.X + Math.Sin(angle) * radius);
+        var yPos = Math.Floor(tgtPos.LocalPosition.Y + Math.Cos(angle) * radius);
 
-            _tile.ReplaceTile(tile, convertTile);
-            _tile.PickVariant(convertTile);
+        var tilePos = new Vector2i((int) xPos, (int) yPos);
 
-            var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
+        var tile = _map.GetTileRef((gridUid, mapGrid), tilePos);
 
-            // Why not just slap an RNG check and call it a day?
-            // Well because the placement looks ugly and with this the mushrooms
-            // are spread out evenly.
-            if (component.Level < component.LevelForMushroom
-                || _lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
-                || component.TilesUntilNextMushroom-- > 0)
-                return;
+        if (tile.Tile.TypeId == convertTile.TileId || tile.Tile.IsEmpty)
+            return;
 
-            Spawn(_random.Pick(component.MushroomPrototypes), coords);
-            component.TilesUntilNextMushroom = component.TilesPerMushroom;
-        }
+        _tile.ReplaceTile(tile, convertTile);
+        _tile.PickVariant(convertTile);
 
+        var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
+
+        // Why not just slap an RNG check and call it a day?
+        // Well because the placement looks ugly and with this the mushrooms
+        // are spread out evenly.
+        if (component.Level < component.LevelForMushroom
+            || _lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
+            || component.TilesUntilNextMushroom-- > 0)
+            return;
+
+        Spawn(_random.Pick(component.MushroomPrototypes), coords);
+        component.TilesUntilNextMushroom = component.TilesPerMushroom;
     }
 
 }
