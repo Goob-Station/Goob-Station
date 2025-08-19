@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: latheRecipePack
+- type: latheRecipePack # Corvax-Printer
   id: DocumentsStatic
   recipes:
   - PrintedDocumentReportStationRecipe
@@ -62,5 +62,5 @@
   - PrintedDocumentClosingIndictmentRecipe
   - PrintedDocumentSentenceRecipe
   - PrintedDocumentJudgmentRecipe
-  - PrintedDocumentStatementHealtheRecipe
+  - PrintedDocumentStatementHealthRecipe
   - PrintedDocumentDecisionToStartTrialRecipe

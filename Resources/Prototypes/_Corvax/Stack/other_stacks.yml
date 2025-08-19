@@ -5,7 +5,7 @@
 
 - type: stack
   id: SheetPrinter
-  name: paper
+  name: materials-paper
   icon: {sprite: Objects/Misc/bureaucracy.rsi, state: paper}
   spawn: SheetPrinter1
   maxCount: 1
