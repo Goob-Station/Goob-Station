@@ -1,0 +1,89 @@
+- type: polymorph
+  id: WizardMouse
+  configuration:
+    entity: MobMouse
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardBread
+  configuration:
+    entity: FoodBreadPlain
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardChicken
+  configuration:
+    entity: MobChicken
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardMonkey
+  configuration:
+    entity: MobMonkey
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardGoat
+  configuration:
+    entity: MobGoat
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardCow
+  configuration:
+    entity: MobCow
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardPig
+  configuration:
+    entity: MobPig
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardHamster
+  configuration:
+    entity: MobHamster
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: WizardCat
+  configuration:
+    entity: MobCat
+    transferName: true
+    forced: true
+    duration: 60
+    revertOnCrit: true
+    revertOnDeath: true

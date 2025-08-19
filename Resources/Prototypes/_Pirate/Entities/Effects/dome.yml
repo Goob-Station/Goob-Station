@@ -1,0 +1,153 @@
+- type: entity
+  id: EnergyDomeBase
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.8
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HardLightBarrier
+  - type: AmbientSound
+    volume: 35
+    range: 5
+    sound:
+      path: /Audio/_Pirate/Machines/energyshield_ambient.ogg
+  - type: EnergyDome
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EnergyDomeSmallPink
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    sprite: _Pirate/Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#f5166b"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#f5166b"
+
+- type: entity
+  id: EnergyDomeSmallRed
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: _Pirate/Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#b00000"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#b00000"
+
+- type: entity
+  id: EnergyDomeMediumBlue
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.8
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Sprite
+    sprite: _Pirate/Effects/EnergyDome/energydome_medium.rsi
+    layers:
+    - state: medium
+      color: "#64b9de"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 10
+    color: "#64b9de"
+
+- type: entity
+  id: EnergyDomeSlowing
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.8
+        density: 0
+        hard: false
+        mask:
+        - None
+        layer:
+        - MidImpassable
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: _Pirate/Effects/EnergyDome/energydome_slowdown_big.rsi
+    layers:
+    - state: big
+      color: "#a3d177"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 30
+    color: "#a3d177"
+  - type: DamageContacts
+    damage:
+      types:
+        Slash: -1.5
+        Piercing: -1.5
+
+- type: entity
+  id: DomeSmallFire
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.6
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: _Pirate/Effects/EnergyDome/energydome_fire.rsi
+    layers:
+    - state: small
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#FF8C00"

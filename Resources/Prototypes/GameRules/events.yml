@@ -192,8 +192,8 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
-    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
-    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    #- id: LoneAbductorSpawn Pirate abductor remove
+    #- id: DuoAbductorSpawn Pirate abductor remove
     - id: BingleSpawn #Goobstation - Bingle
 
 - type: entity

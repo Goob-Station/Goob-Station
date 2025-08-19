@@ -1,0 +1,21 @@
+# Mage outfit
+- type: startingGear
+  id: MageGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitKimono
+    # # belt holds katana so satchel has the tools for sabotaging things
+    # back: ClothingBackpackSatchelTools
+    # mask: ClothingMaskNinja
+    head: ClothingHeadHatWizard
+  #   eyes: ClothingEyesVisorNinja
+    gloves: ClothingHandsGlovesColorYellow
+    outerClothing: ClothingOuterWizard
+    shoes: ClothingShoesWizard
+  #   id: AgentIDCard
+  #   ears: ClothingHeadsetGrey
+  #   pocket1: SpiderCharge
+  #   pocket2: PinpointerStation
+  #   belt: EnergyKatana
+  #   suitstorage: YellowOxygenTankFilled
+  # inhand:
+  #   - JetpackBlackFilled

@@ -1,5 +1,7 @@
 - type: entity
   id: ActionDispel
+  name: Dispel
+  description: Dispel summoned entities such as familiars or forcewalls.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -7,7 +9,7 @@
       useDelay: 45
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 6
     - type: EntityTargetAction
       canTargetSelf: false
@@ -19,6 +21,8 @@
 
 - type: entity
   id: ActionMassSleep
+  name: Mass Sleep
+  description: Put targets in a small area to sleep.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -26,13 +30,15 @@
       useDelay: 60
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 8
     - type: WorldTargetAction
       event: !type:MassSleepPowerActionEvent
 
 - type: entity
   id: ActionMindSwapPsionic
+  name: Mind Swap
+  description: Swap minds with the target. Either can change back after 20 seconds.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -40,7 +46,7 @@
       useDelay: 240
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 8
     - type: EntityTargetAction
       blacklist:
@@ -51,6 +57,8 @@
 
 - type: entity
   id: ActionMindSwapReturn
+  name: Reverse Mind Swap
+  description: Return to your original body.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -62,6 +70,8 @@
 
 - type: entity
   id: ActionNoosphericZap
+  name: Noospheric Zap
+  description: Shocks the conciousness of the target and leaves them stunned and stuttering.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -79,6 +89,8 @@
 
 - type: entity
   id: ActionPyrokinesis
+  name: Pyrokinesis
+  description: Light a flammable target on fire.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -87,12 +99,14 @@
       itemIconStyle: BigAction
     - type: TargetAction
       range: 6
-      checkCanAccess: false
+      #checkCanAccess: false
     - type: EntityTargetAction
       event: !type:PyrokinesisPowerActionEvent
 
 - type: entity
   id: ActionMetapsionic
+  name: Metapsionic Pulse
+  description: Send a mental pulse through the area to see if there are any psychics nearby.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -103,6 +117,8 @@
 
 - type: entity
   id: ActionPsionicRegeneration
+  name: Psionic Regeneration
+  description: Push your natural metabolism to the limit to activate your body's regenerative ability.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -113,6 +129,8 @@
 
 - type: entity
   id: ActionTelegnosis
+  name: Telegnosis
+  description: Create a telegnostic projection to remotely observe things.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -144,6 +162,8 @@
 
 - type: entity
   id: ActionHealingWord
+  name: Healing Word
+  description: Channel psionic energy to heal a target.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -151,7 +171,7 @@
       useDelay: 10
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 6
     - type: EntityTargetAction
       canTargetSelf: true
@@ -159,6 +179,9 @@
         components:
           - PsionicInsulation
           - Mindbroken
+      whitelist:
+        components:
+        - Body
       event: !type:PsionicHealOtherPowerActionEvent
         healingAmount:
           groups: # These all get divided by the number of damage types in the group. So they're all -2.5.
@@ -181,6 +204,8 @@
 
 - type: entity
   id: ActionRevivify
+  name: Revivify
+  description: Return a target to life.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -188,7 +213,7 @@
       useDelay: 120
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 2
     - type: EntityTargetAction
       canTargetSelf: false
@@ -220,6 +245,8 @@
 
 - type: entity
   id: ActionShadeskip
+  name: Shadeskip
+  description: Slip into the shadows, becoming momentarily undetectable.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -255,6 +282,8 @@
 
 - type: entity
   id: ActionTelekineticPulse
+  name: Telekinetic Pulse
+  description: Create a pulse of telekinetic energy to push or pull objects.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -289,6 +318,8 @@
 
 - type: entity
   id: ActionDarkSwap
+  name: Dark Swap
+  description: Swap positions with a nearby shadow.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -300,6 +331,8 @@
 
 - type: entity
   id: ActionPyrokineticFlare
+  name: Pyrokinetic Flare
+  description: Create a burst of fire to damage enemies.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -326,6 +359,8 @@
 
 - type: entity
   id: ActionSummonImp
+  name: Summon Imp
+  description: Summon a small imp to assist you.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -344,6 +379,8 @@
 
 - type: entity
   id: ActionSummonRemilia
+  name: Summon Remilia
+  description: Summon a bat-like familiar to assist you.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -362,6 +399,8 @@
 
 - type: entity
   id: ActionAssay
+  name: Assay
+  description: Analyze a target's psionic signature.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -369,7 +408,7 @@
       useDelay: 45
       itemIconStyle: BigAction
     - type: TargetAction
-      checkCanAccess: false
+      #checkCanAccess: false
       range: 2
     - type: EntityTargetAction
       canTargetSelf: true
@@ -381,6 +420,8 @@
 
 - type: entity
   id: ActionAnoigo
+  name: Anoigo
+  description: Create a localized distortion in space to confuse enemies.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -389,3 +430,5 @@
     itemIconStyle: BigAction
   - type: EntityTargetAction
     event: !type:AnoigoPowerActionEvent
+  - type: TargetAction
+    range: 2

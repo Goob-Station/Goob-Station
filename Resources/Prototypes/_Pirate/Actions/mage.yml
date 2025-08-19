@@ -1,0 +1,414 @@
+- type: entity
+  parent: BaseAction
+  id: ActionMageShop
+  name: Магазин
+  description: Відкриває магазин здібностей.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:MageShopActionEvent
+
+- type: entity
+  id: ActionMageBlink
+  name: Телепорт
+  description: Телепортуйтеся в вибране місце.
+  components:
+  - type: WorldTargetAction
+    event: !type:MageTeleportSpellEvent
+      manaCost: 40
+      # staminaCost: 30
+      #speech: action-speech-spell-teleport
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    useDelay: 10
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+  - type: SpeakOnAction
+    sentence: action-speech-spell-teleport
+  - type: TargetAction
+    checkCanAccess: false
+    range: 16
+    repeat: true
+
+#- type: entity
+#  id: ActionMageDash
+#  name: Слабкий Телепорт
+#  description: Телепортуйтеся у місце що бачиш без перешкод
+#  components:
+#  - type: WorldTargetAction
+#    useDelay: 10
+#    range: 15
+#    itemIconStyle: NoItem
+#    checkCanAccess: true
+#    repeat: true
+#    priority: -20
+#    icon:
+#      sprite: _EinsteinEngines/Interface/Actions/shadowkin_icons.rsi
+#      state: darkswap
+#    event: !type:MageDashSpellEvent
+#      manaCost: 20
+#      # staminaCost: 30
+#      #speech: action-description-shadowkin-teleport
+#  - type: SpeakOnAction
+#    sentence: action-description-shadowkin-teleport
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityKnock
+  name: Стук
+  description: Це заклинання відкриває сусідні двері.
+  components:
+  - type: InstantAction
+    event: !type:MageKnockSpellEvent
+      manaCost: 10
+      #speech: action-speech-spell-knock
+  - type: SpeakOnAction
+    sentence: action-speech-spell-knock
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: knock
+    useDelay: 5
+
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityFireball
+  name: вогняна куля
+  description: Випускає вибухову вогняну кулю в напрямку клацання.
+  components:
+  - type: WorldTargetAction
+    event: !type:MageProjectileSpellEvent
+      manaCost: 25
+      prototype: ProjectileFireball
+      posData: !type:TargetCasterPos
+      #speech: action-speech-spell-fireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 60
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityIcicle
+  name: Бурулька
+  description: бурулька.
+  components:
+  - type: WorldTargetAction
+    event: !type:MageProjectileSpellEvent
+      manaCost: 20
+      prototype: ProjectileIcicle
+      posData: !type:TargetCasterPos
+      #speech: action-speech-spell-icicle
+  - type: SpeakOnAction
+    sentence: action-speech-spell-icicle
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Structures/Specific/Anomalies/ice_anom.rsi
+      state: bullet
+    useDelay: 20
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 60
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityEmp
+  name: EM Спалах
+  description: Вимкніть будь-які сусідні технології за допомогою електромагнітного імпульсу.
+  components:
+  - type: InstantAction
+    event: !type:MageEmpSpellEvent
+      manaCost: 20
+      #speech: action-speech-spell-emp
+  - type: SpeakOnAction
+    sentence: action-speech-spell-emp
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Grenades/empgrenade.rsi
+      state: icon
+    useDelay: 15
+    priority: -13
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityLightning
+  name: Блискавка
+  description: Сила Тесли!
+  components:
+  - type: InstantAction
+    event: !type:MageLightningSpellEvent
+      manaCost: 40
+      #speech: action-speech-spell-smite
+      maxElectrocuteDamage: 10
+      # range: 4
+      maxElectrocutionRange: 4
+      maxElectrocuteDuration: 2
+  - type: SpeakOnAction
+    sentence: action-speech-spell-smite
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Effects/lightning.rsi
+      state: blue_lightning
+    useDelay: 30
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityBlind
+  name: Blind
+  description: Temporarily blinds a target.
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:MageBlindSpellEvent
+      #speech: action-speech-spell-blind
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-blind
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: eyeball-r
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/staff_chaos.ogg
+  - type: TargetAction
+    interactOnMiss: false
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilitySmoke
+  name: Smoke
+  description: This spell creates a thick smoke screen around the caster
+  components:
+  - type: InstantAction
+    event: !type:MageSmokeSpellEvent
+      #speech: action-speech-spell-smoke
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-smoke
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Grenades/smoke.rsi
+      state: icon
+    useDelay: 45
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilitySwap
+  name: Swap
+  description: Swap positions with a target
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Body
+    event: !type:MageSwapSpellEvent
+      #speech: action-speech-spell-swap
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-swap
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Devices/swapper.rsi
+      state: icon
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+  - type: TargetAction
+    interactOnMiss: false
+    range: 16
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityMindSwap
+  name: Swap
+  description: Swap positions with a target
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:MageMindSwapSpellEvent
+      #speech: action-speech-spell-mind-swap
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-mind-swap
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Devices/swapper.rsi
+      state: icon
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+  - type: TargetAction
+    interactOnMiss: false
+    range: 16
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityHeal
+  name: Heal
+  description: Heals whoever you target. Target yourself to self-heal
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: true
+    event: !type:MageHealSpellEvent
+      #speech: action-speech-spell-heal
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-heal
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: heal
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/staff_healing.ogg
+  - type: TargetAction
+    interactOnMiss: false
+    range: 16
+
+- type: entity
+  parent: BaseAction
+  id: MageAbilityAnimateDead
+  name: Animate Dead
+  description: This spell forces the skeleton out of all nearby corpses to assist you
+  components:
+  - type: InstantAction
+    event: !type:MageAnimateDeadSpellEvent
+      #speech: action-speech-spell-animatedead
+      manaCost: 30
+  - type: SpeakOnAction
+    sentence: action-speech-spell-animatedead
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: skull_icon
+    useDelay: 45
+
+- type: entity
+  parent: BaseAction
+  id: MageMagicMissile
+  name: Magic Missile
+  description: Fires an orb that stuns on hit towards the clicked location.
+  components:
+  - type: WorldTargetAction
+    event: !type:MageProjectileSpellEvent
+      manaCost: 25
+      prototype: ProjectileMagicMissile
+      posData: !type:TargetCasterPos
+      #speech: action-speech-spell-magicmissile
+  - type: SpeakOnAction
+    sentence: action-speech-spell-magicmissile
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: magicmissile
+    useDelay: 10
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 60
+
+- type: entity
+  parent: BaseAction
+  id: MageIceBurst
+  name: Magic Missile
+  description: Fires an orb that stuns on hit towards the clicked location.
+  components:
+  - type: WorldTargetAction
+    event: !type:MageProjectileSpellEvent
+      manaCost: 25
+      prototype: ProjectileIceBurst
+      posData: !type:TargetCasterPos
+      #speech: action-speech-spell-iceburst
+  - type: SpeakOnAction
+    sentence: action-speech-spell-iceburst
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: magicmissile
+    useDelay: 10
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 60
+
+- type: entity
+  parent: BaseAction
+  id: MagicTeslaBall
+  name: Tesla Ball
+  description: Fires a mini tesla ball towards the clicked location
+  components:
+  - type: WorldTargetAction
+    event: !type:MageProjectileSpellEvent
+      manaCost: 25
+      prototype: ProjectileMagicTesla
+      posData: !type:TargetCasterPos
+      #speech: action-speech-spell-teslaball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-teslaball
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: tesla
+    useDelay: 25
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 60
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleDome
+  name: Toggle energy dome
+  description: Turn the energy barrier on or off.
+  components:
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+  - type: Action
+    icon:
+      sprite: Objects/Weapons/Melee/e_shield.rsi
+      state: eshield-on

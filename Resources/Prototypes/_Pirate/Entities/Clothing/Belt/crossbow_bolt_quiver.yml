@@ -1,0 +1,47 @@
+- type: entity
+  parent: ClothingBeltQuiver
+  id: ClothingBeltQuiverMagicCrossbow
+  name: quiver (bolts)
+  description: Can hold up to 20 bolts, and fits snug around your waist.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Belt/crossbow_quiver.rsi
+    layers:
+    - state: icon
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,3
+    whitelist:
+      tags:
+      - CrossbowBolt
+      - Arrow
+      - Plunger
+      - WizardCrossbow
+  - type: StorageContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+  # - type: Construction
+  #   graph: CraftQuiverBolt
+  #   node: CraftQuiverBolt
+  - type: StorageFill
+    contents:
+     - id: MagicCrossbow
+     - id: CrossbowBolt
+     - id: CrossbowBolt
+     - id: CrossbowBolt
+     - id: CrossbowBolt
+     - id: MagicCrossbowBoltFire
+     - id: MagicCrossbowBoltFire
+     - id: MagicCrossbowBoltFire
+     - id: MagicCrossbowBoltFire
+     - id: MagicCrossbowBoltStun
+     - id: MagicCrossbowBoltStun
+     - id: MagicCrossbowBoltStun
+     - id: MagicCrossbowBoltStun
+     - id: MagicCrossbowBoltPoison
+     - id: MagicCrossbowBoltPoison
+     - id: MagicCrossbowBoltPoison
+     - id: MagicCrossbowBoltPoison

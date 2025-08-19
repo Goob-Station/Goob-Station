@@ -164,6 +164,7 @@
   - Brig
   - Cryogenics
   - External # goobstation
+  - Mantis
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

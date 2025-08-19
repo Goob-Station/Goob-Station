@@ -9,3 +9,17 @@
       - id: WeaponPlasmaAkurra
       - id: EchionCanister
         amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackHolyGrenade
+  name: Набір святих гранат
+  description: "Містить святі гранати: 4 відволікаючих, і 1 справжню"
+  suffix: DO NOT MAP
+  components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: StorageFill
+      contents:
+        - id: HolyGrenadeDummy
+          amount: 4

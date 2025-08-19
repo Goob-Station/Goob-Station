@@ -1,0 +1,41 @@
+# Mage
+- type: entity
+  name: Маг
+  parent: MobHuman
+  id: MobHumanMage
+  components:
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    #- IgnoreBalanceChecks # Pirate banking
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [MageGear]
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  # - type: SpaceNinja
+#  - type: GenericAntag #Break spawner, it becomes infinite
+#    rule: Mage
+  - type: AutoImplant
+    implants:
+     - DeathAcidifierImplant
+  - type: RandomMetadata
+    nameSegments:
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
+  - type: Mage
+  - type: Store
+    categories:
+    - MageAbilities
+    - MageUtility
+    currencyWhitelist:
+    - Experince
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface

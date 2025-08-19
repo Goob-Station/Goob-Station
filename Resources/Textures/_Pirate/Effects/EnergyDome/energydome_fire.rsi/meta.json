@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taked from TG station wiki https://tgstation13.org/wiki/File:Fire_ring.gif",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "small",
+        "delays": [
+          [
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ]
+        ]
+      }
+    ]
+  }

@@ -1,7 +1,7 @@
 - type: entity
   id: ShellSoulbreaker
   name: shell (.50 soulbreaker)
-  parent: [ BaseShellShotgun, BaseSecurityContraband ]
+  parent: [ BaseShellShotgun, BaseMantisContraband ]
   components:
   - type: Tag
     tags:

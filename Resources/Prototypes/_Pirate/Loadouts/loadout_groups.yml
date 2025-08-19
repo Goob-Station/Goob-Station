@@ -5,6 +5,7 @@
   loadouts:
   - AdminAssistantJumpsuit
   - AdminAssistantJumpskirt
+  - AdminAssistantHeadMaid
 
 - type: loadoutGroup
   id: AdminAssistantHeadset
