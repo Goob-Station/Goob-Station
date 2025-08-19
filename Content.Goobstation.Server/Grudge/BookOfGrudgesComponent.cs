@@ -23,7 +23,11 @@ public sealed partial class BookOfGrudgesComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Slash", 5 }
+            { "Slash", 10 }
         }
     };
+
+    // for book of Meta grudge. Ad meme. checks user name instead of character names
+    [DataField]
+    public bool MetaGrudge = false;
 }

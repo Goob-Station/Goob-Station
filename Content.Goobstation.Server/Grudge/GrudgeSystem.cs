@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Server.Forensics;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Grudge;
 
@@ -25,12 +26,12 @@ public sealed class GrudgeSystem : EntitySystem
     [Dependency] private readonly ForensicsSystem _forensic = default!;
     public override void Initialize()
     {
-
         SubscribeLocalEvent<TargetOfGrudgeComponent, MobStateChangedEvent>(OnMobstateChange);// when Target Dies
         SubscribeLocalEvent<BookOfGrudgesComponent, PaperAfterWriteEvent>(OnPaperAfterWrite); // when name is added
         SubscribeLocalEvent<BookOfGrudgesComponent, MeleeHitEvent>(OnMeleeHit); // on attack / damage calculation
         SubscribeLocalEvent<TargetOfGrudgeComponent, DamageModifyEvent>(OnDamaged);
-        // If book is destroyed remove all Grudges connected to it.
+        //TODO: If book is destroyed remove all Grudges connected to it.
+        //TODO: when inspected tell how manny gudges are writen in book.
     }
 
     private void OnPaperAfterWrite(Entity<BookOfGrudgesComponent> ent, ref PaperAfterWriteEvent args)
@@ -113,6 +114,8 @@ public sealed class GrudgeSystem : EntitySystem
             if (ent.Comp.Book.Comp.Names.Remove(_nameModifierSystem.GetBaseName(ent.Owner).ToLower()))
                 _popupSystem.PopupEntity(Loc.GetString("book-of-grudges-removed"), ent.Comp.Book.Owner, PopupType.Large);
 
+            //TODO: Find name in book and line it out
+
             RemCompDeferred<TargetOfGrudgeComponent>(ent);//Target is dead, grudge is settled
         }
 
@@ -126,11 +129,27 @@ public sealed class GrudgeSystem : EntitySystem
             return false;
 
         }
-        if (!TryFindEntityByName(name, out var uid) ||
-            !TryComp<MobStateComponent>(uid, out var mob))
+
+        EntityUid? uid;
+        MobStateComponent? mob;
+
+        if (ent.Comp.MetaGrudge)
         {
-            entityUid = null;
-            return false;
+            if (!TryFindPlayerByName(name, out uid) ||
+                !TryComp<MobStateComponent>(uid, out mob))
+            {
+                entityUid = null;
+                return false;
+            }
+        }
+        else
+        {
+            if (!TryFindEntityByName(name, out uid) ||
+                !TryComp<MobStateComponent>(uid, out mob))
+            {
+                entityUid = null;
+                return false;
+            }
         }
 
         if (uid is not { } realUid)
@@ -156,6 +175,23 @@ public sealed class GrudgeSystem : EntitySystem
         while (query.MoveNext(out var uid, out _))
         {
             if (!_nameModifierSystem.GetBaseName(uid).Equals(name, StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            entityUid = uid;
+            return true;
+        }
+
+        entityUid = null;
+        return false;
+    }
+
+    private bool TryFindPlayerByName(string name, [NotNullWhen(true)] out EntityUid? entityUid)
+    {
+        var query = EntityQueryEnumerator<ActorComponent>();
+
+        while (query.MoveNext(out var uid, out var actor))
+        {
+            if (!actor.PlayerSession.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                 continue;
 
             entityUid = uid;
