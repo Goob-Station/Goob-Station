@@ -1,0 +1,20 @@
+- type: entity
+  name: магічна бита
+  parent: BaseBallBat
+  id: WeaponMeleeMagicBat
+  description: Вибийте з них всю дурь.
+  # suffix: Do not map
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Melee/magic_bat.rsi
+    state: icon
+  - type: MeleeThrowOnHit
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+        Structural: 7
+    soundHit:
+      path: /Audio/_Pirate/Weapons/bat_bonk.ogg
+      params:
+        volume: -3

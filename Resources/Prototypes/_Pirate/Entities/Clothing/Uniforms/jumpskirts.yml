@@ -8,3 +8,14 @@
     sprite: _Pirate/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
   - type: Clothing
     sprite: _Pirate/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHeadMaid
+  name: Вбрання старшої покоївки
+  description: Було випущене обмеженим тиражем під спеціальне замовлення компанії, яка надавала послуги з прибирання станцій після різноманітних катастроф.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Uniforms/Jumpskirt/headmaid.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Uniforms/Jumpskirt/headmaid.rsi

@@ -26,10 +26,17 @@
       "name": "magicmissile"
     },
     {
-      "name": "jaunt"
+      "name": "gib"
     },
     {
-      "name": "gib"
+        "name":"heal"
+    },
+    {
+        "name":"tesla"
+    },
+    {
+        "name":"jaunt"
     }
+
   ]
 }

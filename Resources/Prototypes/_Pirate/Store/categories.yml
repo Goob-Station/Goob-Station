@@ -1,0 +1,9 @@
+- type: storeCategory
+  id: MageAbilities
+  name: store-category-abilities
+  priority: 0
+
+- type: storeCategory
+  id: MageUtility
+  name: store-category-utility
+  priority: 1

@@ -1,0 +1,93 @@
+- type: entity
+  name: x-02 енерго-поліморф
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunMultiphasePolymorh
+  description: Чаклунська модифікація енерго-пістолету, що викликає небачені результати.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    - Back # Frontier
+    - suitStorage # Frontier
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectilePolyboltMouseTimed
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: ProjectilePolyboltMouseTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltMonkeyTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltGoatTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltCowTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltPigTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltHamsterTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltWizardCatTimed
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: ProjectilePolyboltCluwneTimed
+      fireCost: 100
+      name: lethal
+      state: lethal
+    - proto: ProjectilePolyboltBreadTimed
+      fireCost: 100
+      name: ion
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5

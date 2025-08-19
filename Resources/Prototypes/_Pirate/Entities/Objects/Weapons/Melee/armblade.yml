@@ -1,0 +1,18 @@
+- type: entity
+  name: магічна лезорука
+  parent: ArmBlade
+  id: MagicArmBlade
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Melee/magic_armblade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 15
+        Piercing: 7
+  - type: Item
+    size: Normal
+    sprite: _Pirate/Objects/Weapons/Melee/magic_armblade.rsi

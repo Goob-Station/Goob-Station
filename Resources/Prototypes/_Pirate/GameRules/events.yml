@@ -1,0 +1,11 @@
+- type: entity
+  id: MageSpawn
+  parent: BaseGameRule
+  components:
+  - type: ActivePirateRule
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Pirate/wizard.yml
+  - type: Tag
+    tags:
+    - MidroundAntag

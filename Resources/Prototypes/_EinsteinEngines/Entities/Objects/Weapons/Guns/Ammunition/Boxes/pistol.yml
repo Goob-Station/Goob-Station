@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMagazineBoxPistol
+  parent: [ BaseMagazineBoxPistol, BaseMantisContraband ]
   id: MagazineBoxPistolMindbreaker
   name: ammunition box (.35 mindbreaker)
   description: A cardboard box of .35 auto rounds.

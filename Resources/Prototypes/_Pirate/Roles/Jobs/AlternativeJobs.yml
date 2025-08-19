@@ -39,6 +39,12 @@
   jobDescription: job-description-service-worker
   parentJobId: ServiceWorker
 
+- type: alternativeJob
+  id: AlternativeJobMaid
+  jobName: job-alternative-name-maid
+  jobDescription: job-description-janitor
+  parentJobId: Janitor
+
 # region Chaplain
 - type: alternativeJob
   id: AlternativeJobAtheist
@@ -249,6 +255,12 @@
 #endregion
 
 #region Security
+
+- type: alternativeJob # GOD(Void) allows this, pls dont kill me
+  id: AlternativeJobSecMaid
+  jobName: job-alternative-name-security-maid
+  jobDescription: job-description-warden
+  parentJobId: Warden
 
 - type: alternativeJob
   id: AlternativeJobPeacekeeper
