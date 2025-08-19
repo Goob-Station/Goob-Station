@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/17/2025 11:09:12
-  entityCount: 15868
+  time: 08/19/2025 08:43:44
+  entityCount: 15861
 maps:
 - 1
 grids:
@@ -11954,14 +11954,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 11159
-      - 9143
       - 14236
-      - 14235
-      - 14233
-      - 9131
-      - 14298
-      - 14295
       - 9142
       - 9145
       - 8983
@@ -50871,7 +50864,7 @@ entities:
       pos: -2.5,38.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6120.206
+      secondsUntilStateChange: -6154.455
       state: Closing
   - uid: 6681
     components:
@@ -106941,75 +106934,10 @@ entities:
       parent: 2
 - proto: WeaponEnergyTurretAI
   entities:
-  - uid: 9131
-    components:
-    - type: Transform
-      pos: -21.5,39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 9143
-    components:
-    - type: Transform
-      pos: -13.5,63.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 11159
-    components:
-    - type: Transform
-      pos: -19.5,63.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14233
-    components:
-    - type: Transform
-      pos: -20.5,47.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14235
-    components:
-    - type: Transform
-      pos: -9.5,60.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
   - uid: 14236
     components:
     - type: Transform
       pos: -22.5,56.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14295
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,47.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14298
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,55.5
       parent: 2
     - type: DeviceNetwork
       deviceLists:
@@ -107025,14 +106953,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 11159
-      - 9143
       - 14236
-      - 14235
-      - 14233
-      - 9131
-      - 14298
-      - 14295
 - proto: WeaponEnergyTurretAIMachineCircuitboard
   entities:
   - uid: 14299
