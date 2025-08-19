@@ -142,10 +142,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         var querySupermatters = AllEntityQuery<SupermatterComponent, TransformComponent>();
         while (querySupermatters.MoveNext(out var ent, out var entSupermatter, out var entXform))
         {
-            if (entXform.GridUid != gridUid)
-                continue;
-
-            if (!entXform.Anchored)
+            if (entXform.GridUid != gridUid
+                || !entXform.Anchored)
                 continue;
 
             // Create entry
