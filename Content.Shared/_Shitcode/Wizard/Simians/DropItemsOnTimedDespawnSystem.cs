@@ -33,15 +33,17 @@ public sealed class DropItemsOnTimedDespawnSystem : EntitySystem
         var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
         var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
 
-        foreach (var hand in _hands.EnumerateHands((uid, hands)))
+        foreach (var hand in _hands.EnumerateHands(uid, hands))
         {
-            if (_hands.TryGetActiveItem((uid, hands), out var held))
+            if (hand.HeldEntity == null)
                 continue;
+
+            var held = hand.HeldEntity.Value;
 
             if (!comp.DropDespawningItems && (fadingQuery.HasComp(held) || despawnQuery.HasComp(held)))
                 continue;
 
-            _hands.TryDrop((uid, hands), hand);
+            _hands.TryDrop(uid, hand, handsComp: hands);
         }
     }
 }

@@ -19,7 +19,6 @@ using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Melee;
@@ -52,7 +51,7 @@ public abstract class SharedSpellbladeSystem : EntitySystem
         SubscribeLocalEvent<ElectrocutionAttemptEvent>(OnElectrocutionAttempt);
 
         SubscribeLocalEvent<ShieldedComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<ShieldedComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<ShieldedComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<ShieldedComponent, DamageModifyEvent>(OnDamageModify);
     }
 
@@ -62,7 +61,7 @@ public abstract class SharedSpellbladeSystem : EntitySystem
             DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.Damage.ArmorPenetration));
     }
 
-    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref BeforeStatusEffectAddedEvent args)
     {
         if (!ent.Comp.AntiStun || args.Key is not ("Stun"))
             return;

@@ -53,12 +53,10 @@ public sealed class BackEquipSystem : EntitySystem
         if (playerSession.AttachedEntity is not { Valid: true } uid || !Exists(uid))
             return;
 
-        var activeHand = _hands.GetActiveHand(uid);
-        if (!TryComp<HandsComponent>(uid, out var hands)
-            || activeHand == null)
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand == null)
             return;
 
-        var handItem = _hands.GetHeldItem((uid, hands), activeHand);
+        var handItem = hands.ActiveHand.HeldEntity;
 
         if (!_actionBlocker.CanInteract(uid, handItem))
             return;
@@ -71,7 +69,7 @@ public sealed class BackEquipSystem : EntitySystem
             return;
         }
 
-        if (handItem != null && !_hands.CanDropHeld(uid, activeHand))
+        if (handItem != null && !_hands.CanDropHeld(uid, hands.ActiveHand))
         {
             _popup.PopupClient(Loc.GetString("smart-equip-cant-drop"), uid, uid);
             return;
@@ -93,7 +91,7 @@ public sealed class BackEquipSystem : EntitySystem
                 return;
             }
 
-            _hands.TryDrop((uid, hands), activeHand);
+            _hands.TryDrop(uid, hands.ActiveHand, handsComp: hands);
             _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter: true);
             return;
         }

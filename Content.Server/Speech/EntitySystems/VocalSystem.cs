@@ -81,18 +81,15 @@ public sealed class VocalSystem : EntitySystem
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
         if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
         {
-            args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
+            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
             return;
         }
         // Goobstation end
 
-        if (component.EmoteSounds is not { } sounds)
-            return;
-
         // just play regular sound based on emote proto
-        args.Handled = _chat.TryPlayEmoteSound(uid, _proto.Index(sounds), args.Emote);
+        args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
     }
 
     private void OnScreamAction(EntityUid uid, VocalComponent component, ScreamActionEvent args)
@@ -110,8 +107,8 @@ public sealed class VocalSystem : EntitySystem
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
         if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
-            return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+            return _chat.TryPlayEmoteSound(uid, sounds, component.ScreamId);
         // Goobstation end
 
         if (_random.Prob(component.WilhelmProbability))
@@ -120,10 +117,7 @@ public sealed class VocalSystem : EntitySystem
             return true;
         }
 
-        if (component.EmoteSounds is not { } sounds)
-            return false;
-
-        return _chat.TryPlayEmoteSound(uid, _proto.Index(sounds), component.ScreamId);
+        return _chat.TryPlayEmoteSound(uid, component.EmoteSounds, component.ScreamId);
     }
 
     private void LoadSounds(EntityUid uid, VocalComponent component, Sex? sex = null)
@@ -135,10 +129,6 @@ public sealed class VocalSystem : EntitySystem
 
         if (!component.Sounds.TryGetValue(sex.Value, out var protoId))
             return;
-
-        if (!_proto.HasIndex(protoId))
-            return;
-
-        component.EmoteSounds = protoId;
+        _proto.TryIndex(protoId, out component.EmoteSounds);
     }
 }

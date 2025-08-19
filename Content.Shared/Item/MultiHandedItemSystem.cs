@@ -51,7 +51,7 @@ public sealed class MultiHandedItemSystem : EntitySystem
 
     private void OnAttemptPickup(Entity<MultiHandedItemComponent> ent, ref GettingPickedUpAttemptEvent args)
     {
-        if (_hands.CountFreeHands(args.User) >= ent.Comp.HandsNeeded)
+        if (TryComp<HandsComponent>(args.User, out var hands) && hands.CountFreeHands() >= ent.Comp.HandsNeeded)
             return;
 
         args.Cancel();
@@ -76,8 +76,8 @@ public sealed class MultiHandedItemSystem : EntitySystem
             return;
 
         // dropOthers: true in TrySpawnVirtualItemInHand didn't work properly so here we have this linq monstrosity
-        var hands = _hands.EnumerateHands(container.Owner).Where(hand => _hands.GetHeldItem(container.Owner, hand) != ent).ToList();
-        var iterations = ent.Comp.HandsNeeded - 1 - hands.Count(hand => _hands.HandIsEmpty(container.Owner, hand));
+        var hands = _hands.EnumerateHands(container.Owner).Where(hand => hand.HeldEntity != ent).ToList();
+        var iterations = ent.Comp.HandsNeeded - 1 - hands.Count(hand => hand.IsEmpty);
         var droppable = hands.Where(hand => _hands.CanDropHeld(container.Owner, hand, false)).ToList();
 
         if (iterations > droppable.Count)
@@ -102,15 +102,14 @@ public sealed class MultiHandedItemSystem : EntitySystem
         foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
         {
             if (_timing.InPrediction
-                || !_hands.TryGetHeldItem(ent.Owner, hand, out var held)
-                || !TryComp(held, out VirtualItemComponent? virt)
+                || !TryComp(hand.HeldEntity, out VirtualItemComponent? virt)
                 || virt.BlockingEntity != ent.Owner)
                 continue;
 
-            if (TerminatingOrDeleted(held))
+            if (TerminatingOrDeleted(hand.HeldEntity))
                 return;
 
-            QueueDel(held);
+            QueueDel(hand.HeldEntity);
         }
     }
 }

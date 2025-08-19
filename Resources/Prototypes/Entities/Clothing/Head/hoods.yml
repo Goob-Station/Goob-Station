@@ -328,11 +328,6 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: dog
-  - type: Tag
-    tags:
-    - CorgiWearable
-    - ClothMade
-    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase

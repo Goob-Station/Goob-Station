@@ -119,7 +119,7 @@ public sealed class PayloadSystem : EntitySystem
 
             var temp = (object) component;
             _serializationManager.CopyTo(data.Component, ref temp);
-            AddComp(uid, (Component) temp!);
+            EntityManager.AddComponent(uid, (Component) temp!);
 
             trigger.GrantedComponents.Add(registration.Type);
         }
@@ -134,7 +134,7 @@ public sealed class PayloadSystem : EntitySystem
 
         foreach (var type in trigger.GrantedComponents)
         {
-            RemComp(uid, type);
+            EntityManager.RemoveComponent(uid, type);
         }
 
         trigger.GrantedComponents.Clear();

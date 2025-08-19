@@ -270,12 +270,16 @@ public sealed class PullingSystem : EntitySystem
 
         // Try find hand that is doing this pull.
         // and clear it.
-        foreach (var held in _handsSystem.EnumerateHeld((uid, component)))
+        foreach (var hand in component.Hands.Values)
         {
-            if (!TryComp(held, out VirtualItemComponent? virtualItem) || virtualItem.BlockingEntity != args.PulledUid)
+            if (hand.HeldEntity == null
+                || !TryComp(hand.HeldEntity, out VirtualItemComponent? virtualItem)
+                || virtualItem.BlockingEntity != args.PulledUid)
+            {
                 continue;
+            }
 
-            _handsSystem.TryDrop((args.PullerUid, component), held);
+            _handsSystem.TryDrop(args.PullerUid, hand, handsComp: component);
             break;
         }
     }
@@ -699,7 +703,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (!TryComp<PhysicsComponent>(pullableUid, out var physics))
+        if (!TryComp<PhysicsComponent>(pullableUid, out var physics)) // Goobstation
         {
             return false;
         }
@@ -1152,7 +1156,7 @@ public sealed class PullingSystem : EntitySystem
         {
             for (var i = 0; i < delta; i++)
             {
-                var emptyHand = _handsSystem.TryGetEmptyHand(puller.Owner, out _);
+                var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
                 if (!emptyHand)
                 {
                     if (_netManager.IsServer)

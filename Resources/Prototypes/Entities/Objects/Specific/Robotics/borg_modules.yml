@@ -571,8 +571,7 @@
     items:
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
-    - HandheldStationMapUnpowered
-    #- HandHeldMassScannerBorg # Lavaland Change
+    - HandHeldMassScannerBorg # removed by lavaland
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
 

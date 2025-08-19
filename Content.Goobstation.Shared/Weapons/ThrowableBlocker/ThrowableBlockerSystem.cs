@@ -49,7 +49,7 @@ public sealed class ThrowableBlockerSystem : EntitySystem
             return;
 
         var blocked = _hands
-            .EnumerateHeld(ent.Owner)
+            .EnumerateHeld(ent)
             .FirstOrDefault(e => HasComp<ThrowableBlockerComponent>(e) && _toggle.IsActivated(e));
 
         if (blocked == default)

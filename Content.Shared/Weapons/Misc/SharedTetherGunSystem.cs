@@ -17,7 +17,6 @@ using Content.Shared._Goobstation.Weapons.Misc;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
@@ -38,7 +37,6 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -155,14 +153,14 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
         gunUid = null;
         gun = null;
 
-        if (!_hands.TryGetActiveItem(user, out var activeItem) ||
-            !TryComp(activeItem, out gun) ||
+        if (!TryComp<HandsComponent>(user, out var hands) ||
+            !TryComp(hands.ActiveHandEntity, out gun) ||
             _container.IsEntityInContainer(user))
         {
             return false;
         }
 
-        gunUid = activeItem.Value;
+        gunUid = hands.ActiveHandEntity.Value;
         return true;
     }
 

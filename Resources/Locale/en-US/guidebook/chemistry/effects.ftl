@@ -122,13 +122,15 @@ reagent-effect-guidebook-even-health-change =
     } { $changes }
 
 
-
 reagent-effect-guidebook-status-effect =
     { $type ->
         [add]   { $chance ->
                     [1] Causes
                     *[other] cause
-                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} { $refresh ->
+                                                                                                [false] with
+                                                                                                *[true] without
+                                                                                            } accumulation
         *[set]  { $chance ->
                     [1] Causes
                     *[other] cause

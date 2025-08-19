@@ -131,12 +131,13 @@
           shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:ModifyStatusEffect
+      - !type:GenericStatusEffect
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        effectProto: StatusEffectDrowsiness
+        key: Drowsiness
+        component: Drowsiness
         time: 4
         type: Add
         refresh: false
@@ -429,8 +430,9 @@
   metabolisms:
     Poison:
       effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
         type: Add
         time: 10
         refresh: false

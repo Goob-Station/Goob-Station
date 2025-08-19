@@ -123,8 +123,7 @@ public sealed partial class PuddleSystem
         if (totalSplit == 0)
             return;
 
-        // Optionally allow further melee handling occur
-        args.Handled = entity.Comp.PreventMelee;
+        args.Handled = true;
 
         if (hitCount == 0 && args.Direction == null)
         {
