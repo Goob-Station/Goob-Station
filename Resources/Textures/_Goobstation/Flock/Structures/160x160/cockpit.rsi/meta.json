@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13",
+    "size": {
+        "x": 160,
+        "y": 160
+    },
+    "states": [
+        {
+            "name": "cockpit",
+            "directions": 4
+        }
+    ]
+}
