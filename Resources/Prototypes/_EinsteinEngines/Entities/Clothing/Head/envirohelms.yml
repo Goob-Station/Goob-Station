@@ -14,7 +14,8 @@
       - state: inhand-right
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/plain.rsi
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: flash
     inhandVisuals:
       left:
       - state: on-inhand-left
@@ -213,7 +214,8 @@
       head:
       - state: equipped-HELMET
       - state: visor-equipped-HELMET
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     clothingVisuals:
       head:
       - state: visor-equipped-HELMET
