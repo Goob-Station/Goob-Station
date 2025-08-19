@@ -303,7 +303,7 @@
       - Ore
       - Telecrystal
   - type: MobPrice
-    price: 1000
+    price: 500
 
 
 - type: entity
