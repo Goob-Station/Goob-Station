@@ -13757,3 +13757,19 @@ Entries:
       message: The Common radio channel has been returned to the masses. Rejoice.
   id: 1530
   time: '2025-08-19T16:26:26.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: >-
+        Height and width sliders are now available on the character creation
+        screen.
+    - type: Tweak
+      message: >-
+        Characters who are smaller will sprint slower than their regularly sized
+        peers.
+    - type: Tweak
+      message: >-
+        Minimum- and maximum-sizes have been clamped down from their values on
+        EE.
+  id: 1531
+  time: '2025-08-19T16:36:05.0000000+00:00'
