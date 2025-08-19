@@ -49,7 +49,9 @@
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -93,7 +95,7 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:
@@ -102,6 +104,7 @@
       right:
       - state: inhand-right-light
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ContainerContainer
@@ -147,7 +150,7 @@
 
 - type: entity
   name: seclite
-  parent: [FlashlightLantern, BaseSecurityContraband]
+  parent: [FlashlightLantern, BaseSecurityCargoContraband] # Goob edit - Also allowed for Cargo
   id: FlashlightSeclite
   description: A robust flashlight used by security.
   components:
@@ -162,7 +165,7 @@
   - type: HandheldLight
     addPrefix: false
     wattage: 0.5
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     inhandVisuals:
       left:
       - state: inhand-left-light
