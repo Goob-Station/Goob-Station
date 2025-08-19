@@ -226,7 +226,7 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
         foreach (var control in container.Children)
         {
             if (control == null 
-            || control is not SupermatterEntryContainer)
+                || control is not SupermatterEntryContainer)
                 continue;
 
             if (((SupermatterEntryContainer)control).NetEntity == _trackedEntity)
