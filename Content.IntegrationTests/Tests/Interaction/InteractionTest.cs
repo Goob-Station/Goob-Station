@@ -188,6 +188,7 @@ public abstract partial class InteractionTest
   - type: Stripping
   - type: Puller
   - type: Physics
+  - type: GravityAffected
   - type: Tag
     tags:
     - CanPilot
