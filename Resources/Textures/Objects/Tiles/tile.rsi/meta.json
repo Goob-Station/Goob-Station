@@ -567,10 +567,10 @@
             "name": "asteroid-inhand-left",
             "directions": 4
         },
-	    {
-	        "name": "white-marble"
-	    },
-	    {
+        {
+            "name": "white-marble"
+        },
+        {
             "name": "white-marble-inhand-left",
             "directions": 4
         },
@@ -610,6 +610,7 @@
         {
             "name": "uranium-marble-inhand-right",
             "directions": 4
+        },
         {
             "name": "xenofloor"
         },
@@ -621,6 +622,9 @@
         },
         {
             "name": "xeno-techmaint"
+        },
+        {
+            "name": "xenoborg-floor"
         },
         {
             "name": "dark-squiggly"
