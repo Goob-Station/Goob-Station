@@ -31,10 +31,8 @@ public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
         _menu?.UpdateUI(castState.Supermatters, castState.FocusData);
     }
 
-    public void SendFocusChangeMessage(NetEntity? netEntity)
-    {
+    public void SendFocusChangeMessage(NetEntity? netEntity) =>
         SendMessage(new SupermatterConsoleFocusChangeMessage(netEntity));
-    }
 
     protected override void Dispose(bool disposing)
     {
