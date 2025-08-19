@@ -43,20 +43,14 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 
     #region Event handling
 
-    private void OnConsoleInit(EntityUid uid, SupermatterConsoleComponent component, ComponentInit args)
-    {
+    private void OnConsoleInit(EntityUid uid, SupermatterConsoleComponent component, ComponentInit args) =>
         InitalizeConsole(uid, component);
-    }
 
-    private void OnConsoleParentChanged(EntityUid uid, SupermatterConsoleComponent component, EntParentChangedMessage args)
-    {
+    private void OnConsoleParentChanged(EntityUid uid, SupermatterConsoleComponent component, EntParentChangedMessage args) =>
         InitalizeConsole(uid, component);
-    }
 
-    private void OnFocusChangedMessage(EntityUid uid, SupermatterConsoleComponent component, SupermatterConsoleFocusChangeMessage args)
-    {
+    private void OnFocusChangedMessage(EntityUid uid, SupermatterConsoleComponent component, SupermatterConsoleFocusChangeMessage args) =>
         component.FocusSupermatter = args.FocusSupermatter;
-    }
 
     private void OnGridSplit(ref GridSplitEvent args)
     {
