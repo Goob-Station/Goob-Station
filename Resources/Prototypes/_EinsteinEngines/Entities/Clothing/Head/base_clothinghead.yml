@@ -56,7 +56,8 @@
     - Snout
     clothingSlots:
     - mask
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
@@ -112,7 +113,8 @@
   id: ClothingHeadEnvirohelmCustomBase
   name: base custom envirosuit helmet
   components:
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     inhandVisuals:
       left:
       - state: on-inhand-left
