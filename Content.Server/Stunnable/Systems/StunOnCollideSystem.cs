@@ -40,7 +40,7 @@ internal sealed class StunOnCollideSystem : EntitySystem
 
     private void TryDoCollideStun(Entity<StunOnCollideComponent> ent, EntityUid target)
     {
-        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, DropHeldItemsBehavior.AlwaysDrop); // Goob DropHeldItemsBehavior
+        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, DropHeldItemsBehavior.AlwaysDrop, true); // Goob DropHeldItemsBehavior
 
         if (ent.Comp.Refresh)
         {
