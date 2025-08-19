@@ -112,7 +112,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Clothing.Systems;
 using Content.Server.Electrocution;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GhostKick;
@@ -152,6 +151,7 @@ using Content.Shared.Slippery;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -195,7 +195,7 @@ public sealed partial class AdminVerbSystem
     // All smite verbs have names so invokeverb works.
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {
-        if (!TryComp(args.User, out ActorComponent? actor))
+        if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
             return;
 
         var player = actor.PlayerSession;
@@ -527,7 +527,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = pinballName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Fun/Balls/basketball.rsi"), "icon"),
+                Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Fun/toys.rsi"), "basketball"),
                 Act = () =>
                 {
                     var xform = Transform(args.Target);
@@ -717,7 +717,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Clothing/Uniforms/Jumpskirt/janimaid.rsi"), "icon"),
                 Act = () =>
                 {
-                    _outfit.SetOutfit(args.Target, "JanitorMaidGear", (_, clothing) =>
+                    SetOutfitCommand.SetOutfit(args.Target, "JanitorMaidGear", false, EntityManager, (_, clothing) => // Goobstation
                     {
                         if (HasComp<ClothingComponent>(clothing))
                             EnsureComp<UnremoveableComponent>(clothing);
@@ -753,7 +753,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Materials/materials.rsi"), "ash"),
             Act = () =>
             {
-                QueueDel(args.Target);
+                EntityManager.QueueDeleteEntity(args.Target);
                 Spawn("Ash", Transform(args.Target).Coordinates);
                 _popupSystem.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", args.Target)), args.Target, PopupType.LargeCaution);
             },
@@ -815,7 +815,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = reptilianName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Fun/Plushies/lizard.rsi"), "icon"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Fun/toys.rsi"), "plushie_lizard"),
             Act = () =>
             {
                 _polymorphSystem.PolymorphEntity(args.Target, "AdminLizardSmite");

@@ -76,7 +76,6 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
 
     private EntityQuery<BingleComponent> _query;
     private EntityQuery<BinglePitFallingComponent> _fallingQuery;
@@ -317,7 +316,7 @@ public sealed class BinglePitSystem : EntitySystem
         {
             if (tile.Tile.TypeId == convertTile.TileId)
                 continue;
-            if (_turf.GetContentTileDefinition(tile).Name != convertTile.Name &&
+            if (tile.GetContentTileDefinition().Name != convertTile.Name &&
                 _random.Prob(0.1f)) // 10% probability to transform tile
             {
                 _tile.ReplaceTile(tile, convertTile);

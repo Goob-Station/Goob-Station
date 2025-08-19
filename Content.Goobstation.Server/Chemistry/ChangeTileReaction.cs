@@ -47,8 +47,7 @@ public sealed partial class ChangeTileReaction : ITileReaction
             return FixedPoint2.Zero;
 
         var tileDefManager = IoCManager.Resolve<ITileDefinitionManager>();
-        var turfSystem = IoCManager.Resolve<EntitySystemManager>().GetEntitySystem<TurfSystem>();
-        var tileDef = turfSystem.GetContentTileDefinition(tile);
+        var tileDef = tile.Tile.GetContentTileDefinition(tileDefManager);
 
         if (tileDef.ID == NewTileId)
             return FixedPoint2.Zero;

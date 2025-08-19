@@ -580,7 +580,7 @@
           max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:ModifyStatusEffect
+      - !type:GenericStatusEffect
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -597,8 +597,9 @@
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
-        effectProto: StatusEffectForcedSleeping
-        time: 3
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 200 # This reeks, but I guess it works LMAO
         type: Add
       - !type:HealthChange
         conditions:
@@ -637,8 +638,9 @@
         damage:
           types:
             Cellular: 1
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
         type: Add
         time: 15
         refresh: false
@@ -703,12 +705,13 @@
         damage:
           types:
             Cellular: 0.25
-      - !type:ModifyStatusEffect
+      - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
-        effectProto: StatusEffectSeeingRainbow
+        key: SeeingRainbows
+        component: SeeingRainbows
         type: Add
         time: 500
         refresh: false

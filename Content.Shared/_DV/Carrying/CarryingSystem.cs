@@ -37,7 +37,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
@@ -55,7 +54,6 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem  _virtualItem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -351,7 +349,8 @@ public sealed class CarryingSystem : EntitySystem
             !HasComp<BeingCarriedComponent>(carrier) &&
             !HasComp<BeingCarriedComponent>(carried) &&
             // finally check that there are enough free hands
-            _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
+            TryComp<HandsComponent>(carrier, out var hands) &&
+            hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
     }
 
     private float MassContest(EntityUid roller, EntityUid target)

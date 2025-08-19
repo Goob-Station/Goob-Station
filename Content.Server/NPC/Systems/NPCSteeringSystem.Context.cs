@@ -116,7 +116,7 @@ public sealed partial class NPCSteeringSystem
 
             foreach (var intersecting in ents)
             {
-                if (!PhysicsSystem.IsCurrentlyHardCollidable((uid, fixtures, physics), intersecting))
+                if (!_physics.IsCurrentlyHardCollidable((uid, fixtures, physics), intersecting))
                 {
                     continue;
                 }
@@ -350,7 +350,7 @@ public sealed partial class NPCSteeringSystem
                  ourCoordinates.TryDistance(EntityManager, steering.LastStuckCoordinates, out var stuckDistance) &&
                  stuckDistance < NPCSteeringComponent.StuckDistance)
         {
-            var stuckTime = Timing.CurTime - steering.LastStuckTime;
+            var stuckTime = _timing.CurTime - steering.LastStuckTime;
             // Either 1 second or how long it takes to move the stuck distance + buffer if we're REALLY slow.
             var maxStuckTime = Math.Max(1, NPCSteeringComponent.StuckDistance / moveSpeed * 1.2f);
 
@@ -485,7 +485,7 @@ public sealed partial class NPCSteeringSystem
     private void ResetStuck(NPCSteeringComponent component, EntityCoordinates ourCoordinates)
     {
         component.LastStuckCoordinates = ourCoordinates;
-        component.LastStuckTime = Timing.CurTime;
+        component.LastStuckTime = _timing.CurTime;
     }
 
     private void CheckPath(EntityUid uid, NPCSteeringComponent steering, TransformComponent xform, bool needsPath, float targetDistance)
@@ -654,7 +654,7 @@ public sealed partial class NPCSteeringSystem
 
             var xformB = _xformQuery.GetComponent(ent);
 
-            if (!PhysicsSystem.TryGetNearest(uid, ent,
+            if (!_physics.TryGetNearest(uid, ent,
                     out var pointA, out var pointB, out var distance,
                     xform, xformB))
             {
@@ -736,7 +736,7 @@ public sealed partial class NPCSteeringSystem
 
             var xformB = _xformQuery.GetComponent(ent);
 
-            if (!PhysicsSystem.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
+            if (!_physics.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
             {
                 continue;
             }

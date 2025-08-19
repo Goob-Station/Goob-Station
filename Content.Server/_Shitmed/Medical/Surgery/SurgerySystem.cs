@@ -158,14 +158,14 @@ public sealed class SurgerySystem : SharedSurgerySystem
     private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
         var damageChange = ent.Comp.Damage;
-        if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
+        if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
 
         SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part, ent.Comp.AffectAll);
     }
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
-        if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
+        if (HasComp<ForcedSleepingComponent>(args.Body))
             return;
 
         _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote, voluntary: false);

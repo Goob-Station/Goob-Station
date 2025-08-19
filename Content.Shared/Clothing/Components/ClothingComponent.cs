@@ -34,11 +34,11 @@ namespace Content.Shared.Clothing.Components;
 /// <summary>
 ///     This handles entities which can be equipped.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 //[Access(typeof(ClothingSystem), typeof(InventorySystem))] - Fuck yo access - Goob
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ClothingComponent : Component
 {
-    [DataField]
+    [DataField("clothingVisuals")]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
 
     /// <summary>
@@ -47,7 +47,8 @@ public sealed partial class ClothingComponent : Component
     [DataField]
     public string? MappedLayer;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("quickEquip")]
     public bool QuickEquip = true;
 
     /// <summary>
@@ -57,18 +58,22 @@ public sealed partial class ClothingComponent : Component
     /// <remarks>
     /// Note that this may be a combination of different slot flags, not a singular bit.
     /// </remarks>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true)]
     // [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)] // Goobstation - FUCK YOUR ACCESS! WE GOIDA IN THIS BITCH
     public SlotFlags Slots = SlotFlags.NONE;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("equipSound")]
     public SoundSpecifier? EquipSound;
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("unequipSound")]
     public SoundSpecifier? UnequipSound;
 
     [Access(typeof(ClothingSystem))]
-    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("equippedPrefix")]
     public string? EquippedPrefix;
 
     /// <summary>
@@ -76,9 +81,11 @@ public sealed partial class ClothingComponent : Component
     /// useful when prototyping INNERCLOTHING items into OUTERCLOTHING items without duplicating/modifying RSIs etc.
     /// </summary>
     [Access(typeof(ClothingSystem))]
-    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("equippedState")]
     public string? EquippedState;
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("sprite")]
     public string? RsiPath;
 
@@ -87,7 +94,7 @@ public sealed partial class ClothingComponent : Component
     /// Note that this being non-null does not mean the clothing is considered "worn" or "equipped" unless the slot
     /// satisfies the <see cref="Slots"/> flags.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string? InSlot;
     // TODO CLOTHING
     // Maybe keep this null unless its in a valid slot?
@@ -97,16 +104,18 @@ public sealed partial class ClothingComponent : Component
     /// <summary>
     /// Slot flags of the slot the clothing is currently in. See also <see cref="InSlot"/>.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SlotFlags? InSlotFlag;
     // TODO CLOTHING
     // Maybe keep this null unless its in a valid slot?
     // And when doing this, combine InSlot and InSlotFlag, as it'd be a breaking change for downstreams anyway
 
-    [DataField]
+    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan EquipDelay = TimeSpan.Zero;
 
-    [DataField]
+    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan UnequipDelay = TimeSpan.Zero;
 
     /// <summary>
@@ -115,6 +124,17 @@ public sealed partial class ClothingComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StripDelay = TimeSpan.Zero;
+}
+
+[Serializable, NetSerializable]
+public sealed class ClothingComponentState : ComponentState
+{
+    public string? EquippedPrefix;
+
+    public ClothingComponentState(string? equippedPrefix)
+    {
+        EquippedPrefix = equippedPrefix;
+    }
 }
 
 public enum ClothingMask : byte

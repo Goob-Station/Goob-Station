@@ -33,7 +33,6 @@ namespace Content.Server.GameTicking.Rules;
 public abstract partial class GameRuleSystem<T> where T: IComponent
 {
     [Dependency] private readonly StationSystem _station = default!; // Goobstation
-    [Dependency] private readonly TurfSystem _turf = default!; // Goobstation
 
     protected EntityQueryEnumerator<ActiveGameRuleComponent, T, GameRuleComponent> QueryActiveRules()
     {
@@ -147,7 +146,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
             tile = new Vector2i(randomX, randomY);
 
             if (!_map.TryGetTile(grid.Comp, tile, out var selectedTile) || selectedTile.IsEmpty ||
-                _turf.IsSpace(selectedTile))
+                selectedTile.IsSpace())
                 continue;
 
             if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)

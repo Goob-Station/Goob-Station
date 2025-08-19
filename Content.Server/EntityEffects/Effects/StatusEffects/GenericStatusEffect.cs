@@ -21,7 +21,7 @@ namespace Content.Server.EntityEffects.Effects.StatusEffects;
 /// <remarks>
 ///     Can be used for things like adding accents or something. I don't know. Go wild.
 /// </remarks>
-[Obsolete("Use ModifyStatusEffect with StatusEffectNewSystem instead")]
+[UsedImplicitly]
 public sealed partial class GenericStatusEffect : EntityEffect
 {
     [DataField(required: true)]

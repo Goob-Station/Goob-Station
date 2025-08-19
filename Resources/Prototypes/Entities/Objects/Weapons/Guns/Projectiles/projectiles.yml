@@ -1046,9 +1046,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Fun/capgun.rsi
+    sprite: Objects/Fun/toys.rsi
     layers:
-    - state: capbullet
+      - state: capbullet
   - type: Projectile
     deleteOnCollide: true
     damage:

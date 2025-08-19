@@ -13,7 +13,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
 using Content.Shared.Body.Systems; // Shitmed Change
-using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Damage.Systems;
 

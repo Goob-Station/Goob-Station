@@ -376,17 +376,20 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - SeeingRainbows
     - Electrocution
     - Drunk
     - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
+    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
+    - Drowsiness
     - Vulgarity # Goobstation - add Profanol
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline

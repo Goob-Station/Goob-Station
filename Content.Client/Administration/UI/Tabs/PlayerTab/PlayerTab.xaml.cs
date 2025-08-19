@@ -250,7 +250,6 @@ public sealed partial class PlayerTab : Control
             _playerTabSymbolSetting);
         button.AddChild(entry);
         button.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
-        button.StyleClasses.Clear();
     }
 
     /// <summary>
