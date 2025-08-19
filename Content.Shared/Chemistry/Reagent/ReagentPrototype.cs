@@ -178,6 +178,12 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool Recognizable;
 
+        /// <summary>
+        /// Whether this reagent stands out (blood, slime).
+        /// </summary>
+        [DataField]
+        public bool Standsout;
+
         [DataField]
         public ProtoId<FlavorPrototype>? Flavor;
 

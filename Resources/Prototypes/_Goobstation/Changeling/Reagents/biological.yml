@@ -8,6 +8,7 @@
 - type: reagent
   parent: Blood
   id: BloodChangeling
+  standout: true
 
 - type: reaction
   id: ChangelingBloodBreakdown
