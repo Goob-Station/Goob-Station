@@ -269,14 +269,6 @@
   name: Death Squad Lackey
   suffix: ERTRole, Death Squad, No Requirements
   components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
-      state: icon
-    - type: RandomMetadata
-      nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: DeathSquadNoReq
 
@@ -284,9 +276,6 @@
   id: DeathSquadNoReq
   parent: DeathSquad # Goobstation
   components:
-    - type: AutoImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Goobstation
-    - type: DeathSquadMember # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
@@ -294,14 +283,6 @@
       raffle:
         settings: short
       requirements:
-    - type: Loadout
-      prototypes: [ DeathSquadGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
-    - type: RandomMetadata
-      nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
-      nameFormat: name-format-ert
 
 ## ERT Leader
 
@@ -311,14 +292,6 @@
   name: ERT Leader Stand-in
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertleader
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirstLeader
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTLeaderNoReq
 
@@ -333,17 +306,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Goobstation
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirstLeader
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVANoReq
@@ -351,15 +313,12 @@
   name: ERT Leader Stand-in 
   suffix: ERTRole, Armored EVA, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertleadereva
     - type: RandomHumanoidSpawner
       settings: ERTLeaderEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTLeaderEVANoReq
-  parent: ERTLeaderNoReq
+  parent: ERTLeaderEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -368,10 +327,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
 
@@ -381,14 +336,6 @@
   name: ERT Deacon
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: chaplain #needs an ERT variant once a good suit it made.
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTChaplainNoReq
 
@@ -396,7 +343,6 @@
   id: ERTChaplainNoReq
   parent: ERTLeader
   components:
-    - type: BibleUser
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
@@ -404,15 +350,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTChaplain
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
-    - type: Loadout
-      prototypes: [ ERTChaplainGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVANoReq
@@ -420,15 +357,12 @@
   name: ERT Deacon
   suffix: ERTRole, Enviro EVA
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: chaplain #needs an ERT variant once a good suit it made.
     - type: RandomHumanoidSpawner
       settings: ERTChaplainEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTChaplainEVANoReq
-  parent: ERTChaplainNoReq
+  parent: ERTChaplainEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
@@ -437,10 +371,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTChaplain
-    - type: Loadout
-      prototypes: [ ERTChaplainGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Janitor
 
@@ -450,14 +380,6 @@
   name: ERT Janitor Intern
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertjanitor
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTJanitorNoReq
 
@@ -472,15 +394,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTJanitor
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
-    - type: Loadout
-      prototypes: [ ERTJanitorGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVANoReq
@@ -488,15 +401,12 @@
   name: ERT Janitor Intern
   suffix: ERTRole, Enviro EVA, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertjanitoreva
     - type: RandomHumanoidSpawner
       settings: ERTJanitorEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTJanitorEVANoReq
-  parent: ERTJanitorNoReq
+  parent: ERTJanitorEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-janitor-name
@@ -505,10 +415,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTJanitor
-    - type: Loadout
-      prototypes: [ ERTJanitorGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Engineer
 
@@ -518,14 +424,6 @@
   name: ERT Engineer Intern
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertengineer
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTEngineerNoReq
 
@@ -540,15 +438,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTEngineer
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
-    - type: Loadout
-      prototypes: [ ERTEngineerGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVANoReq
@@ -556,15 +445,12 @@
   name: ERT Engineer Intern
   suffix: ERTRole, Enviro EVA, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertengineereva
     - type: RandomHumanoidSpawner
       settings: ERTEngineerEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTEngineerEVANoReq
-  parent: ERTEngineerNoReq
+  parent: ERTEngineerEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-engineer-name
@@ -573,10 +459,6 @@
       raffle:
         settings: short
       requirements:
-      job: ERTEngineer
-    - type: Loadout
-      prototypes: [ ERTEngineerGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Security
 
@@ -586,14 +468,6 @@
   name: ERT Security Cadet
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertsecurity
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTSecurityNoReq
 
@@ -609,16 +483,6 @@
         settings: short
       requirements:
       job: ERTSecurity
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
-    - type: Loadout
-      prototypes: [ ERTSecurityGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVANoReq
@@ -626,15 +490,12 @@
   name: ERT Security Cadet
   suffix: ERTRole, Armored EVA, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertsecurityeva
     - type: RandomHumanoidSpawner
       settings: ERTSecurityEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTSecurityEVANoReq
-  parent: ERTSecurityNoReq
+  parent: ERTSecurityEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-security-name
@@ -644,11 +505,6 @@
         settings: short
       requirements:
       job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 ## ERT Medic
 
@@ -658,14 +514,6 @@
   name: ERT Medic Intern
   suffix: ERTRole, Basic, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertmedical
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTMedicalNoReq
 
@@ -681,16 +529,6 @@
         settings: short
       requirements:
       job: ERTMedical
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
-    - type: Loadout
-      prototypes: [ ERTMedicalGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVANoReq
@@ -698,15 +536,12 @@
   name: ERT Medic Intern
   suffix: ERTRole, Armored EVA, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: ertmedicaleva
     - type: RandomHumanoidSpawner
       settings: ERTMedicalEVANoReq
 
 - type: randomHumanoidSettings
   id: ERTMedicalEVANoReq
-  parent: ERTMedicalNoReq
+  parent: ERTMedicalEVA
   components:
     - type: GhostRole
       name: ghost-role-information-ert-medical-name
@@ -716,11 +551,6 @@
         settings: short
       requirements:
       job: ERTMedical
-    - type: Loadout
-      prototypes: [ ERTMedicalGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 ## CBURN
 
@@ -729,9 +559,6 @@
   name: CBURN Agent Cadet
   suffix: ERTRole, No Requirements
   components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: cburn
     - type: RandomHumanoidSpawner
       settings: CBURNAgentNoReq
 
@@ -739,11 +566,6 @@
   id: CBURNAgentNoReq
   parent: EventHumanoidCentcomm
   components:
-    - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
-    - type: Loadout
-      prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
@@ -751,8 +573,3 @@
       raffle:
         settings: short
       requirements:
-    - type: RandomMetadata
-      nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
-      nameFormat: name-format-ert
