@@ -55,7 +55,7 @@ public sealed class BingleSystem : EntitySystem
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
             EntityUid? closestPit = null;
-            float closestPitDistance = 999999.0f;
+            float closestPitDistance = float.MaxValue; // This is literally done so the algorithm below doesn't spaz out
             while (query.MoveNext(out var queryUid, out var _))
             {
                 Transform(queryUid).Coordinates.TryDistance(EntityManager, cords, out var closenessOfPit);
