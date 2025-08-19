@@ -157,10 +157,8 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
         entryContainer.UpdateEntry(entry, entry.NetEntity == _trackedEntity, focusData);
     }
 
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
+    protected override void FrameUpdate(FrameEventArgs args) =>
         AutoScrollToFocus();
-    }
 
     private void ActivateAutoScrollToFocus()
     {
