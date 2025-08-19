@@ -11,5 +11,6 @@
     state: icon
   product: CrateNPCLootbug
   cost: 2200
+  sellPrice: 1000
   category: cargoproduct-category-name-livestock
   group: market
