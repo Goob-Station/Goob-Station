@@ -176,16 +176,13 @@ public sealed class RadioSystem : EntitySystem
         // Goobstation start - Loud command
         int? fontSizeIncrease = null;
         if (TryComp<EncryptionKeyHolderComponent>(radioSource, out var holder))
-        {
             foreach (var ent in holder.KeyContainer.ContainedEntities)
-            {
-                if (TryComp<EncryptionKeyComponent>(ent, out var key) && key.Channels.Contains(channel.ID))
+                if (TryComp<EncryptionKeyComponent>(ent, out var key)
+                    && key.Channels.Contains(channel.ID))
                 {
                     fontSizeIncrease = key.FontSizeIncrease;
                     break;
                 }
-            }
-        }
         // Goobstation end
 
         // var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
@@ -198,10 +195,6 @@ public sealed class RadioSystem : EntitySystem
         //     ("message", content));
         var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, fontSizeIncrease); // Einstein Engines - Language // fontSizeIncrease Goobstation - Loud command
 
-        //  Goobstation - Loud command start
-        if (fontSizeIncrease != null)
-            wrappedMessage = WrapRadioMessageFontSizeOnly(wrappedMessage, fontSizeIncrease.Value);
-        // Goobstation - Loud command end
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         // var chat = new ChatMessage(
@@ -309,13 +302,6 @@ public sealed class RadioSystem : EntitySystem
             ("language", languageDisplay));
     }
     // Einstein Engines - Language end
-
-    // Goobstation - Loud command start
-    private string WrapRadioMessageFontSizeOnly(string wrappedMessage, int fontSize)
-    {
-        return Loc.GetString("chat-radio-message-wrap-fontsizeonly", ("fontSize", fontSize), ("wrappedMessage", wrappedMessage));
-    }
-    // Goobstation - Loud command end
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveServer(MapId mapId, string channelId)

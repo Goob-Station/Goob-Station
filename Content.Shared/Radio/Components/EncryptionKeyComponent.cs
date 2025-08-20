@@ -27,6 +27,6 @@ public sealed partial class EncryptionKeyComponent : Component
     [DataField("defaultChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
     public string? DefaultChannel;
 
-    [DataField("fontSizeIncrease")] // Goobstation Loud command
+    [DataField("fontSizeIncrease")] // Goobstation - Loud command. Increases the font size of messages sent on channels the key has access to.
     public int? FontSizeIncrease;
 }
