@@ -155,7 +155,7 @@ public sealed partial class BingleSystem : EntitySystem
         component.BinglePoints -= component.SpawnNewAt * component.Level;
 
         SpawnBingle(uid, component);
-        
+
         SpawnTiles(uid, component);
     }
 
@@ -303,17 +303,17 @@ public sealed partial class BingleSystem : EntitySystem
 
     private void SpawnTiles(EntityUid uid, BinglePitComponent component)
     {
-        var angle = _random.Next();
+        var angle = _random.NextFloat(-MathF.PI, MathF.PI);
 
-        for (var i = 0; i < component.Level; i++)
+        for (var i = 0; i < component.Level * 2; i++)
         {
-            TrySpawnTile(uid, i + 1, angle, component);
+            TrySpawnTile(uid, i, angle, component);
 
-            angle += _random.Next(-1, 1);
+            angle += _random.NextFloat(-0.5f, 0.5f);
         }
     }
 
-    private void TrySpawnTile(EntityUid uid, float radius, int angle, BinglePitComponent component)
+    private void TrySpawnTile(EntityUid uid, float radius, float angle, BinglePitComponent component)
     {
         var tgtPos = Transform(uid);
 
