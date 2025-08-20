@@ -3,6 +3,8 @@
   parent: BaseMobHuman
   id: MobSyndicateSmuggler
   components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
     - type: NpcFactionMember
       factions:
         - Syndicate
