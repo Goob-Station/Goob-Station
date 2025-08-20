@@ -48,6 +48,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         SubscribeLocalEvent<ImplanterComponent, DrawEvent>(OnDraw);
     }
 
+    // TODO: This all needs to be moved to shared and predicted.
     private void OnImplanterAfterInteract(EntityUid uid, ImplanterComponent component, AfterInteractEvent args)
     {
         if (args.Target == null || !args.CanReach || args.Handled)
