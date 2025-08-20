@@ -22,7 +22,7 @@
         hard: true
         layer:
         - Impassable
-        masl:
+        mask:
         - BulletImpassable
   - type: Destructible
     thresholds:
