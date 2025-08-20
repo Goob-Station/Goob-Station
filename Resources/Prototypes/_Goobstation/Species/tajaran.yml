@@ -22,6 +22,14 @@
   maleFirstNames: NamesTajaranFirst
   femaleFirstNames: NamesTajaranFirst
   lastNames: NamesTajaranLast
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.75
+  defaultHeight: 0.80
+  maxHeight: 1.15
+  minWidth: 0.80
+  defaultWidth: 0.80
+  maxWidth: 1.10
+  # end Goobstation: port EE height/width sliders
 
 - type: markingPoints
   id: MobTajaranMarkingLimits
@@ -32,6 +40,9 @@
     FacialHair:
       points: 1
       required: false
+    Snout:
+      points: 1
+      required: false
     Tail:
       points: 1
       required: true
@@ -40,17 +51,41 @@
       points: 1
       required: true
       defaultMarkings: [ TajaranEarsBasic ]
+    HeadSide:
+      points: 8
+      required: false
     Chest:
-      points: 8
+      points: 10
       required: false
-    Legs:
-      points: 8
-      required: false
-    Arms:
-      points: 8
-      required: false
-    Overlay:
+    Underwear:
       points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: speciesBaseSprites
