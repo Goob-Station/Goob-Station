@@ -1,0 +1,16 @@
+- type: entity
+  parent: MedkitCombat
+  id: MedkitCombatSwat
+  suffix: Резерв
+  name: OKG combat first aid kit
+  description: For combat missions and our lives, very heavy.
+  components:
+  - type: Sprite
+    state: blackkit
+  - type: Item
+    size: Large
+    heldPrefix: blackkit
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,4

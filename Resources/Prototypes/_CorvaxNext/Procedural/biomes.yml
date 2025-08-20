@@ -1,0 +1,101 @@
+# SPDX-FileCopyrightText: 2025 Kill_Me_I_Noobs <118206719+Vonsant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: biomeTemplate
+  id: CavesGenericExample
+  layers:
+    - !type:BiomeTileLayer # Первый слой, пол. Слоёв может быть сколько угодно, с любыми настройками.
+      threshold: -1.0 # Полностью покрывает площадь
+      tile: FloorCaveDrought # Тайлы пола
+    - !type:BiomeEntityLayer # Второй слой, камни и прочее
+      threshold: 0.4 # Уровень покрытия площади
+      noise: # Настройки шума
+        seed: 1
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 2
+      allowedTiles: # На каких тайлах пола могут ставиться entities, если на предыдущих слоях больше одного варианта
+        - FloorCaveDrought
+      entities: # Какие entities могут спавнитьсчя
+        - FloraRockSolid
+        - FloraGreyStalagmite
+        - CrystalBlue
+        - CrystalCyan
+        - CrystalGreen
+        - CrystalOrange
+        - CrystalPink
+        - CrystalGrey
+        - RandomStalagmiteOrCrystal
+        - CrystalSpawner
+    - !type:BiomeEntityLayer # Третий слой, растительность
+      threshold: 0.6 # Уровень покрытия площади
+      noise: # Настройки шума
+        seed: 8
+        noiseType: OpenSimplex2
+        fractalType: Ridged
+        frequency: 0.015
+        octaves: 3
+        lacunarity: 1.8
+        gain: 0.7
+        domainWarpType: OpenSimplex2
+        domainWarpAmp: 120
+      allowedTiles:
+        - FloorCaveDrought
+      entities:
+        - Spaceshroom
+    - !type:BiomeEntityLayer # Четвертый слой, спавнеры живых существ. Обязательно должны быть именно спавнеры, а не живые существа.
+      threshold: 0.8
+      noise:
+        seed: 8
+        noiseType: OpenSimplex2
+        fractalType: Ridged
+        frequency: 0.85
+        octaves: 3
+        lacunarity: 1.8
+        gain: 0.7
+        domainWarpType: OpenSimplex2
+        domainWarpAmp: 120
+      allowedTiles:
+        - FloorCaveDrought
+      entities:
+        - RandomServiceCorpseSpawner
+    - !type:BiomeEntityLayer # Пятый слой, спавнер воды
+      allowedTiles:
+        - FloorCaveDrought
+      threshold: 0.8
+      noise:
+        seed: 14
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 0.01
+        domainWarpType: OpenSimplex2
+        domainWarpAmp: 150
+      entities:
+        - FloorWaterEntity
+    - !type:BiomeEntityLayer # Шестой слой, спавнер стен
+      threshold: -0.75
+      invert: true
+      noise:
+        seed: 0
+        noiseType: Perlin
+        fractalType: Ridged
+        octaves: 1
+        frequency: 0.05
+        gain: 0.5
+      allowedTiles:
+        - FloorCaveDrought
+      entities:
+        - WallRockBasalt
+    - !type:BiomeEntityLayer # Седьмой слой, спавнер руды
+      threshold: 0.6
+      noise:
+        seed: 10
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 3
+      allowedTiles:
+        - FloorCave
+      entities:
+        - WallRockBasaltTin

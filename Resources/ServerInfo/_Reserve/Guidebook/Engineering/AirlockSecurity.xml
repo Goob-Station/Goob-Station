@@ -1,0 +1,87 @@
+<!--
+SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Iztok Bajcar <50874197+iztokbajcar@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Улучшения шлюза
+Нередко смельчаки пытаются обойти шлюз, разбираясь с его внутренней проводкой.
+
+К счастью, в шлюзах можно установить определённые меры противодействия, чтобы доставить неудобства любым нарушителям.
+
+## Шлюзы со средней степенью защиты
+Самый простой способ защиты от вторжения - это установка внутренней стальной пластины, которая предотвращает доступ к внутренней проводке шлюза.
+
+Чтобы улучшить базовый шлюз до шлюза средней степени защиты, вам понадобятся следующие материалы:
+<Box HorizontalAlignment="Stretch">
+	<Box>
+		<GuideEntityEmbed Entity="SheetSteel" Caption="лист стали x2"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Screwdriver" Caption="отвёртка"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+	</Box>
+</Box>
+
+Чтобы улучшить базовый шлюз,
+- С помощью отвёртки откройте тех. панель шлюза.
+- Добавьте листы стали в шлюз.
+- Приварите стальные листы к шлюзу.
+- Закройте тех. панель с помощью отвёртки.
+
+## Шлюзы с высокой степенью защиты
+Для шлюзов, ведущих в более уязвимые зоны космической станции, рекомендуется использовать более надёжные средства защиты. Шлюзы с высокой степенью защиты имеют усиленную пластину для защиты внутренней проводки, а также электрифицированную защитную решётку.
+
+Чтобы обновить базовый шлюз до шлюза с высокой степенью защиты, вам понадобятся следующие материалы:
+<Box HorizontalAlignment="Stretch">
+	<Box>
+		<GuideEntityEmbed Entity="SheetPlasteel" Caption="лист пластали x2"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="PartRodMetal" Caption="металлический стержень x2"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Screwdriver" Caption="отвёртка"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+	</Box>
+</Box>
+
+Чтобы улучшить базовый шлюз,
+- С помощью отвёртки откройте тех. панель шлюза.
+- Добавьте листы пластали в шлюз.
+- Приварите листы пластали к шлюзу.
+- Добавьте металлические стержни в шлюз.
+- Закройте тех. панель с помощью отвертки.
+
+## Шлюзы с максимальной степенью защиты
+При желании вы можете повысить степень защиты шлюза до максимальной. Шлюзы максимальной степени защиты имеют дополнительный слой пластального покрытия в дополнение к остальным защитным элементам.
+
+Чтобы переоборудовать шлюз высокой степени защиты в шлюз максимальной степени защиты, вам потребуются следующие материалы:
+<Box HorizontalAlignment="Stretch">
+	<Box>
+		<GuideEntityEmbed Entity="SheetPlasteel" Caption="лист пластали x2"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Screwdriver" Caption="отвёртка"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+	</Box>
+</Box>
+
+Чтобы обновить шлюз с высокой степенью защиты,
+- С помощью отвертки откройте тех. панель шлюза.
+- Добавьте листы пластали в шлюз.
+- Приварите листы пластали к шлюзу.
+- Закройте тех. панель с помощью отвертки.
+</Document>

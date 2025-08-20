@@ -1,0 +1,61 @@
+<!--
+SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Хирургия
+Ваше обычное еженедельное занятие. Проводя хирургические операции своим пациентам, вы можете заживлять раны, удалять или добавлять части тела, органы и многое другое.
+
+## Основы
+Чтобы начать операцию, пациент должен лежать, а в идеале - находиться под действием успокоительного.
+
+Если его не успокоить, он будет испытывать сильную боль, что снизит его настроение и усугубит хирургические раны.
+
+<Box>
+<GuideEntityEmbed Entity="NitrousOxideTank" Caption="оксид азота"/>
+<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="любая дыхательная маска"/>
+</Box>
+
+Вам также необходимо надеть защитные средства, такие как маска и перчатки, чтобы не навредить пациенту из-за загрязнения.
+
+<Box>
+<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="любая маска"/>
+<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="любые перчатки"/>
+</Box>
+
+## Начало работы
+
+Чтобы заняться хирургией, вам понадобится набор хирургических инструментов.
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Caption="скальпель"/>
+<GuideEntityEmbed Entity="Retractor" Caption="ретрактор"/>
+<GuideEntityEmbed Entity="Hemostat" Caption="гемостат"/>
+<GuideEntityEmbed Entity="Drill" Caption="дрель"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="Saw" Caption="пила"/>
+<GuideEntityEmbed Entity="Cautery" Caption="прибор для прижигания"/>
+<GuideEntityEmbed Entity="BoneGel" Caption="костный гель"/>
+</Box>
+
+Взяв в руки инструменты, взаимодействуйте с пациентом, чтобы начать операцию. Вы сможете выбрать, какую часть тела вы хотите оперировать.
+
+## Гетто-хирургия
+
+Некоторые нехирургические инструменты могут быть использованы в крайних случаях: используйте значок осмотра скальпеля, чтобы понять, насколько хорош или плох тот или иной инструмент.
+<Box>
+<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+<GuideEntityEmbed Entity="Wirecutter" Caption="кусачки"/>
+<GuideEntityEmbed Entity="KitchenKnife" Caption="нож"/>
+<GuideEntityEmbed Entity="Crowbar" Caption="монтировка"/>
+</Box>
+
+Они не идеальны по сравнению с настоящим хирургическим оборудованием, но в крайнем случае сгодятся!
+
+</Document>

@@ -1,0 +1,36 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Канистры
+  <Box>
+    <GuideEntityEmbed Entity="AirCanister"/>
+    <GuideEntityEmbed Entity="OxygenCanister"/>
+    <GuideEntityEmbed Entity="NitrogenCanister"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="CarbonDioxideCanister"/>
+    <GuideEntityEmbed Entity="StorageCanister"/>
+    <GuideEntityEmbed Entity="GasPort"/>
+  </Box>
+
+  Канистры с газом - это способ хранения газа в переносном контейнере для удобства транспортировки.
+  Они могут хранить до [color=orange][protodata="StorageCanister" comp="GasCanister" member="Volume"/] литров [/color] газа.
+
+  Вы можете подсоединить баллоны к канистре и наполнить их с помощью выпускного клапана на канистре.
+  Выпускной клапан также оснащен регулируемым регулятором давления для регулирования давления в подключенном баллоне.
+
+  Открытие выпускного клапана на канистре, к которому не подсоединен баллон, приведет к выбросу газа в атмосферу при заданном регулятором давлении.
+
+  [bold]Перед извлечением баллона обязательно закройте выпускной клапан![/bold]
+
+  ## Соединительные порты
+  Канистры и [textlink="портативные скрубберы" link="PortableScrubberReserve"] могут быть подключены к [textlink="сети труб" link="PipeNetworksReserve"] закрепив устройство к соединительному порту.
+  При подключении газ будет свободно поступать в канистру и выходить из него, чтобы сбалансировать давление, температуру и состав.
+  Для подачи или извлечения газа из канистры можно использовать насос, который может быть полезен для полного заполнения или опорожнения канистры.
+
+</Document>

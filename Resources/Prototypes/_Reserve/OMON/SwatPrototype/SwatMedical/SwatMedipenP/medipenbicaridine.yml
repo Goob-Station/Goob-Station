@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен бикаридина
+  parent: ChemicalMedipen
+  id: MedipenBicaridine
+  description: Специальный медипен для ОКГ, содержит бикаридин, лечит от механических травм.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenBicaridine
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 14
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 14
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenBicaridine_empty
+  - type: Tag
+    tags: []

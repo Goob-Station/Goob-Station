@@ -1,0 +1,432 @@
+<Document>
+  # Космический Закон: нарушения
+  Космический закон (также КЗ, Space Law) — название, данное своду корпоративных правил, утвержденных Советом директоров NanoTrasen. Действие космического закона NanoTrasen распространяется на всех объектах NanoTrasen и защищает любую собственность корпорации, как живую, так и неодушевлённую, а также любых авторизованных посетителей станции и их имущество.
+
+  Кодификация организована по принципу категории кода (__x) - ряда несуммируемых преступлений, тяжести категории (_x_) и тяжести преступления (x__).
+  [italic]Краткая справка по кодам статей:[/italic]
+  - Статьи с одинаковым [bold]кодом (__x)[/bold] не могут быть суммированы
+  - [bold]Тяжесть категории(_x_)[/bold] является вспомогательной и лишь указывает на более тяжкое преступление, имеющее тот же код.
+  - [bold]Тяжесть(x__)[/bold] определяет сроки заключение и допустимые санкции к нарушителю статьи.
+
+  ## Краткий справочник с кодами
+
+  <Table Columns="4">
+    <ColorBox Color="#2a9633">
+      <Box>
+        1XX
+        Лёгкое
+        (До 8 минут)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ee6a34">
+      <Box>
+        2XX
+        Среднее
+        (8–15 минут)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8a3131">
+      <Box>
+        3XX
+        Тяжкое
+        (20 минут или Пермабриг)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Жестокость
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нападение
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Похищение
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        01
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#e65f2a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Непредумышленное убийство
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ce3d3d">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        11
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#060b06">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Терроризм
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        21
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Кража
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Крупная кража
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        02
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Проникновение
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Проникновение со взломом
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        03
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Вандализм
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Саботаж
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Масштабный саботаж
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        04
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хулиганство
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Халатность
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        05
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#e65f2a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Злоупотребление властью
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        15
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Владение ограниченным снаряжением
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Контрабандизм
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        06
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Неуважение к власти
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Воспрепятствование правосудию
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Подстрекательство к демонстрации
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        07
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#43894a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Лжесвидетельство
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#e65f2a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Бунт
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ce3d3d">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Крупный мятеж
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        17
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## Нарушения заключённых:
+  Вандализм в камере определяется как разрушение вещей, находящихся в камере, или её ограничивающих. Например: поломка лампочек, кровати или окнон камеры, шлюзов.
+
+  Попытка побега определяется как нападение на службу безопасности во время совершения самой попытки побега или внутри места заключения.
+
+  Побег определяется как выход из области заключения без разрешения службы безопасности.
+  Разрушение внутренних окон, не покидая области заключения, считается не побегом, а вандализмом. Заключённые на временном содержании в бриге должны находиться вне своей камеры, заключённые на каторге должны покинуть остров, заключенные пермабрига должны находиться вне доступной для заключённых зоны, чтобы это считалось побегом.
+
+  - Заключённые, переведённые службой безопасности в другую область, не считаются сбежавшими, если они не покинули её. Если заключённый перебрался в другую камеру без разрешения уполномоченного лица, это также считается побегом.
+  - Для заключённых пермабрига или вечной каторги, которые уже предпринимали попытку побега из пермабрига или с вечной каторги, при повторных попытках побега разрешается казнь.
+  - Возвращение на станцию приговорённого к изгнанию приравнивается к побегу из пермабрига.
+
+  <Table Columns="4">
+    <ColorBox Color="#7f7f7f">
+      <Box>
+        Способ содержания заключённого
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffba4c">
+      <Box>
+        Вандализм
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ed8a63">
+      <Box>
+        Попытка побега
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box>
+        Побег
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Тюремное заключение
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Добавление 5 минут к сроку. Не может быть применено несколько раз.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Перезапуск таймера
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Заключение на тот же срок + 5 минут
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Пермабриг
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Перевод в карцер или одиночную камеру на 5 минут
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Перевод в карцер  или одиночную камеру на 10 минут.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Может быть применена летальная сила с последующим возвращением в место содержания.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  # Краткая справка по модификаторам наказания:
+
+  <Table Columns="2">
+    <ColorBox Color="#2c4c7b">
+      <Box>
+        Ситуация
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2c4c7b">
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Крайняя необходимость
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#65b36c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Вражеская конвертация
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffba4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Явка с повинной
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сокращение наказания на 50%
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffba4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сотрудничество с СБ
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сокращение наказания на 50%
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#ffba4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Отсутствие умысла
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Наказание предыдущей степени тяжести
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Пособничество
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Наказание за статьи, в нарушении которых оказывалась помощь
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Отказ от сотрудничества
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Увеличение наказания на 50%
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Рецидив
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        +5 минут к наказанию за каждый случай рецидива
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Должностное преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Увеличение наказания на 50%
+      </Box>
+    </ColorBox>
+  </Table>
+</Document>

@@ -1,0 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+
+  # Они
+
+  <Box>
+    <GuideEntityEmbed Entity="MobOniDummy" Caption=""/>
+  </Box>
+
+  Крупные рогатые люди, которые бывают самых разных цветов. Их меткость при обращении с оружием ужасна, но их физическая сила приносит им множество преимуществ как в бою, так и вне его.
+
+  ## Диета
+  - Ничего особенного.
+
+  ## Преимущества
+  - Получает на 15% меньше тупого, колющего и проникающего урона.
+  - Наносит больше урона в ближнем бою: на 35% больше тупого и удушающего, на 20% больше колющего и пронзающего.
+  - Благодаря своим большим размерам они могут легко нести, толкать и тащить любые другие морфотипы.
+  - Их труднее толкать.
+  - Выносливость немного выше, чем у людей.
+  - Им легче открывать двери, на это уходит примерно на 50 % меньше времени, чем у других видов.
+
+  ## Недостатки
+  - Их точность при стрельбе из оружия ужасна.
+  - Их труднее носить и тащить.
+  - Они крупнее людей, поэтому в них легче попасть.
+
+</Document>

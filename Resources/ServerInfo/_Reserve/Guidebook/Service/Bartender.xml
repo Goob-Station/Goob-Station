@@ -1,0 +1,28 @@
+<Document>
+# Бармен
+Работа бармена довольно проста: подавайте напитки. Люди будут приходить к вам и просить напитки, а ваша задача - просто передать их им.
+
+<Box>
+Реагенты для напитков можно найти в разных местах:
+</Box>
+<Box>
+<GuideEntityEmbed Entity="BoozeDispenser"/>
+<GuideEntityEmbed Entity="SodaDispenser"/>
+<GuideEntityEmbed Entity="VendingMachineBooze"/>
+</Box>
+
+<Box>
+Не забудьте сосуды для их подачи!
+</Box>
+<Box>
+<GuideEntityEmbed Entity="DrinkGlass" Caption="Стакан"/>
+<GuideEntityEmbed Entity="DrinkGlassCoupeShaped"/>
+<GuideEntityEmbed Entity="DrinkShaker"/>
+<GuideEntityEmbed Entity="DrinkJigger"/>
+</Box>
+
+## Напитки
+Знание того, как приготовить требуемый напиток, очень важно. Здесь представлены различные напитки, включая их рецепты:
+
+<GuideReagentGroupEmbed Group="Drinks"/>
+</Document>

@@ -1,0 +1,396 @@
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Gbedan <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
+  id: DefaultRulesetReserve
+  name: guide-entry-rules
+  ruleEntry: true
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/DefaultRulesReserve.xml"
+
+- type: guideEntry
+  id: RoleTypesReserve
+  name: guide-entry-rules-role-types
+  ruleEntry: true
+  priority: 20
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleTypes.xml"
+
+- type: guideEntry
+  id: CoreRulesReserve
+  name: guide-entry-rules-core
+  ruleEntry: true
+  priority: 30
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/ReserveCoreRul.xml"
+  children:
+  - RuleReserve0
+  - RuleReserve1
+  - RuleReserve2
+  - RuleReserve3
+  - RuleReserve31
+  - RuleReserve32
+  #- RuleReserve33 #Not used
+  - RuleReserve34
+  - RuleReserve35
+  - RuleReserve36
+  - RuleReserve37
+  - RuleReserve38
+  - RuleReserve4
+  #- RuleReserve5 #Not present any
+  - RuleReserve6
+  - RuleReserve7
+  - RuleReserve8
+  - RuleReserve9
+  - RuleReserve10
+
+#Reserve-Rules-Start
+
+- type: guideEntry
+  id: RuleReserve0
+  name: "Не будь мудаком!"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve0.xml"
+
+- type: guideEntry
+  id: RuleReserve1
+  name: "Гриф"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve1.xml"
+
+- type: guideEntry
+  id: RuleReserve2
+  name: "Убийство"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve2.xml"
+
+- type: guideEntry
+  id: RuleReserve3
+  name: "Нарушение игровой атмосферы"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve3.xml"
+
+- type: guideEntry
+  id: RuleReserve31
+  name: "Игра на победку"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve31.xml"
+
+- type: guideEntry
+  id: RuleReserve32
+  name: "Метагейм"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve32.xml"
+
+- type: guideEntry
+  id: RuleReserve33 #Not used
+  name: "Ограничение на профессиональные навыки"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve33.xml"
+
+- type: guideEntry
+  id: RuleReserve34
+  name: "IC в LOOC"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve34.xml"
+
+- type: guideEntry
+  id: "RuleReserve35"
+  name: "Мультиаккаунт"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve35.xml"
+
+- type: guideEntry
+  id: RuleReserve36
+  name: "Выход из роли"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve36.xml"
+
+- type: guideEntry
+  id: RuleReserve37
+  name: "Безграмотность"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve37.xml"
+
+- type: guideEntry
+  id: RuleReserve38
+  name: "Поддержание уважительной обстановки"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve38.xml"
+
+- type: guideEntry
+  id: RuleReserve4
+  name: "Логика персонажей"
+  ruleEntry: true
+  priority: 13
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve4.xml"
+
+- type: guideEntry
+  id: RuleReserve6
+  name: "Ответственная игра за антагониста"
+  ruleEntry: true
+  priority: 14
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve6.xml"
+
+- type: guideEntry
+  id: RuleReserve7
+  name: "Самоантагонизм"
+  ruleEntry: true
+  priority: 15
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve7.xml"
+
+- type: guideEntry
+  id: RuleReserve8
+  name: "Валидхант"
+  ruleEntry: true
+  priority: 16
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve8.xml"
+
+- type: guideEntry
+  id: RuleReserve9
+  name: "ERP"
+  ruleEntry: true
+  priority: 17
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve9.xml"
+
+- type: guideEntry
+  id: RuleReserve10
+  name: "Нечестная игра"
+  ruleEntry: true
+  priority: 18
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RuleReserve10.xml"
+
+# Reserve-Rule-End
+
+- type: guideEntry
+  id: RoleplayRulesReserve
+  name: guide-entry-rules-roleplay
+  ruleEntry: true
+  priority: 40
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR0.xml"
+  children:
+  - RuleRReserve1
+  - RuleRReserve2
+  - RuleRReserve3
+  - RuleRReserve4
+  - RuleRReserve5
+  - RuleRReserve51
+  - RuleRReserve6
+  - RuleRReserve7
+
+- type: guideEntry
+  id: RuleRReserve1
+  name: guide-entry-rules-r-reserve1
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR1Familiars.xml"
+
+- type: guideEntry
+  id: RuleRReserve2
+  name: guide-entry-rules-r-reserve2
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR2NormalRP.xml"
+
+- type: guideEntry
+  id: RuleRReserve3
+  name: guide-entry-rules-r-reserve3
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR3Arrivals.xml"
+
+- type: guideEntry
+  id: RuleRReserve4
+  name: guide-entry-rules-r-reserve4
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR4RoundStalling.xml"
+
+- type: guideEntry
+  id: RuleRReserve5
+  name: guide-entry-rules-r-reserve5
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR5Escalation.xml"
+  children:
+  - RuleRReserve51
+
+- type: guideEntry
+  id: RuleRReserve51
+  name: guide-entry-rules-r-reserve5-1
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR5-1ConflictTypes.xml"
+
+- type: guideEntry
+  id: RuleRReserve6
+  name: guide-entry-rules-r-reserve6
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR6SpaceLaw.xml"
+
+- type: guideEntry
+  id: RuleRReserve7
+  name: guide-entry-rules-r-reserve7
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/RoleplayRules/RuleR7NewLifeRule.xml"
+
+#Silicon
+- type: guideEntry
+  id: SiliconRulesReserve
+  name: guide-entry-rules-silicon-кeserve
+  ruleEntry: true
+  priority: 50
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS0.xml"
+  children:
+  - RuleSReserve1
+  - RuleSReserve2
+  - RuleSReserve3
+  - RuleSReserve4
+  - RuleSReserve5
+  - RuleSReserve6
+  - RuleSReserve7
+  - RuleSReserve8
+  - RuleSReserve9
+  - RuleSReserve10
+
+- type: guideEntry
+  id: RuleSReserve1
+  name: guide-entry-rules-s1
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS1Laws.xml"
+
+- type: guideEntry
+  id: RuleSReserve2
+  name: guide-entry-rules-s2
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS2LawPriority.xml"
+
+- type: guideEntry
+  id: RuleSReserve3
+  name: guide-entry-rules-s3
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS3LawRedefinition.xml"
+
+- type: guideEntry
+  id: RuleSReserve4
+  name: guide-entry-rules-s4
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS4RequestChanges.xml"
+
+- type: guideEntry
+  id: RuleSReserve5
+  name: guide-entry-rules-s5
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS5FreeSilicon.xml"
+
+- type: guideEntry
+  id: RuleSReserve6
+  name: guide-entry-rules-s6
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS6UnreasonableOrders.xml"
+
+- type: guideEntry
+  id: RuleSReserve7
+  name: guide-entry-rules-s7
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS7Consistency.xml"
+
+- type: guideEntry
+  id: RuleSReserve8
+  name: guide-entry-rules-s8
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS8DefaultCrewDefinition.xml"
+
+- type: guideEntry
+  id: RuleSReserve9
+  name: guide-entry-rules-s9
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS9DefaultHarmDefinition.xml"
+
+- type: guideEntry
+  id: RuleSReserve10
+  name: guide-entry-rules-s10
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/SiliconRules/RuleS10OrderConflicts.xml"
+
+# Reserve Space Law
+- type: guideEntry
+  id: SpaceLawReserve
+  name: guide-entry-space-law
+  text: "/ServerInfo/_Reserve/Guidebook/SpaceLaw/SpaceLaw.xml"
+  children:
+  - SpaceLawReserveTable
+
+- type: guideEntry
+  id: SpaceLawReserveTable
+  name: guide-entry-space-law-table
+  text: "/ServerInfo/_Reserve/Guidebook/SpaceLaw/SLCrimeList.xml"
+  children:
+  - SpaceLawReserveViolationsMinor
+  - SpaceLawReserveViolationsCommon
+  - SpaceLawReserveViolationsSerious
+
+- type: guideEntry
+  id: SpaceLawReserveViolationsMinor
+  name: guide-entry-space-law-violations-minor
+  text: "/ServerInfo/_Reserve/Guidebook/SpaceLaw/CrimesMinor.xml"
+  priority: 0
+
+- type: guideEntry
+  id: SpaceLawReserveViolationsCommon
+  name: guide-entry-space-law-violations-average
+  text: "/ServerInfo/_Reserve/Guidebook/SpaceLaw/CrimesCommon.xml"
+  priority: 1
+
+- type: guideEntry
+  id: SpaceLawReserveViolationsSerious
+  name: guide-entry-space-law-violations-serious
+  text: "/ServerInfo/_Reserve/Guidebook/SpaceLaw/CrimesSerious.xml"
+  priority: 2
+
+#Bans
+- type: guideEntry
+  id: BanTypesReserve
+  name: guide-entry-rules-ban-types-reserve
+  ruleEntry: true
+  priority: 90
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/BanTypes.xml"
+
+- type: guideEntry
+  id: BanDurationsReserve
+  name: guide-entry-rules-ban-durations-reserve
+  ruleEntry: true
+  priority: 100
+  text: "/ServerInfo/_Reserve/Guidebook/ServerRules/BanDurations.xml"

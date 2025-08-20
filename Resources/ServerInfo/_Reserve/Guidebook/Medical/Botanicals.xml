@@ -1,0 +1,20 @@
+<Document>
+# Ботаника
+
+Ботаника и Химия часто могут сотрудничать для производства лекарств получше (или развлекательных коктейлей). Возможно, стоит дать им необходимые удобрения, а взамен попросить несколько лекарственных растений.
+
+<Box>
+<GuideEntityEmbed Entity="FoodGalaxythistle"/>
+<GuideEntityEmbed Entity="FoodLingzhi"/>
+<GuideEntityEmbed Entity="FoodAmbrosiaVulgaris"/>
+<GuideEntityEmbed Entity="FoodAloe"/>
+<GuideEntityEmbed Entity="Nettle"/>
+</Box>
+
+<GuideReagentGroupEmbed Group="Botanical"/>
+<GuideReagentEmbed Reagent="UnstableMutagen"/>
+<GuideReagentEmbed Reagent="Cryoxadone"/>
+<GuideReagentEmbed Reagent="Dylovene"/>
+<GuideReagentEmbed Reagent="Phalanximine"/>
+
+</Document>

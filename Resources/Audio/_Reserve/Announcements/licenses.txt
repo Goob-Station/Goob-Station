@@ -1,0 +1,39 @@
+- files: ["greytide.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["infestation.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["i-storm1.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["i-storm2.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["i-storm3.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["lifesigns.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["radiation.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"
+
+  - files: ["radpassed.ogg"]
+  license: "CC-BY-SA by 3.0"
+  copyright: "Created by BasiaBelov and notkripton"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/commit/92d2767dbb39f28540f78d5055e7be1eb7acee98"

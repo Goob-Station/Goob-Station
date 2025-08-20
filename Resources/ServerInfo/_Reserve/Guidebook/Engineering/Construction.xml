@@ -1,0 +1,24 @@
+<!--
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Строительство
+
+Нажав [color=#a4885c]G[/color] на клавиатуре, или соответствующую кнопку на экране, вы откроете меню строительства, через которое можно строить различные объекты и создавать предметы.
+
+При размещении призраков объектов, которые «привязываются» к сетке, зажмите [color=#a4885c]Shift[/color] чтобы разместить сразу несколько объектов в линию, или [color=#a4885c]Ctrl[/color] чтобы разместить объекты квадратом.
+
+При создании предметов с большим количеством компонентов помните, что не обязательно держать у себя всё сразу. Вы можете просто положить компоненты на пол или на стол около себя, и они будут использованы автоматически.
+
+При размещении "призрака конструкции" где-либо в мире нажмите [color=#a4885c]колёсико мыши[/color], чтобы повернуть призрак по часовой стрелке.
+</Document>

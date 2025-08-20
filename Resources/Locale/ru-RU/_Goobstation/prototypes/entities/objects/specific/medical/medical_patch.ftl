@@ -1,0 +1,16 @@
+ent-BaseMedicalPatch = пластырь
+    .desc = Используй это на своем бо-бо.
+ent-MedicalPatchBasic = пластырь
+    .desc = Используй это на своем бо-бо.
+ent-UsedMedicalPatch = использованный пластырь
+    .desc = Грязный.
+ent-UsedMedicalPatchMakeshift = использованный пластырь
+    .desc = Грязный.
+ent-MedicalPatchRapid = скоростной пластырь
+    .desc = На нем нарисованы гоночные машины.
+ent-MedicalPatchTherapeutic = терапевтический пластырь
+    .desc = Используется для применения малых доз в течение длительного времени.
+ent-MedicalPatchLarge = большой пластырь
+    .desc = Используй это на своем БОЛЬШОМ бо-бо.
+ent-MedicalPatchMakeshift = импровизированный пластырь
+    .desc = Выглядит не гигиенично.

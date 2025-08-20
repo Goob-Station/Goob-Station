@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryEngineering = управление инженерным модсьютом
+    .desc = Основной контроллер для инженерного модельного костюма.
+ent-ClothingModsuitGauntletsResponsoryEngineering = Инженерные рукавицы модсьюта
+    .desc = Пара перчаток, сшитых для модсьюта.
+ent-ClothingModsuitHelmetResponsoryEngineering = Шлем скафандра для инженерных работ
+    .desc = Ультрасовременный шлем, разработанный компанией NanoTrasen для инженерного модсьюта. Он оснащен встроенным дисплеем HUD.
+ent-ClothingModsuitChestplateResponsoryEngineering = Нагрудный щиток модсьюта для инженерных работ
+    .desc = Современный нагрудный щиток, разработанный компанией NanoTrasen для инженерного модсьюта. Он оснащен приводимыми в действие сервоприводами для снижения нагрузки на оборудование.
+ent-ClothingModsuitBootsResponsoryEngineering = Сапоги скафандра для инженерных работ
+    .desc = Ультрасовременная пара магнитных ботинок для инженерного модсьюта. Пока костюм включен, они не будут замедлять работу пользователя.
+ent-SuitStorageResponsoryEngineering = { ent-SuitStorageBase }
+    .suffix = Инженерный модсьют
+    .desc = { ent-SuitStorageBase.desc }

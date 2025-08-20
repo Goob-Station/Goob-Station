@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен дифенгидрамина
+  parent: ChemicalMedipen
+  id: MedipenDifengidramin
+  description: Специальный медипен для ОКГ, содержит Дифенгидрамин, успокаивает и лечит отравление.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenDifengidramin
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Diphenhydramine
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenDifengidramin_empty
+  - type: Tag
+    tags: []

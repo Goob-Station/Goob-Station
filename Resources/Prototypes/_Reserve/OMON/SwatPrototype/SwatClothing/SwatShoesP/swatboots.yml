@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesSwatBoots
+  name: лёгкие ботинки ОКГ
+  description: Лёгкие и удобные ботинки ОКГ, позволяют свободно передвигаться... по крайней мере по поверхности. По кровяным разводам можно понять, что ими часто наступают на чьи-то лица.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatboots.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatboots.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05

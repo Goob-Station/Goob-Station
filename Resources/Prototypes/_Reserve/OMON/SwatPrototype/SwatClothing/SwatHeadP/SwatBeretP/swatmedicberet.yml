@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMedicSwat
+  name: берет медика ОКГ
+  description: Специализированный берет, обозначающий медика ОКГ.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatmedicberet.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatmedicberet.rsi

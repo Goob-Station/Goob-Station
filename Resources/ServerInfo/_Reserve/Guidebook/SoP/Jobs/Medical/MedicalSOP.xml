@@ -1,0 +1,14 @@
+<Document>
+# СРП Медицинского отдела
+Это список стандартных операционных процедур (СРП), которым должен следовать медицинский персонал. Как уже упоминалось ранее, это [bold]не контрольные списки[/bold], и их следует рассматривать как руководящие принципы.
+
+Для упрощения записей, [color=#42636d][bold]Врач[/bold][/color], [color=#42636d][bold]Медицинский Интерн[/bold][/color] и [color=#42636d][bold]Парамедик[/bold][/color] объединены в одну категорию.
+
+Следующие должности включены в этот отдел, где [color=#1b67a5][bold]Главный Врач[/bold][/color] является Главой Отдела:
+- [textlink="Главный Врач" link="ChiefMedicalOfficer SOP Reserve"]
+- [textlink="Химик" link="Chemist SOP Reserve"]
+- [textlink="Парамедик" link="DoctorIntern SOP Reserve"]
+- [textlink="Врач" link="DoctorIntern SOP Reserve"]
+- [textlink="Интерн" link="DoctorIntern SOP Reserve"]
+
+</Document>

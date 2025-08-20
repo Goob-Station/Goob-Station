@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен спецназа
+  parent: ChemicalMedipen
+  id: MedipenSwat
+  description: Специальный медипен для ОКГ, содержит омнизин, лечит всё.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenSpecial
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenSpecial_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 20
+  - type: Tag
+    tags: []

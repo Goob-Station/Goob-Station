@@ -1,0 +1,11 @@
+ent-SyringePax = { ent-PrefilledSyringe }
+    .suffix = пакс
+    .desc = { ent-PrefilledSyringe.desc }
+ent-SyringePoisonCentcomm = { ent-PrefilledSyringe }
+    .suffix = яд
+    .desc = { ent-PrefilledSyringe.desc }
+ent-SyringePoisonFent = использованный шприц из-под фентанила
+    .desc = Какого хрена?!
+    .suffix = направленный
+ent-SyringePoisonLethalInjection = шприц со смертельной инъекцией
+    .desc = Довольно гуманный способ расправы с заключенными.

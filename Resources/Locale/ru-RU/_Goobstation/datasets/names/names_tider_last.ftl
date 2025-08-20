@@ -1,0 +1,10 @@
+names-tider-last-1 = Тайдер
+names-tider-last-2 = Ползун
+names-tider-last-3 = Король
+names-tider-last-4 = Тулбокс
+names-tider-last-5 = Прерыватель
+names-tider-last-6 = Вор
+names-tider-last-7 = Гаечный ключ
+names-tider-last-8 = Лом
+names-tider-last-9 = Пакостник
+names-tider-last-10 = Пояс

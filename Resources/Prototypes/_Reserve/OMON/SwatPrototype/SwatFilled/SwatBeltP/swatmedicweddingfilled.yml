@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingBeltSwatMedicWedding
+  id: ClothingBeltSwatMedicWeddingFilled
+  suffix: Reserve, Filled, Medic
+  components:
+  - type:  StorageFill
+    contents:
+      - id: WeaponPistolMk58
+      - id: MagazinePistol
+      - id: MagazinePistol
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleEpinephrine
+      - id: Stunbaton

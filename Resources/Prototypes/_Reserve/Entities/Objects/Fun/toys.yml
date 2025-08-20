@@ -1,0 +1,71 @@
+- type: entity
+  parent: ToySword
+  id: DoubleToySword
+  name: double toy sword
+  description: New Sandy-Cat plastic sword! Twice as much more epic and loud noises!
+  components:
+    - type: EnergySword
+    - type: ItemToggle
+      predictable: false # Goobstation - wielded weapons sound prediction is broken
+      onUse: false # wielding events control it instead
+      onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
+      soundActivate:
+        path: /Audio/Weapons/ebladeon.ogg
+        params:
+          volume: 3
+      soundDeactivate:
+        path: /Audio/Weapons/ebladeoff.ogg
+        params:
+          volume: 3
+    - type: ItemTogglePointLight
+    - type: ItemToggleMeleeWeapon
+      activatedSoundOnSwing:
+        path: /Audio/Weapons/eblademiss.ogg
+        params:
+          volume: 3
+          variation: 0.250
+      activatedDamage:
+          types:
+              Stamina: 5
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+        params:
+          volume: 3
+    - type: ComponentToggler
+      components:
+      - type: DisarmMalus
+        malus: 0
+    - type: Wieldable
+      wieldSound: null # esword light sound instead
+    - type: MeleeWeapon
+      heavyStaminaCost: 0 # goob edit
+      wideAnimationRotation: -135
+      attackRate: 1.5
+      angle: 100
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/e_sword_double.rsi
+      layers:
+        - state: e_sword_double
+        - state: e_sword_double_blade
+          color: "#FFFFFF"
+          visible: false
+          shader: unshaded
+          map: [ "blade" ]
+    - type: Item
+      sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
+    - type: Appearance
+    - type: FlipOnHit # WD EDIT
+    - type: ToggleableLightVisuals
+      spriteLayer: blade
+      inhandVisuals:
+        left:
+          - state: inhand-left-blade
+            shader: unshaded
+        right:
+          - state: inhand-right-blade
+            shader: unshaded
+    - type: Construction
+      deconstructionTarget: null
+      graph: DoubleToySwordGraph
+      node: desword

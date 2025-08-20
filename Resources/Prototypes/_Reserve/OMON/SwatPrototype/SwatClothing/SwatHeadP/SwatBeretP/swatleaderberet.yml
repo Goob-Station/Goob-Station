@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretLeaderSwat
+  name: берет лидера ОКГ
+  description: Элитный берет спецназа, обозначающий ветеранство, профессионализм а так же командование.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatleaderberet.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatleaderberet.rsi

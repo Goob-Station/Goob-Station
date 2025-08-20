@@ -1,0 +1,170 @@
+<!--
+SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Iztok Bajcar <50874197+iztokbajcar@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Термоэлектрический Генератор (ТЭГ)
+
+  Термоэлектрический Генератор вырабатывает энергию за счет теплообмена между горячими и холодными газами. На станции горячий газ может быть добыт из газодобытчика, например пара, или в результате сжигания плазмы. Другой же газ можно охладить с помощью охладителя или через космос, используя радиаторы.
+
+  Работа ТЭГа, по большей части, опирается на атмосферный трубопровод и его настройку. Самым важным и особенным компонентом является ядро, в котором и происходит реакция, всё остальное - выстраиваемое атмосферное оборудование. Важно, что схема постройки ТЭГа может быть разной в зависимости от станции и навыков Атмос-техника, однако общие компоненты обычно одинаковы.
+
+  ## Генератор
+
+  Сам главный генератор представляет собой конструкцию, состоящую из 3 частей: центрального генератора и двух циркуляционных насосов, расположенных таким образом:
+
+  <Box>
+    <GuideEntityEmbed Entity="TegCirculator" Rotation="180" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="TegCenter" Rotation="90" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="TegCirculator" Caption="" Margin="0"/>
+  </Box>
+
+  Насосы принимают горячий или холодный газ и пропускают его через машину для теплообмена. Затем газ выходит на другом конце насоса. Генератор вырабатывает энергию и выдает её по высоковольтному проводу.
+
+  Обратите внимание, что насосы являются [color=#a4885c]направленными[/color]: они пропускают газ только в одну сторону. Вы можете увидеть это направление в игре, осмотрев их. На входе и выходе требуется разница давлений, поэтому обычно предусмотрены насосы, которые необходимо включать.
+
+  Неважно какая сторона будет горячей, а какая холодной, необходима лишь разница в температуре между ними. Газы в двух "контурах" никогда не смешиваются, между ними происходит только обмен энергией. Горячая сторона будет охлаждаться, холодная - нагреваться.
+
+  ## Трубопровод
+
+  Здесь присутствуют только 2 вещи, о которых нужно беспокоиться: Горячий контур (где циркулирует раскалённый газ), и холодный контур (где циркулирует отработанный охлаждённый газ, который после утилизируется в космос или снова запускается в цикл). Важно, чтобы [bold]трубопроводы НЕ смешивались[/bold], так как в ТЭГе между ними должно передаваться только тепло.
+
+  # Горячий контур
+
+  Как сказал однажды один мудрец: [color=#a4885c]"Лучший способ сделать что-то горячим - поджечь это"[/color]. Чтож, возможно не всегда это самый лучший вариант, но к счастью в вашем отделе есть всё необходимое, чтобы делать это с умом.
+
+  Кроме сказанного выше, существует множество способов чтобы нагреть (или охладить) газы; здесь мы рассмотрим 2 основных метода, используемые при настройке горячего контура ТЭГа: [color=red]Газодобытчик[/color], и [color=red]Камера сгорания[/color].
+
+  ## The Pipe Burn
+
+  Also known as the naive method, this is generally discouraged when working for efficiency. However, if all you need is a smidge of power to run the station, and you don't feel like setting up the burn chamber, this method will do.
+
+  [color=#444444]TODO: Remove this section when atmos pipes are updated to have pressure/temperature limits in a future atmos refactor.[/color]
+
+  Most (if not all) pipe burns follow this general layout:
+  <Box>
+    Gas input -> High-pressure pump -> Pipe segment (with heater) -> Low-pressure pump -> Circulator
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasMixer" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPressurePump" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="0" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPressurePump" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="TegCirculator" Rotation="90" Caption="" Margin="-3"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasThermoMachineHeaterEnabled" Caption="" Rotation="180" Margin="0"/>
+  </Box>
+  - The Gas input is pretty self-explanatory; this is where you will input the O2-Plasma mix to be burnt. A 2:1 (67/33) ratio of Oxygen to Plasma is recommended for the hottest burn.
+  - The High-pressure pump serves 2 purposes; first, it prevents the burn from backwashing into the supply pipe, which would be.. bad, for many reasons. Second, it maintains a positive pressure in the following pipe segment, which is important to allow the burn to continue, especially since hot gases expand.
+  - The Pipe segment is where the burn actually occurs; to start it off, one can use a heater to increase the temperature up to the ignition temperature of Plasma. Afterwards, the reaction should be self-sustaining, so long as the Pressure and Moles supplied remains high enough. [color=#a4885c]Be warned[/color]; if you wish to remove the heater, it will carry some of this superheated gas with it, transferring it to the next pipenet you connect it to. Best to space the gas through a space vent, if you must.
+  - The Low-pressure pump (whose pressure should be [italic]slightly lower[/italic] than the input pump) prevents [italic]all[/italic] the gas from passing through the circulator, which could result in the loss of the Moles required to sustain a burn.
+  - The Circulator is where this generated heat will flow to the cold loop; afterwards, feel free to space the waste gases.
+
+  Note: Pressure pumps are used here as, while they pump on pressure (not flow-rate, which is comparatively faster), they are a bit easier to control when it comes to the limited Plasma supply on-station. However, the steps shown can be followed with volumetric pumps too.
+
+  ## Камера сгорания
+
+  Камера сгорания - ещё один способ нагрева газа, который, впрочем, обычно используется для других целей.
+
+  На многих (если не на всех) станциях камера сгорания отделена от Атмосферного отдела космосом. Сама камера состоит из 3(+1) важных частей:
+  - Инжектор/Пассивная вентиляция
+  - Отвод в космос
+  - Массив скрубберов
+
+  Here is one layer of an example setup:
+  <Box>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="BlastDoorOpen" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasVentScrubber" Rotation="90" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasVentScrubber" Rotation="-90" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasPassiveVent" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="90" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasVentScrubber" Rotation="-90" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+
+  Через инжектор-форсунку (или пассивную вентиляцию) в камеру сгорания поступает смесь газа, состоящая из плазмы и кислорода, в соотношении 70/30 соответственно. Далее он поджигается при помощи любого источника огня, начиная от сварки и фальшфейера, заканчивая специальными воспламенителями.
+
+  Между пассивной вентиляцией и инжектором есть заметная разница: инжектор воздуха может нагнетать воздух только до [color=#a4885c]9 МПа[/color], чего можно легко достичь при хорошем горении. В идеале замените инжектор на пассивную вентиляцию, подключенную к объёмному насосу.
+
+  Массив скрубберов отфильтровывает все сгоревшие газы и направляет их через ТЭГ. Заметьте, что использование стандартных настроек скрубберов - плохая идея, так как ценная плазма тоже будет отфильтрована.
+  Вместо этого используйте мультитул (или конфигуратор сети), чтобы подключить все скрубберы к близлежащей воздушной сигнализации и установите настройки скрубберов воздушной сигнализации так, чтобы они пропускали всё, кроме кислорода и плазмы, а также отсасывали воздух. Это обеспечит сбор и передачу в ТЭГ максимального количества тепла.
+
+  Важно, что многие настройки - ситуативны. Вы сами вольны менять схемы и конструкции камеры сгорания под собственные нужды. Если вы можете сделать её более действенной - замечательно! Я вам не мамочка, чтобы командовать как и что делать.
+
+  # Холодный контур
+
+  Для работы ТЭГа, кроме Горячего контура, также необходимо настроить и Холодный. Тем не менее, Холодный контур обычно менее технологичен, чем Горячий; на самом деле "холодным" он должен быть лишь относительно, важна лишь весомая разница между температурами в насосах, так что подойдёт и комнатная температура.
+
+  Существует 2 основных метода, используемых в Холодном контуре: Водяное охлаждение и Морозильный цикл
+
+  ## Водяной охладитель
+
+  Относительно простой метод, очень схожий со схемой в Горячем контуре (так как работают они по одному принципу), заключающийся во взятии бесполезного газа из газодобытчика и/или собранных "мусорных" газов со станции и пропустить их через насос ТЭГа, а после выпустить в космос. Это достаточно дешёвый и простой метод, жертвующий эффективностью генератора.
+
+  Настройка такой системы настолько проста, что справился бы даже Гамлет! Просто возьмите газ, пропустите его через насос и сбросьте в космос.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasPressurePump" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="TegCirculator" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasPassiveVent" Rotation="270" Caption="" Margin="-1"/>
+  </Box>
+
+  ## Морозильный цикл
+
+  На данный момент это самая частоиспользуемая схема Холодного контура. Она состоит в запуске теплоёмкого газа (например Азота) по зацикленной трубе, с постоянным охлаждением. Несмотря на то, что охладитель затрачивает энергию для работы, это лишь малая часть от того, что вырабатывает ТЭГ. Сейчас Морозильный цикл вполне можно считать самым эффективным методом охлаждения ТЭГа.
+
+  Схема достаточно несложная, так что разобраться в ней не составит проблем:
+  <Box>
+    <GuideEntityEmbed Entity="GasPort" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeBend" Rotation="0" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasThermoMachineFreezerEnabled" Caption="" Rotation="0" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeBend" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasVolumePump" Rotation="270" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeBend" Rotation="0" Caption="" Margin="-1"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeBend" Rotation="180" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="TegCirculator" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90" Caption="" Margin="-1"/>
+    <GuideEntityEmbed Entity="GasPipeBend" Rotation="270" Caption="" Margin="-1"/>
+  </Box>
+
+  Опять же, вы можете использовать Плазму и Фрезон в контуре для большей эффективности (хотя подойдёт в целом любой доступный газ).
+</Document>

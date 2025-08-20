@@ -1,0 +1,16 @@
+ent-ClothingOuterArmorHeretic = зловещая броня
+    .desc = Рваная, пыльная мантия. Странные глаза выстроились внутри.
+ent-ClothingOuterArmorHereticVoid = { ent-ClothingOuterArmorHeretic }
+    .suffix = Пустота
+    .desc = { ent-ClothingOuterArmorHeretic.desc }
+ent-ClothingOuterArmorHereticAsh = { ent-ClothingOuterArmorHeretic }
+    .suffix = Пепел
+    .desc = { ent-ClothingOuterArmorHeretic.desc }
+ent-ClothingOuterArmorHereticFlesh = { ent-ClothingOuterArmorHeretic }
+    .suffix = Плоть
+    .desc = { ent-ClothingOuterArmorHeretic.desc }
+ent-ClothingOuterArmorHereticBlade = { ent-ClothingOuterArmorHeretic }
+    .suffix = Лезвие
+    .desc = { ent-ClothingOuterArmorHeretic.desc }
+ent-ClothingOuterArmorCloakVoid = плащ пустоты
+    .desc = Черные, как смола, они не отражают свет. Снаружи они покрыты руническими символами. С каждой вспышкой вы перестаете понимать, что видите.

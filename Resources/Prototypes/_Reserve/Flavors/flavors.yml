@@ -1,0 +1,4 @@
+- type: flavor
+  id: BacchusDrinkFlavour
+  flavorType: Complex
+  description: flavor-complex-bacchus-drink

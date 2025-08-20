@@ -1,0 +1,25 @@
+<Document>
+  # Взятие и изьятия из атмосферы
+  Введение и извлечение газов из существующей (или отсутствующей) атмосферы является неотъемлемой частью работы атмоса.
+  <Box>
+    <GuideEntityEmbed Entity="GasVentPump"/>
+    <GuideEntityEmbed Entity="GasPassiveVent"/>
+    <GuideEntityEmbed Entity="GasOutletInjector"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="PortableScrubber"/>
+  </Box>
+
+  С помощью этих устройств атмос может вводить, извлекать или удалять нежелательные газы из любой атмосферы по своему усмотрению.
+  Это позволяет поддерживать безопасную, пригодную для дыхания атмосферу.
+
+  Некоторые из этих устройств требуют [textlink="питание" link="PowerReserve"] для функционирования, и могут быть связаны с [textlink="воздушной сигнализацией" link="AirAlarmsReserve"].
+
+  [textlink="Подключать" link="NetworkingReserve"] совместимых устройств к воздушной сигнализации открывает больше возможностей для настройки и функциональности. В противном случае эти устройства будут работать по умолчанию, как указано во вспомогательных руководствах.
+
+  <Box>
+    <GuideEntityEmbed Entity="AirAlarm"/>
+    <GuideEntityEmbed Entity="Multitool"/>
+    <GuideEntityEmbed Entity="NetworkConfigurator"/>
+  </Box>
+
+</Document>

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Swat pdas by Reserve-station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{
+        "name": "pda-swatstandart"
+    },
+    {
+        "name": "pda-swatmedic"
+    },
+    {
+        "name": "pda-swatleader"
+    },
+    {
+        "name": "id_overlay"
+    },
+    {
+        "name": "light_overlay"
+    },
+    {
+        "name": "pda",
+        "_comment": "YAML linter appeasement regarding chameleon PDA, removal TODO. Refer to /Resources/Textures/Objects/Devices/pda.rsi/meta.json for licensing information"
+    }
+  ]
+}

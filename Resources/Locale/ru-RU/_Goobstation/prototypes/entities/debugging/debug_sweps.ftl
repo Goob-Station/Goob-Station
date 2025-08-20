@@ -1,0 +1,9 @@
+ent-MeleeDebugGibHoly100 = палочка святого урона 100дмг
+    .desc = Узрите силу БОЖЬЮ!!
+    .suffix = ДЕБАГ
+ent-MeleeDebugGibHoly200 = палочка святого урона 100дмг
+    .desc = Узрите силу БОЖЬЮ!!
+    .suffix = ДЕБАГ
+ent-MeleeDebugGibHoly200000 = святая ударная палочка
+    .desc = ПРОЧЬ, ГРЕШНИК
+    .suffix = ДЕБАГ

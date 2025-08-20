@@ -1,0 +1,11 @@
+ent-DebugMechEquipment = { "" }
+    .suffix = ДЕБАГ
+    .desc = { "" }
+ent-CombatMechEquipment = { "" }
+    .desc = { "" }
+ent-IndustrialMechEquipment = { "" }
+    .desc = { "" }
+ent-SpecialMechEquipment = { "" }
+    .desc = { "" }
+ent-SmallMechEquipment = { "" }
+    .desc = { "" }

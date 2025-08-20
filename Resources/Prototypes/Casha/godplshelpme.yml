@@ -1,0 +1,29 @@
+- type: reagent
+  id: Sperma
+  name: семя
+  group: Foods
+  desc: Не пробуйте на вкус..
+  physicalDesc: липкое
+  flavor: sperma
+  color: white
+  recognizable: true
+
+- type: flavor
+  id: semen
+  flavorType: Complex
+  description: Бог уже давно покинул нас
+
+- type: entity
+  id: PuddleSperma
+  name: лужа
+  description: Вы явно не хотите знать что это..
+  parent: PuddleTemporary
+  suffix: семя
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Sperma
+          Quantity: 2

@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Just-a-Unity-Dev <just-a-unity-dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <twlowe06@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: SecurityReserve
+  name: guide-entry-security
+  text: "/ServerInfo/_Reserve/Guidebook/Security/Security.xml"
+  children:
+  - ForensicsReserve
+  - DefusalReserve
+  - CriminalRecordsReserve
+  - SpaceLawReserve # Reserve
+
+- type: guideEntry
+  id: ForensicsReserve
+  name: guide-entry-forensics
+  text: "/ServerInfo/_Reserve/Guidebook/Security/Forensics.xml"
+
+- type: guideEntry
+  id: DefusalReserve
+  name: guide-entry-defusal
+  text: "/ServerInfo/_Reserve/Guidebook/Security/Defusal.xml"
+
+- type: guideEntry
+  id: CriminalRecordsReserve
+  name: guide-entry-criminal-records
+  text: "/ServerInfo/_Reserve/Guidebook/Security/CriminalRecords.xml"

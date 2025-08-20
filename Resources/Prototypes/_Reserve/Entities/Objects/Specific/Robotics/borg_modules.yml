@@ -1,0 +1,36 @@
+#Svarshik's cyborg fireaxes
+- type: entity
+  id: BorgModuleFireAxe
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: fire axe cyborg module
+  description: A piece of tech that gives cyborgs a fire axe!
+  components:
+    - type: Sprite
+      layers:
+        - state: engineering
+        - state: icon-fireaxe
+          sprite: _Reserve/Objects/Specific/Robotics/borgmodule.rsi
+    - type: ItemBorgModule
+      moduleId: FireAxe
+      items:
+        - BorgFireAxe
+    - type: BorgModuleIcon
+      icon: { sprite: _Reserve/Interface/Actions/actions_borg.rsi, state: fireaxe-module }
+
+- type: entity
+  id: BorgModuleFlamingAxe
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: fire axe cyborg module
+  description: A piece of tech that gives cyborgs a fire axe!
+  components:
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-fireaxe-flaming
+        sprite: _Reserve/Objects/Specific/Robotics/borgmodule.rsi
+    - type: ItemBorgModule
+      moduleId: FlamingAxe
+      items:
+        - BorgFireAxeFlaming
+    - type: BorgModuleIcon
+      icon: { sprite: _Reserve/Interface/Actions/actions_borg.rsi, state: syndicate-fireaxe-module }

@@ -1,0 +1,72 @@
+<Document>
+# Шеф-повар
+Каждый человек должен есть, и работа шеф-повара заключается в том, чтобы убедиться, что у людей есть что-то, кроме мусора.
+
+Прежде всего, вам необходимо ознакомиться с кухней и имеющимися в вашем распоряжении инструментами.
+
+<Box>
+<GuideEntityEmbed Entity="KitchenKnife"/>
+<GuideEntityEmbed Entity="LargeBeaker"/>
+<GuideEntityEmbed Entity="ReagentContainerFlour"/>
+<GuideEntityEmbed Entity="FoodContainerEgg"/>
+<GuideEntityEmbed Entity="MobCow"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="VendingMachineChefvend" Caption="Шефвенд"/>
+<GuideEntityEmbed Entity="KitchenMicrowave"/>
+<GuideEntityEmbed Entity="KitchenSpike"/>
+<GuideEntityEmbed Entity="VendingMachineDinnerware" Caption="ПосудоМат"/>
+</Box>
+
+## Подготовка кухни:
+
+Трудно выразить словами, как быть шеф-поваром, чувствуя взгляд на затылке, но вот некоторые основы.
+
+- Проверьте, что у вас есть под рукой, когда дело доходит до ингредиентов, в большинстве кухонь есть мука, рис, яйца, кубики обезьяны и несколько других вещей, с которых можно начать.
+- Попробуйте замесить тесто, смешав воду и муку в стакане. (Используйте раковины!)
+- Посмотрите в справочнике Вики (или в разделе Рецепты еды), что можно приготовить, и положите все перечисленные ингредиенты в микроволновую печь, чтобы приготовить еду.
+- Установите мышеловки. Если ничего не предпринимать, то останется лишь наблюдать как мыши уплетают весь ваш труд за обе щеки.
+
+Когда вы станете немного опытнее и будете знать, что вы можете приготовить, возможно, лучше составить несколько меню или "шпаргалку", чтобы вы могли дать список ингредиентов ботанику.
+
+## Замешивание теста:
+Добавьте муку и воду в мензурку. (Используйте раковину для воды!)
+<Box>
+<GuideEntityEmbed Entity="LargeBeaker"/>
+<GuideEntityEmbed Entity="ReagentContainerFlour"/>
+<GuideEntityEmbed Entity="DrinkWaterBottleFull" Caption="вода"/>
+<GuideEntityEmbed Entity="FoodDough"/>
+</Box>
+## Изготовление муки:
+Поместите пшеницу в измельчитель (не забудьте вставить мензурку) и измельчите её!
+<Box>
+<GuideEntityEmbed Entity="KitchenReagentGrinder"/>
+<GuideEntityEmbed Entity="LargeBeaker"/>
+<GuideEntityEmbed Entity="WheatBushel"/>
+<GuideEntityEmbed Entity="ReagentContainerFlour"/>
+</Box>
+## Получение растений:
+Обратитесь в гидропонику за тем, что вам нужно. Без ботаника вам, возможно, придется выращивать растения самостоятельно.
+<Box>
+<GuideEntityEmbed Entity="SignHydro1" Caption=" "/>
+<GuideEntityEmbed Entity="hydroponicsTray"/>
+<GuideEntityEmbed Entity="WheatBushel"/>
+</Box>
+## Сбор молока:
+Alt+ЛКМ на корове с контейнером в руке. (мензурка, ведро, кувшин для молока и т.д.).
+<Box>
+<GuideEntityEmbed Entity="Bucket"/>
+<GuideEntityEmbed Entity="MobCow"/>
+<GuideEntityEmbed Entity="DrinkMilkCarton"/>
+</Box>
+## Разделка туш:
+В большинстве случаев, вы можете использовать нож на мёртвом существе. Лучше всего делать это в холодильнике, так как в результате будет... грязно.
+
+Однако обезьян (и других гуманоидов) нужно перетащить на мясной крюк для разделки.
+<Box>
+<GuideEntityEmbed Entity="KitchenSpike"/>
+<GuideEntityEmbed Entity="KitchenKnife"/>
+<GuideEntityEmbed Entity="MobMonkey"/>
+<GuideEntityEmbed Entity="FoodMeat"/>
+</Box>
+</Document>

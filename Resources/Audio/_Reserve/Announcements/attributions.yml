@@ -1,0 +1,14 @@
+- files: ["intercept.ogg", "poweroff.ogg", "poweroff2.ogg", "poweron1.ogg", "poweron2.ogg", "spanomalies.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+
+- files: ["violet.ogg"]
+  license: "CC0-1.0"
+  copyright: "basiandia - discord user"
+  source: "https://github.com/imperial-space/SS14-public/pull/98"
+
+- files: ["yellow.ogg"]
+  license: "CC0-1.0"
+  copyright: "basiandia - discord user"
+  source: "https://github.com/imperial-space/SS14-public/pull/98"

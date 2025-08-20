@@ -1,0 +1,13 @@
+advertisement-sexmat-1 = Накажи меня!
+advertisement-sexmat-2 = Иди ко мне котёнок.. мрр..
+advertisement-sexmat-3 = Выглядишь сексуально!
+advertisement-sexmat-4 = Стань для них папочкой!
+advertisement-sexmat-5 = Больше покорности с новыми ошейниками!
+advertisement-sexmat-6 = Развлекись со мной!
+advertisement-sexmat-7 = У нас покупает игрушки сам Шерлок Холмс!
+advertisement-sexmat-8 = Стань мастером!
+advertisement-sexmat-9 = Будь доминантом!
+thankyou-sexmat-1 = Накажи их всех!
+thankyou-sexmat-2 = Будь с ними нежнее...
+thankyou-sexmat-3 = Они заслуживают порки!
+thankyou-sexmat-4 = Надеюсь тебе понравится..

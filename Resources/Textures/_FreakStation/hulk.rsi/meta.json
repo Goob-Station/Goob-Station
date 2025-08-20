@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 31,
+    "y": 44
+  },
+  "states": [
+    {
+      "name": "Hulk",
+      "directions": 4
+    },
+    {
+      "name": "Champion of Honk",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!--
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+SPDX-FileCopyrightText: 2023 Warentan <113652968+Warentan@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Двигатель антиматерии (ДАМ)
+
+Двигатель антиматерии — один из самых простых в применении генераторов электроэнергии. Соберите мультиблоковую структуру генератора на небольшой площади, закиньте баллон топлива, и всё готово. Однако, это не означает что этот тип генератора является полностью безопасным, потенциальной опасностью является риск его перегрева.
+
+## Строительство
+<Box>Требуемые компоненты:</Box>
+<Box>
+<GuideEntityEmbed Entity="AmeController"/>
+<GuideEntityEmbed Entity="AmePartFlatpack"/>
+<GuideEntityEmbed Entity="AmeJar"/>
+</Box>
+
+Начните сборку ДАМ с установки и закрепления контроллера ДАМ на ВВ кабеле. На многих станциях в генераторных на полу имеются решётчатые мостики, которые упростят понимание где что, и куда. Разложите части ДАМ квадратом минимум 3 на 3, старайтесь максимизировать количество "центральных" ядер ДАМ, такие ядра должны быть окружены другими частями со всех 8-ми сторон.
+
+Разложив, воспользуйтесь мультитулом чтобы превратить части ДАМ в его экранирование, что должно завершить создание двигателя антиматерии. Затем, поместите баллон топлива ДАМ в контроллер ДАМ, установите расход топлива на [color=#a4885c]количество ядер умноженное на два[/color] (или меньше) и переключите впрыск.
+
+## Экономия топлива
+Чем ближе вы к идеальному соотношению [color=#a4885c]1:2[/color] (1 ядро ДАМ к 2 впрыскам топлива), тем эффективнее будет ваша работа. Вы снижаете эффективность использования топлива до [color=#a4885c]50% и менее[/color], если используете больше ядер, но меньше скорость впрыска топлива.
+Например, [color=#76db91]3 ядра и 6 впрыска[/color] будут генерировать [color=#76db91]240 кВт[/color], а [color=#f0684d]8 ядер и 8 впрыска[/color] будут генерировать [color=#f0684d]160 кВт[/color]. Генерируя на 80 кВт меньше, тратя на 2 топлива больше при каждом впрыске.
+
+## Модернизация ДАМ
+
+Как правило, модернизировать ДАМ можно только за счет увеличения количества ядер, что можно сделать, заказав дополнительные ДАМ пакеты в [color=#a4885c]отделе снабжения[/color].
+
+</Document>

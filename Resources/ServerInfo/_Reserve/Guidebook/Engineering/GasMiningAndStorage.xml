@@ -1,0 +1,65 @@
+<Document>
+  # Добыча и хранение газа
+  Газы часто используются постоянно. Потеряны ли они для [textlink="космоса" link="SpacingReserve"] или используются в камере сгорания, станция должна быть способна производить больше газа, чтобы восполнить то, что теряется.
+  Кроме того, необходимо обеспечить безопасное и эффективное хранение этого газа.
+
+  ## Газодобытчики
+  Газодобытчики используются для пополнения запасов газа на станции. Они находятся в резервуарах для хранения газа в атмосе.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasMinerOxygenStation"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStation"/>
+  </Box>
+
+  Газодобытчики постоянно производят газ комнатной температуры и выбрасывают его в открытый воздух. Для работы им не требуется электропитание, и они никогда не прекращают работу, пока не достигнут заданного [bold]давления[/bold].
+
+  Вы можете получить более подробную информацию о газодобытчиках, ознакомившись с ними с помощью [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
+  Попробуйте ознакомиться с газодобытчиками, представленными выше.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStation" Caption="1000 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 кПа"/>
+  </Box>
+
+  Если газодобытчики когда-либо будут откреплены от станции, их можно будет снова закрепить с помощью обычного гаечного ключа.
+
+  ## Хранилище газа
+  Хранилища газа используются для хранения газа, добываемого газодобытчиками, и для того, чтобы сделать его доступным для других технологических процессов. Они встречаются в атмосе.
+
+  <Box>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ReinforcedPlasmaWindow" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasOutletInjector" Rotation="270" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasMinerOxygenStation" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="GasPassiveVent" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    [color=#999999][italic]Пример небольшого хранилища газа[italic][/color]
+  </Box>
+
+  Различные процессы атмоса позволяют вводить и удалять газы из хранилища для хранения газа.
+  Например:
+  - Газодобытчик подает свежий газ в хранилище газа, если там есть свободное место.
+  - Система вейста закачивает утилизированные газы в резервуары для хранения газа для повторного использования.
+  - Такие устройства, как дистро и камера сгорания, удаляют газы из резервуаров для хранения газа.
+
+  Хранилища газа сконструированы таким образом, чтобы их можно было измерять с помощью [textlink="газоанализатора" link="AtmosToolsReserve"].
+  Поскольку выпускное отверстие представляет собой [textlink="пассивную вентиляцию" link="PassiveVentReserve"], вы можете использовать [textlink="газоанализатор" link="AtmosToolsReserve"] для измерения газосодержания в [textlink="насосе" link="PumpsReserve"] впуска, который поступает из хранилища газа.
+
+</Document>

@@ -1,0 +1,19 @@
+- type: entity
+  parent: BasePDA
+  id: SwatStandartPDA
+  name: OKG PDA
+  description: Smells like beatings.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-swatstandart
+  - type: Pda
+    id: SwatStandartIDCard
+  - type: Icon
+    sprite: _Reserve/Objects/Devices/pda.rsi
+    state: pda-swatstandart

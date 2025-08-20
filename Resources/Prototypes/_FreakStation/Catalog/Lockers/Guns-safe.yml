@@ -1,0 +1,80 @@
+# Глок 17
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafePistolGlock17
+  name: оружейный сейф glock 17
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponGlock17
+      amount: 4
+    - id: MagazinePistol
+      amount: 8
+
+# Юсас 12
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeRifleUSAS12
+  name: оружейный сейф USAS 12
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunUSAS12
+      amount: 2
+    - id: MagazineUSAS12
+      amount: 4
+
+# Энергетическая винтовка
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEnergyRiffle
+  name: оружейный сейф энергетической винтовки
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyRiffle
+      amount: 2
+
+# M16
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeRifleM16
+  name: оружейный сейф M16
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponM16Riffle
+      amount: 2
+    - id: MagazineM16
+      amount: 4
+
+# Лазерная винтовка
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEnergySniper
+  name: оружейный сейф лазерной винтовки
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergySniper
+      amount: 1
+
+
+# Fn-fal
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeRifleFnFAL
+  name: оружейный сейф FN FAL
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleFnFal
+      amount: 2
+    - id: MagazineRifle
+      amount: 4

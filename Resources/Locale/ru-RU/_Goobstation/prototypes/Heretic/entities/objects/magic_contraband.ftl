@@ -1,0 +1,2 @@
+ent-BaseMagicContraband = { "" }
+    .desc = { "" }

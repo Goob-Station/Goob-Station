@@ -1,0 +1,41 @@
+<Document>
+  # Сети труб
+  Трубопроводные сети, обычно называемые сетями труб, представляют собой ряд взаимосвязанных [textlink="труб" link="PipesReserve"], обычно с общей задачей.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeHalf" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeBend" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeFourway" Caption=""/>
+    <GuideEntityEmbed Entity="GasPressurePump" Caption=""/>
+    <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
+  </Box>
+
+  Сети труб используются по всей станции для подачи, удаления или иного перемещения газа по ней.
+  Отличными примерами являются системы дистро или вейста, которые обеспечивают подачу пригодного для дыхания воздуха и удаление отработанных газов соответственно.
+
+  ## Как работают сети труб
+  На Космической Станции 14 сети труб работают как единое целое, определенный объем, с точками ввода/вывода на концах сети.
+  Нагнетание или отсасывание газа с помощью [textlink="насосов" link="PumpsReserve"] повлияет на всю сеть, а не только на трубу, к которому она подключена.
+
+  Сети труб разделены только устройствами, способными прерывать поток, или определенными устройствами.
+  К примеру, [textlink="газовый насос" link="PumpsReserve"] не позволит газу проходить через него, если он не подключен к сети и у него нет газа для перекачки.
+
+  Вот некоторые примеры устройств, разделяющих сети труб:
+  - [textlink="Газовый и объёмный насосы" link="PumpsReserve"]
+  - [textlink="Газовые смесители и фильры" link="MixingAndFilteringReserve"]
+  - [textlink="Все клапаны" link="ValvesReserve"]
+  - [textlink="Радиаторы" link="RadiatorsReserve"]
+
+  Пример сети труб, разделенной на две отдельные сети труб с помощью [textlink="насоса" link="PumpsReserve"] показано ниже:
+
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Сеть труб 1" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPressurePump" Caption="Разделитель сети" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Сеть Труб 2" Rotation="90"/>
+  </Box>
+
+</Document>

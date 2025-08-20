@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryJanitorial = управление модсьюта уборщика ОБР
+    .desc = Основной контроллер для модсьюта уборщика ОБР.
+ent-ClothingModsuitGauntletsResponsoryJanitorial = Защитные перчатки уборщика ОБР
+    .desc = Пара перчаток, сшитых для модсьюта уборщика.
+ent-ClothingModsuitHelmetResponsoryJanitorial = Спортивный шлем уборщика ОБР
+    .desc = Ультрасовременный шлем, разработанный компанией NanoTrasen для модсьюта уборщика. Он оснащен встроенным дисплеем HUD.
+ent-ClothingModsuitChestplateResponsoryJanitorial = Нагрудный щиток модсьюта уборщика ОБР
+    .desc = Современный нагрудный щиток, разработанный компанией NanoTrasen для костюма уборщика. Он оснащен приводимыми в действие сервоприводами для снижения нагрузки на оборудование.
+ent-ClothingModsuitBootsResponsoryJanitorial = Рабочие ботинки уборщика ОБР
+    .desc = Ультрасовременная пара ботинок magboots для модсьюта уборщика ОБР. Пока костюм включен, они не будут мешать его владельцу.
+ent-SuitStorageResponsoryJanitorial = { ent-SuitStorageBase }
+    .suffix = Модсьют уборщика ОБР
+    .desc = { ent-SuitStorageBase.desc }

@@ -1,0 +1,17 @@
+- type: vendingMachineInventory
+  id: SexInventory
+  startingInventory:
+    Dildo: 5
+    ClothingBeltStrapon: 5
+    AfrodeziakBottleFull: 5
+    dog-collar-e: 5
+    dog-collar: 5
+    LPPBodyBra: 10
+    LPPBodyBraCut: 5
+    LPPLBodyBraCut2: 5
+    LPPBodyBraCut3: 3
+    LPPBodyBraCut4: 3
+    LPPBodyBra2: 3
+    LPPCutOutBodyBra2: 3
+    LPPSwimsuitBodyBra2: 3
+    LPPSwimsuitplusTightsBodyBra2: 3

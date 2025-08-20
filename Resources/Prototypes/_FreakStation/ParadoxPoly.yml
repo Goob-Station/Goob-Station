@@ -1,0 +1,19 @@
+- type: entity
+  id: ActionPolymorphMindParadoxJaunt
+  name: Ethereal Jaunt
+  description: Melt into the Ethereal Plane for a quick getaway!
+  components:
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: jaunt
+  - type: InstantAction
+    useDelay: 10
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    event: !type:PolymorphSpellEvent # Goob edit
+      protoId: Jaunt
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: jaunt
+    # TODO: Effect ECS (from cardboard box)

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "cave, frame, grass, shadow - created by TheShuEd (Github) for CrystallEdge, desert taken from https://github.com/discordia-space/CEV-Eris/tree/d1b3041899a42ef1fb59cd7ad4a83a300b35638c, lava, chromite, asteroid and snow taken from https://github.com/tgstation/tgstation/tree/f116442e34fe3e941a1df474bb57bb410dd177a3/icons/turf",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cave"
+    },
+    {
+      "name": "grass"
+    },
+    {
+      "name": "frame"
+    },
+    {
+      "name": "desert"
+    },
+    {
+      "name": "lava"
+    },
+    {
+      "name": "snow"
+    },
+    {
+      "name": "chromite"
+    },
+    {
+      "name": "asteroid"
+    }
+  ]
+}

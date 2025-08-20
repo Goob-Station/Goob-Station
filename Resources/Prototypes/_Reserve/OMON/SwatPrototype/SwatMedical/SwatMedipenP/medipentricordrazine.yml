@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен трикордразина
+  parent: ChemicalMedipen
+  id: MedipenTricordrazine
+  description: Специальный медипен для ОКГ, содержит трикордразин, стимулятор широкого действия.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenTricordrazine
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 20
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenTricordrazine_empty
+  - type: Tag
+    tags: []

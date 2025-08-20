@@ -1,0 +1,30 @@
+<Document>
+  # Расы
+
+  Нанотразен нанимает разнообразные разумные виды.
+
+  <Box>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+  <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
+  <GuideEntityEmbed Entity="MobGingerbread" Caption="Пряник"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="КПБ"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+  <GuideEntityEmbed Entity="MobResomi" Caption="Резоми"/>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Грызун"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
+  <GuideEntityEmbed Entity="MobTajaran" Caption="Таяр"/>
+  <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
+  <GuideEntityEmbed Entity="MobYowie" Caption="Йоуи"/>
+  </Box>
+
+</Document>

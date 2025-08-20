@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: BlackVHead
+  name: Чёрная шляпа
+  description: Красивая чёрная шляпа закрывающая часть лица.
+  components:
+  - type: Sprite
+    sprite: Casha/clothing/head/Sherlookpizdec.rsi
+  - type: Clothing
+    sprite: Casha/clothing/head/Sherlookpizdec.rsi

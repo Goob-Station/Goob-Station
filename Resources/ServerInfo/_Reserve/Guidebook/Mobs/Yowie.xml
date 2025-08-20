@@ -1,0 +1,34 @@
+<!--
+SPDX-FileCopyrightText: 2024 Ashley Woodiss-Field <ash@DESKTOP-H64M4AI.localdomain>
+SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Yowie (йоуи)
+
+  <Box>
+    <GuideEntityEmbed Entity="MobYowie" Caption=""/>
+  </Box>
+
+  Йоуи - это некогда считавшийся городским мифом, а недавно открытый мистический вид двуногих волосатых существ.
+  Их тело крупнее, чем у большинства других видов, но их недостатком является то, что они [color=#AAFF00]не могут влезть в большинство нанотрасеновской внешней одежды или обуви[/color], а также [color=#AAFF00]не могут быть носимыми другими[/color].
+  Их мех также позволяет им получать [color=#baf2ef]меньше урона от холода[/color], но [color=#ec3a3a]чуть больше урона от тепла[/color].
+
+  Благодаря их росту их удар безоружным оружием наносит [color=#ec3a3a]в 2 раза больше урона[/color], чем удар человека.
+
+  ## Чертов скиз, приятель.
+  <Box>
+    <GuideEntityEmbed Entity="Joint" Caption=""/>
+  </Box>
+
+  Судя по разговорам между нашими видами, исторически они жили рядом с человечеством во время его существования на Земле в некоторых районах Австралии, что позволило им развить густой австралийский акцент с включением сленга.
+  Похоже, что большую часть своего времени они провели, экспериментируя с самыми опасными и экспериментальными наркотиками, и, судя по отзывам, у них развилась большая толерантность к большинству химических веществ.
+
+</Document>

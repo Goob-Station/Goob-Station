@@ -1,0 +1,148 @@
+<Document>
+# Генератор на основе Сингулярности / Теслы
+
+Сингулярный / Тесла генератор может выдавать [color=#a4885c]бесконечную энергию[/color] без необходимости заправки топливом. При этом его опасность в том, что он [color=red]с такой же лёгкостью может уничтожить всю станцию[/color]. В нём используется ускоритель частиц, который запускает высокоэнергетические частицы в специальное устройство, образуя радиоактивную сингулярность или шаровую молнию.
+Принцип работы у них схож, однако конструкция немного отличается. Сингулярность / Тесла вырабатывает излучение / молнии, которые преобразуются в энергию.
+
+## Настройка Сингулярности
+
+Для корректной работы Сверхмассивной Сингулярности необходимы 4 подсистемы; две из них являются общими для обоих двигателей:
+
+## Генератор гравитационной сингулярности
+<Box>
+  <GuideEntityEmbed Entity="SingularityGenerator"/>
+</Box>
+Генератор должен быть закреплён в центре зоны содержания Сингулярности, так как из него Сингулярность и образуется.
+
+## Генераторы сдерживающего поля и эмиттеры
+<Box>
+  <GuideEntityEmbed Entity="Emitter"/>
+  <GuideEntityEmbed Entity="ContainmentFieldGenerator"/>
+  <GuideEntityEmbed Entity="ContainmentField"/>
+</Box>
+Эмиттеры подключаются к СВ кабелям и стреляют лазерами, пока находятся во включённом состоянии и имеют питание.
+Попадание выстрела эмиттера в генератор сдерживающего поля активирует последний.
+Если два генератора сдерживающего поля активны, находятся в пределах досягаемости и на одной оси, между ними возникнет сдерживающее поле.
+Сдерживающее поле будет отталкивать Сингулярность, не давая ей вырваться, теряя понемногу свою силу каждый раз, когда что-то отскакивает от него.
+Эмиттерные лазеры и сдерживающие поля также могут нанести урон и/или отправить вас в глубокий космос; [color=#a4885c]избегайте физического контакта с ними[/color], когда они активны.
+Рекомендуется [color=#a4885c]заблокировать излучатели[/color] с помощью [keybind="AltActivateItemInWorld"/], чтобы предотвратить потерю сингулярности или теслы злоумышленниками, которые могут просто отключить поле.
+
+Тесла может иметь значительно меньшие сдерживающие поля, чем Сингулярность; рекомендуется отрегулировать размер поля, так как за теслой легче следить при простой настройке поля 3x3.
+
+## Коллекторы радиации
+<Box>
+<GuideEntityEmbed Entity="RadiationCollector"/>
+<GuideEntityEmbed Entity="PlasmaTank"/>
+</Box>
+Коллекторы радиации подключаются к ВВ кабелям и, будучи включеными, генерируют электроэнергию из попадающей в них радиации.
+Для нормальной работы в радиационных коллекторах должны находиться газовые баллоны, заправленные газообразной плазмой.
+Постоянное радиационное облучение будет постепенно потреблять имеющуюся плазму, поэтому не забывайте периодически менять баллоны.
+
+## Ускоритель частиц
+
+<Box>
+  <GuideEntityEmbed Entity="ParticleAcceleratorEndCap"/>
+</Box>
+
+<Box>
+  <GuideEntityEmbed Entity="ParticleAcceleratorControlBox" Caption="консоль управления УЧ"/>
+  <GuideEntityEmbed Entity="ParticleAcceleratorFuelChamber"/>
+  <GuideEntityEmbed Entity="CableHV"/>
+</Box>
+
+<Box>
+  <GuideEntityEmbed Entity="ParticleAcceleratorPowerBox"/>
+</Box>
+
+<Box>
+  <GuideEntityEmbed Entity="ParticleAcceleratorEmitterStarboard" Caption="правый излучатель УЧ"/>
+  <GuideEntityEmbed Entity="ParticleAcceleratorEmitterFore" Caption="центральный излучатель УЧ"/>
+  <GuideEntityEmbed Entity="ParticleAcceleratorEmitterPort" Caption="левый излучатель УЧ"/>
+</Box>
+
+Ускоритель частиц (УЧ) - это сложное устройство, состоящее из нескольких частей, которое запускает ускоренные частицы из своих излучателей. Сами излучатели должны быть всегда повёрнуты по направлению к генератору.
+На некоторых станциях уже имеется незаконченный УЧ. Чтобы завершить конструкцию, сначала убедитесь, что под силовой установкой УЧ расположен СВ кабель, закрепите и установите НВ кабеля во все части.
+<Box>
+  <GuideEntityEmbed Entity="CableApcStack"/>
+</Box>
+Затем, с помощью отвёртки закройте техническую панель.
+[color=#a4885c]Проверьте конструкцию[/color] с помощью консоли управления УЧ, чтобы убедиться, работает ли он. Если она окажется неполной, доделайте то, чего не хватает.
+<Box>
+  <GuideEntityEmbed Entity="ParticleAcceleratorControlBox"/>
+</Box>
+
+## Генератор высоковольтной Теслы
+
+Конструкция клетки для Теслы практически идентична клетке Сингулярности, однако оборудование, выставляемое внутри координально отличается.
+
+## Катушки и Заземлители Теслы
+
+  <Box>
+    <GuideEntityEmbed Entity="TeslaCoil"/>
+    <GuideEntityEmbed Entity="TeslaGroundingRod"/>
+  </Box>
+  The tesla coils connect to HV cables and provide a stream of power after being zapped by the ball lightning.
+  However, tesla coils usually do not fully absorb the lightning strike, and the grounding rods are required to prevent lighting from arcing to and obliterating nearby machines.
+  Do note that one grounding rod is not a foolproof solution; get [color=#a4885c]at least 4 rods[/color] around the containment field to make it mathematically unlikely for the tesla to escape.
+  As the ball lightning zaps tesla coils, they will degrade from wear; make sure to [color=#a4885c]weld them[/color] every now and then to keep generating power.
+
+  ## Turing on the Engines
+
+  [color=red]Do not[/color] turn the PA on unless all the other subsystems are working properly and there is enough power to start the engine.
+
+  Turn power on using the PA control computer. Set the strength to an appropiate level. The higher the output stength is set on PA control computer, the bigger the singularity will be.
+
+  Currently, the output power does not affect the ball lightning, beyond giving the ball lightning extra orbs around it.
+
+  The PA will now draw power from the power net and start firing particles at the generators.
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticlesProjectile" Caption=""/>
+    <GuideEntityEmbed Entity="ParticlesProjectile"/>
+    <GuideEntityEmbed Entity="ParticlesProjectile" Caption=""/>
+  </Box>
+
+Катушки Тесла подключаются к ВВ кабелям и обеспечивают подачу энергии после удара по ним молниями, исходящими от самой Теслы.
+Однако катушки обычно не поглощают молнии полностью и могут вырываться. Для предотвращение повреждения оборудования созданы Заземляющие стержни. Они собирают на себя лишние молнии и обезвреживают их.
+Обратите внимание, что один заземлитель не является надежным решением. Для безопасности, установите [color=#a4885c]по крайней мере 4 стержня[/color] вокруг защитного поля, чтобы исключить возможность побега Теслы.
+По мере того как молния поражает катушки, они понемногу начинают изнашиваться. Чтобы они полностью не были разрушены, [color=#a4885c]необходимо время от времени ремонтировать их[/color], используя сварку.
+
+## Финальный запуск
+
+Перед запуском 100 раз удостоверьтесь, что вся конструкция сделана правильно, в том числе и оборудование для содержания Сингулярности / Теслы. [color=#a4885c]Не запускайте[/color] УЧ если присутствуют какие-либо ошибки или для работы недостаточно мощности.
+
+Переключите питание в консоли управления УЧ и установите мощность на нужный уровень. Самый оптимальный уровень для Сингулярности на данный момент - [color=#f0684d]1[/color], мощность выше может разогнать Сингулярность до такой степени, что её невозможно будет сдержать.
+Мощность для Генератора Теслы можно устанавливать любую, она влияет лишь на дополнительные шаровые молнии вокруг самой Теслы.
+
+После запуска УЧ начнёт потреблять энергию из электросети и стрелять частицами в генератор.
+
+Вскоре на месте генератора появится одна из этих красоток.
+<Box>
+  <GuideEntityEmbed Entity="Singularity" Caption="Сверхмассивная Сингулярность"/>
+  <GuideEntityEmbed Entity="TeslaEnergyBall" Caption="Высоковольтная Шаровая Молния"/>
+</Box>
+
+## Техника безопасности
+Сингулярность излучает радиацию вокруг себя, поэтому старайтесь держаться на расстоянии. Заранее позаботьтесь о защите от радиации. Окна из плазмы и урана также хорошо защищают от радиационного излучения.
+Тесла же может изредка бить по вам Молнией, поэтому находиться рядом с ней без изолирующих перчаток крайне опасно.
+
+[color=#a4885c]При возникновении проблем со здоровьем во время работы, незамедлительно обратитесь за медицинской помощью![/color]
+
+<Box>
+  <GuideEntityEmbed Entity="ClothingOuterHardsuitEngineering"/>
+  <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
+</Box>
+
+<Box>
+  <GuideEntityEmbed Entity="ClosetRadiationSuit"/>
+  <GuideEntityEmbed Entity="ClothingOuterSuitRad"/>
+  <GuideEntityEmbed Entity="GeigerCounter"/>
+</Box>
+
+Сингулярность / Тесла будет перемещаться, но сдерживающее поле будет её отталкивать.
+Если большой шарик вырвется за пределы своего сдерживающего поля, произойдёт событие, известное в узких кругах как [color=red]"Теслалуз!"[/color] или [color=red]"Сингалуз!"[/color]
+Сингулярность двигается в хаотичном направлении, поэтому отследить её достаточно проблематично.
+Тесла же двигается в сторону источников энергии и будет уничтожать их все до последнего, пока не уничтожит всю станцию.
+
+В такой ситуации остаётся пытаться убежать от неё в противоположном направлении, [color=#a4885c]или же падайте на пол и начинайте молиться в слезах[/color].
+</Document>

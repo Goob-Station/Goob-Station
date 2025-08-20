@@ -1,0 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Iztok Bajcar <50874197+iztokbajcar@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Сеть
+Некоторые устройства на станции общаются друг с другом по беспроводной сети для работы.
+Устройства могут обмениваться условными данными между друг другом.
+В использовании находятся различные виды сетей, такие как беспроводная и проводная.
+У каждого устройства есть своя частота получения сигнала. К примеру, КПК используют частоту: [color=green]220.2[/color]
+
+## Списки устройств
+Некоторым устройствам необходимо чётко указывать, с какой конкретно техникой им обмениваться информацией.
+<Box>
+  <GuideEntityEmbed Entity="AirAlarm"/>
+</Box>
+К примеру, воздушным сигнализациям обязательно нужно указывать, с какими вентиляциями, скрубберами, сенсорами и пожарными шлюзами им взаимодействовать.
+Всё это вы можете сделать с помощью Конфигуратора Сетей.
+
+## Соединение
+Независимо от сложности прибора, вся его работа настраивается посредством соединения других устройств к нему или друг к другу.
+  <Box>
+    <GuideEntityEmbed Entity="SignalSwitch"/>
+    <GuideEntityEmbed Entity="Airlock"/>
+  </Box>
+С помощью связей вы можете соединить вывод устройств [color=gray]Вкл[/color] или [color=gray]Выкл[/color] с вводом устройств, как шлюзы:
+[color=gray]Открыто[/color] или [color=gray]Закрыто[/color].
+Конфигуратор сетей также используется для связывания устройств вместе.
+</Document>

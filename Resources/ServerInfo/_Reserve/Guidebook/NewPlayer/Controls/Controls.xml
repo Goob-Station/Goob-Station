@@ -1,0 +1,76 @@
+<!--
+SPDX-FileCopyrightText: 2023 BismarckShuffle <107375341+BismarckShuffle@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+# Управление
+
+<Box>Вы можете в любой момент изменить привязки клавиш здесь:</Box>
+<Box Orientation="Vertical"><CommandButton Text="ui-options-tab-controls" Command="options 1"/></Box>
+
+## Перемещение
+Вы можете перемещаться по игровому миру с помощью [color=yellow][bold][keybind="MoveUp"][keybind="MoveLeft"][keybind="MoveDown"][keybind="MoveRight"][/bold][/color].
+Если удерживать [color=yellow][bold][keybind="Walk"][/bold][/color], вы будете ходить шагом, что не даст вам поскользнуться и упасть.
+
+Вы можете включить ходьбу на [color=cyan]переключение[/color] в меню управления.
+
+[color=cyan]Перетаскивание[/color] объектов осуществляется с помощью [color=yellow][bold][keybind="TryPullObject"][/bold][/color].
+Во время перетаскивания вы можете перетащить объект к курсору мыши с помощью [color=yellow][bold][keybind="MovePulledObject"][/bold][/color].
+Нажав [color=yellow][bold][keybind="ReleasePulledObject"][/bold][/color], вы отпустите объект, который вы в данный момент перетаскиваете.
+
+Вы можете оказаться в ситуации с [color=#EB2D3A][bold]низкой гравитацией[/bold][/color].
+Это приведёт к тому, что ваш персонаж будет дрейфовать при движении.
+Находясь вне станции, вы не сможете контролировать своё направление.
+[bold]Бросание предметов[/bold] или [bold]распыление огнетушителя[/bold] помогут вам двигаться, находясь в таком состоянии.
+
+## Взаимодействие
+Общие взаимодействия осуществляются с помощью [color=yellow][bold][keybind="Use"][/bold][/color].
+Они [bold]контекстно-зависимые[/bold] и зависят от предмета в вашей активной руке.
+Вы также можете использовать [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color] для выполнения [bold]альтернативных взаимодействий[/bold].
+
+Для выполнения [color=cyan]базовых взаимодействий[/color] используйте [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
+Это похоже на [bold]взаимодействие, когда в руках ничего нет[/bold].
+Нажатие [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] приводит к тому же эффекту с текущим удерживаемым предметом.
+Это наиболее часто используется для выполнения основных действий, когда вы держите что-то в руках, например, для открытия двери, когда у вас заняты руки.
+
+Наведение курсора на объект и нажатие [color=yellow][bold][keybind="UIRightClick"/][/bold][/color] вызывает [color=cyan]контекстное меню[/color].
+Это позволяет не только сортировать большие кучи предметов, но и выполнять [bold]дополнительные действия[/bold].
+
+[color=cyan]Изучение[/color] предметов осуществляется с помощью [color=yellow][bold][keybind="ExamineEntity"][/bold][/color], которая вызывает окно с названием объекта, небольшим описанием и другими важными деталями.
+[italic]Изучение окружающих предметов поможет вам узнать, что они делают и какими свойствами обладают[/italic].
+
+## Руки
+Используя [color=yellow][bold][keybind="Use"][/bold][/color] на предметах в мире, вы подберёте их в вашу активную руку.
+Вы можете менять активную руку, используя [color=yellow][bold][keybind="SwapHands"][/bold][/color].
+
+Вы можете [color=cyan]положить[/color] предмет, который держите в руках, используя [color=yellow][bold][keybind="Drop"][/bold][/color] или [color=cyan]бросить его[/color] к вашему курсору с помощью [color=yellow][bold][keybind="ThrowItemInHand"][/bold][/color].
+
+## Инвентарь
+Вы можете [color=cyan]открыть[/color] свой инвентарь, используя [color=yellow][bold][keybind="OpenInventoryMenu"][/bold][/color].
+Каждый слот в вашем HUD может быть заполнен соответствующим [bold]предметом[/bold] или [bold]одеждой[/bold].
+
+Два слота на нижней панели соответствуют вашим [bold]сумке и поясу[/bold].
+Вы можете открыть их, нажав [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] по ним или кликнув на иконку в [bold]правом нижнем углу[/bold].
+
+Нажатие [color=yellow][bold][keybind="MoveStoredItem"][/bold][/color] позволит [color=cyan]достать предмет из сумки[/color].
+Удерживая её, вы сможете [color=cyan]перетащить[/color] предмет в другое место.
+При перетаскивании нажатие [color=yellow][bold][keybind="RotateStoredItem"][/bold][/color] приведёт к [color=cyan]вращению[/color] предмета.
+
+Вы по-прежнему можете выполнять все обычные действия с предметами в сумке, включая [color=cyan]осмотр[/color] и открытие [color=cyan]контекстного меню[/color].
+
+## Камера
+Камеру можно [color=cyan]масштабировать[/color] с помощью [color=yellow][bold][keybind="ZoomIn"][/bold][/color] и [color=yellow][bold][keybind="ZoomOut"][/bold][/color] и сбрасывать с помощью [color=yellow][bold][keybind="ResetZoom"][/bold][/color].
+Аналогично, вы можете [color=cyan]вращать[/color] её влево и вправо с помощью [color=yellow][bold][keybind="CameraRotateLeft"][/bold][/color] и [color=yellow][bold][keybind="CameraRotateRight"][/bold][/color].
+Вы можете выровнять её в соответствии с поворотом грида с помощью [color=yellow][bold][keybind="CameraReset"][/bold][/color].
+
+</Document>

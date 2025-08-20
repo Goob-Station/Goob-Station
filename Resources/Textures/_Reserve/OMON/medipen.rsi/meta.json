@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by AwareFoxy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "medipenSpecial"
+    },
+    {
+      "name": "medipenBicaridine"
+    },
+    {
+      "name": "medipenDermaline"
+    },
+    {
+      "name": "medipenDexalinPlus"
+    },
+    {
+      "name": "medipenDifengidramin"
+    },
+    {
+      "name": "medipenDylovene"
+    },
+    {
+      "name": "medipenEphedrine"
+    },
+    {
+      "name": "medipenEpinephrine"
+    },
+    {
+      "name": "medipenInaprovaline"
+    },
+    {
+      "name": "medipenKelotane"
+    },
+    {
+      "name": "medipenLightStimpack"
+    },
+    {
+      "name": "medipenSigynate"
+    },
+    {
+      "name": "medipenTranexamicAcid"
+    },
+    {
+      "name": "medipenTricordrazine"
+    },
+    {
+      "name": "medipenSpecial_empty"
+    },
+    {
+      "name": "medipenBicaridine_empty"
+    },
+    {
+      "name": "medipenDermaline_empty"
+    },
+    {
+      "name": "medipenDexalinPlus_empty"
+    },
+    {
+      "name": "medipenDifengidramin_empty"
+    },
+    {
+      "name": "medipenDylovene_empty"
+    },
+    {
+      "name": "medipenEphedrine_empty"
+    },
+    {
+      "name": "medipenEpinephrine_empty"
+    },
+    {
+      "name": "medipenInaprovaline_empty"
+    },
+    {
+      "name": "medipenKelotane_empty"
+    },
+    {
+      "name": "medipenLightStimpack_empty"
+    },
+    {
+      "name": "medipenSigynate_empty"
+    },
+    {
+      "name": "medipenTranexamicAcid_empty"
+    },
+    {
+      "name": "medipenTricordrazine_empty"
+    },
+    {
+      "name": "medipen-inhand-left"
+    },
+    {
+      "name": "medipen-inhand-right"
+    }
+  ]
+}

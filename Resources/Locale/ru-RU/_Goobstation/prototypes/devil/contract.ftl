@@ -1,0 +1,11 @@
+ent-BaseDevilContract = заключайте контракт снизу
+    .desc = Дьявольский кусок черного пергамента с подробным описанием контракта. Кажется, что все чернила, попадающие на страницу, превращаются в кровь.
+ent-PaperDevilContractBlank = { ent-BaseDevilContract }
+    .suffix = Пустой
+    .desc = { ent-BaseDevilContract.desc }
+ent-PaperDevilContract = { ent-BaseDevilContract }
+    .suffix = Дьявольский контракт
+    .desc = { ent-BaseDevilContract.desc }
+ent-PaperDevilContractRevival = контракт из глубины ада
+    .desc = Дьявольский кусок черного пергамента, на котором подробно описан контракт на возрождение. Кажется, что все чернила, попадающие на страницу, превращаются в кровь.
+    .suffix = Дьявольский контракт, Возрождение

@@ -1,0 +1,104 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Двигатели на основе Сингуряности / Генератора теслы
+
+  Двигатель сингулярности / двигатель Теслы может давать [color=#a4885c]бесконечную энергию[/color] в течение всей смены, что делает его ценным активом для станции.
+
+  Он также может [color=red]уничтожить всю станцию[/color] с такой же легкостью, и требует тщательной подготовки и контроля, чтобы предотвратить [bold]разрыв[/bold].
+
+  # Настройка
+  Оба двигателя выполняют одни и те же базовые шаги по установке, но имеют разные подсистемы и требования.
+
+  ## Поле сдерживания
+  Сдерживающее поле - это многолепестковое лучевое поле, которое отталкивает сингулярность или теслу, не позволяя ей вырваться наружу.
+
+  Лазеры-излучатели и сдерживающие поля также могут нанести урон и/или отправить вас в глубокий космос; [color=#a4885c]избегайте прикосновений к ним[/color], когда они активны.
+
+  <Box>
+    <GuideEntityEmbed Entity="Emitter"/>
+    <GuideEntityEmbed Entity="ContainmentFieldGenerator"/>
+    <GuideEntityEmbed Entity="ContainmentField"/>
+  </Box>
+
+  Поля сдерживания генерируются между активными генераторами полей сдерживания, которые питаются от эмиттеров.
+
+  Генератор поля сдерживания может генерировать поле сдерживания, если:
+  - Генератор был включен,
+  - другой генератор поля находится в пределах 8 тайлов,
+  - и генераторы поля находятся на одной кардинальной оси.
+
+  Это означает, что максимальная длина сдерживающего поля составляет 7 тайлов.
+
+  Вы можете включить генератор сдерживающего поля, взаимодействуя с ним с помощью [color=yellow][bold][keybind="Use"][/bold][/color].
+  Генераторы сдерживающего поля не будут работать, если они не включены, даже если их поразить эмиттером. Не забудьте включить генератор поля!
+
+  Генератор сдерживающего поля имеет внутренний энергетический уровень, который заполняется при ударе по нему излучателем. Когда в генераторе сдерживающего поля накопится достаточно энергии, он сгенерирует сдерживающее поле.
+
+  Со временем уровень энергии естественным образом снижается, и поле исчезает, когда уровень энергии достигает нуля после некоторой задержки.
+
+  Когда сдерживающее поле активно, вы не можете отключить генератор поля или снять его с якоря. Вы должны дождаться, пока поле распадется, прежде чем сможете отключить генератор.
+
+  <Box>
+    <GuideEntityEmbed Entity="ContainmentFieldGenerator" Caption=""/>
+    <GuideEntityEmbed Entity="ContainmentField" Caption="" Rotation="90" Margin="0"/>
+    <GuideEntityEmbed Entity="ContainmentField" Caption="" Rotation="90" Margin="0"/>
+    <GuideEntityEmbed Entity="ContainmentField" Caption="" Rotation="90" Margin="0"/>
+    <GuideEntityEmbed Entity="ContainmentFieldGenerator" Caption=""/>
+  </Box>
+
+  ## Излучатели
+  Эмиттеры - это устройства, питающие генераторы сдерживающего поля.
+
+  <Box>
+    <GuideEntityEmbed Entity="Emitter"/>
+  </Box>
+
+  Излучатели подключаются к СВ-кабелям и стреляют лазерами, пока у них есть питание и они включены.
+
+  Рекомендуется [color=#a4885c]заблокировать излучатели[/color] с помощью [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color], чтобы не дать недоброжелателям выпустить сингулярность или теслу, просто выключив поле.
+
+  ## Ускоритель частиц
+  Ускоритель частиц (УЧ) - это многоблочная структура, запускающая ускоренные частицы из своих эмиттеров.
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEndCap" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorControlBox" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorFuelChamber" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="CableMV" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorPowerBox" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterStarboard" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterFore" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterPort" Caption="" Margin="0"/>
+  </Box>
+
+  На некоторых станциях уже есть недостроенный УЧ.
+  Чтобы завершить ее, сначала убедитесь, что под силовой коробкой УЧ проложен кабель среднего напряжения, закрепите все детали, а затем добавьте кабель низкого напряжения к каждой детали.
+
+  <Box>
+    <GuideEntityEmbed Entity="CableApcStack"/>
+  </Box>
+
+  Затем с помощью отвертки прикрутите панели.
+  [color=#a4885c]Просканируйте детали[/color] с помощью компьютера управления УЧ, чтобы проверить его работоспособность (УЧ не будет работать, если вы не просканируете его!).
+  Если он отображается как неполный, проверьте, чего не хватает.
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorControlBox"/>
+  </Box>
+
+</Document>

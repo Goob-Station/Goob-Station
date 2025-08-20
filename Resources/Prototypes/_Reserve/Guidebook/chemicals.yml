@@ -1,0 +1,82 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
+# SPDX-FileCopyrightText: 2024 f0x-n3rd <150924715+f0x-n3rd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: ChemicalsReserve
+  name: guide-entry-chemicals
+  text: "/ServerInfo/_Reserve/Guidebook/Chemicals.xml"
+  children:
+  - ElementsReserve
+  - MedicineReserve
+  - NarcoticsReserve
+  - PyrotechnicReserve
+  - ToxinsReserve
+  - FoodsReserve
+  - BotanicalReserve
+  - BiologicalReserve
+  - SpecialReserve
+  - OthersReserve
+  filterEnabled: True
+
+- type: guideEntry
+  id: ElementsReserve
+  name: guide-entry-elements
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Elements.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: NarcoticsReserve
+  name: guide-entry-narcotics
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Narcotics.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: PyrotechnicReserve
+  name: guide-entry-pyrotechnics
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Pyrotechnic.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: ToxinsReserve
+  name: guide-entry-toxins
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Toxins.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: FoodsReserve
+  name: guide-entry-foods
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Foods.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: BotanicalReserve
+  name: guide-entry-botanical
+  text: "/ServerInfo/_Reserve/Guidebook/Medical/Botanicals.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: BiologicalReserve
+  name: guide-entry-biological
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Biological.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: SpecialReserve
+  name: guide-entry-special
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Special.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: OthersReserve
+  name: guide-entry-others
+  text: "/ServerInfo/_Reserve/Guidebook/ChemicalTabs/Other.xml"
+  filterEnabled: True

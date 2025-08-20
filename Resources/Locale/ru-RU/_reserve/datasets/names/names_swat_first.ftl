@@ -1,0 +1,10 @@
+names-swat-leader-first-1 = Полковник
+names-swat-leader-first-2 = Подполковник
+names-swat-leader-first-3 = Майор
+names-swat-leader-first-4 = Капитан
+names-swat-leader-first-5 = Лейтенант
+names-swat-first-1 = Прапорщик
+names-swat-first-2 = Старшина
+names-swat-first-3 = Сержант
+names-swat-first-4 = Ефрейтор
+names-swat-first-5 = Рядовой

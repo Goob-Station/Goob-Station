@@ -1,0 +1,14 @@
+ent-CosmicGlyphBase = базовый символ
+    .desc = Странная, потусторонняя метка.
+ent-CosmicGlyphTruth = Символ истины
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphKnowledge = Символ знания
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphCessation = Символ прекращения
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphBlades = Символ лезвий
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphWarding = Символ защиты
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphProjection = Символ проекции
+    .desc = { ent-CosmicGlyphBase.desc }

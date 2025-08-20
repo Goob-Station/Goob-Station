@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: pizdecSherlook
+  name: Костюм извращенца
+  description: Очень открытый БДСМ костюм который сшили обкуренные зеки в пермабриге
+  components:
+  - type: Sprite
+    sprite: Casha/clothing/jumpsuit/Sherlookpizdec.rsi
+  - type: Clothing
+    sprite: Casha/clothing/jumpsuit/Sherlookpizdec.rsi

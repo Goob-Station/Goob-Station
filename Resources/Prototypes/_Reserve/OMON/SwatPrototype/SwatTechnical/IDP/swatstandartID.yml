@@ -1,0 +1,19 @@
+- type: entity
+  parent: CentcomIDCard
+  id: SwatStandartIDCard
+  name: OKG ID card
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Misc/id_cards.rsi
+    layers:
+    - state: swat_standartID
+  - type: Item
+    heldPrefix: gold
+  - type: IdCard
+    jobTitle: job-name-swat-operative
+  - type: Access
+    groups:
+    - AllAccess
+  - type: NanoChatCard # DeltaV
+    listNumber: false

@@ -1,0 +1,45 @@
+- type: antag
+  id: VoxRaidersCommander
+  name: roles-antag-vox-raiders-commander-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-vox-raiders-commander-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 54000
+
+- type: antag
+  id: VoxRaiders
+  name: roles-antag-vox-raiders-operative-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-vox-raiders-operative-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000
+
+- type: startingGear
+  id: VoxRaidersOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    back: ClothingBackpackSyndicate #Reserve edit
+    shoes: ClothingShoesBootsMagSyndie
+    belt: ClothingBeltMilitaryWebbing
+    ears: ClothingHeadsetAltVoxRaiders
+    gloves: ClothingHandsGlovesCombat
+    id: AgentIDCard
+    mask: ClothingMaskGasVoxRaiders
+    pocket1: DoubleEmergencyNitrogenTankFilled
+    pocket2: EnergySpike
+
+- type: startingGear
+  parent: VoxRaidersOperativeGear
+  id: VoxRaidersCommanderGear
+  equipment:
+    pocket2: EnergySwordDouble

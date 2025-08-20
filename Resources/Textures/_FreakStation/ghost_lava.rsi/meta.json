@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "resprited by Kayzel (discord), original from https://penzilla.itch.io/hooded-protagonist",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "animated",
+      "directions": 4,
+        "delays": [
+            [
+                0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3
+            ],
+            [
+                0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3
+            ],
+            [
+                0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3
+            ],
+            [
+                0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3
+            ]
+        ]
+    },
+    {
+      "name": "icon",
+        "delays": [
+            [
+                0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3,
+				0.3
+            ]]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+station-event-tidemind-message = [color=#AAAAAF]Вы чувствуете сильную связь с другими пассажирами. Теперь вы можете использовать [color=gray][bold]Разум грейтайда[/bold][/color] используя [bold]:p[/bold].[/color]

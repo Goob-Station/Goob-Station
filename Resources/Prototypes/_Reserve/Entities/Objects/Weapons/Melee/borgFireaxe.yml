@@ -1,0 +1,54 @@
+- type: entity
+  name: borg fire axe
+  parent: [BaseItem]
+  id: BorgFireAxe
+  description: A special shortened axe for engineering cyborgs, designed to fight fire and an abundance of walls!
+  components:
+  - type: Tag
+    tags:
+    - FireAxe
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    damage:
+      types:
+        # axes are kinda like sharp hammers, you know?
+        Blunt: 5
+        Slash: 10
+        Structural: 90 #Reserve
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Ginormous
+  - type: Tool
+    qualities:
+      - Prying
+      # Goobstation - Fireaxe plating prying
+      - Axing
+  - type: ToolTileCompatible
+  - type: Prying
+  - type: UseDelay
+    delay: 1
+  - type: IgniteOnMeleeHit
+    fireStacks: -4
+
+- type: entity
+  id: BorgFireAxeFlaming
+  name: borg fire axe
+  parent: BorgFireAxe
+  description: Cybersun's modified fire axe, suitable for all types of borg chassis! It sets victims on fire on impact.
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    state: icon

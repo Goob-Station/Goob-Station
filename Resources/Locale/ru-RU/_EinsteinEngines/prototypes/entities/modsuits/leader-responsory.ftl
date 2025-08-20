@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryLeader = управление модсьюта лидера ОБР
+    .desc = Основной контроллер для модсьюта лидера ОБР.
+ent-ClothingModsuitGauntletsResponsoryLeader = Перчатки модсьюта лидера ОБР
+    .desc = Пара перчаток, сшитых для модсьюта лидера ОБР.
+ent-ClothingModsuitHelmetResponsoryLeader = Шлем модсьюта лидера ОБР
+    .desc = Ультрасовременный шлем, разработанный компанией NanoTrasen для модсьюта лидера ОБР. Он оснащен встроенным дисплеем HUD.
+ent-ClothingModsuitChestplateResponsoryLeader = Нагрудный щиток модсьюта лидера ОБР
+    .desc = Современный нагрудный щиток, разработанный компанией NanoTrasen для модсьюта лидера ОБР. Он оснащен приводимыми в действие сервоприводами для снижения нагрузки на оборудование.
+ent-ClothingModsuitBootsResponsoryLeader = Ботинки модсьюта лидера ОБР
+    .desc = Ультрасовременная пара магнитных ботинок для модсьюта лидера ОБР. Пока костюм работает, они не будут мешать его владельцу.
+ent-SuitStorageResponsoryLeader = { ent-SuitStorageBase }
+    .suffix = Модсьют лидера ОБР
+    .desc = { ent-SuitStorageBase.desc }

@@ -1,0 +1,32 @@
+- type: entity
+  abstract: true
+  parent: InventoryBase
+  id: braslot
+  components:
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: 
+
+- type: entity
+  abstract: true
+  parent: InventoryBase
+  id: analslot
+  components:
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+- type: entity
+  abstract: true
+  parent: InventoryBase
+  id: pantsslot
+  components:
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface

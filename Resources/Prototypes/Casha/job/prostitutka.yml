@@ -1,0 +1,81 @@
+#- type: jobIcon
+#  parent: JobIcon
+#  id: JobIconProstitutka
+#  icon:
+#    sprite: Casha/job.rsi
+#    state: prostitutka
+#  jobName: job-name-prostitutka
+#
+#- type: job
+#  id: prostitutka
+#  name: job-name-prostitutka
+#  description: Куртизанка исполняющая самые грязные фантазии экипажа
+#  playTimeTracker: JobProstitutka
+#  requirements:
+#    - !type:DepartmentTimeRequirement
+#      department: Civilian
+#      time: 3600 #1 hrs
+#  startingGear: ProstitutkaGear
+#  icon: "JobIconProstitutka"
+#  supervisors: job-supervisors-everyone
+#  access:
+#  - Service
+#  - Maintenance
+#  - Bar
+#  - Kitchen
+#  extendedAccess:
+#  - Hydroponics
+
+#- type: startingGear
+#  id: ProstitutkaGear
+#  equipment:
+#    jumpsuit: ClothingUniformJumpskirtElegantMaid
+#    shoes: ClothingShoesColorWhite
+#    id: prostitutkaPDA
+#    ears: ClothingHeadsetService
+#
+#- type: playTimeTracker
+#  id: JobProstitutka
+
+#- type: entity
+#  parent: BasePDA
+#  id: prostitutkaPDA
+#  name: КПК Куртизанки
+#  description: Гламурный и странно пахнущий
+#  components:
+#  - type: Pda
+#    id: prostitutkaIDCard
+#  - type: Appearance
+#    appearanceDataInit:
+#     enum.PdaVisuals.PdaType:
+#       !type:String
+#       pda-prostitutka
+#  - type: PdaBorderColor
+#    borderColor: "#6c0069"
+#    accentVColor: "#7f1550"
+#  - type: Icon
+#    state: pda-prostitutka
+
+#- type: entity
+#  parent: PassengerIDCard
+#  id: prostitutkaIDCard
+#  name: ID куртизанки
+#  components:
+#  - type: PresetIdCard
+#    job: prostitutka
+#  - type: Sprite
+#    layers:
+#    - state: default
+#    - state: idintern-prostitutka
+
+#- type: entity
+#  id: SpawnPointProstitutka
+#  parent: SpawnPointJobBase
+#  name: Куртизанка
+#  components:
+#  - type: SpawnPoint
+#    job_id: prostitutka
+#  - type: Sprite
+#  layers:
+#     - state: green
+#      - state: serviceworker

@@ -1,0 +1,187 @@
+- type: entity
+  name: USAS 12 дробовик
+  # Don't parent to BaseWeaponShotgun because it differs significantly
+  parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunUSAS12
+  description: Надёжный, автоматический дробовик. Первый прототип USAS 12 был разработан в 1980-ых годах нашей эры.
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_auto.ogg # Corvax-Guns
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUSAS12
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUSAS12
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 800
+
+#База магазина
+
+- type: entity
+  id: BaseMagazineUSAS12
+  name: ammo drum (.50 shells)
+  parent: [ BaseMagazineShotgun, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MagazineUSAS12
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ShellShotgun
+    capacity: 12
+    soundRack:
+      path: /Audio/Corvax/Weapons/Guns/Cock/shotgun_cock.ogg # Corvax-Guns
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+#обычный
+
+- type: entity
+  id: MagazineUSAS12
+  name: барабан с дробью (.50 pellet)
+  suffix: USAS12
+  parent: BaseMagazineUSAS12
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun
+    capacity: 12
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12mag.rsi
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# Пустой
+
+- type: entity
+  id: MagazineUSAS12Empty
+  name: барабан с дробью (.50 pellet)
+  suffix: Empty
+  parent: BaseMagazineUSAS12
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12mag.rsi
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: BallisticAmmoProvider
+    proto: null
+
+# Травмат
+
+- type: entity
+  id: MagazineUSAS12beanbags
+  name: барабан с дробью (.50 травматический)
+  suffix: USAS12
+  parent: BaseMagazineUSAS12
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+    capacity: 12
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12mag.rsi
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# Пуля
+
+- type: entity
+  id: MagazineUSAS12Slug
+  name: барабан с дробью (.50 пуля)
+  suffix: USAS12
+  parent: BaseMagazineUSAS12
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlug
+    capacity: 12
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12mag.rsi
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# Зажигательные
+
+- type: entity
+  id: MagazineUSAS12incendiary
+  name: барабан с дробью (.50 зажигательные)
+  suffix: USAS12
+  parent: BaseMagazineUSAS12
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunIncendiary
+    capacity: 12
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/USAS12/USAS12mag.rsi
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

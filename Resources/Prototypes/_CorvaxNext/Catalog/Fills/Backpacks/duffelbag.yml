@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateBattleRoyalBundle
+  name: syndicate royal survive bundle
+  description: Contains everything you need to survive here.
+  suffix: DO NOT MAP, Battle Royal
+  components:
+  - type: StorageFill
+    contents:
+      - id: RoyalOmnihealT1Medipen
+      - id: RoyalHyperphaseT1Medipen
+      - id: BoxFlare
+      - id: FoodBoxDonut
+      - id: DrinkWaterBottleFull
+      - id: DrinkWaterBottleFull
+      - id: DrinkWaterBottleFull
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: ClothingMaskBreath
+      - id: FlashlightSeclite

@@ -1,0 +1,18 @@
+- type: entity
+  parent: CentcomIDCard
+  id: SwatLeaderIDCard
+  name: OKG ID card
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Misc/id_cards.rsi
+    layers:
+    - state: gold
+    - state: swat_leaderID
+  - type: Item
+    heldPrefix: gold
+  - type: IdCard
+    jobTitle: job-name-swat-leader
+  - type: Access
+    groups:
+    - AllAccess

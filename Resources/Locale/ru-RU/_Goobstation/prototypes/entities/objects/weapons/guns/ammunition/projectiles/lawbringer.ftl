@@ -1,0 +1,14 @@
+ent-BulletClownshot = анти-клоунский выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletPulse = пульсовый выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletDetain = задерживающий выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletExecute = казнящий выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletHotshot = поджигающий выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletSleepshot = усыпляющий выстрел
+    .desc = { ent-BaseBullet.desc }
+ent-BulletBigshot = мега-выстрел
+    .desc = { ent-BaseBullet.desc }

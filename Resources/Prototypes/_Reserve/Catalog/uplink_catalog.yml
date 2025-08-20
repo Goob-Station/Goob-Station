@@ -1,0 +1,9 @@
+- type: listing
+  id: UplinkBorgModuleFlamingAxe
+  name: uplink-borg-module-axe-name
+  description: uplink-borg-module-axe-desc
+  productEntity: BorgModuleFlamingAxe
+  cost:
+    Telecrystal: 15 #Goob
+  categories:
+  - UplinkDisruption

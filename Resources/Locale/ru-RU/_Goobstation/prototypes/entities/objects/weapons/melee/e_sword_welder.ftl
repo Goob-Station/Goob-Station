@@ -1,0 +1,12 @@
+ent-EnergySwordWelder = сварочный меч
+    .desc = Этот энергетический меч, грубо переделанный из сварочного аппарата, испускает неустойчивое пламя. Кажется, что он вот-вот развалится.
+ent-EnergySwordWelderIndustrial = { ent-EnergySwordWelder }
+    .desc = Этот энергетический меч, переделанный из индустриального сварочного аппарата, испускает неустойчивое пламя. Кажется, что после нескольки ударов он развалится.
+ent-EnergySwordWelderExperimental = экспериментальный сварочный меч
+    .desc = Очень громкий и опасный меч с лучом в виде чистой концентрированной плазмы. Разрубает ни чем неподозревающую цель как масло.
+ent-UnfinishedWelderSword = незаконченный сварочный меч
+    .desc = Грубая сборка из деталей, отдаленно напоминающая оружие. Она совершенно нефункциональна.
+ent-UnfinishedWelderSwordIndustrial = { ent-UnfinishedWelderSword }
+    .desc = { ent-UnfinishedWelderSword.desc }
+ent-UnfinishedWelderSwordExperimental = { ent-UnfinishedWelderSword }
+    .desc = { ent-UnfinishedWelderSword.desc }

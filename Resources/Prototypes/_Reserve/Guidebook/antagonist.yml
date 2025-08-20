@@ -1,0 +1,161 @@
+# SPDX-FileCopyrightText: 2023 Derby <Derby@ss14>
+# SPDX-FileCopyrightText: 2023 DerbyX <50932435+DerbyX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 dribblydrone <119393097+dribblydrone@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: AntagonistsReserve
+  name: guide-entry-antagonists
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Antagonists.xml"
+  children:
+  - TraitorsReserve
+  - ChangelingsReserve # Goobstation - changelings
+  - HereticsReserve # Goobstation - heretics
+  - BlobReserve # Goobstation - Blob
+  - WizardReserve # Goobstation - Wizard
+  - CosmicCultReserve # DeltaV - Cosmic Cult
+  - NuclearOperativesReserve
+  - ZombiesReserve
+  - RevolutionariesReserve
+  - MinorAntagonistsReserve
+  - SpaceNinjaReserve
+  - ThievesReserve
+  - AbductorsReserve # Shitmed - Abductors
+  - BingleReserve # Goob content
+  - DevilReserve # Goob content
+
+- type: guideEntry
+  id: TraitorsReserve
+  name: guide-entry-traitors
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Traitors.xml"
+
+- type: guideEntry
+  id: NuclearOperativesReserve
+  name: guide-entry-nuclear-operatives
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Nuclear Operatives.xml"
+
+- type: guideEntry
+  id: ZombiesReserve
+  name: guide-entry-zombies
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Zombies.xml"
+
+- type: guideEntry
+  id: RevolutionariesReserve
+  name: guide-entry-revolutionaries
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Revolutionaries.xml" # goobstation
+
+- type: guideEntry
+  id: MinorAntagonistsReserve
+  name: guide-entry-minor-antagonists
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/MinorAntagonists.xml"
+
+- type: guideEntry
+  id: SpaceNinjaReserve
+  name: guide-entry-space-ninja
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/SpaceNinja.xml"
+
+- type: guideEntry
+  id: ThievesReserve
+  name: guide-entry-thieves
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Thieves.xml"
+
+#Goob antags
+- type: guideEntry
+  id: BingleReserve
+  name: "Бинглы"
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Bingle.xml"
+
+- type: guideEntry
+  id: BlobReserve
+  name: guide-entry-blob
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Blob.xml"
+
+- type: guideEntry
+  id: ChangelingsReserve
+  name: "Генокрады"
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Changelings.xml"
+  children:
+  - ChangelingsAbilitiesReserve
+
+- type: guideEntry
+  id: ChangelingsAbilitiesReserve
+  name: "Способности генокрадов"
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/ChangelingsAbilities.xml"
+
+- type: guideEntry
+  id: DevilReserve
+  name: "Дьявол"
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Devil.xml"
+  children:
+  - DevilClausesReserve
+
+- type: guideEntry
+  id: DevilClausesReserve
+  name: "Части сделки с Дьяволом"
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/DevilClauses.xml"
+
+- type: guideEntry
+  id: AbductorsReserve
+  name: guide-entry-abductors
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Abductors.xml"
+
+- type: guideEntry
+  id: HereticsReserve
+  name: guide-entry-heretics
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Heretics.xml"
+
+- type: guideEntry
+  id: WizardReserve
+  name: guide-entry-wizard
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/Wizard.xml"
+  children:
+  - WizardSpellsReserve
+
+- type: guideEntry
+  id: WizardSpellsReserve
+  name: guide-entry-wizard-spells
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/WizardSpells.xml"
+
+#DV
+- type: guideEntry
+  id: CosmicCultReserve
+  name: guide-entry-cosmiccult
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/CosmicCult.xml"
+  children:
+  - CosmicCultMonumentReserve
+  - CosmicCultInfluencesReserve
+  - CosmicCultDeconversionReserve
+
+- type: guideEntry
+  id: CosmicCultMonumentReserve
+  name: guide-entry-cosmiccult-monument
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/CosmicCultMonument.xml"
+
+- type: guideEntry
+  id: CosmicCultInfluencesReserve
+  name: guide-entry-cosmiccult-influences
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/CosmicCultInfluences.xml"
+
+- type: guideEntry
+  id: CosmicCultDeconversionReserve
+  name: guide-entry-cosmiccult-deconversion
+  text: "/ServerInfo/_Reserve/Guidebook/Antagonist/CosmicCultDeconversion.xml"

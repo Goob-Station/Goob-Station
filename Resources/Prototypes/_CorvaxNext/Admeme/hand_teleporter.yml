@@ -1,0 +1,93 @@
+# SPDX-FileCopyrightText: 2025 Kill_Me_I_Noobs <118206719+Vonsant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: HandTeleporter
+  id: HandTeleporterAdmemeCN
+  suffix: Admeme
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: PortalRedAdmemeCN
+    secondPortalPrototype: PortalBlueAdmemeCN
+    allowPortalsOnDifferentGrids: true
+    portalCreationDelay: 0
+
+- type: entity
+  parent: PortalRed
+  id: PortalRedAdmemeCN
+  suffix: Admeme
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: PortalBlue
+  id: PortalBlueAdmemeCN
+  suffix: Admeme
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: HandTeleporter
+  id: HandTeleporterAdmemeCNInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: PortalRedAdmemeCNInvisible
+    secondPortalPrototype: PortalBlueAdmemeCNInvisible
+    allowPortalsOnDifferentGrids: true
+    portalCreationDelay: 0
+
+- type: entity
+  parent: MarkerBase
+  id: PortalRedAdmemeCNInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxNext/Markers/environment.rsi
+        state: base-red
+        shader: unshaded
+      - sprite: _CorvaxNext/Markers/environment.rsi
+        shader: unshaded
+        state: portal
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: PortalRedAdmemeCNInvisible
+  id: PortalBlueAdmemeCNInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxNext/Markers/environment.rsi
+        state: base-blue
+        shader: unshaded
+      - sprite: _CorvaxNext/Markers/environment.rsi
+        shader: unshaded
+        state: portal

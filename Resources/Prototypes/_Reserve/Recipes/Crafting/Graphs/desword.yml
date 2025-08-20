@@ -1,0 +1,11 @@
+- type: constructionGraph
+  id: DoubleToySwordGraph
+  start: esword
+  graph:
+  - node: esword
+    edges:
+      - to: desword
+        steps:
+          - tag: ToySword
+  - node: desword
+    entity: DoubleToySword

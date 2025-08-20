@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSwatMedicSatchel
+  name: Special Forces medic's bag
+  description: A handy and maximally compact counter-revolutionary task force medic's bag that can hold a sea of medical supplies.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatmedicsatchelbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,8

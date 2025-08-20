@@ -1,0 +1,814 @@
+- type: entity
+  id: RoyalCrateSupplyDrop
+  name: supply drop
+  description: Airdropped crate containing valuable battle equipment.
+  suffix: DO NOT MAP, Battle Royal
+  parent: CratePirate
+  components:
+  - type: AmbientSound
+    volume: -12
+    range: 6
+    sound:
+      collection: AmbienceHoly
+  - type: PointLight
+    enabled: true
+    color: "#FFD700"
+    radius: 2
+    softness: 1
+    autoRot: true
+    castShadows: false
+  - type: StorageFill
+    contents:
+    # BRPistol
+    - id: WeaponPistolFlintlock
+      prob: 0.039
+      orGroup: BRPistol
+    - id: WeaponShotgunHandmade
+      prob: 0.039
+      orGroup: BRPistol
+    - id: WeaponFlareGun
+      prob: 0.039
+      orGroup: BRPistol
+    - id: WeaponPistolCHIMPUpgraded
+      prob: 0.039
+      orGroup: BRPistol
+    - id: WeaponRevolverPirate
+      prob: 0.039
+      orGroup: BRPistol
+    - id: WeaponPistolViper
+      prob: 0.065
+      orGroup: BRPistol
+    - id: WeaponPlasmaCutter
+      prob: 0.065
+      orGroup: BRPistol
+    - id: WeaponPistolCobra
+      prob: 0.065
+      orGroup: BRPistol
+    - id: WeaponProtoKineticPistol
+      prob: 0.065
+      orGroup: BRPistol
+    - id: WeaponPistolMk58
+      prob: 0.064
+      orGroup: BRPistol
+    - id: WeaponLaserSvalinn
+      prob: 0.052
+      orGroup: BRPistol
+    - id: WeaponMakeshiftLaser
+      prob: 0.052
+      orGroup: BRPistol
+    - id: WeaponDisabler
+      prob: 0.052
+      orGroup: BRPistol
+    - id: WeaponRevolverInspector
+      prob: 0.052
+      orGroup: BRPistol
+    - id: WeaponRevolverPython
+      prob: 0.052
+      orGroup: BRPistol
+    - id: WeaponLaserGun
+      prob: 0.026
+      orGroup: BRPistol
+    - id: WeaponRevolverDeckard
+      prob: 0.026
+      orGroup: BRPistol
+    - id: WeaponRevolverMatebaAP
+      prob: 0.026
+      orGroup: BRPistol
+    - id: WeaponRevolverPythonAP
+      prob: 0.026
+      orGroup: BRPistol
+    - id: WeaponSubMachineGunDrozd
+      prob: 0.026
+      orGroup: BRPistol
+    - id: WeaponAntiqueLaser
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponPulsePistol
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponPistolEchis
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponAdvancedLaser
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponSubMachineGunC20r
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponSubMachineGunWt550
+      prob: 0.011
+      orGroup: BRPistol
+    - id: WeaponWaterPistol
+      prob: 0.005
+      orGroup: BRPistol
+    - id: RevolverCapGun
+      prob: 0.005
+      orGroup: BRPistol
+    - id: RevolverCapGunFake
+      prob: 0.005
+      orGroup: BRPistol
+    - id: WeaponDisablerPractice
+      prob: 0.005
+      orGroup: BRPistol
+    - id: WeaponSubMachineGunAtreides
+      prob: 0.005
+      orGroup: BRPistol
+    # BRPistolAmmo
+    - id: CartridgeAntiMateriel
+      prob: 0.040
+      orGroup: BRPistolAmmo
+    - id: ShellShotgunFlare
+      prob: 0.040
+      orGroup: BRPistolAmmo
+    - id: ShellShotgunImprovised
+      prob: 0.040
+      orGroup: BRPistolAmmo
+    - id: SpeedLoaderCap
+      prob: 0.040
+      orGroup: BRPistolAmmo
+    - id: PowerCellSmall
+      prob: 0.107
+      orGroup: BRPistolAmmo
+    - id: MagazinePistol
+      prob: 0.067
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolHighCapacity
+      prob: 0.067
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolCaselessRifle
+      prob: 0.067
+      orGroup: BRPistolAmmo
+    - id: SpeedLoaderPistol
+      prob: 0.067
+      orGroup: BRPistolAmmo
+    - id: MagazineMagnum
+      prob: 0.053
+      orGroup: BRPistolAmmo
+    - id: SpeedLoaderMagnum
+      prob: 0.053
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolPractice
+      prob: 0.053
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolIncendiary
+      prob: 0.053
+      orGroup: BRPistolAmmo
+    - id: PowerCellHigh
+      prob: 0.053
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolUranium
+      prob: 0.033
+      orGroup: BRPistolAmmo
+    - id: SpeedLoaderMagnumAP
+      prob: 0.033
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolSubMachineGun
+      prob: 0.033
+      orGroup: BRPistolAmmo
+    - id: PowerCellHyper
+      prob: 0.033
+      orGroup: BRPistolAmmo
+    - id: MagazineMagnumAP
+      prob: 0.017
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolSubMachineGunTopMounted
+      prob: 0.017
+      orGroup: BRPistolAmmo
+    - id: MagazinePistolSubMachineGunIncendiary
+      prob: 0.017
+      orGroup: BRPistolAmmo
+    - id: PowerCellMicroreactor
+      prob: 0.017
+      orGroup: BRPistolAmmo
+    # BRShotgun
+    - id: WeaponShotgunImprovisedLoaded
+      prob: 0.195
+      orGroup: BRShotgun
+    - id: WeaponShotgunDoubleBarreled
+      prob: 0.325
+      orGroup: BRShotgun
+    - id: WeaponShotgunKammerer
+      prob: 0.130
+      orGroup: BRShotgun
+    - id: WeaponProtoKineticShotgun
+      prob: 0.130
+      orGroup: BRShotgun
+    - id: WeaponShotgunSawn
+      prob: 0.065
+      orGroup: BRShotgun
+    - id: WeaponShotgunEnforcer
+      prob: 0.065
+      orGroup: BRShotgun
+    - id: WeaponEnergyShotgun
+      prob: 0.032
+      orGroup: BRShotgun
+    - id: WeaponShotgunBulldog
+      prob: 0.032
+      orGroup: BRShotgun
+    - id: WeaponWaterBlaster
+      prob: 0.013
+      orGroup: BRShotgun
+    - id: WeaponWaterBlasterSuper
+      prob: 0.013
+      orGroup: BRShotgun
+    # BRShotgunAmmo
+    - id: ShellShotgunImprovised
+      prob: 0.066
+      orGroup: BRShotgunAmmo
+    - id: BoxShotgunPractice
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: PowerCellMedium
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: BoxBeanbag
+      prob: 0.066
+      orGroup: BRShotgunAmmo
+    - id: BoxLethalshot
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: BoxShotgunSlug
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: BoxShotgunFlare
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: PowerCellHigh
+      prob: 0.132
+      orGroup: BRShotgunAmmo
+    - id: MagazineShotgun
+      prob: 0.066
+      orGroup: BRShotgunAmmo
+    - id: MagazineShotgunBeanbag
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: BoxShotgunIncendiary
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    - id: MagazineShotgunSlug
+      prob: 0.026
+      orGroup: BRShotgunAmmo
+    - id: MagazineShotgunIncendiary
+      prob: 0.027
+      orGroup: BRShotgunAmmo
+    - id: BoxShotgunUranium
+      prob: 0.027
+      orGroup: BRShotgunAmmo
+    - id: ShellTranquilizer
+      prob: 0.027
+      orGroup: BRShotgunAmmo
+    - id: BoxShellTranquilizer
+      prob: 0.027
+      orGroup: BRShotgunAmmo
+    - id: PowerCellMicroreactor
+      prob: 0.067
+      orGroup: BRShotgunAmmo
+    # BRCarbine
+    - id: WeaponProtoKineticAccelerator
+      prob: 0.065
+      orGroup: BRCarbine
+    - id: WeaponSniperMosin
+      prob: 0.065
+      orGroup: BRCarbine
+    - id: Musket
+      prob: 0.065
+      orGroup: BRCarbine
+    - id: WeaponRifleLecter
+      prob: 0.162
+      orGroup: BRCarbine
+    - id: WeaponProtoKineticRepeater
+      prob: 0.162
+      orGroup: BRCarbine
+    - id: WeaponSniperHristov
+      prob: 0.087
+      orGroup: BRCarbine
+    - id: WeaponLaserCarbine
+      prob: 0.087
+      orGroup: BRCarbine
+    - id: WeaponRifleAk
+      prob: 0.087
+      orGroup: BRCarbine
+    - id: WeaponSpike
+      prob: 0.032
+      orGroup: BRCarbine
+    - id: WeaponLaserCannon
+      prob: 0.032
+      orGroup: BRCarbine
+    - id: WeaponXrayCannon
+      prob: 0.032
+      orGroup: BRCarbine
+    - id: WeaponDisablerSMG
+      prob: 0.032
+      orGroup: BRCarbine
+    - id: WeaponRifleM90GrenadeLauncher
+      prob: 0.022
+      orGroup: BRCarbine
+    - id: WeaponPulseRifle
+      prob: 0.022
+      orGroup: BRCarbine
+    - id: WeaponPulseCarbine
+      prob: 0.022
+      orGroup: BRCarbine
+    - id: WeaponLaserCarbinePractice
+      prob: 0.026
+      orGroup: BRCarbine
+    # BRCarbineAmmo
+    - id: CartridgeAntiMateriel
+      prob: 0.050
+      orGroup: BRCarbineAmmo
+    - id: MagazineBoxLightRifle
+      prob: 0.050
+      orGroup: BRCarbineAmmo
+    - id: SpeedLoaderLightRifle
+      prob: 0.050
+      orGroup: BRCarbineAmmo
+    - id: PowerCellMedium
+      prob: 0.133
+      orGroup: BRCarbineAmmo
+    - id: MagazineRifle
+      prob: 0.083
+      orGroup: BRCarbineAmmo
+    - id: MagazineLightRifle
+      prob: 0.083
+      orGroup: BRCarbineAmmo
+    - id: MagazineCaselessRifle
+      prob: 0.083
+      orGroup: BRCarbineAmmo
+    - id: MagazineBoxRifle
+      prob: 0.068
+      orGroup: BRCarbineAmmo
+    - id: MagazineRifleIncendiary
+      prob: 0.068
+      orGroup: BRCarbineAmmo
+    - id: MagazineLightRifleIncendiary
+      prob: 0.067
+      orGroup: BRCarbineAmmo
+    - id: PowerCellHigh
+      prob: 0.067
+      orGroup: BRCarbineAmmo
+    - id: MagazineBoxAntiMateriel
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineRifleUranium
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineLightRifleUranium
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: CannonBall
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: CannonBallGrapeshot
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: PowerCellHyper
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: CartridgeRocket
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineLightRifleBox
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineGrenadeFlash
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineGrenadeEMP
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: CannonBallGlassshot
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: CartridgeRocketSlow
+      prob: 0.012
+      orGroup: BRCarbineAmmo
+    - id: MagazineGrenadeFrag
+      prob: 0.027
+      orGroup: BRCarbineAmmo
+    - id: MagazineGrenadeBlast
+      prob: 0.013
+      orGroup: BRCarbineAmmo
+    - id: MagazineBoxLightRifleBig
+      prob: 0.013
+      orGroup: BRCarbineAmmo
+    - id: PowerCellMicroreactor
+      prob: 0.013
+      orGroup: BRCarbineAmmo
+    # BRHeavy
+    - id: CleanerGrenade
+      prob: 0.049
+      orGroup: BRHeavy
+    - id: GrenadeDummy
+      prob: 0.049
+      orGroup: BRHeavy
+    - id: GlueGrenade
+      prob: 0.049
+      orGroup: BRHeavy
+    - id: LubeGrenade
+      prob: 0.049
+      orGroup: BRHeavy
+    - id: GrenadeFlashBang
+      prob: 0.066
+      orGroup: BRHeavy
+    - id: TearGasGrenade
+      prob: 0.066
+      orGroup: BRHeavy
+    - id: EmpGrenade
+      prob: 0.066
+      orGroup: BRHeavy
+    - id: SmokeGrenade
+      prob: 0.066
+      orGroup: BRHeavy
+    - id: ExGrenade
+      prob: 0.065
+      orGroup: BRHeavy
+    - id: GrenadeShrapnel
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: GrenadeStinger
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: MetalFoamGrenade
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: GrenadeIncendiary
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: WeaponMinigun
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: WeaponLauncherPirateCannon
+      prob: 0.044
+      orGroup: BRHeavy
+    - id: C4
+      prob: 0.022
+      orGroup: BRHeavy
+    - id: ClusterGrenade
+      prob: 0.022
+      orGroup: BRHeavy
+    - id: WhiteholeGrenade
+      prob: 0.022
+      orGroup: BRHeavy
+    - id: WeaponLauncherMultipleRocket
+      prob: 0.022
+      orGroup: BRHeavy
+    - id: WeaponLauncherRocket
+      prob: 0.022
+      orGroup: BRHeavy
+    - id: WeaponLauncherChinaLake
+      prob: 0.033
+      orGroup: BRHeavy
+    - id: WeaponLightMachineGunL6
+      prob: 0.033
+      orGroup: BRHeavy
+    - id: HolyHandGrenade
+      prob: 0.013
+      orGroup: BRHeavy
+    # BRMelee
+    - id: WeaponMeleeNeedle
+      prob: 0.035
+      orGroup: BRMelee
+    - id: Gohei
+      prob: 0.034
+      orGroup: BRMelee
+    - id: Cane
+      prob: 0.033
+      orGroup: BRMelee
+    - id: WhiteCane
+      prob: 0.033
+      orGroup: BRMelee
+    - id: Shiv
+      prob: 0.033
+      orGroup: BRMelee
+    - id: ReinforcedShiv
+      prob: 0.033
+      orGroup: BRMelee
+    - id: KitchenKnife
+      prob: 0.026
+      orGroup: BRMelee
+    - id: PlasmaShiv
+      prob: 0.026
+      orGroup: BRMelee
+    - id: UraniumShiv
+      prob: 0.025
+      orGroup: BRMelee
+    - id: CombatKnife
+      prob: 0.025
+      orGroup: BRMelee
+    - id: SurvivalKnife
+      prob: 0.025
+      orGroup: BRMelee
+    - id: RitualDagger
+      prob: 0.025
+      orGroup: BRMelee
+    - id: Stunprod
+      prob: 0.025
+      orGroup: BRMelee
+    - id: ButchCleaver
+      prob: 0.025
+      orGroup: BRMelee
+    - id: ThrowingKnife
+      prob: 0.025
+      orGroup: BRMelee
+    - id: EnergySpike
+      prob: 0.025
+      orGroup: BRMelee
+    - id: WeaponBaguette
+      prob: 0.025
+      orGroup: BRMelee
+    - id: Spear
+      prob: 0.025
+      orGroup: BRMelee
+    - id: SpearReinforced
+      prob: 0.025
+      orGroup: BRMelee
+    - id: CaneBlade
+      prob: 0.020
+      orGroup: BRMelee
+    - id: EnergyDagger
+      prob: 0.020
+      orGroup: BRMelee
+    - id: Cutlass
+      prob: 0.019
+      orGroup: BRMelee
+    - id: Katana
+      prob: 0.019
+      orGroup: BRMelee
+    - id: Machete
+      prob: 0.019
+      orGroup: BRMelee
+    - id: KukriKnife
+      prob: 0.019
+      orGroup: BRMelee
+    - id: Claymore
+      prob: 0.019
+      orGroup: BRMelee
+    - id: WeaponCrusher
+      prob: 0.019
+      orGroup: BRMelee
+    - id: EldritchBlade
+      prob: 0.019
+      orGroup: BRMelee
+    - id: HereticBladeBase
+      prob: 0.019
+      orGroup: BRMelee
+    - id: HereticBladeBlade
+      prob: 0.019
+      orGroup: BRMelee
+    - id: BaseBallBat
+      prob: 0.019
+      orGroup: BRMelee
+    - id: EnergyCutlass
+      prob: 0.019
+      orGroup: BRMelee
+    - id: Pickaxe
+      prob: 0.019
+      orGroup: BRMelee
+    - id: WeaponCrusherDagger
+      prob: 0.017
+      orGroup: BRMelee
+    - id: CaptainSabre
+      prob: 0.016
+      orGroup: BRMelee
+    - id: WeaponMeleeToolboxRobust
+      prob: 0.016
+      orGroup: BRMelee
+    - id: FireAxe
+      prob: 0.016
+      orGroup: BRMelee
+    - id: SpearPlasma
+      prob: 0.016
+      orGroup: BRMelee
+    - id: SpearUranium
+      prob: 0.016
+      orGroup: BRMelee
+    - id: MiningDrill
+      prob: 0.016
+      orGroup: BRMelee
+    - id: Chainsaw
+      prob: 0.025
+      orGroup: BRMelee
+    - id: ArmBlade
+      prob: 0.008
+      orGroup: BRMelee
+    - id: EnergySword
+      prob: 0.008
+      orGroup: BRMelee
+    - id: BetrayalKnife
+      prob: 0.008
+      orGroup: BRMelee
+    - id: EnergySwordDouble
+      prob: 0.008
+      orGroup: BRMelee
+    - id: FireAxeFlaming
+      prob: 0.008
+      orGroup: BRMelee
+    - id: EnergyKatana
+      prob: 0.008
+      orGroup: BRMelee
+    - id: MiningDrillDiamond
+      prob: 0.008
+      orGroup: BRMelee
+    - id: TelescopicBaton
+      prob: 0.002
+      orGroup: BRMelee
+    - id: WeaponMeleeKnockbackStick
+      prob: 0.002
+      orGroup: BRMelee
+    - id: HyperEutacticBlade
+      prob: 0.002
+      orGroup: BRMelee
+    - id: Mjollnir
+      prob: 0.002
+      orGroup: BRMelee
+    - id: SingularityHammer
+      prob: 0.002
+      orGroup: BRMelee
+    # BRMedical
+    - id: RoyalOmnihealT1Medipen
+      prob: 0.286
+      orGroup: BRMedical
+    - id: RoyalHyperphaseT1Medipen
+      prob: 0.286
+      orGroup: BRMedical
+    - id: RoyalOmnihealT2Medipen
+      prob: 0.119
+      orGroup: BRMedical
+    - id: RoyalHyperphaseT2Medipen
+      prob: 0.119
+      orGroup: BRMedical
+    - id: RoyalOmnihealT3Medipen
+      prob: 0.071
+      orGroup: BRMedical
+    - id: RoyalHyperphaseT3Medipen
+      prob: 0.071
+      orGroup: BRMedical
+    - id: RoyalOmnihealT4Medipen
+      prob: 0.024
+      orGroup: BRMedical
+    - id: RoyalHyperphaseT4Medipen
+      prob: 0.024
+      orGroup: BRMedical
+    # BRArmor
+    - id: ClothingOuterArmorBasicSlim
+      prob: 0.060
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitBasic
+      prob: 0.061
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSalvage
+      prob: 0.061
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSpatio
+      prob: 0.061
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitEngineering
+      prob: 0.061
+      orGroup: BRArmor
+    - id: ClothingOuterSuitFire
+      prob: 0.061
+      orGroup: BRArmor
+    - id: ClothingOuterArmorBulletproof
+      prob: 0.026
+      orGroup: BRArmor
+    - id: ClothingOuterArmorRiot
+      prob: 0.033
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSecurity
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitAtmos
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitGoliath
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterSuitBomb
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterSuitAtmosFire
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterArmorChangeling
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterArmorPodWars
+      prob: 0.027
+      orGroup: BRArmor
+    - id: ClothingOuterArmorReflective
+      prob: 0.017
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitBrigmedic
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitWarden
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSecurityRed
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitEngineeringWhite
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitMedical
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterArmorHeavy
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterArmorHeavyGreen
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterArmorHeavyRed
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterArmorCaptainCarapace
+      prob: 0.018
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitCap
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitRd
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSyndie
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitMaxim
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterArmorRaid
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSyndieMedic
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterArmorHeretic
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitVoxRaidersCombat
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitVoxRaidersEngineer
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitVoxRaidersMedical
+      prob: 0.011
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSyndieElite
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSyndieCommander
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitDeathsquad
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitCBURN
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitCBURNLeader
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitERTLeader
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitERTSecurity
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitERTChaplain
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterSuitSpaceNinja
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitVoxRaidersStealth
+      prob: 0.006
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitClown
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitMime
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitWizard
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitSanta
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitLing
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterHardsuitCarp
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterSuitChicken
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterSuitMonkey
+      prob: 0.003
+      orGroup: BRArmor
+    - id: ClothingOuterSuitIan
+      prob: 0.003
+      orGroup: BRArmor

@@ -1,0 +1,17 @@
+ent-DartGunChangeling = дротиковое жало
+    .desc = Жало, способное стрелять органическими дротиками по мишеням.
+    .suffix = Неснимаемый
+ent-ChangelingDart = органический дротик
+    .desc = Тонкий, как игла, дротик, сделанный из кости.
+ent-ChangelingDartMute = дротик немоты
+    .suffix = Немота
+    .desc = { ent-ChangelingDart.desc }
+ent-ChangelingDartBlind = ослепляющий дротик
+    .suffix = Ослепление
+    .desc = { ent-ChangelingDart.desc }
+ent-ChangelingDartCryo = криогенный дротик
+    .suffix = Криогенный
+    .desc = { ent-ChangelingDart.desc }
+ent-ChangelingDartLethargic = летаргический дротик
+    .suffix = Летаргический
+    .desc = { ent-ChangelingDart.desc }

@@ -1,0 +1,11 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'rev-consent-window-convert-title'}">
+    <BoxContainer Orientation="Vertical" Margin="5">
+        <Label Name="MessageText" Align="Center" Text="{Loc 'rev-consent-window-convert-text-no-user'}"/>
+        <BoxContainer Orientation="Horizontal" Align="Center">
+            <Button Name="AcceptButton" Text="{Loc 'rev-consent-window-convert-accept'}"/>
+            <Button Name="DenyButton" Text="{Loc 'rev-consent-window-convert-deny'}"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

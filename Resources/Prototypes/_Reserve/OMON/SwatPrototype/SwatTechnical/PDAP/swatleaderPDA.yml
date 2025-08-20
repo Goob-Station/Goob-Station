@@ -1,0 +1,19 @@
+- type: entity
+  parent: BasePDA
+  id: SwatLeaderPDA
+  name: OKG Leader PDA
+  description: Smells like power.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-swatleader
+  - type: Pda
+    id: SwatLeaderIDCard
+  - type: Icon
+    sprite: _Reserve/Objects/Devices/pda.rsi
+    state: pda-swatleader

@@ -1,0 +1,9 @@
+ent-BaseLadder = лестница
+    .desc = { ent-BaseItem.desc }
+    .suffix = Маркер, Невидимая
+ent-LadderTop = { ent-BaseLadder }
+    .desc = Верхняя часть лестницы. Используйте чтобы переместиться вниз.
+    .suffix = верхняя
+ent-LadderBottom = { ent-BaseLadder }
+    .desc = Нижняя часть лестницы. Используйте чтобы переместиться вверх.
+    .suffix = нижняя

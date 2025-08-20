@@ -1,0 +1,9 @@
+action-hierophant-place-marker = Поместите маркер телепортации
+action-hierophant-place-marker-desc = Позволяет установить точку, в которую вы всегда можете телепортироваться.
+action-hierophant-teleport = Мигание
+action-hierophant-teleport-desc = Телепортирует вас к уже размещенному маркеру.
+action-hierophant-spawn-cross = Крест
+action-hierophant-spawn-cross-desc = Порождает крест, который наносит цели небольшой урон.
+action-hierophant-tile-movement = Даровать движение по тайлам
+action-hierophant-tile-movement-desc = Дарует цели движение по тайлам и бафф к скорости передвижения.
+action-hierophant-tile-movement-cast = АС'КЕЛЛА!

@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: customGhost
+  id: ca4tuk-ghost
+  ckey: ca4tuk
+  sprite: /Textures/_Reserve/CustomGhosts/ca4tuk-ghost.rsi
+  alpha: 0.95
+  ghostName: ca4tuk
+  ghostDescription: ДА
+
+- type: customGhost
+  id: svarshik-ghost
+  ckey: Svarshik
+  sprite: /Textures/_Reserve/CustomGhosts/svarshik-ghost.rsi
+  alpha: 0.6
+  ghostName: Svarshik
+  ghostDescription: Вам кажется.
+
+- type: customGhost
+  id: duga-ghost
+  ckey: Duga
+  sprite: /Textures/_Reserve/CustomGhosts/duga-ghost.rsi
+  alpha: 0.9
+  ghostName: Duga
+  ghostDescription: Порядок направлений сохранён намеренно. Это метаирония. Он наблюдает сквозь стены, но не туда.
+  
+- type: customGhost
+  id: casha-ghost
+  ckey: Casha
+  sprite: /Textures/Casha/Casha-ghost.rsi
+  alpha: 0.9
+  ghostName: Casha
+  ghostDescription: "Вы чувствуете на себе чей-то взгляд"
+
+- type: customGhost
+  id: egorql-ghost
+  ckey: Egorql
+  sprite: /Textures/_FreakStation/ghost_lava.rsi
+  alpha: 0.92
+  ghostName: Egorql
+  ghostDescription: "Черемша"

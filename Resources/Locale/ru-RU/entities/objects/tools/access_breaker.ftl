@@ -1,0 +1,9 @@
+ent-AccessBreakerUnlimited = взломщик доступов
+    .desc = Взломанный конфигуратор доступа, специализированный для разблокировки и стирания доступа с цифровых замков.
+    .suffix = Неограниченный
+ent-AccessBreaker = { ent-AccessBreakerUnlimited }
+    .desc = { ent-AccessBreakerUnlimited.desc }
+    .suffix = Ограниченный
+ent-DoorJack = дверолом
+    .desc = Древнее устройство, используемое для взлома дверей, слишком старое и поврежденное, чтобы оно смогло прослужить более пары раз.
+    .suffix = Ограниченный

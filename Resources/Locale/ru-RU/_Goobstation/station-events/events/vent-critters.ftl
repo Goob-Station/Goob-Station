@@ -1,0 +1,1 @@
+goob-station-event-vent-creatures-skibidi-start-announcement = Внимание. На станции обнаружен высокий уровень Skibidi Rizz. Пожалуйста, избавьтесь от этих существ, пока станция не превратилась в Огайо. Chat, is this real?

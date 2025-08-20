@@ -1,0 +1,28 @@
+- type: gamePreset
+  id: VoxRaiders
+  name: voxraiders-title
+  description: voxraiders-description
+  showInVote: false
+  rules:
+    - VoxRaiders
+    - Traitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    #- MeteorSwarmScheduler #Goob
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: BattleRoyale
+  alias:
+    - br
+  name: battle-royale-title
+  description: battle-royale-description
+  showInVote: false
+  supportedMaps: BattleRoyaleMapPool
+  maxPlayers: 100
+  rules:
+    - BattleRoyale
+    #- MeteorSwarmScheduler #Goob
+    #- SpaceTrafficControlEventScheduler #Reserve - why
+    - BasicRoundstartVariation

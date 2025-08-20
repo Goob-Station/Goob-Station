@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by csqrb. Derivative from https://github.com/space-wizards/space-station-14/tree/master/Resources/Textures/Objects/Misc/Handy_Flags/blank_handy_flag.rsi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "consent_rev_denied"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineSex
+  name: Сексомат
+  description: Very horny baby
+  components:
+  - type: VendingMachine
+    pack: SexInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    initialStockQuality: 0.33
+  - type: Advertise
+    pack: SexAds
+  - type: SpeakOnUIClosed
+    pack: Sexbyes
+  - type: Sprite
+    sprite: Casha/Vendomat/sexmat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#ff1493"
+    
+- type: localizedDataset
+  id: SexAds
+  values:
+    prefix: advertisement-sexmat-
+    count: 6
+    
+- type: localizedDataset
+  id: Sexbyes
+  values:
+    prefix: thankyou-sexmat-
+    count: 3

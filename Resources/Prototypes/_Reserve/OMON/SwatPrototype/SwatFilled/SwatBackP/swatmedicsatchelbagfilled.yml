@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackSwatMedicSatchel
+  id: ClothingBackpackSwatMedicSatchelFilled
+  suffix: Reserve, Filled, Medic
+  components:
+  - type: StorageFill
+    contents:
+    - id: Truncheon
+    - id: Defibrillator
+    - id: WeaponDisabler
+    - id: Crowbar
+    - id: MedkitCombatSwatFilled
+    - id: Flare
+    - id: Flash

@@ -1,0 +1,11 @@
+- type: startingGear
+  id: BattleRoyaleGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesBootsJackFilled
+    back: ClothingBackpackDuffelSyndicateBattleRoyalBundle
+    gloves: ClothingHandsGlovesFingerless
+    pocket1: HandheldGPSBasic
+    pocket2: RoyalPinpointer
+  inhand:
+    - SyndicateBusinessCard

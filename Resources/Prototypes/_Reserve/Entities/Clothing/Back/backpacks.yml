@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingDeathSquadronBackpack
+  name: death squad backpack
+  description: A spacious backpack utilizing Bluespace technology.
+  components:
+  - type: Sprite
+    sprite: _Reserve/Back/Backpacks/deathsquad-backpack.rsi
+  - type: Storage
+    grid:
+    - 0,0,13,7
+    maxItemSize: Huge

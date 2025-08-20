@@ -1,0 +1,13 @@
+ent-ClothingModsuitInquisitory = управление модсьютом "Инквизитор"
+    .desc = Основной контроллер для модсьюта "Инквизитор".
+ent-ClothingModsuitGauntletsInquisitory = перчатки модсьюта "Инквизитор"
+    .desc = Пара перчаток, сшитых для модсьюта "Инквизитор".
+ent-ClothingModsuitHelmetInquisitory = Шлем модсьюта "Инквизитор"
+    .desc = Ультрасовременный шлем, разработанный компанией NanoTrasen для модсьюта "Инквизитор". Он оснащен встроенным дисплеем HUD.
+ent-ClothingModsuitChestplateInquisitory = нагрудник модсьюта "Инквизитор"
+    .desc = Современный нагрудник, разработанный компанией NanoTrasen для костюма модсьюта "Инквизитор". Он оснащен приводимыми в действие сервоприводами для снижения нагрузки на оборудование.
+ent-ClothingModsuitBootsInquisitory = ботинки модсьюта "Инквизитор"
+    .desc = Ультрасовременная пара магнитных ботинок для костюма модсьюта "Инквизитор". Пока костюм работает, они не будут мешать его владельцу.
+ent-SuitStorageInquisitory = { ent-SuitStorageBase }
+    .suffix = Модсьют "Инквизитор"
+    .desc = { ent-SuitStorageBase.desc }

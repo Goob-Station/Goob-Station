@@ -1,0 +1,119 @@
+- type: entity
+  name: hulk
+  parent:
+  - BaseSimpleMob
+  - MobCombat
+  - MobBloodstream
+  id: Hulk
+  description: Ебануца.
+  components:
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: Animal
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: HellSpawn
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: Sprite
+    sprite: _FreakStation/hulk.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: Hulk
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: Hulk
+      Dead:
+        Base: Hulk
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 185
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Critical
+      500: Dead
+  - type: MeleeWeapon
+    attackRate: 0.6
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Blunt: 40
+        Structural: 70
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+      
+- type: reagent
+  id: HulkGen
+  name: мутирующая сыворотка
+  group: Toxins
+  desc: Созданный для военных преступлений реагент. Изменяет ДНК жертвы, превращая её в машину для убийств.
+  physicalDesc: reagent-physical-desc-inversed
+  flavor: funny
+  color: "#a64dc5"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: злится
+        showInChat: true
+        force: true
+        probability: 1
+      - !type:Polymorph
+        prototype: HulkPolymorph
+        conditions:
+        - !type:OrganType
+          type: Human
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 10
+      - !type:AdjustReagent
+        reagent: HulkGen
+        amount: -10
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+          
+- type: polymorph
+  id: HulkPolymorph
+  configuration:
+    entity: Hulk
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    allowRepeatedMorphs: true
+    PolymorphPopup: Тело начинает изменяться...
+    ExitPolymorphPopup: Тело возращается в норму
+    polymorphSound: !type:SoundPathSpecifier
+      path: /Audio/_FreakStation/grau.ogg
+    exitPolymorphSound: !type:SoundPathSpecifier
+      path: /Audio/_FreakStation/eto-pechalno.ogg

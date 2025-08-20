@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingBeltSwatWedding
+  id: ClothingBeltSwatWeddingStandartFilled
+  suffix: Reserve, Filled, Standard
+  components:
+  - type:  StorageFill
+    contents:
+      - id: WeaponPistolMk58
+      - id: MagazinePistol
+      - id: MagazinePistol
+      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgun
+      - id: Stunbaton
+      - id: Handcuffs

@@ -1,0 +1,137 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: SpeciesReserve
+  name: guide-entry-species
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Species.xml"
+  children:
+    - ArachnidReserve
+    - DionaReserve
+    - DwarfReserve
+    - HumanReserve
+    - MothReserve
+    - ReptilianReserve
+    - SlimePersonReserve
+    # Goobstation
+    # - FelinidReserve
+    - GingerbreadReserve
+    - HarpyReserve
+    - VoxReserve
+    - VulpkaninReserve
+    - RodentiaReserve
+    - YowieReserve
+    - IPCReserve
+    - ResomiReserve
+    - OniReserve
+    - TajaranReserve
+
+- type: guideEntry
+  id: ArachnidReserve
+  name: species-name-arachnid
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Arachnid.xml"
+
+- type: guideEntry
+  id: DionaReserve
+  name: species-name-diona
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Diona.xml"
+
+- type: guideEntry
+  id: DwarfReserve
+  name: species-name-dwarf
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Dwarf.xml"
+
+- type: guideEntry
+  id: HumanReserve
+  name: species-name-human
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Human.xml"
+
+- type: guideEntry
+  id: MothReserve
+  name: species-name-moth
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Moth.xml"
+
+- type: guideEntry
+  id: ReptilianReserve
+  name: species-name-reptilian
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Reptilian.xml"
+
+- type: guideEntry
+  id: SlimePersonReserve
+  name: species-name-slime
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/SlimePerson.xml"
+
+# Goobstation
+
+#- type: guideEntry
+#  id: FelinidReserve
+#  name: species-name-felinid
+#  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Felinid.xml"
+
+- type: guideEntry
+  id: GingerbreadReserve
+  name: species-name-gingerbread
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Gingerbread.xml"
+
+- type: guideEntry
+  id: HarpyReserve
+  name: species-name-harpy
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Harpy.xml"
+
+- type: guideEntry
+  id: VoxReserve
+  name: species-name-vox
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Vox.xml"
+
+- type: guideEntry
+  id: VulpkaninReserve
+  name: species-name-vulpkanin
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Vulpkanin.xml"
+
+- type: guideEntry
+  id: YowieReserve
+  name: species-name-yowie
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Yowie.xml"
+
+- type: guideEntry
+  id: IPCReserve
+  name: species-name-ipc
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/IPCs.xml"
+
+- type: guideEntry
+  id: ResomiReserve
+  name: species-name-resomi
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Resomi.xml"
+
+- type: guideEntry
+  id: TajaranReserve
+  name: species-name-tajaran
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Tajaran.xml"
+
+#DV
+- type: guideEntry
+  id: RodentiaReserve
+  name: species-name-rodentia
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Rodentia.xml"
+
+- type: guideEntry
+  id: OniReserve
+  name: species-name-oni
+  text: "/ServerInfo/_Reserve/Guidebook/Mobs/Oni.xml"

@@ -1,0 +1,17 @@
+ent-MobGorillaAngry = { ent-MobGorilla }
+    .suffix = Злой
+    .desc = { ent-MobGorilla.desc }
+ent-MobGorillaAngryTemp = { ent-MobGorillaAngry }
+    .suffix = Злой, Маленький, Временный
+    .desc = { ent-MobGorillaAngry.desc }
+ent-MobGorillaWizard = { ent-MobGorillaAngry }
+    .suffix = Маг
+    .desc = { ent-MobGorillaAngry.desc }
+ent-MobMonkeyAngry = обезьяна
+    .desc = Новая церковь неодарвинистов на самом деле верит, что КАЖДОЕ животное произошло от обезьяны. На вкус они похожи на свинину, а убивать их весело и приятно.
+    .suffix = Злой
+ent-MobKoboldAngry = кобольд
+    .desc = Двоюродные братья разумной расы людей-ящеров, кобольды сливаются со своей естественной средой обитания и злобны, как обезьяны; они готовы рвать на себе волосы и заколоть до смерти.
+ent-MobMonkeyAngryTemp = { ent-MobMonkeyAngry }
+    .suffix = Злой, Маленький, Временный
+    .desc = { ent-MobMonkeyAngry.desc }

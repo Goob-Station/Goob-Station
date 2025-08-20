@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: EncryptionKeyVoxRaiders
+  name: raider encryption key
+  description: An encryption key used by raiders.
+  components:
+  - type: EncryptionKey
+    channels:
+    - VoxRaiders
+    defaultChannel: VoxRaiders
+  - type: Item
+    sprite: _CorvaxNext/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _CorvaxNext/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_vox
+    - state: label

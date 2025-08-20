@@ -1,0 +1,86 @@
+# Прожектайл лазера
+
+- type: hitscan
+  id: LaserEnergySniper
+  damage:
+    types:
+      Heat: 40
+      Structural: 150
+  muzzleFlash:
+    sprite: _FreakStation/Guns_sec/LaserSniper/Projectiles.rsi
+    state: muzzle_violet
+  travelFlash:
+    sprite: _FreakStation/Guns_sec/LaserSniper/Projectiles.rsi
+    state: beam_violet
+  impactFlash:
+    sprite: _FreakStation/Guns_sec/LaserSniper/Projectiles.rsi
+    state: impact_violet
+
+# База лазерной снайперки
+
+- type: entity
+  id: BaseWeaponEnergySniper
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _FreakStation/Guns_sec/LaserSniper/LaserSniper.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: StaticPrice
+    price: 500
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.25
+    sprintModifier: 0.25
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+
+#Снайперка
+
+- type: entity
+  name: лазерная винтовка мёртвой звезды
+  parent: [BaseWeaponEnergySniper, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponEnergySniper
+  description: Элитная лазерная винтовка, обладающая массивным уроном. Пользуется уважением среди офицеров НаноТрайзен.
+  components:
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/LaserSniper/LaserSniper.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: _FreakStation/Guns_sec/LaserSniper/LaserSniper.rsi
+  - type: Gun
+    fireRate: 0.75
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: LaserEnergySniper
+    fireCost: 100
+

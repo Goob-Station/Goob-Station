@@ -1,0 +1,45 @@
+# Секс борг
+- type: borgType
+  id: sexborg
+
+  # Описание
+  dummyPrototype: BorgChassisSex
+
+  # Функционал
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSex
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleMusique
+  - BorgModuleService
+  - BorgModuleClowning
+  - BorgModuleGardening
+  - BorgModuleHarvesting
+  radioChannels:
+  - Science
+  - Service
+
+  # Вид
+  inventoryTemplateId: borgTall
+  spriteBodyState: sexborg
+  spriteHasMindState: sexborg_e
+  spriteNoMindState: sexborg_e_r
+  spriteToggleLightState: sexborg_l
+
+  # и как мне блядь понять что они имели ввиду под "PET"!?
+  petSuccessString: petting-success-service-cyborg
+  petFailureString: petting-failure-service-cyborg
+  
+  
+  
+- type: entity
+  id: BorgChassisSex
+  parent: BorgChassisSelectable
+  name: Секс борг
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: sexborg

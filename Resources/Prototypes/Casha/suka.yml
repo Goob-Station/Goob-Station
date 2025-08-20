@@ -1,0 +1,57 @@
+- type: entity
+  abstract: true
+  parent: [UnsensoredClothingUniformBase, BaseFoldable]
+  id: InnerClothingFoldableBase
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
+      
+- type: entity
+  abstract: true
+  parent: InnerClothingFoldableBase
+  id: InnerClothingFoldableBaseOpened
+  suffix: opened
+  components:
+  - type: Foldable
+    folded: true
+  - type: Clothing
+    equippedPrefix: open
+  - type: Item
+    heldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: true
+      
+- type: entity
+  parent: InnerClothingFoldableBase
+  id: prikol
+  name: Юбка с топом
+  description: Короткая юбка с коротким топом сильно открывающим грудь.
+  components:
+  - type: Sprite
+    sprite: Casha/clothing/jumpsuit/Sherlookkaif.rsi
+  - type: Clothing
+    sprite: Casha/clothing/jumpsuit/Sherlookkaif.rsi
+
+- type: entity
+  parent: [InnerClothingFoldableBaseOpened, prikol]
+  id: prikol-open
+  name: Юбка с топом

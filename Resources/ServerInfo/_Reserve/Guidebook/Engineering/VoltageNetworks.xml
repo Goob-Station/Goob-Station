@@ -1,0 +1,102 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Электросети
+  На космической станции 14 распределение электроэнергии разделено на три отдельные сети напряжения.
+  Это [color=green]Сеть низкого напряжения[/color], [color=Yellow]Сеть среднего напряжения[/color] и [color=orange]Сеть высокого напряжения[/color].
+
+  Эти сети питают различные типы оборудования на станции.
+
+  <Box>
+    <GuideEntityEmbed Entity="CableHVStack"/>
+    <GuideEntityEmbed Entity="CableMVStack"/>
+    <GuideEntityEmbed Entity="CableApcStack"/>
+  </Box>
+
+  ## Сеть низкого напряжения
+  Сеть [color=green]низкого напряжения[/color] используется для питания почти всех малых машин на станции. Сюда входят лампы, компьютеры и другие небольшие устройства.
+
+  <Box>
+    <GuideEntityEmbed Entity="PoweredSmallLight" Caption=""/>
+    <GuideEntityEmbed Entity="ComputerCargoShuttle" Caption=""/>
+    <GuideEntityEmbed Entity="ComputerComms" Caption=""/>
+    <GuideEntityEmbed Entity="Autolathe" Caption=""/>
+    <GuideEntityEmbed Entity="VendingMachineEngivend" Caption=""/>
+    <GuideEntityEmbed Entity="VendingMachineMedical" Caption=""/>
+    <GuideEntityEmbed Entity="AlwaysPoweredWallLight" Caption=""/>
+  </Box>
+
+  Питание [color=green]Низким напряжением[/color] обеспечивается ЛКП, которые представляют собой настенные устройства, преобразующие питание из [color=Yellow]Сети среднего напряжения[/color] в [color=green]Низкое напряжение[/color].
+
+  <Box>
+    <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  [color=green]Низковольтный[/color] провод не обязательно прокладывать непосредственно к каждой машине, так как он может питать несколько машин, если провод находится достаточно близко к машине.
+  Он может питать машины в радиусе 2 тайлов и 3 тайлов в каждом кардинальном направлении.
+
+  ## Сеть среднего напряжения
+  Сеть [color=Yellow]среднего напряжения [/color] используется для питания ЛКП и других энергоемких машин, которые могут принимать только энергию[color=Yellow]среднего напряжения[/color].
+  В качестве примера можно привести ускоритель частиц, который работает на [color=Yellow]среднем напряжении[/color].
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEndCap" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorControlBox" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorFuelChamber" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="CableMV" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorPowerBox" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterStarboard" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterFore" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="ParticleAcceleratorEmitterPort" Caption="" Margin="0"/>
+  </Box>
+
+  <Box>
+    [color=#99999999][italic]Ускоритель частиц[/colour][/color]
+  </Box>
+
+  [color=Yellow]Среднее напряжение[/color] обеспечивается подстанциями, которые представляют собой большие машины, преобразующие энергию из [color=Orange]сети высокого напряжения[/color] в [color=Yellow]среднее напряжение[/color].
+
+  Существуют также настенные варианты этих подстанций для компактных помещений, таких как шаттлы.
+  <Box HorizontalAlignment="Stretch">
+    <Box>
+      <GuideEntityEmbed Entity="SubstationBasic"/>
+    </Box>
+    <Box>
+      <GuideEntityEmbed Entity="SubstationWallBasic"/>
+    </Box>
+  </Box>
+
+  ## Сеть высокого напряжения
+  Сеть [color=Orange]высокого напряжения[/color] используется для перемещения большого количества энергии по станции. Она используется для питания большинства устройств обработки электроэнергии, таких как блоки SMES и подстанции.
+
+  Большинство высокопроизводительных генераторов выдают энергию в [color=Orange]Сеть высокого напряжения[/color].
+
+  <Box>
+    <GuideEntityEmbed Entity="SMESBasic"/>
+    <GuideEntityEmbed Entity="RadiationCollector"/>
+    <GuideEntityEmbed Entity="TeslaCoil"/>
+    <GuideEntityEmbed Entity="SubstationBasic"/>
+  </Box>
+
+  ## Повреждение от удара током
+  Если вас ударит током кабель, проводящий электричество, вы получите урон. Количество получаемого урона зависит от напряжения кабеля, который вас ударил.
+
+  [color=green]Кабели низкого напряжения[/color] наносят меньше урона, чем [color=Yellow]Кабели среднего напряжения[/color], которые наносят меньше урона, чем [color=Orange]Кабели высокого напряжения[/color].
+
+  Напряженные [color=Orange]высоковольтные[/color] и [color=Yellow]средневольтные[/color] кабели причиняют боль, поэтому при работе с ними обязательно надевайте изолированные перчатки.
+
+</Document>

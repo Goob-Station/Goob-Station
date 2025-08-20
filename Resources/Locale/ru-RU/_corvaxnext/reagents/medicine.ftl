@@ -1,0 +1,9 @@
+reagent-name-royal-omniheal = омнихил
+reagent-desc-royal-omniheal = Золотистое медицинское чудо, быстро восстанавливающее все виды клеточных повреждений. Считается вершиной медицинской науки, способной лечить даже самые тяжёлые травмы.
+omniheal-effect-rejuvenating = Ваши раны быстро заживают.
+reagent-name-royal-hyperphase = гиперфаза
+reagent-desc-royal-hyperphase = Ярко-красный реагент, который значительно усиливает физические возможности, временно очищая организм от токсинов и нейтрализуя негативные эффекты. Передозировка вызывает катастрофический системный шок.
+hyperphase-effect-rejuvenating = Волна энергии проходит через ваше тело!
+hyperphase-overdose-effect-burning = Ваши вены словно горят огнем!
+hyperphase-overdose-effect-shocking = Электрические разряды пульсируют в ваших мышцах!
+hyperphase-overdose-effect-too-much-power = Ваше тело не может справиться с такой мощью!

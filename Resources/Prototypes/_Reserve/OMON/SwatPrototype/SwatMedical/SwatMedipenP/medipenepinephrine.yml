@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен эпинефрина
+  parent: ChemicalMedipen
+  id: MedipenEpinephrine
+  description: Специальный медипен для ОКГ, содержит эпинефрин, выводит из критического состояния.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenEpinephrine
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenEpinephrine_empty
+  - type: Tag
+    tags: []

@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingSwatGasMask
+  name: противогаз спецназа
+  description: Элитный противогаз ОКГ, применяется в ходе спец.операций где требуется применение огромного кол-ва слезоточивого газа.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatgasmask.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatgasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+  - type: IdentityBlocker
+  - type: FlashImmunity
+  - type: IngestionBlocker
+  - type: EyeProtection
+    protectionTime: 15

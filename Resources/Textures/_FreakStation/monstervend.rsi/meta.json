@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": "made by @Sherlook",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "off"
+    },
+    {
+      "name": "deny-unshaded"
+    },
+    {
+      "name": "eject-unshaded"
+    },
+    {
+      "name": "normal-unshaded"
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "broken"
+    }
+  ]
+}

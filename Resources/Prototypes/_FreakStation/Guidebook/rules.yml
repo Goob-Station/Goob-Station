@@ -1,0 +1,90 @@
+- type: guideEntry
+  id: FreakyRuleset
+  name: guide-freak-rules
+  ruleEntry: true
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/FreakyRules.xml"
+  children:
+  - RuleFreak0
+  - RuleFreak1
+  - RuleFreak2
+  - RuleFreak3
+  - RuleFreak4
+  - RuleFreak5
+  - RuleFreak6
+  - RuleFreak7
+  - RuleFreak8
+  - RuleFreak9
+
+#Freaky-Rules-Start
+
+- type: guideEntry
+  id: RuleFreak0
+  name: "Мудачество"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak0.xml"
+
+- type: guideEntry
+  id: RuleFreak1
+  name: "Гриферство"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak1.xml"
+
+- type: guideEntry
+  id: RuleFreak2
+  name: "ФрикРП"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak2.xml"
+
+- type: guideEntry
+  id: RuleFreak3
+  name: "Метагейминг"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak3.xml"
+
+- type: guideEntry
+  id: RuleFreak4
+  name: "Самоантагонизм"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak4.xml"
+
+- type: guideEntry
+  id: RuleFreak5
+  name: "Валидхантинг"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak5.xml"
+
+- type: guideEntry
+  id: RuleFreak6
+  name: "Обход блокировки, Мультиаккаунтинг"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak6.xml"
+
+- type: guideEntry
+  id: RuleFreak7
+  name: "Нечестная игра"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak7.xml"
+
+- type: guideEntry
+  id: "RuleFreak8"
+  name: "ЕРП"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak8.xml"
+
+- type: guideEntry
+  id: RuleFreak9
+  name: "18+"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_FreakStation/Guidebook/ServerRules/RuleFreak9.xml"
+
+# Freaky-Rules-End

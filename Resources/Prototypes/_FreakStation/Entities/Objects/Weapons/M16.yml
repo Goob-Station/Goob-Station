@@ -1,0 +1,157 @@
+# Винтовка М16
+- type: entity
+  name: M16 винтовка
+  parent: [ WeaponSubMachineGunDrozd, BaseSecurityContraband ]
+  id: WeaponM16Riffle
+  description: Надежная винтовка западного происхождения. С затворной задержкой как у калак-12
+  components:
+    - type: Sprite
+      sprite: _FreakStation/Guns_sec/M16.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _FreakStation/Guns_sec/M16.rsi
+    - type: GunWieldBonus
+      minAngle: -19
+      maxAngle: -16
+    - type: Gun
+      minAngle: 18
+      maxAngle: 27
+      fireRate: 6
+      burstFireRate: 12
+      soundGunshot:
+        path: /Audio/_FreakStation/Guns_sec/M16Bullet.ogg
+      availableModes:
+      - Burst
+      - FullAuto
+      - SemiAuto
+      shotsPerBurst: 3
+      burstCooldown: 0.25
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: MagazineM16
+          insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MagazineM16
+          whitelistFailPopup: gun-magazine-whitelist-fail
+        gun_chamber:
+          name: Chamber
+          startingItem: CartridgePistol
+          priority: 1
+          whitelist:
+            tags:
+              - CartridgePistol
+
+#База магазина
+- type: entity
+  id: BaseMagazineM16  # Yeah it's weird but it's pistol caliber x2
+  name: M16 magazine (.35 auto)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineM16
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    capacity: 35
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+#Обычный магазин
+- type: entity
+  id: MagazineM16
+  name: M16 магазин (.35 auto)
+  parent: BaseMagazineM16
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 35
+    proto: CartridgePistol
+    whitelist:
+      tags:
+        - CartridgePistol
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/M16mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Пустой магазин
+- type: entity
+  id: MagazineM16Empty
+  name: M16 магазин (.35 auto)
+  suffix: empty
+  parent: BaseMagazineM16
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/M16mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Магазин учебных
+- type: entity
+  id: MagazineM16Practice
+  name: M16 магазин учебные (.35 auto practice)
+  suffix: M16
+  parent: BaseMagazineM16
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolPractice
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/M16mag.rsi
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Магазин урановых
+- type: entity
+  id: MagazineM16Uranium
+  name: M16 магазин урановые (.35 auto uranium)
+  parent: BaseMagazineM16
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolUranium
+  - type: Sprite
+    sprite: _FreakStation/Guns_sec/M16mag.rsi
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

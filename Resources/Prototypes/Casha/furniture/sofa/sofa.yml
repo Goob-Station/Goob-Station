@@ -1,0 +1,191 @@
+- type: entity
+  name: диван
+  id: SofaLong
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofa.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShort
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofa.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongred
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofared.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortred
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofared.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLonggreen
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofagreen.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortgreen
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofagreen.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongcian
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofacian.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortcian
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofacian.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongblack
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofablack.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortblack
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofablack.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongbrown
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofabrown.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortbrown
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofabrown.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongfiol
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofafiol.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortfiol
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofafiol.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaLongyellow
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofayellow.rsi
+    state: long
+  - type: Construction
+    graph: Seat
+    node: chair
+    
+- type: entity
+  name: диван
+  id: SofaShortyellow
+  parent: Chair
+  components:
+  - type: Sprite
+    sprite: Casha/furniture/sofayellow.rsi
+    state: short
+  - type: Construction
+    graph: Seat
+    node: chair

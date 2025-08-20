@@ -1,0 +1,14 @@
+nullrod-untrained-usage-popup = Обычно холодный стержень вспыхивает обжигающим жаром.
+nullrod-rosary-untrained-usage-popup = Бусинки сжимаются, болезненно впиваясь в кожу.
+nullrod-holyclaymore-untrained-usage-popup = Лезвие выскальзывает из ваших рук и вонзается в руку.
+nullrod-godhand-untrained-usage-popup = Божественная энергия потрескивает, вызывая неконтролируемую судорогу в вашей руке.
+nullrod-arrythmicknife-untrained-usage-popup = Лезвие выходит из-под контроля, нанося вам болезненный порез на руке.
+nullrod-monkstaff-untrained-usage-popup = Посох выскальзывает у вас из рук и ударяет вас в плечо.
+nullrod-atheistfedora-untrained-usage-popup = Острые, как бритва, поля шляпы начинают гудеть.
+nullrod-pistol-untrained-usage-popup = Серебряная рукоять болезненно нагревается в ваших руках.
+nullrod-honkmother-untrained-usage-popup = Ты думаешь, что ты смешной, да?
+nullrod-uristhand-untrained-usage-popup = Проникновение на охраняемую территорию.
+nullrod-chainsaw-untrained-usage-popup = Ах, и посмотрите, кто у нас здесь — чертов язычник!
+alternate-pray-prompt = Молиться { $item }
+alternate-pray-start = { $user } начинает нашептывать в { $item }...
+nullrod-spelldenial-popup = СИЛА БОЖЬЯ ПЕРЕПОЛНЯЕТ ВАС!

@@ -1,0 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Gbedan <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+
+# Правила Reserve
+
+Здесь описываются все правила, необходимые обычному игроку. Если хотите что-то уточнить, спросите у администрации (F1) или обратитесь в дискорд-сервер Резерва, нажав на соответствующую кнопку в лаунчере, лобби или F10.
+
+  - [textlink="0. Не будь мудаком" link="RuleReserve0"]
+  - [textlink="1. Гриф" link="RuleReserve1"]
+  - [textlink="2. Убийство" link="RuleReserve2"]
+  - [textlink="3. Нарушение игровой атмосферы" link="RuleReserve3"]
+  - [textlink="3.1. Победкаёбство" link="RuleReserve31"]
+  - [textlink="3.2. Метагейм" link="RuleReserve32"]
+  <!-- - [textlink="3.3. Ограничения на проф. навыки" link="RuleReserve33"]  Не используется -->
+  - [textlink="3.4. IC в ООС" link="RuleReserve34"]
+  - [textlink="3.5. Мультиаккаунт" link="RuleReserve35"]
+  - [textlink="3.6. Выход из роли" link="RuleReserve36"]
+  - [textlink="3.7. Безграмотность" link="RuleReserve37"]
+  - [textlink="3.8. Поддержание уважительной обстановки" link="RuleReserve38"]
+  - [textlink="4. Логика персонажей" link="RuleReserve4"]
+  - [textlink="6. Ответственная игра за антагониста" link="RuleReserve6"]
+  - [textlink="7. Самоантагонизм" link="RuleReserve7"]
+  - [textlink="8. Валидхант" link="RuleReserve8"]
+  - [textlink="9. ЕРП" link="RuleReserve9"]
+  - [textlink="10. Нечестная игра" link="RuleReserve10"]
+</Document>

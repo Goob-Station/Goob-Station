@@ -1,0 +1,13 @@
+admin-manager-self-de-admin-message = { $exAdminName } снял с себя оковы.
+admin-manager-self-re-admin-message = { $newAdminName } стал рабом.
+admin-manager-became-normal-player-message = Теперь вы сняты. Ура 
+admin-manager-became-admin-message = Теперь вы адмем.
+admin-manager-no-longer-admin-message = Вы больше не адмем.
+admin-manager-admin-permissions-updated-message = На ваши права насрали.
+admin-manager-admin-logout-message = Фрик вышел: { $name }
+admin-manager-admin-login-message = Фрик зашёл: { $name }
+admin-manager-admin-data-host-title = Фембой
+admin-manager-stealthed-message = Теперь вы сьебались.
+admin-manager-unstealthed-message = Вы больше не сьебаны.
+admin-manager-self-enable-stealth = { $stealthAdminName } сьебался.
+admin-manager-self-disable-stealth = { $exStealthAdminName } больше не сьебался.

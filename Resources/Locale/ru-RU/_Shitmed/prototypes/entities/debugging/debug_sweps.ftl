@@ -1,0 +1,12 @@
+ent-MeleeDebugSever = дебаг отрезатель конечностей
+    .desc = разорву тебя на части через неделю
+    .suffix = ДЕБАГ
+ent-MeleeDebugSever100 = дебаг взрыв 100 дмг
+    .desc = { ent-MeleeDebugSever.desc }
+ent-MeleeDebugSever200 = дебаг взрыв 200 дмг
+    .desc = { ent-MeleeDebugSever.desc }
+ent-MeleeDebugBurner = взрывная горелка
+    .desc = сожги свои части тела
+    .suffix = ДЕБАГ
+ent-MeleeDebugBurner200 = взрывная горелка 200 дмг
+    .desc = { ent-MeleeDebugBurner.desc }

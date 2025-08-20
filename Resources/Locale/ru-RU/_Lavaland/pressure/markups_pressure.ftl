@@ -1,0 +1,4 @@
+lavaland-examine-pressure-in-range-buff = Это оборудование лучше работает внутри в диапозоне между [color=yellow]{ $min } - { $max } кПа[/color], позволяя ему повысить урон в [color=yellow]{ $modifier }[/color] раза больше!
+lavaland-examine-pressure-in-range-debuff = Это оборудование хуже работает внутри в диапозоне между [color=yellow]{ $min } - { $max } кПа[/color], заставляя его справляться с уроном в [color=yellow]{ $modifier }[/color] раза меньше!
+lavaland-examine-pressure-out-range-buff = Это оборудование лучше работает снаружи в диапозоне между [color=yellow]{ $min } - { $max } кПа[/color], позволяя ему повысить урон в [color=yellow]{ $modifier }[/color] раза больше!
+lavaland-examine-pressure-out-range-debuff = Это оборудование хуже работает снаружи в диапозоне между [color=yellow]{ $min } - { $max } кПа[/color], заставляя его справляться с уроном в [color=yellow]{ $modifier }[/color] раза меньше!

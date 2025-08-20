@@ -1,0 +1,12 @@
+ent-DoorElectronicsCentralCommandCaptain = { ent-DoorElectronics }
+    .suffix = Центральное командование, закрыт
+    .desc = { ent-DoorElectronics.desc }
+ent-DoorElectronicsNTR = { ent-DoorElectronics }
+    .suffix = Представитель НаноТрейзен, закрыт
+    .desc = { ent-DoorElectronics.desc }
+ent-DoorElectronicsBSO = { ent-DoorElectronics }
+    .suffix = Офицер "Синий щит", закрыт
+    .desc = { ent-DoorElectronics.desc }
+ent-DoorElectronicsAllService = { ent-DoorElectronics }
+    .suffix = Все сервисные помещения, закрыт
+    .desc = { ent-DoorElectronics.desc }

@@ -1,0 +1,13 @@
+ent-ClothingHeadsetChronolegioneer = футуристическая полноразмерная гарнитура
+    .desc = Гарнитура из будущего, способная улавливать большинство частот станций.
+ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }
+    .suffix = Неснимаемый
+    .desc = { ent-ClothingHeadsetChronolegioneer.desc }
+ent-ClothingHeadsetAltWarden = гарнитура смотрителя с накладными ушами
+    .desc = Обновленное модульное переговорное устройство, обеспечивающее быструю связь с командным составом.
+ent-ClothingHeadsetDeathsquad = полноразмерная гарнитура эскадрона смерти
+    .desc = Вам явно бы не хотелось знать, кто владеет данной гарнитурой, и чем он занимается.
+ent-ClothingHeadsetAltSecurityRegular = защитная накладная гарнитура
+    .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetAltBlueshield = полноразмерная гарнитура офицера "синий щит"
+    .desc = Гарнитура, используемая офицером "синий щит". Имеет дополнительную защиту.

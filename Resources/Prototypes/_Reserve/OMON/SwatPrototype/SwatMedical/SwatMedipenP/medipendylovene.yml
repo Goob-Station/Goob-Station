@@ -1,0 +1,25 @@
+- type: entity
+  name: медипен диловена
+  parent: ChemicalMedipen
+  id: MedipenDylovene
+  description: Специальный медипен для ОКГ, содержит диловен, лечит отравление.
+  suffix: Резерв
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/medipen.rsi
+    layers:
+    - state: medipenDylovene
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Dylovene
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipenDylovene_empty
+  - type: Tag
+    tags: []

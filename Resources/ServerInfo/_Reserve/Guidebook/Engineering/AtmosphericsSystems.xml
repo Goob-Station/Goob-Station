@@ -1,0 +1,60 @@
+<Document>
+  # Атмосферные системы
+  Атмос располагает широким спектром устройств, предназначенных для перемещения, регулирования и других манипуляций с газом.
+  Эти устройства часто работают совместно для поддержания безопасной атмосферы, пригодной для дыхания экипажа, или для решения общей задачи.
+
+  В этом разделе рассказывается о различных системах, имеющихся в распоряжении атмоса, о том, как они взаимодействуют и как их идеально использовать.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeHalf" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeBend" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeTJunction" Caption=""/>
+    <GuideEntityEmbed Entity="GasPipeFourway" Caption=""/>
+    <GuideEntityEmbed Entity="GasPressurePump" Caption=""/>
+    <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
+  </Box>
+  <Box>
+    ## Сети труб
+  </Box>
+  <Box>
+    [color=#999999][italic]Соединенные между собой трубы с общей задачей — обычно называемые сетями труб[italic][/color]
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="ComputerAlert" Caption=""/>
+    <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
+  </Box>
+  <Box>
+    ## Мониторинг и управление устройствами
+  </Box>
+  <Box>
+    [color=#999999][italic]Мониторинг и управление устройствами, управляющими местной атмосферой[italic][/color]
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="Firelock" Caption=""/>
+    <GuideEntityEmbed Entity="FireAlarm" Caption=""/>
+  </Box>
+  <Box>
+    ## Противопожарный и газовый контроль
+  </Box>
+  <Box>
+    [color=#999999][italic]Устройства для контроля и предотвращения утечек газа и пожаров[italic][/color]
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="GasMinerOxygenStation" Caption=""/>
+    <GuideEntityEmbed Entity="AirCanister" Caption=""/>
+  </Box>
+  <Box>
+    ## Добыча и хранение газа
+  </Box>
+  <Box>
+    [color=#999999][italic]Устройства для добычи нового газа для использования станцией и хранения его на будущее[italic][/color]
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasMinerOxygenStation" Caption=""/>
+  </Box>
+
+</Document>

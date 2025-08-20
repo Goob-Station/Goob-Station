@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sherlook",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "deny-unshaded",
+      "delays": [
+        [
+          0.25,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "normal-unshaded",
+      "delays": [
+        [
+          10,
+          0.1,
+          10,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "off"
+    },
+    {
+      "name": "broken"
+    },
+    {
+      "name": "panel"
+    }
+  ]
+}

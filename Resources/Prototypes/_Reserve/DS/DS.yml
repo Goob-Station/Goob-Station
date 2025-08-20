@@ -1,0 +1,563 @@
+#КАНАЛ СВЯЗИ
+- type: radioChannel
+  id: DS
+  name: chat-radio-vox-ds
+  keycode: 'у'
+  frequency: 2213
+  color: "DarkViolet"
+  longRange: true
+
+#КЛЮЧ ШИФРОВАНИЯ
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyDS
+  name: death squad encryption key
+  description: You're better off not hearing what is being talked about on this frequency.....
+  components:
+  - type: EncryptionKey
+    channels:
+    - DS
+    defaultChannel: DS
+  - type: Sprite
+    layers:
+    - state: crypt_blue
+    - state: cap_label
+
+#ГАРНИТУРА
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband]
+  id: ClothingHeadsetDS
+  name: deathsquad over-ear headset
+  description: A special death squad headset.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyDS
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+
+#ПУЛЬТ КОМАНДИРА
+- type: entity
+  parent: [DoorRemoteDefault, BaseCentcommContraband]
+  id: DoorRemoteAllCC
+  name: commander's door remote
+  description: Remote control with full access to the station. Has CC access.
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#800000"
+    - state: door_remotescreencolour
+      color: "#9400D3"
+  - type: Access
+    tags:
+    - CentralCommand
+    groups:
+    - AllAccess
+
+#ПОРТАТИВНАЯ КОНСОЛЬ СВЯЗИ
+- type: entity
+  id: CommunicationsConsolePortative
+  parent: BaseItem
+  name: DSO portable communications console
+  description: A portable console used for station-wide announcements, changing threat levels, calling the evacuation shuttle, and crew monitoring. Has a direct link to the Special Operations Officer.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    scale: 0.65, 0.65
+    color: "#7FFFD4"
+    layers:
+      - state: tablet
+      - state: generic
+        shader: unshaded
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-dso
+    global: true
+    color: "DarkViolet"
+    sound:
+      path: /Audio/Misc/delta_alt.ogg
+      params:
+        volume: -4
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.CommunicationsConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
+  - type: CrewMonitoringServer
+  - type: SingletonDeviceNetServer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: CrewMonitor
+    receiveFrequencyId: SuitSensor
+    autoConnect: true
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StationLimitedNetwork
+
+#ПИНПОИНТЕР ЯДЕРНОЙ БОМБЫ
+- type: entity
+  parent: PinpointerBase
+  id: PinpointerNuclearBomb
+  name: nuclear warhead pinpointer
+  description: Portable tracking device. Capable of detecting the nearest nuclear warhead.
+  components:
+  - type: Pinpointer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Nuke
+    targetName: ядерная боеголовка
+
+#ГИПОСПРЕЙ
+- type: entity
+  parent: Hypospray
+  id: HyposprayDS
+  name: combat hypospray
+  description: Military-grade hypospray, contains omnizine, and slowly restores its supply.
+  components:
+  - type: Sprite
+    state: combat_hypo
+  - type: Hypospray
+    transferAmount: 10
+  - type: UseDelay
+    delay: 1
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 50
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 0.5
+
+#АПТЕЧКА
+- type: entity
+  parent: MedkitCombat
+  id: MedkitCombatFilledDS
+  name: advanced combat medkit
+  description: A first aid kit equipped with advanced medicines that are convenient to use in battle.
+  components:
+  - type: Item
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: StorageFill
+    contents:
+      - id: HyposprayDS
+      - id: MedicatedSuture
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: RegenerativeMesh
+      - id: BruteAutoInjector
+      - id: BurnAutoInjector
+      - id: AntiPoisonMedipen
+      - id: EmergencyMedipen
+
+#ЯЩИК ВЗРЫВЧАТКИ
+- type: entity
+  parent: CrateCommandSecure
+  id: CrateServiceDSOExp
+  name: explosives crate
+  description: Contains a stockpile of explosives to blow up an entire station. Requires CC access.
+  components:
+  - type: AccessReader
+    access: [[ "CentralCommand" ]]
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: EntityStorage
+    capacity: 100
+  - type: StorageFill
+    contents:
+      - id: C4
+        amount: 20
+      - id: ExGrenade
+        amount: 20
+      - id: EmpGrenade
+        amount: 15
+      - id: GrenadeShrapnel
+        amount: 15
+      - id: GrenadeIncendiary
+        amount: 15
+      - id: GrenadeStinger
+        amount: 15
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+#РЕАГЕНТ РЕГЕНЕРАЦИИ
+- type: reagent
+  id: Omniplus
+  name: reagent-name-omniplus
+  group: Medicine
+  desc: reagent-desc-royal-omniheal
+  physicalDesc: reagent-physical-desc-gelatinous
+  flavor: medicine
+  color: "#F08080"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -4
+            Toxin: -12
+            Airloss: -8
+            Brute: -3
+      - !type:ModifyBleedAmount
+        amount: -1
+      - !type:ModifyBloodLevel
+        amount: 2
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3.0
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3.0
+        type: Remove
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -20
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nocturine
+          min: 1
+        reagent: Nocturine
+        amount: -20
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 293.15
+        amount: 1000
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 293.15
+        amount: -1000
+
+#ИРП
+- type: entity
+  parent: BoxMRE
+  id: BoxMREDS
+  description: Individual rations of modern design, contains a complete ration for several days.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,3
+  - type: StorageFill
+    contents:
+      - id: FoodSnackNutribrick
+      - id: FoodSnackMREBrownie
+      - id: FoodTinMRE
+      - id: FoodSnackEnergy
+      - id: DrinkMREFlask
+      - id: DrinkIcedTeaCan
+      - id: DrinkEnergyDrinkCan
+
+#ПРОТОКОЛ
+- type: entity
+  parent: Paper
+  id: PaperDS
+  name: mission protocol
+  description: Protocol for accomplishing the upcoming mission. Top secret.
+  components:
+  - type: Paper
+    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedName: ДСО
+      stampedColor: "#800000"
+    content: "[color=#1b487e]███░███░░░░██░░░░[/color]\n[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]     Бланк документа[/head]\n[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]    NanoTrasen[/head]\n[color=#1b487e]░░░░██░░██░██░██░[/color]              [bold]    ДСО-ЭС ТФ-832[/bold]\n[color=#1b487e]░░░░██░░░████░███[/color][bold][color=#A52A2A]        СОВЕРШЕННО СЕКРЕТНО[/color][/bold]\n====================================================\n                                         [head=3]ПРОТОКОЛ МИССИИ[/head]\n====================================================\n[head=3]Основная цель[/head]\nЗащита репутации NanoTrasen любой ценой. Полное уничтожение объекта.\n[bold]Взаимодействие с экипажем[/bold]\nПолная ликвидация. Без исключений.\n[bold]Вербальный контант с экипажем[/bold]\nЗапрещен.\n[bold]Применение корабельной артилерии[/bold]\nБез ограничений.\n[bold]Запрос БСА[/bold]\nПо необходимости.\n[bold]Уничтожение станции[/bold]\nВ обязательном порядке."
+
+#ЯДЕРНЫЕ КОДЫ
+- type: entity
+  parent: NukeCodePaperStation
+  id: NukeCodePaperDS
+  description: That's it.
+  components:
+  - type: Paper
+    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedName: ДСО
+      stampedColor: "#800000"
+
+###СТРУКТУРЫ
+#КОНСОЛЬ СВЯЗИ
+- type: entity
+  parent: CentcommComputerComms
+  id: DSOComputerComms
+  name: DSO communication console
+  components:
+    - type: AccessReader
+      access: [[ "CentralCommand" ]]
+    - type: CommunicationsConsole
+      title: comms-console-announcement-title-dso
+      global: true
+      color: "DarkViolet"
+      sound:
+        path: /Audio/Misc/delta_alt.ogg
+        params:
+          volume: -1
+
+#ПЛАТА ДСО
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsDSO
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [[ "CentralCommand" ]]
+
+#СТЕНА ШАТТЛА
+- type: entity
+  parent: BaseWall
+  id: WallShuttleArm
+  name: reinforced shuttle wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+    color: "#505050"
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Reflect
+    reflectProb: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: IconSmooth
+    key: walls
+    base: state
+
+#СТЕНА ШАТТЛА УГЛОВАЯ
+- type: entity
+  parent: WallShuttleDiagonal
+  id: WallShuttleDiagonalArm
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    color: "#505050"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Reflect
+    reflectProb: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+#СТЕКЛО
+- type: entity
+  id: ShuttleWindowArm
+  parent: ShuttleWindow
+  name: reinforced shuttle window
+  components:
+  - type: Sprite
+    color: "#505050"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+#СТАВНИ
+- type: entity
+  parent: ShuttersNormalOpen
+  id: ShuttersArmOpen
+  name: reinforced shutters
+  components:
+  - type: Sprite
+    color: "#505050"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+
+#СТЫКОВОЧНЫЙ ШЛЮЗ
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleArm
+  name: reinforced external airlock
+  components:
+  - type: Sprite
+    color: "#505050"
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDSO ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Reflect
+    reflectProb: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+#ПУШКА
+- type: entity
+  parent: Emitter
+  id: EmitterCannon
+  name: anti-ship gun
+  description: A powerful plasma cannon to destroy shuttles. On impact, it creates a devastating explosion and a blinding EMP burst.
+  components:
+  - type: AccessReader
+    access: [[ "CentralCommand" ]]
+  - type: Sprite
+    color: "#696969"
+    sprite: Objects/Weapons/Guns/Shuttles/laser.rsi
+    layers:
+    - state: lse-1200c
+    - state: lse-1200c
+      map: ["enum.LockVisualLayers.Lock"]
+    - state: mag-unshaded-9
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Emitter
+    boltType: BulletPlasma
+    fireBurstSize: 99
+    fireInterval: 4
+    fireBurstDelayMin: 0
+    fireBurstDelayMax: 0
+  - type: Gun
+    minAngle: 2
+    maxAngle: 5
+    projectileSpeed: 50
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      params:
+        volume: 7
+
+#СНАРЯД
+- type: entity
+  parent: BulletRocket
+  id: BulletPlasma
+  name: заряд плазмы
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 500
+        Heat: 500
+    ignoreResistances: true
+  - type: Explosive
+    explosionType: HardBomb
+    maxIntensity: 30
+    intensitySlope: 10
+    totalIntensity: 300
+    maxTileBreak: 15
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 1000000
+  - type: FlashOnTrigger
+    range: 10
+    duration: 5
+  - type: Ammo
+    muzzleFlash: null
+  - type: TimedDespawn
+    lifetime: 5.6
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    color: "#800080"
+    scale: 1.4, 1.4
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: PointLight
+    radius: 2.5
+    color: "#800080"
+    energy: 2
+
+#ДВИГАТЕЛЬ
+- type: entity
+  parent: Thruster
+  id: ThrusterMillitary
+  name: military thruster
+  description: The powerful thruster used in the battle shuttles.
+  components:
+  - type: Sprite
+    color: "#808080"
+  - type: Thruster
+    baseThrust: 350
+    thrust: 350
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+
+# Прототип сделан Slava423 (NITRO)

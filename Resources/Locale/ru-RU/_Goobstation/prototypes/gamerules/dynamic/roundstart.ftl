@@ -1,0 +1,12 @@
+ent-TraitorDynamic = { ent-BaseTraitorRuleDynamic }
+    .desc = { ent-BaseTraitorRuleDynamic.desc }
+ent-ThiefDynamic = { ent-BaseGameRuleDynamic }
+    .desc = { ent-BaseGameRuleDynamic.desc }
+ent-ChangelingDynamic = { ent-BaseGameRuleDynamic }
+    .desc = { ent-BaseGameRuleDynamic.desc }
+ent-HereticDynamic = { ent-BaseGameRuleDynamic }
+    .desc = { ent-BaseGameRuleDynamic.desc }
+ent-RevolutionDynamic = { ent-BaseGameRuleDynamic }
+    .desc = { ent-BaseGameRuleDynamic.desc }
+ent-NukeopsDynamic = { ent-BaseNukeopsRuleDynamic }
+    .desc = { ent-BaseNukeopsRuleDynamic.desc }

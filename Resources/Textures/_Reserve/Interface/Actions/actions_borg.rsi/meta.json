@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "fireaxe-module and syndicate-fireaxe-module sprited by LexaSvarshik(github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+		{
+            "name":"fireaxe-module"
+        },
+		{
+            "name":"syndicate-fireaxe-module"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+- type: entity
+  parent: BasePDA
+  id: SwatMedicPDA
+  name: OKG Medic PDA
+  description: Smells like a hospital.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/Objects/Devices/pda.rsi
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+       !type:String
+       pda-swatmedic
+  - type: Pda
+    id: SwatMedicIDCard
+  - type: Icon
+    sprite: _Reserve/Objects/Devices/pda.rsi
+    state: pda-swatmedic
+  - type: HealthAnalyzer
+    scanDelay: 0.7
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"

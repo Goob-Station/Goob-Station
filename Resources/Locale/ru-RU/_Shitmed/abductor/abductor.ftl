@@ -1,0 +1,9 @@
+species-name-abductor = Пришелец
+abductors-weapon-restricted-1 = Нажимает на шарик.
+abductors-weapon-restricted-2 = Кажется, что у него заклинило лезвие.
+abductors-weapon-restricted-3 = Нажимает на палочку, но ничего не происходит.
+abductors-weapon-restricted-4 = Обнюхивает инопланетное оружие.
+abductors-gizmo-restricted = Крутит в руке гизмо.
+abductors-gizmo-restricted-1 = Вы вертите гизмо в своей руке.
+abductors-gizmo-restricted-2 = Вы понятия не имеете как это работает.
+abductor-gun-restricted-1 = Вы пытаетесь нажать на спусковой крючок, но у вас слишком большой палец.

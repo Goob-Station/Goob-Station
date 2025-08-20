@@ -1,0 +1,69 @@
+# Welcome to the example configuration file!
+# Remember that if this is in bin/Content.Server or such, it may be overwritten on build.
+# Consider copying it and using the --config-file and --data-dir options.
+
+[log]
+path = "logs"
+format = "log_%(date)s-%(time)s.txt"
+level = 1
+enabled = false
+
+[net]
+tickrate = 30
+port = 1212
+bindto = "::,0.0.0.0"
+max_connections = 32
+upnp = true
+
+[status]
+enabled = true
+
+[game]
+hostname = "[RU][18+]Freaky Station 14[IN DEV]"
+desc = "\n👻Freaky Station - Сервер с свободным отыгрышем РП.\n❗За основу на сервере взята сборка goob station, переведенная на русский язык. \n👇👇👇👇👇👇 На нашем сервере имеется:\n╭\n┊ 🩸 Продвинутая система хирургии и ранений. Теперь вы можете удалить вульпе хвост, или отрезать ей ноги.\n┊ 🤬 Множество новых антагонистов, например блоб, еретик, генокрад, абдуктор и даже халк!!.\n┊ 🤯 Большое количество разных мехов, как боевых, так и не боевых.\n┊ 🥵 Своя ерп панель, а так-же множество предметов для более качественного ерп отыгрыша, если вам хочется\n┊ 🪖 Огромное количество нового оружия, от самодельных мечей до лазерных пулеметов.\n┊ 🫑 И КОНЕЧНО ЖЕ САМЫЙ МОЩНЫЙ ХОСТ!!!\n┊ 🪐 И многое другое! Заходи и прощупай весь контент самостоятельно.\n╰"
+peaceful_end = false
+[console]
+loginlocal = false
+login_host_user = "Egorql"
+
+[hub]
+advertise = true
+tags = "lang:ru,18+"
+server_url = ""
+hub_urls = "https://hub.spacestation14.com/"
+
+[auth]
+# 0 = Optional, 1 = Required, 2 = Disabled
+mode = 1
+
+allowlocal = false
+
+[infolinks]
+discord = "https://discord.gg/BQHQNbuVCZ"
+github = "https://github.com/Morsik7/FreakyStation"
+
+[atmos]
+space_wind = true
+
+[ic]
+flavor_text = true
+
+[server]
+rules_file = "FreakyRuleset"
+
+[shuttle]
+emergency_early_launch_allowed = false
+# arrivals = true
+# arrivals_map = true
+
+[discord]
+ahelp_webhook = "https://discord.com/api/webhooks/1375713673732947978/j4ChfA60fgn-nlkxDtfQwRqkVmB9wsAOiilIJ9i-PwuzNqIvTvy5pstX1lV3ytFpMSyd"
+round_update_webhook = "https://discord.com/api/webhooks/1384422378523721799/jJO047jMlU7wKDMTwmy6I89WEKmzJk5hBAL-deFGI8AfRKm5ufi43uGqI8mPD4rbB0Va"
+bans_webhook = "https://discord.com/api/webhooks/1394623307281858611/mBgV23tkNfbmaFZcHuM1ChuYOZ6eCjYMLfTpnnWy7snpfy5Llh3n-IScGPWFvDTvp58U"
+adminchat_webhook = "https://discord.com/api/webhooks/1394625416341229589/xISLrxdfp3d3frH6ZMYtruvYFUf5cygnVmR2-ZGUqpUq25CZxE-sQsj4MnBlCKVgtKSg"
+
+[admin]
+deadmin_on_join = true 
+
+[ooc] 
+discord_channel_id = "1376455855410511944"

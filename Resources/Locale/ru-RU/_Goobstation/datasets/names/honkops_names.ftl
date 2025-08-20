@@ -1,0 +1,14 @@
+names-honkops-prefix-dataset-1 = Возбуждающий
+names-honkops-elite-dataset-1 = Сигнальщик
+names-honkops-elite-dataset-2 = Помешанный
+names-honkops-elite-dataset-3 = Шутник
+names-honkops-elite-dataset-4 = Клоун
+names-honkops-elite-dataset-5 = Проказник
+names-honkops-elite-dataset-6 = Бозо
+names-honkops-elite-dataset-7 = Цирк
+names-honkops-elite-dataset-8 = Безерк
+names-honkops-elite-dataset-9 = Наркотик
+names-honkops-elite-dataset-10 = Шут
+names-honkops-elite-dataset-11 = Хохотун
+names-honkops-elite-dataset-12 = Хохотун
+names-honkops-elite-dataset-13 = Шутник

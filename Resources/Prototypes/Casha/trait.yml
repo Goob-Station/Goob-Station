@@ -1,0 +1,8 @@
+- type: trait
+  id: ERP
+  name: ERP
+  description: Включите если согласны на ерп действия с вами.
+  category: Quirks
+  components:
+  - type: ERP
+    erp: true

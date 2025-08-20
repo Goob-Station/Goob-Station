@@ -1,0 +1,390 @@
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Aru Moon <anton17082003@gmail.com>
+# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Naive817 <31364560+Naive817@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ben Velie <veliebm@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry
+  id: EngineeringReserve
+  name: guide-entry-engineering
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Engineering.xml"
+  children:
+  - AtmosphericsReserve
+  - ConstructionReserve
+  - PowerReserve
+  - ShuttleCraftReserve
+  - NetworkingReserve
+  - AutomationReserve # Goobstation
+
+- type: guideEntry
+  id: ConstructionReserve
+  name: guide-entry-construction
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Construction.xml"
+  children:
+  - AirlocksReserve
+  - ExpandingRepairingStationReserve
+  - WirePanelsReserve
+
+- type: guideEntry
+  id: ExpandingRepairingStationReserve
+  name: guide-entry-expandingrepairingstation
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/ExpandingRepairingStation.xml"
+
+- type: guideEntry
+  id: AirlocksReserve
+  name: guide-entry-airlocks
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Airlocks.xml"
+  children:
+  - AirlockSecurityReserve
+
+- type: guideEntry
+  id: WirePanelsReserve
+  name: guide-entry-wirepanels
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/WirePanels.xml"
+
+- type: guideEntry
+  id: AirlockSecurityReserve
+  name: guide-entry-airlock-security
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AirlockSecurity.xml"
+
+- type: guideEntry
+  id: AtmosphericsReserve
+  name: guide-entry-atmospherics
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Atmospherics.xml"
+  children:
+  - GasManipulationReserve
+  - AtmosphericsSystemsReserve
+  - AtmosphericUpsetsReserve
+  - AtmosToolsReserve
+  - GassesReserve
+
+- type: guideEntry
+  id: GasManipulationReserve
+  name: guide-entry-gasmanipulation
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/GasManipulation.xml"
+  children:
+  - AtmosphereInOutReserve
+  - PipesReserve
+  - PumpsReserve
+  - ValvesReserve
+  - MixingAndFilteringReserve
+  - GasCanistersReserve
+  - ThermomachinesReserve
+  - GasCondensingReserve
+
+- type: guideEntry
+  id: PipesReserve
+  name: guide-entry-pipes
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Pipes.xml"
+
+- type: guideEntry
+  id: PumpsReserve
+  name: guide-entry-pumps
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Pumps.xml"
+
+- type: guideEntry
+  id: AtmosphereInOutReserve
+  name: guide-entry-atmosphereinout
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosphereInOut.xml"
+  children:
+  - AirVentReserve
+  - PassiveVentReserve
+  - AirInjectorReserve
+  - AirScrubberReserve
+  - PortableScrubberReserve
+
+- type: guideEntry
+  id: AirVentReserve
+  name: guide-entry-airvent
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AirVent.xml"
+
+- type: guideEntry
+  id: PassiveVentReserve
+  name: guide-entry-passivevent
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PassiveVent.xml"
+
+- type: guideEntry
+  id: AirInjectorReserve
+  name: guide-entry-airinjector
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AirInjector.xml"
+
+- type: guideEntry
+  id: AirScrubberReserve
+  name: guide-entry-airscrubber
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AirScrubber.xml"
+
+- type: guideEntry
+  id: PortableScrubberReserve
+  name: guide-entry-portablescrubber
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PortableScrubber.xml"
+
+- type: guideEntry
+  id: ValvesReserve
+  name: guide-entry-valves
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Valves.xml"
+  children:
+  - ManualValveReserve
+  - SignalValveReserve
+  - PneumaticValveReserve
+  - PassiveGateReserve
+
+- type: guideEntry
+  id: ManualValveReserve
+  name: guide-entry-manualvalve
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/ManualValve.xml"
+
+- type: guideEntry
+  id: SignalValveReserve
+  name: guide-entry-signalvalve
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/SignalValve.xml"
+
+- type: guideEntry
+  id: PneumaticValveReserve
+  name: guide-entry-pneumaticvalve
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PneumaticValve.xml"
+
+- type: guideEntry
+  id: PassiveGateReserve
+  name: guide-entry-passivegate
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PassiveGate.xml"
+
+- type: guideEntry
+  id: MixingAndFilteringReserve
+  name: guide-entry-mixingandfiltering
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/MixingAndFiltering.xml"
+
+- type: guideEntry
+  id: GasCanistersReserve
+  name: guide-entry-gascanisters
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/GasCanisters.xml"
+
+- type: guideEntry
+  id: ThermomachinesReserve
+  name: guide-entry-thermomachines
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Thermomachines.xml"
+  children:
+  - RadiatorsReserve
+
+- type: guideEntry
+  id: GasCondensingReserve
+  name: guide-entry-gascondensing
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/GasCondensing.xml"
+
+- type: guideEntry
+  id: RadiatorsReserve
+  name: guide-entry-radiators
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Radiators.xml"
+
+- type: guideEntry
+  id: AtmosphericsSystemsReserve
+  name: guide-entry-atmosphericssystems
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosphericsSystems.xml"
+  children:
+  - PipeNetworksReserve
+  - DeviceMonitoringAndControlReserve
+  - FireAndGasControlReserve
+  - GasMiningAndStorageReserve
+
+- type: guideEntry
+  id: PipeNetworksReserve
+  name: guide-entry-pipenetworks
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PipeNetworks.xml"
+
+- type: guideEntry
+  id: DeviceMonitoringAndControlReserve
+  name: guide-entry-devicemonitoringandcontrol
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/DeviceMonitoringAndControl.xml"
+  children:
+  - AirAlarmsReserve
+  - AtmosphericAlertsComputerReserve
+  - AtmosphericNetworkMonitorReserve
+
+- type: guideEntry
+  id: AirAlarmsReserve
+  name: guide-entry-airalarms
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AirAlarms.xml"
+
+- type: guideEntry
+  id: AtmosphericAlertsComputerReserve
+  name: guide-entry-atmosphericalertscomputer
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosphericAlertsComputer.xml"
+
+- type: guideEntry
+  id: AtmosphericNetworkMonitorReserve
+  name: guide-entry-atmosphericnetworkmonitor
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosphericNetworkMonitor.xml"
+
+- type: guideEntry
+  id: FireAndGasControlReserve
+  name: guide-entry-fireandgascontrol
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/FireAndGasControl.xml"
+
+- type: guideEntry
+  id: GasMiningAndStorageReserve
+  name: guide-entry-gasminingandstorage
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/GasMiningAndStorage.xml"
+
+- type: guideEntry
+  id: AtmosphericUpsetsReserve
+  name: guide-entry-atmosphericupsets
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosphericUpsets.xml"
+  children:
+  - FiresReserve
+  - SpacingReserve
+
+- type: guideEntry
+  id: FiresReserve
+  name: guide-entry-fires
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Fires.xml"
+
+- type: guideEntry
+  id: SpacingReserve
+  name: guide-entry-spacing
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Spacing.xml"
+
+- type: guideEntry
+  id: AtmosToolsReserve
+  name: guide-entry-atmostools
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AtmosTools.xml"
+
+- type: guideEntry
+  id: GassesReserve
+  name: guide-entry-gasses
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Gasses.xml"
+
+- type: guideEntry
+  id: ShuttleCraftReserve
+  name: guide-entry-shuttle-craft
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Shuttlecraft.xml"
+
+- type: guideEntry
+  id: NetworkingReserve
+  name: guide-entry-networking
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Networking.xml"
+  children:
+  - AccessConfiguratorReserve
+
+- type: guideEntry
+  id: AccessConfiguratorReserve
+  name: guide-entry-access-configurator
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AccessConfigurator.xml"
+
+- type: guideEntry
+  id: PowerReserve
+  name: guide-entry-power
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Power.xml"
+  children:
+    - GeneratorsReserve
+    - InspectingPowerReserve
+    - PowerStorageReserve
+    - RampingReserve
+    - VoltageNetworksReserve
+
+- type: guideEntry
+  id: InspectingPowerReserve
+  name: guide-entry-inspectingpower
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/InspectingPower.xml"
+
+- type: guideEntry
+  id: PowerStorageReserve
+  name: guide-entry-powerstorage
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PowerStorage.xml"
+
+- type: guideEntry
+  id: RampingReserve
+  name: guide-entry-ramping
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Ramping.xml"
+
+- type: guideEntry
+  id: VoltageNetworksReserve
+  name: guide-entry-voltagenetworks
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/VoltageNetworks.xml"
+
+- type: guideEntry
+  id: GeneratorsReserve
+  name: guide-entry-generators
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Generators.xml"
+  children:
+  - PortableGeneratorReserve
+  - AMEReserve
+  - SingularityTeslaEngineReserve
+  - TEGReserve
+  - RTGReserve
+  - SolarPanelsReserve
+  - SupermatterReserve # Goobstation
+
+- type: guideEntry
+  id: AMEReserve
+  name: guide-entry-ame
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/AME.xml"
+
+- type: guideEntry
+  id: SingularityTeslaEngineReserve
+  name: guide-entry-singularityteslaengine
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/SingularityTeslaEngine.xml"
+  children:
+  - SingularityEngineReserve
+  - TeslaEngineReserve
+
+- type: guideEntry
+  id: SingularityEngineReserve
+  name: guide-entry-singularityengine
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/SingularityEngine.xml"
+
+- type: guideEntry
+  id: TeslaEngineReserve
+  name: guide-entry-teslaengine
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/TeslaEngine.xml"
+
+- type: guideEntry
+  id: TEGReserve
+  name: guide-entry-teg
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/TEG.xml"
+
+- type: guideEntry
+  id: RTGReserve
+  name: guide-entry-rtg
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/RTG.xml"
+
+- type: guideEntry
+  id: PortableGeneratorReserve
+  name: guide-entry-portable-generator
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/PortableGenerator.xml"
+
+- type: guideEntry
+  id: SolarPanelsReserve
+  name: guide-entry-solarpanels
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/SolarPanels.xml"
+
+#Goob
+
+- type: guideEntry
+  id: SupermatterReserve
+  name: guide-entry-sm
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Supermatter.xml"
+
+- type: guideEntry
+  id: AutomationReserve
+  name: guide-entry-automation
+  text: "/ServerInfo/_Reserve/Guidebook/Engineering/Automation.xml"

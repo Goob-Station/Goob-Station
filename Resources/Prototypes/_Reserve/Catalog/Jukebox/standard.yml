@@ -1,0 +1,77 @@
+- type: jukebox
+  id: requiem
+  name: Quantum (Feat Z.W.E.I) - Requiem
+  path:
+    path: /Audio/_Reserve/Jukebox/Requiem.ogg
+
+- type: jukebox
+  id: life_at_station
+  name: Quantum (Feat Z.W.E.I) - Life at the station
+  path:
+    path: /Audio/_Reserve/Jukebox/Life_At_The_Station.ogg
+
+- type: jukebox
+  id: junk_recyclers
+  name: Quantum (Feat Z.W.E.I) - Junk recyclers
+  path:
+    path: /Audio/_Reserve/Jukebox/Junk_Recyclers.ogg
+
+- type: jukebox
+  id: your_green_eyes
+  name: Quantum (Feat Z.W.E.I) - Your green eyes
+  path:
+    path: /Audio/_Reserve/Jukebox/Your_Green_Eyes.ogg
+
+- type: jukebox
+  id: neon
+  name: Quantum (Feat Z.W.E.I) - Neon
+  path:
+    path: /Audio/_Reserve/Jukebox/neon.ogg
+
+- type: jukebox
+  id: doubleu
+  name: Quantum (Feat Z.W.E.I) - double u
+  path:
+    path: /Audio/_Reserve/Jukebox/double-u.ogg
+
+- type: jukebox
+  id: vincent_helman
+  name: Quantum (Feat Z.W.E.I) - Vincent Helman
+  path:
+    path: /Audio/_Reserve/Jukebox/Vincent_Helman.ogg
+
+- type: jukebox
+  id: the_bar_counter
+  name: Quantum (Feat Z.W.E.I) - The bar counter
+  path:
+    path: /Audio/_Reserve/Jukebox/The_Bar_Counter.ogg
+
+- type: jukebox
+  id: tchaikovsky_waltz_of_the_flowers
+  name: Pyotr Ilyich Tchaikovsky - Waltz of the Flowers
+  path:
+    path: /Audio/_Reserve/Jukebox/Pyotr Ilyich Tchaikovsky - Waltz of the Flowers.ogg
+
+- type: jukebox
+  id: chopin_nocturne_9_2
+  name: Frédéric Chopin - Nocturne in E flat major, Op. 9 no. 2
+  path:
+    path: /Audio/_Reserve/Jukebox/Frédéric Chopin - Nocturne in E flat major, Op. 9 no. 2.ogg
+
+- type: jukebox
+  id: beethoven_moonlight_sonata
+  name: Ludwig van Beethoven - Moonlight Sonata, Op. 27 No. 2
+  path:
+    path: /Audio/_Reserve/Jukebox/Ludwig van Beethoven - Moonlight Sonata, Op. 27 No. 2.ogg
+
+- type: jukebox
+  id: rivgane_crimsonstorm
+  name: Rivgane - Crimson storm
+  path:
+    path: /Audio/_Reserve/Lobby/crimsonstorm.ogg
+
+- type: jukebox
+  id: rivgane_mechanismeight
+  name: Andrew Sega (remixed by Rivgane) - Mechanism 8
+  path:
+    path: /Audio/_Reserve/Jukebox/mechanismeight.ogg

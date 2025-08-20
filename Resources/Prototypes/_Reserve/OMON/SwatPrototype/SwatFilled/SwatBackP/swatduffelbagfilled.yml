@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingBackpackSwatDuffel
+  id: ClothingBackpackSwatDuffelStandartFilled
+  suffix: Reserve, Filled, Standard
+  components:
+  - type: StorageFill
+    contents:
+    - id: Truncheon
+    - id: WeaponShotgunBulldog
+    - id: WeaponDisabler
+    - id: Crowbar
+    - id: BoxHandcuff
+    - id: MedkitFilled
+    - id: MagazineShotgunBeanbag
+    - id: MagazineShotgunBeanbag
+    - id: MagazineShotgun
+    - id: BoxMagazineShotgunBeanbag
+    - id: Flare
+    - id: Flare
+    - id: Flare
+    - id: Flash
+    - id: Flash

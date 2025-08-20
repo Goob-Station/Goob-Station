@@ -1,0 +1,49 @@
+- type: reaction
+  id: AfrodeziakReaction
+  reactants:
+    SpaceDrugs:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Afrodeziak: 2
+
+
+- type: reagent
+  id: Afrodeziak
+  name: Афродизиак
+  group: Narcotics
+  desc: Сильно возбуждает любого, кто его выпьет
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: berry
+  color: "#F19CBB"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:PopupMessage
+         visualType: Medium
+         messages: ["effect-erp-afrodeziak", "effect-erp-afrodeziak1", "effect-erp-afrodeziak2", "effect-erp-afrodeziak3", "effect-erp-afrodeziak4", "effect-erp-afrodeziak5", "effect-erp-afrodeziak6", "effect-erp-afrodeziak7",]
+         type: Local
+         probability: 0.35
+
+#byCashaforSindicate
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: AfrodeziakBottleFull
+  name: бутылочка афродизиака
+  description: То что нужно, чтобы кого то возбудить. Well gbm...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Afrodeziak
+          Quantity: 100
+  - type: Label
+    currentLabel: Афродизиак
+  - type: Sprite
+    sprite: Casha/reagent/afrodeziak.rsi
+  - type: Sealable

@@ -1,0 +1,42 @@
+<Document>
+# Добро пожаловать в Space Station 14!
+
+Вы только что заступили на смену на борту космической станции Nanotrasen.
+Перед вами и вашими товарищами по экипажу стоит задача работать вместе, выживать и веселиться!
+
+[bold]Соблюдайте все правила сервера.[/bold] Вы можете задавать вопросы или сообщать о нарушениях правил команде [color=#EB2D3A][bold]администраторов[/bold][/color], используя [bold]меню помощи администратора[/bold]. ([italic]доступно по нажатию [/italic][color=yellow][bold][keybind="OpenAHelp"/][/bold][/color])
+
+Более подробные руководства по [italic]определённым должностям[/italic] и [italic]механикам[/italic] можно найти [textlink="здесь." link="SS14"/]
+
+Это руководство можно открыть в любой момент, используя [color=yellow][bold][keybind="OpenGuidebook"][/bold][/color].
+
+## Основные элементы управления
+Ниже перечислены элементы управления, которые понадобятся вам для обычной игры:
+
+- Бегайте, используя [color=yellow][bold][keybind="MoveUp"][keybind="MoveLeft"][keybind="MoveDown"][keybind="MoveRight"][/bold][/color]. Зажмите [color=yellow][bold][keybind="Walk"][/bold][/color] для ходьбы.
+
+- Изучите окружающий мир с помощью [color=yellow][bold][keybind="ExamineEntity"][/bold][/color]
+
+- Взаимодействуйте с миром с помощью [color=yellow][bold][keybind="Use"][/bold][/color]
+
+- Наведите курсор на объект и нажмите [color=yellow][bold][keybind="UseSecondary"][/bold][/color], чтобы увидеть [italic]контекстное меню[/italic], которое содержит дополнительные взаимодействия
+
+- Меняйте руки, используя [color=yellow][bold][keybind="SwapHands"][/bold][/color] и активируйте текущий удерживаемый предмет с помощью [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color]
+
+- Положите предмет кнопкой [color=yellow][bold][keybind="Drop"][/bold][/color] или бросьте его, используя [color=yellow][bold][keybind="ThrowItemInHand"][/bold][/color]
+
+- Тяните и отпускайте предметы с помощью [color=yellow][bold][keybind="TryPullObject"][/bold][/color] и [color=yellow][bold][keybind="ReleasePulledObject"][/bold][/color]
+
+Более подробный список можно найти на странице [textlink="управление" link="ControlsReserve"].
+
+## Что такое SS14?
+Space Station 14 это многопользовательская игра о паранойе и хаосе на космической станции и ремейк культовой классической Space Station 13.
+
+Присоединяйтесь к десяткам других игроков на искусно спроектированной и смоделированной космической станции, погружаясь в ролевую игру и справляясь с угрозами на своем пути.
+
+SS14 - это [italic]игра с открытым исходным кодом[/italic], разработанная такими же людьми, [bold]как и вы![/bold]
+Она получает [color=lime]ежедневные обновления[/color] и временами может быть [color=#EB2D3A][bold]нестабильной.[/bold][/color]
+
+[italic]Если вы хотите сообщать об ошибках или помогать в разработке, присоединяйтесь к discord и узнайте, с чего начать.[/italic]
+
+</Document>

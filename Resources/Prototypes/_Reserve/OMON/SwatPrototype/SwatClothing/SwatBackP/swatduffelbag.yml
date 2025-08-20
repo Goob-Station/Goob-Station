@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackSwatDuffel
+  name: OKG duffel bag
+  description: A large duffel bag used by a counter-revolutionary task force to carry a combat kit or armoury with equipment, very large.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatduffelbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,8

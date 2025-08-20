@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: SwatLeaderNamesFirst
+  values:
+    prefix: names-swat-leader-first-
+    count: 5
+
+- type: localizedDataset
+  id: SwatNamesFirst
+  values:
+    prefix: names-swat-first-
+    count: 5
+
+- type: localizedDataset
+  id: SwatNamesLast
+  values:
+    prefix: names-swat-last-
+    count: 334

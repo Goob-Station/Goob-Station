@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSwatMedicWedding
+  name: OKG Medic wedding
+  description: Extended volume off-loading belt system, for OKG medics.
+  suffix: Reserve
+  components:
+  - type: Sprite
+    sprite: _Reserve/OMON/swatmedicwedding.rsi
+  - type: Clothing
+    sprite: _Reserve/OMON/swatmedicwedding.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4

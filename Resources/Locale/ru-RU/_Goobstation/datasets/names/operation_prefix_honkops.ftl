@@ -1,0 +1,13 @@
+operation-prefix-honkops-dataset-1 = Сигналить
+operation-prefix-honkops-dataset-2 = Стукнуть
+operation-prefix-honkops-dataset-3 = Клоун
+operation-prefix-honkops-dataset-4 = Убийство
+operation-prefix-honkops-dataset-5 = Шалость
+operation-prefix-honkops-dataset-6 = Бозо
+operation-prefix-honkops-dataset-7 = Цирк
+operation-prefix-honkops-dataset-8 = Безерк
+operation-prefix-honkops-dataset-9 = Наркотик
+operation-prefix-honkops-dataset-10 = Хохотун
+operation-prefix-honkops-dataset-11 = Хохотун
+operation-prefix-honkops-dataset-12 = Бум
+operation-prefix-honkops-dataset-13 = Забавный
