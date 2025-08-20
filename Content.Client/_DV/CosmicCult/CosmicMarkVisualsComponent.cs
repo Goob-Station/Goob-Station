@@ -13,4 +13,7 @@ public sealed partial class CosmicMarkVisualsComponent : Component
 
     [DataField]
     public string SubtleState = "default";
+
+    [DataField]
+    public string StarState = "default";
 }

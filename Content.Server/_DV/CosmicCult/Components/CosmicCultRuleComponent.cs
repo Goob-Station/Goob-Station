@@ -1,3 +1,4 @@
+using Content.Server._DV.CosmicCult.Abilities;
 using Content.Server.RoundEnd;
 using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Audio;
@@ -9,7 +10,8 @@ namespace Content.Server._DV.CosmicCult.Components;
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(CosmicCultRuleSystem), typeof(CosmicMonumentSystem))]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
     /// <summary>
@@ -123,6 +125,18 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField]
     public int EntropySiphoned;
+
+    /// <summary>
+    /// Has the monument already been placed?
+    /// </summary>
+    [DataField]
+    public bool MonumentPlaced;
+
+    /// <summary>
+    /// Has the monument already been moved?
+    /// </summary>
+    [DataField]
+    public bool MonumentMoved;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? StewardVoteTimer;

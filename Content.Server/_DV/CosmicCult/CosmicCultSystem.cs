@@ -14,13 +14,16 @@ using Content.Goobstation.Shared.Religion;
 using Content.Server._EinsteinEngines.Radio; // Goobstation - Shitchap
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
+using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
+using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Radio;
+using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -28,8 +31,10 @@ using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Polymorph;
 using Content.Shared.Speech.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
@@ -92,7 +97,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
-        SubscribeLocalEvent<CosmicCultLeadComponent, CosmicCultLeadChangedEvent>(OnCultLeadChanged);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentShutdown>(OnCultLeadShutdown);
         SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotCosmicItemEquipped);
@@ -115,8 +120,12 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);
 
+        SubscribeLocalEvent<CosmicCultComponent, PolymorphedEvent>(OnCultistPolymorphed);
         SubscribeLocalEvent<SpeechOverrideComponent, GotEquippedEvent>(OnGotSpeechOverrideEquipped);
         SubscribeLocalEvent<SpeechOverrideComponent, GotUnequippedEvent>(OnGotSpeechOverrideUnequipped);
+
+        // Goobstation
+        SubscribeLocalEvent<CosmicCultLeadComponent, CosmicCultLeadChangedEvent>(OnCultLeadChanged);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -150,16 +159,14 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// </summary>
     private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentInit args)
     {
+        _eye.RefreshVisibilityMask(uid.Owner);
+        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+        if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
         foreach (var actionId in uid.Comp.CosmicCultActions)
         {
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
-
-        _alerts.ShowAlert(uid.Owner, uid.Comp.EntropyAlert);
-
-        if (TryComp(uid, out EyeComponent? eyeComp))
-            _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
     }
 
     /// <summary>
@@ -167,7 +174,19 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// </summary>
     private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentInit args)
     {
-        _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
+        if (_cultRule.AssociatedGamerule(uid) is not { } cult)
+            return;
+        if (!HasComp<HumanoidAppearanceComponent>(uid)) return; // Non-humanoids don't get abilities
+
+        if (!cult.Comp.MonumentPlaced) // There's no monument, grant them an action to place one
+            _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
+        if (cult.Comp.MonumentMoved) return; // If the monument was already moved, don't let them do it again.
+        var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
+        while (objectiveQuery.MoveNext(out _, out var objectiveComp))
+        {
+            if (objectiveComp.Tier == 2) // If it's stage 2, give them the move action
+                _actions.AddAction(uid, ref uid.Comp.CosmicMonumentMoveActionEntity, uid.Comp.CosmicMonumentMoveAction, uid);
+        }
     }
 
 
@@ -210,10 +229,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         args.VisibilityMask |= (int) VisibilityFlags.CosmicCultMonument;
     }
-
-    /// <summary>
-    /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.
-    /// </summary>
     #endregion
 
     #region Equipment Pickup
@@ -296,6 +311,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     #endregion
 
+    #region Edge cases
     /// <summary>
     /// Edge Case to handle IPCs losing astral murmur after panel operations.
     /// </summary>
@@ -313,6 +329,57 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     }
 
+    /// <summary>
+    /// When a cultist gets polymorphed, ensure that the resulting entity has all the necessary components. Mostly there for kitsune my behated.
+    /// </summary>
+    private void OnCultistPolymorphed(Entity<CosmicCultComponent> ent, ref PolymorphedEvent args)
+    {
+        if (_cultRule.AssociatedGamerule(args.OldEntity) is not { } cult)
+            return;
+        if (TryComp<CosmicCultComponent>(args.OldEntity, out var oldCultComp))
+        {
+            EnsureComp<CosmicCultComponent>(args.NewEntity, out var cultComp);
+            cultComp.Respiration = oldCultComp.Respiration;
+            cultComp.EntropyStored = oldCultComp.EntropyStored;
+            cultComp.CosmicEmpowered = oldCultComp.CosmicEmpowered;
+            cultComp.StoredDamageContainer = oldCultComp.StoredDamageContainer;
+        }
+        if (TryComp<CleanseCultComponent>(args.OldEntity, out var oldCleanComp)) // No avoiding deconversion by transforming into a fox
+        {
+            EnsureComp<CleanseCultComponent>(args.NewEntity, out var cleanComp);
+            cleanComp.CleanseTime = oldCleanComp.CleanseTime;
+        }
+        if (HasComp<CosmicCultLeadComponent>(args.OldEntity))
+            EnsureComp<CosmicCultLeadComponent>(args.NewEntity);
+        if (HasComp<CosmicStarMarkComponent>(args.OldEntity))
+            EnsureComp<CosmicStarMarkComponent>(args.NewEntity);
+        if (HasComp<CosmicSubtleMarkComponent>(args.OldEntity))
+            EnsureComp<CosmicSubtleMarkComponent>(args.NewEntity);
+        if (HasComp<TemperatureImmunityComponent>(args.OldEntity))
+            EnsureComp<TemperatureImmunityComponent>(args.NewEntity);
+        if (HasComp<PressureImmunityComponent>(args.OldEntity))
+            EnsureComp<PressureImmunityComponent>(args.NewEntity);
+        EnsureComp<IntrinsicRadioReceiverComponent>(args.NewEntity); // All cultists should have those, so we don't check for them separately
+        EnsureComp<IntrinsicRadioTransmitterComponent>(args.NewEntity, out var transmitter);
+        EnsureComp<ActiveRadioComponent>(args.NewEntity, out var radio);
+        EnsureComp<CosmicCultAssociatedRuleComponent>(args.NewEntity, out var associatedComp);
+        EnsureComp<CosmicCenserTargetComponent>(args.NewEntity);
+        radio.Channels.Add("CosmicRadio");
+        transmitter.Channels.Add("CosmicRadio");
+        associatedComp.CultGamerule = cult;
+
+    }
+
+    private void OnCultLeadShutdown(Entity<CosmicCultLeadComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+        _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentPlaceActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentMoveActionEntity);
+    }
+    #endregion
+
+    #region Cosmic jammer
     private void OnJammerAnchorStateChange(Entity<CosmicJammerComponent> ent, ref AnchorStateChangedEvent args)
     {
         ent.Comp.Active = args.Anchored;
@@ -336,4 +403,5 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             }
         }
     }
+    #endregion
 }

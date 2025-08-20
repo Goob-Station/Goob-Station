@@ -15,6 +15,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
@@ -54,8 +55,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+
     private static readonly EntProtoId CosmicGod = "MobCosmicGodSpawn";
     private static readonly EntProtoId MonumentCollider = "MonumentCollider";
+
     private EntityUid? _monumentStorageMap;
 
     public override void Initialize()
@@ -66,6 +69,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseHeldEntropy);
         SubscribeLocalEvent<MonumentComponent, ActivateInWorldEvent>(OnInfuseEntropy);
     }
+
 
     public override void Update(float frameTime) // This Update() can fit so much functionality in it
     {
@@ -108,7 +112,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 var victoryQuery = EntityQueryEnumerator<CosmicVictoryConditionComponent>();
 
                 while (victoryQuery.MoveNext(out _, out var victoryComp))
+                {
                     victoryComp.Victory = true;
+                }
 
                 Spawn(CosmicGod, Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;
@@ -168,7 +174,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var colliderQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
 
         while (colliderQuery.MoveNext(out var collider, out _))
+        {
             QueueDel(collider);
+        }
 
         if (ent.Comp.Monument is null)
             return;
@@ -194,10 +202,14 @@ public sealed class MonumentSystem : SharedMonumentSystem
     }
 
     public void PhaseOutMonument(Entity<MonumentComponent> ent) =>
+    {
         ent.Comp.PhaseOutTimer = _timing.CurTime + TimeSpan.FromSeconds(0.45);
+    }
 
     public void UpdateMonumentProgress(Entity<MonumentComponent> ent, Entity<CosmicCultRuleComponent> cult) =>
+    {
         ent.Comp.CurrentProgress = ent.Comp.TotalEntropy + cult.Comp.TotalCult * _config.GetCVar(DCCVars.CosmicCultistEntropyValue);
+    }
 
     private void OnInfuseEntropy(Entity<MonumentComponent> uid, ref ActivateInWorldEvent args)
     {
@@ -206,7 +218,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
         if (TryComp<CosmicCultComponent>(args.User, out var cultComp)
             && cultComp.EntropyStored > 0)
+        {
             args.Handled = AddEntropy(uid, (args.User, cultComp));
+        }
     }
 
     private void OnInfuseHeldEntropy(Entity<MonumentComponent> uid, ref InteractUsingEvent args)
@@ -248,8 +262,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var quant = TryComp<StackComponent>(entropy, out var stackComp) ? stackComp.Count : 1;
         monument.Comp.TotalEntropy += quant;
         cultist.Comp.EntropyBudget += quant;
+
         Dirty(cultist, cultist.Comp);
         _cosmicRule.UpdateCultData(monument);
+
         _popup.PopupEntity(Loc.GetString("cosmiccult-entropy-inserted", ("count", quant)), cultist, cultist);
         _audio.PlayEntity(_audio.ResolveSound(monument.Comp.InfusionSFX), cultist, monument);
         QueueDel(entropy);
@@ -314,16 +330,24 @@ public sealed class MonumentSystem : SharedMonumentSystem
     }
 
     public void SetCanTierUp(Entity<MonumentComponent> ent, bool canTierUp) =>
+    {
         ent.Comp.CanTierUp = canTierUp;
+    }
 
     public void SetTargetProgess(Entity<MonumentComponent> ent, int targetProgress) =>
+    {
         ent.Comp.TargetProgress = targetProgress;
+    }
 
     public void Disable(Entity<MonumentComponent> ent) =>
+    {
         ent.Comp.Enabled = false;
+    }
 
     public void Enable(Entity<MonumentComponent> ent) =>
+    {
         ent.Comp.Enabled = true;
+    }
 
     public void MonumentTier1(Entity<MonumentComponent> uid)
     {
@@ -336,7 +360,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
         foreach (var glyphProto in _protoMan
             .EnumeratePrototypes<GlyphPrototype>()
             .Where(proto => proto.Tier == 1))
+        {
             uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
 
         //basically completely unnecessary, but putting this here for sanity & futureproofing - ruddygreat
         var query = EntityQueryEnumerator<CosmicCultComponent>();
@@ -345,7 +371,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
             foreach (var influenceProto in _protoMan
                 .EnumeratePrototypes<InfluencePrototype>()
                 .Where(influenceProto => influenceProto.Tier == 1))
+            {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
+            }
 
             Dirty(cultist, cultComp);
         }
@@ -353,7 +381,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
 
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
+        {
             objectiveComp.Tier = 1;
+        }
 
         //add the move action
         var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
@@ -371,22 +401,38 @@ public sealed class MonumentSystem : SharedMonumentSystem
         foreach (var glyphProto in _protoMan
             .EnumeratePrototypes<GlyphPrototype>()
             .Where(proto => proto.Tier == 2))
+        {
             uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
 
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
 
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
+        {
             objectiveComp.Tier = 2;
+        }
 
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
         {
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 2))
+            {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
+            }
 
             cultComp.EntropyBudget += cult.Comp.TotalCrew / 100 * 10; // pity system. 10% of the playercount worth of entropy on tier up
 
             Dirty(cultist, cultComp);
+        }
+
+        //add the move action
+        var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
+        while (leaderQuery.MoveNext(out var leader, out var leaderComp))
+        {
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.AddAction(polyComp.Parent, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent);
+            else
+                _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
 
         Dirty(uid);
@@ -400,13 +446,17 @@ public sealed class MonumentSystem : SharedMonumentSystem
         foreach (var glyphProto in _protoMan
             .EnumeratePrototypes<GlyphPrototype>()
             .Where(proto => proto.Tier == 3))
+        {
             uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
 
         UpdateMonumentAppearance(uid, true);
 
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out var _, out var objectiveComp))
+        {
             objectiveComp.Tier = 3;
+        }
 
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
@@ -421,7 +471,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 cultComp.WasWeakToHoly = true;
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
+            {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
+            }
 
             cultComp.Respiration = false;
             cultComp.EntropyBudget += cult.Comp.TotalCrew / 100 * 10; //pity system. 10% of the playercount worth of entropy on tier up
@@ -431,7 +483,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
         //remove the move action
         var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
+        {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
+            if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
+                _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
+        }
+
         Dirty(uid);
     }
 
@@ -443,7 +500,9 @@ public sealed class MonumentSystem : SharedMonumentSystem
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
         {
             if (TryComp<UserInterfaceComponent>(uid, out var uiComp2)) //close the UI for everyone who has it open
+            {
                 _ui.CloseUi((uid.Owner, uiComp2), MonumentKey.Key);
+            }
 
             uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
         }

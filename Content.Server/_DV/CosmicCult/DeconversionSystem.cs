@@ -1,5 +1,8 @@
 using Content.Goobstation.Common.Religion;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.EUI;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -8,10 +11,13 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Content.Shared.Tools.Systems;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
@@ -30,6 +36,11 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -121,5 +132,10 @@ public sealed class DeconversionSystem : EntitySystem
     private void DeconvertCultist(EntityUid uid)
     {
         RemComp<CosmicCultComponent>(uid);
+        if (TryComp<PolymorphedEntityComponent>(uid, out var polyComp)) // If the cultist is polymorphed, we revert the polymorph and deconvert the original entity too.
+        {
+            _polymorph.Revert((uid, polyComp));
+            RemCompDeferred<CosmicCultComponent>(polyComp.Parent);
+        }
     }
 }
