@@ -64,10 +64,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         var query = AllEntityQuery<SupermatterConsoleComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
         {
-            if (entXform.GridUid == null)
-                continue;
-
-            if (!allGrids.Contains(entXform.GridUid.Value))
+            if (entXform.GridUid == null
+                || !allGrids.Contains(entXform.GridUid.Value))
                 continue;
 
             InitalizeConsole(ent, entConsole);
