@@ -6,6 +6,7 @@ using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -30,6 +31,7 @@ public sealed class CosmicChantrySystem : EntitySystem
     /// Mind role to add to colossi.
     /// </summary>
     public static readonly EntProtoId MindRole = "MindRoleCosmicColossus";
+    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -61,7 +63,7 @@ public sealed class CosmicChantrySystem : EntitySystem
                 _mind.TransferTo(mindEnt, colossus);
                 _mind.TryAddObjective(mindEnt, mind, "CosmicFinalityObjective");
                 _role.MindAddRole(mindEnt, MindRole, mind, true);
-                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
+                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), _briefingSound);
                 Spawn(comp.SpawnVFX, tgtpos);
                 QueueDel(comp.InternalVictim);
                 QueueDel(uid);

@@ -1,0 +1,55 @@
+- type: emoteSounds
+  id: CosmicEmotesMale
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_scream.ogg
+    Laugh:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_laugh.ogg
+    Crying:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_crying.ogg # The urge to use minecraft ghast sounds
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Sigh:
+      collection: MaleSigh
+    Whistle:
+      collection: TrenchWhistle # Kinda creepy, I think it fits well
+    Snore:
+      collection: Snores
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+
+- type: emoteSounds
+  id: CosmicEmotesFemale
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_scream.ogg
+    Laugh:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_laugh.ogg
+    Crying:
+      path: /Audio/_DV/CosmicCult/Emotes/cosmic_crying.ogg
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Sigh:
+      collection: FemaleSigh
+    Whistle:
+      collection: TrenchWhistle
+    Snore:
+      collection: Snores
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn

@@ -29,7 +29,7 @@
       briefing:
         text: ghost-role-colossus-briefing
         color: CadetBlue
-        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
       components:
       - type: CosmicColossus
         timed: true
