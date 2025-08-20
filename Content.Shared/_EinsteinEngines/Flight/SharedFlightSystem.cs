@@ -199,19 +199,19 @@ public abstract class SharedFlightSystem : EntitySystem
     private void BlockHands(EntityUid uid, HandsComponent handsComponent)
     {
         var freeHands = 0;
-        foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
+        foreach (var hand in _hands.EnumerateHands(uid, handsComponent))
         {
-            if (!_hands.TryGetHeldItem((uid, handsComponent), hand, out var held))
+            if (hand.HeldEntity == null)
             {
                 freeHands++;
                 continue;
             }
 
             // Is this entity removable? (they might have handcuffs on)
-            if (HasComp<UnremoveableComponent>(held) && held != uid)
+            if (HasComp<UnremoveableComponent>(hand.HeldEntity) && hand.HeldEntity != uid)
                 continue;
 
-            _hands.DoDrop((uid, handsComponent), hand);
+            _hands.DoDrop(uid, hand, true, handsComponent);
             freeHands++;
             if (freeHands == 2)
                 break;

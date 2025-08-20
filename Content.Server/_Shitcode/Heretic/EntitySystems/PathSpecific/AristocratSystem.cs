@@ -62,7 +62,6 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -172,7 +171,7 @@ public sealed partial class AristocratSystem : EntitySystem
             var offsetValue = new Vector2(xOffset, yOffset);
 
             var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-            var tile = _turf.GetTileRef(coords);
+            var tile = coords.GetTileRef(EntityManager, _mapMan);
 
             if (tile.HasValue)
                 tilerefs.Add(tile.Value);

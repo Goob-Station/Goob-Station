@@ -148,6 +148,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
+    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!; // Goobstaiton
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -570,7 +571,7 @@ public abstract class SharedActionsSystem : EntitySystem
             return true;
 
         var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
-        if (comp.CheckCanAccess && !_actionBlocker.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
+        if (comp.CheckCanAccess && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
             return false;
 
         return _transform.InRange(coords, xform.Coordinates, comp.Range);
@@ -706,7 +707,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region AddRemoveActions
 
     public EntityUid? AddAction(EntityUid performer,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -726,7 +727,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="container">The entity that contains/enables this action (e.g., flashlight).</param>
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {
@@ -737,7 +738,7 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
         [NotNullWhen(true)] out ActionComponent? action,
-        [ForbidLiteral] string? actionPrototypeId,
+        string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
     {

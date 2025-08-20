@@ -98,7 +98,7 @@ public sealed class CosmicGlareSystem : EntitySystem
             _flash.Flash(targetEnt,
                 uid,
                 args.Action,
-                uid.Comp.CosmicGlareDuration,
+                (float) uid.Comp.CosmicGlareDuration.TotalMilliseconds,
                 uid.Comp.CosmicGlarePenalty,
                 false,
                 false,

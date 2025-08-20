@@ -172,7 +172,7 @@ namespace Content.Shared.Gravity
 
         private void OnGridInit(GridInitializeEvent ev)
         {
-            EnsureComp<GravityComponent>(ev.EntityUid);
+            EntityManager.EnsureComponent<GravityComponent>(ev.EntityUid);
         }
 
         [Serializable, NetSerializable]

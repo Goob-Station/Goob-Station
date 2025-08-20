@@ -55,7 +55,7 @@ namespace Content.Shared.Nutrition.EntitySystems
 
             creamPied.CreamPied = value;
 
-            if (TryComp(uid, out AppearanceComponent? appearance))
+            if (EntityManager.TryGetComponent(uid, out AppearanceComponent? appearance))
             {
                 _appearance.SetData(uid, CreamPiedVisuals.Creamed, value, appearance);
             }
@@ -76,8 +76,7 @@ namespace Content.Shared.Nutrition.EntitySystems
             if (args.Handled) // Goobstation
                 return;
 
-            if (!Exists(args.Thrown) || !TryComp(args.Thrown, out CreamPieComponent? creamPie))
-                return;
+            if (!EntityManager.EntityExists(args.Thrown) || !EntityManager.TryGetComponent(args.Thrown, out CreamPieComponent? creamPie)) return;
 
             SetCreamPied(uid, creamPied, true);
 

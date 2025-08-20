@@ -641,7 +641,10 @@ public sealed partial class ChangelingSystem
         if (TryComp<HandsComponent>(target, out var handComp)
             && handsValid)
         {
-            var weaponCount = _hands.EnumerateHeld((target, handComp)).Count(HasComp<ChangelingFakeWeaponComponent>);
+            var weaponCount = handComp.Hands.Values.Count(
+                hand => hand.HeldEntity != null
+                && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value));
+
             handsValid = (weaponCount <= 1);
         }
 

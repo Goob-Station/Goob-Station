@@ -31,7 +31,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.HealthExaminable;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Shitmed.PartStatus;
 
@@ -42,7 +41,6 @@ public sealed class PartStatusSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
 
     private static readonly IReadOnlyList<BodyPartType> BodyPartOrder = new List<BodyPartType>
@@ -176,7 +174,7 @@ public sealed class PartStatusSystem : EntitySystem
 
             if (!damageSeverities.TryGetValue(wound.Comp.DamageType, out var existingSeverity) ||
                 wound.Comp.WoundSeverity > existingSeverity)
-                damageSeverities[_proto.Index(wound.Comp.DamageGroup).LocalizedName] = wound.Comp.WoundSeverity;
+                damageSeverities[wound.Comp.DamageGroup.LocalizedName] = wound.Comp.WoundSeverity;
 
             if (TryComp<BleedInflicterComponent>(wound, out var bleeds) && bleeds.IsBleeding)
                 isBleeding = true;

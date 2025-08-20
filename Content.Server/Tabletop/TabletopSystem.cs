@@ -18,7 +18,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
 using Content.Shared.CCVar;
@@ -44,7 +43,6 @@ namespace Content.Server.Tabletop
     {
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly EyeSystem _eye = default!;
-        [Dependency] private readonly HandsSystem _hands = default!;
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IChatManager _chat = default!;
@@ -102,14 +100,19 @@ namespace Content.Server.Tabletop
             if (!_cfg.GetCVar(CCVars.GameTabletopPlace))
                 return;
 
-            if (!TryComp(args.User, out HandsComponent? hands))
+            if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
                 return;
 
             if (component.Session is not { } session)
                 return;
 
-            if (!_hands.TryGetActiveItem(uid, out var handEnt))
+            if (hands.ActiveHand == null)
                 return;
+
+            if (hands.ActiveHand.HeldEntity == null)
+                return;
+
+            var handEnt = hands.ActiveHand.HeldEntity.Value;
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;
@@ -123,8 +126,7 @@ namespace Content.Server.Tabletop
             }
             else
                 component.HologramsSpawned++;
-
-            var meta = MetaData(handEnt.Value);
+            var meta = MetaData(handEnt);
             var protoId = meta.EntityPrototype?.ID;
 
             var hologram = Spawn(protoId, session.Position.Offset(-1, 0));
@@ -160,7 +162,7 @@ namespace Content.Server.Tabletop
             if (!args.CanAccess || !args.CanInteract)
                 return;
 
-            if (!TryComp(args.User, out ActorComponent? actor))
+            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
                 return;
 
             var playVerb = new ActivationVerb()
@@ -179,7 +181,7 @@ namespace Content.Server.Tabletop
                 return;
 
             // Check that a player is attached to the entity.
-            if (!TryComp(args.User, out ActorComponent? actor))
+            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
                 return;
 
             OpenSessionFor(actor.PlayerSession, uid);
@@ -203,7 +205,7 @@ namespace Content.Server.Tabletop
 
         private void OnGamerShutdown(EntityUid uid, TabletopGamerComponent component, ComponentShutdown args)
         {
-            if (!TryComp(uid, out ActorComponent? actor))
+            if (!EntityManager.TryGetComponent(uid, out ActorComponent? actor))
                 return;
 
             if(component.Tabletop.IsValid())
@@ -222,7 +224,7 @@ namespace Content.Server.Tabletop
 
                 if (!TryComp(uid, out ActorComponent? actor))
                 {
-                    RemComp<TabletopGamerComponent>(uid);
+                    EntityManager.RemoveComponent<TabletopGamerComponent>(uid);
                     return;
                 }
 

@@ -792,7 +792,7 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
 
         // If the user's active hand is empty, try pick up the item.
-        if (!_sharedHandsSystem.TryGetActiveItem(player.AsNullable(), out var activeItem))
+        if (player.Comp.ActiveHandEntity == null)
         {
             _adminLog.Add(
                 LogType.Storage,
@@ -812,11 +812,11 @@ public abstract class SharedStorageSystem : EntitySystem
         _adminLog.Add(
             LogType.Storage,
             LogImpact.Low,
-            $"{ToPrettyString(player):player} is interacting with {ToPrettyString(item):item} while it is stored in {ToPrettyString(storage):storage} using {ToPrettyString(activeItem):used}");
+            $"{ToPrettyString(player):player} is interacting with {ToPrettyString(item):item} while it is stored in {ToPrettyString(storage):storage} using {ToPrettyString(player.Comp.ActiveHandEntity):used}");
 
         // Else, interact using the held item
         if (_interactionSystem.InteractUsing(player,
-                activeItem.Value,
+                player.Comp.ActiveHandEntity.Value,
                 item,
                 Transform(item).Coordinates,
                 checkCanInteract: false))
@@ -1311,10 +1311,10 @@ public abstract class SharedStorageSystem : EntitySystem
     {
         if (!Resolve(ent.Owner, ref ent.Comp)
             || !Resolve(player.Owner, ref player.Comp)
-            || !_sharedHandsSystem.TryGetActiveItem(player, out var activeItem))
+            || player.Comp.ActiveHandEntity == null)
             return false;
 
-        var toInsert = activeItem;
+        var toInsert = player.Comp.ActiveHandEntity;
 
         if (!CanInsert(ent, toInsert.Value, out var reason, ent.Comp))
         {
@@ -1322,7 +1322,7 @@ public abstract class SharedStorageSystem : EntitySystem
             return false;
         }
 
-        if (!_sharedHandsSystem.CanDrop(player, toInsert.Value))
+        if (!_sharedHandsSystem.CanDrop(player, toInsert.Value, player.Comp))
         {
             _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop", ("entity", toInsert.Value)), ent, player);
             return false;
@@ -2036,7 +2036,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (held)
         {
-            if (!_sharedHandsSystem.IsHolding(player.AsNullable(), itemUid, out _))
+            if (!_sharedHandsSystem.IsHolding(player, itemUid, out _))
                 return false;
         }
         else

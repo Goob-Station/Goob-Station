@@ -234,7 +234,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
         if (PausedMap == null || !Exists(PausedMap))
             return;
 
-        Del(PausedMap.Value);
+        EntityManager.DeleteEntity(PausedMap.Value);
         PausedMap = null;
     }
 

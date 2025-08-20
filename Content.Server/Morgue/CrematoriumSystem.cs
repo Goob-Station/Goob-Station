@@ -186,7 +186,7 @@ public sealed class CrematoriumSystem : EntitySystem
                     continue;
 
                 _containers.Remove(item, storage.Contents);
-                Del(item);
+                EntityManager.DeleteEntity(item);
             }
             var ash = Spawn("Ash", Transform(uid).Coordinates);
             _containers.Insert(ash, storage.Contents);
@@ -224,7 +224,7 @@ public sealed class CrematoriumSystem : EntitySystem
         }
         else
         {
-            Del(victim);
+            EntityManager.DeleteEntity(victim);
         }
         _entityStorage.CloseStorage(uid);
         Cremate(uid, component);

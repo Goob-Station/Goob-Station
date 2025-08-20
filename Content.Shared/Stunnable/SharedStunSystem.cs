@@ -303,7 +303,7 @@ public abstract class SharedStunSystem : EntitySystem
         var component = _componentFactory.GetComponent<KnockedDownComponent>();
         component.DropHeldItemsBehavior = behavior;
         component.StandOnRemoval = standOnRemoval;
-        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh))
+        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component))
             return false;
 
         var ev = new KnockedDownEvent();

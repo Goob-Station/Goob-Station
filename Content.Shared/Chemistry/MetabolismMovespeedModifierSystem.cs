@@ -67,7 +67,7 @@ namespace Content.Shared.Chemistry
                     continue;
 
                 _components.RemoveAt(i);
-                RemComp<MovespeedModifierMetabolismComponent>(metabolism);
+                EntityManager.RemoveComponent<MovespeedModifierMetabolismComponent>(metabolism);
 
                 _movespeed.RefreshMovementSpeedModifiers(metabolism);
             }

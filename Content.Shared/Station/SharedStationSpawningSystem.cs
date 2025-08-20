@@ -223,7 +223,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
-                    var equipmentEntity = Spawn(equipmentStr, xform.Coordinates);
+                    var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
                     if (slot.Whitelist != null && !_whitelist.IsWhitelistPass(slot.Whitelist, equipmentEntity)) // Goob Change - Plasmamen
                     {
                         QueueDel(equipmentEntity);
@@ -240,9 +240,9 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             var coords = xform.Coordinates;
             foreach (var prototype in inhand)
             {
-                var inhandEntity = Spawn(prototype, coords);
+                var inhandEntity = EntityManager.SpawnEntity(prototype, coords);
 
-                if (_handsSystem.TryGetEmptyHand((entity, handsComponent), out var emptyHand))
+                if (_handsSystem.TryGetEmptyHand(entity, out var emptyHand, handsComponent))
                 {
                     _handsSystem.TryPickup(entity, inhandEntity, emptyHand, checkActionBlocker: false, handsComp: handsComponent);
                 }

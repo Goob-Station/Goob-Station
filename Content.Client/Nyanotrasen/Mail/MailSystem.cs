@@ -36,6 +36,7 @@ namespace Content.Client.Mail
     {
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SpriteSystem _stateManager = default!;
         [Dependency] private readonly SpriteSystem _spriteSystem = default!;
 
         protected override void OnAppearanceChange(EntityUid uid, MailComponent component, ref AppearanceChangeEvent args)

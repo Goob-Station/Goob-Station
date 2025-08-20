@@ -20,14 +20,14 @@
     sprite: Objects/Weapons/Melee/flash.rsi
     layers:
     - state: flash
-      map: [ "enum.FlashVisualLayers.BaseLayer" ]
+      map: [ "enum.FlashVisuals.BaseLayer" ]
     - state: flashing
-      map: [ "enum.FlashVisualLayers.LightLayer" ]
+      map: [ "enum.FlashVisuals.LightLayer" ]
       visible: false
       shader: unshaded
   - type: Flash
-    flashingTime: 20.0
-    aoeFlashDuration: 10.0
+    duration: 20000
+    aoeFlashDuration: 10000
     slowTo: 0.2
     range: 15
   - type: MeleeWeapon
@@ -46,10 +46,10 @@
   - type: GenericVisualizer
     visuals:
       enum.FlashVisuals.Burnt:
-        enum.FlashVisualLayers.BaseLayer:
+        enum.FlashVisuals.BaseLayer:
           True: {state: burnt}
       enum.FlashVisuals.Flashing:
-        enum.FlashVisualLayers.LightLayer:
+        enum.FlashVisuals.LightLayer:
           True: {visible: true}
           False: {visible: false}
 

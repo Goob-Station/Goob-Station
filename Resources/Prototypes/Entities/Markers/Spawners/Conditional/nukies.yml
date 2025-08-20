@@ -12,5 +12,5 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: Objects/Fun/Plushies/nukie.rsi
-      state: icon
+    - sprite: Objects/Fun/toys.rsi
+      state: synb
