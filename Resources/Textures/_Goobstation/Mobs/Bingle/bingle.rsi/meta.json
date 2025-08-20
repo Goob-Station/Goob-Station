@@ -1,42 +1,51 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Brainrot HQ",
+  "copyright": "Brainrot HQ. Marker made for goobstation by OnsenCapy (github)",
   "size": {
-        "x": 32,
-        "y": 32
+    "x": 32,
+    "y": 32
   },
   "states": [
     {
-        "name": "alive",
-        "directions": 4
+      "name": "alive",
+      "directions": 4
     },
     {
-        "name": "pit",
-        "delays": [
-            [
-              0.2,
-              0.2,
-              0.2
-            ]
-          ]
+      "name": "pit",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-        "name": "icon"
+      "name": "icon"
     },
     {
-        "name": "dead"
+      "name": "dead"
     },
     {
-         "name": "dead_upgraded"
+      "name": "dead_upgraded"
     },
     {
-        "name": "Upgraded",
-        "directions": 4
+      "name": "Upgraded",
+      "directions": 4
     },
     {
-        "name": "combat",
-        "directions": 4
+      "name": "combat",
+      "directions": 4
+    },
+    {
+      "name": "marker",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
     }
   ]
 }

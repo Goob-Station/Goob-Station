@@ -205,8 +205,7 @@
   - type: Examiner
     skipChecks: true
   - type: Sprite
-    sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
-    color: "#4444FF"
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: marker
     noRot: true
     drawdepth: Ghosts
