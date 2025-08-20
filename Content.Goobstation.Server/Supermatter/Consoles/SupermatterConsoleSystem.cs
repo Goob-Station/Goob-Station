@@ -167,15 +167,10 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 
         var focusSupermatterXform = Transform(focusSupermatter.Value);
 
-        if (!focusSupermatterXform.Anchored ||
-            focusSupermatterXform.GridUid != gridUid ||
-            !TryComp<SupermatterComponent>(focusSupermatter.Value, out var focusComp))
-            return null;
-
-        if (!TryComp<SupermatterComponent>(focusSupermatter.Value, out var sm))
-            return null;
-
-        if (!TryComp<RadiationSourceComponent>(focusSupermatter.Value, out var radiationComp))
+        if (!focusSupermatterXform.Anchored
+            || focusSupermatterXform.GridUid != gridUid
+            || !TryComp<SupermatterComponent>(focusSupermatter.Value, out var sm)
+            || !TryComp<RadiationSourceComponent>(focusSupermatter.Value, out var radiationComp))
             return null;
 
         var gases = sm.GasStorage;
