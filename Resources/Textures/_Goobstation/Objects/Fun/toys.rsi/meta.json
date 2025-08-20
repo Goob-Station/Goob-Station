@@ -23,6 +23,9 @@
       "name": "plushie_nigel"
     },
     {
+      "name": "plushie_mnwaar"
+    },
+    {
       "name": "plushiejvne-inhand-left",
       "directions": 4
     },
@@ -79,6 +82,14 @@
     },
     {
       "name": "bingle_pony",
+      "directions": 4
+    },
+    {
+      "name": "plushiemnwaar-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plushiemnwaar-inhand-right",
       "directions": 4
     },
     {
