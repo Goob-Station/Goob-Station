@@ -84,3 +84,10 @@
   license: "CC-BY-SA-3.0"
   copyright: "By widgetbeck for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org."
   source: "https://freesound.org/"
+
+- files:
+  - glyph_charge.ogg
+  - glyph_fail.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "By NoElkaTheGod(GitHub) for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org."
+  source: "https://freesound.org/"
