@@ -1,0 +1,278 @@
+[33mcommit e614ea38fb540feb5dd046c3279b59584c54ff5b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mperenosik[m[33m)[m
+Author: unknown <Egorkashilkin@gmail.com>
+Date:   Wed Aug 20 22:22:44 2025 +0300
+
+    Все еще не работающая залупа, успехи присутствуют 👍
+
+[33mcommit 6d890a8ac8ad2fbc882452f9e041f246357c5926[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 2d2332f5dd 3b755f515d
+Author: Aiden <28298836+Aidenkrz@users.noreply.github.com>
+Date:   Tue Aug 19 13:23:25 2025 -0500
+
+    2 July upstream (#3855)
+
+[33mcommit 3b755f515df4738a7630dc52dcac29262a454efb[m
+Merge: 994ca57678 2d2332f5dd
+Author: Rouden <149893554+Roudenn@users.noreply.github.com>
+Date:   Tue Aug 19 19:52:38 2025 +0300
+
+    Merge branch 'master' into upstream-sync
+
+[33mcommit 2d2332f5ddff2d2a6c6b1f5479273fdb7bb9758d[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Tue Aug 19 18:37:00 2025 +0200
+
+    Automated changelog update (#3882)
+
+[33mcommit 75869e6911b4128fa258abe6fd4d95ed82d6cc8d[m
+Author: Aiden <28298836+Aidenkrz@users.noreply.github.com>
+Date:   Tue Aug 19 11:36:49 2025 -0500
+
+    Fixed Command Roles (#3882)
+    
+    Fixed
+
+[33mcommit a7b23cbf3b0eeaf4e816b2603d21b1ddae5cd851[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Tue Aug 19 18:36:19 2025 +0200
+
+    Automated changelog update (#3761)
+
+[33mcommit d44780a5159c9f6026ac0417be29e87c8f18ce56[m
+Author: MarkerWicker <markerWicker@proton.me>
+Date:   Tue Aug 19 10:36:05 2025 -0600
+
+    Port Height and Width sliders from EE (#3761)
+    
+    * add size sliders (no working migrations yet)
+    
+    * database migration stuff (please work please work)
+    
+    * character width/height now saves properly
+    
+    * chore: Automatically update REUSE headers
+    
+    * chore: Automatically update REUSE headers
+    
+    * tidy up migrations
+    
+    * Remove obsolete method
+    
+    * bloodstream volume is adjusted with character size
+    
+    * chore: Automatically update REUSE headers
+    
+    * chore: Automatically update REUSE headers
+    
+    * port EE species-specific size values
+    
+    * chore: Automatically update REUSE headers
+    
+    * chore: Automatically update REUSE headers
+    
+    * oops! all tiny
+    
+    * chore: Automatically update REUSE headers
+    
+    * more that I missed
+    
+    * yet MORE that i've missed
+    
+    * chore: Automatically update REUSE headers
+    
+    * player scale now affects the sprinting multiplier
+    
+    * chore: Automatically update REUSE headers
+    
+    * Balance harpy flight relative to scale
+    
+    * chore: Automatically update REUSE headers
+    
+    * chore: Automatically update REUSE headers
+    
+    * Relocate size sliders
+    
+    * whoops, shrunk the wrong species
+    
+    * clamp down on absurdly small / massive characters
+    
+    * further adjustments to species min/max size values
+    
+    * Further tweaks to sizing
+    
+    * this was always in _goobstation i swear
+    
+    * QUICK! THE MAINT MEETING IS HERE! FIX NAMESPACES!
+    
+    * fix merge conflics
+    
+    * fix merge conflicts for real
+    
+    ---------
+    
+    Co-authored-by: GoobBot <uristmchands@proton.me>
+
+[33mcommit 4434f9d74c3b6beb9c2b03166390d9ba26ad766a[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Tue Aug 19 18:26:39 2025 +0200
+
+    Automated changelog update (#3876)
+
+[33mcommit 02921aea99964f47d8cf9a9d57a428feed82f671[m
+Author: Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
+Date:   Tue Aug 19 09:26:26 2025 -0700
+
+    Revert "[Tweak] Common radio messages may be send throught intercom only" (#3876)
+    
+    * Revert "[Tweak] Common radio messages may be send throught intercom only (#3637)"
+    
+    This reverts commit e1bbf0035dab525f4871fb75f51720d5dd1e1423.
+    
+    * Reapply "[Tweak] Common radio messages may be send throught intercom only (#3637)"
+    
+    This reverts commit 8a2c99ce2e481ea6f590464645bcfa4fe1452f3c.
+    
+    * common salvation
+
+[33mcommit 994ca576784672712a8dee4d1be0212f836ee915[m
+Author: Roudenn <romabond091@gmail.com>
+Date:   Mon Aug 18 12:01:56 2025 +0300
+
+    fix upstream 3
+    
+    fix upstream 3
+    
+    fix upstream 3
+    
+    meta
+    
+    Update cargo_livestock.yml
+    
+    Update RetractableItemActionTest.cs
+    
+    Update SetOutfitCommand.cs
+    
+    fix
+    
+    Update drinks_special.yml
+    
+    Update cog.yml
+
+[33mcommit 6374c9babc2fe5fef1cbc674f7be5a0fe9c2fba5[m
+Merge: da5d5ff68b de57370928
+Author: Roudenn <romabond091@gmail.com>
+Date:   Mon Aug 18 11:52:38 2025 +0300
+
+    Merge remote-tracking branch 'upstream/master' into upstream-sync
+
+[33mcommit da5d5ff68b4132b09262fd00ab496a1334ad1b7d[m
+Author: Roudenn <romabond091@gmail.com>
+Date:   Mon Aug 18 11:52:03 2025 +0300
+
+    fix2
+
+[33mcommit 638af1f9cd739d48bd24f6b36e5013df66559f64[m
+Merge: 5b476d7beb 07119cbbba
+Author: Roudenn <romabond091@gmail.com>
+Date:   Mon Aug 18 09:47:22 2025 +0300
+
+    Merge remote-tracking branch 'upstream/master' into upstream-sync
+
+[33mcommit de5737092844af1029566dfc2125e9293f86d4c5[m
+Author: John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+Date:   Mon Aug 18 01:43:12 2025 -0500
+
+    Reapply "Better surveillance camera monitor" (#3863) (#3865)
+    
+    This reverts commit 8758bd6a6001ea91c1136419589934aaa335741a.
+
+[33mcommit 07119cbbbaebc86cadaea07c1830ab4c953238eb[m
+Author: Aiden <28298836+Aidenkrz@users.noreply.github.com>
+Date:   Mon Aug 18 01:22:21 2025 -0500
+
+    Revert "Antag Pity Goobmod" (#3864)
+    
+    Revert "Antag Pity Goobmod (#3531)"
+    
+    This reverts commit f81b607bda827f3b5abd8d4b32e95b7e7f5c8787.
+
+[33mcommit 8758bd6a6001ea91c1136419589934aaa335741a[m
+Author: Aiden <28298836+Aidenkrz@users.noreply.github.com>
+Date:   Mon Aug 18 01:15:28 2025 -0500
+
+    Revert "Better surveillance camera monitor" (#3863)
+    
+    Revert "Better surveillance camera monitor (#3815)"
+    
+    This reverts commit ce22adfaa29b252a8e68dbb1826fc00fd77a8d44.
+
+[33mcommit 959d1d303b63468a63b578256e8f2d018118b5f2[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Mon Aug 18 07:31:14 2025 +0200
+
+    Automated changelog update (#3639)
+
+[33mcommit c29f2294b9bc229ed9cd170ca15d8c015c18c8a1[m
+Author: Ilya246 <57039557+Ilya246@users.noreply.github.com>
+Date:   Mon Aug 18 09:31:03 2025 +0400
+
+    revert ai crewsimov (#3639)
+    
+    * Revert "(((((BOUNTY))))) Ai crewsimov. Bounty. This is a bounty. (#3439)"
+    
+    This reverts commit b02cfa7338ea020280287728873fa5c30199da00.
+    
+    * chore: Automatically update REUSE headers
+    
+    ---------
+    
+    Co-authored-by: GoobBot <uristmchands@proton.me>
+
+[33mcommit dac62db8739794744a6cd58f1129f45574ac29d5[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Mon Aug 18 07:29:22 2025 +0200
+
+    Automated changelog update (#3856)
+
+[33mcommit 2980de37d20897a112654bfdeae9ca6c4f688d3c[m
+Author: BeBright <98597725+bebr3ght@users.noreply.github.com>
+Date:   Mon Aug 18 08:29:10 2025 +0300
+
+    [HOTFIX] ToggleableLightVisuals -> ToggleableVisuals (#3856)
+    
+    ToggleableLightVisuals -> ToggleableVisuals
+    
+    Co-authored-by: BeBright <98597725+be1bright@users.noreply.github.com>
+
+[33mcommit c4f4bd73f1379920cadf131c2d107bf2768f0392[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Mon Aug 18 07:28:16 2025 +0200
+
+    Automated changelog update (#3802)
+
+[33mcommit 451276a44930f88cf42cbe51ce7c67a7df2952fc[m
+Author: TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+Date:   Mon Aug 18 06:28:05 2025 +0100
+
+    Turbo's Third AutoInjector nerf (#3802)
+    
+    * OUUUUUU KILL UM
+    
+    * I FUCKING HATE STORAGE FILL
+    FREE PARAMED NERF I GUESS
+    
+    * yamllinteraward
+    
+    * BSO GETS A NERF TOO I GUESS BRO FUCK STORAGEFILL (these are unused bro who cares about these two carts)
+
+[33mcommit b386f6f15e2b549b2df939b8537e8d4e14baf5e1[m
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Mon Aug 18 00:24:48 2025 -0500
+
+    Update Credits (#3771)
+    
+    Co-authored-by: GoobBot <uristmchands@proton.me>
+
+[33mcommit 3c19b91186b3e9a26536ad361dddd7b9808bd0a7[m
+Author: GoobBot <uristmchands@proton.me>
+Date:   Mon Aug 1
