@@ -47,100 +47,100 @@
   parent: BaseItem
   abstract: true
   components:
-    - type: ItemSlots
-    - type: ContainerContainer
-      containers:
-        implanter_slot: !type:ContainerSlot { }
-    - type: Implanter
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      implanter_slot: !type:ContainerSlot { }
+  - type: Implanter
+    whitelist:
+      components:
+      - MobState # no chair microbomb
+    blacklist:
+      components:
+      - Guardian # no holoparasite macrobomb wombo combo
+      tags:
+      - Unimplantable
+    currentMode: Draw
+    implanterSlot:
+      name: Implant
+      locked: True
+      priority: 0
       whitelist:
-        components:
-        - MobState # no chair microbomb
-      blacklist:
-        components:
-        - Guardian # no holoparasite macrobomb wombo combo
         tags:
-        - Unimplantable
-      currentMode: Draw
-      implanterSlot:
-        name: Implant
-        locked: True
-        priority: 0
-        whitelist:
-          tags:
-            - SubdermalImplant
-      allowDeimplantAll: false
-      deimplantWhitelist:
-      - SadTromboneImplant
-      - LightImplant
-      - BikeHornImplant
-      - TrackingImplant
-      - StorageImplant
-      - FreedomImplant
-      - UplinkImplant
-      - EmpImplant
-      - ScramImplant
-      - DnaScramblerImplant
-      - MicroBombImplant
-      - MacroBombImplant
-      - DeathAcidifierImplant
-      - DeathRattleImplant
-      - MindShieldImplant
-      - FakeMindShieldImplant
-      - RadioImplant
-      # Goob implants
-      - MindcontrolImplant
-      - KravMagaImplant
-      - NutrimentPumpImplant
-      - SmokeImplant
-      # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
-      - BinaryImplant
-      - ChameleonControllerImplant
-      deimplantFailureDamage:
-        types:
-          Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
-          Heat: 5
-    - type: Sprite
-      sprite: Objects/Specific/Medical/implanter.rsi
-      state: implanter0
-      layers:
-        - state: implanter0
-          map: [ "implantOnly" ]
-          visible: true
-        - state: implanter1
-          map: [ "implantFull" ]
-          visible: false
-    - type: Item
-      sprite: Objects/Specific/Medical/implanter.rsi
-      heldPrefix: implanter
-      size: Small
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.ImplanterVisuals.Full:
-          implantFull:
-            True: {visible: true}
-            False: {visible: false}
-        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
-          implantOnly:
-            True: {state: broken}
-            False: {state: implanter0}
-    - type: UserInterface
-      interfaces:
-        enum.DeimplantUiKey.Key:
-          type: DeimplantBoundUserInterface
-    - type: PhysicalComposition #Goobstation - Recycle update
-      materialComposition:
-        Steel: 125
-        Glass: 125
+        - SubdermalImplant
+    allowDeimplantAll: false
+    deimplantWhitelist:
+    - SadTromboneImplant
+    - LightImplant
+    - BikeHornImplant
+    - TrackingImplant
+    - StorageImplant
+    - FreedomImplant
+    - UplinkImplant
+    - EmpImplant
+    - ScramImplant
+    - DnaScramblerImplant
+    - MicroBombImplant
+    - MacroBombImplant
+    - DeathAcidifierImplant
+    - DeathRattleImplant
+    - MindShieldImplant
+    - FakeMindShieldImplant
+    - RadioImplant
+    - ChameleonControllerImplant
+    # Goob implants
+    - MindcontrolImplant
+    - KravMagaImplant
+    - NutrimentPumpImplant
+    - SmokeImplant
+    # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
+    - BinaryImplant # Goobstation?
+    deimplantFailureDamage:
+      types:
+        Cellular: 50 # NotGoobstation its 50 genetic to prevent you from randomly extracting implants.
+        Heat: 10
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter0
+      map: [ "implantOnly" ]
+      visible: true
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: false
+  - type: Item
+    sprite: Objects/Specific/Medical/implanter.rsi
+    heldPrefix: implanter
+    size: Small
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter0}
+  - type: UserInterface
+    interfaces:
+      enum.DeimplantUiKey.Key:
+        type: DeimplantBoundUserInterface
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Glass: 125
 
 - type: entity
   id: Implanter
   parent: BaseImplanter
   description: A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
   components:
-    - type: Tag
-      tags:
-        - Trash
+  - type: Tag
+    tags:
+    - Trash
 
 - type: entity
   parent: Implanter
@@ -160,18 +160,18 @@
   description: A disposable syringe exclusively designed for the injection of subdermal implants.
   abstract: true
   components:
-    - type: Sprite
-      sprite: Objects/Specific/Medical/implanter.rsi
-      state: implanter0
-      layers:
-        - state: implanter1
-          map: [ "implantFull" ]
-          visible: true
-        - state: implanter0
-          map: [ "implantOnly" ]
-    - type: Implanter
-      currentMode: Inject
-      implantOnly: true
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter0
+      map: [ "implantOnly" ]
+  - type: Implanter
+    currentMode: Inject
+    implantOnly: true
 
 - type: entity
   id: BaseImplantOnlyImplanterSyndi
@@ -180,88 +180,88 @@
   description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
   abstract: true
   components:
-    - type: Item
-      sprite: Objects/Specific/Medical/syndi_implanter.rsi
-      heldPrefix: implanter
-    - type: Sprite
-      sprite: Objects/Specific/Medical/syndi_implanter.rsi
-      state: implanter1
-      layers:
-        - state: implanter0
-          map: [ "implantFull" ]
-          visible: true
-        - state: implanter1
-          map: [ "implantOnly" ]
-    - type: GenericVisualizer
-      visuals:
-        enum.ImplanterVisuals.Full:
-          implantFull:
-            True: {visible: true}
-            False: {visible: false}
-        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
-          implantOnly:
-            True: {state: broken}
-            False: {state: implanter1}
-    - type: Tag
-      tags: []
+  - type: Item
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    heldPrefix: implanter
+  - type: Sprite
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter1
+    layers:
+    - state: implanter0
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter1
+      map: [ "implantOnly" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter1}
+  - type: Tag
+    tags: []
 
 #Fun implanters
 
 - type: entity
   id: SadTromboneImplanter
-  suffix: Sad Trombone
+  name: sad trombone implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: SadTromboneImplant
+  - type: Implanter
+    implant: SadTromboneImplant
 
 - type: entity
   id: LightImplanter
-  suffix: Light
+  name: light implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: LightImplant
+  - type: Implanter
+    implant: LightImplant
 
 - type: entity
   id: BikeHornImplanter
-  suffix: Bike Horn
+  name: bike horn implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: BikeHornImplant
+  - type: Implanter
+    implant: BikeHornImplant
 
 #Security implanters
 
 - type: entity
   id: TrackingImplanter
-  suffix: Tracking
+  name: tracking implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: TrackingImplant
+  - type: Implanter
+    implant: TrackingImplant
 
 #Traitor implanters
 
 - type: entity
   id: StorageImplanter
-  suffix: Storage
+  name: storage implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: StorageImplant
+  - type: Implanter
+    implant: StorageImplant
 
 - type: entity
   id: FreedomImplanter
-  suffix: Freedom
+  name: freedom implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: FreedomImplant
+  - type: Implanter
+    implant: FreedomImplant
 
 - type: entity
   id: RadioImplanter
-  suffix: Syndicate Radio
+  name: syndicate radio implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -269,7 +269,7 @@
 
 - type: entity
   id: UplinkImplanter
-  suffix: Uplink
+  name: uplink implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -277,31 +277,31 @@
 
 - type: entity
   id: EmpImplanter
-  suffix: EMP
+  name: EMP implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: EmpImplant
+  - type: Implanter
+    implant: EmpImplant
 
 - type: entity
   id: ScramImplanter
-  suffix: Scram
+  name: scram implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: ScramImplant
+  - type: Implanter
+    implant: ScramImplant
 
 - type: entity
   id: DnaScramblerImplanter
-  suffix: DNA scrambler
+  name: DNA scrambler implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: DnaScramblerImplant
+  - type: Implanter
+    implant: DnaScramblerImplant
 
 - type: entity
   id: ChameleonControllerImplanter
-  suffix: Chameleon Controller
+  name: chameleon controller implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -311,31 +311,31 @@
 
 - type: entity
   id: MicroBombImplanter
-  suffix: Micro-Bomb
+  name: micro-bomb implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: MicroBombImplant
+  - type: Implanter
+    implant: MicroBombImplant
 
 - type: entity
   id: MacroBombImplanter
-  suffix: Macro-Bomb
+  name: macro-bomb implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: MacroBombImplant
+  - type: Implanter
+    implant: MacroBombImplant
 
 - type: entity
   id: DeathRattleImplanter
-  suffix: Death Rattle
+  name: death rattle implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: DeathRattleImplant
+  - type: Implanter
+    implant: DeathRattleImplant
 
 - type: entity
   id: DeathAcidifierImplanter
-  suffix: Death Acidifier
+  name: death acidifier implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -343,7 +343,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  suffix: Fake Mindshield
+  name: fake mindshield implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -356,14 +356,14 @@
   suffix: Mindshield
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: MindShieldImplant
+  - type: Implanter
+    implant: MindShieldImplant
 
 # Centcomm implanters
 
 - type: entity
   id: RadioImplanterCentcomm
-  suffix: Centcomm Radio
+  name: centcomm radio implanter
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
@@ -371,7 +371,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  suffix: Death Rattle
+  name: centcomm death rattle implanter
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter

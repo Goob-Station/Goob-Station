@@ -148,12 +148,15 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             if (!TryComp<SubdermalImplantComponent>(implant, out var sic))
                 continue;
 
-            ForceImplant(args.NewEntity, implant, sic);
+            var implantEnt = new Entity<SubdermalImplantComponent>(ent, sic);
+
+            ForceImplant(args.NewEntity, implantEnt!);
         }
     }
     // goob edit end
 
 
+    // TODO: This shouldn't be in the SubdermalImplantSystem
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {
         var args = implantRelay.Event;
