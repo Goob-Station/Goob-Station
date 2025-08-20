@@ -22,6 +22,9 @@ ghost-role-information-bingle-name = Bingle
 ghost-role-information-bingle-description = The Pit is love. The Pit is life. The Pit must grow. Use +w to bing with other Bingles.
 ghost-role-information-bingle-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with other Bingles
 
+ghost-role-information-bingle-placer-name = Bingle Pit
+ghost-role-information-bingle-placer-description = The Pit is love. The Pit is life. The Pit must grow. Choose a good location to summon the pit. Use +w to bing with other Bingles.
+
 bingle-upgrade-success = You feel stronger
 bingle-pit-grow =  The pit grows larger
 bingle-pit-end-of-round = The Binglepit near {$location} grew to level [color=teal]{$level}[/color] and collected [color=teal]{$points}[/color] Bingle points

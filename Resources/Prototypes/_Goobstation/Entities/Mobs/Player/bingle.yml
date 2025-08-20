@@ -171,3 +171,48 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded
+
+- type: entity
+  id: MobObserverBinglePit
+  parent: Incorporeal
+  name: Bingle Pit Observer
+  description: bingle.
+  save: false
+  components:
+  - type: BinglePrimePlacer
+  - type: Actions
+  - type: Visibility
+    layer: 2
+  - type: ContentEye
+  - type: MindContainer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-bingle-placer-name
+    description: ghost-role-information-bingle-placer-description
+    rules: ghost-role-information-bingle-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: InputMover
+  - type: Appearance
+  - type: Eye
+    drawFov: false
+  - type: Input
+    context: "ghost"
+  - type: Examiner
+    skipChecks: true
+  - type: Sprite
+    sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+    color: "#4444FF"
+    state: marker
+    noRot: true
+    drawdepth: Ghosts
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 8
+    baseWalkSpeed: 15
+  - type: Tag
+    tags:
+    - BypassInteractionRangeChecks

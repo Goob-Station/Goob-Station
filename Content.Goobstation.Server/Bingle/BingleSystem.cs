@@ -23,7 +23,7 @@ using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Bingle;
 
-public sealed class BingleSystem : EntitySystem
+public sealed partial class BingleSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -35,6 +35,9 @@ public sealed class BingleSystem : EntitySystem
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<BingleComponent, Shared.Overlays.ToggleNightVisionEvent>(OnNightvision);
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
+
+        InitializePlacer();
+        InitializePit();
     }
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)

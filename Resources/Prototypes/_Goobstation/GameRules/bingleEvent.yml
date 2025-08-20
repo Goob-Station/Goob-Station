@@ -30,4 +30,4 @@
   - type: GameRule
     chaosScore: 400
   - type: RandomSpawnRule
-    prototype: SpawnPointGhostBinglePrime
+    prototype: MobObserverBinglePit

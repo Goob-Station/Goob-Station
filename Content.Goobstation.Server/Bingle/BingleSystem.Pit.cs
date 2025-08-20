@@ -57,16 +57,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Bingle;
 
-public sealed class BinglePitSystem : EntitySystem
+public sealed partial class BingleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly BingleSystem _bingle = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -84,10 +81,8 @@ public sealed class BinglePitSystem : EntitySystem
     private readonly List<Entity<BinglePitComponent>> _pits = new();
     public static readonly ProtoId<ContentTileDefinition> FloorTile = "FloorBingle";
 
-    public override void Initialize()
+    private void InitializePit()
     {
-        base.Initialize();
-
         _query = GetEntityQuery<BingleComponent>();
         _fallingQuery = GetEntityQuery<BinglePitFallingComponent>();
 
@@ -217,7 +212,7 @@ public sealed class BinglePitSystem : EntitySystem
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
             if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
-                _bingle.UpgradeBingle(queryUid, queryBingleComp);
+                UpgradeBingle(queryUid, queryBingleComp);
 
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);

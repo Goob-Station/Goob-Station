@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPlaceBinglePrime
+  name: Place Bingle Prime
+  description: Summon the bingle pit and become a bingle prime.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+      state: pit
+  - type: InstantAction
+    event: !type:PlaceBinglePitActionEvent {}
