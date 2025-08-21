@@ -128,7 +128,7 @@
 - type: marking
   id: MycenaArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
@@ -137,7 +137,7 @@
 - type: marking
   id: MycenaArmGlow
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
