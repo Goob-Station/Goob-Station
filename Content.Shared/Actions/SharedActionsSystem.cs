@@ -444,7 +444,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if ((ent.Comp.CheckConsciousness && !_actionBlocker.CanConsciouslyPerformAction(args.User))
             || (ent.Comp.CheckCanInteract && !_actionBlocker.CanInteract(args.User, null)))
             args.Invalid = true;
-    }
+        }
 
     private void OnInstantValidate(Entity<InstantActionComponent> ent, ref ActionValidateEvent args)
     {
@@ -565,7 +565,10 @@ public abstract class SharedActionsSystem : EntitySystem
         // even if we don't check for obstructions, we may still need to check the range.
         var xform = Transform(user);
         if (xform.MapID != _transform.GetMapId(coords))
+        {
+            _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goobstation Change
             return false;
+        }
 
         if (comp.Range <= 0)
             return true;
