@@ -444,7 +444,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if ((ent.Comp.CheckConsciousness && !_actionBlocker.CanConsciouslyPerformAction(args.User))
             || (ent.Comp.CheckCanInteract && !_actionBlocker.CanInteract(args.User, null)))
             args.Invalid = true;
-        }
+    }
 
     private void OnInstantValidate(Entity<InstantActionComponent> ent, ref ActionValidateEvent args)
     {
