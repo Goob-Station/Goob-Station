@@ -192,6 +192,7 @@
       - ActionCritSuccumb
       - ActionCritFakeDeath
       - ActionCritLastWords
+  - type: MindRememberBody
   - type: Deathgasp
   - type: HealthExaminable
     examinableTypes:
