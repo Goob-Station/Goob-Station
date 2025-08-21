@@ -26,6 +26,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using System.Text.RegularExpressions;
 using Content.Client.Administration.Systems;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Verbs.UI;
@@ -121,13 +122,26 @@ public sealed partial class PlayerListControl : BoxContainer
     private void FilterList()
     {
         _sortedPlayerList.Clear();
+
+        Regex filterRegex;
+        // There is no neat way to handle invalid regex being submitted other than
+        // catching and ignoring the exception which gets thrown when it's invalid.
+        try
+        {
+            filterRegex = new Regex(FilterLineEdit.Text, RegexOptions.IgnoreCase);
+        }
+        catch (ArgumentException)
+        {
+            return;
+        }
+
         foreach (var info in _playerList)
         {
             var displayName = $"{info.CharacterName} ({info.Username})";
             if (info.IdentityName != info.CharacterName)
                 displayName += $" [{info.IdentityName}]";
             if (!string.IsNullOrEmpty(FilterLineEdit.Text)
-                && !displayName.ToLowerInvariant().Contains(FilterLineEdit.Text.Trim().ToLowerInvariant()))
+                && !filterRegex.IsMatch(displayName))
                 continue;
             _sortedPlayerList.Add(info);
         }
