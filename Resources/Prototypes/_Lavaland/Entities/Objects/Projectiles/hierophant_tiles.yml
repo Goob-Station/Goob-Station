@@ -47,3 +47,6 @@
     anchored: true
   - type: TileChaser
     spawn: LavalandHierophantSquare
+  - type: AngerTileChaser
+    speedRange: 3,5
+    stepsRange: 15,40

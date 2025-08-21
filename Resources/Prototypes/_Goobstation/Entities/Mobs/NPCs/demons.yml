@@ -113,9 +113,9 @@
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
-  - type: Megafauna
+  - type: SpawnLootOnDeath
     loot: DiamondOre1Unprocessed
-  
+
 - type: entity
   name: glutton
   parent: [ SimpleSpaceMobBase, MobCombat ]
