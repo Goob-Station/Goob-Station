@@ -227,6 +227,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
+            // Goobstation Change - If you remove this, we lose ringtones and flavor in char menu. Upstream's version sucks.
             briefingComp.Briefing = GenerateBriefingCharacter(codewords, code, issuer);
         }
 
