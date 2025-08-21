@@ -18,10 +18,10 @@
   - CorvaxOutpost
   - CorvaxPaper
   #- CorvaxPearl
-  #- CorvaxVoid
+  - CorvaxVoid
 
   # Lowpop 0–25
-  #- CorvaxMaus
+  - CorvaxMaus
   - CorvaxOmega
   - CorvaxPacked
   - CorvaxSilly
