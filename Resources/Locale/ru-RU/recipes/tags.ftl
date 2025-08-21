@@ -28,7 +28,7 @@ construction-graph-tag-security-helmet = шлем СБ
 # materials
 construction-graph-tag-capacitor = конденсатор
 # materials
-construction-graph-tag-manipulator = модульная машинная часть
+construction-graph-tag-manipulator = манипулятор
 construction-graph-tag-voice-trigger = голосовой триггер
 construction-graph-tag-signal-trigger = сигнальный триггер
 construction-graph-tag-proximity-sensor = датчик движения

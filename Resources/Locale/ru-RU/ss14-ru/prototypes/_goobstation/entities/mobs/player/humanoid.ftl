@@ -1,6 +1,6 @@
-ent-LostFrontierSalvagerSpawner = спаунер добытчика из Затерянного Фронтира
+ent-LostFrontierSalvagerSpawner = спавнер потерявшийся утилизатор Фронтира
     .desc = { ent-MarkerBase.desc }
-ent-RandomHumanoidLostFrontierSalvager = добытчик-призрак из Затерянного Фронтира
+ent-RandomHumanoidLostFrontierSalvager = роль призрака потерявшийся утилизатор Фронтира
     .desc = { "" }
 ent-MobHumanRandom = Урист МакЧеловек
     .suffix = Случайная внешность

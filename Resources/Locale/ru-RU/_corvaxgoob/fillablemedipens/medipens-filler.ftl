@@ -6,8 +6,4 @@ medipen-refiller-window-no-container-loaded-text = Контейнер не за�
 medipen-refiller-window-filling-text = Заполнение:
 medipen-refiller-window-dose-label = Дозировка
 medipen-refiller-window-fill-button = Заполнить
-
-ent-MedipenRefiller = заполнитель медипенов
-    .desc = Заполняет и перекрашивает медипены.
-
 research-technology-injectors-filling = Заполнение инжекторов

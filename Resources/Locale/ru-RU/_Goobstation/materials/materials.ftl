@@ -5,5 +5,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-materials-bscrystal = блуспейс кристалл
-materials-bscrystal-unprocessed = необработанный блуспейс кристалл
+materials-bscrystal = блюспейс кристалл
+materials-bscrystal-unprocessed = необработанный блюспейс кристалл

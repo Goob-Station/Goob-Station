@@ -48,8 +48,10 @@
   parent: EventHumanoid
   components:
     - type: GhostRole
-      name: Lost Salvager
-      description: Lost crew from Frontier Sector
+      # Corvax-Goob-Locale-start
+      name: Потерявшийся утилизатор
+      description: Потерявшийся экипаж Фронтира.
+      # Corvax-Goob-Locale-end
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
