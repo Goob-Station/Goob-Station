@@ -88,3 +88,12 @@ accent-dementia-words-33 = wizard
 accent-dementia-words-replace-33 = some sort of bad guy, forgot which
 accent-dementia-words-34 = wiz
 accent-dementia-words-replace-34 = some sort of bad guy, forgot which
+
+accent-dementia-words-35 = south
+accent-dementia-words-replace-35 = uhh, somewhere
+accent-dementia-words-36 = north
+accent-dementia-words-replace-36 = uhh, somewhere
+accent-dementia-words-37 = west
+accent-dementia-words-replace-37 = uhh, somewhere
+accent-dementia-words-38 = east
+accent-dementia-words-replace-38 = uhh, somewhere
