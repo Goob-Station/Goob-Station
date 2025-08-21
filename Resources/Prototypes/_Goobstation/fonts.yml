@@ -31,8 +31,8 @@
 
 # Monospace (Silicon)
 - type: font
-  id: MonospaceBold # Is here instead of core, but font files are in core.
-  path: /Fonts/NotoSans/NotoSansMono-Bold.ttf
+  id: MonospaceBold
+  path: /Fonts/_Goobstation/NotoSansMono/NotoSansMono-Bold.ttf
 
 # Valyrian Standard (Harpies/Squackroaches)
 - type: font
