@@ -78,6 +78,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Goobstation.Shared.Body.Events;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -100,8 +102,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 // Shitmed Change
@@ -140,12 +140,21 @@ public sealed class RespiratorSystem : EntitySystem
         SubscribeLocalEvent<RespiratorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<RespiratorComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+
+        // Goob
+        SubscribeLocalEvent<RespiratorComponent, BreathingImmunityEvent>(CheckBreathingImmunity);
     }
 
     // Goobstation start
-    // Can breathe check for grab
+    // Check for choke grab or breathing immunity
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
+        var airEv = new BreathingImmunityEvent();
+        RaiseLocalEvent(uid, airEv);
+
+        if (!airEv.NeedsAir)
+            return true;
+
         if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
         if (TryComp<PullableComponent>(uid, out var pullable)
@@ -154,6 +163,14 @@ public sealed class RespiratorSystem : EntitySystem
 
         return !HasComp<KravMagaBlockedBreathingComponent>(uid);
     }
+
+    private void CheckBreathingImmunity(Entity<RespiratorComponent> ent, ref BreathingImmunityEvent args)
+    {
+        args.NeedsAir =
+            !HasComp<BreathingImmunityComponent>(ent)
+            && !HasComp<SpecialBreathingImmunityComponent>(ent);
+    }
+
     // Goobstation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
     {
@@ -177,7 +194,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             respirator.NextUpdate += respirator.UpdateInterval;
 
-            if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
+            if (_mobState.IsDead(uid))
                 continue;
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
@@ -488,6 +505,17 @@ public sealed class RespiratorSystem : EntitySystem
     {
         if (!Resolve(uid, ref respirator, false))
             return;
+
+        // Goob start - Breathing Immunity
+        var airEv = new BreathingImmunityEvent();
+        RaiseLocalEvent(uid, airEv);
+
+        if (!airEv.NeedsAir)
+        {
+            respirator.Saturation = respirator.MaxSaturation;
+            return;
+        }
+        // Goob end
 
         respirator.Saturation += amount;
         respirator.Saturation =
