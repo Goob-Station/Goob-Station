@@ -51883,6 +51883,8 @@ entities:
     - type: Transform
       pos: -50.5,17.5
       parent: 2
+    - type: GasMiner
+      spawnAmount: 25
 - proto: GasMinerWaterVapor
   entities:
   - uid: 6723

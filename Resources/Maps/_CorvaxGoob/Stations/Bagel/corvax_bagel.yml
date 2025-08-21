@@ -75071,6 +75071,8 @@ entities:
     - type: Transform
       pos: -44.5,40.5
       parent: 2
+    - type: GasMiner
+      spawnAmount: 25
 - proto: GasMinerWaterVapor
   entities:
   - uid: 11421

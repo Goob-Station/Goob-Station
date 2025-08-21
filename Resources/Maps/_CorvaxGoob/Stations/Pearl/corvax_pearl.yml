@@ -115029,8 +115029,7 @@ entities:
       pos: 92.5,32.5
       parent: 2
     - type: GasMiner
-      spawnAmount: 20
-      maxExternalPressure: 150
+      spawnAmount: 25
 - proto: GasPassiveGate
   entities:
   - uid: 11576

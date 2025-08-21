@@ -12,11 +12,11 @@
 
   # Midpop 25–55
   - CorvaxAmber
-  #- CorvaxAwesome
+  - CorvaxAwesome
   - CorvaxBagel
   #- CorvaxMarathon
   - CorvaxOutpost
-  #- CorvaxPaper
+  - CorvaxPaper
   #- CorvaxPearl
   #- CorvaxVoid
 
@@ -25,4 +25,4 @@
   - CorvaxOmega
   - CorvaxPacked
   - CorvaxSilly
-  #- CorvaxTushkan
+  - CorvaxTushkan
