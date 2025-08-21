@@ -346,24 +346,6 @@
   restockAfterPurchase: 2700 #45 min, you really think someone would need more servers?
 
 - type: listing
-  id: NTRExecutiveSilo
-  name: ntr-executive-silo-name
-  description: ntr-executive-silo-desc
-  productEntity: SpawnPodSilo
-  icon:
-    sprite: Objects/Misc/module.rsi
-    state: engineering
-  cost:
-    NTLoyaltyPoint: 50
-  categories:
-  - NTRBoards
-  restockTime: 1200 #20min
-  resetRestockOnPurchase: false
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
   id: NTRExecutiveFat
   name: ntr-executive-fat-name
   description: ntr-executive-fat-desc

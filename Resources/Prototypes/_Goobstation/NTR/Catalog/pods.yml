@@ -152,15 +152,6 @@
     prototype: NTRBoardTelecom
 
 - type: entity
-  id: SpawnPodSilo
-  categories: [ HideSpawnMenu ]
-  name: SpawnSupplySilo
-  parent: SpawnSupplyEmpty
-  components:
-  - type: SpawnOnDespawn
-    prototype: MaterialSiloCircuitboard
-
-- type: entity
   id: SpawnPodFat
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyFat
