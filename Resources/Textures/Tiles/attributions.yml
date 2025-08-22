@@ -32,7 +32,7 @@
   copyright: "CEV-Eris commit 28e589f0ff72a009adf17db767e90be39054f0f2"
   source: "https://github.com/discordia-space/CEV-Eris/"
 
-- files: [ "asteroid_red.png", "asteroid_tile.png", "elevator_shaft.png", "freezer.png", "lino.png", "mono.png", "rock_vault.png", "showroom.png"]
+- files: [ "asteroid_red.png", "asteroid_tile.png", "elevator_shaft.png", "freezer.png", "lino.png", "mono.png", "rock_vault.png", "showroom.png", "red_circuit.png", "green_circuit.png"]
   license: "CC-BY-SA-3.0"
   copyright: "vgstation13 at roughly commit e4d3ea7f69d21c3667be12b114fa935c4640cb05, asteroid_red and asteroid_tile taken from commit /vg/station at commit 02b9f6894af4419c9f7e699a22c402b086d8067e."
   source: "https://github.com/vgstation-coders/vgstation13"
@@ -47,7 +47,7 @@
   copyright: "TauCetiStation commit 4cd533cf0a4243050364023af9a4fcaca209dce7"
   source: "https://github.com/TauCetiStation/TauCetiClassic/"
 
-- files: ["cropped_parallax.png", "eighties.png", "gold.png", "ironsand1.png", "ironsand2.png", "ironsand3.png", "ironsand4.png", "lattice.png", "plating.png", "reinforced.png", "silver.png", "snow.png", "wood.png"]
+- files: ["blue_circuit.png", "cropped_parallax.png", "eighties.png", "gold.png", "ironsand1.png", "ironsand2.png", "ironsand3.png", "ironsand4.png", "lattice.png", "plating.png", "reinforced.png", "silver.png", "snow.png", "wood.png"]
   license: "CC-BY-SA-3.0"
   copyright: "tgstation commit 8abb19545828230d92ba18827feeb42a67a55d49, cropped_parallax modified from parallax, wood.png resprited by Meowstushka and modified by Ko4erga (discord)"
   source: "https://github.com/tgstation/tgstation/"
@@ -97,9 +97,9 @@
   copyright: "Taken from /tg/station at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae"
   source: "https://github.com/space-wizards/space-station-14/pull/18676"
 
-- files: ["shuttleblue.png", "shuttleorange.png", "shuttlepurple.png", "shuttlered.png", "shuttlewhite.png", "shuttlegrey.png", "shuttleblack.png", "green_circuit.png", "blue_circuit.png", "red_circuit.png"]
+- files: ["shuttleblue.png", "shuttleorange.png", "shuttlepurple.png", "shuttlered.png", "shuttlewhite.png", "shuttlegrey.png", "shuttleblack.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/master/icons/turf/floors.dmi"
+  copyright: "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/blob/master/icons/turf/floors.dmi and modified by Ko4erga (discord)"
   source: "https://github.com/ParadiseSS13/Paradise"
 
 - files: ["deprecated.png"]

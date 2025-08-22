@@ -204,7 +204,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Corvax-Goob-SmoothWindows
     base: state
   - type: Fixtures
     fixtures:

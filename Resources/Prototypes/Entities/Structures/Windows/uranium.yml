@@ -156,7 +156,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Corvax-Goob-SmoothWindows
     base: state
   - type: Icon
     sprite: Structures/Windows/uranium_window_diagonal.rsi
