@@ -33,6 +33,8 @@ public sealed class IFFConsoleBoundUserInterface : BoundUserInterface
         _window = this.CreateWindowCenteredLeft<IFFConsoleWindow>();
         _window.ShowIFF += SendIFFMessage;
         _window.ShowVessel += SendVesselMessage;
+
+        _window.ApplyRadarSettings += SendIFFRadarSettingsMessage; // CorvaxGoob-IFF-Improves
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -60,6 +62,17 @@ public sealed class IFFConsoleBoundUserInterface : BoundUserInterface
             Show = obj,
         });
     }
+
+    // CorvaxGoob-IFF-Improves-Start
+    private void SendIFFRadarSettingsMessage(Color color, string? name)
+    {
+        SendMessage(new IFFApplyRadarSettingsMessage()
+        {
+            Color = color,
+            Name = name
+        });
+    }
+    // CorvaxGoob-IFF-Improves-End
 
     protected override void Dispose(bool disposing)
     {

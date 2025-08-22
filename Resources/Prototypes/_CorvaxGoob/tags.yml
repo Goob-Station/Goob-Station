@@ -36,3 +36,6 @@
 
 - type: Tag
   id: SawElectric
+
+- type: Tag
+  id: DroneShuttleLinkable

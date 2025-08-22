@@ -252,6 +252,8 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - ShuttleRemoteControlSystemCircuitboard # CorvaxGoob-LinkableDrones
+  - ComputerIFFCircuitboard # CorvaxGoob-IIF-Improves
   - ShuttleConsoleCircuitboard
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard

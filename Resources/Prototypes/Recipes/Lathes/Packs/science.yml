@@ -134,6 +134,8 @@
 - type: latheRecipePack
   id: ShuttleBoards
   recipes:
+  - ShuttleRemoteControlSystemCircuitboard # CorvaxGoob-LinkableDrones
+  - ComputerIFFCircuitboard # CorvaxGoob-IIF-Improves
   - ShuttleConsoleCircuitboard
   - RadarConsoleCircuitboard
   - ThrusterMachineCircuitboard

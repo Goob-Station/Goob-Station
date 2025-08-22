@@ -334,6 +334,9 @@
   description: Used to pilot a shuttle.
   abstract: true
   components:
+  - type: DeviceLinkSink # CorvaxGoob-IIF-Improves
+    ports:
+      - ShuttleDroneReceiver
   - type: ShuttleConsole
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key

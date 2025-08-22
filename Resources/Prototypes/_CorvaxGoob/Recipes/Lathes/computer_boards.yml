@@ -1,0 +1,11 @@
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyComputerRecipeCategory ]
+  id: ShuttleRemoteControlSystemCircuitboard
+  icon: _CorvaxGoob/Structures/Machines/Icons/Computers/teleport.png
+  result: ShuttleRemoteControlSystemCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyComputerRecipeCategory ]
+  id: ComputerIFFCircuitboard
+  icon: _CorvaxGoob/Structures/Machines/Icons/Computers/helm.png
+  result: ComputerIFFCircuitboard
