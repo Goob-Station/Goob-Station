@@ -33,7 +33,7 @@
   lastNames: NamesMothLast
   # begin Goobstation: port EE height/width sliders
   # Moths have massive sprites, so they can get away with being scaled smaller (totally not biased)
-  minHeight: 0.75
+  minHeight: 0.8
   defaultHeight: 1
   maxHeight: 1.20
   minWidth: 0.80
