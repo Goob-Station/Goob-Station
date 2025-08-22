@@ -182,7 +182,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 1.5 # moths burn more easily
+        Heat: 1.5 # moths burn more easily # Goobstation
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
