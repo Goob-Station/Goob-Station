@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 03:13:47
+  time: 08/22/2025 04:05:58
   entityCount: 13920
 maps:
 - 1
@@ -4291,7 +4291,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            5: 546
+            6: 546
           -12,5:
             0: 1
             1: 3856
@@ -4300,7 +4300,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            6: 546
+            5: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4661,9 +4661,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4680,9 +4680,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -10882,6 +10882,19 @@ entities:
     - type: Transform
       pos: -50.5,18.5
       parent: 2
+- proto: Autolathe
+  entities:
+  - uid: 904
+    components:
+    - type: Transform
+      pos: -20.5,12.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 9616
@@ -78185,14 +78198,6 @@ entities:
           - Reverse
         - - Middle
           - Off
-- proto: UnfinishedMachineFrame
-  entities:
-  - uid: 904
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.5,12.5
-      parent: 2
 - proto: UniformPrinter
   entities:
   - uid: 11691
@@ -88510,6 +88515,11 @@ entities:
       parent: 2
 - proto: WindoorSecureSalvageLocked
   entities:
+  - uid: 5262
+    components:
+    - type: Transform
+      pos: 22.5,15.5
+      parent: 2
   - uid: 5287
     components:
     - type: Transform
@@ -88808,11 +88818,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,15.5
-      parent: 2
-  - uid: 5262
-    components:
-    - type: Transform
-      pos: 22.5,15.5
       parent: 2
   - uid: 5289
     components:

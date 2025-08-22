@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 03:21:15
-  entityCount: 15513
+  time: 08/22/2025 04:07:07
+  entityCount: 15514
 maps:
 - 1
 grids:
@@ -1362,7 +1362,8 @@ entities:
           18,0:
             0: 4081
           19,-4:
-            0: 47887
+            0: 39695
+            7: 8192
           19,-3:
             0: 12288
             1: 2048
@@ -2001,6 +2002,25 @@ entities:
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -8879,7 +8899,7 @@ entities:
       pos: 28.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26397.385
+      secondsUntilStateChange: -26439.88
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10946,6 +10966,19 @@ entities:
     - type: Transform
       pos: 48.5,-31.5
       parent: 2
+- proto: Autolathe
+  entities:
+  - uid: 10803
+    components:
+    - type: Transform
+      pos: 29.5,-17.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
 - proto: BananaPhoneInstrument
   entities:
   - uid: 605
@@ -69541,8 +69574,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -69563,13 +69596,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 13696
           - 13534
-          - 13537
-          - 13649
-          - 13692
-          - 13700
           - 13701
+          - 13700
+          - 13692
+          - 13649
+          - 13537
+          - 13696
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
