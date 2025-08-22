@@ -154,6 +154,10 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 14400 # 4 hours
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30

@@ -208,6 +208,8 @@
     - 0,0,1,3
     - 3,0,6,3
     - 8,0,9,3
+  - type: StealTarget # CorvaxGoob-Bugfixes
+    stealGroup: ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingModsuitHelmetParamedic

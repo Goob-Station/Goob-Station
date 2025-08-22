@@ -59,10 +59,10 @@
   - type: StorageFill
     contents:
     - id: CartridgeSaline
-      amount: 3
+      amount: 1
     - id: CartridgeBicaridine
-      amount: 3
+      amount: 1
     - id: CartridgeDermaline
-      amount: 3
+      amount: 1
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi

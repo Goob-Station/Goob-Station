@@ -35,8 +35,6 @@
     - id: RegenerativeMesh
     - id: CartridgeBicaridine
     - id: CartridgeDermaline
-    - id: CartridgeSaline
-    - id: CartridgeEpinephrine
 
 - type: entity
   id: MedkitBSOIPCFilled

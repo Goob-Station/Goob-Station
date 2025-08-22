@@ -939,6 +939,7 @@
       blacklist:
         components:
         - AntagImmune
+        - CommandStaff
       components: # CorvaxGoob-Skills
       - type: Skills
         skills:
@@ -1081,3 +1082,24 @@
       min: 1
       max: 1
       pickPlayer: false
+
+- type: entity
+  id: AncientRogueKingSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 8
+    duration: 10
+    minimumPlayers: 45
+    chaos: # Goobstation
+      Hostile: 100
+      Friend: 20
+      Combat: 100
+      Death: 100
+      Medical: 100
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: RandomSpawnRule
+    prototype: CMMobXenoRogueKingSentient
