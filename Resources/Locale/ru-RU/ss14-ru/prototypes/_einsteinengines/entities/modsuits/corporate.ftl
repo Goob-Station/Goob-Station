@@ -11,3 +11,6 @@ ent-ClothingModsuitBootsCorporate = ботинки корпоративного 
 ent-SuitStorageCorporate = { ent-SuitStorageBase }
     .suffix = модульный корпоративный скафандр
     .desc = { ent-SuitStorageBase.desc }
+ent-ClothingModsuitCorporateFilled = { ent-ClothingModsuitCorporate }
+    .suffix = Заполненный
+    .desc = { ent-ClothingModsuitCorporate.desc }

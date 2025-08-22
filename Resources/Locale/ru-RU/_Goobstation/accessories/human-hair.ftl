@@ -58,3 +58,4 @@ marking-HumanHairStyledCurls = Оформленные кудри
 marking-HumanHairUnkemptScientist = Неопрятный учёный
 marking-HumanHairWispy = Лёгкие пряди
 marking-HumanHairSpikeHawk = Колючий ирокез
+marking-HumanHairLongTwinTails = Длинные хвостики

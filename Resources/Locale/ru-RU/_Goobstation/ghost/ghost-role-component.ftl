@@ -75,6 +75,12 @@ justice-role-description = Помогай ГСБ с арестами, выкри
 
 # Token Roles
 
+ghost-role-information-ancient-queen-name = Древняя королева ксено
+ghost-role-information-ancient-king-name = Древний король ксено
+ghost-role-information-ancient-rogue-king-name = Древний ксено король-отступник
+ghost-role-information-ancient-xeno-description = Существо, которое считалось вымершим, и всё же...
+ghost-role-information-ancient-rogue-king-description = Одинокий король, в глазах которого только жажда мести. Не знай пощады!
+ghost-role-information-ancient-rogue-king-rules = Ты никому не преклоняешься. Убей любого, кто встанет у тебя на пути.
 ghost-role-information-description-token-generic = Не берите эту роль, если не активировали токен!
 ghost-role-information-space-ninja-name-token = Космический Ниндзя (Токен)
 ghost-role-information-space-dragon-name-token = Космический Дракон (Токен)
@@ -85,3 +91,4 @@ ghost-role-information-bingle-name-token = Бингл (Токен)
 blob-carrier-role-name-token = Носитель Блоба (Токен)
 abductor-lone-ghost-role-name-token = Одинокий Абдуктор (Токен)
 roles-wizard-name-token = Волшебник (Токен)
+ghost-role-information-ancient-rogue-king-name-token = Древний ксено король-отступник (Токен)

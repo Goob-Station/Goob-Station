@@ -46,6 +46,7 @@ abductor-role-greeting =
 roles-antag-abductor-objective = Похищай экипаж станции и проводи над ними эксперименты!
 abductor-victim-role-greeting = Ты видел то, чего не должен был видеть. Мир должен узнать правду.
 abductor-victim-role-name = Похищенный
+abductor-victim-role-name-freeagent = Абдукти (Свободный агент)
 abductor-victim-role-desc = Ты видел то, чего не должен был видеть. Мир должен узнать правду.
 objective-issuer-voices = [color=#FD0098]Голоса[/color]
 abductor-ui-pad-found = планшет: [color=green]подключён[/color]

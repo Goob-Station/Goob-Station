@@ -71,6 +71,7 @@ guide-entry-brute =
     Продвинутое лечение
     механических повреждений
 guide-entry-botanical = Ботанические
+guide-entry-plastic = Пластиковая продукция
 guide-entry-cloning = Клонирование
 guide-entry-cryogenics = Криогеника
 guide-entry-science = Научный отдел

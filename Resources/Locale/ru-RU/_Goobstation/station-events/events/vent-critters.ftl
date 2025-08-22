@@ -5,3 +5,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 goob-station-event-vent-creatures-skibidi-start-announcement = Внимание. На станции обнаружены высокие уровни .... Пожалуйста, избавьтесь от этих существ, прежде чем станция превратится в руины. Это правда?
+goob-station-event-vent-creatures-ancient-xenos-start-announcement = Внимание. На станции обнаружены крупные неопознанные формы жизни. Обеспечьте безопасность всех внешних входов, включая вентиляцию и воздуховоды.

@@ -16,3 +16,5 @@ ent-LoneAbductorSpawnerToken = { ent-LoneAbductorSpawner }
     .desc = { ent-LoneAbductorSpawner.desc }
 ent-SpawnPointWizardToken = { ent-SpawnPointWizard }
     .desc = { ent-SpawnPointWizard.desc }
+ent-AncientRogueKingToken = { ent-CMMobXenoRogueKingSentient }
+    .desc = { ent-CMMobXenoRogueKingSentient.desc }

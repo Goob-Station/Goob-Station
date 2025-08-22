@@ -28,3 +28,5 @@ ent-HolyBulletCharge = святой болт
     .desc = Отмечает цель для дополнительного святого урона.
 ent-BulletPistolSilver = пуля (.45 серебряная)
     .desc = { ent-BaseBullet.desc }
+ent-BulletFlock = шоковый болт
+    .desc = { ent-BaseBullet.desc }
