@@ -81,7 +81,7 @@
     baseAcceleration: 8
     baseFriction: 0.2 # wheels dont stop instantly
     baseSprintSpeed: 8.5
-    baseWalkSpeed: 6.5 # default walking speed 
+    baseWalkSpeed: 4.5 # default walking speed 
   - type: ItemSlots
     slots:
       key_slot:
