@@ -23,12 +23,12 @@
   femaleFirstNames: NamesTajaranFirst
   lastNames: NamesTajaranLast
   # begin Goobstation: port EE height/width sliders
-  minHeight: 0.75
+  minHeight: 0.80
   defaultHeight: 0.80
   maxHeight: 1.15
   minWidth: 0.80
   defaultWidth: 0.80
-  maxWidth: 1.10
+  maxWidth: 1.15
   # end Goobstation: port EE height/width sliders
 
 - type: markingPoints
