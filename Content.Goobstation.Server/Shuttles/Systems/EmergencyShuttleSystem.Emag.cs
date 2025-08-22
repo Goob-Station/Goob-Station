@@ -16,7 +16,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 
-namespace Content.Goobstation.Server.Shuttle;
+namespace Content.Goobstation.Server.Shuttles.Systems;
 
 public sealed class GoobEmergencyShuttleSystem : EntitySystem
 {

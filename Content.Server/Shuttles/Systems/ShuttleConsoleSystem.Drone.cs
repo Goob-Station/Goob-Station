@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Shuttles;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared.Station.Components;
@@ -68,6 +69,15 @@ public sealed partial class ShuttleConsoleSystem
         if (!Resolve(uid, ref component))
             return null;
 
+        // Goobstation edit start
+        if (component.LinkControl)
+        {
+            var ev = new DroneGetLinkedShuttleEvent();
+            RaiseLocalEvent(uid, ref ev);
+            return ev.Found;
+        }
+        // Goobstation edit end
+
         var stationUid = _station.GetOwningStation(uid);
 
         if (stationUid == null)
@@ -80,7 +90,8 @@ public sealed partial class ShuttleConsoleSystem
         {
             if (xform.GridUid == null ||
                 !TryComp<StationMemberComponent>(xform.GridUid, out var member) ||
-                member.Station != stationUid)
+                member.Station != stationUid
+                || component.Components == null) // Goobstation edit - "Components" are nullable
             {
                 continue;
             }

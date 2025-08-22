@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Shuttles;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.BUIStates;
@@ -21,6 +22,7 @@ public sealed partial class ShuttleSystem
         SubscribeLocalEvent<IFFConsoleComponent, AnchorStateChangedEvent>(OnIFFConsoleAnchor);
         SubscribeLocalEvent<IFFConsoleComponent, IFFShowIFFMessage>(OnIFFShow);
         SubscribeLocalEvent<IFFConsoleComponent, IFFShowVesselMessage>(OnIFFShowVessel);
+
         SubscribeLocalEvent<GridSplitEvent>(OnGridSplit);
     }
 
@@ -51,6 +53,13 @@ public sealed partial class ShuttleSystem
             return;
         }
 
+        // Goobstation edit start
+        var ev = new IFFSettingsChangeAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
+        if (!ev.CanChange)
+            return;
+        // Goobstation edit end
+
         if (!args.Show)
         {
             AddIFFFlag(xform.GridUid.Value, IFFFlags.HideLabel);
@@ -69,6 +78,13 @@ public sealed partial class ShuttleSystem
             return;
         }
 
+        // Goobstation edit start
+        var ev = new IFFSettingsChangeAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
+        if (!ev.CanChange)
+            return;
+        // Goobstation edit end
+
         if (!args.Show)
         {
             AddIFFFlag(xform.GridUid.Value, IFFFlags.Hide);
@@ -81,15 +97,19 @@ public sealed partial class ShuttleSystem
 
     private void OnIFFConsoleAnchor(EntityUid uid, IFFConsoleComponent component, ref AnchorStateChangedEvent args)
     {
+        if (!TryComp(uid, out TransformComponent? xform)) // CorvaxGoob-IIF-Improves
+            return;
+
         // If we anchor / re-anchor then make sure flags up to date.
         if (!args.Anchored ||
-            !TryComp(uid, out TransformComponent? xform) ||
-            !TryComp<IFFComponent>(xform.GridUid, out var iff))
+            !TryComp<IFFComponent>(xform.GridUid, out var iff)) // CorvaxGoob-IFF-Changes : removed !TryComp(uid, out TransformComponent? xform)
         {
             _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
             {
                 AllowedFlags = component.AllowedFlags,
                 Flags = IFFFlags.None,
+                Name = xform.GridUid.HasValue ? MetaData(xform.GridUid.Value).EntityName : null, // CorvaxGoob-IIF-Improves
+                Color = Color.Gold // CorvaxGoob-IIF-Improves
             });
         }
         else
@@ -98,6 +118,8 @@ public sealed partial class ShuttleSystem
             {
                 AllowedFlags = component.AllowedFlags,
                 Flags = iff.Flags,
+                Name = MetaData(xform.GridUid.Value).EntityName, // CorvaxGoob-IIF-Improves
+                Color = iff.Color // CorvaxGoob-IIF-Improves
             });
         }
     }
@@ -116,6 +138,8 @@ public sealed partial class ShuttleSystem
             {
                 AllowedFlags = comp.AllowedFlags,
                 Flags = component.Flags,
+                Name = MetaData(gridUid).EntityName, // CorvaxGoob-IIF-Improves
+                Color = component.Color // CorvaxGoob-IIF-Improves
             });
         }
     }

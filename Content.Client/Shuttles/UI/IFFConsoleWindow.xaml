@@ -24,5 +24,12 @@ SPDX-License-Identifier: MIT
                 <Button Name="ShowVesselOffButton" Text="{Loc 'iff-console-off'}" StyleClasses="OpenLeft" />
             </BoxContainer>
         </GridContainer>
+        <!--CorvaxGoob-IFF-Improves-Start-->
+        <RichTextLabel Text="{Loc 'iff-console-label-radar-visualization'}"/>
+        <ColorSelectorSliders Name="ColorPicker" Access="Public">
+            <Button SetSize="130 28" Name="ApplySettings" Text="{Loc 'iff-console-button-apply-settings'}" Margin="230 -88 0 0"/>
+            <LineEdit SetSize="150 28" Name="ShuttleName" Margin="-52 -88 0 0" PlaceHolder="{Loc 'iff-console-textbox-shuttle-name'}"/>
+        </ColorSelectorSliders>
+        <!--CorvaxGoob-IFF-Improves-End-->
     </BoxContainer>
 </controls:FancyWindow>

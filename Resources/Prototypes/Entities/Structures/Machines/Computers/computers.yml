@@ -370,13 +370,15 @@
     guides:
     - ShuttleCraft
   # Frontier edit start
+  - type: DeviceLinkSink
+    ports:
+    - ShuttleDroneReceiver
   - type: DeviceLinkSource
     ports:
     - SignalShuttleConsole1
     - SignalShuttleConsole2
     - SignalShuttleConsole3
     - SignalShuttleConsole4
-    range: 90
   # Frontier edit end
 
 - type: entity

@@ -16,12 +16,19 @@ namespace Content.Server.Shuttles;
 [RegisterComponent]
 public sealed partial class DroneConsoleComponent : Component
 {
-    [DataField("components", required: true)]
-    public ComponentRegistry Components = default!;
+    [DataField("components")] // Goobstation edit - removed required
+    public ComponentRegistry? Components; // Goobstation edit - made nullable
 
     /// <summary>
     /// <see cref="ShuttleConsoleComponent"/> that we're proxied into.
     /// </summary>
     [DataField("entity")]
     public EntityUid? Entity;
+
+    /// <summary>
+    /// Goobstation
+    /// If true, will control the shuttle based on the linked console, instead of a component whitelist.
+    /// </summary>
+    [DataField]
+    public bool LinkControl;
 }

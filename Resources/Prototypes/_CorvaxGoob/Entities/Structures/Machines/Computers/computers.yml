@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleRemoteControlSystem
+  name: shuttle remote control system console
+  description: Multifunctional remote control system for long-range shuttles.
+  components:
+  - type: DeviceLinkSource
+    range: 200
+    ports:
+    - ShuttleDroneTransmitter
+  - type: DroneConsole
+    linkControl: true
+  - type: RadarConsole
+    maxRange: 256
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: teleport
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: ShuttleRemoteControlSystemCircuitboard
