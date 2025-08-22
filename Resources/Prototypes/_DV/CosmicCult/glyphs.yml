@@ -63,6 +63,7 @@
     activationDamage:
       types:
         Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -83,6 +84,7 @@
     activationDamage:
       types:
         Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -102,6 +104,7 @@
     activationDamage:
       types:
         Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -121,6 +124,7 @@
     activationDamage:
       types:
         Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -140,6 +144,7 @@
     activationDamage:
       types:
         Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 
@@ -157,5 +162,9 @@
   - type: CosmicGlyph
     requiredCultists: 1
     eraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
+    activationDamage:
+      types:
+        Asphyxiation: 25
+        Ion: 25
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection

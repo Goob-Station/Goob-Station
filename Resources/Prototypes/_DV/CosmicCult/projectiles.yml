@@ -116,12 +116,14 @@
       types:
         Cold: 15
         Asphyxiation: 10
+        Ion: 15
   - type: Projectile
     impactEffect: BulletImpactEffectCosmic
     damage:
       types:
         Cold: 10
         Asphyxiation: 5
+        Ion: 8
 
 - type: entity
   id: BulletImpactEffectCosmic

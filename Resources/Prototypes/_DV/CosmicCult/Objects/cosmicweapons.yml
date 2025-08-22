@@ -108,7 +108,7 @@
     animation: WeaponArcCosmic
     attackRate: 0.62
     damage:
-      types:
+      types: # Goobstation
         Piercing: 15
         Cold: 5
         Asphyxiation: 5

@@ -1,0 +1,5 @@
+- type: damageGroup
+  id: Electronic
+  name: damage-group-electronic
+  damageTypes:
+    - Ion

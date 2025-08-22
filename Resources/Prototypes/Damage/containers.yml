@@ -61,7 +61,7 @@
   id: Silicon
   supportedGroups:
     - Brute
-    - Electronic # Goobstation
+    - Electronic # DeltaV
   supportedTypes:
     - Heat
     - Shock
