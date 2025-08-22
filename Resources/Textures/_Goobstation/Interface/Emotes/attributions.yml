@@ -20,6 +20,11 @@
   copyright: "Modified standart laught.png icon by BombasterDS)"
   source: "https://github.com/BombasterDS"
 
+- files: [surprised.png]
+  license: "CC-BY-SA-3.0"
+  copyright: taken from TG station (i think, was in closet.rsi)
+  source: https://github.com/tgstation/tgstation
+
 - files: ["mew.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
