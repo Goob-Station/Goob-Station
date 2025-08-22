@@ -26,4 +26,4 @@ chat-emote-msg-jump = jumps!
 chat-emote-msg-tweak = starts tweaking!
 chat-emote-msg-flex = flexes its muscles.
 chat-emote-msg-gulp = gulps.
-chat-emote-msg-surprised = looks surprised
+chat-emote-msg-surprised = looks surprised.
