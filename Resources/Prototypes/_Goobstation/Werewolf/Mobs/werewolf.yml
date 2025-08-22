@@ -6,9 +6,49 @@
 - type: entity
   id: BaseMobWerewolf
   name: Werewolf
+  abstract: true
   parent: BaseMobSpeciesOrganic
   components:
   - type: Hunger
+    startingHunger: 100
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    starvationDamage:
+      types:
+       Poison: 5
+  - type: PassiveDamageHunger
+    hungerThresholds:
+      Overfed:
+        groups:
+          Brute: -10
+          Burn: -10
+          Toxin: -10
+          Metaphysical: -10
+          Airloss: -10
+      Okay:
+        groups:
+          Brute: -5
+          Burn: -5
+          Toxin: -5
+          Metaphysical: -5
+          Airloss: -5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 1.5
+  - type: Prying
+    pryPowered: true
+    speedModifier: 0.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: HumanoidAppearance
     species: SlimePerson # add werewolf
   - type: Body
@@ -25,7 +65,6 @@
     - ActionWerewolfGut
     - ActionWerewolfAmbush
     - ActionWerewolfHowl
-    - ActionWerewolfSmokescreen
     - ActionWerewolfCursedBite
   - type: Fixtures
     fixtures:
@@ -52,8 +91,6 @@
     newDamageModifier: WerewolfHowl
   - type: GrantWerewolfMoves
   - type: WerewolfCounter
-  - type: WerewolfSmokescreen
-    spreadAmount: 30
   - type: WerewolfCursedBite
     startingForm: DefaultFormWerewolf
     pathLockedForm: DefaultFormWerewolf
@@ -64,4 +101,44 @@
     damage:
       types:
        Piercing: 45
+
+# All Form Entities
+- type: entity
+  id: BaseWerewolf
+  name: Werewolf
+  parent: BaseMobWerewolf
+
+- type: entity
+  id: MistyWerewolf
+  name: Misty Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionRevertPolymorph
+    - ActionWerewolfGut
+    - ActionWerewolfAmbush
+    - ActionWerewolfHowl
+    - ActionWerewolfSmokescreen
+  - type: WerewolfSmokescreen
+    spreadAmount: 30
+
+- type: entity
+  id: BlackWerewolf
+  name: Black Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionRevertPolymorph
+    - ActionWerewolfGut
+    - ActionWerewolfAmbush
+    - ActionWerewolfHowl
+    - ActionWerewolfCursedBite
+  - type: WerewolfCursedBite
+    startingForm: DefaultFormWerewolf
+    pathLockedForm: DefaultFormWerewolf
+    formsToTransfer:
+    - DefaultFormWerewolf
+    - ExplosiveFormWerewolf
 
