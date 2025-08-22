@@ -217,7 +217,7 @@
 - type: entity
   name: burn autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 5u of kelotane, 4u of dermaline 1u of lepo, used in a cartridge autoinjector.
+  description: Contains 5u of kelotane, 4u of dermaline 1u of leporazine, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
