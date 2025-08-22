@@ -566,7 +566,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.Age = profile.Age;
 
-        // begin Goobstation: port EE height/width sliders
+        // CorvaxGoob-Clearing
+/*        // begin Goobstation: port EE height/width sliders
         var species = _proto.Index(humanoid.Species);
 
         if (profile.Height <= 0 || profile.Width <= 0)
@@ -575,7 +576,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             SetScale(uid, new Vector2(profile.Width, profile.Height), true, humanoid);
 
         _heightAdjust.SetScale(uid, new Vector2(humanoid.Width, humanoid.Height));
-        // end Goobstation: port EE height/width sliders
+        // end Goobstation: port EE height/width sliders*/
 
         RaiseLocalEvent(uid, new ProfileLoadFinishedEvent()); // Shitmed Change
         Dirty(uid, humanoid);

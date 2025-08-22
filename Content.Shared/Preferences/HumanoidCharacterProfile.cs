@@ -142,14 +142,6 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
-        // begin Goobstation: port EE height/width sliders
-        [DataField]
-        public float Height { get; private set; }
-
-        [DataField]
-        public float Width { get; private set; }
-        // end Goobstation: port EE height/width sliders
-
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -548,8 +540,8 @@ namespace Content.Shared.Preferences
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
-            if (Height != other.Height) return false; // Goobstation: port EE height/width sliders
-            if (Width != other.Width) return false; // Goobstation: port EE height/width sliders
+            // if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            // if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
@@ -697,8 +689,8 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Age = age;
-            Height = height; // Goobstation: port EE height/width sliders
-            Width = width; // Goobstation: port EE height/width sliders
+            // Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            // Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
@@ -821,8 +813,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
-            hashCode.Add(Height); // Goobstation: port EE height/width sliders
-            hashCode.Add(Width); // Goobstation: port EE height/width sliders
+            // hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            // hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             hashCode.Add(Age);
             hashCode.Add((int) Sex);
             hashCode.Add((int) Gender);
