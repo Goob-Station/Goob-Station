@@ -139,7 +139,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Chemistry/vial_bluespace.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
     layers:
       - state: icon
   - type: SolutionContainerVisuals
