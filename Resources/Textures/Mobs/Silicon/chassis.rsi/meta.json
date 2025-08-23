@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc, derelict sprites modified by GoldenCan(GitHub), huborg sprites by venikt (760006609254219790) on discord, xenoborg sprites, created and modified by Samuka-C (github).",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc, derelict sprites modified by GoldenCan(GitHub), huborg sprites by venikt (760006609254219790) on discord, xenoborg sprites, created and modified by Samuka-C (github). | Derelict Engineer, Janitor, Miner, Medical, and Assault Borg sprites by _miket on Discord.",
   "states": [
     {
       "name": "clown",
@@ -105,6 +105,40 @@
       "name": "janitor_l",
       "directions": 4
     },
+      {
+          "name": "janitor_derelict",
+          "directions": 4
+      },
+      {
+          "name": "janitor_moving_derelict",
+          "directions": 4,
+          "delays": [
+              [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+              ]
+          ]
+      },
     {
       "name": "medical",
       "directions": 4,
@@ -169,6 +203,58 @@
       "name": "medical_l",
       "directions": 4
     },
+      {
+          "name": "medical_derelict",
+          "directions": 4,
+          "delays": [
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ]
+          ]
+      },
+      {
+          "name": "medical_moving_derelict",
+          "directions": 4,
+          "delays": [
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.2,
+                  0.1
+              ]
+          ]
+      },
     {
       "name": "miner",
       "directions": 4
@@ -207,6 +293,32 @@
       "name": "miner_l",
       "directions": 4
     },
+      {
+          "name": "miner_derelict",
+          "directions": 4
+      },
+      {
+          "name": "miner_moving_derelict",
+          "directions": 4,
+          "delays": [
+              [
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1
+              ],
+              [
+                  0.1,
+                  0.1
+              ]
+          ]
+      },
     {
       "name": "robot",
       "directions": 4
@@ -267,6 +379,18 @@
       "name": "synd_sec_l",
       "directions": 4
     },
+      {
+          "name": "synd_sec_derelict",
+          "directions": 4
+      },
+      {
+          "name": "synd_sec_derelict_e",
+          "directions": 4
+      },
+      {
+          "name": "synd_sec_derelict_l",
+          "directions": 4
+      },
     {
       "name": "synd_medical",
       "directions": 4
