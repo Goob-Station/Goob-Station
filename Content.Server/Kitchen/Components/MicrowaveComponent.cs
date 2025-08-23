@@ -63,6 +63,9 @@
 using Content.Shared.DeviceLinking;
 using Content.Shared.Item;
 using Robust.Shared.Audio;
+using Content.Shared.Kitchen; // Frontier
+using Robust.Shared.Serialization; // Frontier
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -171,6 +174,13 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanMicrowaveIdsSafely = true;
+
+        // Frontier: recipe type
+        /// <summary>
+        /// the types of recipes that this "microwave" can handle.
+        /// </summary>
+        [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>)), ViewVariables(VVAccess.ReadWrite)]
+        public int ValidRecipeTypes = (int)MicrowaveRecipeType.Microwave;
     }
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
