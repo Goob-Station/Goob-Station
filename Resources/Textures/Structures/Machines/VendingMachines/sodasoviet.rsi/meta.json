@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken at commit https://github.com/Baystation12/Baystation12/commit/c39dcc148c04065ebac05f63bf3a556e8f21cac4",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/1516a728931b4985c1e86f0c5995a5aa1554a1ad and modified by Swept",
   "size": {
     "x": 32,
     "y": 32
@@ -9,75 +9,48 @@
   "states": [
     {
       "name": "normal-unshaded",
-      "directions": 4
-    },
-    {
-      "name": "eject-unshaded",
-      "directions": 4,
       "delays": [
         [
+          3,
           0.1,
+          1,
+          0.2,
+          1,
+          3,
           0.1,
-          0.8,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.8,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.8,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.8,
-          0.1,
-          0.1
+          0.2
         ]
       ]
+    },
+    {
+      "name": "broken"
     },
     {
       "name": "deny-unshaded",
-      "directions": 4,
       "delays": [
         [
-          0.4,
-          0.4
-        ],
-        [
-          0.4,
-          0.4
-        ],
-        [
-          0.4,
-          0.4
-        ],
-        [
-          0.4,
-          0.4
+          0.1,
+          0.1
         ]
       ]
     },
     {
-      "name": "off",
-      "directions": 4
+      "name": "off"
     },
     {
-      "name": "broken",
-      "directions": 4
+      "name": "panel"
     },
     {
-      "name": "panel",
-      "directions": 4
+      "name": "eject-unshaded",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }

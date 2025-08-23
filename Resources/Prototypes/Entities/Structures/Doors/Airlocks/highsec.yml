@@ -136,6 +136,7 @@
     fuel: 10
     time: 10
   - type: Airlock
+    openUnlitVisible: true # Corvax-Goob-RespriteAirlocks
   - type: NavMapDoor
   - type: DoorBolt
   - type: AccessReader
