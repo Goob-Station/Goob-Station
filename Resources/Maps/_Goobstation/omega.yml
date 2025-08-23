@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 04:05:58
-  entityCount: 13920
+  time: 08/23/2025 01:29:07
+  entityCount: 13932
 maps:
 - 1
 grids:
@@ -4291,7 +4291,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            6: 546
+            5: 546
           -12,5:
             0: 1
             1: 3856
@@ -4300,7 +4300,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            5: 546
+            6: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4661,9 +4661,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -4680,9 +4680,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -10882,19 +10882,6 @@ entities:
     - type: Transform
       pos: -50.5,18.5
       parent: 2
-- proto: Autolathe
-  entities:
-  - uid: 904
-    components:
-    - type: Transform
-      pos: -20.5,12.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 9616
@@ -33361,11 +33348,11 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersService
   entities:
-  - uid: 11298
+  - uid: 11720
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -18.5,-1.5
+      rot: -1.5707963267948966 rad
+      pos: -17.5,-1.5
       parent: 2
 - proto: ComputerComms
   entities:
@@ -63041,6 +63028,12 @@ entities:
       parent: 2
 - proto: MachineFrame
   entities:
+  - uid: 904
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,12.5
+      parent: 2
   - uid: 4975
     components:
     - type: Transform
@@ -71082,6 +71075,66 @@ entities:
     - type: Transform
       pos: 32.5,0.5
       parent: 2
+  - uid: 13921
+    components:
+    - type: Transform
+      pos: 54.5,-4.5
+      parent: 2
+  - uid: 13922
+    components:
+    - type: Transform
+      pos: 50.5,-4.5
+      parent: 2
+  - uid: 13923
+    components:
+    - type: Transform
+      pos: 50.5,-0.5
+      parent: 2
+  - uid: 13924
+    components:
+    - type: Transform
+      pos: 54.5,-0.5
+      parent: 2
+  - uid: 13925
+    components:
+    - type: Transform
+      pos: 23.5,-1.5
+      parent: 2
+  - uid: 13926
+    components:
+    - type: Transform
+      pos: -37.5,-6.5
+      parent: 2
+  - uid: 13927
+    components:
+    - type: Transform
+      pos: -27.5,15.5
+      parent: 2
+  - uid: 13928
+    components:
+    - type: Transform
+      pos: -27.5,15.5
+      parent: 2
+  - uid: 13929
+    components:
+    - type: Transform
+      pos: -16.5,-14.5
+      parent: 2
+  - uid: 13930
+    components:
+    - type: Transform
+      pos: 21.5,19.5
+      parent: 2
+  - uid: 13931
+    components:
+    - type: Transform
+      pos: 8.5,-16.5
+      parent: 2
+  - uid: 13932
+    components:
+    - type: Transform
+      pos: -4.5,36.5
+      parent: 2
 - proto: SecurityTechFab
   entities:
   - uid: 10647
@@ -74239,6 +74292,12 @@ entities:
       parent: 2
 - proto: SpawnVehicleChairOfficeLight
   entities:
+  - uid: 11298
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -18.5,-1.5
+      parent: 2
   - uid: 13547
     components:
     - type: Transform
@@ -78413,11 +78472,6 @@ entities:
       parent: 2
 - proto: VendingMachineCoffee
   entities:
-  - uid: 11720
-    components:
-    - type: Transform
-      pos: -17.5,-1.5
-      parent: 2
   - uid: 11721
     components:
     - type: MetaData

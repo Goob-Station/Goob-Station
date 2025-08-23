@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 04:07:07
-  entityCount: 15514
+  time: 08/23/2025 01:39:08
+  entityCount: 15528
 maps:
 - 1
 grids:
@@ -8899,7 +8899,7 @@ entities:
       pos: 28.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -26439.88
+      secondsUntilStateChange: -26958.852
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10966,19 +10966,13 @@ entities:
     - type: Transform
       pos: 48.5,-31.5
       parent: 2
-- proto: Autolathe
+- proto: AutolatheMachineCircuitboard
   entities:
-  - uid: 10803
+  - uid: 15528
     components:
     - type: Transform
-      pos: 29.5,-17.5
+      pos: 33.533756,-14.307873
       parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
 - proto: BananaPhoneInstrument
   entities:
   - uid: 605
@@ -39220,6 +39214,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 107.5,-13.5
       parent: 2
+  - uid: 10803
+    components:
+    - type: Transform
+      pos: 83.5,8.5
+      parent: 2
   - uid: 15274
     components:
     - type: Transform
@@ -40925,6 +40924,23 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 29.5,27.5
+      parent: 2
+- proto: DefibrillatorCompact
+  entities:
+  - uid: 10218
+    components:
+    - type: Transform
+      pos: 30.502846,30.783041
+      parent: 2
+  - uid: 13185
+    components:
+    - type: Transform
+      pos: 46.683807,2.8543243
+      parent: 2
+  - uid: 15254
+    components:
+    - type: Transform
+      pos: 46.683807,2.8543243
       parent: 2
 - proto: DeployableBarrier
   entities:
@@ -47936,14 +47952,6 @@ entities:
     - type: Transform
       pos: 35.53611,17.66077
       parent: 2
-- proto: FoodBreadBananaSlice
-  entities:
-  - uid: 7088
-    components:
-    - type: Transform
-      rot: 4.008621544926427E-05 rad
-      pos: 83.58996,8.734995
-      parent: 2
 - proto: FoodBurgerMcrib
   entities:
   - uid: 5826
@@ -47979,6 +47987,13 @@ entities:
     - type: Transform
       pos: 36.093643,-12.174504
       parent: 2
+- proto: FoodCondimentPacketBbq
+  entities:
+  - uid: 15522
+    components:
+    - type: Transform
+      pos: 83.37133,7.372365
+      parent: 2
 - proto: FoodFrozenPopsicleTrash
   entities:
   - uid: 7093
@@ -48013,6 +48028,13 @@ entities:
     - type: CollisionWake
       enabled: False
     - type: Conveyed
+- proto: FoodMealBearsteak
+  entities:
+  - uid: 15521
+    components:
+    - type: Transform
+      pos: 83.477715,7.5425777
+      parent: 2
 - proto: FoodMeat
   entities:
   - uid: 7098
@@ -48040,6 +48062,20 @@ entities:
     - type: Transform
       pos: 31.453972,-12.339076
       parent: 2
+- proto: FoodMeatAnomalyCooked
+  entities:
+  - uid: 15429
+    components:
+    - type: Transform
+      pos: 83.49899,7.6276836
+      parent: 2
+- proto: FoodMeatDragonCooked
+  entities:
+  - uid: 15520
+    components:
+    - type: Transform
+      pos: 83.52026,7.64896
+      parent: 2
 - proto: FoodPieBananaCream
   entities:
   - uid: 7103
@@ -48066,6 +48102,13 @@ entities:
     components:
     - type: Transform
       pos: 27.383966,6.5099545
+      parent: 2
+- proto: FoodPlate
+  entities:
+  - uid: 10932
+    components:
+    - type: Transform
+      pos: 83.49899,7.8617268
       parent: 2
 - proto: FoodPlateSmallTrash
   entities:
@@ -48166,6 +48209,13 @@ entities:
     components:
     - type: Transform
       pos: 67.5,38.5
+      parent: 2
+- proto: Fork
+  entities:
+  - uid: 15523
+    components:
+    - type: Transform
+      pos: 83.17984,8.287258
       parent: 2
 - proto: ForkPlastic
   entities:
@@ -62990,11 +63040,6 @@ entities:
     - type: Transform
       pos: 89.5,-1.5
       parent: 2
-  - uid: 8988
-    components:
-    - type: Transform
-      pos: 84.5,6.5
-      parent: 2
   - uid: 8989
     components:
     - type: Transform
@@ -63077,11 +63122,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,18.5
       parent: 2
-  - uid: 5645
-    components:
-    - type: Transform
-      pos: 14.5,47.5
-      parent: 2
   - uid: 5646
     components:
     - type: Transform
@@ -63091,6 +63131,11 @@ entities:
     components:
     - type: Transform
       pos: 16.5,47.5
+      parent: 2
+  - uid: 7088
+    components:
+    - type: Transform
+      pos: 84.5,6.5
       parent: 2
   - uid: 8997
     components:
@@ -69118,6 +69163,13 @@ entities:
     - type: Transform
       pos: 31.5,-12.5
       parent: 2
+- proto: KnifePlastic
+  entities:
+  - uid: 15524
+    components:
+    - type: Transform
+      pos: 83.83942,8.244705
+      parent: 2
 - proto: Lamp
   entities:
   - uid: 10107
@@ -69684,6 +69736,11 @@ entities:
       parent: 2
 - proto: MachineFrame
   entities:
+  - uid: 5637
+    components:
+    - type: Transform
+      pos: 29.5,-17.5
+      parent: 2
   - uid: 10181
     components:
     - type: Transform
@@ -69949,11 +70006,6 @@ entities:
     - type: Transform
       pos: 18.523928,24.634445
       parent: 2
-  - uid: 10218
-    components:
-    - type: Transform
-      pos: 46.54082,2.560578
-      parent: 2
   - uid: 10219
     components:
     - type: Transform
@@ -69963,6 +70015,11 @@ entities:
     components:
     - type: Transform
       pos: 57.486534,-3.4860651
+      parent: 2
+  - uid: 12529
+    components:
+    - type: Transform
+      pos: 46.364655,2.5564523
       parent: 2
   - uid: 14867
     components:
@@ -70759,6 +70816,11 @@ entities:
     - type: Transform
       pos: 34.02968,41.62158
       parent: 2
+  - uid: 15527
+    components:
+    - type: Transform
+      pos: 85.52729,7.2962914
+      parent: 2
 - proto: PianoInstrument
   entities:
   - uid: 10325
@@ -70954,6 +71016,13 @@ entities:
     components:
     - type: Transform
       pos: 6.0254927,-3.2604024
+      parent: 2
+- proto: PlushieDurk
+  entities:
+  - uid: 12254
+    components:
+    - type: Transform
+      pos: 83.477715,8.436194
       parent: 2
 - proto: PlushieNar
   entities:
@@ -71240,6 +71309,13 @@ entities:
     components:
     - type: Transform
       pos: 41.5,-9.5
+      parent: 2
+- proto: PosterLegitGoobDurkPlush
+  entities:
+  - uid: 5645
+    components:
+    - type: Transform
+      pos: 82.5,8.5
       parent: 2
 - proto: PosterLegitHighClassMartini
   entities:
@@ -74873,11 +74949,6 @@ entities:
     - type: Transform
       pos: 20.5,26.5
       parent: 2
-  - uid: 10932
-    components:
-    - type: Transform
-      pos: 83.5,7.5
-      parent: 2
   - uid: 10933
     components:
     - type: Transform
@@ -75218,11 +75289,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,47.5
-      parent: 2
-  - uid: 5637
-    components:
-    - type: Transform
-      pos: 14.5,47.5
       parent: 2
   - uid: 5644
     components:
@@ -77780,6 +77846,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 80.5,15.5
+      parent: 2
+  - uid: 15526
+    components:
+    - type: Transform
+      pos: 84.5,6.5
       parent: 2
 - proto: RemoteSignaller
   entities:
@@ -83523,6 +83594,13 @@ entities:
     - type: Transform
       pos: 61.49895,-0.38000047
       parent: 2
+- proto: SyringeGun
+  entities:
+  - uid: 11753
+    components:
+    - type: Transform
+      pos: 51.71256,-7.1744585
+      parent: 2
 - proto: Table
   entities:
   - uid: 6774
@@ -84995,11 +85073,6 @@ entities:
     - type: Transform
       pos: 86.5,12.5
       parent: 2
-  - uid: 12529
-    components:
-    - type: Transform
-      pos: 83.5,8.5
-      parent: 2
   - uid: 12530
     components:
     - type: Transform
@@ -85576,6 +85649,8 @@ entities:
   entities:
   - uid: 6005
     components:
+    - type: MetaData
+      name: Genpop Entrance
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 47.5,36.5
@@ -85600,11 +85675,15 @@ entities:
       parent: 2
   - uid: 10112
     components:
+    - type: MetaData
+      name: Genpop Exit
     - type: Transform
       pos: 45.5,29.5
       parent: 2
   - uid: 10113
     components:
+    - type: MetaData
+      name: Genpop Exit
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 47.5,34.5
@@ -86566,6 +86645,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,17.5
+      parent: 2
+  - uid: 8988
+    components:
+    - type: Transform
+      pos: 14.5,47.5
       parent: 2
   - uid: 9073
     components:
@@ -97576,6 +97660,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 50.5,-14.5
+      parent: 2
+  - uid: 15525
+    components:
+    - type: Transform
+      pos: 85.5,9.5
       parent: 2
 - proto: WallWeaponCapacitorRecharger
   entities:
