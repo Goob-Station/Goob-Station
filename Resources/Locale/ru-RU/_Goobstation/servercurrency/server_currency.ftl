@@ -1,5 +1,5 @@
-server-currency-name-singular = Фрики Коин
-server-currency-name-plural = Фрики Коины
+server-currency-name-singular = Резерв Коин
+server-currency-name-plural = Резерв Коины
 
 ## Команды
 
@@ -38,25 +38,25 @@ gs-balanceui-gift-player = Игрок
 gs-balanceui-gift-player-tooltip = Вставьте имя игрока, которому вы хотите отправить деньги.
 gs-balanceui-gift-value = Значение
 gs-balanceui-gift-value-tooltip = Сумма перевода
-gs-balanceui-shop-label = Магазин Фриков
+gs-balanceui-shop-label = Магазин Резерва
 gs-balanceui-shop-empty = Нет в наличии!
 gs-balanceui-shop-buy = Купить
 gs-balanceui-shop-footer = ⚠ Напишите в ахелп для использования вашего токена. Только 1 использование в день.
 gs-balanceui-shop-token-label = Токены
 gs-balanceui-shop-tittle-label = Названия
-gs-balanceui-shop-buy-token-hightier-antag = Купить хайтир антаг токен - { $price } Фрики Коинов
-gs-balanceui-shop-buy-token-midtier-antag = Купить мидтир антаг токен - { $price } Фрики Коинов
-gs-balanceui-shop-buy-token-admin = Купить должность младшего игрового модератора - { $price } Фрики Коинов
-gs-balanceui-shop-buy-token-antag = Купить антаг токен - { $price } Фрики Коинов
-gs-balanceui-shop-buy-token-lowtier-antag = Купить лоутир - { $price } Фрики Коинов
-gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-hightier-antag = Купить хайтир антаг токен - { $price } Резерв Коинов
+gs-balanceui-shop-buy-token-midtier-antag = Купить мидтир антаг токен - { $price } Резерв Коинов
+gs-balanceui-shop-buy-token-admin = Купить должность младшего игрового модератора - { $price } Резерв Коинов
+gs-balanceui-shop-buy-token-antag = Купить антаг токен - { $price } Резерв Коинов
+gs-balanceui-shop-buy-token-lowtier-antag = Купить лоутир - { $price } Резерв Коинов
+gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Резерв Коинов
 gs-balanceui-shop-token-admin = Младший игровой модератор
 gs-balanceui-shop-token-antag = Хайтир антаг токен
-gs-balanceui-shop-buy-token-admin-abuse = Купить админ абуз токен - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-admin-abuse = Купить админ абуз токен - { $price } Резерв Коинов
 gs-balanceui-shop-token-hat = Жетон шляпы
 gs-balanceui-shop-buy-token-admin-desc = Станьте младшим игровым модератором на сервере.
 gs-balanceui-shop-buy-token-antag-desc = Позволяет вам стать любым антагонистом. (За исключением волшебника)
-gs-balanceui-shop-buy-token-ghost = Купить гостроль токен - { $price } Фрики Коинов
+gs-balanceui-shop-buy-token-ghost = Купить гостроль токен - { $price } Резерв Коинов
 gs-balanceui-shop-buy-token-hat-desc = Администратор выдаст вам НЕ любую вещь на выбор!
 gs-balanceui-shop-token-hightier-antag = Хайтир Антаг Токен
 gs-balanceui-shop-token-midtier-antag = Мидтир Антаг Токен

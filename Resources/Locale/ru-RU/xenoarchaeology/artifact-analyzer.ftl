@@ -13,13 +13,14 @@ analysis-console-bias-button-info-down = Переключает смещение
 analysis-console-info-no-scanner = Анализатор не подключён! Пожалуйста, подключите его с помощью мультитула.
 analysis-console-info-no-artifact = Артефакт не найден! Поместите артефакт на платформу, затем просканируйте для получения данных.
 analysis-console-info-ready = Все системы запущены. Сканирование готово.
-analysis-console-info-depth = ГЛУБИНА: {$depth}
+analysis-console-info-id = ID_УЗЛА: { $id }
+analysis-console-info-depth = ГЛУБИНА: { $depth }
 analysis-console-info-triggered-true = АКТИВИРОВАН: ДА
 analysis-console-info-triggered-false = АКТИВИРОВАН: НЕТ
-analysis-console-info-effect = РЕАКЦИЯ: 
-analysis-console-info-trigger = СТИМУЛЯТОР:
-analysis-console-info-edges = СОЕДИНЕНИЯ: {$edges}
-analysis-console-info-value = НЕИЗВЛЕЧЁННЫЕ_О.И.: {$value}
+analysis-console-info-effect = РЕАКЦИЯ: { $effect }
+analysis-console-info-trigger = СТИМУЛЯТОР: { $trigger }
+analysis-console-info-edges = СОЕДИНЕНИЯ: { $edges }
+analysis-console-info-value = НЕИЗВЛЕЧЁННЫЕ_О.И.: { $value }
 analysis-console-info-scanner = Сканирование...
 analysis-console-info-scanner-paused = Приостановлено.
 analysis-console-progress-text =
@@ -35,21 +36,3 @@ analyzer-artifact-component-upgrade-analysis = длительность анал
 analysis-console-print-popup = Консоль печатает отчёт.
 analyzer-artifact-extract-popup = Поверхность артефакта мерцает энергией!
 analysis-report-title = Отчёт об артефакте: УЗЕЛ { $id }
-analysis-console-no-node = Выберите узел
-analysis-console-info-id = [font="Monospace" size=11]ID_УЗЛА:[/font]
-analysis-console-info-class = [font="Monospace" size=11]Класс:[/font]
-analysis-console-info-class-value = [font="Monospace" size=11]{$class}[/font]
-analysis-console-info-locked = [font="Monospace" size=11]Статус:[/font]
-analysis-console-info-locked-value = [font="Monospace" size=11][color={ $state ->
-    [0] red]Заблокирован
-    [1] lime]Разблокирован
-    *[2] plum]Активен
-}[/color][/font]
-analysis-console-info-durability = [font="Monospace" size=11]Долговечность:[/font]
-analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
-    [true] {$info}
-    *[false] Разблокируйте узлы для перехода
-}[/color][/font]
-analysis-console-extract-value = [font="Monospace" size=11][color=orange]Очков {$id} (+{$value})[/color][/font]
-analysis-console-extract-none = [font="Monospace" size=11][color=orange] Нет разблокированных узлов для извлечения очков[/color][/font]
-analysis-console-extract-sum = [font="Monospace" size=11][color=orange]Всего очков: {$value}[/color][/font]

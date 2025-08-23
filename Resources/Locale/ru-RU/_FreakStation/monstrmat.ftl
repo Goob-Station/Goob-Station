@@ -1,0 +1,9 @@
+advertisement-monstrmat-1 = Самое лучшее в галактике!
+advertisement-monstrmat-2 = Почувствуй себя МОНСТРОМ!!!
+advertisement-monstrmat-3 = Очень хорошо!
+advertisement-monstrmat-4 = Это же МОНСТР ЭНЕРДЖИ!
+advertisement-monstrmat-5 = У нас покупает сам Шерлок Холмс!
+advertisement-monstrmat-6 = Тут нет халка, но есть монстр!!
+thankyou-monstrmat-1 = Получите свой заряд энергии!
+thankyou-monstrmat-2 = Теперь ты - МОНСТР.
+thankyou-monstrmat-3 = Вы купили САМОЕ лучшее в галактике.

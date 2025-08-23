@@ -1,1 +1,1 @@
-tips-system-chat-message-wrap = Интересный факт: { $tip }
+tips-system-chat-message-wrap = Совет: { $tip }
