@@ -24,6 +24,7 @@
   - BorgModuleTool
   - BorgModuleCable
   - BorgModuleFireExtinguisher
+  - BorgModuleInflatable
 
 - type: latheRecipePack
   id: BorgLimbsStatic
