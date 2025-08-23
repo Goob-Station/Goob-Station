@@ -188,7 +188,8 @@
     - id: ClosetSkeleton
     - id: KingRatMigration
     - id: RevenantSpawn
-    - id: DerelictCyborgSpawn
+    - !type:NestedSelector
+      tableId: DerelictBorgEventTable
 
 - type: entityTable
   id: ModerateAntagEventsTable
@@ -219,6 +220,25 @@
     #TODO when midrounds are "reviewed" by the chudmins add them back
     #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
     #- id: WizardSpawn # Goob. Unless?
+    - !type:NestedSelector
+      tableId: DerelictBorgEventTable
+
+- type: entityTable
+  id: DerelictBorgEventTable #For Derelict Borg spawns
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector # Standard NT Borgs
+      weight: 85
+      children:
+        - id: DerelictEngineerCyborgSpawn
+        - id: DerelictGenericCyborgSpawn
+        - id: DerelictJanitorCyborgSpawn
+        - id: DerelictMedicalCyborgSpawn
+        - id: DerelictMiningCyborgSpawn
+    - !type:GroupSelector # Other Borgs
+      weight: 15
+      children:
+        - id: DerelictSyndicateAssaultCyborgSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -863,14 +883,13 @@
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
     minimumPlayers: 50 # Goobstation - was 20
-    duration: 1
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
       Death: 200
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
-  - type: GameRule
+      eventType: HostilesSpawn # Goobstation
+  - type: GameRule # Goobstation
     chaosScore: 700
   - type: RuleGrids
   - type: LoadMapRule
@@ -1040,10 +1059,31 @@
 
 - type: entity
   parent: BaseGameRule
-  id: DerelictCyborgSpawn
+  id: DerelictEngineerCyborgSpawn
   components:
   - type: StationEvent
-    weight: 5
+    weight: 2.5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerEngineeringBorgDerelictGhostRole
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictEngineeringCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictGenericCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 2.5
     earliestStart: 15
     reoccurrenceDelay: 20
     minimumPlayers: 4
@@ -1059,10 +1099,94 @@
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
-    prototype: PlayerBorgDerelict
+    prototype: PlayerBorgDerelictGhostRole
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictJanitorCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 2.5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerJanitorBorgDerelictGhostRole
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictJanitorCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictMedicalCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 2.5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerMedicalBorgDerelictGhostRole
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictMedicalCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictMiningCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 2.5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerMiningBorgDerelictGhostRole
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictMiningCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictSyndicateAssaultCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 2.5
+    earliestStart: 25
+    reoccurrenceDelay: 20
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgSyndicateDerelictGhostRole
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictSyndicateAssaultCyborg
       min: 1
       max: 1
       pickPlayer: false
