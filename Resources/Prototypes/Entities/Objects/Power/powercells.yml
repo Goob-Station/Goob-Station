@@ -124,6 +124,11 @@
   - type: Construction
     graph: PowerCellPotato
     node: potatobattery
+  - type: PowerSupplier # goob start - potato power!
+    supplyRate: 30
+    supplyRampTolerance: 500
+    voltage: Apc
+  - type: Anchorable # goob end
 
 - type: entity
   name: small-capacity power cell
