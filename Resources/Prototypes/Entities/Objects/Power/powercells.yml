@@ -125,7 +125,7 @@
     graph: PowerCellPotato
     node: potatobattery
   - type: PowerSupplier # goob start - potato power!
-    supplyRate: 40
+    supplyRate: 30
     supplyRampRate: 500
     supplyRampTolerance: 500
     voltage: Apc
