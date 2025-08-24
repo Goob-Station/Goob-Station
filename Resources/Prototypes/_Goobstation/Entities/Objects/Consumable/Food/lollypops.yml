@@ -82,6 +82,7 @@
       reagents:
       - ReagentId: Sugar
         Quantity: 5
+  - type: Lollypop
 
 # Syndicate
 
