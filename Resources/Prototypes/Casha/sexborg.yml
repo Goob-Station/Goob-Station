@@ -34,12 +34,12 @@
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
   
-  
-  
 - type: entity
   id: BorgChassisSex
   parent: BorgChassisSelectable
-  name: Секс борг
+  description: Узкоспециализированный юнит для эмоциональной разрядки экипажа станции.
+  name: секс-борг
   components:
   - type: BorgSwitchableType
-    selectedBorgType: sexborg
+    selectedBorgType: sexborg    
+ 

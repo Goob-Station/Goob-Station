@@ -5,13 +5,15 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Modified from plastitanium_window.rsi by Flareguy for Space Station 14, transparency tweaked by Ubaser.",
+    "copyright": "Sprited by Sherlook for FreakyStation",
     "states": [
         {
-            "name": "state0"
+            "name": "state0",
+            "directions": 4
         },
         {
-            "name": "state1"
+            "name": "state1",
+            "directions": 4
         }
     ]
 }

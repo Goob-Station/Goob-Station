@@ -1,0 +1,8 @@
+
+- type: marking
+  id: HumanFacialHairHandlebarAlt
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
+      state: handlebar2

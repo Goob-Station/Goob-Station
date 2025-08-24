@@ -9,3 +9,6 @@ The process to make something like them is now dead-simple, and should be doable
 
 For variants (the extra "copies" of the tile in the png file,) you can usually just replace the inner part of the tile sprite (NOT including the shine!) with another corner of the tile. There are some exceptions to this, like the monotile - where there is no corner to speak of (this is why they do not have variants as of writing.)
 For tiles that tile continuously (ie. diagonal tiles,) you'll need to be a lot more careful with variants, and will likely end up needing to manually edit them outside of just copy-pasting the inner parts of the tile.
+
+!Визарды какую-то хуйню понаписали, не вчитывайтесь даже, реально полная хуйня! - Sherlook
+
