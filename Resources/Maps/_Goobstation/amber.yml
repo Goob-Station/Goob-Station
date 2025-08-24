@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/23/2025 01:25:02
-  entityCount: 23500
+  time: 08/24/2025 07:16:51
+  entityCount: 23523
 maps:
 - 1
 grids:
@@ -19115,7 +19115,7 @@ entities:
       pos: -25.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -627.1665
+      secondsUntilStateChange: -1354.7659
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -75048,6 +75048,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 43.5,22.5
       parent: 2
+    - type: Openable
+      opened: True
   - uid: 22736
     components:
     - type: Transform
@@ -131881,6 +131883,17 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Solars - North East
+  - uid: 20737
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,1.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: North east solar
   - uid: 21194
     components:
     - type: Transform
@@ -131896,14 +131909,37 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Gravity Generator
-  - uid: 21608
+  - uid: 21609
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -65.5,-60.5
+      pos: -55.5,-58.5
       parent: 2
     - type: SurveillanceCamera
-      id: Solars - South West - West Side
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: South west solar
+  - uid: 21733
+    components:
+    - type: Transform
+      pos: -63.5,-59.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: South west solar entrance
+  - uid: 21734
+    components:
+    - type: Transform
+      pos: -31.5,22.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: North west solar
   - uid: 22739
     components:
     - type: Transform
@@ -132052,6 +132088,17 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Hall - North West Garden
+  - uid: 20295
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -65.5,-59.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Exterior Camera 1
   - uid: 20398
     components:
     - type: Transform
@@ -132076,6 +132123,38 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Evac - East
+  - uid: 20618
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,12.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Hallway to abandoned dock
+  - uid: 20675
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,22.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Mining dock hallway
+  - uid: 20712
+    components:
+    - type: Transform
+      pos: 33.5,24.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: mining dock
   - uid: 21138
     components:
     - type: Transform
@@ -132123,6 +132202,17 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Hall - Outside Gravity Generator
+  - uid: 21732
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,-37.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Dorm hallway
   - uid: 22057
     components:
     - type: Transform
@@ -132204,6 +132294,17 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Virology
+  - uid: 21457
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -47.5,-22.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
+      nameSet: True
+      id: CMO Office
   - uid: 22154
     components:
     - type: Transform
@@ -132405,6 +132506,28 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Artifact Scanner
+  - uid: 21394
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.5,-34.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: RD Office
+  - uid: 21442
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,-41.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Arti Backroom
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 1081
@@ -132474,6 +132597,27 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Locker Room
+  - uid: 20496
+    components:
+    - type: Transform
+      pos: -22.5,9.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Hos Office
+  - uid: 20591
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Genpop exit
   - uid: 20614
     components:
     - type: Transform
@@ -132506,6 +132650,90 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Kitchen - Back
+  - uid: 20607
+    components:
+    - type: Transform
+      pos: 28.5,10.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Lawyer office
+  - uid: 20713
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 34.5,-9.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Chapel
+  - uid: 20789
+    components:
+    - type: Transform
+      pos: 39.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Chapel inner chamber
+  - uid: 21358
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Chaplin Office
+  - uid: 21608
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,-39.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Librarian Office
+  - uid: 21619
+    components:
+    - type: Transform
+      pos: 17.5,-44.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Library Cam 2
+  - uid: 21730
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,-35.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Library cam 1
+  - uid: 21731
+    components:
+    - type: Transform
+      pos: 19.5,-50.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: Library DnD Room
   - uid: 22146
     components:
     - type: Transform
@@ -132553,6 +132781,27 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Docking Airlocks
+  - uid: 20497
+    components:
+    - type: Transform
+      pos: 20.5,12.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
+      nameSet: True
+      id: Mail room
+  - uid: 20605
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,17.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
+      nameSet: True
+      id: CargoBay
   - uid: 22472
     components:
     - type: Transform
