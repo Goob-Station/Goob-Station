@@ -24,7 +24,7 @@
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Hypospray.Events;
+using Content.Shared.Chemistry.Hypospray; //Goobstation 
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Forensics;
@@ -38,6 +38,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Hypospray.Events;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -201,6 +202,9 @@ public sealed class HypospraySystem : EntitySystem
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = uid };
         RaiseLocalEvent(target, ref ev);
+
+        var afterinjectev = new AfterHyposprayInjectsEvent { User = user, Target = target }; // Goobstation
+        RaiseLocalEvent(uid, ref afterinjectev); // Goobstation
 
         // same LogType as syringes...
         _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");

@@ -7,8 +7,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Containers;
+using Content.Shared.Chemistry.Hypospray;
 
-namespace Content.Goobstation.Shared.Chemistry.Hypospray;
+namespace Content.Shared.Chemistry.Hypospray;
 
 public sealed class SolutionCartridgeSystem : EntitySystem
 {
