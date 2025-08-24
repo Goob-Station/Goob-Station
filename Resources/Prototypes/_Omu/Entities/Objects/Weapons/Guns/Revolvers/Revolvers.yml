@@ -1,0 +1,37 @@
+- type: entity
+  name: VC-8 "Handshake" Revolver
+  parent: BaseWeaponRevolver
+  id: VulcanEightRevolver
+  description: A replica of the Legendary Vulcan Eight, This revolver Packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A Celtek stamp identifies it as a Replica.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
+  - type: AmmoCounter
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    proto: ShellShotgun
+    capacity: 5
+    chambers: [True, True, True, True, True]
+    ammoSlots: [null, null, null, null, null]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 15000 # if someone sells a captian gun that's a bigger issue lmao.
+  - type: StealTarget
+    stealGroup: WeaponAntiqueLaser
+  - type: GunSpreadModifier
+    spread: 1.25
