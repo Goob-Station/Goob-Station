@@ -1125,7 +1125,7 @@
           max: 30
         damage:
           groups:
-            Toxin: -3
+            Toxin: -4   #Goobstation edit
             Brute: 0.5
       - !type:HealthChange
         conditions:
