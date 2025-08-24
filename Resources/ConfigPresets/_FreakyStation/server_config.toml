@@ -13,34 +13,107 @@ tickrate = 30
 port = 1212
 bindto = "::,0.0.0.0"
 max_connections = 32
+# Automatic port forwarding!
+# Disabled by default because you may not want to do this.
 upnp = true
 
 [status]
+# The status server is the TCP side, used by the launcher to determine engine version, etc.
+# To be clear: Disabling it makes the launcher unable to connect!
 enabled = true
 
+# This is the address and port the status server binds to.
+# The port is by default set based on net.port so it will follow what you set there.
+# bind = "brrr brrr patapim"
+
+# This is the address of the SS14 server as the launcher uses it.
+# This is only needed if you're proxying the status HTTP server -
+#  by default the launcher will assume the address and port match that of the status server.
+# connectaddress = "udp://localhost:1212"
+
 [game]
-hostname = "[RU][18+]Freaky Station 14[IN DEV]"
+hostname = "[RU][18+]👻Freaky Station 14👻[IN DEV]"
 desc = "\n👻Freaky Station - Сервер с свободным отыгрышем РП.\n❗За основу на сервере взята сборка goob station, переведенная на русский язык. \n👇👇👇👇👇👇 На нашем сервере имеется:\n╭\n┊ 🩸 Продвинутая система хирургии и ранений. Теперь вы можете удалить вульпе хвост, или отрезать ей ноги.\n┊ 🤬 Множество новых антагонистов, например блоб, еретик, генокрад, абдуктор и даже халк!!.\n┊ 🤯 Большое количество разных мехов, как боевых, так и не боевых.\n┊ 🥵 Своя ерп панель, а так-же множество предметов для более качественного ерп отыгрыша, если вам хочется\n┊ 🪖 Огромное количество нового оружия, от самодельных мечей до лазерных пулеметов.\n┊ 🫑 И КОНЕЧНО ЖЕ САМЫЙ МОЩНЫЙ ХОСТ!!!\n┊ 🪐 И многое другое! Заходи и прощупай весь контент самостоятельно.\n╰"
 peaceful_end = false
+soft_max_players = 32
+cryo_sleep_rejoining = true
+panic_bunker.disable_with_admins = true
+panic_bunker.enable_without_admins = true
+panic_bunker.show_reason = true
+panic_bunker.min_account_age = 800
+panic_bunker.min_overall_minutes = 60
+panic_bunker.custom_reason = "Админы спят. Заходите набегать/играть чуточку попозже. С любовью, ваши Freaky"
+
 [console]
+# If this is true, people connecting from this machine (loopback)
+# will automatically be elevated to full admin privileges.
+# This literally works by checking if address == 127.0.0.1 || address == ::1
 loginlocal = false
 login_host_user = "Egorql"
 
 [hub]
+# Set to true to show this server on the public server list
+# Before enabling this, read: https://docs.spacestation14.io/hosts/hub-rules
 advertise = true
+# Comma-separated list of tags, useful for categorizing your server.
+# See https://docs.spacestation14.io/hosts/hub-rules for more details on this when it becomes relevant.
 tags = "lang:ru,18+"
+# URL of your server. Fill this in if you have a domain name,
+# want to use HTTPS (with a reverse proxy), or other advanced scenarios.
+# Must be in the form of an ss14:// or ss14s:// URI pointing to the status API.
 server_url = ""
+# Comma-separated list of URLs of hub servers to advertise to.
 hub_urls = "https://hub.spacestation14.com/"
 
+[build]
+# *Absolutely all of these can be supplied using a "build.json" file*
+# For further information, see https://github.com/space-wizards/space-station-14/blob/master/Tools/gen_build_info.py
+# The main reason you'd want to supply any of these manually is for a custom fork and if you have no tools.
+
+# Useful to override if the existing version is bad.
+# See https://github.com/space-wizards/RobustToolbox/tags for version values, remove the 'v'.
+# The value listed here is almost certainly wrong - it is ONLY a demonstration of format.
+# engine_version = "0.7.6"
+
+# This one is optional, the launcher will delete other ZIPs of the same fork to save space.
+# fork_id = "abacusstation"
+
+# Automatically set if self-hosting client zip, but otherwise use this when updating client build.
+# There is no required format, any change counts as a new version.
+# version = "Example1"
+
+# This is where the launcher will download the client ZIP from.
+# If this isn't supplied, the server will check for a file called "Content.Client.zip",
+#  and will host it on the status server.
+# If that isn't available, the server will attempt to find and use "../../Resources" and
+#  "../../bin/Content.Client" to automatically construct a client zip.
+# It will then host this on the status server.
+# Note that these paths do not work on "FULL_RELEASE" servers.
+# FULL_RELEASE servers expect to be used with a specific "packaged" layout.
+# As such, whatever script you're using to package them is expected to create the ZIP.
+# download_url = "http://example.com/compass.zip"
+
+# Build hash - this is a *capitalized* SHA256 hash of the client ZIP.
+# Optional in any case and automatically set if hosting a client ZIP.
+# This hash is an example only.
+
+
 [auth]
+# Authentication (accounts):
 # 0 = Optional, 1 = Required, 2 = Disabled
+# Presumably do require authentication on any public server.
 mode = 1
 
-allowlocal = false
+# If true, even if authentication is required, localhost is still allowed to login directly regardless.
+# allowlocal = true
+
+# You should probably never EVER need to touch this, but if you need a custom auth server,
+# (the auth server being the one which manages Space Station 14 accounts), you change it here.
+# server = https://auth.spacestation14.com/
 
 [infolinks]
 discord = "https://discord.gg/BQHQNbuVCZ"
-github = "https://github.com/Morsik7/FreakyStation"
+github = "https://github.com/Egorql/Freaky-Station"
 
 [atmos]
 space_wind = true
@@ -50,20 +123,23 @@ flavor_text = true
 
 [server]
 rules_file = "FreakyRuleset"
+lobby_name = "[RU][18+]Freaky Station 14[IN DEV]"
 
 [shuttle]
 emergency_early_launch_allowed = false
 # arrivals = true
 # arrivals_map = true
+arrivals_planet = false
 
-[discord]
-ahelp_webhook = "https://discord.com/api/webhooks/1375713673732947978/j4ChfA60fgn-nlkxDtfQwRqkVmB9wsAOiilIJ9i-PwuzNqIvTvy5pstX1lV3ytFpMSyd"
-round_update_webhook = "https://discord.com/api/webhooks/1384422378523721799/jJO047jMlU7wKDMTwmy6I89WEKmzJk5hBAL-deFGI8AfRKm5ufi43uGqI8mPD4rbB0Va"
-bans_webhook = "https://discord.com/api/webhooks/1394623307281858611/mBgV23tkNfbmaFZcHuM1ChuYOZ6eCjYMLfTpnnWy7snpfy5Llh3n-IScGPWFvDTvp58U"
-adminchat_webhook = "https://discord.com/api/webhooks/1394625416341229589/xISLrxdfp3d3frH6ZMYtruvYFUf5cygnVmR2-ZGUqpUq25CZxE-sQsj4MnBlCKVgtKSg"
+[vote]
+map_enabled = true
+restart_required_ratio = 0.65
+timermap = 45
 
 [admin]
 deadmin_on_join = true 
+new_player_join_sound = true
 
-[ooc] 
-discord_channel_id = "1376455855410511944"
+[looc]
+enabled_crit = true
+

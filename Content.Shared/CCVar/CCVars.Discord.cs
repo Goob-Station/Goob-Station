@@ -99,4 +99,19 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> DiscordNewsWebhookSendDuringRound =
         CVarDef.Create("discord.news_webhook_send_during_round", false, CVar.SERVERONLY);
 
+    /// Reserve
+    
+    /// <summary>
+    /// URL of the Discord webhook which will relay bans info to the channel.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordBansWebhook =
+        CVarDef.Create("discord.bans_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    ///     Reserve - ADT port
+    ///     URL of the Discord adminchat info to the channel.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordAdminchatWebhook =
+        CVarDef.Create("discord.adminchat_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
 }

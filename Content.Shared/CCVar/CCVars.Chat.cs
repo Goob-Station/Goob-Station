@@ -37,7 +37,7 @@ public sealed partial class CCVars
         CVarDef.Create("chat.rate_limit_announce_admins_delay", 15, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> ChatMaxMessageLength =
-        CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("chat.max_message_length", 700, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<int> ChatMaxAnnouncementLength =
         CVarDef.Create("chat.max_announcement_length", 512, CVar.SERVER | CVar.REPLICATED);

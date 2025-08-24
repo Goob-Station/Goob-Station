@@ -1,60 +1,44 @@
-<!--
-SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
-SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-SPDX-FileCopyrightText: 2019 Ivan <silvertorch5@gmail.com>
-SPDX-FileCopyrightText: 2019 Silver <silvertorch5@gmail.com>
-SPDX-FileCopyrightText: 2020 Injazz <43905364+Injazz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2020 RedlineTriad <39059512+RedlineTriad@users.noreply.github.com>
-SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 iglov <iglov@avalon.land>
-SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Rares Popa <2606875+rarepops@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 router <messagebus@vk.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+<p align="center"> <img alt="Space Station 14" width="1280" height="300" src="" /></p>
 
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
+Чувааааааааааааак это же форк из репозитория Goob Station с переводом Reserve Station под названием Freaky Station! Чтобы предотвратить форк RobustToolbox, клиент и сервер загружают пакет «content». Этот контент-пак содержит все необходимое для игры на одном конкретном сервере - это контент-пак для Goob Station.
 
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
+Если вы хотите разместить или создать контент для SS14, перейдите в репозиторий [Space Station 14](https://github.com/space-wizards/space-station-14), так как он содержит как RobustToolbox, так и контент-пак для разработки новых контент-паков и является базой для вашего форка.
 
-This is a fork from the primary repo for Space Station 14 called Goob Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server this is the content pack for Goob Station.
+## Ссылки
 
-If you want to host or create content for SS14, go to the [Space Station 14 repository](https://github.com/space-wizards/space-station-14) as it contains both RobustToolbox and the content pack for development of new content packs and is the base for your fork.
+[Дискорд Фрик Стейшин](https://discord.gg/NMqvMnqNA6) | [Дискорд Губов](https://discord.gg/goobstation) | [Дискорд разработки Губа](https://discord.gg/zXk2cyhzPN) | [Дискорд Резерва](https://discord.gg/WXZvqzZ2Fc)
 
-## Links
+## Документация/Вики
 
-[Goob Station Discord Server](https://discord.gg/goobstation) | [Goob Station Development Discord Server](https://discord.gg/zXk2cyhzPN) | [Goob Station Forum](https://forums.goobstation.com/) | [Goob Station Website](https://goobstation.com)
+На сайте [Goob Station](https://docs.goobstation.com/) есть документация по содержанию GS14, движку, дизайну игры и многому другому. На нем также есть много ресурсов для новых участников проекта.
 
-## Documentation/Wiki
+## Вклад
 
-The Goob Station [docs site](https://docs.goobstation.com/) has documentation on GS14's content, engine, game design, and more. It also has lots of resources for new contributors to the project.
+Мы рады принять вклад от любого человека. Заходите на [Сервер разработки](https://discord.gg/zXk2cyhzPN), если хотите помочь. Не стесняйтесь проверять [список проблем](https://github.com/Goob-Station/Goob-Station/issues), которые необходимо решить, и любой может их подхватить. Не бойтесь просить о помощи!
+Хотя следование [Space Station 14 contributions guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html) не является обязательным для Goob Station, мы рекомендуем ознакомиться с ними, чтобы узнать о лучших практиках.
 
-## Contributing
+## Сборка
 
-We are happy to accept contributions from anybody. Get in [Development Discord Server](https://discord.gg/zXk2cyhzPN) if you want to help. Feel free to check the [list of issues](https://github.com/Goob-Station/Goob-Station/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
-While following the [Space Station 14 contribution guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html) is not mandatory for Goob Station, we recommend reviewing them for best practices.
+Для работоспособности билда необходимо установить Python, .Net и Git
 
-We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
+1. Клонируйте это репо `git clone https://github.com/Egorql/Freaky-Station`.
+2. Запустите `RUN_THIS.py` для инициализации подмодулей и загрузки движка.
+3. Скомпилируйте решение. 
+`dotnet build --configuration CFG`
+`Замените CFG на желаемую конфигурацию, например:
+`Tools - кфг для маппинга, отключены дебаг чеки, включена оптимизация, без лобби, спавнит сразу на карте Dev`
+`Release - кфг для полноценной игры, отключены дебаг чеки и включена оптимизация, кидает при заходе в лобби`
+`Debug - кфг для разработки, включены дебаг чеки, выключена оптимизация, кидает на Dev карту.`
+`DebugOpt - кфг для разработки, включены дебаг чеки, включена оптимизация, кидает на Dev карту.`
 
-## Building
 
-1. Clone this repo.
-2. Run `RUN_THIS.py` to init submodules and download the engine.
-3. Compile the solution.
 
-[More detailed instructions on building the project.](https://docs.goobstation.com/en/general-development/setup.html)
+[Более подробные инструкции по сборке проекта.](https://docs.goobstation.com/en/general-development/setup.html)
 
-## License
+## Лицензия
 
-All code in this codebase is released under the AGPL-3.0-or-later license. Each file includes REUSE Specification headers or separate .license files that specify a dual license option. This dual licensing is provided to simplify the process for projects that are not using AGPL, allowing them to adopt the relevant portions of the code under an alternative license. You can review the complete texts of these licenses in the LICENSES/ directory.
+Содержимое, добавленное в этот репозиторий после фиксации [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Goob-Station/Goob-Station/commit/8270907bdc509a3fb5ecfecde8cc14e5845ede36), распространяется по лицензии GNU Affero General Public License версии 3.0, если не указано иное. См. LICENSE-AGPLv3.txt. Содержимое, внесённое в этот репозиторий до фиксации [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Goob-Station/Goob-Station/commit/8270907bdc509a3fb5ecfecde8cc14e5845ede36), лицензируется по лицензии MIT, если не указано иное. См. LICENSE.txt.
 
-Most media assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+Большинство ассетов лицензировано под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Лицензия и авторские права на ассеты указаны в файле метаданных. [Пример](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
-Note that some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar non-commercial licenses and will need to be removed if you wish to use this project commercially.
+Обратите внимание, что некоторые ассеты лицензированы под некоммерческой [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией и должны быть удалены, если вы хотите использовать этот проект в коммерческих целях.
