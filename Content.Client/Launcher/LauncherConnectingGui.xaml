@@ -17,7 +17,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          xmlns:parallax="clr-namespace:Content.Client.Parallax"
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
-    <parallax:ParallaxControl SpeedX="20"/>
+    <parallax:ParallaxControl
+        ParallaxPrototype="FreakySpace"
+        SpeedX="5"
+        SpeedY="20"
+        ScaleX="1"
+        ScaleY="1"/>
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
         <PanelContainer StyleClasses="AngleRect" />
         <BoxContainer Orientation="Vertical" MinSize="300 200">
