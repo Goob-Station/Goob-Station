@@ -229,6 +229,12 @@
   id: FollowerStayOnPolymorph
 
 - type: Tag
+  id: FoodApple
+
+- type: Tag
+  id: FoodCakePlain
+
+- type: Tag
   id: FrozenIgnoreMindAction
 
 - type: Tag

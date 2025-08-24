@@ -1,0 +1,34 @@
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 10
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 10
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 10
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 10
+    - node: applecakenode
+      entity: FoodCakeApple

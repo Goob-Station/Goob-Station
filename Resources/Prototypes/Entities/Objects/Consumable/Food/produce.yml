@@ -1344,6 +1344,7 @@
         Quantity: 10
   - type: Tag
     tags:
+    - FoodApple
     - Fruit
   - type: FoodSequenceElement
     sprite:

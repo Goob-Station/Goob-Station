@@ -243,6 +243,9 @@
   id: FoodCakePlain
   description: A plain cake, not a lie.
   components:
+  - type: Tag
+    tags:
+    - FoodCakePlain
   - type: Sprite
     state: plain
   - type: SliceableFood
@@ -765,8 +768,8 @@
     - state: alpha-filling
       color: "#ff4300"
   - type: Construction
-    graph: AppleCaked
-    node: FoodAppleCake
+    graph: AppleCakeGraph
+    node: applecakenode
   - type: SliceableFood
     slice: FoodCakeAppleSlice
   - type: Tag
