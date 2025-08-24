@@ -764,6 +764,9 @@
     - state: plain
     - state: alpha-filling
       color: "#ff4300"
+  - type: Construction
+    graph: AppleCaked
+    node: FoodAppleCake
   - type: SliceableFood
     slice: FoodCakeAppleSlice
   - type: Tag
