@@ -2,7 +2,7 @@
   name: VC-8 "Handshake" Revolver
   parent: BaseWeaponRevolver
   id: VulcanEightRevolver
-  description: A replica of the legendary Vulcan Eight, This revolver packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A CelTek stamp identifies it as a replica.
+  description: A replica of the Legendary Vulcan Eight, This revolver Packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A Celtek stamp identifies it as a Replica.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
@@ -12,7 +12,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1
+    fireRate: 1.5
     availableModes:
     - SemiAuto
     soundGunshot:
