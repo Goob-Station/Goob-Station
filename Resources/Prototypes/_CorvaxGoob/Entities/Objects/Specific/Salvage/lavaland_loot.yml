@@ -1,0 +1,17 @@
+- type: entity
+  name: Book Of Success
+  parent: BaseItem
+  id: LavalandBookOfGreentext
+  description: Сauses the curse of success. Losing the book will make success impossible.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#008800"
+      map: [ "cover" ]
+    - state: decor_wingette
+      color: "#00ff00"
+      map: [ "decor" ]
+  - type: BookOfGreentext

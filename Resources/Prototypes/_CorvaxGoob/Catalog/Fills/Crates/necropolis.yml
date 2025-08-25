@@ -1,0 +1,8 @@
+- type: entity
+  id: LavalandCrateNecropolisBookOfGreentext
+  parent: LavalandCrateNecropolis
+  suffix: Book Of Success
+  components:
+  - type: StorageFill
+    contents:
+      - id: LavalandBookOfGreentext

@@ -370,6 +370,7 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+      - !type:WashCurseOfGreentextReaction # CorvaxGoob-Lavaland-Stuff
   - type: StatusEffects
     allowed:
     - Stun
