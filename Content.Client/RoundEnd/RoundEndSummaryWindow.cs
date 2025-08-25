@@ -51,6 +51,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
+using Content.Shared.StationReport;
+using Content.Client.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
@@ -82,6 +84,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            roundEndTabs.AddChild(MakeStationReportTab());
 
             Contents.AddChild(roundEndTabs);
 
@@ -215,6 +218,36 @@ namespace Content.Client.RoundEnd
             playerManifestTab.AddChild(playerInfoContainerScrollbox);
 
             return playerManifestTab;
+        }
+        private BoxContainer MakeStationReportTab()
+        {
+            var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
+            string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted.";
+            var stationReportTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
+            };
+            var StationReportContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10),
+                HScrollEnabled = false,
+            };
+            var StationReportContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+            var testinglabel = new RichTextLabel();
+            var message = new FormattedMessage();
+            message.AddMarkupOrThrow(stationReportText);
+            testinglabel.SetMessage(message);    
+            StationReportContainer.AddChild(testinglabel);
+
+            
+            StationReportContainerScrollbox.AddChild(StationReportContainer);
+            stationReportTab.AddChild(StationReportContainerScrollbox);
+            return stationReportTab;
         }
     }
 

@@ -632,3 +632,11 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+- type: entity
+  parent: Paper
+  name: station report paper
+  id: nanorepstationreport
+  components:
+  - type: StationReportTablet
+  - type: Paper
+    content: "Test"
