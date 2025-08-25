@@ -441,7 +441,7 @@ MountainRock: AsteroidRock
 MountainRockMining: AsteroidRockMining
 
 # 2023-08-08
-WindowTintedDirectional: WindowFrostedDirectional
+# WindowTintedDirectional: WindowFrostedDirectional CorvaxGoob
 
 # 2023-08-10
 SyringeSpaceacillin: null
@@ -1086,3 +1086,7 @@ BarSignEmprahAlignTile: BarSignEmprah
 BarSignSpacebucksAlignTile: BarSignSpacebucks
 BarSignMaltroachAlignTile: BarSignMaltroach
 BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
+
+# CorvaxGoob : LRP Bullshit
+FishBoyFisher: null
+ImmovableRodSkibidi: null

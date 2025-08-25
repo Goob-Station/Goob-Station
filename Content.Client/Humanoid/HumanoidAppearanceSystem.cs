@@ -69,7 +69,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         var humanoidAppearance = entity.Comp1;
         var sprite = entity.Comp2;
-
+/* CorvaxGoob : Changes revert
         // begin Goobstation: port EE height/width sliders
         var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(humanoidAppearance.Species);
 
@@ -79,7 +79,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoidAppearance.Width = width;
 
         _sprite.SetScale((entity, sprite), new Vector2(width, height));
-        // end Goobstation: port EE height/width sliders
+        // end Goobstation: port EE height/width sliders*/
 
         sprite[_sprite.LayerMapReserve((entity.Owner, sprite), HumanoidVisualLayers.Eyes)].Color = humanoidAppearance.EyeColor;
     }

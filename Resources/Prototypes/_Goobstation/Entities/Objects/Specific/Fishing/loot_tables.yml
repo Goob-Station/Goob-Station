@@ -38,7 +38,7 @@
     children:
     - id: FishAlien
     - id: FishBingle
-    - id: FishBoyFisher
+#   - id: FishBoyFisher Commented by CorvaxGoob : LRP Bullshit
     - id: FishNukeDisk
     - id: FishGib
     - id: FishMutant

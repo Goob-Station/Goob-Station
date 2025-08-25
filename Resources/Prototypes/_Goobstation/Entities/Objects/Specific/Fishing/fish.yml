@@ -131,17 +131,17 @@
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
 
-- type: entity
-  id: FishBoyFisher
-  parent: BaseFishRare
-  name: boy fisher
-  description: You like kissing fish, don't you?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-    state: boy_fisher
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+# - type: entity commented by CorvaxGoob : LRP Bullshit
+#   id: FishBoyFisher
+#   parent: BaseFishRare
+#   name: boy fisher
+#   description: You like kissing fish, don't you?
+#   components:
+#   - type: Sprite
+#     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+#     state: boy_fisher
+#   - type: Item
+#     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
 
 - type: entity
   id: FishCat
