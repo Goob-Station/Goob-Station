@@ -1,6 +1,6 @@
 - type: gameMap
   id: CorvaxOutpost
-  mapName: 'NTED Аутпост'
+  mapName: 'NTKVA Аутпост'
   mapPath: /Maps/_CorvaxGoob/Stations/Outpost/corvax_outpost.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Аутпост {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'ED'
+            prefixCreator: 'KVA'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_CorvaxGoob/Base/Shuttles/corvax_emergency_small.yml
         - type: StationJobs
