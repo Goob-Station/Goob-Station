@@ -639,4 +639,4 @@
   components:
   - type: StationReportTablet
   - type: Paper
-    content: "Test"
+    content: station-report-text

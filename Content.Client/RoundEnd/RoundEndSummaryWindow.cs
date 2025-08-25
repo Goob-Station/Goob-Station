@@ -238,11 +238,11 @@ namespace Content.Client.RoundEnd
             {
                 Orientation = LayoutOrientation.Vertical
             };
-            var testinglabel = new RichTextLabel();
-            var message = new FormattedMessage();
-            message.AddMarkupOrThrow(stationReportText);
-            testinglabel.SetMessage(message);    
-            StationReportContainer.AddChild(testinglabel);
+            var StationReportLabel = new RichTextLabel();
+            var StationReportmessage = new FormattedMessage();
+            StationReportmessage.AddMarkupOrThrow(stationReportText);
+            StationReportLabel.SetMessage(StationReportmessage);    
+            StationReportContainer.AddChild(StationReportLabel);
 
             
             StationReportContainerScrollbox.AddChild(StationReportContainer);
