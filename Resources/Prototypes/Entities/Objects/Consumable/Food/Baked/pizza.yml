@@ -187,6 +187,9 @@
       - oily
       - bread
   - type: Food
+    trash:
+    # CorvaxGoob
+    - FoodPizzaCrust
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
   - type: SolutionContainerManager

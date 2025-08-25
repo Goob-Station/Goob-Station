@@ -1,0 +1,30 @@
+# Crust
+
+- type: entity
+  name: pizza crust
+  parent: FoodInjectableBase
+  id: FoodPizzaCrust
+  description: Pizza without toppings — just dough with ambition.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+  - type: Food
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/Baked/pizza.rsi
+    layers:
+    - state: crust
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1.5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Pizza
+    - ReptilianFood
+    - Slice
