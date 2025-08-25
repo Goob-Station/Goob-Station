@@ -222,7 +222,7 @@ namespace Content.Client.RoundEnd
         private BoxContainer MakeStationReportTab()
         {
             var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
-            string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted.";
+            string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted, the NTR assigned to your station has been fined 2000 spesos.";
             var stationReportTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,

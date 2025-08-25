@@ -13,8 +13,6 @@ public sealed class StationReportSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        // Subscribe to the network event from the server
         SubscribeNetworkEvent<StationReportEvent>(OnStationReportReceived);
     }
 

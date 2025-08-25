@@ -12,6 +12,10 @@ public sealed class StationReportSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        if (StationReportText != null)
+        {
+            StationReportText = null;
+        }
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -32,5 +36,6 @@ public sealed class StationReportSystem : EntitySystem
     public void BroadcastStationReport(string? text)
     {
         RaiseNetworkEvent(new StationReportEvent(text));
+        StationReportText = null;
     }
 }
