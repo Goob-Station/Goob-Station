@@ -633,10 +633,22 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 - type: entity
-  parent: Paper
+  parent: BaseItem
   name: station report paper
   id: nanorepstationreport
   components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
   - type: StationReportTablet
   - type: Paper
     content: station-report-text
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
