@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "2025 CerberusWolfie <wb.johnb.willis@gmail.com>",
+  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/fd5cfd76acdf5bda9e46413c11006a6e825d51a9, modified by Ko4erga",
   "size": {
     "x": 32,
     "y": 32
@@ -14,39 +14,19 @@
       "name": "bolted_unlit"
     },
     {
+      "name": "bolted_open_unlit"
+    },
+    {
       "name": "closed"
     },
     {
       "name": "closed_unlit"
     },
     {
+      "name": "open_unlit"
+    },
+    {
       "name": "closing",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "closing_unlit",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "deny_unlit",
       "delays": [
         [
           0.1,
@@ -59,12 +39,32 @@
       ]
     },
     {
-      "name": "open",
+      "name": "closing_unlit",
       "delays": [
         [
-          1
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
+    },
+    {
+      "name": "deny_unlit",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "open"
     },
     {
       "name": "opening",
@@ -72,10 +72,10 @@
         [
           0.1,
           0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
@@ -85,12 +85,15 @@
         [
           0.1,
           0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
+    },
+    {
+      "name": "panel_closed"
     },
     {
       "name": "panel_closing",
@@ -98,20 +101,15 @@
         [
           0.1,
           0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
     {
-      "name": "panel_open",
-      "delays": [
-        [
-          1
-        ]
-      ]
+      "name": "panel_open"
     },
     {
       "name": "panel_opening",
@@ -119,10 +117,10 @@
         [
           0.1,
           0.1,
-          0.07,
-          0.07,
-          0.07,
-          0.2
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
@@ -148,7 +146,8 @@
           0.1,
           0.1,
           0.1,
-          0.1
+          0.1,
+          1.7
         ]
       ]
     },
@@ -161,8 +160,7 @@
           0.1,
           0.1,
           0.1,
-          0.1,
-          1.7
+          0.1
         ]
       ]
     },
@@ -186,10 +184,13 @@
       "name": "emergency_unlit",
       "delays": [
         [
-          0.4,
-          0.4
+          1.2,
+          1.2
         ]
       ]
+    },
+    {
+      "name": "emergency_open_unlit"
     }
   ]
 }

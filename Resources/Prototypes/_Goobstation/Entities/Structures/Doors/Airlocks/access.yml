@@ -50,7 +50,7 @@
 # BSO locked
 
 - type: entity
-  parent: AirlockCentralCommand
+  parent: AirlockBlueshieldOfficerCommand # Corvax-Goob-RespriteAirlocks
   id: AirlockBlueshieldOfficerCommandLocked
   suffix: Blueshield, Locked
   components:
@@ -59,7 +59,7 @@
       board: [ DoorElectronicsBSO ]
 
 - type: entity
-  parent: AirlockCentralCommandGlass
+  parent: AirlockBlueshieldOfficerCommandGlass # Corvax-Goob-RespriteAirlocks
   id: AirlockBlueshieldOfficerCommandGlassLocked
   suffix: Blueshield, Locked
   components:
