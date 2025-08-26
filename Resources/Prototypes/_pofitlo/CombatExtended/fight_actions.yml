@@ -1,0 +1,17 @@
+- type: fightAction
+  id: Punch
+  locName: fight-action-punch
+  locDesc: fight-action-punch-desc
+  icon:
+    sprite: _pofitlo/CombatExtended/FightAction/punch.rsi
+    state: icon
+  СhosenAttackStrategy: Punch
+
+- type: fightAction
+  id: TailAttack
+  locName: fight-action-tail-attack
+  locDesc: fight-action-tail-attack-desc
+  icon:
+    sprite: _pofitlo/CombatExtended/FightAction/tail_attack.rsi
+    state: icon
+  СhosenAttackStrategy: TailAttack

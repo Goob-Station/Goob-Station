@@ -15,6 +15,9 @@ using Robust.Client.Player;
 using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets;
 using Content.Shared._pofitlo.CombatExtended.FightAction;
 using Content.Client.UserInterface.Controls;
+using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.UI;
+using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
+
 
 namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
 
@@ -27,6 +30,7 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     private FightActionComponent? _fightActionComponent;
     private FightActionControl? FightActionControl => UIManager.GetActiveUIWidgetOrNull<FightActionControl>();
     private SimpleRadialMenu? _menu;
+    private FightActionRadialMenu? _fightActionMenu;
 
     public void OnSystemLoaded(FightActionSystem system)
     {
@@ -67,13 +71,13 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
 
     }
 
-    //public void RemoveFightActionControl()
-    //{
-    //    if (FightActionControl != null)
-    //        FightActionControl.SetTargetDollVisible(false);
+    public void RemoveFightActionControl()
+    {
+        if (FightActionControl != null)
+            FightActionControl.SetTargetDollVisible(false);
 
-    //    _fightActionComponent = null;
-    //}
+        _fightActionComponent = null;
+    }
 
     //public void CycleTarget(TargetBodyPart bodyPart)
     //{
@@ -91,25 +95,38 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     //    }
     //}
 
+    public void SetFightAction(AttackStrategy fightAction)
+    {
+        if (_playerManager.LocalEntity is not { } user
+            || _entManager.GetComponent<FightActionComponent>(user) is not { } fightActionComp
+            || FightActionControl == null)
+            return;
+
+        var player = _entManager.GetNetEntity(user);
+        if (fightAction != fightActionComp.Strategy)
+        {
+            var msg = new FightActionChangeEvent(player, fightAction);
+            _net.SendSystemNetworkMessage(msg);
+        }
+    }
+
     public void ToggleMenu(Vector2 position)
     {
-        if (_menu == null)
+        if (_fightActionMenu == null)
         {
-            _menu = new SimpleRadialMenu();
-            _menu.SetButtons(new List<RadialMenuOption>
-            {
-                //new RadialMenuActionOption(() => { /* TODO: trigger fight action A */ }) { ToolTip = "A" },
-                //new RadialMenuActionOption(() => { /* TODO: trigger fight action B */ }) { ToolTip = "B" }
-            });
 
-            position -= _menu.MinSize / 2;
-            _menu.Open(position);
+            _fightActionMenu = new FightActionRadialMenu();
+            _fightActionMenu.RefreshUI();
+
+            position -= _fightActionMenu.MinSize / 2;
+            _fightActionMenu.Open(position);
             //_menu.OpenCentered();
         }
         else
         {
-            _menu.Dispose();
-            _menu = null;
+            _fightActionMenu.Dispose();
+            _fightActionMenu = null;
         }
     }
+
 }

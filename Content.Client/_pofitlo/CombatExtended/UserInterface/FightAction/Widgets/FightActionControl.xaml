@@ -6,7 +6,7 @@
     VerticalExpand="True"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Right">
-    <Control HorizontalAlignment="Right">
+    <Control HorizontalAlignment="Right" Name="test1">
         <TextureRect
             Name="TargetDoll"
             Stretch="KeepAspectCentered"
