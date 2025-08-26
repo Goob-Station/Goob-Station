@@ -10,6 +10,7 @@
   parent: BaseMobSpeciesOrganic
   components:
   - type: Hunger
+    baseDecayRate: 0.0467
     startingHunger: 100
     thresholds:
       Overfed: 100
@@ -101,6 +102,10 @@
     damage:
       types:
        Piercing: 45
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
 
 # All Form Entities
 - type: entity
@@ -128,6 +133,11 @@
   name: Black Werewolf
   parent: BaseMobWerewolf
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      500: Dead
   - type: ActionGrant
     actions:
     - ActionRevertPolymorph
@@ -141,4 +151,54 @@
     formsToTransfer:
     - DefaultFormWerewolf
     - ExplosiveFormWerewolf
+
+- type: entity
+  id: DireWerewolf
+  name: Dire Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+  - type: BleedOnMeleeHit
+    bleedAmount: -25
+
+- type: entity
+  id: HellhoundWerewolf
+  name: Hellhound Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: Flammable
+    canResistFire: true
+
+- type: entity
+  id: WhiteWerewolf
+  name: White Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: Hunger # reset hunger
+    baseDecayRate: 0.01666666666
+    startingHunger: null
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    starvationDamage: null
+
+# testing
+- type: entity
+  id: TestWerewolfDebug
+  name: Werewolf Appearance
+  parent: BaseSimpleMob
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/werewolf.rsi
+    state: werewolf
 
