@@ -79,7 +79,7 @@
     fireStacks: 0.5
 
 - type: entity
-  parent: [Cane, VoiceLock]
+  parent: [Cane, SelectableLock]
   id: CaneSheath
   suffix: Empty
   components:
