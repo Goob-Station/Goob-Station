@@ -636,11 +636,12 @@
   parent: BaseItem
   name: station report paper
   id: nanorepstationreport
+  description: The document is made out of gold, but somehow you are still able to write on it.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
-    - state: paper
+    - state: station-report-paper
   - type: StationReportTablet
   - type: Paper
     content: station-report-text
