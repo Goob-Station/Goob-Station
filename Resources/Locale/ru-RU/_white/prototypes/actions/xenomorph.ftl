@@ -25,7 +25,10 @@ ent-ActionSpawnWallResin = Построить смоляную стену (50)
 ent-ActionSpawnResinMembrane = Построить смоляную мембрану (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
-ent-ActionSpawnResinNest = Построить смоляное гнездо (50)
+ent-ActionSpawnResinMembrane = Выделить смолу (50)
+    .desc = Выделяют вязкую, пластичную смолу.
+
+ent-ActionSpawnResinNest = Выделить смолу (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
 ent-ActionTailLash = Удар хвостом
@@ -39,3 +42,6 @@ ent-ActionJumpXenomorph = Прыжок
 
 ent-ActionTransferPlasma = Передача плазмы (50)
     .desc = Передаёт плазму вашему другу.
+
+ent-ActionXenomorphPromotion = Создать королевского паразита (500)
+    .desc = Создает королевского паразита, чтобы предоставить одному из ваших детей честь стать вашим преторианцем.

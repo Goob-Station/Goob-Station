@@ -16,6 +16,13 @@
         Toxin: -5
         Airloss: -10
         Brute: -5
+  - type: Pinpointer
+    component: XenomorphQueen
+    alert: QueenFinder
+    isActive: true
+    canToggle: false
+    canEmag: false
+    canExamine: false
   - type: ThermalVision
     toggleAction: ToggleThermalVisionXenomorph
     color: "#7d0cc9"

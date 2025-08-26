@@ -65,7 +65,12 @@
   - type: InstantAction
     event: !type:SpawnTileEntityActionEvent
       entity: ResinWeedNode
-      blockedCollision: SlipLayer
+      blockedCollisionMask:
+      - SlipLayer
+      blockedCollisionLayer:
+      - Impassable
+      - MidImpassable
+      - LowImpassable
   - type: PlasmaCostAction
 
 - type: entity
@@ -81,7 +86,11 @@
   - type: InstantAction
     event: !type:SpawnTileEntityActionEvent
       entity: XenomorphEgg
-      blockedCollision: TableMask
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
   - type: PlasmaCostAction
     plasmaCost: 75
 
@@ -102,7 +111,10 @@
     event: !type:PlaceTileEntityEvent
       entity: WallResin
       length: 0.5
-      blockedCollision: FullTileMask
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - WallLayer
   - type: PlasmaCostAction
 
 # TODO: delete it
@@ -122,7 +134,10 @@
     event: !type:PlaceTileEntityEvent
       entity: ResinMembrane
       length: 0.5
-      blockedCollision: GlassLayer
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - GlassLayer
   - type: PlasmaCostAction
 
 # TODO: delete it
@@ -142,6 +157,11 @@
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
       length: 0.5
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
   - type: PlasmaCostAction
 
 # Tail lash action
@@ -159,8 +179,8 @@
     range: 10
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
-
-# Acid action
+    
+    # Acid action
 - type: entity
   id: ActionAcid
   parent: BaseAction
@@ -194,7 +214,7 @@
     range: 10
   - type: WorldTargetAction
     event: !type:JumpActionEvent
-
+    
 # Transfer plasma action
 - type: entity
   id: ActionTransferPlasma
@@ -211,3 +231,19 @@
     range: 2
   - type: EntityTargetAction
     event: !type:TransferPlasmaActionEvent
+
+# Promotion action
+- type: entity
+  id: ActionXenomorphPromotion
+  parent: BaseAction
+  name: Create royal parasite (500)
+  description: Produce a royal parasite to grant one of your children the honor of being your Praetorian.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 0
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
+  - type: InstantAction
+    event: !type:PromotionActionEvent
+  - type: PlasmaCostAction
+    plasmaCost: 500

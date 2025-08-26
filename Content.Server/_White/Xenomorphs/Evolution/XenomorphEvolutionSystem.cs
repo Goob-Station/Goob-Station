@@ -58,21 +58,33 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
         if (component.EvolvesTo.Count == 1)
         {
-            StartEvolutionDuAfter(uid, component, component.EvolvesTo.First().Prototype);
+            if (component.Points < component.Max)
+            {
+                _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) / component.PointsPerSecond)), uid, uid);
+                return;
+            }
+
+            args.Handled = Evolve(uid, component.EvolvesTo.First().Prototype, component.EvolutionDelay);
             return;
         }
 
         _ui.TryToggleUi(uid, RadialSelectorUiKey.Key, uid);
         _ui.SetUiState(uid, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(component.EvolvesTo));
+
+        args.Handled = true;
     }
 
     private void OnEvolutionRecieved(EntityUid uid, XenomorphEvolutionComponent component, RadialSelectorSelectedMessage args)
     {
-        if (StartEvolutionDuAfter(uid, component, args.SelectedItem))
+        if (component.Points < component.Max)
+        {
+            _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) / component.PointsPerSecond)), uid, uid);
+            return;
+        }
+
+        if (Evolve(uid, args.SelectedItem, component.EvolutionDelay))
             return;
 
         var actor = args.Actor;
@@ -131,32 +143,27 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
         }
     }
 
-    private bool StartEvolutionDuAfter(EntityUid uid, XenomorphEvolutionComponent component, string? selectedItem)
+    public bool Evolve(EntityUid uid, string? evolveTo, TimeSpan evolutionDelay, bool checkNeedCasteDeath = true)
     {
-        if (component.Points < component.Max)
-        {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) / component.PointsPerSecond)), uid, uid);
-            return false;
-        }
-
-        if (selectedItem == null
-            || !_protoManager.TryIndex(selectedItem, out var xenomorphPrototype)
-            || !xenomorphPrototype.TryGetComponent<XenomorphComponent>(out var xenomorph, _componentFactory))
+        if (evolveTo == null
+            || !_protoManager.TryIndex(evolveTo, out var xenomorphPrototype)
+            || !xenomorphPrototype.TryGetComponent<XenomorphComponent>(out var xenomorph, _componentFactory)
+            || !_mind.TryGetMind(uid, out _, out _))
             return false;
 
-        var ev = new BeforeXenomorphEvolutionEvent(xenomorph.Caste);
+        var ev = new BeforeXenomorphEvolutionEvent(xenomorph.Caste, checkNeedCasteDeath);
         RaiseLocalEvent(uid, ev);
 
         if (ev.Cancelled)
             return false;
 
-        var doAfterEvent = new XenomorphEvolutionDoAfterEvent(selectedItem, xenomorph.Caste);
-        var doAfter = new DoAfterArgs(EntityManager, uid, component.EvolutionDelay, doAfterEvent, uid);
+        var doAfterEvent = new XenomorphEvolutionDoAfterEvent(evolveTo, xenomorph.Caste, checkNeedCasteDeath);
+        var doAfter = new DoAfterArgs(EntityManager, uid, evolutionDelay, doAfterEvent, uid);
 
         if (!_doAfter.TryStartDoAfter(doAfter))
             return false;
 
-        _jitter.DoJitter(uid, component.EvolutionDelay, true, 80, 8, true);
+        _jitter.DoJitter(uid, evolutionDelay, true, 80, 8, true);
 
         var popupOthers = Loc.GetString("xenomorphs-evolution-start-others", ("uid", uid));
         _popup.PopupEntity(popupOthers, uid, Filter.PvsExcept(uid), true, PopupType.Medium);

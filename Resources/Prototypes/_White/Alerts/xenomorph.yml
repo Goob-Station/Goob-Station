@@ -62,3 +62,23 @@
       offset: 0.175, 0
     - map: [ "enum.PlasmaVisualLayers.Digit3" ]
       offset: 0.35, 0
+
+# Queen Finder Alert
+- type: alert
+  id: QueenFinder
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/queen_finder.rsi
+    state: queen_finder
+  alertViewEntity: AlertQueenFinderSpriteView
+  name: alerts-queen-finder-name
+  description: alerts-queen-finder-desc
+
+- type: entity
+  id: AlertQueenFinderSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Interface/Alerts/queen_finder.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.PinpointerLayers.Screen" ]

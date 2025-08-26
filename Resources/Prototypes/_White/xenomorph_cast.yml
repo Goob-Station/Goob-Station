@@ -21,7 +21,7 @@
 - type: xenomorphCaste
   id: Praetorian
   name: xenomorph-caste-praetorian
-  # needCasteDeath: Queen - TODO: Royal larva
+  needCasteDeath: Queen
   maxCount: 1
 
 - type: xenomorphCaste

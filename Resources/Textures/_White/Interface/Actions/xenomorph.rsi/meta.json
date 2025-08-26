@@ -29,10 +29,13 @@
             "name": "tail_attack"
         },
         {
+            "name": "plasma_transfer_off"
+        },
+        {
             "name": "plasma_transfer_on"
         },
         {
-            "name": "plasma_transfer_off"
+            "name": "promote"
         },
         {
             "name": "acid"

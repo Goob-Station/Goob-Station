@@ -15,6 +15,7 @@
     - map: [ "pocket2" ]
   - type: Xenomorph
     caste: Queen
+  - type: XenomorphQueen
   - type: TailLash
     tailDamage:
       groups:
