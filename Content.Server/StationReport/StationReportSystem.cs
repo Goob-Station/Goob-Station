@@ -29,7 +29,7 @@ public sealed class StationReportSystem : EntitySystem
         var query = EntityQueryEnumerator<StationReportTabletComponent>();
         while (query.MoveNext(out var uid, out var tablet))
         {
-            if (EntityManager.TryGetComponent<PaperComponent>(uid, out var paper))
+            if (TryComp<PaperComponent>(uid, out var paper))
             {
                 StationReportText = paper.Content;
                 break;
