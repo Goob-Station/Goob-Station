@@ -221,6 +221,7 @@ namespace Content.Client.RoundEnd
         }
         private BoxContainer MakeStationReportTab()
         {
+            //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
             var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
             string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted, the NTR assigned to your station has been fined 2000 spesos.";
             var stationReportTab = new BoxContainer

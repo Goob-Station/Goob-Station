@@ -5,7 +5,7 @@ namespace Content.Client.StationReport;
 
 public sealed class StationReportSystem : EntitySystem
 {
-    // This will store the last received station report
+    //stores the last received station report
     private string? _stationReportText;
 
     public string? StationReportText => _stationReportText;
@@ -18,7 +18,7 @@ public sealed class StationReportSystem : EntitySystem
 
     private void OnStationReportReceived(StationReportEvent ev)
     {
-        // Save the received message in the variable
+        //Save the received message in the variable
         _stationReportText = ev.StationReportText;
     }
 }
