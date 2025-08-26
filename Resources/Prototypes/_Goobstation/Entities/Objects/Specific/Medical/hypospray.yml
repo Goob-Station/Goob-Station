@@ -192,7 +192,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of bicaridine, 5u of ibuprofen, 1 unit of saline and 1u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 4u of bicaridine, 4u of ibuprofen, 1 unit of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
