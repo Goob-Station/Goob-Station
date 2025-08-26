@@ -206,14 +206,15 @@
       maxVol: 10
       reagents:
       - ReagentId: Bicaridine
-        Quantity: 5
+        Quantity: 4
       - ReagentId: Ibuprofen
         Quantity: 4
-      - ReagentId: Saline
+      - ReagentId: SalicylicAcid
         Quantity: 1
       - ReagentId: TranexamicAcid
         Quantity: 1 # Stops 30% of maximum bleeding
-  # Ibuprofen heals 16dmg, Bicardine heals 20, for a total of 36 total healed brute dmg from one cart, a little over a third, down from previous 96
+  #If you have a full dmg spread, it'll heal ~60 dmg , down from previous 96
+  #It will heal 20 dmg if you only have one dmg type and you have more than 25 dmg (see salicylic acid)
 - type: entity
   name: burn autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
@@ -237,7 +238,7 @@
       - ReagentId: Leporazine #will minorly help with temperature regulation
         Quantity: 1
 #what were they cooking here before, 114 total possible dmg heal was crazyyy
-#lepo WOULD heal 8 cold (if cold was ever a dmg type), kelo heals 5 heat shock and cold, derma heals 16 heat shock and cold
+#~21 dmg healed/dmg type (unless its cold, then its a lil more), doesnt heal caustic all that well
 - type: entity
   name: emergency autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
