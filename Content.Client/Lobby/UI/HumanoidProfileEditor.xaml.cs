@@ -1699,10 +1699,15 @@ namespace Content.Client.Lobby.UI
 
             var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
 
+            // we increase the min/max values of the sliders before we set their value, just so that we don't accidentally clamp down on a value loaded from a profile when we shouldn't
+            HeightSlider.MinValue = 0;
+            HeightSlider.MaxValue = 2;
             HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight);
             HeightSlider.MinValue = species.MinHeight;
             HeightSlider.MaxValue = species.MaxHeight;
 
+            WidthSlider.MinValue = 0;
+            WidthSlider.MaxValue = 2;
             WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
             WidthSlider.MinValue = species.MinWidth;
             WidthSlider.MaxValue = species.MaxWidth;
