@@ -466,10 +466,10 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser carbine
+  name: laser carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
+  id: WeaponLaserCarbine
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: Item
     size: Large
@@ -488,29 +488,6 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
-  - type: StaticPrice
-    price: 300
-  - type: PacifismAllowedGun
-  # Goobstation
-  - type: Item
-    size: Large
-
-
-- type: entity
-  name: laser carbine
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
-  components:
-  - type: StaticPrice
-    price: 420
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 50 # Goobstation
@@ -519,6 +496,22 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  - type: StaticPrice
+    price: 420
+  - type: PacifismAllowedGun
+
+- type: entity
+  name: practice laser carbine
+  parent: [WeaponLaserCarbine, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
+  components:
+  - type: StaticPrice
+    price: 300
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaserPractice
+    fireCost: 62.5
+  - type: PacifismAllowedGun
 
 - type: entity
   name: pulse pistol
