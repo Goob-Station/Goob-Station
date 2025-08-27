@@ -72,7 +72,6 @@
   description: A liver that used to belong to a killer alien, who knows what it used to eat.
   components:
   - type: Metabolizer
-    maxReagents: 10
     metabolizerTypes: [Xenomorph]
     groups:
     - id: Poison

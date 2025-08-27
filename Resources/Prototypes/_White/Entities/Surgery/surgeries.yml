@@ -14,7 +14,6 @@
   - type: SurgeryOrganCondition
     organ:
     - type: XenomorphInfection
-    slotId: xenomorph_larva
 
 # - type: entity
 #   parent: SurgeryBase
@@ -35,7 +34,6 @@
 #     - type: XenomorphInfection
 #     inverse: true
 #     reattaching: true
-#     slotId: xenomorph_larva
 
 - type: entity
   parent: SurgeryBase
@@ -53,4 +51,3 @@
   - type: SurgeryOrganCondition
     organ:
     - type: XenomorphLarva
-    slotId: xenomorph_larva

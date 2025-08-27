@@ -8,6 +8,10 @@
     minimumPlayers: 20
     earliestStart: 35
     reoccurrenceDelay: 50
+    chaos:
+      Hostile: 60
+      Medical: 75
+      Death: 100
   - type: VentSpawnRule
   - type: XenomorphsRule
   - type: AntagObjectives
