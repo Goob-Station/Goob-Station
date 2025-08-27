@@ -74,7 +74,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             Hidden = true,
             BreakOnHandChange = false,
             BreakOnDamage = false,
-            BreakOnMove = true,
+            BreakOnMove = false,
             BreakOnDropItem = false,
         };
         args.Handled = true;
@@ -115,7 +115,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _cultRule.IncrementCultObjectiveEntropy(uid);
         }
 
-        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 25% chance to flicker lights on siphon
+        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 20% chance to flicker lights on siphon
         {
             _lights.Clear();
             _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
@@ -123,7 +123,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
             foreach (var light in _lights) // static range of 5. because.
             {
-                if (!_random.Prob(0.25f))
+                if (!_random.Prob(0.20f))
                     continue;
 
                 _ghost.DoGhostBooEvent(light);
