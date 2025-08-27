@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 262.0.0
-  forkId: syndicate-goob
-  forkVersion: ac3e85aff4f3007e59617921e9e7f2699225f3e3
-  time: 08/20/2025 15:17:45
-  entityCount: 25119
+  forkId: ""
+  forkVersion: ""
+  time: 08/27/2025 12:19:46
+  entityCount: 25172
 maps:
 - 1743
 grids:
@@ -60899,6 +60899,309 @@ entities:
       rot: 3.141592653589793 rad
       pos: 109.52814,61.748447
       parent: 1
+  - uid: 99250
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 35.098717,110.66645
+      parent: 1
+  - uid: 99253
+    components:
+    - type: Transform
+      pos: 36.121284,113.590706
+      parent: 1
+  - uid: 99820
+    components:
+    - type: Transform
+      pos: 33.149323,113.43837
+      parent: 1
+  - uid: 99821
+    components:
+    - type: Transform
+      pos: 34.555573,113.485245
+      parent: 1
+  - uid: 99822
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.454933,110.6982
+      parent: 1
+  - uid: 99823
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 32.53306,110.66695
+      parent: 1
+  - uid: 99824
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.81431,110.74507
+      parent: 1
+  - uid: 99826
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.43931,110.68257
+      parent: 1
+  - uid: 99943
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 168.48914,84.61626
+      parent: 1
+  - uid: 992833
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 76.55362,118.6224
+      parent: 1
+  - uid: 992922
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 72.515976,121.57266
+      parent: 1
+  - uid: 993192
+    components:
+    - type: Transform
+      pos: 71.48263,110.61134
+      parent: 1
+  - uid: 993210
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.39413,109.98634
+      parent: 1
+  - uid: 993235
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.569336,131.58214
+      parent: 1
+  - uid: 993250
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 75.56645,130.68713
+      parent: 1
+  - uid: 994529
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 71.30593,50.652565
+      parent: 1
+  - uid: 994530
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 69.852806,53.777565
+      parent: 1
+  - uid: 995871
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 113.41958,137.77544
+      parent: 1
+  - uid: 995883
+    components:
+    - type: Transform
+      pos: 113.56653,134.594
+      parent: 1
+  - uid: 995917
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 113.59612,128.73726
+      parent: 1
+  - uid: 995927
+    components:
+    - type: Transform
+      pos: 101.5011,130.52522
+      parent: 1
+  - uid: 995943
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 101.489456,133.71867
+      parent: 1
+  - uid: 995952
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 101.36061,138.1282
+      parent: 1
+  - uid: 996597
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 127.52396,131.52713
+      parent: 1
+  - uid: 996648
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 124.930115,125.753586
+      parent: 1
+  - uid: 996741
+    components:
+    - type: Transform
+      pos: 136.50354,130.57999
+      parent: 1
+  - uid: 997010
+    components:
+    - type: Transform
+      pos: 151.94867,140.52187
+      parent: 1
+  - uid: 997011
+    components:
+    - type: Transform
+      pos: 143.87054,140.58437
+      parent: 1
+  - uid: 997017
+    components:
+    - type: Transform
+      pos: 147.97992,137.55312
+      parent: 1
+  - uid: 997049
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 152.55807,143.60165
+      parent: 1
+  - uid: 997336
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 124.506805,128.81592
+      parent: 1
+  - uid: 997490
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 136.43782,125.60594
+      parent: 1
+  - uid: 997491
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 144.31282,126.68407
+      parent: 1
+  - uid: 998002
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 143.5718,94.58365
+      parent: 1
+  - uid: 998021
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 147.54776,89.34904
+      parent: 1
+  - uid: 998384
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 96.50842,126.142426
+      parent: 1
+  - uid: 999195
+    components:
+    - type: Transform
+      pos: 137.5362,92.56269
+      parent: 1
+  - uid: 999196
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 138.55182,93.84394
+      parent: 1
+  - uid: 999206
+    components:
+    - type: Transform
+      pos: 146.80444,85.57649
+      parent: 1
+  - uid: 999479
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 138.61588,115.68822
+      parent: 1
+  - uid: 999530
+    components:
+    - type: Transform
+      pos: 149.46887,106.5471
+      parent: 1
+  - uid: 999574
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 154.47058,107.60653
+      parent: 1
+  - uid: 9910087
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 124.94373,68.813965
+      parent: 1
+  - uid: 9910452
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 120.56832,128.78745
+      parent: 1
+  - uid: 9915122
+    components:
+    - type: Transform
+      pos: 140.40216,58.572514
+      parent: 1
+  - uid: 9915123
+    components:
+    - type: Transform
+      pos: 139.58966,58.55689
+      parent: 1
+  - uid: 9915344
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 121.454056,74.548996
+      parent: 1
+  - uid: 9920997
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 132.49753,57.606335
+      parent: 1
+  - uid: 9922330
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 76.61003,130.80211
+      parent: 1
+  - uid: 9923352
+    components:
+    - type: Transform
+      pos: 64.289406,112.66615
+      parent: 1
+- proto: ChairOfficeLight
+  entities:
+  - uid: 996305
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 119.63913,157.75143
+      parent: 1
+  - uid: 998633
+    components:
+    - type: Transform
+      pos: 168.50249,86.56256
+      parent: 1
+  - uid: 9912259
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 113.52389,157.72687
+      parent: 1
 - proto: ChairWood
   entities:
   - uid: 4986
@@ -107716,7 +108019,7 @@ entities:
       pos: 48.5,123.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -170872.12
+      secondsUntilStateChange: -171496.94
       state: Opening
     - type: Forensics
       residues: []
@@ -160578,8 +160881,6 @@ entities:
       pos: 113.5,69.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 25111
   - uid: 25110
@@ -160589,8 +160890,6 @@ entities:
       pos: 114.5,66.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 25112
   - uid: 25113
@@ -160600,8 +160899,6 @@ entities:
       pos: 108.5,59.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 25112
 - proto: WeaponEnergyTurretCommandControlPanel

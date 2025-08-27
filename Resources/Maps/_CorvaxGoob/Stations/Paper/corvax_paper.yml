@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/20/2025 17:42:07
-  entityCount: 18654
+  time: 08/27/2025 11:49:01
+  entityCount: 18693
 maps:
 - 1
 grids:
@@ -45752,6 +45752,234 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 17.29161,40.647793
       parent: 2
+- proto: ChairOfficeDark
+  entities:
+  - uid: 991168
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 44.60787,69.72264
+      parent: 2
+  - uid: 996334
+    components:
+    - type: Transform
+      pos: 81.47681,51.613174
+      parent: 2
+  - uid: 996519
+    components:
+    - type: Transform
+      pos: 53.477474,26.7046
+      parent: 2
+  - uid: 996520
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 66.52678,9.618879
+      parent: 2
+  - uid: 996521
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 48.53851,9.533354
+      parent: 2
+  - uid: 996522
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,10.5
+      parent: 2
+  - uid: 996523
+    components:
+    - type: Transform
+      pos: 5.5,6.5
+      parent: 2
+  - uid: 996524
+    components:
+    - type: Transform
+      pos: 5.5,2.5
+      parent: 2
+  - uid: 996525
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,21.5
+      parent: 2
+  - uid: 996526
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 28.762114,29.10214
+      parent: 2
+  - uid: 996527
+    components:
+    - type: Transform
+      pos: 24.496489,29.774015
+      parent: 2
+  - uid: 996528
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 26.996489,29.75839
+      parent: 2
+  - uid: 996529
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,9.5
+      parent: 2
+  - uid: 996530
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,5.5
+      parent: 2
+  - uid: 996531
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 46.5,9.5
+      parent: 2
+  - uid: 996532
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,9.5
+      parent: 2
+  - uid: 996533
+    components:
+    - type: Transform
+      pos: 41.5,30.5
+      parent: 2
+  - uid: 996534
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 39.5,32.5
+      parent: 2
+  - uid: 996535
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,21.5
+      parent: 2
+  - uid: 996536
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,21.5
+      parent: 2
+  - uid: 996537
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.346596,29.16464
+      parent: 2
+  - uid: 996538
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,37.5
+      parent: 2
+  - uid: 996539
+    components:
+    - type: Transform
+      pos: 21.502985,9.648951
+      parent: 2
+  - uid: 996540
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 41.5,35.5
+      parent: 2
+  - uid: 996542
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.965239,29.69589
+      parent: 2
+  - uid: 996546
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5635295,33.568768
+      parent: 2
+  - uid: 996547
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 68.458984,9.688908
+      parent: 2
+  - uid: 996548
+    components:
+    - type: Transform
+      pos: 62.56078,20.706186
+      parent: 2
+  - uid: 997056
+    components:
+    - type: Transform
+      pos: 19.542614,-7.4087477
+      parent: 2
+  - uid: 998432
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 83.49243,50.644424
+      parent: 2
+  - uid: 998785
+    components:
+    - type: Transform
+      pos: 20.370739,-7.4556227
+      parent: 2
+  - uid: 998855
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.8418274,-14.431591
+      parent: 2
+  - uid: 998898
+    components:
+    - type: Transform
+      pos: 18.511364,-7.4556227
+      parent: 2
+  - uid: 9910513
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.3887024,-10.775341
+      parent: 2
+- proto: ChairOfficeLight
+  entities:
+  - uid: 995978
+    components:
+    - type: Transform
+      pos: 41.48521,10.26605
+      parent: 2
+  - uid: 996549
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,-4.5
+      parent: 2
+  - uid: 996550
+    components:
+    - type: Transform
+      pos: 57.5,-2.5
+      parent: 2
+  - uid: 996551
+    components:
+    - type: Transform
+      pos: 59.5,62.5
+      parent: 2
+  - uid: 996552
+    components:
+    - type: Transform
+      pos: 43.5139,6.6169376
+      parent: 2
+  - uid: 996555
+    components:
+    - type: Transform
+      pos: 50.541992,55.54185
+      parent: 2
 - proto: ChairWeb
   entities:
   - uid: 6556
@@ -55948,7 +56176,7 @@ entities:
     - type: Label
       currentLabel: кофейный ликёр
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.21263114
+      sprayFizzinessThresholdRoll: 0.08749679
     - type: NameModifier
       baseName: бутылка кофейного ликёра
     - type: ContainerContainer
@@ -56234,7 +56462,7 @@ entities:
     - type: Label
       currentLabel: ром
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.2788472
+      sprayFizzinessThresholdRoll: 0.82489175
     - type: NameModifier
       baseName: кубинский пряный ром капитана Пита
     - type: ContainerContainer
@@ -56276,7 +56504,7 @@ entities:
     - type: Label
       currentLabel: текила
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.39330155
+      sprayFizzinessThresholdRoll: 0.90848184
     - type: NameModifier
       baseName: бутылка текилы Каккаво гарантированного качества
     - type: ContainerContainer
@@ -56317,7 +56545,7 @@ entities:
     - type: Label
       currentLabel: вермут
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.8279804
+      sprayFizzinessThresholdRoll: 0.8669255
     - type: NameModifier
       baseName: бутылка вермута Золотой глаз
     - type: ContainerContainer
@@ -56340,7 +56568,7 @@ entities:
     - type: Label
       currentLabel: водка
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.45163533
+      sprayFizzinessThresholdRoll: 0.42154035
     - type: NameModifier
       baseName: бутылка водки
     - type: ContainerContainer
@@ -56390,7 +56618,7 @@ entities:
     - type: Label
       currentLabel: вино
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.6376896
+      sprayFizzinessThresholdRoll: 0.32848766
     - type: NameModifier
       baseName: особое двухбородое бородатое вино
     - type: ContainerContainer
@@ -60208,7 +60436,7 @@ entities:
       pos: 39.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71800.664
+      secondsUntilStateChange: -72294.72
       state: Closing
     - type: DeviceNetwork
       deviceLists:
