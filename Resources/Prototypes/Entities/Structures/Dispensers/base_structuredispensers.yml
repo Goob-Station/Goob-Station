@@ -123,3 +123,7 @@
   - type: StaticPrice
     price: 1000
   - type: WiresPanel
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - storagebase
+    - beakerSlot
