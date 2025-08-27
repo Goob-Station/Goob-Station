@@ -64,6 +64,8 @@ public sealed class CosmicMonumentSystem : EntitySystem
 
     private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicMoveMonument args)
     {
+
+        args.Handled = true;
         if (_cultRule.AssociatedGamerule(uid) is not { } cult
             || !VerifyPlacement(uid, out var pos))
             return;
@@ -87,7 +89,6 @@ public sealed class CosmicMonumentSystem : EntitySystem
         Spawn(MonumentCollider, Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
         _monument.PhaseOutMonument(cult.Comp.MonumentInGame);
         destComp.PhaseInTimer = cult.Comp.MonumentInGame.Comp.PhaseOutTimer + TimeSpan.FromSeconds(0.75);
-        _actions.SetCooldown(args.Action.Owner, TimeSpan.FromSeconds(600)); //Hard coded because why the fuck is useDelay not working on the YAML action
     }
 
     //todo this can probably be mostly moved to shared but my brain isn't cooperating w/ that rn
