@@ -293,11 +293,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(1.1f, 1.1f);
+        args.ModifySpeed(1.15f, 1.15f);
     }
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(0.65f, 0.65f);
+        args.ModifySpeed(0.8f, 0.8f);
     }
 
     // Goob start

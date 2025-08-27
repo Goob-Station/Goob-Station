@@ -165,7 +165,7 @@
   description: Use a concentrated blast of power to force a secure doorway open.
   components:
   - type: Action
-    useDelay: 5
+    useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -185,7 +185,7 @@
   description: You negate any incoming damage for a short time.
   components:
   - type: Action
-    useDelay: 60
+    useDelay: 80
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -208,7 +208,7 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
   - type: TargetAction
-    range: 60
+    range: 6000 # You're just picking a direction anyways
   - type: WorldTargetAction
     event: !type:EventCosmicNova {}
 
