@@ -1,3 +1,4 @@
+
 - type: constructionGraph
   id: AppleCakeGraph
   start: start
@@ -11,24 +12,528 @@
               icon:
                 sprite: Objects/Consumable/Food/Baked/cake.rsi
                 state: plain
-              doAfter: 10
+              doAfter: 5
             - tag: FoodApple
               name: construction-graph-tag-apple
               icon:
                 sprite: Objects/Specific/Hydroponics/apple.rsi
                 state: produce
-              doAfter: 10
+              doAfter: 5
             - tag: FoodApple
               name: construction-graph-tag-apple
               icon:
                 sprite: Objects/Specific/Hydroponics/apple.rsi
                 state: produce
-              doAfter: 10
+              doAfter: 5
             - tag: FoodApple
               name: construction-graph-tag-apple
               icon:
                 sprite: Objects/Specific/Hydroponics/apple.rsi
                 state: produce
-              doAfter: 10
+              doAfter: 5
     - node: applecakenode
       entity: FoodCakeApple
+
+- type: constructionGraph
+  id: LemonCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lemoncakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: Food
+              name: construction-graph-tag-lemon
+              icon:
+                sprite: Objects/Specific/Hydroponics/lemon.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-lemon
+              icon:
+                sprite: Objects/Specific/Hydroponics/lemon.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-lemon
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeLemon
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
+
+- type: constructionGraph
+  id: AppleCakeGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: applecakenode
+          steps:
+            - tag: FoodCakePlain
+              name: construction-graph-tag-plain-cake
+              icon:
+                sprite: Objects/Consumable/Food/Baked/cake.rsi
+                state: plain
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+            - tag: FoodApple
+              name: construction-graph-tag-apple
+              icon:
+                sprite: Objects/Specific/Hydroponics/apple.rsi
+                state: produce
+              doAfter: 5
+    - node: applecakenode
+      entity: FoodCakeApple
+
