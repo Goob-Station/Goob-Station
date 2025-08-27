@@ -84,7 +84,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
-            roundEndTabs.AddChild(MakeStationReportTab());
+            roundEndTabs.AddChild(MakeStationReportTab()); //goob
 
             Contents.AddChild(roundEndTabs);
 
@@ -219,7 +219,7 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
-        private BoxContainer MakeStationReportTab()
+        private BoxContainer MakeStationReportTab() //start goob edit
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
             var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
@@ -242,14 +242,15 @@ namespace Content.Client.RoundEnd
             var StationReportLabel = new RichTextLabel();
             var StationReportmessage = new FormattedMessage();
             StationReportmessage.AddMarkupOrThrow(stationReportText);
-            StationReportLabel.SetMessage(StationReportmessage);    
+            StationReportLabel.SetMessage(StationReportmessage);
             StationReportContainer.AddChild(StationReportLabel);
 
-            
+
             StationReportContainerScrollbox.AddChild(StationReportContainer);
             stationReportTab.AddChild(StationReportContainerScrollbox);
             return stationReportTab;
         }
+        //end goob edit
     }
 
 }

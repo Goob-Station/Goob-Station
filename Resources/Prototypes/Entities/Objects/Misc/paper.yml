@@ -632,7 +632,7 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-- type: entity
+- type: entity #goob
   parent: BaseItem
   name: station report paper
   id: NanoRepStationReport
@@ -642,7 +642,7 @@
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: station-report-paper
-  - type: StationReportTablet
+  - type: StationReport
   - type: Paper
     content: station-report-text
   - type: PaperLabelType
