@@ -35,7 +35,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
         _actions.AddAction(uid, ref component.PromotionAction, component.PromotionActionId);
 
     private void OnShutdown(EntityUid uid, XenomorphQueenComponent component, ComponentShutdown args) =>
-        _actions.RemoveAction(uid, component.PromotionActionId);
+        _actions.RemoveAction(uid, component.PromotionAction);
 
     private void OnPromotionAction(EntityUid uid, XenomorphQueenComponent component, PromotionActionEvent args)
     {
