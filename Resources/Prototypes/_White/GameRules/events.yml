@@ -12,6 +12,9 @@
       Hostile: 60
       Medical: 75
       Death: 100
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 700
   - type: VentSpawnRule
   - type: XenomorphsRule
   - type: AntagObjectives
