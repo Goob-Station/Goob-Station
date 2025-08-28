@@ -119,15 +119,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
     <ui:MenuButton
-        Name="ReportBugButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/Interface/bug.svg.192dpi.png'}"
-        ToolTip="{Loc 'game-hud-open-bug-report-window-button-tooltip'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-    />
-    <ui:MenuButton
         Name="AHelpButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/info.svg.192dpi.png'}"
