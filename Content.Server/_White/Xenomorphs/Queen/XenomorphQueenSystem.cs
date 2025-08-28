@@ -58,6 +58,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
         if (!_hands.TryForcePickupAnyHand(uid, component.Promotion.Value))
         {
             QueueDel(component.Promotion);
+            component.Promotion = null;
             return;
         }
 
