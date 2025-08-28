@@ -5,13 +5,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Shadowling;
-using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Lightning;
 using Content.Shared.DoAfter;
-using Content.Shared.Electrocution;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 
@@ -31,7 +29,15 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEvent>(OnLightningStorm);
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEventDoAfterEvent>(OnLightningStormDoAfter);
+        SubscribeLocalEvent<ShadowlingLightningStormComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingLightningStormComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingLightningStormComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingLightningStormComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnLightningStorm(EntityUid uid, ShadowlingLightningStormComponent component, LightningStormEvent args)
     {
@@ -51,17 +57,11 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
 
     private void OnLightningStormDoAfter(EntityUid uid, ShadowlingLightningStormComponent component, LightningStormEventDoAfterEvent args)
     {
-        if (!TryComp<ShadowlingComponent>(uid, out var sling))
+        if (args.Cancelled
+            || args.Handled)
             return;
 
-        if (args.Cancelled)
-        {
-            _actions.SetCooldown(sling.ActionLightningStormEntity, TimeSpan.FromSeconds(2));
-            return;
-        }
-
+        args.Handled = true;
         _lightningSystem.ShootRandomLightnings(uid, component.Range, component.BoltCount, component.LightningProto);
-
-        _actions.StartUseDelay(sling.ActionLightningStormEntity);
     }
 }

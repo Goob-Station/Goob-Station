@@ -4,88 +4,22 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
-/// Holds the data used for adding new abilities to the shadowling
-/// </summary>
-[DataDefinition]
-public sealed partial class ShadowlingActionData
-{
-    [DataField]
-    public int UnlockAtThralls;
-
-    [DataField]
-    public string ActionPrototype = string.Empty;
-
-    [DataField]
-    public string ActionComponentName = string.Empty;
-
-    [DataField]
-    public EntityUid ActionEntity;
-
-    [ViewVariables]
-    public bool Added = false;
-}
-
-/// <summary>
 /// This is used for the Collective Mind ability.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingCollectiveMindComponent : Component
 {
     [DataField]
-    public EntProtoId ActionCollectiveMind = "ActionCollectiveMind";
+    public EntProtoId ActionId = "ActionCollectiveMind";
 
     [DataField]
-    public List<ShadowlingActionData> Locked = new()
-    {
-        new ShadowlingActionData
-        {
-            UnlockAtThralls = 3,
-            ActionPrototype = "ActionSonicScreech",
-            ActionComponentName = "ShadowlingSonicScreech"
-        },
-        new ShadowlingActionData
-        {
-            UnlockAtThralls = 10,
-            ActionPrototype = "ActionBlindnessSmoke",
-            ActionComponentName = "ShadowlingBlindnessSmoke"
-        },
-        new ShadowlingActionData
-        {
-            UnlockAtThralls = 5,
-            ActionPrototype = "ActionNullCharge",
-            ActionComponentName = "ShadowlingNullCharge"
-        },
-        new ShadowlingActionData
-        {
-            UnlockAtThralls = 7,
-            ActionPrototype = "ActionBlackRecuperation",
-            ActionComponentName = "ShadowlingBlackRecuperation"
-        },
-        new ShadowlingActionData
-        {
-            UnlockAtThralls = 12,
-            ActionPrototype = "ActionEmpoweredEnthrall",
-            ActionComponentName = "ShadowlingEmpoweredEnthrall"
-        },
-        new ShadowlingActionData()
-        {
-            UnlockAtThralls = 15,
-            ActionPrototype = "ActionNoxImperii",
-            ActionComponentName = "ShadowlingNoxImperii"
-        },
-        new ShadowlingActionData()
-        {
-            UnlockAtThralls = 20,
-            ActionPrototype = "ActionAscendance",
-            ActionComponentName = "ShadowlingAscendance"
-        }
-    };
+    public EntityUid? ActionEnt;
 
-    /// <summary>
-    /// The abilities that have already been added from collective mind.
-    /// </summary>
     [DataField]
-    public int AbilitiesAdded;
+    public List<ProtoId<ShadowlingAbilityUnlockPrototype>> AvailableAbilities = new();
+
+    [DataField]
+    public List<ProtoId<ShadowlingAbilityUnlockPrototype>> UnlockedAbilities = new();
 
     /// <summary>
     /// The amount of thralls that the Shadowling has, in order to check what abilities to give.

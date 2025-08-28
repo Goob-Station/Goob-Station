@@ -39,7 +39,15 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingIcyVeinsComponent, IcyVeinsEvent>(OnIcyVeins);
+        SubscribeLocalEvent<ShadowlingIcyVeinsComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingIcyVeinsComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingIcyVeinsComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingIcyVeinsComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     public override void Update(float frameTime)
     {
@@ -81,7 +89,7 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
 
         _audio.PlayPvs(component.IcyVeinsSound, uid, AudioParams.Default.WithVolume(-1f));
 
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 
     private void TryIcyVeins(EntityUid target, ShadowlingIcyVeinsComponent component)

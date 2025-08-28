@@ -6,10 +6,10 @@
 
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -28,7 +28,7 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     public override void Initialize()
@@ -37,7 +37,15 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingRapidRehatchComponent, RapidRehatchEvent>(OnRapidRehatch);
         SubscribeLocalEvent<ShadowlingRapidRehatchComponent, RapidRehatchDoAfterEvent>(OnRapidRehatchDoAfter);
+        SubscribeLocalEvent<ShadowlingRapidRehatchComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingRapidRehatchComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingRapidRehatchComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingRapidRehatchComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnRapidRehatch(EntityUid uid, ShadowlingRapidRehatchComponent comp, RapidRehatchEvent args)
     {

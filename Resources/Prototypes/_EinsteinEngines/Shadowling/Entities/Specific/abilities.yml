@@ -1,0 +1,63 @@
+- type: entity
+  id: ShadowlingAbilitiesPostHatch
+  name: shadowling post-hatch abilities
+  description: Entitiy that contains all actions that are assigned after a shadowling hatched.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingGlare
+  - type: ShadowlingEnthrall
+  - type: ShadowlingVeil
+  - type: ShadowlingRapidRehatch
+  - type: ShadowlingShadowWalk
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingCollectiveMind
+    availableAbilities:
+    - SonicScreech
+    - NullCharge
+    - BlackRecuperation
+    - BlindnessSmoke
+    - EmpoweredEnthrall
+    - NoxImperii
+    - Ascendance
+  - type: LightDetection
+  - type: LightDetectionDamage
+    resistanceModifier: 0.5
+
+- type: entity
+  id: ShadowlingAbilitiesObtainable
+  name: shadowling obtainable abilities
+  description: Entitiy that contains all actions that are obtainable for a shadowling through crew conversion.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingBlackRecuperation
+  - type: ShadowlingEmpoweredEnthrall
+  - type: ShadowlingNoxImperii
+  - type: ShadowlingAscendance
+
+- type: entity
+  id: ShadowlingAbilitiesAscension
+  name: shadowling ascension abilities
+  description: Entitiy that contains all actions that are obtainable for a shadowling through ascension.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingAnnihilate
+  - type: ShadowlingPlaneShift
+  - type: ShadowlingLightningStorm
+  - type: ShadowlingAscendantBroadcast
+
+- type: entity
+  id: NightmareAbilities
+  name: shadowling ascension abilities
+  description: Entitiy that contains all components for Nightmares.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LightDetection
+  - type: LightDetectionDamage
+  - type: LightEaterUser
+  - type: ShadowlingPlaneShift
+  - type: Reflect
+  - type: PressureImmunity

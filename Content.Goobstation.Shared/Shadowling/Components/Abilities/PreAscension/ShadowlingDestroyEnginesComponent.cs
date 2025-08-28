@@ -10,7 +10,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingDestroyEnginesComponent : Component
 {
     [DataField]
-    public EntProtoId ActionDestroyEngines = "ActionDestroyEngines";
+    public EntProtoId ActionId = "ActionDestroyEngines";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// Indicates how long the shuttle wil be delayed for.

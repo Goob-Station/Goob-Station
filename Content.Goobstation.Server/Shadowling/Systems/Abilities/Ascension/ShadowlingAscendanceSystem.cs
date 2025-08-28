@@ -8,9 +8,9 @@ using System.Linq;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -27,7 +27,7 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
 {
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -38,7 +38,15 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingAscendanceComponent, AscendanceEvent>(OnAscendance);
         SubscribeLocalEvent<ShadowlingAscendanceComponent, AscendanceDoAfterEvent>(OnAscendanceDoAfter);
+        SubscribeLocalEvent<ShadowlingAscendanceComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAscendanceComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingAscendanceComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingAscendanceComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnAscendance(EntityUid uid, ShadowlingAscendanceComponent component, AscendanceEvent args)
     {

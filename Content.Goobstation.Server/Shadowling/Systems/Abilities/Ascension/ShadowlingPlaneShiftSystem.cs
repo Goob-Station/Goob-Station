@@ -25,7 +25,15 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingPlaneShiftComponent, TogglePlaneShiftEvent>(OnPlaneShift);
+        SubscribeLocalEvent<ShadowlingPlaneShiftComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingPlaneShiftComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingPlaneShiftComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingPlaneShiftComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnPlaneShift(EntityUid uid, ShadowlingPlaneShiftComponent comp, TogglePlaneShiftEvent args)
     {
@@ -42,7 +50,7 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
             RemComp<PhaseShiftedComponent>(uid);
         }
 
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 
     private void TryDoShift(EntityUid uid)

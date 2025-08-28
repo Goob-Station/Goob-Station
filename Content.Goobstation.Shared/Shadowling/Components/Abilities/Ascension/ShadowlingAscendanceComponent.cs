@@ -20,4 +20,10 @@ public sealed partial class ShadowlingAscendanceComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId EggProto = "SlingEggAscension";
+
+    [DataField]
+    public EntProtoId ActionId = "ActionAscendance";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 }

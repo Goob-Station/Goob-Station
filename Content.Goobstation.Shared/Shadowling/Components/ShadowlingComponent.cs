@@ -15,45 +15,11 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 [AutoGenerateComponentState]
 public sealed partial class ShadowlingComponent : Component
 {
-    // The round-start Shadowling Actions
+    [DataField]
     public EntProtoId ActionHatch = "ActionHatch";
+
+    [DataField]
     public EntityUid? ActionHatchEntity;
-
-    #region PostHatch Actions
-    public EntProtoId ActionEnthrall       = "ActionEnthrall";
-    public EntProtoId ActionGlare          = "ActionGlare";
-    public EntProtoId ActionVeil           = "ActionVeil";
-    public EntProtoId ActionRapidRehatch   = "ActionRapidRehatch";
-    public EntProtoId ActionShadowWalk     = "ActionShadowWalk";
-    public EntProtoId ActionIcyVeins       = "ActionIcyVeins";
-    public EntProtoId ActionDestroyEngines = "ActionDestroyEngines";
-    public EntProtoId ActionCollectiveMind = "ActionCollectiveMind";
-    public EntProtoId ActionAscendance     = "ActionAscendance"; // remove once debugged
-
-    public EntityUid? ActionEnthrallEntity;
-    public EntityUid? ActionGlareEntity;
-    public EntityUid? ActionVeilEntity;
-    public EntityUid? ActionRapidRehatchEntity;
-    public EntityUid? ActionShadowWalkEntity;
-    public EntityUid? ActionIcyVeinsEntity;
-    public EntityUid? ActionDestroyEnginesEntity;
-    public EntityUid? ActionCollectiveMindEntity;
-    public EntityUid? ActionAscendanceEntity; // remove once debugged
-    #endregion
-
-    #region Ascension Actions
-    public string ActionAnnihilate      = "ActionAnnihilate";
-    public string ActionHypnosis        = "ActionHypnosis";
-    public string ActionPlaneShift      = "ActionPlaneShift";
-    public string ActionLightningStorm  = "ActionLightningStorm";
-    public string ActionBroadcast       = "ActionAscendantBroadcast";
-
-    public EntityUid? ActionAnnihilateEntity;
-    public EntityUid? ActionHypnosisEntity;
-    public EntityUid? ActionPlaneShiftEntity;
-    public EntityUid? ActionLightningStormEntity;
-    public EntityUid? ActionBroadcastEntity;
-    #endregion
 
     /// <summary>
     /// The status icon for Shadowlings
@@ -90,7 +56,26 @@ public sealed partial class ShadowlingComponent : Component
     public EntProtoId Egg = "SlingEggHatch";
 
     /// <summary>
-    /// Indicates the current Thralls of the shadowling. Used for counting how many thralls a Shadowling has currently.
+    /// Abilities components that will be added on hatch and removed on ascension.
+    /// </summary>
+    [DataField]
+    public EntProtoId PostHatchComponents = "ShadowlingAbilitiesPostHatch";
+
+    /// <summary>
+    /// All components that can be obtained by converting more thralls
+    /// and using Collective mind ability.
+    /// </summary>
+    [DataField]
+    public EntProtoId ObtainableComponents = "ShadowlingAbilitiesObtainable";
+
+    /// <summary>
+    /// Abilities components that will be added on ascension.
+    /// </summary>
+    [DataField]
+    public EntProtoId PostAscensionComponents = "ShadowlingAbilitiesAscension";
+
+    /// <summary>
+    /// Thralls of the shadowling.
     /// </summary>
     [DataField]
     public List<EntityUid> Thralls = new();

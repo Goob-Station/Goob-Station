@@ -24,7 +24,15 @@ public sealed class ThrallGuiseSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ThrallGuiseComponent, GuiseEvent>(OnGuise);
+        SubscribeLocalEvent<ThrallGuiseComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ThrallGuiseComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ThrallGuiseComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ThrallGuiseComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     public override void Update(float frameTime)
     {
@@ -75,6 +83,6 @@ public sealed class ThrallGuiseSystem : EntitySystem
 
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, -1f, stealth);
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 }

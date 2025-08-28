@@ -7,13 +7,11 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.Actions;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Server.GameObjects;
+using Content.Shared.Stunnable;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
@@ -24,27 +22,33 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingCollectiveMindSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingCollectiveMindComponent, CollectiveMindEvent>(OnCollectiveMind);
+        SubscribeLocalEvent<ShadowlingCollectiveMindComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingCollectiveMindComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingCollectiveMindComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingCollectiveMindComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnCollectiveMind(EntityUid uid, ShadowlingCollectiveMindComponent comp, CollectiveMindEvent args)
     {
-        if (!TryComp<ActionsComponent>(uid, out var actions))
-            return;
-
         if (!TryComp<ShadowlingComponent>(uid, out var sling))
             return;
 
-        if (comp.AbilitiesAdded >= comp.Locked.Count)
+        if (comp.UnlockedAbilities.Count >= comp.AvailableAbilities.Count)
         {
             _popups.PopupEntity(Loc.GetString("shadowling-collective-mind-ascend"), uid, uid, PopupType.Medium);
             return;
@@ -59,22 +63,23 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
         var abiltiesAddedCount = 0;
 
         // Can we gain this power?
-        foreach (var actionData in comp.Locked)
+        foreach (var unlock in comp.AvailableAbilities)
         {
-            if (comp.AmountOfThralls >= actionData.UnlockAtThralls)
-            {
-                if (actionData.Added)
-                    continue;
+            if (comp.UnlockedAbilities.Contains(unlock))
+                continue;
 
-                _actions.AddAction(args.Performer, actionData.ActionPrototype, actionData.ActionEntity, component: actions);
+            var proto = _protoMan.Index(unlock);
 
-                var componentToAdd = _compFactory.GetComponent(actionData.ActionComponentName);
-                EntityManager.AddComponent(args.Performer, componentToAdd);
+            if (comp.AmountOfThralls < proto.UnlockAtThralls)
+                continue;
 
-                ++abiltiesAddedCount;
-                ++comp.AbilitiesAdded;
-                actionData.Added = true;
-            }
+            if (proto.AddComponents != null)
+                EntityManager.AddComponents(args.Performer, proto.AddComponents);
+            if (proto.RemoveComponents != null)
+                EntityManager.RemoveComponents(args.Performer, proto.RemoveComponents);
+
+            ++abiltiesAddedCount;
+            comp.UnlockedAbilities.Add(unlock);
         }
 
         if (abiltiesAddedCount > 0)

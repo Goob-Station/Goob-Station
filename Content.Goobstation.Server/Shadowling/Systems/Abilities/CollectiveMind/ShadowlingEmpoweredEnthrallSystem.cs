@@ -5,9 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Shadowling;
-using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
@@ -35,20 +33,17 @@ public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingEmpoweredEnthrallComponent, EmpoweredEnthrallEvent>(OnEmpEnthrall);
         SubscribeLocalEvent<ShadowlingEmpoweredEnthrallComponent, EmpoweredEnthrallDoAfterEvent>(OnEmpEnthrallDoAfter);
-
         SubscribeLocalEvent<ShadowlingEmpoweredEnthrallComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingEmpoweredEnthrallComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(EntityUid uid, ShadowlingEmpoweredEnthrallComponent component, ComponentStartup args)
-    {
-        // We no longer need the previous Enthrall
-        if (!TryComp<ShadowlingComponent>(uid, out var sling))
-            return;
-        _actions.RemoveAction(uid, sling.ActionEnthrallEntity);
-        RemComp<ShadowlingEnthrallComponent>(uid);
-    }
+    private void OnStartup(Entity<ShadowlingEmpoweredEnthrallComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
-private void OnEmpEnthrall(EntityUid uid, ShadowlingEmpoweredEnthrallComponent component, EmpoweredEnthrallEvent args)
+    private void OnShutdown(Entity<ShadowlingEmpoweredEnthrallComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+
+    private void OnEmpEnthrall(EntityUid uid, ShadowlingEmpoweredEnthrallComponent component, EmpoweredEnthrallEvent args)
     {
         var target = args.Target;
         var doAfterArgs = new DoAfterArgs(

@@ -10,7 +10,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 public sealed partial class ShadowlingNoxImperiiComponent : Component
 {
     [DataField]
-    public EntProtoId ActionNoxImperii = "ActionNoxImperii";
+    public EntProtoId ActionId = "ActionNoxImperii";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// The seconds it takes for the ability to activate.

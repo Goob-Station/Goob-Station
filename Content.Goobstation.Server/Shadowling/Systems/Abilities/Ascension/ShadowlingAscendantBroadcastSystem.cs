@@ -8,6 +8,7 @@ using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Administration;
 using Content.Server.Popups;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
@@ -21,20 +22,33 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
 {
     [Dependency] private readonly QuickDialogSystem _dialogSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, AscendantBroadcastEvent>(OnBroadcast);
+        SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingAscendantBroadcastComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingAscendantBroadcastComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnBroadcast(EntityUid uid, ShadowlingAscendantBroadcastComponent component, AscendantBroadcastEvent args)
     {
         if (!TryComp<ActorComponent>(args.Performer, out var actor))
             return;
 
-        _dialogSystem.OpenDialog(actor.PlayerSession, Loc.GetString("asc-broadcast-title"), Loc.GetString("asc-broadcast-prompt"), (string message) =>
+        _dialogSystem.OpenDialog(actor.PlayerSession,
+            Loc.GetString("asc-broadcast-title"),
+            Loc.GetString("asc-broadcast-prompt"),
+            (string message) =>
         {
             if (actor.PlayerSession.AttachedEntity == null)
                 return;

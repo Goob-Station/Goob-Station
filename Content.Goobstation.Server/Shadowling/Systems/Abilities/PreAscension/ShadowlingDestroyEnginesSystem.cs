@@ -30,7 +30,15 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, DestroyEnginesEvent>(OnDestroyEngines);
+        SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingDestroyEnginesComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingDestroyEnginesComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnDestroyEngines(EntityUid uid, ShadowlingDestroyEnginesComponent comp, DestroyEnginesEvent args)
     {
@@ -70,6 +78,6 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
         comp.HasBeenUsed = true;
 
         _roundEnd.ExpectedCountdownEnd += comp.DelayTime;
-        _actions.RemoveAction(args.Performer, args.Action);
+        _actions.RemoveAction(args.Performer, (args.Action.Owner, args.Action.Comp));
     }
 }

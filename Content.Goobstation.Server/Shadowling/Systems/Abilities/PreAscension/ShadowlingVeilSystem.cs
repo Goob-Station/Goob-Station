@@ -26,7 +26,15 @@ public sealed class ShadowlingVeilSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingVeilComponent, VeilEvent>(OnVeilActivate);
+        SubscribeLocalEvent<ShadowlingVeilComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingVeilComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingVeilComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingVeilComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnVeilActivate(EntityUid uid, ShadowlingVeilComponent component, VeilEvent args)
     {
@@ -38,7 +46,7 @@ public sealed class ShadowlingVeilSystem : EntitySystem
             TryDisableLights(light);
         }
 
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 
     private void TryDisableLights(EntityUid uid)

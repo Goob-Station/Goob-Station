@@ -12,7 +12,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 public sealed partial class ShadowlingBlindnessSmokeComponent : Component
 {
     [DataField]
-    public EntProtoId ActionBlindnessSmoke = "ActionBlindnessSmoke";
+    public EntProtoId ActionId = "ActionBlindnessSmoke";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// The reagent used inside the smoke.
@@ -42,5 +45,5 @@ public sealed partial class ShadowlingBlindnessSmokeComponent : Component
     /// The sound used once the ability activates.
     /// </summary>
     [DataField]
-    public SoundSpecifier? BlindnessSound = new SoundPathSpecifier("/Audio/Effects/bamf.ogg");
+    public SoundSpecifier? BlindnessSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/bamf.ogg");
 }

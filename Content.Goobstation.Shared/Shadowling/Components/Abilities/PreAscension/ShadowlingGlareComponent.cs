@@ -10,7 +10,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingGlareComponent : Component
 {
     [DataField]
-    public EntProtoId ActionGlare = "ActionGlare";
+    public EntProtoId ActionId = "ActionGlare";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     // <summary>
     // Variable stun time. On distance 1 or lower, it is maximized to 4 seconds of stun (enough to Enthrall),
@@ -58,6 +61,7 @@ public sealed partial class ShadowlingGlareComponent : Component
     [DataField]
     public EntityUid GlareTarget;
 
+    [DataField]
     public bool ActivateGlareTimer;
 
     [DataField]

@@ -34,7 +34,15 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingGlareComponent, GlareEvent>(OnGlare);
+        SubscribeLocalEvent<ShadowlingGlareComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingGlareComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingGlareComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingGlareComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     public override void Update(float frameTime)
     {
@@ -101,6 +109,6 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         _transform.SetParent(effectEnt, uid);
 
         _popup.PopupEntity(Loc.GetString("shadowling-glare-target"), uid, target, PopupType.MediumCaution);
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 }

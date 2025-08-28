@@ -25,6 +25,7 @@ public sealed class LightEaterSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -46,11 +47,8 @@ public sealed class LightEaterSystem : EntitySystem
                 QueueDel(component.LightEaterEntity);
             }
         }
-        else
-        {
-            if (component.LightEaterEntity != null)
-                QueueDel(component.LightEaterEntity);
-        }
+        else if (component.LightEaterEntity != null)
+            QueueDel(component.LightEaterEntity);
     }
 
     private void OnMeleeHit(EntityUid uid, LightEaterComponent component, MeleeHitEvent args)
@@ -74,23 +72,21 @@ public sealed class LightEaterSystem : EntitySystem
                 {
                     foreach (var containerItem in container.ContainedEntities)
                     {
-                        if (HasComp<HandheldLightComponent>(containerItem))
-                        {
-                            // not checking for point lights cuz of pda lights
-                            Spawn("Ash", Transform(target).Coordinates);
-                            QueueDel(containerItem);
-                        }
+                        if (!HasComp<HandheldLightComponent>(containerItem))
+                            continue;
+
+                        // not checking for point lights cuz of pda lights
+                        Spawn("Ash", Transform(target).Coordinates);
+                        QueueDel(containerItem);
                     }
                 }
             }
 
-            if (HasComp<BorgChassisComponent>(target))
-            {
-                if (!_powerCellSystem.TryGetBatteryFromSlot(target, out _))
-                    continue;
+            if (!HasComp<BorgChassisComponent>(target)
+                || !_powerCellSystem.TryGetBatteryFromSlot(target, out _))
+                continue;
 
-                _powerCellSystem.SetDrawEnabled(target, false);
-            }
+            _powerCellSystem.SetDrawEnabled(target, false);
 
             // could add more interactions in the future here
         }

@@ -27,7 +27,15 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingAnnihilateComponent, AnnihilateEvent>(OnAnnihilate);
+        SubscribeLocalEvent<ShadowlingAnnihilateComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAnnihilateComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingAnnihilateComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingAnnihilateComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnAnnihilate(EntityUid uid, ShadowlingAnnihilateComponent component, AnnihilateEvent args)
     {
@@ -37,7 +45,6 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
             return;
 
         _body.GibBody(target, contents: GibContentsOption.Gib);
-
-        _actions.StartUseDelay(args.Action);
+        args.Handled = true;
     }
 }

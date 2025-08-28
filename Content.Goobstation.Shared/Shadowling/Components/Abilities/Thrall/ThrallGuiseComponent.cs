@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 
@@ -8,6 +9,12 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ThrallGuiseComponent : Component
 {
+    [DataField]
+    public EntProtoId ActionId = "ActionGuise";
+
+    [DataField]
+    public EntityUid? ActionEnt;
+
     [DataField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 

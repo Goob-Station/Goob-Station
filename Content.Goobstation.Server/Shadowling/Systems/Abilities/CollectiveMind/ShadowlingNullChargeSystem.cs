@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -21,11 +22,11 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingNullChargeSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -33,7 +34,15 @@ public sealed class ShadowlingNullChargeSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingNullChargeComponent, NullChargeEvent>(OnNullCharge);
         SubscribeLocalEvent<ShadowlingNullChargeComponent, NullChargeDoAfterEvent>(OnNullChargeAfter);
+        SubscribeLocalEvent<ShadowlingNullChargeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingNullChargeComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingNullChargeComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingNullChargeComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnNullCharge(EntityUid uid, ShadowlingNullChargeComponent component, NullChargeEvent args)
     {

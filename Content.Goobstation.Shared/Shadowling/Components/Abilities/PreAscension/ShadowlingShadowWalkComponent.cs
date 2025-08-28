@@ -11,7 +11,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingShadowWalkComponent : Component
 {
     [DataField]
-    public EntProtoId ActionShadowWalk = "ActionShadowWalk";
+    public EntProtoId ActionId = "ActionShadowWalk";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// Indicates whether the ability is active, or not.
@@ -69,5 +72,5 @@ public sealed partial class ShadowlingShadowWalkComponent : Component
     /// The sound that plays during the ability
     /// </summary>
     [DataField]
-    public SoundSpecifier? ShadowWalkSound = new SoundPathSpecifier("/Audio/Effects/bamf.ogg");
+    public SoundSpecifier? ShadowWalkSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/bamf.ogg");
 }

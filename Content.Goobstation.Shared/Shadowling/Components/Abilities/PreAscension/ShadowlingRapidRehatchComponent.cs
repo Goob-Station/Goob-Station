@@ -11,7 +11,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingRapidRehatchComponent : Component
 {
     [DataField]
-    public EntProtoId ActionRapidRehatch = "ActionRapidRehatch";
+    public EntProtoId ActionId = "ActionRapidRehatch";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     [ViewVariables]
     public EntityUid? ActionRapidRehatchEntity { get; set; }

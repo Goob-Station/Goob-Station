@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 
@@ -6,4 +7,11 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 /// This is used for Ascendant Broadcast ability.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ShadowlingAscendantBroadcastComponent : Component;
+public sealed partial class ShadowlingAscendantBroadcastComponent : Component
+{
+    [DataField]
+    public EntProtoId ActionId = "ActionAscendantBroadcast";
+
+    [DataField]
+    public EntityUid? ActionEnt;
+}

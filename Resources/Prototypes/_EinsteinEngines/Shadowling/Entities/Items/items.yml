@@ -11,9 +11,9 @@
   - type: Item
     size: Small
     sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
-  - type: AntiMindControlItem
+  - type: LimitedCharges
     maxCharges: 5
-    currentCharges: 5
+  - type: AntiMindControlItem
   - type: GuideHelp
     guides: [ Shadowlings ]
 

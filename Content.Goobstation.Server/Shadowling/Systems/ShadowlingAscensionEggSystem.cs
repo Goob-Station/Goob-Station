@@ -1,5 +1,7 @@
-using Content.Goobstation.Shared.Nightmare.Components;
+using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
@@ -10,7 +12,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server.Storage.EntitySystems;
-using Content.Shared.Damage.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
@@ -18,6 +19,7 @@ using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -30,6 +32,7 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
 {
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -49,7 +52,6 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingAscensionEggComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<ShadowlingAscensionEggComponent, DestructionEventArgs>(OnDestruction);
-
         SubscribeLocalEvent<ShadowlingAscensionEggComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -80,9 +82,6 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid uid, ShadowlingAscensionEggComponent component, GetVerbsEvent<Verb> args)
     {
-        if (component.Creator == null)
-            return;
-
         if (args.User != component.Creator)
             return;
 
@@ -103,28 +102,19 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         if (component.ShadowlingInsideEntity != null)
             QueueDel(component.ShadowlingInsideEntity);
 
-        if (component.Creator == null)
+        if (component.Creator == null
+            || !component.StartTimer) // This indicates that the shadowling was inside the egg
             return;
 
-        if (HasComp<GodmodeComponent>(component.Creator.Value))
-            RemComp<GodmodeComponent>(component.Creator.Value);
-
-        // This indicates that the shadowling was inside the egg
-        if (component.StartTimer)
-        {
-            var shadowlingComp = EntityManager.GetComponent<ShadowlingComponent>(component.Creator.Value);
-            _shadowling.OnPhaseChanged(component.Creator.Value, shadowlingComp, ShadowlingPhases.FailedAscension);
-
-            component.StartTimer = false;
-        }
+        var shadowlingComp = EntityManager.GetComponent<ShadowlingComponent>(component.Creator.Value);
+        _shadowling.OnPhaseChanged(component.Creator.Value, shadowlingComp, ShadowlingPhases.FailedAscension);
+        component.StartTimer = false;
     }
 
     private void OnExamined(EntityUid uid, ShadowlingAscensionEggComponent component, ExaminedEvent args)
     {
         if (!component.StartTimer && component.Creator == args.Examiner)
-        {
             args.PushMarkup($"[color=red]{Loc.GetString("shadowling-ascension-start-warning")}[/color]");
-        }
     }
 
     private void TryAscend(EntityUid uid, EntityUid eggUid, ShadowlingAscensionEggComponent component)
@@ -160,14 +150,12 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             }
         }
 
-
         // Start Ascension
-        var shadowling = EntityManager.GetComponent<ShadowlingComponent>(uid);
+        var shadowling = Comp<ShadowlingComponent>(uid);
 
         // Dont take damage during hatching
-        EnsureComp<GodmodeComponent>(uid);
-
-        _actions.RemoveAction(shadowling.ActionAscendanceEntity);
+        //EnsureComp<GodmodeComponent>(uid);
+        // NO. PLEASE NO. DON'T DO IT PLEASE I BEG YOU. PLEEEEASEEEEE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA - Rouden
 
         shadowling.IsAscending = true;
         component.StartTimer = true;
@@ -194,8 +182,6 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
 
     private void DoAscend(EntityUid uid, ShadowlingAscensionEggComponent component)
     {
-        RemComp<GodmodeComponent>(uid);
-
         if (component.ShadowlingInsideEntity != null)
             QueueDel(component.ShadowlingInsideEntity);
 
@@ -204,7 +190,11 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
 
         component.StartTimer = false;
 
-        DestroyLights();
+        var lights = EntityQueryEnumerator<PoweredLightComponent>();
+        while (lights.MoveNext(out var light, out var lightComp))
+        {
+            _poweredLight.TryDestroyBulb(light, lightComp);
+        }
 
         _entityStorage.OpenStorage(uid);
         _entityStorage.Remove(component.Creator.Value, uid);
@@ -228,10 +218,8 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         {
             var newUid = _polymorph.PolymorphEntity(sling, "ShadowlingAscendantPolymorph");
 
-            if (newUid == null)
-                return;
-
-            if (!TryComp<ShadowlingComponent>(newUid.Value, out var ascendant))
+            if (newUid == null
+                || !TryComp<ShadowlingComponent>(newUid.Value, out var ascendant))
                 continue;
 
             _actions.RemoveAction(ascendant.ActionHatchEntity);
@@ -240,20 +228,24 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             _shadowling.OnPhaseChanged(newUid.Value, ascendant, ShadowlingPhases.Ascension);
         }
 
+        var nightmareComps = _protoMan.Index("NightmareAbilities");
         foreach (var thrall in thralls)
         {
             if (HasComp<LesserShadowlingComponent>(thrall))
             {
-                EnsureComp<NightmareComponent>(thrall);
+                EntityManager.AddComponents(thrall, nightmareComps);
+                RemComp<ShadowlingShadowWalkComponent>(thrall);
                 continue; // Don't polymorph the lesser again
             }
 
             var newUid = _polymorph.PolymorphEntity(thrall, "ShadowPolymorph");
 
             if (newUid == null)
-                return;
+                continue;
 
-            EnsureComp<NightmareComponent>(newUid.Value);
+            EntityManager.AddComponents(newUid.Value, nightmareComps);
+            RemComp<ThrallGuiseComponent>(newUid.Value);
+            RemComp<NightVisionComponent>(newUid.Value);
         }
         var message = Loc.GetString("shadowling-ascended-message");
         var sender = Loc.GetString("shadowling-destroy-engines-sender");
@@ -264,12 +256,5 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             false,
             new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/ascension.ogg"),
             Color.Red);
-    }
-
-    private void DestroyLights()
-    {
-        var lights = EntityQueryEnumerator<PoweredLightComponent>();
-        while (lights.MoveNext(out var uid, out var light))
-            _poweredLight.TryDestroyBulb(uid, light);
     }
 }

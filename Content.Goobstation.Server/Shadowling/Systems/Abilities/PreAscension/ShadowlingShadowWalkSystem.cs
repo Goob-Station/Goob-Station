@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Actions;
 using Content.Server.Stealth;
+using Content.Shared.Actions;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stealth.Components;
 using Robust.Server.Audio;
@@ -19,16 +19,24 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private  readonly TransformSystem _transform = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingShadowWalkComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
         SubscribeLocalEvent<ShadowlingShadowWalkComponent, ShadowWalkEvent>(OnShadowWalk);
+        SubscribeLocalEvent<ShadowlingShadowWalkComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingShadowWalkComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingShadowWalkComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingShadowWalkComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     public override void Update(float frameTime)
     {
@@ -91,6 +99,6 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, 0f, stealth);
 
-        _actions.StartUseDelay(args.Action);
+        args.Handled = true;
     }
 }

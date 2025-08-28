@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -43,7 +43,7 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     /// The marking of the eyes of a Lesser Shadowling.
     /// </summary>
     [DataField]
-    public EntProtoId MarkingId = "LesserShadowlingEyes";
+    public ProtoId<MarkingPrototype> MarkingId = "LesserShadowlingEyes";
 
     /// <summary>
     /// The sound that is used once the ability activates.
@@ -62,4 +62,10 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     /// </summary>
     [DataField]
     public float ResistanceRemoveFromLesser = 0.12f;
+
+    [DataField]
+    public EntProtoId ActionId = "ActionBlackRecuperation";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 }

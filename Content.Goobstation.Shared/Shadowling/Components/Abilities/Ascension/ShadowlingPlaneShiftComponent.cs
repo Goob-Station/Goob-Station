@@ -26,4 +26,10 @@ public sealed partial class ShadowlingPlaneShiftComponent : Component
     /// </summary>
     [DataField]
     public float RunSpeedModifier = 1.5f;
+
+    [DataField]
+    public EntProtoId ActionId = "ActionPlaneShift";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 }

@@ -11,6 +11,12 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingSonicScreechComponent : Component
 {
+    [DataField]
+    public EntProtoId ActionId = "ActionSonicScreech";
+
+    [DataField]
+    public EntityUid? ActionEnt;
+
     /// <summary>
     /// The search radius of the ability.
     /// </summary>

@@ -10,7 +10,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingEnthrallComponent : Component
 {
     [DataField]
-    public EntProtoId ActionEnthrall = "ActionEnthrall";
+    public EntProtoId ActionId = "ActionEnthrall";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// Indicates how long the enthrallment process takes.

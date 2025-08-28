@@ -11,7 +11,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscensio
 public sealed partial class ShadowlingIcyVeinsComponent : Component
 {
     [DataField]
-    public EntProtoId ActionIcyVeins = "ActionIcyVeins";
+    public EntProtoId ActionId = "ActionIcyVeins";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// The search radius of the ability.
@@ -35,5 +38,5 @@ public sealed partial class ShadowlingIcyVeinsComponent : Component
     /// The sound that plays during the ability.
     /// </summary>
     [DataField]
-    public SoundSpecifier? IcyVeinsSound = new SoundPathSpecifier("/Audio/Effects/ghost2.ogg");
+    public SoundSpecifier? IcyVeinsSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/ghost2.ogg");
 }

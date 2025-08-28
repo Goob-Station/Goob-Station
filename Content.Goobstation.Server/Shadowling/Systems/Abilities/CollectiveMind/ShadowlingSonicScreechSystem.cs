@@ -27,7 +27,6 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingSonicScreechSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -42,11 +41,19 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingSonicScreechComponent, SonicScreechEvent>(OnSonicScreech);
+        SubscribeLocalEvent<ShadowlingSonicScreechComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingSonicScreechComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingSonicScreechComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingSonicScreechComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnSonicScreech(EntityUid uid, ShadowlingSonicScreechComponent component, SonicScreechEvent args)
     {
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
         _popups.PopupEntity(Loc.GetString("shadowling-sonic-screech-complete"), uid, uid, PopupType.Medium);
         _audio.PlayPvs(component.ScreechSound, uid);
 

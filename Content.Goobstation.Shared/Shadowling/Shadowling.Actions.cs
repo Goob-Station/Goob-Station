@@ -3,12 +3,6 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Shadowling;
 
-/// <summary>
-/// This is used for Action Events for the Sling
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ShadowlingActionComponent : Component;
-
 #region Events - First Phase
 
 public sealed partial class HatchEvent : InstantActionEvent;

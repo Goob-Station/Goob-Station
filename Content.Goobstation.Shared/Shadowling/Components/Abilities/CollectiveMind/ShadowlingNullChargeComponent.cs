@@ -10,7 +10,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 public sealed partial class ShadowlingNullChargeComponent : Component
 {
     [DataField]
-    public EntProtoId NullChargeAction = "ActionNullCharge";
+    public EntProtoId ActionId = "ActionNullCharge";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// The seconds it takes for the null charge ability to complete.

@@ -5,7 +5,6 @@ using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared.Actions;
 using Content.Shared.Examine;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
@@ -16,7 +15,6 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 public sealed class ShadowlingThrallSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly ShadowlingSystem _shadowling = default!;
@@ -41,40 +39,15 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
         _antag.SendBriefing(uid, Loc.GetString("thrall-role-greeting"), Color.MediumPurple, component.ThrallConverted);
 
-        var nightVision = EnsureComp<NightVisionComponent>(uid);
-        nightVision.ToggleAction = "ActionThrallDarksight"; // todo: not sure if this is needed, need to test it without it
-
-        // Remove the night vision action because thrall darksight does the same thing, so why have 2 actions
-        if (nightVision.ToggleActionEntity is null)
-            return;
-
-        _actions.RemoveAction(nightVision.ToggleActionEntity.Value);
-
         // Add Thrall Abilities
-        if (!TryComp<ActionsComponent>(uid, out var actions))
-            return;
-
+        EnsureComp<NightVisionComponent>(uid);
         EnsureComp<ThrallGuiseComponent>(uid);
-        _actions.AddAction(
-            uid,
-            ref component.ActionThrallDarksightEntity,
-            component.ActionThrallDarksight,
-            component: actions);
-
-        _actions.AddAction(
-            uid,
-            ref component.ActionGuiseEntity,
-            component.ActionGuise,
-            component: actions);
     }
 
     private void OnRemove(EntityUid uid, ThrallComponent component, ComponentShutdown args)
     {
         if (_mind.TryGetMind(uid, out var mindId, out _))
             _roles.MindRemoveRole<ShadowlingRoleComponent>(mindId);
-
-        _actions.RemoveAction(component.ActionThrallDarksightEntity);
-        _actions.RemoveAction(component.ActionGuiseEntity);
 
         RemComp<NightVisionComponent>(uid);
         RemComp<ThrallGuiseComponent>(uid);
@@ -86,7 +59,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         // Adjust lightning resistance for shadowling
         var shadowling = component.Converter.Value;
         if (TryComp<ShadowlingComponent>(shadowling, out var shadowlingComp))
-            _shadowling.OnThrallRemoved(shadowling, uid, shadowlingComp);
+            _shadowling.OnThrallRemoved(shadowling, shadowlingComp);
     }
 
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)

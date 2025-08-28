@@ -2,7 +2,8 @@
   save: false
   name: Urist McSling
   parent: BaseMobSpeciesOrganic
-  id: MobShadowlingBase
+  id: BaseMobShadowling
+  abstract: true
   components:
   - type: Absorbable # idk why
   - type: HumanoidAppearance
@@ -23,7 +24,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - FlashVulnerable
+  - type: FlashVulnerable
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -66,5 +67,5 @@
 
 # for yaml linter
 - type: entity
-  parent: MobShadowlingBase
+  parent: BaseMobShadowling
   id: MobShadowling

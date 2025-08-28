@@ -3,7 +3,8 @@
   save: false
   name: Urist McShadow
   parent: BaseMobSpeciesOrganic
-  id: MobShadowBase
+  id: BaseMobShadow
+  abstract: true
   components:
   - type: Absorbable # idk why
   - type: HumanoidAppearance
@@ -63,5 +64,5 @@
     species: Shadow
 
 - type: entity
-  parent: MobShadowBase
+  parent: BaseMobShadow
   id: MobShadow

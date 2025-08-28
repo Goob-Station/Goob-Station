@@ -17,7 +17,8 @@ public sealed partial class ShadowlingSystem
 
     private void OnHatch(EntityUid uid, ShadowlingComponent comp, HatchEvent args)
     {
-        _actions.RemoveAction(uid, args.Action);
+        args.Handled = true;
+        _actions.RemoveAction(uid, (args.Action.Owner, args.Action.Comp));
         StartHatchingProgress(uid, comp);
     }
 

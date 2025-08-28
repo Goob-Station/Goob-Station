@@ -30,7 +30,7 @@
 - type: polymorph
   id: ShadowPolymorph
   configuration:
-    entity: MobShadowBase
+    entity: MobShadow
     forced: true
     transferName: true
     transferHumanoidAppearance: false

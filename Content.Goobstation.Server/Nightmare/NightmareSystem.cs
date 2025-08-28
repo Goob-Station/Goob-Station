@@ -5,12 +5,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Nightmare.Components;
+using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.PhaseShift;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.Actions;
 using Content.Server.Stunnable;
-using Content.Shared.Actions;
 using Content.Shared.Weapons.Reflect;
 
 namespace Content.Goobstation.Server.Nightmare;
@@ -23,6 +24,7 @@ public sealed class NightmareSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly StunSystem _stunSystem = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -36,12 +38,9 @@ public sealed class NightmareSystem : EntitySystem
         base.Update(frameTime);
 
         // Nightmares reflect shots while in the dark
-        var nightmare = EntityQueryEnumerator<NightmareComponent>();
-        while (nightmare.MoveNext(out var uid, out var nightmareComponent))
+        var nightmare = EntityQueryEnumerator<NightmareComponent, LightDetectionComponent, ReflectComponent>();
+        while (nightmare.MoveNext(out var uid, out var nightmareComponent, out var lightDet, out var reflect))
         {
-            if (!TryComp<LightDetectionComponent>(uid, out var lightDet))
-                continue;
-
             if (lightDet.IsOnLight && HasComp<PhaseShiftedComponent>(uid))
             {
                 RemComp<PhaseShiftedComponent>(uid);
@@ -49,45 +48,12 @@ public sealed class NightmareSystem : EntitySystem
                 _actionsSystem.SetCooldown(nightmareComponent.ActionPlaneShiftEntity, TimeSpan.FromSeconds(3));
             }
 
-            if (!TryComp<ReflectComponent>(uid, out var reflect))
-                continue;
-
-            if (lightDet.IsOnLight)
-            {
-                reflect.ReflectProb = 0f;
-            }
-            else
-            {
-                reflect.ReflectProb = 1f;
-            }
+            reflect.ReflectProb = lightDet.IsOnLight ? 0f : 1f;
         }
     }
 
     private void OnComponentStartup(EntityUid uid, NightmareComponent component, ComponentStartup args)
     {
-        if (!TryComp<ActionsComponent>(uid, out var actions))
-            return;
 
-        if (TryComp<LesserShadowlingComponent>(uid, out var lesser))
-        {
-            _actionsSystem.RemoveAction(uid, lesser.ShadowWalkAction);
-        }
-
-        if (TryComp<ThrallComponent>(uid, out var thrall) && !HasComp<LesserShadowlingComponent>(uid))
-        {
-            _actionsSystem.RemoveAction(uid, thrall.ActionGuiseEntity);
-            _actionsSystem.RemoveAction(uid, thrall.ActionThrallDarksightEntity);
-        }
-        // Shadowling Checks - END
-
-        EnsureComp<LightDetectionComponent>(uid);
-        EnsureComp<LightDetectionDamageComponent>(uid);
-
-        EnsureComp<LightEaterUserComponent>(uid);
-        EnsureComp<ShadowlingPlaneShiftComponent>(uid);
-        EnsureComp<ReflectComponent>(uid);
-
-        _actionsSystem.AddAction(uid, ref component.ActionLightEntity, component.ActionLightEater, component: actions);
-        _actionsSystem.AddAction(uid, ref component.ActionPlaneShiftEntity, component.ActionPlaneShift, component: actions);
     }
 }

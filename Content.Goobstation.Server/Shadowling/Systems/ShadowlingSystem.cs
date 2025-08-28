@@ -1,18 +1,13 @@
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
-using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Goobstation.Shared.Shadowling.Systems;
 using Content.Server.Actions;
-using Content.Server.Atmos.Components;
 using Content.Server.Humanoid;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Stunnable;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -26,6 +21,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
@@ -35,18 +31,8 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// </summary>
 public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 {
-    // If you want to port this to another non-EE server then:
-    // * Remove language and ShadowlingChatSystem
-    // * Replace the announcer system in ascension egg
-    // * Add the anti-mind control device to another locker other than mantis
-    // * Remove the psionic insulation check in enthralling
-    //
-    // This is all shitcode. It always has been.
-    //
-    // Actions exist in their own systems, refer to the components
-    // This system handles shadowling interactions with entities and basic action-related functions
-    //
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -63,16 +49,11 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingComponent, ComponentInit>(OnInit);
-
         SubscribeLocalEvent<ShadowlingComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
-
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
-
         SubscribeLocalEvent<ShadowlingComponent, GetFlashbangedEvent>(OnFlashBanged);
         SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
-
         SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot);
-
         SubscribeLocalEvent<ShadowlingComponent, ExaminedEvent>(OnExamined);
 
         SubscribeAbilities();
@@ -83,20 +64,18 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
     private void OnMobStateChanged(EntityUid uid, ShadowlingComponent component, MobStateChangedEvent args)
     {
         // Remove all Thralls if shadowling is dead
-        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Invalid)
+        if (args.NewMobState is not (MobState.Dead or MobState.Invalid)
+            || component.CurrentPhase == ShadowlingPhases.Ascension)
+            return;
+
+        foreach (var thrall in component.Thralls)
         {
-            if (component.CurrentPhase == ShadowlingPhases.Ascension)
-                return;
-
-            foreach (var thrall in component.Thralls)
-            {
-                _popup.PopupEntity(Loc.GetString("shadowling-dead"), thrall, thrall, PopupType.LargeCaution);
-                RemCompDeferred<ThrallComponent>(thrall);
-            }
-
-            var ev = new ShadowlingDeathEvent();
-            RaiseLocalEvent(ev);
+            _popup.PopupEntity(Loc.GetString("shadowling-dead"), thrall, thrall, PopupType.LargeCaution);
+            RemCompDeferred<ThrallComponent>(thrall);
         }
+
+        var ev = new ShadowlingDeathEvent();
+        RaiseLocalEvent(ev);
     }
 
     private void OnDamageModify(EntityUid uid, ShadowlingComponent component, DamageModifyEvent args)
@@ -115,7 +94,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
         _damageable.TryChangeDamage(uid, component.HeatDamage, damageable: damageableComp);
     }
-    public void OnThrallAdded(EntityUid uid, EntityUid thrall, ShadowlingComponent comp)
+    public void OnThrallAdded(EntityUid uid, ShadowlingComponent comp)
     {
         if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
@@ -123,7 +102,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         lightDet.ResistanceModifier += comp.LightResistanceModifier;
     }
 
-    public void OnThrallRemoved(EntityUid uid, EntityUid thrall, ShadowlingComponent comp)
+    public void OnThrallRemoved(EntityUid uid, ShadowlingComponent comp)
     {
         if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
@@ -133,9 +112,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     private void OnInit(EntityUid uid, ShadowlingComponent component, ref ComponentInit args)
     {
-        if (!TryComp(uid, out ActionsComponent? actions))
-            return;
-        _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch, component: actions);
+        _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch);
     }
 
     private void BeforeDamageChanged(EntityUid uid, ShadowlingComponent comp, BeforeDamageChangedEvent args)
@@ -147,65 +124,40 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     public void OnPhaseChanged(EntityUid uid, ShadowlingComponent component, ShadowlingPhases phase)
     {
-        if (!TryComp<ActionsComponent>(uid, out var actions))
-            return;
-
-        if (phase == ShadowlingPhases.PostHatch)
+        var defaultAbilities = _protoMan.Index(component.PostHatchComponents);
+        switch (phase)
         {
-            Dirty(uid, component);
-            // When the entity gets polymorphed, the OnInit starts so... We have to remove it again here.
-            _actions.RemoveAction(uid, component.ActionHatchEntity);
-
-            AddPostHatchActions(uid, component);
-
-            EnsureComp<LightDetectionComponent>(uid);
-            var lightMod = EnsureComp<LightDetectionDamageComponent>(uid);
-            lightMod.ResistanceModifier = 0.5f; // Let them start with 50% resistance, and decrease it per Thrall
-        }
-        else if (phase == ShadowlingPhases.Ascension)
-        {
-            // Remove all previous actions
-            foreach (var action in actions.Actions)
+            case ShadowlingPhases.PostHatch:
             {
-                if (!HasComp<ShadowlingActionComponent>(action))
-                    continue;
-
-                _actions.RemoveAction(uid, action);
+                EntityManager.AddComponents(uid, defaultAbilities);
+                break;
             }
-
-            var ev = new ShadowlingAscendEvent();
-            RaiseLocalEvent(ev);
-
-            _codeCondition.SetCompleted(uid, component.ObjectiveAscend);
-
-            EnsureComp<PressureImmunityComponent>(uid);
-
-            AddComp<ShadowlingAnnihilateComponent>(uid);
-            AddComp<ShadowlingPlaneShiftComponent>(uid);
-            AddComp<ShadowlingLightningStormComponent>(uid);
-            AddComp<ShadowlingAscendantBroadcastComponent>(uid);
-            _actions.AddAction(uid, ref component.ActionAnnihilateEntity, component.ActionAnnihilate, component: actions);
-            // For the future reader: uncomment if you want this in the game. Thralls turn into nightmares, so no need for it
-            //_actions.AddAction(uid, ref component.ActionHypnosisEntity, component.ActionHypnosis, component: actions);
-            _actions.AddAction(uid, ref component.ActionPlaneShiftEntity, component.ActionPlaneShift, component: actions);
-            _actions.AddAction(uid, ref component.ActionLightningStormEntity, component.ActionLightningStorm, component: actions);
-            _actions.AddAction(uid, ref component.ActionBroadcastEntity, component.ActionBroadcast, component: actions);
-        }
-        else if (phase == ShadowlingPhases.FailedAscension)
-        {
-            // git gud bro :sob: :pray:
-            foreach (var action in actions.Actions)
+            case ShadowlingPhases.Ascension:
             {
-                if (!HasComp<ShadowlingActionComponent>(action))
-                    continue;
+                // Remove all previous actions
+                EntityManager.RemoveComponents(uid, defaultAbilities);
+                EntityManager.RemoveComponents(uid, _protoMan.Index(component.ObtainableComponents));
 
-                _actions.RemoveAction(uid, action);
+                EntityManager.AddComponents(uid, _protoMan.Index(component.PostAscensionComponents));
+
+                var ev = new ShadowlingAscendEvent();
+                RaiseLocalEvent(ev);
+
+                _codeCondition.SetCompleted(uid, component.ObjectiveAscend);
+                break;
             }
+            case ShadowlingPhases.FailedAscension:
+            {
+                // git gud bro :sob: :pray:
+                EntityManager.RemoveComponents(uid, defaultAbilities);
+                EntityManager.RemoveComponents(uid, _protoMan.Index(component.ObtainableComponents));
 
-            EnsureComp<SlowedDownComponent>(uid);
-
-            _appearance.AddMarking(uid, "AbominationTorso");
-            _appearance.AddMarking(uid, "AbominationHorns");
+                // this is such a big L that even the code is losing and all variables are hardcoded.
+                EnsureComp<SlowedDownComponent>(uid);
+                _appearance.AddMarking(uid, "AbominationTorso");
+                _appearance.AddMarking(uid, "AbominationHorns");
+                break;
+            }
         }
     }
 
@@ -227,40 +179,14 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     private void OnExamined(EntityUid uid, ShadowlingComponent comp, ExaminedEvent args)
     {
-        if (args.Examiner != uid)
-            return;
-
-        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
+        if (args.Examiner != uid
+            || !TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
 
         args.PushMarkup(Loc.GetString("shadowling-examine-self", ("damage", lightDet.ResistanceModifier * lightDet.DamageToDeal.GetTotal())));
     }
 
     #endregion
-
-    private void AddPostHatchActions(EntityUid uid, ShadowlingComponent component)
-    {
-        if (!TryComp(uid, out ActionsComponent? actions))
-            return;
-        // Le Comps
-        EnsureComp<ShadowlingGlareComponent>(uid);
-        EnsureComp<ShadowlingEnthrallComponent>(uid);
-        EnsureComp<ShadowlingVeilComponent>(uid);
-        EnsureComp<ShadowlingRapidRehatchComponent>(uid);
-        EnsureComp<ShadowlingShadowWalkComponent>(uid);
-        EnsureComp<ShadowlingIcyVeinsComponent>(uid);
-        EnsureComp<ShadowlingDestroyEnginesComponent>(uid);
-        EnsureComp<ShadowlingCollectiveMindComponent>(uid);
-
-        _actions.AddAction(uid, ref component.ActionGlareEntity, component.ActionGlare, component: actions);
-        _actions.AddAction(uid, ref component.ActionEnthrallEntity, component.ActionEnthrall, component: actions);
-        _actions.AddAction(uid, ref component.ActionVeilEntity, component.ActionVeil, component: actions);
-        _actions.AddAction(uid, ref component.ActionRapidRehatchEntity, component.ActionRapidRehatch, component: actions);
-        _actions.AddAction(uid, ref component.ActionShadowWalkEntity, component.ActionShadowWalk, component: actions);
-        _actions.AddAction(uid, ref component.ActionIcyVeinsEntity, component.ActionIcyVeins, component: actions);
-        _actions.AddAction(uid, ref component.ActionDestroyEnginesEntity, component.ActionDestroyEngines, component: actions);
-        _actions.AddAction(uid, ref component.ActionCollectiveMindEntity, component.ActionCollectiveMind, component: actions);
-    }
 
     public bool CanEnthrall(EntityUid uid, EntityUid target)
     {
@@ -283,16 +209,13 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         }
 
         // Target needs to be alive
-        if (TryComp<MobStateComponent>(target, out var mobState))
-        {
-            if (_mobStateSystem.IsCritical(target, mobState) || _mobStateSystem.IsCritical(target, mobState))
-            {
-                _popup.PopupEntity(Loc.GetString("shadowling-enthrall-dead"), uid, uid, PopupType.SmallCaution);
-                return false;
-            }
-        }
+        if (!TryComp<MobStateComponent>(target, out var mobState)
+            || !_mobStateSystem.IsCritical(target, mobState) && !_mobStateSystem.IsCritical(target, mobState))
+            return true;
 
-        return true;
+        _popup.PopupEntity(Loc.GetString("shadowling-enthrall-dead"), uid, uid, PopupType.SmallCaution);
+        return false;
+
     }
 
     public bool CanGlare(EntityUid target)
@@ -304,9 +227,8 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     public void DoEnthrall(EntityUid uid, SimpleDoAfterEvent args)
     {
-        if (args.Cancelled)
-            return;
-        if (args.Target is null)
+        if (args.Cancelled
+            || args.Target == null)
             return;
 
         var target = args.Target.Value;
@@ -318,7 +240,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
             sling.Thralls.Add(target);
             thrall.Converter = uid;
 
-            OnThrallAdded(uid, target, sling);
+            OnThrallAdded(uid, sling);
         }
 
         _audio.PlayPvs(

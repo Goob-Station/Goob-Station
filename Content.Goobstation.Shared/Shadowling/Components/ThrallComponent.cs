@@ -18,17 +18,5 @@ public sealed partial class ThrallComponent : Component
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "ThrallFaction";
 
     [DataField]
-    public EntProtoId ActionThrallDarksight = "ActionThrallDarksight";
-
-    [ViewVariables]
-    public EntityUid? ActionThrallDarksightEntity;
-
-    [DataField]
-    public EntProtoId ActionGuise = "ActionGuise";
-
-    [ViewVariables]
-    public EntityUid? ActionGuiseEntity;
-
-    [DataField]
     public SoundSpecifier? ThrallConverted = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/thrall.ogg");
 }

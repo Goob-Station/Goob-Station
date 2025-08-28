@@ -26,4 +26,10 @@ public sealed partial class ShadowlingLightningStormComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId LightningProto = "HyperchargedLightning";
+
+    [DataField]
+    public EntProtoId ActionId = "ActionLightningStorm";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 }

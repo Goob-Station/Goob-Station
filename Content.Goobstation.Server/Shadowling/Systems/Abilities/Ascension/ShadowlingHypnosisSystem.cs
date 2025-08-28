@@ -25,7 +25,15 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingHypnosisComponent, HypnosisEvent>(OnHypnosis);
+        SubscribeLocalEvent<ShadowlingHypnosisComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingHypnosisComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingHypnosisComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingHypnosisComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnHypnosis(EntityUid uid, ShadowlingHypnosisComponent component, HypnosisEvent args)
     {
@@ -37,6 +45,6 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
             return;
 
         EnsureComp<ThrallComponent>(target);
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 }

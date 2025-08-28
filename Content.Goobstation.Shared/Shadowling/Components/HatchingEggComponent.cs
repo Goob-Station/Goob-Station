@@ -25,10 +25,10 @@ public sealed partial class HatchingEggComponent : Component
     [ViewVariables] public bool HasSecondMessageAppeared;
     [ViewVariables] public bool HasThirdMessageAppeared;
 
-    [ViewVariables] public SoundSpecifier? CrackFirst =
+    [DataField] public SoundSpecifier? CrackFirst =
         new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/egg/crack01.ogg");
-    [ViewVariables] public SoundSpecifier? CrackSecond =
+    [DataField] public SoundSpecifier? CrackSecond =
         new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/egg/crack02.ogg");
-    [ViewVariables] public SoundSpecifier? CrackThird =
+    [DataField] public SoundSpecifier? CrackThird =
         new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/egg/crack03.ogg");
 }

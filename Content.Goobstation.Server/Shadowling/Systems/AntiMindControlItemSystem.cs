@@ -1,14 +1,13 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
+using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
 
@@ -19,9 +18,11 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// </summary>
 public sealed class AntiMindControlItemSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -35,7 +36,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
     private void AntiMindControlExamined(EntityUid uid, AntiMindControlItemComponent component, ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("anti-mind-examine-charges", ("charges", component.CurrentCharges)));
+        args.PushMarkup(Loc.GetString("anti-mind-examine-charges", ("charges",  _charges.GetCurrentCharges(uid))));
     }
 
     private void AfterInteract(EntityUid uid, AntiMindControlItemComponent component, ref AfterInteractEvent args)
@@ -43,7 +44,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
         if (args.Handled || !args.CanReach)
             return;
 
-        if (component.CurrentCharges == 0)
+        if (!_charges.HasCharges(uid, 1))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("anti-mind-max-charges-reached"),
@@ -58,25 +59,23 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (args.User == target)
-            return;
-
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (args.User == target
+            || !HasComp<HumanoidAppearanceComponent>(target))
             return;
 
         var doAfter = new DoAfterArgs(
-                EntityManager,
-                args.User,
-                component.Duration,
-                new AntiMindControlItemDoAfterEvent(),
-                uid,
-                target,
-                args.Used)
+            EntityManager,
+            args.User,
+            component.Duration,
+            new AntiMindControlItemDoAfterEvent(),
+            uid,
+            target,
+            args.Used)
         {
-                CancelDuplicate = true,
-                BreakOnDamage = true,
-                NeedHand = true,
-                BreakOnHandChange = true,
+            CancelDuplicate = true,
+            BreakOnDamage = true,
+            NeedHand = true,
+            BreakOnHandChange = true,
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -85,13 +84,10 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
     private void AntiMindControlDoAfter(EntityUid uid, AntiMindControlItemComponent component, AntiMindControlItemDoAfterEvent args)
     {
-        if (args.Used == null)
-            return;
-
-        if (args.Cancelled)
-            return;
-
-        if (args.Args.Target == null)
+        if (args.Used == null
+            || args.Cancelled
+            || args.Args.Target == null
+            || !_charges.TryUseCharge(uid))
             return;
 
         var target = args.Args.Target.Value;
@@ -115,7 +111,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
             _popupSystem.PopupEntity(Loc.GetString("mind-control-thrall-done"), target, target, PopupType.MediumCaution);
         }
-        component.CurrentCharges -= 1;
+
         _audioSystem.PlayPvs(
             new SoundPathSpecifier("/Audio/Weapons/flash.ogg"),
             target,

@@ -6,8 +6,8 @@
 
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.Actions;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -23,7 +23,7 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
 {
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,7 +31,15 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, BlindnessSmokeEvent>(OnBlindnessSmoke);
+        SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<ShadowlingBlindnessSmokeComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<ShadowlingBlindnessSmokeComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnBlindnessSmoke(EntityUid uid, ShadowlingBlindnessSmokeComponent comp, BlindnessSmokeEvent args)
     {
@@ -44,6 +52,6 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
         _smoke.StartSmoke(foamEnt, solution, comp.Duration, comp.SpreadAmount);
 
         _audio.PlayPvs(comp.BlindnessSound, uid, AudioParams.Default.WithVolume(-1f));
-        _actions.StartUseDelay(args.Action);
+        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
     }
 }
