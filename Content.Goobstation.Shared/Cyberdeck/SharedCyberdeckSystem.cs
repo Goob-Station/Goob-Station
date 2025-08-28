@@ -39,10 +39,10 @@ namespace Content.Goobstation.Shared.Cyberdeck;
 
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] protected readonly SharedChargesSystem Charges = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -75,10 +75,10 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
         SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
         SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
-        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiLightEvent>(OnLightAiHacked, before: new []{typeof(SharedStationAiSystem)});
-        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiBoltEvent>(OnAirlockBolt, before: new []{typeof(SharedStationAiSystem)});
-        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiEmergencyAccessEvent>(OnAirlockEmergencyAccess, before: new []{typeof(SharedStationAiSystem)});
-        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiElectrifiedEvent>(OnElectrified, before: new []{typeof(SharedStationAiSystem)});
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiLightEvent>(OnLightAiHacked, before: new [] { typeof(SharedStationAiSystem) } );
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiBoltEvent>(OnAirlockBolt, before: new [] { typeof(SharedStationAiSystem) } );
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiEmergencyAccessEvent>(OnAirlockEmergencyAccess, before: new [] { typeof(SharedStationAiSystem) } );
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiElectrifiedEvent>(OnElectrified, before: new [] { typeof(SharedStationAiSystem) } );
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
@@ -366,8 +366,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         {
             // Spawn hacking effect entity that can be seen by the station AI
             var pos = Transform(ent).Coordinates;
-            if (ent.Comp.AfterHackingEffect != null)
-                PredictedSpawnAtPosition(ent.Comp.AfterHackingEffect, pos);
+            if (ent.Comp.AfterHackingEffect != null
+                && _net.IsServer) // Visibility isn't predicted i guess, so for half a second you can see the trace appearing...
+                SpawnAtPosition(ent.Comp.AfterHackingEffect, pos);
         }
     }
 
@@ -476,7 +477,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         RemComp<NoNormalInteractionComponent>(user);
 
         _actions.AddAction(user, ref user.Comp.VisionAction, user.Comp.VisionActionId);
-        _actions.RemoveAction(user, user.Comp.ReturnAction);
+        _actions.RemoveAction(user.Owner, user.Comp.ReturnAction);
         user.Comp.ReturnAction = null; // Shitcode to prevent errors
 
         _audio.PlayLocal(user.Comp.DiveExitSound, user.Owner, user.Owner);
@@ -543,8 +544,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     private void BeforeSiliconHacked(Entity<SiliconComponent> ent, ref BeforeCyberdeckHackPlayerEvent args)
         => args.PenaltyTime += ent.Comp.CyberdeckPenaltyTime;
 
-    #endregion
-
     /// <summary>
     /// Updates an alert, counting how many charges player currently has.
     /// </summary>
@@ -562,4 +561,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         var severity = (short) Math.Clamp(charges, 0, 8);
         _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
     }
+
+    #endregion
 }
