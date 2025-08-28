@@ -5,6 +5,7 @@
   id: FaceHuggerToys
   name: xenomorph facehugger
   description: A toy often used to play pranks on other crew members by putting it in their beds. It takes a bit to recharge after latching onto something.
+  suffix: Toys
   components:
   - type: Sprite
     noRot: true
