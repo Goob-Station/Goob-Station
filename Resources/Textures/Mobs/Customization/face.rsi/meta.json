@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/639227c952a8012a88288257140166ca7419385d, edited & single eyebrow/nosetip/glabella created by Skubman (github: angelofallars)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bindi",
+      "directions": 4
+    },
+    {
+      "name": "fullblush",
+      "directions": 4
+    },
+    {
+      "name": "cheekspot_r",
+      "directions": 4
+    },
+    {
+      "name": "cheekspot_l",
+      "directions": 4
+    },
+    {
+      "name": "chesire_r",
+      "directions": 4
+    },
+    {
+      "name": "chesire_l",
+      "directions": 4
+    },
+    {
+      "name": "crow_r",
+      "directions": 4
+    },
+    {
+      "name": "crow_l",
+      "directions": 4
+    },
+    {
+      "name": "ear_r",
+      "directions": 4
+    },
+    {
+      "name": "ear_l",
+      "directions": 4
+    },
+    {
+      "name": "eyebrow_r",
+      "directions": 4
+    },
+    {
+      "name": "eyebrow_l",
+      "directions": 4
+    },
+    {
+      "name": "eyebrows",
+      "directions": 4
+    },
+    {
+      "name": "eyecorner_r",
+      "directions": 4
+    },
+    {
+      "name": "eyecorner_l",
+      "directions": 4
+    },
+    {
+      "name": "eyelash_r",
+      "directions": 4
+    },
+    {
+      "name": "eyelash_l",
+      "directions": 4
+    },
+    {
+      "name": "eyestripe",
+      "directions": 4
+    },
+    {
+      "name": "lipcorner_r",
+      "directions": 4
+    },
+    {
+      "name": "lipcorner_l",
+      "directions": 4
+    },
+    {
+      "name": "glabella",
+      "directions": 4
+    },
+    {
+      "name": "lowercheek_r",
+      "directions": 4
+    },
+    {
+      "name": "lowercheek_l",
+      "directions": 4
+    },
+    {
+      "name": "neck_f",
+      "directions": 4
+    },
+    {
+      "name": "neck_m",
+      "directions": 4
+    },
+    {
+      "name": "neck_thick_f",
+      "directions": 4
+    },
+    {
+      "name": "neck_thick_m",
+      "directions": 4
+    },
+    {
+      "name": "nosetape",
+      "directions": 4
+    },
+    {
+      "name": "nosetip",
+      "directions": 4
+    },
+    {
+      "name": "nosestripe",
+      "directions": 4
+    },
+    {
+      "name": "unibrow",
+      "directions": 4
+    }
+  ]
+}
