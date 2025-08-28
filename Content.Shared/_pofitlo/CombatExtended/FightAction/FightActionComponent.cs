@@ -1,21 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Robust.Shared.GameStates;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
-using Content.Shared.Dataset;
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
-using Content.Shared.Tag;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction;
 
@@ -27,5 +13,23 @@ public sealed partial class FightActionComponent : Component
     public List<ProtoId<FightActionPrototype>> AvailableActions = new();
 
     [DataField, AutoNetworkedField]
-    public AttackStrategy Strategy = AttackStrategy.Punch;
+    public AttackStrategy Strategy;
+
+    public event Action<SpriteSpecifier?>? OnStrategyChanged;
+
+    private SpriteSpecifier? _icon;
+
+    [DataField, AutoNetworkedField]
+    public SpriteSpecifier? Icon
+    {
+        get => _icon;
+        set
+        {
+            if (_icon == value)
+                return;
+
+            _icon = value;
+            OnStrategyChanged?.Invoke(value);
+        }
+    }
 }

@@ -5,7 +5,7 @@
   icon:
     sprite: _pofitlo/CombatExtended/FightAction/punch.rsi
     state: icon
-  СhosenAttackStrategy: Punch
+  setAttackStrategy: Punch
 
 - type: fightAction
   id: TailAttack
@@ -14,4 +14,4 @@
   icon:
     sprite: _pofitlo/CombatExtended/FightAction/tail_attack.rsi
     state: icon
-  СhosenAttackStrategy: TailAttack
+  setAttackStrategy: TailAttack

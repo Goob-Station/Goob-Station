@@ -1,24 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Shared.Input;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._pofitlo.CombatExtended.FightAction;
 using Content.Shared._Shitmed.Targeting.Events;
 using Robust.Client.Player;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
+using Robust.Shared.Utility;
+using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
+using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
+
+
 
 namespace Content.Client._pofitlo.CombatExtended.FightAction;
 public sealed class FightActionSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+
 
     public event Action<FightActionComponent>? FightActionStartup;
     public event Action? FightActionShutdown;
-    public event Action<TargetBodyPart>? FightActionChange;
+    public event Action<FightActionComponent>? StrategyChange;
     public event Action<FightActionComponent>? FightActionStatusStartup;
     public event Action<FightActionComponent>? FightActionStatusUpdate;
     public event Action? FightActionStatusShutdown;
@@ -31,12 +32,14 @@ public sealed class FightActionSystem : EntitySystem
         SubscribeLocalEvent<FightActionComponent, ComponentStartup>(OnTargetingStartup);
         SubscribeLocalEvent<FightActionComponent, ComponentShutdown>(OnTargetingShutdown);
         SubscribeNetworkEvent<TargetIntegrityChangeEvent>(OnTargetIntegrityChange);
+
     }
 
     private void HandlePlayerAttached(EntityUid uid, FightActionComponent component, LocalPlayerAttachedEvent args)
     {
         FightActionStartup?.Invoke(component);
         FightActionStatusStartup?.Invoke(component);
+        component.OnStrategyChanged += WidgetIconChange;
     }
 
     private void HandlePlayerDetached(EntityUid uid, FightActionComponent component, LocalPlayerDetachedEvent args)
@@ -74,14 +77,23 @@ public sealed class FightActionSystem : EntitySystem
         FightActionStatusUpdate?.Invoke(component);
     }
 
-    private void HandleTargetChange(ICommonSession? session, TargetBodyPart target)
-    {
-        if (session == null
-            || session.AttachedEntity is not { } uid
-            || !TryComp<FightActionComponent>(uid, out var targeting)) // TODO переименовать
-            return;
+    //private void HandleStrategyChange(ICommonSession? session, FightActionComponent component)
+    //{
+    //    if (session == null
+    //        || session.AttachedEntity is not { } uid
+    //        || !TryComp<FightActionComponent>(uid, out var targeting)) // TODO переименовать
+    //        return;
 
-        FightActionChange?.Invoke(target);
+    //    StrategyChange?.Invoke(target);
+    //}
+
+    public void WidgetIconChange(SpriteSpecifier? icon)
+    {
+        if (icon == null)
+            return;
+        var texture = _spriteSystem.Frame0(icon);
+        var ui = _uiManager.GetUIController<FightActionUIController>();
+        ui.ChangeWidgetIcon(texture);
     }
 
 }

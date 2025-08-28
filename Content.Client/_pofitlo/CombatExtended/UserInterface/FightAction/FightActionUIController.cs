@@ -1,15 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Numerics;
 using Content.Client._pofitlo.CombatExtended.FightAction;
 using Content.Client.Gameplay;
-using Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets;
-using Content.Shared._Shitmed.Targeting;
-using Content.Client._Shitmed.Targeting;
-using Content.Shared._Shitmed.Targeting.Events;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.Player;
 using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets;
@@ -17,6 +8,8 @@ using Content.Shared._pofitlo.CombatExtended.FightAction;
 using Content.Client.UserInterface.Controls;
 using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.UI;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
+using Robust.Shared.Utility;
+using Robust.Client.Graphics;
 
 
 namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
@@ -32,18 +25,19 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     private SimpleRadialMenu? _menu;
     private FightActionRadialMenu? _fightActionMenu;
 
+
     public void OnSystemLoaded(FightActionSystem system)
     {
         system.FightActionStartup += AddFightActionControl;
         //system.FightActionShutdown += RemoveFightActionControl;
-        //system.FightActionChange += CycleTarget;
+        system.StrategyChange += WidgetIconChange;
     }
 
     public void OnSystemUnloaded(FightActionSystem system)
     {
         system.FightActionStartup -= AddFightActionControl;
         //system.FightActionShutdown -= RemoveFightActionControl;
-        //system.FightActionChange -= CycleTarget;
+        system.StrategyChange -= WidgetIconChange;
     }
 
     public void OnStateEntered(GameplayState state)
@@ -79,6 +73,16 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
         _fightActionComponent = null;
     }
 
+    public void WidgetIconChange(FightActionComponent component)
+    {
+        //FightActionControl.
+    }
+
+    public void ChangeWidgetIcon(Texture texture)
+    {
+        FightActionControl?.ChangeWidgetIcon(texture);
+    }
+
     //public void CycleTarget(TargetBodyPart bodyPart)
     //{
     //    if (_playerManager.LocalEntity is not { } user
@@ -95,7 +99,7 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     //    }
     //}
 
-    public void SetFightAction(AttackStrategy fightAction)
+    public void SetFightAction(AttackStrategy fightAction, SpriteSpecifier icon)
     {
         if (_playerManager.LocalEntity is not { } user
             || _entManager.GetComponent<FightActionComponent>(user) is not { } fightActionComp
@@ -105,7 +109,7 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {
-            var msg = new FightActionChangeEvent(player, fightAction);
+            var msg = new FightActionChangeEvent(player, fightAction, icon);
             _net.SendSystemNetworkMessage(msg);
         }
     }

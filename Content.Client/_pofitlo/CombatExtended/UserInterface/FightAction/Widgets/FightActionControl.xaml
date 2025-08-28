@@ -12,17 +12,13 @@
             Stretch="KeepAspectCentered"
             SetSize="48 48">
             <PanelContainer
-                SetSize="57 96"
-                Margin="18 0 0 0"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Left">
+                SetSize="32 32">
                 <PanelContainer
-                    SetSize="18 39"
-                    Margin="0 7 0 0"
-                    HorizontalAlignment="Left">
+                    SetSize="32 32">
                     <TextureButton
                         Name="test">
                         <TextureRect
+                            Name="ButtonTexture"
                             TexturePath="/Textures/_Shitmed/Interface/Targeting/Doll/rightarm.png"
                             Stretch="KeepAspectCentered"/>
                     </TextureButton>

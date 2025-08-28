@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Shared.Materials;
-using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 
@@ -34,7 +26,7 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon"); // TODO поставить свою
 
     //TODO дать описание
-    [DataField] public AttackStrategy СhosenAttackStrategy = AttackStrategy.Punch;
+    [DataField] public AttackStrategy SetAttackStrategy = AttackStrategy.Punch;
 
     public object Clone()
     {
@@ -44,7 +36,7 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
             LocName = LocName,
             LocDesc = LocDesc,
             Icon = Icon,
-            СhosenAttackStrategy = СhosenAttackStrategy
+            SetAttackStrategy = SetAttackStrategy
         };
     }
 }
