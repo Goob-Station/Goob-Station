@@ -31,3 +31,19 @@
     chaosScore: -80
   - type: LoadMapRule
     preloadedGrid: AlienTourist
+
+- type: entity
+  id: UnknownShuttleXenoEmergency
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 40
+      Hostile: 40
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -15
+  - type: LoadMapRule
+    preloadedGrid: XenoEmergency

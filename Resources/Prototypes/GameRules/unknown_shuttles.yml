@@ -54,6 +54,7 @@
     - id: LoneOpsSpawn
     #- id: UnknownShuttleManOWar # Goob - Nuke the man-o-war
     - id: UnknownShuttleInstigator
+    - id: UnknownShuttleXenoEmergency # Goobstation
 
 # Shuttle Game Rules
 

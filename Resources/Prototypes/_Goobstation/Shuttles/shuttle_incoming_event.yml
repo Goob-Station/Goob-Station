@@ -14,3 +14,8 @@
   id: AlienTourist
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/alien_tourist.yml
   copies: 1
+
+- type: preloadedGrid
+  id: XenoEmergency
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/xeno_emergency.yml
+  copies: 1
