@@ -1,7 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Angelo Fallaria <ba.fallaria@gmail.com>
 # SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -19,12 +22,17 @@
   - type: Speech
     speechSounds: Baritone
     speechVerb: Oni
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic # Nothing else because Rouge said she was adding a language for Oni
+    understands:
+    - TauCetiBasic
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
-    scale: 1.2, 1.2
+    # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: ScaleData # Goobstation
-    scale: 1.2, 1.2
+    # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: Oni
     modifiers:
       coefficients:
@@ -41,7 +49,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.42
+          radius: 0.35 # Goobstation: port EE height/width sliders
         density: 220
         restitution: 0.0
         mask:

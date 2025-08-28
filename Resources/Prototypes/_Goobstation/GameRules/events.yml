@@ -32,9 +32,9 @@
   - type: GameRule
     chaosScore: 150
   - type: StationEvent
-    weight: 6 # Rare, but not AS rare
-    earliestStart: 15
-    reoccurrenceDelay: 20
+    weight: 4.5 # Uncommon
+    earliestStart: 30
+    reoccurrenceDelay: 30
     minimumPlayers: 4
     duration: null
   - type: SpaceSpawnRule
@@ -47,3 +47,102 @@
       min: 1
       max: 1
       pickPlayer: false
+
+#Evil fucking xenos out to eat you up
+- type: entity
+  id: AncientXenoVentsEasy
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 45
+    weight: 3
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+  - type: VentCrittersRule
+    table: !type:AllSelector
+      children:
+      - id: CMMobXenoDrone
+      - id: CMMobXenoDrone
+      - id: CMMobXenoWarrior
+      - id: CMMobXenoWarrior
+      - id: CMMobXenoRavager
+      - id: CMMobXenoCrusher
+
+- type: entity
+  id: AncientXenoVentsMedium
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 50
+    weight: 3
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+  - type: VentCrittersRule
+    table: !type:AllSelector
+      children:
+      - id: CMMobXenoDrone
+      - id: CMMobXenoDrone
+      - id: CMMobXenoWarrior
+      - id: CMMobXenoRavager
+      - id: CMMobXenoCrusher
+      - id: CMMobXenoQueen
+
+- type: entity
+  id: AncientXenoVentsHard
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 60
+    weight: 2 #This can lead to mass death so it's rarer
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 350
+  - type: VentCrittersRule
+    table: !type:AllSelector
+      children:
+      - id: CMMobXenoDrone
+      - id: CMMobXenoWarrior
+      - id: CMMobXenoWarrior
+      - id: CMMobXenoRavager
+      - id: CMMobXenoRavager
+      - id: CMMobXenoRavager
+      - id: CMMobXenoCrusher
+      - id: CMMobXenoKing
+      - id: CMMobXenoQueen
+
+- type: entity
+  id: AncientXenoVentsRogue
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 60
+    weight: 2 #This can lead to mass death so it's rarer
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+  - type: VentCrittersRule
+    table: !type:AllSelector
+      children:
+      - id: CMMobXenoRogueKing

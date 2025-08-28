@@ -10,6 +10,9 @@
 # SPDX-FileCopyrightText: 2024 RealFakeSoof <william_r_dunn@yahoo.com>
 # SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -47,3 +50,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from vgstation"
   source: "https://github.com/vgstation-coders/vgstation13/commit/23303188abe6fe31b114a218a1950d7325a23730"
+
+- files: ["estocshot.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "machinegun-one-shot.wav by DeltaCode. Converted to .OGG and MONO by august-sun"
+  source: "https://freesound.org/people/DeltaCode/sounds/668347/"

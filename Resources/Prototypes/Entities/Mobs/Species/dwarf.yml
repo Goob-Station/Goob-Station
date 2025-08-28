@@ -31,8 +31,14 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -58,9 +64,10 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1.1, 0.75 # goob value
-  - type: ScaleData # Goobstation
-    scale: 1.1, 0.75
+# Goobstation: port EE height/width sliders (below is not needed with height/width sliders implemented)
+#    scale: 1.1, 0.75 # goob value
+#  - type: ScaleData # Goobstation
+#    scale: 1.1, 0.75
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
@@ -74,8 +81,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32 # goob edit - reasoning below
-        # they r smaller
+          radius: 0.35 # Goobstation: port EE height/width sliders (previous value was lower (also a goobstation change), but the height/width sliders will lower this size automatically)
         density: 240 # goob edit - but they r buff
         restitution: 0.0
         mask:
@@ -91,6 +97,13 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
   - type: HumanoidAppearance
     species: Dwarf
     hideLayersOnEquip:
@@ -113,7 +126,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    scale: 1, 0.8
+#    scale: 1, 0.8
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

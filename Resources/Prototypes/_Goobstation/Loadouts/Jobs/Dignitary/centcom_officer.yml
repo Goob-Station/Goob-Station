@@ -1,0 +1,17 @@
+- type: loadout
+  id: CentComOfficerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCentcomOfficial
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CentComOfficerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCentcomOfficial
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

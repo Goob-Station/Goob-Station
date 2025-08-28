@@ -1,0 +1,287 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+- type: marking
+  id: ArachnidOverlayFluffy
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
+    state: fluffy
+
+- type: marking
+  id: ArachnidTorsoSegments
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
+    state: segments2
+
+- type: marking
+  id: SpiderMirror
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
+    state: mirror
+
+# Head
+
+- type: marking
+  id: ArachnidHeadSegments
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/head.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/head.rsi
+    state: segments2
+
+# Snout
+
+- type: marking
+  id: WhipSpiderMouth
+  bodyPart: Snout
+  markingCategory: HeadSide
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/snout.rsi
+    state: whipspidermouth
+
+# Eyes
+
+- type: marking
+  id: ArachnidEyesJumper
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper4
+
+- type: marking
+  id: ArachnidEyesJumperGlowing
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: jumper4
+    shader: unshaded
+
+
+- type: marking
+  id: ArachnidEyesRound
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round4
+
+- type: marking
+  id: ArachnidEyesRoundGlowing
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: round4
+  shader: unshaded
+
+
+- type: marking
+  id: SpiderEyesMulti
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: multi1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: multi2
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: multi3
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: multi4
+
+- type: marking
+  id: SpiderGlowEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+    state: glow
+  shader: unshaded
+
+# RArm
+
+- type: marking
+  id: ArachnidRArmSegments
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/rarm.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/rarm.rsi
+    state: segments2
+
+# LArm
+
+- type: marking
+  id: ArachnidLArmSegments
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/larm.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/larm.rsi
+    state: segments2
+
+# RLeg
+
+- type: marking
+  id: ArachnidRLegSegments
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/rleg.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/rleg.rsi
+    state: segments2
+
+# LLeg
+
+- type: marking
+  id: ArachnidLLegSegments
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/lleg.rsi
+    state: segments1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/lleg.rsi
+    state: segments2
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+- type: marking
+  id: SpiderHair1
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
+    state: fluffy
+
+- type: marking
+  id: SpiderHair2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
+    state: longhorned
+
+- type: marking
+  id: SpiderHair3
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
+    state: wisps
+
+# HeadSide
+
+- type: marking
+  id: ArachnidCheliceraeSmall
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: small
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: AbdomenBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: abdomenbasic1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: abdomenbasic2
+
+- type: marking
+  id: AbdomenWidow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: widow1
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: widow2
+
+- type: marking
+  id: CreepyArms
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Arachnid ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
+    state: creepy

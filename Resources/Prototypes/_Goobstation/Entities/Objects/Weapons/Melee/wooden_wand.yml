@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: wooden wand
+  parent: BaseItem
+  id: WeaponWoodenWand
+  description: Handcrafted wooden wand with a anomaly core.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Melee/wooden_wand.rsi
+      state: icon
+    - type: Item
+      sprite: _Goobstation/Objects/Weapons/Melee/wooden_wand.rsi
+      size: Ginormous
+    - type: MeleeWeapon
+      heavyStaminaCost: 10
+      damage:
+        types:
+          Blunt: 5
+          Structural: 5
+    - type: Wieldable
+    - type: Construction
+      graph: WoodenWand
+      node: woodenWand

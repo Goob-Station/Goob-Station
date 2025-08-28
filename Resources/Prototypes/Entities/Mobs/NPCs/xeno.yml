@@ -111,7 +111,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
-  name: burrower
+  name: xenonid burrower #Goobstation name change
   id: MobXeno
   parent: SimpleSpaceMobBase
   description: They mostly come at night. Mostly.
@@ -239,7 +239,7 @@
     deactivateSound: null
 
 - type: entity
-  name: praetorian
+  name: xenonid praetorian #Goobstation name change
   parent: MobXeno
   id: MobXenoPraetorian
   components:
@@ -272,7 +272,7 @@
         - MobLayer
 
 - type: entity
-  name: drone
+  name: xenonid drone #Goobstation name change
   parent: MobXeno
   id: MobXenoDrone
   components:
@@ -309,7 +309,7 @@
         - MobLayer
 
 - type: entity
-  name: queen
+  name: xenonid queen #Goobstation name change
   parent: MobXeno
   id: MobXenoQueen
   components:
@@ -348,7 +348,7 @@
     - CannotSuicide
 
 - type: entity
-  name: ravager
+  name: xenonid ravager #Goobstation name change
   parent: MobXeno
   id: MobXenoRavager
   components:
@@ -385,7 +385,7 @@
         - MobLayer
 
 - type: entity
-  name: runner
+  name: xenonid runner #Goobstation name change
   parent: MobXeno
   id: MobXenoRunner
   components:
@@ -430,7 +430,7 @@
       amount: 3
 
 - type: entity
-  name: spitter
+  name: xenonid spitter #Goobstation name change
   parent: MobXeno
   id: MobXenoSpitter
   components:

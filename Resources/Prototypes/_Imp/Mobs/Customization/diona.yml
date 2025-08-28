@@ -1,0 +1,156 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+- type: marking
+  id: DionaFirefly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: firefly
+  shader: unshaded
+
+
+- type: marking
+  id: DionaLivingNymph
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: livingnymph
+
+- type: marking
+  id: DionaMossChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: moss
+
+- type: marking
+  id: MycenaChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: mycena
+
+- type: marking
+  id: MycenaChestGlow
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: mycena
+  shader: unshaded
+
+
+- type: marking
+  id: ShelfChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
+    state: shelf
+
+# Head
+
+- type: marking
+  id: Amanita
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: amanita1
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: amanita2
+
+- type: marking
+  id: DionaBigFirefly
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: bigfirefly
+  shader: unshaded
+
+- type: marking
+  id: JackHead
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: jack
+  shader: unshaded
+
+- type: marking
+  id: MycenaHead
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: mycena
+
+- type: marking
+  id: MycenaHeadGlow
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: mycena
+  shader: unshaded
+
+
+- type: marking
+  id: ShelfHead
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
+    state: shelf
+
+- type: marking
+  id: MycenaArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
+    state: mycena
+
+- type: marking
+  id: MycenaArmGlow
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
+    state: mycena
+  shader: unshaded
+
+
+- type: marking
+  id: DionaMoonBloom
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Diona/headtop.rsi
+    state: moonbloom
+

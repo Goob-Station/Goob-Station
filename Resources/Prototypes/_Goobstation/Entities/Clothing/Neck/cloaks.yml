@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -53,3 +54,12 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSanabi
+  name: brigadier general cloak
+  description: A tattered, yet imposing cloak, worn by elite warriors.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi

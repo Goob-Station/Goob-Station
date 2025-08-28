@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -93,6 +94,18 @@
     job: HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponEnergyGunLawbringer
+    owner: job-name-hos
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: JusticeStealObjective
+  components:
+  - type: Objective
+    difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponSecHeadSword
     owner: job-name-hos
 
 - type: entity

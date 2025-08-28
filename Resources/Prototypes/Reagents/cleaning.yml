@@ -25,7 +25,12 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -113,6 +118,7 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
+  evaporationSpeed: 0.1
   slipData:
     requiredSlipSpeed: 0.1 # Goobstation - no crawling to avoid it
     superSlippery: true
@@ -123,6 +129,8 @@
   recognizable: true
   boilingPoint: 290.0 # Glycerin
   meltingPoint: 18.2
+  tileReactions:
+    - !type:SpillTileReaction
   friction: 0.0
 
 - type: reagent

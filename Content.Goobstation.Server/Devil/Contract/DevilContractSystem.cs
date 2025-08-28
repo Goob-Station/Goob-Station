@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -18,6 +19,7 @@ using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server._Imp.Drone;
 using Content.Server.Body.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Polymorph.Systems;
@@ -25,6 +27,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.Nutrition;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -48,6 +51,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
+    [Dependency] private readonly ExplosionSystem _explosion = null!;
 
     private ISawmill _sawmill = null!;
 
@@ -61,6 +65,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
+        SubscribeLocalEvent<DevilContractComponent, AfterFullyEatenEvent>(OnEaten);
 
         _sawmill = Logger.GetSawmill("devil-contract");
     }
@@ -126,6 +131,18 @@ public sealed partial class DevilContractSystem : EntitySystem
         args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", contract.Comp.ContractWeight)));
     }
 
+    private void OnEaten(Entity<DevilContractComponent> contract, ref AfterFullyEatenEvent args)
+    {
+        _explosion.QueueExplosion(
+            args.User,
+            typeId: "Default",
+            totalIntensity: 1, // contract explosions should not cause any kind of major structural damage. you should at worst need to weld a window or repair a table.
+            slope: 1,
+            maxTileIntensity: 1,
+            maxTileBreak: 0,
+            addLog: false);
+    }
+
     #region Signing Steps
 
     private void OnContractSignAttempt(Entity<DevilContractComponent> contract, ref BeingSignedAttemptEvent args)
@@ -148,7 +165,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         // Death to sec powergame
-        if (HasComp<MindShieldComponent>(args.Signer))
+        if (HasComp<MindShieldComponent>(args.Signer) && !HasComp<DevilComponent>(args.Signer))
         {
             var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
             _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);

@@ -2,9 +2,13 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -22,6 +26,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -124,11 +129,15 @@ public partial class SharedMartialArtsSystem
                     TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
                     TryComp(args.Target, out PullableComponent? pullable) &&
                     TryComp(args.Target, out BodyComponent? body) &&
+                    TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
                     puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
-                    targeting.Target == TargetBodyPart.Head)
+                    targeting.Target == TargetBodyPart.Head
+                    && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
                 {
                     _pulling.TryStopPull(args.Target, pullable);
-                    _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
+
+                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                    _damageable.TryChangeDamage(args.Target, blunt, true, targetPart: TargetBodyPart.Chest);
 
                     var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
                     var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)

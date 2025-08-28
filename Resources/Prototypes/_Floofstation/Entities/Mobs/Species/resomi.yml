@@ -19,11 +19,11 @@
   id: BaseMobResomi
   abstract: true
   components:
-  # - type: LanguageKnowledge # Goobstation - WE ONLY SPEAK MURICAN HERE
-  #   speaks:
-  #     - TauCetiBasic
-  #   understands:
-  #     - TauCetiBasic
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: Fixtures
     fixtures:
       fix1:
@@ -265,7 +265,7 @@
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "id" ]
-    - map: [ "back" ]                             
+    - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -273,7 +273,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] 
+    - map: [ "suitstorage" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -388,7 +388,7 @@
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "id" ]
-    - map: [ "back" ]                             
+    - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -396,7 +396,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] 
+    - map: [ "suitstorage" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]

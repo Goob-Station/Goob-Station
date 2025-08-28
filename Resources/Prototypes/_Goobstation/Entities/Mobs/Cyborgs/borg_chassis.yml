@@ -1,6 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -45,6 +51,11 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: Speech # Goobstation - Cyborg emote sounds
+    speechSounds: SyndieBorg
+  - type: Vocal # Goobstation - Cyborg emote sounds
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
 
 - type: entity
   id: BorgChassisUrist
@@ -112,3 +123,332 @@
       role: JobBorg
       time: 3600 #1 hour
   - type: GhostTakeoverAvailable
+
+# Mining
+- type: entity
+  id: BorgChassisMiningBasic
+  parent: BorgChassisMining
+  name: basic mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_basic
+
+- type: entity
+  id: BorgChassisMiningAdvanced
+  parent: BorgChassisMining
+  name: advanced mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_advanced
+
+- type: entity
+  id: BorgChassisMiningCoffin
+  parent: BorgChassisMining
+  name: coffin cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_coffin
+
+- type: entity
+  id: BorgChassisMiningLavaland
+  parent: BorgChassisMining
+  name: lavaland cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_lavaland
+
+- type: entity
+  id: BorgChassisMiningCricket
+  parent: BorgChassisMining
+  name: cricket mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_cricket
+
+- type: entity
+  id: BorgChassisMiningSquat
+  parent: BorgChassisMining
+  name: squat cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_squat
+
+- type: entity
+  id: BorgChassisMiningNoble
+  parent: BorgChassisMining
+  name: noble mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_noble
+
+# Engineer
+- type: entity
+  id: BorgChassisEngineerBasic
+  parent: BorgChassisEngineer
+  name: basic engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_basic
+
+- type: entity
+  id: BorgChassisEngineerAntique
+  parent: BorgChassisEngineer
+  name: antique engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_antique
+
+- type: entity
+  id: BorgChassisEngineerStandart
+  parent: BorgChassisEngineer
+  name: standart engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_standart
+
+- type: entity
+  id: BorgChassisEngineerNoble
+  parent: BorgChassisEngineer
+  name: noble engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_noble
+
+- type: entity
+  id: BorgChassisEngineerCricket
+  parent: BorgChassisEngineer
+  name: cricket engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_cricket
+
+- type: entity
+  id: BorgChassisEngineerRover
+  parent: BorgChassisEngineer
+  name: rover engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_rover
+
+# Janitor
+- type: entity
+  id: BorgChassisJanitorBasic
+  parent: BorgChassisJanitor
+  name: basic janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_basic
+
+- type: entity
+  id: BorgChassisJanitorMopbot
+  parent: BorgChassisJanitor
+  name: mopbot cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_mopbot
+
+- type: entity
+  id: BorgChassisJanitorStandart
+  parent: BorgChassisJanitor
+  name: standart janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_standart
+
+- type: entity
+  id: BorgChassisJanitorCustodi
+  parent: BorgChassisJanitor
+  name: custodi cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_custodi
+
+- type: entity
+  id: BorgChassisJanitorNoble
+  parent: BorgChassisJanitor
+  name: noble janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_noble
+
+- type: entity
+  id: BorgChassisJanitorCricket
+  parent: BorgChassisJanitor
+  name: cricket janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_cricket
+
+- type: entity
+  id: BorgChassisJanitorRover
+  parent: BorgChassisJanitor
+  name: rover janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_rover
+
+# Medical
+- type: entity
+  id: BorgChassisMedicalStandart
+  parent: BorgChassisMedical
+  name: medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_standart
+
+- type: entity
+  id: BorgChassisMedicalMedbot
+  parent: BorgChassisMedical
+  name: medbot cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_medbot
+
+- type: entity
+  id: BorgChassisMedicalNeedles
+  parent: BorgChassisMedical
+  name: needles cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_needles
+
+- type: entity
+  id: BorgChassisMedicalAdvanced
+  parent: BorgChassisMedical
+  name: advanced medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_advanced
+
+- type: entity
+  id: BorgChassisMedicalQualified
+  parent: BorgChassisMedical
+  name: qualified medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_qualified
+
+- type: entity
+  id: BorgChassisMedicalNoble
+  parent: BorgChassisMedical
+  name: noble medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_noble
+
+- type: entity
+  id: BorgChassisMedicalCricket
+  parent: BorgChassisMedical
+  name: cricket medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_cricket
+
+- type: entity
+  id: BorgChassisMedicalRover
+  parent: BorgChassisMedical
+  name: rover medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_rover
+
+# Service
+- type: entity
+  id: BorgChassisServiceStandart
+  parent: BorgChassisService
+  name: standart service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_standart
+
+- type: entity
+  id: BorgChassisServiceBrobot
+  parent: BorgChassisService
+  name: brobot cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_brobot
+
+- type: entity
+  id: BorgChassisServiceWaitress
+  parent: BorgChassisService
+  name: waitress cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_waitress
+
+- type: entity
+  id: BorgChassisServiceCricket
+  parent: BorgChassisService
+  name: cricket service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_cricket
+
+- type: entity
+  id: BorgChassisServiceKent
+  parent: BorgChassisService
+  name: kent cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_kent
+
+- type: entity
+  id: BorgChassisServiceNoble
+  parent: BorgChassisService
+  name: noble service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_noble
+
+- type: entity
+  id: BorgChassisServiceRich
+  parent: BorgChassisService
+  name: rich cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rich
+
+- type: entity
+  id: BorgChassisServiceRover
+  parent: BorgChassisService
+  name: rover service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rover

@@ -12,10 +12,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Systems.Chat.Controls">
     <PanelContainer Name="FilterPopupPanel" StyleClasses="BorderedWindowPanel">
-<!--        <BoxContainer Orientation="Horizontal">
-            <Control MinSize="4 0"/>
-            <BoxContainer Name="FilterVBox" MinWidth="110" Margin="0 10" Orientation="Vertical" SeparationOverride="4"/> -->
-     <!-- Goobstation - start -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8" Margin="10 0">
             <BoxContainer Name="FilterVBox" MinWidth="105" Margin="0 10" Orientation="Vertical" SeparationOverride="4"/>
             <BoxContainer Name="HighlightsVBox" MinWidth="120" Margin="0 10" Orientation="Vertical" SeparationOverride="4">
@@ -30,7 +26,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 </PanelContainer>
                 <Button Name="HighlightButton" Text="{Loc 'hud-chatbox-highlights-button'}" ToolTip="{Loc 'hud-chatbox-highlights-tooltip'}"/>
             </BoxContainer>
-    <!-- Goobstation - end -->
         </BoxContainer>
     </PanelContainer>
 </controls:ChannelFilterPopup>

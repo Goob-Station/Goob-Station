@@ -17,6 +17,7 @@
   # traits
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
+  - Monochromacy
   - Muted
   - Narcolepsy
   - Pacified
@@ -60,6 +61,11 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  # Einstein Engines - Language begin
+  - LanguageSpeaker
+  - LanguageKnowledge
+  - ForeignerTrait
+  # Einstein Engines - Language end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

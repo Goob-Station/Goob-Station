@@ -49,6 +49,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -297,7 +298,7 @@
   id: Gingerbread
   coefficients:
     Blunt: 1.5
-    Cold: 0.0
+    # Cold: 0.0 # Goobstation - Prevents gingerbread from being immune to Cosmic Cultist damage
     Radiation: 0.5
     Asphyxiation: 0.0
     Bloodloss: 0.0
@@ -306,21 +307,24 @@
 
 # Represents which damage types should be modified
 # in relation to how they cause bleed rate.
+# Make sure to add any new damage type here.
 - type: damageModifierSet
   id: BloodlossHuman
   coefficients:
-    Blunt: 0.08
-    Slash: 0.25
-    Piercing: 0.2
-    Shock: 0.0
-    Cold: 0.0
-    Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
-    Poison: 0.0
-    Radiation: 0.0
     Asphyxiation: 0.0
     Bloodloss: 0.0 # no double dipping
-    Cellular: 0.0
+    Blunt: 0.08
     Caustic: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.
+    Holy: 0
+    Piercing: 0.2
+    Poison: 0.0
+    Radiation: 0.0
+    Shock: 0.0
+    Slash: 0.25
+    Structural: 0.0
 
 - type: damageModifierSet
   id: SlimePet # Very survivable slimes

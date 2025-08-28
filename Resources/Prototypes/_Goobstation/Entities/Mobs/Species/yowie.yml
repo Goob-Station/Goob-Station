@@ -4,10 +4,13 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CM <ash@DESKTOP-H64M4AI.localdomain>
 # SPDX-FileCopyrightText: 2025 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -18,9 +21,9 @@
   abstract: true
   components:
   - type: Sprite
-    scale: 1.3, 1.3
+    # scale: 1.3, 1.3 # Goobstation: port EE height/width sliders
   - type: ScaleData # Goobstation
-    scale: 1.3, 1.3
+    # scale: 1.3, 1.3 # Goobstation: port EE height/width sliders
   - type: Hunger
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
     sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
@@ -31,6 +34,13 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - SolCommon # They originate from Australia - Durk
+    understands:
+    - TauCetiBasic
+    - SolCommon # They originate from Australia - Durk
   - type: Body
     prototype: Yowie
     requiredLegs: 2
@@ -60,6 +70,8 @@
     damage:
       types:
         Blunt: 4
+  - type: SurgeryTarget
+    sepsisImmune: true
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
@@ -79,7 +80,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 mubururu_ <139181059+muburu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
@@ -93,17 +93,24 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using System.Net;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
 using Content.Shared.Gravity;
@@ -122,7 +129,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -187,6 +193,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     public override void Initialize()
     {
+        UpdatesBefore.Add(typeof(TileFrictionController));
         base.Initialize();
 
         MoverQuery = GetEntityQuery<InputMoverComponent>();
@@ -209,11 +216,11 @@ public abstract partial class SharedMoverController : VirtualController
 
         InitializeInput();
         InitializeRelay();
+        InitializeCVars();
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
         Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
-        UpdatesBefore.Add(typeof(TileFrictionController));
     }
 
     public override void Shutdown()
@@ -289,6 +296,9 @@ public abstract partial class SharedMoverController : VirtualController
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
         {
+            if (TileMovementQuery.HasComponent(uid)) // Goobstation Change
+                TryUpdateRelative(uid, mover, xform);
+
             // Update relative movement
             if (mover.LerpTarget < Timing.CurTime)
             {
@@ -340,32 +350,32 @@ public abstract partial class SharedMoverController : VirtualController
 
         // Tile Movement Change
         // Try doing tile movement.
-        // Temporairly nuked.
-        //if (TileMovementQuery.TryComp(physicsUid, out var tileMovement))
-        //{
-        //    if (!weightless && !inAirHelpless)
-        //    {
-        //        var didTileMovement = HandleTileMovement(uid,
-        //            physicsUid,
-        //            tileMovement,
-        //            physicsComponent,
-        //            xform,
-        //            mover,
-        //            tileDef,
-        //            relayTarget,
-        //            frameTime);
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        if(didTileMovement)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        tileMovement.SlideActive = false;
-        //    }
-        //}
+        if (TileMovementQuery.TryComp(uid, out var tileMovement))
+        {
+            if (!weightless && !inAirHelpless)
+            {
+                var didTileMovement = HandleTileMovement(uid,
+                    uid,
+                    tileMovement,
+                    physicsComponent,
+                    xform,
+                    mover,
+                    tileDef,
+                    relayTarget,
+                    frameTime);
+                tileMovement.WasWeightlessLastTick = weightless;
+                if(didTileMovement)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                tileMovement.WasWeightlessLastTick = weightless;
+                tileMovement.SlideActive = false;
+                tileMovement.FailureSlideActive = false;
+            }
+        }
 
         var touching = false;
         // Whether we use tilefriction or not
@@ -384,7 +394,7 @@ public abstract partial class SharedMoverController : VirtualController
 
             // If we're not on a grid, and not able to move in space check if we're close enough to a grid to touch.
             if (!touching && MobMoverQuery.TryComp(uid, out var mobMover))
-                touching |= IsAroundCollider(PhysicsSystem, xform, mobMover, uid, physicsComponent);
+                touching |= IsAroundCollider(_lookup, (uid, physicsComponent, mobMover, xform));
 
             // If we're touching then use the weightless values
             if (touching)
@@ -408,7 +418,7 @@ public abstract partial class SharedMoverController : VirtualController
             if (MapGridQuery.TryComp(xform.GridUid, out var gridComp)
                 && _mapSystem.TryGetTileRef(xform.GridUid.Value, gridComp, xform.Coordinates, out var tile)
                 && physicsComponent.BodyStatus == BodyStatus.OnGround)
-                tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
+                tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.Tile.TypeId];
 
             var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
             var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
@@ -600,23 +610,27 @@ public abstract partial class SharedMoverController : VirtualController
     }
 
     /// <summary>
-    ///     Used for weightlessness to determine if we are near a wall.
+    /// Used for weightlessness to determine if we are near a wall.
     /// </summary>
-    private bool IsAroundCollider(SharedPhysicsSystem broadPhaseSystem, TransformComponent transform, MobMoverComponent mover, EntityUid physicsUid, PhysicsComponent collider)
+    private bool IsAroundCollider(EntityLookupSystem lookupSystem, Entity<PhysicsComponent, MobMoverComponent, TransformComponent> entity)
     {
-        var enlargedAABB = _lookup.GetWorldAABB(physicsUid, transform).Enlarged(mover.GrabRangeVV);
+        var (uid, collider, mover, transform) = entity;
+        var enlargedAABB = _lookup.GetWorldAABB(entity.Owner, transform).Enlarged(mover.GrabRange);
 
-        foreach (var otherCollider in broadPhaseSystem.GetCollidingEntities(transform.MapID, enlargedAABB))
+        foreach (var otherEntity in lookupSystem.GetEntitiesIntersecting(transform.MapID, enlargedAABB))
         {
-            if (otherCollider == collider)
+            if (otherEntity == uid)
                 continue; // Don't try to push off of yourself!
+
+            if (!PhysicsQuery.TryComp(otherEntity, out var otherCollider))
+                continue;
 
             // Only allow pushing off of anchored things that have collision.
             if (otherCollider.BodyType != BodyType.Static ||
                 !otherCollider.CanCollide ||
                 ((collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
                 (otherCollider.CollisionMask & collider.CollisionLayer) == 0) ||
-                (TryComp(otherCollider.Owner, out PullableComponent? pullable) && pullable.BeingPulled))
+                (TryComp(otherEntity, out PullableComponent? pullable) && pullable.BeingPulled))
             {
                 continue;
             }
@@ -711,7 +725,7 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        var position = grid.LocalToTile(xform.Coordinates);
+        var position = _mapSystem.LocalToTile(xform.GridUid.Value, grid, xform.Coordinates);
         var soundEv = new GetFootstepSoundEvent(uid);
 
         // If the coordinates have a FootstepModifier component
@@ -738,9 +752,9 @@ public abstract partial class SharedMoverController : VirtualController
         // Walking on a tile.
         // Tile def might have been passed in already from previous methods, so use that
         // if we have it
-        if (tileDef == null && grid.TryGetTileRef(position, out var tileRef))
+        if (tileDef == null && _mapSystem.TryGetTileRef(xform.GridUid.Value, grid, position, out var tileRef))
         {
-            tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+            tileDef = (ContentTileDefinition)_tileDefinitionManager[tileRef.Tile.TypeId];
         }
 
         if (tileDef == null)
@@ -881,7 +895,7 @@ public abstract partial class SharedMoverController : VirtualController
                     }
                     // Otherwise if we failed to reach the destination, begin a "failure slide" back to the
                     // original position.
-                    else if(!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
+                    else if (!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
                     {
                         InitializeSlideToTarget(physicsUid, tileMovement, targetTransform.LocalPosition, MoveButtons.None);
                         UpdateSlide(physicsUid, physicsUid, tileMovement, inputMover);

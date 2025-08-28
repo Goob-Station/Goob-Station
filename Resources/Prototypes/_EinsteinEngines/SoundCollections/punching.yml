@@ -1,7 +1,7 @@
 - type: soundCollection
   id: FirePunch
   files:
-  - /Audio/_EinsteinEngines/Weapons/firepunch1.ogg
-  - /Audio/_EinsteinEngines/Weapons/firepunch2.ogg
-  - /Audio/_EinsteinEngines/Weapons/firepunch3.ogg
-  - /Audio/_EinsteinEngines/Weapons/firepunch4.ogg
+    - /Audio/Weapons/firepunch1.ogg
+    - /Audio/Weapons/firepunch2.ogg
+    - /Audio/Weapons/firepunch3.ogg
+    - /Audio/Weapons/firepunch4.ogg

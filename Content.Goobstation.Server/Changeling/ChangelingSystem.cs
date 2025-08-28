@@ -123,6 +123,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
@@ -171,6 +172,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<ChangelingIdentityComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
@@ -833,38 +835,35 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RemoveAllChangelingEquipment(uid, comp);
     }
 
+    private void OnUpdateMobState(Entity<ChangelingIdentityComponent> ent, ref UpdateMobStateEvent args)
+    {
+        if (ent.Comp.IsInStasis)
+            args.State = MobState.Dead;
+    }
+
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
     {
-        var target = args.Damageable;
-
-        if (!ent.Comp.IsInStasis)
-        {
-            var lowestStasisTime = ent.Comp.DefaultStasisTime;
-            var highestStasisTime = ent.Comp.MaxStasisTime; // 1.5 minutes
-            var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 2 minutes
-            var catastrophicDamage = 200f; // 100% dead
-
-            var damageTaken = float.Round(target.TotalDamage.Float()) / 2;
-            var damageToTime = MathF.Min(damageTaken, highestStasisTime);
-
-            var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
-
-            if (damageTaken < catastrophicDamage)
-                ent.Comp.StasisTime = newStasisTime;
-            else
-                ent.Comp.StasisTime = catastrophicStasisTime;
-        }
-
-        if (!TryComp<MobStateComponent>(ent, out var mobState))
+        if (ent.Comp.IsInStasis
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
             return;
 
-        if (mobState.CurrentState != MobState.Dead)
-            return;
+        var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
+        var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
+        var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
 
-        if (!args.DamageIncreased)
-            return;
+        var damage = args.Damageable;
+        var damageTaken = damage.TotalDamage;
 
-        target.Damage.ClampMax(200); // we never die. UNLESS??
+        var damageScaled = float.Round((float) (damageTaken / critThreshold.Value * highestStasisTime));
+
+        var damageToTime = MathF.Min(damageScaled, highestStasisTime);
+        var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
+
+        if (damageTaken < maxThreshold)
+            ent.Comp.StasisTime = newStasisTime;
+        else
+            ent.Comp.StasisTime = catastrophicStasisTime;
     }
 
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)
@@ -888,6 +887,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             ent.Comp.IsInStasis = false;
             ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
+
+            _mobState.UpdateMobState(ent);
         }
         else
         {
