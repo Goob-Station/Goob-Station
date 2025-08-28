@@ -68,3 +68,21 @@
         layer:
         - TableLayer
         - BulletImpassable
+
+- type: entity
+  parent: XenomorphEgg
+  id: XenomorphEggBurst
+  suffix: Burst
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    noRot: true
+    layers:
+    - state: egg_burst
+      map: [ "status" ]
+  - type: Icon
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    state: egg_burst
+  - type: XenomorphEgg
+    faceHuggerPrototype: null
+    status: Burst

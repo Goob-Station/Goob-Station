@@ -8,7 +8,7 @@ namespace Content.Shared._White.Xenomorphs.Egg;
 public sealed partial class XenomorphEggComponent : Component
 {
     [DataField]
-    public EntProtoId FaceHuggerPrototype = "MobXenomorphFaceHugger";
+    public EntProtoId? FaceHuggerPrototype = "MobXenomorphFaceHugger";
 
     [DataField]
     public float BurstRange = 1f;
@@ -28,6 +28,9 @@ public sealed partial class XenomorphEggComponent : Component
     [DataField]
     public TimeSpan MinGrowthTime = TimeSpan.FromSeconds(90);
 
+    [DataField]
+    public XenomorphEggStatus Status = XenomorphEggStatus.Growning;
+
     [ViewVariables]
     public TimeSpan BurstAt = TimeSpan.Zero;
 
@@ -36,9 +39,6 @@ public sealed partial class XenomorphEggComponent : Component
 
     [ViewVariables]
     public TimeSpan GrownAt = TimeSpan.Zero;
-
-    [ViewVariables]
-    public XenomorphEggStatus Status = XenomorphEggStatus.Growning;
 }
 
 public enum XenomorphEggStatus : byte
