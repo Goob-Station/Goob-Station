@@ -112,6 +112,16 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 300
+    maxInterval: 900
+    sound:
+      collection: RandomComputerSounds
+      params:
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
+  - type: SpamEmitSoundRequirePower # Goobstation
   # Einstein Engines - Language begin
   - type: LanguageSpeaker
   - type: LanguageKnowledge
