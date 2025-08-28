@@ -7,11 +7,14 @@ using Content.Goobstation.Shared.Werewolf.Components;
 using Content.Goobstation.Shared.Werewolf.Events;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.DoAfter;
 using Content.Server.EntityEffects.EffectConditions;
+using Content.Server.Roles;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
@@ -32,18 +35,42 @@ public sealed class WerewolfGutSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfGutComponent, WerewolfGutEvent>(OnWerewolfGut);
 
-        // todo: add doafter
+        SubscribeLocalEvent<WerewolfGutComponent, WerewolfGutDoAfterEvent>(OnDoAfterWerewolfGut);
     }
 
-    private void OnWerewolfGut(Entity<WerewolfGutComponent> ent, ref WerewolfGutEvent args) =>
-        TryGut(args.Target, ent.Comp);
+    private void OnWerewolfGut(Entity<WerewolfGutComponent> ent, ref WerewolfGutEvent args)
+    {
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            ent.Owner,
+            ent.Comp.Timer,
+            new WerewolfGutDoAfterEvent(),
+            ent.Owner,
+            args.Target)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            ColorOverride = Color.Silver,
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+
+    private void OnDoAfterWerewolfGut(Entity<WerewolfGutComponent> ent, ref WerewolfGutDoAfterEvent args)
+    {
+        if (args.Target is not {} target)
+            return;
+
+        TryGut(target, ent.Comp);
+    }
 
     private void TryGut(EntityUid target, WerewolfGutComponent comp)
     {

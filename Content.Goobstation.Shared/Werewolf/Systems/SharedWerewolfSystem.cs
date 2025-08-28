@@ -38,7 +38,7 @@ public sealed class SharedWerewolfSystem : EntitySystem
     /// Adjusts the fury of the target. Provide positive value to increase, or negative value to decrease said fury.
     /// </summary>
     /// <param name="component"></param> The component of the werewolf
-    /// <param name="Fury"></param> The fury to increase/decrease to the werewolf
-    private void AdjustFury(WerewolfComponent component, int Fury) =>
-        component.Fury += Fury;
+    /// <param name="fury"></param> The fury to increase/decrease to the werewolf
+    private void AdjustFury(WerewolfComponent component, int fury) =>
+        component.Fury += fury;
 }

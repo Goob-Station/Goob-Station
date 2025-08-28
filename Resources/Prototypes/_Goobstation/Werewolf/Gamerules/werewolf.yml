@@ -30,8 +30,8 @@
       - type: WerewolfTransform
         currentWerewolfForm: DefaultFormWerewolf
         unlockedWerewolfForms:
-          - DefaultFormWerewolf
-          - ExplosiveFormWerewolf
+        - DefaultFormWerewolf
+        - WhiteFormWerewolf
       - type: WerewolfMutationShop
       - type: WerewolfHeightenedSenses
       - type: ThermalVision

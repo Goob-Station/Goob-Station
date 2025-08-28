@@ -5,6 +5,7 @@
 
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Werewolf.Events;
 
@@ -25,5 +26,6 @@ public sealed partial class WerewolfSmokescreenEvent : InstantActionEvent;
 public sealed partial class WerewolfCursedBiteEvent : EntityTargetActionEvent;
 #endregion
 #region Events - Do After
+[Serializable, NetSerializable]
 public sealed partial class WerewolfGutDoAfterEvent : SimpleDoAfterEvent;
 #endregion

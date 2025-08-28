@@ -71,3 +71,16 @@
     sprite:
       sprite: Actions/Implants/implants.rsi
       state: explosive
+
+- type: werewolfForm
+  id: WhiteFormWerewolf
+  configuration:
+    furColor: "#14568B"
+    entity: WhiteWerewolf
+    name: White Werewolf
+    description: black-wolf-form-description
+    furyCost: 15
+    sprite:
+      sprite: Actions/Implants/implants.rsi
+      state: explosive
+    makePeaceful: true

@@ -75,4 +75,10 @@ public sealed partial record WerewolfConfiguration
     /// </summary>
     [DataField]
     public int FuryCost = 15;
+
+    /// <summary>
+    ///  Used for white werewolf
+    /// </summary>
+    [DataField]
+    public bool MakePeaceful = false;
 }

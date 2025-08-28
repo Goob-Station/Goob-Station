@@ -3,6 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Mind;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Werewolf.Components;
@@ -16,6 +19,9 @@ public sealed partial class WerewolfMutationShopComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? ActionEntity;
+
+    [ViewVariables]
+    public ProtoId<RoleTypePrototype> Neutral = "Neutral";
 };
 
 [NetSerializable, Serializable]

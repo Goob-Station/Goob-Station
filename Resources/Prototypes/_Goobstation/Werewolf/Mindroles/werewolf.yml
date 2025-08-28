@@ -14,3 +14,15 @@
     roleType: SoloAntagonist
     subtype: role-subtype-werewolf
   - type: WerewolfRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWhiteWerewolf
+  name: White Werewolf Role
+  components:
+  - type: MindRole
+    antagPrototype: Werewolf
+    exclusiveAntag: true
+    roleType: Neutral
+    subtype: role-subtype-werewolf
+  - type: WerewolfRole

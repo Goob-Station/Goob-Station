@@ -5,6 +5,7 @@
 
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.StatusEffect;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -63,6 +64,32 @@ public sealed partial class WerewolfHowlComponent : Component
     /// </summary>
     [DataField]
     public float Range = 5f;
+
+    #region Emp
+    /// <summary>
+    ///  Range of emp
+    /// </summary>
+    [DataField]
+    public float EmpRange = 10f;
+
+    /// <summary>
+    /// The duration of the emp
+    /// </summary>
+    [DataField]
+    public float EmpDuration = 60f;
+
+    /// <summary>
+    /// Energy to be consumed from energy containers.
+    /// </summary>
+    [DataField]
+    public float EnergyConsumption = 1000000;
+
+    /// <summary>
+    /// Used to activate howl emp if the user has the Raiju tag.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> RaijuTag = "Raiju";
+    #endregion
 
     /// <summary>
     ///  The max range of the howl sound effect

@@ -24,4 +24,7 @@ public sealed partial class WerewolfGutComponent : Component
     /// </summary>
     [ViewVariables]
     public ProtoId<TagPrototype> VimPilotTag = "VimPilot";
+
+    [DataField]
+    public float Timer = 10f;
 }

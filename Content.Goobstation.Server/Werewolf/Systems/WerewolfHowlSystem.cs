@@ -6,11 +6,13 @@
 using Content.Goobstation.Shared.Werewolf.Components;
 using Content.Goobstation.Shared.Werewolf.Events;
 using Content.Server.Armor;
+using Content.Server.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Flash.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -32,6 +34,8 @@ public sealed class WerewolfHowlSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private  readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
     /// <inheritdoc/>
@@ -73,6 +77,9 @@ public sealed class WerewolfHowlSystem : EntitySystem
 
         if (!ent.Comp.ApplyEffects)
             return;
+
+        if (_tag.HasTag(ent.Owner, "Raiju"))
+            _emp.EmpPulse(_transform.GetMapCoordinates(ent.Owner), ent.Comp.EmpRange, ent.Comp.EnergyConsumption, ent.Comp.EmpDuration);
 
         ApplyStatusEffectsNearby(ent);
         ApplyBuffs(ent);

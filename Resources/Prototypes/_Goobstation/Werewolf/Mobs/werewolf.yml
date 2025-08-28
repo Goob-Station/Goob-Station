@@ -190,6 +190,30 @@
       Dead: 0
     starvationDamage: null
 
+- type: entity
+  id: RaijuWerewolf
+  name: Raiju Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: Insulated
+  - type: Tag
+    tags:
+    - Raiju
+
+- type: entity
+  id: LupusWerewolf
+  name: Lupus Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: PressureImmunity
+  - type: BreathingImmunity
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Cold: 10
+
 # testing
 - type: entity
   id: TestWerewolfDebug
