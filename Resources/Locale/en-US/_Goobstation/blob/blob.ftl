@@ -110,6 +110,12 @@ blob-teleport-to-node-action-name = Jump to Node (0)
 blob-teleport-to-node-action-desc = Teleports you to a random blob node.
 blob-help-action-name = Help
 blob-help-action-desc = Get basic information about playing as blob.
+blob-swap-chem-action-name = Swap chemicals (70)
+blob-swap-chem-action-desc = Lets you swap your current chemical.
+blob-polymorph-action-name = Transform into a blob
+blob-polymorph-action-desc = Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+blob-downgrade-action-name = downgrade blob(0)
+blob-downgrade-action-desc = Turns the selected tile back into a normal blob to install other types of cages.
 
 # Ghost role
 blob-carrier-role-name = Blob carrier

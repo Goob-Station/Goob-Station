@@ -59,4 +59,10 @@ public sealed partial class VentCrittersRuleComponent : Component
     /// </summary>
     [DataField]
     public int PlayerRatio = 25;
+
+    /// <summary>
+    /// Goobstation: if true, this gamerule won't make any announcements.
+    /// </summary>
+    [DataField]
+    public bool Silent;
 }

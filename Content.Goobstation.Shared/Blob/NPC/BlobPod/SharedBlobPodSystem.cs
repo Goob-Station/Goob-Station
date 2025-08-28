@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
@@ -16,15 +17,21 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Blob.NPC.BlobPod;
 
 public abstract class SharedBlobPodSystem : EntitySystem
 {
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly MobStateSystem _mobs = default!;
-
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
 
     private EntityQuery<HumanoidAppearanceComponent> _query;
 
@@ -33,7 +40,7 @@ public abstract class SharedBlobPodSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BlobPodComponent, GetVerbsEvent<InnateVerb>>(AddDrainVerb);
-        SubscribeLocalEvent<BlobPodComponent, BeingUnequippedAttemptEvent>(OnUnequipAttempt);
+        SubscribeLocalEvent<BlobPodComponent, BlobPodZombifyDoAfterEvent>(OnZombify);
         SubscribeLocalEvent<BlobPodComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<BlobPodComponent, DragDropTargetEvent>(OnBlobPodDragDrop);
 
@@ -69,22 +76,6 @@ public abstract class SharedBlobPodSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnUnequipAttempt(Entity<BlobPodComponent> ent, ref BeingUnequippedAttemptEvent args)
-    {
-        if (args.Unequipee == args.UnEquipTarget)
-        {
-            args.Cancel();
-            return;
-        }
-        if (!TryComp<MobStateComponent>(args.UnEquipTarget, out var mobStateComponent))
-            return;
-        if (_mobs.IsDead(args.UnEquipTarget,mobStateComponent) || _mobs.IsCritical(args.UnEquipTarget,mobStateComponent))
-            return;
-        if (!HasComp<ZombieBlobComponent>(args.UnEquipTarget))
-            return;
-        args.Cancel();
-    }
-
     private void AddDrainVerb(EntityUid uid, BlobPodComponent component, GetVerbsEvent<InnateVerb> args)
     {
         if (args.User == args.Target)
@@ -109,10 +100,64 @@ public abstract class SharedBlobPodSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    public abstract bool NpcStartZombify(EntityUid uid, EntityUid argsTarget, BlobPodComponent component);
+    public bool NpcStartZombify(EntityUid uid, EntityUid target, BlobPodComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return false;
+        if (!HasComp<HumanoidAppearanceComponent>(target))
+            return false;
+        if (_mobs.IsAlive(target))
+            return false;
+        if (!_actionBlocker.CanInteract(uid, target))
+            return false;
+
+        StartZombify(uid, target, component);
+        return true;
+    }
+
+
+    public void StartZombify(EntityUid uid, EntityUid target, BlobPodComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.ZombifyTarget = target;
+        _popups.PopupClient();
+
+        _popups.PopupEntity(Loc.GetString("blob-mob-zombify-second-start", ("pod", uid)), target, target, PopupType.LargeCaution);
+        _popups.PopupEntity(Loc.GetString("blob-mob-zombify-third-start", ("pod", uid), ("target", target)), target,
+            Filter.PvsExcept(target), true, PopupType.LargeCaution);
+
+        component.ZombifyStingStream = _audioSystem.PlayPvs(component.ZombifySoundPath, target);
+        component.IsZombifying = true;
+
+        var ev = new BlobPodZombifyDoAfterEvent();
+        var args = new DoAfterArgs(EntityManager, uid, component.ZombifyDelay, ev, uid, target: target)
+        {
+            BreakOnMove = true,
+            DistanceThreshold = 2f,
+            NeedHand = false,
+            MultiplyDelay = false
+        };
+
+        _doAfter.TryStartDoAfter(args);
+    }
+
+    private void OnZombify(EntityUid uid, BlobPodComponent component, BlobPodZombifyDoAfterEvent args)
+    {
+        component.IsZombifying = false;
+        if (args.Handled || args.Target == null)
+        {
+            _audioSystem.Stop(component.ZombifyStingStream, component.ZombifyStingStream);
+            return;
+        }
+
+        if (args.Cancelled)
+            return;
+
+        Zombify((uid, component), args.Args.Target.Value);
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed partial class BlobPodZombifyDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class BlobPodZombifyDoAfterEvent : SimpleDoAfterEvent;

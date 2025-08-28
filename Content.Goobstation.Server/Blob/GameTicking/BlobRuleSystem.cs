@@ -11,7 +11,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Blob.Components;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.AlertLevel;
@@ -29,7 +28,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Blob.GameTicking;
 
@@ -148,14 +146,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
-
-                RaiseLocalEvent(stationUid,
-                    new BlobChangeLevelEvent
-                {
-                    Station = stationUid,
-                    Level = blobRuleComp.Stage
-                },
-                    broadcast: true);
                 return;
             case BlobStage.Begin when blobTilesCount >= (stationUid.Comp?.StageCritical ?? StationBlobConfigComponent.DefaultStageCritical):
             {
@@ -181,28 +171,12 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 }
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertCritical, true, true, true, true);
-
-                RaiseLocalEvent(stationUid,
-                    new BlobChangeLevelEvent
-                {
-                    Station = stationUid,
-                    Level = blobRuleComp.Stage
-                },
-                    broadcast: true);
                 return;
             }
             case BlobStage.Critical when blobTilesCount >= (stationUid.Comp?.StageTheEnd ?? StationBlobConfigComponent.DefaultStageEnd):
             {
                 blobRuleComp.Stage = BlobStage.TheEnd;
                 _roundEndSystem.EndRound();
-
-                RaiseLocalEvent(stationUid,
-                    new BlobChangeLevelEvent
-                {
-                    Station = stationUid,
-                    Level = blobRuleComp.Stage
-                },
-                    broadcast: true);
                 return;
             }
         }
@@ -297,17 +271,5 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         }
 
         ev.AddLine(result);
-    }
-
-    public void MakeBlob(EntityUid player)
-    {
-        var comp = EnsureComp<BlobCarrierComponent>(player);
-        comp.HasMind = HasComp<ActorComponent>(player);
-        comp.TransformationDelay = 10 * 60; // 10min
-    }
-
-    private void AfterAntagSelected(EntityUid uid, BlobRuleComponent component, AfterAntagEntitySelectedEvent args)
-    {
-        MakeBlob(args.EntityUid);
     }
 }

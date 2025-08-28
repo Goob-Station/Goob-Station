@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Observer
+- type: entity
+  id: MobObserverBlob
+  name: Blob observer
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+    - type: UserInterface
+      interfaces:
+        enum.BlobChemSwapUiKey.Key:
+          type: BlobChemSwapBoundUserInterface
+    - type: Actions
+    - type: Alerts
+    # Einstein Engines - Language begin
+    - type: LanguageSpeaker
+      currentLanguage: Blob
+    - type: LanguageKnowledge
+      speaks:
+      - Blob
+      understands:
+      - Blob
+      - Xeno
+      - TauCetiBasic
+    # Einstein Engines - Language end
+    - type: Hands
+      showInHands: true
+    - type: BlobObserver
+    - type: Visibility
+      layer: 2
+    - type: ContentEye
+    - type: MindContainer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      bodyType: KinematicController
+      fixedRotation: true
+    - type: GhostRole
+      name: ghost-role-information-blob-name
+      description: ghost-role-information-blob-description
+      rules: You are an antagonist, destroy the station!
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
+    - type: GhostTakeoverAvailable
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 15
+    - type: InputMover
+    - type: Appearance
+    - type: Eye
+    - type: Input
+      context: "aghost"
+    - type: Examiner
+      skipChecks: true
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+      color: "#fc8403"
+      state: marker
+      noRot: true
+      drawdepth: Ghosts
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 8
+      baseWalkSpeed: 15
+    - type: MovementIgnoreGravity
+    - type: Tag
+      tags:
+      - BypassInteractionRangeChecks
+    - type: CollectiveMind
+      defaultChannel: Blobmind
+      channels:
+      - Blobmind
+
+- type: entity
+  id: MobObserverBlobController
+  name: Blob observer controller
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    size: Ginormous
+  - type: Unremoveable
+    deleteOnDrop: true

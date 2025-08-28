@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Common.Blob;
+using Content.Goobstation.Server.Blob.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Server.Administration.Managers;
@@ -58,7 +58,8 @@ public sealed partial class GoobAdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Blob/Actions/blob.rsi"), "blobFactory"),
             Act = () =>
             {
-                EnsureComp<BlobCarrierComponent>(args.Target).HasMind = HasComp<ActorComponent>(args.Target);
+                if (!HasComp<SiliconComponent>(args.Target))
+                    _antag.ForceMakeAntag<BlobRuleComponent>(targetPlayer, "BlobGameMode");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-text-make-blob"),

@@ -113,3 +113,14 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: BlobPolymorph
+  configuration:
+    entity: CoreBlobTile
+    forced: true
+    transferName: false
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false

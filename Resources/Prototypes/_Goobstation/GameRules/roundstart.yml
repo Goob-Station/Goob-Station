@@ -249,34 +249,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
-  - type: GameRule
-    chaosScore: 1000
-
-- type: entity
-  id: BlobGameMode
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: BlobRule
-  - type: GameRule
-    minPlayers: 20
-    chaosScore: 1000
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Blob ]
-      allowNonHumans: true
-      jobBlacklist: [ Chaplain ] # Goobstation
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-      briefing:
-        text: blob-carrier-role-greeting
-        color: Plum
-        sound: /Audio/Announcements/bloblarm.ogg
-      mindRoles:
-      - MindRoleBlob
 
 - type: entity
   id: BlobSpawn
@@ -284,11 +256,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 10
+    weight: 6
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
-    maxOccurrences: 2
+    minimumPlayers: 35
+    maxOccurrences: 1
     chaos:
       Hostile: 200
       Death: 300
@@ -296,11 +268,20 @@
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 1000
-  - type: BlobSpawnRule
-    carrierBlobProtos:
-    - SpawnPointGhostBlobRat
-    playersPerCarrierBlob: 30
-    maxCarrierBlob: 1
+  - type: AntagObjectives
+    objectives:
+    - BlobCaptureObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostBlobRat
+      min: 1
+      max: 1
+      pickPlayer: false
+      briefing:
+        text: blob-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
 
 - type: entity
   parent: BaseNukeopsRule
