@@ -177,7 +177,7 @@
       groups:
         Brute: 6
       types:
-        Structural: 31 #Goob
+        Structural: 30
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
