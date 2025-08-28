@@ -106,7 +106,10 @@ public sealed class FaceHuggerSystem : EntitySystem
                 faceHugger.Active = true;
 
             if (faceHugger.InfectIn != TimeSpan.Zero && time > faceHugger.InfectIn)
+            {
+                faceHugger.InfectIn = TimeSpan.Zero;
                 Infect(uid, faceHugger);
+            }
         }
     }
 
