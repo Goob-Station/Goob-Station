@@ -120,6 +120,15 @@
     isSelectable: false
 
 - type: entity
+  parent: AncientRogueKingSpawn
+  id: TokenAncientRogueKingSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: AncientRogueKingToken
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
   parent: BlobMidround
   id: TokenBlobMidround
   components:

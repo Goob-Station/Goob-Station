@@ -16,12 +16,21 @@
   roundStart: true
   prototype: MobYowie
   sprites: MobYowieSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobYowieMarkingLimits
   dollPrototype: MobYowieDummy
   skinColoration: NoColor
   naming: First
   maleFirstNames: NamesYowieMale
   femaleFirstNames: NamesYowieFemale
+  # begin Goobstation: port EE height/width sliders
+  # yowie were like. 1.3x scale before, which is comical
+  minHeight: 1.10
+  defaultHeight: 1.4
+  maxHeight: 1.3
+  minWidth: 1.15
+  defaultWidth: 1.3
+  maxWidth: 1.35
+  # end Goobstation: port EE height/width sliders
 
 # The lack of a layer means that
 # this person cannot have round-start anything
@@ -66,16 +75,43 @@
       points: 1
       required: false
     HeadTop:
-      points: 1
+      points: 8
+      required: false
+    HeadSide:
+      points: 8
       required: false
     Chest:
+      points: 10
+      required: false
+    Underwear:
       points: 1
       required: false
-    Legs:
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
       points: 2
       required: false
-    Arms:
+    RightFoot:
       points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite

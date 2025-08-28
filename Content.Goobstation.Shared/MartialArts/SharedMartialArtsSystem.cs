@@ -12,6 +12,8 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -99,6 +101,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
     public override void Initialize()
     {
