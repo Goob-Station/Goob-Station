@@ -26,6 +26,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -84,6 +85,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
 
         SubscribeLocalEvent<SiliconComponent, BeforeCyberdeckHackPlayerEvent>(BeforeSiliconHacked);
+        SubscribeLocalEvent<BorgChassisComponent, BeforeCyberdeckHackPlayerEvent>(BeforeBorgHacked);
 
         _handsQuery = GetEntityQuery<HandsComponent>();
         _containerQuery = GetEntityQuery<ContainerManagerComponent>();
@@ -542,6 +544,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     #region Other
 
     private void BeforeSiliconHacked(Entity<SiliconComponent> ent, ref BeforeCyberdeckHackPlayerEvent args)
+        => args.PenaltyTime += ent.Comp.CyberdeckPenaltyTime;
+
+    private void BeforeBorgHacked(Entity<BorgChassisComponent> ent, ref BeforeCyberdeckHackPlayerEvent args)
         => args.PenaltyTime += ent.Comp.CyberdeckPenaltyTime;
 
     /// <summary>
