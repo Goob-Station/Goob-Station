@@ -19,7 +19,5 @@ public sealed class FightActionSystem : EntitySystem
 
         fightActionComp.Strategy = message.FightAction;
         DirtyField(GetEntity(message.Uid), fightActionComp, nameof(FightActionComponent.Strategy));
-        fightActionComp.Icon = message.Icon;
-        DirtyField(GetEntity(message.Uid), fightActionComp, nameof(FightActionComponent.Icon));
     }
 }

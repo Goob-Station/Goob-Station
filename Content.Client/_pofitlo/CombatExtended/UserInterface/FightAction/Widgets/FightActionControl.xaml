@@ -19,7 +19,7 @@
                         Name="test">
                         <TextureRect
                             Name="ButtonTexture"
-                            TexturePath="/Textures/_Shitmed/Interface/Targeting/Doll/rightarm.png"
+                            TexturePath="/Textures/_pofitlo/CombatExtended/FightAction/punch.rsi/icon.png"
                             Stretch="KeepAspectCentered"/>
                     </TextureButton>
                 </PanelContainer>

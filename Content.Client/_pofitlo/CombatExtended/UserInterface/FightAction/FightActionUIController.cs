@@ -1,15 +1,17 @@
-using System.Numerics;
 using Content.Client._pofitlo.CombatExtended.FightAction;
-using Content.Client.Gameplay;
-using Robust.Client.UserInterface.Controllers;
-using Robust.Client.Player;
-using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
-using Content.Client.UserInterface.Controls;
 using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.UI;
+using Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets;
+using Content.Client.Gameplay;
+using Content.Client.UserInterface.Controls;
+using Content.Shared._pofitlo.CombatExtended.FightAction;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
-using Robust.Shared.Utility;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.Utility;
+using System.Numerics;
+using Robust.Client.GameObjects;
 
 
 namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
@@ -17,11 +19,14 @@ namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
 public sealed class FightActionUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<FightActionSystem>
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private FightActionComponent? _fightActionComponent;
     private FightActionControl? FightActionControl => UIManager.GetActiveUIWidgetOrNull<FightActionControl>();
+    private SpriteSystem? SpriteSystem => _entitySystem.GetEntitySystem<SpriteSystem>();
     private SimpleRadialMenu? _menu;
     private FightActionRadialMenu? _fightActionMenu;
 
@@ -109,9 +114,14 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {
-            var msg = new FightActionChangeEvent(player, fightAction, icon);
+            var msg = new FightActionChangeEvent(player, fightAction);
             _net.SendSystemNetworkMessage(msg);
         }
+
+        if (icon == null || SpriteSystem == null)
+            return;
+        var texture = SpriteSystem.Frame0(icon);
+        ChangeWidgetIcon(texture);
     }
 
     public void ToggleMenu(Vector2 position)

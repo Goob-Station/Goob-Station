@@ -39,7 +39,6 @@ public sealed class FightActionSystem : EntitySystem
     {
         FightActionStartup?.Invoke(component);
         FightActionStatusStartup?.Invoke(component);
-        component.OnStrategyChanged += WidgetIconChange;
     }
 
     private void HandlePlayerDetached(EntityUid uid, FightActionComponent component, LocalPlayerDetachedEvent args)
@@ -86,14 +85,5 @@ public sealed class FightActionSystem : EntitySystem
 
     //    StrategyChange?.Invoke(target);
     //}
-
-    public void WidgetIconChange(SpriteSpecifier? icon)
-    {
-        if (icon == null)
-            return;
-        var texture = _spriteSystem.Frame0(icon);
-        var ui = _uiManager.GetUIController<FightActionUIController>();
-        ui.ChangeWidgetIcon(texture);
-    }
 
 }

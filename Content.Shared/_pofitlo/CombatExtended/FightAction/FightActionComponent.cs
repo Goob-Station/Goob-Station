@@ -14,22 +14,4 @@ public sealed partial class FightActionComponent : Component
 
     [DataField, AutoNetworkedField]
     public AttackStrategy Strategy;
-
-    public event Action<SpriteSpecifier?>? OnStrategyChanged;
-
-    private SpriteSpecifier? _icon;
-
-    [DataField, AutoNetworkedField]
-    public SpriteSpecifier? Icon
-    {
-        get => _icon;
-        set
-        {
-            if (_icon == value)
-                return;
-
-            _icon = value;
-            OnStrategyChanged?.Invoke(value);
-        }
-    }
 }

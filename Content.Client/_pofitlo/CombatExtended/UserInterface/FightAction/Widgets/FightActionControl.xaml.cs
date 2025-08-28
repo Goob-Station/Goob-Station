@@ -19,13 +19,6 @@ public sealed partial class FightActionControl : UIWidget
         RobustXamlLoader.Load(this);
         _controller = UserInterfaceManager.GetUIController<TargetingUIController>();
 
-        //_menu = new SimpleRadialMenu();
-        //_fightActionMenu = new FightActionRadialMenu();
-        //_fightActionMenu.RefreshUI();
-
-        //_menu.Visible = false;
-        //test1.AddChild(_fightActionMenu);
-
         TargetDoll.Texture = Theme.ResolveTexture("FightActions/FASlotBackground");
         test.OnPressed += _ => OnPressed();
     }
