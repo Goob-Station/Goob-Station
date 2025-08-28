@@ -146,7 +146,6 @@
   - type: Prying
     pryPowered: true
   - type: Hands
-  - type: ComplexInteraction
   - type: Puller
     needsHands: false
   - type: IdExaminable

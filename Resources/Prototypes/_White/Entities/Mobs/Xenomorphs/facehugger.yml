@@ -46,51 +46,23 @@
     heatDamageThreshold: 360
     coldDamageThreshold: -150
     currentTemperature: 310.15
-  - type: EquipOnCollide
-    slot: mask
-    blockingSlot: head
-    blacklist:
-      components:
-      - XenomorphInfected
-      - XenomorphLarvaVictim
-      - Ghost
-  - type: EquipOnPickUp
-    slot: mask
-    blockingSlot: head
-    blacklist:
-      components:
-      - XenomorphInfected
-      - XenomorphLarvaVictim
-      - Ghost
-  - type: EquipOnMeleeHit
-    slot: mask
-    blockingSlot: head
-    blacklist:
-      components:
-      - XenomorphInfected
-      - XenomorphLarvaVictim
-      - Ghost
-  - type: EffectsOnEquip
-    slot: mask
-    blacklist:
-      components:
-      - Ghost
-    effects:
-    - !type:Paralyze
-      paralyzeTime: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatXeno
+      amount: 1
   - type: FaceHugger
-    slot: mask
     blacklist:
       components:
       - XenomorphInfected
       - XenomorphLarvaVictim
       - Silicon
       - Ghost
-    allowedPassiveDamageStates:
-    - Alive
-    passiveDamage:
+    damageOnImpact:
+      types:
+        Blunt: 15
+    damageOnInfect:
       groups:
-        Genetic: 1
+        Genetic: 100
   - type: NameIdentifier
     group: GenericNumber
   - type: NpcFactionMember

@@ -1,6 +1,5 @@
-using Content.Server._White.Inventory;
+using Content.Server._White.Xenomorphs.FaceHugger;
 using Content.Server.Popups;
-using Content.Shared._White.Inventory.Components;
 using Content.Shared._White.Xenomorphs.Egg;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.Ghost;
@@ -23,8 +22,8 @@ public sealed class XenomorphEggSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly FaceHuggerSystem _faceHugger = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly WhiteInventorySystem _whiteInventory = default!;
 
     public override void Initialize()
     {
@@ -115,12 +114,12 @@ public sealed class XenomorphEggSystem : EntitySystem
         var coordinates = Transform(uid).Coordinates;
         var spawned = Spawn(component.FaceHuggerPrototype, coordinates);
 
-        if (!TryComp<EquipOnMeleeHitComponent>(spawned, out var equipOn))
+        if (!TryComp<FaceHuggerComponent>(spawned, out var equipOn))
             return;
 
         foreach (var entity in _entityLookup.GetEntitiesInRange<InventoryComponent>(coordinates, component.BurstRange))
         {
-            if (_whiteInventory.TryEquip(spawned, entity, equipOn))
+            if (_faceHugger.TryEquipFaceHugger(spawned, entity, equipOn))
                 return;
         }
     }
