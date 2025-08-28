@@ -115,3 +115,8 @@ blob-carrier-role-name-token = Blob Carrier (Token)
 abductor-lone-ghost-role-name-token = Lone Abductor (Token)
 roles-wizard-name-token = Wizard (Token)
 ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
+
+ghost-role-information-syndicate-sales-operator-name = Syndicate Sales Operator
+ghost-role-information-syndicate-sales-operator-description = Your assignment is simple to state but demanding to uphold: run the store as a store, sell what is to be sold, guard what must remain guarded, and above all, never break the trust we have placed in you by treating Syndicate assets as your own.
+ghost-role-information-syndicate-sales-operator-rules = You are [color=red][bold]NOT[/bold][/color] an antagonist. Your job is to operate the Syndicate Store Shuttle as a merchant. Do not use, steal, or deploy the merchandise — it is Syndicate property, meant only for trade. You should conduct business by selling or bartering items for large sums of spesos or for valuable station assets. Treat the role seriously, maintain order in your shop, and avoid griefing. You may defend the store and yourself if threatened, but your primary duty is commerce, not sabotage.
+

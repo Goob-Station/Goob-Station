@@ -19,3 +19,8 @@
   id: XenoEmergency
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/xeno_emergency.yml
   copies: 1
+
+- type: preloadedGrid
+  id: SyndicateStoreLowValue
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/syndicate_store_lowvalue.yml
+  copies: 1

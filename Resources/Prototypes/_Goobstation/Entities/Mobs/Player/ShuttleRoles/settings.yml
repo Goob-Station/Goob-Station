@@ -21,3 +21,21 @@
     - type: Loadout
       prototypes: [ VisitorAlien ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: SyndicateSalesOperator
+  parent: EventHumanoid
+  components:
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: NukeOperative
+    - type: GhostRole
+      name: ghost-role-information-syndicate-sales-operator-name
+      description: ghost-role-information-syndicate-sales-operator-description
+      rules: ghost-role-information-syndicate-sales-operator-rules
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ SyndicateSalesOperator ]
+      roleLoadout: [ RoleSurvivalSyndicate ]

@@ -15,3 +15,16 @@
     id: VisitorPDA
     belt: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
+
+- type: startingGear
+  id: SyndicateSalesOperator
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskGasSyndicate
+    head: ClothingHeadHatBeret
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsSyndieFilled
+    id: SyndiPDA

@@ -47,3 +47,18 @@
     chaosScore: -15
   - type: LoadMapRule
     preloadedGrid: XenoEmergency
+
+- type: entity
+  id: UnknownShuttleSyndicateStoreLowValue
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 1
+    chaos:
+      Friendly: -20
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 50
+  - type: LoadMapRule
+    preloadedGrid: SyndicateSalesLowValue

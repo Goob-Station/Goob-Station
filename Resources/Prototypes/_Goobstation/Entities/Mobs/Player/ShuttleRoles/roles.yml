@@ -12,3 +12,13 @@
       state: full
     - type: RandomHumanoidSpawner
       settings: VisitorAlien
+
+- type: entity
+  id: RandomHumanoidSyndicateSalesOperator
+  name: syndicate sales operator ghost role
+  components:
+    - type: Sprite
+      sprite: Structures/Decoration/banner.rsi
+      state: banner_syndicate
+    - type: RandomHumanoidSpawner
+      settings: SyndicateSalesOperator
