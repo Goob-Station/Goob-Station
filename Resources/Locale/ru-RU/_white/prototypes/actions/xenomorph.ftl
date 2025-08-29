@@ -25,10 +25,7 @@ ent-ActionSpawnWallResin = Построить смоляную стену (50)
 ent-ActionSpawnResinMembrane = Построить смоляную мембрану (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
-ent-ActionSpawnResinMembrane = Выделить смолу (50)
-    .desc = Выделяют вязкую, пластичную смолу.
-
-ent-ActionSpawnResinNest = Выделить смолу (50)
+ent-ActionSpawnResinNest = Построить смоляное гнездо (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
 ent-ActionTailLash = Удар хвостом
