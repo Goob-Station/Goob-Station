@@ -2,13 +2,11 @@
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <malchanceux@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Antag;
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
@@ -23,7 +21,6 @@ namespace Content.Goobstation.Server.Entry;
 
 public sealed class EntryPoint : GameServer
 {
-    private ILastRolledAntagManager _antagPity = default!;
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
 
@@ -39,17 +36,14 @@ public sealed class EntryPoint : GameServer
 
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
         IoCManager.Resolve<ISpiderManager>().Initialize();
-        _antagPity = IoCManager.Resolve<ILastRolledAntagManager>();
 
-        _curr = IoCManager.Resolve<ICommonCurrencyManager>();
-        _curr.Initialize();
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>(); // Goobstation
+        _curr.Initialize(); // Goobstation
     }
 
     public override void PostInit()
     {
         base.PostInit();
-
-        _antagPity.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -69,7 +63,6 @@ public sealed class EntryPoint : GameServer
     {
         base.Dispose(disposing);
 
-        _antagPity.Shutdown();
-        _curr.Shutdown();
+        _curr.Shutdown(); // Goobstation
     }
 }

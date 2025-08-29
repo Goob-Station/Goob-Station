@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -75,7 +76,7 @@
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
   - type: Sprite
-    scale: 0.9, 0.9
+    # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
@@ -235,7 +236,7 @@
             sprite: _DV/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit
   - type: Sprite
-    scale: 0.9, 0.9
+    # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
