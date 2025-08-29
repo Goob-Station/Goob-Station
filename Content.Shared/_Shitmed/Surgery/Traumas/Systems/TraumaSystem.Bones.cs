@@ -14,6 +14,7 @@ using Content.Shared.Body.Part;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
+using Content.Shared.Humanoid;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
@@ -32,6 +33,21 @@ public partial class TraumaSystem
         SubscribeLocalEvent<BoneComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
         SubscribeLocalEvent<BoneComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
         SubscribeLocalEvent<BoneComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
+    }
+
+    // Species which should be immune to bone damage (Aka Slimes have no bones)
+    private static readonly HashSet<string> _boneImmuneSpecies = new()
+    {
+        "SlimePerson",
+        "Plasmaman",
+        "IPC",
+    };
+
+    private bool IsBoneDamageImmune(EntityUid body)
+    {
+        if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
+            return _boneImmuneSpecies.Contains(humanoid.Species);
+        return false;
     }
 
     #region Event Handling
@@ -159,6 +175,12 @@ public partial class TraumaSystem
             || !Resolve(bone, ref boneComp))
             return false;
 
+        if (boneComp.BoneWoundable != null
+            && TryComp<BodyPartComponent>(boneComp.BoneWoundable.Value, out var bodyPart)
+            && bodyPart.Body is { } body
+            && IsBoneDamageImmune(body))
+            return true; // skip bone damage for immune species
+
         var newIntegrity = FixedPoint2.Clamp(boneComp.BoneIntegrity - severity, 0, boneComp.IntegrityCap);
         if (boneComp.BoneIntegrity == newIntegrity)
             return false;
@@ -182,6 +204,12 @@ public partial class TraumaSystem
     {
         if (!Resolve(boneEnt, ref boneComp))
             return false;
+
+        if (boneComp.BoneWoundable != null
+            && TryComp<BodyPartComponent>(boneComp.BoneWoundable.Value, out var bodyPart)
+            && bodyPart.Body is { } body
+            && IsBoneDamageImmune(body))
+            return true; // skip adding bone traumas/damage for immune species
 
         if (_net.IsServer)
             AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
