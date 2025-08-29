@@ -69,6 +69,7 @@ using Content.Server.Mind;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Body.Components;
@@ -186,7 +187,7 @@ public sealed partial class ZombieSystem
             zombiecomp.BeforeZombificationReferenceEnt = clone;
 
         //we need to basically remove all of these because zombies shouldn't
-        //get diseases, breath, be thirst, be hungry, die in space, have offspring or be paraplegic.
+        //get diseases, breath, be thirst, be hungry, die in space, get double sentience, have offspring or be paraplegic.
         RemComp<RespiratorComponent>(target);
         RemComp<BarotraumaComponent>(target);
         RemComp<HungerComponent>(target);
@@ -195,6 +196,7 @@ public sealed partial class ZombieSystem
         RemComp<ReproductivePartnerComponent>(target);
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
+        RemComp<SentienceTargetComponent>(target);
 
         //funny voice
         var accentType = "zombie";
