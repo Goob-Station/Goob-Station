@@ -106,12 +106,11 @@
     onAdd:
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
-    - type: BasicEntityAmmoProvider
+    - type: PlasmaAmmoProvider
+      fireCost: 55
       proto: BulletNeurotoxin
-      capacity: 1
-      count: 1
     - type: Gun
-      fireRate: 0.25
+      fireRate: 0.75
       useKey: false
       selectedMode: FullAuto
       availableModes:

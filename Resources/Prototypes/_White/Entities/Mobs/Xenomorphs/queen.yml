@@ -56,6 +56,9 @@
       600: 0.9
       645: 0.7
       690: 0.6
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2.5
   - type: MeleeWeapon
     damage:
       groups:
