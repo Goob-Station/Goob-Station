@@ -199,6 +199,9 @@ public sealed partial class DevilContractSystem : EntitySystem
         contract.Comp.Signer = signer;
         contract.Comp.IsVictimSigned = true;
 
+        if (TryComp<PaperComponent>(contract, out var paper))
+            paper.EditingDisabled = true;
+
         _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), signed, signer);
     }
 
