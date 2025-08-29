@@ -517,3 +517,16 @@
       Severe: 26
       Critical: 15
       Mangled: 0
+
+# A minimal pseudo-bone entity for SlimePerson
+# preventing BoneDamage traumas from being applied.
+- type: entity
+  id: SlimeBone
+  parent: BaseItem
+  name: slime pseudo-bone
+  description: A gel-like structural node used by slimepeople. Contains no rigid bone.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Damageable
+    damageContainer: Inorganic
