@@ -1644,7 +1644,7 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
-        - ReagentId: Vodka
+        - ReagentId: Ammonia
           Quantity: 5
   - type: FoodSequenceElement
     sprite:
