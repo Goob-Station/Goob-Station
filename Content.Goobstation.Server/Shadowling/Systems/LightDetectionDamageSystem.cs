@@ -20,7 +20,9 @@ public sealed class LightDetectionDamageSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentStartup>(OnComponentStartup);
+
+        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentShutdown>(OnShutdown);
     }
 
     public override void Update(float frameTime)
@@ -82,12 +84,17 @@ public sealed class LightDetectionDamageSystem : EntitySystem
         }
     }
 
-    private void OnComponentStartup(EntityUid uid, LightDetectionDamageComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, LightDetectionDamageComponent component, ComponentStartup args)
     {
         if (component.ShowAlert)
             _alerts.ShowAlert(uid, component.AlertProto);
 
         component.DetectionValue = component.DetectionValueMax;
+    }
+
+    private void OnShutdown(EntityUid uid, LightDetectionDamageComponent component, ComponentShutdown args)
+    {
+        _alerts.ClearAlert(uid, component.AlertProto);
     }
 
     public void AddResistance(LightDetectionDamageComponent component, float amount)

@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
@@ -9,7 +8,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.Shadowling.Systems;
+namespace Content.Goobstation.Shared.Shadowling.Systems;
 
 /// <summary>
 /// This handles the Anti-Mind control item system
@@ -86,6 +85,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
     {
         if (args.Used == null
             || args.Cancelled
+            || args.Handled
             || args.Args.Target == null
             || !_charges.TryUseCharge(uid))
             return;
@@ -116,5 +116,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
             new SoundPathSpecifier("/Audio/Weapons/flash.ogg"),
             target,
             AudioParams.Default.WithVolume(-2f));
+
+        args.Handled = true;
     }
 }

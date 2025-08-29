@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
-using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.Roles;

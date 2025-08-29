@@ -5,11 +5,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.PhaseShift;
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.Actions;
+using Content.Shared.Actions;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles the Plane Shift ability.
@@ -17,7 +16,7 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 /// </summary>
 public sealed class ShadowlingPlaneShiftSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -37,6 +36,9 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
 
     private void OnPlaneShift(EntityUid uid, ShadowlingPlaneShiftComponent comp, TogglePlaneShiftEvent args)
     {
+        if (args.Handled)
+            return;
+
         comp.IsActive = !comp.IsActive;
         if (comp.IsActive)
         {
@@ -50,7 +52,7 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
             RemComp<PhaseShiftedComponent>(uid);
         }
 
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 
     private void TryDoShift(EntityUid uid)

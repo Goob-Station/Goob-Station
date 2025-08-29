@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Shared.Actions;
@@ -13,7 +12,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the logic of the Collective Mind ability.

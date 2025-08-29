@@ -4,15 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.Actions;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles Empowered Enthrall.
@@ -21,10 +18,10 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ShadowlingSystem _shadowling = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedShadowlingSystem _shadowling = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

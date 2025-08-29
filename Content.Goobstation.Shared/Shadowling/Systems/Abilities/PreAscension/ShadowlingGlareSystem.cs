@@ -4,17 +4,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Actions;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Server.GameObjects;
+using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles the Glare ability
@@ -22,12 +19,12 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 public sealed class ShadowlingGlareSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ShadowlingSystem _shadowling = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedShadowlingSystem _shadowling = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

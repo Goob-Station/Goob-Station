@@ -4,13 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.Actions;
+using Content.Shared.Actions;
 using Content.Shared.Humanoid;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles Hypnosis.
@@ -18,8 +17,8 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 /// </summary>
 public sealed class ShadowlingHypnosisSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -38,13 +37,15 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
     private void OnHypnosis(EntityUid uid, ShadowlingHypnosisComponent component, HypnosisEvent args)
     {
         var target = args.Target;
-        if (HasComp<ThrallComponent>(target) || HasComp<ShadowlingComponent>(target))
+        if (args.Handled
+            || HasComp<ThrallComponent>(target)
+            || HasComp<ShadowlingComponent>(target))
             return;
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
             return;
 
         EnsureComp<ThrallComponent>(target);
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 }

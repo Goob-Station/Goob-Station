@@ -3,6 +3,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
 
@@ -12,9 +13,9 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// </summary>
 public sealed class LightDetectionSystem : EntitySystem
 {
-    [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     protected override string SawmillName => "light_damage";

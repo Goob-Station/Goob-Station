@@ -6,9 +6,8 @@
 
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.Actions;
-using Content.Server.DoAfter;
 using Content.Server.Lightning;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
@@ -20,9 +19,9 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 public sealed class ShadowlingLightningStormSystem : EntitySystem
 {
     [Dependency] private readonly LightningSystem _lightningSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -53,6 +52,7 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
             CancelDuplicate = true,
         };
         _doAfterSystem.TryStartDoAfter(doAfter);
+        args.Handled = true;
     }
 
     private void OnLightningStormDoAfter(EntityUid uid, ShadowlingLightningStormComponent component, LightningStormEventDoAfterEvent args)
@@ -61,7 +61,7 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
             || args.Handled)
             return;
 
-        args.Handled = true;
         _lightningSystem.ShootRandomLightnings(uid, component.Range, component.BoltCount, component.LightningProto);
+        args.Handled = true;
     }
 }

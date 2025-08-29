@@ -4,22 +4,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.Actions;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Sonic Screech ability logic.
@@ -28,13 +25,13 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 public sealed class ShadowlingSonicScreechSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

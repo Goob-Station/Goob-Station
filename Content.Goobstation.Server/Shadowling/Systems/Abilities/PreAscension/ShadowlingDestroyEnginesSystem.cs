@@ -6,11 +6,11 @@
 
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Actions;
 using Content.Server.Chat.Systems;
-using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
@@ -23,8 +23,9 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
     [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();

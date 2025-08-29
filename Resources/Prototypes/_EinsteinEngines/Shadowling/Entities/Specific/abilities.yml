@@ -61,3 +61,14 @@
   - type: ShadowlingPlaneShift
   - type: Reflect
   - type: PressureImmunity
+
+- type: entity
+  id: LesserShadowlingAbilities
+  name: lesser shadowling abilities
+  description: Entitiy that contains all components for Lesser Shadowlings.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingShadowWalk
+  - type: LightDetectionComponent
+  - type: LightDetectionDamage
+    maxDetection: 10

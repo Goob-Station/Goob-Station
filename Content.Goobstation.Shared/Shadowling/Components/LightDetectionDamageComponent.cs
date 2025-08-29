@@ -16,7 +16,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     /// <summary>
     /// Max Detection Value
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("maxDetection"), AutoNetworkedField]
     public float DetectionValueMax = 5f;
 
     /// <summary>

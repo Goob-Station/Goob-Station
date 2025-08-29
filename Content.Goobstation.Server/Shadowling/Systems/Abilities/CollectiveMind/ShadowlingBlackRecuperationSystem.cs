@@ -8,20 +8,17 @@ using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Administration.Systems;
-using Content.Server.DoAfter;
 using Content.Server.EUI;
 using Content.Server.Ghost;
-using Content.Server.Humanoid;
-using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
@@ -34,14 +31,14 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly LightDetectionDamageSystem _light = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;

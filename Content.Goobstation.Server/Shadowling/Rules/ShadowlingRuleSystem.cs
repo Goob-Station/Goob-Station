@@ -94,8 +94,6 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
 
     public bool MakeShadowling(EntityUid target, ShadowlingRuleComponent rule)
     {
-        EnsureComp<ZombieImmuneComponent>(target);
-
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
@@ -108,6 +106,7 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
 
         _antag.SendBriefing(target, briefing, Color.MediumPurple, _briefingSound);
 
+        EnsureComp<ZombieImmuneComponent>(target);
         EnsureComp<ShadowlingComponent>(target);
 
         rule.ShadowlingMinds.Add(mindId);

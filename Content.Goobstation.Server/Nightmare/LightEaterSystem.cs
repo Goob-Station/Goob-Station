@@ -10,6 +10,7 @@ using Content.Goobstation.Shared.Nightmare.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Light.Components;
 using Content.Server.PowerCell;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
 using Content.Shared.Silicons.Borgs.Components;
@@ -24,7 +25,7 @@ namespace Content.Goobstation.Server.Nightmare;
 public sealed class LightEaterSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

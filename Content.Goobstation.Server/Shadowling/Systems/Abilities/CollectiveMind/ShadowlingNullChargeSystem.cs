@@ -6,13 +6,10 @@
 
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
@@ -22,10 +19,10 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingNullChargeSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()

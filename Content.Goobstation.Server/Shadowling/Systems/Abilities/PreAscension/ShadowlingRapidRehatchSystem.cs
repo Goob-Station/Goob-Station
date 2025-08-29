@@ -7,15 +7,12 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Administration.Systems;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
@@ -24,13 +21,14 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 /// </summary>
 public sealed class ShadowlingRapidRehatchSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
     public override void Initialize()
     {
         base.Initialize();

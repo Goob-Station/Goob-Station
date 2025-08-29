@@ -4,14 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.Actions;
 using Content.Shared.Gibbing.Events;
-using Content.Server.Body.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Body.Systems;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles the Annihilate abiltiy logic.
@@ -19,9 +18,9 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 /// </summary>
 public sealed class ShadowlingAnnihilateSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -39,6 +38,9 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
 
     private void OnAnnihilate(EntityUid uid, ShadowlingAnnihilateComponent component, AnnihilateEvent args)
     {
+        if (args.Handled)
+            return;
+
         // The gibbening
         var target = args.Target;
         if (HasComp<ShadowlingComponent>(target))

@@ -27,16 +27,13 @@ public sealed class LesserShadowlingSystem : EntitySystem
         if (!TryComp<ThrallComponent>(uid, out var thrall))
             return;
 
-        AddLesserActions(uid, component, thrall);
+        AddLesserActions(uid);
     }
 
-    private void AddLesserActions(EntityUid uid, LesserShadowlingComponent component, ThrallComponent thrall)
+    private void AddLesserActions(EntityUid uid)
     {
         RemComp<ThrallGuiseComponent>(uid);
-        EnsureComp<ShadowlingShadowWalkComponent>(uid);
-        EnsureComp<LightDetectionComponent>(uid);
-        var lightMod = EnsureComp<LightDetectionDamageComponent>(uid);
-        lightMod.DetectionValueMax = 10;
+
     }
 
     private void OnRemove(EntityUid uid, LesserShadowlingComponent component, ComponentRemove args)
@@ -44,7 +41,5 @@ public sealed class LesserShadowlingSystem : EntitySystem
         RemComp<ShadowlingShadowWalkComponent>(uid);
         RemComp<LightDetectionComponent>(uid);
         RemComp<LightDetectionDamageComponent>(uid);
-
-        _alerts.ClearAlert(uid, component.AlertProto);
     }
 }

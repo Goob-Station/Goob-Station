@@ -7,7 +7,6 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Administration;
-using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
@@ -21,10 +20,9 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
 {
     [Dependency] private readonly QuickDialogSystem _dialogSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
@@ -42,6 +40,9 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
 
     private void OnBroadcast(EntityUid uid, ShadowlingAscendantBroadcastComponent component, AscendantBroadcastEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TryComp<ActorComponent>(args.Performer, out var actor))
             return;
 
@@ -62,5 +63,7 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
             }
             _popupSystem.PopupEntity(Loc.GetString("shadowling-ascendant-broadcast-dialog"), uid, uid, PopupType.Medium);
         });
+
+        args.Handled = true;
     }
 }

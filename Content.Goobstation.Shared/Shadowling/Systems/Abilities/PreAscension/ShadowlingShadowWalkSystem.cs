@@ -1,15 +1,13 @@
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Stealth;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles Shadow Walk!
@@ -17,10 +15,10 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 public sealed class ShadowlingShadowWalkSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StealthSystem _stealth = default!;
+    [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private  readonly TransformSystem _transform = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private  readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
@@ -76,17 +74,16 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
     private void OnMove(EntityUid uid, ShadowlingShadowWalkComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         if (comp.IsActive)
-        {
             args.ModifySpeed(comp.WalkSpeedModifier, comp.RunSpeedModifier);
-        }
         else
-        {
             args.ModifySpeed(1f, 1f);
-        }
     }
 
     private void OnShadowWalk(EntityUid uid, ShadowlingShadowWalkComponent comp, ShadowWalkEvent args)
     {
+        if (args.Handled)
+            return;
+
         comp.IsActive = true;
         comp.NextUpdate = comp.TimeUntilDeactivation + _timing.CurTime;
 

@@ -4,20 +4,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
-using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Nox Imperii system.
@@ -25,11 +22,12 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -75,8 +73,6 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
         // Reduce heat damage from other sources
         sling.HeatDamage.DamageDict["Heat"] = 10;
         sling.HeatDamageProjectileModifier.DamageDict["Heat"] = 4;
-
-        _alerts.ClearAlert(uid, sling.AlertProto);
 
         // Indicates that the crew should start caring more since the Shadowling is close to ascension
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/ghost.ogg"), Filter.Broadcast(), false, AudioParams.Default.WithVolume(-2f));

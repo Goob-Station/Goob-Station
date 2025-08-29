@@ -7,16 +7,14 @@
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
-using Content.Server.Actions;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
+using Content.Shared.Actions;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
@@ -27,13 +25,13 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 /// </summary>
 public sealed class ShadowlingIcyVeinsSystem : EntitySystem
 {
-    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -94,14 +92,10 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
 
     private void TryIcyVeins(EntityUid target, ShadowlingIcyVeinsComponent component)
     {
-
-        if (!HasComp<MobStateComponent>(target))
-            return;
-
-        if (HasComp<ShadowlingComponent>(target) || HasComp<ThrallComponent>(target))
-            return;
-
-        if (!HasComp<TemperatureComponent>(target))
+        if (!HasComp<MobStateComponent>(target)
+            || !HasComp<TemperatureComponent>(target)
+            || HasComp<ShadowlingComponent>(target)
+            || HasComp<ThrallComponent>(target))
             return;
 
         EnsureComp<IcyVeinsTargetComponent>(target);

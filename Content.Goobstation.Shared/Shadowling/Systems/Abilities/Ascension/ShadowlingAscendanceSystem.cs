@@ -5,18 +5,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This is the ascendance ability.
@@ -25,13 +21,13 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 /// </summary>
 public sealed class ShadowlingAscendanceSystem : EntitySystem
 {
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -50,12 +46,14 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
 
     private void OnAscendance(EntityUid uid, ShadowlingAscendanceComponent component, AscendanceEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TileFree(uid))
         {
             _popup.PopupEntity(Loc.GetString("shadowling-ascendance-fail"), uid, uid, PopupType.MediumCaution);
             return;
         }
-
 
         var doAfter = new DoAfterArgs(
             EntityManager,
@@ -71,6 +69,7 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
         };
 
         _doAfterSystem.TryStartDoAfter(doAfter);
+        args.Handled = true;
     }
 
     private void OnAscendanceDoAfter(
@@ -79,7 +78,8 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
         AscendanceDoAfterEvent args
     )
     {
-        if (args.Cancelled)
+        if (args.Handled
+            || args.Cancelled)
             return;
 
         var cocoon = Spawn(component.EggProto, Transform(uid).Coordinates);

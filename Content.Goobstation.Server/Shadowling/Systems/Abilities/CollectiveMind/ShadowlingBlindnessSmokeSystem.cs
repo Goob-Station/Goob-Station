@@ -9,9 +9,8 @@ using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
@@ -22,10 +21,10 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
 {
     [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
     public override void Initialize()
     {
         base.Initialize();

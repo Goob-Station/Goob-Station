@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Shared.Actions;
@@ -12,14 +11,14 @@ using Content.Shared.DoAfter;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles the Enthrall Abilities
 /// </summary>
 public sealed class ShadowlingEnthrallSystem : EntitySystem
 {
-    [Dependency] private readonly ShadowlingSystem _shadowling = default!;
+    [Dependency] private readonly SharedShadowlingSystem _shadowling = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;

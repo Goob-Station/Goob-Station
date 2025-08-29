@@ -1,12 +1,11 @@
-using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
-using Content.Server.Actions;
-using Content.Server.Stealth;
+using Content.Shared.Actions;
+using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Thrall;
+namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Thrall;
 
 /// <summary>
 /// This handles the Guise ability logic.
@@ -16,9 +15,9 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Thrall;
 public sealed class ThrallGuiseSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StealthSystem _stealth = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();

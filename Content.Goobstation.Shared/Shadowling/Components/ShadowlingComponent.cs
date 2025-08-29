@@ -81,13 +81,6 @@ public sealed partial class ShadowlingComponent : Component
     public List<EntityUid> Thralls = new();
 
     /// <summary>
-    /// Prototype of the alert that shows when the shadowling hatches and starts taking damage from light.
-    /// Shows how much visible you are on light.
-    /// </summary>
-    [DataField]
-    public ProtoId<AlertPrototype> AlertProto = "ShadowlingLight";
-
-    /// <summary>
     /// This is used for the resistance that the Shadowling gets against damage from lights only.
     /// It is a core mechanic for balance.
     /// It can be decreased once you Thrall someone, or once you use Black Recuperation (the values are changed there, however).
