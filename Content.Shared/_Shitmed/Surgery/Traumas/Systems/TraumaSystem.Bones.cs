@@ -39,7 +39,6 @@ public partial class TraumaSystem
     private static readonly HashSet<string> _boneImmuneSpecies = new()
     {
         "SlimePerson",
-        "Plasmaman",
         "IPC",
     };
 
