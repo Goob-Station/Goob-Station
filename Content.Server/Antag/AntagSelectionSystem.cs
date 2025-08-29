@@ -176,6 +176,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
     private void OnTakeGhostRole(Entity<GhostRoleAntagSpawnerComponent> ent, ref TakeGhostRoleEvent args)
     {
+        if (args.TookRole)
+            return;
+
         if (ent.Comp.Rule is not { } rule || ent.Comp.Definition is not { } def)
             return;
 

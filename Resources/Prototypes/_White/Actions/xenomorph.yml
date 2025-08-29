@@ -89,7 +89,7 @@
 - type: entity
   id: ActionSpawnWallResin
   parent: BaseAction
-  name: Secrete resin (50)
+  name: Build a resin wall (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -109,7 +109,7 @@
 - type: entity
   id: ActionSpawnResinMembrane
   parent: BaseAction
-  name: Secrete resin (50)
+  name: Build a resin membrane (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -129,7 +129,7 @@
 - type: entity
   id: ActionSpawnResinNest
   parent: BaseAction
-  name: Secrete resin (50)
+  name: Build a resin nest (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -160,7 +160,7 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-    # Acid action
+# Acid action
 - type: entity
   id: ActionAcid
   parent: BaseAction
@@ -195,7 +195,7 @@
   - type: WorldTargetAction
     event: !type:JumpActionEvent
 
-    # Transfer plasma action
+# Transfer plasma action
 - type: entity
   id: ActionTransferPlasma
   parent: BaseAction

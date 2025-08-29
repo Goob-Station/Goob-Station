@@ -15,6 +15,3 @@
     rules: ghost-role-information-rules-default-team-antagonist
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-  - type: GhostRoleMobSpawner
-    prototype: MobXenomorphLarva
-  - type: GhostRoleAntagSpawner

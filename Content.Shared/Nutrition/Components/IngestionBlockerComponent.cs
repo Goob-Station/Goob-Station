@@ -13,6 +13,7 @@
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Nutrition.Components;
+// WD EDIT: Moved from Server to Shared
 
 /// <summary>
 ///     Component that denotes a piece of clothing that blocks the mouth or otherwise prevents eating & drinking.

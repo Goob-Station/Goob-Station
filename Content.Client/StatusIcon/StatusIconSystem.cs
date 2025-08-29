@@ -85,6 +85,7 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
     {
         var viewer = _playerManager.LocalSession?.AttachedEntity;
 
+
         if (data.VisibleToOwner && viewer == ent.Owner) // WD EDIT: not always show our icons to our entity
             return true;
 

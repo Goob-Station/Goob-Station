@@ -1,6 +1,8 @@
 - type: entity
   parent:
-  - BaseSimpleMob
+  - BaseMob
+  - MobDamageable
+  - MobPolymorphable
   - MobCombat
   - MobBloodstream
   - MobFlammable

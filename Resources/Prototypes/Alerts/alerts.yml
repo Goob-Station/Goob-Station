@@ -192,8 +192,8 @@
   id: LowNitrogen
   category: Breathing
   icons:
-  - sprite: /Textures/Interface/Alerts/breathing.rsi
-    state: not_enough_nitro
+    - sprite: /Textures/Interface/Alerts/breathing.rsi
+      state: not_enough_nitro
   name: alerts-low-nitrogen-name
   description: alerts-low-nitrogen-desc
 

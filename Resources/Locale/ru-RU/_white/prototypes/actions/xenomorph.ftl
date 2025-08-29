@@ -19,13 +19,13 @@ ent-ActionSpawnResinWeedNode = Посадить траву (50)
 ent-ActionSpawnXenomorphEgg = Отложить яйцо (75)
     .desc = Отложить яйцо, чтобы произвести на свет лицехватов, с помощью которых можно оплодотворить добычу.
 
-ent-ActionSpawnWallResin = Выделить смолу (50)
+ent-ActionSpawnWallResin = Построить смоляную стену (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
-ent-ActionSpawnResinMembrane = Выделить смолу (50)
+ent-ActionSpawnResinMembrane = Построить смоляную мембрану (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
-ent-ActionSpawnResinNest = Выделить смолу (50)
+ent-ActionSpawnResinNest = Построить смоляное гнездо (50)
     .desc = Выделяют вязкую, пластичную смолу.
 
 ent-ActionTailLash = Удар хвостом

@@ -48,7 +48,7 @@
   - type: Pullable
   - type: Tag
     tags:
-    - Structure
+      - Structure
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 25
     damagePenalty: 0.1
@@ -60,7 +60,7 @@
   parent: BaseStructure
   abstract: true
   components:
-  # These might/might not be a good idea
+# These might/might not be a good idea
   #  - type: MovedByPressure
   #  - type: DamageOnHighSpeedImpact
   #  - type: TileFrictionModifier
@@ -89,8 +89,8 @@
   id: StructureWheeled
   abstract: true
   components:
-  - type: TileFrictionModifier
-    modifier: 0.4
+    - type: TileFrictionModifier
+      modifier: 0.4
 
 - type: Tag
   id: Structure
