@@ -1,0 +1,4 @@
+- type: loadout
+  id: BlueshieldOfficerOuterKimonoBlueshield
+  equipment:
+    outerClothing: ClothingOuterBlueshieldArmourKimono

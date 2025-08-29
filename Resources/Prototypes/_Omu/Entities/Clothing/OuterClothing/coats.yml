@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCMOLabCoat
+  name: CMO's Splashproof Labcoat
+  description: A Heavy, splash resistant labcoat made out of a fabric inner layer and plastic outer layer. Practical and cozy!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/CMOlabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/CMOlabcoat.rsi
+  - type: ExplosionResistance
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.9
+        Caustic: 0.4
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCMOLabCoat]
+  id: ClothingOuterCMOLabCoatOpened
+  name: chief medical officer's lab coat
