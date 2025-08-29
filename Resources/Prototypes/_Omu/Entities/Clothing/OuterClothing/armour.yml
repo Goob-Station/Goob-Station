@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingOuterBlueshieldArmourKimono
+  name: blueshield's Armored Kimono
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
+  - type: Item
+    size: Normal

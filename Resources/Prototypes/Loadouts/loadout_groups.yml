@@ -1443,6 +1443,7 @@
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
   - ChemistUshanka # Goobstation
+  - CMOVetBeret #Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1461,6 +1462,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - CMOVetLabCoat #Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
