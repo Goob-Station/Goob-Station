@@ -62,7 +62,7 @@
         maxVol: 25
         reagents:
           - ReagentId: Nicotine
-            Quantity: 13
+            Quantity: 15
 
 - type: entity
   parent: BaseSmokable
