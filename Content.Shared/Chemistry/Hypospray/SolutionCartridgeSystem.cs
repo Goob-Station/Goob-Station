@@ -8,6 +8,9 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Containers;
 using Content.Shared.Chemistry.Hypospray;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using System.Linq;
 
 namespace Content.Shared.Chemistry.Hypospray;
 
@@ -15,6 +18,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -50,6 +54,15 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         if (!_container.TryGetContainer(ent, "item", out var container))
             return;
 
+        var cartridges = container.ContainedEntities.ToArray();
+
+        _audio.PlayPredicted(ent.Comp.DropSound, args.User, null, AudioParams.Default);
+
+        foreach (var cartridge in cartridges)
+        {
+            QueueDel(cartridge);
+        }
+        
         _container.CleanContainer(container);
     }
 }

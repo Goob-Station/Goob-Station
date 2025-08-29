@@ -8,6 +8,7 @@
 
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Hypospray;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Chemistry.Hypospray;
 

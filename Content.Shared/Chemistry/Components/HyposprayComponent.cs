@@ -40,6 +40,12 @@ public sealed partial class HyposprayComponent : Component
     public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
 
     /// <summary>
+    /// Goidacoded method to try clean up ClientDirtySystem warning
+    /// </summary>
+    [DataField]
+    public SoundSpecifier DropSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/handling/generic_drop4.ogg");
+
+    /// <summary>
     /// Decides whether you can inject everything or just mobs.
     /// </summary>
     [AutoNetworkedField]
