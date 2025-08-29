@@ -29,6 +29,7 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Face, // Plasmeme Port
         Snout,
+        SnoutCover,
         Chest,
         RightArm,
         RightHand,
