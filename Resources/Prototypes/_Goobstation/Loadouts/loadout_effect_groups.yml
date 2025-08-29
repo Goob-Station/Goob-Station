@@ -1,0 +1,6 @@
+- type: loadoutEffectGroup
+  id: PlasmaBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

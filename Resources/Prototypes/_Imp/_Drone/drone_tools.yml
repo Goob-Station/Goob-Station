@@ -67,26 +67,30 @@
 # PAI actions
 
 - type: entity
+  parent: BaseAction
   id: ActionDroneOpenMap
   name: Open Map
   description: Look upon yourself.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+  - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.StationMapUiKey.Key
 
 - type: entity
+  parent: BaseAction
   id: ActionDronePlayMidi
   name: Play MIDI
   description: Contribute to the ambiance.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     icon: Interface/Actions/pai-midi.png
+  - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
 
