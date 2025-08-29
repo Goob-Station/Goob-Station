@@ -56,6 +56,8 @@
     - type: Sprite
       sprite: Mobs/Species/Slime/parts.rsi
       state: "chest_m"
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: GroinSlime
@@ -65,48 +67,90 @@
     - type: Sprite
       sprite: Mobs/Species/Slime/parts.rsi
       state: "groin_m"
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: HeadSlime
   name: "slime head"
   parent: [PartSlime, BaseHead]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: LeftArmSlime
   name: "left slime arm"
   parent: [PartSlime, BaseLeftArm]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: RightArmSlime
   name: "right slime arm"
   parent: [PartSlime, BaseRightArm]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: LeftHandSlime
   name: "left slime hand"
   parent: [PartSlime, BaseLeftHand]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: RightHandSlime
   name: "right slime hand"
   parent: [PartSlime, BaseRightHand]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: LeftLegSlime
   name: "left slime leg"
   parent: [PartSlime, BaseLeftLeg]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: RightLegSlime
   name: "right slime leg"
   parent: [PartSlime, BaseRightLeg]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: LeftFootSlime
   name: "left slime foot"
   parent: [PartSlime, BaseLeftFoot]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
 
 - type: entity
   id: RightFootSlime
   name: "right slime foot"
   parent: [PartSlime, BaseRightFoot]
+  components:
+    - type: Woundable
+      boneEntity: SlimeBone
+
+# A minimal pseudo-bone entity for SlimePerson parts that does not carry BoneComponent,
+# preventing BoneDamage traumas from being applied.
+- type: entity
+  id: SlimeBone
+  parent: BaseItem
+  name: slime pseudo-bone
+  description: A gel-like structural node used by slimepeople. Contains no rigid bone.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Damageable
+    damageContainer: Inorganic
