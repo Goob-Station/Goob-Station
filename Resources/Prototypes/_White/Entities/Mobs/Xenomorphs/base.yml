@@ -17,7 +17,9 @@
         Airloss: -10
         Brute: -5
   - type: Pinpointer
-    component: XenomorphQueen
+    whitelist:
+      components:
+      - XenomorphQueen
     alert: QueenFinder
     isActive: true
     canToggle: false

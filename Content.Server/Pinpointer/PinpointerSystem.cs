@@ -264,6 +264,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         if (target == null || !EntityManager.EntityExists(target.Value))
         {
             SetDistance(uid, Distance.Unknown, pinpointer);
+            LocateTarget(uid, pinpointer); // WD EDIT
             return;
         }
 

@@ -12,7 +12,6 @@
     size: Ginormous
   - type: Unremoveable
     deleteOnDrop: true
-  - type: DeleteOnDrop
   - type: XenomorphPromotion
   - type: Tag
     tags:

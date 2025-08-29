@@ -44,12 +44,12 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
             case Distance.Close:
             case Distance.Medium:
             case Distance.Far:
-                _sprite.LayerSetRotation((uid, sprite), PinpointerLayers.Screen, angle);
+                _sprite.LayerSetRotation((args.SpriteViewEnt, sprite), PinpointerLayers.Screen, angle);
                 break;
             case Distance.Unknown:
             case Distance.Reached:
             default:
-                _sprite.LayerSetRotation((uid, sprite), PinpointerLayers.Screen, Angle.Zero);
+                _sprite.LayerSetRotation((args.SpriteViewEnt, sprite), PinpointerLayers.Screen, Angle.Zero);
                 break;
         }
 
@@ -69,7 +69,12 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         var query = EntityQueryEnumerator<PinpointerComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var pinpointer, out var sprite))
         {
-            if (!pinpointer.HasTarget || !sprite.LayerExists(PinpointerLayers.Screen)) // WD EDIT
+            // WD EDIT START
+            if (!sprite.LayerExists(PinpointerLayers.Screen))
+                continue;
+            // WD EDIT END
+
+            if (!pinpointer.HasTarget)
             {
                 sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero); // Goob edit
                 continue;
