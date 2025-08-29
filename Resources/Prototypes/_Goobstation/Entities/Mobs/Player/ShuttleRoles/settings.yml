@@ -29,13 +29,27 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
-    - type: NukeOperative
     - type: GhostRole
-      name: ghost-role-information-syndicate-sales-operator-name
-      description: ghost-role-information-syndicate-sales-operator-description
-      rules: ghost-role-information-syndicate-sales-operator-rules
+      name: ghost-role-information-trader-name
+      description: ghost-role-information-trader-description
+      rules: ghost-role-information-trader-rules
       raffle:
         settings: default
     - type: Loadout
       prototypes: [ SyndicateSalesOperator ]
       roleLoadout: [ RoleSurvivalSyndicate ]
+
+- type: randomHumanoidSettings
+  id: DwarvenTrader
+  parent: EventHumanoid
+  speciesWhitelist: Dwarf
+  components:
+    - type: GhostRole
+      name: ghost-role-information-trader-name
+      description: ghost-role-information-trader-description
+      rules: ghost-role-information-trader-rules
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ DwarvenTrader ]
+      roleLoadout: [ RoleSurvivalStandard ]

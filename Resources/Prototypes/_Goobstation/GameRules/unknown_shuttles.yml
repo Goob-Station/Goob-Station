@@ -62,3 +62,18 @@
     chaosScore: 50
   - type: LoadMapRule
     preloadedGrid: SyndicateSalesLowValue
+
+- type: entity
+  id: UnknownShuttleDwarvenTrader
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Friendly: -20
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -50
+  - type: LoadMapRule
+    preloadedGrid: DwarvenTrader

@@ -28,3 +28,15 @@
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsSyndieFilled
     id: SyndiPDA
+
+- type: startingGear
+  id: DwarvenTrader
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+    back: ClothingBackpackDuffelSalvage
+    head: ClothingHeadHelmetPodWars
+    outer: ClothingOuterArmorPodWars
+    ears: ClothingHeadsetAltFreelancer
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsSalvage
+    id: ServiceWorkerPDA

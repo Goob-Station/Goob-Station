@@ -24,3 +24,8 @@
   id: SyndicateStoreLowValue
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/syndicate_store_lowvalue.yml
   copies: 1
+
+- type: preloadedGrid
+  id: DwarvenTrader
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/dwarven_trader.yml
+  copies: 1

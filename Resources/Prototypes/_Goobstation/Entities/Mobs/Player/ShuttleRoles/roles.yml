@@ -22,3 +22,13 @@
       state: banner_syndicate
     - type: RandomHumanoidSpawner
       settings: SyndicateSalesOperator
+
+- type: entity
+  id: RandomHumanoidDwarvenTrader
+  name: dwarven trader ghost role
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: DwarvenTrader

@@ -30,3 +30,17 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidSyndicateSalesOperator
+
+- type: entity
+  name: dwarven trader spawner
+  id: DwarvenTraderSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidDwarvenTrader

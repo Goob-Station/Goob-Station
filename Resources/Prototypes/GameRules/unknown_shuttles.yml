@@ -47,6 +47,7 @@
     children:
     - id: UnknownShuttleSyndieEvacPod
     - id: UnknownShuttleSyndicateStoreLowValue # Goobstation
+    - id: UnknownShuttleDwarvenTrader # Goobstation
 
 - type: entityTable
   id: UnknownShuttlesHostileTable
