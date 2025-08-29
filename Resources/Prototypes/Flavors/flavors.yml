@@ -275,6 +275,11 @@
   description: flavor-base-chewy
 
 - type: flavor
+  id: chuddy
+  flavorType: Base
+  description: flavor-base-chuddy
+
+- type: flavor
   id: mustard
   flavorType: Complex
   description: flavor-complex-mustard
@@ -1563,4 +1568,3 @@
   id: trashy
   flavorType: Base
   description: flavor-base-trashy
-
