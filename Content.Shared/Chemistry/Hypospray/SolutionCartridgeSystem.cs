@@ -11,6 +11,7 @@ using Content.Shared.Chemistry.Hypospray;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using System.Linq;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Chemistry.Hypospray;
 
@@ -18,7 +19,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -36,6 +37,9 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
             return;
 
+        if (_timing.ApplyingState)
+            return;
+
         _solution.TryAddSolution(solutionEntity.Value, cartridge.Solution);
     }
 
@@ -45,6 +49,9 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         || !TryComp(ent, out SolutionContainerManagerComponent? manager)
         || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
             return;
+        
+        if (_timing.ApplyingState)
+            return;
 
         _solution.RemoveAllSolution(solutionEntity.Value);
     }
@@ -53,15 +60,6 @@ public sealed class SolutionCartridgeSystem : EntitySystem
     {
         if (!_container.TryGetContainer(ent, "item", out var container))
             return;
-
-        var cartridges = container.ContainedEntities.ToArray();
-
-        _audio.PlayPredicted(ent.Comp.DropSound, args.User, null, AudioParams.Default);
-
-        foreach (var cartridge in cartridges)
-        {
-            QueueDel(cartridge);
-        }
         
         _container.CleanContainer(container);
     }
