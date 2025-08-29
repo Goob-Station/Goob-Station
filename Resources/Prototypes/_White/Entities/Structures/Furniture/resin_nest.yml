@@ -63,6 +63,7 @@
   - type: Strap
     position: Down
     rotation: -90
+    selfUnBuckleDelay: 100
   - type: Transform
     anchored: true
     noRot: true
