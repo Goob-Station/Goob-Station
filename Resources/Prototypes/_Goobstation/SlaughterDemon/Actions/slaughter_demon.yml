@@ -9,12 +9,13 @@
   description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: crawl
+    useDelay: 3
+  - type: InstantAction
     event: !type:BloodCrawlEvent
-    useDelay: 3 # honestly good for ss14
 
 - type: entity
   id: DemonicWhisperAction
@@ -22,11 +23,14 @@
   description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: whisper
-    event: !type:DemonicWhisperEvent
     itemIconStyle: NoItem
+  - type: TargetAction
     interactOnMiss: false
+  - type: EntityTargetAction
     canTargetSelf: false
+    event: !type:DemonicWhisperEvent
+

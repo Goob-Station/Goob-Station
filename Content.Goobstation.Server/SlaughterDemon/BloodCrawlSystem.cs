@@ -7,7 +7,7 @@ using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Server.Actions;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;
 using Robust.Server.Audio;
@@ -50,14 +50,14 @@ public sealed class BloodCrawlSystem : EntitySystem
         if (!_actionQuery.TryGetComponent(uid, out var actions))
             return;
 
-        _actions.AddAction(uid, ref component.ActionEntity, component.ActionId, component: actions);
+        _actions.AddAction(uid, component.ActionId, component: actions);
     }
 
     private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
     {
         if (!IsStandingOnBlood(uid))
         {
-            _actions.SetCooldown(component.ActionEntity, component.ActionCooldown);
+            _actions.SetCooldown(args.Action.Owner, component.ActionCooldown);
             return;
         }
 
@@ -82,7 +82,8 @@ public sealed class BloodCrawlSystem : EntitySystem
         _audio.PlayPvs(component.EnterJauntSound, Transform(uid).Coordinates);
 
         _polymorph.PolymorphEntity(uid, component.Jaunt);
-        _actions.StartUseDelay(component.ActionEntity);
+
+        args.Handled = true;
     }
 
     #region Helper Functions

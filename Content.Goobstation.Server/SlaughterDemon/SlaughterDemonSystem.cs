@@ -87,7 +87,7 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
         // Cooldown
         foreach (var action in _actions.GetActions(args.NewEntity))
-            _actions.StartUseDelay(action.Id);
+            _actions.StartUseDelay(action.Owner);
     }
 
     private void OnBloodCrawlExit(Entity<SlaughterDemonComponent> ent, ref BloodCrawlExitEvent args)

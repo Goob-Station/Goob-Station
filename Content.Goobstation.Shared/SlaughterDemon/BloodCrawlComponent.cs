@@ -21,12 +21,6 @@ public sealed partial class BloodCrawlComponent : Component
     public float SearchRange = 0.1f;
 
     /// <summary>
-    /// This is the entity storing the action of this ability
-    /// </summary>
-    [ViewVariables]
-    public EntityUid? ActionEntity;
-
-    /// <summary>
     /// This is the entity action cooldown of this ability. Prevents spamming it.
     /// </summary>
     [DataField]
