@@ -1064,7 +1064,7 @@
   - type: Projectile
     damage:
       types:
-        Caustic: 15 # WD EDIT: 5 -> 15
+        Caustic: 5
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
     layers:

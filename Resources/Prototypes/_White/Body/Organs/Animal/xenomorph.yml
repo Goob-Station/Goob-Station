@@ -107,7 +107,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
     - type: BasicEntityAmmoProvider
-      proto: BulletAcidLarge
+      proto: BulletNeurotoxin
       capacity: 1
       count: 1
     - type: Gun
