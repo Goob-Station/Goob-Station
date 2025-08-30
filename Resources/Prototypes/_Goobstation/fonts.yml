@@ -8,6 +8,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Sol Common (Humans/Dwarves/Yowie)
 - type: font
   id: NotoSansSC
   path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
@@ -24,15 +25,27 @@
   id: NotoSansSCBold
   path: /Fonts/NotoSans/NotoSansSC-Bold.ttf
 
+# Bingles
 - type: font
-  id: Eatday # Bingles
-  path: /Fonts/Eatday/Eatday.ttf
+  id: Eatday
+  path: /Fonts/_Goobstation/Eatday/Eatday.ttf
 
-- type: font # Bubblish (Slimes)
+# Bubblish (Slimes)
+- type: font
   id: SourGummy
   path: /Fonts/_Goobstation/Sour_Gummy/SourGummy-Regular.ttf
 
-- type: font # Valyrian Standard (Harpies/Squackroaches)
+- type: font
+  id: SourGummyBold
+  path: /Fonts/_Goobstation/Sour_Gummy/SourGummy-Bold.ttf
+
+# Monospace (Silicon)
+- type: font
+  id: MonospaceBold
+  path: /Fonts/_Goobstation/NotoSansMono/NotoSansMono-Bold.ttf
+
+# Valyrian Standard (Harpies/Squackroaches)
+- type: font
   id: Delius
   path: /Fonts/_Goobstation/Delius/Delius-Regular.ttf
 
