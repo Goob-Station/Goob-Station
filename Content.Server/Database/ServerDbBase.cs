@@ -875,7 +875,7 @@ namespace Content.Server.Database
             var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
 
             // Check if we didn't get user from DB
-            if (dbPlayer == default(Player))
+            if (dbPlayer == null || dbPlayer.UserId != userId)
                 return false;
 
             dbPlayer.LastRolledAntag = to;
