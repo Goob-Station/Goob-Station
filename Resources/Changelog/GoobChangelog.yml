@@ -14058,3 +14058,9 @@ Entries:
       message: Holy water deals less damage (2 -> 0.7)
   id: 1563
   time: '2025-08-30T23:12:11.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed bold font missing on non-Sol Common languages.
+  id: 1564
+  time: '2025-08-30T23:22:55.0000000+00:00'
