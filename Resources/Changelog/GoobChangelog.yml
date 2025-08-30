@@ -13801,3 +13801,11 @@ Entries:
         reaction
   id: 1535
   time: '2025-08-30T03:24:23.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the moth antennae marking limit (head, top) from two (2) to
+        six (6)!
+  id: 1536
+  time: '2025-08-30T03:25:46.0000000+00:00'
