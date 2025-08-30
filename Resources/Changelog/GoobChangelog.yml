@@ -13815,3 +13815,9 @@ Entries:
       message: Rodentia now get thirsty.
   id: 1537
   time: '2025-08-30T03:26:15.0000000+00:00'
+- author: KMano10000
+  changes:
+    - type: Fix
+      message: Some glowing eyes not really glowing
+  id: 1538
+  time: '2025-08-30T03:26:51.0000000+00:00'
