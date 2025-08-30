@@ -50,7 +50,7 @@ public partial class DelayedDeathSystem : EntitySystem
                 _mobState.ChangeMobState(ent, MobState.Dead, mob);
 
                 // goob code
-                var ev = new DelayedDeathEvent(ent, comp.PreventAllRevives);
+                var ev = new DelayedDeathEvent(ent, PreventRevive: comp.PreventAllRevives);
                 RaiseLocalEvent(ent, ref ev);
 
                 if (ev.Cancelled)
