@@ -13859,3 +13859,11 @@ Entries:
       message: Heretics may now always sacrifice other heretics for 3 knowledge points.
   id: 1543
   time: '2025-08-30T03:49:19.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: All species' minimum size has been raised.
+    - type: Tweak
+      message: Species like dwarfs and humans can now be wider, rejoice
+  id: 1544
+  time: '2025-08-30T03:50:19.0000000+00:00'
