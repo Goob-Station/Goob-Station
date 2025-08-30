@@ -1,0 +1,121 @@
+---
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Shoes
+- type: loadout
+  id: LoadoutWorkBoots
+  equipment:
+    shoes: ClothingShoesBootsWork
+- type: loadout
+  id: LoadoutSalvageBoots
+  equipment:
+    shoes: ClothingShoesBootsSalvage
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+- type: loadout
+  id: PerformerBoots
+  equipment:
+    shoes: ClothingShoesBootsPerformer
+- type: loadout
+  id: JackBootsFake #The fake military boots are a different prototype without the slowdown modifier or internal storage, but the same texture.
+  equipment:
+    shoes: ClothingShoesBootsJackFake
+- type: loadout
+  id: CombatBootsFake
+  equipment:
+    shoes: ClothingShoesBootsCombatFake
+- type: loadout
+  id: MercBootsFake
+  equipment:
+    shoes: ClothingShoesBootsMercFake
+- type: loadout
+  id: CowboyBootsBrown
+  equipment:
+    shoes: ClothingShoesBootsCowboyBrown
+- type: loadout
+  id: CowboyBootsBlack
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlack
+- type: loadout
+  id: CowboyBootsWhite
+  equipment:
+    shoes: ClothingShoesBootsCowboyWhite
+- type: loadout
+  id: CowboyBootsFancy
+  equipment:
+    shoes: ClothingShoesBootsCowboyFancy
+
+# Neck
+- type: loadout
+  id: NeckScarfRed
+  equipment:
+    neck: ClothingNeckScarfStripedRed
+- type: loadout
+  id: NeckScarfBlue
+  equipment:
+    neck: ClothingNeckScarfStripedBlue
+- type: loadout
+  id: NeckScarfGreen
+  equipment:
+    neck: ClothingNeckScarfStripedGreen
+- type: loadout
+  id: NeckScarfBlack
+  equipment:
+    neck: ClothingNeckScarfStripedBlack
+- type: loadout
+  id: NeckScarfOrange
+  equipment:
+    neck: ClothingNeckScarfStripedOrange
+- type: loadout
+  id: NeckScarfPurple
+  equipment:
+    neck: ClothingNeckScarfStripedPurple
+- type: loadout
+  id: NeckTieRed
+  equipment:
+    neck: ClothingNeckTieRed
+
+# Gloves
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+- type: loadout
+  id: RedGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorRed
+- type: loadout
+  id: BlueGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorBlue
+- type: loadout
+  id: TealGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorTeal
+- type: loadout
+  id: BrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+- type: loadout
+  id: GrayGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorGray
+- type: loadout
+  id: GreenGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+- type: loadout
+  id: LightBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorLightBrown
+
+# Masks
+- type: loadout
+  id: ClothingMaskSterile
+  equipment:
+    mask: ClothingMaskSterile

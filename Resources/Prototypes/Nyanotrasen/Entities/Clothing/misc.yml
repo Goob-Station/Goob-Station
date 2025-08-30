@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMNKWhiteHoodie
+  name: MNK white hoodie
+  description: A classic MNK produced white hoodie.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/hoodie_white.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/hoodie_white.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMNKBlackTopCoat
+  name: MNK black top coat
+  description: A sturdy MNK black top coat.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/black_top_coat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/black_top_coat.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMNKBlackJacket
+  name: MNK black jacket
+  description: A light MNK black jacket.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/black_jacket.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/black_jacket.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1

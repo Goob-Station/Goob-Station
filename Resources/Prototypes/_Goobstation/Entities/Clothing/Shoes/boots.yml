@@ -284,3 +284,39 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsCombatFake
+  suffix: fake
+  name: combat boots
+  description: Robust combat boots for the civilian market. These aren't the real deal, but they look the part.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/combatboots.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/combatboots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsJackFake
+  name: jackboots
+  suffix: fake
+  description: Nanotrasen-issue Security combat boots for the civilian market. These aren't the real deal, but they look the part.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jackboots.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jackboots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsMercFake
+  suffix: fake
+  name: mercenary boots
+  description: Mercenary combat boots for the civilian market. These aren't the real deal, but they look the part.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/mercboots.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/mercboots.rsi

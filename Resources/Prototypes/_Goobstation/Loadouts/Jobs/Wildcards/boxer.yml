@@ -1,0 +1,7 @@
+
+# Jumpsuit
+- type: loadout
+  id: ClothingUniformMartialGiOutfit
+  equipment:
+    jumpsuit: ClothingUniformMartialGi
+

@@ -54,12 +54,14 @@ loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
 
 # Civilian
-loadout-group-passenger-jumpsuit = Passenger jumpsuit
-loadout-group-passenger-mask = Passenger mask
-loadout-group-passenger-gloves = Passenger gloves
-loadout-group-passenger-outerclothing = Passenger outer clothing
-loadout-group-passenger-shoes = Passenger shoes
-loadout-group-passenger-neck = Passenger neck
+loadout-group-civilian-jumpsuit = Civilian Jumpsuits
+loadout-group-civilian-mask = Civilian Facewear
+loadout-group-civilian-hat = Civilian Headwear
+loadout-group-civilian-gloves = Civilian Gloves
+loadout-group-civilian-outerclothing = Civilian Outerwear
+loadout-group-civilian-shoes = Civilian Footwear
+loadout-group-civilian-neck = Civilian Neckwear
+loadout-group-civilian-belt = Civilian Beltwear
 
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit

@@ -1,0 +1,45 @@
+---
+- type: loadout
+  id: AcidRaincoat
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoat
+- type: loadout
+  id: AcidRaincoatBlue
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatBlue
+- type: loadout
+  id: AcidRaincoatGreen
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatGreen
+- type: loadout
+  id: AcidRaincoatMagenta
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatMagenta
+- type: loadout
+  id: AcidRaincoatYellow
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatYellow
+- type: loadout
+  id: JacketLeather
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLeather
+- type: loadout
+  id: JacketBiker
+  equipment:
+    outerClothing: ClothingOuterCoatJacketBiker
+- type: loadout
+  id: JacketJamrock
+  equipment:
+    outerClothing: ClothingOuterCoatJacketJamrock
+- type: loadout
+  id: BomberAerostatic
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAerostatic
+- type: loadout
+  id: BomberPunkRed
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPunkRed
+- type: loadout
+  id: BomberPinkSleeves
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPinkSleeves
