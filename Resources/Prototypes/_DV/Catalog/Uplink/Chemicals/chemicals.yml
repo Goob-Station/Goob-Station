@@ -3,9 +3,6 @@
   name: uplink-beast-gourd-name
   description: uplink-beast-gourd-desc
   productEntity: BeastBloodGourd
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 8
   cost:
    Telecrystal: 15
   categories:
