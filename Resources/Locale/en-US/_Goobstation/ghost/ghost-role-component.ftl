@@ -120,3 +120,8 @@ ghost-role-information-trader-name = Trader
 ghost-role-information-trader-description = Your duty is straightforward but important: run the shop as a shop, sell what is to be sold, guard what must remain guarded, and above all, never break the trust we have placed in you by treating the stock as your own.
 ghost-role-information-trader-rules = You are [color=red][bold]NOT[/bold][/color] an antagonist. Your role is to operate the shop shuttle as a merchant. Do not use, steal, or deploy the merchandise — it is shop inventory, meant only for trade. Conduct business by selling or bartering items for credits or valuable station assets. Treat the role seriously, maintain order in your shop, and avoid disrupting the wider station outside the scope of trade.
 
+ghost-role-information-pirate-name = Space Pirate
+ghost-role-information-pirate-description = Plunder the station's assets, through any means necessary.
+
+ghost-role-information-pirate-captain-name = Space Pirate Captain
+ghost-role-information-pirate-captain-description = Direct the plundering process. 

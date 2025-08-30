@@ -56,12 +56,12 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 1
     chaos:
-      Friendly: -20
+      Combat: 40
     eventType: Neutral
   - type: GameRule
     chaosScore: 50
   - type: LoadMapRule
-    preloadedGrid: SyndicateSalesLowValue
+    preloadedGrid: SyndicateStoreLowValue
 
 - type: entity
   id: UnknownShuttleDwarvenTrader
@@ -71,9 +71,24 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 4
     chaos:
-      Friendly: -20
+      Combat: 40
     eventType: Neutral
   - type: GameRule
     chaosScore: -50
   - type: LoadMapRule
     preloadedGrid: DwarvenTrader
+
+- type: entity
+  id: UnknownShuttlePirateFreighter
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 150
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 150
+  - type: LoadMapRule
+    preloadedGrid: PirateFreighter

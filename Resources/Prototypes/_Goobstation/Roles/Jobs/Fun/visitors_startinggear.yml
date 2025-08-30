@@ -35,7 +35,7 @@
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     back: ClothingBackpackDuffelSalvage
     head: ClothingHeadHelmetPodWars
-    outer: ClothingOuterArmorPodWars
+    outerClothing: ClothingOuterArmorPodWars
     ears: ClothingHeadsetAltFreelancer
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsSalvage
