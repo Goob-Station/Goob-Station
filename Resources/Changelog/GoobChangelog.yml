@@ -13779,3 +13779,9 @@ Entries:
       message: Removed felinids from command.
   id: 1532
   time: '2025-08-19T16:36:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Lootbugs now sell for 500.
+  id: 1533
+  time: '2025-08-30T03:22:41.0000000+00:00'
