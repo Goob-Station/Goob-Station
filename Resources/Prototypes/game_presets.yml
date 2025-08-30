@@ -69,7 +69,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    # - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -86,7 +86,7 @@
   showInVote: false # secret
   description: kessler-syndrome-description
   rules:
-#    - KesslerSyndromeScheduler
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -108,7 +108,7 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
-    # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - KesslerSyndromeScheduler
     - Wizard
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
@@ -137,9 +137,9 @@
     - LoneAbductorSpawn
     - Wizard
     - BasicStationEventScheduler
-#    - KesslerSyndromeScheduler
-#    - MeteorSwarmMildScheduler # Goob Edit
-#    - MeteorSwarmScheduler # Goob edit
+    - KesslerSyndromeScheduler
+    - MeteorSwarmMildScheduler # Goob Edit
+    - MeteorSwarmScheduler # Goob edit
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -157,7 +157,7 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -197,7 +197,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
@@ -238,7 +238,7 @@
   - Traitor
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #- MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -268,7 +268,7 @@
   - DummyNonAntagChance
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -287,7 +287,7 @@
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -306,7 +306,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-#  - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -323,7 +323,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
- # - KesslerSyndromeScheduler
+  - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change

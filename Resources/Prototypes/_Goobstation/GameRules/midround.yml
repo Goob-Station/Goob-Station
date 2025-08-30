@@ -4,9 +4,12 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -40,6 +43,7 @@
       blacklist:
         components:
         - AntagImmune
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -78,6 +82,7 @@
       playerRatio: 10
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - BibleUser
       lateJoinAdditional: true
@@ -118,6 +123,7 @@
       playerRatio: 15
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - BibleUser
       lateJoinAdditional: true
@@ -199,8 +205,8 @@
   id: BlobMidround
   components:
   - type: StationEvent
-    weight: 2
-    earliestStart: 75
+    weight: 1.5
+    earliestStart: 80
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
@@ -210,7 +216,7 @@
       Death: 300
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

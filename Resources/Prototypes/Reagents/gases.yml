@@ -68,6 +68,9 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType # EE Plasmeme
+          type: Plasmaman
+          shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
@@ -145,7 +148,7 @@
             Poison:
               7
       - !type:AdjustAlert
-        alertType: Toxins
+        alertType: HighOxygen
         conditions:
           - !type:ReagentThreshold
             min: 0.5
@@ -168,6 +171,25 @@
         ratios:
           CarbonDioxide: 0.5
           Oxygen: -0.5
+      - !type:HealthChange # EE Plasmeme
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              7
+      - !type:AdjustAlert
+        alertType: HighOxygen
+        conditions:
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Plasmaman
+        clear: true
+        time: 5
 
 - type: reagent
   id: Plasma
@@ -190,6 +212,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # EE - Plasmeme
+          type: Plasmaman
+          shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
@@ -197,6 +222,10 @@
           types:
             Poison: 3
       - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+          shouldHave: false
         reagent: Inaprovaline
         amount: -2.0
       - !type:HealthChange # Shitmed - Cybernetic Organs
@@ -213,6 +242,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # EE - Plasmeme
+          type: Plasmaman
+          shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
@@ -226,10 +258,25 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          - !type:OrganType
+            type: Plasmaman
+            shouldHave: false
           - !type:ReagentThreshold
             min: 1.5
         clear: True
         time: 5
+      - !type:Oxygenate
+        factor: 4
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        ratios:
+          Nitrogen: 1.0 # Interesting exhale for plasmamen
+          Plasma: -1.0
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
         - !type:OrganType
@@ -240,7 +287,21 @@
           types:
             Poison:
               0.5
-
+    Medicine: # EE Plasmeme
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        damage:
+          groups:
+            Brute: -2
+          types:
+            Heat: -0.66
+            Shock: -0.66
+            Caustic: -0.66
+            Asphyxiation: -0.66
+            Poison: -0.66
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -581,10 +642,10 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 100
+        time: 15
         refresh: false
       - !type:Drunk
-        boozePower: 100
+        boozePower: 15
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
