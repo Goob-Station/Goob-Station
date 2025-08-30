@@ -30,7 +30,6 @@
   name: fried chicken recipe
   result: FoodMeatVoxFried
   time: 10
-  flavor: chuddy
   solids:
     LeftLegVox: 1
 
@@ -39,6 +38,5 @@
   name: fried chicken recipe
   result: FoodMeatVoxFried
   time: 10
-  flavor: chuddy
   solids:
     RightLegVox: 1
