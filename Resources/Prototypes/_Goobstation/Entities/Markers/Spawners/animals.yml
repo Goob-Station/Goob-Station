@@ -42,15 +42,3 @@
   - type: ConditionalSpawner
     prototypes:
     - MobGragg
-
-- type: entity
-  parent: MarkerBase
-  id: SpawnCarpTrader
-  name: carp trader Spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-  - type: ConditionalSpawner
-    prototypes:
-    - MobCarpTrader
