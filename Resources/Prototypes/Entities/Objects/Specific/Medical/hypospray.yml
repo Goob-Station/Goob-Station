@@ -307,7 +307,7 @@
       pen:
         maxVol: 20 # goobstation
         reagents:
-        - ReagentId: Tirimol # Goobstation
+        - ReagentId: Dexalin # Goobstation
           Quantity: 10
         - ReagentId: Ibuprofen # Goobstation
           Quantity: 5
