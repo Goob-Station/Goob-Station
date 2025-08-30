@@ -89,6 +89,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     [Dependency] private readonly SurveillanceCameraSystem _surveillanceCameras = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -116,11 +117,6 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
         while (query.MoveNext(out var uid, out _, out var monitor))
         {
-            if (Paused(uid))
-            {
-                continue;
-            }
-
             monitor.LastHeartbeatSent += frameTime;
             SendHeartbeat(uid, monitor);
             monitor.LastHeartbeat += frameTime;
@@ -131,6 +127,17 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                 EntityManager.RemoveComponent<ActiveSurveillanceCameraMonitorComponent>(uid);
             }
         }
+        // Goobstation start
+        var queryTwo = EntityQueryEnumerator<ReconnectingSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
+        while (queryTwo.MoveNext(out var uid, out var reconnectingComponent, out var monitor))
+        {
+            if (_timing.CurTick == reconnectingComponent.ReconnectToSubnetsDelay)
+            {
+                ReconnectToSubnets(uid, monitor);
+                EntityManager.RemoveComponent<ReconnectingSurveillanceCameraMonitorComponent>(uid);
+            }
+        }
+        // Goobstation end
     }
 
     /// ROUTING:
@@ -343,7 +350,9 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
         monitor.KnownSubnets.Clear();
         PingCameraNetwork(uid, monitor);
-        ReconnectToSubnets(uid, monitor); // Goobstation
+
+        var reconnectingDelayComponent = EntityManager.AddComponent<ReconnectingSurveillanceCameraMonitorComponent>(uid);  // Goobstation
+        reconnectingDelayComponent.ReconnectToSubnetsDelay = _timing.CurTick + 3; // Goobstation
     }
 
     // Goobstation start
