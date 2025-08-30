@@ -13867,3 +13867,18 @@ Entries:
       message: Species like dwarfs and humans can now be wider, rejoice
   id: 1544
   time: '2025-08-30T03:50:19.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: 'Made everything combat autoinjector their old size again! '
+    - type: Tweak
+      message: >-
+        Replaced tirimol from epipens with dexalin, NO MORE COMBAT EPIPEN
+        INJECTIONS, REJOICE! 
+    - type: Tweak
+      message: >-
+        Nerfed autoinjector brute cartridge heal from 98 dmg healed max to
+        ~60-70 and from ~28 healing/dmg type to ~21 healing/dmg type and nerfed
+        burn cartridge by a similar amount 
+  id: 1545
+  time: '2025-08-30T03:51:52.0000000+00:00'
