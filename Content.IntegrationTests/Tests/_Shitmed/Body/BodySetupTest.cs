@@ -318,8 +318,8 @@ public sealed class BodySetupTest
                         Assert.That(entMan.TryGetComponent(bodyPart.Id, out WoundableComponent woundable));
 
                         var bone = woundable.Bone.ContainedEntities.FirstOrNull();
-                        if (bone != null) // Some species might not have bones
-                            Assert.That(entMan.HasComponent<BoneComponent>(bone));
+                        Assert.That(bone, Is.Not.Null);
+                        Assert.That(entMan.HasComponent<BoneComponent>(bone));
                     });
                 }
             }
