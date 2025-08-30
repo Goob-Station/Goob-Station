@@ -13956,3 +13956,21 @@ Entries:
       message: Fixed engineer voidsuit selector contraband status for engineers
   id: 1554
   time: '2025-08-30T08:43:35.0000000+00:00'
+- author: Aineias
+  changes:
+    - type: Add
+      message: Added a few new lavaland ruins!
+    - type: Add
+      message: Added an upgraded Pre-Armork Syndie base
+    - type: Add
+      message: Lavaland is now 100% free lag
+    - type: Tweak
+      message: >-
+        Some ruins are now invisible on GPS, this includes syndie base, ruining
+        the whole reason to play as salv for some SPECIFIC PEOPLE who abandon
+        mining, and rush to syndie base roundstart and not mining afterwards.
+        Expect more ore to be mined.
+    - type: Fix
+      message: Fixed a server crash caused by Sniper trying to eat his gun
+  id: 1555
+  time: '2025-08-30T15:52:09.0000000+00:00'
