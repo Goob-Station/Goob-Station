@@ -27,6 +27,7 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
+  - ChevalTranslatorImplanter
   - NewKinPidginTranslator
   - SchechiTranslator
   position: -4, 4
