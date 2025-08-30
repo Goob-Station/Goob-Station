@@ -64,6 +64,9 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     public float ResistanceRemoveFromLesser = 0.12f;
 
     [DataField]
+    public EntProtoId LesserSlingComponents = "LesserShadowlingAbilities";
+
+    [DataField]
     public EntProtoId ActionId = "ActionBlackRecuperation";
 
     [DataField]

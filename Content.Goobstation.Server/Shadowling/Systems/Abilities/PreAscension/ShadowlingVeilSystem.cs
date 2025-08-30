@@ -38,6 +38,9 @@ public sealed class ShadowlingVeilSystem : EntitySystem
 
     private void OnVeilActivate(EntityUid uid, ShadowlingVeilComponent component, VeilEvent args)
     {
+        if (args.Handled)
+            return;
+
         // todo: handle visuals here
 
         // its just emp but better
@@ -46,7 +49,7 @@ public sealed class ShadowlingVeilSystem : EntitySystem
             TryDisableLights(light);
         }
 
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 
     private void TryDisableLights(EntityUid uid)

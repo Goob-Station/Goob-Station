@@ -42,6 +42,9 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
 
     private void OnBlindnessSmoke(EntityUid uid, ShadowlingBlindnessSmokeComponent comp, BlindnessSmokeEvent args)
     {
+        if (args.Handled)
+            return;
+
         var xform = Transform(uid);
         var worldPos = _transform.GetMapCoordinates(uid, xform);
 
@@ -52,5 +55,6 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
 
         _audio.PlayPvs(comp.BlindnessSound, uid, AudioParams.Default.WithVolume(-1f));
         _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 }

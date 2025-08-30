@@ -7,9 +7,9 @@
 using System.Linq;
 using Content.Goobstation.Shared.Nightmare;
 using Content.Goobstation.Shared.Nightmare.Components;
-using Content.Server.Hands.Systems;
 using Content.Server.Light.Components;
 using Content.Server.PowerCell;
+using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
@@ -26,6 +26,7 @@ public sealed class LightEaterSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -34,7 +35,15 @@ public sealed class LightEaterSystem : EntitySystem
 
         SubscribeLocalEvent<LightEaterUserComponent, ToggleLightEaterEvent>(OnToggleLightEater);
         SubscribeLocalEvent<LightEaterComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<LightEaterComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LightEaterComponent, ComponentShutdown>(OnShutdown);
     }
+
+    private void OnStartup(Entity<LightEaterComponent> ent, ref ComponentStartup args)
+        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+
+    private void OnShutdown(Entity<LightEaterComponent> ent, ref ComponentShutdown args)
+        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
     private void OnToggleLightEater(EntityUid uid, LightEaterUserComponent component, ToggleLightEaterEvent args)
     {

@@ -79,6 +79,7 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
         comp.HasBeenUsed = true;
 
         _roundEnd.ExpectedCountdownEnd += comp.DelayTime;
+        args.Handled = true;
         _actions.RemoveAction(args.Performer, (args.Action.Owner, args.Action.Comp));
     }
 }

@@ -40,7 +40,11 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
 
     private void OnLightningStorm(EntityUid uid, ShadowlingLightningStormComponent component, LightningStormEvent args)
     {
+        if (args.Handled)
+            return;
+
         // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHH
+        // calm down bro what is this scream all about....
         var doAfter = new DoAfterArgs(
             EntityManager,
             args.Performer,

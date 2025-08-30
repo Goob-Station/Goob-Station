@@ -40,10 +40,8 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
 
     private void OnBroadcast(EntityUid uid, ShadowlingAscendantBroadcastComponent component, AscendantBroadcastEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!TryComp<ActorComponent>(args.Performer, out var actor))
+        if (args.Handled
+            || !TryComp<ActorComponent>(args.Performer, out var actor))
             return;
 
         _dialogSystem.OpenDialog(actor.PlayerSession,

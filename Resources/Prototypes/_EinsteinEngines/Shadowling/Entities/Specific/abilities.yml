@@ -68,6 +68,7 @@
   description: Entitiy that contains all components for Lesser Shadowlings.
   categories: [ HideSpawnMenu ]
   components:
+  - type: LesserShadowling
   - type: ShadowlingShadowWalk
   - type: LightDetectionComponent
   - type: LightDetectionDamage

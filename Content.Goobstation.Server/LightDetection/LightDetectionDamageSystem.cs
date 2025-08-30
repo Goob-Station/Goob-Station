@@ -5,7 +5,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.Shadowling.Systems;
+namespace Content.Goobstation.Server.LightDetection;
 
 /// <summary>
 /// This handles healing or dealing damage to an entity that is standing on a lighted area.

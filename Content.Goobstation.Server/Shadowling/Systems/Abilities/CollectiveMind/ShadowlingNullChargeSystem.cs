@@ -58,11 +58,13 @@ public sealed class ShadowlingNullChargeSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("shadowling-null-charge-start"), uid, uid, PopupType.MediumCaution);
         _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
     }
 
     private void OnNullChargeAfter(EntityUid uid, ShadowlingNullChargeComponent component, NullChargeDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled
+            || args.Handled)
             return;
 
         bool apcAffected = false;
@@ -89,6 +91,7 @@ public sealed class ShadowlingNullChargeSystem : EntitySystem
 
         var effectEnt = Spawn(component.NullChargeEffect, _transformSystem.GetMapCoordinates(uid));
         _transformSystem.SetParent(effectEnt, uid);
+        args.Handled = true;
     }
 
     private bool IsApcInRange(EntityUid uid, float range)

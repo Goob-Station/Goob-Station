@@ -11,17 +11,5 @@ namespace Content.Goobstation.Shared.Nightmare.Components;
 public sealed partial class NightmareComponent : Component
 {
     [DataField]
-    public EntProtoId ActionPlaneShift = "ActionPlaneShift";
-
-    [ViewVariables]
-    public EntityUid? ActionPlaneShiftEntity;
-
-    [DataField]
-    public EntProtoId ActionLightEater = "ActionLightEater";
-
-    [ViewVariables]
-    public EntityUid? ActionLightEntity;
-
-    [DataField]
     public ProtoId<PolymorphPrototype> ShadowSpeciesProto = "ShadowNightmarePolymorph";
 }

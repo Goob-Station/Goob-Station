@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.LightDetection;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
@@ -20,6 +21,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
@@ -41,6 +43,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
 
     public override void Initialize()
@@ -61,6 +64,9 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
     private void OnBlackRec(EntityUid uid, ShadowlingBlackRecuperationComponent component, BlackRecuperationEvent args)
     {
+        if (args.Handled)
+            return;
+
         var target = args.Target;
 
         if (!HasComp<ThrallComponent>(target))
@@ -81,11 +87,13 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             target);
 
         _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = true;
     }
 
     private void OnBlackRecDoAfter(EntityUid uid, ShadowlingBlackRecuperationComponent component, BlackRecuperationDoAfterEvent args)
     {
         if (args.Cancelled
+            || args.Handled
             || args.Target == null)
             return;
 
@@ -127,7 +135,8 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             if (newUid == null)
                 return;
 
-            EnsureComp<LesserShadowlingComponent>(newUid.Value);
+            var comps = _protoMan.Index(component.LesserSlingComponents);
+            EntityManager.AddComponents(newUid.Value, comps);
 
             if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
                 _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
@@ -146,5 +155,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
                 _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromLesser);
         }
+
+        args.Handled = true;
     }
 }

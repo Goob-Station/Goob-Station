@@ -47,6 +47,9 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
 
     private void OnRapidRehatch(EntityUid uid, ShadowlingRapidRehatchComponent comp, RapidRehatchEvent args)
     {
+        if (args.Handled)
+            return;
+
         var user = args.Performer;
 
         if (_mobState.IsCritical(user) || _mobState.IsDead(user))
@@ -65,11 +68,13 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
     }
 
     private void OnRapidRehatchDoAfter(EntityUid uid, ShadowlingRapidRehatchComponent comp, RapidRehatchDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled
+            || args.Handled)
             return;
 
         _popup.PopupEntity(Loc.GetString("shadowling-rapid-rehatch-complete"), uid, uid, PopupType.Medium);
@@ -81,5 +86,6 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
         _audio.PlayPvs(comp.RapidRehatchSound, uid, AudioParams.Default.WithVolume(-2f));
 
         _actions.StartUseDelay(comp.ActionRapidRehatchEntity);
+        args.Handled = true;
     }
 }

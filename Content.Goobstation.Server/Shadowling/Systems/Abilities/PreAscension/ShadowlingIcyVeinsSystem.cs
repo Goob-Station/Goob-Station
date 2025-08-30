@@ -77,6 +77,9 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
 
     private void OnIcyVeins(EntityUid uid, ShadowlingIcyVeinsComponent component, IcyVeinsEvent args)
     {
+        if (args.Handled)
+            return;
+
         foreach (var target in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer), component.Range))
         {
             TryIcyVeins(target, component);
@@ -84,10 +87,8 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
 
         var effectEnt = Spawn(component.IcyVeinsEffect, _transform.GetMapCoordinates(uid));
         _transform.SetParent(effectEnt, uid);
-
         _audio.PlayPvs(component.IcyVeinsSound, uid, AudioParams.Default.WithVolume(-1f));
-
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 
     private void TryIcyVeins(EntityUid target, ShadowlingIcyVeinsComponent component)

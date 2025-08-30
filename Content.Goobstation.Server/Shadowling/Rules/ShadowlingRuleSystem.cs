@@ -89,15 +89,15 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
 
     private void OnSelectAntag(EntityUid uid, ShadowlingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
     {
-        MakeShadowling(args.EntityUid, comp);
+        MakeShadowling(args.EntityUid);
     }
 
-    public bool MakeShadowling(EntityUid target, ShadowlingRuleComponent rule)
+    public bool MakeShadowling(EntityUid target)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, _mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _mindRole, mind, true);
 
         _npc.RemoveFaction(target, _nanotrasenFactionId, false);
         _npc.AddFaction(target, _shadowlingFactionId);
@@ -108,8 +108,6 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
 
         EnsureComp<ZombieImmuneComponent>(target);
         EnsureComp<ShadowlingComponent>(target);
-
-        rule.ShadowlingMinds.Add(mindId);
         return true;
     }
 
