@@ -30,3 +30,5 @@ ent-ClothingOuterArmourInvisibleSyndie = redspace assisted armor
     .desc = An armored vest that utilizes redspace technology to appear invisible and not mess with your business style.
 ent-MonkRobes = monk's robes
     .desc = The robes of a long forgotten tradition.
+ent-ClothingOuterArmorQueenCarapace = queen's carapace
+    .desc = The skull of the ancient Xeno Queen, reforged into an imposing chestpiece that turns her former menace into unyielding protection.

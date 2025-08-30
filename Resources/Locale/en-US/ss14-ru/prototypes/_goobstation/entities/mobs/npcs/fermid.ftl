@@ -1,0 +1,10 @@
+ent-MobFermidBase = fermid
+    .desc = Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
+ent-MobFermidSmall = fermid
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidLarge = fermid
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidWarrior = warrior fermid
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidQueen = fermid queen
+    .desc = Did anyone bring insect repellent?

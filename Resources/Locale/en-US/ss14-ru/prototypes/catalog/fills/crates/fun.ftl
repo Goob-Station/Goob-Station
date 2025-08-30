@@ -1,3 +1,5 @@
+ent-CratePlants = plant crate
+    .desc = A variety pack of potted plants to spruce up your station!
 ent-CrateFunPlushie = plushie crate
     .desc = A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
 ent-CrateFunLizardPlushieBulk = bulk lizard plushie crate

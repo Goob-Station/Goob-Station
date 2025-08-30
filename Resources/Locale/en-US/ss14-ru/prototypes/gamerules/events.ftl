@@ -62,3 +62,5 @@ ent-SmugglerStashVariationPass = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-DerelictCyborgSpawn = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-AncientRogueKingSpawn = { ent-BaseStationEventShortDelay }
+    .desc = { ent-BaseStationEventShortDelay.desc }

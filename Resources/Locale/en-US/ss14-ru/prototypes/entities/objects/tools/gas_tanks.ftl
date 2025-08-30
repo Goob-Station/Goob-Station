@@ -25,4 +25,4 @@ ent-AirTank = air tank
 ent-NitrousOxideTank = nitrous oxide tank
     .desc = Contains a mixture of air and nitrous oxide. Make sure you don't refill it with pure N2O. It can hold 5 L of gas.
 ent-PlasmaTank = plasma tank
-    .desc = Contains dangerous plasma. Do not inhale. Extremely flammable. It can hold 5 L of gas.
+    .desc = Contains dangerous plasma. Do not inhale, unless you're a plasmaman. Extremely flammable. It can hold 5 L of gas.

@@ -173,3 +173,5 @@ ent-ClothingHeadHatBeretMedic = medical beret
     .desc = White beret that encourages you to be clean.
 ent-ClothingHeadHatSolidHeadband = solid headband
     .desc = You'll feel like you're Invisible while wearing this! (DISCLAIMER: DOES NOT ACTUALLY MAKE THE WEARER INVISIBLE)
+ent-ClothingHeadPropellerHat = propeller hat
+    .desc = You're the bestest boy.

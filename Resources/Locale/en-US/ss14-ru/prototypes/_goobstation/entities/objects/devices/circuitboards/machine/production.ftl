@@ -6,3 +6,7 @@ ent-ScienceTechFabCircuitboard = science techfab machine board
     .desc = A machine printed circuit board for a science techfab.
 ent-ServiceTechFabCircuitboard = service techfab machine board
     .desc = A machine printed circuit board for a service techfab.
+ent-TeslaCoilCircuitboard = tesla coil board
+    .desc = { ent-BaseMachineCircuitboard.desc }
+ent-RadiationCollectorCircuitboard = radiation collector board
+    .desc = { ent-BaseMachineCircuitboard.desc }

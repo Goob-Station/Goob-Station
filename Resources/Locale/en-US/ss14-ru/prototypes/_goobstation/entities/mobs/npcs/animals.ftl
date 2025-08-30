@@ -28,3 +28,5 @@ ent-MobBearGoon = bear
     .desc = Why are you staring? Never seen a bear before?
 ent-MobWhiteWolf = white wolf
     .desc = Don't try to pet this one.
+ent-MobHorse = horse
+    .desc = Very foul creature. For those that feel like punching.

@@ -1,0 +1,10 @@
+ent-XenoWeeds = weeds
+    .desc = Weird black weeds...
+ent-XenoWeedsSource = weed node
+    .desc = A weird, pulsating node
+ent-XenoWeedsWall = weeds
+    .desc = { "" }
+ent-XenoHardyWeeds = { ent-XenoWeeds }
+    .desc = { ent-XenoWeeds.desc }
+ent-XenoHardyWeedsSource = hardy weed node
+    .desc = A weird, pulsating node

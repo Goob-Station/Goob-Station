@@ -11,3 +11,6 @@ ent-ClothingModsuitBootsCorporate = Corporate hardsuit boots
 ent-SuitStorageCorporate = { ent-SuitStorageBase }
     .suffix = Corporate Modsuit
     .desc = { ent-SuitStorageBase.desc }
+ent-ClothingModsuitCorporateFilled = { ent-ClothingModsuitCorporate }
+    .suffix = Filled
+    .desc = { ent-ClothingModsuitCorporate.desc }

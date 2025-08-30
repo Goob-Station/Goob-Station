@@ -1,2 +1,2 @@
-ent-ActionPumpCursedHeart = action-pump-heart
-    .desc = action-pump-heart-desc
+ent-ActionPumpCursedHeart = Heartbeat
+    .desc = Pump your own blood to live!

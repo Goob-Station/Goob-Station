@@ -10,3 +10,7 @@ ent-ChestAnimal = animal chest
     .desc = { ent-PartAnimalBase.desc }
 ent-GroinAnimal = animal groin
     .desc = { ent-PartAnimalBase.desc }
+ent-LeftHandSmartCorgi = corgi hand
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightHandSmartCorgi = corgi hand
+    .desc = { ent-PartAnimalBase.desc }

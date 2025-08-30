@@ -38,3 +38,5 @@ ent-CrateRPD = RPD crate
     .desc = A crate containing a single rapid piping device.
 ent-CrateEngineeringFirefighterBackpackTank = firefighter crate
     .desc = Contains a firefighter backpack water tank.
+ent-CrateAirGrenade = air grenade crate
+    .desc = A crate containing 3 air grenades.

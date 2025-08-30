@@ -47,3 +47,6 @@ ent-MobVoxRandom = Uristiti McVox
 ent-MobShadowkinRandom = Urist McShadowkin
     .suffix = Random Appearance
     .desc = { ent-MobShadowkin.desc }
+ent-MobChitinidRandom = Urist McAnt
+    .suffix = Random Appearance
+    .desc = { ent-MobChitinid.desc }

@@ -1,0 +1,14 @@
+ent-RMCFiltration = water filtration system
+    .desc = A water filter that separates both organic and inorganic matter, hazardous waste, and corrosive acids from water so it may be further processed.
+ent-RMCFiltrationDisinfection = disinfection filter
+    .desc = A water filter specifically designed to separate micro-organisms, such as viruses and bacteria, from water.
+ent-RMCFiltrationDistribution = waste distribution system
+    .desc = This machine separates the leftover waste from the purification processes to be discarded into space, recycled for supplies, or used for research.
+ent-RMCFiltrationDistributionDamaged = { ent-RMCFiltrationDistribution }
+    .desc = { ent-RMCFiltrationDistribution.desc }
+ent-RMCFiltrationSedimentation = sedimentation filter
+    .desc = A water filter specifically designed to capture and remove sediment, such as sand, silt, dirt, and rust, from water without removing the nutritious minerals for that crisp, clean taste every time.
+ent-RMCFiltrationSedimentationAlt = { ent-RMCFiltrationSedimentation }
+    .desc = { ent-RMCFiltrationSedimentation.desc }
+ent-RMCCoagulationArm = coagulation arm
+    .desc = An axel with four sides, made to spin to help filter the water.

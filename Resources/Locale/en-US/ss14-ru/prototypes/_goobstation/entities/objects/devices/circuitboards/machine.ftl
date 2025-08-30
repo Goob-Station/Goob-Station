@@ -1,5 +1,3 @@
-ent-MaterialSiloCircuitboard = material silo machine board
-    .desc = A machine printed circuit board for a material silo.
 ent-RoboticArmCircuitboard = robotic arm machine board
     .desc = A machine printed circuit board for a robotic arm.
 ent-ConstructorCircuitboard = constructor machine board

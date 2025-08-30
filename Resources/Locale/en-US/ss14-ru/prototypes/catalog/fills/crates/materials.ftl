@@ -24,5 +24,7 @@ ent-CrateMaterialPaper = paper crate
     .desc = 90 sheets of paper.
 ent-CrateMaterialRandom = surplus materials
     .desc = Surplus materials from somewhere.
+ent-CrateMaterialSilo = material silo crate
+    .desc = A package including all the materials to create a material silo.
 ent-CrateMaterialBasicResource = basic sheet crate
     .desc = 30 sheets of steel, glass, and plastic.
