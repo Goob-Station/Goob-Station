@@ -22,24 +22,21 @@ public enum SignalTimerUiKey : byte
 public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState
 {
     public string CurrentText;
-    public string CurrentDelayMinutes;
-    public string CurrentDelaySeconds;
+    public TimeSpan CurrentDelay; // Mono
     public bool ShowText;
     public TimeSpan TriggerTime;
     public bool TimerStarted;
     public bool HasAccess;
 
     public SignalTimerBoundUserInterfaceState(string currentText,
-        string currentDelayMinutes,
-        string currentDelaySeconds,
+        TimeSpan currentDelay, // Mono
         bool showText,
         TimeSpan triggerTime,
         bool timerStarted,
         bool hasAccess)
     {
         CurrentText = currentText;
-        CurrentDelayMinutes = currentDelayMinutes;
-        CurrentDelaySeconds = currentDelaySeconds;
+        CurrentDelay = currentDelay; // Mono
         ShowText = showText;
         TriggerTime = triggerTime;
         TimerStarted = timerStarted;
