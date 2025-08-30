@@ -11,7 +11,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-## Goobstation - Start
 ## Parent File to easily add more attributes, here it's used for plasmaman mostly
 - type: entity
   parent: ClothingShoesBase
@@ -26,10 +25,9 @@
     parts:
     - LeftFoot
     - RightFoot
-## Goobstation - End
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsStandard
   name: standard hardsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
@@ -41,7 +39,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -57,7 +55,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsSecurity
   name: soldat hardsuit boots
   description: THE IRON BOOTS OF THE LAW.
@@ -69,7 +67,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false # Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -101,7 +99,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsHeadOfSecurity
   name: bulwark hardsuit boots
   description: I call these my commie stompers.
@@ -113,7 +111,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -145,7 +143,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsParamedic
   name: sanitater hardsuit boots
   description: Made to get bloody.
@@ -157,7 +155,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -173,7 +171,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsEngineer
   name: sapper hardsuit boots
   description: Made to get oily.
@@ -185,7 +183,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -212,7 +210,7 @@
     sprintModifier: 0.9
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsAtmostech
   name: aeolus hardsuit boots
   description: Made to get burnt.
@@ -224,7 +222,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -242,7 +240,7 @@
     reduction: 0.25
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsResearchDirector
   name: minerva hardsuit boots
   description: Wont stop you slipping on your own blood when the holocarp gets to you.
@@ -254,7 +252,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -270,7 +268,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesModsuitBase #Goobstation
+  parent: ClothingShoesModsuitBase
   id: ClothingModsuitBootsCaptain
   name: magnate hardsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
@@ -282,7 +280,7 @@
     layers:
     - state: boots
     - state: boots-sealed
-      visible: false #Goobstation
+      visible: false
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg

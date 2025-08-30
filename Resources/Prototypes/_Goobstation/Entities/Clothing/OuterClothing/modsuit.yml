@@ -19,7 +19,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-## Goobstation - Start
 ## Parent File to easily add more attributes, here it's used for plasmaman mostly
 - type: entity
   parent: ClothingOuterBase
@@ -33,11 +32,10 @@
     parts:
     - BodyMiddle
     - Legs
-## Goobstation - End
 
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateStandard
   name: standard hardsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
@@ -106,7 +104,7 @@
     reduction: 0.5
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateSecurity
   name: soldat hardsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
@@ -181,7 +179,7 @@
 
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateHeadOfSecurity
   name: bulwark hardsuit chestplate
   description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
@@ -262,7 +260,7 @@
       Tramadol: 5
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateParamedic
   name: sanitater hardsuit chestplate
   description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
@@ -337,7 +335,7 @@
     reduction: 0.5
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateEngineer
   name: sapper hardsuit chestplate
   description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
@@ -404,7 +402,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
@@ -413,7 +411,7 @@
     reduction: 0.7
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateAtmostech
   name: aeolus hardsuit chestplate
   description: A fire-proof armor plate to defend against harsh atmospheric conditions.
@@ -478,7 +476,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.001
       heatingCoefficient: 0.001
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
@@ -487,7 +485,7 @@
     reduction: 0.75
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateResearchDirector
   name: minerva hardsuit chestplate
   description: A bulky bomb and bat proof chunk of steel.
@@ -564,7 +562,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: ClothingOuterModsuitBase # Goobstation
+  parent: ClothingOuterModsuitBase
   id: ClothingModsuitChestplateCaptain
   name: magnate hardsuit chestplate
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
