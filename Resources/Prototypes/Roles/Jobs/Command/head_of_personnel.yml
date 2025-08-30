@@ -152,6 +152,10 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 9000 # 2.5 hours
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
   goobcoins: 40 #Goob content
   weight: 20
   startingGear: HoPGear
