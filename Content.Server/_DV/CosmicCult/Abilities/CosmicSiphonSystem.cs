@@ -40,6 +40,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+    [Dependency] private readonly CosmicCultComponent _coscultComponent = default!; //Goobstation
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = [];
 
@@ -118,12 +119,12 @@ public sealed class CosmicSiphonSystem : EntitySystem
         if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 20% chance to flicker lights on siphon
         {
             _lights.Clear();
-            _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
+            _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, _coscultComponent.FlickerRange, _lights, LookupFlags.StaticSundries);
             uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
             uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
             foreach (var light in _lights) // static range of 5. because.
             {
-                if (!_random.Prob(0.20f))
+                if (!_random.Prob(_coscultComponent.FlickerProbability))
                     continue;
 
                 _ghost.DoGhostBooEvent(light);
