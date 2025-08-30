@@ -100,7 +100,6 @@ flavor-base-terrible = terrible
 flavor-base-mindful = mindful
 flavor-base-chewy = chewy
 flavor-base-trashy = trashy
-flavor-base-chuddy = chuddy
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
