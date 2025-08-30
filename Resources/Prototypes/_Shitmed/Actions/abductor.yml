@@ -11,6 +11,7 @@
   description: Exit console.
   components:
   - type: Action
+    checkCanInteract: false
     priority: -20
     itemIconStyle: BigAction
     icon:
@@ -27,6 +28,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
+    checkCanInteract: false
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: send-yourself
