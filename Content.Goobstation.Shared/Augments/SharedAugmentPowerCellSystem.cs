@@ -52,6 +52,9 @@ public abstract class SharedAugmentPowerCellSystem : EntitySystem
 
         var ev = new AugmentLostPowerEvent(body);
         Augment.RelayEvent(body, ref ev);
+
+        // stop drawing if it loses power
+        UpdateDrawRate(ent.Owner);
     }
 
     public float GetBodyDraw(EntityUid body)

@@ -5,6 +5,7 @@ using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Robust.Shared.Timing;
 
@@ -27,12 +28,27 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
         base.Initialize();
 
         SubscribeLocalEvent<HasAugmentPowerCellSlotComponent, FindBatteryEvent>(OnFindBattery);
+        SubscribeLocalEvent<HasAugmentPowerCellSlotComponent, AugmentBatteryAlertEvent>(OnBatteryAlert);
     }
 
     private void OnFindBattery(Entity<HasAugmentPowerCellSlotComponent> ent, ref FindBatteryEvent args)
     {
         if (GetBodyCell(ent) is {} battery)
-            args.FoundBattery = battery.Owner;
+            args.FoundBattery = battery;
+    }
+
+    private void OnBatteryAlert(Entity<HasAugmentPowerCellSlotComponent> ent, ref AugmentBatteryAlertEvent args)
+    {
+        var user = args.User;
+        if (GetBodyAugment(ent) is not {} augment || GetAugmentCell(augment) is not {} battery)
+        {
+            _popup.PopupEntity(Loc.GetString("power-cell-no-battery"), user, user, PopupType.MediumCaution);
+            return;
+        }
+
+        var percent = 100f * battery.Comp.CurrentCharge / battery.Comp.MaxCharge;
+        var draw = CompOrNull<PowerCellDrawComponent>(augment)?.DrawRate ?? 0f;
+        _popup.PopupEntity(Loc.GetString("augments-power-cell-info", ("percent", $"{percent:F0}"), ("draw", draw)), user, user);
     }
 
     /// <summary>
@@ -59,15 +75,6 @@ public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
             return battery;
 
         return null;
-    }
-
-    /// <summary>
-    /// Tries to use charge from an installed augment's body.
-    /// Does a popup for the user if it fails.
-    /// </summary>
-    public bool TryUseCharge(EntityUid augment, float amount)
-    {
-        return Augment.GetBody(augment) is {} body && TryUseChargeBody(body, amount);
     }
 
     /// <summary>

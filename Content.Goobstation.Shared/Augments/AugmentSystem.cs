@@ -60,10 +60,8 @@ public sealed class AugmentSystem : EntitySystem
     /// </summary>
     public void RelayEvent<T>(EntityUid body, ref T ev)
     {
-        if (!_installedQuery.TryComp(body, out var comp))
-            return;
-
-        RelayEvent(comp, ref ev);
+        if (_installedQuery.TryComp(body, out var comp))
+            RelayEvent(comp, ref ev);
     }
 
     public void RelayEvent<T>(InstalledAugmentsComponent comp, ref T ev)

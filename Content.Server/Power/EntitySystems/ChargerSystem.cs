@@ -380,7 +380,7 @@ internal sealed class ChargerSystem : EntitySystem
             return true;
         }
 
-        // <Goobstation>
+        // <Goobstation> completely rewritten
         // try get battery by checking for a power cell slot on the inserted entity
         if (_powerCell.TryGetBatteryFromSlot(uid, out batteryUid, out component))
             return true;

@@ -8,11 +8,10 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
-using System.Linq;
 
 namespace Content.Goobstation.Server.Augments;
 
-public sealed class AugmentToolPanelSystem : EntitySystem
+public sealed class AugmentToolPanelSystem : SharedAugmentToolPanelSystem
 {
     [Dependency] private readonly AugmentPowerCellSystem _augmentPowerCell = default!;
     [Dependency] private readonly AugmentSystem _augment = default!;
@@ -23,74 +22,111 @@ public sealed class AugmentToolPanelSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
 
+    private EntityQuery<HandsComponent> _handsQuery;
+    private EntityQuery<BodyPartComponent> _partQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        _handsQuery = GetEntityQuery<HandsComponent>();
+        _partQuery = GetEntityQuery<BodyPartComponent>();
+
+        SubscribeLocalEvent<AugmentToolPanelComponent, AugmentLostPowerEvent>(OnLostPower);
         Subs.BuiEvents<AugmentToolPanelComponent>(AugmentToolPanelUiKey.Key, subs =>
         {
             subs.Event<AugmentToolPanelSwitchMessage>(OnSwitchTool);
         });
     }
 
+    private void OnLostPower(Entity<AugmentToolPanelComponent> augment, ref AugmentLostPowerEvent args)
+    {
+        // items automatically retract if you lose power
+        SwitchTool(augment, null, args.Body);
+    }
+
     private void OnSwitchTool(Entity<AugmentToolPanelComponent> augment, ref AugmentToolPanelSwitchMessage args)
     {
         if (_augment.GetBody(augment) is not {} body ||
-            !TryComp<HandsComponent>(body, out var hands) ||
-            !_augmentPowerCell.TryUseCharge(body, augment.Comp.SwitchCharge))
+            !_augmentPowerCell.TryUseChargeBody(body, augment.Comp.SwitchCharge))
             return;
 
-        foreach (var part in _body.GetBodyPartChildren(body))
+        SwitchTool(augment, GetEntity(args.DesiredTool), body);
+    }
+
+    /// <summary>
+    /// Switches to a tool using a hand derived from the augment's arm.
+    /// </summary>
+    public void SwitchTool(Entity<AugmentToolPanelComponent> augment, EntityUid? tool, EntityUid body)
+    {
+        if (!_handsQuery.TryComp(body, out var hands))
+            return;
+
+        // organs get parented to the body part
+        // the arm's symmetry is the same as the hand
+        var partUid = Transform(augment).ParentUid;
+        var part = _partQuery.Comp(partUid);
+        var location = part.Symmetry switch {
+            BodyPartSymmetry.None => HandLocation.Middle,
+            BodyPartSymmetry.Left => HandLocation.Left,
+            BodyPartSymmetry.Right => HandLocation.Right
+        };
+
+        // TODO: need to update this after upstream merge to use nu hands
+        foreach (var hand in hands.Hands.Values)
         {
-            if (part.Component.PartType != BodyPartType.Hand)
-                continue;
-
-            var handLocation = part.Component.Symmetry switch {
-                BodyPartSymmetry.None => HandLocation.Middle,
-                BodyPartSymmetry.Left => HandLocation.Left,
-                BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new InvalidOperationException(),
-            };
-
-            // TODO: need to update this after upstream merge to use nu hands
-            if (hands.Hands.Values.FirstOrDefault(hand => hand.Location == handLocation) is not {} desiredHand)
-                continue;
-
-            if (desiredHand.HeldEntity is {} item)
+            if (hand.Location == location)
             {
-                // if we have a tool that's currently out
-                if (HasComp<AugmentToolPanelActiveItemComponent>(item))
-                {
-                    // deposit it back into the storage
-                    RemComp<AugmentToolPanelActiveItemComponent>(item);
+                SwitchTool(augment, tool, body, hand);
+                return;
+            }
+        }
 
-                    if (!_storage.PlayerInsertEntityInWorld(augment.Owner, body, item))
-                    {
-                        Log.Error($"Inserting tool {ToPrettyString(item)} back into {ToPrettyString(augment)} failed");
-                        EnsureComp<AugmentToolPanelActiveItemComponent>(item);
-                        return;
-                    }
-                }
-                else
+        // no hand found rip bozo
+        _popup.PopupEntity(Loc.GetString("augment-tool-panel-no-hand"), body, body, PopupType.LargeCaution);
+    }
+
+    /// <summary>
+    /// Switches to a tool using the specified hand.
+    /// </summary>
+    public void SwitchTool(Entity<AugmentToolPanelComponent> augment, EntityUid? desiredTool, EntityUid body, Hand hand)
+    {
+        if (hand.HeldEntity is {} item)
+        {
+            // if we have a tool that's currently out, deposit it back into the storage
+            if (RemComp<AugmentToolPanelActiveItemComponent>(item))
+            {
+                if (!_storage.PlayerInsertEntityInWorld(augment.Owner, body, item))
                 {
-                    _popup.PopupCursor(Loc.GetString("augment-tool-panel-hand-full"), body);
+                    Log.Error($"Inserting tool {ToPrettyString(item)} back into {ToPrettyString(augment)} failed");
+                    EnsureComp<AugmentToolPanelActiveItemComponent>(item); // prevent exploits
                     return;
                 }
 
-                // no longer holding a tool, stop drawing power
-                _toggle.TryDeactivate(augment.Owner, user: body);
+                if (desiredTool == null) // don't double popup, only show it when deselecting
+                    _popup.PopupEntity(Loc.GetString("augment-tool-panel-retracted", ("item", item)), body, body);
             }
-
-            if (GetEntity(args.DesiredTool) is not {} desiredTool)
-                return;
-
-            if (!_hands.TryPickup(body, desiredTool, desiredHand))
+            else
             {
-                _popup.PopupCursor(Loc.GetString("augment-tool-panel-cannot-pick-up"), body);
+                _popup.PopupEntity(Loc.GetString("augment-tool-panel-hand-full"), body, body, PopupType.SmallCaution);
                 return;
             }
-            EnsureComp<AugmentToolPanelActiveItemComponent>(desiredTool);
-            _toggle.TryActivate(augment.Owner, user: body);
+
+            // no longer holding a tool, stop drawing power
+            _toggle.TryDeactivate(augment.Owner, user: body);
         }
+
+        if (desiredTool is not {} tool)
+            return;
+
+        if (!_hands.TryPickup(body, tool, hand))
+        {
+            _popup.PopupEntity(Loc.GetString("augment-tool-panel-cannot-pick-up"), body, body, PopupType.SmallCaution);
+            return;
+        }
+
+        EnsureComp<AugmentToolPanelActiveItemComponent>(tool);
+        _toggle.TryActivate(augment.Owner, user: body);
+        _popup.PopupEntity(Loc.GetString("augment-tool-panel-selected", ("item", tool)), body, body);
     }
 }

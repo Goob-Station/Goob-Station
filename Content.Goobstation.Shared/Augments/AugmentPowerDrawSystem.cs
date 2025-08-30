@@ -20,6 +20,7 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
         SubscribeLocalEvent<AugmentPowerDrawComponent, OrganEnableChangedEvent>(OnEnableChanged);
         SubscribeLocalEvent<AugmentPowerDrawComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<AugmentPowerDrawComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<AugmentPowerDrawComponent, AugmentLostPowerEvent>(OnLostPower);
     }
 
     private void OnGetPowerDraw(Entity<AugmentPowerDrawComponent> ent, ref GetAugmentsPowerDrawEvent args)
@@ -37,7 +38,7 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
     {
         if (_augment.GetBody(ent) is not {} body ||
             _augmentPower.GetBodyAugment(body) is not {} slot ||
-            !_powerCell.HasDrawCharge(slot))
+            !_powerCell.HasActivatableCharge(slot))
         {
             args.Cancelled = true;
         }
@@ -47,5 +48,10 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
     {
         if (_augment.GetBody(ent) is {} body && _augmentPower.GetBodyAugment(body) is {} slot)
             _augmentPower.UpdateDrawRate(slot.Owner);
+    }
+
+    private void OnLostPower(Entity<AugmentPowerDrawComponent> ent, ref AugmentLostPowerEvent args)
+    {
+        _toggle.TryDeactivate(ent.Owner);
     }
 }

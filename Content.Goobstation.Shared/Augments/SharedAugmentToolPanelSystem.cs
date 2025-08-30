@@ -2,7 +2,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Augments;
 
-public sealed class SharedAugmentToolPanelSystem : EntitySystem
+public abstract class SharedAugmentToolPanelSystem : EntitySystem
 {
     public override void Initialize()
     {

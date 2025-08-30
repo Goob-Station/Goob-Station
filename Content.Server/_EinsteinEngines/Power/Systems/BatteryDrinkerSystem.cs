@@ -34,7 +34,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ChargerSystem _chargers = default!; // DeltaV - people with augment power cells can drink batteries
+    [Dependency] private readonly ChargerSystem _chargers = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
             !TestDrinkableBattery(uid, drinkerComp) ||
-            // DeltaV - people with augment power cells can drink batteries
+            // Goobstation - replaced battery lookup to allow augment power cells
             !_chargers.SearchForBattery(args.User, out _, out _))
             return;
 
@@ -106,11 +106,11 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var drinker = uid;
         var sourceBattery = Comp<BatteryComponent>(source);
 
-        // DeltaV - people with augment power cells can drink batteries
+        // <Goobstation> - replace battery lookup to allow augment power cells
         if (!_chargers.SearchForBattery(drinker, out var drinkerBattery, out var drinkerBatteryComponent))
             return;
+        // </Goobstation>
 
-        // DeltaV - people with augment power cells can drink batteries
         TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp);
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
