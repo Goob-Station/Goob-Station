@@ -61,15 +61,18 @@ public sealed class AugmentSystem : EntitySystem
     public void RelayEvent<T>(EntityUid body, ref T ev)
     {
         if (_installedQuery.TryComp(body, out var comp))
-            RelayEvent(comp, ref ev);
+            RelayEvent((body, comp), ref ev);
     }
 
-    public void RelayEvent<T>(InstalledAugmentsComponent comp, ref T ev)
+    /// <summary>
+    /// Relay an event in the form usable for a subscription.
+    /// </summary>
+    public void RelayEvent<T>(Entity<InstalledAugmentsComponent> ent, ref T ev) where T: notnull
     {
-        foreach (var netEnt in comp.InstalledAugments)
+        foreach (var netEnt in ent.Comp.InstalledAugments)
         {
-            var ent = GetEntity(netEnt);
-            RaiseLocalEvent(ent, ref ev);
+            var aug = GetEntity(netEnt);
+            RaiseLocalEvent(aug, ref ev);
         }
     }
 

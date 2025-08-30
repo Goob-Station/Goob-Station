@@ -31,7 +31,8 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
 
     private void OnEnableChanged(Entity<AugmentPowerDrawComponent> ent, ref OrganEnableChangedEvent args)
     {
-        _toggle.TrySetActive(ent.Owner, args.Enabled);
+        if (!args.Enabled)
+            _toggle.TryDeactivate(ent.Owner);
     }
 
     private void OnActivateAttempt(Entity<AugmentPowerDrawComponent> ent, ref ItemToggleActivateAttemptEvent args)

@@ -10,6 +10,6 @@ public sealed class AugmentRelaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InstalledAugmentsComponent, GetUserMeleeDamageEvent>((_, c, e) => _augment.RelayEvent(c, ref e));
+        SubscribeLocalEvent<InstalledAugmentsComponent, GetUserMeleeDamageEvent>(_augment.RelayEvent);
     }
 }
