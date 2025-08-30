@@ -14020,3 +14020,9 @@ Entries:
       message: Clown Car actions now have cooldowns
   id: 1561
   time: '2025-08-30T21:39:54.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: '"looks surprised" emote'
+  id: 1562
+  time: '2025-08-30T21:45:58.0000000+00:00'
