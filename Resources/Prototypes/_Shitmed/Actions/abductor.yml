@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Actions
 - type: entity
-  parent: BaseAction
+  parent: BaseMentalAction
   id: ActionExitConsole
   name: Exit console
   description: Exit console.
@@ -20,7 +20,7 @@
     event: !type:ExitConsoleEvent
 
 - type: entity
-  parent: BaseAction
+  parent: BaseMentalAction
   id: ActionSendYourself
   name: Send yourself
   description: You need to FTL to the same map as the station to use this ability!
