@@ -14010,3 +14010,13 @@ Entries:
       message: Due to helmet change made Brizby 5% less bald
   id: 1560
   time: '2025-08-30T16:56:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Clownops can now buy Clown Cars and Clumsy Implants to drive them!
+    - type: Add
+      message: ClownCars now have a new theme song
+    - type: Fix
+      message: Clown Car actions now have cooldowns
+  id: 1561
+  time: '2025-08-30T21:39:54.0000000+00:00'
