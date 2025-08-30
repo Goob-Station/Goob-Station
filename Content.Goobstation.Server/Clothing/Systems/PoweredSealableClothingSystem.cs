@@ -123,6 +123,6 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
             return;
 
         if (_powerCellSystem.TryGetBatteryFromSlot(entity, out var battery, out var batteryComp))
-            args.Args.FoundBattery = (battery.Value, batteryComp.Value);
+            args.Args.FoundBattery = (battery.Value, batteryComp);
     }
 }
