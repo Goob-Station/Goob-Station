@@ -13924,3 +13924,9 @@ Entries:
       message: Cigarettes burn 20% slower now
   id: 1550
   time: '2025-08-30T04:14:22.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Slime people do not have bones, they do not take bone damage.
+  id: 1551
+  time: '2025-08-30T04:16:46.0000000+00:00'
