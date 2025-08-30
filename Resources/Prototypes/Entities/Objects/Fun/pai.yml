@@ -149,6 +149,7 @@
   - type: Input
     context: "human"
   - type: PAI
+  - type: BorgBrain #goobstation
   - type: BlockMovement
   - type: ToggleableGhostRole
     examineTextMindPresent: pai-system-pai-installed

@@ -65,6 +65,9 @@
     organs: # posibrain is stored in the torso
       eyes:
         id: "eyes"
+  - type: Tag
+    tags:
+    - POrgHead #Goobstation
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftArm ]

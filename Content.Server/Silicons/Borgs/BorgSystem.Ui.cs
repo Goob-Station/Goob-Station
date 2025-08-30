@@ -9,8 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Shared.UserInterface;
+using Content.Server.Power.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.NameIdentifier;
@@ -18,7 +17,9 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.UserInterface;
 using Robust.Shared.Configuration;
+using System.Linq;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -113,6 +114,11 @@ public sealed partial class BorgSystem
         {
             hasBattery = true;
             chargePercent = battery.CurrentCharge / battery.MaxCharge;
+        }
+        else if (TryComp<BatteryComponent>(uid, out var internalBattery)) // goob edit, some borgs have batteries built in
+        {
+            hasBattery = true;
+            chargePercent = internalBattery.CurrentCharge / internalBattery.MaxCharge;
         }
 
         var state = new BorgBuiState(chargePercent, hasBattery);

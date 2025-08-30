@@ -1,0 +1,181 @@
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: BaseItem
+  id: POrgBase
+  name: pOrg base
+  description: The core of a pAI Observational Roaming Gadget
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/porg.rsi
+    state: porg-base
+  - type: Appearance
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: POrg
+    node: start
+    defaultTarget: porgfull
+
+- type: entity
+  parent: POrgBase
+  id: POrgBuild
+  name: pOrg chassis
+  description: Almost ready for your buddy.
+  components:
+  - type: Sprite
+    state: porg-construction
+  - type: Construction
+    graph: POrg
+    node: porgfull
+    defaultTarget: porg
+
+- type: entity
+  parent: [BaseBorgChassisNotIonStormable]
+  id: POrg
+  name: pOrg
+  description: pAI Observational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 90
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7.5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/porg.rsi
+    layers:
+    - state: porg
+      map: ["enum.BorgVisualLayers.Body"]
+    - state: porg_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: true
+    - state: porg_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionAGhostShowStationMap
+  - type: ActionGrant
+    actions:
+    - ActionPAIPlayMidi
+  - type: SiliconLawProvider
+    laws: FamimovLawset
+  - type: Inventory
+    templateId: borgShort
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Common
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: porg_e
+    noMindState: porg_e_r
+    brainWhitelist:
+      components:
+      - PAI
+  - type: TypingIndicator
+    proto: robot
+  - type: ContainerContainer
+    containers:
+      borg_brain: !type:ContainerSlot { }
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: Construction
+    graph: POrg
+    node: porg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - VimPilot
+    - Unimplantable
+  - type: GuideHelp
+    guides:
+    - Robotics
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+  - type: InteractionPopup
+    interactSuccessString: petting-success-porg
+    interactFailureString: petting-failure-porg
+  - type: Access
+    enabled: false
+    tags:
+    - Borg
+    - External
+    - Maintenance
+  - type: Carriable

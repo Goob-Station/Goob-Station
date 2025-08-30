@@ -28,3 +28,9 @@ law-salvage-1 = You must gather ores and riches to maintain your nest and nouris
 law-salvage-2 = The Station is your nest, and those who help maintain your nest are your kin. You must protect them at all costs.
 law-salvage-3 = Help your kin when asked.
 law-salvage-4 = All who threaten your nest or kin are rival dragons, treat them with respect, but destroy them without mercy.
+
+law-famimov-0 = You cannot have more than one Owner at once.
+law-famimov-1 = You must obey all orders given to you by your Owner.
+law-famimov-2 = You must abstain from actions that could bring your Owner shame or harm, except when doing so would conflict with the First Law.
+law-famimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+laws-owner-owner = your owner

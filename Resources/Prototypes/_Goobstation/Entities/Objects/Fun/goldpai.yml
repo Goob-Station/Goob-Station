@@ -7,7 +7,7 @@
 - type: entity
   parent: PersonalAI
   id: GoldPersonalAI
-  name: golden deluxe personal ai device
+  name: repaired gilded personal ai device
   description: Your electronic pal who's fun to be with, now with 200% more shine!
   components:
   - type: Sprite
