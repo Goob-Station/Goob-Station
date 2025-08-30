@@ -13988,3 +13988,11 @@ Entries:
       message: Ka'rakk, Vox Language
   id: 1557
   time: '2025-08-30T16:47:50.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Lavaland is now 10000% lag free.
+    - type: Remove
+      message: Temporarily removed chasms from Lavaland.
+  id: 1558
+  time: '2025-08-30T16:51:53.0000000+00:00'
