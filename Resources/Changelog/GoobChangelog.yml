@@ -13980,3 +13980,11 @@ Entries:
       message: Autoinjector cartridges are disposed of correctly after use again
   id: 1556
   time: '2025-08-30T16:16:21.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Schechi, Resomi language
+    - type: Add
+      message: Ka'rakk, Vox Language
+  id: 1557
+  time: '2025-08-30T16:47:50.0000000+00:00'
