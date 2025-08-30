@@ -219,7 +219,7 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
-        private BoxContainer MakeStationReportTab() //start goob edit
+        private BoxContainer MakeStationReportTab() //Goob edit start
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
             var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
@@ -250,7 +250,7 @@ namespace Content.Client.RoundEnd
             stationReportTab.AddChild(StationReportContainerScrollbox);
             return stationReportTab;
         }
-        //end goob edit
+        //Goob edit end
     }
 
 }

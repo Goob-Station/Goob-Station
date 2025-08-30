@@ -7,6 +7,7 @@ using Content.Shared.StationReport;
 using Robust.Shared.GameObjects;
 
 namespace Content.Server.StationReportDiscordIntergration;
+
 public sealed class StationReportDiscordIntergration : EntitySystem
 {
     //thank you Timfa for writing this code
