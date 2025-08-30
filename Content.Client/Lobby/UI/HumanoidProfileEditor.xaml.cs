@@ -188,6 +188,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
@@ -390,9 +391,7 @@ namespace Content.Client.Lobby.UI
             };
 
             // begin Goobstation: port EE height/width sliders
-            #region Height and Width
-
-            var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+            #region Height and Width            
 
             UpdateHeightWidthSliders();
             UpdateDimensions(SliderUpdate.Both);
@@ -402,12 +401,14 @@ namespace Content.Client.Lobby.UI
 
             HeightReset.OnPressed += _ =>
             {
+                var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
                 HeightSlider.Value = prototype.DefaultHeight;
                 UpdateDimensions(SliderUpdate.Height);
             };
 
             WidthReset.OnPressed += _ =>
             {
+                var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
                 WidthSlider.Value = prototype.DefaultWidth;
                 UpdateDimensions(SliderUpdate.Width);
             };
@@ -1698,13 +1699,18 @@ namespace Content.Client.Lobby.UI
 
             var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
 
+            // we increase the min/max values of the sliders before we set their value, just so that we don't accidentally clamp down on a value loaded from a profile when we shouldn't
+            HeightSlider.MinValue = 0;
+            HeightSlider.MaxValue = 2;
+            HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight);
             HeightSlider.MinValue = species.MinHeight;
             HeightSlider.MaxValue = species.MaxHeight;
-            HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight);
 
+            WidthSlider.MinValue = 0;
+            WidthSlider.MaxValue = 2;
+            WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
             WidthSlider.MinValue = species.MinWidth;
             WidthSlider.MaxValue = species.MaxWidth;
-            WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
 
             var height = MathF.Round(species.AverageHeight * HeightSlider.Value);
             HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int) height));
@@ -1745,8 +1751,8 @@ namespace Content.Client.Lobby.UI
             heightValue = Math.Clamp(heightValue, species.MinHeight, species.MaxHeight);
             widthValue = Math.Clamp(widthValue, species.MinWidth, species.MaxWidth);
 
-            HeightSlider.Value = heightValue;
-            WidthSlider.Value = widthValue;
+            HeightSlider.SetValueWithoutEvent(heightValue);
+            WidthSlider.SetValueWithoutEvent(widthValue);
 
             SetProfileHeight(heightValue);
             SetProfileWidth(widthValue);
@@ -1767,14 +1773,12 @@ namespace Content.Client.Lobby.UI
 
             var species = _species.Find(x => x.ID == Profile.Species) ?? _species.First();
             //  TODO: Remove obsolete method
-            _prototypeManager.Index(species.Prototype).TryGetComponent<FixturesComponent>(out var fixture);
+            _prototypeManager.Index(species.Prototype).TryGetComponent<FixturesComponent>(out var fixture, _entManager.ComponentFactory);
 
             if (fixture != null)
             {
-                var radius = fixture.Fixtures["fix1"].Shape.Radius;
-                var density = fixture.Fixtures["fix1"].Density;
                 var avg = (Profile.Width + Profile.Height) / 2;
-                var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
+                var weight = FixtureSystem.GetMassData(fixture.Fixtures["fix1"].Shape, fixture.Fixtures["fix1"].Density).Mass * avg;
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) weight));
             }
             else // Whelp, the fixture doesn't exist, guesstimate it instead
