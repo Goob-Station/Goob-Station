@@ -13938,3 +13938,15 @@ Entries:
       message: Fixed abductors not being able to do anything.
   id: 1552
   time: '2025-08-30T07:25:49.0000000+00:00'
+- author: Local schizophrenic
+  changes:
+    - type: Fix
+      message: Fixed abductor helms protecting their other head and not the main one.
+    - type: Fix
+      message: >-
+        Fixed abductor's console, it now properly tells you if you're not in FTL
+        range again, and lets you actually teleport or exit.
+    - type: Fix
+      message: Fixed traitors missing their flavor text and code in uplink.
+  id: 1553
+  time: '2025-08-30T07:30:29.0000000+00:00'
