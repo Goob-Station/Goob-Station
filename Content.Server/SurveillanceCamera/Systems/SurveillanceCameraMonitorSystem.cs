@@ -343,9 +343,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
         monitor.KnownSubnets.Clear();
         PingCameraNetwork(uid, monitor);
-
-        // Slight delay to let known subnets to respond and be added to KnownSubnets
-        Timer.Spawn(TimeSpan.FromMilliseconds(700f), () => ReconnectToSubnets(uid, monitor)); // Goobstation
+        ReconnectToSubnets(uid, monitor); // Goobstation
     }
 
     // Goobstation start

@@ -13930,3 +13930,29 @@ Entries:
       message: Slime people do not have bones, they do not take bone damage.
   id: 1551
   time: '2025-08-30T04:16:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Removed raffle from spawned bingle ghost roles.
+    - type: Fix
+      message: Fixed abductors not being able to do anything.
+  id: 1552
+  time: '2025-08-30T07:25:49.0000000+00:00'
+- author: Local schizophrenic
+  changes:
+    - type: Fix
+      message: Fixed abductor helms protecting their other head and not the main one.
+    - type: Fix
+      message: >-
+        Fixed abductor's console, it now properly tells you if you're not in FTL
+        range again, and lets you actually teleport or exit.
+    - type: Fix
+      message: Fixed traitors missing their flavor text and code in uplink.
+  id: 1553
+  time: '2025-08-30T07:30:29.0000000+00:00'
+- author: Tim-Liam-Hill
+  changes:
+    - type: Fix
+      message: Fixed engineer voidsuit selector contraband status for engineers
+  id: 1554
+  time: '2025-08-30T08:43:35.0000000+00:00'
