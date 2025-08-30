@@ -13890,3 +13890,15 @@ Entries:
         wrenching them onto an LV cable! Botanist engineering time!
   id: 1546
   time: '2025-08-30T03:53:06.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Power Transmission Laser now shots a maximum of 5MJ which is (592 spesos
+        per shot).
+    - type: Fix
+      message: >-
+        Power Transmission Laser will now consume battery charge when fired, and
+        will stop firing when there isn't enough battery.
+  id: 1547
+  time: '2025-08-30T03:56:30.0000000+00:00'
