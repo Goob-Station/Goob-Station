@@ -18,56 +18,20 @@ public sealed partial class SlaughterDevourComponent : Component
     /// <summary>
     /// Healing done when eating someone
     /// </summary>
-    [DataField]
-    public DamageSpecifier ToHeal = new()
-    {
-        DamageDict = new()
-        {
-            { "Brute", -1000 },
-            { "Blunt", -1000 },
-            { "Slash", -1000 },
-            { "Piercing", -1000 },
-            { "Heat", -1000 },
-            { "Cold", -1000 },
-            { "Shock", -1000 },
-        }
-    };
+    [DataField(required: true)]
+    public DamageSpecifier ToHeal;
 
     /// <summary>
     /// Healing done when eating a robot
     /// </summary>
-    [DataField]
-    public DamageSpecifier ToHealNonCrew = new()
-    {
-        DamageDict = new()
-        {
-            { "Brute", -50 },
-            { "Blunt", -50 },
-            { "Slash", -50 },
-            { "Piercing", -50 },
-            { "Heat", -50 },
-            { "Cold", -50 },
-            { "Shock", -50 },
-        }
-    };
+    [DataField(required: true)]
+    public DamageSpecifier ToHealNonCrew;
 
     /// <summary>
     /// Healing done when eating anything else
     /// </summary>
-    [DataField]
-    public DamageSpecifier ToHealAnythingElse = new()
-    {
-        DamageDict = new()
-        {
-            { "Brute", -25 },
-            { "Blunt", -25 },
-            { "Slash", -25 },
-            { "Piercing", -25 },
-            { "Heat", -25 },
-            { "Cold", -25 },
-            { "Shock", -25 },
-        }
-    };
+    [DataField(required: true)]
+    public DamageSpecifier ToHealAnythingElse;
 
     /// <summary>
     /// The sound that plays once devouring someone

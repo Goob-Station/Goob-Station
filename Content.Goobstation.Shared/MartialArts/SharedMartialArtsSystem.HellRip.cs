@@ -60,7 +60,7 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref ComponentStartup args)
     {
-        if (!_netManager.IsServer)
+        if (_netManager.IsClient)
             return;
 
         TryGrantMartialArt(ent.Owner, ent.Comp);
@@ -168,9 +168,6 @@ public partial class SharedMartialArtsSystem
 
         _grabThrowing.Throw(target, ent, direction, 25);
 
-
-
-
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -192,9 +189,5 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
 
     }
-
     #endregion
-
 }
-
-

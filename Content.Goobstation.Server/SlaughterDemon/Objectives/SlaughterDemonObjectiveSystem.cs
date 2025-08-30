@@ -45,14 +45,15 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
 
         // Sets descriptions and titles
         SubscribeLocalEvent<SlaughterBaseObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssignObjective);
-        SubscribeLocalEvent<SlaughterKillTheWizardConditionComponent, ObjectiveAfterAssignEvent>(OnAfterWizardAssignObjective);
+        SubscribeLocalEvent<SlaughterKillTheWizardConditionComponent, ObjectiveAfterAssignEvent>(OnAfterKillTheWizardAssignObjective);
         SubscribeLocalEvent<SlaughterKillEveryoneConditionComponent, ObjectiveAfterAssignEvent>(OnAfterKillEveryoneAssignObjective);
 
     }
 
-    private void OnAfterWizardAssignObjective(Entity<SlaughterKillTheWizardConditionComponent> ent,
+    private void OnAfterKillTheWizardAssignObjective(Entity<SlaughterKillTheWizardConditionComponent> ent,
         ref ObjectiveAfterAssignEvent args)
     {
+        // rouden = goiden 💔💔💨
         if (ent.Comp.Title != null)
             _meta.SetEntityName(ent.Owner, Loc.GetString(ent.Comp.Title), args.Meta);
 

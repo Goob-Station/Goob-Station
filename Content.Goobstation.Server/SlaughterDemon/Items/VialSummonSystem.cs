@@ -16,6 +16,8 @@ public sealed class VialSummonSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<VialSummonComponent, AddGameRuleItemEvent>(OnAddGameRule);
     }
 

@@ -112,5 +112,4 @@ public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComp
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.HellRip;
-
 }

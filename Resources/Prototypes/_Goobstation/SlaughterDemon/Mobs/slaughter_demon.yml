@@ -78,6 +78,30 @@
         Structural: 50
   - type: SlaughterDemon # main component
   - type: SlaughterDevour # allows the demon to devour
+    toHeal: # Healing done when eating someone
+      groups:
+        Brute: -1000
+        Burn: -1000
+        Airloss: -1000
+        Toxin: -1000
+        Genetic: -1000
+        Metaphysical: -1000
+    toHealNonCrew: # Healing done when eating a robot
+      groups:
+        Brute: -50
+        Burn: -50
+        Airloss: -50
+        Toxin: -50
+        Genetic: -50
+        Metaphysical: -50
+    toHealAnythingElse:  # Healing when previous conditions weren't met
+      groups:
+        Brute: -25
+        Burn: -25
+        Airloss: -25
+        Toxin: -25
+        Genetic: -25
+        Metaphysical: -25
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
