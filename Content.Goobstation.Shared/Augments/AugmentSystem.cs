@@ -58,7 +58,7 @@ public sealed class AugmentSystem : EntitySystem
     /// <summary>
     /// Relays an event to all installed augments.
     /// </summary>
-    public void RelayEvent<T>(EntityUid body, ref T ev)
+    public void RelayEvent<T>(EntityUid body, ref T ev) where T: notnull
     {
         if (_installedQuery.TryComp(body, out var comp))
             RelayEvent((body, comp), ref ev);
