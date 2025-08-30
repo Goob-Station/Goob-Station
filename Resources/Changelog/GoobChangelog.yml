@@ -13845,3 +13845,11 @@ Entries:
       message: Added crapotoxin.
   id: 1541
   time: '2025-08-30T03:36:17.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Security masks now come packaged in your survival box instead of your
+        backpack.
+  id: 1542
+  time: '2025-08-30T03:46:50.0000000+00:00'
