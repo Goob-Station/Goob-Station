@@ -155,7 +155,7 @@
   id: BoxFolderCentCom
   name: CentComm folder
   parent: BoxFolderBase
-  categories: [ DoNotMap ]
+  #categories: [ DoNotMap ] Corvax-Goob-Mapping
   description: CentComm's miserable little pile of secrets!
   components:
   - type: Sprite

@@ -1,0 +1,15 @@
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconBlueShield
+  suffix: BSO's Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-blueshield
+
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconRepresenterNT
+  suffix: RNT's Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-representernt
