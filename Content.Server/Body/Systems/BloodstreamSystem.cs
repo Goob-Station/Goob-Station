@@ -110,6 +110,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
@@ -776,4 +777,14 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         var bleedChange = deltaBleed * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         TryModifyBleedAmount(ent, bleedChange.Float(), ent);
     }
+
+    // begin Goobstation: port EE height/width sliders
+    public void SetBloodMaxVolume(EntityUid uid, FixedPoint2 volume, BloodstreamComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.BloodMaxVolume = volume;
+    }
+    // end Goobstation: port EE height/width sliders
 }
