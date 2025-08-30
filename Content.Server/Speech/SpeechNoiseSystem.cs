@@ -83,6 +83,10 @@ namespace Content.Server.Speech
 
         private void OnEntitySpoke(EntityUid uid, SpeechComponent component, EntitySpokeEvent args)
         {
+            // Goobstation: if security gas mask accent is active, suppress default speech sound (custom on/off sounds used instead)
+            if (HasComp<SecurityGasMaskAccentComponent>(uid))
+                return;
+
             if (component.SpeechSounds == null || !args.Language.SpeechOverride.RequireSpeech) // No noises for non-speech languages.
                 return;
 
