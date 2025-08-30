@@ -311,7 +311,6 @@
   - type: Sprite
     state: strength
   - type: ItemToggle
-    activated: true # needs to be activated for installation
     onUse: false
     onActivate: false
   - type: AugmentStrength

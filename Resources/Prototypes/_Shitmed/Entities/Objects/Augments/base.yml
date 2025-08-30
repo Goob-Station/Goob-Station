@@ -4,6 +4,8 @@
   id: BaseAugment
   components:
   - type: Augment
+  - type: SurgeryTool
+    ignoreToggle: true # ItemToggle is used for augment logic not surgical tool usability
   - type: Organ
     intCap: 30
     integrity: 30
