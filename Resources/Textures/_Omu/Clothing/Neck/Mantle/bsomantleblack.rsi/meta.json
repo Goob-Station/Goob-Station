@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat at https://github.com/Bubberstation/Bubberstation/commit/f73fc2ea10c3193a56595e9d02d9aab186d99076 inhand sprites by diggy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+	{
+      "name": "equipped-NECK",
+      "directions": 4
+    },
+	{
+      "name": "inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "inhand-left",
+      "directions": 4
+    }
+  ]
+ }

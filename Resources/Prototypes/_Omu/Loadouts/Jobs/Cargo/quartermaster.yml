@@ -1,0 +1,9 @@
+- type: loadout
+  id: QuartermasterUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitQMUniform
+
+- type: loadout
+  id: QuartermasterUniformSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitQMUniformSkirt
