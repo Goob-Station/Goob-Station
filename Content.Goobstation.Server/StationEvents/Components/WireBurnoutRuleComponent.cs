@@ -6,5 +6,4 @@ namespace Content.Goobstation.Server.StationEvents.Components;
 [RegisterComponent]
 public sealed partial class WireBurnoutRuleComponent : Component
 {
-    
 }
