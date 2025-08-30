@@ -87,6 +87,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.Cloning;
@@ -122,6 +123,9 @@ public sealed partial class CloningSystem : EntitySystem
 
         if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
+
+        if (HasComp<HolographicCloneComponent>(original) && !settings.ForceCloning) // Goobstation - This has to be separate because I don't want to touch the other check.
+            return false;
 
         if (HasComp<UncloneableComponent>(original) && !HasComp<SiliconComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc - Also goob, no cloning Silicons.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead

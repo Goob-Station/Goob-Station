@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
@@ -494,3 +495,128 @@
         Blunt: 0
     soundHit:
       path: /Audio/Effects/adminhelp.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBrizby
+  name: Brizby plushie
+  description: Will always admit to being evil.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_brizby
+  - type: Item
+    heldPrefix: plushiebrizby
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 6
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/scissors.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlushieBaldzby:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBaldzby
+  name: Baldzby plushie
+  description: Now the truth is open for all to see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_baldzby
+  - type: Item
+    heldPrefix: plushiebaldzby
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMnwaar
+  name: Mnwaar plush
+  description: "A plushie of a small, deep gray, semi-heterochromic Shadowkin wearing the outfit of a Chief Medical Officer.\nThe tag reads: \"Mnwaar: Medical's Muted Manager!™ Now with magnetically attaching Hypospray!\""
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_mnwaar
+  - type: Item
+    heldPrefix: plushiemnwaar
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: BlueCuracao # mnwaar's favourite drink, or so i'm told.
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - bluecuracao
+      - fiber
