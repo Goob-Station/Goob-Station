@@ -212,6 +212,7 @@
     - WhitelistChameleon
     - SecurityBreathMask
   - type: Hailer # Goobstation - Hailer
+  - type: SecurityGasMaskAccent # Goobstation - Chat decoration
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 
