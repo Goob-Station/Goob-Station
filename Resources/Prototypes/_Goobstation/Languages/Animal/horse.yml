@@ -6,7 +6,7 @@
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
-    maxSyllables: 4
+    maxSyllables: 2
     replacement:
       - h'an
       - brron
