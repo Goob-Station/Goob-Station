@@ -302,6 +302,8 @@
       - Steel
       - Ore
       - Telecrystal
+  - type: MobPrice
+    price: 500
 
 
 - type: entity
@@ -736,7 +738,7 @@
   description: Very foul creature. For those that feel like punching.
   components:
   - type: MovementSpeedModifier
-    baseSprintSpeed: 7.5
+    baseSprintSpeed: 5.5
     baseWalkSpeed: 4.5 # default walking speed
   - type: Sprite
     drawdepth: Mobs
@@ -745,13 +747,23 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: horse
   - type: Physics
+  - type: Speech
+    speechVerb: HorseVerb
+    speechSounds: HorseSpeech
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cheval
+    understands:
+    - Cheval
+    - TauCetiBasic
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 15
+        density: 185
         mask:
         - MobMask
         layer:
@@ -792,3 +804,11 @@
     attributes:
       proper: true
       gender: male
+  - type: Sprinter
+    staminaDrainRate: 2
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
+
