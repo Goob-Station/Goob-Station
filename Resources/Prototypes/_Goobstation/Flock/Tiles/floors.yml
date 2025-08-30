@@ -1,0 +1,55 @@
+- type: tile
+  id: FloorFlockZone1
+  name: tiles-flockzone-floor-steel
+  sprite: /Textures/_Goobstation/Flock/Tiles/FZTile1.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+
+- type: entity
+  id: FloorFlockZone2
+  name: tiles-flockzone-floor-light
+  description: It hums with power.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Floor
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Flock/Tiles/featherzone.rsi
+    state: FZTile2
+    drawdepth: BelowFloor
+    layers:
+      - state: FZTile2
+        shader: unshaded
+  - type: AnimationPlayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCosmic
+  - type: Physics
+    bodyType: Static
+    canCollide: False
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
+
+
+- type: tile
+  id: FloorFlockZone3
+  name: tiles-flockzone-floor-diagonal
+  sprite: /Textures/_Goobstation/Flock/Tiles/FZTile3.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+
