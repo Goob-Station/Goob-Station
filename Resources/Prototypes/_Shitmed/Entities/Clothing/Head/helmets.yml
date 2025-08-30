@@ -13,6 +13,8 @@
   description: Zeep Glorp!
   components:
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
         Blunt: 0.35
