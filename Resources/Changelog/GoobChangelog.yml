@@ -13853,3 +13853,9 @@ Entries:
         backpack.
   id: 1542
   time: '2025-08-30T03:46:50.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Heretics may now always sacrifice other heretics for 3 knowledge points.
+  id: 1543
+  time: '2025-08-30T03:49:19.0000000+00:00'
