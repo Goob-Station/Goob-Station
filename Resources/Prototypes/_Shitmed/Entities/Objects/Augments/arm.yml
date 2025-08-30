@@ -228,8 +228,8 @@
     whitelist:
       tags:
       - Folder
-      - HandLabeler
       components:
+      - HandLabeler
       - Stamp
       - TapeRecorder
   - type: Construction

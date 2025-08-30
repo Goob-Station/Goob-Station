@@ -7,7 +7,7 @@
     - to: casing
       steps:
       - tag: AugmentCellCasing
-        name: casing
+        name: construction-graph-tag-casing
         icon:
           sprite: _Shitmed/Objects/Augments/power.rsi
           state: incomplete_cell
@@ -37,7 +37,7 @@
     - to: casing
       steps:
       - tag: AugmentRechargerCasing
-        name: casing
+        name: construction-graph-tag-casing
         icon:
           sprite: _Shitmed/Objects/Augments/power.rsi
           state: incomplete_charger
@@ -54,14 +54,14 @@
     - to: apc
       steps:
       - tag: AugmentRechargerBoard
-        name: "cell recharger machine board"
+        name: construction-graph-tag-cell-recharger
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
     - to: station
       steps:
       - tag: AugmentStationBoard
-        name: "cyborg recharging station machine board"
+        name: construction-graph-tag-cyborg-recharger
         icon:
           sprite: Objects/Misc/module.rsi
           state: charger_APC
@@ -79,7 +79,7 @@
     - to: casing
       steps:
       - tag: AugmentToolPanelCasing
-        name: casing
+        name: construction-graph-tag-casing
         icon:
           sprite: _Shitmed/Objects/Augments/arm.rsi
           state: base
@@ -96,28 +96,28 @@
     - to: "botany tools panel"
       steps:
       - tag: AugmentBotanyToolBelt
-        name: botany tools panel electronics
+        name: construction-graph-tag-botany-tools-electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "paperwork tools panel"
       steps:
       - tag: AugmentPaperworkToolBelt
-        name: paperwork tools panel electronics
+        name: construction-graph-tag-paperwork-tools-electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "utility tools panel"
       steps:
       - tag: AugmentToolBelt
-        name: utility tools panel electronics
+        name: construction-graph-tag-utility-tools-electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
     - to: "surgery tools panel"
       steps:
       - tag: AugmentSurgeryToolBelt
-        name: surgery tools panel electronics
+        name: construction-graph-tag-surgery-tools-electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
@@ -139,7 +139,7 @@
     - to: casing
       steps:
       - tag: AugmentStrengthCasing
-        name: casing
+        name: construction-graph-tag-casing
         icon:
           sprite: _Shitmed/Objects/Augments/arm.rsi
           state: base
@@ -156,7 +156,7 @@
     - to: augment
       steps:
       - tag: AugmentStrengthElectronics
-        name: strength augment electronics
+        name: construction-graph-tag-strength-augment-electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: mainboard
