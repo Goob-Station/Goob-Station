@@ -39,6 +39,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PlasmamanSafe # Goobstation - Start
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Armor
     coverage:
     - Head
@@ -54,6 +58,8 @@
     - Snout
     - HeadTop
     - HeadSide
+
+
 
 - type: entity
   abstract: true

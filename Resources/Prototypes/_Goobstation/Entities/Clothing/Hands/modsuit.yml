@@ -11,8 +11,24 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+## Goob Station - Start
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
 - type: entity
   parent: ClothingHandsBase
+  id: ClothingHandModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftHand
+    - RightHand
+## Goob Station - End
+
+- type: entity
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsStandard
   name: standard hardsuit gauntlets
   description: Special modular suit gloves that protect wearer from electric shock.
@@ -48,7 +64,7 @@
       - state: equipped-HAND-sealed
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsSecurity
   name: soldat hardsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight.
@@ -84,7 +100,7 @@
       - state: equipped-HAND-sealed
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsParamedic
   name: sanitater hardsuit gauntlets
   description: Black and white modular suit gloves for gripping percs and patients tight.
@@ -126,7 +142,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsHeadOfSecurity
   name: bulwark hardsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
@@ -170,7 +186,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsEngineer
   name: sapper hardsuit gauntlets
   description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
@@ -216,7 +232,7 @@
         Shock: 0.5
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsAtmostech
   name: aeolus hardsuit gauntlets
   description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
@@ -263,7 +279,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsResearchDirector
   name: minerva hardsuit gauntlets
   description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
@@ -307,7 +323,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase # Goobstation
   id: ClothingModsuitGauntletsCaptain
   name: magnate hardsuit gauntlets
   description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.

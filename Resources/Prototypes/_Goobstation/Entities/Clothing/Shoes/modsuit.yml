@@ -11,8 +11,25 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+## Goobstation - Start
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
 - type: entity
   parent: ClothingShoesBase
+  id: ClothingShoesModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - WhitelistChameleon
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftFoot
+    - RightFoot
+## Goobstation - End
+
+- type: entity
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsStandard
   name: standard hardsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
@@ -24,14 +41,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -42,7 +57,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsSecurity
   name: soldat hardsuit boots
   description: THE IRON BOOTS OF THE LAW.
@@ -54,14 +69,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false # Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -88,7 +101,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsHeadOfSecurity
   name: bulwark hardsuit boots
   description: I call these my commie stompers.
@@ -100,14 +113,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -134,7 +145,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsParamedic
   name: sanitater hardsuit boots
   description: Made to get bloody.
@@ -146,14 +157,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -164,7 +173,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsEngineer
   name: sapper hardsuit boots
   description: Made to get oily.
@@ -176,14 +185,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -205,7 +212,7 @@
     sprintModifier: 0.9
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsAtmostech
   name: aeolus hardsuit boots
   description: Made to get burnt.
@@ -217,14 +224,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -237,7 +242,7 @@
     reduction: 0.25
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsResearchDirector
   name: minerva hardsuit boots
   description: Wont stop you slipping on your own blood when the holocarp gets to you.
@@ -249,14 +254,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
@@ -267,7 +270,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesModsuitBase #Goobstation
   id: ClothingModsuitBootsCaptain
   name: magnate hardsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
@@ -279,14 +282,12 @@
     layers:
     - state: boots
     - state: boots-sealed
+      visible: false #Goobstation
       map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ feet ]
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
