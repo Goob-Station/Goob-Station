@@ -13882,3 +13882,11 @@ Entries:
         burn cartridge by a similar amount 
   id: 1545
   time: '2025-08-30T03:51:52.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Add
+      message: >-
+        Potato Batteries can now be used to generate a small amount of power by
+        wrenching them onto an LV cable! Botanist engineering time!
+  id: 1546
+  time: '2025-08-30T03:53:06.0000000+00:00'
