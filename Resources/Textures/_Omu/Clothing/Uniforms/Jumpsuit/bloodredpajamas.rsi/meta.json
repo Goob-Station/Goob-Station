@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG Station - https://github.com/tgstation/tgstation/commit/83654b97cb38d0bb1c37e1690b9719ebfdcb0211 - inhand sprites made by dootythefrooty",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+	{
+      "name": "inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

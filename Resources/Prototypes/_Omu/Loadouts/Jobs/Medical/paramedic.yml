@@ -1,0 +1,16 @@
+# Jumpsuits / Jumpskirts
+- type: loadout
+  id: ParamedUniformBlueSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedUniformSkirt
+
+- type: loadout
+  id: ParamedUniformBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedUniform
+
+# OuterClothing
+- type: loadout
+  id: ClothingJacketParamedBlue
+  equipment:
+    outerClothing: ClothingOuterJacketParamed

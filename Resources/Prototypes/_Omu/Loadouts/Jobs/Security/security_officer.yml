@@ -1,0 +1,5 @@
+# Jumpsuits / Jumpskirts
+- type: loadout
+  id: BlackRedUniform
+  equipment:
+    jumpsuit: ClothingUniformBlackRedSecUniform

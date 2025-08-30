@@ -1019,6 +1019,7 @@
   - BSOArmoredCoat # EE
   - BSOMarineVest # EE
   - BSOArmoredVest # EE
+  - BlueshieldOfficerOuterKimonoBlueshield
   - BlueshieldOfficerOuterKimonoBlueshield #Omu
 
 - type: loadoutGroup
@@ -1417,6 +1418,7 @@
   name: loadout-group-brigmedic-outer
   loadouts:
   - BrigmedicAMG
+  - BrigmedRedJacket # OmuStation
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
