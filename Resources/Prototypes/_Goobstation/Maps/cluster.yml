@@ -88,7 +88,7 @@
             Brigmedic: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 5, 5 ]
+            SalvageSpecialist: [ -1, -1 ]
             CargoTechnician: [ 2, 2 ]
             #civillian
             Passenger: [ -1, -1 ]

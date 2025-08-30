@@ -347,7 +347,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)) // Goob change
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
@@ -361,22 +362,24 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnHeavyAttack(HeavyAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        var weapon = GetEntity(msg.Weapon);
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)
+            || TerminatingOrDeleted(weapon)) // Goobstation Change
             return;
 
-        if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon) ||
-            !weapon.CanWideSwing) // Goobstation Change
-        {
+        if (!TryGetWeapon(user, out var weaponUid, out var weaponComp)
+            || weaponUid != weapon
+            || !weaponComp.CanWideSwing) // Goobstation Change
             return;
-        }
 
-        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weaponComp, msg, args.SenderSession);
     }
 
     private void OnDisarmAttack(DisarmAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)) // Goobstation Change
             return;
 
         if (TryGetWeapon(user, out var weaponUid, out var weapon))
