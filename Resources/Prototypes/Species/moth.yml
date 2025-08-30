@@ -31,6 +31,14 @@
   maleFirstNames: NamesMothFirstMale
   femaleFirstNames: NamesMothFirstFemale
   lastNames: NamesMothLast
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.8
+  defaultHeight: 1
+  maxHeight: 1.20
+  minWidth: 0.80
+  defaultWidth: 1
+  maxWidth: 1.25
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobMothSprites
@@ -79,7 +87,7 @@
       points: 1
       required: false
     HeadTop:
-      points: 2
+      points: 6
       required: true
       defaultMarkings: [ MothAntennasDefault ]
     HeadSide:

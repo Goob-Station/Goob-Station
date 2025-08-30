@@ -89,7 +89,7 @@
     state: jumper3
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper4
-    shader: unshaded
+  shader: unshaded
 
 
 - type: marking
