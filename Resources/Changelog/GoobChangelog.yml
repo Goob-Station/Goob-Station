@@ -13908,3 +13908,9 @@ Entries:
       message: Fixed the Biomass Reclaimer not accepting dragged or dropped bodies.
   id: 1548
   time: '2025-08-30T03:56:37.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: BSO combat injector kit now comes with an explosive resistant chestrig.
+  id: 1549
+  time: '2025-08-30T04:03:01.0000000+00:00'
