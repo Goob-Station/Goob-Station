@@ -14002,3 +14002,11 @@ Entries:
       message: Trevor is now fit and ready for their new job.
   id: 1559
   time: '2025-08-30T16:55:24.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Common helmets have an option to show hair
+    - type: Tweak
+      message: Due to helmet change made Brizby 5% less bald
+  id: 1560
+  time: '2025-08-30T16:56:27.0000000+00:00'
