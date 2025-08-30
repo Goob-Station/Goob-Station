@@ -47,6 +47,22 @@
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Damageable # Shitmed
     damageModifierSet: Slime
+  - type: Woundable # GoobStation
+    boneEntity: SlimeBone
+
+# GoobStation
+# A minimal pseudo-bone entity for SlimePerson
+# preventing BoneDamage traumas from being applied.
+- type: entity
+  id: SlimeBone
+  parent: BaseItem
+  name: slime pseudo-bone
+  description: A gel-like structural node used by slimepeople. Contains no rigid bone.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Damageable
+    damageContainer: Inorganic
 
 - type: entity
   id: ChestSlime
@@ -56,6 +72,7 @@
     - type: Sprite
       sprite: Mobs/Species/Slime/parts.rsi
       state: "chest_m"
+
 
 - type: entity
   id: GroinSlime
