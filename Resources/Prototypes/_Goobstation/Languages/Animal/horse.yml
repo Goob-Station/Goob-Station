@@ -1,0 +1,57 @@
+- type: language
+  id: Cheval
+  isVisibleLanguage: true
+  speech:
+    color: "#964B00"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    replacement:
+      - an
+      - bon
+      - che
+      - de
+      - du
+      - el
+      - en
+      - et
+      - eu
+      - fa
+      - fil
+      - fo
+      - gar
+      - il
+      - je
+      - la
+      - le
+      - li
+      - ma
+      - me
+      - mi
+      - mon
+      - ne
+      - non
+      - nu
+      - un
+      - ou
+      - par
+      - peu
+      - pi
+      - po
+      - que
+      - qui
+      - re
+      - sa
+      - se
+      - si
+      - ta
+      - te
+      - toi
+      - ton
+      - tu
+      - un
+      - va
+      - ver
+      - vi
+      - vu

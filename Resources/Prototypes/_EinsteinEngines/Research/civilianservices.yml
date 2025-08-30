@@ -21,6 +21,7 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
+  - ChevalTranslatorImplanter
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment

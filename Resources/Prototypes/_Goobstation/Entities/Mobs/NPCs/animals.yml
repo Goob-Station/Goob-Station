@@ -748,13 +748,12 @@
   - type: Speech
     speechVerb: Horse
     speechSounds: HorseSpeech
-  - type: ReplacementAccent
-    accent: horse
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
-    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
+    - Cheval
     understands:
+    - Cheval
     - TauCetiBasic
   - type: Fixtures
     fixtures:
