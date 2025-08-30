@@ -13779,3 +13779,69 @@ Entries:
       message: Removed felinids from command.
   id: 1532
   time: '2025-08-19T16:36:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Lootbugs now sell for 500.
+  id: 1533
+  time: '2025-08-30T03:22:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Vehicles now move at 1.4 of their original values. This is due to
+        spritning being added making them semi obsolete. Beware of clown cars. 
+  id: 1534
+  time: '2025-08-30T03:23:43.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed Ultravasculine and added heat requirement to Ethyloxyephedrine
+        reaction
+  id: 1535
+  time: '2025-08-30T03:24:23.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the moth antennae marking limit (head, top) from two (2) to
+        six (6)!
+  id: 1536
+  time: '2025-08-30T03:25:46.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Rodentia now get thirsty.
+  id: 1537
+  time: '2025-08-30T03:26:15.0000000+00:00'
+- author: KMano10000
+  changes:
+    - type: Fix
+      message: Some glowing eyes not really glowing
+  id: 1538
+  time: '2025-08-30T03:26:51.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Suicidal borgs can no longer take the Bingle pit with them. Face the
+        bingles head on, clanker.
+    - type: Remove
+      message: >-
+        Bingle tiles are no longer slippery, as the bingles were slipping on it
+        more than anything else.
+  id: 1539
+  time: '2025-08-30T03:28:03.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CE now has an experimental RCD in their locker.
+  id: 1540
+  time: '2025-08-30T03:33:23.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added crapotoxin.
+  id: 1541
+  time: '2025-08-30T03:36:17.0000000+00:00'
