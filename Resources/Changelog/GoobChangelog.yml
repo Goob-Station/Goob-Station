@@ -13914,3 +13914,39 @@ Entries:
       message: BSO combat injector kit now comes with an explosive resistant chestrig.
   id: 1549
   time: '2025-08-30T04:03:01.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Flippos can be inserted into cigarette packs again
+    - type: Tweak
+      message: Premium Havanian cigar's can also be inserted into cigarette packs again
+    - type: Tweak
+      message: Cigarettes burn 20% slower now
+  id: 1550
+  time: '2025-08-30T04:14:22.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Slime people do not have bones, they do not take bone damage.
+  id: 1551
+  time: '2025-08-30T04:16:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Removed raffle from spawned bingle ghost roles.
+    - type: Fix
+      message: Fixed abductors not being able to do anything.
+  id: 1552
+  time: '2025-08-30T07:25:49.0000000+00:00'
+- author: Local schizophrenic
+  changes:
+    - type: Fix
+      message: Fixed abductor helms protecting their other head and not the main one.
+    - type: Fix
+      message: >-
+        Fixed abductor's console, it now properly tells you if you're not in FTL
+        range again, and lets you actually teleport or exit.
+    - type: Fix
+      message: Fixed traitors missing their flavor text and code in uplink.
+  id: 1553
+  time: '2025-08-30T07:30:29.0000000+00:00'
