@@ -171,7 +171,7 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-    - id: ClothingHandsKnucklesQuartermaster # Goobstation - ROCK THAT MF!!
+    - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -322,7 +322,7 @@
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: CargoRequestEngineeringComputerCircuitboard
-    - id: RCD
+    # - id: RCD # Goobstation
     - id: RCDAmmo
     - id: RPD
     - id: RCDAmmo
@@ -335,6 +335,7 @@
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
+    - id: RCDRechargingCE
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

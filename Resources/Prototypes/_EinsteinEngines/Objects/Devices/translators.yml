@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,12 +23,12 @@
       - state: translator
         shader: unshaded
         visible: false
-        map: [ "enum.ToggleVisuals.Layer", "enum.PowerDeviceVisualLayers.Powered" ]
+        map: [ "enum.ToggleableVisuals.Layer", "enum.PowerDeviceVisualLayers.Powered" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: HandheldTranslator
@@ -331,16 +334,50 @@
     - Marish
 
 
+- type: entity                      # taken from Floofstation
+  id: NewKinPidginTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Ka'rakk translator
+  description: Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - NewKinPidgin
+    understood:
+    - TauCetiBasic
+    - NewKinPidgin
+    requires:
+    - TauCetiBasic
+    - NewKinPidgin
+
+- type: entity                      # Language taken from Floofstation but the proto is goob
+  id: SchechiTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Schechi translator
+  description: Interprets the birdsong known as Schechi and translates it to Galactic Common. Primarily spoken by Resomi.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Schechi
+    understood:
+    - Schechi
+    - TauCetiBasic
+    requires:
+    - TauCetiBasic
+    - Schechi
+    
+
 #Borg
 - type: entity
   id: NTUniversalTranslator
   parent: [ TranslatorUnpowered ]
   name: Universal translator
   description: Translates speech between all NT approved language. For talking to crew!
-  components:
+   components:
   - type: HandheldTranslator
     spoken:
-    - TauCetiBasic
     - Canilunzt
     - Bubblish
     - Nekomimetic
@@ -367,3 +404,5 @@
     - Marish
     requires:
     - RobotTalk
+
+

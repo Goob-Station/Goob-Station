@@ -120,6 +120,17 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SMGPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SMGDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SMGDrop
+  # Goobstation edit end
   - type: Multishot # Goobstation V
   - type: AltFireMelee
     attackType: Heavy
@@ -195,6 +206,8 @@
   - type: Item # Goobstation
     shape:
     - 0,0,2,1
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: Drozd
@@ -220,16 +233,16 @@
       minAngle: 21
       maxAngle: 32
       fireRate: 6
-      burstFireRate: 12
+      burstFireRate: 18
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: Burst
       availableModes:
       - Burst
-      #- FullAuto # Goobstation - start
-      #- SemiAuto
-      selectedMode: Burst
-      shotsPerBurst: 5
-      burstCooldown: 0.75 # Goobstation - end
+      - FullAuto
+      - SemiAuto
+      shotsPerBurst: 3
+      burstCooldown: 0.375
     - type: ItemSlots
       slots:
         gun_magazine:

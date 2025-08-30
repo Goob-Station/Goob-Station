@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 Yurii Kis <yurii.kis@smartteksas.com>
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Angelo Fallaria <ba.fallaria@gmail.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
@@ -45,7 +46,6 @@
 // SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
@@ -76,6 +76,12 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -85,6 +91,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Configuration;
+using Content.Goobstation.Common.Movement; // Goobstation
+using Content.Goobstation.Common.CCVar; // Goobstation
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Movement.Systems
@@ -97,7 +105,7 @@ namespace Content.Shared.Movement.Systems
         private float _frictionModifier;
         private float _airDamping;
         private float _offGridDamping;
-
+        private float _maxSpeed = 2.7f; // Goobstation Change, actual value is given by Cvar, this is a fallback.
         public override void Initialize()
         {
             base.Initialize();
@@ -106,6 +114,7 @@ namespace Content.Shared.Movement.Systems
             Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
             Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
             Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
+            Subs.CVar(_configManager, GoobCVars.MaxSpeed, value => _maxSpeed = value, true); // Goobstation Change
         }
 
         private void OnModMapInit(Entity<MovementSpeedModifierComponent> ent, ref MapInitEvent args)
@@ -166,15 +175,22 @@ namespace Content.Shared.Movement.Systems
             if (_timing.ApplyingState)
                 return;
 
-            var ev = new RefreshMovementSpeedModifiersEvent();
+            // <Goobstation Change>
+            var isImmune = false;
+            if (HasComp<SpeedModifierImmunityComponent>(uid))
+                isImmune = true;
+            // </Goobstation Change>
+
+            var ev = new RefreshMovementSpeedModifiersEvent(isImmune);
             RaiseLocalEvent(uid, ev);
 
             if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
                 MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
                 return;
 
-            move.WalkSpeedModifier = ev.WalkSpeedModifier;
-            move.SprintSpeedModifier = ev.SprintSpeedModifier;
+
+            move.WalkSpeedModifier = Math.Min(ev.WalkSpeedModifier, _maxSpeed); // Goobstation Change
+            move.SprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, _maxSpeed); // Goobstation Change
             Dirty(uid, move);
         }
 
@@ -241,15 +257,31 @@ namespace Content.Shared.Movement.Systems
         public float WalkSpeedModifier { get; private set; } = 1.0f;
         public float SprintSpeedModifier { get; private set; } = 1.0f;
 
-        public void ModifySpeed(float walk, float sprint)
+        /// <summary>
+        ///    Goobstation Change: Whether or not this entity is immune to most movement speed modifiers.
+        ///    Bypassable by setting bypassImmunity to true.
+        /// </summary
+        private bool _isImmune = false;
+
+        // <Goobstation Change>
+        public void ModifySpeed(float walk, float sprint, bool bypassImmunity = false)
         {
+            if (_isImmune && !bypassImmunity)
+                return;
+
             WalkSpeedModifier *= walk;
             SprintSpeedModifier *= sprint;
         }
 
-        public void ModifySpeed(float mod)
+        public RefreshMovementSpeedModifiersEvent(bool isImmune = false)
         {
-            ModifySpeed(mod, mod);
+            _isImmune = isImmune;
+        }
+        // </Goobstation Change>
+
+        public void ModifySpeed(float mod, bool bypassImmunity = false)
+        {
+            ModifySpeed(mod, mod, bypassImmunity);
         }
     }
 

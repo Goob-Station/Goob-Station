@@ -314,6 +314,17 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        damage:
+          groups:
+            Brute: -0.90
+          types:
+            Heat: -0.30
+            Shock: -0.30
+            Caustic: -0.30
 
 - type: reagent
   id: MilkGoat
