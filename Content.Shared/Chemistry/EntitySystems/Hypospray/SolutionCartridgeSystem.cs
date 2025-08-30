@@ -7,13 +7,15 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Chemistry.Hypospray;
+namespace Content.Shared.Chemistry.EntitySystems.Hypospray;
 
 public sealed class SolutionCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -31,6 +33,9 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
             return;
 
+        if (_timing.ApplyingState)
+            return;
+
         _solution.TryAddSolution(solutionEntity.Value, cartridge.Solution);
     }
 
@@ -39,6 +44,9 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         if (!TryComp<SolutionCartridgeComponent>(args.Entity, out var cartridge)
         || !TryComp(ent, out SolutionContainerManagerComponent? manager)
         || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
+            return;
+
+        if (_timing.ApplyingState)
             return;
 
         _solution.RemoveAllSolution(solutionEntity.Value);
