@@ -187,8 +187,8 @@
         Heat: 0.8
         Cold: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.75 # good edit
-    sprintModifier: 0.75
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
@@ -478,3 +478,6 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: StaticPrice
+    price: 1500
+
