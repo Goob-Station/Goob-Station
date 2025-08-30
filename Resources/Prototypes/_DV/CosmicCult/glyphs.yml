@@ -44,6 +44,9 @@
           Cooldown: {state: cooldown}
   - type: Appearance
   - type: InteractionOutline
+  - type: CosmicPurifiable # Because why the hell not
+    cleanseTime: 10
+    cleanseTimeChaplain: 5
 
 - type: entity
   parent: CosmicGlyphBase

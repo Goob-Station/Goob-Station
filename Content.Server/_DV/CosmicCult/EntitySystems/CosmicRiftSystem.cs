@@ -12,13 +12,13 @@ using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -27,7 +27,6 @@ namespace Content.Server._DV.CosmicCult.EntitySystems;
 public sealed class CosmicRiftSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -35,22 +34,22 @@ public sealed class CosmicRiftSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoids = [];
+    private readonly HashSet<Entity<MobStateComponent>> _mobs = [];
 
     private EntityQuery<CosmicCultComponent> _cultistsQuery;
     private EntityQuery<BibleUserComponent> _chaplainsQuery;
+    private EntityQuery<CosmicColossusComponent> _colossiQuery;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<CosmicMalignRiftComponent, InteractHandEvent>(OnInteract);
-        SubscribeLocalEvent<CosmicMalignRiftComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<CosmicCultComponent, EventAbsorbRiftDoAfter>(OnAbsorbDoAfter);
-        SubscribeLocalEvent<CosmicMalignRiftComponent, EventPurgeRiftDoAfter>(OnPurgeDoAfter);
         SubscribeLocalEvent<CosmicMalignRiftComponent, ComponentInit>(OnRiftStarted);
 
         _cultistsQuery = GetEntityQuery<CosmicCultComponent>();
         _chaplainsQuery = GetEntityQuery<BibleUserComponent>();
+        _colossiQuery = GetEntityQuery<CosmicColossusComponent>();
     }
 
     private void OnRiftStarted(Entity<CosmicMalignRiftComponent> ent, ref ComponentInit args)
@@ -70,16 +69,21 @@ public sealed class CosmicRiftSystem : EntitySystem
 
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
-            _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pos, comp.PulseRange, _humanoids);
-            _humanoids.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target));
-            foreach(var humanoid in _humanoids)
+            _lookup.GetEntitiesInRange<MobStateComponent>(pos, comp.PulseRange, _mobs);
+            _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
+            foreach(var mob in _mobs)
             {
-                if (!pos.TryDistance(EntityManager, Transform(humanoid).Coordinates, out var distance)) continue;
+                if (!pos.TryDistance(EntityManager, Transform(mob).Coordinates, out var distance)) continue;
                 if (!_random.Prob(comp.PulseProb)) continue;
                 var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
                 var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance
-                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(humanoid, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
-                if (TryComp<CosmicEntropyDebuffComponent>(humanoid, out var debuff)) debuff.Degen = new(){DamageDict = new(){{"Cold", 0.05 * damageMultiplier}, {"Asphyxiation", 0.15 * damageMultiplier}}};
+                _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(mob, "EntropicDegen", TimeSpan.FromSeconds(effectDuration), true);
+                if (TryComp<CosmicEntropyDebuffComponent>(mob, out var debuff)) debuff.Degen =
+                new(){DamageDict = new(){
+                    {"Cold", 0.05 * damageMultiplier},
+                    {"Asphyxiation", 0.15 * damageMultiplier},
+                    {"Ion", 0.15 * damageMultiplier}
+                }};
             }
         }
     }
@@ -90,12 +94,6 @@ public sealed class CosmicRiftSystem : EntitySystem
             || uid.Comp.Occupied)
         {
             _popup.PopupEntity(Loc.GetString("cosmiccult-rift-inuse"), args.User, args.User);
-            return;
-        }
-
-        if (HasComp<BibleUserComponent>(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-chaplainoops"), args.User, args.User);
             return;
         }
 
@@ -125,49 +123,6 @@ public sealed class CosmicRiftSystem : EntitySystem
             MovementThreshold = 0.5f,
         };
         _doAfter.TryStartDoAfter(doargs);
-    }
-
-    private void OnInteractUsing(Entity<CosmicMalignRiftComponent> uid, ref InteractUsingEvent args)
-    {
-        if (args.Handled
-            || uid.Comp.Occupied)
-        {
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-inuse"), args.User, args.User);
-            return;
-        }
-
-        if (HasComp<BibleComponent>(args.Used))
-        {
-            uid.Comp.Occupied = true;
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-beginpurge"), args.User, args.User);
-            var doargs = new DoAfterArgs(EntityManager,
-                args.User,
-                uid.Comp.BibleTime,
-                new EventPurgeRiftDoAfter(),
-                uid,
-                uid)
-            {
-                DistanceThreshold = 1.5f, Hidden = false, BreakOnDamage = true, BreakOnDropItem = true,
-                BreakOnMove = true, MovementThreshold = 2f,
-            };
-            _doAfter.TryStartDoAfter(doargs);
-        }
-        else if (TryComp<CleanseOnUseComponent>(args.Used, out var comp) && comp.CanPurge)
-        {
-            uid.Comp.Occupied = true;
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-beginpurge"), args.User, args.User);
-            var doargs = new DoAfterArgs(EntityManager,
-                args.User,
-                uid.Comp.ChaplainTime,
-                new EventPurgeRiftDoAfter(),
-                uid,
-                uid)
-            {
-                DistanceThreshold = 1.5f, Hidden = false, BreakOnDamage = true, BreakOnDropItem = true,
-                BreakOnMove = true, MovementThreshold = 2f,
-            };
-            _doAfter.TryStartDoAfter(doargs);
-        }
     }
 
     private void OnAbsorbDoAfter(Entity<CosmicCultComponent> uid, ref EventAbsorbRiftDoAfter args)
@@ -204,24 +159,5 @@ public sealed class CosmicRiftSystem : EntitySystem
             Transform(args.Args.User).Coordinates,
             PopupType.MediumCaution);
         QueueDel(target);
-    }
-
-    private void OnPurgeDoAfter(Entity<CosmicMalignRiftComponent> uid, ref EventPurgeRiftDoAfter args)
-    {
-        if (args.Args.Target == null || args.Cancelled || args.Handled)
-        {
-            uid.Comp.Occupied = false;
-            return;
-        }
-
-        args.Handled = true;
-        var tgtpos = Transform(uid).Coordinates;
-        Spawn(uid.Comp.PurgeVFX, tgtpos);
-        _audio.PlayPvs(uid.Comp.PurgeSound, args.User);
-        _popup.PopupCoordinates(
-            Loc.GetString("cosmiccult-rift-purge", ("NAME", Identity.Entity(args.Args.User, EntityManager))),
-            Transform(args.Args.User).Coordinates,
-            PopupType.Medium);
-        QueueDel(uid);
     }
 }

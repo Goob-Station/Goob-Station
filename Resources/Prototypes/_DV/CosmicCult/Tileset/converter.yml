@@ -79,17 +79,4 @@
     floodFillStarting: true
     corruptionMaxTicks: 12
     corruptionSpeed: 1.25
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
+  - type: CosmicPurifiable

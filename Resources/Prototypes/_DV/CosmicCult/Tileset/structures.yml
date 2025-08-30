@@ -271,6 +271,7 @@
     corruptionSpeed: 8
     corruptionChance: 1
     corruptionReduction: 0.16
+  - type: CosmicPurifiable
 
 ##################### SPIRE
 - type: entity
@@ -331,22 +332,11 @@
     range: 15
     sound:
       path: /Audio/_DV/CosmicCult/spire_draining.ogg
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: RCDDeconstructable
     deconstructable: false
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
+  - type: CosmicPurifiable
+    cleanseTime: 10
+    cleanseTimeChaplain: 5
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -401,22 +391,11 @@
     range: 15
     sound:
       path: /Audio/_DV/CosmicCult/spire_draining.ogg
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: RCDDeconstructable
     deconstructable: false
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
+  - type: CosmicPurifiable
+    cleanseTime: 10
+    cleanseTimeChaplain: 5
   - type: PointLight
     radius: 2
     energy: 1.6
