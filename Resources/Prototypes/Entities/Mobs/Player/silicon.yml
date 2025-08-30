@@ -432,40 +432,51 @@
   - type: LanguageKnowledge #Equivalent to PAI
     speaks:
     - TauCetiBasic
-    - RobotTalk
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
+    - RobotTalk #Borg, IPC
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
     - DroneTalk
-    - Marish
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
     - Elyran
     - Freespeak
     - Tradeband
     understands:
     - TauCetiBasic
-    - RobotTalk
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
+    - RobotTalk #Borg, IPC
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
     - DroneTalk
-    - Marish
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
     - Elyran
     - Freespeak
     - Tradeband
+    - NovuNederic
     - Sign # Should know it but not speak it, for obvious reasons.
   # Einstein Engines - Language end
 

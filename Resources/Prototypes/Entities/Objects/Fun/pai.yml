@@ -230,6 +230,8 @@
     - Moffic
     - ValyrianStandard
     - Chittin
+    - Calcic
+    - Mouse
     - SiikMaas
     - RobotTalk
     - DroneTalk
@@ -239,6 +241,8 @@
     - Tradeband
     - Schechi
     - NewKinPidgin
+    - SpaceItalian
+    - NovuNederic
     understands:
     - TauCetiBasic # Add individual languages so they can understand without understanding animals.
     - Canilunzt
@@ -250,6 +254,8 @@
     - Moffic
     - ValyrianStandard
     - Chittin
+    - Calcic
+    - Mouse
     - SiikMaas
     - RobotTalk
     - DroneTalk
@@ -260,6 +266,8 @@
     - Sign # Should know it but not speak it, for obvious reasons.
     - Schechi
     - NewKinPidgin
+    - SpaceItalian
+    - NovuNederic
   # Einstein Engines - Language end
 
 - type: entity

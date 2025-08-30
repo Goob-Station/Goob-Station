@@ -286,7 +286,7 @@
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
   name: Chittin translator
-  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Arachnid!
   components:
   - type: HandheldTranslator
     spoken:
@@ -367,7 +367,6 @@
     requires:
     - TauCetiBasic
     - Schechi
-    
 
 #Borg
 - type: entity
@@ -375,33 +374,52 @@
   parent: [ TranslatorUnpowered ]
   name: Universal translator
   description: Translates speech between all NT approved language. For talking to crew!
-   components:
+  components:
   - type: HandheldTranslator
     spoken:
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
-    - Marish
+    - TauCetiBasic
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - NovuNederic
     understood:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
-    - Marish
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - NovuNederic
     requires:
     - RobotTalk
 
