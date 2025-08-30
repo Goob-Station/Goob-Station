@@ -14026,3 +14026,35 @@ Entries:
       message: '"looks surprised" emote'
   id: 1562
   time: '2025-08-30T21:45:58.0000000+00:00'
+- author: Slopstice, The Voices
+  changes:
+    - type: Add
+      message: >-
+        Devils now have a new objective, namely to get a specific amount of
+        contract weight.
+    - type: Fix
+      message: Devils can no longer have paradox clones of themselves.
+    - type: Fix
+      message: Devils can now teleport while restrained, this will uncuff them.
+    - type: Fix
+      message: >-
+        Devils can no longer make deals with silicons, nor can they handshake
+        nearly anything. (It was fun, but had to go.)
+    - type: Fix
+      message: Devils themselves and contracts are now significantly harder to destroy.
+    - type: Fix
+      message: Several other bugs with devil.
+    - type: Tweak
+      message: Devils now gain a new appearance when returning from being banished.
+    - type: Tweak
+      message: >-
+        Devils and other cheat-death capable entities can no longer revive if
+        holy damage exceeds their crit threshold.
+    - type: Tweak
+      message: >-
+        All Devil items can no longer be cremated, and the suit is no longer
+        contraband.
+    - type: Tweak
+      message: Holy water deals less damage (2 -> 0.7)
+  id: 1563
+  time: '2025-08-30T23:12:11.0000000+00:00'
