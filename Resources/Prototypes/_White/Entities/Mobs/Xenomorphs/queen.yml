@@ -30,7 +30,6 @@
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
     - ActionSpawnXenomorphEgg
-  - type: ComplexInteraction
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator

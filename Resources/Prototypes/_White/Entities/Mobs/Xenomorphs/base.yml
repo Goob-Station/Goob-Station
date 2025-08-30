@@ -147,6 +147,7 @@
     - Prying
   - type: Prying
     pryPowered: true
+  - type: ComplexInteraction
   - type: Hands
   - type: Puller
     needsHands: false
