@@ -13930,3 +13930,83 @@ Entries:
       message: Slime people do not have bones, they do not take bone damage.
   id: 1551
   time: '2025-08-30T04:16:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Removed raffle from spawned bingle ghost roles.
+    - type: Fix
+      message: Fixed abductors not being able to do anything.
+  id: 1552
+  time: '2025-08-30T07:25:49.0000000+00:00'
+- author: Local schizophrenic
+  changes:
+    - type: Fix
+      message: Fixed abductor helms protecting their other head and not the main one.
+    - type: Fix
+      message: >-
+        Fixed abductor's console, it now properly tells you if you're not in FTL
+        range again, and lets you actually teleport or exit.
+    - type: Fix
+      message: Fixed traitors missing their flavor text and code in uplink.
+  id: 1553
+  time: '2025-08-30T07:30:29.0000000+00:00'
+- author: Tim-Liam-Hill
+  changes:
+    - type: Fix
+      message: Fixed engineer voidsuit selector contraband status for engineers
+  id: 1554
+  time: '2025-08-30T08:43:35.0000000+00:00'
+- author: Aineias
+  changes:
+    - type: Add
+      message: Added a few new lavaland ruins!
+    - type: Add
+      message: Added an upgraded Pre-Armork Syndie base
+    - type: Add
+      message: Lavaland is now 100% free lag
+    - type: Tweak
+      message: >-
+        Some ruins are now invisible on GPS, this includes syndie base, ruining
+        the whole reason to play as salv for some SPECIFIC PEOPLE who abandon
+        mining, and rush to syndie base roundstart and not mining afterwards.
+        Expect more ore to be mined.
+    - type: Fix
+      message: Fixed a server crash caused by Sniper trying to eat his gun
+  id: 1555
+  time: '2025-08-30T15:52:09.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Autoinjector cartridges are disposed of correctly after use again
+  id: 1556
+  time: '2025-08-30T16:16:21.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Schechi, Resomi language
+    - type: Add
+      message: Ka'rakk, Vox Language
+  id: 1557
+  time: '2025-08-30T16:47:50.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Lavaland is now 10000% lag free.
+    - type: Remove
+      message: Temporarily removed chasms from Lavaland.
+  id: 1558
+  time: '2025-08-30T16:51:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Trevor is now fit and ready for their new job.
+  id: 1559
+  time: '2025-08-30T16:55:24.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Common helmets have an option to show hair
+    - type: Tweak
+      message: Due to helmet change made Brizby 5% less bald
+  id: 1560
+  time: '2025-08-30T16:56:27.0000000+00:00'

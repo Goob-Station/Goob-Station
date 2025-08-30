@@ -54,7 +54,7 @@
   id: UndeterminedVoidsuitEngineer
   name: engineer voidsuit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
-  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseEngineeringContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
