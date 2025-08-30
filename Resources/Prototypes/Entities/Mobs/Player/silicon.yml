@@ -308,7 +308,7 @@
   suffix: Empty
   components:
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
@@ -662,6 +662,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -695,6 +696,7 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      reregister: false
       requirements: # Goobstation - ghost roles requirements
       - !type:RoleTimeRequirement
         role: JobBorg
@@ -734,6 +736,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -770,6 +773,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -805,6 +809,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -839,4 +844,5 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: false
   - type: GhostTakeoverAvailable
