@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 freturt <dimadimafamilia939@gmail.com>
@@ -237,3 +238,30 @@
         whitelist:
           tags:
           - Sidearm
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
+  id: ClothingBeltMilitaryWebbingBSOFilled
+  name: blueshield chest rig
+  description: A set of tactical webbing worn by Central Command support units.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: StorageFill
+    contents:
+    - id: CombatInjector
+      amount: 1
+    - id: TirimolChemistryVial
+      amount: 1
+    - id: OmnizineChemistryVial
+      amount: 1
+    - id: SyriniverChemistryVial
+      amount: 1
+    - id: ProcenylLazideChemistryVial
+      amount: 1
+    - id: EbifinlLazideChemistryVial
+      amount: 1
