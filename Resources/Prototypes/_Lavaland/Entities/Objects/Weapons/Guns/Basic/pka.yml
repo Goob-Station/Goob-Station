@@ -149,11 +149,13 @@
 
 # Lavaland Change
 - type: entity
+  parent: BaseAction
   id: ActionTogglePKALight
-  name: action-name-toggle-pka-light
-  description: action-description-toggle-pka-light
+  name: Toggle PKA Light
+  description: Toggle the PKA light on and off.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 0.5
     icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
+  - type: InstantAction
     event: !type:ToggleActionEvent

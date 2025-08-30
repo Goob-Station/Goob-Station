@@ -112,6 +112,17 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RevolversDrop
+  # Goobstation edit end
 
 - type: entity
   name: Deckard
@@ -211,6 +222,8 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: StaticPrice
+    price: 1500 # Botany can shit these out like candy, but let's see how it goes
 
 - type: entity
   parent: WeaponRevolverPython
@@ -255,4 +268,3 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-    

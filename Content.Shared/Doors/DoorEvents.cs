@@ -8,11 +8,16 @@
 // SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Doors
 {
@@ -94,4 +99,11 @@ namespace Content.Shared.Doors
     public sealed class BeforeDoorAutoCloseEvent : CancellableEntityEventArgs
     {
     }
+
+
+    /// <summary>
+    /// Goobstation - Event for manual door bolting when door is not powered
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed partial class ManualBoltingDoAfterEvent : SimpleDoAfterEvent;
 }

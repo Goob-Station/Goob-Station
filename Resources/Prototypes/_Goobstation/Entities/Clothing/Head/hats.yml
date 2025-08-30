@@ -10,6 +10,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -247,7 +249,7 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatPropeller
-  name: propeller hat hat
+  name: propeller hat
   description: Aw gee willickers!
   components:
   - type: Sprite
@@ -262,7 +264,6 @@
 - type: entity
   parent: [ClothingHeadHatPropeller, ClothingHeadHeadHatBaseFlipped]
   id: ClothingHeadHatPropellerFlipped
-  name: propeller hat hat
   components:
   - type: Tag
     tags:
@@ -349,3 +350,14 @@
     sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSanabi
+  name: brigadier general hat
+  description: Smells like steel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
