@@ -1203,6 +1203,9 @@
   id: MesonGoggles # Goobstation - more toolbelt items
 
 - type: Tag
+  id: MessyDrinkerImmune
+
+- type: Tag
   id: Metal
 
 - type: Tag
