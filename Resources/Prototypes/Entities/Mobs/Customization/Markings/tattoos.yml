@@ -274,4 +274,4 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_l
-    shader: unshaded
+  shader: unshaded
