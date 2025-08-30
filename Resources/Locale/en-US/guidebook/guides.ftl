@@ -147,9 +147,6 @@ guide-entry-radio = Radio and Speech
 
 guide-entry-references = Tables & References
 guide-entry-chemicals = Chemicals
-guide-entry-good-chemicals = Good Chemicals
-guide-entry-bad-chemicals = Bad Chemicals
-guide-entry-neutral-chemicals = Neutral Chemicals
 guide-entry-drinks = Drinks
 guide-entry-foodrecipes = Food Recipes
 
