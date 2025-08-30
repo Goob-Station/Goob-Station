@@ -29,7 +29,7 @@
     acceleration: 1
     friction: 1
     baseWalkSpeed: 4.5
-    baseSprintSpeed: 7
+    baseSprintSpeed: 10
   - type: ItemSlots
     slots:
       key_slot:

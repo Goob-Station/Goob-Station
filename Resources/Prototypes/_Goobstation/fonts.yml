@@ -1,4 +1,6 @@
-
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -9,6 +11,14 @@
 - type: font
   id: NotoSansSC
   path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
+
+- type: font
+  id: ChelseaMarket # Used for vox font
+  path: /Fonts/_Goobstation/ChelseaMarket/ChelseaMarket.ttf
+
+- type: font
+  id: Schoolbell # Used for resomi font
+  path: /Fonts/_Goobstation/Schoolbell/Schoolbell.ttf
 
 - type: font
   id: NotoSansSCBold

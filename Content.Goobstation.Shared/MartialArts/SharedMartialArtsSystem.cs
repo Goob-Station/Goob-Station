@@ -137,6 +137,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
+            if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+                comp.CurrentTarget = null;
+
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
                 && comp.ConsecutiveGnashes == 0)
