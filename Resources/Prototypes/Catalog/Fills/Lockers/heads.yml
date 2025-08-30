@@ -335,7 +335,7 @@
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
-    - id: RCDRechargingCe
+    - id: RCDRechargingCE
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
