@@ -249,7 +249,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
             // Begin DeltaV additions
             // Allow users to modifier stamina damage as well, this part of the event is not handle-able by listeners.
-            RaiseLocalEvent(args.User, hitEvent);
+            RaiseLocalEvent(args.User, ref hitEvent);
             // End DeltaV additions
 
             var damageImmediate = component.Damage;
