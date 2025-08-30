@@ -37,10 +37,10 @@
     spread: 2
 
 - type: entity
-  name: R6 "Slammer" Trench Gun
+  name: R6 "Slammer" Trenchgun
   parent: [BaseWeaponRevolver, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponWardenRevolverShotgun
-  description: The semi-automatic R6 trench gun, designed for clearing corners with a war zone appropriate amount of 8-gauge-"die now", has become popular as a defensive and breaching option among law enforcement.
+  description: Designed for clearing corners with a warzone appropriate amount of "die now", the compact R6 Shotgun has become popular as a defensive and breaching option among law enforcement. The monocre "Slammer" has been adopted by NT enforcement, as it Slams enemies, and its presence in the arsenal keeps lawbreakers in the slammer.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
@@ -48,13 +48,13 @@
   - type: Clothing
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
   - type: Item
-    size: Normal
+    size: Small
     shape:
     - 0,0,2,1
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2.5
+    fireRate: 3
     availableModes:
     - SemiAuto
     soundGunshot:
