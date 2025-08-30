@@ -13809,3 +13809,9 @@ Entries:
         six (6)!
   id: 1536
   time: '2025-08-30T03:25:46.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Rodentia now get thirsty.
+  id: 1537
+  time: '2025-08-30T03:26:15.0000000+00:00'
