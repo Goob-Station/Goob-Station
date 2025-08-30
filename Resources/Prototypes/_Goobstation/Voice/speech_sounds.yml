@@ -1,0 +1,9 @@
+
+- type: speechSounds
+  id: HorseSpeech
+  saySound:
+    path: /Audio/_Goobstation/Animals/horse.ogg
+  askSound:
+    path: /Audio/_Goobstation/Animals/horse.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Animals/horse.ogg

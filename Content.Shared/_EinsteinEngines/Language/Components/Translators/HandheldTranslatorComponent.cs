@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Shared._EinsteinEngines.Language.Components.Translators;
 
 /// <summary>
@@ -21,4 +28,13 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
     /// </remarks>
     [DataField]
     public bool SetLanguageOnInteract = true;
+
+    /// <summary>
+    ///     Whether to display details about the translator when the object is examined.
+    /// </summary>
+    /// <remarks>
+    ///     Added by Goob Station. This should be used for something like a magical object that grants a language to the user while they are holding/wearing it.
+    /// </remarks>
+    [DataField]
+    public bool ShowInfoOnExamine = true;
 }
