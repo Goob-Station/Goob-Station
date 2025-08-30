@@ -13930,3 +13930,11 @@ Entries:
       message: Slime people do not have bones, they do not take bone damage.
   id: 1551
   time: '2025-08-30T04:16:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Removed raffle from spawned bingle ghost roles.
+    - type: Fix
+      message: Fixed abductors not being able to do anything.
+  id: 1552
+  time: '2025-08-30T07:25:49.0000000+00:00'
