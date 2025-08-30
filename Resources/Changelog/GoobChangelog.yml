@@ -13785,3 +13785,11 @@ Entries:
       message: Lootbugs now sell for 500.
   id: 1533
   time: '2025-08-30T03:22:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Vehicles now move at 1.4 of their original values. This is due to
+        spritning being added making them semi obsolete. Beware of clown cars. 
+  id: 1534
+  time: '2025-08-30T03:23:43.0000000+00:00'
