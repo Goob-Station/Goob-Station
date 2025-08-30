@@ -20,3 +20,5 @@ station-report-text =
     >[mono][/mono]
     signed, [color=Green]NTR name here[/color]
     [mono][italic]Please do not stamp or sign this document, all signatures and stamps are filtered out by our systems, please instead write your name in the given slot[/italic][/mono]
+
+    >[italic]Please do not stamp or sign this document, all signatures and stamps are filtered out by our systems, please instead write your name in the given slot[/italic]
