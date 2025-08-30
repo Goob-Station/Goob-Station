@@ -29,6 +29,7 @@
     - type: AntagImmune
     - type: MovementIgnoreGravity
     - type: SpecialPressureImmunity
+    - type: BreathingImmunity
     - type: RequireProjectileTarget
     - type: NoSlip
     - type: ZombieImmune
