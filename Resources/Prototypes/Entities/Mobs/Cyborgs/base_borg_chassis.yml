@@ -251,7 +251,7 @@
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
-        toggleAction: ActionAGhostShowStationMap
+        toggleAction: ActionShowStationMap
   - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
