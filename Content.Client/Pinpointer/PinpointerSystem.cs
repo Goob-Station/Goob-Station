@@ -37,22 +37,13 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
         var sprite = args.SpriteViewEnt.Comp;
         var eye = _eyeManager.CurrentEye;
-        var angle = component.ArrowAngle + eye.Rotation;
-
-        switch (component.DistanceToTarget)
+        var angle = component.DistanceToTarget switch
         {
-            case Distance.Close:
-            case Distance.Medium:
-            case Distance.Far:
-                _sprite.LayerSetRotation((args.SpriteViewEnt, sprite), PinpointerLayers.Screen, angle);
-                break;
-            case Distance.Unknown:
-            case Distance.Reached:
-            default:
-                _sprite.LayerSetRotation((args.SpriteViewEnt, sprite), PinpointerLayers.Screen, Angle.Zero);
-                break;
-        }
+            Distance.Close or Distance.Medium or Distance.Far => component.ArrowAngle + eye.Rotation,
+            _ => Angle.Zero
+        };
 
+        _sprite.LayerSetRotation((args.SpriteViewEnt, sprite), PinpointerLayers.Screen, angle);
         sprite.LayerSetState(PinpointerLayers.Screen, component.DistanceToTarget.ToString().ToLower());
     }
     // WD EDIT END

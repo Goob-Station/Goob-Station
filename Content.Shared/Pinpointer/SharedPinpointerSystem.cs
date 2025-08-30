@@ -102,8 +102,10 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
         if (pinpointer.UpdateTargetName)
             pinpointer.TargetName = Identity.Name(target.Value, EntityManager);
-        if (pinpointer.IsActive)
-            UpdateDirectionToTarget(uid, pinpointer);
+        // WD EDIT START - UpdateDirectionToTarget is triggered when updating, no need to run it again
+        // if (pinpointer.IsActive)
+        //    UpdateDirectionToTarget(uid, pinpointer);
+        // WD EDIT END
     }
 
     /// <summary>
@@ -123,8 +125,10 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
         pinpointer.Targets = targetsList;
 
-        if (pinpointer.IsActive)
-            UpdateDirectionToTarget(uid, pinpointer);
+        // WD EDIT START - UpdateDirectionToTarget is triggered when updating, no need to run it again
+        // if (pinpointer.IsActive)
+        //    UpdateDirectionToTarget(uid, pinpointer);
+        // WD EDIT END
     }
 
     /// <summary>

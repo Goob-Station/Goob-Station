@@ -35,6 +35,8 @@
   - type: StealthOnWalk
     plasmaCost: 2.5
   - type: Stealth
+    revealOnAttack: false
+    revealOnDamage: false
     enabled: false
     lastVisibility: 0.2
   - type: Jump

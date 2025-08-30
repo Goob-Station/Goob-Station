@@ -49,9 +49,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     }
 
     private void OnCollideEvent(EntityUid uid, FaceHuggerComponent component, StartCollideEvent args)
-    {
-        TryEquipFaceHugger(uid, args.OtherEntity, component);
-    }
+        => TryEquipFaceHugger(uid, args.OtherEntity, component);
 
     private void OnMeleeHit(EntityUid uid, FaceHuggerComponent component, MeleeHitEvent args)
     {
@@ -62,9 +60,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     }
 
     private void OnPickedUp(EntityUid uid, FaceHuggerComponent component, GotEquippedHandEvent args)
-    {
-        TryEquipFaceHugger(uid, args.User, component);
-    }
+        => TryEquipFaceHugger(uid, args.User, component);
 
     private void OnGotEquipped(EntityUid uid, FaceHuggerComponent component, GotEquippedEvent args)
     {
