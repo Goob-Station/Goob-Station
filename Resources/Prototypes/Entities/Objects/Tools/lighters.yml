@@ -307,6 +307,9 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: Tag
+    tags:
+      - Lighter #Goobstation - whitelisted cig pack strorage (added tag)
 
 - type: entity
   name: flippo engraved lighter

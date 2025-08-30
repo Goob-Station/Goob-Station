@@ -167,7 +167,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: glow
-
+  shader: unshaded
 
 - type: marking
   id: SlimeEyesDroopy
