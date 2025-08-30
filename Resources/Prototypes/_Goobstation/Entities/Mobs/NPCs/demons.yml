@@ -64,7 +64,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 1
     baseSprintSpeed : 1
-  - type: Reflect 
+  - type: Reflect
     reflectProb: 1
     reflects:
     - Nonenergy
@@ -78,7 +78,7 @@
     radius: 1.5
     energy: 12.5
     color: "#793a80"
-  - type: Megafauna
+  - type: SpawnLootOnDeath
     loot: AnomalyCoreShadow
 
 - type: entity
@@ -113,9 +113,9 @@
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
-  - type: Megafauna
+  - type: SpawnLootOnDeath
     loot: DiamondOre1Unprocessed
-  
+
 - type: entity
   name: glutton
   parent: [ SimpleSpaceMobBase, MobCombat ]

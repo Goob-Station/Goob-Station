@@ -1,0 +1,100 @@
+# Base
+- type: entity
+  parent: MarkerBase
+  id: BaseHierophantShape
+  name: hierophant attack spawner
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+
+# Crosses
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossBishop
+  name: hierophant attack cross bishop spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: BishopCross
+      size: 11
+
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossRook
+  name: hierophant attack cross rook spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: RookCross
+      size: 11
+
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossQueen
+  name: hierophant attack cross queen spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: QueenCross
+      size: 11
+
+# Blink
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeBlink
+  name: hierophant attack blink spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: BoxFilled
+      size: 3
+
+# Expanding box
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeBoxExpanding
+  name: hierophant attack box expanding spawner
+  suffix: Anger
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawnerCounter
+  - type: AngerShapeSpawner
+    counterRange: 3,10
+    periodRange: 0.4,0.7
+    inversePeriod: true
+  - type: ExpandingShapeSpawner
+    counterSize: 1
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedEntityShape
+      id: BoxHollow
+
+# Sequence crosses
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeCrossSequence
+  name: hierophant attack cross sequence spawner
+  suffix: Anger
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawnerCounter
+  - type: AngerShapeSpawner
+    counterRange: 1,3
+    periodRange: 0.7,1.2
+    inversePeriod: true
+  - type: ExpandingShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:GroupEntityShape
+      children:
+      - id: BishopCross
+        size: 11
+      - id: RookCross
+        size: 11
+      - id: QueenCross
+        size: 11
+        weight: 0.8

@@ -22,13 +22,16 @@
   - type: TimedDespawn
     lifetime: 1
   - type: DamageSquare
+    damageDelay: 0.7
     damage:
       types:
         Blunt: 10
         Heat: 10
+    damageWhitelist:
+      components:
+      - MobState
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
-    damageDelay: 0.7
 
 - type: entity
   id: LavalandHierophantChaser
@@ -42,5 +45,8 @@
   components:
   - type: Transform
     anchored: true
-  - type: HierophantChaser
-    spawnPrototype: LavalandHierophantSquare
+  - type: TileChaser
+    spawn: LavalandHierophantSquare
+  - type: AngerTileChaser
+    speedRange: 3,5
+    stepsRange: 15,40

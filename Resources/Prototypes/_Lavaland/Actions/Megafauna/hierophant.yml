@@ -1,0 +1,81 @@
+# Entity Shape Attacks
+- type: entity
+  id: ActionBaseHierophantAttack
+  name: Spawn attack
+  description: Spawns an attack on the target position.
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+
+- type: entity
+  id: ActionHierophantBox
+  parent: ActionBaseHierophantAttack
+  name: Expanding Box
+  description: Spawns an expanding box on the target position.
+  components:
+  - type: AngerDelayAction
+    minDelay: 4.0
+    maxDelay: 8.0
+    inverse: true
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: HierophantShapeBoxExpanding
+
+- type: entity
+  id: ActionHierophantCrosses
+  parent: ActionBaseHierophantAttack
+  name: Sequence Crosses
+  description: Spawns a sequence of crosses on the target position.
+  components:
+  - type: AngerDelayAction
+    minDelay: 4.0
+    maxDelay: 8.0
+    inverse: true
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: HierophantShapeCrossSequence
+      attachToTarget: true
+
+- type: entity
+  id: ActionHierophantChasers
+  parent: ActionBaseHierophantAttack
+  name: Spawn Chasers
+  description: Spawns hierophant tile chasers that move towards the target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AngerDelayAction
+    minDelay: 10.0
+    maxDelay: 30.0
+    inverse: true
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: LavalandHierophantChaser
+      spawnAtUser: true
+
+- type: entity
+  id: ActionHierophantBlink
+  name: Blink
+  description: Teleports you to the target position.
+  components:
+  - type: Action
+    priority: -22
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+  - type: AngerDelayAction
+    minDelay: 5.0
+    maxDelay: 15.0
+    inverse: true
+  - type: WorldTargetAction
+    event: !type:MegafaunaBlinkActionEvent
