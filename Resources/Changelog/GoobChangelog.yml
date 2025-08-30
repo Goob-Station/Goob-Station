@@ -13833,3 +13833,9 @@ Entries:
         more than anything else.
   id: 1539
   time: '2025-08-30T03:28:03.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CE now has an experimental RCD in their locker.
+  id: 1540
+  time: '2025-08-30T03:33:23.0000000+00:00'
