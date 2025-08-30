@@ -241,7 +241,7 @@
 
 - type: entity
   parent: RCD
-  id: RCDRechargingCe
+  id: RCDRechargingCE
   name: experimental RCD
   description: Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
   suffix: AutoRecharge
