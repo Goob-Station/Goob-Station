@@ -13902,3 +13902,9 @@ Entries:
         will stop firing when there isn't enough battery.
   id: 1547
   time: '2025-08-30T03:56:30.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed the Biomass Reclaimer not accepting dragged or dropped bodies.
+  id: 1548
+  time: '2025-08-30T03:56:37.0000000+00:00'
