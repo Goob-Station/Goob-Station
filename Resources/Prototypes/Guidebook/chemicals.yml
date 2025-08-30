@@ -8,23 +8,22 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Goobstation - Commented this prototype to fix test because it exceeds ui update limit and i can't change engine value :|
-  #- type: guideEntry
-  #id: Chemicals
-  #name: guide-entry-chemicals
-  #text: "/ServerInfo/Guidebook/Chemicals.xml"
-  #children:
-  #- Elements
-  #- Medicine
-  #- Narcotics
-  #- Pyrotechnic
-  #- Toxins
-  #- Foods
-  #- Botanical
-  #- Biological
-  #- Special
-  #- Others
-  #filterEnabled: True
+- type: guideEntry
+  id: Chemicals
+  name: guide-entry-chemicals
+  text: "/ServerInfo/Guidebook/Chemicals.xml"
+  children:
+  - Elements
+  - Medicine
+  - Narcotics
+  - Pyrotechnic
+  - Toxins
+  - Foods
+  - Botanical
+  - Biological
+  - Special
+  - Others
+  filterEnabled: True
 
 - type: guideEntry
   id: Elements
