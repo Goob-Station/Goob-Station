@@ -96,7 +96,7 @@ public sealed partial class PTLSystem : EntitySystem
     {
         if (TryComp<RadiationSourceComponent>(ent, out var rad)
             && rad.Intensity > 0)
-            rad.Intensity -= rad.Intensity * 0.2f + .1f;
+            rad.Intensity = MathF.Max(0, rad.Intensity - (rad.Intensity * 0.2f + 0.1f)); // Making sure the radition value doesn't go below
     }
 
     private void Tick(Entity<PTLComponent> ent)
@@ -113,19 +113,24 @@ public sealed partial class PTLSystem : EntitySystem
     {
         var megajoule = 1e6;
 
-        var charge = ent.Comp2.CurrentCharge / megajoule;
-        // some random formula i found in bounty thread i popped it into desmos i think it looks good
-        var spesos = (int) (charge * 500 / (Math.Log(charge * 5) + 1));
-
-        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0)
+        // Measure battery before firing.
+        var chargeBefore = ent.Comp2.CurrentCharge;
+        if (chargeBefore <= 0)
             return;
 
-        // scale damage from energy
+        // Configure consumption and damage based on planned energy use (capped).
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
         {
-            hitscan.FireCost = (float) (charge * megajoule);
+            var desiredFireCost = (float) Math.Min(chargeBefore, ent.Comp1.MaxEnergyPerShot);
+            if (desiredFireCost <= 0)
+                return;
+
+            hitscan.FireCost = desiredFireCost;
+
+            // Scale damage from the planned energy use (in MJ);
+            var plannedMJ = desiredFireCost / (float) megajoule;
             var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
-            prot.Damage = ent.Comp1.BaseBeamDamage * charge * 2f;
+            prot.Damage = ent.Comp1.BaseBeamDamage * plannedMJ * 2f;
         }
 
         if (TryComp<GunComponent>(ent, out var gun))
@@ -144,8 +149,21 @@ public sealed partial class PTLSystem : EntitySystem
             _gun.AttemptShoot(ent, ent, gun, targetCoords);
         }
 
-        // EVIL behavior......
-        var evil = (float) (charge * ent.Comp1.EvilMultiplier);
+        // Determine actual energy used.
+        var chargeAfter = ent.Comp2.CurrentCharge;
+        var energyUsed = Math.Max(0.0, chargeBefore - chargeAfter);
+        if (energyUsed <= 0)
+            return;
+
+        var usedMJ = energyUsed / megajoule;
+        // some random formula i found in bounty thread i popped it into desmos i think it looks good
+        var spesos = (int) (usedMJ * 500 / (Math.Log(usedMJ * 5) + 1));
+
+        if (!double.IsFinite(spesos) || spesos < 0)
+            return;
+
+        // EVIL behavior based on energy actually used.
+        var evil = (float) (usedMJ * ent.Comp1.EvilMultiplier);
 
         if (TryComp<RadiationSourceComponent>(ent, out var rad))
             rad.Intensity = evil;
@@ -157,6 +175,9 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void OnInteractHand(Entity<PTLComponent> ent, ref InteractHandEvent args)
     {
+        if (args.Handled)
+            return;
+
         ent.Comp.Active = !ent.Comp.Active;
         var enloc = ent.Comp.Active ? Loc.GetString("ptl-enabled") : Loc.GetString("ptl-disabled");
         var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", enloc));
@@ -164,10 +185,14 @@ public sealed partial class PTLSystem : EntitySystem
         _aud.PlayPvs(_soundPower, args.User);
 
         Dirty(ent);
+        args.Handled = true;
     }
 
     private void OnAfterInteractUsing(Entity<PTLComponent> ent, ref AfterInteractUsingEvent args)
     {
+        if (args.Handled)
+            return;
+
         var held = args.Used;
 
         if (_tag.HasTag(held, _tagScrewdriver))
@@ -178,15 +203,21 @@ public sealed partial class PTLSystem : EntitySystem
             ent.Comp.ShootDelay = delay;
             _popup.PopupEntity(Loc.GetString("ptl-interact-screwdriver", ("delay", ent.Comp.ShootDelay)), ent);
             _aud.PlayPvs(_soundSparks, args.User);
+            args.Handled = true;
+            return;
         }
 
         if (_tag.HasTag(held, _tagMultitool))
         {
+            if (!Transform(ent).Anchored) // Check if Anchored.
+                return;
             var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
             _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
             _aud.PlayPvs(_soundKaching, args.User);
+            args.Handled = true;
+            return;
         }
 
         Dirty(ent);
