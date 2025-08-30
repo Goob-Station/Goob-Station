@@ -13793,3 +13793,11 @@ Entries:
         spritning being added making them semi obsolete. Beware of clown cars. 
   id: 1534
   time: '2025-08-30T03:23:43.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed Ultravasculine and added heat requirement to Ethyloxyephedrine
+        reaction
+  id: 1535
+  time: '2025-08-30T03:24:23.0000000+00:00'
