@@ -674,6 +674,22 @@
     - Clown
 
 - type: listing
+  id: UplinkClowncarNukie
+  name: uplink-clowncar-name
+  description: uplink-clowncar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  productEntity: CrateFunClownCarNukieUplink
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkMobRoachMicrobomb
   name: uplink-mobroach-microbomb-name
   description: uplink-mobroach-microbomb-desc
