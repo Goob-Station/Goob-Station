@@ -365,15 +365,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var weapon = GetEntity(msg.Weapon);
         if (args.SenderSession.AttachedEntity is not { } user
             || TerminatingOrDeleted(user)
-            || TerminatingOrDeleted(weapon)) // Goob Change
+            || TerminatingOrDeleted(weapon)) // Goobstation Change
             return;
 
-        if (!TryGetWeapon(user, out var weaponUid, out var weaponComp) ||
-            weaponUid != weapon ||
-            !weaponComp.CanWideSwing) // Goobstation Change
-        {
+        if (!TryGetWeapon(user, out var weaponUid, out var weaponComp)
+            || weaponUid != weapon
+            || !weaponComp.CanWideSwing) // Goobstation Change
             return;
-        }
 
         AttemptAttack(user, weaponUid, weaponComp, msg, args.SenderSession);
     }
@@ -381,7 +379,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     private void OnDisarmAttack(DisarmAttackEvent msg, EntitySessionEventArgs args)
     {
         if (args.SenderSession.AttachedEntity is not { } user
-            || TerminatingOrDeleted(user)) // Goob change
+            || TerminatingOrDeleted(user)) // Goobstation Change
             return;
 
         if (TryGetWeapon(user, out var weaponUid, out var weapon))
