@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
@@ -266,7 +267,7 @@
       tank:
       - ExtendedEmergencyOxygenTankFilled
       mask:
-      - ClothingMaskBreath
+      - ClothingMaskGasSecurity
       emergencypen:
       - EmergencyMedipen
       spacepen:
@@ -290,7 +291,7 @@
       tank:
       - ExtendedEmergencyNitrogenTankFilled
       mask:
-      - ClothingMaskBreath
+      - ClothingMaskGasSecurity
       emergencypen:
       - EmergencyMedipen
       spacepen:
@@ -527,6 +528,7 @@
   - type: Label
     currentLabel: reagent-name-nitrogen
 
+
 ## EE PLASMAMEN
 
 - type: entity
@@ -595,7 +597,7 @@
       tank:
       - ExtendedEmergencyPlasmaTankFilled
       mask:
-      - ClothingMaskBreath
+      - ClothingMaskGasSecurity
       emergencypen:
       - EmergencyMedipen
       spacepen:
