@@ -37,13 +37,13 @@ public sealed partial class LavalandGridRuinPrototype : IPrototype
     [DataField] public LocId Name = "lavaland-ruin-unknown";
 
     [DataField(required: true)]
-    public ResPath Path { get; } = default!;
+    public ResPath Path { get; }
 
     [DataField]
     public int SpawnAttemps = 8;
 
     [DataField]
-    public bool PatchToPlanet;
+    public bool PatchToPlanet = true;
 
     [DataField(required: true)]
     public int Priority = int.MinValue;
