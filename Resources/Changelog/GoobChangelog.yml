@@ -13914,3 +13914,13 @@ Entries:
       message: BSO combat injector kit now comes with an explosive resistant chestrig.
   id: 1549
   time: '2025-08-30T04:03:01.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Flippos can be inserted into cigarette packs again
+    - type: Tweak
+      message: Premium Havanian cigar's can also be inserted into cigarette packs again
+    - type: Tweak
+      message: Cigarettes burn 20% slower now
+  id: 1550
+  time: '2025-08-30T04:14:22.0000000+00:00'
