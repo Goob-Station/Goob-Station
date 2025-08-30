@@ -1,27 +1,27 @@
 - type: body
   id: Oni
   name: "oni"
-  root: torso
+  root: chest
   slots:
     head:
-      part: HeadHuman
+      part: HeadOni
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: ChestHuman
+    chest:
+      part: ChestOni
       connections:
+      - groin
       - right arm
       - left arm
-      - head
-      - groin
+      - head # Shitmed
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
     groin:
-      part: GroinHuman
+      part: GroinOni
       connections:
       - right leg
       - left leg
@@ -30,26 +30,26 @@
         liver: OrganOniLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmHuman
+      part: RightArmOni
       connections:
       - right hand
     left arm:
-      part: LeftArmHuman
+      part: LeftArmOni
       connections:
       - left hand
     right hand:
-      part: RightHandHuman
+      part: RightHandOni
     left hand:
-      part: LeftHandHuman
+      part: LeftHandOni
     right leg:
-      part: RightLegHuman
+      part: RightLegOni
       connections:
       - right foot
     left leg:
-      part: LeftLegHuman
+      part: LeftLegOni
       connections:
       - left foot
     right foot:
-      part: RightFootHuman
+      part: RightFootOni
     left foot:
-      part: LeftFootHuman
+      part: LeftFootOni
