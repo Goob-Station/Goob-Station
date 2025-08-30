@@ -2228,7 +2228,7 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: DrinkGrogGlass
+- proto: Drinkgrogglass
   entities:
   - uid: 319
     components:

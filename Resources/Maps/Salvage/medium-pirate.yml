@@ -482,7 +482,7 @@ entities:
     - type: Transform
       pos: 1.4439188,-1.6661394
       parent: 52
-- proto: DrinkGrogGlass
+- proto: Drinkgrogglass
   entities:
   - uid: 40
     components:

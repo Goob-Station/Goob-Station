@@ -792,3 +792,157 @@
     attributes:
       proper: true
       gender: male
+
+#Not a ghostrole, he just spams some messages
+- type: entity
+  name: gragg
+  id: MobGragg
+  parent: SimpleSpaceMobBase
+  description: HELLO. WANT BUY TASTY ROCKS. TRADE?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Animals/gragg.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gragg_sit
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0
+    baseSprintSpeed : 0
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexArachnid
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Chitinid
+    speechSounds: Lizard
+  - type: Advertise
+    pack: GraggAds
+    minimumWait: 25
+    maximumWait: 60
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gragg_sit
+      Dead:
+        Base: gragg_full
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: AnomalyCoreRock
+      amount: 1
+  - type: StaticPrice
+    price: 5000
+  - type: Fauna # Lavaland Change
+
+  #This did not work out, but I might as well keep it.
+- type: entity
+  name: carp trader
+  id: MobCarpTrader
+  parent: SimpleSpaceMobBase
+  description: A civilized dragon from another sector of space. Will trade you goods, if you have coin.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Animals/altdragon.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: altdragon
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ComplexInteraction
+  - type: Hands
+  - type: Puller
+    needsHands: false
+  - type: Tool
+    speedModifier: 1.5
+    qualities:
+    - Prying
+  - type: Prying
+    pryPowered: true
+  - type: InputMover
+  - type: Input
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 4
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexArachnid
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Chitinid
+    speechSounds: Lizard
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Dead
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-trader-name
+    description: ghost-role-information-trader-description
+    rules: ghost-role-information-trader-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+  - type: GhostTakeoverAvailable
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: altdragon
+      Dead:
+        Base: altdragon
+  - type: StaticPrice
+    price: 2000
+  - type: Fauna # Lavaland Change

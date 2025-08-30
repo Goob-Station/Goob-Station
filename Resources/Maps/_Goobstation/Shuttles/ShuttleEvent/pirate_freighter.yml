@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2025 00:32:30
-  entityCount: 494
+  time: 08/30/2025 00:52:49
+  entityCount: 496
 maps: []
 grids:
 - 1
@@ -1187,6 +1187,13 @@ entities:
     - type: Transform
       pos: 5.6115437,8.248366
       parent: 1
+- proto: CargoPalletSell
+  entities:
+  - uid: 495
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
 - proto: ChairPilotSeat
   entities:
   - uid: 136
@@ -1294,6 +1301,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,10.5
+      parent: 1
+- proto: ComputerPalletConsole
+  entities:
+  - uid: 496
+    components:
+    - type: Transform
+      pos: 4.5,4.5
       parent: 1
 - proto: ComputerShuttle
   entities:

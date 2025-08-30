@@ -92,3 +92,18 @@
     chaosScore: 150
   - type: LoadMapRule
     preloadedGrid: PirateFreighter
+
+- type: entity
+  id: UnknownShuttleGraggShop
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 20
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -100
+  - type: LoadMapRule
+    preloadedGrid: GraggShop

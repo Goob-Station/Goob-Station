@@ -34,3 +34,8 @@
   id: PirateFreighter
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/pirate_freighter.yml
   copies: 1
+
+- type: preloadedGrid
+  id: GraggShop
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/gragg_shop.yml
+  copies: 1
