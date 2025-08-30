@@ -746,7 +746,7 @@
       state: horse
   - type: Physics
   - type: Speech
-    speechVerb: Horse
+    speechVerb: HorseVerb
     speechSounds: HorseSpeech
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageKnowledge # Einstein Engines - Language
