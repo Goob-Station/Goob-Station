@@ -805,7 +805,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Validate client
         for (var i = entities.Count - 1; i >= 0; i--)
         {
-            if (ArcRaySuccessful(entities[i],
+            // Goob Fix Start
+            var entity = entities[i];
+
+            if (!entity.IsValid() || TerminatingOrDeleted(entity))
+            {
+                entities.RemoveAt(i);
+                continue;
+            }
+            // Goob Fix End
+
+            if (ArcRaySuccessful(entity,
                     userPos,
                     direction.ToWorldAngle(),
                     component.Angle,
