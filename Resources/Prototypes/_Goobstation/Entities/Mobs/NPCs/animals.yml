@@ -804,6 +804,13 @@
     attributes:
       proper: true
       gender: male
+  - type: Sprinter
+    staminaDrainRate: 2
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
 
 #Not a ghostrole, he just spams some messages
 - type: entity
@@ -881,11 +888,3 @@
   - type: StaticPrice
     price: 5000
   - type: Fauna # Lavaland Change
-
-  - type: Sprinter
-    staminaDrainRate: 2
-  - type: TemperatureSpeed
-    thresholds:
-      293: 0.8
-      280: 0.6
-      260: 0.4
