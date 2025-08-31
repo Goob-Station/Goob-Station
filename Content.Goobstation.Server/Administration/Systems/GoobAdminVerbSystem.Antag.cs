@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -11,6 +12,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.Werewolf.GameTicking.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -80,6 +82,21 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-devil"),
         };
         args.Verbs.Add(devilAntag);
+
+        // Werewolf
+        Verb werewolfAntag = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-werewolf"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("Objects/Consumable/Food/meals.rsi"), "nachos"), // todo: change
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<WerewolfRuleComponent>(targetPlayer, "Werewolf");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-werewolf"),
+        };
+        args.Verbs.Add(werewolfAntag);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

@@ -1038,6 +1038,9 @@ public sealed class PullingSystem : EntitySystem
             if (_netManager.IsServer)
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
+            var chokeholdEv = new ChokeholdEvent();
+            RaiseLocalEvent(puller.Owner, ref chokeholdEv);
+
             Dirty(pullable);
             Dirty(puller);
             return true;
