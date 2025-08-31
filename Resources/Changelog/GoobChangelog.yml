@@ -14086,3 +14086,9 @@ Entries:
         from outer space.
   id: 1567
   time: '2025-08-31T03:16:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Shadowkin Left Legs are visible again
+  id: 1568
+  time: '2025-08-31T04:47:00.0000000+00:00'
