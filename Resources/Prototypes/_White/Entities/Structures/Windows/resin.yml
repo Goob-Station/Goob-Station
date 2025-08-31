@@ -6,9 +6,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi # Goobstation new sprites
   - type: Icon
-    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi # Goobstation new sprites
     state: membrane
   - type: Damageable
     damageContainer: Biological
