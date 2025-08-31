@@ -226,6 +226,14 @@ public sealed partial class StrapComponent : Component
     [DataField]
     public bool BlockMovement = true;
     // </Goobstation>
+
+    // WD EDIT START
+    /// <summary>
+    /// Delay, that must occur, before user can unbuckle
+    /// </summary>
+    [DataField]
+    public TimeSpan SelfUnBuckleDelay = TimeSpan.Zero;
+    // WD EDIT END
 }
 
 public enum StrapPosition

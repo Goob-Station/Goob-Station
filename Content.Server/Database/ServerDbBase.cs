@@ -873,8 +873,11 @@ namespace Content.Server.Database
         {
             await using var db = await GetDb();
             var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
+
+            // Check if we didn't get user from DB
+            if (dbPlayer == null || dbPlayer.UserId != userId)
                 return false;
+
             dbPlayer.LastRolledAntag = to;
             await db.DbContext.SaveChangesAsync();
             return true;

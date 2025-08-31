@@ -2,7 +2,8 @@
 - type: language
   id: Blob
   speech:
-    fontId: Monospace
+    fontId: Monospace # TODO - Make a better font selection instead of copying Silicon.
+    boldFontId: MonospaceBold
     color: "#800080"
   obfuscation:
     !type:SyllableObfuscation

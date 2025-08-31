@@ -9,6 +9,7 @@ using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
+using Content.Goobstation.Server.Singularity.EventHorizon;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Chemistry;
@@ -17,11 +18,15 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Server._Shitmed.StatusEffects;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
+using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Cuffs;
 using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
@@ -34,6 +39,7 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Lavaland.Chasm;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Actions;
@@ -48,7 +54,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.Shuttles.Components;
 using Content.Shared.Temperature.Components;
+using Robust.Server.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -78,6 +86,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
@@ -117,6 +126,10 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
         EnsureComp<CrematoriumImmuneComponent>(devil);
+        EnsureComp<AntagImmuneComponent>(devil);
+        EnsureComp<SupermatterImmuneComponent>(devil);
+        EnsureComp<PreventChasmFallingComponent>(devil).DeleteOnUse = false;
+        EnsureComp<FTLSmashImmuneComponent>(devil);
 
         // Allow infinite revival
         var revival = EnsureComp<CheatDeathComponent>(devil);
@@ -255,8 +268,9 @@ public sealed partial class DevilSystem : EntitySystem
             || args.Handled)
             return;
 
-        _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", Name(devil))), devil, PopupType.LargeCaution);
         _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
+
     }
 
     #endregion
