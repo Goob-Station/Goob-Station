@@ -14064,3 +14064,9 @@ Entries:
       message: Fixed bold font missing on non-Sol Common languages.
   id: 1564
   time: '2025-08-30T23:22:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with delayed death not working properly.
+  id: 1565
+  time: '2025-08-31T00:16:44.0000000+00:00'
