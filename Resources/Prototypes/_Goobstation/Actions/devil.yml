@@ -48,6 +48,8 @@
   - type: Action
     useDelay: 40 # Stop running you cowardly fucks.
     itemIconStyle: NoItem
+    checkCanInteract: false
+    checkConsciousness: false
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: shadow-jaunt

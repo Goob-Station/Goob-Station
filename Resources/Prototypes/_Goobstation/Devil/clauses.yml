@@ -17,6 +17,24 @@
   clauseWeight: -35
   damageModifierSet: DevilDealPositive
 
+# // VORE //
+- type: clause
+  id: avarice
+  clauseWeight: -30
+  addedComponents:
+  - type: Devourer
+    foodPreference: Humanoid
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      components:
+      - MobState
+      - Door
+      - Item
+      tags:
+      - Wall
+
 - type: clause
   id: fearoffire
   clauseWeight: -20
@@ -66,6 +84,12 @@
   - type: SpecialBreathingImmunity
 
 - type: clause
+  id: fearofclowns
+  clauseWeight: -10
+  addedComponents:
+  - type: NoSlip
+
+- type: clause
   id: fearofcrushing
   clauseWeight: -10
   addedComponents:
@@ -107,7 +131,7 @@
 
 - type: clause
   id: humanity
-  clauseWeight: 25
+  clauseWeight: 80
   polymorph: MobFrogPolymorph
 
 - type: clause
@@ -142,17 +166,17 @@
 
 - type: clause
   id: aleg
-  clauseWeight: 30
+  clauseWeight: 20
   event: !type:DevilContractLoseLegEvent
 
 - type: clause
   id: ahand
-  clauseWeight: 30
+  clauseWeight: 20
   event: !type:DevilContractLoseHandEvent
 
 - type: clause
   id: awake
-  clauseWeight: 40
+  clauseWeight: 35
   addedComponents:
   - type: Narcolepsy
     timeBetweenIncidents: 300, 600
@@ -160,7 +184,7 @@
 
 - type: clause
   id: anorgan
-  clauseWeight: 45
+  clauseWeight: 30
   event: !type:DevilContractLoseOrganEvent
 
 - type: clause
