@@ -8,7 +8,7 @@ cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
 cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
-cqc-fail-already = You already know everything about a Martial art.
+cqc-fail-already = You already know a martial art.
 cqc-success-unblocked = Your CQC skills are not bound to kitchen anymore.
 cqc-success-learned = You have learned CQC. The manual incinerates in your hands...
 capoeira-success-learned = You have learned Capoeira. The manual incinerates in your hands...
