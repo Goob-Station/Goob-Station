@@ -15,9 +15,14 @@ public sealed partial class LollypopComponent : Component
     public TimeSpan Interval = TimeSpan.FromSeconds(1f);
 
     [DataField]
-    public FixedPoint2? Ammount = FixedPoint2.New(0.1);
+    public FixedPoint2 Ammount = FixedPoint2.New(0.1);
 
     [DataField]
     public EntityUid? HeldBy = null;
+
+    // temporary variables
+
+    [DataField]
+    public FixedPoint2? OldTransferAmount;
 
 }

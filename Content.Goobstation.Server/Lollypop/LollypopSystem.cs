@@ -22,6 +22,7 @@ public sealed partial class LollypopSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly FoodSystem _food = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<LollypopComponent,ClothingGotEquippedEvent>(OnEquipt);
@@ -44,25 +45,38 @@ public sealed partial class LollypopSystem : EntitySystem
             lollypop.NextBite = _time.CurTime + lollypop.Interval;
         }
     }
+
     private void OnEquipt(Entity<LollypopComponent> ent, ref ClothingGotEquippedEvent args)
     {
         ent.Comp.NextBite = _time.CurTime + ent.Comp.Interval;
         ent.Comp.HeldBy = args.Wearer;
+
+        if (TryComp<FoodComponent>(ent.Owner, out var food))
+        {
+            ent.Comp.OldTransferAmount = food.TransferAmount;
+            food.TransferAmount = ent.Comp.Ammount;
+        }
     }
+
     private void OnUnequipt(Entity<LollypopComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         ent.Comp.HeldBy = null;
+
+        if (TryComp<FoodComponent>(ent.Owner, out var food))
+        {
+            food.TransferAmount = ent.Comp.OldTransferAmount;
+        }
+
     }
+
     private void Eat(Entity<LollypopComponent> ent, FoodComponent food)
     {
         if(ent.Comp.HeldBy == null)
             return;
+        if (_food.IsMouthBlocked(ent.Comp.HeldBy.Value))
+            return;
 
-        var oldTransfer = food.TransferAmount;
-        food.TransferAmount = ent.Comp.Ammount;
+        _food.TryFeed(ent.Comp.HeldBy.Value,ent.Comp.HeldBy.Value,ent.Owner,food);
 
-        _food.TryFeed(ent.Owner,ent.Comp.HeldBy.Value,ent.Owner,food);
-
-        food.TransferAmount = oldTransfer;
     }
 }
