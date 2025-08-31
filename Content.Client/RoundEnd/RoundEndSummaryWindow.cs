@@ -51,8 +51,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
-using Content.Goobstation.Shared.StationReport;
-using Content.Client.StationReport;
+using Content.Goobstation.Common.StationReport;
+using Content.Goobstation.Common.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
@@ -222,7 +222,7 @@ namespace Content.Client.RoundEnd
         private BoxContainer MakeStationReportTab() //Goob edit start
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
-            var stationReportSystem = EntitySystem.Get<Content.Client.StationReport.StationReportSystem>();
+            var stationReportSystem = EntitySystem.Get<Content.Goobstation.Common.StationReport.StationReportSystem>();
             string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted, the NTR assigned to your station has been fined 2000 spesos.";
             var stationReportTab = new BoxContainer
             {

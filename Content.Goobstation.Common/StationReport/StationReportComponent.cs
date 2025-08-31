@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.StationReport;
+namespace Content.Goobstation.Common.StationReport;
 
 [RegisterComponent]
 public sealed partial class StationReportComponent : Component;

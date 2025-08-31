@@ -1,5 +1,5 @@
 using Content.Server.GameTicking;
-using Content.Goobstation.Shared.StationReport;
+using Content.Goobstation.Common.StationReport;
 using Content.Shared.Paper;
 using Robust.Shared.GameObjects;
 
