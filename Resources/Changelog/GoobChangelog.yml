@@ -14070,3 +14070,25 @@ Entries:
       message: Fixed a bug with delayed death not working properly.
   id: 1565
   time: '2025-08-31T00:16:44.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        Science can now research bluespace centrifuge vials, unlocked alongside
+        bluespace beakers and syringes
+  id: 1566
+  time: '2025-08-31T03:12:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added carp caller to syndicate uplink - a device that attracts wild carp
+        from outer space.
+  id: 1567
+  time: '2025-08-31T03:16:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Shadowkin Left Legs are visible again
+  id: 1568
+  time: '2025-08-31T04:47:00.0000000+00:00'
