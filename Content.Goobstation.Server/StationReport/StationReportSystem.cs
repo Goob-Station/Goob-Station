@@ -1,14 +1,14 @@
 using Content.Server.GameTicking;
-using Content.Shared.StationReport;
+using Content.Goobstation.Shared.StationReport;
 using Content.Shared.Paper;
 using Robust.Shared.GameObjects;
 
-namespace Content.Server.StationReportSystem;
+namespace Content.Goobstation.Server.StationReportSystem;
 
 public sealed class StationReportSystem : EntitySystem
 {
 
-    //this is shitcode
+    //this is shitcode?
 
     public override void Initialize()
     {

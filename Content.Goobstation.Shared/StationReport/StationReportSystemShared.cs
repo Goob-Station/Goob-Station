@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.StationReport;
+namespace Content.Goobstation.Shared.StationReport;
 
 [Serializable, NetSerializable]
 public sealed class StationReportEvent : EntityEventArgs

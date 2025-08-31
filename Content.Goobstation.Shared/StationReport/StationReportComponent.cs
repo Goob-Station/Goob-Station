@@ -1,4 +1,4 @@
-namespace Content.Shared.StationReport;
+namespace Content.Goobstation.Shared.StationReport;
 
 [RegisterComponent]
 

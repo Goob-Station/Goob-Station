@@ -51,7 +51,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
-using Content.Shared.StationReport;
+using Content.Goobstation.Shared.StationReport;
 using Content.Client.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;

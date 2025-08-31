@@ -3,16 +3,16 @@ using System.Text.RegularExpressions;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Content.Shared.StationReport;
+using Content.Goobstation.Shared.StationReport;
 using Robust.Shared.GameObjects;
 
-namespace Content.Server.StationReportDiscordIntergration;
+namespace Content.Goobstation.Server.StationReportDiscordIntergration;
 
 public sealed class StationReportDiscordIntergration : EntitySystem
 {
     //thank you Timfa for writing this code
     private static readonly HttpClient client = new HttpClient();
-    private const string WebhookUrl = "https://discord.com/api/chudtown"; // Should be a CCVAR so we can send specific server reports to specific channels/webhooks
+    private const string WebhookUrl = "https://discord.com/chudcity"; // Should be a CCVAR so we can send specific server reports to specific channels/webhooks
     public override void Initialize()
     {
         //subscribes to the endroundevent and Stationreportevent
