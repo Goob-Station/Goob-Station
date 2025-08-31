@@ -233,3 +233,18 @@
   chatTriggers:
     - gulps
     - gulp
+
+- type: emote
+  id: Surprised
+  name: chat-emote-name-surprised
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/surprised.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-surprised"]
+  chatTriggers:
+    - looks surprised
+    - is surprised
+    - exclamation marks
+    - exclamation mark
