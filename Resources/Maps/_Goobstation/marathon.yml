@@ -12243,17 +12243,6 @@ entities:
     - type: Transform
       pos: -2.5,8.5
       parent: 2
-  - uid: 22829
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 40.5,-4.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9820
 - proto: AltarConvertRed
   entities:
   - uid: 610
@@ -63517,7 +63506,6 @@ entities:
       - 22826
       - 22827
       - 22828
-      - 22829
   - uid: 9821
     components:
     - type: Transform
