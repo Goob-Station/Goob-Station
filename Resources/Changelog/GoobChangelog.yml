@@ -14116,3 +14116,15 @@ Entries:
         SECOND, I COME FOR YOU.
   id: 1571
   time: '2025-08-31T14:14:48.0000000+00:00'
+- author: sowelipililimute, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        There are now various tool panel augments that you can get implanted
+        into yourself to have access to tools all the time
+    - type: Add
+      message: >-
+        You can now get strength augments to increase your melee damage when
+        powered.
+  id: 1572
+  time: '2025-08-31T14:58:21.0000000+00:00'
