@@ -16,5 +16,5 @@ public sealed partial class WireBurnoutRuleComponent : Component
     public bool DeleteAndReplace = false;
 
     [DataField]
-    public string ReplaceWhit = "Ash";
+    public string ReplaceWith = "Ash";
 }

@@ -59,7 +59,7 @@ public sealed class WireBurnoutRule : StationEventSystem<WireBurnoutRuleComponen
                 _transformSystem.Unanchor(stationWires[i]);
             else
             {
-                Spawn(component.ReplaceWhit, Transform(stationWires[i]).Coordinates);
+                Spawn(component.ReplaceWith, Transform(stationWires[i]).Coordinates);
                 QueueDel(stationWires[i]);
             }
         }
