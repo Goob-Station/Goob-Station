@@ -14,7 +14,7 @@ using Content.Shared.NodeContainer;
 namespace Content.Goobstation.Server.StationEvents;
 
 /// <summary>
-/// This handles...
+/// This handles Cable burnout game event
 /// </summary>
 
 [UsedImplicitly]
@@ -51,11 +51,17 @@ public sealed class WireBurnoutRule : StationEventSystem<WireBurnoutRuleComponen
 
         RobustRandom.Shuffle(stationWires);
 
-        var toBurn = Math.Min(RobustRandom.Next(1,10),stationWires.Count);
+        var toBurn = Math.Min(RobustRandom.Next(component.Min,component.Max),stationWires.Count);
 
         for (var i = 0; i < toBurn; i++)
         {
-            _transformSystem.Unanchor(stationWires[i]);
+            if(!component.DeleteAndReplace)
+                _transformSystem.Unanchor(stationWires[i]);
+            else
+            {
+                Spawn(component.ReplaceWhit, Transform(stationWires[i]).Coordinates);
+                QueueDel(stationWires[i]);
+            }
         }
     }
 

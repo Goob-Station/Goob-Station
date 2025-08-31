@@ -162,3 +162,6 @@
   - type: GameRule
     chaosScore: 60
   - type: WireBurnoutRule
+    min: 1
+    max: 10
+    deleteAndReplace: false
