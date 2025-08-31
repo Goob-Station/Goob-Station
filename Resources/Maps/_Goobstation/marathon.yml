@@ -63,7 +63,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2025 17:45:13
+  time: 08/31/2025 19:39:18
   entityCount: 22830
 maps:
 - 1
@@ -761,6 +761,37 @@ entities:
           decals:
             3096: 24,-6
             3097: 30,-6
+        - node:
+            cleanable: True
+            color: '#A4610696'
+            id: BrickLineOverlayN
+          decals:
+            3168: 37,-3
+            3169: 38,-3
+            3170: 39,-3
+            3171: 40,-3
+            3172: 41,-3
+            3173: 42,-3
+            3174: 43,-3
+            3175: 44,-3
+            3176: 45,-3
+            3177: 46,-3
+        - node:
+            cleanable: True
+            angle: 3.141592653589793 rad
+            color: '#A4610696'
+            id: BrickLineOverlayN
+          decals:
+            3178: 37,-7
+            3179: 38,-7
+            3180: 39,-7
+            3181: 40,-7
+            3182: 41,-7
+            3183: 42,-7
+            3184: 43,-7
+            3185: 44,-7
+            3186: 45,-7
+            3187: 46,-7
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkBox
@@ -2060,6 +2091,8 @@ entities:
             2483: -38,-7
             2484: -38,-8
             2485: -40,-7
+            3163: 38,-12
+            3164: 37,-11
         - node:
             cleanable: True
             angle: 1.5707963267948966 rad
@@ -2115,6 +2148,9 @@ entities:
             2450: -41,-7
             2451: -42,-14
             2452: -42,-17
+            3155: 38,-12
+            3156: 37,-10
+            3165: 37,-10
         - node:
             cleanable: True
             angle: 1.5707963267948966 rad
@@ -2123,6 +2159,14 @@ entities:
           decals:
             3143: 42,-6
             3144: 44,-4
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtHeavyMonotile
+          decals:
+            3157: 37,-12
+            3166: 37,-10
+            3167: 37,-12
         - node:
             cleanable: True
             angle: 1.5707963267948966 rad
@@ -2287,6 +2331,8 @@ entities:
             2470: -42,-13
             2741: -18,-9
             2742: -23,-12
+            3158: 37,-11
+            3159: 38,-10
         - node:
             cleanable: True
             angle: 1.5707963267948966 rad
@@ -2358,6 +2404,9 @@ entities:
             2464: -38,-8
             2465: -38,-6
             2466: -39,-7
+            3160: 38,-10
+            3161: 37,-11
+            3162: 38,-13
         - node:
             cleanable: True
             angle: 1.5707963267948966 rad
@@ -5256,6 +5305,11 @@ entities:
             id: bushsnowb3
           decals:
             1461: -9,41
+        - node:
+            color: '#A4610696'
+            id: carp
+          decals:
+            3188: 38.496338,-10.070496
     - type: GridAtmosphere
       version: 2
       data:
@@ -10307,7 +10361,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 49.5,-5.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
   - uid: 812
     components:
@@ -10315,12 +10369,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 39.5,-11.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -1671.1965
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockExternalLocked
   entities:
   - uid: 277
@@ -100837,6 +100885,20 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 43.5,-4.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        22755:
+        - - Pressed
+          - Toggle
+        22756:
+        - - Pressed
+          - Toggle
+        22758:
+        - - Pressed
+          - Toggle
+        22757:
+        - - Pressed
+          - Toggle
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 15277
@@ -116229,32 +116291,6 @@ entities:
         17510:
         - - Pressed
           - Toggle
-  - uid: 17599
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 36.5,-1.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        22755:
-        - - Pressed
-          - Toggle
-        22756:
-        - - Pressed
-          - Toggle
-        22757:
-        - - Pressed
-          - Toggle
-        22758:
-        - - Pressed
-          - Toggle
-  - uid: 17600
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 36.5,-7.5
-      parent: 2
   - uid: 17601
     components:
     - type: Transform
@@ -126069,6 +126105,218 @@ entities:
       parent: 2
 - proto: TwoWayLever
   entities:
+  - uid: 17599
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,-5.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        22731:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22730:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22729:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22728:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22727:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22726:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22725:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22724:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22723:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22722:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22721:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22720:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22719:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22718:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+  - uid: 17600
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 38.5,-3.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        22742:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22741:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22740:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22739:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22738:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22737:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22736:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22735:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22734:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22733:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22732:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22717:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22716:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        22715:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 19160
     components:
     - type: Transform
