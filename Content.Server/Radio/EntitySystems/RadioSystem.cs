@@ -33,18 +33,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server._EinsteinEngines.Language;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
-using Content.Shared.Chat;
-using Content.Shared.Database;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
+using Content.Shared.Whitelist;
+using Prometheus.DotNetRuntime.Metrics.Producers.Util;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -52,7 +55,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Shared.Whitelist;
+using static Content.Server.Power.Pow3r.PowerState;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -274,23 +277,23 @@ public sealed class RadioSystem : EntitySystem
         var speech = _chat.GetSpeechVerb(source, message);
         var languageColor = channel.Color;
 
-----------
-        // Goobstation - Loud command begin
+
+        // Goobstation - Wrap override begin - what the hell have I done
         string wrapId;
         if (fontSizeOverride.HasValue)
         {
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold-loud" : "chat-radio-message-wrap-loud";
         }
+        else if (speech.Bold
+            && language.SpeechOverride.BoldFontId != null)
+        {
+            wrapId = "chat-radio-message-wrap-bolded-language";
+        }
         else
         {
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
         }
-----------
-        // Goobstation - Bolded Language Overrides begin
-        var wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
-        if (speech.Bold && language.SpeechOverride.BoldFontId != null)
-            wrapId = "chat-radio-message-wrap-bolded-language";
----------- m
+
         // Goobstation end
 
         if (language.SpeechOverride.Color is { } colorOverride)
@@ -300,26 +303,18 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
-----------
         // Goobstation Edit - Custom Bold Fonts begin
         var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
         if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
             boldId = language.SpeechOverride.FontId;
         // Goobstation Edit - end
 
-----------
----------- m
         return Loc.GetString(wrapId,
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
-----------
-            ("fontSize", fontSizeOverride ?? language.SpeechOverride.FontSize ?? speech.FontSize),
-            ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
-----------
-            ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
+            ("fontSize", fontSizeOverride ?? language.SpeechOverride.FontSize ?? speech.FontSize), // Goob Edit - Loud command
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
----------- m
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
