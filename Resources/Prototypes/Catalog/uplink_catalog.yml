@@ -145,6 +145,7 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+artisticroomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
@@ -184,6 +185,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 # SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # TODO: make more categories
@@ -1185,7 +1187,7 @@
   categories:
   - UplinkDisruption
 # Goob - Antimov was given the same price for traitors and nukies
-#  conditions:                     
+#  conditions:
 #  - !type:StoreWhitelistCondition
 #     blacklist:
 #       tags:
@@ -1205,7 +1207,7 @@
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - NukeOpsUplink 
+#      - NukeOpsUplink
 
 
 
