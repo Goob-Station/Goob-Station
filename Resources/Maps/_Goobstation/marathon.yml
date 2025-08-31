@@ -8230,8 +8230,6 @@ entities:
       - 13232
       - 13409
       - 13223
-      - 22823
-      - 10420
   - uid: 31
     components:
     - type: Transform
@@ -63501,11 +63499,6 @@ entities:
       - 10067
       - 9952
       - 541
-      - 22823
-      - 10420
-      - 22826
-      - 22827
-      - 22828
   - uid: 9821
     components:
     - type: Transform
@@ -65726,39 +65719,6 @@ entities:
     - type: Transform
       pos: -30.5,38.5
       parent: 2
-  - uid: 22826
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.5,-3.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9820
-  - uid: 22827
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.5,-4.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9820
-  - uid: 22828
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.5,-5.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9820
 - proto: Fireplace
   entities:
   - uid: 10137
@@ -89981,20 +89941,6 @@ entities:
       - 7926
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 10420
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,-5.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 30
-      - 9820
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 13296
     components:
     - type: Transform
@@ -91360,18 +91306,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 22823
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,-11.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 30
-      - 9820
 - proto: GasVolumePump
   entities:
   - uid: 13465
