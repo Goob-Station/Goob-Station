@@ -242,7 +242,7 @@ public sealed partial class GoobCVars
     ///     Discord Webhook for the station report
     /// </summary>
     public static readonly CVarDef<string> StationReportDiscordWebHook =
-        CVarDef.Create("StationReportDiscordWebHook", string.Empty, CVar.SERVERONLY);
+        CVarDef.Create("stationreport.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     #endregion
 
