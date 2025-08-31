@@ -14078,3 +14078,11 @@ Entries:
         bluespace beakers and syringes
   id: 1566
   time: '2025-08-31T03:12:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added carp caller to syndicate uplink - a device that attracts wild carp
+        from outer space.
+  id: 1567
+  time: '2025-08-31T03:16:11.0000000+00:00'
