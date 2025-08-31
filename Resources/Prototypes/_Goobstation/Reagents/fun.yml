@@ -192,3 +192,22 @@
         key: Centered
         time: 10
         component: TileMovement
+
+- type: reagent
+  id: CrapoToxin
+  name: reagent-name-crapotoxin
+  group: Toxins
+  desc: reagent-desc-crapotoxin
+  physicalDesc: reagent-physical-desc-putrid
+  flavor: horrible
+  color: "#654321"
+  metabolisms:
+    Poison:
+      metabolismRate: 2.5
+      effects:
+      - !type:Emote
+        emote: Fart
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 1

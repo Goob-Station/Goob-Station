@@ -6,8 +6,11 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -24,6 +27,7 @@
     renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
     position: Stand
+    blockMovement: false
   - type: Appearance
   - type: AmbientSound
     sound: "/Audio/Effects/Vehicle/vehicleengineidle.ogg"
@@ -74,10 +78,10 @@
         sound:
           collection: MetalBreak
   - type: MovementSpeedModifier
-    acceleration: 8
-    friction: 5 # wheels dont stop instantly
-    baseSprintSpeed: 6
-    baseWalkSpeed: 4.5 # default walking speed
+    baseAcceleration: 8
+    baseFriction: 0.2 # wheels dont stop instantly
+    baseSprintSpeed: 8.5
+    baseWalkSpeed: 4.5 # default walking speed 
   - type: ItemSlots
     slots:
       key_slot:

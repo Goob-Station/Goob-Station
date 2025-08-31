@@ -1,0 +1,26 @@
+- type: loadout
+  id: MedicalDoctorEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMedicalDoctor
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: MedicalDoctorEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMedicalDoctor
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: NitrileEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesNitrile
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

@@ -232,6 +232,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -339,6 +340,16 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 300
+    maxInterval: 900
+    sound:
+      collection: RandomLatheSounds
+      params:
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
+  - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -862,11 +873,14 @@
     - MedicalBoardsStaticGoob
     - PowerCellsStatic
     - GrenadeTriggersStatic
+    # Einstein Engines Packs
+    - SyringeCase
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
     - Surgery
     - MedicalCybernetics
+    - EnvirosuitExtinguisherRefill
     - MedicalMisc
     - MedicalMiscRestricted
     - MedicalVehiclesAdvanced

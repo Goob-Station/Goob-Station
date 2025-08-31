@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Events;
@@ -11,6 +18,8 @@ namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
+    [Dependency] private readonly SharedStaminaSystem _stam = default!;
+
     protected virtual void SubscribeBlade()
     {
         // Protective blades prevent that
@@ -27,7 +36,11 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
         SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
+        SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
     }
+
+    private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args) =>
+        _stam.ToggleStaminaDrain(ent, 0, false, true, ent.Comp.StaminaRegenKey);
 
     private void OnStatusEnded(Entity<RealignmentComponent> ent, ref StatusEffectEndedEvent args)
     {
@@ -61,6 +74,10 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnBeforeBladeStaminaDamage(EntityUid uid, Component component, ref BeforeStaminaDamageEvent args)
     {
+        if (args.Value <= 0
+            || args.Source == uid)
+            return;
+
         args.Cancelled = true;
     }
 }

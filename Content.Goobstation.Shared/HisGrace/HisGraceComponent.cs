@@ -155,6 +155,11 @@ public sealed partial class HisGraceComponent : Component
     public bool IsHeld;
 
     /// <summary>
+    /// Prevent His Grace from being dropped?
+    /// </summary>
+    public bool PreventDrop;
+
+    /// <summary>
     /// Who is holding His Grace
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
