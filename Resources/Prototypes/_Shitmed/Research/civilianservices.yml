@@ -86,6 +86,57 @@
   technologyPrerequisites:
   - BasicCybernetics
 
+- type: technology
+  id: BasicAugmentation
+  name: research-technology-basic-augmentation
+  icon:
+    sprite: _Shitmed/Objects/Augments/power.rsi
+    state: cell
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  position: -5,6
+  technologyPrerequisites:
+  - BasicCybernetics
+  recipeUnlocks:
+  - AugmentPowerCellSlotCasing
+  - AugmentRechargerCasing
+
+- type: technology
+  id: ImplantedTools
+  name: research-technology-implanted-tools
+  icon:
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+    state: base
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: -5,7
+  technologyPrerequisites:
+  - BasicAugmentation
+  recipeUnlocks:
+  - AugmentToolPanelCasing
+  - AugmentUtilityPanelElectronics
+  - AugmentBotanyPanelElectronics
+  - AugmentSurgeryPanelElectronics
+  - AugmentPaperworkPanelElectronics
+
+- type: technology
+  id: CombatAugmentation
+  name: research-technology-combat-augmentation
+  icon:
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+    state: strength
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: -6,7
+  technologyPrerequisites:
+  - BasicAugmentation
+  recipeUnlocks:
+  - AugmentStrengthCasing
+  - AugmentStrengthElectronics
+
 # Tier 3
 
 - type: technology
