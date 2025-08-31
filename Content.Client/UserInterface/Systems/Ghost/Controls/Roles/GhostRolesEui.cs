@@ -90,6 +90,7 @@ using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 {
@@ -186,11 +187,11 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             {
                 var name = group.Key.Name;
                 var description = group.Key.Description;
-                var groupReq = group.First(); //goobstation edit - since reqs can't be grouped fuckery
-                var hasAccess = requirementsManager.CheckRoleRequirements(
-                    groupReq.Requirements, //goobstation edit, less polluted ghost spawners menu
+                var hasAccess = group.Any(role => requirementsManager.CheckRoleRequirements(
+                    role.Requirements,
                     null,
-                    out var reason);
+                    out _));
+                var reason = hasAccess ? null : FormattedMessage.FromUnformatted("Requirements not met");
 
                 // Adding a new role
                 _window.AddEntry(name, description, hasAccess, reason, group, spriteSystem);
