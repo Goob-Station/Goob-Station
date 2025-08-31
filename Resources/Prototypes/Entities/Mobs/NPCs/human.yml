@@ -54,7 +54,10 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: PartialAbsorbable # Goobstation - changelings
+  - type: Absorbable # Goobstation - Changelings
+    bonusChemicals: 0
+    evolutionPoints: 0
+    progressObjective: false
 
 - type: entity
   name: salvager
@@ -72,7 +75,10 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
-    - type: PartialAbsorbable # Goobstation - changelings
+    - type: Absorbable # Goobstation - Changelings
+      bonusChemicals: 0
+      evolutionPoints: 0
+      progressObjective: false
 
 - type: entity
   name: spirate
@@ -91,7 +97,10 @@
   - type: HTN
     rootTask:
       task: SimpleHumanoidHostileCompound
-  - type: PartialAbsorbable # Goobstation - changelings
+  - type: Absorbable # Goobstation - Changelings
+    bonusChemicals: 0
+    evolutionPoints: 0
+    progressObjective: false
 
 - type: entity
   name: syndicate footsoldier
@@ -109,7 +118,10 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
-    - type: PartialAbsorbable # Goobstation - changelings
+    - type: Absorbable # Goobstation - Changelings
+      bonusChemicals: 0
+      evolutionPoints: 0
+      progressObjective: false
 
 - type: entity
   name: syndicate shuttle pilot
@@ -135,7 +147,10 @@
         Blunt: 19
   - type: Inventory
     templateId: corpse
-  - type: PartialAbsorbable # Goobstation - changelings
+  - type: Absorbable # Goobstation - Changelings
+    bonusChemicals: 0
+    evolutionPoints: 0
+    progressObjective: false
 
 - type: entity
   parent: MobHuman

@@ -16,5 +16,21 @@ namespace Content.Goobstation.Shared.Changeling.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AbsorbableComponent : Component
 {
+    /// <summary>
+    /// Should absorb of this entity progress changeling objective
+    /// </summary>
+    [DataField]
+    public bool ProgressObjective = true;
 
+    /// <summary>
+    /// How much evolution points absorbation of this entity give
+    /// </summary>
+    [DataField]
+    public float EvolutionPoints = 2f;
+
+    /// <summary>
+    /// How much additional chemical adds to max chemicals limit
+    /// </summary>
+    [DataField]
+    public float BonusChemicals = 10f;
 }

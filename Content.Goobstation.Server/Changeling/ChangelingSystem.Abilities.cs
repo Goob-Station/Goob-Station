@@ -181,7 +181,10 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled ||
+            HasComp<AbsorbedComponent>(target) ||
+            !IsIncapacitated(target) && !IsHardGrabbed(target)
+            || !TryComp<AbsorbableComponent>(target, out var absorbable))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -210,25 +213,24 @@ public sealed partial class ChangelingSystem
                 || targetForm.Species == "Monkey") // if they are a headslug or in monkey form
                 popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
         }
-        else if (!HasComp<PartialAbsorbableComponent>(target))
-        {
-            popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-        }
         else
-            popup = Loc.GetString("changeling-absorb-end-partial");
+        {
+            bonusChemicals += absorbable.BonusChemicals;
+            bonusEvolutionPoints += absorbable.EvolutionPoints;
+
+            popup = Loc.GetString("changeling-absorb-end-self", ("evolutionPoints", bonusEvolutionPoints), ("chemicals", bonusChemicals))
+                + (absorbable.ProgressObjective ? "" : " " + Loc.GetString("changeling-absorb-end-no-progress"));
+        }
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
-        if (objBool)
+        if (absorbable.ProgressObjective)
         {
             comp.TotalAbsorbedEntities++;
             comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
         }
 
-        TryStealDNA(uid, target, comp, objBool);
+        TryStealDNA(uid, target, comp, absorbable.ProgressObjective);
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -241,8 +243,7 @@ public sealed partial class ChangelingSystem
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
-                && !HasComp<PartialAbsorbableComponent>(target))
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind) && absorbable.ProgressObjective)
                 absorbObj.Absorbed += 1;
 
             if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
@@ -333,7 +334,7 @@ public sealed partial class ChangelingSystem
             return;
 
         var target = args.Target;
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        var objBool = TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.ProgressObjective;
 
         if (!TryStealDNA(uid, target, comp, objBool))
         {

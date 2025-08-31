@@ -361,3 +361,15 @@
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
+
+# Abilities debug head
+- type: entity
+  parent: ClothingHeadHatUshankaBlueshield
+  name: debug hat
+  id: ClothingDEBUGActionGrantHat
+  desciption: DEBUG HAT
+  suffix: DEBUG
+  component:
+  - type: ActionGrant
+    actions: 
+    - ActionRetractableItemArmBlade
