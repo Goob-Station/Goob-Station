@@ -281,19 +281,12 @@ public sealed class RadioSystem : EntitySystem
         // Goobstation - Wrap override begin - what the hell have I done
         string wrapId;
         if (fontSizeOverride.HasValue)
-        {
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold-loud" : "chat-radio-message-wrap-loud";
-        }
         else if (speech.Bold
             && language.SpeechOverride.BoldFontId != null)
-        {
             wrapId = "chat-radio-message-wrap-bolded-language";
-        }
         else
-        {
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
-        }
-
         // Goobstation end
 
         if (language.SpeechOverride.Color is { } colorOverride)
