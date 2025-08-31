@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -28,8 +29,9 @@ public sealed partial class DevilSystem
         || !args.CanInteract
         || _state.IsIncapacitated(args.Target)
         || !HasComp<MobStateComponent>(args.Target)
+        || HasComp<CondemnedComponent>(args.Target)
         || args.Target == args.User
-        || HasComp<CondemnedComponent>(args.Target))
+        || !_contract.IsUserValid(args.Target, out _))
             return;
 
         InnateVerb handshakeVerb = new()
@@ -63,7 +65,9 @@ public sealed partial class DevilSystem
 
     private void OfferHandshake(EntityUid user, EntityUid target)
     {
-        if (HasComp<DevilComponent>(target) || HasComp<PendingHandshakeComponent>(target))
+        if (HasComp<DevilComponent>(target)
+            || HasComp<PendingHandshakeComponent>(target)
+            || !_contract.IsUserValid(target, out _))
             return;
 
         var pending = AddComp<PendingHandshakeComponent>(target);

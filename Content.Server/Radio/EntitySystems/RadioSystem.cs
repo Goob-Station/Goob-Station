@@ -274,6 +274,7 @@ public sealed class RadioSystem : EntitySystem
         var speech = _chat.GetSpeechVerb(source, message);
         var languageColor = channel.Color;
 
+----------
         // Goobstation - Loud command begin
         string wrapId;
         if (fontSizeOverride.HasValue)
@@ -284,6 +285,12 @@ public sealed class RadioSystem : EntitySystem
         {
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
         }
+----------
+        // Goobstation - Bolded Language Overrides begin
+        var wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
+        if (speech.Bold && language.SpeechOverride.BoldFontId != null)
+            wrapId = "chat-radio-message-wrap-bolded-language";
+---------- m
         // Goobstation end
 
         if (language.SpeechOverride.Color is { } colorOverride)
@@ -293,18 +300,26 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
+----------
         // Goobstation Edit - Custom Bold Fonts begin
         var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
         if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
             boldId = language.SpeechOverride.FontId;
         // Goobstation Edit - end
 
+----------
+---------- m
         return Loc.GetString(wrapId,
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
+----------
             ("fontSize", fontSizeOverride ?? language.SpeechOverride.FontSize ?? speech.FontSize),
             ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
+----------
+            ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
+            ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
+---------- m
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
