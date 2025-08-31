@@ -19,8 +19,10 @@
       - ValyrianStandard
       - Marish
       - Moffic
+      - Schechi
+      - NewKinPidgin #Ka'rakk
       - Nekomimetic
-      - Draconic
+      - Draconic     #Sinta'Unathi
       - Azaziba
       - Calcic
       - Bubblish
@@ -49,8 +51,10 @@
       - ValyrianStandard
       - Marish
       - Moffic
+      - Schechi
+      - NewKinPidgin #Ka'rakk
       - Nekomimetic
-      - Draconic
+      - Draconic     #Sinta'Unathi
       - Azaziba
       - Calcic
       - Bubblish
@@ -72,6 +76,7 @@
       - Kobold
       - SpaceItalian
       - Cheval
+
 
 - type: entity
   parent: BaseSubdermalImplant
