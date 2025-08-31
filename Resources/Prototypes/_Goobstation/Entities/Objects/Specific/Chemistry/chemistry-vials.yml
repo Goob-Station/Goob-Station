@@ -126,3 +126,34 @@
         reagents:
           - ReagentId: Ebifin
             Quantity: 30
+
+- type: entity
+  name: bluespace vial
+  parent: BaseBeakerMetallic
+  description: It's longer on the inside!
+  id: BluespaceChemistryVial
+  components:
+  - type: Tag
+    tags:
+    - CentrifugeCompatible
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
+    layers:
+      - state: icon
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+      Plastic: 37
+      Glass: 62
+      Plasma: 25
+      Silver: 12
+  - type: StaticPrice
+    price: 65
