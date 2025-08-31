@@ -319,9 +319,10 @@ public sealed partial class ZombieSystem
             _npc.WakeNPC(target, htn);
         }
 
-        if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !hasMind) //this specific component gives build test trouble so pop off, ig
+        if (!hasMind) // Goobstation removed the comp from here, as some animals might have the component already
         {
-            //yet more hardcoding. Visit zombie.ftl for more information.
+            if (!HasComp<GhostRoleMobSpawnerComponent>(target))
+                return; // Goobstation
             var ghostRole = EnsureComp<GhostRoleComponent>(target);
             EnsureComp<GhostTakeoverAvailableComponent>(target);
             ghostRole.RoleName = Loc.GetString("zombie-generic");
