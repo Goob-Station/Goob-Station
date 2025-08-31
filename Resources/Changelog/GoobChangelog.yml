@@ -14070,3 +14070,11 @@ Entries:
       message: Fixed a bug with delayed death not working properly.
   id: 1565
   time: '2025-08-31T00:16:44.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        Science can now research bluespace centrifuge vials, unlocked alongside
+        bluespace beakers and syringes
+  id: 1566
+  time: '2025-08-31T03:12:53.0000000+00:00'
