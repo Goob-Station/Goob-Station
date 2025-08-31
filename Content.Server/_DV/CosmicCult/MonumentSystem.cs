@@ -54,7 +54,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly CosmicCultComponent _coscultComponent = default!; //Goobstation
     private static readonly EntProtoId CosmicGod = "MobCosmicGodSpawn";
     private static readonly EntProtoId MonumentCollider = "MonumentCollider";
     private EntityUid? _monumentStorageMap;
@@ -76,11 +75,14 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             if (_timing.CurTime >= monuComp.CheckTimer)
             {
-                var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, _coscultComponent.MonumentHealRange);
+                var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 15);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
 
                 foreach (var entity in entities)
-                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * _coscultComponent.ShitMedHeal, targetPart: TargetBodyPart.All); // Shitmed Change
+                    if (TryComp<CosmicCultComponent>(entity, out var cultComp))
+                    {
+                        _damage.TryChangeDamage(entity, monuComp.MonumentHealing * cultComp.ShitMedHeal, targetPart: TargetBodyPart.All); // Shitmed Change
+                    }
 
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
