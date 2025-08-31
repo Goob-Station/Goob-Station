@@ -1,0 +1,85 @@
+- type: entity
+  parent: BaseStructure
+  id: XenomorphEgg
+  name: xenomorph egg
+  description: A large mottled egg.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    noRot: true
+    layers:
+    - state: egg_growing
+      map: [ "status" ]
+  - type: Icon
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    state: egg_growing
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.XenomorphEggKey.Key:
+        status:
+          Burst: { state: egg_burst }
+          Bursting: { state: egg_bursting }
+          Grown: { state: egg_grown }
+          Growning: { state: egg_growing }
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 45
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Flammable
+    fireSpread: false
+    damage:
+      types:
+        Heat: 3
+  - type: XenomorphEgg
+  - type: RequireProjectileTarget
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        layer:
+        - BulletImpassable
+
+- type: entity
+  parent: XenomorphEgg
+  id: XenomorphEggBurst
+  suffix: Burst
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    noRot: true
+    layers:
+    - state: egg_burst
+      map: [ "status" ]
+  - type: Icon
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    state: egg_burst
+  - type: XenomorphEgg
+    faceHuggerPrototype: null
+    status: Burst

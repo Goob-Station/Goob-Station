@@ -1,0 +1,53 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveLarvaEmbryo
+  name: Remove Larva Embryo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: XenomorphInfection
+
+# - type: entity
+#   parent: SurgeryBase
+#   id: SurgeryInsertLarvaEmbryo
+#   name: Insert Larva
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: Surgery
+#     requirement: SurgeryOpenRibcage
+#     steps:
+#     - SurgeryStepSawBones
+#     - SurgeryStepInsertOrgan
+#     - SurgeryStepSealOrganWound
+#   - type: SurgeryPartCondition
+#     part: Torso
+#   - type: SurgeryOrganCondition
+#     organ:
+#     - type: XenomorphInfection
+#     inverse: true
+#     reattaching: true
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveLarva
+  name: Remove Larva
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: XenomorphLarva

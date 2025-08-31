@@ -218,7 +218,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
     //Goob - Shove
 
-    private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
+    public const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque); // WD EDIT: private -> public
 
     /// <summary>
     /// Maximum amount of targets allowed for a wide-attack.
