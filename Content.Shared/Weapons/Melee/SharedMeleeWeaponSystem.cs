@@ -218,7 +218,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
     //Goob - Shove
 
-    private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
+    public const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque); // WD EDIT: private -> public
 
     /// <summary>
     /// Maximum amount of targets allowed for a wide-attack.
@@ -805,7 +805,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Validate client
         for (var i = entities.Count - 1; i >= 0; i--)
         {
-            if (ArcRaySuccessful(entities[i],
+            // Goob Fix Start
+            var entity = entities[i];
+
+            if (!entity.IsValid() || TerminatingOrDeleted(entity))
+            {
+                entities.RemoveAt(i);
+                continue;
+            }
+            // Goob Fix End
+
+            if (ArcRaySuccessful(entity,
                     userPos,
                     direction.ToWorldAngle(),
                     component.Angle,

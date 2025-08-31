@@ -1,0 +1,97 @@
+- type: entity
+  parent: [BaseMob, ClothingMaskBase, MobDamageable]
+  id: MobXenomorphFaceHugger
+  name: xenomorph facehugger
+  description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: facehugger
+  - type: Clothing
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    slots: [mask]
+  - type: IngestionBlocker
+  - type: Blindfold
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: mumble
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+    stateAlertDict:
+      Alive: XenomorphHealth
+      Critical: XenomorphCrit
+      Dead: XenomorphDead
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: facehugger
+      Dead:
+        Base: facehugger_dead
+  - type: MeleeWeapon
+    hidden: true
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatXeno
+      amount: 1
+  - type: FaceHugger
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Silicon
+      - Ghost
+    damageOnImpact:
+      types:
+        Blunt: 15
+    damageOnInfect:
+      groups:
+        Genetic: 100
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: Tag
+    tags:
+    - XenomorphItem
+  - type: Physics
+    bodyType: Dynamic
+  - type: CollisionWake
+    enabled: false
+  - type: RequireProjectileTarget
+    active: true
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        layer:
+        - SlipLayer
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
