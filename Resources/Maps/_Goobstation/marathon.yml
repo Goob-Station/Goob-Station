@@ -63,8 +63,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2025 19:39:18
-  entityCount: 22830
+  time: 08/31/2025 19:55:38
+  entityCount: 22844
 maps:
 - 1
 grids:
@@ -50700,6 +50700,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -26.5,42.5
       parent: 2
+- proto: ChairPilotSeat
+  entities:
+  - uid: 22834
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9.5,45.5
+      parent: 2
 - proto: ChairWood
   entities:
   - uid: 7965
@@ -54612,6 +54620,45 @@ entities:
     - type: Transform
       pos: 16.5,2.5
       parent: 2
+- proto: ComputerCargoOrdersEngineering
+  entities:
+  - uid: 15819
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,-44.5
+      parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 8442
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,-6.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 22833
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,9.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 8469
+    components:
+    - type: Transform
+      pos: -30.5,49.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 22844
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,6.5
+      parent: 2
 - proto: ComputerComms
   entities:
   - uid: 8419
@@ -54639,12 +54686,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -21.5,51.5
-      parent: 2
-  - uid: 8423
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,32.5
       parent: 2
   - uid: 8424
     components:
@@ -54720,6 +54761,14 @@ entities:
     - type: Transform
       pos: -17.5,-0.5
       parent: 2
+- proto: ComputerFundingAllocation
+  entities:
+  - uid: 8423
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,32.5
+      parent: 2
 - proto: ComputerId
   entities:
   - uid: 8437
@@ -54752,12 +54801,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,44.5
-      parent: 2
-  - uid: 8442
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -15.5,-6.5
       parent: 2
   - uid: 8443
     components:
@@ -54911,11 +54954,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,31.5
-      parent: 2
-  - uid: 8469
-    components:
-    - type: Transform
-      pos: -30.5,49.5
       parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:
@@ -105421,11 +105459,6 @@ entities:
     - type: Transform
       pos: -10.5,-45.5
       parent: 2
-  - uid: 15819
-    components:
-    - type: Transform
-      pos: -19.5,-44.5
-      parent: 2
   - uid: 15820
     components:
     - type: Transform
@@ -120100,6 +120133,67 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 41.5,-4.5
+      parent: 2
+  - uid: 22831
+    components:
+    - type: Transform
+      pos: 16.5,0.5
+      parent: 2
+  - uid: 22832
+    components:
+    - type: Transform
+      pos: 13.5,22.5
+      parent: 2
+  - uid: 22835
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,43.5
+      parent: 2
+  - uid: 22836
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,43.5
+      parent: 2
+  - uid: 22837
+    components:
+    - type: Transform
+      pos: -42.5,46.5
+      parent: 2
+  - uid: 22838
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,50.5
+      parent: 2
+  - uid: 22839
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,48.5
+      parent: 2
+- proto: SpawnVehicleChairOfficeLight
+  entities:
+  - uid: 22840
+    components:
+    - type: Transform
+      pos: -14.5,-5.5
+      parent: 2
+  - uid: 22841
+    components:
+    - type: Transform
+      pos: -14.5,-4.5
+      parent: 2
+  - uid: 22842
+    components:
+    - type: Transform
+      pos: -6.5,-7.5
+      parent: 2
+  - uid: 22843
+    components:
+    - type: Transform
+      pos: -8.5,-7.5
       parent: 2
 - proto: SpawnVehicleJanicart
   entities:
