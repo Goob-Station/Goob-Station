@@ -61,7 +61,7 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of the doAfter for Siphon Entropy
     /// </summary>
     [DataField]
-    public TimeSpan CosmicSiphonDelay = TimeSpan.FromSeconds(1);
+    public TimeSpan CosmicSiphonDelay = TimeSpan.FromSeconds(2.5f);
 
     /// <summary>
     /// The duration of the doAfter for Shunt Subjectivity
