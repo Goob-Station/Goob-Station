@@ -14092,3 +14092,13 @@ Entries:
       message: Shadowkin Left Legs are visible again
   id: 1568
   time: '2025-08-31T04:47:00.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Unidentified life signs detected aboard the station. The xenomorphs are
+        here to take over the station.
+    - type: Add
+      message: Added new interface design in xenomorph style
+  id: 1569
+  time: '2025-08-31T07:33:49.0000000+00:00'
