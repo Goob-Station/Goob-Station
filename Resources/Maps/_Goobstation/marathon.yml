@@ -63,7 +63,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2025 19:55:38
+  time: 08/31/2025 23:25:29
   entityCount: 22844
 maps:
 - 1
@@ -9095,6 +9095,15 @@ entities:
       devices:
       - 7897
       - 7885
+  - uid: 22829
+    components:
+    - type: Transform
+      pos: 35.5,-8.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 22828
+      - 22827
 - proto: AirAlarmElectronics
   entities:
   - uid: 90
@@ -63499,6 +63508,9 @@ entities:
       - 10067
       - 9952
       - 541
+      - 10420
+      - 22823
+      - 22826
   - uid: 9821
     components:
     - type: Transform
@@ -65719,6 +65731,36 @@ entities:
     - type: Transform
       pos: -30.5,38.5
       parent: 2
+  - uid: 10420
+    components:
+    - type: Transform
+      pos: 36.5,-3.5
+      parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 9820
+  - uid: 22823
+    components:
+    - type: Transform
+      pos: 36.5,-4.5
+      parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 9820
+  - uid: 22826
+    components:
+    - type: Transform
+      pos: 36.5,-5.5
+      parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 9820
 - proto: Fireplace
   entities:
   - uid: 10137
@@ -91306,6 +91348,30 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 22827
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-5.5
+      parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      - invalid
+      deviceLists:
+      - 22829
+  - uid: 22828
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-11.5
+      parent: 2
+    - type: DeviceNetwork
+      configurators:
+      - invalid
+      - invalid
+      deviceLists:
+      - 22829
 - proto: GasVolumePump
   entities:
   - uid: 13465
