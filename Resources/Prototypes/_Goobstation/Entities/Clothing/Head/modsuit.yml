@@ -39,6 +39,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Armor
     coverage:
     - Head
