@@ -1,0 +1,5 @@
+- type: antag
+  id: Xenomorph
+  name: roles-antag-xenomorph-name
+  antagonist: true
+  objective: roles-antag-xenomorph-objective

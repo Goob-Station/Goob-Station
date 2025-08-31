@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -131,3 +132,19 @@
   components:
   - type: Implanter
     implant: MarishTranslatorImplant
+
+- type: entity
+  id: SchechiTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: schechi translator implant
+  components:
+  - type: Implanter
+    implant: SchechiTranslatorImplant
+
+- type: entity
+  id: NewKinPidginTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: ka'rakk translator implant
+  components:
+  - type: Implanter
+    implant: NewKinPidginTranslatorImplant

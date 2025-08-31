@@ -218,7 +218,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
     //Goob - Shove
 
-    private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
+    public const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque); // WD EDIT: private -> public
 
     /// <summary>
     /// Maximum amount of targets allowed for a wide-attack.
@@ -347,7 +347,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)) // Goob change
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
@@ -361,22 +362,24 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnHeavyAttack(HeavyAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        var weapon = GetEntity(msg.Weapon);
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)
+            || TerminatingOrDeleted(weapon)) // Goobstation Change
             return;
 
-        if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon) ||
-            !weapon.CanWideSwing) // Goobstation Change
-        {
+        if (!TryGetWeapon(user, out var weaponUid, out var weaponComp)
+            || weaponUid != weapon
+            || !weaponComp.CanWideSwing) // Goobstation Change
             return;
-        }
 
-        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weaponComp, msg, args.SenderSession);
     }
 
     private void OnDisarmAttack(DisarmAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not {} user)
+        if (args.SenderSession.AttachedEntity is not { } user
+            || TerminatingOrDeleted(user)) // Goobstation Change
             return;
 
         if (TryGetWeapon(user, out var weaponUid, out var weapon))
@@ -802,7 +805,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Validate client
         for (var i = entities.Count - 1; i >= 0; i--)
         {
-            if (ArcRaySuccessful(entities[i],
+            // Goob Fix Start
+            var entity = entities[i];
+
+            if (!entity.IsValid() || TerminatingOrDeleted(entity))
+            {
+                entities.RemoveAt(i);
+                continue;
+            }
+            // Goob Fix End
+
+            if (ArcRaySuccessful(entity,
                     userPos,
                     direction.ToWorldAngle(),
                     component.Angle,

@@ -1,0 +1,70 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CarpCaller
+  parent: [BaseMachinePowered, BaseSyndicateContraband]
+  name: carp caller
+  description: A syndicate device that seems interesting to wild space carp.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/carp_caller.rsi
+    layers:
+    - state: base
+    - state: lights_bottom
+      shader: unshaded
+      map: ["lights_bottom"]
+    - state: thumper_unpowered
+      visible: false
+      map: ["thumper_unpowered"]
+    - state: thumper
+      map: ["thumper"]
+    - state: lights_top
+      shader: unshaded
+      map: ["lights_top"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        thumper_unpowered:
+          True: { visible: false }
+          False: { visible: true }
+        lights_top:
+          True: { visible: true }
+          False: { visible: false }
+        thumper:
+          True: { visible: true }
+          False: { visible: false }
+        lights_bottom:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    size: Large # can put in bag
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.40,0.40,0.40"
+        density: 80
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: MobCaller
+    spawnProto: MobCarpCaller
+    maxAlive: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: StaticPrice
+    price: 4000
