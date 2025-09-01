@@ -57,14 +57,14 @@
 - type: entity
   id: BulletLightRifleIncendiary
   parent: BaseBulletIncendiary
-  name: bullet (0.30 rifle incendiary)
+  name: bullet (.30 rifle incendiary)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Blunt: 4
-        Heat: 4
+        Blunt: 4 # Goobstation?
+        Heat: 4  # Goobstation?
 
 - type: entity
   id: BulletLightRifleUranium
@@ -75,5 +75,5 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 10
-        Piercing: 11
+        Radiation: 10 # Goobstation?
+        Piercing: 11  # Goobstation?
