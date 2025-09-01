@@ -1063,6 +1063,9 @@ FoodDonutJellySlugcat: FoodDonutJellyScurret
 ClothingUniformJumpsuitChiefEngineerNT: ClothingUniformJumpsuitChiefEngineer
 ClothingUniformJumpsuitParamedicNT: ClothingUniformJumpsuitParamedic
 
+# 2025-08-29
+PrefilledSyringe: Syringe
+
 # 2026-01-04
 GhostBarSpawner: null
 

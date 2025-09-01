@@ -20,6 +20,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     public override void Initialize()
     {
         base.Initialize();
-        Subs.ItemStatus<InjectorComponent>(ent => new InjectorStatusControl(ent, SolutionContainers));
+
+        Subs.ItemStatus<InjectorComponent>(ent => new InjectorStatusControl(ent, SolutionContainer));
     }
 }
