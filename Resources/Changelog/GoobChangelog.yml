@@ -14158,3 +14158,45 @@ Entries:
       message: Added Schechi and Ka'rakk to the librarian language implant.
   id: 1577
   time: '2025-09-01T15:25:35.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New station event that spawns malign rifts to mimic tier 2 of the cosmic
+        cult. We do a little trolling.
+    - type: Tweak
+      message: >-
+        You can now move the monument even at tier 1, and it can be moved
+        multiple times with a 10-minute cooldown. No more spawn camping for
+        security.
+    - type: Tweak
+      message: >-
+        Siphon entropy now only takes 1 second instead of 5. If you still can't
+        reach tier 2 after this change, I don't know what to tell you. Like
+        honestly. 
+    - type: Tweak
+      message: >-
+        Vacuous spire now takes gas canisters instead of portable air scrubbers,
+        because literally no one was using this glyph.
+    - type: Tweak
+      message: >-
+        Only one cultist is needed to do most rituals, with the sole exception
+        of converting mindshielded people, which remains unchanged. You can now
+        go collect entropy instead of having to stay at the monument to help.
+    - type: Tweak
+      message: Increased the projectile speed of the cosmic scythe slightly.
+    - type: Tweak
+      message: >-
+        Nerfed cosmic cult spear damage since someone buffed it by making it a
+        boomerang without nerfing it as well.
+    - type: Tweak
+      message: >-
+        Vacuous vitality, the skill that passively heals you near the monument,
+        is now tier 2 instead of tier 3, and doesn't heal only 0.1 health per
+        second anymore.
+    - type: Remove
+      message: >-
+        Central command no longer announces that you feel an unnerving numbness
+        prickling you.
+  id: 1578
+  time: '2025-09-01T15:37:59.0000000+00:00'
