@@ -12,26 +12,30 @@
   name: lavaland-ruin-hierophant
   path: /Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml
   priority: -1 # highest priority
+  patchToPlanet: false
   componentsToGrant:
-    - type: HierophantBeat
+  - type: HierophantBeat
 
 - type: lavalandGridRuin
   id: SyndicateBase
   name: lavaland-ruin-syndicate
   path: /Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
   priority: -1 # highest priority
+  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: BiodomeSnow
   name: lavaland-ruin-biodome
   path: /Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml
   priority: 1
+  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: BiodomeBeach
   name: lavaland-ruin-biodome
   path: /Maps/_Lavaland/Lavaland/ruin_beach_biodome.yml
   priority: 2
+  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: GolemShuttle
@@ -80,6 +84,7 @@
   name: lavaland-ruin-shelter
   path: /Maps/_Lavaland/Lavaland/ruin_mining_outpost.yml
   priority: 10
+  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: Hermit
@@ -98,6 +103,7 @@
   name: lavaland-ruin-seed-vault
   path: /Maps/_Lavaland/Lavaland/ruin_seed_vault.yml
   priority: 13
+  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: Graveyard
