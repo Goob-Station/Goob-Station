@@ -11,7 +11,7 @@ using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Server.StationReportDiscordIntergrationSystem;
 
-public sealed class StationReportDiscordIntergration : EntitySystem
+public sealed class StationReportDiscordIntergrationSystem : EntitySystem
 {
     //thank you Timfa for writing this code
     private static readonly HttpClient client = new();
@@ -79,9 +79,9 @@ public sealed class StationReportDiscordIntergration : EntitySystem
             var response = await client.PostAsync(_webhookUrl, content);
             response.EnsureSuccessStatusCode();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Logger.Error($"Error sending station report to discord: {ex}");
+
         }
     }
 

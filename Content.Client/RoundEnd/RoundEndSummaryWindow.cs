@@ -221,7 +221,7 @@ namespace Content.Client.RoundEnd
         private BoxContainer MakeStationReportTab() //Goob edit start
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
-            var stationReportSystem = EntitySystem.Get<Content.Goobstation.Common.StationReport.StationReportSystem>();
+            var stationReportSystem = _entityManager.System<Content.Goobstation.Common.StationReport.StationReportSystem>();
             string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
             var stationReportTab = new BoxContainer
             {
