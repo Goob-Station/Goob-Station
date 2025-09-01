@@ -14134,3 +14134,9 @@ Entries:
       message: raiders
   id: 1573
   time: '2025-09-01T13:44:46.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added Kentucky Fried Vox to the menu
+  id: 1574
+  time: '2025-09-01T13:54:09.0000000+00:00'
