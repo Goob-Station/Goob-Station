@@ -2,9 +2,6 @@ using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Goobstation.Server.Lollypop;
 
-/// <summary>
-///
-/// </summary>
 [RegisterComponent]
 public sealed partial class LollypopComponent : Component
 {
@@ -13,10 +10,5 @@ public sealed partial class LollypopComponent : Component
 
     [DataField]
     public EntityUid? HeldBy = null;
-
-    // temporary variables
-
-    [DataField]
-    public FixedPoint2? OldTransferAmount;
 
 }
