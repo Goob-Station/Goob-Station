@@ -89,7 +89,7 @@
     - CosmicVacuousSpire
     whitelist:
       components:
-      - GasCanister
+      - PortableScrubber
   - type: CosmicGlyph
     requiredCultists: 1
     activationDamage:
