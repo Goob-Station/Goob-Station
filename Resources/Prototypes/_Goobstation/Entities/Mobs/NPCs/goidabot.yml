@@ -27,12 +27,20 @@
     rootTask:
       task: HonkbotCompound
   - type: Destructible
-    thresholds: [] # one does not simply kill raider
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: MobState
-    allowedStates: [Alive]
+    allowedStates:
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
+      220: Dead
   - type: Construction
     graph: GoidaBot
     node: bot
