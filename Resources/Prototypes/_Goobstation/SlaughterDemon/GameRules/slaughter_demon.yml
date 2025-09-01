@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# major
+- type: entity
+  parent: BaseGameRule
+  id: SlaughterDemonSummon
+  components:
+  - type: AntagSpawner
+    prototype: BaseMobSlaughterDemon
+  - type: AntagSelection
+    agentName: slaughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlaughterDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: slaughter-role-greeting
+        color: Red
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+      - SlaughterKillTheWizardObjective
+      - SlaughterKillEveryoneObjective
+
+# laughter
+- type: entity
+  parent: BaseGameRule
+  id: LaughterDemonSummon
+  components:
+  - type: AntagSpawner
+    prototype: MobLaughterDemon
+  - type: AntagSelection
+    agentName: laughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostLaughterDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: laughter-role-greeting
+        color: Pink
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesLaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - SlaughterHugAndTickleObjective
+
+# midround
+- type: entity
+  parent: BaseGameRule
+  id: SlaughterDemonMidround
+  components:
+  - type: AntagSelection
+    agentName: lesser-slaughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlaughterDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: slaughter-role-greeting
+        color: Red
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobLesserSlaughterDemon
+  - type: StationEvent
+    weight: 5.5
+    earliestStart: 50
+    minimumPlayers: 35
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 900
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: AntagObjectives
+    objectives:
+      - SlaughterDevourObjective
+      - AnnihilateAllJanitorsObjectiveFluff
+      - SpareCrewObjectiveFluff
+      - HuntTheBraveObjectiveFluff
+      - HuntTheCowardsObjectiveFluff
+      - ShowCrewPowerObjectiveFluff
+      - DriveInsaneObjectiveFluff
+      - SpreadBloodObjectiveFluff

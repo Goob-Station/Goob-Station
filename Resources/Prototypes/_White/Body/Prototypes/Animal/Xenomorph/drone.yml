@@ -1,0 +1,57 @@
+- type: body
+  id: XenomorphDrone
+  name: xenomorph drone
+  root: chest
+  slots:
+    head:
+      part: HeadXenomorph
+      connections:
+      - chest
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+        hive_node: OrganXenomorphHiveNode
+        resin_spinner: OrganXenomorphResinSpinner
+        acid_gland: OrganXenomorphAcidGland
+    chest:
+      part: ChestXenomorph
+      connections:
+      - right arm
+      - left arm
+      - groin
+      - head
+      organs:
+        plasma_vessel: OrganXenomorphPlasmaVesselLarge
+    groin:
+      part: GroinXenomorph
+      connections:
+      - right leg
+      - left leg
+      - head
+      organs:
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+    right arm:
+      part: RightArmXenomorph
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmXenomorph
+      connections:
+      - left hand
+    right hand:
+      part: RightHandXenomorph
+    left hand:
+      part: LeftHandXenomorph
+    right leg:
+      part: RightLegXenomorph
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegXenomorph
+      connections:
+      - left foot
+    right foot:
+      part: RightFootXenomorph
+    left foot:
+      part: LeftFootXenomorph

@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -220,5 +221,35 @@
     - Marish
     spoken:
     - Marish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SchechiTranslatorImplant
+  name: schechi translator implant
+  description: An implant giving the ability to understand and speak Schechi.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Schechi
+    spoken:
+    - Schechi
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NewKinPidginTranslatorImplant
+  name: ka'rakk translator implant
+  description: An implant giving the ability to understand and speak Ka'rakk.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NewKinPidgin
+    spoken:
+    - NewKinPidgin
     requires:
     - TauCetiBasic

@@ -9,6 +9,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.CosmicCult;
@@ -33,6 +34,17 @@ public abstract class SharedMonumentSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
         SubscribeLocalEvent<MonumentOnDespawnComponent, TimedDespawnEvent>(OnTimedDespawn);
         SubscribeLocalEvent<MonumentCollisionComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<MonumentGlyphComponent, EntityTerminatingEvent>(OnGlyphTerminating);
+    }
+
+    private void OnGlyphTerminating(EntityUid uid, MonumentGlyphComponent component, ref EntityTerminatingEvent args)
+    {
+        if (TryComp<MonumentComponent>(component.Monument, out var monument)
+            && monument.CurrentGlyph == uid)
+        {
+            monument.CurrentGlyph = null;
+            Dirty(component.Monument, monument);
+        }
     }
 
     private void OnTimedDespawn(Entity<MonumentOnDespawnComponent> ent, ref TimedDespawnEvent args)
@@ -98,6 +110,8 @@ public abstract class SharedMonumentSystem : EntitySystem
             QueueDel(ent.Comp.CurrentGlyph);
 
         var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
+        var glyphComp = AddComp<MonumentGlyphComponent>(glyphEnt);
+        glyphComp.Monument = ent;
         ent.Comp.CurrentGlyph = glyphEnt;
         var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
         RaiseLocalEvent(ref evt);

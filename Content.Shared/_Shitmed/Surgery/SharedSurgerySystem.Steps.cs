@@ -53,8 +53,12 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 
 public abstract partial class SharedSurgerySystem
 {
+    private EntityQuery<SurgeryToolComponent> _toolQuery;
+
     private void InitializeSteps()
     {
+        _toolQuery = GetEntityQuery<SurgeryToolComponent>();
+
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepEvent>(OnToolStep);
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepCompleteCheckEvent>(OnToolCheck);
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryCanPerformStepEvent>(OnToolCanPerform);
@@ -292,7 +296,7 @@ public abstract partial class SharedSurgerySystem
         if (!TryComp(args.Surgery, out SurgeryOrganSlotConditionComponent? condition))
             return;
 
-        args.Cancelled = !_body.CanInsertOrgan(args.Part, condition.OrganSlot);
+        args.Cancelled |= !_body.CanInsertOrgan(args.Part, condition.OrganSlot);
     }
 
     private void OnAffixPartStep(Entity<SurgeryAffixPartStepComponent> ent, ref SurgeryStepEvent args)
@@ -851,6 +855,7 @@ public abstract partial class SharedSurgerySystem
         {
             foreach (var (tool, toolSpeed) in validTools)
             {
+                usedEv.IgnoreToggle = _toolQuery.CompOrNull(tool)?.IgnoreToggle ?? false;
                 RaiseLocalEvent(tool, ref usedEv);
                 if (usedEv.Cancelled)
                     return false;
@@ -862,11 +867,8 @@ public abstract partial class SharedSurgerySystem
             {
                 foreach (var tool in validTools.Keys)
                 {
-                    if (TryComp(tool, out SurgeryToolComponent? toolComp) &&
-                        toolComp.StartSound != null)
-                    {
-                        _audio.PlayPvs(toolComp.StartSound, tool);
-                    }
+                    if (_toolQuery.CompOrNull(tool)?.StartSound is {} sound)
+                        _audio.PlayPvs(sound, tool);
                 }
             }
         }
