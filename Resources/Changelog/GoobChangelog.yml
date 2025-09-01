@@ -14128,3 +14128,33 @@ Entries:
         powered.
   id: 1572
   time: '2025-08-31T14:58:21.0000000+00:00'
+- author: sanabi
+  changes:
+    - type: Add
+      message: raiders
+  id: 1573
+  time: '2025-09-01T13:44:46.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added Kentucky Fried Vox to the menu
+  id: 1574
+  time: '2025-09-01T13:54:09.0000000+00:00'
+- author: '1984'
+  changes:
+    - type: Remove
+      message: Mice can no longer inhale reagents from smoke or foam.
+  id: 1575
+  time: '2025-09-01T15:18:57.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Slaughter demons take holy damage now
+  id: 1576
+  time: '2025-09-01T15:20:36.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Added Schechi and Ka'rakk to the librarian language implant.
+  id: 1577
+  time: '2025-09-01T15:25:35.0000000+00:00'
