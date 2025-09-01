@@ -82,6 +82,10 @@
       path: /Audio/Items/ratchet.ogg
     closeSound:
       path: /Audio/Items/ratchet.ogg
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xenomorph
   - type: AnimationPlayer
   - type: Construction
     node: folding
