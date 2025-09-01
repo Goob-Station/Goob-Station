@@ -9,6 +9,18 @@
     sprite: _Goobstation/Flock/Structures/Misc/pole.rsi
     layers:
       - state: pole
+  - type: InteractionOutline
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: FlockPoleEnd
