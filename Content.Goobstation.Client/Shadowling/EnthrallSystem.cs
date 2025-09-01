@@ -18,7 +18,7 @@ public sealed class EnthrallSystem : SharedEnthrallSystem
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
@@ -43,13 +43,11 @@ public sealed class EnthrallSystem : SharedEnthrallSystem
 
     private void OnInit(EntityUid uid, ThrallComponent component, ComponentInit init)
     {
-        if (_playerManager.LocalEntity == uid)
-        {
-            if (EntityManager.HasComponent<LesserShadowlingComponent>(uid))
-                return;
+        if (_playerManager.LocalEntity != uid
+            || EntityManager.HasComponent<LesserShadowlingComponent>(uid))
+            return;
 
-            _overlay.ReceiveEnthrall(5f);
-            _overlayManager.AddOverlay(_overlay);
-        }
+        _overlay.ReceiveEnthrall(5f);
+        _overlayManager.AddOverlay(_overlay);
     }
 }

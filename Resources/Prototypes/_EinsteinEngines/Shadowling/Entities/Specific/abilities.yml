@@ -1,7 +1,7 @@
 - type: entity
   id: ShadowlingAbilitiesPostHatch
   name: shadowling post-hatch abilities
-  description: Entitiy that contains all actions that are assigned after a shadowling hatched.
+  description: Entity that contains all actions that are assigned after a shadowling hatched.
   categories: [ HideSpawnMenu ]
   components:
   - type: ShadowlingGlare
@@ -27,7 +27,7 @@
 - type: entity
   id: ShadowlingAbilitiesObtainable
   name: shadowling obtainable abilities
-  description: Entitiy that contains all actions that are obtainable for a shadowling through crew conversion.
+  description: Entity that contains all actions that are obtainable for a shadowling through crew conversion.
   categories: [ HideSpawnMenu ]
   components:
   - type: ShadowlingSonicScreech
@@ -41,7 +41,7 @@
 - type: entity
   id: ShadowlingAbilitiesAscension
   name: shadowling ascension abilities
-  description: Entitiy that contains all actions that are obtainable for a shadowling through ascension.
+  description: Entity that contains all actions that are obtainable for a shadowling through ascension.
   categories: [ HideSpawnMenu ]
   components:
   - type: ShadowlingAnnihilate
@@ -52,7 +52,7 @@
 - type: entity
   id: NightmareAbilities
   name: shadowling ascension abilities
-  description: Entitiy that contains all components for Nightmares.
+  description: Entity that contains all components for Nightmares.
   categories: [ HideSpawnMenu ]
   components:
   - type: LightDetection
@@ -65,7 +65,7 @@
 - type: entity
   id: LesserShadowlingAbilities
   name: lesser shadowling abilities
-  description: Entitiy that contains all components for Lesser Shadowlings.
+  description: Entity that contains all components for Lesser Shadowlings.
   categories: [ HideSpawnMenu ]
   components:
   - type: LesserShadowling
@@ -73,3 +73,13 @@
   - type: LightDetection
   - type: LightDetectionDamage
     maxDetection: 10
+
+- type: entity
+  id: ThrallAbilities
+  name: thrall abilities
+  description: Entity that contains all components for Thralls after Hypnosis.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Thrall
+  - type: NightVision
+  - type: ThrallGuise

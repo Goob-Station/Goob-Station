@@ -9,15 +9,18 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingEmpoweredEnthrallComponent : Component
 {
-    [DataField]
-    public EntProtoId ActionId = "ActionEmpoweredEnthrall";
-
-    [DataField]
-    public EntityUid? ActionEnt;
-
     /// <summary>
     /// The duration it takes to complete the enthrallment process.
     /// </summary>
     [DataField]
     public TimeSpan EnthrallTime = TimeSpan.FromSeconds(1.2);
+
+    [DataField]
+    public EntProtoId EnthrallComponents = "ThrallAbilities";
+
+    [DataField]
+    public EntProtoId ActionId = "ActionEmpoweredEnthrall";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 }

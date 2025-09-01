@@ -42,6 +42,9 @@ public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
 
     private void OnEmpEnthrall(EntityUid uid, ShadowlingEmpoweredEnthrallComponent component, EmpoweredEnthrallEvent args)
     {
+        if (args.Handled)
+            return;
+
         var target = args.Target;
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
@@ -61,10 +64,16 @@ public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("shadowling-target-being-thralled"), uid, target, PopupType.SmallCaution);
 
         _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
     }
 
     private void OnEmpEnthrallDoAfter(EntityUid uid, ShadowlingEmpoweredEnthrallComponent component, EmpoweredEnthrallDoAfterEvent args)
     {
-        _shadowling.DoEnthrall(uid, args);
+        if (args.Handled
+            || args.Cancelled)
+            return;
+
+        _shadowling.DoEnthrall(uid, component.EnthrallComponents, args);
+        args.Handled = true;
     }
 }

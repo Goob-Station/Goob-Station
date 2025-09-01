@@ -74,6 +74,6 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
 
     private void OnEnthrallDoAfter(EntityUid uid, ShadowlingEnthrallComponent comp, EnthrallDoAfterEvent args)
     {
-        _shadowling.DoEnthrall(uid, args);
+        _shadowling.DoEnthrall(uid, comp.EnthrallComponents, args);
     }
 }

@@ -137,8 +137,6 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
                 var ev = new ShadowlingAscendEvent(uid);
                 RaiseLocalEvent(ev);
-
-
                 break;
             }
             case ShadowlingPhases.FailedAscension:
@@ -210,7 +208,6 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("shadowling-enthrall-dead"), uid, uid, PopupType.SmallCaution);
         return false;
-
     }
 
     public bool CanGlare(EntityUid target)
@@ -220,7 +217,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
                && !HasComp<ThrallComponent>(target);
     }
 
-    public void DoEnthrall(EntityUid uid, SimpleDoAfterEvent args)
+    public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)
     {
         if (args.Cancelled
             || args.Target == null)
@@ -229,6 +226,8 @@ public abstract class SharedShadowlingSystem : EntitySystem
         var target = args.Target.Value;
 
         var thrall = EnsureComp<ThrallComponent>(target);
+        var comps = _protoMan.Index(components);
+        EntityManager.AddComponents(target, comps);
 
         if (TryComp<ShadowlingComponent>(uid, out var sling))
         {

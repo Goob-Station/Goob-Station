@@ -10,6 +10,9 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 public sealed partial class ShadowlingHypnosisComponent : Component
 {
     [DataField]
+    public EntProtoId HypnosisComponents = "ThrallAbilities";
+
+    [DataField]
     public EntProtoId ActionId = "ActionHynosis";
 
     [DataField]

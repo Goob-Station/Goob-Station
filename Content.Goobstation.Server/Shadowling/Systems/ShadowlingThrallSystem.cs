@@ -37,10 +37,6 @@ public sealed class ShadowlingThrallSystem : EntitySystem
             _roles.MindAddRole(mindId, "MindRoleThrall");
 
         _antag.SendBriefing(uid, Loc.GetString("thrall-role-greeting"), Color.MediumPurple, component.ThrallConverted);
-
-        // Add Thrall Abilities
-        EnsureComp<NightVisionComponent>(uid);
-        EnsureComp<ThrallGuiseComponent>(uid);
     }
 
     private void OnRemove(EntityUid uid, ThrallComponent component, ComponentShutdown args)
