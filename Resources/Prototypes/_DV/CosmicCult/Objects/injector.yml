@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseItem # Not inheriting from ChemicalMedipen so that you can't transmute an empty injector into a filled one.
+  id: CosmicMedipen
+  name: malign injector
+  description: Previously a sterile injector, now corrupted beyond recognition. You can see the liquid inside it boiling and freezing at the same time.
+  components:
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-injector-cult
+    othersText: cosmic-examine-text-injector
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/injector.rsi
+    layers:
+    - state: base
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    sprite: Objects/Specific/Medical/medipen.rsi
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#491365"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#491365"
+      - state: base-colorB-inhand-right
+    size: Tiny
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: AntiEntropy
+          Quantity: 10
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: ExaminableSolution
+    solution: pen
+  - type: Appearance
+  - type: TrashOnSolutionEmpty
+    solution: pen

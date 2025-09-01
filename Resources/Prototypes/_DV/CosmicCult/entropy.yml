@@ -29,3 +29,68 @@
         visualType: SmallCaution
         messages: [ "entropy-effect-numb" ]
         probability: 0.1
+
+- type: reagent
+  id: AntiEntropy
+  group: Narcotics
+  name: reagent-name-anti-entropy
+  desc: reagent-desc-anti-entropy
+  flavor: entropic
+  color: "#491365"
+  physicalDesc: reagent-physical-desc-malign
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.3
+        sprintSpeedModifier: 1.3
+        conditions:
+          - !type:ReagentThreshold
+            max: 10
+      - !type:MovespeedModifier # You can use 2 injectors at once for even more speed
+        walkSpeedModifier: 1.5
+        sprintSpeedModifier: 1.5
+        conditions:
+          - !type:ReagentThreshold
+            min: 10.1
+      - !type:HealthChange # But you probably won't survive it
+        conditions:
+          - !type:ReagentThreshold
+            min: 10.1
+        damage:
+          types:
+            Cold: 2.5
+            Asphyxiation: 5
+      - !type:EvenHealthChange
+        damage:
+          Brute: -1 # Not great, but will help you to tank an extra bullet or two
+        conditions: # This one only works for cultists
+        - !type:HasComponent
+          explanation: reagent-condition-is-cultist
+          components:
+          - type: CosmicCult
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+        type: Add
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:HealthChange # Only affects non-cultists. Examine text is there for a reason.
+        damage:
+          types:
+            Cold: 1.5
+            Asphyxiation: 3
+        conditions:
+        - !type:HasComponent
+          explanation: reagent-condition-is-not-cultist
+          components:
+          - type: CosmicCult
+          shouldHave: false
