@@ -206,6 +206,14 @@
   components:
   - type: AccessReader
     access: [["Research"]]
+#goob
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsRobotics
+  suffix: Research, Locked
+  components:
+  - type: AccessReader
+    access: [["Robotics"]]
 
 # Security
 - type: entity

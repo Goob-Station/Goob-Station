@@ -139,7 +139,6 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 2, 3 ]
             ResearchAssistant: [ 1, 1 ]
-            Roboticist: [ 2, 2 ] # Goob
             #security
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 3, 3 ]

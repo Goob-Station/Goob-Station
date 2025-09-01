@@ -77,7 +77,6 @@
             Scientist: [ 10, 10 ]
             ResearchAssistant: [ -1, -1 ]
             Borg: [ 4, 4 ]
-            Roboticist: [ 2, 2 ] # Goob
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

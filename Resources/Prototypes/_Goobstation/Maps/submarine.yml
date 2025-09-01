@@ -70,7 +70,6 @@
             ResearchAssistant: [ 1, 2 ]
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 6 ]
-            Roboticist: [ 2, 2 ] # Goob
           #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]

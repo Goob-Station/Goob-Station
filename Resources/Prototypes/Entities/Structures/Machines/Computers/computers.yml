@@ -835,7 +835,7 @@
   - type: UserInterface
     interfaces:
       enum.IdCardConsoleUiKey.Key:
-        type: IdCardConsoleBoundUserInterface
+        type: IdCardConsoleBoundUserInterfacea
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: CrewManifestViewer
