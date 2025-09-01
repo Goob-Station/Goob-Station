@@ -14214,3 +14214,9 @@ Entries:
       message: Plasmaman can now use modsuits.
   id: 1579
   time: '2025-09-01T15:38:39.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Devils are less likely to spawn.
+  id: 1580
+  time: '2025-09-01T15:39:39.0000000+00:00'
