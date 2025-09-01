@@ -112,6 +112,7 @@
           tags:
           - Knife
           - Sidearm
+        priority: 4
   # Goobstation
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
