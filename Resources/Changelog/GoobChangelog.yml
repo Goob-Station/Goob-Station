@@ -14244,3 +14244,11 @@ Entries:
         the NTR's locker, also has discord integration
   id: 1583
   time: '2025-09-01T19:48:52.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Going crit as a transformed mouse/carp no longer "stunlocks" you by
+        transforming over and over.
+  id: 1584
+  time: '2025-09-01T19:50:08.0000000+00:00'
