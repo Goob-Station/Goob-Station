@@ -14200,3 +14200,17 @@ Entries:
         prickling you.
   id: 1578
   time: '2025-09-01T15:37:59.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Modsuits lamps now work.
+    - type: Fix
+      message: Space Dragons can now devour food.
+    - type: Fix
+      message: Gemini are now immune to suffocation & temperature.
+    - type: Fix
+      message: Gemini being able to crash the server.
+    - type: Fix
+      message: Plasmaman can now use modsuits.
+  id: 1579
+  time: '2025-09-01T15:38:39.0000000+00:00'
