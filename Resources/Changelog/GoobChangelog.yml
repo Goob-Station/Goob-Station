@@ -14146,3 +14146,9 @@ Entries:
       message: Mice can no longer inhale reagents from smoke or foam.
   id: 1575
   time: '2025-09-01T15:18:57.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Slaughter demons take holy damage now
+  id: 1576
+  time: '2025-09-01T15:20:36.0000000+00:00'
