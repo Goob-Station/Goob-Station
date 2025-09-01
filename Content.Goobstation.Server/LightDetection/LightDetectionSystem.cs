@@ -1,5 +1,6 @@
 using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.LightDetection.Components;
+using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -13,7 +14,7 @@ namespace Content.Goobstation.Server.LightDetection;
 /// This system detects if an entity is standing on light.
 /// It casts rays from the PointLight to the player.
 /// </summary>
-public sealed class LightDetectionSystem : EntitySystem
+public sealed class LightDetectionSystem : SharedLightDetectionSystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -66,7 +67,7 @@ public sealed class LightDetectionSystem : EntitySystem
 
     private record struct HandleLightJob() : IParallelRobustJob
     {
-        public int BatchSize => 1;
+        public int BatchSize => 16;
 
         public readonly List<Entity<LightDetectionComponent, TransformComponent>> UpdateEnts = new();
 

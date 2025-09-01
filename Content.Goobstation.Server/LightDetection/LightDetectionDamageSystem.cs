@@ -1,4 +1,5 @@
-using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.LightDetection.Components;
+using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
@@ -10,7 +11,7 @@ namespace Content.Goobstation.Server.LightDetection;
 /// <summary>
 /// This handles healing or dealing damage to an entity that is standing on a lighted area.
 /// </summary>
-public sealed class LightDetectionDamageSystem : EntitySystem
+public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

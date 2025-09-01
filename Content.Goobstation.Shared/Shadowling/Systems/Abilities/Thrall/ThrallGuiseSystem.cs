@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Shared.Actions;
 using Content.Shared.Stealth;

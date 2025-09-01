@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Shared.Actions;
-using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -24,7 +24,6 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 

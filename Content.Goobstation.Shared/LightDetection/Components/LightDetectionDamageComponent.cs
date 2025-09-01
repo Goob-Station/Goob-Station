@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Shadowling.Components;
+namespace Content.Goobstation.Shared.LightDetection.Components;
 
 /// <summary>
 /// Component that indicates a user should take damage or heal damage based on the light detection system
@@ -82,6 +82,9 @@ public sealed partial class LightDetectionDamageComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> AlertProto = "ShadowlingLight";
+
+    [DataField]
+    public int AlertMaxSeverity = 9;
 
     [DataField]
     public SoundSpecifier? SoundOnDamage = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/energy_meat1.ogg");

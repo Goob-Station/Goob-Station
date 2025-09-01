@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;

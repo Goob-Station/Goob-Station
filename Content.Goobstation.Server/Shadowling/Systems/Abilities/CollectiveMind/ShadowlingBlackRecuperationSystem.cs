@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.LightDetection;
+using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;

@@ -1,11 +1,12 @@
 using System.Numerics;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Shadowling.Components;
+namespace Content.Goobstation.Shared.LightDetection.Components;
 
 /// <summary>
 /// This is used for detecting if an entity is near a lighted area
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LightDetectionComponent : Component
 {
     /// <summary>
