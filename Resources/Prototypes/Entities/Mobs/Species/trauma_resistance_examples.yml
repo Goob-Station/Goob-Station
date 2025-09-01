@@ -22,8 +22,8 @@
     maxDismembermentChance: 0.4  # Lower maximum chance than default 0.7
 
     # Normal susceptibility to organ and nerve damage
-      maxChance: 0.8 # 80%
-﻿
+    organDamageMultiplier: 1.0
+    nerveDamageMultiplier: 1.0
 
 # Example for dwarves - sturdy and resistant
 - type: entity
