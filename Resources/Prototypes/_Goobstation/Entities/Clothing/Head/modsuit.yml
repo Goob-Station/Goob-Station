@@ -39,6 +39,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Armor
     coverage:
     - Head
@@ -127,14 +131,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 3
     energy: 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -236,14 +239,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -331,14 +333,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -411,14 +412,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -494,14 +494,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -591,14 +590,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -681,14 +679,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -784,14 +781,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking

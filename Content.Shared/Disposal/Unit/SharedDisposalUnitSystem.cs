@@ -684,7 +684,9 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         if (state == DisposalsPressureState.Ready)
         {
             component.NextPressurized = TimeSpan.Zero;
-            _device.InvokePort(uid, ReadyPort); // Goobstation
+
+            if (HasComp<DeviceLinkSourceComponent>(uid)) // Goobstation
+                _device.InvokePort(uid, ReadyPort); // Goobstation
 
             // Manually engaged
             if (component.Engaged)
