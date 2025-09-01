@@ -14010,3 +14010,121 @@ Entries:
       message: Due to helmet change made Brizby 5% less bald
   id: 1560
   time: '2025-08-30T16:56:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Clownops can now buy Clown Cars and Clumsy Implants to drive them!
+    - type: Add
+      message: ClownCars now have a new theme song
+    - type: Fix
+      message: Clown Car actions now have cooldowns
+  id: 1561
+  time: '2025-08-30T21:39:54.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: '"looks surprised" emote'
+  id: 1562
+  time: '2025-08-30T21:45:58.0000000+00:00'
+- author: Slopstice, The Voices
+  changes:
+    - type: Add
+      message: >-
+        Devils now have a new objective, namely to get a specific amount of
+        contract weight.
+    - type: Fix
+      message: Devils can no longer have paradox clones of themselves.
+    - type: Fix
+      message: Devils can now teleport while restrained, this will uncuff them.
+    - type: Fix
+      message: >-
+        Devils can no longer make deals with silicons, nor can they handshake
+        nearly anything. (It was fun, but had to go.)
+    - type: Fix
+      message: Devils themselves and contracts are now significantly harder to destroy.
+    - type: Fix
+      message: Several other bugs with devil.
+    - type: Tweak
+      message: Devils now gain a new appearance when returning from being banished.
+    - type: Tweak
+      message: >-
+        Devils and other cheat-death capable entities can no longer revive if
+        holy damage exceeds their crit threshold.
+    - type: Tweak
+      message: >-
+        All Devil items can no longer be cremated, and the suit is no longer
+        contraband.
+    - type: Tweak
+      message: Holy water deals less damage (2 -> 0.7)
+  id: 1563
+  time: '2025-08-30T23:12:11.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed bold font missing on non-Sol Common languages.
+  id: 1564
+  time: '2025-08-30T23:22:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with delayed death not working properly.
+  id: 1565
+  time: '2025-08-31T00:16:44.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        Science can now research bluespace centrifuge vials, unlocked alongside
+        bluespace beakers and syringes
+  id: 1566
+  time: '2025-08-31T03:12:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added carp caller to syndicate uplink - a device that attracts wild carp
+        from outer space.
+  id: 1567
+  time: '2025-08-31T03:16:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Shadowkin Left Legs are visible again
+  id: 1568
+  time: '2025-08-31T04:47:00.0000000+00:00'
+- author: Spatison, PuroSlavKing, Kai5
+  changes:
+    - type: Add
+      message: >-
+        Unidentified life signs detected aboard the station. The xenomorphs are
+        here to take over the station.
+    - type: Add
+      message: Added new interface design in xenomorph style
+  id: 1569
+  time: '2025-08-31T07:33:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to RCD away cosmic cult walls and windows instantly.
+  id: 1570
+  time: '2025-08-31T10:11:40.0000000+00:00'
+- author: Luminal, Bokser
+  changes:
+    - type: Add
+      message: >-
+        DADDY’S HOME, FOOLISH CREW. FIRST, I SLAUGHTER THE ONE WHO SUMMONED ME.
+        SECOND, I COME FOR YOU.
+  id: 1571
+  time: '2025-08-31T14:14:48.0000000+00:00'
+- author: sowelipililimute, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        There are now various tool panel augments that you can get implanted
+        into yourself to have access to tools all the time
+    - type: Add
+      message: >-
+        You can now get strength augments to increase your melee damage when
+        powered.
+  id: 1572
+  time: '2025-08-31T14:58:21.0000000+00:00'
