@@ -14252,3 +14252,9 @@ Entries:
         transforming over and over.
   id: 1584
   time: '2025-09-01T19:50:08.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: You can wear Botany Berets again
+  id: 1585
+  time: '2025-09-01T19:52:13.0000000+00:00'
