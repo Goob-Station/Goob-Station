@@ -62,6 +62,22 @@
       amount: 3
 
 - type: entity
+  id: CrateCargoClarkeAssembly
+  name: clarke assembly crate
+  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
+  parent: CratePrivateSecure
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClarkeHarness
+    - id: ClarkeHead
+    - id: ClarkeLArm
+    - id: ClarkeRArm
+    - id: ClarkeTreads
+    - id: ClarkeCentralElectronics
+    - id: ClarkePeripheralsElectronics
+
+- type: entity
   id: CrateCargoGambling
   name: the grand lottery $$$
   description: A box containing treasure beyond your greatest imaginations!
