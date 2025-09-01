@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# strong but can be killed with holy easily
+- type: damageModifierSet
+  id: SlaughterDemon
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 0.5
+    Heat: 0.1
+    Holy: 2.5
+    Radiation: 0.0
+    Poison: 0.0
+    Cold: 0.0
+    Cellular: 0.0
+    Caustic: 0.0
+  ignoreArmorPierceFlags: All

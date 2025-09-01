@@ -226,3 +226,84 @@
     - MidroundAntag
   - type: StationEvent
     isSelectable: false
+
+- type: entity
+  parent: SlaughterDemonMidround
+  id: TokenSlaughterDemon
+  components:
+  - type: AntagSelection
+    agentName: lesser-slaughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointSlaughterDemonToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: slaughter-role-greeting
+        color: Red
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobLesserSlaughterDemon
+  - type: StationEvent
+    weight: 2
+    earliestStart: 75
+    minimumPlayers: 40
+    duration: null
+    maxOccurrences: 1
+    chaos: # todo: adjust all this
+      Hostile: 300
+      Medical: 300
+      Death: 300
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: AntagObjectives
+    objectives:
+    - SlaughterDevourObjective
+    - AnnihilateAllJanitorsObjectiveFluff
+    - SpareCrewObjectiveFluff
+    - HuntTheBraveObjectiveFluff
+    - HuntTheCowardsObjectiveFluff
+    - ShowCrewPowerObjectiveFluff
+    - DriveInsaneObjectiveFluff
+    - SpreadBloodObjectiveFluff
+
+- type: entity
+  parent: LaughterDemonSummon
+  id: TokenLaughterDemon
+  components:
+  - type: AntagSpawner
+    prototype: MobLaughterDemon
+  - type: AntagSelection
+    agentName: laughter-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointLaughterDemonToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+      briefing:
+        text: laughter-role-greeting
+        color: Pink
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesLaughterTitle
+        - NamesSlaughter
+        nameFormat: name-format-slaughter
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - SlaughterHugAndTickleObjective
