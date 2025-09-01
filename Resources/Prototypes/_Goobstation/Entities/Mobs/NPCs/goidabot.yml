@@ -29,7 +29,7 @@
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
-        damage: 600
+        damage: 220
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
