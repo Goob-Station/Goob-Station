@@ -472,10 +472,13 @@
     injectOnly: false
     ignoreMobs: true
     ignoreClosed: false
-    minTransferAmount: 1
-    maxTransferAmount: 5
-    transferAmount: 1
-    toggleState: 1 # draw
+    transferAmounts:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    currentTransferAmount: 1
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -555,6 +558,19 @@
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
+  - type: Spillable
+    solution: injector
+  - type: TrashOnSolutionEmpty
+    solution: injector
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: syringe
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: Tag
+    tags:
+    - Syringe
   # Goobstation Start - Added embeddable properties for syringe gun
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -568,7 +584,7 @@
       path: /Audio/Weapons/pierce.ogg
   ##- type: CombatDoAfter - This is just problematic and unfun
   ##  trigger: !type:CombatSyringeTriggerEvent
-  ##  breakOnDamage: true
+    ##  breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -629,6 +645,7 @@
     tags:
     - Syringe
     - SyringeGunAmmo # GoobStation
+
 
 - type: entity
   parent: BaseSyringe
@@ -712,6 +729,7 @@
 #    - SyringeGunAmmo
 
 - type: entity
+  abstract: true
   parent: BaseSyringe
   id: PrefilledSyringe
   components:
@@ -781,11 +799,12 @@
         maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
         canReact: false
   - type: Injector
-    delay: 2
+    delay: 2 # Goobstation
     injectOnly: false
-    minTransferAmount: 5
-    maxTransferAmount: 20
-    transferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    transferAmounts:
+    - 5
+    - 20
+    currentTransferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   - type: Tag
     tags:
     - Syringe
@@ -795,7 +814,6 @@
     materialComposition:
       Steel: 62
       Plastic: 12
-
 
 - type: entity
   name: pill
