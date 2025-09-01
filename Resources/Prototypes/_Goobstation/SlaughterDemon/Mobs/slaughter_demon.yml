@@ -1,0 +1,205 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent:
+    - SimpleMobBase
+    - MobPolymorphable
+  id: BaseMobSlaughterDemon
+  name: slaughter demon
+  suffix: ""
+  description: A large, menacing creature covered in armored black scales. You should run.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: daemon
+  - type: Stamina
+    critThreshold: 150
+  - type: NightVision
+    color: "#AA4A44"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: SlaughterDemon
+  - type: StatusEffects # Overwriting basesimplemob to remove flash
+    allowed:
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
+  - type: MobMover
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: InteractionOutline
+  - type: NoSlip
+  - type: Clickable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-slaughter-demon-name
+    description: ghost-role-information-slaughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+  - type: GhostTakeoverAvailable
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      210: Critical
+      240: Dead
+  - type: Examiner
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 30
+        Structural: 50
+  - type: SlaughterDemon # main component
+  - type: SlaughterDevour # allows the demon to devour
+    toHeal: # Healing done when eating someone
+      groups:
+        Brute: -1000
+        Burn: -1000
+        Airloss: -1000
+        Toxin: -1000
+        Genetic: -1000
+        Metaphysical: -1000
+    toHealNonCrew: # Healing done when eating a robot
+      groups:
+        Brute: -50
+        Burn: -50
+        Airloss: -50
+        Toxin: -50
+        Genetic: -50
+        Metaphysical: -50
+    toHealAnythingElse:  # Healing when previous conditions weren't met
+      groups:
+        Brute: -25
+        Burn: -25
+        Airloss: -25
+        Toxin: -25
+        Genetic: -25
+        Metaphysical: -25
+  - type: DemonicWhisper # allows the demon to demonic whisper
+  - type: DemonicAccent # the accent
+  - type: Puller
+    stageChangeCooldown: 0.5
+    grabThrowDamageModifier: 6.0
+    throwingDistance: 30
+  - type: ComplexInteraction
+  - type: Targeting
+  - type: Speech
+    speechVerb: SlaughterDemon
+  - type: TypingIndicator
+    proto: guardian
+  - type: Gibbable
+  - type: LayingDown
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: SlaughterDemon
+  - type: StandingState
+  - type: Hands
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - DevilFaction
+  - type: ActionGrant
+    actions:
+      - DemonicWhisperAction
+  - type: ReplacementAccent
+    accent: slaughterDemon
+  - type: GrantHellRip
+
+# laughter demon
+- type: entity
+  parent: BaseMobSlaughterDemon
+  id: MobLaughterDemon
+  name: laughter demon
+  description: A large, adorable creature covered in armor with pink bows.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: bowmon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      190: Critical
+      215: Dead
+  - type: SlaughterDevour
+    feastSound: /Audio/_Goobstation/Misc/scary_horn2.ogg
+  - type: SlaughterDemon
+    isLaughter: true
+    deathSound: /Audio/Effects/sadtrombone.ogg
+  - type: Speech
+    speechVerb: Cluwne
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/bikehorn.ogg
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Slash: 25
+        Structural: 50
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-laughter-demon-name
+    description: ghost-role-information-laughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+
+# midround roll
+- type: entity
+  parent: BaseMobSlaughterDemon
+  id: MobLesserSlaughterDemon
+  name: lesser slaughter demon
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      190: Critical
+      200: Dead
