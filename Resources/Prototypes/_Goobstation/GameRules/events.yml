@@ -146,3 +146,18 @@
     table: !type:AllSelector
       children:
       - id: CMMobXenoRogueKing
+      
+- type: entity
+  id: SubstationFaultGameRule
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 15
+    chaos:
+      Power: 100
+    eventType: Maintenance
+  - type: GameRule
+    chaosScore: 60
+  - type: SubstationFaultRule
