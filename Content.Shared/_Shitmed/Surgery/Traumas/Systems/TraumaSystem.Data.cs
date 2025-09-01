@@ -51,5 +51,10 @@ public partial class TraumaSystem
         { WoundableSeverity.Severed, 0 },
     };
 
+    /// <summary>
+    /// Default maximum dismemberment chance cap. Can be overridden by species-specific components.
+    /// </summary>
+    private readonly FixedPoint2 _defaultMaxDismembermentChance = 0.7;
+
     #endregion
 }

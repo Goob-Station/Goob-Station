@@ -183,6 +183,16 @@ public partial class TraumaSystem
         if (!Resolve(boneEnt, ref boneComp))
             return false;
 
+        // Check for trauma resistance on the body
+        var bodyPart = Comp<BodyPartComponent>(woundable);
+        if (bodyPart.Body.HasValue && TryComp<TraumaResistanceComponent>(bodyPart.Body.Value, out var traumaResistance))
+        {
+            if (traumaResistance.BoneDamageImmune || traumaResistance.BoneDamageMultiplier <= 0)
+                return false;
+            
+            inflicterSeverity *= traumaResistance.BoneDamageMultiplier;
+        }
+
         if (_net.IsServer)
             AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
 

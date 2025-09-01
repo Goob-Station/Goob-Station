@@ -378,9 +378,13 @@ public partial class TraumaSystem
         if (!bodyPart.Body.HasValue)
             return false; // Can't sever if already severed
 
-        // Slime people are immune to bone damage
-        if (bodyPart.Species == "SlimePerson")
-            return false;
+        // Check for trauma resistance component on the body
+        if (TryComp<TraumaResistanceComponent>(bodyPart.Body.Value, out var traumaResistance))
+        {
+            // Check if completely immune to bone damage
+            if (traumaResistance.BoneDamageImmune || traumaResistance.BoneDamageMultiplier <= 0)
+                return false;
+        }
 
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
 
@@ -412,6 +416,10 @@ public partial class TraumaSystem
             0,
             1);
 
+        // Apply species-specific bone damage multiplier
+        if (traumaResistance != null)
+            chance *= traumaResistance.BoneDamageMultiplier;
+
         return _random.Prob((float) chance);
     }
 
@@ -422,6 +430,14 @@ public partial class TraumaSystem
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
             return false; // No entity to apply pain to
+
+        // Check for trauma resistance component on the body
+        if (TryComp<TraumaResistanceComponent>(bodyPart.Body.Value, out var traumaResistance))
+        {
+            // Check if completely immune to nerve damage
+            if (traumaResistance.NerveDamageMultiplier == 0)
+                return false;
+        }
 
         if (!TryComp<NerveComponent>(target, out var nerve))
             return false;
@@ -447,6 +463,10 @@ public partial class TraumaSystem
                 0,
                 1);
 
+        // Apply species-specific nerve damage multiplier
+        if (traumaResistance != null)
+            chance *= traumaResistance.NerveDamageMultiplier;
+
         return _random.Prob((float) chance);
     }
 
@@ -457,6 +477,14 @@ public partial class TraumaSystem
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
             return false; // No entity to apply pain to
+
+        // Check for trauma resistance component on the body
+        if (TryComp<TraumaResistanceComponent>(bodyPart.Body.Value, out var traumaResistance))
+        {
+            // Check if completely immune to organ damage
+            if (traumaResistance.OrganDamageMultiplier == 0)
+                return false;
+        }
 
         var totalIntegrity =
             _body.GetPartOrgans(target, bodyPart)
@@ -486,6 +514,10 @@ public partial class TraumaSystem
                 0,
                 1);
 
+        // Apply species-specific organ damage multiplier
+        if (traumaResistance != null)
+            chance *= traumaResistance.OrganDamageMultiplier;
+
         return _random.Prob((float) chance);
     }
 
@@ -495,7 +527,15 @@ public partial class TraumaSystem
     {
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
-            return false; // Can't sever if already severed
+            return false;
+
+        // Check for trauma resistance component on the body
+        if (TryComp<TraumaResistanceComponent>(bodyPart.Body.Value, out var traumaResistance))
+        {
+            // Check if completely immune to dismemberment
+            if (traumaResistance.DismembermentMultiplier == 0)
+                return false;
+        }
 
         var parentWoundable = target.Comp.ParentWoundable;
         if (!parentWoundable.HasValue)
@@ -523,21 +563,41 @@ public partial class TraumaSystem
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
         if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
         {
-            if (boneComp.BoneSeverity < BoneSeverity.Cracked)
-                return false;
-
-            bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
+            // Skip bone severity check if immune to bone damage
+            if (traumaResistance == null || !traumaResistance.BoneDamageImmune)
+            {
+                if (boneComp.BoneSeverity < BoneSeverity.Cracked)
+                    return false;
+                    
+                bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
+            }
+            else
+            {
+                // For bone-immune species, use a moderate penalty since bones can't break
+                bonePenalty = FixedPoint2.New(0.5);
+            }
         }
+
+        // Determine the maximum dismemberment chance
+        var maxChance = _defaultMaxDismembermentChance;
+        if (traumaResistance != null && traumaResistance.MaxDismembermentChance >= 0)
+            maxChance = traumaResistance.MaxDismembermentChance;
 
         var chance =
             FixedPoint2.Clamp(
-                1 - target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * bonePenalty
+                (1 - target.Comp.WoundableIntegrity / target.Comp.IntegrityCap) * bonePenalty
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
                 0,
-                0.7); // Maximum 70% chance to dismember, because it's a bit too free otherwise
+                maxChance);
 
-        var result = _random.Prob((float) chance);
-        return result;
+        // Apply species-specific dismemberment multiplier
+        if (traumaResistance != null)
+            chance *= traumaResistance.DismembermentMultiplier;
+
+        // Ensure chance doesn't exceed 1.0
+        chance = FixedPoint2.Clamp(chance, 0, 1);
+
+        return _random.Prob((float) chance);
     }
 
     public EntityUid AddTrauma(

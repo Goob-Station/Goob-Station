@@ -198,6 +198,14 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: TraumaResistance ## Goobstation - shitmed start
+    boneDamageImmune: true
+    boneDamageMultiplier: 0.0
+    dismembermentMultiplier: 1.5
+    maxDismembermentChance: 0.8 # 80%
+    organDamageMultiplier: 1.0
+    nerveDamageMultiplier: 1.0
+    ## Goobstation - shitmed end
 
 - type: entity
   parent: MobHumanDummy

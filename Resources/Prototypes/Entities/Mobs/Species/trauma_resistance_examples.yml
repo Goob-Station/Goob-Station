@@ -1,0 +1,76 @@
+# Example configuration for species trauma resistance
+# This file demonstrates how to use the TraumaResistanceComponent
+
+# Example for slime people - completely immune to bone damage
+- type: entity
+  parent: BaseMobHuman
+  id: ExampleMobHumanSlimePerson
+  name: slime person
+  description: A gelatinous humanoid creature.
+  components:
+  - type: TraumaResistance
+    # Slime people are completely immune to bone damage (they have no bones!)
+    boneDamageImmune: true
+    boneDamageMultiplier: 0.0
+
+    # They are more resistant to dismemberment due to their gelatinous nature
+    dismembermentMultiplier: 0.3
+    maxDismembermentChance: 0.4  # Lower maximum chance than default 0.7
+
+    # Normal susceptibility to organ and nerve damage
+      maxChance: 0.8 # 80%
+﻿
+
+# Example for dwarves - sturdy and resistant
+- type: entity
+  parent: BaseMobHuman
+  id: ExampleMobHumanDwarf
+  name: dwarf
+  description: A sturdy, short humanoid.
+  components:
+  - type: TraumaResistance
+    # Dwarves have stronger bones
+    boneDamageMultiplier: 0.7
+
+    # More resistant to dismemberment due to their sturdy build
+    dismembermentMultiplier: 0.8
+
+    # Normal organ and nerve damage
+    organDamageMultiplier: 1.0
+    nerveDamageMultiplier: 1.0
+
+# Example for moths - fragile and vulnerable
+- type: entity
+  parent: BaseMobHuman
+  id: ExampleMobHumanMoth
+  name: moth person
+  description: A fragile, winged humanoid.
+  components:
+  - type: TraumaResistance
+    # Moths are more fragile
+    boneDamageMultiplier: 1.3
+    dismembermentMultiplier: 1.4
+    maxDismembermentChance: 0.8  # Higher maximum chance
+
+    # More susceptible to all trauma types
+    organDamageMultiplier: 1.2
+    nerveDamageMultiplier: 1.1
+
+# Example for dionae - extremely resistant to physical trauma
+- type: entity
+  parent: BaseMobHuman
+  id: ExampleMobHumanDiona
+  name: diona
+  description: A plant-like humanoid creature.
+  components:
+  - type: TraumaResistance
+    # Plant-like structure makes them resistant to bone damage
+    boneDamageMultiplier: 0.4
+
+    # Very resistant to dismemberment (can regrow parts)
+    dismembermentMultiplier: 0.2
+    maxDismembermentChance: 0.3
+
+    # Different organ structure, more resistant
+    organDamageMultiplier: 0.6
+    nerveDamageMultiplier: 0.8
