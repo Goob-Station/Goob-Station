@@ -14220,3 +14220,11 @@ Entries:
       message: Devils are less likely to spawn.
   id: 1580
   time: '2025-09-01T15:39:39.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        IPCs now spawn with a silicon survival box with a flare, emergency
+        welder, wires, and a single-use battery refill.
+  id: 1581
+  time: '2025-09-01T15:43:36.0000000+00:00'
