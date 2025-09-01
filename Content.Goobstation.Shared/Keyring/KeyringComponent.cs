@@ -10,13 +10,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Keyring;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class KeyringComponent : Component
 {
     /// <summary>
     /// How long each attempt takes to open a door.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan UnlockAttemptDuration = TimeSpan.FromSeconds(15);
 
     /// <summary>
@@ -25,7 +25,7 @@ public sealed partial class KeyringComponent : Component
     [DataField]
     public HashSet<ProtoId<AccessLevelPrototype>> PossibleAccesses = [];
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public HashSet<ProtoId<AccessLevelPrototype>> Tags = [];
 
     /// <summary>

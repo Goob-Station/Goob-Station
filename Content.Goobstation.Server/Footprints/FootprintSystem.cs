@@ -37,6 +37,8 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private EntityQuery<NoFootprintsComponent> _noFootprintsQuery = default!;
+
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
 
     public static readonly EntProtoId FootprintPrototypeId = "Footprint";
@@ -54,6 +56,8 @@ public sealed class FootprintSystem : EntitySystem
         SubscribeLocalEvent<FootprintOwnerComponent, MoveEvent>(OnMove);
 
         SubscribeLocalEvent<PuddleComponent, MapInitEvent>(OnMapInit);
+
+        _noFootprintsQuery = GetEntityQuery<NoFootprintsComponent>();
     }
 
     private void OnFootprintClean(Entity<FootprintComponent> entity, ref FootprintCleanEvent e)
@@ -63,7 +67,7 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
-        if (HasComp<NoFootprintsComponent>(entity))
+        if (_noFootprintsQuery.HasComp(entity))
             return;
 
         if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
