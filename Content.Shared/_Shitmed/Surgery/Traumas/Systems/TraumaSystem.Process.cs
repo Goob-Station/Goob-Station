@@ -378,6 +378,10 @@ public partial class TraumaSystem
         if (!bodyPart.Body.HasValue)
             return false; // Can't sever if already severed
 
+        // Slime people are immune to bone damage
+        if (bodyPart.Species == "SlimePerson")
+            return false;
+
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
 
         if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
