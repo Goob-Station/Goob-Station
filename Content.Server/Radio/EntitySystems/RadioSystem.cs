@@ -260,6 +260,12 @@ public sealed class RadioSystem : EntitySystem
         var speech = _chat.GetSpeechVerb(source, message);
         var languageColor = channel.Color;
 
+        // Goobstation - Bolded Language Overrides begin
+        var wrapId = speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
+        if (speech.Bold && language.SpeechOverride.BoldFontId != null)
+            wrapId = "chat-radio-message-wrap-bolded-language";
+        // Goobstation end
+
         if (language.SpeechOverride.Color is { } colorOverride)
             languageColor = Color.InterpolateBetween(Color.White, colorOverride, colorOverride.A); // Changed first param to Color.White so it shows color correctly.
 
@@ -267,18 +273,12 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
-        // Goobstation Edit - Custom Bold Fonts begin
-        var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
-        if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
-            boldId = language.SpeechOverride.FontId;
-        // Goobstation Edit - end
-
-        return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+        return Loc.GetString(wrapId,
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
-            ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
+            ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),

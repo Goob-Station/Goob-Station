@@ -1,0 +1,10 @@
+- type: latheRecipe
+  id: ChevalTranslatorImplanter
+  result: ChevalTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50

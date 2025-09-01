@@ -1,0 +1,3 @@
+ent-ResinNest = cмоляное гнездо
+    .desc = Слизистая и липкая масса, изображающая кровать?....
+    .suffix = { ent-BaseStructure.suffix }

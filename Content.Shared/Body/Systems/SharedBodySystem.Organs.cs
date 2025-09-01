@@ -203,6 +203,7 @@ public partial class SharedBodySystem
         if (!part.Organs.ContainsKey(slotId)
             && !part.Organs.TryAdd(slotId, slot.Value))
             return false;
+        Dirty(parent.Value, part); // WD EDIT
 
         return true;
         // Shitmed Change End

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
@@ -30,6 +31,13 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
+  - type: CrematoriumImmune # Dude. You're burning the paper from *hell*? Really?
+  - type: SupermatterImmune # Nope.
+  - type: PreventChasmFalling # Nope.
+    deleteOnUse: false
+  - type: CargoSellBlacklist # Nope.
+  - type: ArrivalsBlacklist # Nope.
+  - type: FTLSmashImmune # Nope.
   - type: FaxableObject
   - type: Food
     requiresSpecialDigestion: true
