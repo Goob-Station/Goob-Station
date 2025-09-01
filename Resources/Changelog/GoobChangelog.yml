@@ -14152,3 +14152,9 @@ Entries:
       message: Slaughter demons take holy damage now
   id: 1576
   time: '2025-09-01T15:20:36.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Added Schechi and Ka'rakk to the librarian language implant.
+  id: 1577
+  time: '2025-09-01T15:25:35.0000000+00:00'
