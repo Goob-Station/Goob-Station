@@ -14092,7 +14092,7 @@ Entries:
       message: Shadowkin Left Legs are visible again
   id: 1568
   time: '2025-08-31T04:47:00.0000000+00:00'
-- author: Spatison
+- author: Spatison, PuroSlavKing, Kai5
   changes:
     - type: Add
       message: >-
@@ -14102,3 +14102,29 @@ Entries:
       message: Added new interface design in xenomorph style
   id: 1569
   time: '2025-08-31T07:33:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to RCD away cosmic cult walls and windows instantly.
+  id: 1570
+  time: '2025-08-31T10:11:40.0000000+00:00'
+- author: Luminal, Bokser
+  changes:
+    - type: Add
+      message: >-
+        DADDY’S HOME, FOOLISH CREW. FIRST, I SLAUGHTER THE ONE WHO SUMMONED ME.
+        SECOND, I COME FOR YOU.
+  id: 1571
+  time: '2025-08-31T14:14:48.0000000+00:00'
+- author: sowelipililimute, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        There are now various tool panel augments that you can get implanted
+        into yourself to have access to tools all the time
+    - type: Add
+      message: >-
+        You can now get strength augments to increase your melee damage when
+        powered.
+  id: 1572
+  time: '2025-08-31T14:58:21.0000000+00:00'
