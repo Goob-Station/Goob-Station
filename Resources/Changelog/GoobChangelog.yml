@@ -14140,3 +14140,9 @@ Entries:
       message: Added Kentucky Fried Vox to the menu
   id: 1574
   time: '2025-09-01T13:54:09.0000000+00:00'
+- author: '1984'
+  changes:
+    - type: Remove
+      message: Mice can no longer inhale reagents from smoke or foam.
+  id: 1575
+  time: '2025-09-01T15:18:57.0000000+00:00'
