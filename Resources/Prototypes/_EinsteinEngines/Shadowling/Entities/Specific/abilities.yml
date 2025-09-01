@@ -70,6 +70,6 @@
   components:
   - type: LesserShadowling
   - type: ShadowlingShadowWalk
-  - type: LightDetectionComponent
+  - type: LightDetection
   - type: LightDetectionDamage
     maxDetection: 10
