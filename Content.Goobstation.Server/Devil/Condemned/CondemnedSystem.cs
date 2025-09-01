@@ -7,6 +7,7 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
+using Content.Server._Shitmed.StatusEffects;
 using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
@@ -27,6 +28,7 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly ScrambleDnaEffectSystem _scramble = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -140,12 +142,12 @@ public sealed partial class CondemnedSystem : EntitySystem
         if (comp.PhaseTimer < comp.HandDuration)
             return;
 
-        DoCondemnedBehavior(uid, comp);
+        DoCondemnedBehavior(uid, comp.ScrambleAfterBanish);
 
         comp.CurrentPhase = CondemnedPhase.Complete;
     }
 
-    private void DoCondemnedBehavior(EntityUid uid, CondemnedComponent? comp = null)
+    private void DoCondemnedBehavior(EntityUid uid, bool scramble = true, CondemnedComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -156,6 +158,8 @@ public sealed partial class CondemnedSystem : EntitySystem
                 QueueDel(uid);
                 break;
             case { CondemnedBehavior: CondemnedBehavior.Banish }:
+                if (scramble)
+                    _scramble.Scramble(uid);
                 _poly.PolymorphEntity(uid, comp.BanishProto);
                 break;
         }

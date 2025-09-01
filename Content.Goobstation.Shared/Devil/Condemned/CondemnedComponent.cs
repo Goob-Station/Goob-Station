@@ -75,6 +75,12 @@ public sealed partial class CondemnedComponent : Component
     public bool FreezeDuringCondemnation;
 
     /// <summary>
+    /// If true, scrambles the targets DNA after banishing them.
+    /// </summary>
+    [DataField]
+    public bool ScrambleAfterBanish = true;
+
+    /// <summary>
     /// Should this entity be banished (sent to limbo for several minutes) or should they just be deleted?
     /// </summary>
     [DataField]
