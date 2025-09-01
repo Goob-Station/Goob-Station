@@ -40,7 +40,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      220: Dead
   - type: Construction
     graph: GoidaBot
     node: bot
