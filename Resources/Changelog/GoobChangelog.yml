@@ -14234,3 +14234,13 @@ Entries:
       message: Bagawk!
   id: 1582
   time: '2025-09-01T19:45:05.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Station Reports, at end round the station will now have a tab that will
+        display a station report written by the NTR, if there is no NTR it will
+        instead say "No station report summited", the station report spawns in
+        the NTR's locker, also has discord integration
+  id: 1583
+  time: '2025-09-01T19:48:52.0000000+00:00'
