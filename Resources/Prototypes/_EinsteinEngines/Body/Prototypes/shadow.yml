@@ -13,10 +13,10 @@
     chest:
       part: ChestShadow
       connections:
+      - groin
       - right arm
       - left arm
       - head
-      - groin
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
