@@ -222,7 +222,7 @@ namespace Content.Client.RoundEnd
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
             var stationReportSystem = EntitySystem.Get<Content.Goobstation.Common.StationReport.StationReportSystem>();
-            string stationReportText = stationReportSystem.StationReportText ?? "No station report submitted, the NTR assigned to your station has been fined 2000 spesos.";
+            string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
             var stationReportTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
