@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseToilet
+  id: PrisonToiletEmpty
+  name: prison toilet
+  description: We present to your attention the genius of functional urbanism — the toilet-sink. Not very cheap, but cheerful and compact.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Structures/Furniture/prison_toilet.rsi
+  - type: Construction
+    graph: PrisonToilet
+    node: prisonToilet
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+
+- type: entity
+  parent: PrisonToiletEmpty
+  id: PrisonToiletWater
+  suffix: Water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 100
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Water
+          Quantity: 200

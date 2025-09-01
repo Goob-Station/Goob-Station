@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: PrisonToilet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: prisonToilet
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 1
+    - node: prisonToilet
+      entity: PrisonToiletEmpty
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 8
+            - !type:EmptyAllContainers {}
+            - !type:DestroyEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: false
+          steps:
+            - tool: Welding
+              doAfter: 2
