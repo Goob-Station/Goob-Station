@@ -1,0 +1,40 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseCustomObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-custom
+
+
+# "Choose your own objective" objective
+- type: entity
+  parent: [BaseCustomObjective, BaseObjective]
+  id: CustomPlayerObjective
+  name: Custom objective
+  description: You need to do... something. You'll decide on what to do soon, I'm sure.
+  components:
+  - type: Objective
+    difficulty: 0
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi #todo change this
+      state: icon
+  - type: BlankObjective
+    selfDefined: true
+
+
+# Admin-defined objective
+- type: entity
+  parent: [BaseCustomObjective, BaseObjective]
+  id: CustomAdminObjective
+  name: Custom objective
+  description: You need to do... something. Someone will decide on what it is soon, I'm sure.
+  components:
+  - type: Objective
+    difficulty: 0
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi #todo change this
+      state: icon
+  - type: BlankObjective

@@ -1,0 +1,21 @@
+# Posters
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitEvilComet
+  name: "Missing Employee!"
+  description: "A vague description of a mothperson gone missing recently. No name or any real identifying features are provided."
+  components:
+  - type: Sprite
+    sprite: _lando/Structures/posters.rsi
+    state: lando_poster1_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCargoHole
+  name: "PLEASE STOP JUMPING IN THE HOLE"
+  description: "Apparently the cargo lift is out of order right now and people keep falling in it. No matter how much this poster pleads to you, you still kinda wanna jump in the cargo hole."
+  components:
+  - type: Sprite
+    sprite: _lando/Structures/posters.rsi
+    state: lando_poster2_legit

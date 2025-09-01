@@ -1,0 +1,49 @@
+- type: entity
+  id: FoodSnackCottonbrick
+  parent: BaseItem
+  name: cottonbrick
+  description: A synthesized brick of cotton to silence the protests against speciesm and feed the moth community. Still tastes like shit.
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: Sprite
+    sprite: _lando/Objects/cottonbrick.rsi
+    state: nutribrick
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketMRETrash
+      - id: FoodSnackCottonbrickOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: FoodSnackCottonbrickOpen
+  parent: FoodSnackBase
+  name: cottonbrick
+  description: A synthesized brick of cotton to silence the protests against speciesm and feed the moth community. Still tastes like shit.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - nutribrick
+      - cotton
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - ClothMade
+  - type: Sprite
+    sprite: _lando/Objects/cottonbrick.rsi
+    state: nutribrick-open
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10

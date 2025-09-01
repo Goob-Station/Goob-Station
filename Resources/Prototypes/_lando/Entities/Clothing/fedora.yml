@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatShadyFedora
+  name: investigators fedora
+  description: "Fed."
+  components:
+  - type: Sprite
+    sprite: _lando/Clothing/Hats/shadyfed.rsi
+  - type: Clothing
+    sprite: _lando/Clothing/Hats/shadyfed.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatShadyFedora]
+  id: ClothingHeadHatShadyFedoraFlipped
+  name: investigators fedora
+  components:
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable

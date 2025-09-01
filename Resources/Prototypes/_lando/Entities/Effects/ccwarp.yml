@@ -1,0 +1,37 @@
+﻿- type: entity
+  id: CCTeleportInEffect
+  name: Teleport in
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _lando/Effects/ccwarp_in_out.rsi
+      state: cc_in
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#73ff5a"
+
+- type: entity
+  id: CCTeleportOutEffect
+  name: Teleport out
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _lando/Effects/ccwarp_in_out.rsi
+      state: cc_out
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#73ff5a"

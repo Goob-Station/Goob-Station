@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSynth
+  name: synthetic officer uniform
+  description: A uniform made to differenciate the synthetic members of this crew.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniforms/Synthetic/joe.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniforms/Synthetic/joe.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSloan
+  name: liaisons suspenders
+  description: A classy suit made for someone more.. corporate. Who names their kid Jeffery anymore?
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_suspenders.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_suspenders.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueBlazer
+  name: blue blazer
+  description: A slick, blue suit.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_blue_blazer.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_blue_blazer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCharcoalBlazer
+  name: charcoal blazer
+  description: A distinguished, charcoal blazer.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_charcoal.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniforms/Liaison/liaison_charcoal.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitColonist
+  name: colonists uniform
+  description: A workers uniform for a company you've never heard of..
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniforms/Survivor/colonist.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniforms/Survivor/colonist.rsi

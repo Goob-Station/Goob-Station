@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseStructure
+  id: RMCSensorTower
+  name: experimental sensor tower
+  description: A tower with a lot of delicate sensors likely made to track weather conditions. Intentionally sabotaged or just taken out by the storm, it isn't going to work anymore.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        layer:
+        - MobMask
+  - type: Sprite
+    sprite: _RMC14/Objects/Scructures/sensor_tower.rsi
+    layers:
+    - state: sensor_unshaded
+      map: [ "base" ]
+    state: sensor_unshaded
+    offset: 0.5,2
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          Off: { state: sensor_unshaded }
+          On: { state: sensor_unshaded }

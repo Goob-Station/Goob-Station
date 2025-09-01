@@ -1,0 +1,66 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleRyuzo
+  name: ornate mantle
+  description: In days of old, giving one's life was considered the ultimate sacrifice. The owner of this mantle, however, has dedicated their life twice over.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _lando/Clothing/Neck/mantles/ryuzo.rsi
+  - type: Clothing
+    sprite: _lando/Clothing/Neck/mantles/ryuzo.rsi    
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRyuzo
+  name: Delphic coat
+  description: CENTRAL - COMMAND is printed over the fine leather.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _lando/Clothing/OuterClothing/Coats/ryuzocoat.rsi
+  - type: Clothing
+    sprite: _lando/Clothing/OuterClothing/Coats/ryuzocoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsRyuzo
+  name: rugged fur boots
+  description: These would be perfect for chilly winter walks out in the forests - if seasons still existed, that is.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _lando/Clothing/Shoes/Boots/ryuzoboots.rsi
+  - type: Clothing
+    sprite: _lando/Clothing/Shoes/Boots/ryuzoboots.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesRyuzoGauntlets
+  name: golden gauntlets
+  description: Sometimes you see a jolt of electricity bounce between the nuckles.. weird.
+  suffix: ADMIN ONLY, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _lando/Clothing/Hands/Gloves/ryuzogauntlets.rsi
+  - type: Clothing
+    sprite: _lando/Clothing/Hands/Gloves/ryuzogauntlets.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-white
+  - type: FingerprintMask
+  - type: StaminaDamageOnHit
+    damage: 50
+  - type: MeleeWeapon
+    attackRate: 2.0
+    damage:
+      types:
+        Shock: 4.5

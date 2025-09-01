@@ -1,0 +1,39 @@
+- type: entity
+  name: maltigi
+  description: WHAT THE FUCK IS THAT?!?!?
+  suffix: ADMIN ONLY, DO NOT MAP
+  parent: MobXeno
+  id: Abomination
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _lando/Mobs/maltigi.rsi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      800: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      40: 0.7
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 300
+    soundHit:
+      path: /Audio/Voice/Human/wilhelm_scream.ogg
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 14
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 450
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: PointLight
+    energy: 0.1
+    radius: 2
