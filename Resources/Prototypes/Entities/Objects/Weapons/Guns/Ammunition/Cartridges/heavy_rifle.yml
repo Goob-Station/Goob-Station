@@ -28,7 +28,7 @@
 
 - type: entity
   id: BaseCartridgeHeavyRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (.10 rifle)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
