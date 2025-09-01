@@ -1,12 +1,6 @@
-using Content.Goobstation.Common.Interactions;
-using Content.Goobstation.Server.Interaction.Components;
 using Content.Server.Popups;
-using Content.Server.Station.Systems;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Examine;
 using Content.Shared.Inventory;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
@@ -15,22 +9,24 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
-using Robust.Shared.Containers;
 using Content.Shared.Clothing;
 
 namespace Content.Goobstation.Server.Lollypop;
 
-public sealed partial class LollypopSystem : EntitySystem
+public sealed class LollypopSystem : EntitySystem
 {
 
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly FoodSystem _food = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly ReactiveSystem _reaction = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly FlavorProfileSystem _flavorProfile = default!;
+
+    private const float UpdateTimer = 3f;
+
+    private float _timer;
 
     public override void Initialize()
     {
@@ -40,30 +36,32 @@ public sealed partial class LollypopSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        _timer += frameTime;
+
+        if (_timer < UpdateTimer)
+            return;
+
         var query = EntityManager.EntityQueryEnumerator<LollypopComponent, ClothingComponent, FoodComponent>();
 
         while (query.MoveNext(out var queryUid, out var lollypop, out var clothing, out var food))
         {
             if (clothing.InSlotFlag != SlotFlags.MASK)
                 continue;
-            if (_time.CurTime < lollypop.NextBite)
-                continue;
 
             Eat((queryUid,lollypop),food);
-
-            lollypop.NextBite = _time.CurTime + lollypop.Interval;
         }
+
+        _timer -= UpdateTimer;
     }
 
     private void OnEquipt(Entity<LollypopComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        ent.Comp.NextBite = _time.CurTime + ent.Comp.Interval;
         ent.Comp.HeldBy = args.Wearer;
 
         // add popup of taste
         if (!TryComp<FoodComponent>(ent.Owner, out var food))
             return;
-        if (!_solutionContainer.TryGetSolution(ent.Owner, food.Solution, out var soln, out var solution))
+        if (!_solutionContainer.TryGetSolution(ent.Owner, food.Solution, out var soln, out _))
             return;
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(args.Wearer, soln.Value.Comp.Solution);
@@ -86,7 +84,6 @@ public sealed partial class LollypopSystem : EntitySystem
             return;
         if (!_solutionContainer.TryGetSolution(ent.Owner, food.Solution, out var soln, out var solution))
             return;
-        //_food.TryFeed(ent.Comp.HeldBy.Value,ent.Comp.HeldBy.Value,ent.Owner,food);
 
         var transferAmount = FixedPoint2.Min( ent.Comp.Ammount, solution.Volume);
 
@@ -123,7 +120,6 @@ public sealed partial class LollypopSystem : EntitySystem
         if (soln.Value.Comp.Solution.Volume > FixedPoint2.Zero)
             return; // end if there is solution left
 
-        // add a popup of no lollypop left
-        _food.DeleteAndSpawnTrash(food,ent.Owner,ent.Owner);
+        _food.DeleteAndSpawnTrash(food,ent.Owner,ent.Comp.HeldBy.Value);
     }
 }
