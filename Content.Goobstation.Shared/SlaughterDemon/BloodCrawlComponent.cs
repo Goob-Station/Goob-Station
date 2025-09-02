@@ -45,10 +45,10 @@ public sealed partial class BloodCrawlComponent : Component
     public bool IsCrawling;
 
     /// <summary>
-    /// The reagent to look out for when searching for puddles
+    /// The reagents to look out for when searching for puddles
     /// </summary>
-    [DataField]
-    public ProtoId<ReagentPrototype> Blood = "Blood";
+    [DataField(required: true)]
+    public List<ProtoId<ReagentPrototype>?> Blood;
 
     /// <summary>
     /// The sound to play once entering the jaunt

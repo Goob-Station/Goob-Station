@@ -146,6 +146,8 @@
   - type: ReplacementAccent
     accent: slaughterDemon
   - type: GrantHellRip
+  - type: WeakToHoly
+    alwaysTakeHoly: true
 
 # laughter demon
 - type: entity
