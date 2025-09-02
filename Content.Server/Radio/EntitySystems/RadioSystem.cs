@@ -48,6 +48,7 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using Prometheus.DotNetRuntime.Metrics.Producers.Util;
+using Robust.Shared.Audio.Sources;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -176,17 +177,6 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        // Goobstation start - Loud command
-        int? fontSizeIncrease = null;
-        if (TryComp<EncryptionKeyHolderComponent>(radioSource, out var holder))
-            foreach (var ent in holder.KeyContainer.ContainedEntities)
-                if (TryComp<EncryptionKeyComponent>(ent, out var key)
-                    && key.Channels.Contains(channel.ID))
-                {
-                    fontSizeIncrease = key.FontSizeIncrease;
-                    break;
-                }
-        // Goobstation end
 
         // var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
         //     ("color", channel.Color),
@@ -196,7 +186,7 @@ public sealed class RadioSystem : EntitySystem
         //     ("channel", $"\\[{channel.LocalizedName}\\]"),
         //     ("name", name),
         //     ("message", content));
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, fontSizeIncrease); // Einstein Engines - Language // fontSizeIncrease Goobstation - Loud command
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, radioSource); // Einstein Engines - Language // fontSizeIncrease Goobstation - Loud command
 
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
@@ -212,7 +202,7 @@ public sealed class RadioSystem : EntitySystem
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
-        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, fontSizeIncrease); // fontSizeIncrease Goobstation - Loud command
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, radioSource); // fontSizeIncrease Goobstation - Loud command
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
@@ -271,16 +261,28 @@ public sealed class RadioSystem : EntitySystem
         string name,
         string message,
         LanguagePrototype language,
+        EntityUid radioSource, // <-- Add radioSource parameter
         int? fontSizeOverride = null) // Goobstation - Loud command
     {
+        // Goobstation start - Loud command
+        int? fontSizeIncrease = null;
+        if (TryComp<EncryptionKeyHolderComponent>(radioSource, out var holder))
+            foreach (var ent in holder.KeyContainer.ContainedEntities)
+                if (TryComp<EncryptionKeyComponent>(ent, out var key)
+                    && key.Channels.Contains(channel.ID))
+                {
+                    fontSizeIncrease = key.FontSizeIncrease;
+                    break;
+                }
+        // Goobstation end
+
         // TODO: code duplication with ChatSystem.WrapMessage
         var speech = _chat.GetSpeechVerb(source, message);
         var languageColor = channel.Color;
 
-
         // Goobstation - Wrap override begin - what the hell have I done
         string wrapId;
-        if (fontSizeOverride.HasValue)
+        if (fontSizeIncrease.HasValue)
             wrapId = speech.Bold ? "chat-radio-message-wrap-bold-loud" : "chat-radio-message-wrap-loud";
         else if (speech.Bold
             && language.SpeechOverride.BoldFontId != null)
@@ -306,7 +308,7 @@ public sealed class RadioSystem : EntitySystem
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
-            ("fontSize", fontSizeOverride ?? language.SpeechOverride.FontSize ?? speech.FontSize), // Goob Edit - Loud command
+            ("fontSize", fontSizeIncrease ?? language.SpeechOverride.FontSize ?? speech.FontSize), // Goob Edit - Loud command
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
