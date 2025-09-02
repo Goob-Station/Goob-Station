@@ -75,11 +75,14 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             if (_timing.CurTime >= monuComp.CheckTimer)
             {
-                var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
+                var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 15);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
 
                 foreach (var entity in entities)
-                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1, targetPart: TargetBodyPart.All); // Shitmed Change
+                    if (TryComp<CosmicCultComponent>(entity, out var cultComp))
+                    {
+                        _damage.TryChangeDamage(entity, monuComp.MonumentHealing * cultComp.ShitMedHeal, targetPart: TargetBodyPart.All); // Shitmed Change
+                    }
 
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
@@ -348,6 +351,11 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
             objectiveComp.Tier = 1;
+
+        //add the move action
+        var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
+        while (leaderQuery.MoveNext(out var leader, out var leaderComp))
+            _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
     }
 
     public void MonumentTier2(Entity<MonumentComponent> uid)
@@ -377,12 +385,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
             Dirty(cultist, cultComp);
         }
-
-        //add the move action
-        var leaderQuery = EntityQueryEnumerator<CosmicCultLeadComponent>();
-
-        while (leaderQuery.MoveNext(out var leader, out var leaderComp))
-            _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
 
         Dirty(uid);
     }

@@ -1,0 +1,58 @@
+<Document>
+
+  # Hell Ripte
+
+  <Box>
+    <GuideEntityEmbed Entity="LegionnaireBonfire" Caption=""/>
+  </Box>
+
+  Hell Ripte, is a [textlink="martial art" link="MartialArts"] that focuses on ripping through crowds of demons with
+  brutal efficiency. This art can only be mastered by the slaughter demons of hell, as it requires an enormous amount of raw strength and power to master.
+  A full understanding of this art will allow you to paint the station red. None will be safe from your carnage.
+
+  ## Special abilities
+
+  Hell Ripte masters do extreme amounts of damage in short windows, making them unmatched in hand to hand combat.
+
+  ## Combo attacks
+
+  ### Tear Down
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Deals massive slashing damage and bleeds the target.
+
+  ### Head Rip
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Rip off the head of an opponent who is knocked down, very lethal. Cannot be done while on the ground.
+
+  ### Hellish Slam
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Knocks an opponent down and deals heavy stamina damage. If you are downed you pull yourself up.
+
+  ### Drop Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Launch a downed opponent. Great for painting. Cannot be done while on the ground.
+
+</Document>
