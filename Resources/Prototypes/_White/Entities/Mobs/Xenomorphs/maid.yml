@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: MobXenomorphMaid
+  name: lusty xenomorph maid
+  description: Don't ask it to lay eggs in you.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: _White/Objects/Misc/handcuffs.rsi
+      state: body-overlay-xenomorph
+      visible: false
+  - type: Xenomorph
+    caste: Maid
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnResinWeedNode
+  - type: Cuffable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.9
+      170: 0.7
+      190: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: OwOAccent
+  - type: Pacified
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-maid-name
+    description: ghost-role-information-xenomorph-maid-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - XenoHivemind
+    - TauCetiBasic # Smart thing
+    understands:
+    - Xeno
+    - XenoHivemind
+    - Hissing
+    - Draconic
+    - TauCetiBasic
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphMaid
