@@ -82,7 +82,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     private void OnBeingUnequippedAttempt(EntityUid uid, FaceHuggerComponent component, BeingUnequippedAttemptEvent args)
     {
-        if (_mobState.IsDead(uid) || !component.InfectionPrototype.HasValue || args.Unequipee != args.UnEquipTarget)
+        if (component.Slot != args.Slot || args.Unequipee != args.UnEquipTarget || !component.InfectionPrototype.HasValue || _mobState.IsDead(uid))
             return;
 
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-unequip", ("equipment", Identity.Entity(uid, EntityManager))), uid, args.Unequipee);

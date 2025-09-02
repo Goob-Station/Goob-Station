@@ -396,6 +396,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
+        // <Goobstation> - raise an event on the user too for strength augments
+        var userEv = new GetUserMeleeDamageEvent(uid, ev.Damage, ev.Modifiers);
+        RaiseLocalEvent(user, ref userEv);
+        // this currently does nothing since they are classes, but it's futureproofing for struct DamageSpecifier.
+        ev.Damage = userEv.Damage;
+        ev.Modifiers = userEv.Modifiers;
+        // </Goobstation>
 
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
     }
