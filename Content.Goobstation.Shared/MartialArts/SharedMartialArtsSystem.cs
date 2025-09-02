@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
