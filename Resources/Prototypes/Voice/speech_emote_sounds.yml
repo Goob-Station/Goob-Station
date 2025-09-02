@@ -377,6 +377,8 @@
       collection: VoxScreams
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Bagawk: # Mono
+      collection: Bagawk # Mono
     Honk:
       collection: BikeHorn
     Weh:

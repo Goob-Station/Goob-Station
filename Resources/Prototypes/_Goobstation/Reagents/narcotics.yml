@@ -370,6 +370,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 50 # raised because mouse retaliation is now a thing
+      - !type:AdjustReagent
+        reagent: MouseBites
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50 # keep it the same as above
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
