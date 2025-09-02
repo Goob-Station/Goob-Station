@@ -20,3 +20,8 @@
       Destroyed: 0
     onAdd:
     - type: BloodCrawl
+      blood:
+      - Blood
+      - AmmoniaBlood
+      - InsectBlood
+      - CopperBlood
