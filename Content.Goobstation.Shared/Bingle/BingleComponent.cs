@@ -26,6 +26,9 @@ public sealed partial class BingleComponent : Component
     public bool Prime = false;
     [DataField]
     public EntityUid? MyPit;
+    
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float NextDamageCheck = 0f;
 }
 
 [Serializable, NetSerializable]
