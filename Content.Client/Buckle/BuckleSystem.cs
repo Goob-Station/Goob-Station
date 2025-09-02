@@ -107,17 +107,17 @@ internal sealed class BuckleSystem : SharedBuckleSystem
             if (!TryComp<SpriteComponent>(buckledEntity, out var buckledSprite))
                 continue;
 
+            // Goobstation start
+            buckle.OriginalDrawDepth ??= buckledSprite.DrawDepth;
             if (isNorth)
             {
-                // This will only assign if empty, it won't get overwritten by new depth on multiple calls, which do happen easily
-                buckle.OriginalDrawDepth ??= buckledSprite.DrawDepth;
                 _sprite.SetDrawDepth((buckledEntity, buckledSprite), strapSprite.DrawDepth - 1);
             }
-            else if (buckle.OriginalDrawDepth.HasValue)
+            else
             {
-                _sprite.SetDrawDepth((buckledEntity, buckledSprite), buckle.OriginalDrawDepth.Value);
-                buckle.OriginalDrawDepth = null;
+                _sprite.SetDrawDepth((buckledEntity, buckledSprite), strapSprite.DrawDepth + 1);
             }
+            // Goobstation - end
         }
     }
 
@@ -133,13 +133,20 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         if (!TryComp<SpriteComponent>(ent.Owner, out var buckledSprite))
             return;
 
-        var angle = _xformSystem.GetWorldRotation(args.Strap) + _eye.CurrentEye.Rotation; // Get true screen position, or close enough
-
-        if (angle.GetCardinalDir() != Direction.North)
-            return;
+        // Goobstation - Start
+        var angle = _xformSystem.GetWorldRotation(args.Strap) + _eye.CurrentEye.Rotation;
+        var isNorth = angle.GetCardinalDir() == Direction.North;
 
         ent.Comp.OriginalDrawDepth ??= buckledSprite.DrawDepth;
-        _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth - 1);
+        if (isNorth)
+        {
+            _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth - 1);
+        }
+        else
+        {
+            _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth + 1);
+        }
+        // Goobstation - end
     }
 
     /// <summary>
