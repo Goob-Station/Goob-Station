@@ -37,13 +37,15 @@
     cost: 100
   - id: CigarGold
     cost: 150
+  - id: Soap
+    cost: 200
   - id: SeismicCharge
     cost: 250
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
-  - id: FultonBeacon
-    cost: 400
   - id: Fulton
+    cost: 400
+  - id: FultonBeacon
     cost: 500
   - id: PowerCellHigh
     cost: 500

@@ -61,10 +61,11 @@
     - id: ParcelWrap
       amount: 3
 
+#goobstart
 - type: entity
   id: CrateCargoClarkeAssembly
   name: clarke assembly crate
-  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required, not all parts provided.
+  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
   parent: CratePrivateSecure
   components:
   - type: StorageFill
@@ -76,6 +77,9 @@
     - id: ClarkeTreads
     - id: ClarkeCentralElectronics
     - id: ClarkePeripheralsElectronics
+    - id: MechAirTank
+    - id: MechThruster
+#goobend
 
 - type: entity
   id: CrateCargoGambling
