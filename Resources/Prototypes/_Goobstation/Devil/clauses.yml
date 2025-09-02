@@ -218,5 +218,6 @@
   clauseWeight: 150
   addedComponents:
   - type: DelayedDeath
+    preventAllRevives: true # :trol:
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
