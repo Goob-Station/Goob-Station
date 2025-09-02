@@ -33,7 +33,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsRobotics
-  suffix: Research, Locked
+  suffix: Robotics, Locked
   components:
   - type: AccessReader
     access: [["Robotics"]]

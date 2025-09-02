@@ -281,3 +281,23 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: RoboticsPDA
+  name: robotics PDA
+  description: It's covered with failed ambitions.
+  components:
+  - type: Pda
+    id: RoboticistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-roboticist
+       pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#1b1b1a"
+  - type: Icon
+    state: pda-roboticist
