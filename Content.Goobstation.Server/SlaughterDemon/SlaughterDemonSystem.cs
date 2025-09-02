@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Goobstation.Shared.SlaughterDemon.Systems;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
@@ -15,6 +16,7 @@ public sealed class SlaughterDemonSystem : SharedSlaughterDemonSystem
 {
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -42,5 +44,12 @@ public sealed class SlaughterDemonSystem : SharedSlaughterDemonSystem
 
             _rejuvenate.PerformRejuvenate(entity.Value);
         }
+    }
+
+    protected override void RemoveBlood(EntityUid uid)
+    {
+        base.RemoveBlood(uid);
+
+        _bloodstream.SpillAllSolutions(uid);
     }
 }
