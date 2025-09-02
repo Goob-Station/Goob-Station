@@ -42,14 +42,15 @@ public sealed class BingleSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TileSystem _tileSystem = default!;
 
-    private const float DamageFrequency = 3.0f;
-    private const float MaxDistance = 15.0f;
+    private const float DamageFrequency = 3.0f; // How often they take damage 3f = 3 seconds.
+    private const float MaxDistance = 15.0f; // Tile Distane, before they take damage
+    private const float BingleAwayFromTileDamage = 5.0f; // How much Cellular damage they should get if away from tile
 
     private readonly DamageSpecifier _damage = new()
     {
         DamageDict = new Dictionary<string, Content.Goobstation.Maths.FixedPoint.FixedPoint2>
         {
-            { "Cellular", 5 },
+            { "Cellular", BingleAwayFromTileDamage },
         }
     };
 
@@ -57,7 +58,7 @@ public sealed class BingleSystem : EntitySystem
     {
         DamageDict = new Dictionary<string, Content.Goobstation.Maths.FixedPoint.FixedPoint2>
         {
-            { "Cellular", -5 },
+            { "Cellular", BingleAwayFromTileDamage * -1 },
         }
     };
     public override void Initialize()
@@ -202,7 +203,7 @@ public sealed class BingleSystem : EntitySystem
         var gridPos = mapGrid.WorldToTile(xform.Coordinates.ToMapPos(EntityManager, _transform));
         var tileRef = mapGrid.GetTileRef(gridPos);
         var bingleFloorTile = (ContentTileDefinition)_tileDefManager["FloorBingle"];
-        
+
         _tileSystem.ReplaceTile(tileRef, bingleFloorTile);
     }
 }
