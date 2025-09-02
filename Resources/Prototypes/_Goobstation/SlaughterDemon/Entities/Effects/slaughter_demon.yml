@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: SlaughterDemonJauntEffect
+  name: slaughter demon jaunt
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: false
+    sprite: _Goobstation/SlaughterDemon/effects.rsi
+    state: jaunt
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#8B0000"
+    radius: 3
+    energy: 2
+  - type: LightFade
+    duration: 0.67
+
+- type: entity
+  id: SlaughterDemonJauntUpEffect
+  name: slaughter demon jaunt up
+  components:
+  - type: TimedDespawn
+    lifetime: 0.9
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: false
+    sprite: _Goobstation/SlaughterDemon/effects.rsi
+    state: jauntup
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#DC143C"
+    radius: 3
+    energy: 2
+  - type: LightFade
+    duration: 0.85

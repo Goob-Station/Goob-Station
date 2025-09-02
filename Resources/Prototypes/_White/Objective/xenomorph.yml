@@ -1,0 +1,21 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseXenomorphObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: objective-issuer-xenomorph-hive
+  - type: RoleRequirement
+    roles:
+    - XenomorphRole
+
+- type: entity
+  parent: [BaseXenomorphObjective, BaseSurviveObjective]
+  id: XenomorphSurviveObjective
+  name: Survive and advance the hive.
+  components:
+  - type: Objective
+    icon:
+      sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+      state: xenomorph

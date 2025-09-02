@@ -1,0 +1,176 @@
+- type: constructionGraph
+  id: AugmentPowerCellSlot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: casing
+      steps:
+      - tag: AugmentCellCasing
+        name: construction-graph-tag-casing
+        icon:
+          sprite: _Shitmed/Objects/Augments/power.rsi
+          state: incomplete_cell
+  - node: casing
+    entity: AugmentPowerCellSlotCasing
+    edges:
+    - to: cables
+      steps:
+      - material: Cable
+        amount: 1
+  - node: cables
+    entity: AugmentPowerCellSlotCables
+    edges:
+    - to: augment
+      steps:
+      - material: Plastic
+        amount: 1
+  - node: augment
+    entity: AugmentPowerCellSlot
+
+- type: constructionGraph
+  id: AugmentRecharger
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: casing
+      steps:
+      - tag: AugmentRechargerCasing
+        name: construction-graph-tag-casing
+        icon:
+          sprite: _Shitmed/Objects/Augments/power.rsi
+          state: incomplete_charger
+  - node: casing
+    entity: AugmentRechargerCasing
+    edges:
+    - to: cables
+      steps:
+      - material: Cable
+        amount: 1
+  - node: cables
+    entity: AugmentRechargerCables
+    edges:
+    - to: apc
+      steps:
+      - tag: AugmentRechargerBoard
+        name: construction-graph-tag-cell-recharger
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: charger_APC
+    - to: station
+      steps:
+      - tag: AugmentStationBoard
+        name: construction-graph-tag-cyborg-recharger
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: charger_APC
+  - node: apc
+    entity: AugmentRechargerAPC
+  - node: station
+    entity: AugmentRechargerStation
+
+- type: constructionGraph
+  id: AugmentToolsPanel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: casing
+      steps:
+      - tag: AugmentToolPanelCasing
+        name: construction-graph-tag-casing
+        icon:
+          sprite: _Shitmed/Objects/Augments/arm.rsi
+          state: base
+  - node: casing
+    entity: AugmentToolPanelCasing
+    edges:
+    - to: cables
+      steps:
+      - material: Cable
+        amount: 1
+  - node: cables
+    entity: AugmentToolPanelCables
+    edges:
+    - to: "botany tools panel"
+      steps:
+      - tag: AugmentBotanyToolBelt
+        name: construction-graph-tag-botany-tools-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+    - to: "paperwork tools panel"
+      steps:
+      - tag: AugmentPaperworkToolBelt
+        name: construction-graph-tag-paperwork-tools-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+    - to: "utility tools panel"
+      steps:
+      - tag: AugmentToolBelt
+        name: construction-graph-tag-utility-tools-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+    - to: "surgery tools panel"
+      steps:
+      - tag: AugmentSurgeryToolBelt
+        name: construction-graph-tag-surgery-tools-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+  - node: "botany tools panel"
+    entity: AugmentBotanyPanel
+  - node: "paperwork tools panel"
+    entity: AugmentPaperworkPanel
+  - node: "surgery tools panel"
+    entity: AugmentSurgicalPanel
+  - node: "utility tools panel"
+    entity: AugmentToolsPanel
+
+- type: constructionGraph
+  id: AugmentStrength
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: casing
+      steps:
+      - tag: AugmentStrengthCasing
+        name: construction-graph-tag-casing
+        icon:
+          sprite: _Shitmed/Objects/Augments/arm.rsi
+          state: base
+  - node: casing
+    entity: AugmentStrengthCasing
+    edges:
+    - to: cables
+      steps:
+      - material: Cable
+        amount: 1
+  - node: cables
+    entity: AugmentStrengthCables
+    edges:
+    - to: augment
+      steps:
+      - tag: AugmentStrengthElectronics
+        name: construction-graph-tag-strength-augment-electronics
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+      - material: Plasteel
+        amount: 4
+        doAfter: 3
+      - tool: Welding
+        doAfter: 4
+      - material: Steel
+        amount: 12
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 3
+      - tool: Welding
+        doAfter: 2
+  - node: augment
+    entity: AugmentStrength
