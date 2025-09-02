@@ -194,12 +194,19 @@
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: armblade
   - type: InstantAction
-    event: !type:ToggleArmbladeEvent {}
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: ArmBladeChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
   - type: ChangelingAction
     chemicalCost: 15
 

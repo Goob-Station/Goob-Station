@@ -21,7 +21,6 @@
 - type: entity
   parent: ArmBlade
   id: ArmBladeChangeling
-  suffix: Unremoveable
   components:
   - type: Sharp
   - type: Sprite
@@ -45,7 +44,6 @@
     pryPowered: true
   - type: UseDelay # For insta prying
     delay: 1
-  - type: Unremoveable
   - type: Tool
     qualities:
     - Slicing
