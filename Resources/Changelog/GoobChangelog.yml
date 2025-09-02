@@ -14258,3 +14258,9 @@ Entries:
       message: You can wear Botany Berets again
   id: 1585
   time: '2025-09-01T19:52:13.0000000+00:00'
+- author: Krispy-Lime, x5tink
+  changes:
+    - type: Add
+      message: Added mangos
+  id: 1586
+  time: '2025-09-02T01:57:33.0000000+00:00'
