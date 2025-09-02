@@ -74,7 +74,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 30
+        Slash: 15
         Structural: 50
   - type: SlaughterDemon # main component
   - type: SlaughterDevour # allows the demon to devour
@@ -178,7 +178,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 25
+        Slash: 10
         Structural: 50
   - type: GhostRole
     allowMovement: true
