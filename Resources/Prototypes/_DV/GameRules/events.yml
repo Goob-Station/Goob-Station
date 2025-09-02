@@ -19,10 +19,11 @@
     duration: 30
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 600 # goobstation - increase chaosscore due to buffed xenos
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
+    playerratio: 50 # goobstation - reduce max possible xeno spawns
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
       - id: MobXeno
