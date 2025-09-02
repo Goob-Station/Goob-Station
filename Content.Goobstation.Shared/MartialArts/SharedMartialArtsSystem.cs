@@ -41,6 +41,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -100,6 +101,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {

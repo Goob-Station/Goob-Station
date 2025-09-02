@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.MartialArts.Events;
@@ -14,7 +15,7 @@ namespace Content.Goobstation.Shared.MartialArts.Events;
 public sealed partial class CqcSlamPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class  CqcKickPerformedEvent : EntityEventArgs;
+public sealed partial class CqcKickPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class CqcRestrainPerformedEvent : EntityEventArgs;
@@ -24,3 +25,6 @@ public sealed partial class CqcPressurePerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class CqcConsecutivePerformedEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed partial class CqcNeckSnapDoAfterEvent : SimpleDoAfterEvent;
