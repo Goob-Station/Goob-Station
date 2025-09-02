@@ -101,3 +101,6 @@ trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of h
 
 trait-newyork-name = New York accent
 trait-newyork-desc = You speak with a thick New York accent. I'm fuckin' walkin' 'ere!
+
+trait-british-name = British accent
+trait-british-desc = You speak proper, unlike those bloody yanks.

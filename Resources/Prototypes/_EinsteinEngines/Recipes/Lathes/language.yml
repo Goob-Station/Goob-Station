@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Translators
 - type: latheRecipe
   id: CanilunztTranslator
@@ -124,6 +130,26 @@
 - type: latheRecipe
   id: MarishTranslator
   result: MarishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: SchechiTranslator
+  result: SchechiTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: NewKinPidginTranslator
+  result: NewKinPidginTranslator
   completetime: 2
   materials:
     Steel: 500
@@ -267,6 +293,28 @@
 - type: latheRecipe
   id: MarishTranslatorImplanter
   result: MarishTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: SchechiTranslatorImplanter
+  result: SchechiTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: NewKinPidginTranslatorImplanter
+  result: NewKinPidginTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500
