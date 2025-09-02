@@ -136,7 +136,7 @@ public partial class SharedMartialArtsSystem
                     targeting.Target == TargetBodyPart.Head
                     && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
                 {
-                    var doAfterArgs = new DoAfterArgs(EntityManager, ent, 2.0f, new CqcNeckSnapDoAfterEvent(), ent, args.Target)
+                    var doAfterArgs = new DoAfterArgs(EntityManager, ent, 1.5f, new CqcNeckSnapDoAfterEvent(), ent, args.Target)
                     {
                         BreakOnMove = true,
                         BreakOnDamage = true,
