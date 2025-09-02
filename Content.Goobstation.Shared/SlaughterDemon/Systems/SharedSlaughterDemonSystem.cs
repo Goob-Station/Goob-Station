@@ -127,8 +127,13 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         }
     }
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args) =>
+    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
         SpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
+    }
 
     private void OnMobStateChanged(Entity<SlaughterDemonComponent> ent, ref MobStateChangedEvent args)
     {
