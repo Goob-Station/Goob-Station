@@ -105,6 +105,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // Kill them for sure, just in case
         _mobState.ChangeMobState(pullingEnt, MobState.Dead);
+        RemoveBlood(pullingEnt); // todo: find better fix
 
         _audio.PlayPvs(slaughterDevour.FeastSound, args.PreviousCoordinates);
 
@@ -141,4 +142,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
             && !ent.Comp.CanPickupGuns)
             args.Cancel();
     }
+
+    protected virtual void RemoveBlood(EntityUid uid) {}
 }
