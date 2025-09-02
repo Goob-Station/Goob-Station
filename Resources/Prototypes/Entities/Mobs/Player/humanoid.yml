@@ -178,8 +178,6 @@
     implants:
     - SpaceItalianTranslatorImplant   #chefs should speak space italian
   - type: GrantCqc                    #Chefs should have CqC
-    startingStage: Hard
-    isBlocked: true
 # Goobstation end
 
 - type: randomHumanoidSettings

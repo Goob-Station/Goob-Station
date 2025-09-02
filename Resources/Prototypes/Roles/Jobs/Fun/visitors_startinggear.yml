@@ -1036,6 +1036,8 @@
     outerClothing: ClothingOuterPlagueSuit
     pocket1: PlushieSharkGrey
     pocket2: FoodSnackEnergy
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChaplainAlt
@@ -1049,6 +1051,8 @@
     outerClothing: ClothingOuterNunRobe
     pocket1: PlushiePenguin
     pocket2: DrinkCoconutWaterCarton
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChef
