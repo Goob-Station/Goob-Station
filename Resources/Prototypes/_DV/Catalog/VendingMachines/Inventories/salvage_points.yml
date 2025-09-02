@@ -37,14 +37,10 @@
     cost: 100
   - id: CigarGold
     cost: 150
-  - id: Soap
-    cost: 200
   - id: SeismicCharge
     cost: 250
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
-  - id: ClothingHandsGlovesColorYellowBudget #go mine tider, have purpose my child
-    cost: 350
   - id: FultonBeacon
     cost: 400
   - id: Fulton
@@ -112,21 +108,21 @@
     cost: 1250
   - id: WeaponProtoKineticShotgun
     cost: 1500
-  - id: OreBagOfHolding
-    cost: 1500
   - id: LuxuryMedipen
-    cost: 1600
+    cost: 1500
   - id: WeaponPlasmaCutter
     cost: 1700
   - id: BorgModuleAdvancedMining
     cost: 2000
   - id: ClothingHandsGlovesCombat
     cost: 2000
-  - id: PowerCellMicroreactor
+  - id: OreBagOfHolding
     cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500
   - id: ClothingNeckCloakHelldiver
+    cost: 2000
+  - id: ClothingShoesBootsMoon
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
@@ -139,6 +135,6 @@
   - id: MiningDrillDiamond
     cost: 4000 #Mostly for flexing
   - id: CrateCargoClarkeAssembly
-    cost: 15000 #TODO: Make modules real
+    cost: 12500 #TODO: Make modules real
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

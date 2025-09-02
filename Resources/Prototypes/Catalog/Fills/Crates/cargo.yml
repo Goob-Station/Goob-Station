@@ -64,7 +64,7 @@
 - type: entity
   id: CrateCargoClarkeAssembly
   name: clarke assembly crate
-  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
+  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required, not all parts provided.
   parent: CratePrivateSecure
   components:
   - type: StorageFill
