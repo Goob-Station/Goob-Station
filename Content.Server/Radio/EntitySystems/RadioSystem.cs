@@ -261,8 +261,7 @@ public sealed class RadioSystem : EntitySystem
         string name,
         string message,
         LanguagePrototype language,
-        EntityUid radioSource, // GOobstation - Loud command
-        int? fontSizeOverride = null) // Goobstation - Loud command
+        EntityUid radioSource) // GOobstation - Loud command
     {
         // Goobstation start - Loud command
         int? fontSizeIncrease = null;
