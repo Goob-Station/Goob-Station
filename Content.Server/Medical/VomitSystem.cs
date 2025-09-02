@@ -104,6 +104,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -117,15 +118,16 @@ namespace Content.Server.Medical
     {
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
+        [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
         [Dependency] private readonly BodySystem _body = default!;
+        [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly HungerSystem _hunger = default!;
+        [Dependency] private readonly MobStateSystem _mobstate = default!;
+        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly PuddleSystem _puddle = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
         [Dependency] private readonly ThirstSystem _thirst = default!;
-        [Dependency] private readonly ForensicsSystem _forensics = default!;
-        [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
         private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
 
@@ -135,11 +137,16 @@ namespace Content.Server.Medical
         /// <summary>
         /// Make an entity vomit, if they have a stomach.
         /// </summary>
-        public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
+        public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false)
         {
             // Main requirement: You have a stomach
             var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(uid);
             if (stomachList.Count == 0)
+                return;
+
+            //  Vomit only if entity is alive
+            //  Ignore condition if force was set to true
+            if (!force && _mobstate.IsDead(uid))
                 return;
 
             // goob start
