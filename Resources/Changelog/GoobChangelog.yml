@@ -14264,3 +14264,13 @@ Entries:
       message: Added mangos
   id: 1586
   time: '2025-09-02T01:57:33.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Slaughter demons don't drip blood forever now
+    - type: Tweak
+      message: Slaughter demon guidebook has been updated with important info.
+    - type: Tweak
+      message: More blood types have been supported for slaughter demon
+  id: 1587
+  time: '2025-09-02T09:36:13.0000000+00:00'
