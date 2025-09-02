@@ -1065,7 +1065,7 @@
     pocket1: ButchCleaver
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache         #Chefs now start with the space italian implant.
   - DrinkWineBottleFull
 
 - type: startingGear
@@ -1079,11 +1079,11 @@
     back: ClothingBackpack
     belt: ClothingBeltChefFilled
     ears: ClothingHeadsetService
-    outerClothing: ClothingOuterWinterChef
+    outerClothing: ClothingOuterWinterChef 
     pocket1: RollingPin
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache        #Chefs now start with the space italian implant.
   - FoodCheese
 
 - type: startingGear
