@@ -155,6 +155,7 @@
     damage:
       types:
         Blunt: 10
+        Cleanliness: 10 # Goobstation - Slaughter Demon / Janitor war
     soundHit:
       collection: MetalThud
   - type: Spillable
@@ -167,6 +168,7 @@
     damage:
       types:
         Blunt: 5
+        Cleanliness: 19.84 # Goobstation - Slaughter Demon / Janitor war
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -213,6 +215,7 @@
       damage:
         types:
           Blunt: 10
+          Cleanliness: 19.84 # Goobstation - Slaughter Demon / Janitor war
       soundHit:
          collection: MetalThud
     - type: Spillable
@@ -225,6 +228,7 @@
       damage:
         types:
           Blunt: 5
+          Cleanliness: 35 # Goobstation - Slaughter Demon / Janitor war
     - type: Item
       size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi
@@ -470,6 +474,7 @@
       damage:
         types:
           Blunt: 0
+          Cleanliness: 6 # Goobstation - Slaughter Demon / Janitor war
     - type: Item
       size: Small
       sprite: Objects/Specific/Janitorial/rag.rsi

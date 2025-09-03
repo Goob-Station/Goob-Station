@@ -18,4 +18,5 @@
     Cold: 0.0
     Cellular: 0.0
     Caustic: 0.0
+    Cleanliness: 1
   ignoreArmorPierceFlags: All

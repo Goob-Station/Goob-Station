@@ -9,3 +9,9 @@
   name: damage-type-ion
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+
+- type: damageType
+  id: Cleanliness
+  name: damage-type-cleanliness
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1

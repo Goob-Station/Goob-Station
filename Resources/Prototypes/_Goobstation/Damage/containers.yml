@@ -24,6 +24,18 @@
     - Shock
     - Radiation
 
+- type: damageContainer
+  id: SlaughterDemonContainer
+  supportedGroups:
+    - Brute
+    - Burn
+    - Toxin
+    - Airloss
+    - Genetic
+  supportedTypes:
+    - Holy
+    - Cleanliness
+
 # based on inorganic
 - type: damageContainer
   id: ClowncarDamageContainer

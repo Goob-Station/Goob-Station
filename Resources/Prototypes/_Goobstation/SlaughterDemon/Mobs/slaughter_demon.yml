@@ -23,7 +23,7 @@
     deactivateSound: null
   - type: Insulated
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: SlaughterDemonContainer
     damageModifierSet: SlaughterDemon
   - type: StatusEffects # Overwriting basesimplemob to remove flash
     allowed:
