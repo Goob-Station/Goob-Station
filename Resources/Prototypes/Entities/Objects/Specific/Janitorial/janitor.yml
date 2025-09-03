@@ -187,7 +187,7 @@
       - Mop
       - MopBasic
       - DroneUsable # Goobstation
-  - type: Multihit
+  - type: Multihit # Goobstation - Slaughter Demon / Janitor war
     multihitWhitelist:
       tags:
       - Mop
@@ -265,6 +265,15 @@
         - Mop
         - MopAdv
         - DroneUsable # Goobstation
+    - type: Multihit # Goobstation - Slaughter Demon / Janitor war
+      multihitWhitelist:
+       tags:
+       - Mop
+      conditions:
+      - !type:MultihitUserWhitelistEvent
+       whitelist:
+         components:
+         - JanitorialStaff
     - type: DnaSubstanceTrace
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
