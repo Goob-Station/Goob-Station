@@ -295,9 +295,8 @@
      enum.PdaVisuals.PdaType:
        !type:String
        pda-roboticist
-       pda-roboticist
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentVColor: "#1b1b1a"
+    borderColor: "#161616"
+    accentVColor: "#cc4d03"
   - type: Icon
     state: pda-roboticist
