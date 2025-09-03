@@ -23,6 +23,9 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: Battery
+    maxCharge: 640 # Battery is charged by mech
+    startingCharge: 640
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 40
@@ -46,6 +49,9 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: Battery
+    maxCharge: 360 # Battery is charged by mech
+    startingCharge: 360
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 30
@@ -69,6 +75,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: Battery
+    maxCharge: 450 # Battery is charged by mech
+    startingCharge: 450
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 30
@@ -92,6 +101,9 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: Battery
+    maxCharge: 200 # Battery is charged by mech
+    startingCharge: 200
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 10
@@ -118,6 +130,9 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
+  - type: Battery
+    maxCharge: 300 # Battery is charged by mech
+    startingCharge: 300
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 99
@@ -141,6 +156,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Battery
+    maxCharge: 200 # Battery is charged by mech
+    startingCharge: 200
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 10
@@ -164,6 +182,9 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Battery
+    maxCharge: 140 # Battery is charged by mech
+    startingCharge: 140
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
     fireCost: 19
@@ -187,6 +208,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: Battery
+    maxCharge: 180 # Battery is charged by mech
+    startingCharge: 180
   - type: ProjectileBatteryAmmoProvider
     proto: ShellShotgun
     fireCost: 30
@@ -210,6 +234,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: Battery
+    maxCharge: 180 # Battery is charged by mech
+    startingCharge: 180
   - type: ProjectileBatteryAmmoProvider
     proto: ShellShotgunIncendiary
     fireCost: 40
@@ -233,6 +260,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: Battery
+    maxCharge: 150 # Battery is charged by mech
+    startingCharge: 150
   - type: ProjectileBatteryAmmoProvider
     proto: CartridgeLightRifle
     fireCost: 5
@@ -256,6 +286,9 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: Battery
+    maxCharge: 200 # Battery is charged by mech
+    startingCharge: 200
   - type: ProjectileBatteryAmmoProvider
     proto: BulletWeakRocket
     fireCost: 25
@@ -307,6 +340,9 @@
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: Battery
+    maxCharge: 210 # Battery is charged by mech
+    startingCharge: 210
   - type: ProjectileBatteryAmmoProvider
     proto: GrenadeFlash
     fireCost: 30

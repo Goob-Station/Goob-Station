@@ -1,0 +1,97 @@
+- type: entity
+  id: PKAUpgradeMoveSpeed
+  parent: BasePKAUpgrade
+  name: GraviMag
+  description: A modkit for heavy weapons, enabling users to equip and weild weapons without an exosuit.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-mech
+    - state: overlay-mech-1
+      color: "#42ffff"
+    - state: overlay-mech-2
+      color: "#e69e02"
+    - state: overlay-mech-3
+      color: "#e69e02"
+  - type: Tag
+    tags:
+    - WeaponUpgradeMech
+  - type: GunUpgrade
+    tags: [ WeaponUpgradeMech ]
+    examineText: gun-upgrade-examine-text-speed
+    capacityCost: 30
+    unique: true
+  - type: GunComponentUpgrade
+    components:
+    - type: ClothingSpeedModifier
+      walkModifier: 0.85
+      sprintModifier: 0.85
+    - type: Clothing
+      equipDelay: 1
+      unequipDelay: 1.5
+      slots: BACK
+
+- type: entity
+  id: PKAUpgradeRecharge
+  parent: BasePKAUpgrade
+  name: ElectroMag
+  description: A modkit for heavy weapons, providing portable recharging in the absence of an exosuit.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-mech
+    - state: overlay-mech-1
+      color: "#ff4242"
+    - state: overlay-mech-2
+      color: "#e69e02"
+    - state: overlay-mech-3
+      color: "#e69e02"
+  - type: Tag
+    tags:
+    - WeaponUpgradeMech
+  - type: GunUpgrade
+    tags: [ WeaponUpgradeMech ]
+    examineText: gun-upgrade-examine-text-recharge
+    capacityCost: 20
+    unique: true
+  - type: GunComponentUpgrade
+    components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 3.75
+      autoRechargePause: true
+      autoRechargePauseTime: 15
+      canEMP: true
+
+# Admeme/Centcomm recharger, NOT balanced for station use.
+- type: entity
+  id: PKAUpgradeRechargeAdmeme
+  parent: BasePKAUpgrade
+  name: High-Grade ElectroMag
+  description: A modkit for heavy weapons, overclocked for use by CentComm's enforcers.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-mech
+      color: "#ffffa6"
+    - state: overlay-mech-1
+      color: "#32bf32"
+    - state: overlay-mech-2
+      color: "#fa4b00"
+    - state: overlay-mech-3
+      color: "#fa4b00"
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+  - type: Tag
+    tags:
+    - WeaponUpgradeMech
+  - type: GunUpgrade
+    tags: [ WeaponUpgradeMech ]
+    examineText: gun-upgrade-examine-text-recharge-admeme
+    capacityCost: 20
+    unique: true
+  - type: GunComponentUpgrade
+    components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 5

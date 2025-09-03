@@ -10,8 +10,8 @@
   abstract: true
   components:
   - type: Battery
-    maxCharge: 100 # Battery is charged by mech
-    startingCharge: 100
+    maxCharge: 200 # Battery is charged by mech
+    startingCharge: 200
   - type: Appearance
   - type: StaticPrice
     price: 1
@@ -22,3 +22,8 @@
     walkModifier: 0.5
     sprintModifier: 0.5
   - type: HeldSpeedModifier
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 50
+    whitelist:
+      tags:
+      - WeaponUpgradeMech

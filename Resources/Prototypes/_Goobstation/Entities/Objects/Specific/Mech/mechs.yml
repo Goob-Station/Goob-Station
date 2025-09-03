@@ -380,7 +380,7 @@
   components:
   - type: Mech
     startingEquipment:
-      - WeaponMechChainSword
+      - WeaponMechMeleeChainSword
       - WeaponMechCombatPulseRifle
       - WeaponMechCombatUltraRifle
       - WeaponMechCombatMissileRack8
@@ -454,7 +454,7 @@
   components:
   - type: Mech
     startingEquipment:
-      - WeaponMechChainSword
+      - WeaponMechMeleeChainSword
       - WeaponMechCombatPulseRifle
       - WeaponMechCombatShotgun
       - WeaponMechCombatMissileRack6
@@ -531,7 +531,7 @@
   components:
   - type: Mech
     startingEquipment:
-      - WeaponMechChainSword
+      - WeaponMechMeleeChainSword
       - WeaponMechCombatShotgun
       - WeaponMechCombatMissileRack8
       - WeaponMechCombatTeslaCannon
@@ -605,7 +605,7 @@
   components:
   - type: Mech
     startingEquipment:
-      - WeaponMechChainSword
+      - WeaponMechMeleeChainSword
       - WeaponMechCombatUltraRifle
       - WeaponMechCombatShotgun
       - WeaponMechCombatMissileRack6

@@ -33,13 +33,17 @@
   - type: CursedHeartGrant
 
 - type: entity
-  id: LavalandVampirismCrystal
+  id: PKAUpgradeLavalandVampirismCrystal
   parent: BasePKAUpgrade
-  name: a red crystal
+  name: crimson kinetic crystal
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
-    state: crystal
+    layers:
+    - state: crystal
+      color: "#ff0000"
+    - state: overlay-crystal
+      color: "#ffaaaa"
   - type: GunUpgrade
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-vampirism
@@ -49,3 +53,43 @@
         Slash: -1.5
         Piercing: -1.5
         Blunt: -1.5
+
+- type: entity
+  id: PKAUpgradeLavalandBluespaceCrystal
+  parent: BasePKAUpgrade
+  name: azure kinetic crystal
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    layers:
+    - state: crystal
+      color: "#33ffff"
+    - state: overlay-crystal
+      color: "#0000ff"
+  - type: GunUpgrade
+    tags: [ GunUpgradeReloadSpeed ]
+    examineText: gun-upgrade-examine-text-bluespace
+    capacityCost: -20
+
+- type: entity
+  id: PKAUpgradeLavalandCosmicCultCrystal
+  parent: BasePKAUpgrade
+  name: cosmic kinetic crystal
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    layers:
+    - state: crystal
+      color: "#604E8B"
+    - state: overlay-crystal
+      color: "#C8E7E6"
+  - type: GunUpgrade
+    capacityCost: 30
+    tags: [ GunUpgradeDamage ]
+    examineText: gun-upgrade-examine-text-cosmic
+  - type: GunUpgradeDamage
+    damage:
+      types:
+        Cold: 5
+        Asphyxiation: 15
+        Ion: 15
