@@ -175,6 +175,9 @@ namespace Content.Server.Ghost
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
 
+        [ValidatePrototypeId<TagPrototype>]
+        private const string FacehuggerCannotSuicideTag = "FacehuggerCannotSuicide"; //GoobStation
+
         public override void Initialize()
         {
             base.Initialize();
@@ -669,7 +672,7 @@ namespace Content.Server.Ghost
                 canReturnGlobal &&
                 TryComp(playerEntity, out MobStateComponent? mobState))
             {
-                if (_mobState.IsCritical(playerEntity.Value, mobState))
+                if (_mobState.IsCritical(playerEntity.Value, mobState) && !_tag.HasTag(playerEntity.Value, FacehuggerCannotSuicideTag)) //Goobstation
                 {
                     canReturn = true;
 

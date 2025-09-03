@@ -108,6 +108,9 @@ public sealed class SuicideSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 
+    [ValidatePrototypeId<TagPrototype>]
+    private const string FacehuggerCannotSuicideTag = "FacehuggerCannotSuicide"; //GoobStation
+
     public override void Initialize()
     {
         base.Initialize();
@@ -177,7 +180,7 @@ public sealed class SuicideSystem : EntitySystem
 
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
-        if (_tagSystem.HasTag(victim, CannotSuicideTag))
+        if (_tagSystem.HasTag(victim, CannotSuicideTag) || _tagSystem.HasTag(victim, FacehuggerCannotSuicideTag))
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -229,7 +232,7 @@ public sealed class SuicideSystem : EntitySystem
     /// </summary>
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || _tagSystem.HasTag(victim, FacehuggerCannotSuicideTag))
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
