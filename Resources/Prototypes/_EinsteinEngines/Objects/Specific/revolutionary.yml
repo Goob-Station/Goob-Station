@@ -13,8 +13,6 @@
       - state: icon_manifesto
       - state: detail_bookmark
         color: "#aaaa24"
-    - type: RevolutionaryConverter
-      conversionDuration: 2
     - type: Tag
       tags:
         - Book
