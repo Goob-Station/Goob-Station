@@ -138,6 +138,7 @@
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: XenomorphShoveTracker
 
 - type: entity
   parent: [BaseMobXenomorph, StripableInventoryBase]
