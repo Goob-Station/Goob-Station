@@ -14284,3 +14284,13 @@ Entries:
       message: 'Made Combat gloves renewable. '
   id: 1588
   time: '2025-09-03T13:40:58.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Stunbaton wideswing damage buffed to not be entirely useless,
+        spriteclicking is still superior. 
+    - type: Tweak
+      message: 'GreatShield Mace given minor staminadamage buff. '
+  id: 1589
+  time: '2025-09-03T23:38:04.0000000+00:00'
