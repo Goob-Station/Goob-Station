@@ -378,14 +378,19 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
+  # CorvaxGoob-MakeshiftLaser-Construction-start
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedLightLaser
+    fireCost: 100
   - type: Battery
-    maxCharge: 500
-    startingCharge: 500
+    maxCharge: 600
+    startingCharge: 600
   - type: Multishot # Goobstation
     spreadAddition: 10
+  - type: Construction
+    graph: MakeshiftLaserGraph
+    node: laser
+  # CorvaxGoob-MakeshiftLaser-Construction-end
 
 - type: entity
   name: tesla gun

@@ -1,0 +1,47 @@
+- type: constructionGraph
+  id: MakeshiftLaserGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: laser
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: construction-graph-tag-pipe
+      - material: Glass
+        amount: 3
+        doAfter: 0.5
+      - material: Plasma
+        amount: 3
+        doAfter: 0.5
+      - tag: Flashlight
+        icon:
+          sprite: Objects/Tools/flashlight.rsi
+          state: flashlight
+        name: construction-graph-tag-flashlight
+      - tag: PowerCellSmall
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        name: construction-graph-tag-power-cell-small
+      - tag: PowerCellSmall
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        name: construction-graph-tag-power-cell-small
+      - material: Cable
+        amount: 10
+        doAfter: 10
+      - material: Steel
+        amount: 5
+        doAfter: 0.5
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: construction-graph-tag-modular-receiver
+  - node: laser
+    entity: WeaponMakeshiftLaser
