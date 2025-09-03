@@ -36,7 +36,6 @@
 
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared.Atmos.EntitySystems;
@@ -55,6 +54,8 @@ using System.Linq;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.EntitySystems;
 using Robust.Shared.Threading;
+using Content.Shared.Damage;
+using Robust.Shared.Threading;
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -67,6 +68,7 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -77,6 +79,7 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] public readonly PuddleSystem Puddle = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly AtmosDeviceSystem _atmosDeviceSys = default!;
 

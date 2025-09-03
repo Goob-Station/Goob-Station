@@ -90,6 +90,10 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 15000
+    minPressureDelta: 10000
+    scalingType: Threshold
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
@@ -153,6 +157,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 3750
+    minPressureDelta: 2500
   - type: StaticPrice
     price: 22.5
   - type: Penetratable # Goobstation - Better snipers
