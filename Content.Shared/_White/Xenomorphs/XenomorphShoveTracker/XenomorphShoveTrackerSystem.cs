@@ -11,6 +11,7 @@ public sealed class XenomorphShoveTrackerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -21,7 +22,7 @@ public sealed class XenomorphShoveTrackerSystem : EntitySystem
     {
         var source = args.Source;
         var target = args.Target;
-        
+
         // Only process if the source is a xenomorph with shove tracker
         if (!HasComp<XenomorphComponent>(source) || !TryComp<XenomorphShoveTrackerComponent>(source, out var xenoComponent))
             return;
@@ -41,22 +42,22 @@ public sealed class XenomorphShoveTrackerSystem : EntitySystem
         // Check if threshold reached
         if (xenoComponent.ShoveCount[target] >= xenoComponent.ShoveThreshold)
         {
-            // Knock down and stun the target
-            _stun.TryKnockdown(target, xenoComponent.KnockdownDuration, true);
-            _stun.TryStun(target, xenoComponent.KnockdownDuration, true);
-            
+            // Apply knockdown and stun
+            bool wasStunned = _stun.TryStun(target, xenoComponent.KnockdownDuration, true);
+            bool wasKnockedDown = _stun.TryKnockdown(target, xenoComponent.KnockdownDuration, true);
+
             // Reset the count for this target
             xenoComponent.ShoveCount.Remove(target);
             xenoComponent.LastShoveTime.Remove(target);
         }
-        
+
         // Always handle xenomorph shoves to prevent normal disarm effects
         args.Handled = true;
 
         Dirty(source, xenoComponent);
     }
 
-    private void CleanupOldShoves(XenomorphShoveTrackerComponent component, TimeSpan currentTime)
+    private static void CleanupOldShoves(XenomorphShoveTrackerComponent component, TimeSpan currentTime)
     {
         var toRemove = new List<EntityUid>();
 
