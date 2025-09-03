@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 JrInventor05Next <205915704+JrInventor05Next@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -82,13 +83,13 @@ public sealed class ClowncarSystem : SharedClowncarSystem
 
         if (vehicle.Driver == null){
             AlternativeVerb verb = new();
-            verb.Text = "Enter Driver seat";
+            verb.Text = Loc.GetString("enter-driver-seat");
             verb.Act = () => EnterDriverSeatVerb(uid, verbs.User, component);
             verbs.Verbs.Add(verb);
         }
 
         AlternativeVerb verb2 = new();
-        verb2.Text = "Open Trunk";
+        verb2.Text = Loc.GetString("open-trunk");
         verb2.Act = () => OpenTrunkVerb(uid, verbs.User, component);
         verbs.Verbs.Add(verb2);
     }
