@@ -17,8 +17,8 @@ construction-graph-tag-red-crayon = красный мелок
 construction-graph-tag-yellow-crayon = жёлтый мелок
 construction-graph-tag-black-crayon = чёртый мелок
 # eva
-construction-graph-tag-eva-suit = ЕВА скафандр
-construction-graph-tag-eva-helmet = ЕВА шлем
+construction-graph-tag-eva-suit = ВКД скафандр
+construction-graph-tag-eva-helmet = ВКД шлем
 # hud
 construction-graph-tag-security-hud = визор охраны
 construction-graph-tag-medical-hud = медицинский визор

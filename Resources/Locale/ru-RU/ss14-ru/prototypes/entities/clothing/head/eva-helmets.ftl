@@ -1,10 +1,10 @@
-ent-ClothingHeadHelmetEVA = шлем ЕВА
+ent-ClothingHeadHelmetEVA = шлем ВКД
     .desc = Старый добрый шлем, предназначенный для внекорабельной деятельности. Известен тем, что вызывает паранойю у сотрудников службы безопасности.
-ent-ClothingHeadHelmetEVALarge = шлем ЕВА
+ent-ClothingHeadHelmetEVALarge = шлем ВКД
     .desc = Старый добрый шлем, предназначенный для внекорабельной деятельности.
 # Corvax-HiddenDesc-Start
-ent-ClothingHeadHelmetSyndicate = кроваво-красный шлем ЕВА
-    .desc = Простой, стильный ЕВА шлем. Предназначен для максимально скромной космо-крутости.
+ent-ClothingHeadHelmetSyndicate = кроваво-красный шлем ВКД
+    .desc = Простой, стильный ВКД шлем. Предназначен для максимально скромной космо-крутости.
 # Corvax-HiddenDesc-End
 ent-ClothingHeadHelmetCosmonaut = шлем космонавта
     .desc = Древний дизайн, современное производство.
