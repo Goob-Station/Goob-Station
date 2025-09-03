@@ -64,7 +64,7 @@ public sealed class CloningPodSystem : EntitySystem
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
-    public const float EasyModeCloningCost = 0.7f;
+    public const float EasyModeCloningCost = 3f; // CorvaxGoob-Cloning base: 0.7f
 
     public override void Initialize()
     {

@@ -23,3 +23,10 @@
   - GameMasterCircuitBoard
   - ArtistCircuitBoard
   - NutimovCircuitBoard
+
+- type: latheRecipePack
+  id: Cloning
+  recipes:
+  - CloningConsoleComputerCircuitboard
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard

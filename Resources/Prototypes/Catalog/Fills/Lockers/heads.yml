@@ -395,9 +395,11 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
-    - id: CloningpodFlatpack
-    - id: MedicalScannerFlatpack
-    - id: ComputerCloningConsoleFlatpack
+    # CorvaxGoob-Cloning-start
+    # - id: CloningpodFlatpack
+    # - id: MedicalScannerFlatpack
+    # - id: ComputerCloningConsoleFlatpack
+    # CorvaxGoob-Cloning-end
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge

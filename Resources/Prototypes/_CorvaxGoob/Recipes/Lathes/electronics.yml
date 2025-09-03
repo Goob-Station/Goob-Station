@@ -13,3 +13,21 @@
   icon: { sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi, state: icon_lathe }
   id: StasisOperatingTableCircuitboard
   result: StasisOperatingTableCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: CloningConsoleComputerCircuitboard
+  icon: _CorvaxGoob/Structures/Machines/Icons/Computers/dna-computer.png
+  result: CloningConsoleComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: CloningPodMachineCircuitboard
+  icon: { sprite: Structures/Machines/cloning.rsi, state: pod_0 }
+  result: CloningPodMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: MedicalScannerMachineCircuitboard
+  icon: { sprite: Structures/Machines/scanner.rsi, state: open }
+  result: MedicalScannerMachineCircuitboard

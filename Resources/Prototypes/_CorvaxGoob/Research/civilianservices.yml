@@ -13,3 +13,20 @@
   recipeUnlocks:
   - FillableMedipen
   - MachineMedipenRefillerCircuitboard
+
+- type: technology
+  id: Cloning
+  name: research-technology-cloning
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: CivilianServices
+  tier: 3
+  position: 2, 5
+  technologyPrerequisites:
+  - BiochemicalStasis
+  cost: 20000
+  recipeUnlocks:
+  - CloningConsoleComputerCircuitboard
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard
