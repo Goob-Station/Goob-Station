@@ -42,9 +42,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
-
-        // gun-related
-        SubscribeLocalEvent<SlaughterDemonComponent, PickupAttemptEvent>(OnPickup);
     }
 
     public override void Update(float frameTime)
@@ -139,13 +136,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
     {
         if (args.NewMobState == MobState.Dead)
             _audio.PlayPvs(ent.Comp.DeathSound, ent.Owner, AudioParams.Default.WithVolume(-2f));
-    }
-
-    private void OnPickup(Entity<SlaughterDemonComponent> ent, ref PickupAttemptEvent args)
-    {
-        if (HasComp<GunComponent>(args.Item)
-            && !ent.Comp.CanPickupGuns)
-            args.Cancel();
     }
 
     protected virtual void RemoveBlood(EntityUid uid) {}

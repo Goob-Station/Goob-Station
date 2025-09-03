@@ -94,7 +94,8 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
             foreach (var reagent in solution.Contents)
             {
-                if (ent.Comp.Blood.Contains(reagent.Reagent.Prototype))
+                if (ent.Comp.Blood.Contains(reagent.Reagent.Prototype)
+                    && reagent.Quantity >= ent.Comp.RequiredReagentAmount)
                     return true;
             }
         }
