@@ -9,6 +9,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
@@ -43,6 +44,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, StartCollideEvent>(OnCollideEvent);
         SubscribeLocalEvent<FaceHuggerComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedHandEvent>(OnPickedUp);
+        SubscribeLocalEvent<FaceHuggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
@@ -61,6 +63,9 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     private void OnPickedUp(EntityUid uid, FaceHuggerComponent component, GotEquippedHandEvent args)
         => TryEquipFaceHugger(uid, args.User, component);
+
+    private void OnStepTriggered(EntityUid uid, FaceHuggerComponent component, ref StepTriggeredOffEvent args)
+        => TryEquipFaceHugger(uid, args.Tripper, component);
 
     private void OnGotEquipped(EntityUid uid, FaceHuggerComponent component, GotEquippedEvent args)
     {
