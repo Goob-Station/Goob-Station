@@ -119,6 +119,8 @@ public sealed class XenomorphEggSystem : EntitySystem
         if (!TryComp<FaceHuggerComponent>(spawned, out var equipOn))
             return;
 
+
+
         foreach (var entity in _entityLookup.GetEntitiesInRange<InventoryComponent>(coordinates, component.BurstRange))
         {
             if (_faceHugger.TryEquipFaceHugger(spawned, entity, equipOn))
