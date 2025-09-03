@@ -149,8 +149,9 @@
       raffle:
         settings: default
       requirements: # Goobstation - ghost roles requirements
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
+      - !type:RoleTimeRequirement
+        role: JobSecurityOfficer
+        time: 36000 #10 hrs
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"
@@ -301,10 +302,6 @@
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
-      - !type:RoleTimeRequirement
-        role: JobSecurityOfficer
-        time: 18000 #5 hrs
     - type: GhostTakeoverAvailable
     - type: RandomSprite
       available:
