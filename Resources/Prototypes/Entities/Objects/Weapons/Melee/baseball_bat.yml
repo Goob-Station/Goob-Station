@@ -76,7 +76,7 @@
     distance: 1
     speed: 5
   - type: Item
-    size: Large # Goob edit
+    size: Normal
     storedRotation: 45 # Goob
   - type: Tool
     qualities:
