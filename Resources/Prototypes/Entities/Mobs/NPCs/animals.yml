@@ -728,8 +728,8 @@
     understands:
     - Hissing
     - TauCetiBasic
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: SentienceTarget # Goobstation
+    flavorKind: station-event-random-sentience-flavor-organic # Goobstation
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -3410,6 +3410,7 @@
     spawned:
     - id: FoodMeat
       amount: 2
+  # Goob start
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Dog
@@ -3427,6 +3428,7 @@
       gender: epicene
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-corgi
+  # Goob end
   - type: Tag
     tags:
     - VimPilot
