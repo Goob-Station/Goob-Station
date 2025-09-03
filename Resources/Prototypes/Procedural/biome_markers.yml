@@ -60,11 +60,6 @@
   minGroupSize: 1
   maxGroupSize: 1
 
-# TODO: Needs to be more robust
-- type: biomeMarkerLayer
-  id: Xenos
-  prototype: MobXeno
-
 - type: biomeMarkerLayer
   id: Carps
   prototype: MobCarpDungeon

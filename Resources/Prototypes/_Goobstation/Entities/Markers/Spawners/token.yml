@@ -107,14 +107,3 @@
     name: roles-laughter-demon-name-token
     description: ghost-role-information-description-token-generic
     rules: ghost-role-information-laughter-demon-rules
-
-- type: entity
-  id: AncientRogueKingToken
-  parent: CMMobXenoRogueKingSentient
-  components:
-  - type: GhostRole
-    name: ghost-role-information-ancient-rogue-king-name-token
-    description: ghost-role-information-description-token-generic
-    rules: ghost-role-information-ancient-rogue-king-rules
-    raffle:
-      settings: short
