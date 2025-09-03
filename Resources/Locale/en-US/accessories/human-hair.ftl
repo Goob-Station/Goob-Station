@@ -98,6 +98,7 @@ marking-HumanHairLowfade = Fade (Low)
 marking-HumanHairBaldfade = Fade (Bald)
 marking-HumanHairFeather = Feather
 marking-HumanHairFather = Father
+marking-HumanHairNiko = Niko
 marking-HumanHairSargeant = Flat Top
 marking-HumanHairFlair = Flair
 marking-HumanHairBigflattop = Flat Top (Big)
