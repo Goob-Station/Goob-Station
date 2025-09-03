@@ -14294,3 +14294,9 @@ Entries:
       message: 'GreatShield Mace given minor staminadamage buff. '
   id: 1589
   time: '2025-09-03T23:38:04.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Xenomorph maids are no longer walking ban bait. Still kinda cute though.
+  id: 1590
+  time: '2025-09-03T23:38:49.0000000+00:00'
