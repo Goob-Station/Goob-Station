@@ -120,9 +120,9 @@
     range: 5
     energyConsumption: 50000
     disableDuration: 20
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 5.5
   - type: FlashImmunity
 
 - type: entity

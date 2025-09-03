@@ -551,6 +551,10 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 5.5
+
 
 - type: entity
   name: space adder

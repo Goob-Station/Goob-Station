@@ -496,6 +496,9 @@
   - type: DrainableSolution
     solution: bloodstream
   - type: Fauna # Lavaland Change
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 5.5
 
 - type: entity
   name: Reagent Slime Spawner

@@ -65,9 +65,6 @@
     drawdepth: Mobs
     sprite: Mobs/Aliens/flesh.rsi
   - type: MovementAlwaysTouching
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 1.5
   - type: MobState
     allowedStates:
     - Alive
@@ -95,6 +92,9 @@
         Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 5.5
 
 - type: entity
   parent: BaseMobFlesh
