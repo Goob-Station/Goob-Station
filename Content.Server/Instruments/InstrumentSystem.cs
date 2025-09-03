@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Campbell Suter <znix@znix.xyz>
 // SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 // SPDX-FileCopyrightText: 2020 silicons <2003111+silicons@users.noreply.github.com>
@@ -29,13 +28,25 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <43324723+Topicranger@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <krusti@fluffytech.xyz>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared.Administration;
+using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Instruments;
 using Content.Shared.Instruments.UI;
@@ -62,6 +73,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly IAdminLogManager _admingLogSystem = default!;
 
     private const float MaxInstrumentBandRange = 10f;
 
@@ -81,6 +93,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         SubscribeNetworkEvent<InstrumentStopMidiEvent>(OnMidiStop);
         SubscribeNetworkEvent<InstrumentSetMasterEvent>(OnMidiSetMaster);
         SubscribeNetworkEvent<InstrumentSetFilteredChannelEvent>(OnMidiSetFilteredChannel);
+        SubscribeNetworkEvent<InstrumentSetChannelsEvent>(OnMidiSetChannels);
 
         Subs.BuiEvents<InstrumentComponent>(InstrumentUiKey.Key, subs =>
         {
@@ -163,6 +176,47 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         Clean(uid, instrument);
     }
 
+
+    private void OnMidiSetChannels(InstrumentSetChannelsEvent msg, EntitySessionEventArgs args)
+    {
+        var uid = GetEntity(msg.Uid);
+
+        if (!TryComp(uid, out InstrumentComponent? instrument) || !TryComp(uid, out ActiveInstrumentComponent? activeInstrument))
+            return;
+
+        if (args.SenderSession.AttachedEntity != instrument.InstrumentPlayer)
+            return;
+
+        if (msg.Tracks.Length > RobustMidiEvent.MaxChannels)
+        {
+            Log.Warning($"{args.SenderSession.UserId.ToString()} - Tried to send tracks over the limit! Received: {msg.Tracks.Length}; Limit: {RobustMidiEvent.MaxChannels}");
+            return;
+        }
+
+
+        foreach (var t in msg.Tracks)
+        {
+            // Remove any control characters that may be part of the midi file so they don't end up in the admin logs.
+            t?.SanitizeFields();
+            // Truncate any track names too long.
+            t?.TruncateFields(_cfg.GetCVar(CCVars.MidiMaxChannelNameLength));
+        }
+
+        var tracksString = string.Join("\n",
+            msg.Tracks
+            .Where(t => t != null)
+            .Select(t => t!.ToString()));
+
+        _admingLogSystem.Add(
+            LogType.Instrument,
+            LogImpact.Low,
+            $"{ToPrettyString(args.SenderSession.AttachedEntity)} set the midi channels for {ToPrettyString(uid)} to {tracksString}");
+
+        activeInstrument.Tracks = msg.Tracks;
+
+        Dirty(uid, activeInstrument);
+    }
+
     private void OnMidiSetMaster(InstrumentSetMasterEvent msg, EntitySessionEventArgs args)
     {
         var uid = GetEntity(msg.Uid);
@@ -217,7 +271,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         if (msg.Value)
         {
             // Prevent stuck notes when turning off a channel... Shrimple.
-            RaiseNetworkEvent(new InstrumentMidiEventEvent(msg.Uid, new []{RobustMidiEvent.AllNotesOff((byte)msg.Channel, 0)}));
+            RaiseNetworkEvent(new InstrumentMidiEventEvent(msg.Uid, new[] { RobustMidiEvent.AllNotesOff((byte) msg.Channel, 0) }));
         }
 
         Dirty(uid, instrument);
@@ -263,7 +317,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         var instrumentQuery = EntityManager.GetEntityQuery<InstrumentComponent>();
 
         if (!TryComp(uid, out InstrumentComponent? originInstrument)
-            || originInstrument.InstrumentPlayer is not {} originPlayer)
+            || originInstrument.InstrumentPlayer is not { } originPlayer)
             return Array.Empty<(NetEntity, string)>();
 
         // It's probably faster to get all possible active instruments than all entities in range
@@ -278,7 +332,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
                 continue;
 
             // We want to use the instrument player's name.
-            if (instrument.InstrumentPlayer is not {} playerUid)
+            if (instrument.InstrumentPlayer is not { } playerUid)
                 continue;
 
             // Maybe a bit expensive but oh well GetBands is queued and has a timer anyway.
@@ -306,7 +360,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
             var netUid = GetNetEntity(uid);
 
             // Reset puppet instruments too.
-            RaiseNetworkEvent(new InstrumentMidiEventEvent(netUid, new[]{RobustMidiEvent.SystemReset(0)}));
+            RaiseNetworkEvent(new InstrumentMidiEventEvent(netUid, new[] { RobustMidiEvent.SystemReset(0) }));
 
             RaiseNetworkEvent(new InstrumentStopMidiEvent(netUid));
         }
@@ -416,7 +470,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         var query = AllEntityQuery<ActiveInstrumentComponent, InstrumentComponent>();
         while (query.MoveNext(out var uid, out _, out var instrument))
         {
-            if (instrument.Master is {} master)
+            if (instrument.Master is { } master)
             {
                 if (Deleted(master))
                 {
@@ -442,7 +496,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
                 (instrument.BatchesDropped >= MaxMidiBatchesDropped
                  || instrument.LaggedBatches >= MaxMidiLaggedBatches))
             {
-                if (instrument.InstrumentPlayer is {Valid: true} mob)
+                if (instrument.InstrumentPlayer is { Valid: true } mob)
                 {
                     _stuns.TryParalyze(mob, TimeSpan.FromSeconds(1), true);
 

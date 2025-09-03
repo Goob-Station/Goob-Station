@@ -143,6 +143,10 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -178,3 +182,15 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: chameleonOutfit
+  id: ChiefEngineerChameleonOutfit
+  job: ChiefEngineer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+    mask: ClothingMaskBreath
+    neck: ClothingNeckCloakCe
+    outerClothing: ClothingOuterWinterCE
+    gloves: ClothingHandsGlovesColorYellow
+    shoes: ClothingShoesBootsMagAdv

@@ -248,7 +248,7 @@ public sealed class FreezeContactsSystem : EntitySystem
 
         bool IsImmune(EntityUid entity)
         {
-            return _actions.GetActions(entity).Any(e => _tag.HasTag(e.Id, FrozenIgnoreMindActionTag));
+            return _actions.GetActions(entity).Any(e => _tag.HasTag(e.Owner, FrozenIgnoreMindActionTag));
         }
     }
 

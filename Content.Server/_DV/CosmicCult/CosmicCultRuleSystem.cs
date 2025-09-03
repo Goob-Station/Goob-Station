@@ -1,4 +1,6 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
@@ -7,6 +9,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -248,12 +251,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             //do spooky effects
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
-            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame,
-                Loc.GetString("cosmiccult-announce-tier2-progress"),
-                null,
-                false,
-                null,
-                Color.FromHex("#4cabb3"));
+            //_chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame,
                 Loc.GetString("cosmiccult-announce-tier2-warning"),
                 null,
@@ -283,8 +281,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
         }
-        //Goobstation: recalls shuttle upon reaching tier 2
-        if (component.CurrentTier >= 2 && _roundEnd.ExpectedCountdownEnd != null)
+        //  Goobstation: Recalls Shuttle if Tier 3 and Cultists Alive
+        if (component.CurrentTier >= 3
+            && _roundEnd.ExpectedCountdownEnd != null
+            && CultistsAlive()) // Goobstation - Check for cultists alive (prevent infinite recall)
         {
             foreach (var station in _station.GetStations())
             {

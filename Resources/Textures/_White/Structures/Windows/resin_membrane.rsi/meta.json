@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/smooth_structures/alien/resin_membrane.dmi",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "resin_membrane0",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane1",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane2",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane3",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane4",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane5",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane6",
+            "directions": 4
+        },
+        {
+            "name": "resin_membrane7",
+            "directions": 4
+        }
+    ]
+}
