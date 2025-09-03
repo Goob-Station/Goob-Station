@@ -103,7 +103,7 @@
         Toxin: -25
         Genetic: -25
         Metaphysical: -25
-    doAfterDelay: 5
+    doAfterDelay: 4
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
