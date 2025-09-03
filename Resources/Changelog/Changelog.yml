@@ -3993,3 +3993,11 @@
   id: 8915
   time: '2025-09-03T20:16:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40001
+- author: Hitlinemoss
+  changes:
+  - message: Added the senior courier PDA for Cargo Technicians with a significant
+      amount of playtime.
+    type: Add
+  id: 8916
+  time: '2025-09-03T20:22:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37661
