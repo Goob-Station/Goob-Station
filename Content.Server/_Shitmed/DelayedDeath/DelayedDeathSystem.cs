@@ -11,7 +11,6 @@
 
 using Content.Goobstation.Common.DelayedDeath;
 using Content.Server.Chat.Systems;
-using Content.Shared.Chat;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
