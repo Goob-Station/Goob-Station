@@ -87,6 +87,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector
+  - !type:AddComponentSpecial # Goobstation
+    components:
+    - type: JanitorialStaff
 
 - type: startingGear
   id: JanitorGear

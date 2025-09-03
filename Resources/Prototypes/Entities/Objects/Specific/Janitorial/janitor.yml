@@ -187,6 +187,15 @@
       - Mop
       - MopBasic
       - DroneUsable # Goobstation
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - Mop
+    conditions:
+    - !type:MultihitUserWhitelistEvent
+      whitelist:
+        components:
+        - JanitorialStaff
   - type: GuideHelp
     guides:
     - Janitorial
