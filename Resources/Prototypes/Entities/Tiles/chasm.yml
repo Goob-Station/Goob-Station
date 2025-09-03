@@ -48,6 +48,13 @@
     base: chasm
   - type: Physics
     bodyType: Static
+  - type: Drain #Goob
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 1000
+  - type: DrainableSolution
+    solution: drainBuffer
   - type: Fixtures
     fixtures:
       fix1:
@@ -63,6 +70,7 @@
   - type: Tag
     tags:
     - HideContextMenu
+
 
 - type: entity
   parent: FloorChasmEntity
