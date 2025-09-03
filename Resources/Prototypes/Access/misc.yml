@@ -161,8 +161,3 @@
 
 - type: accessLevel
   id: 7A
-
-- type: accessGroup
-  id: General
-  tags:
-  - Maintenance
