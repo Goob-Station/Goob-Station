@@ -14274,3 +14274,13 @@ Entries:
       message: More blood types have been supported for slaughter demon
   id: 1587
   time: '2025-09-02T09:36:13.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        You can now buy a whole lot of more stuff from salvage vend, including
+        WAY more lategame gear, like a clarke. :) 
+    - type: Add
+      message: 'Made Combat gloves renewable. '
+  id: 1588
+  time: '2025-09-03T13:40:58.0000000+00:00'
