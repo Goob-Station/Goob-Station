@@ -221,7 +221,7 @@ namespace Content.IntegrationTests.Tests
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",
-            "Barratry", // Goobstation - add Barratry
+            // Disabled due to community request :( "Barratry", // Goobstation - add Barratry
             "Kettle", // Goobstation - add Kettle
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
