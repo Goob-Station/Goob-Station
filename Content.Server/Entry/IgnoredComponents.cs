@@ -81,6 +81,7 @@ namespace Content.Server.Entry
             "LightFade",
             "HolidayRsiSwap",
             "OptionsVisualizer",
+            "AnomalyScannerScreen",
             "MultipartMachineGhost",
             "RotationDrawDepth", // RMC14
             "ToggleableLightWieldable", // Goobstation
