@@ -3,7 +3,7 @@
   parent: BaseStructure
   id: CosmicShuttleCore
   name: malign instrument
-  description: Its surface glows with a myriad of inscrutable glyphs that commmunicate a single word into your mind; "Flight".
+  description: Its surface glows with a myriad of inscrutable glyphs that communicate a single word into your mind; "Flight".
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmiccomputer.rsi
@@ -94,7 +94,7 @@
   parent: BaseStructure
   id: CosmicObelisk
   name: malign obelisk
-  description: A mysterious-yet-inert sturcture. Unsettling.
+  description: A mysterious-yet-inert structure. Unsettling.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicpillar.rsi
