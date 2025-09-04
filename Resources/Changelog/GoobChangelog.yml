@@ -14322,3 +14322,11 @@ Entries:
       message: Wizard spells that were targeting mobs work once again.
   id: 1593
   time: '2025-09-04T20:06:52.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Fixed missing bedsheets and parts on Cog.
+    - type: Fix
+      message: Fixed piping color schemes on Barratry.
+  id: 1594
+  time: '2025-09-04T22:41:36.0000000+00:00'
