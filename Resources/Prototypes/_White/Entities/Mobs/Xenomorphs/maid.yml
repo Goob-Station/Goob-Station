@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: MobXenomorphMaid
-  name: lusty xenomorph maid
-  description: Don't ask it to lay eggs in you.
+  name: xenomorph maid
+  description: I mean, I guess it is kinda cute?
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
