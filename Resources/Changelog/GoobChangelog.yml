@@ -14300,3 +14300,11 @@ Entries:
       message: Xenomorph maids are no longer walking ban bait. Still kinda cute though.
   id: 1590
   time: '2025-09-03T23:38:49.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Xenomorphs can now stun their prey.
+    - type: Fix
+      message: Xenomoprh eggs & facehuggers properly function now.
+  id: 1591
+  time: '2025-09-04T13:06:04.0000000+00:00'
