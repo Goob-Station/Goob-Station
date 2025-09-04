@@ -24,6 +24,15 @@
   - Unsexed
   - Male
   - Female
+  # begin Goobstation: port EE height/width sliders
+  # resomi sprites look very wrong when too big or too wide
+  minHeight: 0.80
+  defaultHeight: 0.90
+  maxHeight: 1
+  minWidth: 0.85
+  defaultWidth: 1
+  maxWidth: 1
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobResomiSprites

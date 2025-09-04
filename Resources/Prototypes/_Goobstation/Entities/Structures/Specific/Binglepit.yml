@@ -72,6 +72,8 @@
   - type: Drain # remove liquids around pit
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.9 #No more suicide bombers inshallah
   - type: PassiveDamage #passive Healing
     damage:
       types:
