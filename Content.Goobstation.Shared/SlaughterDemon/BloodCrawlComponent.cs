@@ -67,5 +67,5 @@ public sealed partial class BloodCrawlComponent : Component
     ///  The required amount required for a puddle to have in order for the jaunt to activate
     /// </summary>
     [DataField]
-    public FixedPoint2 RequiredReagentAmount = 5;
+    public FixedPoint2 RequiredReagentAmount = 0.5;
 }
