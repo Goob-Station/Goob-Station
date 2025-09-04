@@ -59,3 +59,23 @@
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobMothroach
+
+- type: entity
+  parent: BaseGameRule
+  id: MalignRiftSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    eventType: Neutral
+    startAnnouncement: cosmiccult-announce-tier2-warning
+    startAnnouncementColor: "#cae8e8"
+    startAudio:
+      path: /Audio/_DV/CosmicCult/tier2.ogg
+  - type: GameRule
+    chaosScore: -50
+  - type: RandomMultipleSpawnRule
+    prototype: CosmicMalignRift
+    minAmount: 2
+    maxAmount: 4

@@ -1,0 +1,204 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobDamageable
+  - MobPolymorphable
+  - MobCombat
+  - MobBloodstream
+  - MobFlammable
+  id: BaseMobXenomorph
+  abstract: true
+  components:
+  - type: Xenomorph
+    weedHeal:
+      groups:
+        Burn: -5
+        Toxin: -5
+        Airloss: -10
+        Brute: -5
+  - type: Pinpointer
+    whitelist:
+      components:
+      - XenomorphQueen
+    alert: QueenFinder
+    isActive: true
+    canToggle: false
+    canEmag: false
+    canExamine: false
+  - type: ThermalVision
+    toggleAction: ToggleThermalVisionXenomorph
+    color: "#7d0cc9"
+    lightRadius: 10
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: CombatMode
+    combatToggleAction: ActionCombatModeToggleXenomorph
+    canDisarm: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.5
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: Deathgasp
+    prototype: XenomorphDeathgasp
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: xenomorph
+      Critical:
+        Base: xenomorph_unconscious
+      Dead:
+        Base: xenomorph_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      185: Critical
+      200: Dead
+    stateAlertDict:
+      Alive: XenomorphHealth
+      Critical: XenomorphCrit
+      Dead: XenomorphDead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      105: 0.9
+      125: 0.7
+      150: 0.6
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: Stamina
+    critThreshold: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+    bloodMaxVolume: 250
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.05
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 25
+  - type: TypingIndicator
+    proto: alien
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: ZombieImmune
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+  - type: NoSlip
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0005
+  - type: LizardAccent
+  - type: Speech
+    speechSounds: Xenomorph
+    speechVerb: SmallMob
+  - type: Vocal
+    sounds:
+      Male: Xenomorph
+      Female: Xenomorph
+      Unsexed: Xenomorph
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - XenoHivemind
+    understands:
+    - Xeno
+    - XenoHivemind
+    - Hissing
+    - Draconic
+  - type: SSDIndicator
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+
+- type: entity
+  parent: [BaseMobXenomorph, StripableInventoryBase]
+  id: BaseMobXenomorphAdult
+  abstract: true
+  components:
+  - type: Tool
+    speedModifier: 1.5
+    qualities:
+    - Prying
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: Hands
+  - type: Puller
+    needsHands: false
+  - type: IdExaminable
+  - type: Inventory
+    templateId: xenomorph
+  - type: Stripping
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Dna
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  id: BaseMobXenomorphDungeon
+  abstract: true
+  suffix: Dungeon
+  components:
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon
+  - type: HTN
+    rootTask:
+      task: XenomorphCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
