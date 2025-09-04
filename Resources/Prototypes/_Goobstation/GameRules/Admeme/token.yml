@@ -120,7 +120,7 @@
     isSelectable: false
 
 - type: entity
-  parent: AncientRogueKingSpawn
+  parent: SpawnPointGhostAncientRogueKing
   id: TokenAncientRogueKingSpawn
   components:
   - type: RandomSpawnRule
