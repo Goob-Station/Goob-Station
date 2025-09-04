@@ -179,7 +179,6 @@
     - id: AncientXenoVentsEasy # Goobstation
     - id: AncientXenoVentsMedium # Goobstation
     - id: AncientXenoVentsHard # Goobstation
-    - id: AncientXenoVentsRogue # Goobstation
     - id: MalignRiftSpawn # DeltaV
 
 - type: entityTable
