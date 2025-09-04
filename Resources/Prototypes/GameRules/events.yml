@@ -174,7 +174,6 @@
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
-    - id: XenoVents # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: AncientXenoVentsEasy # Goobstation
     - id: AncientXenoVentsMedium # Goobstation

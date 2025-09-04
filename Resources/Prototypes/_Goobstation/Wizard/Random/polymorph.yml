@@ -175,3 +175,14 @@
   id: WabbajackSpecial
   weights:
     MobBinglePrime: 1
+
+- type: weightedRandom
+  id: WabbajackGroups
+  weights:
+    WabbajackMonkey: 1
+    # WabbajackCluwne: 1
+    WabbajackRobot: 1
+    WabbajackSlime: 1
+    WabbajackSpecies: 1
+    WabbajackAnimal: 1
+    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
