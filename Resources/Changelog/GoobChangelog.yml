@@ -14308,3 +14308,17 @@ Entries:
       message: Xenomoprh eggs & facehuggers properly function now.
   id: 1591
   time: '2025-09-04T13:06:04.0000000+00:00'
+- author: Hell Department
+  changes:
+    - type: Tweak
+      message: Slaughter demons will no longer generate maldium
+    - type: Tweak
+      message: Slaughter Demon has a doafter when devouring
+  id: 1592
+  time: '2025-09-04T15:55:13.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Wizard spells that were targeting mobs work once again.
+  id: 1593
+  time: '2025-09-04T20:06:52.0000000+00:00'
