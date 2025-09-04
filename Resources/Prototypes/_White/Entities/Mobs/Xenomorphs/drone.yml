@@ -1,0 +1,79 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphDrone
+  name: xenomorph drone
+  description: A specialized individual designed to build and maintain a hive. Less aggressive than other xenomorph forms, but still deadly when approached.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: _White/Objects/Misc/handcuffs.rsi
+      state: body-overlay-xenomorph
+      visible: false
+  - type: Xenomorph
+    caste: Drone
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnWallResin
+    - ActionSpawnResinMembrane
+    - ActionSpawnResinNest
+    - ActionSpawnResinWeedNode
+  - type: VentCrawler
+  - type: Cuffable
+  - type: Body
+    prototype: XenomorphDrone
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphDrone
+
+- type: entity
+  parent: BaseMobXenomorphDrone
+  id: MobXenomorphDrone
+  components:
+  - type: XenomorphEvolution
+    evolutionActionId: ActionEvolutionPraetorian
+    evolvesTo:
+    - prototype: MobXenomorphPraetorian
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-drone-name
+    description: ghost-role-information-xenomorph-drone-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphDrone]
+  id: MobXenomorphDroneDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      105: 0.7
+      125: 0.6
+      150: 0.5
