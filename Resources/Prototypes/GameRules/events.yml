@@ -200,6 +200,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: AncientXenoVentsRogue # Goobstation
 
 - type: entity
   id: BaseStationEvent

@@ -58,6 +58,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
+    reoccurrenceDelay: 20
     minimumPlayers: 45
     weight: 3
     duration: 30
@@ -85,6 +86,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
+    reoccurrenceDelay: 30
     minimumPlayers: 50
     weight: 3
     duration: 30
@@ -116,6 +118,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 45
+    reoccurrenceDelay: 30
     minimumPlayers: 60
     weight: 2 #This can lead to mass death so it's rarer
     duration: 30
@@ -137,3 +140,27 @@
         weight: 0.3
       - id: CMMobXenoQueenSentient
         weight: 0.3
+
+- type: entity
+  id: AncientXenoVentsRogue
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    reoccurrenceDelay: 45
+    minimumPlayers: 60
+    weight: 2 #This can lead to mass death so it's rarer
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+  - type: VentCrittersRule
+    max: 1
+    table: !type:GroupSelector
+      children:
+      - id: CMMobXenoRogueKingSentient
+        weight: 1
+        
