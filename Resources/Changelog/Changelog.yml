@@ -4055,3 +4055,11 @@
   id: 8924
   time: '2025-09-04T19:11:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37585
+- author: whatston3
+  changes:
+  - message: Lathe UIs are now way smoother when printing mass amounts of fast-printing
+      items.
+    type: Fix
+  id: 8925
+  time: '2025-09-04T19:37:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39886
