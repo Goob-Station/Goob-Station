@@ -94,7 +94,7 @@ entities:
       mapPaused: True
 #    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
+#    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
