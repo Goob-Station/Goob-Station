@@ -149,6 +149,3 @@ construction-graph-tag-spationaut-hardsuit = spationaut hardsuit
 # clothing
 construction-graph-tag-backpack = backpack
 
-# Food
-construction-graph-tag-plain-cake = plain cake
-construction-graph-tag-apple = apple
