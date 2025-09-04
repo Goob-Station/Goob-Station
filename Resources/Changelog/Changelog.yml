@@ -4017,3 +4017,10 @@
   id: 8919
   time: '2025-09-04T01:08:53.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40098
+- author: Quantum-cross
+  changes:
+  - message: Hot gas now looks hot!
+    type: Add
+  id: 8920
+  time: '2025-09-04T03:17:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39107
