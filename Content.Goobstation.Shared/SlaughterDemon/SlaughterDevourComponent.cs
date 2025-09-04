@@ -43,7 +43,7 @@ public sealed partial class SlaughterDevourComponent : Component
     };
 
     /// <summary>
-    /// Laughter Demon exclusive: A container that holds the entities instead of outright removing them
+    /// A container that holds the entities instead of outright removing them
     /// </summary>
     public Container Container = default!;
 }
