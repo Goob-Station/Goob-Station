@@ -290,9 +290,6 @@
   id: FoodCakeCarrot
   description: A favorite desert of a certain wascally wabbit.
   components:
-  - type: Construction
-    graph: CarrotCakeGraph
-    node: carrotcakenode
   - type: Sprite
     state: carrot
   - type: SliceableFood
@@ -370,9 +367,6 @@
   id: FoodCakeBrain
   description: A squishy cake-thing.
   components:
-  - type: Construction
-    graph: BrainCakeGraph
-    node: braincakenode
   - type: Sprite
     state: brain
   - type: SliceableFood
@@ -427,9 +421,6 @@
   id: FoodCakeCheese
   description: DANGEROUSLY cheesy.
   components:
-  - type: Construction
-    graph: CheeseCakeGraph
-    node: cheesecakenode
   - type: Sprite
     state: cheese
   - type: SliceableFood
@@ -471,9 +462,6 @@
   id: FoodCakeOrange
   description: A cake with added orange.
   components:
-  - type: Construction
-    graph: OrangeCakeGraph
-    node: orangecakenode
   - type: Sprite
     layers:
     - state: plain
@@ -529,9 +517,6 @@
   id: FoodCakeLime
   description: A cake with added lime.
   components:
-  - type: Construction
-    graph: LimeCakeGraph
-    node: limecakenode
   - type: Sprite
     layers:
     - state: plain
@@ -587,9 +572,6 @@
   id: FoodCakeLemon
   description: A cake with added lemon.
   components:
-  - type: Construction
-    graph: LemonCakeGraph
-    node: lemoncakenode
   - type: Sprite
     layers:
     - state: plain
@@ -645,9 +627,6 @@
   id: FoodCakeLemoon
   description: A cake that represents the moon of earth.
   components:
-  - type: Construction
-    graph: LemoonCakeGraph
-    node: lemooncakenode
   - type: Sprite
     state: lemoon
   - type: FlavorProfile
@@ -721,9 +700,6 @@
   id: FoodCakeChocolate
   description: A cake with added chocolate.
   components:
-  - type: Construction
-    graph: ChocoCakeGraph
-    node: chococakenode
   - type: Sprite
     layers:
     - state: alpha
@@ -791,9 +767,6 @@
     - state: plain
     - state: alpha-filling
       color: "#ff4300"
-  - type: Construction
-    graph: AppleCakeGraph
-    node: applecakenode
   - type: SliceableFood
     slice: FoodCakeAppleSlice
   - type: Tag
@@ -846,9 +819,6 @@
   id: FoodCakeSlime
   description: A cake made of slimes. Probably not electrified.
   components:
-  - type: Construction
-    graph: SlimeCakeGraph
-    node: slimecakenode
   - type: Sprite
     state: slime
   - type: SliceableFood
@@ -903,9 +873,6 @@
   id: FoodCakePumpkin
   description: A hollow cake with real pumpkin.
   components:
-  - type: Construction
-    graph: PumpkinCakeGraph
-    node: pumpkincakenode
   - type: Sprite
     state: pumpkinspice
   - type: SliceableFood
@@ -1019,9 +986,6 @@
   id: FoodCakeBirthday
   description: Happy Birthday little clown...
   components:
-  - type: Construction
-    graph: BDayCakeGraph
-    node: bdaycakenode
   - type: Sprite
     state: birthday
   - type: SliceableFood
@@ -1100,9 +1064,6 @@
   id: FoodCakeClown
   description: A funny cake with a clown face on it.
   components:
-  - type: Construction
-    graph: ClownCakeGraph
-    node: clowncakenode
   - type: Sprite
     state: clown
   - type: SliceableFood
@@ -1150,9 +1111,6 @@
   id: FoodCakeSpaceman
   description: A spaceman's trumpet frosted cake.
   components:
-  - type: Construction
-    graph: TrumpCakeGraph
-    node: trumpcakenode
   - type: Sprite
     state: trumpet
   - type: SliceableFood
@@ -1200,9 +1158,6 @@
   parent: EdibleBase
   description: It's a cake. It's a cat. It's a cak.
   components:
-  - type: Construction
-    graph: CatCakeGraph
-    node: catcakenode
   - type: FlavorProfile
     flavors:
     - sweet
