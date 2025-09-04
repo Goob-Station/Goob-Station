@@ -902,6 +902,7 @@
         - id: MobAdultSlimesYellowAngry
         - id: MobAngryBee
         - id: MobBearSpace
+        - id: CMMobXenoRavager
         - id: MobTick
         - id: MobSpiderSpace
         - id: MobPurpleSnake
