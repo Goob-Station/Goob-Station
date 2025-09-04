@@ -1,0 +1,13 @@
+- type: entity
+  parent: VehicleKeyATV
+  id: VehicleKeySkeletonMotorcycle
+  name: skeleton motorcycle keys
+  description: A beautiful set of keys adorned with a skull.
+  components:
+    - type: Tag
+      tags:
+        - VehicleKey
+        - SkeletonMotorcycleKeys
+    - type: Sprite
+      sprite: Objects/Vehicles/motorbike.rsi
+      state: keys
