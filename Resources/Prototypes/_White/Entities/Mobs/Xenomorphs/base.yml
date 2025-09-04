@@ -139,6 +139,7 @@
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
 
+
 - type: entity
   parent: [BaseMobXenomorph, StripableInventoryBase]
   id: BaseMobXenomorphAdult
@@ -176,6 +177,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: XenomorphShoveTracker
 
 - type: entity
   id: BaseMobXenomorphDungeon
