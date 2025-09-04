@@ -507,14 +507,6 @@
       collection: XenoFootstepLarge
       params:
         volume: 1
-  - type: TriggerOnSpawn
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_RMC14/Xeno/xenos_roaring.ogg
-      params:
-        volume: 4
-        maxDistance: 300
-        variation: 0.3
   - type: DashAction
     actionProto: ActionDashGeneric
   - type: Butcherable
