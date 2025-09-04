@@ -1,0 +1,112 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphQueen
+  name: xenomorph queen
+  description: The highest individual, the central element and mother of the Hive. The destruction of the Queen in most cases means the collapse of the Hive.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/queen.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: xenomorph
+      offset: 0, 0.6
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: Xenomorph
+    caste: Queen
+  - type: XenomorphQueen
+  - type: TailLash
+    tailDamage:
+      groups:
+        Brute: 17
+    inject:
+      Tirizene: 5
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnWallResin
+    - ActionSpawnResinMembrane
+    - ActionSpawnResinNest
+    - ActionSpawnResinWeedNode
+    - ActionSpawnXenomorphEgg
+  - type: Body
+    prototype: XenomorphQueen
+  - type: TypingIndicator
+    proto: alien_royal
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      735: Critical
+      750: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.9
+      645: 0.7
+      690: 0.6
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2.5
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 50
+  - type: Deathgasp
+    prototype: XenomorphQueenDeathgasp
+  - type: Speech
+    speechSounds: Xenomorph
+    speechVerb: LargeMob
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - XenoHivemind
+    - TauCetiBasic
+    understands:
+    - Xeno
+    - XenoHivemind
+    - Hissing
+    - Draconic
+    - TauCetiBasic
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphQueen
+
+- type: entity
+  parent: BaseMobXenomorphQueen
+  id: MobXenomorphQueen
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-queen-name
+    description: ghost-role-information-xenomorph-queen-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphQueen]
+  id: MobXenomorphQueenDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.7
+      645: 0.6
+      690: 0.5

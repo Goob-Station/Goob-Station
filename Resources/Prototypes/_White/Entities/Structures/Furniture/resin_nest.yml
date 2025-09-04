@@ -1,0 +1,66 @@
+- type: entity
+  parent: BaseStructure
+  id: ResinNest
+  name: resin nest
+  description: Slimy and sticky mass representing a bed?....
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/resin_nest.rsi
+    state: full
+    noRot: true
+  - type: Icon
+    sprite: _White/Structures/Furniture/resin_nest.rsi
+    state: full
+  - type: IconSmooth
+    key: full
+    base: resin_nest
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        layer:
+        - BulletImpassable
+  - type: RequireProjectileTarget
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 35
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 45
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.01
+        Blunt: -0.01
+  - type: Strap
+    position: Down
+    rotation: -90
+    selfUnBuckleDelay: 100
+  - type: Transform
+    anchored: true
+    noRot: true

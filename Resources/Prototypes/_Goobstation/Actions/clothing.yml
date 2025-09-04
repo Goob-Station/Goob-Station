@@ -49,3 +49,14 @@
       state: default
   - type: InstantAction
     event: !type:CloneProjectorActivatedEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionHailer
+  name: Hail
+  description: Audibly hail nearby crew, useful for giving quick orders.
+  components:
+  - type: Action
+    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
+  - type: InstantAction
+    event: !type:HailerActionEvent
