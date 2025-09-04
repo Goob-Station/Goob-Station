@@ -197,7 +197,7 @@
   name: turkle
   id: MobTurkle
   parent: MobBingle
-  description: a bingle but far worse
+  description: A bingle from foreign lands lost to the past. Seems very proud of their homeland.
   components:
   - type: Bingle
     upgradedID: MobTurkleUpgraded
