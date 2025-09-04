@@ -117,7 +117,7 @@
         mask:
         - TableMask
         layer:
-        - TableLayer
+        - CounterLayer
         - BulletImpassable #Goobstation
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -247,7 +247,7 @@
 
 - type: entity
   id: TableReinforced
-  parent: TableBase
+  parent: CounterBase
   name: reinforced table
   description: A square piece of metal standing on four metal legs. Extra robust.
   components:
@@ -525,7 +525,7 @@
 
 - type: entity
   id: TableBrass
-  parent: TableBase
+  parent: CounterBase
   name: brass table
   description: A shiny, corrosion resistant brass table. Steampunk!
   components:
@@ -677,7 +677,7 @@
 
 - type: entity
   id: TableStone
-  parent: TableBase
+  parent: CounterBase
   name: stone table
   description: Literally the sturdiest thing you have ever seen.
   components:
@@ -741,7 +741,7 @@
     convertTo: CosmicTable
 
 - type: entity
-  parent: TableBase
+  parent: CounterBase
   id: TableXeno
   name: xeno table
   description: I wouldn't put the silverware on it.
