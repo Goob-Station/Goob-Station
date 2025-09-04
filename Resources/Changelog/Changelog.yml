@@ -4032,3 +4032,11 @@
   id: 8921
   time: '2025-09-04T11:08:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40096
+- author: DDeegan
+  changes:
+  - message: Fixed labels on orders sent to the cargo telepad to show the correct
+      payer.
+    type: Fix
+  id: 8922
+  time: '2025-09-04T11:17:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39975
