@@ -256,7 +256,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-basic-module }
-    iconOn: Interface/Actions/actions_borg.rsi/xenoborg-basic-module.png
+    iconOn: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-basic-module }
     keywords: [ "Mothership Core", "console", "interface" ]
     priority: -6
   - type: InstantAction
@@ -270,7 +270,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
-    iconOn: Interface/Actions/actions_borg.rsi/xenoborg-eye-module.png
+    iconOn: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
     keywords: [ "Mothership Core", "console", "interface" ]
     priority: -6
   - type: InstantAction
