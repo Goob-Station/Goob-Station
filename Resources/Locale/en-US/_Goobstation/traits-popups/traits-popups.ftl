@@ -1,0 +1,1 @@
+paralyzed-no-stand = You're paralyzed from the waist down, you can't stand!

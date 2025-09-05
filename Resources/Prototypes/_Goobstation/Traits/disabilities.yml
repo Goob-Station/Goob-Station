@@ -19,6 +19,7 @@
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
     - type: LegsStartParalyzed
+    - type: LegsParalyzed
 
 - type: trait
   id: ByondYourPrime
