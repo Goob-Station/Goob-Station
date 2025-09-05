@@ -4077,3 +4077,10 @@
   id: 8929
   time: '2025-09-05T07:47:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40126
+- author: IProduceWidgets
+  changes:
+  - message: Pride pins can now chameleon to any other pride pin!
+    type: Tweak
+  id: 8931
+  time: '2025-09-05T15:55:54.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36894
