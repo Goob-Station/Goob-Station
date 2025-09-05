@@ -297,12 +297,6 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
-        // Goobstation Edit - Custom Bold Fonts begin
-        var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
-        if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
-            boldId = language.SpeechOverride.FontId;
-        // Goobstation Edit - end
-
         return Loc.GetString(wrapId,
             ("color", channel.Color),
             ("languageColor", languageColor),
