@@ -33,3 +33,20 @@
     useDelay: 30
   - type: InstantAction
     event: !type:QuietBackThereActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDrivingWithStyle
+  name: Driving with style
+  description: Show everyone how you drive
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    useDelay: 60
+  - type: InstantAction
+    event: !type:DrivingWithStyleActionEvent
+
+

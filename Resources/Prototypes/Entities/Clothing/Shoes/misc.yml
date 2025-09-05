@@ -100,7 +100,7 @@
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepCarpet
+      collection: FootstepDuck # Goobstation - quack
       params:
         variation: 0.07
   - type: WaddleWhenWorn # Goobstation
@@ -121,7 +121,7 @@
     sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepCarpet
+      collection: FootstepLizardSlippers # Goobstation - weh
       params:
         variation: 0.02
   - type: WaddleWhenWorn # Goobstation
