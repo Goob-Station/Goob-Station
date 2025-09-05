@@ -288,7 +288,7 @@
       components:
       - MobState
       - Door
-      - Item # Goobstation
+      - Food # Goobstation - Allow devouring food items only
       tags:
       - Wall
   - type: Tag
@@ -426,6 +426,7 @@
       components:
       - MobState
       - Door
+      - Food # Goobstation - Allow targeting food items only
       tags:
       - Wall
     event: !type:DevourActionEvent
