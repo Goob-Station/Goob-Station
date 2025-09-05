@@ -99,6 +99,7 @@
       - id: BoxLatexGloves
       - id: BoxSterileMask
       - id: NitrousOxideTankFilled # Goobstation
+      - id: ClothingMaskBreath # Goobstation
 
 - type: entity
   id: CrateMedicalScrubs
