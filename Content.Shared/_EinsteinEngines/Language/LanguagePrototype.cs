@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 
@@ -62,6 +69,9 @@ public sealed partial class SpeechOverrideInfo
     public int? FontSize;
 
     [DataField]
+    public string? BoldFontId; // Goob Edit - Custom Bolded Fonts
+
+    [DataField]
     public bool AllowRadio = true;
 
     /// <summary>
@@ -78,6 +88,12 @@ public sealed partial class SpeechOverrideInfo
     /// </summary>
     [DataField]
     public bool RequireSpeech = true;
+
+    /// <summary>
+    ///     If true, the listener must have a line of sight on the speaker to hear the message.
+    /// </summary>
+    [DataField]
+    public bool RequireLOS = false; // Floofstation - Check Line-Of-Sight
 
     /// <summary>
     ///     If not null, all messages in this language will be forced to be spoken in this chat type.

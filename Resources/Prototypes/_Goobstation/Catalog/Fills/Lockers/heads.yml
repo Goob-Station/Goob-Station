@@ -32,6 +32,7 @@
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5
+    - id: NanoRepStationReport # Goobstation
 
 - type: entity
   id: LockerNanorepFilled

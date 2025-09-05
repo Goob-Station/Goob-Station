@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
@@ -32,7 +33,7 @@ public sealed partial class LimitedChargesComponent : Component
     /// <summary>
     ///     The max charges this action has.
     /// </summary>
-    [DataField, AutoNetworkedField, Access(Other = AccessPermissions.Read)]
+    [DataField, AutoNetworkedField] // Goob Change: Stupid fuckin set accessors.
     public int MaxCharges = 3;
 
     /// <summary>

@@ -37,7 +37,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
     layers:
     - state: icon-off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -71,8 +71,8 @@
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
   - type: StaminaDamageOnHit
     damage: 5
-    overtime: 1
-    lightAttackOvertimeDamageMultiplier: 50
+    overtime: 25
+    lightAttackOvertimeDamageMultiplier: 2.3 # Why the fuck was the one of a kind baton given the same stunbaton stats as a batong
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
@@ -92,8 +92,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon}
           False: {state: icon-off}
   - type: StaticPrice

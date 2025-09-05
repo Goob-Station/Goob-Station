@@ -23,6 +23,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.StationAi;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -42,6 +43,7 @@ public sealed class StationAiVisionSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
 
     private SeedJob _seedJob;
     private ViewJob _job;
@@ -105,6 +107,12 @@ public sealed class StationAiVisionSystem : EntitySystem
         foreach (var seed in _seeds)
         {
             if (!seed.Comp.Enabled)
+                continue;
+
+            if (seed.Comp.NeedsPower && !_power.IsPowered(seed.Owner))
+                continue;
+
+            if (seed.Comp.NeedsAnchoring && !Transform(seed.Owner).Anchored)
                 continue;
 
             _job.Data.Add(seed);
@@ -186,6 +194,12 @@ public sealed class StationAiVisionSystem : EntitySystem
         foreach (var seed in _seeds)
         {
             if (!seed.Comp.Enabled)
+                continue;
+
+            if (seed.Comp.NeedsPower && !_power.IsPowered(seed.Owner))
+                continue;
+
+            if (seed.Comp.NeedsAnchoring && !Transform(seed.Owner).Anchored)
                 continue;
 
             _job.Data.Add(seed);

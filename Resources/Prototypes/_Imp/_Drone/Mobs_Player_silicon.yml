@@ -149,7 +149,7 @@
   - type: IntrinsicUI # Goob edit
     uis:
       enum.StationMapUiKey.Key:
-        toggleAction: ActionDroneOpenMap
+        toggleAction: ActionShowStationMap
       enum.InstrumentUiKey.Key:
         toggleAction: ActionDronePlayMidi
   - type: StationMap #imp
