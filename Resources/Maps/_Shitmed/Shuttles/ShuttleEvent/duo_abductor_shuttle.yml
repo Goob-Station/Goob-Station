@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2025 17:31:38
+  time: 09/05/2025 19:31:13
   entityCount: 249
 maps: []
 grids:
@@ -615,7 +615,7 @@ entities:
   - uid: 217
     components:
     - type: Transform
-      pos: -1.6277704,-0.12057865
+      pos: -1.4554858,0.07291669
       parent: 1
 - proto: ComputerIFF
   entities:
@@ -908,7 +908,7 @@ entities:
   - uid: 230
     components:
     - type: Transform
-      pos: -1.6173537,0.28567135
+      pos: -1.5075691,0.34375
       parent: 1
 - proto: PlushieAbductor
   entities:
