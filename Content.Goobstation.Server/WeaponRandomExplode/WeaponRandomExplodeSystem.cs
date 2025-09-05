@@ -9,13 +9,13 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.WeaponRandomExplode
 {
     public sealed class WeaponRandomExplodeSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IGoobRandom _random = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 
         public override void Initialize()

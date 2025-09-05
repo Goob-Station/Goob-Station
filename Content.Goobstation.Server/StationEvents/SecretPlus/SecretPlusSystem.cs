@@ -29,7 +29,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.StationEvents.SecretPlus;
@@ -75,7 +75,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
 

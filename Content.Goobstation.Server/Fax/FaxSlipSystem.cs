@@ -15,14 +15,14 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.Fax.Components;
 using Content.Shared.Lube;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Fax;
 
 public sealed class FaxSlipSystem : EntitySystem
 {
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly IRobustRandom _gambling = default!;
+    [Dependency] private readonly IGoobRandom _gambling = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 

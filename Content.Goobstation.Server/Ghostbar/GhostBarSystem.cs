@@ -27,7 +27,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Ghostbar;
@@ -36,7 +36,7 @@ public sealed class GhostBarSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;

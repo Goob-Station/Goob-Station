@@ -21,7 +21,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Fishing;
 
@@ -31,7 +31,7 @@ public sealed class FishingSystem : SharedFishingSystem
     // works janky on clientside so we can't predict when fishing starts.
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
 
     public override void Initialize()

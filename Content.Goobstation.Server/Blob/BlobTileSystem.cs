@@ -28,7 +28,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -40,7 +40,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly EmpSystem _empSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;

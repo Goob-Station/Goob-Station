@@ -35,7 +35,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Timing;
 using Prometheus;
 
@@ -83,7 +83,7 @@ public sealed class PlayerCount
 [UsedImplicitly]
 public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -312,12 +312,12 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
         if (!scheduler.DualAntags)
         {
-            var pick = weightList.Pick(_random);
+            var pick = _random.Pick(weightList);
             IndexAndStartGameMode(pick);
         }
         else
         {
-            var pick = weightList.Pick(_random);
+            var pick = _random.Pick(weightList);
             var weights = weightList.Weights;
 
             if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))

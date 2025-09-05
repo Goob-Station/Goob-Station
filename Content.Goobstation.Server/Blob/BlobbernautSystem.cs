@@ -20,7 +20,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -30,7 +30,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly EmpSystem _empSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

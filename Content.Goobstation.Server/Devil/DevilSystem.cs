@@ -61,7 +61,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Devil;
@@ -72,7 +72,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MindSystem _mind = default!;

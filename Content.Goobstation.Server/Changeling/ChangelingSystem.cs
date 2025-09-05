@@ -103,7 +103,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
@@ -114,7 +114,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     // this is one hell of a star wars intro text
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IGoobRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly AudioSystem _audio = default!;

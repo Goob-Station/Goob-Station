@@ -14,13 +14,13 @@ using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Speech;
 
 public sealed class VulgarAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
