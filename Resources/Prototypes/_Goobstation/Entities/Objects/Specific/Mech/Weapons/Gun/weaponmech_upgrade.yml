@@ -61,7 +61,7 @@
       autoRechargeRate: 3.75
       autoRechargePause: true
       autoRechargePauseTime: 15
-      canEMP: true
+      canEmp: true
 
 # Admeme/Centcomm recharger, NOT balanced for station use.
 - type: entity
