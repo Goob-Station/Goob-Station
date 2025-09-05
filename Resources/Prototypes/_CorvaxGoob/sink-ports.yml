@@ -2,3 +2,14 @@
   id: ShuttleDroneReceiver
   name: shuttle-drone-receiver-port-name
   description: shuttle-drone-receiver-port-description
+
+- type: sinkPort
+  id: QuantumTelepad
+  name: quantum-telepad-port-name
+  description: quantum-telepad-port-description
+
+- type: sourcePort
+  id: QuantumTelepad
+  name: quantum-telepad-port-name
+  description: quantum-telepad-port-description
+  defaultLinks: [ QuantumTelepad ]

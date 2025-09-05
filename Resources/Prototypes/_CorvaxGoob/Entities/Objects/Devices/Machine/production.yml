@@ -81,3 +81,21 @@
         defaultPrototype: Beaker
   - type: Item
     size: Normal
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: QuantumTelepadMachineCircuitboard
+  name: quantum telepad machine board
+  description: A machine printed circuit board for a quantum telepad.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: QuantumTelepad
+    stackRequirements:
+      Steel: 20
+      Glass: 15
+      Plasma: 10
+      Manipulator: 2
+  - type: Item
+    size: Normal

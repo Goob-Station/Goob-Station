@@ -108,6 +108,7 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  - QuantumTelepadMachineCircuitboard # CorvaxGoob-QuantumTelepad
 
 - type: latheRecipePack
   id: CameraBoards

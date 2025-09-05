@@ -59,6 +59,11 @@
   result: NutimovCircuitBoard
 
 - type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  id: QuantumTelepadMachineCircuitboard
+  result: QuantumTelepadMachineCircuitboard
+
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: MachineMedipenRefillerCircuitboard
   result: MachineMedipenRefillerCircuitboard

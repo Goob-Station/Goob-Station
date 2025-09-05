@@ -1,0 +1,57 @@
+- type: entity
+  id: QuantumTelepad
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  name: quantum telepad
+  description: Teleports things over short distances.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _CorvaxGoob/Objects/Devices/quantumpad.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: qpad-idle-unlit
+    - state: qpad-idle
+      map: [ "enum.TelepadLayers.Idle" ]
+    - state: qpad-beam
+      map: [ "enum.TelepadLayers.Beam" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        hard: False
+  - type: WiresPanel
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: Transform
+    anchored: true
+  - type: DeviceList
+  - type: Appearance
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+      - QuantumTelepad
+  - type: AnimationPlayer
+  - type: DeviceLinkSource
+    range: 200
+    ports:
+      - QuantumTelepad
+  - type: QuantumTelepad
+    delay: 5
+    teleportEffect: EffectTelepadSparks
+    whitelist:
+      components: # Only mobs and storages
+      - EntityStorage
+      - MobThresholds
+  - type: Machine
+    board: QuantumTelepadMachineCircuitboard

@@ -222,6 +222,7 @@
   cost: 15000 # Goobstation 10000 -> 15000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+  - QuantumTelepadMachineCircuitboard # CorvaxGoob-QuantumTelepad
   # Goobstation R&D Console rework start
   position: -5,2
   technologyPrerequisites:
