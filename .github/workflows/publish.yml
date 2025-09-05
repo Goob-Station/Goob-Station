@@ -15,39 +15,69 @@
 
 name: Publish
 
+concurrency:
+  group: publish
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * *'
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+  - cron: '0 1 * * *'
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: [self-hosted]
     steps:
+    - name: Fail if we are attempting to run on the master branch
+      if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}
+      run: exit 1
+
 #    - name: Install dependencies
 #      run: sudo apt-get install -y python3-paramiko python3-lxml
 
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.2.2
       with:
         submodules: 'recursive'
+
+    # Corvax-Secrets-Start
+    - name: Setup secrets
+      env:
+        SSH_KEY: ${{ secrets.SECRETS_PRIVATE_KEY }}
+      if: ${{ env.SSH_KEY != '' }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SECRETS_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo "HOST *" > ~/.ssh/config
+        echo "  Hostname github.com" >> ~/.ssh/config
+        echo "  Port 22" >> ~/.ssh/config
+        echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+        git clone git@github.com:corvax-nexus/secrets.git Secrets
+        cp -R Secrets/Resources/Prototypes Resources/Prototypes/CorvaxSecrets
+        cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/CorvaxSecretsServer
+        cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/corvax-secrets
+        cp -R Secrets/Resources/Textures Resources/Textures/CorvaxSecrets
+        cp -R Secrets/Resources/Audio Resources/Audio/CorvaxSecrets
+    # Corvax-Secrets-End
+
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3.2.0
+      uses: actions/setup-dotnet@v4.1.0
       with:
         dotnet-version: 9.0.x
+      env:
+        DOTNET_INSTALL_DIR: ${{ runner.temp }}/.dotnet
+
+    - name: Set DOTNET_ROOT and PATH
+      run: |
+        echo "DOTNET_ROOT=${{ runner.temp }}/.dotnet" >> $GITHUB_ENV
+        echo "${{ runner.temp }}/.dotnet" >> $GITHUB_PATH
+
+    - name: Check .NET installation
+      run: dotnet --info
 
     - name: Get Engine Tag
       run: |
         cd RobustToolbox
         git fetch --depth=1
-
-
-    - name: Clean
-      run: dotnet clean
 
     - name: Install dependencies
       run: dotnet restore
@@ -66,14 +96,17 @@ jobs:
       env:
         PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
         GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
+        FORK_ID: ${{ vars.FORK_ID }}
 
-    # - name: Publish changelog (Discord)
-    #   run: Tools/actions_changelogs_since_last_run.py
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-    #     DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+    #    - name: Publish changelog (Discord)
+    #      continue-on-error: true
+    #      run: Tools/actions_changelogs_since_last_run.py
+    #      env:
+    #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
-    # - name: Publish changelog (RSS)
-    #   run: Tools/actions_changelog_rss.py
-    #   env:
-    #     CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
+    #    - name: Publish changelog (RSS)
+    #      continue-on-error: true
+    #      run: Tools/actions_changelog_rss.py
+    #      env:
+    #        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
