@@ -14330,3 +14330,17 @@ Entries:
       message: Fixed piping color schemes on Barratry.
   id: 1594
   time: '2025-09-04T22:41:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Removed all instances of Xenonids, the ugly Xeno creatures that Wizden
+        still uses.
+    - type: Fix
+      message: Hopefully fixed the spawn rates of Ancient Xenos in vent critter events.
+    - type: Tweak
+      message: >-
+        Ancient Xenos now use the SimpleHostile faction, meaning that they will
+        now fight back against other mobs, like Trevor or Renault.
+  id: 1595
+  time: '2025-09-05T22:54:31.0000000+00:00'
