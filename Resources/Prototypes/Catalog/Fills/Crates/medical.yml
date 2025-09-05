@@ -98,6 +98,7 @@
       - id: MedicalStitches
       - id: BoxLatexGloves
       - id: BoxSterileMask
+      - id: NitrousOxideTankFilled # Goobstation
 
 - type: entity
   id: CrateMedicalScrubs
