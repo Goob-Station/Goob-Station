@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
@@ -61,4 +62,10 @@ public sealed partial class BloodCrawlComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier? ExitJauntSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/exit_blood.ogg");
+
+    /// <summary>
+    ///  The required amount required for a puddle to have in order for the jaunt to activate
+    /// </summary>
+    [DataField]
+    public FixedPoint2 RequiredReagentAmount = 0.5;
 }
