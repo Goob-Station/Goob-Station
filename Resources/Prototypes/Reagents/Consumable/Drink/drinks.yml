@@ -55,7 +55,7 @@
   recognizable: true
   metabolisms:
     Drink:
-      metabolismRate: 0.05 # Very slow metabolism
+      metabolismRate: 0.05 # Goobstatin: Very slow metabolism
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -66,25 +66,25 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
-      - !type:Jitter
+      - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
         conditions:
         - !type:ReagentThreshold
           reagent: Coffee
-          min: 30
+          min: 25
       - !type:MovespeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
         conditions:
         - !type:ReagentThreshold
           reagent: Coffee
-          min: 30
+          min: 25
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
         conditions:
         - !type:ReagentThreshold
           reagent: Coffee
-          min: 30
+          min: 60
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
