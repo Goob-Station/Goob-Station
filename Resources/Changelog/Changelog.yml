@@ -4084,3 +4084,10 @@
   id: 8931
   time: '2025-09-05T15:55:54.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36894
+- author: MidZik
+  changes:
+  - message: Midround wizard player count requirement increased from 10 to 30.
+    type: Tweak
+  id: 8932
+  time: '2025-09-05T16:23:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38424
