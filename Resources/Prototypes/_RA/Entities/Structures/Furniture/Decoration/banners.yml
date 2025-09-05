@@ -1,0 +1,9 @@
+- type: entity
+  id: BannerShoal
+  parent: BannerBase
+  name: shoal banner
+  description: A banner imposing the will of the Auralis onto all vox born in their image.
+  components:
+  - type: Sprite
+    sprite: _RA/Structures/Decoration/banner.rsi
+    state: banner_shoal

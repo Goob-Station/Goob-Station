@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseSign
+  id: SignNonVox
+  name: non-vox area sign
+  description: A sign indicating that the area ahead is intended for oxygen breathing crew members and does not have an nitrogen atmosphere. Hows the shoe feel on the other foot?
+  components:
+  - type: Sprite
+    sprite: _RA/Structures/Wallmounts/Signs/signs.rsi
+    state: oxboxsign
