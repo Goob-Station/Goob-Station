@@ -102,7 +102,7 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
         if (!TryComp<WiresComponent>(entity, out var wiresComp))
             return false;
 
-        var wires = _wires.TryGetWires<Wire>(entity, wiresComp);
+        var wires = _wires.TryGetWires<BaseWireAction>(entity, wiresComp);
 
         foreach (var wire in wires)
         {

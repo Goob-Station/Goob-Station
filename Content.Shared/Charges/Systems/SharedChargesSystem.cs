@@ -26,6 +26,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 
 namespace Content.Shared.Charges.Systems;
 
@@ -91,10 +92,10 @@ public abstract class SharedChargesSystem : EntitySystem
 
         // Goobstation edit start.
 
-        if (!ent.Comp.RemoveActionOnNoCharges || GetCurrentCharges((ent.Owner, ent.Comp)) > 0)
+        if (!ent.Comp.RemoveActionOnNoCharges || TryComp<ActionComponent>(ent, out var action) || GetCurrentCharges((ent.Owner, ent.Comp)) > 0)
             return;
 
-        _actions.RemoveAction(ent);
+        _actions.RemoveAction((ent.Owner, action));
 
         // Goobstation edit end
     }
