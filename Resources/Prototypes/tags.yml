@@ -881,6 +881,9 @@
   id: GeigerCounter
 
 - type: Tag
+  id: GenderPin
+
+- type: Tag
   id: GlassAirlock
 
 - type: Tag
