@@ -18,6 +18,7 @@ using Content.Shared.Actions;
 using Content.Shared.Devour.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Item; // Goobstation
+using Content.Shared.Nutrition.Components; // Goobstation
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -85,8 +86,8 @@ public abstract class SharedDevourSystem : EntitySystem
 
             return;
         }
-        // Goobstation start - Item devouring
-        if (HasComp<ItemComponent>(target))
+        // Goobstation start - Consumable devouring (food/drink only)
+        if (HasComp<DrinkComponent>(target) || HasComp<ItemComponent>(target))
         {
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
             {
