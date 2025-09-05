@@ -101,7 +101,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 180000  #50 hours
+      time: 86400  #24 hours
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 36000 # 10 Hour
     - !type:AgeRequirement
       requiredAge: 21
     - !type:SpeciesRequirement # Goob - None Felinid
