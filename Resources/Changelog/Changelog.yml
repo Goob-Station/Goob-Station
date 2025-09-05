@@ -4091,3 +4091,10 @@
   id: 8932
   time: '2025-09-05T16:23:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38424
+- author: IProduceWidgets
+  changes:
+  - message: You can drink out of the toilets.
+    type: Add
+  id: 8933
+  time: '2025-09-05T20:03:10.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40133
