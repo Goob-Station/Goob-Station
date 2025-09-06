@@ -14,7 +14,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Common.FloorGoblin
 {
-
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class CrawlUnderFloorComponent : Component
     {
@@ -27,16 +26,10 @@ namespace Content.Goobstation.Common.FloorGoblin
         [DataField]
         public bool Enabled = false;
 
-        /// <summary>
-        ///     List of fixtures that had their collision mask changed.
-        ///     Required for re-adding the collision mask.
-        /// </summary>
         [DataField, AutoNetworkedField]
         public List<(string key, int originalMask)> ChangedFixtures = new();
 
-        [DataField]
-        public int? OriginalDrawDepth;
+        [DataField, AutoNetworkedField]
+        public List<(string key, int originalLayer)> ChangedFixtureLayers = new();
     }
-
-
 }

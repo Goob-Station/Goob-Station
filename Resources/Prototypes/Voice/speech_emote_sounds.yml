@@ -908,6 +908,13 @@
       variation: 0.125
 
 - type: emoteSounds
+  id: Duende # Goob
+  sound:
+    collection: DuendeSounds
+    params:
+      variation: 0.125
+
+- type: emoteSounds
   id: Mouse
   sound:
     path: /Audio/Animals/mouse_squeak.ogg

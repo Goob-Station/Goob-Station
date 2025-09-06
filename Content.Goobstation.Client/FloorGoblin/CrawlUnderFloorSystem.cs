@@ -35,6 +35,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
     {
         base.Initialize();
         SubscribeLocalEvent<CrawlUnderFloorComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
     }
 
     public override void Update(float frameTime)
@@ -47,14 +48,8 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
 
             if (!enabled)
             {
-                if (_lastCell.Remove(uid) && comp.OriginalDrawDepth != null)
-                {
-                    _sprite.SetDrawDepth(uid, (int) comp.OriginalDrawDepth);
-                    comp.OriginalDrawDepth = null;
-                }
-
-                if (!sprite.ContainerOccluded)
-                    _sprite.SetContainerOccluded(uid, true);
+                if (sprite.ContainerOccluded)
+                    _sprite.SetContainerOccluded(uid, false);
 
                 continue;
             }
@@ -98,31 +93,23 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
 
         if (enabled)
         {
-            if (component.OriginalDrawDepth == null)
-                component.OriginalDrawDepth = sprite.DrawDepth;
 
             if (onSubfloor)
             {
-                if (!sprite.ContainerOccluded)
-                    _sprite.SetContainerOccluded(uid, true);
-                _sprite.SetDrawDepth(uid, -20);
+                if (sprite.ContainerOccluded)
+                    _sprite.SetContainerOccluded(uid, false);
             }
             else
             {
-                if (sprite.ContainerOccluded)
+                if (!sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded(uid, true);
             }
         }
         else
         {
-            if (component.OriginalDrawDepth != null)
-            {
-                _sprite.SetDrawDepth(uid, (int) component.OriginalDrawDepth);
-                component.OriginalDrawDepth = null;
-            }
 
-            if (!sprite.ContainerOccluded)
-                _sprite.SetContainerOccluded(uid, true);
+            if (sprite.ContainerOccluded)
+                _sprite.SetContainerOccluded(uid, false);
         }
     }
 
@@ -131,5 +118,20 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
         ApplySneakVisuals(uid, component, sprite);
+    }
+
+    private void OnTileChanged(EntityUid gridUid, MapGridComponent grid, ref TileChangedEvent args)
+    {
+        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
+        {
+            var g = _transform.GetGrid(xform.Coordinates);
+            if (g == null || g != gridUid)
+                continue;
+
+            ApplySneakVisuals(uid, comp, sprite);
+            var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
+            _lastCell[uid] = (gridUid, snapPos);
+        }
     }
 }

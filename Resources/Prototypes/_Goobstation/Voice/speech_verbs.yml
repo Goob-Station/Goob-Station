@@ -113,3 +113,20 @@
   speechVerbStrings:
   - chat-speech-verb-horse-1
   - chat-speech-verb-horse-2
+
+- type: speechVerb
+  id: FloorGoblin
+  name: chat-speech-verb-name-floor-goblin
+  speechVerbStrings:
+  - chat-speech-verb-floor-goblin-1
+  - chat-speech-verb-floor-goblin-2
+  - chat-speech-verb-floor-goblin-3
+
+- type: speechSounds
+  id: Duende
+  saySound:
+    collection: DuendeSounds
+  askSound:
+    collection: DuendeSounds
+  exclaimSound:
+    collection: DuendeSounds

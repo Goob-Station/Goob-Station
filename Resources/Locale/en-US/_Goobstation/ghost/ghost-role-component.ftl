@@ -30,9 +30,6 @@ ghost-role-information-Hecu-rules = You are required to obey orders given by you
 ghost-role-information-lootbug-name = LootBug
 ghost-role-information-lootbug-description = Try not to be butchered by tiders.
 
-ghost-role-information-floor-goblin-name = Floor Goblin
-ghost-role-information-floor-goblin-description = Steal shoes, bite ankles, run away from tiders with crowbars.
-
 ghost-role-information-homunculus-name = homunculus
 ghost-role-information-homunculus-description = Obey the one who has created you, if there are nowhere to be found, do as you will.
 

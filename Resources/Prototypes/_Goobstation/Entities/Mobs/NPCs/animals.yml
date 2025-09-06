@@ -327,6 +327,8 @@
         density: 100
         mask:
         - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -338,20 +340,25 @@
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
-    speechVerb: SmallMob
-    speechSounds: Squeak
-    allowedEmotes: ['Squeak']
+    speechVerb: FloorGoblin
+    speechSounds: Duende
+    allowedEmotes: []
+  - type: Vocal
+    sounds:
+      Male: Duende
+      Female: Duende
+      Unsexed: Duende
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
-    - TauCetiBasic
+    - Floor Goblin
     understands:
-    - TauCetiBasic
+    - Floor Goblin
   - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      30: Dead
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 40
@@ -377,9 +384,6 @@
     actionProto: ActionToggleFloorBoardsMode
   - type: StealShoes
     actionProto: ActionStealShoes
-  - type: Appearance
-  - type: Visibility
-    layer: 1
   - type: MobPrice
     price: 100
 

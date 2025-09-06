@@ -1,7 +1,10 @@
+using System;
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
@@ -18,9 +21,14 @@ public sealed partial class StealShoesComponent : Component
     public string ContainerId = "floorgoblin-shoes";
 
     [DataField]
-    public SoundSpecifier? ChompSound = new SoundPathSpecifier("/Audio/Effects/bite.ogg");
+    public SoundSpecifier? ChompSound = new SoundPathSpecifier("/Audio/_Goobstation/FloorGoblin/laugh.ogg");
 }
 
 public sealed partial class StealShoesEvent : EntityTargetActionEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class StealShoesDoAfterEvent : SimpleDoAfterEvent
 {
 }
