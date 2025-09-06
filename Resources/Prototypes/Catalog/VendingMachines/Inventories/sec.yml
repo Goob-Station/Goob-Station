@@ -66,11 +66,11 @@
     SpearTelescopic: 1
     BolaEnergy: 5
     PepperSpray: 3
-    SecHypo: 3
-    CartridgeEpinephrine: 3
-    CartridgeSaline: 3
-    CartridgeBicaridine: 3
-    CartridgeDermaline: 3 # Goobstation - end
+    SecHypo: 2
+    CartridgeEpinephrine: 2
+    CartridgeSaline: 2
+    CartridgeBicaridine: 2
+    CartridgeDermaline: 2 # Goobstation - end
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

@@ -113,10 +113,10 @@
     MedicalPatchPrefilledBicaridine: 3
     MedicalPatchPrefilledDermaline: 3
     ParamedHypo: 2
-    CartridgeSaline: 6
-    CartridgeBicaridine: 6
-    CartridgeDermaline: 6
-    CartridgeAtropine: 6
+    CartridgeSaline: 4
+    CartridgeBicaridine: 4
+    CartridgeDermaline: 4
+    CartridgeAtropine: 4
     VehicleWheelchairFolded: 3
     FoodSnackLollypopWrappedMystery: 10
     FoodSnackLollypopWrappedTricordrazine: 8
