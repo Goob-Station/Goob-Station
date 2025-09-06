@@ -4106,3 +4106,11 @@
   id: 8934
   time: '2025-09-06T08:02:47.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40151
+- author: ScarKy0
+  changes:
+  - message: The size of the antique laser pistol and appraisal tool have been reverted
+      to an L and 1x2 respectfully.
+    type: Tweak
+  id: 8935
+  time: '2025-09-06T15:13:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40158
