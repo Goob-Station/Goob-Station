@@ -419,4 +419,12 @@
   id: 51
   time: '2025-07-19T19:40:33.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38956
+- author: ArtisticRoomba
+  changes:
+  - message: On Exo, the main atmospherics burn chamber is now made out of reinforced
+      plasma glass instead of resin.
+    type: Fix
+  id: 78
+  time: '2025-09-06T06:02:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40152
 Order: 1
