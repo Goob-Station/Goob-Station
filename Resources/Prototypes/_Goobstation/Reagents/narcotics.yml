@@ -281,7 +281,7 @@
   color: "#75fff5"
   metabolisms:
     Narcotic:
-      metabolismRate: 0.25
+      metabolismRate: 0.5
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.3 # slower than dylometh due to being diluted - still overall stronger due to omni heal
