@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
-using Robust.Shared.GameStates;
 namespace Content.Shared._Shitmed.StatusEffects;
 
 /// <summary>
@@ -27,5 +26,12 @@ public sealed partial class ExpelGasComponent : Component
         Gas.BZ, ///tg/ gases
         Gas.Healium, ///tg/ gases
         Gas.Nitrium, ///tg/ gases
+        Gas.Hydrogen, // Assmos - /tg/ gases
+        Gas.HyperNoblium, // Assmos - /tg/ gases
+        Gas.ProtoNitrate, // Assmos - /tg/ gases
+        Gas.Zauker, // Assmos - /tg/ gases
+        Gas.Halon, // Assmos - /tg/ gases
+        Gas.Helium, // Assmos - /tg/ gases
+        Gas.AntiNoblium, // Assmos - /tg/ gases
     };
 }

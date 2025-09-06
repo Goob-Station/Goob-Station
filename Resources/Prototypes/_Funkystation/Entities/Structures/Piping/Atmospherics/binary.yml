@@ -1,0 +1,67 @@
+- type: entity
+  parent: GasBinaryBase
+  id: HeatPump
+  name: heat pump
+  description: A pump that moves heat from one side to the other. It's about 1% totally efficient at maximum rate.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ExtensionCableReceiver
+    - type: LightningTarget
+      priority: 1
+    - type: ApcPowerReceiver
+      powerLoad: 200
+    - type: Sprite
+      sprite: _Funkystation/Structures/Piping/Atmospherics/tpump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: tpump
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.HeatPumpVisuals.Enabled:
+          enabled:
+            True: { state: tpumpOn }
+            False: { state: tpump }
+    - type: PipeColorVisuals
+    - type: HeatPump
+      transferCoefficient: 0.01
+    - type: NodeContainer
+      nodes:
+        inlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: North
+          volume: 100
+        outlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+          volume: 100
+    - type: UserInterface
+      interfaces:
+        enum.GasHeatPumpUiKey.Key:
+          type: GasHeatPumpBoundUserInterface
+    - type: Construction
+      graph: GasBinary
+      node: heatpump
+    - type: AmbientSound
+      enabled: false
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+    - type: GuideHelp
+      guides:
+      - ManualValve
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit # Goobstation - ventcrawl
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
