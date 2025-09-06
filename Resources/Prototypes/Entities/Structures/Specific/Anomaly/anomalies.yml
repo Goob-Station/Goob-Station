@@ -294,9 +294,9 @@
       floor: FloorFlesh
     - settings:
         spawnOnSuperCritical: true
-        minAmount: 10
-        maxAmount: 30
-        maxRange: 10
+        minAmount: 200
+        maxAmount: 500
+        maxRange: 30
       floor: FloorFlesh
   - type: EntitySpawnAnomaly
     entries:
@@ -328,8 +328,8 @@
       - FleshBlocker
     - settings:
         spawnOnSuperCritical: true
-        minAmount: 5
-        maxAmount: 10
+        minAmount: 40
+        maxAmount: 50
         maxRange: 8
       spawns:
       - MobFleshJared
@@ -351,13 +351,6 @@
       spawns:
       - MobRipper
     - settings:
-        spawnOnSuperCritical: true
-        minAmount: 5
-        maxAmount: 8
-        maxRange: 10
-      spawns:
-      - FleshKudzu
-    - settings:
         spawnOnShutdown: true
         maxAmount: 2
         maxRange: 1
@@ -366,7 +359,6 @@
       - MobFleshGolem
       - MobFleshClamp
       - MobFleshLover
-      - FleshKudzu
 
 - type: entity
   id: AnomalyBluespace

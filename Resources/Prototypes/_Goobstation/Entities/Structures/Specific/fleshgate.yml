@@ -2,7 +2,6 @@
   id: Fleshgate
   parent: BaseStructure
   name: fleshgate
-  abstract: true
   description: A huge structure.
   components:
   - type: Sprite
@@ -11,11 +10,12 @@
     state: fleshgate
     drawdepth: Mobs
   - type: Tendril
-    maxSpawns: 50
+    maxSpawns: 10
     mobsToDefeat: 99999
     spawnDelay: 5
     spawns:
-    - MobFleshGolemSalvage
+    - MobFleshGolem
+    chasmDelay: 999999
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Skeleton
@@ -23,7 +23,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

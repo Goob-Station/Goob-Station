@@ -231,8 +231,8 @@
       - DoorBumpOpener
       - Flesh
     - type: MovementSpeedModifier
-      baseWalkSpeed: 2
-      baseSprintSpeed: 7
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 6
     - type: Sprite
       drawdepth: Mobs
       sprite: _Goobstation/Mobs/Aliens/flesh.rsi
@@ -293,6 +293,13 @@
     - type: Bloodstream
       bloodMaxVolume: 3000
       bloodReagent: Blood
+    - type: Tendril
+      maxSpawns: 50
+      mobsToDefeat: 99999
+      spawnDelay: 1
+      spawns:
+      - MobFleshGolemSalvage
+      chasmDelay: 999999
 
 - type: entity
   name: abyss crawler
