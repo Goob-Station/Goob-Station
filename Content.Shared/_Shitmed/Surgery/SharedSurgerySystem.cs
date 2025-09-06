@@ -115,6 +115,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
         InitializeSteps();
+        InitializeStart();
 
         LoadPrototypes();
     }
@@ -448,6 +449,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         return ent;
     }
 
+    /// <summary>
+    /// Checks if someone is lying down (and is able to)
+    /// Shows a popup if this is run on the user's client.
+    /// </summary>
     public bool IsLyingDown(EntityUid entity, EntityUid user)
     {
         if (_standing.IsDown(entity))
@@ -461,7 +466,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
                 return true;
         }
 
-        _popup.PopupEntity(Loc.GetString("surgery-error-laying"), user, user);
+        _popup.PopupClient(Loc.GetString("surgery-error-laying"), user, user);
 
         return false;
     }
