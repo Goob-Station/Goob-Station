@@ -338,6 +338,20 @@
       - MobFleshLover
     - settings:
         spawnOnSuperCritical: true
+        minAmount: 1
+        maxAmount: 1
+        maxRange: 1
+      spawns:
+      - Fleshgate
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 1
+        maxAmount: 1
+        maxRange: 1
+      spawns:
+      - MobRipper
+    - settings:
+        spawnOnSuperCritical: true
         minAmount: 5
         maxAmount: 8
         maxRange: 10
@@ -1010,7 +1024,7 @@
     - BuzzochloricBees
     - RobustHarvest
     # Goobstation - Start
-    - Triclor 
+    - Triclor
     - Cyanide
     - Genecide
     usefulChemicals:

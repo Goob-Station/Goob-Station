@@ -1,0 +1,47 @@
+- type: entity
+  id: Fleshgate
+  parent: BaseStructure
+  name: fleshgate
+  abstract: true
+  description: A huge structure.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Specific/fleshgate.rsi
+    state: tendril
+    drawdepth: Mobs
+  - type: Tendril
+    maxSpawns: 50
+    mobsToDefeat: 99999
+    spawnDelay: 5
+    spawns:
+    - MobFleshGolemSalvage
+    - MobFleshClampSalvage
+    - MobFleshLoverSalvage
+    - MobAbominationSalvage
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Skeleton
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        density: 200

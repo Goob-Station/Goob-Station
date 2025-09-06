@@ -64,7 +64,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 1
     baseSprintSpeed : 1
-  - type: Reflect 
+  - type: Reflect
     reflectProb: 1
     reflects:
     - Nonenergy
@@ -115,7 +115,7 @@
     damageModifierSet: ManifestedSpirit
   - type: Megafauna
     loot: DiamondOre1Unprocessed
-  
+
 - type: entity
   name: glutton
   parent: [ SimpleSpaceMobBase, MobCombat ]
@@ -202,6 +202,97 @@
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member
 
+- type: entity
+  name: Ripper
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobRipper
+  description: This might have been human once.
+  components:
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: SpamEmitSound
+      minInterval: 15
+      maxInterval: 45
+      sound:
+        path: /Audio/_RMC14/Xeno/alien_echoroar_1.ogg
+        params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.5
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2
+      baseSprintSpeed: 7
+    - type: Sprite
+      sprite: _Goobstation/Mobs/Aliens/flesh.rsi
+      layers:
+        state: ripper
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: ripper
+        Dead:
+          Base: dead
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepThud
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 100
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        1000: Dead # 2 rifle magazines, its a boss enemy after all
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatAnomoly
+          amount: 15
+        - id: AnomalyCoreFleshInert
+          amount: 5
+        - id: OrganHumanAppendix
+          amount: 3
+        - id: OrganHumanKidneys
+          amount: 3
+        - id: OrganHumanEars
+          amount: 3
+        - id: OrganHumanEyes
+          amount: 3
+        - id: OrganHumanLungs
+          amount: 3
+        - id: OrganHumanLiver
+          amount: 3
+        - id: OrganHumanStomach
+          amount: 3
+        - id: OrganHumanHeart
+          amount: 3
+        - id: OrganHumanTongue
+          amount: 3
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+      damage:
+        types:
+          Piercing: 30
+          Slash: 40
+          Structural: 200
+    - type: StaticPrice
+      price: 3000
+    - type: Bloodstream
+      bloodMaxVolume: 3000
+      bloodReagent: Blood
 
 - type: entity
   name: abyss crawler
