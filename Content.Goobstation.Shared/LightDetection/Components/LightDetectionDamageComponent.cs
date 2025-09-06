@@ -27,7 +27,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     public float DetectionValue;
 
     [DataField]
-    public float DetectionValueFactor = 0.5f;
+    public float DetectionValueFactor = 1.5f;
 
     /// <summary>
     /// Indicates whether the user should take damage on light
@@ -99,7 +99,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     public float Accumulator;
 
     [DataField]
-    public float UpdateInterval = 0.5f;
+    public float UpdateInterval = 1f;
 
     [DataField]
     public float DamageInterval = 5f;
