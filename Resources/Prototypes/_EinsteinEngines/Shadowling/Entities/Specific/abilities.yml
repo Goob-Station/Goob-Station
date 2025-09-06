@@ -48,7 +48,7 @@
   - type: ShadowlingPlaneShift
   - type: ShadowlingLightningStorm
   - type: ShadowlingAscendantBroadcast
-  - type: ShadowlingHypnosis
+  #- type: ShadowlingHypnosis
 
 - type: entity
   id: NightmareAbilities
