@@ -48,6 +48,12 @@ public sealed partial class InsideBodyPartComponent : Component
             { "Blunt", 70 }
         }
     };
+
+    /// <summary>
+    /// How long to stun the victim for when bursting.
+    /// </summary>
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(5);
 }
 
 /// <summary>
