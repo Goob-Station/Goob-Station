@@ -50,10 +50,8 @@ public sealed class InsideBodyPartSystem : CommonInsideBodyPartSystem
             _actions.SetEntityIcon(action, part);
     }
 
-    public override void RemovedFromPart(EntityUid item)
-    {
+    public override void RemovedFromPart(EntityUid item) =>
         RemComp<InsideBodyPartComponent>(item);
-    }
 
     private void OnAction(Entity<InsideBodyPartComponent> ent, ref BodyPartBurstEvent args)
     {
