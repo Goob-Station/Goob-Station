@@ -36,7 +36,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil.Contract;
@@ -50,7 +50,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly BodySystem _bodySystem = null!;
     [Dependency] private readonly WoundSystem _wounds = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly IGoobRandom _random = null!;
     [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
     [Dependency] private readonly ExplosionSystem _explosion = null!;

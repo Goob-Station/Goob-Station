@@ -33,7 +33,7 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -43,7 +43,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
