@@ -133,7 +133,7 @@ public abstract class SharedLaserPointerSystem : EntitySystem
 
         // People crawling under objects hit every object even if they are not aiming at it.
         var crawling = (TryComp<CrawlUnderObjectsComponent>(xform.ParentUid, out var crawl) && crawl.Enabled) ||
-                       (TryComp<CrawlUnderFloorComponent>(xform.ParentUid, out var crawlFloor) && crawlFloor.Enabled);
+                       (TryComp<CrawlUnderFloorComponent>(xform.ParentUid, out var crawlFloor) && crawlFloor.Enabled); // Goobstation, floor goblin support
 
         var (pos, rot) = _transform.GetWorldPositionRotation(parentXform);
         var dir = direction ?? rot.ToWorldVec();

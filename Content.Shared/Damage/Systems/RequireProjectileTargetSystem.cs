@@ -66,7 +66,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             if (TryComp<CrawlUnderObjectsComponent>(shooter, out var crawl) && crawl.Enabled)
                 return;
 
-            if (TryComp<CrawlUnderFloorComponent>(shooter, out var crawlFloor) && crawlFloor.Enabled)
+            if (TryComp<CrawlUnderFloorComponent>(shooter, out var crawlFloor) && crawlFloor.Enabled) // Goobstation, floor goblin support
                 return;
 
             if (TryComp(ent, out PhysicsComponent? physics) && physics.LinearVelocity.Length() > 2.5f) // Goobstation
