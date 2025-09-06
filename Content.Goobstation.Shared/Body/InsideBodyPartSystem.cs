@@ -76,7 +76,7 @@ public sealed class InsideBodyPartSystem : CommonInsideBodyPartSystem
     private void OnDoAfter(Entity<InsideBodyPartComponent> ent, ref BurstDoAfterEvent args)
     {
         var part = ent.Comp.Part;
-        if (args.Cancelled || !_partQuery.TryComp(part, out var partComp)) return;
+        if (args.Cancelled || !_partQuery.TryComp(part, out var partComp))
             return;
 
         _slots.TryEject(part, partComp.ItemInsertionSlot, ent, out _);
