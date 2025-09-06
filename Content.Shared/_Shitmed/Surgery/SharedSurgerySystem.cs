@@ -115,6 +115,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
         InitializeSteps();
+        InitializeStart();
 
         LoadPrototypes();
     }
