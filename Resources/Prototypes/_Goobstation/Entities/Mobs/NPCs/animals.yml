@@ -305,6 +305,83 @@
   - type: MobPrice
     price: 500
 
+- type: entity
+  name: Floor Goblin
+  id: MobFloorGoblin
+  parent: SimpleSpaceMobBase
+  description: Lives under the floor boards, steals shoes, bites ankles.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Mobs/FloorGoblin/floor_goblin.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: floor_goblin
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-floor-goblin-name
+    description: ghost-role-information-floor-goblin-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Squeak
+    allowedEmotes: ['Squeak']
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+    bloodMaxVolume: 40
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: Butcherable
+    spawned: []
+  - type: NpcFactionMember
+    factions:
+      - Mouse
+  - type: VentCrawler # goobstation - Ventcrawl
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: CrawlUnderFloor
+    actionProto: ActionToggleFloorBoardsMode
+  - type: StealShoes
+    actionProto: ActionStealShoes
+  - type: Appearance
+  - type: Visibility
+    layer: 1
+  - type: MobPrice
+    price: 100
 
 - type: entity
   name: space carp
