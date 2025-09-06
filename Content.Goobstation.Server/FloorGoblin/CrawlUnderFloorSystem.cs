@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,6 +28,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared._DV.Abilities;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.FloorGoblin;
 
@@ -52,6 +54,7 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptMeleeEvent>(OnAttemptMelee);
     }
 
     private bool IsOnCollidingTile(EntityUid uid)
@@ -212,5 +215,13 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
             var path = $"/Audio/_Goobstation/FloorGoblin/duende-0{idx}.ogg";
             _audio.PlayPvs(new SoundPathSpecifier(path), uid);
         }
+    }
+
+    private void OnAttemptMelee(EntityUid uid, CrawlUnderFloorComponent component, AttemptMeleeEvent args)
+    {
+        if (!component.Enabled)
+            return;
+        if (!IsOnSubfloor(uid))
+            args.Cancelled = true;
     }
 }

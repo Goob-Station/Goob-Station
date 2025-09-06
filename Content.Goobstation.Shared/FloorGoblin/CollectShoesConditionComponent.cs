@@ -1,4 +1,6 @@
-using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
