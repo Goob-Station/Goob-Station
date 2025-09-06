@@ -41,3 +41,11 @@
   components:
     - type: MovementImpaired
       impairedSpeedMultiplier: 0.6
+
+- type: trait
+  id: SocialAnxietyTrait
+  name: trait-social-anxiety-name
+  description: trait-social-anxiety-disc
+  category: Disabilities
+  components:
+    - type: SocialAnxiety
