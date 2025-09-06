@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseItem
+  id: BouqetWhite
+  name: bouqet
+  description: A bouqet of flowers, cute!
+  components:
+    - type: Sprite
+      sprite: _RMC14/Objects/Misc/Bouqets/funeral.rsi
+      state: icon
+    - type: Item
+      sprite: _RMC14/Objects/Misc/Bouqets/funeral.rsi
+      size: Small
+
+- type: entity
+  parent: BaseItem
+  id: BouqetPoppy
+  name: bouqet
+  description: A bouqet of flowers, cute!
+  components:
+    - type: Sprite
+      sprite: _RMC14/Objects/Misc/Bouqets/poppy.rsi
+      state: icon
+    - type: Item
+      sprite: _RMC14/Objects/Misc/Bouqets/poppy.rsi
+      size: Small
+
+- type: entity
+  parent: BaseItem
+  id: BouqetRose
+  name: bouqet
+  description: A bouqet of flowers, cute!
+  components:
+    - type: Sprite
+      sprite: _RMC14/Objects/Misc/Bouqets/rose.rsi
+      state: icon
+    - type: Item
+      sprite: _RMC14/Objects/Misc/Bouqets/rose.rsi
+      size: Small

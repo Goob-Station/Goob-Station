@@ -1,0 +1,17 @@
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
+  id: DrinkCoconutWaterCarton
+  name: NT brand yogurt
+  description: It's a carton of yogurt what more could you want?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 30
+        - ReagentId: JuiceBerry
+          Quantity: 20
+  - type: Drink
+  - type: Sprite
+    sprite: _lando/Objects/yogurt.rsi

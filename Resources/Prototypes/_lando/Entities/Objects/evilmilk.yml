@@ -1,0 +1,18 @@
+- type: entity
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseLargeFull]
+  id: DrinkMilkCartonEvil
+  name: evil milk
+  description: The milk that kills you.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Fentanyl
+          Quantity: 30
+        - ReagentId: MilkSpoiled
+          Quantity: 50
+        - ReagentId: Cyanide
+          Quantity: 20
+  - type: Sprite
+    sprite: _lando/Objects/evilmilk.rsi
