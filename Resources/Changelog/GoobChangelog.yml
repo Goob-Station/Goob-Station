@@ -14372,3 +14372,9 @@ Entries:
       message: Dumping trash into dispo no longer blows your fucking eardrums out.
   id: 1597
   time: '2025-09-06T06:44:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the "Time" clause not working properly.
+  id: 1598
+  time: '2025-09-06T09:00:40.0000000+00:00'
