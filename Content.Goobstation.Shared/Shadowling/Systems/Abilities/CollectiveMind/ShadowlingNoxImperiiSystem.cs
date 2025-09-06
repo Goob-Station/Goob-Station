@@ -82,7 +82,7 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
         // Indicates that the crew should start caring more since the Shadowling is close to ascension
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/ghost.ogg"), Filter.Broadcast(), false, AudioParams.Default.WithVolume(-2f));
         _popups.PopupPredicted(Loc.GetString("shadowling-nox-imperii-done"), uid, uid, PopupType.Medium);
-        
+
         args.Handled = true;
     }
 }
