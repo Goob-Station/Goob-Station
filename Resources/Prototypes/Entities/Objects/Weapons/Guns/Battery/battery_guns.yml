@@ -969,10 +969,6 @@
   id: WeaponAntiqueLaser
   description: A premium laser pistol from another age, customised with a mahogany grip and sleek chrome filigree. The chamber glows with menacing spikes of energy. There are clown and captain stick figures scratched into the side plate. The clown is dead. The captain is striking a heroic pose. # Goobstation
   components:
-  #- type: Item # Goob we want the L shaped gun
-    #size: Normal
-    #shape:
-    #- 0,0,1,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
     layers:
