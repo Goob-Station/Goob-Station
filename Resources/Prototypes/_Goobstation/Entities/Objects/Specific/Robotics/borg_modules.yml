@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -66,3 +67,20 @@
         - PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+- type: entity
+  id: BorgModuleLanguage
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: language cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-language
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Language
+    items:
+    - NTUniversalTranslator
+  - type: BorgModuleIcon
+    icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: language-module }
