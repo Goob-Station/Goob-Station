@@ -31,11 +31,11 @@ public sealed class ShadowlingNullChargeSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingNullChargeComponent, NullChargeEvent>(OnNullCharge);
         SubscribeLocalEvent<ShadowlingNullChargeComponent, NullChargeDoAfterEvent>(OnNullChargeAfter);
-        SubscribeLocalEvent<ShadowlingNullChargeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingNullChargeComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingNullChargeComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingNullChargeComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingNullChargeComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingNullChargeComponent> ent, ref ComponentShutdown args)

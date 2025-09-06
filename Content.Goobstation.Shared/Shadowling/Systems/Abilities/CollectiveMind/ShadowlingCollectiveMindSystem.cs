@@ -32,11 +32,11 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingCollectiveMindComponent, CollectiveMindEvent>(OnCollectiveMind);
-        SubscribeLocalEvent<ShadowlingCollectiveMindComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingCollectiveMindComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingCollectiveMindComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingCollectiveMindComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingCollectiveMindComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingCollectiveMindComponent> ent, ref ComponentShutdown args)

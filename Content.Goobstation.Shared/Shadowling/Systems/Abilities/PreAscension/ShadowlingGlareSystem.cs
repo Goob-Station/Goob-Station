@@ -31,11 +31,11 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingGlareComponent, GlareEvent>(OnGlare);
-        SubscribeLocalEvent<ShadowlingGlareComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingGlareComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingGlareComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingGlareComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingGlareComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingGlareComponent> ent, ref ComponentShutdown args)

@@ -26,11 +26,11 @@ public sealed class ShadowlingVeilSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingVeilComponent, VeilEvent>(OnVeilActivate);
-        SubscribeLocalEvent<ShadowlingVeilComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingVeilComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingVeilComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingVeilComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingVeilComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingVeilComponent> ent, ref ComponentShutdown args)

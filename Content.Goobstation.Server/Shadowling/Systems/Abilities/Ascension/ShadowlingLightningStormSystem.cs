@@ -28,11 +28,11 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEvent>(OnLightningStorm);
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEventDoAfterEvent>(OnLightningStormDoAfter);
-        SubscribeLocalEvent<ShadowlingLightningStormComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingLightningStormComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingLightningStormComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingLightningStormComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingLightningStormComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingLightningStormComponent> ent, ref ComponentShutdown args)

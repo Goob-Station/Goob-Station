@@ -37,11 +37,11 @@ public sealed class ShadowlingIcyVeinsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingIcyVeinsComponent, IcyVeinsEvent>(OnIcyVeins);
-        SubscribeLocalEvent<ShadowlingIcyVeinsComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingIcyVeinsComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingIcyVeinsComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingIcyVeinsComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingIcyVeinsComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingIcyVeinsComponent> ent, ref ComponentShutdown args)

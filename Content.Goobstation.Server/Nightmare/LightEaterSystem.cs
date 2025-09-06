@@ -28,18 +28,17 @@ public sealed class LightEaterSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<LightEaterUserComponent, ToggleLightEaterEvent>(OnToggleLightEater);
         SubscribeLocalEvent<LightEaterComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<LightEaterComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LightEaterComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<LightEaterComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<LightEaterComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<LightEaterComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<LightEaterComponent> ent, ref ComponentShutdown args)
@@ -47,6 +46,9 @@ public sealed class LightEaterSystem : EntitySystem
 
     private void OnToggleLightEater(EntityUid uid, LightEaterUserComponent component, ToggleLightEaterEvent args)
     {
+        if (args.Handled)
+            return;
+
         component.Activated = !component.Activated;
         if (!component.Activated)
         {
@@ -59,11 +61,14 @@ public sealed class LightEaterSystem : EntitySystem
         }
         else if (component.LightEaterEntity != null)
             QueueDel(component.LightEaterEntity);
+
+        args.Handled = true;
     }
 
     private void OnMeleeHit(EntityUid uid, LightEaterComponent component, MeleeHitEvent args)
     {
-        if (!args.IsHit
+        if (args.Handled
+            ||!args.IsHit
             || !args.HitEntities.Any())
             return;
 
@@ -97,7 +102,7 @@ public sealed class LightEaterSystem : EntitySystem
                 continue;
 
             _powerCellSystem.SetDrawEnabled(target, false);
-
+            args.Handled = true;
             // could add more interactions in the future here
         }
     }

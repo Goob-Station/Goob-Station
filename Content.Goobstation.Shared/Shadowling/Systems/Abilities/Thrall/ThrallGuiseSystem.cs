@@ -23,11 +23,11 @@ public sealed class ThrallGuiseSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ThrallGuiseComponent, GuiseEvent>(OnGuise);
-        SubscribeLocalEvent<ThrallGuiseComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ThrallGuiseComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ThrallGuiseComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ThrallGuiseComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ThrallGuiseComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ThrallGuiseComponent> ent, ref ComponentShutdown args)

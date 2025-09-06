@@ -26,11 +26,11 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingAnnihilateComponent, AnnihilateEvent>(OnAnnihilate);
-        SubscribeLocalEvent<ShadowlingAnnihilateComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAnnihilateComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingAnnihilateComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingAnnihilateComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingAnnihilateComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingAnnihilateComponent> ent, ref ComponentShutdown args)

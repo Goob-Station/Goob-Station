@@ -27,11 +27,11 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
     {
         SubscribeLocalEvent<ShadowlingEnthrallComponent, EnthrallEvent>(OnEnthrall);
         SubscribeLocalEvent<ShadowlingEnthrallComponent, EnthrallDoAfterEvent>(OnEnthrallDoAfter);
-        SubscribeLocalEvent<ShadowlingEnthrallComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingEnthrallComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingEnthrallComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingEnthrallComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingEnthrallComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingEnthrallComponent> ent, ref ComponentShutdown args)

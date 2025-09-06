@@ -24,11 +24,11 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingPlaneShiftComponent, TogglePlaneShiftEvent>(OnPlaneShift);
-        SubscribeLocalEvent<ShadowlingPlaneShiftComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingPlaneShiftComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingPlaneShiftComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingPlaneShiftComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingPlaneShiftComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingPlaneShiftComponent> ent, ref ComponentShutdown args)

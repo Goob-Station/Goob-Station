@@ -35,11 +35,11 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingRapidRehatchComponent, RapidRehatchEvent>(OnRapidRehatch);
         SubscribeLocalEvent<ShadowlingRapidRehatchComponent, RapidRehatchDoAfterEvent>(OnRapidRehatchDoAfter);
-        SubscribeLocalEvent<ShadowlingRapidRehatchComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingRapidRehatchComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingRapidRehatchComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingRapidRehatchComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingRapidRehatchComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingRapidRehatchComponent> ent, ref ComponentShutdown args)

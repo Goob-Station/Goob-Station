@@ -34,11 +34,11 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingAscendanceComponent, AscendanceEvent>(OnAscendance);
         SubscribeLocalEvent<ShadowlingAscendanceComponent, AscendanceDoAfterEvent>(OnAscendanceDoAfter);
-        SubscribeLocalEvent<ShadowlingAscendanceComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAscendanceComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingAscendanceComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingAscendanceComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingAscendanceComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingAscendanceComponent> ent, ref ComponentShutdown args)

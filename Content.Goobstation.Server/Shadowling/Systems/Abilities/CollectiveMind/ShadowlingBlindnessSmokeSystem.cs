@@ -30,11 +30,11 @@ public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, BlindnessSmokeEvent>(OnBlindnessSmoke);
-        SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingBlindnessSmokeComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingBlindnessSmokeComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingBlindnessSmokeComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingBlindnessSmokeComponent> ent, ref ComponentShutdown args)

@@ -31,11 +31,11 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, DestroyEnginesEvent>(OnDestroyEngines);
-        SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingDestroyEnginesComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingDestroyEnginesComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingDestroyEnginesComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingDestroyEnginesComponent> ent, ref ComponentShutdown args)

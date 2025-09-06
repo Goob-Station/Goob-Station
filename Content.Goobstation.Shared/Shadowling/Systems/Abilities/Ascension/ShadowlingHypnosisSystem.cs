@@ -26,11 +26,11 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingHypnosisComponent, HypnosisEvent>(OnHypnosis);
-        SubscribeLocalEvent<ShadowlingHypnosisComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingHypnosisComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingHypnosisComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingHypnosisComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingHypnosisComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingHypnosisComponent> ent, ref ComponentShutdown args)

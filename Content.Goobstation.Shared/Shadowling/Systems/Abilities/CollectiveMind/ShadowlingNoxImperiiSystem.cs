@@ -33,11 +33,11 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingNoxImperiiComponent, NoxImperiiEvent>(OnNoxImperii);
         SubscribeLocalEvent<ShadowlingNoxImperiiComponent, NoxImperiiDoAfterEvent>(OnNoxImperiiDoAfter);
-        SubscribeLocalEvent<ShadowlingNoxImperiiComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingNoxImperiiComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingNoxImperiiComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingNoxImperiiComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingNoxImperiiComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingNoxImperiiComponent> ent, ref ComponentShutdown args)

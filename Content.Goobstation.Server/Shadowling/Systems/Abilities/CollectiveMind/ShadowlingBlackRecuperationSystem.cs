@@ -53,11 +53,11 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, BlackRecuperationEvent>(OnBlackRec);
         SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, BlackRecuperationDoAfterEvent>(OnBlackRecDoAfter);
-        SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingBlackRecuperationComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingBlackRecuperationComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingBlackRecuperationComponent> ent, ref ComponentShutdown args)

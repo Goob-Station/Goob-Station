@@ -27,11 +27,11 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowlingShadowWalkComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
         SubscribeLocalEvent<ShadowlingShadowWalkComponent, ShadowWalkEvent>(OnShadowWalk);
-        SubscribeLocalEvent<ShadowlingShadowWalkComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingShadowWalkComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingShadowWalkComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingShadowWalkComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingShadowWalkComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingShadowWalkComponent> ent, ref ComponentShutdown args)

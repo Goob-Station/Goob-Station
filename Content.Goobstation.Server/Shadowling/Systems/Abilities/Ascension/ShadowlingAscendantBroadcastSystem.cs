@@ -28,11 +28,11 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, AscendantBroadcastEvent>(OnBroadcast);
-        SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingAscendantBroadcastComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingAscendantBroadcastComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingAscendantBroadcastComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingAscendantBroadcastComponent> ent, ref ComponentShutdown args)

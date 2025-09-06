@@ -40,11 +40,11 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingSonicScreechComponent, SonicScreechEvent>(OnSonicScreech);
-        SubscribeLocalEvent<ShadowlingSonicScreechComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShadowlingSonicScreechComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ShadowlingSonicScreechComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<ShadowlingSonicScreechComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<ShadowlingSonicScreechComponent> ent, ref MapInitEvent args)
         => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
 
     private void OnShutdown(Entity<ShadowlingSonicScreechComponent> ent, ref ComponentShutdown args)
