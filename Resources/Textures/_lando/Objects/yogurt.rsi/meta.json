@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC0-1.0",
+    "copyright": "Made by @landosaur",
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon_open"
+        }
+    ]
+}
