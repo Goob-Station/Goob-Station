@@ -84,12 +84,6 @@ public sealed partial class SlaughterDemonComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? DeathSound = new SoundPathSpecifier("/Audio/Effects/demon_dies.ogg");
-
-    /// <summary>
-    ///  Indicates whether the slaughter demons should be restricted from picking up guns.
-    /// </summary>
-    [DataField]
-    public bool CanPickupGuns;
 }
 
 

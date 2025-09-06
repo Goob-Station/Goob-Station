@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.DoAfter;
 using Robust.Shared.Map;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
@@ -30,3 +32,9 @@ public record struct BloodCrawlEnterEvent(bool Cancelled = false);
 /// </summary>
 [ByRefEvent]
 public record struct SlaughterDevourEvent(EntityUid pullingEnt, EntityCoordinates PreviousCoordinates);
+
+/// <summary>
+/// Doafter for when an entity attempts to devour an entity
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class SlaughterDevourDoAfter : SimpleDoAfterEvent;
