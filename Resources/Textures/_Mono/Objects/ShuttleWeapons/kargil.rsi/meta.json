@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by zeranov",
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "space_artillery",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+# CHARON
+
+- type: entity
+  id: ShipRailgunProjectile
+  name: M381 CHARON 280mm 75.25 kg slug
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 50000
+        Blunt: 12500
+        Heat: 5000
+        Ion: 12500
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#CF0E0E"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: PointLight
+    color: "#19AFFF"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: PowerSink
+    totalIntensity: 6000
+    intensitySlope: 8
+    maxIntensity: 6000
+  - type: GatheringProjectile
+
+# 20mm
+
+- type: entity
+  id: 20mmBulletBase
+  parent: BaseBullet
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 75
+        Blunt: 75
+        Piercing: 100
+    ignoreWeaponGrid: true
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 1
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 0.5
+    requireNoGrid: true
+    shape: triangle
+
+- type: entity
+  id: 20mmBulletArmorPiercing
+  name: 20mm AP bullet
+  parent: 20mmBulletBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 25
+        Piercing: 125
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi
+    layers:
+    - state: base-projectile
+  - type: PointLight
+    color: orange
+
+# 57mm Dravon
+
+- type: entity
+  id: ShipDravonProjectile
+  name: DRAVON 57mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 420
+        Blunt: 100
+        Piercing: 210
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/57_shell.rsi
+    layers:
+    - state: 57-shell
+    scale: 1, 1
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 3.5
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 40
+    intensitySlope: 5
+    maxIntensity: 25
+    maxTileBreak: 1
+
+# 90mm
+
+- type: entity
+  id: 90mmBulletBase
+  name: shell
+  parent: BaseBulletTrigger
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2.1
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+
+# 90mm AP
+
+- type: entity
+  id: 90mmBulletArmorPiercing
+  parent: 90mmBulletExplosiveBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 875
+        Blunt: 50
+        Piercing: 150
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+  - type: Explosive
+    totalIntensity: 25 # totalIntensity goes first, please.
+    intensitySlope: 2
+    maxIntensity: 5
+    maxTileBreak: 1
+  - type: PointLight
+    color: orange
+
+# 90mm HE
+
+- type: entity
+  id: 90mmBulletExplosiveBase
+  parent: 90mmBulletBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+
+# 150mm Tarnyx
+
+- type: entity
+  id: ShipTarnyxProjectile
+  name: TARNYX 150mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1000
+        Ion: 10000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/150_shell.rsi
+    layers:
+    - state: 150-shell
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 1.5
+    requireNoGrid: true
+    shape: circle
+  - type: TimedDespawn
+    lifetime: 3
+  - type: PointLight
+    color: "#FB00FF"
+  - type: EmpOnTrigger
+    range: 10
+    energyConsumption: 2700000
+    disableDuration: 7.5
+
+# 220mm Cyrexa
+
+- type: entity
+  id: ShipCyrexaProjectile
+  name: CYREXA 220mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 6500
+        Blunt: 10000
+        Ion: 17500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 2, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 3.25
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 4
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 550
+    intensitySlope: 5
+    maxIntensity: 1150
+  - type: GatheringProjectile
+
+# 255mm Bofors
+
+- type: entity
+  id: ShipBoforsProjectile
+  name: Bofors 255mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 12500
+        Blunt: 10000
+        Ion: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 2, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 8.3
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 500
+    intensitySlope: 35
+    maxIntensity: 200
+  - type: GatheringProjectile
+
+# 203mm Kargil
+
+- type: entity
+  id: ShipKargilProjectile
+  name: Kargil 203mm projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 6000
+        Blunt: 7500
+        Ion: 14000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 2, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 8.3
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 300
+    intensitySlope: 30
+    maxIntensity: 600
+  - type: GatheringProjectile
+
+# 305mm Hades
+
+- type: entity
+  id: ShipHadesProjectile
+  name: HADES 305mm projectile
+  description: I feel a primal fear. The omen comes for me.
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 12500
+        Blunt: 15000
+        Ion: 30000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base-projectile
+    scale: 3, 3
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 4.25
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 5
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 1350
+    intensitySlope: 15
+    maxIntensity: 1450
+  - type: GatheringProjectile

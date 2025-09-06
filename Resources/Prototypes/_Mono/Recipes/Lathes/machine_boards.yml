@@ -1,0 +1,15 @@
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  id: MachineFTLDriveCircuitboard
+  icon:
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    state: control600
+  result: MachineFTLDriveCircuitboard
+
+#- type: latheRecipe
+#  parent: [ BaseSilverCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+#  id: MachineFTLDriveHighCircuitboard
+#  icon:
+#    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+#    state: control
+#  result: MachineFTLDriveHighCircuitboard
