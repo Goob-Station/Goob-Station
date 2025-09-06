@@ -174,8 +174,11 @@
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
-    - id: XenoVents # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
+    - id: AncientXenoVentsEasy # Goobstation
+    - id: AncientXenoVentsMedium # Goobstation
+    - id: AncientXenoVentsHard # Goobstation
+    - id: MalignRiftSpawn # DeltaV
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -195,6 +198,9 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
+    - id: XenomorphsInfestation # WD EDIT
+    - id: AncientXenoVentsRogue # Goobstation
 
 - type: entity
   id: BaseStationEvent
@@ -902,6 +908,7 @@
       blacklist:
         components:
         - AntagImmune
+        - CommandStaff
       mindRoles:
       - MindRoleTraitorSleeper
 

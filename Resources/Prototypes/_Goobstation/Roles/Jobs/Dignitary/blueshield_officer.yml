@@ -43,9 +43,10 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
-    - !type:SpeciesRequirement
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
       species:
-      - Human
+      - Felinid
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
