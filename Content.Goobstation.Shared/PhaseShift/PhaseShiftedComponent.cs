@@ -28,11 +28,11 @@ public sealed partial class PhaseShiftedComponent : Component
     public EntProtoId PhaseOutEffect = "EffectEmpPulseNoSound";
 
     [DataField]
-    public SoundSpecifier PhaseInSound = new SoundPathSpecifier(new ResPath("/Audio/WhiteDream/BloodCult/veilin.ogg"));
+    public SoundSpecifier PhaseInSound = new SoundPathSpecifier(new ResPath("/Audio/_EinsteinEngines/Shadowling/veilin.ogg"));
 
     [DataField]
     public SoundSpecifier PhaseOutSound =
-        new SoundPathSpecifier(new ResPath("/Audio/WhiteDream/BloodCult/veilout.ogg"));
+        new SoundPathSpecifier(new ResPath("/Audio/_EinsteinEngines/Shadowling/veilout.ogg"));
 
     public int StoredMask;
     public int StoredLayer;

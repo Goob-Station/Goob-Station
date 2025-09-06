@@ -13,7 +13,7 @@ public sealed partial class ShadowlingHypnosisComponent : Component
     public EntProtoId HypnosisComponents = "ThrallAbilities";
 
     [DataField]
-    public EntProtoId ActionId = "ActionHynosis";
+    public EntProtoId ActionId = "ActionHypnosis";
 
     [DataField]
     public EntityUid? ActionEnt;
