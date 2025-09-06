@@ -4,6 +4,9 @@
 # SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -26,4 +29,93 @@
           shouldHave: false
         damage:
           types: # black powder is bad for your health.
-            Poison: 0.1 # 2 damage/u
+            Poison: 0.1 # 2 damage per unit
+
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  parent: BasePyrotechnic
+  desc: reagent-desc-methanol
+  physicalDesc: reagent-physical-desc-pungent
+  color: "#c4f5ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # methanol is bad for your health
+            Poison: 3
+
+- type: reagent
+  id: Hexamine
+  name: reagent-name-hexamine
+  group: Pyrotechnic
+  desc: reagent-desc-hexamine
+  flavor: sweet
+  physicalDesc: reagent-physical-desc-crystalline
+  color: white
+
+- type: reagent
+  id: Cyclonite
+  name: reagent-name-cyclonite
+  group: Pyrotechnic
+  desc: reagent-desc-cyclonite
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+  color: "#e0c009"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4
+            Poison: 3
+
+- type: reagent
+  id: AmmoniumNitrateFuelOil
+  name: reagent-name-ammonium-nitrate-fuel-oil
+  group: Pyrotechnic
+  desc: reagent-desc-ammonium-nitrate-fuel-oil
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-odorless
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # Oil is not good
+            Poison: 1
+
+- type: reagent
+  id: Octogen
+  name: reagent-name-octogen
+  group: Pyrotechnic
+  desc: reagent-desc-octogen
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4's bigger brother
+            Poison: 2

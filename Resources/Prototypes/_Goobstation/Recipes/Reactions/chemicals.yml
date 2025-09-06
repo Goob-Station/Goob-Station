@@ -2,7 +2,10 @@
 # SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -63,3 +66,66 @@
     - !type:AdjustSolutionThermalEnergyEffect
       delta: -200
       scaled: true
+
+- type: reaction
+  id: SodiumBicarbonate
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Water:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 2
+  products:
+    SodiumBicarbonate: 2
+
+- type: reaction
+  id: SodiumAcetate
+  reactants:
+    SodiumBicarbonate:
+      amount: 1
+    Vinegar:
+      amount: 1
+  products:
+    SodiumAcetate: 1
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: Methane
+  reactants:
+    CarbonDioxide:
+      amount: 1
+    Hydrogen:
+      amount: 4
+    Aluminium:
+      amount: 1
+      catalyst: true
+  products:
+    Methane: 3
+    Water: 2
+
+- type: reaction
+  id: CarbonCombustion
+  minTemp: 773
+  reactants:
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    CarbonDioxide: 1
+
+- type: reaction
+  id: AceticAnhydride
+  minTemp: 323
+  reactants:
+    Vinegar:
+      amount: 1
+    Ethenone:
+      amount: 1
+  products:
+    AceticAnhydride: 1
+    Water: 1
