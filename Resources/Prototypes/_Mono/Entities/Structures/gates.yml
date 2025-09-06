@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseLogicItem
+  id: SignalTimerItem
+  name: timer
+  description: Sends a signal after a specified time after receiving a signal.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - sprite: _Mono/Objects/Devices/gates.rsi
+      state: timer
+  - type: Construction
+    node: timer
+  - type: SignalTimer
+    canEditLabel: false
+  - type: DeviceLinkSource
+    ports:
+    - Start
+    - Timer
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: ActivatableUI
+    key: enum.SignalTimerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SignalTimerUiKey.Key:
+        type: SignalTimerBoundUserInterface
