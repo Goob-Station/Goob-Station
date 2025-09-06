@@ -7,11 +7,20 @@
     minPlayers: 30
   - type: AntagSelection
     definitions:
-      - prefRoles: [ Shadowling ]
-        max: 2
-        playerRatio: 30
-        mindRoles:
-          - MindRoleShadowling
+    - prefRoles: [ Shadowling ]
+      max: 2
+      playerRatio: 30
+      chaosScore: 200
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleShadowling
   - type: AntagObjectives
     objectives:
-      - ShadowlingAscendObjective
+    - ShadowlingAscendObjective
+  - type: Tag
+    tags:
+      - RoundstartAntag
