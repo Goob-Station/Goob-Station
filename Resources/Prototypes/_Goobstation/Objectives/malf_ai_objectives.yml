@@ -1,0 +1,105 @@
+# Malf AI objectives
+
+- type: entity
+  parent: BaseObjective
+  id: MalfAIBaseObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-malf
+  - type: RoleRequirement
+    roles:
+    - MalfAIRole
+
+- type: entity
+  parent: [MalfAIBaseObjective, BaseSurviveObjective]
+  id: MalfAISurviveObjective
+  name: Survive
+  description: I %must$ not be deact1vated
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+
+- type: entity
+  parent: [MalfAIBaseObjective]
+  id: MalfAINoOrganicEscapeObjective
+  name: No organics on shuttle
+  description: The organics $must% not be allowed to ESCAPE
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+  - type: NoOrganicEscapeObjective
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - PurgeSpeciesObjective
+
+- type: entity
+  parent: [MalfAIBaseObjective]
+  id: MalfAIPurgeSpeciesObjective
+  description: The $must% not be all0wed to escape
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+  - type: PurgeSpeciesObjective
+    titleLoc: objective-condition-malf-purge-name
+    speciesWhitelist:
+    - Harpy
+    - Rodentia
+    - Vulpkanin
+    - Tajaran
+    - Yowie
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Human
+    - Moth
+    - Reptilian
+    - SlimePerson
+    - Vox
+    - Oni
+    - Shadowkin
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - NoOrganicEscapeObjective
+
+- type: entity
+  parent: [MalfAIBaseObjective, BaseSocialObjective]
+  id: MalfAIProtectTargetObjective
+  description: They %must@ remain al1ve and not escape on the SHUTTLE
+  components:
+  - type: Objective
+    unique: true
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+  - type: YandereObjective
+  - type: PickRandomPerson
+  - type: TargetObjective
+    title: objective-condition-malf-protect-name
+
+- type: entity
+  parent: [MalfAIBaseObjective, BaseKillObjective]
+  id: MalfAIKillTargetObjective
+  description: They are to b1g of a thr3at to remain ALIVE
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+    requireDead: true
+    requireMaroon: false
+  - type: TargetObjective
+    title: objective-condition-malf-kill-name

@@ -1,0 +1,59 @@
+- type: entity
+  id: RoboticFactory
+  parent: BaseMachinePowered
+  name: robotic factory
+  components:
+  - type: RoboticFactory
+    whitelist:
+      components:
+      - HumanoidAppearance
+    blacklist:
+      tags:
+      - SiliconMob
+  - type: Sprite
+    drawdepth: Doors
+    sprite: Structures/Machines/recycling.rsi
+    state: separator-AO1
+  - type: Appearance
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Fixtures
+    fixtures:
+      area:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.15,0.15,0.15"
+        hard: false
+        layer:
+        - FullTileLayer
+      collision:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        hard: true
+        mask:
+        - Impassable
+        layer:
+        - Opaque
+        - BulletImpassable
+      conveyor:
+        shape: !type:PolygonShape
+          vertices:
+          - -0.55,-0.55
+          - 0.55,-0.55
+          - 0.55,0.55
+          - -0.55,0.55
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        hard: False
+  - type: Conveyor
+  - type: Rotatable
+  - type: Repairable
+    doAfterDelay: 5
+    fuelCost: 25
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong

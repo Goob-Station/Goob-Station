@@ -241,6 +241,7 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: output
+  - type: StationAiWhitelist # Goobstation - malf AI
 
 # Compact Wall Substation Base
 - type: entity

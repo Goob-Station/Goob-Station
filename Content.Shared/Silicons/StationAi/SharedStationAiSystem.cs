@@ -26,7 +26,9 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
@@ -593,6 +595,17 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         Dirty(entity);
 
         return true;
+    }
+
+    /// <summary>
+    /// Goobstation - Malf AI
+    /// </summary>
+    /// <param name="ent"></param>
+    public void SetVisionOcclusion(Entity<StationAiVisionComponent> ent, bool occluded)
+    {
+        ent.Comp.Occluded = occluded;
+
+        Dirty(ent);
     }
 
     public virtual bool SetWhitelistEnabled(Entity<StationAiWhitelistComponent> entity, bool value, bool announce = false)
