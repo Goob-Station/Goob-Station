@@ -14352,3 +14352,23 @@ Entries:
         experiments to sleep.
   id: 1596
   time: '2025-09-06T06:27:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added the Janitorial keyring
+    - type: Add
+      message: Mops & Soap can now have a new method of cleaning footprints.
+    - type: Add
+      message: Light-replacers will now recycle broken tubes.
+    - type: Add
+      message: >-
+        You can now scrub stains, decals, and footprints off of tiles with a
+        mop/soap.
+    - type: Add
+      message: Janitors now have a new senior item.
+    - type: Tweak
+      message: Wearing galoshes now stops you from making footprints.
+    - type: Tweak
+      message: Dumping trash into dispo no longer blows your fucking eardrums out.
+  id: 1597
+  time: '2025-09-06T06:44:18.0000000+00:00'
