@@ -9,7 +9,7 @@
   showInVote: false
   description: shadowling-description
   rules:
-  - ShadowlingRule
+  - Shadowling
   - BasicStationEventScheduler
   - AntagStationEventScheduler
   - BasicRoundstartVariation
