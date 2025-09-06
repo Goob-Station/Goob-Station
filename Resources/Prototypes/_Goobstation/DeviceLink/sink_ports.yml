@@ -7,12 +7,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Robotic Arm
-
 - type: sinkPort
   id: MaterialSiloUtilizer
   name: signal-port-name-material-silo-utilizer
   description: signal-port-description-material-silo-utilizer
+
+- type: sinkPort
+  id: PlumbingInput
+  name: signal-port-name-plumbing-input
+  description: signal-port-description-plumbing-input
 
 # Robotic Arm
 
@@ -113,3 +116,10 @@
   id: AutomationSlotGasTank
   name: signal-port-name-automation-slot-gas-tank
   description: signal-port-description-automation-slot-gas-tank
+
+# ChemMaster
+
+- type: sinkPort
+  id: AutomationSlotBottles
+  name: signal-port-name-automation-slot-bottles
+  description: signal-port-description-automation-slot-bottles

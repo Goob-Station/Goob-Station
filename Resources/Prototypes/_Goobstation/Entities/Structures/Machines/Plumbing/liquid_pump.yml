@@ -1,0 +1,81 @@
+- type: entity
+  parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ]
+  id: PlumbingPump
+  name: liquid pump
+  description: An electric pump that can transfer liquids between machines with an automation upgrade installed.
+  components:
+  # Visuals
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
+    layers:
+    - state: icon
+    - state: working
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  # Construction
+  - type: Machine
+    board: PlumbingPumpCircuitboard
+  - type: Construction
+    containers:
+    - machine_board
+    - machine_parts
+    - filter_slot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - filter_slot
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      filter_slot: !type:ContainerSlot
+  # Pump
+  - type: PlumbingPump
+  - type: ExclusiveInputSlot
+    port: PlumbingInput
+  - type: ExclusiveOutputSlot
+    port: PlumbingOutput
+  - type: SolutionTransfer # verb so you can throttle its speed
+    transferAmount: 50 # max speed is 50u/s
+    maxTransferAmount: 50
+    canReceive: false
+    canSend: false
+    canChangeTransferAmount: true
+  # Linking
+  - type: ItemSlots
+    slots:
+      filter_slot:
+        whitelist:
+          components:
+          - ReagentFilter
+  - type: FilterSlot
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotFilter
+      output: AutomationSlotFilter
+      slotId: filter_slot
+  # Linking
+  - type: DeviceLinkSink
+    ports:
+    - PlumbingInput
+    - Toggle
+    - On
+    - Off
+  - type: DeviceLinkSource
+    ports:
+    - PlumbingOutput
+    - Powered
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 5
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 2000 # constant power usage when switched on
+  - type: PowerSwitch
+  - type: SignalPowerSwitch
+  # Guide
+  - type: GuideHelp
+    guides:
+    - Plumbing

@@ -140,6 +140,20 @@
           - Bottle
           - PillCanister
           - MedicalPatch # Goobstation
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedSolution
+      input: PlumbingInput
+      output: PlumbingOutput
+      solutionName: buffer
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBeaker
+      output: AutomationSlotBeaker
+      slotId: beakerSlot
+    - !type:AutomatedItemSlot # not very useful because you can't tell it to make pills
+      input: AutomationSlotBottles
+      output: AutomationSlotBottles
+      slotId: outputSlot
   - type: SolutionContainerManager
     solutions:
       buffer: {}
