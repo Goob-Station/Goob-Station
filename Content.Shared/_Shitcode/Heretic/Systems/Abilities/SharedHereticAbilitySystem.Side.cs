@@ -35,7 +35,7 @@ public abstract partial class SharedHereticAbilitySystem
 
             // TODO: When heretic spells are made the way wizard spell works don't handle this action if we can't pick it up.
             // It is handled now because it always speaks invocation no matter what.
-            if (_hands.IsHolding((ent.Owner, hands), spear) || !_hands.TryGetEmptyHand(ent, out var hand, hands))
+            if (_hands.IsHolding((ent.Owner, hands), spear) || !_hands.TryGetEmptyHand((ent, hands), out var hand))
                 return;
 
             if (TryComp(spear, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
@@ -43,7 +43,7 @@ public abstract partial class SharedHereticAbilitySystem
 
             _transform.AttachToGridOrMap(spear);
             _transform.SetCoordinates(spear, Transform(ent).Coordinates);
-            _hands.TryPickup(ent, spear, hand, false, false, hands);
+            _hands.TryPickup(ent, spear, hand, false, handsComp: hands);
             return;
         }
 
