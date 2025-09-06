@@ -1,0 +1,86 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphHunter
+  name: xenomorph hunter
+  description: A specialized individual, an excellent predator, created to track down and destroy targets. Extremely dangerous in close combat.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+    - map: [ "enum.JumpLayers.Jumping" ]
+      sprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
+      state: xenomorph_jump
+      visible: false
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: _White/Objects/Misc/handcuffs.rsi
+      state: body-overlay-xenomorph
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.JumpVisuals.Jumping:
+        enum.JumpLayers.Jumping:
+          True: { visible: true }
+          False: { visible: false }
+        enum.DamageStateVisualLayers.Base:
+          True: { visible: false}
+          False: { visible: true}
+  - type: Xenomorph
+    caste: Hunter
+  - type: StealthOnWalk
+    plasmaCost: 2.5
+  - type: Stealth
+    revealOnAttack: false
+    revealOnDamage: false
+    enabled: false
+    lastVisibility: 0.2
+  - type: Jump
+    jumpAction: ActionJumpXenomorph
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnResinWeedNode
+  - type: VentCrawler
+  - type: Cuffable
+  - type: Body
+    prototype: XenomorphHunter
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.8
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphHunter
+
+- type: entity
+  parent: BaseMobXenomorphHunter
+  id: MobXenomorphHunter
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-hunter-name
+    description: ghost-role-information-xenomorph-hunter-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphHunter]
+  id: MobXenomorphHunterDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      105: 0.7
+      125: 0.6
+      150: 0.5

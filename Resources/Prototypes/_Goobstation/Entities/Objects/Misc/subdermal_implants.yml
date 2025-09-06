@@ -156,6 +156,15 @@
   - type: ImplantGrantCollectiveMind
     collectiveMind: Binary
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ClumsyImplant
+  name: Clumsy Implant
+  description: This implant makes the user clumsy, allowing them to drive a certain vehicle.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ClumsyImplant
+
 # Admeme
 
 - type: entity

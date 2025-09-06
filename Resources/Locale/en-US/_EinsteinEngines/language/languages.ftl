@@ -68,7 +68,7 @@ language-RobotTalk-name = RobotTalk
 language-RobotTalk-description = A language consisting of harsh binary chirps, whistles, hisses, and whines. Organic tongues cannot speak it without aid from special translators.
 
 language-Calcic-name = Calcic
-language-Calcic-description = The bone-rattling language of skeletons and Plasmamen. It sounds like a harmonic trousle of bones with a humerus tone, sans any off-tune ribbing.
+language-Calcic-description = The bone-rattling language of Skeletons and Plasmamen. It sounds like a harmonic trousle of bones with a humerus tone, sans any off-tune ribbing.
 
 # Tau-Ceti Basic Sign Language - Removed prefix for better readability.
 language-Sign-name = Sign Language
@@ -183,3 +183,15 @@ language-Shadowmind-description =
 language-Qiilour-name = Qiilour
 language-Qiilour-description =
     The native and principal language of the Xelthia, Qiilour is spoken by nearly all members of their species to some degree. It is a refined fusion of several ancient tongues—such as Telenarii, Voskarn, and Old Xelthec—each now lost to history.
+
+# Ported from Floofstation:
+
+language-Schechi-name = Schechi
+language-Schechi-description =
+    The language of Resomi, primarily featuring frontal sounds made without rounding. Fluent speakers sound quite close to birdsong.
+
+language-NewKinPidgin-name = Ka'rakk
+language-NewKinPidgin-description = A debased dialect cobbled together by lower-caste Vox, mangled beyond recognition.
+    While a primitive and clumsy attempt resulting in a dull, simplified mockery of their true language,
+    higher-caste Vox can still discern meaning within the crude approximations.
+    It sounds like chaotic shrieking to everyone else.
