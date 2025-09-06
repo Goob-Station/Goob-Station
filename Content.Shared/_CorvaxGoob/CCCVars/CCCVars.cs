@@ -83,4 +83,10 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<bool> SkillsEnabled =
         CVarDef.Create("skills.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Show MRP-designated jobs in the lobby and late join.
+    /// </summary>
+    public static readonly CVarDef<bool> MrpJobsEnabled =
+        CVarDef.Create("jobs.mrp_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }

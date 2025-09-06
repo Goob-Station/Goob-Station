@@ -28,3 +28,6 @@ time = 180.0
 [hub]
 advertise = true
 tags = "lang:ru,rp:low,rp:med,region:eu_e,tts"
+
+[jobs]
+mrp_enabled = false
