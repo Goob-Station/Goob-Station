@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: polymer baton
   parent: [BaseItem, BaseSecurityContraband]
@@ -216,3 +222,39 @@
               setItemSwitch: off
           soundStateActivate:
             path: /Audio/_Goobstation/Misc/umbrella.ogg
+
+# Secborg
+
+- type: entity
+  id: StunBatonBorg
+  parent: Stunbaton
+  name: Recharging Cyborg Baton
+  suffix: "Secborg"
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12
+  - type: Battery # Half the charge capacity but slowly recharges
+    maxCharge: 500
+    startingCharge: 500
+
+- type: entity
+  id: ZiptieDispenser
+  name: Ziptie Dispenser
+  parent: BaseItem
+  suffix: "Secborg"
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/zipties.rsi
+    state: cuff
+  - type: CuffsOnHit
+    duration: 3.5
+    proto: Cablecuffs
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Items/Handcuffs/ziptie_start.ogg
+  - type: UseDelay
+    delay: 3
