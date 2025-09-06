@@ -1,0 +1,5 @@
+- type: typingIndicator
+  id: alien_royal
+  typingState: alienroyal0
+  idleState: alienroyal0
+  offset: 0.64, 0.32

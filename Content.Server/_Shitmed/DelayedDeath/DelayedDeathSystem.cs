@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -50,7 +49,7 @@ public partial class DelayedDeathSystem : EntitySystem
                 _mobState.ChangeMobState(ent, MobState.Dead, mob);
 
                 // goob code
-                var ev = new DelayedDeathEvent(ent, comp.PreventAllRevives);
+                var ev = new DelayedDeathEvent(ent, PreventRevive: comp.PreventAllRevives);
                 RaiseLocalEvent(ent, ref ev);
 
                 if (ev.Cancelled)
@@ -60,7 +59,7 @@ public partial class DelayedDeathSystem : EntitySystem
                 }
 
                 if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goobstation
-                    _popupSystem.PopupEntity(Loc.GetString(comp.DeathMessageId), ent, PopupType.LargeCaution);
+                    _popupSystem.PopupEntity(Loc.GetString(comp.DeathMessageId), ent, ent, PopupType.LargeCaution);
             }
         }
     }
@@ -70,7 +69,7 @@ public partial class DelayedDeathSystem : EntitySystem
         // can't defib someone without a heart or brain pal
         args.Cancel();
 
-        var failPopup = Loc.GetString(ent.Comp.DeathMessageId); // Goobstation
+        var failPopup = Loc.GetString(ent.Comp.DefibFailMessageId); // Goobstation
         _chat.TrySendInGameICMessage(args.Defib, failPopup, InGameICChatType.Speak, true);
     }
 }
