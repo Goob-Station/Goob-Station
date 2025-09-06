@@ -232,6 +232,9 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 25
     damagePenalty: 0.1
+  - type: InteractionVerbs # EE: Interaction Verbs
+    allowedVerbs:
+    - KnockOn
 
 - type: entity
   id: BaseSecureWindoor
