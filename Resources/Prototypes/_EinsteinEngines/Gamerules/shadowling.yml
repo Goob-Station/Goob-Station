@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseGameRule
-  id: ShadowlingRule
+  id: Shadowling
   components:
   - type: ShadowlingRule
   - type: GameRule

@@ -145,23 +145,6 @@
   - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
-  id: Shadowlings
-  alias:
-  - shadow
-  - Shadow
-  - shadowling
-  name: shadowlings-title
-  description: shadowlings-description
-  showInVote: false
-  rules:
-  - ShadowlingRule
-  - BasicStationEventScheduler
-  - AntagStationEventScheduler
-  - BasicRoundstartVariation
-  - SubGamemodesRule
-  - LavalandStormScheduler # Lavaland Change
-
-- type: gamePreset
   id: Honkops
   alias:
     - honkops
