@@ -27,6 +27,7 @@
   - RightFootIPC
   - OrganIPCEyes
   - OrganIPCPump
+  - POrgBase
 
 - type: latheRecipePack
   id: BorgModulesStaticGoob
