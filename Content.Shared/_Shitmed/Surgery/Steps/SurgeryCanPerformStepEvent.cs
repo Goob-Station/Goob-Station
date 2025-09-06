@@ -22,4 +22,8 @@ public record struct SurgeryCanPerformStepEvent(
     string? Popup = null,
     StepInvalidReason Invalid = StepInvalidReason.None,
     ISurgeryToolComponent? ValidTool = null
-) : IInventoryRelayEvent;
+) : IInventoryRelayEvent
+{
+    public bool IsValid => Invalid == StepInvalidReason.None;
+    public bool IsInvalid => !IsValid;
+}

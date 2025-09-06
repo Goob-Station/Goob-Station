@@ -113,9 +113,6 @@
         Radiation: -2.5 # Goobstation - Make IPCs take radiation
   # EE Change End
   # <Shitmed>
-  - type: Hemostat
-    speed: 0.15
-    used: true
   - type: Stitches
     speed: 0.7
     used: true
