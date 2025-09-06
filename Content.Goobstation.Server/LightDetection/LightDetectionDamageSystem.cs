@@ -1,10 +1,9 @@
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
-using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
-using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.LightDetection;
 
@@ -15,16 +14,7 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentShutdown>(OnShutdown);
-    }
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Update(float frameTime)
     {
@@ -43,6 +33,8 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
             if (comp.Accumulator <= 0)
             {
                 UpdateDetectionValues(comp, lightDet.IsOnLight);
+                DirtyField(uid, comp, nameof(LightDetectionDamageComponent.DetectionValue));
+                DirtyField(uid, lightDet, nameof(LightDetectionComponent.IsOnLight));
                 comp.Accumulator = comp.UpdateInterval;
             }
 
@@ -83,19 +75,6 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
             if (comp.DetectionValue >= comp.DetectionValueMax)
                 comp.DetectionValue = comp.DetectionValueMax;
         }
-    }
-
-    private void OnStartup(EntityUid uid, LightDetectionDamageComponent component, ComponentStartup args)
-    {
-        if (component.ShowAlert)
-            _alerts.ShowAlert(uid, component.AlertProto);
-
-        component.DetectionValue = component.DetectionValueMax;
-    }
-
-    private void OnShutdown(EntityUid uid, LightDetectionDamageComponent component, ComponentShutdown args)
-    {
-        _alerts.ClearAlert(uid, component.AlertProto);
     }
 
     public void AddResistance(LightDetectionDamageComponent component, float amount)

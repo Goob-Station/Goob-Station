@@ -6,13 +6,13 @@ namespace Content.Goobstation.Shared.LightDetection.Components;
 /// <summary>
 /// This is used for detecting if an entity is near a lighted area
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(false, true)]
 public sealed partial class LightDetectionComponent : Component
 {
     /// <summary>
     ///  Indicates whether the used is standing on light, or not.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsOnLight;
 
     [DataField]

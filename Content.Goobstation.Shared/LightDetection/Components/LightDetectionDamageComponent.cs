@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.LightDetection.Components;
 /// Component that indicates a user should take damage or heal damage based on the light detection system
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState(false, true)]
 public sealed partial class LightDetectionDamageComponent : Component
 {
     /// <summary>
