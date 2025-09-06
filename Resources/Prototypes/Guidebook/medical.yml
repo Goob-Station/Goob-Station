@@ -12,6 +12,9 @@
 # SPDX-FileCopyrightText: 2024 f0x-n3rd <150924715+f0x-n3rd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dennis <d@irrgang.dev>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,6 +55,7 @@
   # TODO GUIDEBOOK Maybe allow duplicate entries?
   - Botanicals
   - AdvancedBrute
+  - PlasticProduction
 
 - type: guideEntry
   id: Medicine
@@ -69,3 +73,8 @@
   id: AdvancedBrute
   name: guide-entry-brute
   text: "/ServerInfo/Guidebook/Medical/AdvancedBrute.xml"
+
+- type: guideEntry
+  id: PlasticProduction
+  name: guide-entry-plastic
+  text: "/ServerInfo/Guidebook/Medical/PlasticProduction.xml"

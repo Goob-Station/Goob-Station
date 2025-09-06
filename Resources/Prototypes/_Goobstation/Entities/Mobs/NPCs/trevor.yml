@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Trevor
+  parent: [MobHorse, ShowSecurityIcons]
+  id: MobTrevor
+  description: A thousand years of space evolution and this is the best we could come up with.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Trevor/trevor.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: trevor
+  - type: Vehicle
+    renderOver: East, SouthEast, South, SouthWest, West
+  - type: Strap
+    position: Stand
+  - type: WaddleAnimation
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: trevor
+      Critical:
+        Base: trevor_dead
+      Dead:
+        Base: trevor_dead
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-trevor-name
+    description: ghost-role-information-trevor-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle: null
+    allowSpeech: true
+    allowMovement: true
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 12
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    bloodReagent: SpaceGlue
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: MobPrice
+    price: 5000
+  - type: InteractionPopup
+    successChance: .05
+    interactSuccessString: petting-success-horse
+    interactFailureString: petting-failure-horse
+    interactSuccessSpawn: EffectHearts
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Access
+    enabled: true
+    tags:
+    - Maintenance
+    - Security
+    - Brig
+  - type: Puller
+    needsHands: false

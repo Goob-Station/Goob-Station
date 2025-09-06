@@ -8,6 +8,9 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -59,33 +62,50 @@ public sealed class HeatExchangerSystem : EntitySystem
 
         var dt = args.dt;
 
-        // Let n = moles(inlet) - moles(outlet), really a Δn
-        var P = inlet.Air.Pressure - outlet.Air.Pressure; // really a ΔP
-        // Such that positive P causes flow from the inlet to the outlet.
+        // Goobstation
+        var isInline = inlet == outlet;
+        var fromInlet = true;
 
-        // We want moles transferred to be proportional to the pressure difference, i.e.
-        // dn/dt = G*P
-
-        // To solve this we need to write dn in terms of P. Since PV=nRT, dP/dn=RT/V.
-        // This assumes that the temperature change from transferring dn moles is negligible.
-        // Since we have P=Pi-Po, then dP/dn = dPi/dn-dPo/dn = R(Ti/Vi - To/Vo):
-        float dPdn = Atmospherics.R * (outlet.Air.Temperature / outlet.Air.Volume + inlet.Air.Temperature / inlet.Air.Volume);
-
-        // Multiplying both sides of the differential equation by dP/dn:
-        // dn/dt * dP/dn = dP/dt = G*P * (dP/dn)
-        // Which is a first-order linear differential equation with constant (heh...) coefficients:
-        // dP/dt + kP = 0, where k = -G*(dP/dn).
-        // This differential equation has a closed-form solution, namely:
-        float Pfinal = P * MathF.Exp(-comp.G * dPdn * dt);
-
-        // Finally, back out n, the moles transferred in this tick:
-        float n = (P - Pfinal) / dPdn;
-
+        // Goobstation - moved here from below
         GasMixture xfer;
-        if (n > 0)
-            xfer = inlet.Air.Remove(n);
+
+        if (!isInline) // Goobstation
+        {
+
+            // Let n = moles(inlet) - moles(outlet), really a Δn
+            var P = inlet.Air.Pressure - outlet.Air.Pressure; // really a ΔP
+            // Such that positive P causes flow from the inlet to the outlet.
+
+            // We want moles transferred to be proportional to the pressure difference, i.e.
+            // dn/dt = G*P
+
+            // To solve this we need to write dn in terms of P. Since PV=nRT, dP/dn=RT/V.
+            // This assumes that the temperature change from transferring dn moles is negligible.
+            // Since we have P=Pi-Po, then dP/dn = dPi/dn-dPo/dn = R(Ti/Vi - To/Vo):
+            float dPdn = Atmospherics.R * (outlet.Air.Temperature / outlet.Air.Volume + inlet.Air.Temperature / inlet.Air.Volume);
+
+            // Multiplying both sides of the differential equation by dP/dn:
+            // dn/dt * dP/dn = dP/dt = G*P * (dP/dn)
+            // Which is a first-order linear differential equation with constant (heh...) coefficients:
+            // dP/dt + kP = 0, where k = -G*(dP/dn).
+            // This differential equation has a closed-form solution, namely:
+            float Pfinal = P * MathF.Exp(-comp.G * dPdn * dt);
+
+            // Finally, back out n, the moles transferred in this tick:
+            float n = (P - Pfinal) / dPdn;
+            fromInlet = n > 0; // Goobstation
+
+            if (fromInlet) // Goobstation
+                xfer = inlet.Air.Remove(n);
+            else
+                xfer = outlet.Air.Remove(-n);
+        }
+        // Goobstation
         else
-            xfer = outlet.Air.Remove(-n);
+        {
+            // if we're inline just operate on the pipenet's air directly
+            xfer = inlet.Air;
+        }
 
         float CXfer = _atmosphereSystem.GetHeatCapacity(xfer, true);
         if (CXfer < Atmospherics.MinimumHeatCapacity)
@@ -136,10 +156,14 @@ public sealed class HeatExchangerSystem : EntitySystem
             _atmosphereSystem.AddHeat(environment, dE);
         }
 
-        if (n > 0)
-            _atmosphereSystem.Merge(outlet.Air, xfer);
-        else
-            _atmosphereSystem.Merge(inlet.Air, xfer);
+        // Goobstation - if we're inline we're directly operating on the pipe's air so no need to re-merge
+        if (!isInline)
+        {
+            if (fromInlet) // Goobstation
+                _atmosphereSystem.Merge(outlet.Air, xfer);
+            else
+                _atmosphereSystem.Merge(inlet.Air, xfer);
+        }
 
     }
 }

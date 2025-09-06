@@ -6,17 +6,22 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Astends <elliotnrothman@gmail.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -122,6 +127,12 @@
     speechSounds: Bass
   - type: ReplacementAccent
     accent: gondola
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
+    understands:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
   - type: HTN
     rootTask:
       task: IdleCompound
@@ -172,6 +183,12 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
   name: syndie bee
@@ -207,7 +224,7 @@
 - type: entity
   name: lootbug
   id: MobLootbug
-  parent: SimpleMobBase
+  parent: SimpleSpaceMobBase
   description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
@@ -242,6 +259,12 @@
     speechVerb: SmallMob
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: MobState
   - type: DamageStateVisuals
     states:
@@ -261,12 +284,27 @@
     - Trash
     - VimPilot
   - type: Butcherable
-    spawned:
-    - id: SpawnLootLootbug
+    spawned: []
+    #- id: SpawnLootLootbug
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
+  - type: MobPrice
+    price: 500
+
 
 - type: entity
   name: space carp
@@ -362,6 +400,11 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: LanguageKnowledge # Einstein Engines - Language (prevent universal)
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it's the norm.
+    understands:
+    - TauCetiBasic
 
 
 - type: entity
@@ -458,6 +501,11 @@
         Slash: 10
   - type: Item
     size: Tiny
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it is norm.
+    understands:
+    - TauCetiBasic
 
 - type: entity
   parent: MobMouse
@@ -521,6 +569,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.05
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -536,14 +593,6 @@
         Base: brullbar
       Dead:
         Base: dead
-  - type: Vocal
-    sounds:
-      Male: Brullbar
-      Female: Brullbar
-      Unsexed: Brullbar
-  - type: AutoEmote
-    emotes:
-    - BrullbarHowl
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -675,3 +724,91 @@
       spawned:
       - id: FoodMeat
         amount: 1
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - Dog
+      understands:
+      - Dog
+
+
+- type: entity
+  name: horse
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobHorse
+  description: Very foul creature. For those that feel like punching.
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 5.5
+    baseWalkSpeed: 4.5 # default walking speed
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Horse/horse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+  - type: Physics
+  - type: Speech
+    speechVerb: HorseVerb
+    speechSounds: HorseSpeech
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cheval
+    understands:
+    - Cheval
+    - TauCetiBasic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 185
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHorse
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: Inventory
+    speciesId: horse
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: horse
+      Critical:
+        Base: horse_dead
+      Dead:
+        Base: horse_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 12
+  - type: MobPrice
+    price: 2000
+  - type: InteractionPopup
+    successChance: 0.25
+    interactSuccessString: petting-success-horse
+    interactFailureString: petting-failure-horse
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Goobstation/Animals/horse.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Sprinter
+    staminaDrainRate: 2
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
+

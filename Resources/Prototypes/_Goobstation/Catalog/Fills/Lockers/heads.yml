@@ -8,9 +8,11 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 PAFFhassoocks <asukalangleydanielle@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -30,6 +32,7 @@
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5
+    - id: NanoRepStationReport # Goobstation
 
 - type: entity
   id: LockerNanorepFilled
@@ -57,6 +60,7 @@
     - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
+    - id: BlueshieldUndeterminedHardsuit
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

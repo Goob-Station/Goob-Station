@@ -1,0 +1,89 @@
+<Document>
+
+  # Ninjutsu
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingMaskNinja" Caption=""/>
+  </Box>
+
+  Ninjutsu is a [textlink="martial art" link="MartialArts"] thoroughly developed by the Spider Clan.
+  Space Ninjas are true masters of this technique, yet Space Wizards may also unravel its secrets.
+  Remember your four teachings. Never move around loud. Only strike when unseen. Patience prevails, haste fails. Death comes in silence.
+
+  ## Special abilities
+
+  ### Sneak Attack
+
+  <Box>
+    <GuideEntityEmbed Entity="EnergyKatana" Caption=""/>
+  </Box>
+
+  In the shadow of stillness, the Ninja's strike shall echo with the force of two. Doubles the damage for next melee attack.
+  Once harm is dealt, the sneakiness fades, retreating into swiftness, waiting for the next chance to rise.
+  Enables Ninjutsu Takedown and Assassinate, disables Swift Strike.
+
+  ### Loss of Surprise
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookLossOfSurprise" Caption=""/>
+  </Box>
+
+  In the silence of an opening, the ninja moves like a whisper in the wind.
+  Speed is their weapon, and the moment to strike is fleeting, like a shadow in the dark.
+  Lasts 5 seconds. Disables Ninjutsu Takedown and Assassinate but enables Swift Strike.
+
+  ### Escape Plan
+
+  Your target has perished. It is time to leave and plan your next attack.
+
+  After a successful kill, the ninja's spirit sharpens and quickens. Their movement speed increases temporally,
+  gliding through shadow and blood alike — unseen, unstoppable, and already gone before the next breath is drawn.
+
+  ## Combo attacks
+
+  ### Assasinate
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Deals massive damage to target's chest if Sneak Attack is active. Damage is easily stopped by armor.
+  Works in unarmed combat or Left Mouse Button attacks using a Slash damage weapon.
+
+  ### Ninjutsu Takedown
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHelp" Caption=""/>
+  </Box>
+
+  Only works with active Sneak Attack. Slows the opponent down significantly and mutes them.
+  Works better if performed from behind.
+
+  ### Swift Strike
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  When the foe is knocked down, melee weapon dealing slash strike comes faster than the eye can follow.
+  And unarmed, each attack will drain the opponent's stamina. Only works with Loss of Surprise active.
+
+  ### Bite The Dust
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Temporarily knocks the opponent down. As well as dealing blunt damage.
+
+  ### Dirty Kill
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Temporarily stuns a knocked down opponent. Target cannot be stunned for longer than they are knocked down.
+
+</Document>

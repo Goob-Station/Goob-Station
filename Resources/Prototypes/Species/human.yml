@@ -2,14 +2,22 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zalycon <84675130+Zalycon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
@@ -25,6 +33,14 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.90
+  defaultHeight: 1
+  maxHeight: 1.20
+  minWidth: 0.90
+  defaultWidth: 1
+  maxWidth: 1.10
+  # end Goobstation: port EE height/width sliders
 
 # The lack of a layer means that
 # this person cannot have round-start anything
@@ -37,9 +53,12 @@
   sprites:
     Special: MobHumanoidAnyMarking
     Head: MobHumanHead
+    Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     Chest: MobHumanChest
     Groin: MobHumanGroin
     Eyes: MobHumanoidEyes
@@ -58,9 +77,6 @@
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
-    Special: # the cat ear joke, its real *godo*
-      points: 1
-      required: false
     Hair:
       points: 1
       required: false
@@ -71,19 +87,46 @@
       points: 1
       required: false
     Tail: # the cat tail joke, its real *godo*
-      points: 1
+      points: 2
       required: false
     HeadTop:
-      points: 1
+      points: 8
+      required: false
+    HeadSide:
+      points: 8
       required: false
     Chest:
+      points: 10
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
       points: 3
       required: false
-    Legs:
+    LeftArm:
       points: 2
       required: false
-    Arms:
-      points: 2
+    LeftHand:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite

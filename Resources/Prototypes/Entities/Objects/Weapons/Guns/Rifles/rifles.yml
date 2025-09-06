@@ -70,9 +70,11 @@
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -104,6 +106,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
+      - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
@@ -146,6 +149,17 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  # Goobstation edit end
 
 - type: entity
   name: AKM
@@ -161,7 +175,6 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
@@ -281,6 +294,71 @@
         whitelist:
           tags:
             - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: Estoc # goob
+  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  id: WeaponRifleEstoc
+  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses .20 rifle ammo. # goob
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
+    minAngle: 30
+    maxAngle: 43
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - SemiAuto
+    burstFireRate: 14
+  - type: GunWieldBonus
+    minAngle: -28
+    maxAngle: -35 # goob
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeRifle
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9 # goob
+    sprintModifier: 0.9 # goob
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.2
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

@@ -1,0 +1,365 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Translator that doesn't need power to work.
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: TranslatorUnpowered
+  parent: BaseItem
+  name: translator
+  description: Translates speech.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Devices/translator.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: translator
+        shader: unshaded
+        visible: false
+        map: [ "enum.ToggleableVisuals.Layer", "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: HandheldTranslator
+    enabled: false
+  - type: Clothing # To allow equipping translators on the neck slot.
+    slots: [neck]
+    equipDelay: 0.3
+    unequipDelay: 0.3
+    quickEquip: false # Would conflict
+
+# Base translator that uses a power cell. Starts with an empty slot.
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: TranslatorPoweredBase
+  parent: [ TranslatorUnpowered, PowerCellSlotMediumItem ]
+  components:
+  - type: ItemToggle
+  - type: PowerCellDraw
+    drawRate: 1
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+# Normal translator with medium power cell in it.
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: Translator
+  parent: [ PowerCellSlotMediumItem, TranslatorPoweredBase ]
+  suffix: Powered
+
+# Normal translator with a high power cell and special appearance.
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: TranslatorForeigner
+  parent: [ PowerCellSlotHighItem, TranslatorPoweredBase ]
+  name: foreigner's translator
+  description: A special-issue translator that helps foreigner's speak and understand this station's primary language.
+
+
+- type: entity
+  id: CanilunztTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Canilunzt translator
+  description: Translates speech between Canilunzt and Galactic Common, allowing your local yeepers to communicate with the locals and vice versa!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Canilunzt
+    understood:
+    - TauCetiBasic
+    - Canilunzt
+    requires:
+    - TauCetiBasic
+    - Canilunzt
+
+- type: entity
+  id: BubblishTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Bubblish translator
+  description: Translates speech between Bubblish and Galactic Common, helping communicate with slimes and slime people.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Bubblish
+    understood:
+    - TauCetiBasic
+    - Bubblish
+    requires:
+    - TauCetiBasic
+    - Bubblish
+
+- type: entity
+  id: NekomimeticTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Nekomimetic translator
+  description: Translates speech between Nekomimetic and Galactic Common, enabling you to communicate with your pet cats.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Nekomimetic
+    understood:
+    - TauCetiBasic
+    - Nekomimetic
+    requires:
+    - TauCetiBasic
+    - Nekomimetic
+
+- type: entity
+  id: DraconicTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Sinta'Unathi translator
+  description: Translates speech between Sinta'Unathi and Tau-Ceti Basic, making it easier to understand your local Unathi.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Draconic
+    understood:
+    - TauCetiBasic
+    - Draconic
+    requires:
+    - TauCetiBasic
+    - Draconic
+
+- type: entity
+  id: SolCommonTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Sol Common translator
+  description: Translates speech between Sol Common and Galactic Common. Like a true Earthman!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - SolCommon
+    understood:
+    - TauCetiBasic
+    - SolCommon
+    requires:
+    - TauCetiBasic
+    - SolCommon
+
+- type: entity
+  id: NovuNedericTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Novu-Nederic translator
+  description: Translates speech between Novu-Nederic and Galactic Common. Like a true Earthman!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - NovuNederic
+    understood:
+    - TauCetiBasic
+    - NovuNederic
+    requires:
+    - TauCetiBasic
+    - NovuNederic
+
+- type: entity
+  id: RootSpeakTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: RootSpeak translator
+  description: Translates speech between RootSpeak and Galactic Common. You may now speak for the trees.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - RootSpeak
+    understood:
+    - TauCetiBasic
+    - RootSpeak
+    requires:
+    - TauCetiBasic
+    - RootSpeak
+
+- type: entity
+  id: MofficTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Moffic translator
+  description: Translates speech between Moffic and Galactic Common, helping you understand the buzzes of your pet mothroach!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Moffic
+    understood:
+    - TauCetiBasic
+    - Moffic
+    requires:
+    - TauCetiBasic
+    - Moffic
+
+- type: entity
+  id: XenoTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Xeno translator
+  description: Translates speech between Xeno and Galactic Common. This will probably not help you survive an encounter, though.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Xeno
+    understood:
+    - TauCetiBasic
+    - Xeno
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  id: AnimalTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Animal translator
+  description: Translates all the cutes noises that most animals make into a more understandable form!
+  components:
+  - type: HandheldTranslator
+    understood:
+    - Cat
+    - Dog
+    - Fox
+    - Monkey
+    - Mouse
+    - Chicken
+    - Duck
+    - Cow
+    - Sheep
+    - Kangaroo
+    - Pig
+    - Crab
+    - Kobold
+    - Hissing
+    - Deer
+    requires:
+    - TauCetiBasic
+    setLanguageOnInteract: false
+
+- type: entity
+  id: ValyrianStandardTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Valyrian Standard translator
+  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - ValyrianStandard
+    understood:
+    - TauCetiBasic
+    - ValyrianStandard
+    requires:
+    - TauCetiBasic
+    - ValyrianStandard
+
+- type: entity
+  id: AzazibaTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Azaziba translator
+  description: Translates speech between Unathi and Azaziba. For Unathi to speak the Archaic form of their native tongue! # Intended for Admins Only, this item is for lore reasons not obtainable.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - Draconic
+    - Azaziba
+    understood:
+    - Draconic
+    - Azaziba
+    requires:
+    - Draconic
+    - Azaziba
+
+- type: entity
+  id: ChittinTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Chittin translator
+  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Chittin
+    understood:
+    - TauCetiBasic
+    - Chittin
+    requires:
+    - TauCetiBasic
+    - Chittin
+
+- type: entity
+  id: SiikMaasTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Siik'maas translator
+  description: Translates speech between Siik'maas and Tau-Ceti Basic. For talking to Tajara!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - SiikMaas
+    understood:
+    - TauCetiBasic
+    - SiikMaas
+    requires:
+    - TauCetiBasic
+    - SiikMaas
+
+- type: entity
+  id: MarishTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Marish translator
+  description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Marish
+    understood:
+    - TauCetiBasic
+    - Marish
+    requires:
+    - TauCetiBasic
+    - Marish
+
+- type: entity                      # taken from Floofstation
+  id: NewKinPidginTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Ka'rakk translator
+  description: Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - NewKinPidgin
+    understood:
+    - TauCetiBasic
+    - NewKinPidgin
+    requires:
+    - TauCetiBasic
+    - NewKinPidgin
+
+- type: entity                      # Language taken from Floofstation but the proto is goob
+  id: SchechiTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Schechi translator
+  description: Interprets the birdsong known as Schechi and translates it to Galactic Common. Primarily spoken by Resomi.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Schechi
+    understood:
+    - Schechi
+    - TauCetiBasic
+    requires:
+    - TauCetiBasic
+    - Schechi

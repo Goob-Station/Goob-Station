@@ -64,7 +64,6 @@
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2024 MaloTV <70515562+MaloTV@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
@@ -77,22 +76,28 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TytosB <54259736+TytosB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -321,8 +326,8 @@
           bounds: "-0.15,-0.45,0.15,0.15"
         hard: false
         mask:
-          - Impassable
-          - BulletImpassable
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
@@ -426,8 +431,8 @@
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     layers:
-      - state: projectile
-        shader: unshaded
+    - state: projectile
+      shader: unshaded
   - type: Ammo
     muzzleFlash: null
   - type: Physics
@@ -445,7 +450,7 @@
     reflective:
     - Energy
   - type: Projectile
-#   soundHit:  Waiting on serv3
+    #   soundHit:  Waiting on serv3
     damage:
       types:
         Heat: 14
@@ -567,7 +572,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
+          bounds: "-0.05,-0.05,0.05,0.05"
         hard: false
         mask:
         - Opaque
@@ -591,7 +596,7 @@
   components:
   - type: Reflective
     reflective:
-      - NonEnergy
+    - NonEnergy
   - type: Sprite
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -603,7 +608,7 @@
     damage:
       types:
         Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
-#        Structural: 30 Lavaland Change - No easy break-ins :)
+  #        Structural: 30 Lavaland Change - No easy break-ins :)
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.22 # roughly 5.5 tiles
@@ -669,14 +674,14 @@
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-      - state: chronobolt
-        shader: unshaded
+    - state: chronobolt
+      shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
     onlyWorkOnFauna: true # Lavaland Change
     whitelist:
       components:
-        - MobState
+      - MobState
     damage:
       types:
         Blunt: 20
@@ -708,8 +713,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-      - state: magicm_red
-        shader: unshaded
+    - state: magicm_red
+      shader: unshaded
   - type: Ammo
     muzzleFlash: null
   - type: Physics
@@ -759,8 +764,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-      - state: magicm_cyan
-        shader: unshaded
+    - state: magicm_cyan
+      shader: unshaded
   - type: AnomalousParticle
     particleType: Epsilon
 
@@ -789,8 +794,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-      - state: magicm_yellow
-        shader: unshaded
+    - state: magicm_yellow
+      shader: unshaded
   - type: AnomalousParticle
     particleType: Zeta
 
@@ -820,8 +825,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-      - state: magicm_green
-        shader: unshaded
+    - state: magicm_green
+      shader: unshaded
   - type: AnomalousParticle
     particleType: Default
     severityOverride: true
@@ -848,8 +853,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-      - state: magicm
-        shader: unshaded
+    - state: magicm
+      shader: unshaded
   - type: AnomalousParticle
     particleType: Sigma
 
@@ -872,7 +877,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: frag
+    - state: frag
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -894,7 +899,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: frag
+    - state: frag
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -916,7 +921,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: grenade
+    - state: grenade
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -937,7 +942,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: grenade
+    - state: grenade
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -954,7 +959,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: grenade
+    - state: grenade
   - type: FlashOnTrigger
     range: 7
   - type: SpawnOnTrigger
@@ -975,7 +980,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: grenade
+    - state: grenade
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -1022,7 +1027,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: frag
+    - state: frag
   - type: EmpOnTrigger
     range: 3 # Goobstation
     energyConsumption: 360 # Goobstation
@@ -1043,7 +1048,7 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     layers:
-      - state: capbullet
+    - state: capbullet
   - type: Projectile
     deleteOnCollide: true
     damage:
@@ -1056,16 +1061,16 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-    - type: Projectile
-      damage:
-        types:
-          Caustic: 5
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
-      layers:
-        - state: xeno_toxic
-    - type: Ammo
-      muzzleFlash: null
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+    layers:
+    - state: xeno_toxic
+  - type: Ammo
+    muzzleFlash: null
 
 - type: entity
   id: BulletWaterShot
@@ -1130,7 +1135,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-      - state: ball
+    - state: ball
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: DemolitionCharge
@@ -1148,35 +1153,35 @@
   name: grappling hook
   categories: [ HideSpawnMenu ]
   components:
-    - type: EmbeddableProjectile
-      deleteOnRemove: true
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Sprite
-      noRot: false
-      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-      layers:
-        - state: hook
-    - type: Physics
-      bodyType: Dynamic
-      linearDamping: 0
-      angularDamping: 0
-    - type: Projectile
-      deleteOnCollide: false
-      damage:
-        types:
-          Blunt: 0
-    - type: Fixtures
-      fixtures:
-        projectile:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.1,-0.1,0.1,0.1"
-          hard: false
-          mask:
-            - Impassable
-            - HighImpassable
-    - type: GrapplingProjectile
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+    layers:
+    - state: hook
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - HighImpassable
+  - type: GrapplingProjectile
 
 - type: entity
   name : disabler bolt smg
@@ -1326,7 +1331,7 @@
     requirePower: false
   - type: Tag
     tags:
-      - HideContextMenu
+    - HideContextMenu
   - type: Ammo # Goobstation
     muzzleFlash: null
 

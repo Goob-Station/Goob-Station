@@ -35,28 +35,6 @@
     Tail: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
 
-- type: markingPoints
-  id: MobBananMenMarkingLimits
-  points:
-    Snout:
-      points: 1
-      required: false
-    Tail:
-      points: 1
-      required: false
-    HeadTop:
-      points: 1
-      required: false
-    Chest:
-      points: 1
-      required: false
-    Legs:
-      points: 2
-      required: false
-    Arms:
-      points: 2
-      required: false
-
 - type: humanoidBaseSprite
   id: MobBananaMenEyes
   baseSprite:

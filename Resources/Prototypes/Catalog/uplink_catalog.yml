@@ -145,6 +145,7 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
@@ -334,6 +335,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkEstoc # goob unbundle
+  name: uplink-estoc-name # goob unbundle
+  description: uplink-estoc-desc # goob unbundle
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: WeaponRifleEstoc # goob unbundle
+  cost:
+    Telecrystal: 55 # goob unbundle
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkBulldog #goob
@@ -706,6 +717,17 @@
   categories:
   - UplinkAmmo
 
+# For the Estoc
+- type: listing
+  id: UplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 5 # goob - on par with c20
+  categories:
+  - UplinkAmmo
+
 # for the hristov
 - type: listing
   id: UplinkHristovAmmo
@@ -988,7 +1010,10 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-
+  conditions: # EE Plasmeme Change: Plasmamen get another listing.
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Plasmaman
 
 # - type: listing
 #   id: UplinkGigacancerScanner

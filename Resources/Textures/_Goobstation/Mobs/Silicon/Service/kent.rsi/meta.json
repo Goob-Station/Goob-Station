@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "service",
+      "directions": 4
+    },
+    {
+      "name": "service_e_r",
+      "directions": 4
+    },
+    {
+      "name": "service_e",
+      "directions": 4
+    },
+    {
+      "name": "service_l",
+      "directions": 4
+    }
+  ]
+}

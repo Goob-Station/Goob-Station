@@ -1,5 +1,9 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -9,6 +13,24 @@
   id: MobSquackroach
   description: This is just a horrific genetic stew of a specimen.
   components:
+  - type: HarpySinger
+    ShutUpDamageThreshold: 5 # Punch does 5 damage
+  - type: Instrument
+    allowPercussion: false
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Voice": {52: 0}
+      "Trumpet": {56: 0}
+      "Electric": {27: 0}
+      "Bass": {33: 0}
+      "Rock": {29: 0}
+      "Acoustic": {24: 0}
+      "Flute": {73: 0}
+      "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Violin": {41: 0}
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -33,11 +55,17 @@
   - type: Speech
     speechVerb: Harpy
     speechSounds: Harpy
+  - type: FaxableObject
+    insertingState: inserting_squackroach
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Animals/squackroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: squackroach
+    - map: [ "singingLayer" ]
+      sprite: _DV/Effects/harpysinger.rsi
+      state: singing_music_notes
+      visible: false
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -87,6 +115,12 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
+  - type: LanguageKnowledge
+    speaks:
+    - ValyrianStandard
+    understands:
+    - TauCetiBasic # Goob Edit
+    - ValyrianStandard
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale
@@ -96,8 +130,8 @@
     visuals:
       enum.HarpyVisualLayers.Singing:
         singingLayer:
-          False: { visible: false }
-          True: { visible: true }
+          False: {visible: false}
+          True: {visible: true}
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150

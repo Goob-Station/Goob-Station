@@ -19,7 +19,6 @@
 // SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -64,7 +63,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -78,10 +76,17 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit;
@@ -93,6 +98,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -107,6 +113,8 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // DeltaV - ough why do you not use events for this
+    [Dependency] private readonly SmartFridgeSystem _smartFridge = default!; // Frontier
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -166,7 +174,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (HasComp<DisposalUnitComponent>(args.Target))
+        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - ough why do you not use events for this
         {
             UtilityVerb verb = new()
             {
@@ -251,7 +259,7 @@ public sealed class DumpableSystem : EntitySystem
 
             foreach (var entity in dumpQueue)
             {
-                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user);
+                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user, false); // Goobstation - SHUT UP!!!!
             }
         }
         else if (HasComp<PlaceableSurfaceComponent>(target))
@@ -265,6 +273,25 @@ public sealed class DumpableSystem : EntitySystem
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
             }
         }
+        // Begin DeltaV - ough why do you not use events for this
+        else if (TryComp<SmartFridgeComponent>(target, out var fridge)) // EE & Goobstation
+        {
+            dumped = true;
+            // Frontier:
+            // if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            // {
+            //     foreach (var entity in dumpQueue)
+            //     {
+            //         _container.Insert(entity, container); // Frontier
+            //     }
+            // }
+            foreach (var entity in dumpQueue)
+            {
+                _smartFridge.TryInsertObject((target.Value, fridge), entity, user); // Frontier & EE & Goobstation
+            }
+            // End Frontier
+        }
+        // End DeltaV - ough why do you not use events for this
         else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);

@@ -1,4 +1,6 @@
+
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
@@ -69,6 +71,7 @@
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
           shader: unshaded
+    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
   parent: ClothingModsuitHelmetStandard

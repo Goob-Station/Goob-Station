@@ -1,11 +1,19 @@
 # SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zalycon <84675130+Zalycon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -30,6 +38,8 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     Chest: MobDionaChest
     Groin: MobDionaGroin
     Eyes: MobDionaEyes
@@ -47,21 +57,45 @@
   onlyWhitelisted: true
   points:
     Head:
-      points: 2
+      points: 4
       required: false
     HeadTop:
-      points: 1
+      points: 4
       required: false
     HeadSide:
-      points: 1
-      required: false
-    Chest:
       points: 3
       required: false
-    Legs:
+    Chest:
+      points: 4
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
       points: 2
       required: false
-    Arms:
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
       points: 2
       required: false
     Overlay:

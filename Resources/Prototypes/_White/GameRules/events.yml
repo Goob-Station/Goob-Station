@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseGameRule
+  id: XenomorphsInfestation
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    minimumPlayers: 20
+    earliestStart: 35
+    reoccurrenceDelay: 50
+    chaos:
+      Hostile: 60
+      Medical: 75
+      Death: 100
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 700
+  - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: MobXenomorphLarva
+  - type: XenomorphsRule
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: AntagSelection
+    agentName: xenomorph-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostXenomorph
+      min: 2
+      max: 4
+      pickPlayer: false
+      briefing:
+        text: xenomorph-role-greeting
+        color: "#8c3986"
+      mindRoles:
+      - MindRoleXenomorph

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 ShieldAcrados <222141571+ShieldAcrados@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -190,3 +191,15 @@
           - id: OxygenTankFilled
           - id: ClothingModsuitCorporate
           - id: ClothingMaskBreath
+
+- type: entity
+  id: ClothingModsuitCorporateFilled
+  parent: ClothingModsuitCorporate
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+          - id: OxygenTankFilled
+          - id: HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
+          - id: BoxFolderCentComClipboard # Solely for holding and looking menacing.
+          - id: DeterrentCaseFilled

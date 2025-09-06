@@ -14,9 +14,34 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - BodyMiddle
+    - Legs
+
 
 - type: entity
   parent: ClothingOuterBase
@@ -84,6 +109,8 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: FireProtection
+    reduction: 0.5
 
 - type: entity
   parent: ClothingOuterBase
@@ -156,6 +183,8 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: FireProtection
+    reduction: 0.5
 
 
 - type: entity
@@ -232,9 +261,6 @@
       Bicaridine: 10
       TranexamicAcid: 5
       Tramadol: 5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -310,9 +336,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -384,9 +407,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.7
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -458,9 +478,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.75
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -532,6 +549,8 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: FireProtection
+    reduction: 0.5
   - type: GroupExamine
 
 - type: entity
@@ -606,3 +625,6 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.5

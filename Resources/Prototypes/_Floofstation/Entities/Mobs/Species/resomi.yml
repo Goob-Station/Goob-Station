@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
@@ -19,11 +20,13 @@
   id: BaseMobResomi
   abstract: true
   components:
-  # - type: LanguageKnowledge # Goobstation - WE ONLY SPEAK MURICAN HERE
-  #   speaks:
-  #     - TauCetiBasic
-  #   understands:
-  #     - TauCetiBasic
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Schechi               # From Floof
+    understands:
+    - TauCetiBasic
+    - Schechi               # From Floof
   - type: Fixtures
     fixtures:
       fix1:
@@ -265,7 +268,7 @@
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "id" ]
-    - map: [ "back" ]                             
+    - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -273,7 +276,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] 
+    - map: [ "suitstorage" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -388,7 +391,7 @@
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "id" ]
-    - map: [ "back" ]                             
+    - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -396,7 +399,7 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "suitstorage" ] 
+    - map: [ "suitstorage" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]

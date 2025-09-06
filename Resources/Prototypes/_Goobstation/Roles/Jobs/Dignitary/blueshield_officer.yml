@@ -43,6 +43,10 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
@@ -81,7 +85,7 @@
   id: BlueshieldOfficerGear
   equipment:
     eyes: ClothingEyesGlassesBSO
-    gloves: ClothingHandsGlovesCombat
+    #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
     belt: ClothingBeltAssaultFilled
@@ -90,3 +94,19 @@
     back:
     - Flash
     - ClothingMaskGasSecurity
+
+- type: chameleonOutfit
+  id: BlueshieldOfficerChameleonOutfit
+  job: BlueshieldOfficer
+  equipment:
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesBSO
+    mask: ClothingMaskGasSecurity
+    ears: ClothingHeadsetAltBlueshield
+    outerClothing: ClothingBlueshieldArmourVest
+    neck: ClothingNeckMantleBlueshield
+    gloves: ClothingHandsGlovesCombat
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    id: BlueshieldPDA
+    back: ClothingBackpackBlueshield
+    shoes: ClothingShoesBootsJack

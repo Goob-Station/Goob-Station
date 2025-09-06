@@ -302,6 +302,13 @@
     group: GenericNumber
   - type: Insulated
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 4
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
   - type: FlashImmunity
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: Targeting

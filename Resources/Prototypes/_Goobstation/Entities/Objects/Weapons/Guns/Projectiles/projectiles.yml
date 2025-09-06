@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PAFFhassoocks <asukalangleydanielle@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -354,7 +355,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 15
+        Ion: 20
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -450,3 +451,45 @@
       types:
         Piercing: 5
         Holy: 4
+
+- type: entity
+  name : stun bolt
+  id: BulletFlock
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/stunbolt.rsi
+    layers:
+    - state: stunbolt
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque # Goobstation
+      fly-by: *flybyfixture
+  - type: Ammo
+  - type: StaminaDamageOnCollide
+    damage: 33
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 10
+    soundHit:
+      collection: WeakHit
+    forceSound: true

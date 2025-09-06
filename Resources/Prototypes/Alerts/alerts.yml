@@ -138,33 +138,38 @@
   # If item is not in list it will go at the bottom (ties broken by alert type enum value)
   id: BaseAlertOrder
   order:
-    - alertType: ChangelingBiomass # goobstation - changelings
-    - category: Health
-    - category: Stamina
-    - alertType: ChangelingChemicals # goobstation - changelings
-    - alertType: SuitPower
-    - alertType: ModsuitPower # Goobstation - Modsuits
-    - category: Internals
-    - alertType: Fire
-    - alertType: Handcuffed
-    - alertType: Ensnared
-    - category: Buckled
-    - alertType: Pulling
-    - alertType: Walking
-    - category: Piloting
-    - alertType: Corporeal
-    - alertType: Stun
-    - alertType: KnockedDown # goobstation
-    - alertType: BrokenBones # Shitmed Change
-    - category: Breathing # Vox gang not calling this oxygen
-    - category: Pressure
-    - alertType: Bleed
-    - category: Temperature
-    - category: Hunger
-    - category: Thirst
-    - alertType: Magboots
-    - alertType: Pacified
-    - alertType: ShadowCloak # Goobstation
+  - alertType: ChangelingBiomass # goobstation - changelings
+  - category: Health
+  - category: Stamina
+  - alertType: ChangelingChemicals # goobstation - changelings
+  - alertType: SuitPower
+  - alertType: ModsuitPower # Goobstation - Modsuits
+  - category: Internals
+  - alertType: Fire
+  - alertType: Handcuffed
+  - alertType: Ensnared
+  - category: Buckled
+  - alertType: Pulling
+  - alertType: Walking
+  - category: Piloting
+  - alertType: Corporeal
+  - alertType: Stun
+  - alertType: KnockedDown # goobstation
+  - alertType: BrokenBones # Shitmed Change
+  - category: Breathing # Vox gang not calling this oxygen
+  - category: Pressure
+  - alertType: Bleed
+  - category: Temperature
+  - category: Hunger
+  - category: Thirst
+  - alertType: Magboots
+  - alertType: Rooted
+  - alertType: Pacified
+  - alertType: Stealthy
+  - alertType: ShadowCloak # Goobstation
+  - alertType: DragonPower # Goobstation
+  - category: Ninjutsu # Goobstation
+  - category: Counter # WD EDIT
 
 - type: entity
   id: AlertSpriteView
@@ -560,7 +565,6 @@
   description: alerts-pulling-desc
   minSeverity: 0
   maxSeverity: 3
-
 # Goobstation end
 
 - type: alert
@@ -600,6 +604,19 @@
     state: icon
   name: alerts-pacified-name
   description: alerts-pacified-desc
+
+- type: alert
+  id: Stealthy
+  clickEvent: !type:ToggleThievingEvent
+  icons:
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-off
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-on
+  name: alerts-stealthy-name
+  description: alerts-stealthy-desc
+  minSeverity: 0
+  maxSeverity: 1
 
 - type: alert
   id: Adrenaline

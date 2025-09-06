@@ -72,7 +72,6 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -118,14 +117,22 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Stomf <5dorkydorks@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 robinthedragon <92946919+robinthedragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -195,6 +202,18 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRifle
+  name: Estoc bundle # goob
+  description: "For medium-range sharpshooting, the Estoc. Bundled with three magazines." # goob
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleEstoc
+    - id: MagazineRifle
+      amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRevolver
   name: Python bundle
   description: "Go loud and proud with a fully loaded Magnum Python, bundled with two speed loaders."
@@ -220,7 +239,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   name: China-Lake bundle
-  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
+  description: "An old China-Lake grenade launcher bundled with 13 rounds of various destruction capability."
   components:
   - type: StorageFill
     contents:
@@ -229,6 +248,8 @@
         amount: 4
       - id: GrenadeFrag
         amount: 4
+      - id: GrenadeSlug # Goobstation, you only get two of these, and cannot make more.
+        amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -355,7 +376,7 @@
         - id: ClothingEyesChameleon
         - id: ClothingHeadsetChameleon
         - id: ClothingShoesChameleon
-        - id: BarberScissors
+        - id: ChameleonControllerImplanter
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -371,6 +392,7 @@
       - id: ClothingHandsGlovesColorYellowBudget
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -385,6 +407,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -399,6 +422,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -412,6 +436,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

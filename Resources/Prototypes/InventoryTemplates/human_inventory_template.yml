@@ -159,3 +159,6 @@
       uiWindowPos: 2,0
       strippingWindowPos: 2,1
       displayName: Legs
+      blacklist:
+        tags:
+        - PetOnly

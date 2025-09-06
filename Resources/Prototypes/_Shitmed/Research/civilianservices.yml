@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
@@ -31,6 +32,7 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - DefibrillatorCompact # Goob
   - OmnimedTool # Shitmed
   - EnergyScalpel # Shitmed
   - AdvancedRetractor # Shitmed
@@ -83,6 +85,57 @@
   position: -2,6
   technologyPrerequisites:
   - BasicCybernetics
+
+- type: technology
+  id: BasicAugmentation
+  name: research-technology-basic-augmentation
+  icon:
+    sprite: _Shitmed/Objects/Augments/power.rsi
+    state: cell
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  position: -5,6
+  technologyPrerequisites:
+  - BasicCybernetics
+  recipeUnlocks:
+  - AugmentPowerCellSlotCasing
+  - AugmentRechargerCasing
+
+- type: technology
+  id: ImplantedTools
+  name: research-technology-implanted-tools
+  icon:
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+    state: base
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: -5,7
+  technologyPrerequisites:
+  - BasicAugmentation
+  recipeUnlocks:
+  - AugmentToolPanelCasing
+  - AugmentUtilityPanelElectronics
+  - AugmentBotanyPanelElectronics
+  - AugmentSurgeryPanelElectronics
+  - AugmentPaperworkPanelElectronics
+
+- type: technology
+  id: CombatAugmentation
+  name: research-technology-combat-augmentation
+  icon:
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+    state: strength
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  position: -6,7
+  technologyPrerequisites:
+  - BasicAugmentation
+  recipeUnlocks:
+  - AugmentStrengthCasing
+  - AugmentStrengthElectronics
 
 # Tier 3
 

@@ -149,7 +149,6 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
@@ -201,7 +200,6 @@
 # SPDX-FileCopyrightText: 2024 nicho <nicholasnewsom577@gmail.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 pocl v <24708225+Pinkbat5@users.noreply.github.com>
@@ -236,13 +234,18 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -254,6 +257,7 @@
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 archee1 <archee3@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -265,6 +269,9 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 hyperDelegate <zachary1064@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
@@ -327,8 +334,11 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: ReplacementAccent
-    accent: mouse
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -545,8 +555,11 @@
     eggSpawn:
     - id: FoodEgg
   - type: ExaminableHunger
-  - type: ReplacementAccent
-    accent: chicken
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Chicken
+    understands:
+    - Chicken
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -706,6 +719,9 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks: [Hissing]
+    understands: [Hissing]
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: MeleeWeapon
@@ -783,6 +799,10 @@
     allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
   - type: FaxableObject
     insertingState: inserting_mothroach
+  - type: FaxSlip # Goobstation
+    slipChance: 0.3
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
@@ -843,8 +863,11 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
-  - type: ReplacementAccent
-    accent: mothroach
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -985,8 +1008,11 @@
     eggSpawn:
     - id: FoodEgg
   - type: ExaminableHunger
-  - type: ReplacementAccent
-    accent: duck
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Duck
+    understands:
+    - Duck
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -1262,8 +1288,11 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
-  - type: ReplacementAccent
-    accent: crab
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Crab
+    understands:
+    - Crab
   - type: Bloodstream
     bloodMaxVolume: 50
     bloodReagent: CopperBlood
@@ -1525,8 +1554,11 @@
   - type: Inventory
     speciesId: kangaroo
     templateId: kangaroo
-  - type: ReplacementAccent
-    accent: kangaroo
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Kangaroo
+    understands:
+    - Kangaroo
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1639,7 +1671,7 @@
     - state: monkey_skinned # Goobstation - Fuck pun-pun
       sprite: /Textures/Mobs/Animals/monkey.rsi
       visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -1678,8 +1710,8 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-      enum.ToggleVisuals.Toggled: # Goobstation - Skinnable monkey
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled: # Goobstation - Skinnable monkey
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
 
@@ -1769,7 +1801,12 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
-  - type: MonkeyAccent
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
+    - Kobold
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1807,7 +1844,13 @@
   - type: Speech
     speechSounds: Monkey
     speechVerb: Monkey
-  - type: MonkeyAccent
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
+    - Kobold
+    - TauCetiBasic # Understanding your nukeops partners.
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -1854,8 +1897,12 @@
   - type: NameIdentifier
     group: Kobold
   - type: LizardAccent
-  - type: ReplacementAccent
-    accent: kobold
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Kobold
+    understands:
+    - Kobold
+    - Monkey
   # Shitmed Change Start
   - type: HumanoidAppearance
     species: Kobold
@@ -2108,8 +2155,11 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
   - type: Tag
     tags:
     - Trash
@@ -2147,6 +2197,7 @@
         Slash: 1 # Goobstation - LET THE HORDES ROAM!!
   - type: Bloodstream
     bloodMaxVolume: 50
+    smokeImmune: true # Goobstation - prevent server lagging mouse farms
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -2205,6 +2256,8 @@
     defaultChannel: Mousemind
     channels:
     - Mousemind
+  - type: FaxSlip
+    slipChance: 0.3
   # </Goobstation>
   - type: Destructible # Shitmed Change
     thresholds:
@@ -2569,6 +2622,11 @@
     sounds:
       Unsexed: Parrot
   - type: ParrotAccent
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-bird
@@ -2639,6 +2697,9 @@
     heatDamage:
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks: [Penguin]
+    understands: [Penguin]
 
 - type: entity
   name: grenade penguin
@@ -2760,6 +2821,9 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks: [Hissing]
+    understands: [Hissing]
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2805,8 +2869,11 @@
   - type: MeleeChemicalInjector
     transferAmount: 0.75
     solution: melee
-  - type: ReplacementAccent
-    accent: xeno
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -2980,10 +3047,11 @@
   description: This spider looks a little magical
   suffix: Wizard
   components:
-  - type: Accentless
-    removes:
-    - type: ReplacementAccent
-      accent: xeno  #let this wizard speak
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Universal # Should allow them to understand everything and speak it too. Might need to change this.
+    understands:
+    - Universal
 
 - type: entity
   name: possum
@@ -3036,6 +3104,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
 
 - type: entity
   name: possum
@@ -3110,6 +3183,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
 
 - type: entity
   name: fox
@@ -3188,11 +3266,17 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Fox
+    understands:
+    - Fox
 
 - type: entity
-  name: corgi
+  abstract: true
   parent: [SimpleMobBase, StripableInventoryBase]
-  id: MobCorgi
+  id: MobCorgiBase
+  name: corgi
   description: Finally, a space corgi!
   components:
   - type: Sprite
@@ -3219,6 +3303,22 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 200
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgi
+  components:
   - type: DamageStateVisuals
     states:
       Alive:
@@ -3231,8 +3331,11 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: ReplacementAccent
-    accent: dog
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -3244,8 +3347,6 @@
       gender: epicene
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-corgi
-  - type: MobPrice
-    price: 200
   - type: Tag
     tags:
     - VimPilot
@@ -3381,8 +3482,11 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: ReplacementAccent
-    accent: cat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat
@@ -3468,6 +3572,10 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: Access
+    tags: 
+    - NuclearOperative
+    - SyndicateAgent
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -3479,6 +3587,12 @@
         Slash: 6
         Piercing: 6
         Structural: 15
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
   name: space cat
@@ -3626,6 +3740,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
 
 - type: entity
   name: ferret
@@ -3680,6 +3799,11 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
 
 - type: entity
   name: hamster
@@ -3718,6 +3842,9 @@
   - type: Physics
   - type: FaxableObject
     insertingState: inserting_hamster
+  # Goobstation
+  - type: FaxSlip
+    slipChance: 0.3
   - type: Fixtures
     fixtures:
       fix1:
@@ -3778,8 +3905,11 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: ReplacementAccent
-    accent: mouse
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
   - type: Tag
     tags:
     - VimPilot
@@ -3903,8 +4033,11 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/pig_oink.ogg
-  - type: ReplacementAccent
-    accent: pig
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Pig
+    understands:
+    - Pig
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -3994,6 +4127,12 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - RootSpeak
+    understands:
+    - RootSpeak
+    - TauCetiBasic
 
 - type: entity
   parent: MobDionaNymph
@@ -4064,6 +4203,11 @@
       task: SimpleHostileCompound
   - type: Puller
     needsHands: false
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Deer
+    understands:
+    - Deer
 
 - type: entity
   name: reindeer doe
@@ -4096,3 +4240,67 @@
         Base: reindeer_doe_dead
       Dead:
         Base: reindeer_doe_dead
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgiSmart
+  name: smart corgi
+  description: An unusually smart dog.
+  components:
+  # Use corgi sprite, need to add handcuff layer
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: corgi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi # Would do a custom dog handcuff sprite but unfortunately handcuffs have their overlay baked-in to the cuff itself so this is mostly filler
+      state: body-overlay-2
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # Custom inventory template
+  - type: Inventory
+    speciesId: dog
+    templateId: SmartCorgi
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+  - type: Hands # HANDS!
+  - type: Puller
+  - type: Cuffable # bad dog!
+  - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
+  - type: Stripping
+  - type: ComplexInteraction
+  # Implement custom borgi body type
+  - type: Body
+    prototype: SmartCorgi
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 180
+  - type: Grammar
+    attributes:
+      gender: epicene # Gender neutral
+      proper: true
+  - type: Tag
+    tags:
+    - VimPilot
+    - CanPilot
+    - DoorBumpOpener
+  - type: StatusIcon # marks them as crew
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen

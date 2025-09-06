@@ -71,7 +71,6 @@
 # SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ThatGuyUSA <thatguyusa123@gmail.com>
@@ -105,13 +104,19 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 EulogisticLullaby <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <88719613+RedMush1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sera <karaadastra@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 archee1 <archee3@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -184,7 +189,7 @@
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
-    delay: 0.5
+    delay: 0.25
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
@@ -276,6 +281,9 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 75 # These are limited supply items.
+  - type: Tag
+    tags:
+    - Medipen
   - type: TrashOnSolutionEmpty
     solution: pen
 
@@ -299,7 +307,7 @@
       pen:
         maxVol: 20 # goobstation
         reagents:
-        - ReagentId: Tirimol # Goobstation
+        - ReagentId: Dexalin # Goobstation
           Quantity: 10
         - ReagentId: Ibuprofen # Goobstation
           Quantity: 5
@@ -307,6 +315,7 @@
           Quantity: 5
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
     - Trash
 
@@ -649,6 +658,7 @@
             Quantity: 20
   - type: Tag
     tags:
+    - Medipen
     - SpaceMedipen
     - Trash
 
@@ -694,7 +704,7 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
-    price: 500
+    price: 1500
 
 - type: entity
   name: hyperzine microinjector
@@ -733,7 +743,7 @@
     changeColor: false
     emptySpriteName: microstimpen_empty
   - type: StaticPrice
-    price: 100
+    price: 583 # 3500 for 6 as a freaky fraction
 
 - type: entity
   name: combat medipen
@@ -777,7 +787,7 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
-    price: 500
+    price: 1500
 
 - type: entity
   name: pen

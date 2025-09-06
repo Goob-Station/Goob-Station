@@ -134,11 +134,11 @@ selectable-set-blueshield-revolver-description =
     Includes: The EG-4 energy revolver, capable of firing bolts using
     recharging speedloaders, both lethal and not, and a shoulder holster.
 
-selectable-set-blueshield-cqc-name = close quarters combat set
-selectable-set-blueshield-cqc-description =
+selectable-set-blueshield-dragon-name = kung fu manual set
+selectable-set-blueshield-dragon-description =
     Sometimes you need to get your hands dirty.
     Includes: A book capable of teaching the user
-    advanced close-quarters-combat.
+    advanced kung fu martial art.
 
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
@@ -149,7 +149,8 @@ selectable-set-blueshield-chester-description =
 selectable-set-blueshield-syringe-name = medical set
 selectable-set-blueshield-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
-    Includes: A combat injector, and several vials of medicine.
+    Includes: An explosive resistant chestrig, a combat injector, and
+    several vials of medicine.
 
 # Blueshield hardsuits
 

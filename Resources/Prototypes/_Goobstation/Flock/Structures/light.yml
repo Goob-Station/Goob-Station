@@ -1,0 +1,161 @@
+- type: entity
+  id: AlwaysPoweredFlockLight
+  name: shining cabochon
+  description: "It pulses and flares to a strange rhythm."
+  suffix: Always powered
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Light
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: light
+      shader: unshaded
+  - type: PointLight
+    radius: 10
+    energy: 2
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
+    offset: "0, -0.5"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,0.5,0.4,0.35"
+        density: 190
+        mask:
+        - None
+        layer:
+        - TabletopMachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 10
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+
+- type: entity
+  id: FlockLight
+  name: shining cabochon
+  description: "It pulses and flares to a strange rhythm."
+  suffix: ""
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: PointLight
+    enabled: false
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Light
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: lightoff
+      shader: unshaded
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - None
+        layer:
+        - TabletopMachineLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+- type: entity
+  id: AlwaysPoweredFlockFloorLight
+  suffix: Always powered
+  parent: AlwaysPoweredFlockLight
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Light
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: floorlight
+      shader: unshaded
+
+- type: entity
+  id: FlockFloorLight
+  parent: FlockLight
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: PointLight
+    enabled: false
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Light
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: floorlightoff
+      shader: unshaded

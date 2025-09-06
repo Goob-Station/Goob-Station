@@ -181,6 +181,8 @@
     nameFormat: name-format-revenant
   - type: Speech
     speechVerb: Ghost
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: NightVision # Goobstation - Nightvision
     color: MediumPurple
     activateSound: null
