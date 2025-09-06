@@ -27,8 +27,6 @@
       walkModifier: 0.85
       sprintModifier: 0.85
     - type: Clothing
-      equipDelay: 1
-      unequipDelay: 1.5
       slots: BACK
 
 - type: entity
