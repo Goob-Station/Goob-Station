@@ -54,6 +54,7 @@ Certain non-surgical tools can be used in a pinch, use the scalpel examine icon 
 <GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
 <GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
 <GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
+<GuideEntityEmbed Entity="CableApcStack" Caption="lv cable"/>
 </Box>
 
 They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
