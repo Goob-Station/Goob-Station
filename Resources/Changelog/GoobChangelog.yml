@@ -14344,3 +14344,11 @@ Entries:
         now fight back against other mobs, like Trevor or Renault.
   id: 1595
   time: '2025-09-05T22:54:31.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: >-
+        Abductors :alien: now have Nitrous Oxide on their ships to put their
+        experiments to sleep.
+  id: 1596
+  time: '2025-09-06T06:27:41.0000000+00:00'
