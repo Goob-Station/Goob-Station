@@ -1,0 +1,113 @@
+- type: entity
+  id: SlingEgg
+  name: Shadowling Egg
+  description: An irregular lump of organic matter, its cracked surface twitching now and then. # yes
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/egg.rsi
+    layers:
+    - state: base
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.4,0.4,0.29"
+          density: 50
+          mask:
+          - CrateMask
+          layer:
+          - MachineLayer
+  - type: EntityStorage
+    capacity: 1
+    openOnMove: false
+  - type: PlaceableSurface
+    isPlaceable: false # defaults to closed.
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: RequireProjectileTarget
+  - type: Clickable
+
+- type: entity
+  parent: SlingEgg
+  id: SlingEggHatch
+  components:
+  - type: HatchingEgg
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+
+- type: entity
+  parent: SlingEgg
+  id: SlingEggAscension
+  description: A dark, armored cocoon pulsing with eerie energy, heralding the shadowling’s ascension.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/ascension_egg.rsi
+    layers:
+      - state: base
+        map: [ "enum.StorageVisualLayers.Base" ]
+      - state: closed
+        map: [ "enum.StorageVisualLayers.Door" ]
+  - type: Physics
+    bodyType: Dynamic
+  - type: ShadowlingAscensionEgg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 160
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: AmbientSound
+    volume: -1
+    range: 8
+    sound:
+      path: /Audio/_EinsteinEngines/Shadowling/heartbeat.ogg
+
+- type: entity
+  id: AscensionEggShadowlingInside
+  name: The Shadowling
+  description: A terryfing creature that appears to have formed on top of the egg. Is it alive?
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/ascension_egg.rsi
+    state: closed2
+    netsync: false
+    drawdepth: Effects
