@@ -82,7 +82,7 @@ public sealed partial class DevilSystem
 
         if (devil.Comp.DevilGrip != null)
         {
-            foreach (var item in _hands.EnumerateHeld(devil))
+            foreach (var item in _hands.EnumerateHeld(devil.Owner))
             {
                 if (!HasComp<DevilGripComponent>(item))
                     continue;

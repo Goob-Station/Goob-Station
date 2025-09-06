@@ -107,6 +107,7 @@
     tags:
     - SuitEVA
     - MonkeyWearable
+    - CorgiWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty
 
@@ -151,6 +152,7 @@
   - type: Tag
     tags:
     - SuitEVA
+    - CorgiWearable
     - MonkeyWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty

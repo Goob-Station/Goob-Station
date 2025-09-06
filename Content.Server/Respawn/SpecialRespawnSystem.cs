@@ -101,7 +101,6 @@ namespace Content.Server.Respawn;
 public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -192,7 +191,7 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
 
             foreach (var tile in _map.GetTilesIntersecting(entityGridUid.Value, grid, circle))
             {
-                if (tile.IsSpace(_tileDefinitionManager)
+                if (_turf.IsSpace(tile)
                     || _turf.IsTileBlocked(tile, CollisionGroup.MobMask)
                     || !_atmosphere.IsTileMixtureProbablySafe(entityGridUid, entityMapUid.Value,
                         _map.TileIndicesFor((entityGridUid.Value, grid), mapPos)))
@@ -231,9 +230,9 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
     /// <param name="targetMap">The map that you're looking for a safe tile on</param>
     /// <param name="maxAttempts">The maximum amount of attempts it should try before it gives up</param>
     /// <param name="targetCoords">If successful, the coordinates of the safe tile</param>
-    /// <param name="checkTileMixture">Whether to skip tiles with unsafe air mixture</param>
+    /// <param name="checkTileMixture">Goobstation: Whether to skip tiles with unsafe air mixture</param>
     /// <returns></returns>
-    public bool TryFindRandomTile(EntityUid targetGrid, EntityUid targetMap, int maxAttempts, out EntityCoordinates targetCoords, bool checkTileMixture = true) // Goob edit
+    public bool TryFindRandomTile(EntityUid targetGrid, EntityUid targetMap, int maxAttempts, out EntityCoordinates targetCoords, bool checkTileMixture = true) // Goob edit - add checkTileMixture
     {
         targetCoords = EntityCoordinates.Invalid;
 
@@ -264,7 +263,7 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
 
             foreach (var newTileRef in _map.GetTilesIntersecting(targetGrid, grid, circle))
             {
-                if (newTileRef.IsSpace(_tileDefinitionManager) || _turf.IsTileBlocked(newTileRef, CollisionGroup.MobMask) || checkTileMixture && !_atmosphere.IsTileMixtureProbablySafe(targetGrid, targetMap, mapTarget)) // Goob edit
+                if (_turf.IsSpace(newTileRef) || _turf.IsTileBlocked(newTileRef, CollisionGroup.MobMask) || !_atmosphere.IsTileMixtureProbablySafe(targetGrid, targetMap, mapTarget) && checkTileMixture)  // Goob edit - add checkTileMixture
                     continue;
 
                 found = true;

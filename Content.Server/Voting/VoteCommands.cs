@@ -83,7 +83,7 @@ namespace Content.Server.Voting
         }
     }
 
-    [AdminCommand(AdminFlags.Moderator)]
+    [AdminCommand(AdminFlags.Round)]
     public sealed class CreateCustomCommand : LocalizedEntityCommands
     {
         [Dependency] private readonly IVoteManager _voteManager = default!;
@@ -242,7 +242,7 @@ namespace Content.Server.Voting
         }
     }
 
-    [AdminCommand(AdminFlags.Moderator)]
+    [AdminCommand(AdminFlags.Round)]
     public sealed class CancelVoteCommand : LocalizedEntityCommands
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;

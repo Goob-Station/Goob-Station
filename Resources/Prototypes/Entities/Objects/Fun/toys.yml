@@ -1,208 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
-# SPDX-FileCopyrightText: 2020 TheCze <38573433+TheCze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
-# SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 GraniteSidewalk <32942106+GraniteSidewalk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Rubetskoy Dmitriy <rubetskoy234@mail.ru>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Aerocrux <69610864+Aerocrux@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Cody ~ Aexxie <125095677+Aexxie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2023 Fromoriss <106442259+Fromoriss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 HighTechPuddle <131694215+HighTechPuddle@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Raitononai <136900466+Raitononai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Renlou <rubensvidal@hotmail.co.uk>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 dontbetank <59025279+dontbetank@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
-# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
-# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AutoOtter <joshuademorris@gmail.com>
-# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chubbicous <100180479+Chubbicous@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Deatherd <69344159+Deatherd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIP <jipdawg93@gmail.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 KieueCaprie <103897346+KieueCaprie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LevitatingTree <114672939+LevitatingTree@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LevitatingTree <None>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <psychpsyo@gmail.com>
-# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unisol <1929445+Unisol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gambesun <116504990+gambesun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marboww <152051971+marboww@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <oskariwjarvinen@gmail.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-# SPDX-FileCopyrightText: 2025 Evige <Evige@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
-# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
-# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
-# SPDX-FileCopyrightText: 2025 No Elka <125199100+NoElkaTheGod@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
-# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-# SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 ## Base stash
 
 - type: entity
@@ -216,7 +11,7 @@
     blacklist:
       components:
       - SecretStash # Prevents being able to insert plushies inside each other (infinite plush)!
-      - NukeDisk # Could confuse the nukies if they don't know that plushies have a stash.
+      - NukeDisk # Could confuse the Nukies if they don't know that plushies have a stash.
       tags:
       - QuantumSpinInverter # It will cause issues with the grinder...
       - FakeNukeDisk # So you can't tell if the nuke disk is real or fake depending on if it can be inserted or not.
@@ -228,1063 +23,6 @@
     containers:
       stash: !type:ContainerSlot {}
 
-## Plushies
-
-- type: entity
-  parent: [BaseItem, BaseStash]
-  id: BasePlushie
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-  - type: Tag
-    tags:
-      - Payload
-      - ClothMade
-  - type: EmitSoundOnUse
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnActivate
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnCollide
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToyFall
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: ToySqueak
-  - type: UseDelay
-    delay: 1.0
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      collection: ToySqueak
-    damage:
-      types:
-        Blunt: 0
-    hidden: true
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: StaticPrice
-    price: 5
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      collection: ToySqueak
-    delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieThrongler
-  name: throngler plushie
-  description: A stuffed toy to remind cargo techs of what they can no longer have.
-  components:
-    - type: Sprite
-      sprite: Objects/Weapons/Melee/ThronglerPlushie.rsi
-      state: icon
-    - type: MeleeWeapon
-      wideAnimationRotation: -135
-      attackRate: 10
-    - type: Item
-      size: Ginormous
-      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieGhost
-  name: ghost soft toy
-  description: The start of your personal GHOST GANG!
-  components:
-    - type: Sprite
-      sprite: Mobs/Ghosts/ghost_human.rsi
-      state: icon
-      noRot: true
-    - type: Item
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.25,-0.25,0.25,0.25"
-          density: 20
-          mask:
-            - ItemMask
-          restitution: 0.98
-          friction: 0.01
-    - type: Physics
-      angularDamping: 0.02
-      linearDamping: 0.02
-      fixedRotation: true
-      bodyType: Dynamic
-    - type: TileFrictionModifier
-      modifier: 0.1
-    - type: Tag
-      tags:
-        - ForceableFollow
-        - PlushieGhost
-        - Payload
-    - type: RandomWalk
-      accumulatorRatio: 0.5
-      maxSpeed: 1
-      minSpeed: 0.25
-
-- type: entity
-  parent: PlushieGhost
-  id: PlushieGhostRevenant
-  name: revenant soft toy
-  categories: [ DoNotMap ]
-  description: So soft it almost makes you want to take a nap...
-  components:
-    - type: Item
-      size: Normal
-    - type: Sprite
-      sprite: Mobs/Ghosts/revenant.rsi
-      state: icon
-      noRot: true
-    - type: Construction
-      graph: PlushieGhostRevenant
-      node: plushie
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieBee
-  name: bee plushie
-  description: A cute toy that resembles an even cuter programmer. You'd have to be a monster to grind this up.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_h
-  - type: Item
-    size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: bee
-  - type: Extractable
-    grindableSolutionName: bee
-  - type: SolutionContainerManager
-    solutions:
-      bee:
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 10
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 5
-  - type: Clothing
-    quickEquip: false
-    sprite: Objects/Fun/toys.rsi
-    equippedPrefix: bee
-    slots:
-    - HEAD
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieHampter
-  name: hampter plushie
-  description: A cute stuffed toy that resembles a hamster. Its face looks squished.
-  components:
-  - type: Sprite
-    state: plushie_hampter
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-
-- type: entity
-  parent: PlushieBee
-  id: PlushieRGBee
-  name: RGBee plushie
-  description: A cute toy that resembles a bee plushie while you're on LSD.
-  components:
-  - type: PointLight
-    radius: 1.5
-    energy: 2
-  - type: RgbLightController
-    layers: [ 0 ]
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: bee-inhand-left
-        shader: unshaded
-      right:
-      - state: bee-inhand-right
-        shader: unshaded
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: bee-equipped-HELMET
-        shader: unshaded
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieNuke
-  name: nukie plushie
-  description: A stuffed toy that resembles a syndicate nuclear operative. The tag claims operatives to be purely fictitious.
-  components:
-  - type: Sprite
-    state: plushie_nuke
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieRouny
-  name: rouny plushie
-  description: Rouny.
-  components:
-  - type: Sprite
-    state: plushie_rouny
-  - type: Rotatable
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieLamp
-  name: lamp plushie
-  description: A light emitting friend!
-  components:
-  - type: Sprite
-    state: plushie_lamp
-  - type: PointLight
-    radius: 1.5
-    energy: 2
-    netsync: false
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieArachind
-  name: arachnid plushie
-  description: An adorable stuffed toy that resembles an arachnid. It feels silky..
-  components:
-  - type: Sprite
-    state: plushie_arachnid
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieLizard #Weh!
-  name: lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson. Made by CentComm as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_lizard
-  - type: Item
-    heldPrefix: plushielizard
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceThatMakesYouWeh
-        Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 10
-  - type: Clothing
-    quickEquip: false
-    sprite: Objects/Fun/toys.rsi
-    equippedPrefix: lizard
-    slots:
-    - HEAD
-  - type: Speech
-    speechVerb: Reptilian # for pais (In the secret stash)
-  - type: Tag
-    tags:
-    - ClothMade
-    - Payload
-    - PlushieLizard
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieExperiment #Arf!
-  name: experiment plushie
-  description: A plushie of a canid of sorts, it yearns to be detonated on a landmine.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/expiplush.rsi
-    state: expi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: expi-inhand-left
-        shader: shaded
-      right:
-      - state: expi-inhand-right
-        shader: shaded
-    heldPrefix: plushielizard
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Items/Toys/arf.ogg
-  - type: Tag
-    tags:
-    - ClothMade
-    - Payload
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: expi-equipped-HELMET
-        shader: shaded
-    quickEquip: false
-    sprite: Objects/Fun/toys.rsi
-    equippedPrefix: expi
-    slots:
-    - HEAD
-
-- type: entity
-  parent: PlushieLizard
-  id: PlushieRainbowLizard #Weh but gay
-  description: An adorable stuffed toy that resembles a lizardperson of every color. You just might trip while staring at it...
-  name: rainbow lizard plushie
-  components:
-  - type: Sprite
-    state: rainbowlizardplush
-  - type: PointLight
-    radius: 1.5
-    energy: 2
-  - type: RgbLightController
-    layers: [ 0 ]
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: lizard-equipped-HELMET
-        shader: unshaded
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: rainbowlizardplush-inhand-left
-        shader: unshaded
-      right:
-      - state: rainbowlizardplush-inhand-right
-        shader: unshaded
-
-- type: entity
-  parent: PlushieLizard
-  id: PlushieLizardMirrored
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    state: plushie_lizard
-    scale: -1, 1
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieSpaceLizard #ᵂᵉʰ!
-  name: space lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson in an EVA suit. Made by CentComm as a token initiative to combat speciesism in space environments. "Welcome your new colleges as you do this plush, with open arms!"
-  components:
-  - type: Item
-    heldPrefix: spacelizard
-  - type: Sprite
-    state: plushie_spacelizard
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceThatMakesYouWeh
-        Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 10
-  - type: Clothing
-    slots:
-    - HEAD
-    quickEquip: false
-    clothingVisuals:
-      head:
-      - state: spacelizard-equipped-HELMET
-        offset: "0, 0.03"
-
-- type: entity
-  parent: PlushieLizard
-  id: PlushieLizardInversed #Hew!
-  name: drazil plushie
-  description: An adorable stuffed toy that resembles a lizardperson from an inversed dimension. Hew!
-  components:
-  - type: Sprite
-    state: plushie_lizard_inversed
-  - type: Item
-    heldPrefix: plushielizardinversed
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Items/Toys/hew.ogg
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceThatMakesYouHew
-        Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouHew
-          Quantity: 10
-  - type: Clothing
-    quickEquip: false
-    sprite: Objects/Fun/toys.rsi
-    equippedPrefix: lizard-inversed
-    slots:
-    - HEAD
-
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieDiona
-  name: diona plushie
-  description: An adorable stuffed toy that resembles a diona. Love water and cuddles. Do not wet!
-  components:
-    - type: Sprite
-      layers:
-        - state: plushie_diona
-        - state: plushie_diona1
-          map: [ "enum.SolutionContainerLayers.Fill" ]
-          visible: false
-    - type: EmitSoundOnUse
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: EmitSoundOnLand
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: EmitSoundOnActivate
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: EmitSoundOnTrigger
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: EmitSoundOnCollide
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: MeleeWeapon
-      wideAnimationRotation: 180
-      soundHit:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: Food
-      requiresSpecialDigestion: true
-      useSound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: SolutionContainerManager
-      solutions:
-        plushie:
-          maxVol: 1
-        food:
-          maxVol: 10
-          reagents:
-          - ReagentId: Fiber
-            Quantity: 10
-
-    - type: RefillableSolution
-      solution: plushie
-    - type: SolutionContainerVisuals
-      solutionName: plushie
-      maxFillLevels: 1
-      fillBaseName: plushie_diona
-      changeColor: false
-    - type: Appearance
-    - type: Reactive
-      reactions:
-        - reagents: [ Water ]
-          methods: [ Touch ]
-          effects:
-            - !type:AddToSolutionReaction
-              solution: plushie
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.3,-0.3,0.3,0.3"
-          density: 15
-          mask:
-            - ItemMask
-        rehydrate:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.3,-0.3,0.3,0.3"
-          hard: false
-          layer:
-            - LowImpassable
-    - type: CollisionWake
-      enabled: false
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieSharkBlue
-  name: blue shark soft toy
-  description: Big and safe to have by your side if you want to discover the world below the surface of the ocean.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
-    state: blue
-  - type: EmitSoundOnUse
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnActivate
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnCollide
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToyFall
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: ToySqueak
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    soundHit:
-      path: /Audio/Items/Toys/rawr.ogg
-    animation: WeaponArcBite
-  - type: Item
-    heldPrefix: blue
-    storedRotation: -90
-  - type: Tag
-    tags:
-      - PlushieSharkBlue
-      - Payload
-
-- type: entity
-  parent: PlushieSharkBlue
-  id: PlushieSharkPink
-  name: pink shark soft toy
-  description: Hehe shonk :)
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
-    state: pink
-  - type: Item
-    heldPrefix: pink
-  - type: Tag
-    tags:
-      - PlushieSharkPink
-      - Payload
-
-- type: entity
-  parent: PlushieSharkBlue
-  id: PlushieSharkGrey
-  name: grey shark soft toy
-  description: A quiet, reserved kind of shonk. Loves to ride the grey tide.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/sharkplush.rsi
-    state: grey
-  - type: Item
-    heldPrefix: grey
-  - type: Tag
-    tags:
-      - PlushieSharkGrey
-      - Payload
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieRatvar
-  name: ratvar plushie
-  description: A small stuffed doll of the elder god Ratvar.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    state: plushie_ratvar
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieNar
-  name: nar'sie plushie
-  description: A small stuffed doll of the elder goddess Nar'Sie.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    state: narplush
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieCarp
-  name: carp plushie
-  description: An adorable stuffed toy that resembles the monstrous space carp.
-  components:
-  - type: Sprite
-    state: carpplush
-  - type: Item
-    heldPrefix: carpplush
-    storedRotation: -90
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/bite.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Effects/bite.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    angle: 0
-    animation: WeaponArcBite # Rrrr!
-  - type: GibThisGuy  # Goobstation
-    requireBoth: false
-    icNames:
-    - Aubrey White
-    ocNames:
-    - TheAmped #Removed when I "make something fun"
-    - SolsticeOfTheWinter
-  - type: Tag
-    tags:
-      - Payload
-      - ClothMade
-      - PlushieCarp
-
-- type: entity
-  parent: PlushieCarp
-  id: PlushieMagicarp
-  name: magicarp plushie
-  description: An adorable stuffed toy resembling the exceedingly rare magicarp.
-  components:
-  - type: Sprite
-    state: magicplush
-
-- type: entity
-  parent: PlushieCarp
-  id: PlushieRainbowCarp
-  name: rainbow carp plushie
-  description: An adorable stuffed toy resembling the legendary rainbow carp.
-  components:
-  - type: Sprite
-    state: rainbowcarpplush
-  - type: PointLight
-    radius: 1.5
-    energy: 2
-  - type: RgbLightController
-    layers: [ 0 ]
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: rainbowcarpplush-inhand-left
-        shader: unshaded
-      right:
-      - state: rainbowcarpplush-inhand-right
-        shader: unshaded
-
-- type: entity
-  parent: PlushieCarp
-  id: PlushieHolocarp
-  name: holocarp plushie
-  description: A holographic stuffed toy resembling science's nemesis - the holocarp.
-  components:
-  - type: Sprite
-    state: holoplush
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieSlime
-  name: slime plushie
-  description: An adorable stuffed toy that resembles a slime. It's basically a hacky sack.
-  components:
-  - type: Sprite
-    state: plushie_slime
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieSnake
-  name: snake plushie
-  description: An adorable stuffed toy that resembles a snake.
-  components:
-  - type: Sprite
-    state: plushie_snake
-  - type: Item
-    heldPrefix: plushiesnake
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    soundHit:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: Clothing
-    quickEquip: false
-    equippedPrefix: plushiesnake
-    slots:
-    - NECK
-  - type: Speech
-    speechVerb: Reptilian # for pais (In the secret stash)
-
-- type: entity
-  parent: BasePlushie
-  id: ToyMouse
-  name: mouse toy
-  description: A colorful toy mouse!
-  components:
-  - type: Sprite
-    state: toy_mouse
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: -90
-    soundHit:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Clothing
-    quickEquip: false
-    sprite: Objects/Fun/toys.rsi
-    equippedPrefix: mouse
-    slots:
-    - HEAD
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieVox
-  name: vox plushie
-  description: SKREEEEEEEEEEEE!
-  components:
-  - type: Sprite
-    state: plushie_vox
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Voice/Vox/shriek1.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieAtmosian
-  name: atmosian plushie
-  description: An adorable stuffed toy that resembles a brave atmosian. Unfortunately, he won't fix those depressurizations for you.
-  components:
-  - type: Sprite
-    state: plushie_atmosian
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieXeno
-  name: xeno plushie
-  description: An adorable stuffed toy that resembles a scary xenomorf. You're lucky it's just a toy.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    state: plushie_xeno
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushiePenguin
-  name: penguin plushie
-  description: I use arch btw!
-  components:
-  - type: Sprite
-    state: plushie_penguin
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieHuman
-  name: human plushie
-  description: This is a felt plush of a human. All craftsmanship is of the lowest quality. The human is naked. The human is crying. The human is screaming.
-  components:
-  - type: Sprite
-    state: plushie_human
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Human/malescream_1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Human/malescream_2.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Human/malescream_3.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Human/malescream_4.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Voice/Human/malescream_1.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Voice/Human/malescream_4.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Human/malescream_5.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieMoth
-  name: moth plushie
-  description: Cute and fluffy moth plushie. Enjoy, bz!
-  components:
-  - type: Sprite
-    state: plushie_moth
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-
 ## Rubber
 
 - type: entity
@@ -1292,11 +30,9 @@
   id: BaseRubberToy
   abstract: true
   components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
   - type: Tag
     tags:
-      - Payload
+    - Payload
   - type: UseDelay
     delay: 1.0
   - type: MeleeWeapon
@@ -1322,8 +58,6 @@
   name: rubber ducky
   description: Not carried here by ocean currents.
   components:
-  - type: Item
-    size: Tiny
   - type: Sprite
     sprite: Objects/Fun/ducky.rsi
     state: icon
@@ -1332,6 +66,8 @@
     sprite: Objects/Fun/ducky.rsi
     slots:
     - HEAD
+  - type: Item
+    size: Tiny
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/quack.ogg
@@ -1351,6 +87,47 @@
     tags:
     - ToyRubberDuck
 
+- type: entity
+  parent: BaseRubberToy
+  id: RubberChicken
+  name: rubber chicken
+  description: A stress inducing parody of nature's most delectable avian.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/rubber_chicken.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnActivate
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: 110
+    soundHit:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+
 ## Cheapo Figurines
 
 - type: entity
@@ -1360,8 +137,6 @@
   description: A small miniature.
   abstract: true
   components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
@@ -1378,7 +153,17 @@
   description: A scaled-down toy AI core.
   components:
   - type: Sprite
-    state: AI
+    sprite: Objects/Fun/AI.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: Objects/Fun/AI.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.06"
 
 - type: entity
   parent: BaseFigurineCheapo
@@ -1387,10 +172,20 @@
   description: A plastic model of a Nuclear Fission Explosive. No uranium included... probably.
   components:
   - type: Sprite
-    state: nuketoy
+    sprite: Objects/Fun/toy_nuke.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: Objects/Fun/toy_nuke.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
   - type: Tag
     tags:
-      - Payload
+    - Payload
   - type: UseDelay
     delay: 180.0
   - type: EmitSoundOnUse
@@ -1418,10 +213,20 @@
   name: ian toy
   description: Unable to eat, but just as fluffy as the real guy!
   components:
+  - type: Sprite
+    sprite: Objects/Fun/toy_ian.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: Objects/Fun/toy_ian.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.06"
   - type: Item
     size: Tiny
-  - type: Sprite
-    state: ian
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/ian.ogg
@@ -1444,6 +249,9 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/ian.ogg
+#  - type: FoodSequenceElement
+#    entries:
+#      CottonBurger: IanPlushie
 
 ## Toyweapons
 
@@ -1464,23 +272,22 @@
   description: Aiming this at Security may get you filled with lead.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: foamcrossbow
+    sprite: Objects/Fun/Foam/foam_crossbow.rsi
+    state: icon
   - type: Item
     size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: foamcrossbow
+    sprite: Objects/Fun/Foam/foam_crossbow.rsi
   - type: Gun
     fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/click.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - BulletFoam
+      - BulletFoam
     capacity: 1
     soundInsert:
       path: /Audio/Items/bow_pull.ogg
@@ -1505,13 +312,16 @@
   description: Looks almost like the real thing! Ages 8 and up.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
+    sprite: Objects/Fun/capgun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: capgun
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: -2,-7
+    sprite: Objects/Fun/capgun.rsi
   - type: Tag
     tags:
     - Sidearm
@@ -1519,7 +329,7 @@
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
@@ -1529,8 +339,8 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-        - CartridgeCap
-        - SpeedLoaderCap
+      - CartridgeCap
+      - SpeedLoaderCap
     proto: CartridgeCap
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
@@ -1551,10 +361,10 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-        - CartridgeCap
-        - SpeedLoaderCap
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
+      - CartridgeCap
+      - SpeedLoaderCap
+      - CartridgeMagnum
+      - SpeedLoaderMagnum
     proto: CartridgeMagnumAP
 
 - type: entity
@@ -1564,8 +374,8 @@
   description: It says "Sternside Changs number 1 fan" on it.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: foamblade
+    sprite: Objects/Fun/Foam/foam_blade.rsi
+    state: icon
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0
@@ -1574,17 +384,10 @@
     damage:
       types:
         Blunt: 0
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg #spoooky
   - type: Item
     size: Small
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: foamblade
+    sprite: Objects/Fun/Foam/foam_blade.rsi
   - type: UseDelay
-    delay: 1.5
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Effects/gib1.ogg #spoooky x2
 
 # MISC
 
@@ -1595,15 +398,28 @@
   description: Where dah courts at?
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: basketball
+    sprite: Objects/Fun/Balls/basketball.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.25
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.8 # bouncy
+        friction: 0.2
+#  - type: Catchable
+#    catchChance: 0.8
+#    catchSuccessSound:
+#      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg
   - type: Item
     size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: bask
+    sprite: Objects/Fun/Balls/basketball.rsi
   - type: TileFrictionModifier
     modifier: 0.5
 
@@ -1614,12 +430,28 @@
   description: Otherwise known as a handegg.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: football
+    sprite: Objects/Fun/Balls/football.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.25
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.5 # a little bouncy
+        friction: 0.2
+#  - type: Catchable
+#    catchChance: 0.8
+#    catchSuccessSound:
+#      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: Item
     size: Small
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: footb
+    sprite: Objects/Fun/Balls/football.rsi
 
 - type: entity
   parent: BaseItem
@@ -1628,15 +460,29 @@
   description: The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: beachball
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.3
+          position: "0,-0.2"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.1 # not bouncy
+        friction: 0.2
+#  - type: Catchable
+#    catchChance: 0.8
+#    catchSuccessSound:
+#      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg
   - type: Item
     size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: beachb
+    sprite: Objects/Fun/Balls/beach_ball.rsi
   - type: TileFrictionModifier
     modifier: 0.05
 
@@ -1647,12 +493,11 @@
   description: Handed out to the bravest souls who survived the "atomic twister" ride at Syndieland.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: synb
+    sprite: Objects/Fun/Balloons/syndicate.rsi
+    state: icon
   - type: Item
     size: Small
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: synb
+    sprite: Objects/Fun/Balloons/syndicate.rsi
   - type: Damageable
     damageContainer: Inorganic
   - type: Tag
@@ -1668,12 +513,11 @@
   description: Specially designed to inflict maximum psychological damage to Syndicate operatives.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: ntb
+    sprite: Objects/Fun/Balloons/nanotrasen.rsi
+    state: icon
   - type: Item
     size: Small
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: ntb
+    sprite: Objects/Fun/Balloons/nanotrasen.rsi
   - type: Damageable
     damageContainer: Inorganic
   - type: Tag
@@ -1687,12 +531,11 @@
   description: Just like owning a real dog - but a lot floatier.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: corgib
+    sprite: Objects/Fun/Balloons/corgi.rsi
+    state: icon
   - type: Item
     size: Small
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: corgib
+    sprite: Objects/Fun/Balloons/corgi.rsi
   - type: Damageable
     damageContainer: Inorganic
   - type: Tag
@@ -1706,18 +549,23 @@
   description: Mass-produced by a sadistic corporate conglomerate!
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: singularitytoy
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
   - type: Icon
-    sprite: Objects/Fun/toys.rsi
-    state: singularitytoy
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
   - type: SingularityDistortion
-    intensity: 2000
+    intensity: 25
     falloffPower: 2.6
   - type: Item
     size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: singularitytoy
+    inhandVisuals:
+      left:
+      - state: singu-inhand-left
+        shader: unshaded
+      right:
+      - state: singu-inhand-right
+        shader: unshaded
 
 - type: entity
   parent: BaseItem
@@ -1727,9 +575,17 @@
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
-    shader: unshaded
     layers:
     - state: tesla_projectile
+      shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: tesla-inhand-left
+        shader: unshaded
+      right:
+      - state: tesla-inhand-right
+        shader: unshaded
   - type: PointLight
     enabled: true
     radius: 5
@@ -1746,22 +602,22 @@
         volume: -10
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseMagicalContraband ]
   id: PonderingOrb
   name: pondering orb
   description: Ponderous, man... Really ponderous.
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: orb
-    shader: unshaded
+    sprite: Objects/Fun/pondering_orb.rsi
+    layers:
+    - state: icon
+      shader: unshaded
   - type: PointLight
     radius: 2
     color: "#00CCFF"
   - type: Item
     size: Normal
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: orb
+    sprite: Objects/Fun/pondering_orb.rsi
   - type: TileFrictionModifier
     modifier: 0.001
 
@@ -1771,71 +627,68 @@
   name: toy sword
   description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
   components:
-    - type: EnergySword
-    - type: ItemToggle
-      soundActivate:
-        path: /Audio/Weapons/ebladeon.ogg
-      soundDeactivate:
-        path: /Audio/Weapons/ebladeoff.ogg
-    - type: ItemToggleActiveSound
-      activeSound:
-        path: /Audio/Weapons/ebladehum.ogg
-    - type: Sprite
-      sprite: Objects/Weapons/Melee/e_sword.rsi
-      layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: EnergySword
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
         shader: unshaded
-        map: [ "blade" ]
-    - type: Item
-      size: Small
-      sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
-    - type: UseDelay
-      delay: 1.0
-    - type: PointLight
-      enabled: false
-      radius: 2
-      energy: 2
-      color: white
-      netsync: false
-    - type: Appearance
-    - type: ToggleableVisuals
-      spriteLayer: blade
-      inhandVisuals:
-        left:
-          - state: inhand-left-blade
-            shader: unshaded
-        right:
-          - state: inhand-right-blade
-            shader: unshaded
-    - type: ItemTogglePointLight
-    - type: DisarmMalus
-      malus: 0
-    - type: StaminaDamageOnHit
-      damage: 8
-    - type: MeleeWeapon
-      wideAnimationRotation: -135
-      damage:
-        types:
-          Blunt: 0
-    - type: ItemToggleMeleeWeapon
-      activatedSoundOnHit:
-        path: /Audio/Weapons/eblade1.ogg
-        params:
-          variation: 0.250
-      activatedSoundOnHitNoDamage:
-        path: /Audio/Weapons/eblade1.ogg
-        params:
-          variation: 0.250
-      activatedSoundOnSwing:
-        path: /Audio/Weapons/eblademiss.ogg
-        params:
-          variation: 0.125
-    - type: Tag
-      tags:
-      - ToySword #Goobstation
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: ItemTogglePointLight
+  - type: DisarmMalus
+    malus: 0
+  - type: StaminaDamageOnHit
+    damage: 8
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 0
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
 
 - type: entity
   parent: BasePlushie
@@ -1849,10 +702,30 @@
     - state: base
       map: [ "enum.DamageStateVisualLayers.Base" ]
     - state: visor
+  - type: Clothing
+    sprite: Objects/Fun/pequeno.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET-body
+      - state: equipped-HELMET-vis
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-body
+      - state: inhand-left-vis
+      right:
+      - state: inhand-right-body
+      - state: inhand-right-vis
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          base: Sixteen
+    - enum.DamageStateVisualLayers.Base:
+        base: Sixteen
+#  - type: FoodSequenceElement - does not work with randomized sprites
+#    entries:
+#      CottonBurger: AmongPequeno
+
 
 - type: entity
   parent: BaseItem
@@ -1877,6 +750,44 @@
       sprite: Objects/Weapons/Melee/cutlass.rsi
     shape:
     - 0,0,0,2
+
+- type: entity
+  parent: BaseItem
+  id: CardSword
+  name: cardboard sword
+  description: A cardboard tube thats been fashioned into a sword.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/card_sword.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Fun/card_sword.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: StaminaDamageOnHit
+    damage: 6
+  - type: Appearance
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 0.3
+#    soundHit:
+#      path: /Audio/Items/Toys/card_tube_bonk.ogg
+#  - type: Construction
+#    graph: CardSword
+#    node: cardSword
+  - type: Item
+    size: Normal
+    storedSprite:
+      state: icon
+      sprite: Objects/Fun/card_sword.rsi
+    shape:
+    - 0,0,1,3
 
 - type: entity
   parent: BaseItem
@@ -1915,36 +826,36 @@
   name: rubber hammer
   description: A brightly colored hammer made of rubber.
   components:
-    - type: Sprite
-      sprite: Objects/Fun/rubber_hammer.rsi
-      state: icon
-    - type: WeaponRandom
-      damageBonus:
-          types:
-              Blunt: 1000
-    - type: StaminaDamageOnHit
-      damage: 8
-    - type: Item
-      size: Small
-      sprite: Objects/Fun/rubber_hammer.rsi
-    - type: Appearance
-    - type: DisarmMalus
-      malus: 0
-    - type: MeleeWeapon
-      wideAnimationRotation: -135
-      soundHit:
-        collection: RubberHammer
-        params:
-            variation: 0.03
-            volume: 3
-      soundNoDamage:
-        collection: RubberHammer
-        params:
-            variation: 0.03
-            volume: 3
-      damage:
-        types:
-          Blunt: 0
+  - type: Sprite
+    sprite: Objects/Fun/rubber_hammer.rsi
+    state: icon
+  - type: WeaponRandom
+    damageBonus:
+      types:
+        Blunt: 1000
+  - type: StaminaDamageOnHit
+    damage: 8
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/rubber_hammer.rsi
+  - type: Appearance
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    soundHit:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+    soundNoDamage:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+    damage:
+      types:
+        Blunt: 0
 
 - type: entity
   parent: BaseItem
@@ -1955,10 +866,9 @@
   - type: Sprite
     sprite: Objects/Fun/whoopie.rsi
     state: icon
-    quickEquip: false
   - type: Tag
     tags:
-      - Payload
+    - Payload
   - type: EmitSoundOnUse
     sound:
       collection: Parp
@@ -1983,7 +893,6 @@
     delay: 0.8
   - type: Slippery
     slipData:
-      paralyzeTime: 0
       launchForwardsMultiplier: 0
     slipSound:
       collection: Parp
@@ -2000,7 +909,7 @@
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 2
-  - type: TriggerOnStepTrigger
+  - type: TriggerOnStepTrigger # for payloads
   - type: Appearance
   - type: CollisionWake
     enabled: false
@@ -2030,12 +939,12 @@
   description: A plastic banana.
   suffix: Plastic
   components:
-  - type: FlavorProfile
-    flavors:
-      - plastic
-  - type: Food
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
+  - type: FlavorProfile
+    flavors:
+    - plastic
+  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2052,15 +961,12 @@
   name: crazy glue
   description:  A bottle of crazy glue manufactured by Honk! Co.
   components:
-  - type: Openable
-    sound:
-      collection: packetOpenSounds
   - type: Sprite
     sprite: Objects/Fun/glue.rsi
     state: icon
     layers:
-      - state: icon
-        map: ["enum.OpenableVisuals.Layer"]
+    - state: icon
+      map: ["enum.OpenableVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -2079,11 +985,14 @@
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 100
+  - type: Openable
+    sound:
+      collection: packetOpenSounds
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: Tag
     tags:
-      - DrinkSpaceGlue
+    - DrinkSpaceGlue
 
 - type: entity
   parent: BaseItem
@@ -2113,136 +1022,3 @@
       params:
         volume: -9
         maxDistance: 3
-
-- type: entity
-  name: The Throngler
-  parent: ToyHammer
-  id: ThronglerToy
-  suffix: Toy
-  description: Why would you make this?
-  components:
-    - type: Sprite
-      sprite: Objects/Weapons/Melee/Throngler2.rsi
-      state: icon
-    - type: StaminaDamageOnHit
-      damage: 0.8
-    - type: MeleeWeapon
-      animationRotation: -45 # WWDP
-      wideAnimationRotation: -135
-      attackRate: .1
-      damage:
-        types:
-          Blunt: 0
-      soundHit:
-        path: /Audio/Effects/explosion_small1.ogg
-      soundNoDamage:
-        path: /Audio/Effects/explosion_small1.ogg
-    - type: Item
-      size: Ginormous
-      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
-    - type: DisarmMalus
-      malus: 0
-
-- type: entity
-  parent: BasePlushie
-  id: RubberChicken
-  name: rubber chicken
-  description: A stress inducing parody of nature's most delectable avian.
-  components:
-  - type: Sprite
-    state: rubber_chicken
-  - type: EmitSoundOnUse
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnLand
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnActivate
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnCollide
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: MeleeWeapon
-    wideAnimationRotation: 110
-    soundHit:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Plastic: 25
-
-- type: entity
-  parent: BaseItem
-  id: DiscoBeachBall
-  name: disco beach ball
-  description: A disco beach ball turns any beach trip into Studio 54.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: beachball
-    color: "#FFFFFF"
-  - type: PointLight
-    radius: 8
-    energy: 6
-    mask: /Textures/Effects/LightMasks/double_cone.png
-  - type: RgbLightController
-    cycleRate: 0.3
-  - type: RotatingLight
-    speed: 70
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/Footsteps/bounce.ogg
-  - type: MultiHandedItem
-  - type: Item
-    size: Large
-    sprite: Objects/Fun/toys.rsi
-    heldPrefix: beachb
-  - type: Anchorable
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 1
-          ShardCrystalGreen:
-            min: 1
-            max: 1
-          ShardCrystalBlue:
-            min: 1
-            max: 1
-          ShardCrystalRed:
-            min: 1
-            max: 1

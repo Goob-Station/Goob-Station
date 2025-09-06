@@ -41,7 +41,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (args.Handled)
                 return;
 
-            if (!EntityManager.TryGetComponent(entity, out SmokableComponent? smokable))
+            if (!TryComp(entity, out SmokableComponent? smokable))
                 return;
 
             if (smokable.State != SmokableState.Unlit)
@@ -63,7 +63,7 @@ namespace Content.Server.Nutrition.EntitySystems
             var targetEntity = args.Target;
             if (targetEntity == null ||
                 !args.CanReach ||
-                !EntityManager.TryGetComponent(entity, out SmokableComponent? smokable) ||
+                !TryComp(entity, out SmokableComponent? smokable) ||
                 smokable.State == SmokableState.Lit)
                 return;
 
@@ -102,7 +102,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 _solutionContainerSystem.TryAddSolution(pipeSolution.Value, reagentSolution);
             }
 
-            EntityManager.DeleteEntity(contents);
+            Del(contents);
 
             _itemSlotsSystem.SetLock(entity.Owner, entity.Comp.BowlSlot, true); //no inserting more until current runs out
 

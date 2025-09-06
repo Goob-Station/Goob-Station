@@ -29,6 +29,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private static readonly EntProtoId MonumentCollider = "MonumentCollider";
     private static readonly EntProtoId MonumentCosmicCultMoveEnd = "MonumentCosmicCultMoveEnd";
@@ -115,7 +116,7 @@ public sealed class CosmicMonumentSystem : EntitySystem
         var worldPos = _transform.GetWorldPosition(xform);
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, spaceDistance)))
         {
-            if (tile.IsSpace(_tileDef))
+            if (_turf.IsSpace(tile))
             {
                 _popup.PopupEntity(Loc.GetString("cosmicability-monument-spawn-error-space", ("DISTANCE", spaceDistance)), uid, uid);
                 return false;

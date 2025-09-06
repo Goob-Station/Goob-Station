@@ -325,9 +325,9 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
+                .Any(wound => wound.Comp.DamageGroup == damageGroup);
 
-        return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
+        return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup == damageGroup);
     }
 
     public FixedPoint2 ApplyHealingRateMultipliers(EntityUid wound,

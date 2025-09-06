@@ -112,7 +112,6 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -124,7 +123,6 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] protected readonly IGameTiming Timing = default!; // Tile Movement Change
@@ -273,7 +271,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         if (!Resolve(uid, ref component, false))
             return;
 
-        if (EntityManager.TryGetComponent(uid, out InputMoverComponent? controller))
+        if (TryComp(uid, out InputMoverComponent? controller))
         {
             controller.CurTickSprintMovement = Vector2.Zero;
 
@@ -310,7 +308,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         {
             MaxDegreeOfParallelism = 1,
         };
-        var curTime = _timing.CurTime;
+        var curTime = Timing.CurTime;
 
         Parallel.For(0, index, options, i =>
         {
@@ -352,7 +350,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         }
 
         component.CurTickSprintMovement = value;
-        component.LastInputTick = _timing.CurTick;
+        component.LastInputTick = Timing.CurTick;
         component.LastInputSubTick = ushort.MaxValue;
 
         var ev = new SpriteMoveEvent(true);
@@ -394,7 +392,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
         var agentRadius = steering.Radius;
         var worldPos = _transform.GetWorldPosition(xform);
-        var (layer, mask) = _physics.GetHardCollision(uid);
+        var (layer, mask) = PhysicsSystem.GetHardCollision(uid);
         // Use rotation relative to parent to rotate our context vectors by.
         var offsetRot = -_mover.GetParentGridAngle(mover);
 

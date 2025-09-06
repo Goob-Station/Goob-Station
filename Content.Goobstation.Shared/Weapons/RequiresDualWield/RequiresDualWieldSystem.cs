@@ -49,7 +49,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
         if (handsComp.Count != 2)
             return;
 
-        var EnumeratedItems = _handsSystem.EnumerateHeld(args.User, handsComp);
+        var EnumeratedItems = _handsSystem.EnumerateHeld((args.User, handsComp));
 
         if (EnumeratedItems.ToList().Count <= 1)
         {

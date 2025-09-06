@@ -82,14 +82,12 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Inventory;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public partial class SharedGunSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private void InitializeClothing()
     {
@@ -122,7 +120,7 @@ public partial class SharedGunSystem
         // Assmos extinguisher nozzle changes start here
         if (component.CheckHands)
         {
-            foreach (var item in _handsSystem.EnumerateHeld(user))
+            foreach (var item in _hands.EnumerateHeld(user))
             {
                 if (item == uid)
                     continue;

@@ -61,6 +61,7 @@ SPDX-License-Identifier: MIT
                     <Control HorizontalExpand="True"/>
                     <Label Name="Count" Access="Public"/>
                     <Control HorizontalExpand="True"/>
+                    <Button Name="ExportLogs" Access="Public" Text="{Loc admin-logs-export}"/>
                     <Button Name="PopOutButton" Access="Public" Text="{Loc admin-logs-pop-out}"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">

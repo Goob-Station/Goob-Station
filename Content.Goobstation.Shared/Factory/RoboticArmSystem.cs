@@ -399,7 +399,7 @@ public sealed class RoboticArmSystem : EntitySystem
     private bool IsOutputBlocked(EntityUid uid)
     {
         var coords = OutputPosition(uid);
-        return coords.GetTileRef(EntityManager, _map) is {} turf &&
+        return _turf.GetTileRef(coords) is {} turf &&
             _turf.IsTileBlocked(turf, CollisionGroup.MachineMask);
     }
 
