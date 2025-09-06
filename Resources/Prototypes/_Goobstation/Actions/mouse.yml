@@ -18,3 +18,17 @@
       path: /Audio/Effects/pop.ogg
   - type: InstantAction
     event: !type:EggLayInstantActionEvent
+
+# not exclusive to mice but they're the most common ones that would end up in this situation :)
+- type: entity
+  parent: BaseAction
+  id: ActionBodyPartBurst
+  name: burst free!
+  description: Dig your way out of the flesh you are trapped in!
+  components:
+  - type: Action
+    useDelay: 15
+    sound:
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg # crunch crunch
+  - type: InstantAction
+    event: !type:BodyPartBurstEvent
