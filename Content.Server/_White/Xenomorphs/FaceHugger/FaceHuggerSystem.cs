@@ -9,6 +9,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
@@ -31,6 +32,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -44,6 +46,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, StartCollideEvent>(OnCollideEvent);
         SubscribeLocalEvent<FaceHuggerComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedHandEvent>(OnPickedUp);
+        SubscribeLocalEvent<FaceHuggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
@@ -62,6 +65,12 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     private void OnPickedUp(EntityUid uid, FaceHuggerComponent component, GotEquippedHandEvent args)
         => TryEquipFaceHugger(uid, args.User, component);
+
+    private void OnStepTriggered(EntityUid uid, FaceHuggerComponent component, ref StepTriggeredOffEvent args)
+    {
+        if (component.Active)
+            TryEquipFaceHugger(uid, args.Tripper, component);
+    }
 
     private void OnGotEquipped(EntityUid uid, FaceHuggerComponent component, GotEquippedEvent args)
     {
@@ -108,6 +117,16 @@ public sealed class FaceHuggerSystem : EntitySystem
             {
                 faceHugger.InfectIn = TimeSpan.Zero;
                 Infect(uid, faceHugger);
+            }
+
+            // Check for nearby entities to latch onto
+            if (faceHugger.Active && (!TryComp<ClothingComponent>(uid, out var clothing) || clothing.InSlot == null))
+            {
+                foreach (var entity in _entityLookup.GetEntitiesInRange<InventoryComponent>(Transform(uid).Coordinates, 1.5f))
+                {
+                    if (TryEquipFaceHugger(uid, entity, faceHugger))
+                        break;
+                }
             }
         }
     }
