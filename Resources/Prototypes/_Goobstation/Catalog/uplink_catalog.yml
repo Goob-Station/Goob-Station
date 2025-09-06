@@ -71,6 +71,16 @@
     -  UplinkDisruption
 
 - type: listing
+  id: UplinkCarpCaller
+  name: uplink-carpcaller-name
+  description: uplink-carpcaller-desc
+  productEntity: CarpCaller
+  cost:
+    Telecrystal: 40 # you can't really do much with it
+  categories:
+    -  UplinkDisruption
+
+- type: listing
   id: UplinkBoxReagentGrenades
   name: Box of Reagent Grenades
   description: Contains 2 Glue grenades and 2 Lube Grenades
@@ -672,6 +682,22 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+
+- type: listing
+  id: UplinkClowncarNukie
+  name: uplink-clowncar-name
+  description: uplink-clowncar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  productEntity: CrateFunClownCarNukieUplink
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkMobRoachMicrobomb

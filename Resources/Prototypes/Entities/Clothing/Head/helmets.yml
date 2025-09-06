@@ -111,6 +111,7 @@
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Pgriha <133212269+Pgriha@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Polter <62557990+PolterTzi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -139,10 +140,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: HideLayerClothing
-    layers:
-      HeadTop : HEAD
-      HeadSide : HEAD
+  #- type: HideLayerClothing #Goobstation
+  #  layers:
+  #    HeadTop : HEAD
+  #    HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -167,14 +168,14 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - HeadTop
-    - HeadSide
+  #- type: HideLayerClothing #Goobstation
+  #  slots:
+  #  - HeadTop
+  #  - HeadSide
 
 #Basic Helmet (Security Helmet)
 - type: entity
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetBasic
   name: helmet
   description: Standard security gear. Protects the head from impacts.
@@ -187,9 +188,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Mercenary Helmet
 - type: entity
@@ -202,13 +203,13 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #SWAT Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetSwat
   name: SWAT helmet
   description: An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.
@@ -237,9 +238,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: FlashSoundSuppression # Goobstation
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing    #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Syndicate SWAT Helmet
 - type: entity
@@ -253,13 +254,13 @@
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/swat_syndicate.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Light Riot Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetBase, BaseSecurityContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetRiot
   name: light riot helmet
   description: It's a helmet specifically designed to protect against close range attacks.
@@ -277,9 +278,9 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.8
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Bombsuit Helmet
 - type: entity
@@ -327,7 +328,7 @@
 
 #Cult Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseMajorContraband]
+  parent: [ClothingHeadHelmetBase, BaseMajorContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetCult
   name: cult helmet
   description: A robust, evil-looking cult helmet.
@@ -346,13 +347,13 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Space Ninja Helmet
 - type: entity
-  parent: [ClothingHeadEVAHelmetBase, BaseMajorContraband]
+  parent: [ClothingHeadEVAHelmetBase, BaseMajorContraband] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetSpaceNinja
   name: space ninja helmet
   description: What may appear to be a simple black garment is in fact a highly sophisticated nano-weave helmet. Standard issue ninja gear.
@@ -366,7 +367,7 @@
     - WhitelistChameleon
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
+  - type: HideLayerClothing  # Goobstation Start
     layers:
       Hair: HEAD
       Snout: HEAD
@@ -382,7 +383,7 @@
 
 #Knight Helmet
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ClothingHeadHelmetBase, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetTemplar
   name: knight helmet
   description: Decorative helmet fashioned to resemble the knights of old.
@@ -393,16 +394,16 @@
     sprite: Clothing/Head/Helmets/templar.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
   - type: Tag
     tags:
     - TemplarHelmet
 
 #Thunderdome Helmet
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ClothingHeadHelmetBase, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetThunderdome
   name: thunderdome helmet
   description: Let the battle commence!
@@ -411,13 +412,13 @@
     sprite: Clothing/Head/Helmets/thunderdome.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/thunderdome.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Wizard Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBaseArmor, BaseMagicalContraband] # Goob edit
+  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBaseArmor, BaseMagicalContraband, ClothingHeadHelmetBaseFoldable] # Goob edit
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
   description: Strange-looking helmet that most certainly belongs to a real magic user. Doesn't count as wizard hat. # Goob edit
@@ -437,9 +438,9 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #Fire Helmet
 - type: entity
@@ -509,7 +510,7 @@
     tags:
     - WhitelistChameleon
     - FireHelmet
-  - type: HideLayerClothing
+  - type: HideLayerClothing # Goobstation Start
     layers:
       Hair: HEAD
       Snout: HEAD
@@ -532,7 +533,7 @@
 
 #Chitinous Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseMajorContraband]
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetLing
   name: chitinous helmet
   description: An all-consuming chitinous mass of armor.
@@ -557,14 +558,14 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #ERT HELMETS
 #ERT Leader Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetArmoredBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetArmoredBase, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetERTLeader
   name: ERT leader helmet
   description: An in-atmosphere helmet worn by the leader of a Nanotrasen Emergency Response Team. Has blue highlights.
@@ -573,13 +574,13 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+ # - type: HideLayerClothing  #Goobstation
+ #   layers:
+ #     Hair: HEAD
 
 #ERT Security Helmet
 - type: entity
-  parent: ClothingHeadHelmetERTLeader
+  parent: [ClothingHeadHelmetERTLeader, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetERTSecurity
   name: ERT security helmet
   description: An in-atmosphere helmet worn by security members of the Nanotrasen Emergency Response Team. Has red highlights.
@@ -588,9 +589,9 @@
     sprite: Clothing/Head/Helmets/ert_security.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_security.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+ # - type: HideLayerClothing  #Goobstation
+ #   layers:
+ #     Hair: HEAD
 
 #ERT Medic Helmet
 - type: entity
@@ -603,9 +604,9 @@
     sprite: Clothing/Head/Helmets/ert_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_medic.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 #ERT Engineer Helmet
 - type: entity
@@ -619,9 +620,9 @@
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
   - type: EyeProtection # goob - it literally has them in the sprite.
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+ # - type: HideLayerClothing  #Goobstation
+ #   layers:
+ #     Hair: HEAD
 
 #ERT Janitor Helmet
 - type: entity
@@ -634,12 +635,12 @@
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+  #- type: HideLayerClothing  #Goobstation
+  #  layers:
+  #    Hair: HEAD
 
 - type: entity
-  parent: [ BaseSyndicateContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseSyndicateContraband, ClothingHeadHelmetBase, ClothingHeadHelmetBaseFoldable ] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetRaid
   name: syndicate raid helmet
   description: An armored helmet for use with the syndicate raid suit. Very stylish.
@@ -664,9 +665,9 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.35
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+ # - type: HideLayerClothing  #Goobstation
+ #   layers:
+ #     Hair: HEAD
 
 #Bone Helmet
 #No need to hide the hair on this one
@@ -686,7 +687,7 @@
 
 #Ironclad II Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetArmoredBase, BaseMinorContraband ]
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMinorContraband, ClothingHeadHelmetBaseFoldable ] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetPodWars
   name: ironclad II helmet
   description: An ironclad II helmet, a relic of the pod wars.
@@ -695,13 +696,13 @@
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/podwars_helmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
+ # - type: HideLayerClothing  #Goobstation
+ #   layers:
+ #     Hair: HEAD
 
 #Justice Helmet
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.

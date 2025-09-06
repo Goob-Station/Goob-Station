@@ -1,0 +1,95 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphLarva
+  name: xenomorph larva
+  description: An early stage of development characterized by small size, a worm-like body shape, and the absence of distinct limbs.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: xenomorph
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: xenomorph-moving
+    noMovementLayers:
+      movement:
+        state: xenomorph
+  - type: Xenomorph
+    caste: Larva
+  - type: XenomorphLarva
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+  - type: VentCrawler
+  - type: Body
+    prototype: XenomorphLarva
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Deathgasp
+    prototype: LarvaDeathgasp
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    damage:
+      types:
+        Blunt: 2
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: MobPrice
+    price: 250
+  - type: Organ
+    slotId: xenomorph_larva
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphLarva
+
+- type: entity
+  parent: BaseMobXenomorphLarva
+  id: MobXenomorphLarva
+  components:
+  - type: XenomorphEvolution
+    max: 200
+    evolvesTo:
+    - prototype: MobXenomorphDrone
+    - prototype: MobXenomorphSentinel
+    - prototype: MobXenomorphHunter
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-larva-name
+    description: ghost-role-information-xenomorph-larva-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphLarva]
+  id: MobXenomorphLarvaDungeon

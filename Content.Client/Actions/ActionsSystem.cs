@@ -207,7 +207,7 @@ namespace Content.Client.Actions
         public override void UpdateAction(Entity<ActionComponent> ent)
         {
             // TODO: Decouple this.
-            ent.Comp.IconColor = _sharedCharges.GetCurrentCharges(ent.Owner) == 0 ? ent.Comp.DisabledIconColor : ent.Comp.OriginalIconColor;
+            ent.Comp.IconColor = _sharedCharges.GetCurrentCharges(ent.Owner) == 0 || !ent.Comp.Enabled ? ent.Comp.DisabledIconColor : ent.Comp.OriginalIconColor; // WD EDIT
             base.UpdateAction(ent);
             if (_playerManager.LocalEntity != ent.Comp.AttachedEntity)
                 return;

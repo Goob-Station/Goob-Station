@@ -1,0 +1,109 @@
+- type: entity
+  parent: BaseItem
+  id: XenomorphInfection
+  name: xenomorph larva embryo
+  description: A parasitic life form in its early stages of development. It has a worm-like body shape, underdeveloped limbs, and a tail appendage.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Species/Xenomorph/organs.rsi
+    state: embryon
+  - type: Organ
+    slotId: xenomorph_larva
+  - type: StaticPrice
+    price: 2000
+  - type: XenomorphInfection
+    maxGrowthStage: 6
+    growProb: 0.5
+    infectedIcons:
+      0: XenomorphInfectionIconStageZero
+      1: XenomorphInfectionIconStageOne
+      2: XenomorphInfectionIconStageTwo
+      3: XenomorphInfectionIconStageThree
+      4: XenomorphInfectionIconStageFour
+      5: XenomorphInfectionIconStageFive
+      6: XenomorphInfectionIconStageSix
+    effects:
+      2:
+      - !type:PopupMessage
+        messages: [ "xenomorph-infection-stage-2" ]
+        visualType: SmallCaution
+      - !type:Paralyze
+        paralyzeTime: 1
+      - !type:GenericStatusEffect
+        key: Muted
+        component: Muted
+        type: Add
+        time: 1
+        refresh: true
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 1
+        refresh: true
+      - !type:Jitter
+        time: 2
+      3:
+      - !type:PopupMessage
+        messages: [ "xenomorph-infection-stage-3" ]
+        visualType: SmallCaution
+      - !type:Paralyze
+        paralyzeTime: 2
+      - !type:GenericStatusEffect
+        key: Muted
+        component: Muted
+        type: Add
+        time: 2
+        refresh: true
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 2
+        refresh: true
+      - !type:Jitter
+        time: 4
+      4:
+      - !type:PopupMessage
+        messages: [ "xenomorph-infection-stage-4" ]
+        visualType: SmallCaution
+      - !type:Paralyze
+        paralyzeTime: 4
+      - !type:GenericStatusEffect
+        key: Muted
+        component: Muted
+        type: Add
+        time: 4
+        refresh: true
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 4
+        refresh: true
+      - !type:Jitter
+        time: 8
+      6:
+      - !type:PopupMessage
+        messages: [ "xenomorph-infection-stage-6" ]
+        visualType: Medium
+      - !type:Paralyze
+        paralyzeTime: 8
+      - !type:GenericStatusEffect
+        key: Muted
+        component: Muted
+        type: Add
+        time: 8
+        refresh: true
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 8
+        refresh: true
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: 40
+      - !type:Jitter
+        time: 16

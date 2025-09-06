@@ -120,6 +120,15 @@ public sealed partial class MonumentComponent : Component
     public TimeSpan? PhaseOutTimer;
 }
 
+/// <summary>
+/// Added to a glyph entity to track which monument it belongs to for cleanup.
+/// </summary>
+[RegisterComponent]
+public sealed partial class MonumentGlyphComponent : Component
+{
+    public EntityUid Monument;
+}
+
 [Serializable, NetSerializable]
 public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
 {
