@@ -27,7 +27,7 @@
       walkModifier: 0.85
       sprintModifier: 0.85
     - type: Clothing
-      slots: BACK
+      slots: BACK, SUITSTORAGE
 
 - type: entity
   id: PKAUpgradeRecharge
