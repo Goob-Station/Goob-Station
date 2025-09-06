@@ -342,11 +342,9 @@
   - type: Speech
     speechVerb: FloorGoblin
     speechSounds: Duende
-    allowedEmotes: []
+    allowedEmotes: [Laugh]
   - type: Vocal
     sounds:
-      Male: Duende
-      Female: Duende
       Unsexed: Duende
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageKnowledge # Einstein Engines - Language

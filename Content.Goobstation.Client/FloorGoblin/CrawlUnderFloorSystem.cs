@@ -19,6 +19,8 @@ using Robust.Client.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
+using Content.Shared.DrawDepth;
+using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Goobstation.Client.FloorGoblin;
 
@@ -49,6 +51,11 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
 
             if (!enabled)
             {
+                if (_lastCell.Remove(uid) && comp.OriginalDrawDepth != null) {
+                    _sprite.SetDrawDepth(uid, (int) comp.OriginalDrawDepth);
+                    comp.OriginalDrawDepth = null;
+                }
+
                 if (sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded(uid, false);
 
@@ -94,11 +101,16 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
 
         if (enabled)
         {
+            if (component.OriginalDrawDepth == null)
+                component.OriginalDrawDepth = sprite.DrawDepth;
 
             if (onSubfloor)
             {
+
                 if (sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded(uid, false);
+
+                _sprite.SetDrawDepth(uid, (int) DrawDepth.BelowFloor);
             }
             else
             {
@@ -108,6 +120,10 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         }
         else
         {
+            if (component.OriginalDrawDepth != null) {
+                _sprite.SetDrawDepth(uid, (int) component.OriginalDrawDepth);
+                component.OriginalDrawDepth = null;
+            }
 
             if (sprite.ContainerOccluded)
                 _sprite.SetContainerOccluded(uid, false);

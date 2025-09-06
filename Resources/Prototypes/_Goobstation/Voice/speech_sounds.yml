@@ -7,3 +7,12 @@
     path: /Audio/_Goobstation/Animals/horse.ogg
   exclaimSound:
     path: /Audio/_Goobstation/Animals/horse.ogg
+
+- type: speechSounds
+  id: Duende
+  saySound:
+    collection: DuendeSounds
+  askSound:
+    collection: DuendeSounds
+  exclaimSound:
+    collection: DuendeSounds

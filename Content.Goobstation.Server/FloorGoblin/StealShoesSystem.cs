@@ -87,30 +87,6 @@ public sealed partial class StealShoesSystem : EntitySystem
         return IsOnSubfloor(uid);
     }
 
-    private int GetActivePlayers()
-    {
-        var count = 0;
-        foreach (var s in _players.Sessions)
-            if (s.Status == SessionStatus.InGame)
-                count++;
-        return count;
-    }
-
-    private void EnsureObjectiveRequired(EntityUid uid)
-    {
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
-            return;
-        if (!_mind.TryGetObjectiveComp<CollectShoesConditionComponent>(mindId, out var cond, mind))
-            return;
-        if (cond.Required > 0)
-            return;
-
-        var target = (int) Math.Ceiling(cond.Base + cond.PerPlayer * GetActivePlayers());
-        if (target < cond.Min) target = cond.Min;
-        if (target > cond.Max) target = cond.Max;
-        cond.Required = target;
-    }
-
     private void OnStealShoes(EntityUid uid, StealShoesComponent component, StealShoesEvent args)
     {
         if (args.Handled)
@@ -133,8 +109,6 @@ public sealed partial class StealShoesSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("steal-shoes-no-shoes"), uid);
             return;
         }
-
-        EnsureObjectiveRequired(uid);
 
         var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(2), new StealShoesDoAfterEvent(), uid, target)
         {
@@ -184,20 +158,6 @@ public sealed partial class StealShoesSystem : EntitySystem
 
         if (component.ChompSound != null)
             _audio.PlayPvs(component.ChompSound, uid);
-
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<CollectShoesConditionComponent>(mindId, out var cond, mind))
-            {
-                if (cond.Required <= 0)
-                {
-                    var targetReq = (int) Math.Ceiling(cond.Base + cond.PerPlayer * GetActivePlayers());
-                    if (targetReq < cond.Min) targetReq = cond.Min;
-                    if (targetReq > cond.Max) targetReq = cond.Max;
-                    cond.Required = targetReq;
-                }
-
-                cond.Collected += 1;
-            }
 
         _popup.PopupEntity(Loc.GetString("shoes-stolen-target-event"), target);
         _popup.PopupEntity(Loc.GetString("steal-shoes-event", ("shoes", MetaData(target).EntityName)), uid);

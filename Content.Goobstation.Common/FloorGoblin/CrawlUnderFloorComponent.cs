@@ -32,5 +32,8 @@ namespace Content.Goobstation.Common.FloorGoblin
 
         [DataField, AutoNetworkedField]
         public List<(string key, int originalLayer)> ChangedFixtureLayers = new();
+
+        [DataField]
+        public int? OriginalDrawDepth;
     }
 }
