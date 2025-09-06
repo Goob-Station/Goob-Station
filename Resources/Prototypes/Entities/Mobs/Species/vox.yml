@@ -114,6 +114,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
@@ -144,6 +145,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
+    allowedEmotes: ['Bagawk']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -354,6 +356,13 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+      - TauCetiBasic
+      - NewKinPidgin        # Vox language from Floofstation
+    understands:
+      - TauCetiBasic
+      - NewKinPidgin        # Vox language from Floofstation
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -1,0 +1,25 @@
+- type: htnCompound
+  id: XenomorphCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: EscapeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: XenomorphRangeCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: GunCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: EscapeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
