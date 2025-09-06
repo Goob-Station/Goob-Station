@@ -102,14 +102,16 @@ namespace Content.Shared.Nutrition.EntitySystems;
 
 public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IngestionSystem _ingestion = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
     [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
     public override void Initialize()
     {
@@ -173,13 +175,13 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return true;
 
         Metamorf(start, _random.Pick(availableRecipes)); //In general, if there's more than one recipe, the yml-guys screwed up. Maybe some kind of unit test is needed.
-        PredictedQueueDel(start.Owner); // trauma
+        PredictedQueueDel(start.Owner);
         return true;
     }
 
     private void Metamorf(Entity<FoodSequenceStartPointComponent> start, MetamorphRecipePrototype recipe)
     {
-        var result = PredictedSpawnNextToOrDrop(recipe.Result, start); // trauma
+        var result = PredictedSpawnNextToOrDrop(recipe.Result, start);
 
         //Try putting in container
         _transform.DropNextTo(result, (start, Transform(start)));
@@ -195,7 +197,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _solutionContainer.TryAddSolution(resultSoln.Value, startSolution);
 
         MergeFlavorProfiles(start, result);
-        MergeTrash(start.Owner, result); //trauma
+        MergeTrash(start.Owner, result);
         MergeTags(start, result);
     }
 
@@ -315,15 +317,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _metaData.SetEntityName(start, newName);
     }
 
-    private void MergeFoodSolutions(EntityUid start, EntityUid element)
+    private void MergeFoodSolutions(Entity<EdibleComponent?> start, Entity<EdibleComponent?> element)
     {
-        if (!TryComp<FoodComponent>(start, out var startFood))
+        if (!Resolve(start, ref start.Comp, false))
             return;
 
-        if (!TryComp<FoodComponent>(element, out var elementFood))
+        if (!Resolve(element, ref element.Comp, false))
             return;
 
-        if (!_solutionContainer.TryGetSolution(start, startFood.Solution, out var startSolutionEntity, out var startSolution))
+        if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
         if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
@@ -358,18 +360,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         }
     }
 
-    private void MergeTrash(EntityUid start, EntityUid element)
+    private void MergeTrash(Entity<EdibleComponent?> start, Entity<EdibleComponent?> element)
     {
-        if (!TryComp<FoodComponent>(start, out var startFood))
+        if (!Resolve(start, ref start.Comp, false))
             return;
 
-        if (!TryComp<FoodComponent>(element, out var elementFood))
+        if (!Resolve(element, ref element.Comp, false))
             return;
 
-        foreach (var trash in elementFood.Trash)
-        {
-            startFood.Trash.Add(trash);
-        }
+        _ingestion.AddTrash((start, start.Comp), element.Comp.Trash);
     }
 
     private void MergeTags(EntityUid start, EntityUid element)
