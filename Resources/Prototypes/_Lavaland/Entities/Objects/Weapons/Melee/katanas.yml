@@ -1,0 +1,121 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: base katana
+  parent: BaseSword
+  id: LavalandBaseKatana
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    layers:
+    - state: blade
+    - state: handle
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    shape:
+    - 0,0,0,3
+    #storedSprite:
+    #  state: storage
+    #  sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: MeleeWeapon
+    wideAnimationRotation: -60
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Slash: 15
+  - type: DisarmMalus
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 1.5
+  - type: StaticPrice
+    price: 10000
+  - type: Tag
+    tags:
+    - Katana
+
+- type: entity
+  name: cryo katana
+  description: Maybe it's a bit weird that this sword is freezing in that route.
+  parent: LavalandBaseKatana
+  id: CryoKatana
+  components:
+  - type: Sprite
+    layers:
+    - state: blade
+      color: "#00FFFF"
+    - state: handle
+  - type: Item
+    #storedSprite:
+    #  state: storage
+    #  sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    inhandVisuals:
+      left:
+      - state: handle-inhand-left
+      - state: blade-inhand-left
+        color: "#00FFFF"
+      right:
+      - state: handle-inhand-right
+      - state: blade-inhand-right
+        color: "#00FFFF"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: handle-equipped-BACKPACK
+      - state: blade-equipped-BACKPACK
+        color: "#00FFFF"
+      belt:
+      - state: handle-equipped-BELT
+      - state: blade-equipped-BELT
+        color: "#00FFFF"
+  - type: ChangeTemperatureOnHit
+    heat: -150000 # Low temperature also slows you down, so decrease is lower than lava katana
+
+- type: entity
+  name: lava katana
+  description: One thousand degree knife, that somehow always keeps intact.
+  parent: LavalandBaseKatana
+  id: LavaKatana
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+      state: blade
+      color: "#FF6600"
+    - sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+      state: handle
+  - type: Item
+    #storedSprite:
+    #  state: storage
+    #  sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    inhandVisuals:
+      left:
+      - state: handle-inhand-left
+      - state: blade-inhand-left
+        color: "#FF6600"
+      right:
+      - state: handle-inhand-right
+      - state: blade-inhand-right
+        color: "#FF6600"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: handle-equipped-BACKPACK
+      - state: blade-equipped-BACKPACK
+        color: "#FF6600"
+      belt:
+      - state: handle-equipped-BELT
+      - state: blade-equipped-BELT
+        color: "#FF6600"
+  - type: ChangeTemperatureOnHit
+    heat: 200000
