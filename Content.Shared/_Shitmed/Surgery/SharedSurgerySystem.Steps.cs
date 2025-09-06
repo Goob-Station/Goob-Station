@@ -856,26 +856,20 @@ public abstract partial class SharedSurgerySystem
         if (!CanPerformStep(user, body, part, step, tool, true, out _, out _, out var data))
             return false;
 
-        var speed = 1f;
+        var toolComp = _toolQuery.CompOrNull(tool);
         var usedEv = new SurgeryToolUsedEvent(user, body);
+        usedEv.IgnoreToggle = toolComp?.IgnoreToggle ?? false;
+        RaiseLocalEvent(tool, ref usedEv);
+        if (usedEv.Cancelled)
+            return false;
+
+        if (toolComp?.StartSound is {} sound)
+            _audio.PlayPredicted(sound, tool, user);
+
+        _rotateToFace.TryFaceCoordinates(user, _transform.GetMapCoordinates(body).Position);
+
         // We need to check for nullability because of surgeries that dont require a tool, like Cavity Implants
-        if (data != null)
-        {
-            var toolComp = _toolQuery.CompOrNull(tool);
-            usedEv.IgnoreToggle = toolComp?.IgnoreToggle ?? false;
-            RaiseLocalEvent(tool, ref usedEv);
-            if (usedEv.Cancelled)
-                return false;
-
-            speed *= data.Speed;
-
-            if (toolComp?.StartSound is {} sound)
-                _audio.PlayPredicted(sound, tool, user);
-        }
-
-        if (TryComp(body, out TransformComponent? xform))
-            _rotateToFace.TryFaceCoordinates(user, _transform.GetMapCoordinates(body, xform).Position);
-
+        var speed = data?.Speed ?? 1f;
         var toolUsed = data?.Used ?? false; // if no tool is being used you can't consume it
         var ev = new SurgeryDoAfterEvent(surgeryId, stepId, toolUsed);
         var duration = GetSurgeryDuration(step, user, body, speed);
