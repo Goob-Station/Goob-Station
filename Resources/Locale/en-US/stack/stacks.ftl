@@ -157,6 +157,7 @@ stack-steel-light-checker-tile = steel light checker tile
 stack-steel-tile = steel tile
 stack-wood-floor = wood floor
 stack-techmaint-floor = techmaint floor
+stack-techmaint-floor-dark = dark techmaint floor
 stack-freezer-tile = freezer tile
 stack-showroom-tile = showroom tile
 stack-green-circuit-floor = green-circuit floor
