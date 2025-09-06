@@ -14,7 +14,7 @@
       Death: 100
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 700
+    chaosScore: 400
   - type: VentSpawnRule
   - type: AntagSpawner
     prototype: MobXenomorphLarva
