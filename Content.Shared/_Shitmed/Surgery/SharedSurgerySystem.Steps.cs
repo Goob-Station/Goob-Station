@@ -53,10 +53,12 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 
 public abstract partial class SharedSurgerySystem
 {
+    private EntityQuery<BodyPartComponent> _partQuery;
     private EntityQuery<SurgeryToolComponent> _toolQuery;
 
     private void InitializeSteps()
     {
+        _partQuery = GetEntityQuery<BodyPartComponent>();
         _toolQuery = GetEntityQuery<SurgeryToolComponent>();
 
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepEvent>(OnToolStep);
@@ -164,11 +166,9 @@ public abstract partial class SharedSurgerySystem
         if (ent.Comp.Tool == null)
             return;
 
-        args.ValidTools ??= new Dictionary<EntityUid, float>();
-
         foreach (var reg in ent.Comp.Tool.Values)
         {
-            if (!HasSurgeryComp(args.Tool, reg.Component, out var speed))
+            if (!HasSurgeryComp(args.Tool, reg.Component, out var data))
             {
                 args.Invalid = StepInvalidReason.MissingTool;
 
@@ -178,7 +178,7 @@ public abstract partial class SharedSurgerySystem
                 return;
             }
 
-            args.ValidTools[args.Tool] = speed;
+            args.ValidTool = data;
         }
     }
 
@@ -845,38 +845,32 @@ public abstract partial class SharedSurgerySystem
             || IsStepComplete(body, part, stepId, surgery))
             return false;
 
-        if (!CanPerformStep(user, body, part, step, true, out _, out _, out var validTools))
+        var tool = _hands.GetActiveItemOrSelf(user);
+        if (!CanPerformStep(user, body, part, step, tool, true, out _, out _, out var data))
             return false;
 
         var speed = 1f;
         var usedEv = new SurgeryToolUsedEvent(user, body);
         // We need to check for nullability because of surgeries that dont require a tool, like Cavity Implants
-        if (validTools?.Count > 0)
+        if (data != null)
         {
-            foreach (var (tool, toolSpeed) in validTools)
-            {
-                usedEv.IgnoreToggle = _toolQuery.CompOrNull(tool)?.IgnoreToggle ?? false;
-                RaiseLocalEvent(tool, ref usedEv);
-                if (usedEv.Cancelled)
-                    return false;
+            var toolComp = _toolQuery.CompOrNull(tool);
+            usedEv.IgnoreToggle = toolComp?.IgnoreToggle ?? false;
+            RaiseLocalEvent(tool, ref usedEv);
+            if (usedEv.Cancelled)
+                return false;
 
-                speed *= toolSpeed;
-            }
+            speed *= data.Speed;
 
-            if (_net.IsServer)
-            {
-                foreach (var tool in validTools.Keys)
-                {
-                    if (_toolQuery.CompOrNull(tool)?.StartSound is {} sound)
-                        _audio.PlayPvs(sound, tool);
-                }
-            }
+            if (_net.IsServer && toolComp?.StartSound is {} sound)
+                _audio.PlayPvs(sound, tool);
         }
 
         if (TryComp(body, out TransformComponent? xform))
             _rotateToFace.TryFaceCoordinates(user, _transform.GetMapCoordinates(body, xform).Position);
 
-        var ev = new SurgeryDoAfterEvent(surgeryId, stepId);
+        var toolUsed = data?.Used ?? false; // if no tool is being used you can't consume it
+        var ev = new SurgeryDoAfterEvent(surgeryId, stepId, toolUsed);
         // TODO: Move 2 seconds to a field of SurgeryStepComponent
         var duration = GetSurgeryDuration(step, user, body, speed);
 
@@ -981,12 +975,13 @@ public abstract partial class SharedSurgerySystem
         return true;
     }
 
-    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part,
+    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part, EntityUid tool,
         EntityUid step, bool doPopup, out string? popup, out StepInvalidReason reason,
-        out Dictionary<EntityUid, float>? validTools)
+        out ISurgeryToolComponent? data)
     {
+        data = null;
         var type = BodyPartType.Other;
-        if (TryComp(part, out BodyPartComponent? partComp))
+        if (_partQuery.TryComp(part, out var partComp))
         {
             type = partComp.PartType;
         }
@@ -1005,10 +1000,10 @@ public abstract partial class SharedSurgerySystem
             _ => SlotFlags.NONE
         };
 
-        var check = new SurgeryCanPerformStepEvent(user, body, _hands.GetActiveItemOrSelf(user), slot);
+        var check = new SurgeryCanPerformStepEvent(user, body, tool, slot);
         RaiseLocalEvent(step, ref check);
         popup = check.Popup;
-        validTools = check.ValidTools;
+        data = check.ValidTool;
 
         if (check.Invalid != StepInvalidReason.None)
         {
@@ -1023,9 +1018,9 @@ public abstract partial class SharedSurgerySystem
         return true;
     }
 
-    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part, EntityUid step, bool doPopup)
+    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part, EntityUid step, EntityUid tool, bool doPopup)
     {
-        return CanPerformStep(user, body, part, step, doPopup, out _, out _, out _);
+        return CanPerformStep(user, body, part, step, tool, doPopup, out _, out _, out _);
     }
 
     public bool IsStepComplete(EntityUid body, EntityUid part, EntProtoId step, EntityUid surgery)
@@ -1038,15 +1033,15 @@ public abstract partial class SharedSurgerySystem
         return !ev.Cancelled;
     }
 
-    private bool HasSurgeryComp(EntityUid tool, IComponent component, out float speed)
+    private bool HasSurgeryComp(EntityUid tool, IComponent component, out ISurgeryToolComponent? data)
     {
         if (EntityManager.TryGetComponent(tool, component.GetType(), out var found) && found is ISurgeryToolComponent toolComp)
         {
-            speed = toolComp.Speed;
+            data = toolComp;
             return true;
         }
 
-        speed = 1f;
+        data = null;
         return false;
     }
     #endregion
