@@ -1,0 +1,46 @@
+- type: constructionGraph
+  id: BarricadeSteel
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DeleteEntity
+    edges:
+    - to: base
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: Steel
+        amount: 4
+        doAfter: 4
+    - to: folding
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 6
+  - node: base
+    entity: BarricadeSteel
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Prying
+        doAfter: 2
+  - node: folding
+    entity: BarricadeSteelFolding
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Prying
+        doAfter: 5
