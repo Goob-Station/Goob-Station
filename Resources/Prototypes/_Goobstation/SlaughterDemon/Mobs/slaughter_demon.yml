@@ -64,8 +64,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      210: Critical
-      240: Dead
+      200: Dead
   - type: Examiner
   - type: CombatMode
   - type: MeleeWeapon
@@ -74,18 +73,20 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 30
+        Slash: 25
         Structural: 50
   - type: SlaughterDemon # main component
+    speedModWalk: 2.5
+    speedModRun: 2.5
   - type: SlaughterDevour # allows the demon to devour
     toHeal: # Healing done when eating someone
       groups:
-        Brute: -1000
-        Burn: -1000
-        Airloss: -1000
-        Toxin: -1000
-        Genetic: -1000
-        Metaphysical: -1000
+        Brute: -100
+        Burn: -100
+        Airloss: -100
+        Toxin: -100
+        Genetic: -100
+        Metaphysical: -100
     toHealNonCrew: # Healing done when eating a robot
       groups:
         Brute: -50
@@ -102,13 +103,14 @@
         Toxin: -25
         Genetic: -25
         Metaphysical: -25
+    doAfterDelay: 2
   - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
     stageChangeCooldown: 0.5
     grabThrowDamageModifier: 6.0
     throwingDistance: 30
-  - type: ComplexInteraction
+    needsHands: false
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
@@ -122,7 +124,6 @@
   - type: Body
     prototype: SlaughterDemon
   - type: StandingState
-  - type: Hands
   - type: Fixtures
     fixtures:
       fix1:
@@ -148,6 +149,7 @@
   - type: GrantHellRip
   - type: WeakToHoly
     alwaysTakeHoly: true
+  - type: Hands
 
 # laughter demon
 - type: entity
@@ -162,8 +164,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      190: Critical
-      215: Dead
+      190: Dead
   - type: SlaughterDevour
     feastSound: /Audio/_Goobstation/Misc/scary_horn2.ogg
   - type: SlaughterDemon
@@ -177,7 +178,7 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 25
+        Slash: 20
         Structural: 50
   - type: GhostRole
     allowMovement: true
@@ -203,5 +204,4 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      190: Critical
-      200: Dead
+      180: Dead

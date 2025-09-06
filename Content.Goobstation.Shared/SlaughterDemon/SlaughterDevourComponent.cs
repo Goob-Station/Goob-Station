@@ -16,6 +16,12 @@ namespace Content.Goobstation.Shared.SlaughterDemon;
 public sealed partial class SlaughterDevourComponent : Component
 {
     /// <summary>
+    /// Devouring doafter
+    /// </summary>
+    [DataField(required: true)]
+    public float DoAfterDelay;
+
+    /// <summary>
     /// Healing done when eating someone
     /// </summary>
     [DataField(required: true)]

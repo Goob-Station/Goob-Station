@@ -14,12 +14,12 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakHelldiver
-  name: salvage pure loality cape
+  name: salvage pure loyality cape
   description: A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/helldiver.rsi
-  - type: StealTarget
+  - type: StealTarget # lmao buying objectives, thief greatest antag
     stealGroup: HeadCloak
 
 - type: entity
