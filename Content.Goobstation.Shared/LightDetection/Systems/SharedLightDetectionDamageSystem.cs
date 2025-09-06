@@ -10,11 +10,11 @@ public abstract class SharedLightDetectionDamageSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<LightDetectionDamageComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LightDetectionDamageComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<LightDetectionDamageComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(EntityUid uid, LightDetectionDamageComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, LightDetectionDamageComponent component, MapInitEvent args)
     {
         if (component.ShowAlert)
             _alerts.ShowAlert(uid, component.AlertProto);
