@@ -11,19 +11,19 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    sprite: _Lavaland/Objects/Weapons/Melee/katana.rsi
     layers:
     - state: blade
     - state: handle
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    sprite: _Lavaland/Objects/Weapons/Melee/katana.rsi
     shape:
     - 0,0,0,3
     #storedSprite:
     #  state: storage
     #  sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
+    sprite: _Lavaland/Objects/Weapons/Melee/katana.rsi
     slots:
     - Back
     - Belt
@@ -79,7 +79,7 @@
       - state: blade-equipped-BELT
         color: "#00FFFF"
   - type: ChangeTemperatureOnHit
-    heat: -150000 # Low temperature also slows you down, so decrease is lower than lava katana
+    heat: -150000 # Low temperature also slows you down, so decrease is lower than on lava katana
 
 - type: entity
   name: lava katana
@@ -89,11 +89,9 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
-      state: blade
+    - state: blade
       color: "#FF6600"
-    - sprite: _Goobstation/Objects/Weapons/Melee/katana.rsi
-      state: handle
+    - state: handle
   - type: Item
     #storedSprite:
     #  state: storage
@@ -119,3 +117,38 @@
         color: "#FF6600"
   - type: ChangeTemperatureOnHit
     heat: 200000
+
+- type: entity
+  name: shadow katana
+  description: The legendary sword that emmits the darkess itself, 
+  parent: BaseSword
+  id: ShadowKatana
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/shadow_katana.rsi
+    state: icon
+  - type: Item
+    size: Ginormous # Im not making a storage sprite for this shi
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Melee/shadow_katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: MeleeWeapon
+    wideAnimationRotation: -60
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Slash: 20
+        Holy: 10
+  - type: DisarmMalus
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 2
+  - type: StaticPrice
+    price: 25000
+  - type: Tag
+    tags:
+    - Katana
+  # TODO: SWOON
