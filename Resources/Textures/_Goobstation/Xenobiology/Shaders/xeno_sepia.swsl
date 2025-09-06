@@ -1,0 +1,20 @@
+// Uniforms
+uniform highp float grain_amount = 0.06;
+uniform highp float grain_size = 4.0;
+
+void fragment() {
+    highp vec4 sprite = texture(TEXTURE, UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    // Generate random noise
+    highp float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+
+    // Add noise to the original color
+    sprite.rgb += noise * grain_amount * grain_size;
+
+    // Clamp the final color to make sure it stays in the valid range
+    COLOR = clamp(sprite, 0.0, 1.0);
+}
