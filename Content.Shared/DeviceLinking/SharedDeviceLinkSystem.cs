@@ -612,6 +612,24 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     {
         // NOOP on client for the moment.
     }
+
+    /// <summary>
+    /// Goobstation - moved out of server
+    /// Helper function that invokes a port with a high/low binary logic signal.
+    /// </summary>
+    public void SendSignal(EntityUid uid, string port, bool signal, DeviceLinkSourceComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        var data = new NetworkPayload
+        {
+            [DeviceNetworkConstants.LogicState] = signal ? SignalState.High : SignalState.Low
+        };
+        InvokePort(uid, port, data, comp);
+
+        comp.LastSignals[port] = signal;
+    }
     #endregion
 
     /// <summary>
