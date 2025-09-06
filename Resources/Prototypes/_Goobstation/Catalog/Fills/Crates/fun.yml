@@ -55,3 +55,48 @@
     keyPhrase: Bingle
   - type: ActiveListener
     range: 4
+
+- type: entity
+  id: CrateWizardAnomCore
+  name: Crate of Enchanting
+  description: A box containing stolen anomaly cores, used for enchanting.
+  parent: CratePirate
+  components:
+  #ONLY contains anomalies with enchantcomp.
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: RandomAnomalyCoreEnchantTable 
+        - !type:NestedSelector
+          tableId: RandomAnomalyCoreInertEnchantTable
+          rolls: 2
+
+- type: entityTable
+  id: RandomAnomalyCoreEnchantTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
+    - id: AnomalyCoreGravity
+    - id: AnomalyCoreIce
+    - id: AnomalyCoreFlesh
+    - id: AnomalyCoreRock
+    - id: AnomalyCoreLiquid
+    - id: AnomalyCoreElectricity
+    - id: AnomalyCoreFlora
+    - id: AnomalyCoreSanta
+
+- type: entityTable
+  id: RandomAnomalyCoreInertEnchantTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclasticInert
+    - id: AnomalyCoreGravityInert
+    - id: AnomalyCoreIceInert
+    - id: AnomalyCoreFleshInert
+    - id: AnomalyCoreRockInert
+    - id: AnomalyCoreLiquidInert
+    - id: AnomalyCoreElectricityInert
+    - id: AnomalyCoreFloraInert
+    - id: AnomalyCoreSantaInert
