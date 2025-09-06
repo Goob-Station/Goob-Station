@@ -386,6 +386,21 @@
     actionProto: ActionStealShoes
   - type: MobPrice
     price: 100
+  - type: DodgeWideswing
+    staminaRatio: 2
+  - type: Stamina
+    critThreshold: 20
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
 
 - type: entity
   name: space carp
