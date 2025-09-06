@@ -1,9 +1,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Interaction; // Goob edit
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -101,6 +105,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void AddActions(AbductorBeaconChosenBuiMsg args)
     {
         EnsureComp<AbductorsAbilitiesComponent>(args.Actor, out var comp);
+        EnsureComp<NoNormalInteractionComponent>(args.Actor); // Goob edit
         comp.HiddenActions = _actions.HideActions(args.Actor);
         _actions.AddAction(args.Actor, ref comp.ExitConsole, ExitAction);
         _actions.AddAction(args.Actor, ref comp.SendYourself, SendYourself);
@@ -108,6 +113,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void RemoveActions(EntityUid actor)
     {
         EnsureComp<AbductorsAbilitiesComponent>(actor, out var comp);
+        RemComp<NoNormalInteractionComponent>(actor); // Goob edit
         _actions.RemoveAction(actor, comp.ExitConsole);
         _actions.RemoveAction(actor, comp.SendYourself);
         _actions.UnHideActions(actor, comp.HiddenActions);
