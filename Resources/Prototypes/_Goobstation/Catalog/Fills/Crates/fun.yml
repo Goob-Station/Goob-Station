@@ -56,8 +56,6 @@
   - type: ActiveListener
     range: 4
 
-# lord forgive me for what I am about to do to this file
-
 - type: entity
   id: CrateWizardAnomCore
   name: Crate of Enchanting
@@ -65,62 +63,40 @@
   parent: CratePirate
   components:
   #ONLY contains anomalies with enchantcomp.
-  - type: StorageFill
-    contents:
-    # 1 non-inert anom
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: RandomAnomalyCoreEnchantTable 
+        - !type:NestedSelector
+          tableId: RandomAnomalyCoreInertEnchantTable
+          rolls: 2
+
+- type: entityTable
+  id: RandomAnomalyCoreEnchantTable
+  table: !type:GroupSelector
+    children:
     - id: AnomalyCorePyroclastic
-      orGroup: NonInertAnom
     - id: AnomalyCoreGravity
-      orGroup: NonInertAnom
     - id: AnomalyCoreIce
-      orGroup: NonInertAnom
     - id: AnomalyCoreFlesh
-      orGroup: NonInertAnom
     - id: AnomalyCoreRock
-      orGroup: NonInertAnom
     - id: AnomalyCoreLiquid
-      orGroup: NonInertAnom
     - id: AnomalyCoreElectricity
-      orGroup: NonInertAnom
     - id: AnomalyCoreFlora
-      orGroup: NonInertAnom
     - id: AnomalyCoreSanta
-      orGroup: NonInertAnom
-    # 2 inert anoms
+
+- type: entityTable
+  id: RandomAnomalyCoreInertEnchantTable
+  table: !type:GroupSelector
+    children:
     - id: AnomalyCorePyroclasticInert
-      orGroup: InertAnom
     - id: AnomalyCoreGravityInert
-      orGroup: InertAnom
     - id: AnomalyCoreIceInert
-      orGroup: InertAnom
     - id: AnomalyCoreFleshInert
-      orGroup: InertAnom
     - id: AnomalyCoreRockInert
-      orGroup: InertAnom
     - id: AnomalyCoreLiquidInert
-      orGroup: InertAnom
     - id: AnomalyCoreElectricityInert
-      orGroup: InertAnom
     - id: AnomalyCoreFloraInert
-      orGroup: InertAnom
     - id: AnomalyCoreSantaInert
-      orGroup: InertAnom
-      # second set begin here
-    - id: AnomalyCorePyroclasticInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreGravityInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreIceInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreFleshInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreRockInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreLiquidInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreElectricityInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreFloraInert
-      orGroup: InertAnom2
-    - id: AnomalyCoreSantaInert
-      orGroup: InertAnom2
