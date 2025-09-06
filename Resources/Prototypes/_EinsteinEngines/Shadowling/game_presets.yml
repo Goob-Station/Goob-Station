@@ -6,11 +6,12 @@
   - Slings
   - Sling
   name: shadowling-title
-  showInVote: true
+  showInVote: false
   description: shadowling-description
   rules:
-  - Shadowling
-  - SubGamemodesRule
+  - ShadowlingRule
   - BasicStationEventScheduler
+  - AntagStationEventScheduler
   - BasicRoundstartVariation
-  - LavalandStormScheduler
+  - SubGamemodesRule
+  - LavalandStormScheduler # Lavaland Change
