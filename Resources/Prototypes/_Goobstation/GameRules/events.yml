@@ -54,35 +54,39 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
+    reoccurrenceDelay: 20
     minimumPlayers: 45
     weight: 3
     duration: 30
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 200
   - type: VentCrittersRule
-    table: !type:AllSelector
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: CMMobXenoDrone
-      - id: CMMobXenoDrone
-      - id: CMMobXenoWarrior
-      - id: CMMobXenoWarrior
-      - id: CMMobXenoRavager
-      - id: CMMobXenoCrusher
+      - id: CMMobXenoDroneSentient
+        weight: 0.85
+      - id: CMMobXenoWarriorSentient
+        weight: 0.85
+      - id: CMMobXenoRavagerSentient
+        weight: 0.5
+      - id: CMMobXenoCrusherSentient
+        weight: 0.5
 
 - type: entity
   id: AncientXenoVentsMedium
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
+    reoccurrenceDelay: 30
     minimumPlayers: 50
     weight: 3
     duration: 30
@@ -90,24 +94,31 @@
   - type: GameRule
     chaosScore: 300
   - type: VentCrittersRule
-    table: !type:AllSelector
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: CMMobXenoDrone
-      - id: CMMobXenoDrone
-      - id: CMMobXenoWarrior
-      - id: CMMobXenoRavager
-      - id: CMMobXenoCrusher
-      - id: CMMobXenoQueen
+      - id: CMMobXenoDroneSentient
+        weight: 0.95
+      - id: CMMobXenoWarriorSentient
+        weight: 0.95
+      - id: CMMobXenoRavagerSentient
+        weight: 0.5
+      - id: CMMobXenoCrusherSentient
+        weight: 0.4
+      - id: CMMobXenoKingSentient
+        weight: 0.1
+      - id: CMMobXenoQueenSentient
+        weight: 0.05
 
 - type: entity
   id: AncientXenoVentsHard
   parent: BaseGameRule
   components:
   - type: StationEvent
-    startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
+    startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
+    earliestStart: 45
+    reoccurrenceDelay: 30
     minimumPlayers: 60
     weight: 2 #This can lead to mass death so it's rarer
     duration: 30
@@ -115,17 +126,20 @@
   - type: GameRule
     chaosScore: 350
   - type: VentCrittersRule
-    table: !type:AllSelector
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: CMMobXenoDrone
-      - id: CMMobXenoWarrior
-      - id: CMMobXenoWarrior
-      - id: CMMobXenoRavager
-      - id: CMMobXenoRavager
-      - id: CMMobXenoRavager
-      - id: CMMobXenoCrusher
+      - id: CMMobXenoDroneSentient
+        weight: 0.95
+      - id: CMMobXenoWarriorSentient
+        weight: 0.95
+      - id: CMMobXenoRavagerSentient
+        weight: 0.8
+      - id: CMMobXenoCrusherSentient
+        weight: 0.8
       - id: CMMobXenoKing
-      - id: CMMobXenoQueen
+        weight: 0.3
+      - id: CMMobXenoQueenSentient
+        weight: 0.3
 
 - type: entity
   id: AncientXenoVentsRogue
@@ -136,6 +150,7 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
+    reoccurrenceDelay: 45
     minimumPlayers: 60
     weight: 2 #This can lead to mass death so it's rarer
     duration: 30
@@ -143,6 +158,9 @@
   - type: GameRule
     chaosScore: 300
   - type: VentCrittersRule
-    table: !type:AllSelector
+    max: 1
+    table: !type:GroupSelector
       children:
-      - id: CMMobXenoRogueKing
+      - id: CMMobXenoRogueKingSentient
+        weight: 1
+        
