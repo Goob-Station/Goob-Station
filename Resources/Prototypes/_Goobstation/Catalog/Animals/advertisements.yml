@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: GraggPosterAds
+  values:
+    prefix: advertisement-space-rockworm-
+    count: 8
+
+- type: localizedDataset
+  id: GraggAds
+  values:
+    prefix: gragg-voice-
+    count: 15

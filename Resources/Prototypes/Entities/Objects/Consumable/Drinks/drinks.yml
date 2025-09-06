@@ -1230,7 +1230,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkGrogGlass
+  id: Drinkgrogglass
   suffix: grog
   components:
   - type: SolutionContainerManager

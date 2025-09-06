@@ -21,3 +21,35 @@
     - type: Loadout
       prototypes: [ VisitorAlien ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: randomHumanoidSettings
+  id: SyndicateSalesOperator
+  parent: EventHumanoid
+  components:
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: GhostRole
+      name: ghost-role-information-trader-name
+      description: ghost-role-information-trader-description
+      rules: ghost-role-information-trader-rules
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ SyndicateSalesOperator ]
+      roleLoadout: [ RoleSurvivalSyndicate ]
+
+- type: randomHumanoidSettings
+  id: DwarvenTrader
+  parent: EventHumanoid
+  speciesWhitelist: Dwarf
+  components:
+    - type: GhostRole
+      name: ghost-role-information-trader-name
+      description: ghost-role-information-trader-description
+      rules: ghost-role-information-trader-rules
+      raffle:
+        settings: default
+    - type: Loadout
+      prototypes: [ DwarvenTrader ]
+      roleLoadout: [ RoleSurvivalStandard ]
