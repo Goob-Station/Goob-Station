@@ -76,12 +76,15 @@ public sealed class ThrallGuiseSystem : EntitySystem
 
     private void OnGuise(EntityUid uid, ThrallGuiseComponent component, GuiseEvent args)
     {
+        if (args.Handled)
+            return;
+
         EnsureComp<LightDetectionComponent>(uid);
         component.NextUpdate = component.GuiseDuration + _timing.CurTime;
         component.Active = true;
 
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, -1f, stealth);
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 }

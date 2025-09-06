@@ -44,12 +44,13 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
 
     private void OnCollectiveMind(EntityUid uid, ShadowlingCollectiveMindComponent comp, CollectiveMindEvent args)
     {
-        if (!TryComp<ShadowlingComponent>(uid, out var sling))
+        if (args.Handled
+            || !TryComp<ShadowlingComponent>(uid, out var sling))
             return;
 
         if (comp.UnlockedAbilities.Count >= comp.AvailableAbilities.Count)
         {
-            _popups.PopupEntity(Loc.GetString("shadowling-collective-mind-ascend"), uid, uid, PopupType.Medium);
+            _popups.PopupPredicted(Loc.GetString("shadowling-collective-mind-ascend"), uid, uid, PopupType.Medium);
             return;
         }
 
@@ -83,17 +84,18 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
 
         if (abiltiesAddedCount > 0)
         {
-            _popups.PopupEntity(
+            _popups.PopupPredicted(
                 Loc.GetString("shadowling-collective-mind-success", ("thralls", thrallsRemaining)),
                 uid,
                 uid,
                 PopupType.Medium);
-            var effectEnt = Spawn(comp.CollectiveMindEffect, _transform.GetMapCoordinates(uid));
+
+            var effectEnt = PredictedSpawnAtPosition(comp.CollectiveMindEffect, Transform(uid).Coordinates);
             _transform.SetParent(effectEnt, uid);
         }
         else
         {
-            _popups.PopupEntity(Loc.GetString("shadowling-collective-mind-failure", ("thralls", thrallsRemaining)),
+            _popups.PopupPredicted(Loc.GetString("shadowling-collective-mind-failure", ("thralls", thrallsRemaining)),
                 uid,
                 uid,
                 PopupType.Medium);
@@ -110,5 +112,7 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
 
             _stun.TryParalyze(thrall, TimeSpan.FromSeconds(comp.BaseStunTime * abiltiesAddedCount + 1), false);
         }
+
+        args.Handled = true;
     }
 }

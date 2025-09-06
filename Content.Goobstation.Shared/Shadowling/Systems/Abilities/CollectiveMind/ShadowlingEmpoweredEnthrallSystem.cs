@@ -61,7 +61,7 @@ public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
         if (!_shadowling.CanEnthrall(uid, target))
             return;
 
-        _popup.PopupEntity(Loc.GetString("shadowling-target-being-thralled"), uid, target, PopupType.SmallCaution);
+        _popup.PopupPredicted(Loc.GetString("shadowling-target-being-thralled"), uid, target, PopupType.SmallCaution);
 
         _doAfter.TryStartDoAfter(doAfterArgs);
         args.Handled = true;

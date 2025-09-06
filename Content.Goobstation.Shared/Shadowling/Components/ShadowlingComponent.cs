@@ -78,7 +78,7 @@ public sealed partial class ShadowlingComponent : Component
     /// Thralls of the shadowling.
     /// </summary>
     [DataField]
-    public List<EntityUid> Thralls = new();
+    public HashSet<EntityUid> Thralls = new();
 
     /// <summary>
     /// This is used for the resistance that the Shadowling gets against damage from lights only.

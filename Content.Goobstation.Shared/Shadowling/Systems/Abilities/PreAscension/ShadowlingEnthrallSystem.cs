@@ -39,6 +39,9 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
 
     private void OnEnthrall(EntityUid uid, ShadowlingEnthrallComponent comp, EnthrallEvent args)
     {
+        if (args.Handled)
+            return;
+
         var target = args.Target;
         var time = comp.EnthrallTime;
 
@@ -59,6 +62,7 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
 
         if (!_shadowling.CanEnthrall(uid, target))
             return;
+
         // Basic Enthrall -> Can't melt Mindshields
         if (HasComp<MindShieldComponent>(target))
         {
@@ -74,6 +78,11 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
 
     private void OnEnthrallDoAfter(EntityUid uid, ShadowlingEnthrallComponent comp, EnthrallDoAfterEvent args)
     {
+        if (args.Handled
+            || args.Cancelled)
+            return;
+
         _shadowling.DoEnthrall(uid, comp.EnthrallComponents, args);
+        args.Handled = true;
     }
 }

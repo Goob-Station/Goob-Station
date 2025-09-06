@@ -8,7 +8,6 @@ namespace Content.Goobstation.Shared.Shadowling.Systems;
 /// </summary>
 public sealed class ShadowlingAscensionEggInteractionSystem : EntitySystem
 {
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();

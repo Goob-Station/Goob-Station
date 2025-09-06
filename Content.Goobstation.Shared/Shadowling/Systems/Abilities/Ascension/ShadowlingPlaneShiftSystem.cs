@@ -57,11 +57,7 @@ public sealed class ShadowlingPlaneShiftSystem : EntitySystem
 
     private void TryDoShift(EntityUid uid)
     {
-        if (HasComp<PhaseShiftedComponent>(uid))
-            return;
-
         var phaseShift = EnsureComp<PhaseShiftedComponent>(uid);
         phaseShift.MovementSpeedBuff = 1.7f;
-        // Thanks to blood cult code for this component
     }
 }

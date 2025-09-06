@@ -70,6 +70,9 @@ public sealed class ShadowlingGlareSystem : EntitySystem
 
     private void OnGlare(EntityUid uid, ShadowlingGlareComponent comp, GlareEvent args)
     {
+        if (args.Handled)
+            return;
+
         var target = args.Target;
         var user = args.Performer;
 
@@ -87,7 +90,6 @@ public sealed class ShadowlingGlareSystem : EntitySystem
             _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), false, 0.5f, 0.5f, statComp);
         }
 
-
         if (distance <= comp.MinGlareDistance)
         {
             comp.GlareStunTime = comp.MaxGlareStunTime;
@@ -102,10 +104,10 @@ public sealed class ShadowlingGlareSystem : EntitySystem
             comp.ActivateGlareTimer = true;
         }
 
-        var effectEnt = Spawn(comp.EffectGlare, _transform.GetMapCoordinates(uid));
+        var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);
         _transform.SetParent(effectEnt, uid);
 
         _popup.PopupEntity(Loc.GetString("shadowling-glare-target"), uid, target, PopupType.MediumCaution);
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
+        args.Handled = true;
     }
 }

@@ -23,6 +23,7 @@
     baseSprintSpeed: 5
     weightlessModifier: 1.5
   - type: NoSlip
+  - type: Insulated
   - type: Clickable
   - type: Physics
     bodyType: KinematicController

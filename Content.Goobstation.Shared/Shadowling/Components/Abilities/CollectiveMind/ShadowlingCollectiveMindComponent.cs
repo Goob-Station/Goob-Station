@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 /// <summary>
 /// This is used for the Collective Mind ability.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShadowlingCollectiveMindComponent : Component
 {
     [DataField]
@@ -15,23 +15,23 @@ public sealed partial class ShadowlingCollectiveMindComponent : Component
     [DataField]
     public EntityUid? ActionEnt;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<ProtoId<ShadowlingAbilityUnlockPrototype>> AvailableAbilities = new();
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<ProtoId<ShadowlingAbilityUnlockPrototype>> UnlockedAbilities = new();
 
     /// <summary>
     /// The amount of thralls that the Shadowling has, in order to check what abilities to give.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int AmountOfThralls;
 
     /// <summary>
     /// The required thralls for ascension.
     /// Used to inform the Shadowling how many thralls they need to unlock the final ability.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int ThrallsRequiredForAscension = 20;
 
     /// <summary>

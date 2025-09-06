@@ -45,6 +45,9 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 
     private void OnNoxImperii(EntityUid uid, ShadowlingNoxImperiiComponent component, NoxImperiiEvent args)
     {
+        if (args.Handled)
+            return;
+
         var doAfter = new DoAfterArgs(
             EntityManager,
             uid,
@@ -58,11 +61,14 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = true;
     }
 
     private void OnNoxImperiiDoAfter(EntityUid uid, ShadowlingNoxImperiiComponent component, NoxImperiiDoAfterEvent args)
     {
-        if (!TryComp<ShadowlingComponent>(args.Args.User, out var sling))
+        if (args.Handled
+            || args.Cancelled
+            || !TryComp<ShadowlingComponent>(args.Args.User, out var sling))
             return;
 
         RemComp<ShadowlingNoxImperiiComponent>(uid);
@@ -77,5 +83,6 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_EinsteinEngines/Effects/ghost.ogg"), Filter.Broadcast(), false, AudioParams.Default.WithVolume(-2f));
 
         _popups.PopupEntity(Loc.GetString("shadowling-nox-imperii-done"), uid, uid, PopupType.Medium);
+        args.Handled = true;
     }
 }

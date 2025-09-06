@@ -75,16 +75,17 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
     private void OnAscendanceDoAfter(
         EntityUid uid,
         ShadowlingAscendanceComponent component,
-        AscendanceDoAfterEvent args
-    )
+        AscendanceDoAfterEvent args)
     {
         if (args.Handled
             || args.Cancelled)
             return;
 
-        var cocoon = Spawn(component.EggProto, Transform(uid).Coordinates);
-        var ascEgg = EntityManager.GetComponent<ShadowlingAscensionEggComponent>(cocoon);
+        var cocoon = PredictedSpawnAtPosition(component.EggProto, Transform(uid).Coordinates);
+        var ascEgg = Comp<ShadowlingAscensionEggComponent>(cocoon);
         ascEgg.Creator = uid;
+
+        args.Handled = true;
         _actions.RemoveAction(uid, args.Args.Used);
     }
 

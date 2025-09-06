@@ -20,6 +20,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
     [Dependency] private  readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -51,7 +52,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
 
             if (_timing.CurTime >= shadowWalk.NextUpdate - shadowWalk.EffectOutTimer && !shadowWalk.EffectActivated)
             {
-                var effectEnt = Spawn(shadowWalk.ShadowWalkEffectOut, _transform.GetMapCoordinates(uid));
+                var effectEnt = PredictedSpawnAtPosition(shadowWalk.ShadowWalkEffectOut, Transform(uid).Coordinates);
                 _transform.SetParent(effectEnt, uid);
                 shadowWalk.EffectActivated = true;
             }
@@ -90,7 +91,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
 
         _audio.PlayPvs(comp.ShadowWalkSound, uid, AudioParams.Default.WithVolume(-2f));
-        var effectEnt = Spawn(comp.ShadowWalkEffectIn, _transform.GetMapCoordinates(uid));
+        var effectEnt = PredictedSpawnAtPosition(comp.ShadowWalkEffectIn, Transform(uid).Coordinates);
         _transform.SetParent(effectEnt, uid);
 
         var stealth = EnsureComp<StealthComponent>(uid);

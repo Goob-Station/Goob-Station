@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Actions;
@@ -11,22 +10,18 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
 public abstract class SharedShadowlingSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+
     [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -39,9 +34,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
         SubscribeLocalEvent<ShadowlingComponent, HatchEvent>(OnHatch);
         SubscribeLocalEvent<ShadowlingComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<ShadowlingComponent, GetFlashbangedEvent>(OnFlashBanged);
         SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot);
         SubscribeLocalEvent<ShadowlingComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -72,21 +65,6 @@ public abstract class SharedShadowlingSystem : EntitySystem
                 args.Damage += component.HeatDamageProjectileModifier;
         }
     }
-    private void OnFlashBanged(EntityUid uid, ShadowlingComponent component, GetFlashbangedEvent args)
-    {
-        // Shadowling get damaged from flashbangs
-        if (!TryComp<DamageableComponent>(uid, out var damageableComp))
-            return;
-
-        _damageable.TryChangeDamage(uid, component.HeatDamage, damageable: damageableComp);
-    }
-    public void OnThrallAdded(EntityUid uid, ShadowlingComponent comp)
-    {
-        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
-            return;
-
-        lightDet.ResistanceModifier += comp.LightResistanceModifier;
-    }
 
     public void OnThrallRemoved(EntityUid uid, ShadowlingComponent comp)
     {
@@ -103,6 +81,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
     private void OnHatch(Entity<ShadowlingComponent> ent, ref HatchEvent args)
     {
+        if (args.Handled)
+            return;
+
         args.Handled = true;
         _actions.RemoveAction(ent.Owner, (args.Action.Owner, args.Action.Comp));
         StartHatchingProgress(ent);
@@ -154,22 +135,6 @@ public abstract class SharedShadowlingSystem : EntitySystem
         }
     }
 
-    private void BeforeGunShot(Entity<ShadowlingComponent> ent, ref SelfBeforeGunShotEvent args)
-    {
-        // Slings cant shoot guns
-        if (args.Gun.Comp.ClumsyProof)
-            return;
-
-        if (!_random.Prob(0.5f))
-            return;
-
-        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
-
-        _stun.TryParalyze(ent, ent.Comp.GunShootFailStunTime, false);
-
-        args.Cancel();
-    }
-
     private void OnExamined(EntityUid uid, ShadowlingComponent comp, ExaminedEvent args)
     {
         if (args.Examiner != uid
@@ -185,19 +150,19 @@ public abstract class SharedShadowlingSystem : EntitySystem
     {
         if (HasComp<ShadowlingComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("shadowling-enthrall-shadowling"), uid, uid, PopupType.SmallCaution);
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-shadowling"), uid, uid, PopupType.SmallCaution);
             return false;
         }
 
         if (HasComp<ThrallComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("shadowling-enthrall-already-thrall"), uid, uid, PopupType.SmallCaution);
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-already-thrall"), uid, uid, PopupType.SmallCaution);
             return false;
         }
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("shadowling-enthrall-non-humanoid"), uid, uid, PopupType.SmallCaution);
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-non-humanoid"), uid, uid, PopupType.SmallCaution);
             return false;
         }
 
@@ -206,7 +171,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
             || !_mobStateSystem.IsCritical(target, mobState) && !_mobStateSystem.IsCritical(target, mobState))
             return true;
 
-        _popup.PopupEntity(Loc.GetString("shadowling-enthrall-dead"), uid, uid, PopupType.SmallCaution);
+        _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-dead"), uid, uid, PopupType.SmallCaution);
         return false;
     }
 
@@ -220,6 +185,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
     public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)
     {
         if (args.Cancelled
+            || args.Handled
             || args.Target == null)
             return;
 
@@ -234,12 +200,16 @@ public abstract class SharedShadowlingSystem : EntitySystem
             sling.Thralls.Add(target);
             thrall.Converter = uid;
 
-            OnThrallAdded(uid, sling);
+            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
+                lightDet.ResistanceModifier += sling.LightResistanceModifier;
         }
 
-        _audio.PlayPvs(
+        _audio.PlayPredicted(
             new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"),
             target,
+            uid,
             AudioParams.Default);
+
+        args.Handled = true;
     }
 }

@@ -46,7 +46,6 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
-  - type: Insulated
   - type: ShadowlingCannotWearClothes
   - type: NightVision
     color: "#BF40BF"

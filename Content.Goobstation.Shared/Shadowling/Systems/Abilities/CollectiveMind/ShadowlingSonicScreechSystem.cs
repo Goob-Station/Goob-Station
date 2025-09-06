@@ -15,6 +15,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind;
 
@@ -32,6 +33,7 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -50,17 +52,20 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
 
     private void OnSonicScreech(EntityUid uid, ShadowlingSonicScreechComponent component, SonicScreechEvent args)
     {
-        _actions.StartUseDelay((args.Action.Owner, args.Action.Comp));
-        _popups.PopupEntity(Loc.GetString("shadowling-sonic-screech-complete"), uid, uid, PopupType.Medium);
-        _audio.PlayPvs(component.ScreechSound, uid);
+        if (args.Handled)
+            return;
 
-        var effectEnt = Spawn(component.SonicScreechEffect, _transform.GetMapCoordinates(uid));
+        _popups.PopupPredicted(Loc.GetString("shadowling-sonic-screech-complete"), uid, uid, PopupType.Medium);
+        _audio.PlayPredicted(component.ScreechSound, uid, uid);
+
+        var effectEnt = PredictedSpawnAtPosition(component.SonicScreechEffect, Transform(uid).Coordinates);
         _transform.SetParent(effectEnt, uid);
 
         foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
         {
-            if (_tag.HasTag(entity, component.WindowTag) &&
-                TryComp<DamageableComponent>(entity, out var damageableComponent))
+            if (_tag.HasTag(entity, component.WindowTag)
+                && TryComp<DamageableComponent>(entity, out var damageableComponent)
+                && _net.IsServer)
             {
                 _damageable.TryChangeDamage(entity, component.WindowDamage, true, damageable: damageableComponent);
                 continue;
@@ -80,7 +85,9 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
             }
 
             if (HasComp<HumanoidAppearanceComponent>(entity))
-                EntityManager.SpawnAtPosition(component.ProtoFlash, Transform(entity).Coordinates);
+                PredictedSpawnAtPosition(component.ProtoFlash, Transform(entity).Coordinates);
         }
+
+        args.Handled = true;
     }
 }
