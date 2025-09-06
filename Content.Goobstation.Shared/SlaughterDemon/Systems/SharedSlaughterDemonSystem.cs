@@ -42,9 +42,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
-
-        // gun-related
-        SubscribeLocalEvent<SlaughterDemonComponent, PickupAttemptEvent>(OnPickup);
     }
 
     public override void Update(float frameTime)
@@ -105,6 +102,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // Kill them for sure, just in case
         _mobState.ChangeMobState(pullingEnt, MobState.Dead);
+        RemoveBlood(pullingEnt); // todo: find better fix
 
         _audio.PlayPvs(slaughterDevour.FeastSound, args.PreviousCoordinates);
 
@@ -126,8 +124,13 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         }
     }
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args) =>
+    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
         SpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
+    }
 
     private void OnMobStateChanged(Entity<SlaughterDemonComponent> ent, ref MobStateChangedEvent args)
     {
@@ -135,10 +138,5 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
             _audio.PlayPvs(ent.Comp.DeathSound, ent.Owner, AudioParams.Default.WithVolume(-2f));
     }
 
-    private void OnPickup(Entity<SlaughterDemonComponent> ent, ref PickupAttemptEvent args)
-    {
-        if (HasComp<GunComponent>(args.Item)
-            && !ent.Comp.CanPickupGuns)
-            args.Cancel();
-    }
+    protected virtual void RemoveBlood(EntityUid uid) {}
 }

@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 boxxie79 <88395316+boxxie79@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -171,6 +172,10 @@
   - type: SpeedModifierContactCapClothing
     maxContactSprintSlowdown: 0.7
     maxContactWalkSlowdown: 0.7
+  - type: ClothingGrantComponent # Goobstation
+    component:
+    - type: NoFootprints
+
 
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]

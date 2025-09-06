@@ -278,7 +278,6 @@
   - type: TargetAction
     range: 15
     interactOnMiss: false
-    checkCanAccess: false
   - type: EntityTargetAction
     whitelist:
       requireAll: true
@@ -313,7 +312,6 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: blind
   - type: TargetAction
-    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction
@@ -450,7 +448,6 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: lightning
   - type: TargetAction
-    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction
@@ -613,7 +610,6 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: barn
   - type: TargetAction
-    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction
@@ -958,7 +954,6 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: swap
   - type: TargetAction
-    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction
@@ -1092,7 +1087,6 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: tile
   - type: TargetAction
-    checkCanAccess: false
     range: 40
   - type: EntityTargetAction
     whitelist:
