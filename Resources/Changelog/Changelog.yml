@@ -4098,3 +4098,11 @@
   id: 8933
   time: '2025-09-05T20:03:10.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40133
+- author: ArtisticRoomba
+  changes:
+  - message: Resin windows (exo windows) now inherit Delta-Pressure damage values
+      and pressure thresholds from reinforced windows.
+    type: Fix
+  id: 8934
+  time: '2025-09-06T08:02:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40151
