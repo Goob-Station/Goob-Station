@@ -21,7 +21,7 @@ dynamic-gamerule-wizard-title = [color=cyan]Wizard[/color]
 objective-issuer-wizard-federation = [color=cyan]Space Wizard Federation[/color]
 
 wizard-role-greeting =
-    You are a powerful space wizard. Your goal is to cause as much chaos as possible on {$station}, and survive. Space Wizard Federation provided you with magical wizard grimoire which you can use to learn devastating spells.
+    You are a powerful space wizard. Your goal is to cause as much mald as possible on {$station}, and survive. Space Wizard Federation provided you with magical wizard grimoire which you can use to learn devastating spells.
 
 wizard-role-briefing = You are a space wizard. Survive and wreak havoc on the simpletons.
 apprentice-role-briefing = You are a space wizard apprentice. Keep whoever summoned you alive.

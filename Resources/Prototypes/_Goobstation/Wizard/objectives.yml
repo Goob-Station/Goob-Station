@@ -18,7 +18,7 @@
 - type: entity
   parent: [BaseWizardObjective, BaseSurviveObjective]
   id: WizardSurviveObjective
-  name: Survive, causing as much chaos as possible
+  name: Survive, causing as much mald as possible
   description: Space Wizard Federation has sent you to wreck havoc on the station. Don't dissapoint them.
 
 - type: entity
