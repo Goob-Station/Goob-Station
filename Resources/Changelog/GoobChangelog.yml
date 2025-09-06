@@ -14300,3 +14300,87 @@ Entries:
       message: Xenomorph maids are no longer walking ban bait. Still kinda cute though.
   id: 1590
   time: '2025-09-03T23:38:49.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Xenomorphs can now stun their prey.
+    - type: Fix
+      message: Xenomoprh eggs & facehuggers properly function now.
+  id: 1591
+  time: '2025-09-04T13:06:04.0000000+00:00'
+- author: Hell Department
+  changes:
+    - type: Tweak
+      message: Slaughter demons will no longer generate maldium
+    - type: Tweak
+      message: Slaughter Demon has a doafter when devouring
+  id: 1592
+  time: '2025-09-04T15:55:13.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Wizard spells that were targeting mobs work once again.
+  id: 1593
+  time: '2025-09-04T20:06:52.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Fixed missing bedsheets and parts on Cog.
+    - type: Fix
+      message: Fixed piping color schemes on Barratry.
+  id: 1594
+  time: '2025-09-04T22:41:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Removed all instances of Xenonids, the ugly Xeno creatures that Wizden
+        still uses.
+    - type: Fix
+      message: Hopefully fixed the spawn rates of Ancient Xenos in vent critter events.
+    - type: Tweak
+      message: >-
+        Ancient Xenos now use the SimpleHostile faction, meaning that they will
+        now fight back against other mobs, like Trevor or Renault.
+  id: 1595
+  time: '2025-09-05T22:54:31.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: >-
+        Abductors :alien: now have Nitrous Oxide on their ships to put their
+        experiments to sleep.
+  id: 1596
+  time: '2025-09-06T06:27:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added the Janitorial keyring
+    - type: Add
+      message: Mops & Soap can now have a new method of cleaning footprints.
+    - type: Add
+      message: Light-replacers will now recycle broken tubes.
+    - type: Add
+      message: >-
+        You can now scrub stains, decals, and footprints off of tiles with a
+        mop/soap.
+    - type: Add
+      message: Janitors now have a new senior item.
+    - type: Tweak
+      message: Wearing galoshes now stops you from making footprints.
+    - type: Tweak
+      message: Dumping trash into dispo no longer blows your fucking eardrums out.
+  id: 1597
+  time: '2025-09-06T06:44:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the "Time" clause not working properly.
+  id: 1598
+  time: '2025-09-06T09:00:40.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: The Janitor's Keyring Works Properly now.
+  id: 1599
+  time: '2025-09-06T13:09:44.0000000+00:00'
