@@ -160,7 +160,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockMedicalFilled
-  cost: 2200
+  cost: 2300
   category: cargoproduct-category-name-medical
   group: market
 

@@ -153,6 +153,7 @@
       - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
+      - id: ClothingMaskBreath # Goobstation
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
