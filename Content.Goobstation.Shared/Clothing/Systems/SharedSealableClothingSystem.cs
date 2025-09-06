@@ -181,6 +181,11 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (!args.CanComplexInteract)
             return;
 
+        // Prevent Station AI from toggling modsuit seals
+        if (HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(user))
+            return;
+
+
         // Since sealing control in wearer's container system just won't show verb on args.CanAccess
         if (!_interactionSystem.InRangeUnobstructed(user, uid))
             return;
