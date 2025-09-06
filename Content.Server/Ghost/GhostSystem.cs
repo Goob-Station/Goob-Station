@@ -119,6 +119,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
+using Content.Shared._White.Xenomorphs.Infection;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -175,8 +176,6 @@ namespace Content.Server.Ghost
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
 
-        [ValidatePrototypeId<TagPrototype>]
-        private const string FacehuggerCannotSuicideTag = "FacehuggerCannotSuicide"; //GoobStation
 
         public override void Initialize()
         {
@@ -672,35 +671,38 @@ namespace Content.Server.Ghost
                 canReturnGlobal &&
                 TryComp(playerEntity, out MobStateComponent? mobState))
             {
-                if (_mobState.IsCritical(playerEntity.Value, mobState) && !_tag.HasTag(playerEntity.Value, FacehuggerCannotSuicideTag)) //Goobstation
+                if (_mobState.IsCritical(playerEntity.Value, mobState))
                 {
                     canReturn = true;
 
-                    FixedPoint2 dealtDamage = 200;
-
-                    if (TryComp<DamageableComponent>(playerEntity, out var damageable)
-                        && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                    if (!HasComp<XenomorphPreventSuicideComponent>(playerEntity.Value))
                     {
-                        var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
-                        dealtDamage = playerDeadThreshold - damageable.TotalDamage;
+                        FixedPoint2 dealtDamage = 200;
+
+                        if (TryComp<DamageableComponent>(playerEntity, out var damageable)
+                            && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                        {
+                            var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
+                            dealtDamage = playerDeadThreshold - damageable.TotalDamage;
+                        }
+
+                        // Shitmed Change Start
+                        var damageType = HasComp<SiliconComponent>(playerEntity)
+                            ? "Ion"
+                            : "Asphyxiation";
+                        DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
+
+                        if (TryComp<BodyComponent>(playerEntity, out var body)
+                            && body.BodyType == BodyType.Complex
+                            && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
+                            _damageable.TryChangeDamage(playerEntity,
+                                damage,
+                                true,
+                                targetPart: _bodySystem.GetTargetBodyPart(root));
+                        else
+                            _damageable.TryChangeDamage(playerEntity, damage, true);
+                        // Shitmed Change End
                     }
-
-                    // Shitmed Change Start
-                    var damageType = HasComp<SiliconComponent>(playerEntity)
-                        ? "Ion"
-                        : "Asphyxiation";
-                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
-
-                    if (TryComp<BodyComponent>(playerEntity, out var body)
-                        && body.BodyType == BodyType.Complex
-                        && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
-                        _damageable.TryChangeDamage(playerEntity,
-                            damage,
-                            true,
-                            targetPart: _bodySystem.GetTargetBodyPart(root));
-                    else
-                        _damageable.TryChangeDamage(playerEntity, damage, true);
-                    // Shitmed Change End
                 }
             }
 

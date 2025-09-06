@@ -3,7 +3,6 @@ using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Tag;
 using Robust.Server.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -13,14 +12,11 @@ namespace Content.Server._White.Xenomorphs.Infection;
 public sealed class XenomorphInfectionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string FacehuggerCannotSuicideTag = "FacehuggerCannotSuicide";
 
     public override void Initialize()
     {
@@ -42,7 +38,6 @@ public sealed class XenomorphInfectionSystem : EntitySystem
         var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(args.Body);
         xenomorphInfected.Infection = uid;
         xenomorphInfected.InfectedIcons = component.InfectedIcons;
-        _tagSystem.AddTag(args.Body, FacehuggerCannotSuicideTag);
         Dirty(args.Body, xenomorphInfected);
 
         component.Infected = args.Body;
@@ -50,7 +45,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
     private void OnOrganRemovedFromBody(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedFromBodyEvent args)
     {
-        _tagSystem.RemoveTag(args.OldBody, FacehuggerCannotSuicideTag);
+        RemComp<XenomorphPreventSuicideComponent>(args.OldBody);
         RemComp<XenomorphInfectedComponent>(args.OldBody);
         component.Infected = null;
     }
