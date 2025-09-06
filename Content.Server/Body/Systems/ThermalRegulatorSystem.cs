@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.Traits;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -60,6 +61,11 @@ public sealed class ThermalRegulatorSystem : EntitySystem
     private void ProcessThermalRegulation(Entity<ThermalRegulatorComponent, TemperatureComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp2, logMissing: false))
+            return;
+
+        // Goobstation - Cold blooded lizards
+        // Skip thermal regulation if cold-blooded component is present
+        if (HasComp<ColdBloodedComponent>(ent))
             return;
 
         // TODO: Why do we have two datafields for this if they are only ever used once here?

@@ -40,3 +40,14 @@
   components:
     - type: MovementImpaired
       impairedSpeedMultiplier: 0.6
+
+- type: trait
+  id: ColdBlooded
+  name: trait-cold-blooded-name
+  description: trait-cold-blooded-desc
+  category: Disabilities
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: ColdBlooded

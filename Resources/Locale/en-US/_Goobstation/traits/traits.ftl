@@ -29,3 +29,6 @@ trait-movement-impaired-name = Movement Impaired
 trait-movement-impaired-desc = You can't quite seem to walk very well without some assistance. Cane included.
 
 movement-impaired-trait-examined = [color=yellow]{CAPITALIZE(SUBJECT($target))} seems to walk with a slight limp. It doesn't seem like {SUBJECT($target)} can walk very well without assistance[/color]
+
+trait-cold-blooded-name = Cold Blooded
+trait-cold-blooded-desc = Whether through random mutation, old age, or being a Reptilian, you have trouble regulating your body temperature.
