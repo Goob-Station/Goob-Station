@@ -1016,6 +1016,9 @@
 - type: Tag
   id: Igniter
 
+- type: Tag #Goobstation
+  id: ImprovisedShotgun
+
 - type: Tag
   id: Ingredient
 
