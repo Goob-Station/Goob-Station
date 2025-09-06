@@ -80,7 +80,7 @@ public sealed class KeyringSystem : EntitySystem
         if (args.Handled
             || args.Cancelled
             || args.Target is not { } target
-            || !TryComp<AccessReaderComponent>(target, out var accessReader))
+            || !_access.GetMainAccessReader(target, out var accessReader))
             return;
 
         if (_access.AreAccessTagsAllowed(keyring.Comp.Tags, accessReader))
