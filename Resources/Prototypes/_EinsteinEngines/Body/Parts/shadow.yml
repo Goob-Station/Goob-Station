@@ -32,7 +32,7 @@
 - type: entity
   id: GroinShadow
   name: "Shadow groin"
-  parent: [BaseChest, PartShadow]
+  parent: [BaseGroin, PartShadow]
   components:
   - type: Sprite
     state: "groin_m"
