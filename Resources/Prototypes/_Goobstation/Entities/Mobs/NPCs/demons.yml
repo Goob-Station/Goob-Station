@@ -211,6 +211,9 @@
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
     - type: SpamEmitSound
       minInterval: 15
       maxInterval: 45
@@ -223,42 +226,39 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+      - Flesh
     - type: MovementSpeedModifier
       baseWalkSpeed: 2
       baseSprintSpeed: 7
     - type: Sprite
+      drawdepth: Mobs
       sprite: _Goobstation/Mobs/Aliens/flesh.rsi
+      noRot: true
       layers:
-        state: ripper
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
     - type: DamageStateVisuals
       states:
         Alive:
-          Base: ripper
+          Base: alive
         Dead:
           Base: dead
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepThud
-    - type: Physics
-      bodyType: KinematicController
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.40
-          density: 100
-          mask:
-            - MobMask
-          layer:
-            - MobLayer
     - type: MobThresholds
       thresholds:
         0: Alive
         1000: Dead # 2 rifle magazines, its a boss enemy after all
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        0: 1.0
     - type: Butcherable
       spawned:
-        - id: FoodMeatAnomoly
+        - id: FoodMeatAnomaly
           amount: 15
         - id: AnomalyCoreFleshInert
           amount: 5
@@ -287,7 +287,7 @@
         types:
           Piercing: 30
           Slash: 40
-          Structural: 200
+          Structural: 400
     - type: StaticPrice
       price: 3000
     - type: Bloodstream

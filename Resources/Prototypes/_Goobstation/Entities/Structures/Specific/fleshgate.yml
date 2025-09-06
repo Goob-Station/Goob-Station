@@ -8,7 +8,7 @@
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Structures/Specific/fleshgate.rsi
-    state: tendril
+    state: fleshgate
     drawdepth: Mobs
   - type: Tendril
     maxSpawns: 50
@@ -16,9 +16,6 @@
     spawnDelay: 5
     spawns:
     - MobFleshGolemSalvage
-    - MobFleshClampSalvage
-    - MobFleshLoverSalvage
-    - MobAbominationSalvage
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Skeleton
