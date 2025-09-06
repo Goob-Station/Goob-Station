@@ -17,6 +17,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -44,6 +45,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
     private void OnOrganRemovedFromBody(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedFromBodyEvent args)
     {
+        RemComp<XenomorphPreventSuicideComponent>(args.OldBody);
         RemComp<XenomorphInfectedComponent>(args.OldBody);
         component.Infected = null;
     }

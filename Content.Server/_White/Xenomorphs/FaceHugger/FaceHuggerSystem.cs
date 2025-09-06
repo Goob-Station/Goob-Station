@@ -19,6 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._White.Xenomorphs.Infection;
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -82,6 +83,8 @@ public sealed class FaceHuggerSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-equip-other", ("equipment", uid), ("target", Identity.Entity(args.Equipee, EntityManager))), uid, Filter.PvsExcept(args.Equipee), true);
 
         _stun.TryKnockdown(args.Equipee, component.KnockdownTime, true);
+        if (component.InfectionPrototype.HasValue)
+            EnsureComp<XenomorphPreventSuicideComponent>(args.Equipee); //Prevent suicide for infected
 
         if (!component.InfectionPrototype.HasValue)
             return;
