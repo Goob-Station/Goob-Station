@@ -233,7 +233,7 @@
       path: /Audio/Animals/sloth_squeak.ogg
   - type: Fauna # Lavaland Change
   - type: MovementSpeedModifier #Goobsprinting
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 - type: entity
@@ -275,7 +275,7 @@
         Blunt: 9
         Slash: 2
   - type: MovementSpeedModifier #goob change
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
   - type: DamageStateVisuals
     states:
@@ -422,7 +422,7 @@
   - type: CombatPower # Goobstation
     factor: 1.5 # times more dangerous than a crew-member
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 - type: entity
@@ -527,7 +527,7 @@
     color: "#4faffb"
   - type: Fauna # Lavaland Change
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 - type: entity

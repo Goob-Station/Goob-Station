@@ -121,7 +121,7 @@
     energyConsumption: 50000
     disableDuration: 20
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
   - type: FlashImmunity
 

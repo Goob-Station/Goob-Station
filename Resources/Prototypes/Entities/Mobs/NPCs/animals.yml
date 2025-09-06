@@ -2924,7 +2924,7 @@
     activateSound: null
     deactivateSound: null
   - type: MovementSpeedModifier #Goob sprinting
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 
@@ -3275,7 +3275,7 @@
     understands:
     - Fox
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 - type: entity

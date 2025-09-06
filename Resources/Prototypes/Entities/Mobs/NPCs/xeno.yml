@@ -552,7 +552,7 @@
     - DoorBumpOpener
     - FootstepSound
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
 
 

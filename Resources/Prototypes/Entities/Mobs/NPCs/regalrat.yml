@@ -164,7 +164,7 @@
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
   - type: InputMover
   - type: MobMover
@@ -362,7 +362,7 @@
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier #goob
-    baseWalkSpeed: 4.5
+    baseWalkSpeed: 2.5
     baseSprintSpeed: 5.5
   - type: InputMover
   - type: MobMover
