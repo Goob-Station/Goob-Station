@@ -30,6 +30,8 @@
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -118,7 +120,7 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
-  evaporationSpeed: 0.1
+#  evaporationSpeed: 0.1 # Goobstation - SpaceLube no evaporate
   slipData:
     requiredSlipSpeed: 0.1 # Goobstation - no crawling to avoid it
     superSlippery: true

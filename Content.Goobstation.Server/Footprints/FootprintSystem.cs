@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -35,6 +37,8 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private EntityQuery<NoFootprintsComponent> _noFootprintsQuery = default!;
+
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
 
     public static readonly EntProtoId FootprintPrototypeId = "Footprint";
@@ -52,6 +56,8 @@ public sealed class FootprintSystem : EntitySystem
         SubscribeLocalEvent<FootprintOwnerComponent, MoveEvent>(OnMove);
 
         SubscribeLocalEvent<PuddleComponent, MapInitEvent>(OnMapInit);
+
+        _noFootprintsQuery = GetEntityQuery<NoFootprintsComponent>();
     }
 
     private void OnFootprintClean(Entity<FootprintComponent> entity, ref FootprintCleanEvent e)
@@ -61,6 +67,9 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
+        if (_noFootprintsQuery.HasComp(entity))
+            return;
+
         if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
