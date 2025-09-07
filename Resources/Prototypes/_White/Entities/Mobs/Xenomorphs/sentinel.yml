@@ -30,7 +30,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      225: Critical
+      190: Critical
       240: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
