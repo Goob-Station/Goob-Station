@@ -45,6 +45,8 @@
   sprites:
     Head: MobMothHead
     Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking # dreamwalker change
+    FacialHair: MobHumanoidAnyMarking # dreamwalker change
     Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
     Undershirt: MobHumanoidAnyMarking
@@ -71,13 +73,13 @@
 
 - type: markingPoints
   id: MobMothMarkingLimits
-  onlyWhitelisted: true
+  onlyWhitelisted: false # dreamwalker change
   points:
     Hair:
-      points: 0
+      points: 1 # dreamwalker change
       required: false
     FacialHair:
-      points: 0
+      points: 1 # dreamwalker change
       required: false
     Tail:
       points: 1
