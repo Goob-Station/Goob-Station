@@ -55,7 +55,7 @@ public sealed partial class PlumbingFilterWindow : FancyWindow
 
     private void UpdateSelectButton()
     {
-        SelectButton.Disabled = _selected != _current;
+        SelectButton.Disabled = _selected == _current;
         if (SelectButton.Disabled)
         {
             SelectButton.Text = Loc.GetString("plumbing-filter-window-default");
