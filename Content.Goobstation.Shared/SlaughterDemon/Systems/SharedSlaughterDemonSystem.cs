@@ -98,6 +98,12 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         if (!TryComp<SlaughterDevourComponent>(demonUid, out var slaughterDevour))
             return;
 
+        var evAttempt = new SlaughterDevourAttemptEvent(pullingEnt, demonUid);
+        RaiseLocalEvent(pullingEnt, ref evAttempt);
+
+        if (evAttempt.Cancelled)
+            return;
+
         _container.Insert(pullingEnt, slaughterDevour.Container);
 
         // Kill them for sure, just in case

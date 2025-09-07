@@ -10,6 +10,7 @@
   weights:
     Dragon: 1
     Revenant: 1
+    SlaughterDemon: 1
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -20,3 +21,10 @@
   id: Revenant
   announcement: terror-revenant
   rule: RevenantSpawn
+
+# Goobstation - start
+- type: ninjaHackingThreat
+  id: SlaughterDemon
+  announcement: terror-slaughter-demon
+  rule: SlaughterDemonMidround
+# Goobstation - end

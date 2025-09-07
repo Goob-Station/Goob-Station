@@ -5,7 +5,7 @@
 
 - type: entity
   parent:
-    - SimpleMobBase
+    - SimpleSpaceMobBase
     - MobPolymorphable
   id: BaseMobSlaughterDemon
   name: slaughter demon
@@ -150,6 +150,7 @@
   - type: WeakToHoly
     alwaysTakeHoly: true
   - type: Hands
+  - type: PressureImmunity
 
 # laughter demon
 - type: entity
