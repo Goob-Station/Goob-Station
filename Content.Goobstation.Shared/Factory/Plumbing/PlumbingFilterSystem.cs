@@ -42,7 +42,7 @@ public sealed class PlumbingFilterSystem : EntitySystem
 
     private void OnChange(Entity<PlumbingFilterComponent> ent, ref PlumbingFilterChangeMessage args)
     {
-        if (args.Filter is {} filter && !_proto.HasIndex(filter))
+        if (args.Filter == ent.Comp.Filter || (args.Filter is {} filter && !_proto.HasIndex(filter)))
             return;
 
         var msg = args.Filter is {} filter2 // chud language

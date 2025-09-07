@@ -156,7 +156,8 @@
       slotId: outputSlot
   - type: SolutionContainerManager
     solutions:
-      buffer: {}
+      buffer: # Goobstation - solution shitcode doesnt like max volume 0 and i dont want to rewrite AddSolution
+        maxVol: 1000000
   - type: DumpableSolution
     solution: buffer
     unlimited: true

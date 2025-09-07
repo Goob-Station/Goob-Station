@@ -1,7 +1,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
         xmlns:controls="using:Content.Client.UserInterface.Controls"
         Title="{Loc 'plumbing-filter-window-title'}"
-        SetSize="250 300"
+        SetSize="280 350"
         Margin="4 0">
     <BoxContainer Orientation="Vertical">
         <LineEdit Name="SearchBar" PlaceHolder="{Loc 'admin-add-reagent-window-search-placeholder'}" HorizontalExpand="True" Margin="0 4"/>

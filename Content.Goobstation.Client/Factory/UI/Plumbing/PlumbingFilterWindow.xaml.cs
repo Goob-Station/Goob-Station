@@ -47,6 +47,7 @@ public sealed partial class PlumbingFilterWindow : FancyWindow
 
             _current = _selected;
             OnChange?.Invoke(_selected);
+            UpdateSelectButton();
         };
 
         UpdateReagentPrototypes();

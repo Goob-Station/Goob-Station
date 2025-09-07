@@ -2,6 +2,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Factory.Plumbing;
@@ -11,6 +12,7 @@ public sealed class PlumbingPumpSystem : EntitySystem
     [Dependency] private readonly ExclusiveSlotsSystem _exclusive = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PlumbingFilterSystem _filter = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     private EntityQuery<SolutionTransferComponent> _transferQuery;
@@ -40,6 +42,9 @@ public sealed class PlumbingPumpSystem : EntitySystem
 
     private void TryPump(Entity<PlumbingPumpComponent> ent)
     {
+        if (!_power.IsPowered(ent.Owner))
+            return;
+
         // pump does nothing unless both slots are linked
         if (_exclusive.GetInputSlot(ent) is not AutomatedSolution inputSlot ||
             _exclusive.GetOutputSlot(ent) is not AutomatedSolution outputSlot)
@@ -47,17 +52,18 @@ public sealed class PlumbingPumpSystem : EntitySystem
 
         var input = inputSlot.Solution.Comp.Solution;
         var output = outputSlot.Solution;
-
         var limit = _transferQuery.Comp(ent).TransferAmount;
-        if (_filter.GetFilteredReagent(ent) is not {} filter)
-        {
-            _solution.TryTransferSolution(output, input, limit);
-            return;
-        }
 
-        // basically a TryTransferSolutionWithOnly
-        var amount = FixedPoint2.Min(input.Volume, output.Comp.Solution.AvailableVolume, limit);
-        var split = input.SplitSolutionWithOnly(amount, filter);
-        _solution.AddSolution(output, split);
+        var amount = FixedPoint2.Min(input.Volume, limit);
+        if (output.Comp.Solution.MaxVolume > FixedPoint2.Zero)
+            amount = FixedPoint2.Min(amount, output.Comp.Solution.AvailableVolume);
+        if (amount <= FixedPoint2.Zero)
+            return;
+
+        var split = _filter.GetFilteredReagent(ent) is {} filter
+            ? input.SplitSolutionWithOnly(amount, filter)
+            : input.SplitSolution(amount);
+        _solution.UpdateChemicals(inputSlot.Solution, false); // removing reagents should never cause reactions? don't waste cpu updating it
+        _solution.ForceAddSolution(output, split);
     }
 }
