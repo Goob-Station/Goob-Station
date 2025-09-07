@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "plushie_serendipity modified by Necroa from plushie_moth.png from commit: https://github.com/Sector-Umbra/Sector-Umbra/commit/b50e5651a19ccf2e5300b63ab896251b67820a1f. serendipity-equipped-HELMET modified by VividWisp from commit: https://github.com/space-wizards/space-station-14/pull/30400/commits/eaa585e62c1731429f8030ec3969758b08049866",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "plushie_serendipity"
+      },
+      {
+        "name": "serendipity-equipped-HELMET",
+        "directions": 4
+      }
+    ]
+  }

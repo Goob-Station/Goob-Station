@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "plushie_gartei modified by riverztyx from plushielizard.png from commit: https://github.com/Sector-Umbra/Sector-Umbra/commit/ebebb3603acc9d801d5ae87ac948b1c287aa2116. gartei-equipped-HELMET modified by riverztyx from commit: https://github.com/space-wizards/space-station-14/pull/30400/commits/eaa585e62c1731429f8030ec3969758b08049866, plushielizard-inhand-left and plushielizard-inhand-right modified by riverztyx from commit: https://github.com/space-wizards/space-station-14/pull/32583/commits/c5485a204c9ba043438b604b958e8e7481ef9d52", 
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "plushie_gartei"
+      },
+      {
+        "name": "gartei-equipped-HELMET",
+        "directions": 4
+      },
+      {
+        "name": "inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "inhand-right",
+        "directions": 4
+      }
+    ]
+  }

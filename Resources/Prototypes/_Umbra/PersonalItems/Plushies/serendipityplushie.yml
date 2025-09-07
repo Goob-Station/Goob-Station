@@ -1,0 +1,23 @@
+# Player: VividWisp - Character: Serendipity Bluewing
+- type: entity
+  parent: PlushieMoth
+  id: PersonalItemSerendipityPlushie
+  name: serendipity plushie
+  description: A plushie depicting the anomaly spawning Serendipity Bluewing. If you listen closely you might hear an anomaly pulse.
+  suffix: PersonalItem
+  components:
+  - type: Sprite
+    state: plushie_serendipity
+    sprite: _Umbra/PersonalItems/Plushies/serendipityplushie.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Umbra/PersonalItems/Plushies/serendipityplushie.rsi
+    equippedPrefix: serendipity
+    slots:
+    - HEAD
+
+- type: loadout
+  id: PersonalItemSerendipityPlushie
+  storage:
+    back:
+    - PersonalItemSerendipityPlushie
