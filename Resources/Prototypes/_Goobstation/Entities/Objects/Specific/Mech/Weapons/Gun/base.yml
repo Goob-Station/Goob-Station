@@ -27,3 +27,5 @@
     whitelist:
       tags:
       - WeaponUpgradeMech
+  - type: Clothing
+    slots: BACK, SUITSTORAGE

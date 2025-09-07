@@ -261,10 +261,10 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: Battery
-    maxCharge: 150 # Battery is charged by mech
-    startingCharge: 150
+    maxCharge: 100 # Battery is charged by mech
+    startingCharge: 100
   - type: ProjectileBatteryAmmoProvider
-    proto: CartridgeLightRifle
+    proto: CartridgeRifle
     fireCost: 5
   - type: Appearance
   - type: AmmoCounter
@@ -287,11 +287,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: Battery
-    maxCharge: 200 # Battery is charged by mech
-    startingCharge: 200
+    maxCharge: 240 # Battery is charged by mech
+    startingCharge: 240
   - type: ProjectileBatteryAmmoProvider
     proto: BulletWeakRocket
-    fireCost: 25
+    fireCost: 40
   - type: Appearance
   - type: AmmoCounter
 
