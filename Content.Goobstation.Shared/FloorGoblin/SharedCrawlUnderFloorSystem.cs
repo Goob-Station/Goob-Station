@@ -2,16 +2,25 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Collections.Generic;
 using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared._DV.Abilities;
+using Content.Shared.Actions;
+using Content.Shared.Climbing.Components;
+using Content.Shared.Climbing.Events;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
+
 public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -19,22 +28,159 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
+    private readonly Dictionary<EntityUid, bool> _lastOnSubfloor = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CrawlUnderFloorComponent, CrawlingUpdatedEvent>(OnCrawlingUpdated);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
+        SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, AttackAttemptEvent>(OnAttemptAttack);
+        SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
 
-    private void OnCrawlingUpdated(EntityUid uid,
-        CrawlUnderFloorComponent component,
-        CrawlingUpdatedEvent args)
+    private void OnCrawlingUpdated(EntityUid uid, CrawlUnderFloorComponent component, CrawlingUpdatedEvent args)
     {
         if (args.Enabled)
             _popup.PopupEntity(Loc.GetString("crawl-under-floor-toggle-on"), uid);
         else
             _popup.PopupEntity(Loc.GetString("crawl-under-floor-toggle-off"), uid);
+    }
+
+    private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (_net.IsClient)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
+        SetCrawlAppearance(uid, component.Enabled);
+        _lastOnSubfloor[uid] = IsOnSubfloor(uid);
+        if (component.Enabled)
+            UpdateSneakCollision(uid, component);
+        args.Handled = result;
+    }
+
+    private void OnAttemptClimb(EntityUid uid, CrawlUnderFloorComponent component, AttemptClimbEvent args)
+    {
+        if (component.Enabled)
+            args.Cancelled = true;
+    }
+
+    private void OnTileChanged(EntityUid gridUid, MapGridComponent grid, ref TileChangedEvent args)
+    {
+        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var xform))
+        {
+            if (_transform.GetGrid(xform.Coordinates) is not { } g || g != gridUid)
+                continue;
+
+            var now = IsOnSubfloor(uid);
+            var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
+            _lastOnSubfloor[uid] = now;
+
+            if (comp.Enabled && now != old)
+                UpdateSneakCollision(uid, comp);
+            if (!old && now && comp.Enabled)
+                OnEnteredSubfloor(uid);
+        }
+    }
+
+    private void OnMove(EntityUid uid, TransformComponent xform, ref MoveEvent args)
+    {
+        if (!TryComp<CrawlUnderFloorComponent>(uid, out var comp))
+            return;
+
+        var now = IsOnSubfloor(uid);
+        var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
+        _lastOnSubfloor[uid] = now;
+
+        if (comp.Enabled && now != old)
+            UpdateSneakCollision(uid, comp);
+        if (!old && now && comp.Enabled)
+            OnEnteredSubfloor(uid);
+    }
+
+    private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
+    {
+        if (IsHidden(uid, comp))
+            args.Cancel();
+    }
+
+    private void OnAnyAttackAttempt(AttackAttemptEvent args)
+    {
+        if (args.Target is not { } target)
+            return;
+        if (TryComp(target, out CrawlUnderFloorComponent? goblinComp) && IsHidden(target, goblinComp))
+            args.Cancel();
+    }
+
+    protected virtual void SetCrawlAppearance(EntityUid uid, bool enabled) { }
+    protected virtual void OnEnteredSubfloor(EntityUid uid) { }
+
+    protected bool EnableSneakMode(EntityUid uid, CrawlUnderFloorComponent component)
+    {
+        if (component.Enabled || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing))
+            return false;
+        component.Enabled = true;
+        Dirty(uid, component);
+        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
+        UpdateSneakCollision(uid, component);
+        return true;
+    }
+
+    protected bool DisableSneakMode(EntityUid uid, CrawlUnderFloorComponent component)
+    {
+        if (!component.Enabled || IsOnCollidingTile(uid) || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing))
+            return false;
+        component.Enabled = false;
+        Dirty(uid, component);
+        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
+        if (TryComp(uid, out FixturesComponent? fixtureComponent))
+        {
+            foreach (var (key, originalMask) in component.ChangedFixtures)
+                if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
+                    _physics.SetCollisionMask(uid, key, fixture, originalMask, fixtureComponent);
+            foreach (var (key, originalLayer) in component.ChangedFixtureLayers)
+                if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
+                    _physics.SetCollisionLayer(uid, key, fixture, originalLayer, fixtureComponent);
+        }
+        component.ChangedFixtures.Clear();
+        component.ChangedFixtureLayers.Clear();
+        return true;
+    }
+
+    protected void UpdateSneakCollision(EntityUid uid, CrawlUnderFloorComponent comp)
+    {
+        if (!TryComp(uid, out FixturesComponent? fixtures))
+            return;
+
+        var hidden = IsHidden(uid, comp);
+
+        foreach (var (key, fixture) in fixtures.Fixtures)
+        {
+            var baseMask = GetOrCacheBase(comp.ChangedFixtures, key, fixture.CollisionMask);
+            var desiredMask = hidden ? HiddenMask(baseMask) : baseMask;
+            if (fixture.CollisionMask != desiredMask)
+                _physics.SetCollisionMask(uid, key, fixture, desiredMask, manager: fixtures);
+
+            var baseLayer = GetOrCacheBase(comp.ChangedFixtureLayers, key, fixture.CollisionLayer);
+            var desiredLayer = hidden ? HiddenLayer(baseLayer) : baseLayer;
+            if (fixture.CollisionLayer != desiredLayer)
+                _physics.SetCollisionLayer(uid, key, fixture, desiredLayer, manager: fixtures);
+        }
     }
 
     public bool IsOnCollidingTile(EntityUid uid)
@@ -61,5 +207,28 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     }
 
     public bool IsHidden(EntityUid uid, CrawlUnderFloorComponent comp)
-    => comp.Enabled && !IsOnSubfloor(uid);
+        => comp.Enabled && !IsOnSubfloor(uid);
+
+    private static int HiddenMask(int baseMask)
+        => baseMask
+           & (int) ~CollisionGroup.HighImpassable
+           & (int) ~CollisionGroup.MidImpassable
+           & (int) ~CollisionGroup.LowImpassable
+           & (int) ~CollisionGroup.InteractImpassable;
+
+    private static int HiddenLayer(int baseLayer)
+        => baseLayer
+           & (int) ~CollisionGroup.HighImpassable
+           & (int) ~CollisionGroup.MidImpassable
+           & (int) ~CollisionGroup.LowImpassable
+           & (int) ~CollisionGroup.MobLayer;
+
+    private static int GetOrCacheBase<TKey>(List<(TKey, int)> list, TKey key, int current)
+    {
+        var idx = list.FindIndex(t => EqualityComparer<TKey>.Default.Equals(t.Item1, key));
+        if (idx >= 0)
+            return list[idx].Item2;
+        list.Add((key, current));
+        return current;
+    }
 }

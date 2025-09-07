@@ -7,12 +7,10 @@ using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Content.Shared.DrawDepth;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Maps;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
-using System;
 using System.Collections.Generic;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
@@ -31,12 +29,12 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
     {
         base.Initialize();
         SubscribeLocalEvent<CrawlUnderFloorComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
         var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
         {
@@ -112,20 +110,5 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
         ApplySneakVisuals(uid, component, sprite);
-    }
-
-    private void OnTileChanged(EntityUid gridUid, MapGridComponent grid, ref TileChangedEvent args)
-    {
-        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
-        {
-            var g = _transform.GetGrid(xform.Coordinates);
-            if (g == null || g != gridUid)
-                continue;
-
-            ApplySneakVisuals(uid, comp, sprite);
-            var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-            _lastCell[uid] = (gridUid, snapPos);
-        }
     }
 }
