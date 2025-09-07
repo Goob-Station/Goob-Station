@@ -14436,3 +14436,9 @@ Entries:
       message: Plasmamen are now immune from being zombies.
   id: 1607
   time: '2025-09-07T19:20:51.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Made Vox magboot sprites in-line with their human counterparts
+  id: 1608
+  time: '2025-09-07T19:23:46.0000000+00:00'
