@@ -463,9 +463,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (!TryComp<BuckleComponent>(entity, out var buckle))
             return true;
 
-        if (TryComp<StrapComponent>(buckle.BuckledTo, out var strap) &&
-            strap.Rotation.GetCardinalDir() is Direction.West or Direction.East)
-            return true;
+        if (TryComp<StrapComponent>(buckle.BuckledTo, out var strap))
+        {
+            var rotation = strap.Rotation;
+            if (rotation.GetCardinalDir() is Direction.West or Direction.East)
+                return true;
+        }
 
         _popup.PopupClient(Loc.GetString("surgery-error-laying"), user, user);
         return false;
