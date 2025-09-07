@@ -467,12 +467,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             strap.Rotation.GetCardinalDir() is Direction.West or Direction.East)
             return true;
 
-<<<<<<< Updated upstream
         _popup.PopupClient(Loc.GetString("surgery-error-laying"), user, user);
-
-=======
-        _popup.PopupEntity(Loc.GetString("surgery-error-laying"), user, user);
->>>>>>> Stashed changes
         return false;
     }
 
