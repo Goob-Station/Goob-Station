@@ -14398,3 +14398,11 @@ Entries:
       message: Most autoinjector cartidges now require plasma to fabricate.
   id: 1601
   time: '2025-09-07T00:38:31.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Add
+      message: >-
+        Wizards can now purchase a crate containing anomaly cores to enchant
+        their gear.
+  id: 1602
+  time: '2025-09-07T00:41:54.0000000+00:00'
