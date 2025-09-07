@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Generic;
 using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Content.Shared.Actions;
@@ -34,9 +33,9 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     private readonly Dictionary<EntityUid, bool> _lastOnSubfloor = new();
 
@@ -47,48 +46,53 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, CrawlingUpdatedEvent>(OnCrawlingUpdated);
         SubscribeLocalEvent<CrawlUnderFloorComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
-        SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
+        SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttackAttemptEvent>(OnAttemptAttack);
         SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
 
     private void OnInit(EntityUid uid, CrawlUnderFloorComponent component, ComponentInit args)
     {
-        if (!_net.IsServer)
-            return;
-        if (component.ToggleHideAction == null)
-            _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
-        _lastOnSubfloor[uid] = IsOnSubfloor(uid);
+        if (_net.IsServer)
+        {
+            if (component.ToggleHideAction == null)
+                _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
+            _lastOnSubfloor[uid] = IsOnSubfloor(uid);
+        }
     }
 
     private void OnCrawlingUpdated(EntityUid uid, CrawlUnderFloorComponent component, CrawlingUpdatedEvent args)
     {
         if (args.Enabled)
-            _popup.PopupEntity(Loc.GetString("crawl-under-floor-toggle-on"), uid);
+            _popup.PopupPredicted(Loc.GetString("crawl-under-floor-toggle-on"), uid, uid);
         else
-            _popup.PopupEntity(Loc.GetString("crawl-under-floor-toggle-off"), uid);
+            _popup.PopupPredicted(Loc.GetString("crawl-under-floor-toggle-off"), uid, uid);
     }
 
     private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)
     {
         if (args.Handled)
             return;
+
         if (_net.IsClient)
         {
+            var next = !component.Enabled;
+            _appearance.SetData(uid, SneakMode.Enabled, next);
+            _popup.PopupPredicted(next
+                ? Loc.GetString("crawl-under-floor-toggle-on")
+                : Loc.GetString("crawl-under-floor-toggle-off"), uid, uid);
             args.Handled = true;
             return;
         }
 
-        var changed = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
-
+        var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
         _appearance.SetData(uid, SneakMode.Enabled, component.Enabled);
-
+        Dirty(uid, component);
         _lastOnSubfloor[uid] = IsOnSubfloor(uid);
         if (component.Enabled)
             UpdateSneakCollision(uid, component);
-
-        args.Handled = changed;
+        args.Handled = result;
     }
 
     private void OnAttemptClimb(EntityUid uid, CrawlUnderFloorComponent component, AttemptClimbEvent args)
@@ -112,12 +116,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             if (comp.Enabled && now != old)
                 UpdateSneakCollision(uid, comp);
 
-            if (_net.IsServer && !old && now && comp.Enabled && _random.Prob(0.3f))
-            {
-                var idx = _random.Next(1, 8);
-                var path = $"/Audio/_Goobstation/FloorGoblin/duende-0{idx}.ogg";
-                _audio.PlayPvs(new SoundPathSpecifier(path), uid);
-            }
+            if (!old && now && comp.Enabled)
+                PlayDuendeSound(uid, 1f);
         }
     }
 
@@ -133,12 +133,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (comp.Enabled && now != old)
             UpdateSneakCollision(uid, comp);
 
-        if (_net.IsServer && !old && now && comp.Enabled && _random.Prob(0.3f))
-        {
-            var idx = _random.Next(1, 8);
-            var path = $"/Audio/_Goobstation/FloorGoblin/duende-0{idx}.ogg";
-            _audio.PlayPvs(new SoundPathSpecifier(path), uid);
-        }
+        if (!old && now && comp.Enabled)
+            PlayDuendeSound(uid);
     }
 
     private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
@@ -153,6 +149,19 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return;
         if (TryComp(target, out CrawlUnderFloorComponent? goblinComp) && IsHidden(target, goblinComp))
             args.Cancel();
+    }
+
+    protected void PlayDuendeSound(EntityUid uid, float probability = 0.3f)
+    {
+        if (!_net.IsServer)
+            return;
+
+        if (_random.Prob(probability))
+        {
+            var idx = _random.Next(1, 8);
+            var path = $"/Audio/_Goobstation/FloorGoblin/duende-0{idx}.ogg";
+            _audio.PlayPvs(new SoundPathSpecifier(path), uid);
+        }
     }
 
     protected bool EnableSneakMode(EntityUid uid, CrawlUnderFloorComponent component)
@@ -189,6 +198,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     protected void UpdateSneakCollision(EntityUid uid, CrawlUnderFloorComponent comp)
     {
+        if (!_net.IsServer)
+            return;
         if (!TryComp(uid, out FixturesComponent? fixtures))
             return;
 

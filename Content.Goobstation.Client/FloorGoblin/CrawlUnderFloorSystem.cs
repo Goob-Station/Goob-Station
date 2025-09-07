@@ -38,9 +38,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
         {
-            var enabled = comp.Enabled;
-            if (_appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled))
-                enabled = apEnabled || enabled;
+            var enabled = _appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled) && apEnabled;
 
             if (!enabled)
             {
@@ -69,9 +67,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
 
     private void ApplySneakVisuals(EntityUid uid, CrawlUnderFloorComponent component, SpriteComponent sprite)
     {
-        var enabled = component.Enabled;
-        if (_appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled))
-            enabled = apEnabled || enabled;
+        var enabled = _appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled) && apEnabled;
 
         var onSubfloor = IsOnSubfloor(uid);
 
