@@ -139,14 +139,10 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         var isNorth = angle.GetCardinalDir() == Direction.North;
 
         ent.Comp.OriginalDrawDepth ??= buckledSprite.DrawDepth;
-        if (isNorth)
-        {
-            _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth - 1);
-        }
-        else
-        {
-            _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth + 1);
-        }
+        _sprite.SetDrawDepth(
+            (ent.Owner, buckledSprite),
+        strapSprite.DrawDepth + (isNorth ? -1 : 1)
+            );
         // Goobstation - end
     }
 
