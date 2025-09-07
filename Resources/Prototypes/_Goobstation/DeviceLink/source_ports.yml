@@ -27,10 +27,17 @@
   name: signal-port-name-powered
   description: signal-port-description-powered
 
+# Plumbing
+
 - type: sourcePort
   id: PlumbingOutput
   name: signal-port-name-plumbing-output
   description: signal-port-description-plumbing-output
+
+- type: sourcePort
+  id: PlumbingDispenser
+  name: signal-port-name-plumbing-dispenser
+  description: signal-port-description-plumbing-dispenser
 
 # Robotic Arm
 

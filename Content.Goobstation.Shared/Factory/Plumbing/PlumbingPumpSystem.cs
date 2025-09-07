@@ -55,7 +55,7 @@ public sealed class PlumbingPumpSystem : EntitySystem
         var limit = _transferQuery.Comp(ent).TransferAmount;
 
         var amount = FixedPoint2.Min(input.Volume, limit);
-        if (output.Comp.Solution.MaxVolume > FixedPoint2.Zero)
+        if (output.MaxVolume > FixedPoint2.Zero)
             amount = FixedPoint2.Min(amount, output.AvailableVolume);
         if (amount <= FixedPoint2.Zero)
             return;

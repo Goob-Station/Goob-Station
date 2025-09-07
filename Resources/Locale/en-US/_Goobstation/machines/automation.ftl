@@ -7,6 +7,9 @@ signal-port-description-plumbing-input = A plumbing automation slot to pump liqu
 signal-port-name-plumbing-output = Plumbing: Output
 signal-port-description-plumbing-output = A plumbing automation slot to pump liquids out of.
 
+signal-port-name-plumbing-dispenser = Plumbing: Dispenser
+signal-port-description-plumbing-dispenser = A plumbing automation slot to pump liquids into or out of a dispenser's beaker.
+
 # Robotic Arm
 
 signal-port-name-input-machine = Item: Input Machine

@@ -154,6 +154,9 @@
       input: AutomationSlotBottles
       output: AutomationSlotBottles
       slotId: outputSlot
+    - !type:AutomatedBeakerSlot
+      input: PlumbingDispenser
+      output: PlumbingDispenser
   - type: SolutionContainerManager
     solutions:
       buffer: # Goobstation - solution shitcode doesnt like max volume 0 and i dont want to rewrite AddSolution
