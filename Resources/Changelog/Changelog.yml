@@ -4121,3 +4121,11 @@
   id: 8938
   time: '2025-09-07T14:01:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40197
+- author: ArtisticRoomba
+  changes:
+  - message: Atmospherics Delta-Pressure now has a short guidebook entry. You can
+      find it in Jobs > Engineering > Atmospherics > Atmospheric Upsets > Delta Pressure.
+    type: Add
+  id: 8940
+  time: '2025-09-07T15:10:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40194
