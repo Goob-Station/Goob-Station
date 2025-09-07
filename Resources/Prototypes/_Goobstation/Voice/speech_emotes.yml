@@ -17,7 +17,7 @@
   icon: _Goobstation/Interface/Emotes/fart.png
   whitelist:
     components:
-    - Vocal
+    # - Vocal # dream walker change
   blacklist:
     components:
     - BorgChassis
@@ -72,7 +72,7 @@
   icon: _Goobstation/Interface/Emotes/fart-in.png
   whitelist:
     components:
-    - Vocal
+    # - Vocal # dream walker change
   blacklist:
     components:
     - BorgChassis
@@ -113,7 +113,7 @@
   icon: _Goobstation/Interface/Emotes/fart-super.png
   whitelist:
     components:
-    - Vocal
+    # - Vocal # dream walker change
   blacklist:
     components:
     - BorgChassis
