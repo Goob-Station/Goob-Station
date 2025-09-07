@@ -14424,3 +14424,9 @@ Entries:
       message: The NTR Station Report now includes the science department by default.
   id: 1605
   time: '2025-09-07T13:19:12.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Updated xenomorph weeds / walls / windows to rmc sprites
+  id: 1606
+  time: '2025-09-07T18:54:28.0000000+00:00'
