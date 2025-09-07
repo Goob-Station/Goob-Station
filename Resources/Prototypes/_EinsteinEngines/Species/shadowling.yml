@@ -18,7 +18,7 @@
     Snout: MobHumanoidAnyMarking
     Chest: MobShadowlingChest
     Groin: MobShadowlingGroin
-    Eyes: MobShadowlingEyes
+#    Eyes: MobShadowlingEyes
     LArm: MobShadowlingLArm
     RArm: MobShadowlingRArm
     LHand: MobShadowlingLHand
@@ -29,11 +29,11 @@
     LFoot: MobShadowlingLFoot
     RFoot: MobShadowlingRFoot
 
-- type: humanoidBaseSprite
-  id: MobShadowlingEyes
-  baseSprite:
-    sprite: Mobs/Customization/eyes.rsi
-    state: eyes
+#- type: humanoidBaseSprite
+#  id: MobShadowlingEyes
+#  baseSprite:
+#    sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
+#    state: eyes
 
 - type: humanoidBaseSprite
   id: MobShadowlingHead

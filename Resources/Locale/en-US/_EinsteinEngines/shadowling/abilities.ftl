@@ -37,4 +37,4 @@ shadowling-ascendant-broadcast-dialog = Your message has been sent to everyone.
 
 shadowling-nox-imperii-done = No longer prey to the light, you stride where your ancestors withered.
 
-shadowling-ascendance-fail = You can not build your cocoon in this tile.
+shadowling-ascendance-fail = You cannot build your cocoon in this tile.
