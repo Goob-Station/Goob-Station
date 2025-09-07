@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.LightDetection.Components;
+using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -19,7 +20,7 @@ namespace Content.Goobstation.Shared.Shadowling.Systems;
 public abstract class SharedShadowlingSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-
+    [Dependency] private readonly SharedLightDetectionDamageSystem _lightDamage = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -30,7 +31,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShadowlingComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<ShadowlingComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<ShadowlingComponent, HatchEvent>(OnHatch);
         SubscribeLocalEvent<ShadowlingComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -66,15 +67,15 @@ public abstract class SharedShadowlingSystem : EntitySystem
         }
     }
 
-    public void OnThrallRemoved(EntityUid uid, ShadowlingComponent comp)
+    public void OnThrallRemoved(Entity<ShadowlingComponent> ent)
     {
-        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
+        if (!TryComp<LightDetectionDamageComponent>(ent, out var lightDet))
             return;
 
-        lightDet.ResistanceModifier -= comp.LightResistanceModifier;
+        _lightDamage.AddResistance((ent.Owner, lightDet), -ent.Comp.LightResistanceModifier);
     }
 
-    private void OnInit(EntityUid uid, ShadowlingComponent component, ref ComponentInit args)
+    private void OnInit(EntityUid uid, ShadowlingComponent component, ref MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch);
     }
@@ -85,7 +86,8 @@ public abstract class SharedShadowlingSystem : EntitySystem
             return;
 
         args.Handled = true;
-        _actions.RemoveAction(ent.Owner, (args.Action.Owner, args.Action.Comp));
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionHatchEntity);
+
         StartHatchingProgress(ent);
     }
 
@@ -106,6 +108,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
             case ShadowlingPhases.PostHatch:
             {
                 EntityManager.AddComponents(uid, defaultAbilities);
+                _actions.RemoveAction(uid, component.ActionHatchEntity);
                 break;
             }
             case ShadowlingPhases.Ascension:
@@ -192,16 +195,16 @@ public abstract class SharedShadowlingSystem : EntitySystem
         var target = args.Target.Value;
 
         var thrall = EnsureComp<ThrallComponent>(target);
+        thrall.Converter = uid;
         var comps = _protoMan.Index(components);
         EntityManager.AddComponents(target, comps);
 
         if (TryComp<ShadowlingComponent>(uid, out var sling))
         {
             sling.Thralls.Add(target);
-            thrall.Converter = uid;
 
             if (TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
-                lightDet.ResistanceModifier += sling.LightResistanceModifier;
+                _lightDamage.AddResistance((uid, lightDet), sling.LightResistanceModifier);
         }
 
         _audio.PlayPredicted(

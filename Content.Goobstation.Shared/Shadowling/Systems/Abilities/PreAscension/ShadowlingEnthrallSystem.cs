@@ -66,11 +66,11 @@ public sealed class ShadowlingEnthrallSystem : EntitySystem
         // Basic Enthrall -> Can't melt Mindshields
         if (HasComp<MindShieldComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("shadowling-enthrall-mindshield"), uid, uid, PopupType.SmallCaution);
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-mindshield"), uid, uid, PopupType.SmallCaution);
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("shadowling-target-being-thralled"), uid, target, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString("shadowling-target-being-thralled"), target, target, PopupType.LargeCaution);
 
         _doAfter.TryStartDoAfter(doAfterArgs);
         args.Handled = true;

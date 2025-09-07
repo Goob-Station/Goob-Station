@@ -16,6 +16,8 @@
     alternateState: Standing
   - type: Damageable
     damageContainer: Biological
+  - type: Inventory
+    speciesId: shadowling
   - type: Body
     prototype: Shadowling
     requiredLegs: 2
@@ -46,7 +48,6 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
-  - type: ShadowlingCannotWearClothes
   - type: NightVision
     color: "#BF40BF"
     activateSound: null

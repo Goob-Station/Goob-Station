@@ -103,11 +103,11 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
         if (!_mobStateSystem.IsAlive(target))
         {
             if (_mind.TryGetMind(target, out _, out var mind)
-                && _playerMan.TryGetSessionById(mind.UserId, out var session)
-                && mind.CurrentEntity != target)
+                && _playerMan.TryGetSessionById(mind.UserId, out var session))
             {
                 // notify them they're being revived.
-                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
+                if (mind.CurrentEntity != target)
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
             }
             else
             {
@@ -122,7 +122,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             _audio.PlayPvs(component.BlackRecSound, target, AudioParams.Default.WithVolume(-1f));
 
             if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
-                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromThralls);
+                _light.AddResistance((uid, lightDetectionDamageModifier), component.ResistanceRemoveFromThralls);
         }
         else
         {
@@ -154,7 +154,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             _audio.PlayPvs(component.BlackRecSound, newUid.Value, AudioParams.Default.WithVolume(-1f));
 
             if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
-                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromLesser);
+                _light.AddResistance((uid, lightDetectionDamageModifier), component.ResistanceRemoveFromLesser);
         }
 
         args.Handled = true;

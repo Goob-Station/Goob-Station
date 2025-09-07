@@ -76,9 +76,4 @@ public sealed class LightDetectionDamageSystem : SharedLightDetectionDamageSyste
                 comp.DetectionValue = comp.DetectionValueMax;
         }
     }
-
-    public void AddResistance(LightDetectionDamageComponent component, float amount)
-    {
-        component.ResistanceModifier += amount;
-    }
 }

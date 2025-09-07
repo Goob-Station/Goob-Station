@@ -15,6 +15,8 @@
     alternateState: Standing
   - type: Damageable
     damageContainer: Biological
+  - type: Inventory
+    speciesId: shadowling
   - type: Body
     prototype: Shadow
     requiredLegs: 2
@@ -53,7 +55,6 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
-  - type: ShadowlingCannotWearClothes
 
 - type: entity
   parent: BaseSpeciesDummy

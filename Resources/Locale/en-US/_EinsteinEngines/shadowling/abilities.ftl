@@ -1,19 +1,19 @@
 shadowling-enthrall-non-humanoid = It is not what you're looking for...
-shadowling-enthrall-mindshield = They can defy your powers
-shadowling-enthrall-already-thrall = They are already your thrall
-shadowling-enthrall-shadowling = You can not enthrall your own kind
-shadowling-enthrall-psionic-insulated = Their essence burns with power beyond your control
-shadowling-enthrall-dead = You need them alive
+shadowling-enthrall-mindshield = They can defy your powers!
+shadowling-enthrall-already-thrall = They are already your thrall!
+shadowling-enthrall-shadowling = You can not enthrall your own kind!
+shadowling-enthrall-psionic-insulated = Their essence burns with power beyond your control!
+shadowling-enthrall-dead = You need them alive!
 
-shadowling-target-being-thralled = A dark presence grips your mind
+shadowling-target-being-thralled = A dark presence grips your mind...!
 
 shadowling-glare-target = Your body seizes as an otherworldly glare bears down on you.
 
-shadowling-shadow-walk-activate = I vanish between the breaths of light
+shadowling-shadow-walk-activate = I vanish between the breaths of light.
 
-shadowling-icy-veins-activated = An unnatural chill grips your limbs
+shadowling-icy-veins-activated = An unnatural chill grips your limbs...
 
-shadowling-rapid-rehatch-complete = The husk shudders, and from it, you are reborn unscathed
+shadowling-rapid-rehatch-complete = The husk shudders, and from it, you are reborn unscathed.
 
 shadowling-destroy-engines-used = The shuttle has already been delayed by someone else.
 shadowling-destroy-engines-arrived = Your powers make you unable to destroy the engines!

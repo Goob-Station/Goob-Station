@@ -90,7 +90,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
 
-        _audio.PlayPvs(comp.ShadowWalkSound, uid, AudioParams.Default.WithVolume(-2f));
+        _audio.PlayPredicted(comp.ShadowWalkSound, uid, uid, AudioParams.Default.WithVolume(-2f));
         var effectEnt = PredictedSpawnAtPosition(comp.ShadowWalkEffectIn, Transform(uid).Coordinates);
         _transform.SetParent(effectEnt, uid);
 

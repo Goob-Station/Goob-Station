@@ -54,7 +54,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         // Adjust lightning resistance for shadowling
         var shadowling = component.Converter.Value;
         if (TryComp<ShadowlingComponent>(shadowling, out var shadowlingComp))
-            _shadowling.OnThrallRemoved(shadowling, shadowlingComp);
+            _shadowling.OnThrallRemoved((shadowling, shadowlingComp));
     }
 
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)

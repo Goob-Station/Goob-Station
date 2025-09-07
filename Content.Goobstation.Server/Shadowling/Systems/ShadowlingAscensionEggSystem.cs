@@ -220,10 +220,10 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
                 || !TryComp<ShadowlingComponent>(newUid.Value, out var ascendant))
                 continue;
 
-            _actions.RemoveAction(ascendant.ActionHatchEntity);
             ascendant.CurrentPhase = ShadowlingPhases.Ascension;
-
             _shadowling.OnPhaseChanged(newUid.Value, ascendant, ShadowlingPhases.Ascension);
+
+            _actions.RemoveAction(ascendant.ActionHatchEntity);
         }
 
         var nightmareComps = _protoMan.Index("NightmareAbilities");
@@ -245,6 +245,7 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             RemComp<ThrallGuiseComponent>(newUid.Value);
             RemComp<NightVisionComponent>(newUid.Value);
         }
+
         var message = Loc.GetString("shadowling-ascended-message");
         var sender = Loc.GetString("shadowling-destroy-engines-sender");
         _chatSystem.DispatchStationAnnouncement(

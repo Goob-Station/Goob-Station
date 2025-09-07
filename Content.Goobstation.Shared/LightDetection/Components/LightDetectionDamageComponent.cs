@@ -26,25 +26,25 @@ public sealed partial class LightDetectionDamageComponent : Component
     [DataField, AutoNetworkedField]
     public float DetectionValue;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float DetectionValueFactor = 1.5f;
 
     /// <summary>
     /// Indicates whether the user should take damage on light
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool TakeDamageOnLight = true;
 
     /// <summary>
     /// Indicates whether the user should heal if not on light
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool HealOnShadows = true;
 
     /// <summary>
     ///  For shadowlings (Light Resistance)
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ResistanceModifier = 1;
 
     /// <summary>
@@ -92,7 +92,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     /// <summary>
     /// If an alert prototype does not exist, this should be false. Otherwise, it is defaulted to the Shadowling's one.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool ShowAlert = true;
 
     [DataField]
