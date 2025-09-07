@@ -14412,3 +14412,9 @@ Entries:
       message: SpaceLube no longer evaporates.
   id: 1603
   time: '2025-09-07T00:44:05.0000000+00:00'
+- author: mocho is a chud
+  changes:
+    - type: Fix
+      message: Fixed surgery not being predicted.
+  id: 1604
+  time: '2025-09-07T10:10:08.0000000+00:00'
