@@ -107,7 +107,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);
         _transform.SetParent(effectEnt, uid);
 
-        _popup.PopupEntity(Loc.GetString("shadowling-glare-target"), uid, target, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("shadowling-glare-target"), target, target, PopupType.MediumCaution);
         args.Handled = true;
     }
 }

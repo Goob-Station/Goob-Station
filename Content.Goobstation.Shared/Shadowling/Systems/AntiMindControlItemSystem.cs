@@ -45,7 +45,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
         if (!_charges.HasCharges(uid, 1))
         {
-            _popupSystem.PopupEntity(
+            _popupSystem.PopupPredicted(
                 Loc.GetString("anti-mind-max-charges-reached"),
                 args.User,
                 args.User,
@@ -95,7 +95,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
 
         if (HasComp<LesserShadowlingComponent>(target))
         {
-            _popupSystem.PopupEntity(Loc.GetString("mind-control-lesser-shadowling"), user, user, PopupType.MediumCaution);
+            _popupSystem.PopupPredicted(Loc.GetString("mind-control-lesser-shadowling"), user, user, PopupType.MediumCaution);
             return;
         }
 
@@ -109,11 +109,12 @@ public sealed class AntiMindControlItemSystem : EntitySystem
             var enthrallRes = EntityManager.GetComponent<EnthrallResistanceComponent>(target);
             enthrallRes.ExtraTime += enthrallRes.ExtraTimeUpdate;
 
-            _popupSystem.PopupEntity(Loc.GetString("mind-control-thrall-done"), target, target, PopupType.MediumCaution);
+            _popupSystem.PopupPredicted(Loc.GetString("mind-control-thrall-done"), target, target, PopupType.MediumCaution);
         }
 
-        _audioSystem.PlayPvs(
+        _audioSystem.PlayPredicted(
             new SoundPathSpecifier("/Audio/Weapons/flash.ogg"),
+            user,
             target,
             AudioParams.Default.WithVolume(-2f));
 
