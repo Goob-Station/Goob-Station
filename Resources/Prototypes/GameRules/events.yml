@@ -509,7 +509,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 3.5
+    weight: 0 # Disables Revenant spawn - fuck Revenants!
     duration: 1
     earliestStart: 30
     minimumPlayers: 20

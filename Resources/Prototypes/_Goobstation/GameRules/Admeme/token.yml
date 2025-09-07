@@ -66,6 +66,7 @@
     prototype: MobRevenantToken
   - type: StationEvent
     isSelectable: false
+    weight: 0 # This will prevent it from being selected - fuck revenants
 
 - type: entity
   parent: LoneOpsSpawn
