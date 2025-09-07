@@ -9,26 +9,23 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Generic;
+using Content.Goobstation.Common.FloorGoblin;
+using Content.Goobstation.Shared.FloorGoblin;
+using Content.Shared._DV.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
-using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared.Maps;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-using Content.Goobstation.Common.FloorGoblin;
-using Content.Shared._DV.Abilities;
-using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.FloorGoblin;
 
@@ -54,7 +51,7 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
-        SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptMeleeEvent>(OnAttemptMelee);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptMeleeEvent>(OnAttemptMelee);   
     }
 
     private bool IsOnCollidingTile(EntityUid uid)
