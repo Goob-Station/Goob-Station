@@ -134,6 +134,7 @@
   - CaptainEnvirosuit
   - CaptainEnvirogloves
   - CaptainGloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -154,6 +155,7 @@
   - HoPEnvirosuit
   - HoPEnvirogloves
   - HoPGloves
+  - PersonalItemsJobAgnostic # Umbra
 # Silicons
 - type: roleLoadout
   id: JobBorg
@@ -186,6 +188,7 @@
   - AssistantEnvirohelm
   - AssistantEnvirosuit
   - AssistantEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobBartender
@@ -204,6 +207,7 @@
   - BartenderEnvirohelm
   - BartenderEnvirosuit
   - BartenderEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -220,6 +224,7 @@
   - ServiceWorkerEnvirohelm
   - ServiceWorkerEnvirosuit
   - ServiceWorkerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobChef
@@ -239,6 +244,7 @@
   - ChefEnvirohelm
   - ChefEnvirosuit
   - ChefEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobLibrarian
@@ -255,6 +261,7 @@
   - LibrarianEnvirohelm
   - LibrarianEnvirosuit
   - LibrarianEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobLawyer
@@ -272,6 +279,7 @@
   - LawyerEnvirohelm
   - LawyerEnvirosuit
   - LawyerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobChaplain
@@ -292,6 +300,7 @@
   - ChaplainEnvirohelm
   - ChaplainEnvirosuit
   - ChaplainEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobJanitor
@@ -312,6 +321,7 @@
   - JanitorEnvirohelm
   - JanitorEnvirosuit
   - JanitorEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobBotanist
@@ -330,6 +340,7 @@
   - BotanistEnvirohelm
   - BotanistEnvirosuit
   - BotanistEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobClown
@@ -349,6 +360,7 @@
   - ClownEnvirohelm
   - ClownEnvirosuit
   - ClownEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobMime
@@ -370,6 +382,7 @@
   - MimeEnvirosuit
   - MimeEnvirogloves
   - MimeGloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobMusician
@@ -388,6 +401,7 @@
   - MusicianEnvirohelm
   - MusicianEnvirosuit
   - MusicianEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Cargo
 - type: roleLoadout
@@ -409,6 +423,7 @@
   - QuartermasterEnvirohelm
   - QuartermasterEnvirosuit
   - QuartermasterEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -428,6 +443,7 @@
   - CargoTechnicianEnvirohelm
   - CargoTechnicianEnvirosuit
   - CargoTechnicianEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -446,6 +462,7 @@
   - SalvageEnvirohelm
   - SalvageEnvirosuit
   - SalvageEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Engineering
 - type: roleLoadout
@@ -466,6 +483,7 @@
   - ChiefEngineerEnvirohelm
   - ChiefEngineerEnvirosuit
   - ChiefEngineerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -481,6 +499,7 @@
   - TechnicalAssistantEnvirohelm
   - TechnicalAssistantEnvirosuit
   - TechnicalAssistantEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -500,6 +519,7 @@
   - StationEngineerEnvirohelm
   - StationEngineerEnvirosuit
   - StationEngineerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -518,6 +538,7 @@
   - AtmosEnvirohelm
   - AtmosEnvirosuit
   - AtmosEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Science
 - type: roleLoadout
@@ -540,6 +561,7 @@
   - ResearchDirectorEnvirosuit
   - ResearchDirectorEnvirohelm
   - ResearchDirectorEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobScientist
@@ -562,6 +584,7 @@
   - ScientistEnvirohelm
   - ScientistEnvirosuit
   - ScientistEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -578,6 +601,7 @@
   - ResearchAssistantEnvirohelm
   - ResearchAssistantEnvirosuit
   - ResearchAssistantEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Security
 - type: roleLoadout
@@ -601,6 +625,7 @@
   - HeadofSecurityEnvirosuit
   - HeadofSecurityEnvirogloves
   - HeadofSecurityGloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobWarden
@@ -622,6 +647,7 @@
   - WardenEnvirohelm
   - WardenEnvirosuit
   - WardenEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -644,6 +670,7 @@
   - SecurityOfficerEnvirohelm
   - SecurityOfficerEnvirosuit
   - SecurityOfficerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobDetective
@@ -664,6 +691,7 @@
   - DetectiveEnvirosuit
   - DetectiveEnvirogloves
   - DetectiveGloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -681,6 +709,7 @@
   - SecurityCadetEnvirohelm
   - SecurityCadetEnvirosuit
   - SecurityCadetEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Medical
 - type: roleLoadout
@@ -704,6 +733,7 @@
   - ChiefMedicalOfficerEnvirohelm
   - ChiefMedicalOfficerEnvirosuit
   - ChiefMedicalOfficerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -726,6 +756,7 @@
   - MedicalDoctorEnvirohelm
   - MedicalDoctorEnvirosuit
   - MedicalDoctorEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -742,6 +773,7 @@
   - MedicalInternEnvirohelm
   - MedicalInternEnvirosuit
   - MedicalInternEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobChemist
@@ -762,6 +794,7 @@
   - ChemistEnvirohelm
   - ChemistEnvirosuit
   - ChemistEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobParamedic
@@ -783,6 +816,7 @@
   - ParamedicEnvirohelm
   - ParamedicEnvirosuit
   - ParamedicEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 # Wildcards
 - type: roleLoadout
@@ -801,6 +835,7 @@
   - ZookeeperEnvirohelm
   - ZookeeperEnvirosuit
   - ZookeeperEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobReporter
@@ -818,6 +853,7 @@
   - ReporterEnvirohelm
   - ReporterEnvirosuit
   - ReporterEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobPsychologist
@@ -834,6 +870,7 @@
   - PsychologistEnvirohelm
   - PsychologistEnvirosuit
   - PsychologistEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobBoxer
@@ -850,6 +887,7 @@
   # Goobstation - EE Plasmeme Change.
   - BoxerEnvirohelm
   - BoxerEnvirosuit
+  - PersonalItemsJobAgnostic # Umbra
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

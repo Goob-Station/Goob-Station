@@ -108,6 +108,7 @@
   - NanotrasenRepresentativeEnvirohelm
   - NanotrasenRepresentativeEnvirosuit
   - NanotrasenRepresentativeEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobBlueshieldOfficer
@@ -128,6 +129,7 @@
   - BlueshieldOfficerEnvirosuit
   - BlueshieldOfficerEnvirogloves
   - BlueshieldOfficerGloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer
@@ -148,6 +150,7 @@
   - CentComOfficerEnvirohelm
   - CentComOfficerEnvirosuit
   - CentComOfficerEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 - type: roleLoadout
   id: RoleSurvivalNukieHonkops
@@ -177,6 +180,7 @@
   - BrigmedicEnvirohelm
   - BrigmedicEnvirosuit
   - BrigmedicEnvirogloves
+  - PersonalItemsJobAgnostic # Umbra
 
 
 # gives plasmaman a plasma breathing tank

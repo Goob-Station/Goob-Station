@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "icon modified by VividWisp from musician.rsi/guitar.png from commit: https://github.com/space-wizards/space-station-14/commit/ae41d03ec6158e72450c9c045875a11e14fabd74; equipped-SUITSTORAGE modified by VividWisp from guitar.rsi/equipped-SUITSTORAGE.png from commit: https://github.com/space-wizards/space-station-14/commit/d3495fc51c811d6fbd8dbaa1a20bb1da77c8dbcd; inhand-right, inhand-left, equipped-BACKPACK modified by VividWisp from guitar.rsi/equipped-BACKPACK.png, inhand-left.png, inhand-right.png from commit: https://github.com/space-wizards/space-station-14/commit/b31c8484180324f983d9af091b96595440c6a71b; wielded-inhand-right, wielded-inhand-left modified by VividWisp from guitar.rsi/wielded-inhand-right.png, wielded-inhand-right.png from commit: https://github.com/space-wizards/space-station-14/commit/b10a7da5d8fed699475f7e1ebf8bf9a115165784.",
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    }
+  ]
+}
