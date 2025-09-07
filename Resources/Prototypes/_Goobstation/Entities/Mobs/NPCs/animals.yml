@@ -306,7 +306,7 @@
     price: 500
 
 - type: entity
-  name: Floor Goblin
+  name: floor goblin
   id: MobFloorGoblin
   parent: SimpleSpaceMobBase
   description: Lives under the floor boards, steals shoes, bites ankles.
@@ -349,9 +349,9 @@
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
-    - Floor Goblin
+    - floor-goblin
     understands:
-    - Floor Goblin
+    - floor-goblin
   - type: MobState
   - type: MobThresholds
     thresholds:

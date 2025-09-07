@@ -1,5 +1,5 @@
 - type: language
-  id: Floor Goblin
+  id: floor-goblin
   speech:
     color: "#288f43"
   obfuscation:
