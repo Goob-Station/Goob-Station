@@ -40,4 +40,6 @@ public sealed partial class AutomatedSolution : AutomationSlot
 
         _solutionSys = EntMan.System<SharedSolutionContainerSystem>();
     }
+
+    public override Entity<SolutionComponent>? GetSolution() => Solution;
 }
