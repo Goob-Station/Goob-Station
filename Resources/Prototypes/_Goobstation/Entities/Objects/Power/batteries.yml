@@ -1,0 +1,34 @@
+- type: entity
+  name: disposable battery
+  description: Robots eat these, right?
+  id: BatteryDisposable
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Tiny
+  - type: Battery
+    maxCharge: 360 # same as a small-cap
+    startingCharge: 360
+  - type: StaticPrice
+    price: 5
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 6
+      Steel: 6
+    chemicalComposition:
+      Zinc: 2.5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Power/batteries.rsi
+    state: icon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 2.5
+  - type: Appearance
+  - type: BatteryDrinkerSource
+    drinkSpeedMulti: 0.6
+  - type: Tag
+    tags:
+    - Trash
+    - DisposableBattery
