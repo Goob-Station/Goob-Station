@@ -14344,3 +14344,71 @@ Entries:
         now fight back against other mobs, like Trevor or Renault.
   id: 1595
   time: '2025-09-05T22:54:31.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: >-
+        Abductors :alien: now have Nitrous Oxide on their ships to put their
+        experiments to sleep.
+  id: 1596
+  time: '2025-09-06T06:27:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added the Janitorial keyring
+    - type: Add
+      message: Mops & Soap can now have a new method of cleaning footprints.
+    - type: Add
+      message: Light-replacers will now recycle broken tubes.
+    - type: Add
+      message: >-
+        You can now scrub stains, decals, and footprints off of tiles with a
+        mop/soap.
+    - type: Add
+      message: Janitors now have a new senior item.
+    - type: Tweak
+      message: Wearing galoshes now stops you from making footprints.
+    - type: Tweak
+      message: Dumping trash into dispo no longer blows your fucking eardrums out.
+  id: 1597
+  time: '2025-09-06T06:44:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the "Time" clause not working properly.
+  id: 1598
+  time: '2025-09-06T09:00:40.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: The Janitor's Keyring Works Properly now.
+  id: 1599
+  time: '2025-09-06T13:09:44.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprites Vox HoS coat
+  id: 1600
+  time: '2025-09-07T00:37:48.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Reduced the amount of autoinjector gear available shiftstart.
+    - type: Tweak
+      message: Most autoinjector cartidges now require plasma to fabricate.
+  id: 1601
+  time: '2025-09-07T00:38:31.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Add
+      message: >-
+        Wizards can now purchase a crate containing anomaly cores to enchant
+        their gear.
+  id: 1602
+  time: '2025-09-07T00:41:54.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: SpaceLube no longer evaporates.
+  id: 1603
+  time: '2025-09-07T00:44:05.0000000+00:00'
