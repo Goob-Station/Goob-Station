@@ -374,6 +374,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi
 
+  type: entity
   parent: [ ClothingHeadBase, BaseJanitorContraband ]
   id: ClothingHeadHatJanitorCap
   name: janitorial cap
