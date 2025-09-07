@@ -543,7 +543,7 @@ public sealed partial class GoobCVars
     /// Whether or not to show detailed examine text.
     /// </summary>
     public static readonly CVarDef<bool> DetailedExamine =
-        CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+        CVarDef.Create("misc.detailed_examine", false, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); //CorvaxGoob changed default value
 
     /// <summary>
     /// Fire damage
