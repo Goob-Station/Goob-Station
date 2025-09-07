@@ -161,7 +161,7 @@
 
 - type: entity
   id: ShuttersNormal
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   components:
   - type: Occluder
   - type: Construction
@@ -169,11 +169,6 @@
     node: Shutters
     containers:
     - board
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
 
 - type: entity
   id: ShuttersNormalOpen
@@ -193,7 +188,7 @@
 
 - type: entity
   id: ShuttersRadiation
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   name: radiation shutters
   description: Why did they make these shutters radioactive?
   components:
@@ -208,11 +203,6 @@
     node: ShuttersRadiation
     containers:
     - board
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
   - type: RadiationBlocker
     resistance: 4
 
@@ -234,7 +224,7 @@
 
 - type: entity
   id: ShuttersWindow
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   name: window shutters
   description: The Best (TM) place to see your friends explode!
   components:
@@ -248,11 +238,6 @@
     node: ShuttersWindow
     containers:
     - board
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
   - type: RadiationBlocker
     resistance: 1
 
