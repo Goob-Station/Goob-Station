@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseItem
+  id: HeatLamp
+  name: heat lamp
+  description: A lamp for keeping warm in the depths of space
+  components:
+  - type: Heatlamp
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/heat_lamp.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.ItemToggleVisuals.Layer" ]
+    - state: icon-powered
+      map: [ "enum.HeatlampVisualLayers.Powered" ]
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/heat_lamp.rsi
+    size: Small
+  - type: ItemToggle
+  - type: ItemToggleSize
+    activatedSize: Normal
+    activatedShape:
+    - 0,0,0,2
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 6
+        Heat: 6
+  - type: ItemToggleVisuals
+  - type: Appearance
+    appearanceDataInit: # Without this, this the toggle visuals component layer thing starts without a state and breaks the icon.
+      enum.ItemToggleVisuals.State: !type:String false # HACK: This has to be the string "false" because AppearanceDataInit only takes objects
+  - type: GenericVisualizer
+    visuals:
+      enum.HeatlampVisuals.IsEmagged:
+        enum.HeatlampVisualLayers.Powered:
+          True: { state: icon-emagged } # Change powered layer to use emagged icon.
+      enum.HeatlampVisuals.IsPowered:
+        enum.HeatlampVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ItemToggleVisuals.State:
+        enum.ItemToggleVisuals.Layer:
+          True: { state: icon-on }
+          False: { state: icon-off }
+        enum.HeatlampVisualLayers.Powered:
+          False: { visible: false }
+          "false": { visible: false } # Absolute cinema.
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12 # Does 12 blunt when closed and 6 blunt / 6 heat when open
+  - type: Clothing
+    slots: [ belt ]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        priority: 5
+        startingItem: PowerCellMedium
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
