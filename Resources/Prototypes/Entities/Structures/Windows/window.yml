@@ -49,7 +49,7 @@
 
 - type: entity
   id: Window
-  parent: BaseStructure
+  parent: [BaseStructure, BaseDeltaPressureGlass]
   name: window
   description: Don't smudge up the glass down there.
   placement:
@@ -124,11 +124,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Airtight
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
   - type: IconSmooth
     key: walls
     base: window
@@ -197,7 +192,7 @@
 
 - type: entity
   id: WindowDirectional
-  parent: BaseStructure
+  parent: [BaseStructure, BaseDeltaPressureGlassQuarter]
   name: directional window
   description: Don't smudge up the glass down there.
   placement:
@@ -277,10 +272,6 @@
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
     - South
-  - type: DeltaPressure
-    minPressure: 250
-    minPressureDelta: 187.5
-    scalingType: Threshold
   - type: Construction
     graph: WindowDirectional
     node: windowDirectional

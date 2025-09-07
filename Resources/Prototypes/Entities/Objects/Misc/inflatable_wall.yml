@@ -15,6 +15,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseDeltaPressureGlass
   id: InflatableWall
   name: inflatable barricade
   description: An inflated membrane. Activate to deflate. Do not puncture.
@@ -51,11 +52,6 @@
     disassembleTime: 3
   - type: InflatableSafeDisassembly
   - type: Airtight
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
   - type: Transform
     anchored: true
   placement:
@@ -64,7 +60,7 @@
 - type: entity
   id: InflatableDoor
   name: inflatable door
-  parent: BaseMaterialDoor
+  parent: [BaseMaterialDoor, BaseDeltaPressureGlass]
   description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
   components:
   - type: Clickable
@@ -106,8 +102,3 @@
   - type: InflatableSafeDisassembly
   - type: Occluder
     enabled: false
-  - type: DeltaPressure
-    minPressure: 1000
-    minPressureDelta: 750
-    scalingType: Linear
-    scalingPower: 0.0005
