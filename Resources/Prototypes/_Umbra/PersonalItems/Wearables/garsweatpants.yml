@@ -1,0 +1,18 @@
+# Player: Riverztyx - Character: Gar-Tei
+- type: entity
+  parent: ClothingUniformBase
+  id: PersonalItemGarSweatPants
+  name: ripped sweatpants
+  description: A pair of navy sweatpants. The knees are worn out, like they were ripped up by claws.
+  suffix: PersonalItem
+  components:
+  - type: Sprite
+    sprite: _Umbra/PersonalItems/Wearables/garsweatpants.rsi
+  - type: Clothing
+    sprite: _Umbra/PersonalItems/Wearables/garsweatpants.rsi
+
+- type: loadout
+  id: PersonalItemGarSweatPants
+  storage:
+    back:
+    - PersonalItemGarSweatPants
