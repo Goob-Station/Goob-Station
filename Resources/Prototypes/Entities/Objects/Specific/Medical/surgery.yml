@@ -481,23 +481,21 @@
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
           state: e-scalpel
         components:
-          - type: Scalpel
-            speed: 2
-          - type: BoneSaw
-            speed: 2
+        - type: Scalpel
+          speed: 2
         soundStateActivate:
           collection: sparks
           params:
             variation: 0.125
             volume: -5
 
-      drill: !type:ItemSwitchState
-        verb: drill
+      bonesaw: !type:ItemSwitchState
+        verb: bonesaw
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
           state: e-scalpel-on
         components:
-        - type: Drill
+        - type: BoneSaw
           speed: 2
         soundStateActivate:
           collection: sparks
@@ -613,19 +611,21 @@
         components:
         - type: Cautery
           speed: 2
+        - type: Stitches # should be unlimited when the actual stitches become limited
+          speed: 2
         soundStateActivate:
           collection: WelderOn
           params:
             variation: 0.125
             volume: -5
 
-      stitches: !type:ItemSwitchState
-        verb: stitches
+      drill: !type:ItemSwitchState
+        verb: drill
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
           state: e-cautery-on
         components:
-        - type: Stitches # should be unlimited when the actual stitches become limited
+        - type: Drill
           speed: 2
         soundStateActivate:
           collection: sparks

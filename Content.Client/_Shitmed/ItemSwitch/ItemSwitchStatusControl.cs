@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JrInventor05Next <205915704+JrInventor05Next@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -35,7 +36,7 @@ public sealed class ItemSwitchStatusControl : PollingItemStatusControl<ItemSwitc
     protected override void Update(in Data data)
     {
         _label.SetMarkup(Loc.GetString("itemswitch-component-on-examine-detailed-message",
-            ("state", data.State)));
+            ("state", Loc.GetString($"itemswitch-component-state-{data.State}"))));
     }
 
     public record struct Data(string State);

@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 JrInventor05Next <205915704+JrInventor05Next@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -103,7 +104,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
                 continue;
             args.Verbs.Add(new ActivationVerb()
             {
-                Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
+                Text = Loc.TryGetString($"itemswitch-component-state-{state.Value.Verb}", out var title) ? title : state.Value.Verb, // CorvaxGoob-shitcode-localization
                 Category = VerbCategory.Switch,
                 Act = () => Switch((ent.Owner, ent.Comp), state.Key, user, ent.Comp.Predictable)
             });
