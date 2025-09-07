@@ -36,7 +36,7 @@
 - type: entity
   id: ReinforcedWindow
   name: reinforced window
-  parent: [Window, BaseDeltaPressureReinforcedGlass]
+  parent: [BaseDeltaPressureReinforcedGlass, Window]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -102,7 +102,7 @@
 
 - type: entity
   id: WindowReinforcedDirectional
-  parent: [WindowDirectional, BaseDeltaPressureReinforcedGlassQuarter]
+  parent: [BaseDeltaPressureReinforcedGlassQuarter, WindowDirectional]
   name: directional reinforced window
   description: Don't smudge up the glass down there.
   placement:
