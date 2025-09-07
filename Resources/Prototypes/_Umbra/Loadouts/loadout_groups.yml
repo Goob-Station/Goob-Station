@@ -1,0 +1,17 @@
+# TO ADD A NEW PERSONAL ITEM LOADOUT, you MUST do the following:
+#
+# 1. Create a LOADOUT (type: loadout) with a PersonalItemLoadoutEffect
+#    that refers to your character. Punctuation MUST match EXACTLY.
+#    ID: same as the personal item entity.
+#    Place this within the Prototypes/_Umbra/PersonalItems/[Category]/[PersonalItemName].yml file below the item
+# 2. One loadout section per personal item.
+# 3. Add the loadout to every applicable LOADOUT GROUP HERE
+
+- type: loadoutGroup
+  id: PersonalItemsJobAgnostic
+  name: loadout-group-personal-items
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - PersonalItemSerendipityGuitar
+  - PersonalItemAttacusGuitar
