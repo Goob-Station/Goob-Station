@@ -14418,3 +14418,9 @@ Entries:
       message: Fixed surgery not being predicted.
   id: 1604
   time: '2025-09-07T10:10:08.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: The NTR Station Report now includes the science department by default.
+  id: 1605
+  time: '2025-09-07T13:19:12.0000000+00:00'
