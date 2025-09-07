@@ -87,6 +87,14 @@
   result: InteractorCircuitboard
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PlumbingPumpCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
+    state: icon
+  result: PlumbingPumpCircuitboard
+
+- type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   icon:
     sprite:  Structures/Power/Generation/Tesla/coil.rsi

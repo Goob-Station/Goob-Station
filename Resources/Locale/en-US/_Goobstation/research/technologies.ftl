@@ -17,6 +17,7 @@ research-technology-weapon-plasma-rifle = Experimental plasma rifle
 research-technology-medical-defense = Medical Control Gear
 research-technology-ripley-mkii = Ripley MK-II
 research-technology-clarke = Clarke
+researhc-technology-plumbing = Plumbing Technologies
 research-technology-gygax = Gygax
 research-technology-durand = Durand
 research-technology-explosive-mech-ammunition = Explosive Mech Ammunition
