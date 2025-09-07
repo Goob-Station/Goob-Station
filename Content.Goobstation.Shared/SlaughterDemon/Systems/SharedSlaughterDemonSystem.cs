@@ -1,11 +1,8 @@
 using Content.Shared.Actions;
-using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
-using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -36,9 +33,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // devouring
         SubscribeLocalEvent<SlaughterDemonComponent, SlaughterDevourEvent>(OnSlaughterDevour);
-
-        // death related
-        SubscribeLocalEvent<SlaughterDemonComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
@@ -136,12 +130,6 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
             return;
 
         SpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
-    }
-
-    private void OnMobStateChanged(Entity<SlaughterDemonComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-            _audio.PlayPvs(ent.Comp.DeathSound, ent.Owner, AudioParams.Default.WithVolume(-2f));
     }
 
     protected virtual void RemoveBlood(EntityUid uid) {}

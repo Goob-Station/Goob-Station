@@ -151,6 +151,12 @@
     alwaysTakeHoly: true
   - type: Hands
   - type: PressureImmunity
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/demon_dies.ogg
 
 # laughter demon
 - type: entity
@@ -170,7 +176,6 @@
     feastSound: /Audio/_Goobstation/Misc/scary_horn2.ogg
   - type: SlaughterDemon
     isLaughter: true
-    deathSound: /Audio/Effects/sadtrombone.ogg
   - type: Speech
     speechVerb: Cluwne
   - type: MeleeWeapon
@@ -195,6 +200,9 @@
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/sadtrombone.ogg
 
 # midround roll
 - type: entity
