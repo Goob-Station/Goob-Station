@@ -902,7 +902,7 @@ public abstract partial class SharedSurgerySystem
             locResult = Loc.GetString($"surgery-popup-step-{stepId}",
                 ("user", userName), ("target", targetName), ("part", part));
 
-        _popup.PopupEntity(locResult, user);
+        _popup.PopupPredicted(locResult, user, user);
         return true;
     }
 
@@ -1010,7 +1010,7 @@ public abstract partial class SharedSurgerySystem
             return true;
 
         if (doPopup && check.Popup != null)
-            _popup.PopupEntity(check.Popup, user, user, PopupType.SmallCaution);
+            _popup.PopupClient(check.Popup, user, user, PopupType.SmallCaution);
 
         return false;
     }
