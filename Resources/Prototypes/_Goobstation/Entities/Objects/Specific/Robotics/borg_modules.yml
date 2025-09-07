@@ -57,12 +57,9 @@
     - state: cargo
     - state: icon-pka
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
-  - type: DroppableBorgModule
+  - type: ItemBorgModule
     moduleId: PKA
     items:
-    - id: WeaponProtoKineticAccelerator
-      whitelist:
-        components:
-        - PressureDamageChange
+    - WeaponProtoKineticAccelerator
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
