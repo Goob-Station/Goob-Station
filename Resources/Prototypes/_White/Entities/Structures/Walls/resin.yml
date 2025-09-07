@@ -5,9 +5,13 @@
   description: Thick resin solidified into a wall.
   components:
   - type: Sprite
-    sprite: _White/Structures/Walls/resin.rsi
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi # Goobstation new sprites
   - type: Icon
-    sprite: _White/Structures/Walls/resin.rsi
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi # Goobstation new sprites
+    state: resin
+  - type: IconSmooth # Goobstation new sprites
+    key: walls
+    base: resin
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resin
@@ -40,7 +44,4 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: resinwall
-    base: resinwall
   - type: Appearance
