@@ -1,29 +1,24 @@
-// SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Collections.Generic;
 using Content.Goobstation.Common.FloorGoblin;
 using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 
@@ -51,32 +46,8 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
-        SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptMeleeEvent>(OnAttemptMelee);   
-    }
-
-    private bool IsOnCollidingTile(EntityUid uid)
-    {
-        var xform = Transform(uid);
-        var tile = xform.Coordinates.GetTileRef();
-        if (tile == null)
-            return false;
-        return _turf.IsTileBlocked(tile.Value, CollisionGroup.SmallMobMask);
-    }
-
-    private bool IsOnSubfloor(EntityUid uid)
-    {
-        var xform = Transform(uid);
-        var gridUid = _transform.GetGrid(xform.Coordinates);
-        if (gridUid == null)
-            return false;
-        if (!TryComp<MapGridComponent>(gridUid.Value, out var grid))
-            return false;
-        var snapPos = _map.TileIndicesFor((gridUid.Value, grid), xform.Coordinates);
-        var tileRef = _map.GetTileRef(gridUid.Value, grid, snapPos);
-        if (tileRef.Tile.IsEmpty)
-            return false;
-        var tileDef = (ContentTileDefinition) _tileManager[tileRef.Tile.TypeId];
-        return tileDef.IsSubFloor;
+        SubscribeLocalEvent<CrawlUnderFloorComponent, AttackAttemptEvent>(OnAttemptAttack);
+        SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
 
     private void OnInit(EntityUid uid, CrawlUnderFloorComponent component, ComponentInit args)
@@ -90,39 +61,10 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
     {
         if (component.Enabled || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true))
             return false;
-
         component.Enabled = true;
         Dirty(uid, component);
         RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
-
-        if (TryComp(uid, out FixturesComponent? fixtureComponent))
-        {
-            foreach (var (key, fixture) in fixtureComponent.Fixtures)
-            {
-                var newMask = fixture.CollisionMask
-                    & (int) ~CollisionGroup.HighImpassable
-                    & (int) ~CollisionGroup.MidImpassable
-                    & (int) ~CollisionGroup.LowImpassable
-                    & (int) ~CollisionGroup.InteractImpassable;
-                if (fixture.CollisionMask != newMask)
-                {
-                    component.ChangedFixtures.Add((key, fixture.CollisionMask));
-                    _physics.SetCollisionMask(uid, key, fixture, newMask, manager: fixtureComponent);
-                }
-
-                var newLayer = fixture.CollisionLayer
-                    & (int) ~CollisionGroup.HighImpassable
-                    & (int) ~CollisionGroup.MidImpassable
-                    & (int) ~CollisionGroup.LowImpassable
-                    & (int) ~CollisionGroup.BulletImpassable;
-                if (fixture.CollisionLayer != newLayer)
-                {
-                    component.ChangedFixtureLayers.Add((key, fixture.CollisionLayer));
-                    _physics.SetCollisionLayer(uid, key, fixture, newLayer, manager: fixtureComponent);
-                }
-            }
-        }
-
+        UpdateSneakCollision(uid, component);
         return true;
     }
 
@@ -130,22 +72,18 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
     {
         if (!component.Enabled || IsOnCollidingTile(uid) || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true))
             return false;
-
         component.Enabled = false;
         Dirty(uid, component);
         RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
-
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
             foreach (var (key, originalMask) in component.ChangedFixtures)
                 if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
                     _physics.SetCollisionMask(uid, key, fixture, originalMask, fixtureComponent);
-
             foreach (var (key, originalLayer) in component.ChangedFixtureLayers)
                 if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
                     _physics.SetCollisionLayer(uid, key, fixture, originalLayer, fixtureComponent);
         }
-
         component.ChangedFixtures.Clear();
         component.ChangedFixtureLayers.Clear();
         return true;
@@ -155,13 +93,12 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
     {
         if (args.Handled)
             return;
-
         var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
-
         if (TryComp<AppearanceComponent>(uid, out var app))
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
-
         _lastOnSubfloor[uid] = IsOnSubfloor(uid);
+        if (component.Enabled)
+            UpdateSneakCollision(uid, component);
         args.Handled = result;
     }
 
@@ -176,16 +113,13 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
         var query = EntityQueryEnumerator<CrawlUnderFloorComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            var g = _transform.GetGrid(xform.Coordinates);
-            if (g == null || g != gridUid)
+            if (_transform.GetGrid(xform.Coordinates) is not { } g || g != gridUid)
                 continue;
-
             var now = IsOnSubfloor(uid);
-            if (!_lastOnSubfloor.TryGetValue(uid, out var old))
-                old = now;
-
+            var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
             _lastOnSubfloor[uid] = now;
-
+            if (comp.Enabled && now != old)
+                UpdateSneakCollision(uid, comp);
             if (!old && now && comp.Enabled && _random.Prob(0.3f))
             {
                 var idx = _random.Next(1, 8);
@@ -199,13 +133,11 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
     {
         if (!TryComp<CrawlUnderFloorComponent>(uid, out var comp))
             return;
-
         var now = IsOnSubfloor(uid);
-        if (!_lastOnSubfloor.TryGetValue(uid, out var old))
-            old = now;
-
+        var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
         _lastOnSubfloor[uid] = now;
-
+        if (comp.Enabled && now != old)
+            UpdateSneakCollision(uid, comp);
         if (!old && now && comp.Enabled && _random.Prob(0.3f))
         {
             var idx = _random.Next(1, 8);
@@ -214,11 +146,61 @@ public sealed partial class CrawlUnderFloorSystem : SharedCrawlUnderFloorSystem
         }
     }
 
-    private void OnAttemptMelee(EntityUid uid, CrawlUnderFloorComponent component, AttemptMeleeEvent args)
+    private static int HiddenMask(int baseMask)
+    => baseMask
+       & (int) ~CollisionGroup.HighImpassable
+       & (int) ~CollisionGroup.MidImpassable
+       & (int) ~CollisionGroup.LowImpassable
+       & (int) ~CollisionGroup.InteractImpassable;
+
+    private static int HiddenLayer(int baseLayer)
+        => baseLayer
+           & (int) ~CollisionGroup.HighImpassable
+           & (int) ~CollisionGroup.MidImpassable
+           & (int) ~CollisionGroup.LowImpassable
+           & (int) ~CollisionGroup.MobLayer;
+
+    private static int GetOrCacheBase<TKey>(List<(TKey, int)> list, TKey key, int current)
     {
-        if (!component.Enabled)
+        var idx = list.FindIndex(t => EqualityComparer<TKey>.Default.Equals(t.Item1, key));
+        if (idx >= 0)
+            return list[idx].Item2;
+        list.Add((key, current));
+        return current;
+    }
+
+    private void UpdateSneakCollision(EntityUid uid, CrawlUnderFloorComponent comp)
+    {
+        if (!TryComp(uid, out FixturesComponent? fixtures))
             return;
-        if (!IsOnSubfloor(uid))
-            args.Cancelled = true;
+
+        var hidden = IsHidden(uid, comp);
+
+        foreach (var (key, fixture) in fixtures.Fixtures)
+        {
+            var baseMask = GetOrCacheBase(comp.ChangedFixtures, key, fixture.CollisionMask);
+            var desiredMask = hidden ? HiddenMask(baseMask) : baseMask;
+            if (fixture.CollisionMask != desiredMask)
+                _physics.SetCollisionMask(uid, key, fixture, desiredMask, manager: fixtures);
+
+            var baseLayer = GetOrCacheBase(comp.ChangedFixtureLayers, key, fixture.CollisionLayer);
+            var desiredLayer = hidden ? HiddenLayer(baseLayer) : baseLayer;
+            if (fixture.CollisionLayer != desiredLayer)
+                _physics.SetCollisionLayer(uid, key, fixture, desiredLayer, manager: fixtures);
+        }
+    }
+
+    private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
+    {
+        if (IsHidden(uid, comp))
+            args.Cancel();
+    }
+
+    private void OnAnyAttackAttempt(AttackAttemptEvent args)
+    {
+        if (args.Target is not { } target)
+            return;
+        if (TryComp(target, out CrawlUnderFloorComponent? goblinComp) && IsHidden(target, goblinComp))
+            args.Cancel();
     }
 }
