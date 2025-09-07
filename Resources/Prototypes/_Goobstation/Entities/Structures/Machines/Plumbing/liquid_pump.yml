@@ -1,35 +1,29 @@
 - type: entity
-  parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ]
+  parent: [ ConstructibleMachine, BaseMachinePowered ]
   id: PlumbingPump
   name: liquid pump
-  description: An electric pump that can transfer liquids between machines with an automation upgrade installed.
+  description: An electric pump that can transfer liquids between machines that have an automation upgrade installed.
   components:
   # Visuals
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
     layers:
     - state: icon
-    - state: working
+    - state: active
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
   # Construction
   - type: Machine
     board: PlumbingPumpCircuitboard
-  - type: Construction
-    containers:
-    - machine_board
-    - machine_parts
-    - filter_slot
-  - type: EmptyOnMachineDeconstruct
-    containers:
-    - filter_slot
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      filter_slot: !type:ContainerSlot
   # Pump
   - type: PlumbingPump
+  - type: PlumbingFilter
   - type: ExclusiveInputSlot
     port: PlumbingInput
   - type: ExclusiveOutputSlot
@@ -40,20 +34,6 @@
     canReceive: false
     canSend: false
     canChangeTransferAmount: true
-  # Linking
-  - type: ItemSlots
-    slots:
-      filter_slot:
-        whitelist:
-          components:
-          - ReagentFilter
-  - type: FilterSlot
-  - type: AutomationSlots
-    slots:
-    - !type:AutomatedItemSlot
-      input: AutomationSlotFilter
-      output: AutomationSlotFilter
-      slotId: filter_slot
   # Linking
   - type: DeviceLinkSink
     ports:
@@ -75,6 +55,14 @@
     powerLoad: 2000 # constant power usage when switched on
   - type: PowerSwitch
   - type: SignalPowerSwitch
+  # UI
+  - type: ActivatableUI
+    key: enum.PlumbingFilterUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.PlumbingFilterUiKey.Key:
+        type: PlumbingFilterBUI
   # Guide
   - type: GuideHelp
     guides:

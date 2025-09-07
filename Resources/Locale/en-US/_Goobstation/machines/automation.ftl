@@ -101,7 +101,7 @@ signal-port-description-automation-slot-gas-tank = An automation slot for a gas 
 
 # ChemMaster
 
-signal-port-name-automation-bottles = Item: Bottles Slot
+signal-port-name-automation-slot-bottles = Item: Bottles Slot
 signal-port-description-automation-slot-bottles = An automation slot for a ChemMaster's pill or liquid bottle.
 
 # Radiation Collector

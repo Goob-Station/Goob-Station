@@ -52,7 +52,7 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
 
     private void OnInputNewLink(Entity<ExclusiveInputSlotComponent> ent, ref NewLinkEvent args)
     {
-        NewLink(ent, args.SinkPort, args.Source, args.SourcePort);
+        NewLink(ent, args.Sink, args.SinkPort, args.Source, args.SourcePort);
     }
 
     private void OnOutputInit(Entity<ExclusiveOutputSlotComponent> ent, ref ComponentInit args)
@@ -69,7 +69,7 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
 
     private void OnOutputNewLink(Entity<ExclusiveOutputSlotComponent> ent, ref NewLinkEvent args)
     {
-        NewLink(ent, args.SourcePort, args.Sink, args.SinkPort);
+        NewLink(ent, args.Source, args.SourcePort, args.Sink, args.SinkPort);
     }
     #endregion
 
@@ -80,22 +80,20 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
             return false;
 
         // only 1 machine can be linked to the port
-        if (!TerminatingOrDeleted(ent.Comp.LinkedMachine))
-            return true;
-
-        // prevent linking to random non-automation slot
-        return !_automation.HasSlot(source, sourcePort, input: ent.Comp.IsInput);
+        return !TerminatingOrDeleted(ent.Comp.LinkedMachine) ||
+            // prevent linking to random non-automation slot
+            !_automation.HasSlot(source, sourcePort, input: !ent.Comp.IsInput);
     }
 
-    private void NewLink<T>(Entity<T> ent, string otherPort, EntityUid uid, string port)
+    private void NewLink<T>(Entity<T> ent, EntityUid other, string otherPort, EntityUid uid, string port)
         where T: IExclusiveSlotComponent
     {
-        if (otherPort != ent.Comp.PortId)
+        if (other != ent.Owner || otherPort != ent.Comp.PortId)
             return;
 
         ent.Comp.LinkedMachine = uid;
         ent.Comp.LinkedPort = port;
-        ent.Comp.LinkedSlot = _automation.GetSlot(uid, port, input: ent.Comp.IsInput);
+        ent.Comp.LinkedSlot = _automation.GetSlot(uid, port, input: !ent.Comp.IsInput);
         Dirty(ent);
     }
 
