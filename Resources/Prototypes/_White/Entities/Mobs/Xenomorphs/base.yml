@@ -10,12 +10,12 @@
   abstract: true
   components:
   - type: Xenomorph
-    weedHeal:
+    weedHeal: # Goobstation - nerfed healing
       groups:
-        Burn: -5
-        Toxin: -5
+        Burn: -2
+        Toxin: -3
         Airloss: -10
-        Brute: -5
+        Brute: -3
   - type: Pinpointer
     whitelist:
       components:
@@ -138,6 +138,12 @@
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: Access # Goobstation - xeno doors
+    enabled: true
+    groups:
+    - XenomorphAccess
+    tags:
+    - Xenomorph
 
 
 - type: entity

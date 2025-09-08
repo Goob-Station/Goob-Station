@@ -610,6 +610,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
+
 - type: Tag
   id: HudMedicalSecurity
 

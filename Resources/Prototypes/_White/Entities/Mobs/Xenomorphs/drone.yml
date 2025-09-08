@@ -23,7 +23,8 @@
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-    - ActionSpawnResinMembrane
+#    - ActionSpawnResinMembrane
+    - ActionSpawnResinDoor
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
   - type: VentCrawler
