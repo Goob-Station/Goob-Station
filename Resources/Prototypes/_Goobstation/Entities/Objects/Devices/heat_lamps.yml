@@ -5,6 +5,19 @@
   description: A lamp for keeping warm in the depths of space
   components:
   - type: Heatlamp
+    baseHeatingPowerDrain: 2.0
+    baseMaximumHeatingPerUpdate: 5.0
+    baseCoolingPowerDrain: 4.0
+    baseMaximumCoolingPerUpdate: 5.0
+    maximumUpgradeCount: 2
+    emagUpgradeCountIncrease: 2
+    deactivatedDamage:
+      types:
+        Blunt: 12
+    baseActivatedDamage:
+      types:
+        Blunt: 6
+        Heat: 6
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/heat_lamp.rsi
     layers:
@@ -20,11 +33,6 @@
     activatedSize: Normal
     activatedShape:
     - 0,0,0,2
-  - type: ItemToggleMeleeWeapon
-    activatedDamage:
-      types:
-        Blunt: 6
-        Heat: 6
   - type: ItemToggleVisuals
   - type: Appearance
     appearanceDataInit: # Without this, this the toggle visuals component layer thing starts without a state and breaks the icon.

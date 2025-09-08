@@ -16,6 +16,8 @@ public sealed class HeatlampSystem : SharedHeatlampSystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<HeatlampComponent, PowerCellChangedEvent>(OnPowerCellChanged);
     }
 
