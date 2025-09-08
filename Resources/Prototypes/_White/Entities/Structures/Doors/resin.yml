@@ -89,5 +89,5 @@
     openingSpriteState: closed_unlit
     closingSpriteState: closed_unlit
   - type: AccessReader
-    access: [["Xenomorph"]]
+    access: [["XenomorphAccess"]]
 

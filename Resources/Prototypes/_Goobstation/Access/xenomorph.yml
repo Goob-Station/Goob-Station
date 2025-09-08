@@ -3,3 +3,8 @@
     id: XenomorphAccess
     tags:
     - Xenomorph
+
+  - type: accessLevel
+    id: Xenomorph
+    name: id-card-access-level-xenomorph
+    canAddToIdCard: false
