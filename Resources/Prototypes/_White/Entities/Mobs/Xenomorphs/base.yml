@@ -142,8 +142,6 @@
     enabled: true
     groups:
     - XenomorphAccess
-    tags:
-    - Xenomorph
 
 
 - type: entity

@@ -21,7 +21,7 @@
       groups:
         Brute: 17
     inject:
-      Tirizene: 5
+      ChloralHydrate: 10 # Goobstation - new chemical
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
