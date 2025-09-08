@@ -29,20 +29,21 @@
 
 # Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Voidsuit
-uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic voidsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Tacsuit # edits start - un-rename suits
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic tacsuit, from the Gorlex Marauders.
 
-uplink-hardsuit-syndiecommander-name = Gorlex Commander Voidsuit
-uplink-hardsuit-syndiecommander-desc = A surplus commander voidsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Tacsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander tacsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Voidsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this voidsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default voidsuits.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Tacsuit
+uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan technology, this tacsuit has stealth plating in it for those special ops. Slightly slower and less armored than other tacsuits.
 
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat voidsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+# edits end
 
 # Misc
 
