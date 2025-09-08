@@ -5,18 +5,18 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.FloorGoblin;
+namespace Content.Goobstation.Shared.FloorGoblin;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CrawlUnderFloorComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ToggleHideAction;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId? ActionProto;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Enabled = false;
 
     [DataField, AutoNetworkedField]
@@ -27,4 +27,7 @@ public sealed partial class CrawlUnderFloorComponent : Component
 
     [DataField]
     public int? OriginalDrawDepth;
+
+    [DataField, AutoNetworkedField]
+    public bool WasOnSubfloor;
 }

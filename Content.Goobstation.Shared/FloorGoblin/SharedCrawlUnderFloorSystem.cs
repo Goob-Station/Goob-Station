@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
@@ -37,12 +36,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private readonly Dictionary<EntityUid, bool> _lastOnSubfloor = new();
+    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable);
+    private const int HiddenLayer = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.MobLayer);
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CrawlUnderFloorComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CrawlUnderFloorComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
@@ -51,18 +51,11 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
 
-    private void OnInit(EntityUid uid, CrawlUnderFloorComponent component, ComponentInit args)
+    private void OnMapInit(EntityUid uid, CrawlUnderFloorComponent component, MapInitEvent args)
     {
-        if (_net.IsServer)
-        {
-            if (component.ToggleHideAction == null)
-                _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
-            _lastOnSubfloor[uid] = IsOnSubfloor(uid);
-        }
-    }
-
-    private void ToggledAbility(EntityUid uid, bool enabled)
-    {
+        if (component.ToggleHideAction == null)
+            _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
+        component.WasOnSubfloor = IsOnSubfloor(uid);
     }
 
     private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)
@@ -83,8 +76,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         Dirty(uid, component);
 
         var now = IsOnSubfloor(uid);
-        var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
-        _lastOnSubfloor[uid] = now;
+        var old = component.WasOnSubfloor;
+        component.WasOnSubfloor = now;
 
         if (component.Enabled && now != old)
             UpdateSneakCollision(uid, component);
@@ -94,12 +87,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         var wentUnder = component.Enabled && !IsOnSubfloor(uid);
         var selfKey = wentUnder ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
         var othersKey = wentUnder ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
-        var name = MetaData(uid).EntityName;
+
         _popup.PopupEntity(Loc.GetString(selfKey), uid, uid);
-        _popup.PopupEntity(Loc.GetString(othersKey, ("name", name)), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString(othersKey, ("name", Name(uid))), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
 
         args.Handled = result;
     }
+
 
     private void OnAttemptClimb(EntityUid uid, CrawlUnderFloorComponent component, AttemptClimbEvent args)
     {
@@ -116,8 +110,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
                 continue;
 
             var now = IsOnSubfloor(uid);
-            var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
-            _lastOnSubfloor[uid] = now;
+            var old = comp.WasOnSubfloor;
+            comp.WasOnSubfloor = now;
 
             if (comp.Enabled && now != old)
                 UpdateSneakCollision(uid, comp);
@@ -132,8 +126,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return;
 
         var now = IsOnSubfloor(uid);
-        var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
-        _lastOnSubfloor[uid] = now;
+        var old = comp.WasOnSubfloor;
+        comp.WasOnSubfloor = now;
 
         if (comp.Enabled && now != old)
             UpdateSneakCollision(uid, comp);
@@ -157,14 +151,9 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     protected void PlayDuendeSound(EntityUid uid, float probability = 0.3f)
     {
-        if (!_net.IsServer)
-            return;
-
         if (_random.Prob(probability))
         {
-            var idx = _random.Next(1, 8);
-            var path = $"/Audio/_Goobstation/FloorGoblin/duende-0{idx}.ogg";
-            _audio.PlayPvs(new SoundPathSpecifier(path), uid);
+            _audio.PlayPvs(new SoundCollectionSpecifier("DuendeSounds"), uid);
         }
     }
 
@@ -200,8 +189,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     protected void UpdateSneakCollision(EntityUid uid, CrawlUnderFloorComponent comp)
     {
-        if (!_net.IsServer)
-            return;
         if (!TryComp(uid, out FixturesComponent? fixtures))
             return;
 
@@ -210,12 +197,12 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         foreach (var (key, fixture) in fixtures.Fixtures)
         {
             var baseMask = GetOrCacheBase(comp.ChangedFixtures, key, fixture.CollisionMask);
-            var desiredMask = hidden ? HiddenMask(baseMask) : baseMask;
+            var desiredMask = hidden ? GetHiddenMask(baseMask) : baseMask;
             if (fixture.CollisionMask != desiredMask)
                 _physics.SetCollisionMask(uid, key, fixture, desiredMask, manager: fixtures);
 
             var baseLayer = GetOrCacheBase(comp.ChangedFixtureLayers, key, fixture.CollisionLayer);
-            var desiredLayer = hidden ? HiddenLayer(baseLayer) : baseLayer;
+            var desiredLayer = hidden ? GetHiddenLayer(baseLayer) : baseLayer;
             if (fixture.CollisionLayer != desiredLayer)
                 _physics.SetCollisionLayer(uid, key, fixture, desiredLayer, manager: fixtures);
         }
@@ -262,19 +249,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             PlayDuendeSound(uid, causedByTileChange ? 1f : 0.3f);
     }
 
-    private static int HiddenMask(int baseMask)
+    private static int GetHiddenMask(int baseMask)
         => baseMask
-           & (int) ~CollisionGroup.HighImpassable
-           & (int) ~CollisionGroup.MidImpassable
-           & (int) ~CollisionGroup.LowImpassable
-           & (int) ~CollisionGroup.InteractImpassable;
+           & ~HiddenMask;
 
-    private static int HiddenLayer(int baseLayer)
+    private static int GetHiddenLayer(int baseLayer)
         => baseLayer
-           & (int) ~CollisionGroup.HighImpassable
-           & (int) ~CollisionGroup.MidImpassable
-           & (int) ~CollisionGroup.LowImpassable
-           & (int) ~CollisionGroup.MobLayer;
+           & ~HiddenLayer;
 
     private static int GetOrCacheBase<TKey>(List<(TKey, int)> list, TKey key, int current)
     {

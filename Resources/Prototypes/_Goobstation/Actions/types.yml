@@ -190,6 +190,6 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - Body
+      - Inventory
     canTargetSelf: false
     event: !type:StealShoesEvent {}

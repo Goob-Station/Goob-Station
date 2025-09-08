@@ -2,19 +2,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -24,7 +22,7 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
-public abstract partial class SharedStealShoesSystem : EntitySystem
+public sealed partial class StealShoesSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -40,21 +38,19 @@ public abstract partial class SharedStealShoesSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedCrawlUnderFloorSystem _crawlUnderFloorSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<StealShoesComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<StealShoesComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StealShoesComponent, StealShoesEvent>(OnStealShoes);
         SubscribeLocalEvent<StealShoesComponent, StealShoesDoAfterEvent>(OnStealShoesDoAfter);
         SubscribeLocalEvent<StealShoesComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnInit(EntityUid uid, StealShoesComponent component, ComponentInit args)
+    private void OnMapInit(EntityUid uid, StealShoesComponent component, MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         if (component.StealAction == null)
             _actions.AddAction(uid, ref component.StealAction, component.ActionProto);
 
@@ -66,12 +62,6 @@ public abstract partial class SharedStealShoesSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (_net.IsClient)
-        {
-            args.Handled = true;
-            return;
-        }
-
         var target = args.Target;
 
         if (!_interaction.InRangeUnobstructed(uid, target))
@@ -79,14 +69,14 @@ public abstract partial class SharedStealShoesSystem : EntitySystem
 
         if (!CanStealHere(uid))
         {
-            _popup.PopupEntity(Loc.GetString("steal-shoes-covered"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("steal-shoes-covered"), uid, uid);
             args.Handled = true;
             return;
         }
 
         if (!_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) || shoesUid == null)
         {
-            _popup.PopupEntity(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
             args.Handled = true;
             return;
         }
@@ -108,32 +98,45 @@ public abstract partial class SharedStealShoesSystem : EntitySystem
 
     private void OnStealShoesDoAfter(EntityUid uid, StealShoesComponent component, ref StealShoesDoAfterEvent ev)
     {
-        if (!_net.IsServer)
-            return;
-
-        if (ev.Cancelled || ev.Args.Target is not { } target)
-            return;
-
-        if (!CanStealHere(uid))
+        if (ev.Handled || ev.Cancelled || ev.Args.Target is not { } target)
             return;
 
         if (!_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) || shoesUid is not { } shoes)
             return;
 
-        if (!_inventory.TryUnequip(target, "shoes"))
+        if (!TryRemoveShoes(target, shoes))
             return;
 
-        if (!_containers.TryGetContainer(uid, component.ContainerId, out var container))
-            container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
-
-        _containers.Insert(shoes, container);
+        if (_net.IsServer)
+        {
+            var container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
+            _containers.Insert(shoes, container);
+        }
 
         if (component.ChompSound is { } chomp)
-            _audio.PlayPvs(chomp, uid);
+            _audio.PlayPredicted(chomp, uid, uid);
 
+        _popup.PopupClient(Loc.GetString("steal-shoes-event", ("target", Identity.Name(target, EntityManager)), ("shoes", Name(shoes))), uid, uid);
         _popup.PopupEntity(Loc.GetString("shoes-stolen-target-event"), target, target);
-        _popup.PopupEntity(Loc.GetString("steal-shoes-event", ("target", MetaData(target).EntityName), ("shoes", MetaData(shoes).EntityName)), uid, uid);
+
+        ev.Handled = true;
     }
+
+
+    private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
+    {
+        var isDead = TryComp<Content.Shared.Mobs.Components.MobStateComponent>(target, out var mob) &&
+                     mob.CurrentState == Content.Shared.Mobs.MobState.Dead;
+
+        if (!isDead)
+            return _inventory.TryUnequip(target, "shoes", silent: true, predicted: true, reparent: false);
+
+        if (!_inventory.TryGetSlotContainer(target, "shoes", out var slot, out Content.Shared.Inventory.SlotDefinition? _))
+            return false;
+
+        return _containers.Remove(shoes, slot, force: true, reparent: false);
+    }
+
 
     private void OnMobStateChanged(EntityUid uid, StealShoesComponent component, MobStateChangedEvent args)
     {
@@ -143,45 +146,30 @@ public abstract partial class SharedStealShoesSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        if (_containers.TryGetContainer(uid, component.ContainerId, out var container))
+        var container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
+
+        var dropCoords = Transform(uid).Coordinates;
+        var toDrop = new List<EntityUid>(container.ContainedEntities);
+        foreach (var ent in toDrop)
         {
-            var dropCoords = Transform(uid).Coordinates;
-            var toDrop = new List<EntityUid>(container.ContainedEntities);
-            foreach (var ent in toDrop)
-            {
-                _containers.Remove(ent, container);
-                _transform.SetCoordinates(ent, dropCoords);
-                var angle = _random.NextFloat(0f, MathF.Tau);
-                var speed = _random.NextFloat(2.5f, 4.5f);
-                var vel = new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * speed;
-                if (TryComp<PhysicsComponent>(ent, out var phys))
-                    _physics.SetLinearVelocity(ent, vel);
-            }
+            _containers.Remove(ent, container);
+            _transform.SetCoordinates(ent, dropCoords);
+            var angle = _random.NextFloat(0f, MathF.Tau);
+            var speed = _random.NextFloat(2.5f, 4.5f);
+            var vel = new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * speed;
+            if (TryComp<PhysicsComponent>(ent, out var phys))
+                _physics.SetLinearVelocity(ent, vel);
         }
 
-        _body.GibBody(uid);
-    }
 
-    public bool IsOnSubfloor(EntityUid uid)
-    {
-        var xform = Transform(uid);
-        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
-            return false;
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
-            return false;
-        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
-        if (tileRef.Tile.IsEmpty)
-            return false;
-        var tileDef = (ContentTileDefinition) _tileManager[tileRef.Tile.TypeId];
-        return tileDef.IsSubFloor;
+        _body.GibBody(uid);
     }
 
     private bool CanStealHere(EntityUid uid)
     {
         if (!TryComp<CrawlUnderFloorComponent>(uid, out var crawl) || !crawl.Enabled)
             return true;
-        return IsOnSubfloor(uid);
+        return _crawlUnderFloorSystem.IsOnSubfloor(uid);
     }
 
 

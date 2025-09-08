@@ -17,7 +17,6 @@ using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Content.Goobstation.Common.FloorGoblin;
 
 namespace Content.Shared.Damage.Components;
 
@@ -64,9 +63,6 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
             // Goobstation - Crawling
             if (TryComp<CrawlUnderObjectsComponent>(shooter, out var crawl) && crawl.Enabled)
-                return;
-
-            if (TryComp<CrawlUnderFloorComponent>(shooter, out var crawlFloor) && crawlFloor.Enabled) // Goobstation, floor goblin support
                 return;
 
             if (TryComp(ent, out PhysicsComponent? physics) && physics.LinearVelocity.Length() > 2.5f) // Goobstation

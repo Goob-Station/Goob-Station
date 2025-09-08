@@ -9,7 +9,6 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Content.Shared.Damage.Components;
 using Content.Shared.Wieldable;
@@ -132,8 +131,7 @@ public abstract class SharedLaserPointerSystem : EntitySystem
         var rayLength = 15f;
 
         // People crawling under objects hit every object even if they are not aiming at it.
-        var crawling = (TryComp<CrawlUnderObjectsComponent>(xform.ParentUid, out var crawl) && crawl.Enabled) ||
-                       (TryComp<CrawlUnderFloorComponent>(xform.ParentUid, out var crawlFloor) && crawlFloor.Enabled); // Goobstation, floor goblin support
+        var crawling = (TryComp<CrawlUnderObjectsComponent>(xform.ParentUid, out var crawl) && crawl.Enabled);
 
         var (pos, rot) = _transform.GetWorldPositionRotation(parentXform);
         var dir = direction ?? rot.ToWorldVec();

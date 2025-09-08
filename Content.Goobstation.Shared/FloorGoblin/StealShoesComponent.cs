@@ -5,18 +5,19 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class StealShoesComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId? ActionProto;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? StealAction;
 
     [DataField]
@@ -26,11 +27,7 @@ public sealed partial class StealShoesComponent : Component
     public SoundSpecifier? ChompSound = new SoundPathSpecifier("/Audio/_Goobstation/FloorGoblin/laugh.ogg");
 }
 
-public sealed partial class StealShoesEvent : EntityTargetActionEvent
-{
-}
+public sealed partial class StealShoesEvent : EntityTargetActionEvent;
 
 [Serializable, NetSerializable]
-public sealed partial class StealShoesDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class StealShoesDoAfterEvent : SimpleDoAfterEvent;

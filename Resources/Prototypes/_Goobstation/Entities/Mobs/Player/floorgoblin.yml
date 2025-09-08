@@ -95,3 +95,5 @@
     damage:
       types:
         Blunt: 0.1
+  - type: Puller
+    needsHands: false

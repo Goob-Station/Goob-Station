@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.FloorGoblin;
 using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared._DV.Abilities;
 using Robust.Client.GameObjects;
@@ -33,19 +32,16 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
         {
-            var enabled = _appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled) && apEnabled;
-
-            if (!enabled)
+            if (!comp.Enabled)
             {
-                if (_lastCell.Remove(uid) && comp.OriginalDrawDepth != null)
-                {
+                if (comp.OriginalDrawDepth != null && sprite.DrawDepth != comp.OriginalDrawDepth)
                     _sprite.SetDrawDepth((uid, sprite), (int) comp.OriginalDrawDepth);
-                    comp.OriginalDrawDepth = null;
-                }
+                comp.OriginalDrawDepth = null;
 
                 if (sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded((uid, sprite), false);
 
+                _lastCell.Remove(uid);
                 continue;
             }
 
@@ -60,41 +56,41 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         }
     }
 
-    private void ApplySneakVisuals(EntityUid uid, CrawlUnderFloorComponent component, SpriteComponent sprite)
+    private void ApplySneakVisuals(EntityUid uid, CrawlUnderFloorComponent comp, SpriteComponent sprite)
     {
-        var enabled = _appearance.TryGetData(uid, SneakMode.Enabled, out bool apEnabled) && apEnabled;
-
         var onSubfloor = IsOnSubfloor(uid);
 
-        if (enabled)
+        if (comp.Enabled)
         {
-            if (component.OriginalDrawDepth == null)
-                component.OriginalDrawDepth = sprite.DrawDepth;
+            if (comp.OriginalDrawDepth == null)
+                comp.OriginalDrawDepth = sprite.DrawDepth;
 
             if (onSubfloor)
             {
                 if (sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded((uid, sprite), false);
-                _sprite.SetDrawDepth((uid, sprite), (int) DrawDepth.BelowFloor);
+                if (sprite.DrawDepth != (int) DrawDepth.BelowFloor)
+                    _sprite.SetDrawDepth((uid, sprite), (int) DrawDepth.BelowFloor);
             }
             else
             {
                 if (!sprite.ContainerOccluded)
                     _sprite.SetContainerOccluded((uid, sprite), true);
+                if (comp.OriginalDrawDepth != null && sprite.DrawDepth != comp.OriginalDrawDepth)
+                    _sprite.SetDrawDepth((uid, sprite), (int) comp.OriginalDrawDepth);
             }
         }
         else
         {
-            if (component.OriginalDrawDepth != null)
-            {
-                _sprite.SetDrawDepth((uid, sprite), (int) component.OriginalDrawDepth);
-                component.OriginalDrawDepth = null;
-            }
+            if (comp.OriginalDrawDepth != null && sprite.DrawDepth != comp.OriginalDrawDepth)
+                _sprite.SetDrawDepth((uid, sprite), (int) comp.OriginalDrawDepth);
+            comp.OriginalDrawDepth = null;
 
             if (sprite.ContainerOccluded)
                 _sprite.SetContainerOccluded((uid, sprite), false);
         }
     }
+
 
     private void OnAppearanceChange(EntityUid uid, CrawlUnderFloorComponent component, AppearanceChangeEvent args)
     {
