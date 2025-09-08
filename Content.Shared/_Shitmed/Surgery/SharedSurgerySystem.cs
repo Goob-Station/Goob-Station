@@ -458,8 +458,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (_standing.IsDown(entity))
             return true;
 
-        if (TryComp(entity, out BuckleComponent? buckle) &&
-            TryComp(buckle.BuckledTo, out StrapComponent? strap))
+        // you can't otherwise operate on something with no buckle
+        // just let people do surgery on goliaths and shit
+        if (!TryComp<BuckleComponent>(entity, out var buckle))
+            return true;
+
+        if (TryComp<StrapComponent>(buckle.BuckledTo, out var strap))
         {
             var rotation = strap.Rotation;
             if (rotation.GetCardinalDir() is Direction.West or Direction.East)
@@ -467,7 +471,6 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         }
 
         _popup.PopupClient(Loc.GetString("surgery-error-laying"), user, user);
-
         return false;
     }
 
