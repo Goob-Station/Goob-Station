@@ -78,6 +78,18 @@ public sealed partial class SlaughterDemonComponent : Component
     /// </summary>
     [DataField]
     public bool IsLaughter;
+
+    /// <summary>
+    /// Plays when a demon blood crawls.
+    /// </summary>
+    [DataField(required: true)]
+    public SoundSpecifier BloodCrawlSounds;
+
+    [DataField]
+    public float BloodCrawlSoundLookup = 10f;
+
+    [DataField]
+    public float BloodCrawlSoundChance = 0.25f;
 }
 
 

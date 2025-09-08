@@ -78,6 +78,10 @@
   - type: SlaughterDemon # main component
     speedModWalk: 2.5
     speedModRun: 2.5
+    bloodCrawlSounds:
+      collection: bloodCrawl
+      params:
+        volume: 2
   - type: SlaughterDevour # allows the demon to devour
     toHeal: # Healing done when eating someone
       groups:
@@ -114,6 +118,7 @@
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
+    speechSounds: SlaughterDemon
   - type: TypingIndicator
     proto: guardian
   - type: Gibbable
@@ -157,6 +162,12 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/demon_dies.ogg
+  - type: Vocal
+    sounds:
+      Male: SlaughterDemon
+      Female: SlaughterDemon
+      Unsexed: SlaughterDemon
+  - type: ZombieImmune
 
 # laughter demon
 - type: entity

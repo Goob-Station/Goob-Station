@@ -5,6 +5,8 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SlaughterDemon.Systems;
@@ -18,11 +20,17 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
+    private EntityQuery<ActorComponent> _actorQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+
+        _actorQuery = GetEntityQuery<ActorComponent>();
 
         // movement speed
         SubscribeLocalEvent<SlaughterDemonComponent, RefreshMovementSpeedModifiersEvent>(RefreshMovement);
@@ -76,6 +84,8 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         ent.Comp.Accumulator = _timing.CurTime + ent.Comp.NextUpdate;
         ent.Comp.ExitedBloodCrawl = true;
         _movementSpeedModifier.RefreshMovementSpeedModifiers(ent.Owner);
+
+        PlayMeatySound(ent);
 
         SpawnAtPosition(ent.Comp.JauntUpEffect, Transform(ent.Owner).Coordinates);
     }
@@ -133,4 +143,25 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
     }
 
     protected virtual void RemoveBlood(EntityUid uid) {}
+
+    #region Helper
+
+    private void PlayMeatySound(Entity<SlaughterDemonComponent> ent)
+    {
+        if (!_random.Prob(ent.Comp.BloodCrawlSoundChance))
+          return;
+
+        var entities = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.BloodCrawlSoundLookup);
+        foreach (var entity in entities)
+        {
+            if (entity == ent.Owner
+                || !_actorQuery.HasComp(entity))
+                continue;
+
+            // ALEXA PLAY MEATY SOUND 🔊🔊
+            _audio.PlayEntity(ent.Comp.BloodCrawlSounds, entity, ent.Owner);
+        }
+    }
+
+    #endregion
 }
