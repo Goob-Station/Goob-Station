@@ -149,6 +149,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     // Goobstation - Whitelisted radio channel
     private void OnHeadsetReceiveAttempt(EntityUid uid, HeadsetComponent component, ref RadioReceiveAttemptEvent args)
     {
-        args.Cancelled = _whitelist.IsWhitelistFail(args.Channel.ReceiveWhitelist, uid);
+        if (!args.Cancelled) // make sure nothing else has canceled it
+        {
+            args.Cancelled = _whitelist.IsWhitelistFail(args.Channel.ReceiveWhitelist, uid);
+        }
     }
 }

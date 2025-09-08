@@ -88,10 +88,9 @@ public sealed class LegsParalyzedSystem : EntitySystem
     {
         _standingSystem.Down(uid);
     }
-    private void OnDowned(EntityUid uid, LegsParalyzedComponent component, DownedEvent args)
-    {
-        _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 2, 2, 20);
-    }
+    private void OnDowned(EntityUid uid, LegsParalyzedComponent component, DownedEvent args) =>
+         _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 2, 2, 20);
+
     private void OnStandTry(EntityUid uid, LegsParalyzedComponent component, StandAttemptEvent args)
     {
         args.Cancel();
