@@ -53,3 +53,10 @@
   values:
     prefix: goida-
     count: 1
+
+- type: entity
+  parent: MobGoidaBot
+  id: MobGoidaBotValid
+  suffix: Valid
+  components:
+  - type: KillSign
