@@ -5,13 +5,8 @@
 using Content.Goobstation.Common.FloorGoblin;
 using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared._DV.Abilities;
-using Content.Shared.DrawDepth;
-using Content.Shared.Interaction.Events;
 using Robust.Client.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Maths;
-using System.Collections.Generic;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Goobstation.Client.FloorGoblin;
@@ -49,7 +44,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
                 }
 
                 if (sprite.ContainerOccluded)
-                    _sprite.SetContainerOccluded(uid, false);
+                    _sprite.SetContainerOccluded((uid, sprite), false);
 
                 continue;
             }
@@ -79,13 +74,13 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
             if (onSubfloor)
             {
                 if (sprite.ContainerOccluded)
-                    _sprite.SetContainerOccluded(uid, false);
+                    _sprite.SetContainerOccluded((uid, sprite), false);
                 _sprite.SetDrawDepth((uid, sprite), (int) DrawDepth.BelowFloor);
             }
             else
             {
                 if (!sprite.ContainerOccluded)
-                    _sprite.SetContainerOccluded(uid, true);
+                    _sprite.SetContainerOccluded((uid, sprite), true);
             }
         }
         else
@@ -97,7 +92,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
             }
 
             if (sprite.ContainerOccluded)
-                _sprite.SetContainerOccluded(uid, false);
+                _sprite.SetContainerOccluded((uid, sprite), false);
         }
     }
 

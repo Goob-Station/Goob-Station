@@ -4,9 +4,8 @@
 
 using Content.Goobstation.Shared.FloorGoblin;
 
-namespace Content.Goobstation.Server.FloorGoblin;
+namespace Content.Goobstation.Client.FloorGoblin;
 
 public sealed partial class StealShoesSystem : SharedStealShoesSystem
 {
-
 }

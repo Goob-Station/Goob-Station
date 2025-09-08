@@ -17,9 +17,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
@@ -43,7 +43,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CrawlUnderFloorComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<CrawlUnderFloorComponent, CrawlingUpdatedEvent>(OnCrawlingUpdated);
         SubscribeLocalEvent<CrawlUnderFloorComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
@@ -62,12 +61,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         }
     }
 
-    private void OnCrawlingUpdated(EntityUid uid, CrawlUnderFloorComponent component, CrawlingUpdatedEvent args)
+    private void ToggledAbility(EntityUid uid, bool enabled)
     {
-        if (args.Enabled)
-            _popup.PopupPredicted(Loc.GetString("crawl-under-floor-toggle-on"), uid, uid);
-        else
-            _popup.PopupPredicted(Loc.GetString("crawl-under-floor-toggle-off"), uid, uid);
     }
 
     private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)
@@ -79,9 +74,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         {
             var next = !component.Enabled;
             _appearance.SetData(uid, SneakMode.Enabled, next);
-            _popup.PopupPredicted(next
-                ? Loc.GetString("crawl-under-floor-toggle-on")
-                : Loc.GetString("crawl-under-floor-toggle-off"), uid, uid);
             args.Handled = true;
             return;
         }
@@ -89,9 +81,23 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
         _appearance.SetData(uid, SneakMode.Enabled, component.Enabled);
         Dirty(uid, component);
-        _lastOnSubfloor[uid] = IsOnSubfloor(uid);
-        if (component.Enabled)
+
+        var now = IsOnSubfloor(uid);
+        var old = _lastOnSubfloor.TryGetValue(uid, out var o) ? o : now;
+        _lastOnSubfloor[uid] = now;
+
+        if (component.Enabled && now != old)
             UpdateSneakCollision(uid, component);
+
+        HandleCrawlTransition(uid, old, now, component, false);
+
+        var wentUnder = component.Enabled && !IsOnSubfloor(uid);
+        var selfKey = wentUnder ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
+        var othersKey = wentUnder ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
+        var name = MetaData(uid).EntityName;
+        _popup.PopupEntity(Loc.GetString(selfKey), uid, uid);
+        _popup.PopupEntity(Loc.GetString(othersKey, ("name", name)), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
+
         args.Handled = result;
     }
 
@@ -116,8 +122,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             if (comp.Enabled && now != old)
                 UpdateSneakCollision(uid, comp);
 
-            if (!old && now && comp.Enabled)
-                PlayDuendeSound(uid, 1f);
+            HandleCrawlTransition(uid, old, now, comp, true);
         }
     }
 
@@ -133,8 +138,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (comp.Enabled && now != old)
             UpdateSneakCollision(uid, comp);
 
-        if (!old && now && comp.Enabled)
-            PlayDuendeSound(uid);
+        HandleCrawlTransition(uid, old, now, comp, false);
     }
 
     private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
@@ -170,7 +174,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return false;
         component.Enabled = true;
         Dirty(uid, component);
-        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
         UpdateSneakCollision(uid, component);
         return true;
     }
@@ -181,7 +184,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return false;
         component.Enabled = false;
         Dirty(uid, component);
-        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
             foreach (var (key, originalMask) in component.ChangedFixtures)
@@ -244,6 +246,21 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     public bool IsHidden(EntityUid uid, CrawlUnderFloorComponent comp)
         => comp.Enabled && !IsOnSubfloor(uid);
+
+    private void HandleCrawlTransition(EntityUid uid, bool wasOnSubfloor, bool isOnSubfloor, CrawlUnderFloorComponent comp, bool causedByTileChange)
+    {
+        if (!_net.IsServer)
+            return;
+        if (!comp.Enabled)
+            return;
+        if (wasOnSubfloor == isOnSubfloor)
+            return;
+
+        var movedOutOfCover = !wasOnSubfloor && isOnSubfloor;
+
+        if (movedOutOfCover)
+            PlayDuendeSound(uid, causedByTileChange ? 1f : 0.3f);
+    }
 
     private static int HiddenMask(int baseMask)
         => baseMask
