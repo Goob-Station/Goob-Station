@@ -29,7 +29,7 @@ namespace Content.Goobstation.Shared.Chemistry
     /// </summary>
     public sealed class SharedEnergyReagentDispenser
     {
-        public const string OutputSlotName = "beakerSlot";
+        public const string OutputSlotName = "energyBeakerSlot";
     }
 
     [Serializable, NetSerializable]
@@ -84,14 +84,9 @@ namespace Content.Goobstation.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class EnergyReagentDispenserDispenseReagentMessage : BoundUserInterfaceMessage
+    public sealed class EnergyReagentDispenserDispenseReagentMessage(string reagentId) : BoundUserInterfaceMessage
     {
-        public readonly string ReagentId;
-
-        public EnergyReagentDispenserDispenseReagentMessage(string reagentId)
-        {
-            ReagentId = reagentId;
-        }
+        public readonly string ReagentId = reagentId;
     }
 
     [Serializable, NetSerializable]

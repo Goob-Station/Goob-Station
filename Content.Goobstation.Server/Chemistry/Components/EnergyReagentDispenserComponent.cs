@@ -75,7 +75,7 @@ namespace Content.Goobstation.Server.Chemistry.Components
     public sealed partial class EnergyReagentDispenserComponent : Component
     {
         [DataField]
-        public ItemSlot BeakerSlot = new();
+        public ItemSlot EnergyBeakerSlot = new();
 
         [DataField]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");

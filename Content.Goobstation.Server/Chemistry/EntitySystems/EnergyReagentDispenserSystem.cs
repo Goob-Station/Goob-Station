@@ -64,7 +64,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 {
     /// <summary>
     /// Contains all the server-side logic for reagent dispensers.
-    /// <seealso cref="ReagentDispenserComponent"/>
+    /// <seealso cref="EnergyReagentDispenserComponent"/>
     /// </summary>
     [UsedImplicitly]
     public sealed class EnergyReagentDispenserSystem : EntitySystem
@@ -231,5 +231,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 ? cost * amount
                 : float.MaxValue;
         }
+        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
+            _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);
     }
 }
