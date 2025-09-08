@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: blueshield voidsuit helmet
-  description: The helmet of the captain's bodyguard's voidsuit.
+  name: blueshield tacsuit helmet # un-rename suits
+  description: The helmet of the captain's bodyguard's tacsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -101,7 +101,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth voidsuit helmet
+  name: cybersun stealth tacsuit helmet
   description: A helmet with photo-reactive plating for stealth operations.
   components:
   - type: Sprite
@@ -141,7 +141,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDreadnought
-  name: cybersun Dreadnought suit helmet
+  name: Cybersun Dreadnought suit helmet
   description: A helmet, looking at this you wonder if there anyone alive.
   components:
   - type: Sprite
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
-  name: security voidsuit helmet
-  description: A well-built faceplate attached to the security voidsuit.
+  name: security tacsuit helmet
+  description: A well-built faceplate attached to the security tacsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced voidsuit helmet
-  description: Security voidsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
+  name: head of security's advanced tacsuit helmet
+  description: Security tacsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets. # edits end
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi
