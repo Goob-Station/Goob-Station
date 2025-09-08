@@ -5,6 +5,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -22,6 +23,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<ActorComponent> _actorQuery;
 
@@ -66,6 +68,9 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         if (!TryComp<SlaughterDevourComponent>(args.NewEntity, out var component))
             return;
 
+        if (_netManager.IsClient)
+            return;
+
         foreach (var entity in ent.Comp.ConsumedMobs)
         {
             if (entity == null)
@@ -106,6 +111,9 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         RaiseLocalEvent(pullingEnt, ref evAttempt);
 
         if (evAttempt.Cancelled)
+            return;
+
+        if (_netManager.IsClient)
             return;
 
         _container.Insert(pullingEnt, slaughterDevour.Container);
