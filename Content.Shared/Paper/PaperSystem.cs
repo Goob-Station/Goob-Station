@@ -279,8 +279,10 @@ public sealed class PaperSystem : EntitySystem
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
 
+        //Goobstation - Start
         var writeAfterEv = new PaperAfterWriteEvent(args.Actor);
         RaiseLocalEvent(entity.Owner, ref writeAfterEv);
+        //Goobstation - End
     }
 
     private void OnPaperWrite(Entity<ActivateOnPaperOpenedComponent> entity, ref PaperWriteEvent args)
@@ -369,9 +371,11 @@ public record struct PaperWriteEvent(EntityUid User, EntityUid Paper);
 [ByRefEvent]
 public record struct PaperWriteAttemptEvent(EntityUid Paper, string? FailReason = null, bool Cancelled = false);
 
+//Goobstation Start
 /// <summary>
 /// Event raised on paper after it was written on by someone.
 /// </summary>
 /// <param name="Actor">Entity that wrote something on the paper.</param>
 [ByRefEvent]
 public readonly record struct PaperAfterWriteEvent(EntityUid Actor);
+//Goobstation End

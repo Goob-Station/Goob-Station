@@ -15,7 +15,7 @@ using Robust.Shared.Player;
 namespace Content.Goobstation.Server.Grudge;
 
 /// <summary>
-/// This handles...
+/// This handles bout the book and targets of grudges
 /// </summary>
 public sealed class GrudgeSystem : EntitySystem
 {

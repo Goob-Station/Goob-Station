@@ -4,7 +4,7 @@ using Content.Shared.Damage;
 namespace Content.Goobstation.Server.Grudge;
 
 /// <summary>
-/// This is used for...
+/// This is used for book of grudges
 /// </summary>
 [RegisterComponent]
 public sealed partial class BookOfGrudgesComponent : Component
