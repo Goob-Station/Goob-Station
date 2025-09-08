@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Heatlamp;
 using Content.Server.PowerCell;
-using Content.Shared.Emag.Systems;
 using Content.Shared.PowerCell.Components;
 using Robust.Server.GameObjects;
 

@@ -2,7 +2,6 @@ using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.PowerCell.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Serialization;
 

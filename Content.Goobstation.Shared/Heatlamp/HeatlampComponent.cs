@@ -1,6 +1,5 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Heatlamp;
 
