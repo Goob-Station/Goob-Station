@@ -4136,3 +4136,10 @@
   id: 8941
   time: '2025-09-08T00:34:01.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39983
+- author: Orbitsystem
+  changes:
+  - message: Diona sap can now trigger artifact nodes that require blood.
+    type: Fix
+  id: 8942
+  time: '2025-09-08T13:56:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40211
