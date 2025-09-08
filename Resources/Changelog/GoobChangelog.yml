@@ -14442,3 +14442,9 @@ Entries:
       message: Made Vox magboot sprites in-line with their human counterparts
   id: 1608
   time: '2025-09-07T19:23:46.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed certain augments being uncraftable
+  id: 1609
+  time: '2025-09-08T01:52:58.0000000+00:00'
