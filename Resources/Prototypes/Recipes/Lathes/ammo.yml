@@ -289,6 +289,20 @@
     Steel: 50
 
 - type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: SpeedLoaderRevolverLightRifleEmpty
+  result: SpeedLoaderRevolverLightRifleEmpty
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id:    SpeedLoaderRevolverLightRifle
+  result:    SpeedLoaderRevolverLightRifle
+  materials:
+    Steel: 150
+
+- type: latheRecipe
   parent: BaseAmmoRecipe
   id: SpeedLoaderMagnum
   result: SpeedLoaderMagnum

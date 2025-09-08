@@ -1,0 +1,48 @@
+- type: entity
+  name: o'ConnahBurr, the Irelander
+  parent: [BaseItem, BaseMinorContraband]
+  id: HosIreLander
+  description: An antique blade, its said that this blade was weilded to end a great trouble. It is made from ancient Copper.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/irelander.rsi
+    state: base
+  - type: MeleeWeapon
+    animationRotation: -135
+    heavyStaminaCost: 15
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 20
+        Structural: 15
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Genetic: 3
+        Structural: 40
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: MeleeThrowOnHit
+    distance: 1.5
+    speed: 15
+  - type: Item
+    size: Large
+    storedRotation: 45
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 1.25
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - back
+    - suitstorage
+  - type: UseDelay
+    delay: 0.25
+  - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword

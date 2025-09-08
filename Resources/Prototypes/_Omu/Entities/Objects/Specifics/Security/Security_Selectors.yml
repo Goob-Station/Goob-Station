@@ -1,0 +1,87 @@
+- type: entity
+  id: HeadOfSecurityGunCase
+  name: Head of Security's Duty Case.
+  description: A case, Used to securely store the Head of Securities ranged weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HosSmgSet
+    - HosRifleSet
+    - HosShotgunSet
+    - HosSniperSet
+    - HosLawbringerSet
+    maxSelectedSets: 1
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunLawbringer
+
+- type: entity
+  id: HeadOfSecurityMeleeCase
+  name: Head of Security's Melee Case.
+  description: A case, Used to securely store the Head of Securities melee weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/hoscasemelee.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HosJusticeSet
+    - HosCQCSet
+    - HosIrelanderSet
+    maxSelectedSets: 1
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword
+
+- type: entity
+  id: WardenGunCase
+  name: Warden's Duty Case.
+  description: A case, Used to securely store the Wardens weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/wardencase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponEnergyShotgunSet
+    - WeaponWardenRevolverShotgunSet
+    maxSelectedSets: 1
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+
+- type: entity
+  id: OfficerGunCase
+  name: Standard Duty Case.
+  description: A case, Used to securely store your duty weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/officercase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponMk58Set
+    - WeaponT8Set
+    - WeaponTerminusSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: CaptainGunCase
+  name: Captain's Weapon Case.
+  description: A case, Used to securely store your duty weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/captaincase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponAntiqueLaserSet
+    - WeaponVC8Set
+    maxSelectedSets: 1
+  - type: StealTarget
+    stealGroup: WeaponAntiqueLaser
