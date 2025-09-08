@@ -43,7 +43,7 @@ public sealed class LollypopSystem : EntitySystem
             if (clothing.InSlotFlag != lollypop.CheckSlot)
                 continue;
 
-            if(lollypop.NextBite > _time.CurTime)
+            if(lollypop.NextBite > _time.CurTime && lollypop.NextBite != TimeSpan.Zero)
                 continue;
 
             Eat((queryUid,lollypop),food);
@@ -116,9 +116,12 @@ public sealed class LollypopSystem : EntitySystem
         _reaction.DoEntityReaction(ent.Comp.HeldBy.Value, solution, ReactionMethod.Ingestion);
         _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
 
-        if (soln.Value.Comp.Solution.Volume > FixedPoint2.Zero || ent.Comp.DeleteOnEmpty)
+        if (soln.Value.Comp.Solution.Volume > FixedPoint2.Zero )
             return; // end if there is solution left
 
-        _food.DeleteAndSpawnTrash(food,ent.Owner,ent.Comp.HeldBy.Value);
+        if (ent.Comp.DeleteOnEmpty)
+            _food.DeleteAndSpawnTrash(food,ent.Owner,ent.Comp.HeldBy.Value);
+
+        ent.Comp.NextBite  = TimeSpan.Zero; // lollypop is empty stop checking
     }
 }
