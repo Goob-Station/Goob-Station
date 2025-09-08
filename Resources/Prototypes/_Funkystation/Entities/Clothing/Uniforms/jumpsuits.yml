@@ -1,0 +1,214 @@
+# SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Syndicate Civilian (sprites by meijunkie)
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitBotanistSyndicate
+  name: syndicate botanist jumpsuit
+  description: Perfect wear for when you need to grow some illegal plants.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitBartenderSyndicate
+  name: syndicate bartender jumpsuit
+  description: Secretly spiking suspicious sodas has never been more fancy.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/bartender.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/bartender.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitLibrarianSyndicate
+  name: syndicate librarian jumpsuit
+  description: You aren't going to be casting any spells with your books, but they'll still be cursed.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/librarian.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/librarian.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitScientistSyndicate
+  name: syndicate scientist jumpsuit
+  description: Far ahead of Nanotrasen in research. Even farther ahead in style.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitScientistWhiteSyndicate
+  name: syndicate white scientist jumpsuit
+  description: Far ahead of Nanotrasen in research. Even farther ahead in style.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist-white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist-white.rsi
+
+# Syndicate Command (sprites by meijunkie)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitGCMSyndicate
+  name: gorlex commanding mercenary jumpsuit
+  description: Even Gorlex needs someone to keep things under control. This jumpsuit is worn by the person who does just that.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/gcm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/gcm.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitCCRSyndicate
+  name: cybersun chief researcher jumpsuit
+  description: The brain behind all of Cybersun's scientific advancements' jumpsuit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/ccr.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/ccr.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitIMDSyndicate
+  name: interdyne medical director jumpsuit
+  description: Someone has to take care of the agents who just can't do their job without getting hurt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/imd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/imd.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitWSMSyndicate
+  name: waffle co. supply manager jumpsuit
+  description: The jumpsuit of the person who manages the supply intake and output of Waffle Co.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/wsm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/wsm.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitHRDSyndicate
+  name: donk co. hr director jumpsuit
+  description: The jumpsuit of the HR director of donk co.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hrd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hrd.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitCHESyndicate
+  name: cybersun head engineer jumpsuit
+  description: Perfect wear for when you decide to declare sovereignty from the rest of the station.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/che.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/che.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitHCRSyndicate
+  name: high command representative jumpsuit
+  description: A member of the Syndicate High Command's jumpsuit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi
+
+
+# Charlie Station Ancient Uniforms (sprites by mingebag / meijunkie)
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientDoc
+  name: ancient doctor jumpsuit
+  description: An ancient jumpsuit fit for an ancient doctor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_doc.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_doc.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientSci
+  name: ancient scientist jumpsuit
+  description: An ancient jumpsuit fit for an ancient scientist.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sci.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sci.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientEng
+  name: ancient engineer jumpsuit
+  description: An ancient jumpsuit fit for an ancient engineer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_eng.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_eng.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientSec
+  name: ancient security jumpsuit
+  description: An ancient jumpsuit fit for an ancient security officer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
+
+# using the nanotrasen jumpsuit sprite since theres no reason to make ANOTHER sprite
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientRep
+  name: ancient nanotrasen jumpsuit
+  description: An ancient jumpsuit fit for an ancient nanotrasen representative.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
+
+# flash delirium outfit (by willowzeta)
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitFlashDelirium
+  name: flash delirium outfit
+  description: A stylish button-down to have sudden revelations in. The tag reads "E.J. FY2975 Collection".
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/flashdelirium.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/flashdelirium.rsi

@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingOuterApron, BaseSyndicateContraband]
+  id: ClothingOuterApronArmored
+  name: armored apron
+  description: A blood-stained apron woven with protective webbing. Shockingly effective at protecting the wearer's torso.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/armored_apron.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/armored_apron.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
+  - type: Armor # Intended to be more or less a web vest equivalent
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5 # 0.1 less than a web vest 
+        Heat: 0.6 # 0.2 more than a web vest, because it's an apron I guess
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chameleon outlaw glasses which can see job icons (not wanted or mindshield status though). Also flash immune!
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesChameleonHud
+  name: outlaw glasses
+  description: A must for every self-respecting undercover agent.
+  suffix: Chameleon, Administration hud
+  components:
+    - type: Tag
+      tags: []
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
+    - type: ChameleonClothing
+      slot: [eyes]
+      default: ClothingEyesGlassesOutlawGlasses
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+    - type: ShowJobIcons
+    - type: FlashImmunity
+

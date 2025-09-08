@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 PresentAJ <ajdpersonalemail@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadBaseButcherable
+  id: ClothingHeadLizardCloak
+  name: lizard plushie cloak
+  description: Wow, you skinned a stuffed animal, maybe check in with the station psychologist?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/lizard-cloak.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/lizard-cloak.rsi
+  - type: Construction
+    graph: ClothingHeadLizardCloak
+    node: helmet

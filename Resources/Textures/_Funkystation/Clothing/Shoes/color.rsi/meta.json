@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f1c9fc3bed5fab0aab76abd7f8b6a240f3490b05. Vox-specific sprites by Bellkitsu/Merrokitsune.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "equipped-FEET-vox",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "soles-icon"
+    },
+    {
+      "name": "soles-equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "soles-equipped-FEET-vox",
+      "directions": 4
+    },
+    {
+      "name": "soles-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "soles-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "contrastedsoles-equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "contrastedsoles-equipped-FEET-vox",
+      "directions": 4
+    }
+  ]
+}

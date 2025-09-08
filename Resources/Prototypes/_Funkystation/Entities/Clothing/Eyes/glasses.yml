@@ -1,0 +1,216 @@
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: [ ClothingEyesGlassesJamjar, ShowSecurityIcons, BaseSecurityContraband ]
+  id: ClothingEyesGlassesSecjar
+  name: security-issue jamjar glasses
+  description: These retro glasses remind you of 1984.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/secjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/secjar.rsi
+  - type: VisionCorrection
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: jamjarGlassesSec
+    node: secjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingEyesGlassesJamjar, ShowMedicalIcons ]
+  id: ClothingEyesGlassesMedjar
+  name: medical-issue jamjar glasses
+  description: These retro glasses remind you of bodybagging rotting corpses.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesMed
+    node: medjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesChemjar
+  name: chemical analysis jamjar glasses
+  description: These retro glasses remind you of breaking SOP by making explosives.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi
+  - type: VisionCorrection
+  - type: SolutionScanner
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: jamjarGlassesChem
+    node: chemjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesRobojar
+  name: diagnostics jamjar glasses
+  description: These retro glasses remind you of tampering with borgs' laws.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi
+  - type: VisionCorrection
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: jamjarGlassesRobo
+    node: robojarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesJamgog
+  name: engineering jamgoggles
+  description: These retro glasses remind you of setting the tesla loose.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
+  - type: VisionCorrection
+  - type: EyeProtection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: jamjarGlassesEngi
+    node: engijarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesGar
+  id: ClothingEyesGlassesSungar
+  name: sungar glasses
+  description: Wearing this will most certainly lead to decapitation.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/sungar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/sungar.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 7
+  - type: Construction
+    graph: glassesSungar
+    node: sungarGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesCSungar
+  name: cheap sungar glasses
+  description: Now with 99% less artificial intelligence.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/sungar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/sungar.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 7
+  - type: Construction
+    graph: glassesCSungar
+    node: sungarCGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesGlassesRobo
+  name: diagnostics-issue glasses
+  description: Upgraded glasses that provide a diagnostics HUD.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/robotglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/robotglasses.rsi
+  - type: VisionCorrection
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: GlassesRobo
+    node: roboGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingEyesGlasses, ShowMedicalIcons ]
+  id: ClothingEyesGlassesMed
+  name: medical-issue glasses
+  description: Upgraded glasses that provide a medical HUD.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: GlassesMed
+    node: medGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+    - HamsterWearable
