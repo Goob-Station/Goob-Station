@@ -64,7 +64,6 @@
     - id: BlueshieldUndeterminedHardsuit
     - id: FlashlightSeclite
 
-
 - type: entity
   id: LockerBlueshieldOfficerFilled
   suffix: Filled
