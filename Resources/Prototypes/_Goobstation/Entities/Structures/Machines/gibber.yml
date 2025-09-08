@@ -1,0 +1,86 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: MaterialReclaimer
+  name: material reclaimer
+  description: Cannot reclaim immaterial things, like motivation.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/gibber.rsi
+    snapCardinals: true
+    layers:
+    - state: grinder_jaws_active
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: grinder
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: grinder_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.DamageStateVisualLayers.Base:
+          True: { state: gear-active}
+          False: { state: gear-idle }
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PowerSwitch
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Machine
+    board: MaterialReclaimerMachineCircuitboard
+  - type: WiresPanel
+  - type: MaterialReclaimer
+    whitelist:
+      components:
+      - PhysicalComposition
+      - SpaceGarbage
+      - Log
+      - Cartridge # PDA app cartriges
+      tags:
+      - Trash
+      - Recyclable
+      - Cartridge # Bullets
+      - Book
+      - Pen
+      - Handcuffs
+    blacklist:
+      components:
+      - Material
+      - Pda
+      - IdCard
+      - Brain
+      tags:
+      - HighRiskItem
+    soundCooldown: 0
+    sound:
+      path: /Audio/Ambience/Objects/crushing.ogg
+      params:
+        volume: 5
+        maxDistance: 5
+        loop: true
+    useOldSolutionLogic: true
+    solutionContainerId: output
+  - type: MaterialStorage
+    insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      active-material-reclaimer-container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: StaticPrice
+    price: 500
+  - type: ApcPowerReceiver
+    powerLoad: 500
