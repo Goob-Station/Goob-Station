@@ -397,8 +397,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate voidsuit bundle
-  description: "Contains the Syndicate's signature blood red voidsuit."
+  name: syndicate tacscuit bundle #goob edit - un-rename suits
+  description: "Contains the Syndicate's signature blood red tacsuit."
   components:
   - type: StorageFill
     contents:
@@ -412,8 +412,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite voidsuit bundle
-  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
+  name: syndicate elite tacsuit bundle #goob edit - un-rename suits
+  description: "Contains the Syndicate's elite tacsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
