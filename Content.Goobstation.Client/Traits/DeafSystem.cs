@@ -26,7 +26,8 @@ public sealed class DeafnessSystem : EntitySystem
 
     private void OnComponentStartUp(EntityUid uid, DeafComponent component, ComponentStartup args)
     {
-        _audio.SetMasterGain(0); // mutes sound
+        if (_player.LocalEntity == uid)
+            _audio.SetMasterGain(0);
     }
     private void OnDeafShutdown(EntityUid uid, DeafComponent component, ComponentShutdown args)
     {

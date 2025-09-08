@@ -34,4 +34,4 @@ trait-social-anxiety-name = Social Anxiety
 trait-social-anxiety-disc = You have crippling social anxiety, you're freaked out by affectionate things, such as hugs.
 
 trait-deaf-name = Deaf
-trait-deaf-disc =  You're completly deaf, you can't hear anything!
+trait-deaf-disc =  You're completly deaf, you can't hear anything, including yourself!
