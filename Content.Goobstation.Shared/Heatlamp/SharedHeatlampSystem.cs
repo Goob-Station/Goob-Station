@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell.Components;
@@ -38,7 +39,7 @@ public abstract class SharedHeatlampSystem : EntitySystem
             return;
 
         // Check that we aren't already emagged
-        if (_emag.CheckFlag(ent, EmagType.Interaction))
+        if (HasComp<EmaggedComponent>(ent))
             return;
 
         // Update our appearance
