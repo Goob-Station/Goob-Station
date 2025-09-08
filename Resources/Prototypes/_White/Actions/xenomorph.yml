@@ -140,7 +140,7 @@
 #      - GlassLayer
 #  - type: PlasmaCostAction
 
-- type: entity
+- type: entity # Goobstation - new action
   id: ActionSpawnResinDoor
   parent: BaseAction
   name: Build a resin door (75)
