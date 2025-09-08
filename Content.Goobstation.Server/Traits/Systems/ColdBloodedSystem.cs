@@ -7,27 +7,27 @@ public sealed class ColdBloodedSystem : EntitySystem
 {
     public override void Initialize()
     {
-        SubscribeLocalEvent<ColdBloodedComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ColdBloodedComponent, MapInitEvent>(OnMapInit); // SHITCODE!!!!!!!
         SubscribeLocalEvent<ColdBloodedComponent, ComponentRemove>(OnComponentRemove);
     }
 
-    private void OnMapInit(EntityUid uid, ColdBloodedComponent component, MapInitEvent args)
+    private void OnMapInit(Entity<ColdBloodedComponent> ent, ref MapInitEvent args)
     {
         // Tweak temperature damage thresholds
-        EnsureComp<TemperatureComponent>(uid, out var temperature);
-        temperature.ColdDamageThreshold += component.ColdThresholdIncrease;
-        temperature.HeatDamageThreshold += component.HeatThresholdIncrease;
-        temperature.AtmosTemperatureTransferEfficiency *= component.AtmosTransferMultiplier;
+        EnsureComp<TemperatureComponent>(ent, out var temperature);
+        temperature.ColdDamageThreshold += ent.Comp.ColdThresholdIncrease;
+        temperature.HeatDamageThreshold += ent.Comp.HeatThresholdIncrease;
+        temperature.AtmosTemperatureTransferEfficiency *= ent.Comp.AtmosTransferMultiplier;
     }
 
-    private void OnComponentRemove(EntityUid uid, ColdBloodedComponent component, ComponentRemove args)
+    private void OnComponentRemove(Entity<ColdBloodedComponent> ent, ref ComponentRemove args)
     {
         // Revert temperature damage thresholds
-        if (TryComp<TemperatureComponent>(uid, out var temperature))
+        if (TryComp<TemperatureComponent>(ent, out var temperature))
         {
-            temperature.ColdDamageThreshold -= component.ColdThresholdIncrease;
-            temperature.HeatDamageThreshold -= component.HeatThresholdIncrease;
-            temperature.AtmosTemperatureTransferEfficiency /= component.AtmosTransferMultiplier;
+            temperature.ColdDamageThreshold -= ent.Comp.ColdThresholdIncrease;
+            temperature.HeatDamageThreshold -= ent.Comp.HeatThresholdIncrease;
+            temperature.AtmosTemperatureTransferEfficiency /= ent.Comp.AtmosTransferMultiplier;
         }
     }
 }
