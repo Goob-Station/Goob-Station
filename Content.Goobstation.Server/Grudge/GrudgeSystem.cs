@@ -104,6 +104,9 @@ public sealed class GrudgeSystem : EntitySystem
 
     private void OnDamaged(Entity<TargetOfGrudgeComponent> ent, ref DamageModifyEvent args)
     {
+        if (args.Damage.AnyPositive())
+            return;
+
         args.Damage = args.OriginalDamage * ent.Comp.Book.Comp.GrudgeCurseModifier;
     }
 
@@ -116,9 +119,50 @@ public sealed class GrudgeSystem : EntitySystem
 
             //TODO: Find name in book and line it out
 
+            TryComp<BookOfGrudgesComponent>(ent.Comp.Book, out var bookComp);
+
+            StrikeNameFromBook(ent.Comp.Book, args.Target);
+
             RemCompDeferred<TargetOfGrudgeComponent>(ent);//Target is dead, grudge is settled
         }
 
+    }
+
+    private bool StrikeNameFromBook(Entity<BookOfGrudgesComponent> ent, EntityUid target)
+    {
+        if (TryFindEntityByName(target.ToString(), out var uid))
+            return false;
+
+        if (!TryComp<PaperComponent>(ent.Owner, out var paperComp))
+           return false;
+
+        var book ="";
+        var found = false;
+        var lines = paperComp.Content.Split('\n');
+        foreach (var line in lines)
+        {
+            if (string.IsNullOrEmpty(line))
+            {
+                book += line + '\n';
+                continue;
+            }
+
+            var parts = line.Split(',', 2, StringSplitOptions.RemoveEmptyEntries);
+            var name = parts[0].Trim();
+
+            if (name.ToLower().Equals( MetaData(target).EntityName.ToLower() ))
+            {
+                book += "[italic][color=red]" + line + "[/color][/italic]" +'\n';
+                found = true;
+            }
+            else
+                book += line + '\n';
+
+        }
+        if (found)
+            paperComp.Content = book;
+
+        return found;
     }
 
     private bool CheckIfEligible(string name, Entity<BookOfGrudgesComponent> ent, [NotNullWhen(true)] out EntityUid? entityUid)
@@ -127,7 +171,6 @@ public sealed class GrudgeSystem : EntitySystem
         {
             entityUid = null;
             return false;
-
         }
 
         EntityUid? uid;
