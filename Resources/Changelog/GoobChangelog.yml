@@ -14456,3 +14456,13 @@ Entries:
       message: Xenos forgot how to use computers.
   id: 1610
   time: '2025-09-08T19:23:47.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: LV cable can now be used as consumable, ghetto stitches for surgery.
+    - type: Tweak
+      message: >-
+        Medicated sutures can now be used as consumable, superior stitches for
+        surgery.
+  id: 1611
+  time: '2025-09-08T19:26:06.0000000+00:00'
