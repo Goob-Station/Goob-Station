@@ -2,8 +2,4 @@
   - type: accessGroup
     id: XenomorphAccess
     tags:
-      - Xenomorph
-  - type: accessGroup # Goobstation - xeno doors
-    id: XenomorphAccess
-    tags:
     - Xenomorph

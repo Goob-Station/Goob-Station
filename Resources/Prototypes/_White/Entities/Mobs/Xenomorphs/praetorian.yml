@@ -25,8 +25,8 @@
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-#    - ActionSpawnResinMembrane
-    - ActionSpawnResinDoor 
+#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
   - type: Body
