@@ -5,21 +5,6 @@ namespace Content.Goobstation.Server.Traits.Systems;
 
 public sealed class ColdBloodedSystem : EntitySystem
 {
-    /// <summary>
-    /// How much the cold damage threshold is increased when the cold-blooded trait is applied. Can be tweaked if too crippling.
-    /// </summary>
-    private static readonly float ColdThresholdIncrease = 7.5f; // Slightly below 20c for lizards. Below -3c for most other species.
-
-    /// <summary>
-    /// How much the heat damage threshold is increased when the cold-blooded trait is applied. Can be tweaked if too powerful.
-    /// </summary>
-    private static readonly float HeatThresholdIncrease = 50.0f; // 180c for lizards. 100c for most other species.
-
-    /// <summary>
-    /// How much is the ability for heat to transfer from the atmosphere to you increase. Can be tweaked if too powerful.
-    /// </summary>
-    private static readonly float AtmosTransferMultiplier = 2.0f;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<ColdBloodedComponent, MapInitEvent>(OnMapInit);
@@ -30,9 +15,9 @@ public sealed class ColdBloodedSystem : EntitySystem
     {
         // Tweak temperature damage thresholds
         EnsureComp<TemperatureComponent>(uid, out var temperature);
-        temperature.ColdDamageThreshold += ColdThresholdIncrease;
-        temperature.HeatDamageThreshold += HeatThresholdIncrease;
-        temperature.AtmosTemperatureTransferEfficiency *= AtmosTransferMultiplier;
+        temperature.ColdDamageThreshold += component.ColdThresholdIncrease;
+        temperature.HeatDamageThreshold += component.HeatThresholdIncrease;
+        temperature.AtmosTemperatureTransferEfficiency *= component.AtmosTransferMultiplier;
     }
 
     private void OnComponentRemove(EntityUid uid, ColdBloodedComponent component, ComponentRemove args)
@@ -40,9 +25,9 @@ public sealed class ColdBloodedSystem : EntitySystem
         // Revert temperature damage thresholds
         if (TryComp<TemperatureComponent>(uid, out var temperature))
         {
-            temperature.ColdDamageThreshold -= ColdThresholdIncrease;
-            temperature.HeatDamageThreshold -= HeatThresholdIncrease;
-            temperature.AtmosTemperatureTransferEfficiency /= AtmosTransferMultiplier;
+            temperature.ColdDamageThreshold -= component.ColdThresholdIncrease;
+            temperature.HeatDamageThreshold -= component.HeatThresholdIncrease;
+            temperature.AtmosTemperatureTransferEfficiency /= component.AtmosTransferMultiplier;
         }
     }
 }

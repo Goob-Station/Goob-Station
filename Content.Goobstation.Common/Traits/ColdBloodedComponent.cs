@@ -6,4 +6,23 @@ namespace Content.Goobstation.Common.Traits;
 /// damage thresholds by the values in ColdBloodedSystem
 /// </summary>
 [RegisterComponent]
-public sealed partial class ColdBloodedComponent : Component;
+public sealed partial class ColdBloodedComponent : Component
+{
+    /// <summary>
+    /// How much the cold damage threshold is increased when the cold-blooded trait is applied.
+    /// </summary>
+    [DataField]
+    public float ColdThresholdIncrease;
+
+    /// <summary>
+    /// How much the heat damage threshold is increased when the cold-blooded trait is applied.
+    /// </summary>
+    [DataField]
+    public float HeatThresholdIncrease;
+
+    /// <summary>
+    /// How much is the ability for heat to transfer from the atmosphere to you increase.
+    /// </summary>
+    [DataField]
+    public float AtmosTransferMultiplier;
+}
