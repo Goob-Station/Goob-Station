@@ -1,0 +1,24 @@
+- type: roundAnnouncement
+  id: InternWelcome1
+  sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome.ogg
+  announcer: Intern
+
+- type: roundAnnouncement
+  id: InternWelcome2
+  sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome_2.ogg
+  announcer: Intern
+
+- type: roundAnnouncement
+  id: InternWelcome3
+  sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome_3.ogg
+  announcer: Intern
+
+- type: roundAnnouncement
+  id: InternWelcome4
+  sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome_4.ogg
+  announcer: Intern
+
+- type: roundAnnouncement
+  id: InternWelcome5
+  sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome_5.ogg
+  announcer: Intern

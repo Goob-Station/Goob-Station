@@ -89,4 +89,10 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<bool> MrpJobsEnabled =
         CVarDef.Create("jobs.mrp_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// </summary>
+    /// Activate announcer in round by their special calendar.
+    /// </summary>
+    public static readonly CVarDef<bool> CalendarAnnouncerEnabled =
+        CVarDef.Create("announcer.calendar", true, CVar.SERVERONLY);
 }

@@ -23,4 +23,10 @@ public sealed partial class RoundAnnouncementPrototype : IPrototype
     [DataField("sound")] public SoundSpecifier? Sound;
 
     [DataField("message")] public string? Message;
+
+    // CorvaxGoob-CustomAnnouncers
+    /// <summary>
+    /// Announcer prototype ID.
+    /// </summary>
+    [DataField("announcer")] public string Announcer = "Default";
 }

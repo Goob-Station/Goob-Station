@@ -21,6 +21,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._CorvaxGoob.Announcer;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -45,6 +46,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly StationSystem StationSystem = default!;
+    [Dependency] protected readonly AnnouncerSystem AnnouncerSystem = default!;
 
     protected ISawmill Sawmill = default!;
 
@@ -71,7 +73,14 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.StartAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
 
-        Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true);
+        // CorvaxGoob-CustomAnnouncers-Start
+        var startAudio = stationEvent.StartAudio;
+
+        if (AnnouncerSystem.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersStartAudio.ContainsKey(announcerPrototype.ID))
+            startAudio = stationEvent.AnnouncersStartAudio[announcerPrototype.ID];
+
+        Audio.PlayGlobal(startAudio, allPlayersInGame, true);
+        // CorvaxGoob-CustomAnnouncers-End
     }
 
     /// <inheritdoc/>
@@ -110,7 +119,14 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.EndAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement), playSound: false, colorOverride: stationEvent.EndAnnouncementColor);
 
-        Audio.PlayGlobal(stationEvent.EndAudio, allPlayersInGame, true);
+        // CorvaxGoob-CustomAnnouncers-Start
+        var endAudio = stationEvent.EndAudio;
+
+        if (AnnouncerSystem.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersEndAudio.ContainsKey(announcerPrototype.ID))
+            endAudio = stationEvent.AnnouncersEndAudio[announcerPrototype.ID];
+
+        Audio.PlayGlobal(endAudio, allPlayersInGame, true);
+        // CorvaxGoob-CustomAnnouncers-End
     }
 
     /// <summary>

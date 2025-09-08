@@ -28,12 +28,19 @@ namespace Content.Client.Administration.UI
 
         private void AnnounceButtonOnOnPressed(BaseButton.ButtonEventArgs obj)
         {
+            // CorvaxGoob-TTS-Start
+            var voice = "None";
+
+            if (_window.VoiceButton.ItemCount > 0)
+                voice = (string) (_window.VoiceButton.GetItemMetadata(_window.VoiceButton.SelectedId) ?? voice);
+            // CorvaxGoob-TTS-End
+
             SendMessage(new AdminAnnounceEuiMsg.DoAnnounce
             {
                 Announcement = Rope.Collapse(_window.Announcement.TextRope),
                 Announcer =  _window.Announcer.Text,
                 AnnounceType =  (AdminAnnounceType) (_window.AnnounceMethod.SelectedMetadata ?? AdminAnnounceType.Station),
-                Voice = (string) (_window.VoiceButton.GetItemMetadata(_window.VoiceButton.SelectedId) ?? "None"), // CorvaxGoob-TTS
+                Voice = voice, // CorvaxGoob-TTS
                 CloseAfter = !_window.KeepWindowOpen.Pressed,
             });
 

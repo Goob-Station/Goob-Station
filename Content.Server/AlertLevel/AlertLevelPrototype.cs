@@ -11,6 +11,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._CorvaxGoob.Announcer;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -64,6 +65,13 @@ public sealed partial class AlertLevelDetail
     /// The sound that this alert level will play in-game once selected.
     /// </summary>
     [DataField("sound")] public SoundSpecifier? Sound { get; private set; }
+
+    // CorvaxGoob-CustomAnnouncers
+    /// <summary>
+    /// Dictionary of custom announcers and their sounds.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<AnnouncerPrototype>, SoundSpecifier> AnnouncersAudio = new();
 
     /// <summary>
     /// The color that this alert level will show in-game in chat.

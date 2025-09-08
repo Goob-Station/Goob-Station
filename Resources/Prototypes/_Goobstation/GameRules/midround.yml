@@ -24,6 +24,9 @@
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:
@@ -72,6 +75,9 @@
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:
@@ -122,6 +128,9 @@
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:

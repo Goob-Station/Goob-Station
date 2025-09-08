@@ -234,6 +234,9 @@
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/_CorvaxGoob/Announcements/flux.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/flux.ogg # CorvaxGoob-Announcements
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -257,6 +260,9 @@
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/_CorvaxGoob/Announcements/blusp_anomalies.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/blusp_anomalies.ogg
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -595,6 +601,12 @@
     startAudio:
       path: /Audio/Announcements/gasleak_start.ogg # CorvaxGoob-Announcements
     endAnnouncement: station-event-gas-leak-end-announcement
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/gasleak_start.ogg
+    announcersEndAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/gasleak_end.ogg
     weight: 8
     chaos:
       Atmos: 100
@@ -640,6 +652,9 @@
       path: /Audio/Announcements/power_off.ogg
       params:
         volume: -4
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        collection: InternEventPowerOff
     duration: 60
     maxDuration: 120
     eventType: Interference # Goobstation
@@ -658,6 +673,9 @@
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
       path: /Audio/_CorvaxGoob/Announcements/comms_blackout.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/comms_blackout.ogg
     duration: 120
     maxDuration: 240
     chaos: # Goobstation
@@ -690,6 +708,9 @@
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -710,6 +731,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -736,6 +760,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -762,6 +789,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -785,6 +815,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
@@ -922,6 +955,9 @@
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
     eventType: HostilesSpawn # Goobstation
@@ -989,6 +1025,9 @@
     eventType: Chaotic # Goobstation
     startAudio:
       path: /Audio/_CorvaxGoob/Adminbuse/i-storm1.ogg # CorvaxGoob-Announcements
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/i-storm1.ogg
   # Goobstation
   - type: GameRule
     chaosScore: 150
@@ -1020,6 +1059,9 @@
   - type: StationEvent
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/greytide.ogg
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

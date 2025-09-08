@@ -87,6 +87,7 @@
 
 using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Server._CorvaxGoob.Announcer;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -131,6 +132,20 @@ public sealed partial class StationEventComponent : Component
 
     [DataField]
     public SoundSpecifier? EndAudio;
+
+    // CorvaxGoob-CustomAnnouncers
+    /// <summary>
+    /// Dictionary of custom announcers and their start event sounds.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<AnnouncerPrototype>, SoundSpecifier> AnnouncersStartAudio = new();
+
+    // CorvaxGoob-CustomAnnouncers
+    /// <summary>
+    /// Dictionary of custom announcers and their end event sounds.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<AnnouncerPrototype>, SoundSpecifier> AnnouncersEndAudio = new();
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start

@@ -16,6 +16,9 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/sentience.ogg
     chaos: # Goobstation
       Mess: 5
       Friend: -5

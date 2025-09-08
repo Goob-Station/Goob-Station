@@ -57,6 +57,9 @@
     startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 45
     weight: 3
@@ -82,6 +85,9 @@
     startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 50
     weight: 3
@@ -107,6 +113,9 @@
     startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 60
     weight: 2 #This can lead to mass death so it's rarer
@@ -135,6 +144,9 @@
     startAnnouncement: goob-station-event-vent-creatures-ancient-xenos-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 60
     weight: 2 #This can lead to mass death so it's rarer

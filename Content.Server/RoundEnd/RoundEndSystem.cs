@@ -72,6 +72,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server._CorvaxGoob.Announcer;
+using Robust.Shared.Audio;
 
 namespace Content.Server.RoundEnd
 {
@@ -92,6 +94,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -238,7 +241,14 @@ namespace Content.Server.RoundEnd
                 null,
                 Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
+            // CorvaxGoob-CustomAnnouncers-Start
+            SoundSpecifier shuttleCalledSound = new SoundPathSpecifier("/Audio/Announcements/shuttlecalled.ogg");
+
+            if (_announcer.TryGetAnnouncerToday(out var announcerPrototype) && announcerPrototype.ShuttleCallSound is not null)
+                shuttleCalledSound = announcerPrototype.ShuttleCallSound;
+
+            _audio.PlayGlobal(shuttleCalledSound, Filter.Broadcast(), true);
+            // CorvaxGoob-CustomAnnouncers-End
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -286,7 +296,15 @@ namespace Content.Server.RoundEnd
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 Loc.GetString("round-end-system-shuttle-sender-announcement"), false, colorOverride: Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
+            // CorvaxGoob-CustomAnnouncers-Start
+            SoundSpecifier shuttleRecalledPath = new SoundPathSpecifier("/Audio/Announcements/shuttlerecalled.ogg");
+
+            var announcer = _announcer.GetAnnouncerToday();
+            if (announcer is not null && announcer.ShuttleRecallSound is not null)
+                shuttleRecalledPath = announcer.ShuttleRecallSound;
+
+            _audio.PlayGlobal(shuttleRecalledPath, Filter.Broadcast(), true);
+            // CorvaxGoob-CustomAnnouncers-End
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;

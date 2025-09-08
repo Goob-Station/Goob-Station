@@ -92,6 +92,9 @@
       color: Green
       emergencyLightColor: LawnGreen
       shuttleTime: 600
+      announcersAudio: # CorvaxGoob-CustomAnnouncers
+        Intern:
+          path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/green.ogg
     blue:
       announcement: alert-level-blue-announcement
       sound: /Audio/Misc/bluealert.ogg
@@ -99,6 +102,9 @@
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
+      announcersAudio: # CorvaxGoob-CustomAnnouncers
+        Intern:
+          collection: InternAlertBlue
     violet:
       announcement: alert-level-violet-announcement
       sound: /Audio/Misc/notice1.ogg
@@ -120,6 +126,9 @@
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
       shuttleTime: 600 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
+      announcersAudio: # CorvaxGoob-CustomAnnouncers
+        Intern:
+          collection: InternAlertRed
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
@@ -143,6 +152,9 @@
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+      announcersAudio: # CorvaxGoob-CustomAnnouncers
+        Intern:
+          path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/delta.ogg
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false

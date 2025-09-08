@@ -166,6 +166,20 @@
   components:
   - type: GameRule
   - type: StationEvent
+    # CorvaxGoob-CustomAnnouncers-Start
+    startAudio:
+      path: /Audio/Announcements/meteors_start.ogg
+    endAudio:
+      path: /Audio/Announcements/meteors_end.ogg
+    startAnnouncement: station-event-meteor-swarm-start-announcement
+    endAnnouncement: station-event-meteor-swarm-end-announcement
+    announcersStartAudio:
+      Intern:
+        collection: InternEventMeteor
+    announcersEndAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/meteorcleared.ogg
+    # CorvaxGoob-CustomAnnouncers-End
     reoccurrenceDelay: 1
     earliestStart: 12
     minimumPlayers: 25
@@ -178,6 +192,18 @@
   - type: StationEvent
     weight: 44
     earliestStart: 2
+    # CorvaxGoob-CustomAnnouncers-Start
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: station-event-space-dust-start-announcement
+    endAnnouncement: station-event-space-dust-end-announcement
+    announcersStartAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/dust.ogg
+    announcersEndAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/dust_passed.ogg
+    # CorvaxGoob-CustomAnnouncers-End
     minimumPlayers: 0
     chaos: # Goobstation
       Power: 10
@@ -201,13 +227,24 @@
   components:
   - type: StationEvent
     weight: 22
+    duration: 60 # CorvaxGoob-CustomAnnouncers
     minimumPlayers: 0
+    # CorvaxGoob-CustomAnnouncers-Start
+    startAnnouncement: station-event-space-dust-start-announcement
+    endAnnouncement: station-event-space-dust-end-announcement
+    announcersStartAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/dust.ogg
+    announcersEndAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/dust_passed.ogg
+    # CorvaxGoob-CustomAnnouncers-End
     chaos: # Goobstation
       Power: 25
       Atmos: 25
   - type: MeteorSwarm
-    announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    # announcement: station-event-space-dust-start-announcement # Commented by CorvaxGoob-CustomAnnouncers
+    # announcementSound: /Audio/Announcements/attention.ogg # Commented by CorvaxGoob-CustomAnnouncers
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -287,11 +324,19 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
+    # CorvaxGoob-CustomAnnouncers-Start
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    announcersStartAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/intercept.ogg
+    announcersEndAudio:
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/irod.ogg
+    # CorvaxGoob-CustomAnnouncers-End
     weight: 3.5
     reoccurrenceDelay: 1
-    duration: 1
+    duration: 30 # CorvaxGoob-CustomAnnouncers
     earliestStart: 30
     minimumPlayers: 25
     chaos: # Goobstation

@@ -109,34 +109,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
-using System.Globalization;
-using System.Linq;
-using System.Text;
+using Content.Server._CorvaxGoob.Announcer;
+using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Server.Effects;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
-using Content.Server.Speech; // Einstein Engines - Language
 using Content.Server.Players.RateLimiting;
-using Content.Server.Speech.Prototypes;
+using Content.Server.Speech; // Einstein Engines - Language
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
@@ -154,6 +150,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using System.Globalization;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Chat.Systems;
 
@@ -177,6 +177,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
@@ -504,7 +505,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            if (sender == Loc.GetString("admin-announce-announcer-default")) announcementSound = new SoundPathSpecifier(CentComAnnouncementSound); // CorvaxGoob-Announcements: Support custom alert sound from admin panel
+            // CorvaxGoob-CustomAnnouncers-Start
+            if (sender == Loc.GetString("admin-announce-announcer-default")) // CorvaxGoob-Announcements: Support custom alert sound from admin panel
+            {
+                if (_announcer.TryGetAnnouncerToday(out var announcerPrototype) && announcerPrototype.CentcomAnnouncementSound is not null)
+                    announcementSound = announcerPrototype.CentcomAnnouncementSound;
+                else
+                    announcementSound = new SoundPathSpecifier(CentComAnnouncementSound);
+            }
+            // CorvaxGoob-CustomAnnouncers-End
+
             _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.ResolveSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");

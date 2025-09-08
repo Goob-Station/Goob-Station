@@ -13,6 +13,9 @@
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/aliens.ogg
     earliestStart: 20
     minimumPlayers: 20
     weight: 3

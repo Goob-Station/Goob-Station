@@ -79,6 +79,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Server._CorvaxGoob.Announcer;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
@@ -111,6 +112,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -870,6 +872,13 @@ namespace Content.Server.GameTicking
             if (CurrentPreset == null) return;
 
             var options = _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
+
+            // CorvaxGoob-CustomAnnouncers-Start : Gets any available announcer in round and sort prototypes to their RoundAnnouncementPrototype pack.
+            if (_announcer.TryGetAnnouncerToday(out var announcerPrototype))
+                options = options.Where(opt => opt.Announcer == announcerPrototype.ID).ToList();
+            else
+                options = options.Where(opt => opt.Announcer == "Default").ToList();
+            // CorvaxGoob-CustomAnnouncers-End
 
             if (options.Count == 0)
                 return;
