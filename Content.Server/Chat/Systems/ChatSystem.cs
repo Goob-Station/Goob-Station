@@ -144,7 +144,6 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
-using Content.Shared.Chat;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -1079,11 +1078,13 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue; // Floofstation - Some things don't go through walls, but they can go through windows!
             EntityUid listener = session.AttachedEntity.Value;
 
+            // Goob edit start
             // Raises a event for the deaf component
             var ev = new ChatMessageOverrideInVoiceRangeEvent(channel, message, wrappedMessage);
             RaiseLocalEvent(listener, ev);
             if (ev.Cancelled)
                 continue;
+            //Goob edit end
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))

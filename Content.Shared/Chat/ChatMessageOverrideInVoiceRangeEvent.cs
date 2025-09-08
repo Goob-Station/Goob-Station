@@ -1,8 +1,8 @@
 using Robust.Shared.Network;
 using Content.Shared.Chat;
 
-namespace Content.Shared.Chat
-{
+namespace Content.Shared.Chat;
+
     /// <summary>
     /// Raised for a specific entity to allow overriding or cancelling chat messages in voice range.
     /// </summary>
@@ -21,4 +21,3 @@ namespace Content.Shared.Chat
             Cancelled = false;
         }
     }
-}

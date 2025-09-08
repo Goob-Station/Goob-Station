@@ -20,12 +20,7 @@ public sealed class DeafnessSystem : EntitySystem
 
     private void OnOverrideInVoiceRange(EntityUid uid, DeafComponent comp, ref ChatMessageOverrideInVoiceRangeEvent args)  // blocks normal chat
     {
-        if (args.Channel == ChatChannel.Emotes
-            || args.Channel == ChatChannel.Damage
-            || args.Channel == ChatChannel.Visual
-            || args.Channel == ChatChannel.Notifications
-            || args.Channel == ChatChannel.OOC
-            || args.Channel == ChatChannel.LOOC)
+        if (args.Channel is ChatChannel.Emotes or ChatChannel.Damage or ChatChannel.Visual or ChatChannel.Notifications or ChatChannel.OOC or ChatChannel.LOOC)
             return;
 
         args.Cancelled = true;
@@ -39,6 +34,5 @@ public sealed class DeafnessSystem : EntitySystem
             return;
 
         args.Cancelled = true;
-        Logger.Debug(args.Cancelled.ToString());
     }
 }
