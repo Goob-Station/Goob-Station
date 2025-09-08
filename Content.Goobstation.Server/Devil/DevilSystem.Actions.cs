@@ -11,6 +11,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Shared.Chat;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.IdentityManagement;
 
@@ -25,6 +26,7 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
         SubscribeLocalEvent<DevilComponent, DevilGripEvent>(OnDevilGrip);
         SubscribeLocalEvent<DevilComponent, DevilPossessionEvent>(OnPossess);
+        SubscribeLocalEvent<DevilComponent, SummonGoldenFiddleEvent>(OnGoldenFiddleSummoned);
     }
 
     private void OnContractCreated(Entity<DevilComponent> devil, ref CreateContractEvent args)
@@ -80,7 +82,7 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        if (devil.Comp.DevilGrip != null)
+        if (devil.Comp.DevilGripEntity != null)
         {
             foreach (var item in _hands.EnumerateHeld(devil))
             {
@@ -96,7 +98,7 @@ public sealed partial class DevilSystem
         if (!_hands.TryPickupAnyHand(devil, grasp))
             QueueDel(grasp);
 
-        devil.Comp.DevilGrip = args.Action.Owner;
+        devil.Comp.DevilGripEntity = args.Action.Owner;
     }
 
     private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)
@@ -118,6 +120,27 @@ public sealed partial class DevilSystem
         {
             Spawn(devil.Comp.JauntAnimationProto, Transform(args.Target).Coordinates);
             Spawn(devil.Comp.PentagramEffectProto, Transform(args.Target).Coordinates);
+        }
+
+    }
+
+    private void OnGoldenFiddleSummoned(Entity<DevilComponent> devil, ref SummonGoldenFiddleEvent args)
+    {
+        if (!TryUseAbility(args))
+            return;
+
+        if (devil.Comp.GoldenFiddleEntity is { } existingFiddle)
+        {
+            _transform.SetCoordinates(existingFiddle, Transform(devil).Coordinates);
+            _hands.TryPickupAnyHand(devil, existingFiddle);
+        }
+        else
+        {
+            var newFiddle = Spawn(devil.Comp.FiddlePrototype, Transform(devil).Coordinates);
+            if (!_hands.TryPickupAnyHand(devil, newFiddle))
+                QueueDel(newFiddle);
+
+            devil.Comp.GoldenFiddleEntity = newFiddle;
         }
 
     }

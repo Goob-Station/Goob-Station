@@ -1,0 +1,10 @@
+- type: entity
+  parent: [BaseStringInstrument, BaseMagicalContraband]
+  id: GoldenFiddleInstrument
+  name: golden fiddle
+  description: I think someone brought this down to Georgia once.
+  components:
+  - type: Instrument
+    program: 110
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/Instruments/goldenfiddle.rsi
