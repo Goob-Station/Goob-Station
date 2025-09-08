@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownDevil
+  name: devil clown mask
+  description: You can do anything!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Mask/devilclown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Mask/devilclown.rsi
+
+- type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownGamble
+  name: gambling clown mask
+  description: Looks like you weren't bluffing!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Mask/gambleclown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Mask/gambleclown.rsi
+
+- type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownJuggle
+  name: juggling clown mask
+  description: It's a miracle that you are able to keep all those objects in the air.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Mask/juggleclown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Mask/juggleclown.rsi
+

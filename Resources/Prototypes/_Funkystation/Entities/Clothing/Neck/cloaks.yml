@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+## Changed by Funkystation.
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakProgressPride
+  name: progress pride cloak
+  description: A cloak representing the progression of pride.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Cloaks/pride.rsi
+
+

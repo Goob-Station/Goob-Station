@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Teto Outfit (Sprites by Middleson)
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsRedPerformer
+  name: red performer's boots
+  description: A pear of stylish boots
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi

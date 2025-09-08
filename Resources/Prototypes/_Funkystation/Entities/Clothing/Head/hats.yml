@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: [ClothingHeadBase, BaseSyndicateContraband]
+  id: ClothingHeadHatHRDCapSyndicate
+  name: donk co. hr director cap
+  description: It's good being evil. Well, at least that's what Nanotrasen wants us to look like.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/hrd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/hrd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBowlerHatRazor
+  name: bowler hat
+  description: Stylish bowler hat. Quite a sharp look!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20
+
+
