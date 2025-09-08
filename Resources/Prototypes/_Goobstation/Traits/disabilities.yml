@@ -49,5 +49,7 @@
   blacklist:
     components:
     - BorgChassis
+    tags:
+    - SiliconMob # block ipcs from taking cold blooded trait
   components:
   - type: ColdBlooded
