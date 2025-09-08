@@ -45,4 +45,4 @@
   - type: ContainerFill
     containers:
       ItemCabinet:
-      - WeaponEnergyGunLawbringer
+      - HeadOfSecurityGunCase
