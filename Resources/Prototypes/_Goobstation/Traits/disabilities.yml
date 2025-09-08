@@ -45,6 +45,7 @@
   id: ColdBlooded
   name: trait-cold-blooded-name
   description: trait-cold-blooded-desc
+  traitGear: HeatLamp
   category: Disabilities
   blacklist:
     components:
@@ -55,4 +56,4 @@
   - type: ColdBlooded
     coldThresholdIncrease: 7.5 # Slightly below 20c for lizards. Below -3c for most other species.
     heatThresholdIncrease: 50.0 # 180c for lizards. 100c for most other species.
-    atmosTransferMultiplier: 2.0 
+    atmosTransferMultiplier: 2.0
