@@ -9,11 +9,13 @@ namespace Content.Goobstation.Server.Deafness;
 
 public sealed class DeafnessSystem : EntitySystem
 {
-
+    private EntityQuery<DeafComponent> _deafQuery;
+    
     public override void Initialize()
     {
         base.Initialize();
 
+        _deafQuery = GetEntityQuery<DeafComponent>();
         SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
         SubscribeLocalEvent<DeafComponent, ChatMessageOverrideInVoiceRangeEvent>(OnOverrideInVoiceRange);
     }
@@ -30,7 +32,7 @@ public sealed class DeafnessSystem : EntitySystem
     {
         var user = Transform(args.RadioReceiver).ParentUid;
 
-        if (!HasComp<DeafComponent>(user))
+        if (!_deafQuery.HasComp(user))
             return;
 
         args.Cancelled = true;
