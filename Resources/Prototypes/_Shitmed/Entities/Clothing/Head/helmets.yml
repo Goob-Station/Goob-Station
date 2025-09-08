@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -13,6 +16,8 @@
   description: Zeep Glorp!
   components:
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -28,3 +33,7 @@
   - type: Clothing
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
   - type: EyeProtection
+  - type: HideLayerClothing
+    layers:
+      HeadTop : HEAD
+      HeadSide : HEAD

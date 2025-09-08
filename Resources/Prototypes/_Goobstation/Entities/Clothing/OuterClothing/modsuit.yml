@@ -19,6 +19,30 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - BodyMiddle
+    - Legs
+
+
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard

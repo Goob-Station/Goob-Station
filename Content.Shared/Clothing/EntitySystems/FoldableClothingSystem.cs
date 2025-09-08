@@ -2,6 +2,10 @@
 // SPDX-FileCopyrightText: 2024 Luiz Costa <33888056+luizwritescode@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -21,12 +25,22 @@ public sealed class FoldableClothingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
+        SubscribeLocalEvent<FoldableClothingComponent, MapInitEvent>(OnMapInit); // Goob - #3632
         SubscribeLocalEvent<FoldableClothingComponent, FoldAttemptEvent>(OnFoldAttempt);
         SubscribeLocalEvent<FoldableClothingComponent, FoldedEvent>(OnFolded,
             after: [typeof(MaskSystem)]); // Mask system also modifies clothing / equipment RSI state prefixes.
     }
 
+    // Goobstation Start - #3632
+    private void OnMapInit(Entity<FoldableClothingComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.FoldedHideLayers != null || ent.Comp.UnfoldedHideLayers != null)
+        {
+            var hideLayer = EnsureComp<HideLayerClothingComponent>(ent.Owner);
+            hideLayer.Slots = ent.Comp.UnfoldedHideLayers;
+        }
+    }
+    // Goobstation end
     private void OnFoldAttempt(Entity<FoldableClothingComponent> ent, ref FoldAttemptEvent args)
     {
         if (args.Cancelled)
