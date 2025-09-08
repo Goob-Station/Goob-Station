@@ -18,7 +18,7 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 12
+        Brute: 5
     inject:
       ChloralHydrate: 5 # Goobstation - new chemical
   - type: ActionGrant
