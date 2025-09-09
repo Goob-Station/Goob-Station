@@ -226,17 +226,6 @@
   - type: Contraband
     allowedJobs: [ Janitor ]
 
-# Goobstation start
-- type: entity
-  id: BaseSecurityZookeeperContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Security ]
-    allowedJobs: [ Zookeeper ]
-# Goobstation end
-
 # for ~objective items
 - type: entity
   id: BaseGrandTheftContraband
