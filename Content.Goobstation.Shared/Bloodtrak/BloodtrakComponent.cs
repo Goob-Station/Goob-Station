@@ -31,7 +31,7 @@ public sealed partial class BloodtrakComponent : Component
     /// The maximum time the pinpointer will work from given puddle freshness.
     /// </summary>
     [DataField]
-    public TimeSpan MaximumTrackingDuration = TimeSpan.FromMinutes(8f);
+    public TimeSpan MaximumTrackingDuration = TimeSpan.FromSeconds(480f);
 
     /// <summary>
     /// The distance defined as being a medium distance away.
@@ -105,8 +105,8 @@ public sealed partial class BloodtrakComponent : Component
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
 
-    [ViewVariables]
-    public TimeSpan Freshness = TimeSpan.Zero;
+    [DataField]
+    public TimeSpan Freshness;
 
     [ViewVariables]
     public EntityUid? LastScannedTarget = null;

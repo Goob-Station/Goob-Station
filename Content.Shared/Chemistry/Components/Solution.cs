@@ -966,7 +966,6 @@ namespace Content.Shared.Chemistry.Components
                     {
                         found = true;
                         Contents[j] = new ReagentQuantity(reagent, quantity + otherQuantity);
-
                         break;
                     }
                 }
@@ -977,7 +976,7 @@ namespace Content.Shared.Chemistry.Components
                 }
             }
 			// Goobstation Start
-			
+
 			// Find the maximum freshness for each unique DNA string in the other solution.
 			// This is done by flattening the nested lists, filtering for DnaData objects,
 			// grouping them by the DNA string, and creating a dictionary with the max freshness for each.
@@ -988,12 +987,12 @@ namespace Content.Shared.Chemistry.Components
 			    .ToDictionary(
 			        group => group.Key,
 			        group => group.Max(dna => dna.Freshness));
-			
+
 			// Get all DnaData objects in the current solution to be updated.
 			var allCurrentDna = Contents
 			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
 			    .OfType<DnaData>();
-			
+
 			// Iterate through the current solution's DNA and update its freshness
 			// if a fresher version exists in the other solution.
 			foreach (var dna in allCurrentDna)

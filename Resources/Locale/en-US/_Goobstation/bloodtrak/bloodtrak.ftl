@@ -1,4 +1,4 @@
-bloodtrak-dna-saved = DNA logged, Cycle ready.
+bloodtrak-dna-saved = DNA: "{$dna}" logged, Cycle ready.
 bloodtrak-scan-failed = Scan target invalid.
 bloodtrak-no-dna = Solution does not contain a valid DNA sequence.
 

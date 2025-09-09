@@ -324,11 +324,11 @@ namespace Content.Server.Forensics
                 var timePassed = _gameTiming.CurTime - freshnessTimestamp;
                 if (timePassed < TimeSpan.FromMinutes(1f))
                 {
-                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
                 }
                 else
                 {
-                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
                 }
             }
             foreach (var (dna, freshnessTimestamp) in component.SolutionDNAs)
@@ -339,11 +339,11 @@ namespace Content.Server.Forensics
                 var timePassed = _gameTiming.CurTime - freshnessTimestamp;
                 if (timePassed < TimeSpan.FromMinutes(1f))
                 {
-                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
                 }
                 else
                 {
-                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
                 }
             }
             // Goobstation End

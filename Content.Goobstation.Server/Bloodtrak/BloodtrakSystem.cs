@@ -56,7 +56,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 component.ResultListOffset = 0;
 
             var (dna, freshnessTimestamp, entityId) = component.ResultList[component.ResultListOffset];
-            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved") + " " + dna, user, user);
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved", ("dna", dna)), user, user);
             return (entityId, freshnessTimestamp);
         }
 
@@ -88,7 +88,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         if (component.ResultList.Count > 0)
         {
             var (dna, freshnessTimestamp, entityId) = component.ResultList[component.ResultListOffset];
-            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved") + " " + dna, user, user);
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved", ("dna", dna)), user, user);
             return (entityId, freshnessTimestamp);
         }
 
@@ -117,7 +117,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         args.Handled = true;
         var dnaOwner = GetPuddleDnaOwner(target, component, args.User);
-        if (dnaOwner.HasValue)
+        if (dnaOwner is { })
         {
             component.Target = dnaOwner.Value.Item1;
             component.Freshness = dnaOwner.Value.Item2;
