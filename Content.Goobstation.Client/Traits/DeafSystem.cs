@@ -43,5 +43,4 @@ public sealed class DeafnessSystem : EntitySystem
     {
         _audio.SetMasterGain(0);
     }
-
 }

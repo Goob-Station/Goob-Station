@@ -10,7 +10,7 @@ namespace Content.Goobstation.Server.Deafness;
 public sealed class DeafnessSystem : EntitySystem
 {
     private EntityQuery<DeafComponent> _deafQuery;
-    
+
     public override void Initialize()
     {
         base.Initialize();

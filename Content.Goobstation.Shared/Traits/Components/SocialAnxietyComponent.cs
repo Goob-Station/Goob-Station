@@ -1,4 +1,4 @@
 namespace Content.Goobstation.Shared.Traits.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SocialAnxietyComponent : Component;

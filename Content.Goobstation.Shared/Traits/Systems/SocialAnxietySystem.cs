@@ -4,8 +4,6 @@ using Content.Shared.Standing;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 
-
-
 namespace Content.Goobstation.Shared.Traits.Systems;
 
 public sealed partial class SocialAnxietySystem : EntitySystem

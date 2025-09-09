@@ -128,7 +128,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Goobstation.Shared.Traits.Components; // Goobstation - deafcomponent
+using Content.Goobstation.Shared.Traits.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -819,8 +819,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            if (TryComp<DeafComponent>(listener, out var modifier)) 
+            // Goob edit start
+            if (TryComp<DeafComponent>(listener, out var modifier))
                 continue; // blocks anyone with the deaf component from hearing.
+            // Goob edit end
 
             // Einstein Engines - Language begin
             var canUnderstandLanguage = _language.CanUnderstand(listener, language.ID);
