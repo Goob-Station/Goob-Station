@@ -75,10 +75,10 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
       params:
         variation: 0
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
-      params:
-        variation: 0
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
+      # params:
+        # variation: 0
 
 - type: emoteSounds
   id: MaleShadowkin
@@ -123,8 +123,8 @@
       collection: Wurble
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -169,5 +169,5 @@
       collection: Wurble
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
