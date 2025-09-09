@@ -49,7 +49,7 @@ reagent-name-acetic-anhydride = acetic anhydride
 reagent-desc-acetic-anhydride = A colorless liquid that smells like vinegar. Used in manufacturing explosives.
 
 reagent-name-ammonium-nitrate-fuel-oil = ammonium nitrate fuel oil
-reagent-desc-ammonium-nitrate-fuel-oil = An off white, crystalline solid mixed with fuel often used as a blasting agent. This reaction is exothermic. Explodes at 576K.
+reagent-desc-ammonium-nitrate-fuel-oil = An off white, crystalline solid mixed with fuel often used as a blasting agent. Explodes at 576K.
 
 reagent-name-octogen = octogen
-reagent-desc-octogen = A white, opaque powder that has detonation velocity similar to re-entry speeds. Also known as HMX. This reaction is exothermic. Explodes at 553K.
+reagent-desc-octogen = A white, opaque powder that has detonation velocity similar to re-entry speeds. Also known as HMX. Explodes at 553K.

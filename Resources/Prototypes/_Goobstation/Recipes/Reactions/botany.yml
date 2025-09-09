@@ -40,7 +40,7 @@
     Nitrogen:
       amount: 1
   products:
-    Saltpeter: 1
+    Saltpeter: 2 #Changed from 1 to 2 to make nitric acid slightly less painful to make
     Water: 1
 
 - type: reaction

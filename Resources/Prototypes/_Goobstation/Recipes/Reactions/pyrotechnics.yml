@@ -39,7 +39,7 @@
     Ammonia:
       amount: 2
   products:
-    Hexamine: 3
+    Hexamine: 5
 
 - type: reaction
   id: Cyclonite
@@ -49,7 +49,7 @@
     NitricAcid:
       amount: 1
   products:
-    Cyclonite: 1
+    Cyclonite: 2
 
 - type: reaction
   id: AmmoniumNitrateFuelOil
@@ -64,9 +64,7 @@
 - type: reaction
   id: Octogen
   reactants:
-    AmmoniumNitrate:
-      amount: 1
-    PolytrinicAcid:
+    NitricAcid:
       amount: 1
     Vinegar:
       amount: 1

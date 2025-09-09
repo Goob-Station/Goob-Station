@@ -79,7 +79,7 @@
     Oxygen:
       amount: 2
   products:
-    SodiumBicarbonate: 2
+    SodiumBicarbonate: 5
 
 - type: reaction
   id: SodiumAcetate
@@ -116,7 +116,7 @@
     Oxygen:
       amount: 1
   products:
-    CarbonDioxide: 1
+    CarbonDioxide: 2
 
 - type: reaction
   id: AceticAnhydride
