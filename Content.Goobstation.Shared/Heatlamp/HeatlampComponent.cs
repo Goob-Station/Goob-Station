@@ -88,6 +88,12 @@ public sealed partial class HeatlampComponent : Component
     [ViewVariables]
     public DamageSpecifier ModifiedActivatedDamage;
 
+    /// <summary>
+    ///     Damage added by being emagged
+    /// </summary>
+    [DataField]
+    public DamageSpecifier EmagDamageBoost;
+
     #endregion
 
     #region Upgrades

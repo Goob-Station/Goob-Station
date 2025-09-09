@@ -44,6 +44,11 @@ public abstract class SharedHeatlampSystem : EntitySystem
         // Update our appearance
         _appearance.SetData(ent, HeatlampVisuals.IsEmagged, true);
 
+        // Apply emag damage boost
+        ent.Comp.BaseActivatedDamage += ent.Comp.EmagDamageBoost;
+        UpdateDynamicValues(ent);
+        ApplyDynamicValues(ent);
+
         // Tell EmagSystem to use the charge
         args.Handled = true;
     }

@@ -11,6 +11,9 @@
     baseMaximumCoolingPerUpdate: 5.0
     maximumUpgradeCount: 2
     emagUpgradeCountIncrease: 2
+    emagDamageBoost:
+      types:
+        Heat: 8
     deactivatedDamage:
       types:
         Blunt: 12
