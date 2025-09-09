@@ -118,15 +118,14 @@ public sealed partial class CloningSystem : EntitySystem
     public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
-        if (!_prototype.TryIndex(settingsId, out var settings))
+        if (!_prototype.Resolve(settingsId, out var settings))
             return false; // invalid settings
 
         // Goobstation start
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid)
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid || humanoid == null)
             return false; // whatever body was to be cloned, was not a humanoid
 
-        SpeciesPrototype? speciesPrototype = null;
-        if (humanoid != null && !_prototype.TryIndex(humanoid.Species, out speciesPrototype))
+        if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
         var proto = speciesPrototype?.Prototype.ToString() ?? Prototype(original)?.ID;

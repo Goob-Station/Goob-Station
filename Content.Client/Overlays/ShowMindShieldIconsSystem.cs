@@ -33,7 +33,7 @@ public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShiel
     {
         if(!IsActive)
             return;
-        if (component.IsEnabled && _prototype.TryIndex(component.MindShieldStatusIcon, out var fakeStatusIconPrototype))
+        if (component.IsEnabled && _prototype.Resolve(component.MindShieldStatusIcon, out var fakeStatusIconPrototype))
             ev.StatusIcons.Add(fakeStatusIconPrototype);
     }
 
@@ -47,7 +47,7 @@ public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShiel
         if (component.Broken)
             statusIcon = component.MindShieldBrokenStatusIcon; // Goobstation - check if mindshield is broken
 
-        if (_prototype.TryIndex(statusIcon, out var iconPrototype)) // Goobstation
+        if (_prototype.Resolve(statusIcon, out var iconPrototype)) // Goobstation
             ev.StatusIcons.Add(iconPrototype);
     }
 }
