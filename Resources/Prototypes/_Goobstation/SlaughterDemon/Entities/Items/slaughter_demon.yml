@@ -1,0 +1,28 @@
+- type: entity
+  name: vial of blood
+  id: BottleOfBlood
+  parent: [BaseItem, BaseMagicalContraband]
+  description: A magically infused bottle of blood, distilled from countless murder victims. Used in unholy rituals to attract horrifying creatures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vial
+  - type: Item
+    size: Tiny
+  - type: AddGameRuleOnUse
+    rule: SlaughterDemonSummon
+  - type: VialSummon
+
+- type: entity
+  name: vial of tickles
+  id: BottleOfTickles
+  parent: [BaseItem, BaseMagicalContraband]
+  description: A magically infused bottle of clown love, distilled from countless hugging attacks. Used in funny rituals to attract adorable creatures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vialtickles
+  - type: Item
+    size: Tiny
+  - type: AddGameRuleOnUse
+    rule: LaughterDemonSummon

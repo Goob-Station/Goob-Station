@@ -12,6 +12,7 @@
   speech:
     color: "#24d1b9" # Goob Edit - Original "#00a3e2dd"
     fontId: SourGummy # Goob Edit - Different Font
+    boldFontId: SourGummyBold
     fontSize: 13 # Goob Edit - Increased by 1 to account for slight font size difference.
   obfuscation:
     !type:SyllableObfuscation

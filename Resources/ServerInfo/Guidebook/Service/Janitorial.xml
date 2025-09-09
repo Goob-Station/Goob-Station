@@ -60,6 +60,23 @@ SPDX-License-Identifier: MIT
 ## Дополнительные обязанности
 Хорошему уборщику всегда есть чем заняться, а в вашем распоряжении множество полезных приспособлений. Обращайте внимание на разбитые лампочки, помогайте повару бороться с мышами на кухне, а если вы почувствовали себя по-настоящему великодушно, то займитесь пополнением торговых автоматов и аварийных шкафов, расположенных по всей станции!
 
+Light Replacer: Just point at broken bulbs and click!
+- Replace enough broken ones, get a bulb for free!
+
+Janitorial Keyring: Your trusty keys, hundreds of them on a single ring. If only you could remember which goes where...
+- At the start of the round, the keyring will spawn with a few randomized access levels. It could open cargo, it could open medical, who knows?
+
+## Dealing with footprints and trails.
+It gets a little tedious cleaning [italic]every[/italic] little footprint left behind by those pesky doctors.
+The solution? A little bit of elbow grease!
+
+There's two ways of going about this:
+- Using a mop on the floor near footprints will scrub the area of footprints and trails. [bold]Although slow, this has the benefit of not gunking up your mop.[/bold]
+- You can use a bar of soap or a damp rag for the same effect, albeit worse.
+
+## Extra Duties
+A good janitor is always on the lookout for a bit more to do, and there are plenty of tools at your disposal. Keep an eye out for broken lights, help the chef take care of mice in the kitchen, and if you're feeling -really- generous, try to restock the vending machines and emergency closets around the station!
+
 ## Дополнительная информация:
 <GuideReagentEmbed Reagent="SpaceCleaner"/>
 <GuideReagentEmbed Reagent="Ammonia"/>

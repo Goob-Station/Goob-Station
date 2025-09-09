@@ -133,6 +133,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Content.Shared.DragDrop; // # GoobStation
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -209,6 +210,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
+            SubscribeLocalEvent<BiomassReclaimerComponent, DragDropTargetEvent>(OnDragDropTarget); // #GoobStation
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
         }
 
@@ -256,6 +258,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         {
             args.Cancel();
         }
+
         private void OnAfterInteractUsing(Entity<BiomassReclaimerComponent> reclaimer, ref AfterInteractUsingEvent args)
         {
             if (!args.CanReach || args.Target == null)
@@ -271,6 +274,28 @@ namespace Content.Server.Medical.BiomassReclaimer
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
                 NeedHand = true,
+                BreakOnMove = true,
+            });
+        }
+
+        private void OnDragDropTarget(Entity<BiomassReclaimerComponent> reclaimer, ref DragDropTargetEvent args) // # GoobStation
+        {   // Safety Checks, If the machine is on safety & if the target is vaild to avoid crashes.
+            if (args.Dragged == null
+            || !CanGib(reclaimer, args.Dragged)
+            || !TryComp<PhysicsComponent>(args.Dragged, out var physics))
+                return;
+            var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
+
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(
+                EntityManager,
+                args.User,
+                delay,
+                new ReclaimerDoAfterEvent(),
+                reclaimer,
+                target: reclaimer,
+                used: args.Dragged)
+            {
+                NeedHand = false,
                 BreakOnMove = true,
             });
         }

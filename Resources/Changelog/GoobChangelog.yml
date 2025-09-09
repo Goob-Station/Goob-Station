@@ -13779,3 +13779,726 @@ Entries:
       message: Removed felinids from command.
   id: 1532
   time: '2025-08-19T16:36:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Lootbugs now sell for 500.
+  id: 1533
+  time: '2025-08-30T03:22:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: >-
+        Vehicles now move at 1.4 of their original values. This is due to
+        spritning being added making them semi obsolete. Beware of clown cars. 
+  id: 1534
+  time: '2025-08-30T03:23:43.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed Ultravasculine and added heat requirement to Ethyloxyephedrine
+        reaction
+  id: 1535
+  time: '2025-08-30T03:24:23.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the moth antennae marking limit (head, top) from two (2) to
+        six (6)!
+  id: 1536
+  time: '2025-08-30T03:25:46.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Rodentia now get thirsty.
+  id: 1537
+  time: '2025-08-30T03:26:15.0000000+00:00'
+- author: KMano10000
+  changes:
+    - type: Fix
+      message: Some glowing eyes not really glowing
+  id: 1538
+  time: '2025-08-30T03:26:51.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Suicidal borgs can no longer take the Bingle pit with them. Face the
+        bingles head on, clanker.
+    - type: Remove
+      message: >-
+        Bingle tiles are no longer slippery, as the bingles were slipping on it
+        more than anything else.
+  id: 1539
+  time: '2025-08-30T03:28:03.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CE now has an experimental RCD in their locker.
+  id: 1540
+  time: '2025-08-30T03:33:23.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added crapotoxin.
+  id: 1541
+  time: '2025-08-30T03:36:17.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Security masks now come packaged in your survival box instead of your
+        backpack.
+  id: 1542
+  time: '2025-08-30T03:46:50.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Heretics may now always sacrifice other heretics for 3 knowledge points.
+  id: 1543
+  time: '2025-08-30T03:49:19.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: All species' minimum size has been raised.
+    - type: Tweak
+      message: Species like dwarfs and humans can now be wider, rejoice
+  id: 1544
+  time: '2025-08-30T03:50:19.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: 'Made everything combat autoinjector their old size again! '
+    - type: Tweak
+      message: >-
+        Replaced tirimol from epipens with dexalin, NO MORE COMBAT EPIPEN
+        INJECTIONS, REJOICE! 
+    - type: Tweak
+      message: >-
+        Nerfed autoinjector brute cartridge heal from 98 dmg healed max to
+        ~60-70 and from ~28 healing/dmg type to ~21 healing/dmg type and nerfed
+        burn cartridge by a similar amount 
+  id: 1545
+  time: '2025-08-30T03:51:52.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Add
+      message: >-
+        Potato Batteries can now be used to generate a small amount of power by
+        wrenching them onto an LV cable! Botanist engineering time!
+  id: 1546
+  time: '2025-08-30T03:53:06.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Power Transmission Laser now shots a maximum of 5MJ which is (592 spesos
+        per shot).
+    - type: Fix
+      message: >-
+        Power Transmission Laser will now consume battery charge when fired, and
+        will stop firing when there isn't enough battery.
+  id: 1547
+  time: '2025-08-30T03:56:30.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed the Biomass Reclaimer not accepting dragged or dropped bodies.
+  id: 1548
+  time: '2025-08-30T03:56:37.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: BSO combat injector kit now comes with an explosive resistant chestrig.
+  id: 1549
+  time: '2025-08-30T04:03:01.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Flippos can be inserted into cigarette packs again
+    - type: Tweak
+      message: Premium Havanian cigar's can also be inserted into cigarette packs again
+    - type: Tweak
+      message: Cigarettes burn 20% slower now
+  id: 1550
+  time: '2025-08-30T04:14:22.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Slime people do not have bones, they do not take bone damage.
+  id: 1551
+  time: '2025-08-30T04:16:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Removed raffle from spawned bingle ghost roles.
+    - type: Fix
+      message: Fixed abductors not being able to do anything.
+  id: 1552
+  time: '2025-08-30T07:25:49.0000000+00:00'
+- author: Local schizophrenic
+  changes:
+    - type: Fix
+      message: Fixed abductor helms protecting their other head and not the main one.
+    - type: Fix
+      message: >-
+        Fixed abductor's console, it now properly tells you if you're not in FTL
+        range again, and lets you actually teleport or exit.
+    - type: Fix
+      message: Fixed traitors missing their flavor text and code in uplink.
+  id: 1553
+  time: '2025-08-30T07:30:29.0000000+00:00'
+- author: Tim-Liam-Hill
+  changes:
+    - type: Fix
+      message: Fixed engineer voidsuit selector contraband status for engineers
+  id: 1554
+  time: '2025-08-30T08:43:35.0000000+00:00'
+- author: Aineias
+  changes:
+    - type: Add
+      message: Added a few new lavaland ruins!
+    - type: Add
+      message: Added an upgraded Pre-Armork Syndie base
+    - type: Add
+      message: Lavaland is now 100% free lag
+    - type: Tweak
+      message: >-
+        Some ruins are now invisible on GPS, this includes syndie base, ruining
+        the whole reason to play as salv for some SPECIFIC PEOPLE who abandon
+        mining, and rush to syndie base roundstart and not mining afterwards.
+        Expect more ore to be mined.
+    - type: Fix
+      message: Fixed a server crash caused by Sniper trying to eat his gun
+  id: 1555
+  time: '2025-08-30T15:52:09.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Autoinjector cartridges are disposed of correctly after use again
+  id: 1556
+  time: '2025-08-30T16:16:21.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Schechi, Resomi language
+    - type: Add
+      message: Ka'rakk, Vox Language
+  id: 1557
+  time: '2025-08-30T16:47:50.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: Lavaland is now 10000% lag free.
+    - type: Remove
+      message: Temporarily removed chasms from Lavaland.
+  id: 1558
+  time: '2025-08-30T16:51:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Trevor is now fit and ready for their new job.
+  id: 1559
+  time: '2025-08-30T16:55:24.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Common helmets have an option to show hair
+    - type: Tweak
+      message: Due to helmet change made Brizby 5% less bald
+  id: 1560
+  time: '2025-08-30T16:56:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Clownops can now buy Clown Cars and Clumsy Implants to drive them!
+    - type: Add
+      message: ClownCars now have a new theme song
+    - type: Fix
+      message: Clown Car actions now have cooldowns
+  id: 1561
+  time: '2025-08-30T21:39:54.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: '"looks surprised" emote'
+  id: 1562
+  time: '2025-08-30T21:45:58.0000000+00:00'
+- author: Slopstice, The Voices
+  changes:
+    - type: Add
+      message: >-
+        Devils now have a new objective, namely to get a specific amount of
+        contract weight.
+    - type: Fix
+      message: Devils can no longer have paradox clones of themselves.
+    - type: Fix
+      message: Devils can now teleport while restrained, this will uncuff them.
+    - type: Fix
+      message: >-
+        Devils can no longer make deals with silicons, nor can they handshake
+        nearly anything. (It was fun, but had to go.)
+    - type: Fix
+      message: Devils themselves and contracts are now significantly harder to destroy.
+    - type: Fix
+      message: Several other bugs with devil.
+    - type: Tweak
+      message: Devils now gain a new appearance when returning from being banished.
+    - type: Tweak
+      message: >-
+        Devils and other cheat-death capable entities can no longer revive if
+        holy damage exceeds their crit threshold.
+    - type: Tweak
+      message: >-
+        All Devil items can no longer be cremated, and the suit is no longer
+        contraband.
+    - type: Tweak
+      message: Holy water deals less damage (2 -> 0.7)
+  id: 1563
+  time: '2025-08-30T23:12:11.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed bold font missing on non-Sol Common languages.
+  id: 1564
+  time: '2025-08-30T23:22:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with delayed death not working properly.
+  id: 1565
+  time: '2025-08-31T00:16:44.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        Science can now research bluespace centrifuge vials, unlocked alongside
+        bluespace beakers and syringes
+  id: 1566
+  time: '2025-08-31T03:12:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Added carp caller to syndicate uplink - a device that attracts wild carp
+        from outer space.
+  id: 1567
+  time: '2025-08-31T03:16:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Shadowkin Left Legs are visible again
+  id: 1568
+  time: '2025-08-31T04:47:00.0000000+00:00'
+- author: Spatison, PuroSlavKing, Kai5
+  changes:
+    - type: Add
+      message: >-
+        Unidentified life signs detected aboard the station. The xenomorphs are
+        here to take over the station.
+    - type: Add
+      message: Added new interface design in xenomorph style
+  id: 1569
+  time: '2025-08-31T07:33:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to RCD away cosmic cult walls and windows instantly.
+  id: 1570
+  time: '2025-08-31T10:11:40.0000000+00:00'
+- author: Luminal, Bokser
+  changes:
+    - type: Add
+      message: >-
+        DADDY’S HOME, FOOLISH CREW. FIRST, I SLAUGHTER THE ONE WHO SUMMONED ME.
+        SECOND, I COME FOR YOU.
+  id: 1571
+  time: '2025-08-31T14:14:48.0000000+00:00'
+- author: sowelipililimute, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        There are now various tool panel augments that you can get implanted
+        into yourself to have access to tools all the time
+    - type: Add
+      message: >-
+        You can now get strength augments to increase your melee damage when
+        powered.
+  id: 1572
+  time: '2025-08-31T14:58:21.0000000+00:00'
+- author: sanabi
+  changes:
+    - type: Add
+      message: raiders
+  id: 1573
+  time: '2025-09-01T13:44:46.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added Kentucky Fried Vox to the menu
+  id: 1574
+  time: '2025-09-01T13:54:09.0000000+00:00'
+- author: '1984'
+  changes:
+    - type: Remove
+      message: Mice can no longer inhale reagents from smoke or foam.
+  id: 1575
+  time: '2025-09-01T15:18:57.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Slaughter demons take holy damage now
+  id: 1576
+  time: '2025-09-01T15:20:36.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Added Schechi and Ka'rakk to the librarian language implant.
+  id: 1577
+  time: '2025-09-01T15:25:35.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New station event that spawns malign rifts to mimic tier 2 of the cosmic
+        cult. We do a little trolling.
+    - type: Tweak
+      message: >-
+        You can now move the monument even at tier 1, and it can be moved
+        multiple times with a 10-minute cooldown. No more spawn camping for
+        security.
+    - type: Tweak
+      message: >-
+        Siphon entropy now only takes 1 second instead of 5. If you still can't
+        reach tier 2 after this change, I don't know what to tell you. Like
+        honestly. 
+    - type: Tweak
+      message: >-
+        Vacuous spire now takes gas canisters instead of portable air scrubbers,
+        because literally no one was using this glyph.
+    - type: Tweak
+      message: >-
+        Only one cultist is needed to do most rituals, with the sole exception
+        of converting mindshielded people, which remains unchanged. You can now
+        go collect entropy instead of having to stay at the monument to help.
+    - type: Tweak
+      message: Increased the projectile speed of the cosmic scythe slightly.
+    - type: Tweak
+      message: >-
+        Nerfed cosmic cult spear damage since someone buffed it by making it a
+        boomerang without nerfing it as well.
+    - type: Tweak
+      message: >-
+        Vacuous vitality, the skill that passively heals you near the monument,
+        is now tier 2 instead of tier 3, and doesn't heal only 0.1 health per
+        second anymore.
+    - type: Remove
+      message: >-
+        Central command no longer announces that you feel an unnerving numbness
+        prickling you.
+  id: 1578
+  time: '2025-09-01T15:37:59.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Modsuits lamps now work.
+    - type: Fix
+      message: Space Dragons can now devour food.
+    - type: Fix
+      message: Gemini are now immune to suffocation & temperature.
+    - type: Fix
+      message: Gemini being able to crash the server.
+    - type: Fix
+      message: Plasmaman can now use modsuits.
+  id: 1579
+  time: '2025-09-01T15:38:39.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Devils are less likely to spawn.
+  id: 1580
+  time: '2025-09-01T15:39:39.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: >-
+        IPCs now spawn with a silicon survival box with a flare, emergency
+        welder, wires, and a single-use battery refill.
+  id: 1581
+  time: '2025-09-01T15:43:36.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Add
+      message: Bagawk!
+  id: 1582
+  time: '2025-09-01T19:45:05.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Station Reports, at end round the station will now have a tab that will
+        display a station report written by the NTR, if there is no NTR it will
+        instead say "No station report summited", the station report spawns in
+        the NTR's locker, also has discord integration
+  id: 1583
+  time: '2025-09-01T19:48:52.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Going crit as a transformed mouse/carp no longer "stunlocks" you by
+        transforming over and over.
+  id: 1584
+  time: '2025-09-01T19:50:08.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: You can wear Botany Berets again
+  id: 1585
+  time: '2025-09-01T19:52:13.0000000+00:00'
+- author: Krispy-Lime, x5tink
+  changes:
+    - type: Add
+      message: Added mangos
+  id: 1586
+  time: '2025-09-02T01:57:33.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Slaughter demons don't drip blood forever now
+    - type: Tweak
+      message: Slaughter demon guidebook has been updated with important info.
+    - type: Tweak
+      message: More blood types have been supported for slaughter demon
+  id: 1587
+  time: '2025-09-02T09:36:13.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        You can now buy a whole lot of more stuff from salvage vend, including
+        WAY more lategame gear, like a clarke. :) 
+    - type: Add
+      message: 'Made Combat gloves renewable. '
+  id: 1588
+  time: '2025-09-03T13:40:58.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Stunbaton wideswing damage buffed to not be entirely useless,
+        spriteclicking is still superior. 
+    - type: Tweak
+      message: 'GreatShield Mace given minor staminadamage buff. '
+  id: 1589
+  time: '2025-09-03T23:38:04.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Xenomorph maids are no longer walking ban bait. Still kinda cute though.
+  id: 1590
+  time: '2025-09-03T23:38:49.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Xenomorphs can now stun their prey.
+    - type: Fix
+      message: Xenomoprh eggs & facehuggers properly function now.
+  id: 1591
+  time: '2025-09-04T13:06:04.0000000+00:00'
+- author: Hell Department
+  changes:
+    - type: Tweak
+      message: Slaughter demons will no longer generate maldium
+    - type: Tweak
+      message: Slaughter Demon has a doafter when devouring
+  id: 1592
+  time: '2025-09-04T15:55:13.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Wizard spells that were targeting mobs work once again.
+  id: 1593
+  time: '2025-09-04T20:06:52.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Fixed missing bedsheets and parts on Cog.
+    - type: Fix
+      message: Fixed piping color schemes on Barratry.
+  id: 1594
+  time: '2025-09-04T22:41:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Removed all instances of Xenonids, the ugly Xeno creatures that Wizden
+        still uses.
+    - type: Fix
+      message: Hopefully fixed the spawn rates of Ancient Xenos in vent critter events.
+    - type: Tweak
+      message: >-
+        Ancient Xenos now use the SimpleHostile faction, meaning that they will
+        now fight back against other mobs, like Trevor or Renault.
+  id: 1595
+  time: '2025-09-05T22:54:31.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: >-
+        Abductors :alien: now have Nitrous Oxide on their ships to put their
+        experiments to sleep.
+  id: 1596
+  time: '2025-09-06T06:27:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added the Janitorial keyring
+    - type: Add
+      message: Mops & Soap can now have a new method of cleaning footprints.
+    - type: Add
+      message: Light-replacers will now recycle broken tubes.
+    - type: Add
+      message: >-
+        You can now scrub stains, decals, and footprints off of tiles with a
+        mop/soap.
+    - type: Add
+      message: Janitors now have a new senior item.
+    - type: Tweak
+      message: Wearing galoshes now stops you from making footprints.
+    - type: Tweak
+      message: Dumping trash into dispo no longer blows your fucking eardrums out.
+  id: 1597
+  time: '2025-09-06T06:44:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed the "Time" clause not working properly.
+  id: 1598
+  time: '2025-09-06T09:00:40.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: The Janitor's Keyring Works Properly now.
+  id: 1599
+  time: '2025-09-06T13:09:44.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprites Vox HoS coat
+  id: 1600
+  time: '2025-09-07T00:37:48.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Reduced the amount of autoinjector gear available shiftstart.
+    - type: Tweak
+      message: Most autoinjector cartidges now require plasma to fabricate.
+  id: 1601
+  time: '2025-09-07T00:38:31.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Add
+      message: >-
+        Wizards can now purchase a crate containing anomaly cores to enchant
+        their gear.
+  id: 1602
+  time: '2025-09-07T00:41:54.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: SpaceLube no longer evaporates.
+  id: 1603
+  time: '2025-09-07T00:44:05.0000000+00:00'
+- author: mocho is a chud
+  changes:
+    - type: Fix
+      message: Fixed surgery not being predicted.
+  id: 1604
+  time: '2025-09-07T10:10:08.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: The NTR Station Report now includes the science department by default.
+  id: 1605
+  time: '2025-09-07T13:19:12.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Updated xenomorph weeds / walls / windows to rmc sprites
+  id: 1606
+  time: '2025-09-07T18:54:28.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Plasmamen are now immune from being zombies.
+  id: 1607
+  time: '2025-09-07T19:20:51.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Made Vox magboot sprites in-line with their human counterparts
+  id: 1608
+  time: '2025-09-07T19:23:46.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed certain augments being uncraftable
+  id: 1609
+  time: '2025-09-08T01:52:58.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added barricades similar to RMC's but with no upgrading.
+    - type: Remove
+      message: Xenos forgot how to use computers.
+  id: 1610
+  time: '2025-09-08T19:23:47.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: LV cable can now be used as consumable, ghetto stitches for surgery.
+    - type: Tweak
+      message: >-
+        Medicated sutures can now be used as consumable, superior stitches for
+        surgery.
+  id: 1611
+  time: '2025-09-08T19:26:06.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Wonderprod sleep mode wears off faster, hit them again to refresh the
+        sleepy time.
+  id: 1612
+  time: '2025-09-08T19:26:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added a autodoc bluespace upgrade to the bluespace surgical gloves
+        research, it works like the gloves but for autodocs.
+  id: 1613
+  time: '2025-09-08T19:26:54.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Mice surgically implanted into people can now burst out like the alien
+        from Alien (1979)
+  id: 1614
+  time: '2025-09-08T19:31:14.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Zombie Immune species shouldn't get initial infected anymore.
+  id: 1615
+  time: '2025-09-09T02:28:43.0000000+00:00'
+- author: EVIL BURGER HATER
+  changes:
+    - type: Tweak
+      message: 'Cotton burgers are now max 15, instead of previous 50. '
+  id: 1616
+  time: '2025-09-09T02:29:02.0000000+00:00'

@@ -19,6 +19,24 @@
   clauseWeight: -35
   damageModifierSet: DevilDealPositive
 
+# // VORE //
+- type: clause
+  id: avarice
+  clauseWeight: -30
+  addedComponents:
+  - type: Devourer
+    foodPreference: Humanoid
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      components:
+      - MobState
+      - Door
+      - Item
+      tags:
+      - Wall
+
 - type: clause
   id: fearoffire
   name: Страх огня # CorvaxGoob devil fix
@@ -75,6 +93,12 @@
   - type: SpecialBreathingImmunity
 
 - type: clause
+  id: fearofclowns
+  clauseWeight: -10
+  addedComponents:
+  - type: NoSlip
+
+- type: clause
   id: fearofcrushing
   name: Страх смерти # CorvaxGoob devil fix
   clauseWeight: -10
@@ -123,7 +147,7 @@
 - type: clause
   id: humanity
   name: Человечность # CorvaxGoob devil fix
-  clauseWeight: 25
+  clauseWeight: 80
   polymorph: MobFrogPolymorph
 
 - type: clause
@@ -164,19 +188,19 @@
 - type: clause
   id: aleg
   name: Нога # CorvaxGoob devil fix
-  clauseWeight: 30
+  clauseWeight: 20
   event: !type:DevilContractLoseLegEvent
 
 - type: clause
   id: ahand
   name: Рука # CorvaxGoob devil fix
-  clauseWeight: 30
+  clauseWeight: 20
   event: !type:DevilContractLoseHandEvent
 
 - type: clause
   id: awake
   name: Бодрость # CorvaxGoob devil fix
-  clauseWeight: 40
+  clauseWeight: 35
   addedComponents:
   - type: Narcolepsy
     timeBetweenIncidents: 300, 600
@@ -185,7 +209,7 @@
 - type: clause
   id: anorgan
   name: Орган # CorvaxGoob devil fix
-  clauseWeight: 45
+  clauseWeight: 30
   event: !type:DevilContractLoseOrganEvent
 
 - type: clause
@@ -224,5 +248,6 @@
   clauseWeight: 150
   addedComponents:
   - type: DelayedDeath
+    preventAllRevives: true # :trol:
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
