@@ -14522,3 +14522,21 @@ Entries:
       message: Xenomorph guidebook has been added
   id: 1619
   time: '2025-09-09T14:29:01.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Your feet no longer keep a tiny amount of reagent after they stop
+        leaving footprints.
+    - type: Add
+      message: >-
+        Forensic scanner now shows how fresh each DNA is in puddles as well as
+        on melee weapons. A detective should be able to piece together crime
+        scenes better.
+    - type: Tweak
+      message: >-
+        Bloodtrak tracking duration depends on blood freshness. A very fresh
+        blood tracked by a detective will track a body for a significant amount
+        of time.
+  id: 1620
+  time: '2025-09-09T14:55:59.0000000+00:00'
