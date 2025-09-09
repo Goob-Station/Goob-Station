@@ -176,7 +176,6 @@ namespace Content.Server.Ghost
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
 
-
         public override void Initialize()
         {
             base.Initialize();
