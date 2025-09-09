@@ -14548,3 +14548,11 @@ Entries:
         say.
   id: 1621
   time: '2025-09-09T19:59:53.0000000+00:00'
+- author: ReiderJack
+  changes:
+    - type: Add
+      message: Asgore brainrot song added to jukebox
+    - type: Tweak
+      message: Clowncar driving with style action changed to jukebox
+  id: 1622
+  time: '2025-09-09T20:02:50.0000000+00:00'
