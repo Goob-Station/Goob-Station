@@ -14510,3 +14510,9 @@ Entries:
         the use of black magic!
   id: 1617
   time: '2025-09-09T13:47:33.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Revenant from being able to spawn as a mid-round antagonist.
+  id: 1618
+  time: '2025-09-09T13:49:27.0000000+00:00'
