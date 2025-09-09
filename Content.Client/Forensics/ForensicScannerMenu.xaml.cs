@@ -89,7 +89,6 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 using Content.Shared.Forensics;
-using Serilog;
 
 namespace Content.Client.Forensics
 {
