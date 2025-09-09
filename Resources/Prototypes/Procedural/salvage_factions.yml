@@ -5,31 +5,32 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: salvageFaction
   id: Xenos
   desc: salvage-faction-xenos
   entries:
-    - proto: MobXeno
-    - proto: MobXenoDrone
+    - proto: CMMobXenoDrone
+    - proto: CMMobXenoDrone
       cost: 2
-    - proto: MobXenoPraetorian
+    - proto: CMMobXenoWarrior
       cost: 5
       prob: 0.1
-    - proto: MobXenoQueen
+    - proto: CMMobXenoQueen
       cost: 10
       prob: 0.02
-    - proto: MobXenoRavager
+    - proto: CMMobXenoRavager
       cost: 5
-    - proto: MobXenoRouny
-      cost: 3
+    - proto: CMMobXenoCrusher
+      cost: 5
       prob: 0.02
-    - proto: MobXenoSpitter
+    - proto: CMMobXenoKing
+      cost: 10
+      prob: 0.05
     - proto: WeaponTurretXeno
       prob: 0.1
   configs:
     DefenseStructure: XenoWardingTower
-    Megafauna: MobXenoQueen
+    Megafauna: CMMobXenoQueen
 
 - type: salvageFaction
   id: Carps

@@ -6439,20 +6439,6 @@ entities:
     - type: Transform
       pos: 48.345963,-21.521229
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 7
-    components:
-    - type: Transform
-      parent: 6
-- proto: ActionToggleLight
-  entities:
-  - uid: 10005
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 10117
 - proto: AirAlarm
   entities:
   - uid: 10
@@ -70357,14 +70343,6 @@ entities:
     - type: Transform
       pos: 44.5341,28.548758
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 7
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 7
   - uid: 6129
     components:
     - type: Transform

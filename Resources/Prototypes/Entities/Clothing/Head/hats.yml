@@ -903,6 +903,12 @@
     - state: icon-up
       map: ["foldedLayer"]
       visible: false
+  - type: Tag # Goobstation
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - Ushanka
 
 - type: entity
   parent: ClothingHeadBase
