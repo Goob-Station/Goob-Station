@@ -14496,3 +14496,9 @@ Entries:
       message: Zombie Immune species shouldn't get initial infected anymore.
   id: 1615
   time: '2025-09-09T02:28:43.0000000+00:00'
+- author: EVIL BURGER HATER
+  changes:
+    - type: Tweak
+      message: 'Cotton burgers are now max 15, instead of previous 50. '
+  id: 1616
+  time: '2025-09-09T02:29:02.0000000+00:00'
