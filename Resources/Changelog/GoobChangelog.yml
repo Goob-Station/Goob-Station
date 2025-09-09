@@ -14502,3 +14502,11 @@ Entries:
       message: 'Cotton burgers are now max 15, instead of previous 50. '
   id: 1616
   time: '2025-09-09T02:29:02.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        IPCs can now select hair options in the character creation menu without
+        the use of black magic!
+  id: 1617
+  time: '2025-09-09T13:47:33.0000000+00:00'
