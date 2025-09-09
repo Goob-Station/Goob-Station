@@ -17,14 +17,6 @@ public sealed partial class AutomatedSolution : AutomationSlot
 
     private Entity<SolutionComponent>? _solution;
 
-    [ViewVariables]
-    public Entity<SolutionComponent> Solution
-    {
-        get
-        {
-        }
-    }
-
     private SharedSolutionContainerSystem _solutionSys;
 
     public override void Initialize()
