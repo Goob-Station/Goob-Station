@@ -232,7 +232,8 @@ public sealed class SuicideSystem : EntitySystem
     /// </summary>
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled || HasComp<XenomorphPreventSuicideComponent>(victim))
+        if (args.Handled
+            || HasComp<XenomorphPreventSuicideComponent>(victim))
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
