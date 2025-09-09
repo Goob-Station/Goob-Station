@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat13/blob/22c8cd930c4dedab170f588874384e0497176d41/modular_skyrat/icons/mob/synthliz/synthliz_antennas.dmi, modifed by Github KittenColony / Discord kittencolony (297865728374210561)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "horn_antenna_slash",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_curl",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_twin",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_sharp",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_short",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_thick",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_twin_light",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_sharp_light",
+      "directions": 4
+    },
+    {
+      "name": "horn_antenna_thick_light",
+      "directions": 4
+    }
+  ]
+}

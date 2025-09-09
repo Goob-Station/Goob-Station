@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat13/blob/22c8cd930c4dedab170f588874384e0497176d41/modular_skyrat/icons/mob/synthliz/synthliz_snouts.dmi, modifed by Github KittenColony / Discord kittencolony (297865728374210561) and further modified by Github QuirkyTurtle101 / Discord .quirkyturtle (216949479625064450)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{
+      "name": "alt_synthsnout_frame",
+      "directions": 4
+    },
+    {
+      "name": "alt_synthsnout_snout",
+      "directions": 4
+    },
+    {
+      "name": "alt_synthsnout_eyes",
+      "directions": 4
+    },
+    {
+      "name": "alt_synthsnout_visor",
+      "directions": 4
+	},
+	{
+	  "name": "alt_synthsnout_jaw",
+	  "directions": 4
+    }
+  ]
+}

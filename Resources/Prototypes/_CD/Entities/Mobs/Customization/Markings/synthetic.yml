@@ -1,0 +1,235 @@
+- type: marking
+  id: SyntheticScreen
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_screen
+
+- type: marking
+  id: SyntheticAntennaLeft
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_left
+
+- type: marking
+  id: SyntheticAntennaRight
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_right
+
+# Synthliz markings
+
+# tail
+- type: marking
+  id: LizardTailSynth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/tails.rsi
+    state: tail_synthliz
+
+- type: marking
+  id: LizardTailSynthAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/tails.rsi
+    state: tail_synthliz_wagging
+
+# snout
+
+- type: marking
+  id: LizardSnoutSynth
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/snouts.rsi
+    state: synthsnout_eyes
+  - sprite: _CD/Mobs/Customization/Synthliz/snouts.rsi
+    state: synthsnout_visor
+  - sprite: _CD/Mobs/Customization/Synthliz/snouts.rsi
+    state: synthsnout_frame
+  - sprite: _CD/Mobs/Customization/Synthliz/snouts.rsi
+    state: synthsnout_snout
+  - sprite: _CD/Mobs/Customization/Synthliz/snouts.rsi
+    state: synthsnout_jaw
+    
+# alternate snout
+
+- type: marking
+  id: LizardSnoutSynthAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/altsnouts.rsi
+    state: alt_synthsnout_eyes
+  - sprite: _CD/Mobs/Customization/Synthliz/altsnouts.rsi
+    state: alt_synthsnout_visor
+  - sprite: _CD/Mobs/Customization/Synthliz/altsnouts.rsi
+    state: alt_synthsnout_frame
+  - sprite: _CD/Mobs/Customization/Synthliz/altsnouts.rsi
+    state: alt_synthsnout_snout
+  - sprite: _CD/Mobs/Customization/Synthliz/altsnouts.rsi
+    state: alt_synthsnout_jaw
+
+# horns
+
+- type: marking
+  id: SyntheticHornCurl
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_curl
+
+- type: marking
+  id: SyntheticHornShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_short
+
+- type: marking
+  id: SyntheticHornSlash
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_slash
+
+- type: marking
+  id: SyntheticHornSharp
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_sharp
+
+- type: marking
+  id: SyntheticHornTwin
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_twin
+
+- type: marking
+  id: SyntheticHornThick
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_thick
+
+# horns with lights
+
+- type: marking
+  id: SyntheticHornSharpLight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_sharp
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_sharp_light
+
+- type: marking
+  id: SyntheticHornTwinLight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_twin
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_twin_light
+
+- type: marking
+  id: SyntheticHornThickLight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_thick
+  - sprite: _CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_thick_light
+
+# Chest
+
+- type: marking
+  id: SyntheticBodyScute
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_scute
+
+- type: marking
+  id: SyntheticBodyPlate
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_plate
+
+# Chest w/ Lights
+
+- type: marking
+  id: SyntheticBodyPecs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_pecs_primary
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_pecs_secondary
+
+- type: marking
+  id: SyntheticBodyLights
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_lights_primary
+  - sprite: _CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_lights_secondary
