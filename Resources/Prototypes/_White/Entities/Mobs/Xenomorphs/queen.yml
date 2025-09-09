@@ -71,11 +71,11 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - TauCetiBasic
     understands:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - Hissing
     - Draconic
     - TauCetiBasic

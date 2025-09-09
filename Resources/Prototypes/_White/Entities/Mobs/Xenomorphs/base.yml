@@ -128,12 +128,16 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     understands:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - Hissing
     - Draconic
+  - type: CollectiveMind # Goobstation
+    defaultChannel: Xenomorphivemind
+    channels:
+    - Xenomorphivemind
   - type: SSDIndicator
   - type: Emoting
   - type: BodyEmotes
