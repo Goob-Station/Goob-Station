@@ -171,7 +171,7 @@ public sealed class EventManagerSystem : EntitySystem
             return;
         }
 
-        if (!_prototype.TryIndex(randomLimitedEvent, out _))
+        if (!_prototype.Resolve(randomLimitedEvent, out _))
         {
             Log.Warning("A requested event is not available!");
             return;
@@ -204,7 +204,7 @@ public sealed class EventManagerSystem : EntitySystem
 
         foreach (var eventid in selectedEvents)
         {
-            if (!_prototype.TryIndex(eventid, out var eventproto))
+            if (!_prototype.Resolve(eventid, out var eventproto))
             {
                 Log.Warning("An event ID has no prototype index!");
                 continue;
