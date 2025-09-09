@@ -14540,3 +14540,11 @@ Entries:
         of time.
   id: 1620
   time: '2025-09-09T14:55:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Intercoms and radios no longer spam everything vending machines or bots
+        say.
+  id: 1621
+  time: '2025-09-09T19:59:53.0000000+00:00'
