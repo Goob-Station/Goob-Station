@@ -3,6 +3,7 @@ using Content.Shared._CorvaxGoob.MedipenRefiller;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.EntitySystems.Hypospray;
 
 namespace Content.Server._CorvaxGoob.MedipenRefiller;
 
@@ -17,7 +18,7 @@ public sealed class MedipenSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MedipenComponent, AfterHyposprayInjectsTargetEvent>(OnMedipenUse);
+        SubscribeLocalEvent<MedipenComponent, AfterHyposprayInjectsEvent>(OnMedipenUse);
         SubscribeLocalEvent<MedipenComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -27,7 +28,7 @@ public sealed class MedipenSystem : EntitySystem
         UpdateAppearance(entity);
     }
 
-    private void OnMedipenUse(Entity<MedipenComponent> entity, ref AfterHyposprayInjectsTargetEvent args)
+    private void OnMedipenUse(Entity<MedipenComponent> entity, ref AfterHyposprayInjectsEvent args)
     {
         entity.Comp.Used = true;
         UpdateAppearance(entity);

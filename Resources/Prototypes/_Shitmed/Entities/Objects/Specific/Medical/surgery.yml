@@ -12,6 +12,10 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+  - type: Tag # CorvaxGoob
+    tags:
+    - SurgeryTool
+    - BoneSetter
 
 - type: entity
   parent: BaseToolSurgery
@@ -64,6 +68,10 @@
       Steel: 150
       Glass: 37
       Gold: 37
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - EnergyScalpel
   - type: Scalpel
     speed: 2
   - type: BoneSaw
@@ -188,6 +196,10 @@
     damage:
       types:
         Heat: 12
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - EnergyCautery
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150

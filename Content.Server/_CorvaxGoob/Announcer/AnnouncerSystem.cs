@@ -14,6 +14,7 @@ public sealed class AnnouncerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     private bool _enabled;
     private AnnouncerPrototype? _announcerToday = null;
@@ -37,7 +38,12 @@ public sealed class AnnouncerSystem : EntitySystem
     {
         _resetCountdown = rounds;
         _forcePresetAnnouncer = announcer;
-        _announcerToday = announcer;
+
+        if (_gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+        {
+            _resetCountdown--;
+            _announcerToday = announcer;
+        }
     }
 
     /// <summary>

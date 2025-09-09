@@ -9,7 +9,7 @@
 
 - type: clause
   id: soulownership
-  name: Право владения душой # CorvaxGoob devil fix
+  name: Владение душой # CorvaxGoob devil fix
   clauseWeight: 25
   event: !type:DevilContractSoulOwnershipEvent
 
@@ -22,6 +22,7 @@
 # // VORE //
 - type: clause
   id: avarice
+  name: Алчность # CorvaxGoob devil fix
   clauseWeight: -30
   addedComponents:
   - type: Devourer
@@ -94,20 +95,21 @@
 
 - type: clause
   id: fearofclowns
+  name: Страх клоунов
   clauseWeight: -10
   addedComponents:
   - type: NoSlip
 
 - type: clause
   id: fearofcrushing
-  name: Страх смерти # CorvaxGoob devil fix
+  name: Страх быть раздавленным # CorvaxGoob devil fix
   clauseWeight: -10
   addedComponents:
   - type: SpecialPressureImmunity
 
 - type: clause
   id: fearoffreezing
-  name: Страх перед космосом # CorvaxGoob devil fix
+  name: Страх холода # CorvaxGoob devil fix
   clauseWeight: -10
   addedComponents:
   - type: SpecialLowTempImmunity
