@@ -698,7 +698,8 @@ namespace Content.Client.Lobby.UI
             foreach (var trait in traits)
             {
                 // Begin Goobstation: ported from DeltaV - Species trait exclusion
-                if (Profile?.Species is { } selectedSpecies && trait.IncludedSpecies.Count > 0 && !trait.IncludedSpecies.Contains(selectedSpecies))
+                if (Profile?.Species is { } selectedSpecies && (trait.ExcludedSpecies.Contains(selectedSpecies) ||
+                    trait.IncludedSpecies.Count > 0 && !trait.IncludedSpecies.Contains(selectedSpecies)))
                 {
                     Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;
