@@ -1,0 +1,89 @@
+- type: jukebox
+  id: DWinvisible
+  name: "[DW] Invisible"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/Invisible.ogg
+
+- type: jukebox
+  id: DWthemanwhosoldtheworld
+  name: "[DW] The Man Who Sold the World"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/The_Man_Who_Sold_the_World.ogg
+
+- type: jukebox
+  id: DWgruppakrovi
+  name: "[DW] Gruppa Krovi"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/gruppakrovi.ogg
+
+- type: jukebox
+  id: DWridin
+  name: "[DW] Ridin"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/Ridin.ogg
+
+- type: jukebox
+  id: DWhalflifecredits
+  name: "[DW] HL Credits Theme"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/half_life_credits.ogg
+
+- type: jukebox
+  id: DWcascade
+  name: "[DW] Cascade"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/cascade.ogg
+
+- type: jukebox
+  id: DWwantchanges
+  name: "[DW] Want Changes"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/want_changes.ogg
+
+- type: jukebox
+  id: DWfortunateson
+  name: "[DW] Fortunate Son"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/fortunate_son.ogg
+
+- type: jukebox
+  id: DWswallowingdust
+  name: "[DW] Swallowing Dust"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/swallowingdust.ogg
+
+- type: jukebox
+  id: DWeverybodywantstoruletheworld
+  name: "[DW] Everybody Wants to Rule the World"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/everybodywantstoruletheworld.ogg
+
+- type: jukebox
+  id: DWartiljierija
+  name: "[DW] Bosanska Artiljierija"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/bosanska_artiljerija.ogg
+
+- type: jukebox
+  id: DWspaceoddity
+  name: "[DW] Space Oddity"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/space_oddity.ogg
+
+- type: jukebox
+  id: DWlysendraa
+  name: "[DW] Lysendraa"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/Lysendraa.ogg
+
+- type: jukebox
+  id: DWelibao
+  name: "[DW] Elibao"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/elibao.ogg
+
+- type: jukebox
+  id: DWspacehero
+  name: "[DW] Space Hero"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/SpaceHero.ogg
