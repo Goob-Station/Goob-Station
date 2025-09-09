@@ -71,7 +71,9 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             if (!LocalizedNames.TryGetValue(netEntity, out var name))
                 name = "Unknown";
 
-            var message = name + "\nLocation: [x = " + MathF.Round(blip.Coordinates.X) + ", y = " + MathF.Round(blip.Coordinates.Y) + "]";
+            var message = name + "\n" + Loc.GetString("navmap-location",
+                ("x", MathF.Round(blip.Coordinates.X)),
+                ("y", MathF.Round(blip.Coordinates.Y)));
 
             _trackedEntityLabel.Text = message;
             _trackedEntityPanel.Visible = true;
