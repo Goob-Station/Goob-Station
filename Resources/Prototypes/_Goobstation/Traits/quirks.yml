@@ -6,9 +6,8 @@
   blacklist:
     components:
     - BorgChassis
-  whitelist:
-    components:
-    - Silicon
+  includedSpecies:
+    - IPC
   components:
     - type: SiliconLawBound
     - type: SiliconLawProvider
