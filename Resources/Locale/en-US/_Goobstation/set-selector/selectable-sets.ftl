@@ -95,7 +95,7 @@ selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
     Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
     Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    a blood-red tacsuit and some basic nuclear operative gear. # goob edit - un-rename suits
+    a blood-red tacsuit and some basic nuclear operative gear.
 
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
@@ -107,7 +107,7 @@ selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
     Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
-    (half of which are holo), a carp voidsuit and a syndicate encryption key.
+    (half of which are holo), a carp hardsuit and a syndicate encryption key.
 
 selectable-set-syndicate-sus-name = Suspicion Bundle
 selectable-set-syndicate-sus-description =
@@ -154,7 +154,7 @@ selectable-set-blueshield-syringe-description =
 
 # Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = blueshield tacsuit # goob edit - un-rename suits
+selectable-set-blueshield-hardsuit-light-name = blueshield tacsuit
 selectable-set-blueshield-hardsuit-light-description =
     An armoured hardsuit, allowing for more speed at the cost of protection.
 
@@ -179,7 +179,7 @@ selectable-set-ert-pulse-description =
 
 # Voidsuit selectors
 
-selectable-set-paramedic-voidsuit-name = Paramedic hardsuit # goob edits start - un-rename suits
+selectable-set-paramedic-voidsuit-name = Paramedic hardsuit
 selectable-set-paramedic-voidsuit-desc =
     A light hardsuit with minimal protection
     but a fast movement speed.
@@ -203,7 +203,7 @@ selectable-set-headofsecurity-voidsuit-name = Head of security's tacsuit
 selectable-set-headofsecurity-voidsuit-desc =
     A light tacsuit with material cut from non-vital areas to slightly increase
     the armour value of the vital organs and increase mobility
-    compared to the standard security voidsuit.
+    compared to the standard security tacsuit.
 
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' modsuit
 selectable-set-headofsecurity-modsuit-desc =
@@ -239,7 +239,7 @@ selectable-set-research-director-voidsuit-desc =
     armored to protect from assistants breaking in, all while still retaining
     common spacewalking capabilities.
 
-selectable-set-research-director-modsuit-name = RD's 'Minerva' modsuit # goob edits end
+selectable-set-research-director-modsuit-name = RD's 'Minerva' modsuit
 selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,

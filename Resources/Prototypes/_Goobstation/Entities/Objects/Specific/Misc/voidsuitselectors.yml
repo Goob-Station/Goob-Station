@@ -7,7 +7,7 @@
 # paramedic
 - type: entity
   id: UndeterminedVoidsuitParamedic
-  name: paramedic hardsuit selector # goob edits start - un-rename suits
+  name: paramedic hardsuit selector
   description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
   components:
@@ -83,7 +83,7 @@
 - type: entity
   id: UndeterminedVoidsuitRD
   name: research director hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing. # goob edits end
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

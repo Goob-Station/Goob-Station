@@ -15,7 +15,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit control unit # goob edits start - un-rename modsuits
+  name: standard modsuit control unit
   description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
@@ -363,7 +363,7 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
-  name: captain's magnate modsuit control unit # goob edits end
+  name: captain's magnate modsuit control unit
   description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
   components:
   - type: Appearance

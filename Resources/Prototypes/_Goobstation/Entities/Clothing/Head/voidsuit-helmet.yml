@@ -18,7 +18,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
   name: futuristic helmet
-  description: The helmet of the fighters of the future, designed for special timeflow operations
+  description: The helmet of the fighters of the future, designed for special timeflow operations.
   components:
   - type: BreathMask
   - type: Sprite
@@ -61,7 +61,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: blueshield tacsuit helmet # un-rename suits
+  name: blueshield tacsuit helmet
   description: The helmet of the captain's bodyguard's tacsuit.
   components:
   - type: BreathMask
@@ -215,7 +215,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
   name: head of security's advanced tacsuit helmet
-  description: Security tacsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets. # edits end
+  description: Security tacsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi

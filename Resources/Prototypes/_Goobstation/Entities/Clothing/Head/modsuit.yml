@@ -79,7 +79,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
-  name: standard modsuit helmet # goob edits start - un-rename modsuits
+  name: standard modsuit helmet
   description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -717,7 +717,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
-  name: magnate modsuit helmet # goob edits end
+  name: magnate modsuit helmet
   description: The visor is made from 10,000 year old amythest.
   categories: [ HideSpawnMenu ]
   components:

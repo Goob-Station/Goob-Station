@@ -29,7 +29,7 @@
 
 # Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Tacsuit # edits start - un-rename suits
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Tacsuit
 uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic tacsuit, from the Gorlex Marauders.
 
 uplink-hardsuit-syndiecommander-name = Gorlex Commander Tacsuit
@@ -43,7 +43,6 @@ uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan tech
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
-# edits end
 
 # Misc
 
@@ -211,7 +210,7 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells f
 # Grenades
 
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
-uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
+uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff as well as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off.
 
 uplink-M172LAW-name = M172 Light Anti-structure Weapon
 uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.

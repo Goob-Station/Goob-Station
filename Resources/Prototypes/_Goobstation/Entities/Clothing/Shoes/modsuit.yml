@@ -36,7 +36,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard modsuit boots # goob edits start - un-rename modsuits
+  name: standard modsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -262,7 +262,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
   name: minerva modsuit boots
-  description: Won't stop you slipping on your own blood when the holocarp gets to you. # goob edit - apostrophe
+  description: Won't stop you slipping on your own blood when the holocarp gets to you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

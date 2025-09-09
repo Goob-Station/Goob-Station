@@ -46,7 +46,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard
-  name: standard modsuit chestplate # goob edits start - un-rename modsuits
+  name: standard modsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -573,7 +573,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateCaptain
-  name: magnate modsuit chestplate # goob edits end
+  name: magnate modsuit chestplate
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
