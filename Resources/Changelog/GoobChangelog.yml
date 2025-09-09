@@ -14580,3 +14580,11 @@ Entries:
       message: Changed the metabolism rate of coffee so it lasts longer in your system.
   id: 1624
   time: '2025-09-09T20:17:25.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Corrected chair rendering so entities appear behind chairs only when
+        facing north.
+  id: 1625
+  time: '2025-09-09T20:24:39.0000000+00:00'
