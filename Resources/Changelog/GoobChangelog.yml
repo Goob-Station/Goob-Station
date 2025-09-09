@@ -14490,3 +14490,9 @@ Entries:
         from Alien (1979)
   id: 1614
   time: '2025-09-08T19:31:14.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Zombie Immune species shouldn't get initial infected anymore.
+  id: 1615
+  time: '2025-09-09T02:28:43.0000000+00:00'
