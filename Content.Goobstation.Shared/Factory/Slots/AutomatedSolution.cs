@@ -22,13 +22,6 @@ public sealed partial class AutomatedSolution : AutomationSlot
     {
         get
         {
-            if (_solution is {} solution)
-                return solution;
-
-            if (!_solutionSys.TryGetSolution(Owner, SolutionName, out _solution, true))
-                throw new InvalidOperationException($"Entity {EntMan.ToPrettyString(Owner)} had no solution {SolutionName} for automation!");
-
-            return _solution.Value;
         }
     }
 
@@ -41,5 +34,15 @@ public sealed partial class AutomatedSolution : AutomationSlot
         _solutionSys = EntMan.System<SharedSolutionContainerSystem>();
     }
 
-    public override Entity<SolutionComponent>? GetSolution() => Solution;
+    public override Entity<SolutionComponent>? GetSolution()
+    {
+        if (_solution != null)
+            return _solution;
+
+        if (_solutionSys.TryGetSolution(Owner, SolutionName, out _solution, true))
+            return _solution;
+
+        Log.Error($"Entity {EntMan.ToPrettyString(Owner)} had no solution {SolutionName} for automation!");
+        return null;
+    }
 }

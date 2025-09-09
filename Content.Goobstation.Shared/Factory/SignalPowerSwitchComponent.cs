@@ -8,7 +8,8 @@ namespace Content.Goobstation.Shared.Factory;
 /// Adds toggle/on/off sinks and powered source ports.
 /// Allows for signal control similar to manual <c>PowerSwitch</c>.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SignalPowerSwitchSystem))]
+[RegisterComponent, NetworkedComponent]
+[Access(typeof(SignalPowerSwitchSystem))]
 public sealed partial class SignalPowerSwitchComponent : Component
 {
     [DataField]

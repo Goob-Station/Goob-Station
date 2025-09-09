@@ -20,7 +20,6 @@ public sealed class PlumbingPumpSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         _transferQuery = GetEntityQuery<SolutionTransferComponent>();
     }
 
@@ -46,8 +45,8 @@ public sealed class PlumbingPumpSystem : EntitySystem
             return;
 
         // pump does nothing unless both slots are linked
-        if (_exclusive.GetInputSlot(ent)?.GetSolution() is not {} inputEnt ||
-            _exclusive.GetOutputSlot(ent)?.GetSolution() is not {} outputEnt)
+        if (_exclusive.GetInputSlot(ent)?.GetSolution() is not {} inputEnt
+            || _exclusive.GetOutputSlot(ent)?.GetSolution() is not {} outputEnt)
             return;
 
         var input = inputEnt.Comp.Solution;

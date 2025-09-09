@@ -9,12 +9,11 @@ namespace Content.Goobstation.Shared.Factory.Plumbing;
 /// Transfers liquid from an input machine's solution to an output machine's solution.
 /// Basically a robotic arm for reagents.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(PlumbingPumpSystem))]
+[RegisterComponent, NetworkedComponent]
+[Access(typeof(PlumbingPumpSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class PlumbingPumpComponent : Component
 {
-    
-
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 

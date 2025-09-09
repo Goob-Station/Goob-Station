@@ -39,6 +39,7 @@ public sealed partial class PlumbingFilterWindow : FancyWindow
             _selected = null;
             UpdateSelectButton();
         };
+
         SearchBar.OnTextChanged += _ => UpdateReagentPrototypes(SearchBar.Text);
         SelectButton.OnPressed += _ =>
         {
@@ -72,7 +73,8 @@ public sealed partial class PlumbingFilterWindow : FancyWindow
     {
         ReagentList.Clear();
         filter = filter?.Trim()?.ToLowerInvariant();
-        foreach (var reagent in _proto.EnumeratePrototypes<ReagentPrototype>())
+        var reagents = _proto.EnumeratePrototypes<ReagentPrototype>();
+        foreach (var reagent in reagents)
         {
             var name = reagent.LocalizedName;
             if (!string.IsNullOrEmpty(filter) &&
