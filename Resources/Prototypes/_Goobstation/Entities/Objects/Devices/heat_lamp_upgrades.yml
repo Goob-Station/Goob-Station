@@ -1,0 +1,127 @@
+  # It's literally just a PKA modkit. Unfortunately, it's a lavaland thing and is not generic
+  # in any way, so we need to remake all of it from scratch.
+- type: entity
+  id: BaseHeatlampUpgrade
+  parent: BaseItem
+  abstract: true
+  name: heat lamp modkit
+  description: A upgrade for a heatlamp
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi # Have fun porting lavaland to get access to cold lizards.
+  - type: Item
+    size: Small
+  - type: HeatlampUpgrade
+
+- type: entity
+  id: HeatlampUpgradeEfficiency
+  parent: BaseHeatlampUpgrade
+  name: heat lamp modkit (efficiency)
+  description: A upgrade for a heat lamp improving its energy efficiency
+  components:
+  - type: Sprite # TODO: Colors
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: HeatlampUpgrade
+    limit: 2
+  - type: HeatlampStatsUpgrade
+    heatingPowerDrain: -0.5
+    coolingPowerDrain: -0.5
+    maximumCoolingPerUpdate: 1.0
+    maximumHeatingPerUpdate: 1.0
+
+- type: entity
+  id: HeatlampUpgradeHeating
+  parent: BaseHeatlampUpgrade
+  name: heat lamp modkit (heating)
+  description: A upgrade for a heat lamp improving its heating efficiency
+  components:
+  - type: Sprite # TODO: Colors
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: HeatlampUpgrade
+    limit: 2
+  - type: HeatlampStatsUpgrade
+    heatingPowerDrain: -1.0
+    coolingPowerDrain: 2.0
+    maximumCoolingPerUpdate: -2.5
+    maximumHeatingPerUpdate: 2.5
+
+- type: entity
+  id: HeatlampUpgradeCooling
+  parent: BaseHeatlampUpgrade
+  name: heat lamp modkit (cooling)
+  description: A upgrade for a heat lamp improving its cooling efficiency
+  components:
+  - type: Sprite # TODO: Colors
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: HeatlampUpgrade
+    limit: 2
+  - type: HeatlampStatsUpgrade
+    heatingPowerDrain: 2.0
+    coolingPowerDrain: -1.0
+    maximumCoolingPerUpdate: 2.5
+    maximumHeatingPerUpdate: -2.5
+
+- type: entity
+  id: HeatlampUpgradeLethalHeat
+  parent: [ BaseHeatlampUpgrade, BaseSyndicateContraband ]
+  name: heat lamp modkit (lethal heat)
+  description: A highly illegal upgrade overcharging a heat lamp and making it dangerous to touch
+  components:
+  - type: Sprite # TODO: Colors
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: HeatlampUpgrade
+    emagOnly: true
+  - type: HeatlampStatsUpgrade # TODO: This needs to decrease the swing rate. It's the only way to balance this.
+    activatedDamage:
+      types:
+        Heat: 5
+
+- type: entity # TODO: Implement this.
+  id: HeatlampUpgradeSuperheat
+  parent: [ BaseHeatlampUpgrade, BaseSyndicateContraband ]
+  name: heat lamp modkit (superheat)
+  description: A highly illegal upgrade turning a heat lamp into an explosive
+  components:
+  - type: Sprite # TODO: Colors
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: HeatlampUpgrade
+    emagOnly: true
+  - type: HeatlampComponentUpgrade
+    components:
+    - type: PointLight
+      color: "#FF0000FF"

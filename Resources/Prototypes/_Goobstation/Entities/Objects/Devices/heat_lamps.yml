@@ -66,9 +66,9 @@
       path: /Audio/Items/belt_equip.ogg
   - type: ItemSlots
     slots:
-      cell_slot:
+      cell-slot:
         name: power-cell-slot-component-slot-name-default
         priority: 5
         startingItem: PowerCellMedium
   - type: PowerCellSlot
-    cellSlotId: cell_slot
+    cellSlotId: cell-slot

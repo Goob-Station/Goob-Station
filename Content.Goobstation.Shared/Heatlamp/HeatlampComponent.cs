@@ -13,6 +13,7 @@ namespace Content.Goobstation.Shared.Heatlamp;
 ///     since the only thing it impacts is temperature updates.
 /// </remarks>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class HeatlampComponent : Component
 {
     #region Temperature regulation
@@ -26,6 +27,7 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Value of BaseHeatingPowerDrain calculated with upgrades.
     /// </summary>
+    [AutoNetworkedField]
     [ViewVariables]
     public float ModifiedHeatingPowerDrain = float.NaN; // Updated on component init
 
@@ -38,6 +40,7 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Value of BaseMaximumHeatingPerUpdate calculated with upgrades.
     /// </summary>
+    [AutoNetworkedField]
     [ViewVariables]
     public float ModifiedMaximumHeatingPerUpdate = float.NaN;
 
@@ -50,6 +53,7 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Value of BaseCoolingPowerDrain calculated with upgrades.
     /// </summary>
+    [AutoNetworkedField]
     [ViewVariables]
     public float ModifiedCoolingPowerDrain = float.NaN;
 
@@ -62,6 +66,7 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Value of BaseMaximumCoolingPerUpdate calculated with upgrades
     /// </summary>
+    [AutoNetworkedField]
     [ViewVariables]
     public float ModifiedMaximumCoolingPerUpdate = float.NaN;
 
@@ -77,14 +82,20 @@ public sealed partial class HeatlampComponent : Component
     public DamageSpecifier DeactivatedDamage;
 
     /// <summary>
-    ///     Base activated damage. The calculated value of BaseActivatedDamage
+    ///     Base activated damage.
     /// </summary>
-    [DataField]
+    /// <remarks>
+    ///     While the base fields aren't networked because they're part of the heatlamp prototype, the
+    ///     base activated damage needs to be sent between the server and the client because it can
+    ///     be modified by the emag interaction.
+    /// </remarks>
+    [DataField, AutoNetworkedField]
     public DamageSpecifier BaseActivatedDamage;
 
     /// <summary>
     ///     Value of BaseActivatedDamage calculated with upgrades
     /// </summary>
+    [AutoNetworkedField]
     [ViewVariables]
     public DamageSpecifier ModifiedActivatedDamage;
 
@@ -101,13 +112,13 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Maximum number of upgrades that can be inserted into a heatlamp.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int MaximumUpgradeCount = 2;
 
     /// <summary>
-    ///     Current number of upgrades in the lamp.
+    ///     Current number of upgrade slots in the lamp. Used internally by the server when adding item slots to the thing.
     /// </summary>
-    [DataField] // Some upgrades may be inserted by default (nukie blood-red heat lamp?)
+    [DataField, AutoNetworkedField]
     public int CurrentUpgradeCount = 0;
 
     /// <summary>
@@ -125,7 +136,7 @@ public sealed partial class HeatlampComponent : Component
     /// <summary>
     ///     Heatlamp is emagged and can use illegal upgrades.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool AllowIllegalUpgrades = false;
 
     #endregion
