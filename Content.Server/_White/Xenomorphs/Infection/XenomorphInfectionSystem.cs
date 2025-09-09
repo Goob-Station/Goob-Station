@@ -17,7 +17,6 @@ public sealed class XenomorphInfectionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
