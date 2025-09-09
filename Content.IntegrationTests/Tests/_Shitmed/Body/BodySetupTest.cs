@@ -352,6 +352,7 @@ public sealed class BodySetupTest
             // Find all non-abstract entities with MobStateComponent
             var entityPrototypes = protoMan.EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract
+                            && p.ID != "MobGoidaBot" // pure GOIDA
                             && p.Components.ContainsKey("MobState")
                             && !p.Components.ContainsKey("Godmode")
                             && !p.Components.ContainsKey("HierophantBoss")) // Hiero is immune to attacks without an origin.

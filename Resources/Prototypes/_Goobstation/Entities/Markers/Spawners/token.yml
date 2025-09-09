@@ -89,8 +89,29 @@
     rules: ghost-role-information-antagonist-rules
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostSlaughterDemon
+  id: SpawnPointSlaughterDemonToken
+  components:
+  - type: GhostRole
+    name: roles-slaughter-demon-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-slaughter-demon-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostLaughterDemon
+  id: SpawnPointLaughterDemonToken
+  components:
+  - type: GhostRole
+    name: roles-laughter-demon-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-laughter-demon-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostAncientRogueKing
   id: AncientRogueKingToken
-  parent: CMMobXenoRogueKingSentient
   components:
   - type: GhostRole
     name: ghost-role-information-ancient-rogue-king-name-token

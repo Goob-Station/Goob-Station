@@ -1,0 +1,223 @@
+- type: entity
+  parent: BaseItem
+  id: BaseXenomorphOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Species/Xenomorph/organs.rsi
+  - type: Organ
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+        - ReagentId: SulfuricAcid
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanBrain]
+  id: OrganXenomorphBrain
+  name: xenomorph brain
+  description: We barely understand the brains of terrestial animals. Who knows what we may find in the brain of such an advanced species?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanEyes]
+  id: OrganXenomorphEyes
+  name: xenomorph eyes
+  description: It turned out they had them after all!
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanTongue]
+  id: OrganXenomorphTongue
+  name: xenomorph tongue
+  description: According to leading xenobiologists the evolutionary benefit of having a second mouth in your mouth is "that it looks badass".
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganReptilianStomach]
+  id: OrganXenomorphStomach
+  name: xenomorph stomach
+  description: Its walls are capable of both significantly expanding and contracting with enormous force.
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanLiver]
+  id: OrganXenomorphLiver
+  name: xenomorph liver
+  description: A liver that used to belong to a killer alien, who knows what it used to eat.
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Xenomorph]
+    groups:
+    - id: Poison
+      rateModifier: 1
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphAcidGland
+  name: acid gland
+  description: A specialized tank with acid. The resulting corrosive mixture can melt most known materials.
+  components:
+  - type: Sprite
+    state: acid_gland
+  - type: Organ
+    slotId: acid_gland
+    onAdd:
+    - type: XenomorphAcid
+      damagePerSecond:
+        types:
+          Caustic: 20
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphNeurotoxinGland
+  name: neurotoxin gland
+  description: A specialized tank with neurotoxin. Сonsists of many microscopic tubes filled with clear liquid.
+  components:
+  - type: Sprite
+    state: neurotoxin_gland
+  - type: Organ
+    slotId: neurotoxin_gland
+    onAdd:
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.75
+    - type: PlasmaAmmoProvider
+      fireCost: 55
+      proto: BulletNeurotoxin
+    - type: Gun
+      fireRate: 0.75
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphEggSack
+  name: egg sack
+  description: Designed to produce and store eggs containing facehuggers, the organ's enormous size allows the xenomorph queen to lay thousands of eggs in a short period of time.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Species/Xenomorph/organs.rsi
+    state: egg_sack
+  - type: Organ
+    slotId: egg_sack
+    # TODO: Organ should give egg spawn actions
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphResinSpinner
+  name: resin spinner
+  description: Designed for the production and isolation of resin-like biopolymer.
+  components:
+  - type: Sprite
+    state: resin_spinner
+  - type: Organ
+    slotId: resin_spinner
+    # TODO: Organ should give construction actions
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphHiveNode
+  name: hive node
+  description: The central organ of the xenomorphs, providing communication with the common mind.
+  components:
+  - type: Sprite
+    state: hive_node
+  - type: Organ
+    slotId: hive_node
+    # TODO: Organ should give XenoHivemind language and Xeno faction
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphPlasmaVessel
+  name: plasma vessel
+  description: A reservoir containing concentrated and highly active plasma - the main source of energy and raw material for the xenomorph's biological weapons.
+  components:
+  - type: Sprite
+    state: plasma_vessel
+  - type: Organ
+    slotId: plasma_vessel
+    onAdd:
+    - type: PlasmaVessel
+    # TODO: Organ should give plant weeds and transfer plasma action
+
+- type: entity
+  parent: OrganXenomorphPlasmaVessel
+  id: OrganXenomorphPlasmaVesselLarge
+  name: large plasma vessel
+  components:
+  - type: Sprite
+    state: plasma_vessel_large
+  - type: Organ
+    onAdd:
+    - type: PlasmaVessel
+      maxPlasma: 500
+      plasma: 200
+      plasmaPerSecondOffWeed: 0.75
+      plasmaPerSecondOnWeed: 7.5
+
+- type: entity
+  parent: OrganXenomorphPlasmaVesselLarge
+  id: OrganXenomorphPlasmaVesselLargeQueen
+  components:
+  - type: Organ
+    onAdd:
+    - type: PlasmaVessel
+      maxPlasma: 500
+      plasma: 200
+      plasmaPerSecondOffWeed: 1
+      plasmaPerSecondOnWeed: 10
+
+- type: entity
+  parent: OrganXenomorphPlasmaVessel
+  id: OrganXenomorphPlasmaVesselSmall
+  name: small plasma vessel
+  components:
+  - type: Sprite
+    state: plasma_vessel_small
+  - type: Organ
+    onAdd:
+    - type: PlasmaVessel
+      maxPlasma: 150
+      plasma: 100
+      plasmaPerSecondOffWeed: 0.25
+      plasmaPerSecondOnWeed: 2.5
+
+- type: entity
+  parent: OrganXenomorphPlasmaVessel
+  id: OrganXenomorphPlasmaVesselTiny
+  name: tiny plasma vessel
+  components:
+  - type: Sprite
+    state: plasma_vessel_tiny
+  - type: Organ
+    onAdd:
+    - type: PlasmaVessel
+      maxPlasma: 100
