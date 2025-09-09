@@ -15,7 +15,7 @@
 
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Humanoid.Prototypes; // Goob: Ported from DeltaV - Species specific trait support.
 
 namespace Content.Shared.Traits;
 
