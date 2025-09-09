@@ -166,10 +166,8 @@ public sealed partial class MindTests
         await server.WaitAssertion(() =>
         {
             var damageable = entMan.GetComponent<DamageableComponent>(entity);
-            if (!protoMan.TryIndex(BluntDamageType, out var prototype))
-            {
-                return;
-            }
+            var prototype = protoMan.Index(BluntDamageType);
+
             // Goob start
 
             if (entMan.TryGetComponent(entity, out BodyComponent? body) &&
