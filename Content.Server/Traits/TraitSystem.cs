@@ -61,6 +61,10 @@ public sealed class TraitSystem : EntitySystem
                 _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
                 continue;
 
+            if (traitPrototype.IncludedSpecies.Count > 0 && !traitPrototype.IncludedSpecies.Contains(args.Profile.Species) ||
+                traitPrototype.ExcludedSpecies.Contains(args.Profile.Species))
+                continue;
+
             // Add all components required by the prototype
             EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
 

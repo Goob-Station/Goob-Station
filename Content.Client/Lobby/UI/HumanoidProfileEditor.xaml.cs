@@ -391,7 +391,7 @@ namespace Content.Client.Lobby.UI
             };
 
             // begin Goobstation: port EE height/width sliders
-            #region Height and Width            
+            #region Height and Width
 
             UpdateHeightWidthSliders();
             UpdateDimensions(SliderUpdate.Both);
@@ -1450,7 +1450,7 @@ namespace Content.Client.Lobby.UI
             UpdateHeightWidthSliders();
             UpdateWeight();
             // end Goobstation: port EE height/width sliders
-            RefreshTraits(); // Goobstation: port DV Species trait exclusion
+            RefreshTraits(); // Goobstation: ported from DeltaV - Species trait exclusion
         }
 
         private void SetName(string newName)
