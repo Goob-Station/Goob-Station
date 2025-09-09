@@ -109,7 +109,6 @@ public sealed class SuicideSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 
-
     public override void Initialize()
     {
         base.Initialize();
