@@ -87,3 +87,15 @@
   name: "[DW] Space Hero"
   path:
     path: /Audio/_DreamWalkers/Jukebox/SpaceHero.ogg
+
+- type: jukebox
+  id: DWforwhomthebelltolls
+  name: "[DW] For Whom the Bell Tolls"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/for_whom_the_bell_tolls.ogg
+
+- type: jukebox
+  id: DWbanditradio
+  name: "[DW] Bandit Radio"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/bandit_radio.ogg
