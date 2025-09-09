@@ -288,3 +288,9 @@
   name: Crockitz - Abductor
   path:
     path: /Audio/_Goobstation/Music/Abductor.ogg
+
+- type: jukebox
+  id: asgore
+  name: Asgore - Runs Over Dess With
+  path:
+    path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
