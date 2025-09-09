@@ -22,9 +22,9 @@ SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
+<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/dallaszzz/Dream-Walkers/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
-This is a fork from the primary repo for Space Station 14 called Goob Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server this is the content pack for Goob Station.
+This is a fork from the primary repo for Space Station 14 called Dream Walkers. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server this is the content pack for Goob Station.
 
 If you want to host or create content for SS14, go to the [Space Station 14 repository](https://github.com/space-wizards/space-station-14) as it contains both RobustToolbox and the content pack for development of new content packs and is the base for your fork.
 
