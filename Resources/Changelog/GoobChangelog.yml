@@ -14448,3 +14448,71 @@ Entries:
       message: Fixed certain augments being uncraftable
   id: 1609
   time: '2025-09-08T01:52:58.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added barricades similar to RMC's but with no upgrading.
+    - type: Remove
+      message: Xenos forgot how to use computers.
+  id: 1610
+  time: '2025-09-08T19:23:47.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: LV cable can now be used as consumable, ghetto stitches for surgery.
+    - type: Tweak
+      message: >-
+        Medicated sutures can now be used as consumable, superior stitches for
+        surgery.
+  id: 1611
+  time: '2025-09-08T19:26:06.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Wonderprod sleep mode wears off faster, hit them again to refresh the
+        sleepy time.
+  id: 1612
+  time: '2025-09-08T19:26:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added a autodoc bluespace upgrade to the bluespace surgical gloves
+        research, it works like the gloves but for autodocs.
+  id: 1613
+  time: '2025-09-08T19:26:54.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Mice surgically implanted into people can now burst out like the alien
+        from Alien (1979)
+  id: 1614
+  time: '2025-09-08T19:31:14.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Zombie Immune species shouldn't get initial infected anymore.
+  id: 1615
+  time: '2025-09-09T02:28:43.0000000+00:00'
+- author: EVIL BURGER HATER
+  changes:
+    - type: Tweak
+      message: 'Cotton burgers are now max 15, instead of previous 50. '
+  id: 1616
+  time: '2025-09-09T02:29:02.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        IPCs can now select hair options in the character creation menu without
+        the use of black magic!
+  id: 1617
+  time: '2025-09-09T13:47:33.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Revenant from being able to spawn as a mid-round antagonist.
+  id: 1618
+  time: '2025-09-09T13:49:27.0000000+00:00'
