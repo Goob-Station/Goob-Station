@@ -23,6 +23,11 @@
         Structural: 15
     soundHit:
       collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: MeleeThrowOnHit
+    distance: 0.5 #half as strong as a baseball bat
+    speed: 5
   - type: HTN
     rootTask:
       task: HonkbotCompound
@@ -47,6 +52,8 @@
   - type: InteractionPopup
     interactSuccessString: goida-1
     interactFailureString: goida-1
+  - type: DashAction # GOIIIIIIDAAAAAAAAAAAAA
+    actionProto: ActionDashMoth
 
 - type: localizedDataset
   id: Goida
