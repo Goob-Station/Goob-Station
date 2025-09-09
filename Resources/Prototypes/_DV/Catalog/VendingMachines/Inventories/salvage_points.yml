@@ -33,20 +33,22 @@
     cost: 100
   - id: DrinkAbsintheBottleFull
     cost: 100
+  - id: Flare
+    cost: 100
   - id: CigarGold
     cost: 150
   - id: Soap
     cost: 200
   - id: SeismicCharge
     cost: 250
-  - id: Flare
-    cost: 300
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
-  - id: FultonBeacon
+  - id: Fulton
     cost: 400
-  - id: PowerCellMedium
-    cost: 450
+  - id: FultonBeacon
+    cost: 500
+  - id: PowerCellHigh
+    cost: 500
   - id: ClothingEyesGlassesGarMeson
     cost: 500
   - id: ClothingBeltSalvageWebbing
@@ -65,6 +67,8 @@
     cost: 650
   - id: DoubleEmergencyNitrogenTankFilled
     cost: 650
+  - id: ClothingMaskWeldingGas
+    cost: 750
   - id: LavalandJaunter
     cost: 750
   - id: WeaponCrusher
@@ -77,17 +81,17 @@
     cost: 800
   - id: PowerCellHigh
     cost: 900
-  - id: Fulton
-    cost: 1000
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
     cost: 1000
+  - id: ShelterCapsule
+    cost: 1000
+  - id: LavalandEquipmentExplorerSuit
+    cost: 1000
   - id: AdvancedMineralScanner
     cost: 1100
   - id: PKAUpgradeDamage
-    cost: 1200
-  - id: LavalandEquipmentExplorerSuit
     cost: 1200
   # TODO: lazarus injector for 1k
   - id: LavalandWeaponKineticHammer
@@ -107,22 +111,34 @@
   - id: WeaponProtoKineticShotgun
     cost: 1500
   - id: LuxuryMedipen
-    cost: 1600
+    cost: 1500
   - id: WeaponPlasmaCutter
     cost: 1700
-  - id: ShelterCapsule
+  - id: BorgModuleAdvancedMining
+    cost: 2000
+  - id: ClothingHandsGlovesCombat
     cost: 2000
   - id: OreBagOfHolding
     cost: 2000
-  - id: BorgModuleAdvancedMining
-    cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500
+  - id: ClothingNeckCloakHelldiver
+    cost: 2000
+  - id: ClothingShoesBootsMoon
+    cost: 2000
   - id: ClothingOuterHardsuitSalvage
-    cost: 3000
+    cost: 2000
+  - id: ClothingOuterHardsuitLuxury
+    cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
   - id: ShelterCapsuleLuxury
     cost: 3000
   - id: ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
     cost: 7000
+  - id: ClothingEyesNightVisionGoggles
+    cost: 3500
+  - id: MiningDrillDiamond
+    cost: 4000 #Mostly for flexing
+  - id: CrateCargoClarkeAssembly
+    cost: 12500 #TODO: Make modules real
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

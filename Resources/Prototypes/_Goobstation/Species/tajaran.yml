@@ -24,11 +24,11 @@
   femaleFirstNames: NamesTajaranFirst
   lastNames: NamesTajaranLast
   # begin Goobstation: port EE height/width sliders
-  minHeight: 0.75
-  defaultHeight: 0.80
+  minHeight: 0.85
+  defaultHeight: 0.90
   maxHeight: 1.15
-  minWidth: 0.80
-  defaultWidth: 0.80
+  minWidth: 0.85
+  defaultWidth: 0.90
   maxWidth: 1.10
   # end Goobstation: port EE height/width sliders
 

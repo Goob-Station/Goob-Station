@@ -83,6 +83,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 9
+      - !type:AdjustReagent
+        reagent: Carpolin
+        amount: -10
+        conditions:
+        - !type:ReagentThreshold
+          min: 9 # keep it the same as above
       - !type:PopupMessage
         type: Local
         messages: [ "reagent-popup-carpolin" ]
@@ -192,3 +198,23 @@
         key: Centered
         time: 10
         component: TileMovement
+
+# Removed by CorvaxGoob
+# - type: reagent
+#   id: CrapoToxin
+#   name: reagent-name-crapotoxin
+#   group: Toxins
+#   desc: reagent-desc-crapotoxin
+#   physicalDesc: reagent-physical-desc-putrid
+#   flavor: horrible
+#   color: "#654321"
+#   metabolisms:
+#     Poison:
+#       metabolismRate: 2.5
+#       effects:
+#       - !type:Emote
+#         emote: Fart
+#         showInChat: true
+#         showInGuidebook: true
+#         force: true
+#         probability: 1

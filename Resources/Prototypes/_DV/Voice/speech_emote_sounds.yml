@@ -99,6 +99,8 @@
       collection: Warble
     Wurble:
       collection: Wurble
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -183,6 +185,8 @@
       collection: Wurble
     Mars:
       collection: Mars
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -231,6 +235,8 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -279,6 +285,8 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: MobDog
@@ -413,3 +421,5 @@
       collection: Whistles
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg

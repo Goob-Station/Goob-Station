@@ -33,6 +33,14 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.90
+  defaultHeight: 1
+  maxHeight: 1.20
+  minWidth: 0.90
+  defaultWidth: 1
+  maxWidth: 1.10
+  # end Goobstation: port EE height/width sliders
 
 # The lack of a layer means that
 # this person cannot have round-start anything

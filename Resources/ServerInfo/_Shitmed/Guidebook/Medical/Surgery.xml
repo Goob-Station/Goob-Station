@@ -51,10 +51,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 В крайнем случае можно использовать подручные инструменты, для оценки состояния используйте значок осмотра скальпелем.
 
 <Box>
-<GuideEntityEmbed Entity="Welder" Caption="сварочник"/>
+<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
 <GuideEntityEmbed Entity="Wirecutter" Caption="кусачки"/>
 <GuideEntityEmbed Entity="KitchenKnife" Caption="нож"/>
 <GuideEntityEmbed Entity="Crowbar" Caption="лом"/>
+<GuideEntityEmbed Entity="CableApcStack" Caption="lv cable"/>
 </Box>
 
 Они не идеальны по сравнению с настоящим хирургическим оборудованием, но подойдут в экстренной ситуации!

@@ -106,6 +106,7 @@
   - BluespaceBodyBag # Corvax-Goob-AdvancedBodyBags
   - MedkitCombat #goob - Move combat kit to research
   - FillableMedipen # CorvaxGoob-RefillableMedipens
+  - VialBluespace # goob edit - bluespace vials
 
 - type: latheRecipePack
   id: MedicalBoards

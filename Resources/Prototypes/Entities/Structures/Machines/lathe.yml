@@ -665,6 +665,8 @@
     - BasicCybernetics
     - MedicalCybernetics
     - AdvancedCybernetics
+    - PowerAugments
+    - ToolAugments
     - PowerCells
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:

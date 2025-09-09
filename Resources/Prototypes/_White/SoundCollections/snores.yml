@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: XenomorphSnores
+  files:
+  - /Audio/_White/Voice/Xenomorph/snoring1.ogg
+  - /Audio/_White/Voice/Xenomorph/snoring2.ogg
+  - /Audio/_White/Voice/Xenomorph/snoring3.ogg
+  - /Audio/_White/Voice/Xenomorph/snoring4.ogg
+  - /Audio/_White/Voice/Xenomorph/snoring5.ogg

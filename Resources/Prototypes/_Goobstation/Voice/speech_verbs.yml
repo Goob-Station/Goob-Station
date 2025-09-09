@@ -21,6 +21,13 @@
   - chat-speech-verb-gondola-1
   - chat-speech-verb-gondola-2
 
+- type: speechVerb
+  id: HorseVerb
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2
+
 - type: speechSounds
   id: Chrono
   saySound:
@@ -99,3 +106,10 @@
   - chat-speech-verb-holier-than-thou-6
   - chat-speech-verb-holier-than-thou-7
   - chat-speech-verb-holier-than-thou-8
+
+- type: speechVerb
+  id: Horse
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2

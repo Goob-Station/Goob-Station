@@ -122,6 +122,10 @@
         maxDistance: 10
         variation: 0.05
   - type: SpamEmitSoundRequirePower # Goobstation
+  - type: InteractedBlacklist # Goobstation - xenos too stupid to use computer
+    blacklist:
+      components:
+      - Xenomorph
   # Einstein Engines - Language begin
   - type: LanguageSpeaker
   - type: LanguageKnowledge
