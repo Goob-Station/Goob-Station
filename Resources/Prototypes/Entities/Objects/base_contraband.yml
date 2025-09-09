@@ -226,6 +226,15 @@
   - type: Contraband
     allowedJobs: [ Janitor ]
 
+- type: entity
+  id: BaseSecurityZookeeperContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Zookeeper ]
+
 # for ~objective items
 - type: entity
   id: BaseGrandTheftContraband
