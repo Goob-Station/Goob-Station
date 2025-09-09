@@ -78,10 +78,16 @@ public sealed partial class TraitPrototype : IPrototype
     public ProtoId<TraitCategoryPrototype>? Category;
 
     /// <summary>
-    /// Goob: Ported from DV - Hides traits from specific species
+    /// Goob: Ported from DeltaV - Hides traits from specific species
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
+
+    /// <summary>
+    /// Goob: Only shows traits to specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> IncludedSpecies = new();
 
     // Einstein Engines - Language begin (remove this if trait system refactor)
     /// <summary>

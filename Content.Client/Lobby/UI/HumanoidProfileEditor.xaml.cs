@@ -697,13 +697,13 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
-                // Begin Goobstation: port DV Species trait exclusion
-                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
+                // Begin Goobstation: ported from DeltaV - Species trait exclusion
+                if (Profile?.Species is { } selectedSpecies && trait.IncludedSpecies.Count > 0 && !trait.IncludedSpecies.Contains(selectedSpecies))
                 {
                     Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     continue;
                 }
-                // End Goobstation: port DV Species trait exclusion
+                // End Goobstation: ported from DeltaV - Species trait exclusion
 
                 if (trait.Category == null)
                 {
