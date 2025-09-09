@@ -14516,3 +14516,9 @@ Entries:
       message: Disabled Revenant from being able to spawn as a mid-round antagonist.
   id: 1618
   time: '2025-09-09T13:49:27.0000000+00:00'
+- author: Lumminal
+  changes:
+    - type: Add
+      message: Xenomorph guidebook has been added
+  id: 1619
+  time: '2025-09-09T14:29:01.0000000+00:00'
