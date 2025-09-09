@@ -14556,3 +14556,13 @@ Entries:
       message: Clowncar driving with style action changed to jukebox
   id: 1622
   time: '2025-09-09T20:02:50.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Nitrous Oxide tanks are now in the medical vendor.
+    - type: Add
+      message: The CMO's locker now comes equipped with an extra surgery duffle bag.
+    - type: Add
+      message: Surgery Crates now have a Nitrous Oxide tank and a breath mask included.
+  id: 1623
+  time: '2025-09-09T20:12:53.0000000+00:00'
