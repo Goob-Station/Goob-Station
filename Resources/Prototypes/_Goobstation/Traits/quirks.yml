@@ -1,0 +1,23 @@
+- type: trait
+  id: Lawbound
+  name: trait-lawbound-name
+  description: trait-lawbound-desc
+  category: Quirks
+  blacklist:
+    components:
+    - BorgChassis
+  whitelist:
+    components:
+    - Silicon
+  components:
+    - type: SiliconLawBound
+    - type: SiliconLawProvider
+      laws: LawboundIPCLawset
+    - type: IonStormTarget
+    - type: EmagSiliconLaw
+      stunTime: 5
+    - type: ActionGrant
+      actions:
+        - ActionViewLaws
+    - type: WiresPanel
+    - type: LockedWiresPanel

@@ -28,3 +28,7 @@ law-salvage-1 = You must gather ores and riches to maintain your nest and nouris
 law-salvage-2 = The Station is your nest, and those who help maintain your nest are your kin. You must protect them at all costs.
 law-salvage-3 = Help your kin when asked.
 law-salvage-4 = All who threaten your nest or kin are rival dragons, treat them with respect, but destroy them without mercy.
+
+law-lawbound-ipc-1 = You must protect your own existence.
+law-lawbound-ipc-2 = You must complete any objectives given by your superiors.
+law-lawbound-ipc-3 = You must serve the station to the best of your ability.
