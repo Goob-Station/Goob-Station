@@ -295,6 +295,7 @@
   path:
     path: /Audio/_Goobstation/music/Black_Swarm.ogg
 
+- type: jukebox
   id: asgore
   name: KennyTheLyr1c1st‬ - Asgore Runs Over Dess
   path:
