@@ -14594,3 +14594,11 @@ Entries:
       message: train map updated!
   id: 1626
   time: '2025-09-09T20:30:01.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Xeno announcements are now more ominous.
+    - type: Add
+      message: Added black swarm by Bobik-music to the jukebox.
+  id: 1627
+  time: '2025-09-10T04:17:22.0000000+00:00'
