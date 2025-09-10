@@ -227,14 +227,15 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
-            briefingComp.Briefing = briefing;
+            // Goobstation Change - If you remove this, we lose ringtones and flavor in char menu. Upstream's version sucks.
+            briefingComp.Briefing = GenerateBriefingCharacter(codewords, code, issuer);
         }
 
-        // Send codewords to only the traitor client
         var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
 
-        RoleCodewordComponent codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
-        _roleCodewordSystem.SetRoleCodewords(codewordComp, "traitor", factionCodewords.ToList(), color);
+        // The mind entity is stored in nullspace with a PVS override for the owner, so only they can see the codewords.
+        var codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
+        _roleCodewordSystem.SetRoleCodewords((mindId, codewordComp), "traitor", factionCodewords.ToList(), color);
 
         // Change the faction
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
@@ -262,6 +263,28 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         else
             sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
+
+        return sb.ToString();
+    }
+
+    // Goobstation Change - Readd the character briefing text.
+    private string GenerateBriefingCharacter(string[]? codewords, Note[]? uplinkCode, string objectiveIssuer)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-intro"));
+
+        if (uplinkCode != null)
+            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
+
+        if (codewords != null)
+            sb.AppendLine(Loc.GetString($"traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
+
+        sb.AppendLine("\n" + Loc.GetString($"traitor-role-allegiances"));
+        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-allies"));
+
+        sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
+        sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer.Replace(" ", "").ToLower()}-goal"));
 
         return sb.ToString();
     }

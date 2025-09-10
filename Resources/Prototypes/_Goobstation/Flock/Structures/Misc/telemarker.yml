@@ -1,0 +1,18 @@
+- type: entity
+  id: FlockTelemarker
+  parent: BasePortal
+  name: strange glowing marker
+  description: ...I got nothing.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Goobstation/Flock/Structures/Misc/telemarker.rsi
+    layers:
+      - state: telemarker
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#0fb79a"
+    netsync: false

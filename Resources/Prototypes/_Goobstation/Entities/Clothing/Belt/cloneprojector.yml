@@ -33,6 +33,8 @@
     - type: NoSlip
     - type: ZombieImmune
     - type: CrematoriumImmune
+    - type: BreathingImmunity
+    - type: TemperatureImmunity
     - type: TypingIndicator
       proto: robot
     - type: Speech

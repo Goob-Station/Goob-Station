@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -31,24 +33,27 @@
     cost: 100
   - id: DrinkAbsintheBottleFull
     cost: 100
+  - id: Flare
+    cost: 100
   - id: CigarGold
     cost: 150
   - id: Soap
     cost: 200
-  - id: PKAUpgradeLight
-    cost: 500
   - id: SeismicCharge
     cost: 250
-  - id: WeaponGrapplingGun
-    cost: 300
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
-  - id: FultonBeacon
+  - id: Fulton
     cost: 400
-  # TODO: bluespace shelter capsule for 400
+  - id: FultonBeacon
+    cost: 500
+  - id: PowerCellHigh
+    cost: 500
   - id: ClothingEyesGlassesGarMeson
     cost: 500
   - id: ClothingBeltSalvageWebbing
+    cost: 500
+  - id: PKAUpgradeLight
     cost: 500
   - id: ClothingShoesBootsJack
     cost: 550
@@ -58,6 +63,12 @@
     cost: 600
   - id: MedkitBurnFilled
     cost: 600
+  - id: DoubleEmergencyOxygenTankFilled
+    cost: 650
+  - id: DoubleEmergencyNitrogenTankFilled
+    cost: 650
+  - id: ClothingMaskWeldingGas
+    cost: 750
   - id: LavalandJaunter
     cost: 750
   - id: WeaponCrusher
@@ -68,17 +79,19 @@
     cost: 750
   - id: SurvivalMedipen
     cost: 800
-  - id: Fulton
-    cost: 1000
+  - id: PowerCellHigh
+    cost: 900
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
     cost: 1000
+  - id: ShelterCapsule
+    cost: 1000
+  - id: LavalandEquipmentExplorerSuit
+    cost: 1000
   - id: AdvancedMineralScanner
     cost: 1100
   - id: PKAUpgradeDamage
-    cost: 1200
-  - id: LavalandEquipmentExplorerSuit
     cost: 1200
   # TODO: lazarus injector for 1k
   - id: LavalandWeaponKineticHammer
@@ -98,20 +111,32 @@
   - id: WeaponProtoKineticShotgun
     cost: 1500
   - id: LuxuryMedipen
-    cost: 1600
+    cost: 1500
   - id: WeaponPlasmaCutter
     cost: 1700
-  - id: ShelterCapsule
+  - id: BorgModuleAdvancedMining
+    cost: 2000
+  - id: ClothingHandsGlovesCombat
     cost: 2000
   - id: OreBagOfHolding
     cost: 2000
-  - id: BorgModuleAdvancedMining
-    cost: 2000
   # TODO: super resonator for 2500
   # TODO: jump boots for 2500
+  - id: ClothingNeckCloakHelldiver
+    cost: 2000
+  - id: ClothingShoesBootsMoon
+    cost: 2000
   - id: ClothingOuterHardsuitSalvage
-    cost: 3000
+    cost: 2000
+  - id: ClothingOuterHardsuitLuxury
+    cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
   - id: ShelterCapsuleLuxury
     cost: 3000
+  - id: ClothingEyesNightVisionGoggles
+    cost: 3500
+  - id: MiningDrillDiamond
+    cost: 4000 #Mostly for flexing
+  - id: CrateCargoClarkeAssembly
+    cost: 12500 #TODO: Make modules real
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

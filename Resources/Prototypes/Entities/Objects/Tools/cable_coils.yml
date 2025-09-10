@@ -112,16 +112,16 @@
         Ion: -4 # Goobstation
         Radiation: -2.5 # Goobstation - Make IPCs take radiation
   # EE Change End
-  # FIXME: Used isnt actually implemented so its still unlimited.
-  # Uncomment this when its implemented, and make sure it handles StackComponent right
-  #- type: Hemostat # Shitmed
-  #  speed: 0.15
-  #- type: SurgeryTool # Shitmed
-  #  used: true
-  #  startSound:
-  #    path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-  #  endSound:
-  #    path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  # <Shitmed>
+  - type: Stitches
+    speed: 0.7
+    used: true
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  # </Shitmed>
 
 - type: entity
   id: CableHVStack

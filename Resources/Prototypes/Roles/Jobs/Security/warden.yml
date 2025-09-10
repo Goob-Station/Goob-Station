@@ -141,14 +141,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 #10 hrs
-    - !type:SpeciesRequirement
+    - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
-      - Tajaran
-      - Resomi
-      - Shadowkin
-      - Rodentia
-      - Harpy
+      - Felinid
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
