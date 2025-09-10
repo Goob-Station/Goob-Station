@@ -32,7 +32,7 @@ public sealed partial class MegafaunaSystem
     public RequestPerformActionEvent GetPerformEvent(EntityUid boss, EntityUid action)
     {
         var targetingComp = CompOrNull<MegafaunaAiTargetingComponent>(boss);
-        var netAction = GetNetEntity(boss);
+        var netAction = GetNetEntity(action);
         var netTarget = GetNetEntity(targetingComp?.TargetEntity);
         var netCoords = GetNetCoordinates(targetingComp?.TargetCoordinate);
 
@@ -42,7 +42,12 @@ public sealed partial class MegafaunaSystem
     /// <summary>
     /// Picks a new target based on bosses AggressiveComponent.
     /// </summary>
-    public bool TryPickTargetAggressive(MegafaunaCalculationBaseArgs args, List<MegafaunaTargetCondition> conditions)
+    public bool TryPickTargetAggressive(
+        MegafaunaCalculationBaseArgs args,
+        List<MegafaunaTargetCondition> conditions,
+        bool setTarget,
+        bool setCoordinates,
+        bool clearAll)
     {
         if (!_aggressiveQuery.TryComp(args.BossEntity, out var aggressiveComp))
             return false;
@@ -79,7 +84,9 @@ public sealed partial class MegafaunaSystem
             return false;
 
         var targetComp = EnsureComp<MegafaunaAiTargetingComponent>(args.BossEntity);
-        targetComp.TargetEntity = picked;
+        targetComp.TargetEntity = picked.Value;
+        targetComp.TargetCoordinate = Transform(picked.Value).Coordinates;
+
         return true;
     }
 }

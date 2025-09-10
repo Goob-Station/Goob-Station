@@ -38,9 +38,6 @@ public sealed partial class MegafaunaSystem : EntitySystem
             if (!ai.Active)
                 continue;
 
-            var watch = new Stopwatch();
-            watch.Start();
-
             var selectors = new Dictionary<TimeSpan, MegafaunaSelector>(ai.Schedule);
             foreach (var (time, action) in selectors)
             {
@@ -57,8 +54,6 @@ public sealed partial class MegafaunaSystem : EntitySystem
                 var nextAction = _timing.CurTime + TimeSpan.FromSeconds(actionTime + delayTime);
                 ai.Schedule.Add(nextAction, ai.Selector);
             }
-
-            Log.Info($"Megafauna updated in {watch.Elapsed.TotalMicroseconds} microseconds");
         }
     }
 

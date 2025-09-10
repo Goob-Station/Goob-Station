@@ -13,8 +13,9 @@
       state: icon
     itemIconStyle: NoItem
   - type: TargetAction
-    checkCanAccess: false
+    #checkCanAccess: false
     range: 30
+  - type: EntityTargetAction
   - type: WorldTargetAction
 
 - type: entity
@@ -41,7 +42,6 @@
     minDelay: 4.0
     maxDelay: 8.0
     inverse: true
-  - type: EntityTargetAction
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
       spawn: HierophantShapeCrossSequence
@@ -58,7 +58,6 @@
     minDelay: 10.0
     maxDelay: 30.0
     inverse: true
-  - type: EntityTargetAction
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
       spawn: LavalandHierophantChaser
