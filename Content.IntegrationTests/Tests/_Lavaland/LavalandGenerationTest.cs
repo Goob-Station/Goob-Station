@@ -33,7 +33,7 @@ using Robust.Shared.GameObjects;
 namespace Content.IntegrationTests.Tests._Lavaland;
 
 [TestFixture]
-[TestOf(typeof(LavalandPlanetSystem))]
+[TestOf(typeof(LavalandSystem))]
 public sealed class LavalandGenerationTest
 {
     [Test]
@@ -47,7 +47,7 @@ public sealed class LavalandGenerationTest
         var mapMan = server.MapMan;
 
         var ticker = server.System<GameTicker>();
-        var lavaSystem = entMan.System<LavalandPlanetSystem>();
+        var lavaSystem = entMan.System<LavalandSystem>();
         var mapSystem = entMan.System<SharedMapSystem>();
 
         // Setup
