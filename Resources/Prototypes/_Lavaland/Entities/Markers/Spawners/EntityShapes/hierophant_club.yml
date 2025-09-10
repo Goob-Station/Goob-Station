@@ -3,13 +3,13 @@
   parent: MarkerBase
   id: HierophantClubShapeExpandingBox
   name: hierophant attack box expanding spawner
-  suffix: Anger
+  suffix: Hierophant club
   components:
   - type: Sprite
     state: red
   - type: ShapeSpawnerCounter
     maxCounter: 5
-    spawnPeriod: 0.7
+    spawnPeriod: 1.2
   - type: ExpandingShapeSpawner
     counterSize: 1
     spawn: LavalandHierophantSquare
@@ -21,7 +21,7 @@
   parent: MarkerBase
   id: HierophantClubShapeRandomCross
   name: hierophant attack cross sequence spawner
-  suffix: Anger
+  suffix: Hierophant club
   components:
   - type: Sprite
     state: red

@@ -42,15 +42,18 @@ public sealed class EntityShapeSystem : EntitySystem
             if (counterComp.NextSpawn < _timing.CurTime)
                 continue;
 
+            if (counterComp.Counter == counterComp.MaxCounter)
+            {
+                QueueDel(uid);
+                continue;
+            }
+            
             counterComp.NextSpawn = _timing.CurTime + counterComp.SpawnPeriod;
 
             counterComp.Counter++;
 
             var ev = new SpawnCounterEntityShapeEvent(counterComp.Counter);
             RaiseLocalEvent(uid, ref ev);
-
-            if (counterComp.Counter == counterComp.MaxCounter)
-                QueueDel(uid);
         }
     }
 
