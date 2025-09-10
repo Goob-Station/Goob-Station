@@ -238,6 +238,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
         CVarDef.Create("admin.bwoink_use_admin_ooc_color", true, CVar.SERVERONLY);
 
+    /// <summary>
+    ///     Discord Webhook for the station report
+    /// </summary>
+    public static readonly CVarDef<string> StationReportDiscordWebHook =
+        CVarDef.Create("stationreport.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
     #endregion
 
     /// <summary>
@@ -339,6 +345,10 @@ public sealed partial class GoobCVars
     // also used by secret+
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+
+    // used by secret+
+    public static readonly CVarDef<float> RoundstartChaosScoreMultiplier =
+        CVarDef.Create("gamedirector.roundstart_chaos_score_multiplier", 1f, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);

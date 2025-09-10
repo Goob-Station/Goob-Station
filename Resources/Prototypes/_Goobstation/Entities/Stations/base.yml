@@ -1,6 +1,0 @@
-- type: entity
-  id: BaseStationSiliconLawAsimov
-  abstract: true
-  components:
-  - type: SiliconLawProvider
-    laws: Asimov
