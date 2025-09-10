@@ -17,9 +17,9 @@
     baseWalkSpeed: 8
     baseSprintSpeed: 8
   - type: Sprite
-    sprite: Mobs/Ghosts/revenant.rsi
+    sprite: _Goobstation/Wraith/wraith.rsi
     layers:
-    - state: active
+    - state: base
   - type: StatusEffects
     allowed:
     - Stun
@@ -41,6 +41,9 @@
     layer: 2 #ghost vis layer
   - type: Speech
     speechVerb: Ghost
+  - type: Hands #Used for the stupid crayons from Impstation, we can remove this if we ever decide to redo the blood crayon ability
+    showInHands: false
+    disableExplosionRecursion: true
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: NightVision # Goobstation - Nightvision
