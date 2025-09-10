@@ -17,6 +17,11 @@
   - type: NoSlip
   - type: BloodCrawl
     isCrawling: true
+    blood:
+    - Blood
+    - AmmoniaBlood
+    - InsectBlood
+    - CopperBlood
   - type: DemonicWhisper
   - type: Visibility
     layer: 2
