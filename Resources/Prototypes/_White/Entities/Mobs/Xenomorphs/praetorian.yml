@@ -1,0 +1,95 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphPraetorian
+  name: xenomorph praetorian
+  description: An elite specimen designed to protect the Hive and the Queen, his very presence instills fear and trepidation into the enemy ranks.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+      offset: 0, 0.6
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: Xenomorph
+    caste: Praetorian
+  - type: TailLash
+    tailDamage:
+      groups:
+        Brute: 12
+    inject:
+      Tirizene: 5
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnWallResin
+    - ActionSpawnResinMembrane
+    - ActionSpawnResinNest
+    - ActionSpawnResinWeedNode
+  - type: Body
+    prototype: XenomorphPraetorian
+  - type: TypingIndicator
+    proto: alien_royal
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      360: Critical
+      375: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      225: 0.9
+      270: 0.7
+      315: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphPraetorian
+
+- type: entity
+  parent: BaseMobXenomorphPraetorian
+  id: MobXenomorphPraetorian
+  components:
+  - type: XenomorphEvolution
+    evolutionActionId: ActionEvolutionQueen
+    evolvesTo:
+    - prototype: MobXenomorphQueen
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-praetorian-name
+    description: ghost-role-information-xenomorph-praetorian-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphPraetorian]
+  id: MobXenomorphPraetorianDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      225: 0.7
+      270: 0.6
+      315: 0.5

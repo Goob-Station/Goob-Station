@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.Actions;
+using Content.Shared.Flash;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -188,6 +189,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         }
 
         component.IsActive = activate;
+        _actions.SetToggled(component.ToggleActionEntity, activate); // WD EDIT - it's white dream system but okay
         Dirty(uid, component);
     }
 

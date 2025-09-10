@@ -23,6 +23,7 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
+using Content.Shared.Flash;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Maps;
@@ -145,7 +146,7 @@ public sealed partial class HereticAbilitySystem
         if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
-        args.Cancel();
+        args.Cancelled = true;
     }
 
     private void OnSpread(Entity<RustSpreaderComponent> ent, ref SpreadNeighborsEvent args)
