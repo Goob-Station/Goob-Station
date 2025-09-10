@@ -44,7 +44,7 @@ public sealed partial class AngerComponent : Component
     /// <summary>
     /// Hard-cap for anger, that no matter what cannot be overcome.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float AngerHardcap = 5f;
 
     /// <summary>

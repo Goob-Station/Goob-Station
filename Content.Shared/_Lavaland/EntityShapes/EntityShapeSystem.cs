@@ -3,8 +3,8 @@ using Content.Shared._Lavaland.EntityShapes.Components;
 using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.EntityShapes;
@@ -14,7 +14,7 @@ public sealed class EntityShapeSystem : EntitySystem
     [Dependency] private readonly AngerSystem _anger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<ShapeSpawnerCounterComponent> _counterQuery;
 
@@ -65,8 +65,13 @@ public sealed class EntityShapeSystem : EntitySystem
     {
         spawned = new List<EntityUid>();
 
+        // Sadly we still don't have shared random.
+        // It also crashes the spawn menu.
+        if (_net.IsClient)
+            return;
+
         var center = coords.Position;
-        var result = shape.GetShape(_random.GetRandom(), _protoMan, center);
+        var result = shape.GetShape(GetRandom(), _protoMan, center);
 
         foreach (var pos in result)
         {
@@ -120,5 +125,10 @@ public sealed class EntityShapeSystem : EntitySystem
             comp.Shape.DefaultStepSize = (int) Math.Round(comp.CounterStepSize.Value * args.Counter);
 
         SpawnEntityShape(comp.Shape, Transform(ent).Coordinates, comp.Spawn, out _);
+    }
+
+    private System.Random GetRandom()
+    {
+        return new System.Random((int) _timing.CurTick.Value);
     }
 }

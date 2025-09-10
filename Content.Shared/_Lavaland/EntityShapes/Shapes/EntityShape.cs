@@ -32,7 +32,7 @@ public abstract partial class EntityShape
     public int DefaultSize;
 
     [DataField("step")]
-    public int DefaultStepSize;
+    public int DefaultStepSize = 1;
 
     [ViewVariables]
     public Vector2 Offset;

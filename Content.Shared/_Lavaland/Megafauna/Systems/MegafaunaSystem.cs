@@ -1,6 +1,7 @@
 ﻿using Content.Shared._Lavaland.Aggression;
 
 using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Selectors;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -39,7 +40,8 @@ public sealed partial class MegafaunaSystem : EntitySystem
 
             var watch = new Stopwatch();
             watch.Start();
-            var selectors = ai.Schedule;
+
+            var selectors = new Dictionary<TimeSpan, MegafaunaSelector>(ai.Schedule);
             foreach (var (time, action) in selectors)
             {
                 if (time > _timing.CurTime)
@@ -50,7 +52,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
                 ai.Schedule.Remove(time);
 
                 // Add next action to this thread
-                actionTime = Math.Abs(actionTime); // Safety measure from YAMLmalders.
+                actionTime = Math.Max(Math.Abs(actionTime), 0.02f);
                 var delayTime = ai.ActionDelaySelector.Get(args);
                 var nextAction = _timing.CurTime + TimeSpan.FromSeconds(actionTime + delayTime);
                 ai.Schedule.Add(nextAction, ai.Selector);

@@ -1,5 +1,6 @@
 ﻿using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared.Damage;
+using Robust.Shared.Player;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -18,8 +19,7 @@ public sealed class MegafaunaGodmodeSystem : EntitySystem
     private void OnBeforeDamageChanged(Entity<MegafaunaGodmodeComponent> ent, ref BeforeDamageChangedEvent args)
     {
         if (args.Origin == null
-            || _megafaunaQuery.TryComp(ent, out var ai)
-            && !ai.Active)
+            || !HasComp<ActorComponent>(args.Origin))
             args.Cancelled = true;
     }
 }

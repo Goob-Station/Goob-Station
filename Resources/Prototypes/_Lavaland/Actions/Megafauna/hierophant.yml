@@ -1,8 +1,8 @@
 # Entity Shape Attacks
 - type: entity
-  id: ActionBaseHierophantAttack
-  name: Spawn attack
-  description: Spawns an attack on the target position.
+  id: ActionBaseHierophant
+  parent: BaseAction
+  name: hierophant action
   abstract: true
   components:
   - type: Action
@@ -12,12 +12,14 @@
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 30
   - type: WorldTargetAction
-    event: !type:SpawnEntityActionEvent
 
 - type: entity
   id: ActionHierophantBox
-  parent: ActionBaseHierophantAttack
+  parent: ActionBaseHierophant
   name: Expanding Box
   description: Spawns an expanding box on the target position.
   components:
@@ -31,7 +33,7 @@
 
 - type: entity
   id: ActionHierophantCrosses
-  parent: ActionBaseHierophantAttack
+  parent: ActionBaseHierophant
   name: Sequence Crosses
   description: Spawns a sequence of crosses on the target position.
   components:
@@ -47,7 +49,7 @@
 
 - type: entity
   id: ActionHierophantChasers
-  parent: ActionBaseHierophantAttack
+  parent: ActionBaseHierophant
   name: Spawn Chasers
   description: Spawns hierophant tile chasers that move towards the target.
   categories: [ HideSpawnMenu ]
@@ -64,15 +66,10 @@
 
 - type: entity
   id: ActionHierophantBlink
+  parent: ActionBaseHierophant
   name: Blink
   description: Teleports you to the target position.
   components:
-  - type: Action
-    priority: -22
-    icon:
-      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
-      state: icon
-    itemIconStyle: NoItem
   - type: AngerDelayAction
     minDelay: 5.0
     maxDelay: 15.0

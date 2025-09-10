@@ -41,18 +41,26 @@ public static class ShapeHelperMethods
         return hollow ? MakeBoxHollow(center, range, stepSize) : MakeBoxFilled(center, range, stepSize);
     }
 
+
     public static IEnumerable<Vector2> MakeBoxFilled(Vector2 center, int range, int stepSize = 1)
     {
         if (range <= 0)
             yield break;
 
+        if (stepSize <= 0)
+            throw new ArgumentOutOfRangeException(nameof(stepSize), "stepSize must be greater than zero.");
+
+        // If range == 1, just return the center
         if (range == 1)
         {
             yield return center;
             yield break;
         }
 
-        var startPoint = center - new Vector2(range / 2, range / 2);
+        // Use float arithmetic to get a true centered start.
+        // (range - 1) / 2f centers the integer grid around the center.
+        float half = (range - 1) / 2f;
+        var startPoint = center - new Vector2(half, half);
 
         for (int y = 0; y < range; y += stepSize)
         {
@@ -165,7 +173,7 @@ public static class ShapeHelperMethods
         int removeAmount = 0,
         int stepSize = 1)
     {
-        var refs = MakeBoxFilled(center, range).ToList();
+        var refs = MakeBoxFilled(center, range, stepSize).ToList();
         for (int i = 0; i < removeAmount; i++)
         {
             if (refs.Count == 0)

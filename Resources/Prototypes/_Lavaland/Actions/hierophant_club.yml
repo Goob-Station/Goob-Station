@@ -37,7 +37,7 @@
 
 - type: entity
   id: ActionHierophantClubAttackCross
-  parent: ActionBaseHierophantAttack
+  parent: ActionBaseHierophant
   name: Random Cross
   description: Spawns a random cross on the target position.
   components:
@@ -47,7 +47,7 @@
 
 - type: entity
   id: ActionHierophantClubAttackBox
-  parent: ActionBaseHierophantAttack
+  parent: ActionBaseHierophant
   name: Expanding box
   description: Spawns an expanding box on the target position.
   components:

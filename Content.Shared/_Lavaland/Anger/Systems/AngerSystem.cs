@@ -27,6 +27,7 @@ public sealed class AngerSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AngerComponent, MapInitEvent>(OnCompStartup);
         SubscribeLocalEvent<AngerComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<AngerComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<AngerComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
@@ -92,7 +93,7 @@ public sealed class AngerSystem : EntitySystem
 
     public void UpdateScaledThresholds(Entity<AngerComponent?, AggressiveComponent?, AngerPlayerScalingComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3)
+        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3, false)
             || ent.Comp3.HealthScalingFactor == null)
             return;
 
@@ -147,7 +148,7 @@ public sealed class AngerSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp, false))
             return min; // Minimal possible value as if anger was 0
 
-        var maxAnger = ent.Comp.MaxAnger;
+        var maxAnger = Math.Max(ent.Comp.MaxAnger, 0.1f);
         var anger = ent.Comp.CurrentAnger;
         var progress = anger / maxAnger;
         return inverse
@@ -156,6 +157,12 @@ public sealed class AngerSystem : EntitySystem
     }
 
     #region Event Handling
+
+    private void OnCompStartup(Entity<AngerComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.MaxAnger = ent.Comp.DefaultMaxAnger;
+        ent.Comp.MinAnger = ent.Comp.DefaultMinAnger;
+    }
 
     private void OnAggressorAdded(Entity<AngerComponent> ent, ref AggressorAddedEvent args)
         => UpdateScaledThresholds(ent.Owner);
