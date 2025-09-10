@@ -22,7 +22,12 @@ public sealed class DeafnessSystem : EntitySystem
 
     private void OnOverrideInVoiceRange(EntityUid uid, DeafComponent comp, ref ChatMessageOverrideInVoiceRangeEvent args)  // blocks normal chat
     {
-        if (args.Channel is ChatChannel.Emotes or ChatChannel.Damage or ChatChannel.Visual or ChatChannel.Notifications or ChatChannel.OOC or ChatChannel.LOOC)
+        if (args.Channel is ChatChannel.Emotes 
+            or ChatChannel.Damage
+            or ChatChannel.Visual
+            or ChatChannel.Notifications
+            or ChatChannel.OOC
+            or ChatChannel.LOOC)
             return;
 
         args.Cancelled = true;
