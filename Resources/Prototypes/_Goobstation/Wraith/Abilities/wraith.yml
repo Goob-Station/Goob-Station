@@ -1,0 +1,27 @@
+# This is where all the wraith abilities are stored at.
+# Abilities are structured in a way that each action corresponds in its own component, and its own system.
+
+# For example,
+#  - type: entity
+#  id: MyAbilities
+#  name: A name
+#  category: [ HideSpawnMenu ]
+#  components:
+#  - AbilityOne -> Allows us to perform ActionOne
+#  - AbilityTwo -> Allows us to perform ActionTwo
+#  - ActionGrant -> Grants us the actions
+#    actions:
+#    - ActionOne
+#    - ActionTwo
+
+# This gets added to the entity either through MapInit or through an event
+
+- type: entity
+  id: WraithAbilities
+  name: Wraith Abilities
+  category: [ HideSpawnMenu ]
+  components:
+  # - Haunt
+  # - ActionGrant
+  # actions:
+  #   HauntAction
