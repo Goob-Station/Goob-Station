@@ -1,1 +1,54 @@
 # This is where the wraith mob exists, and all its variants (Harbinger, Plaguebringer, Trickster)
+
+- type: entity
+  id: MobWraith
+  parent:
+  - Incorporeal
+  - BaseMob
+  name: Wraith
+  description: A VERY spooky ghostie.
+  components:
+  - type: Wraith
+    abilities: WraithAbilities
+  - type: Input
+    context: "ghost"
+  - type: Spectral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8
+  - type: Sprite
+    sprite: Mobs/Ghosts/revenant.rsi
+    layers:
+    - state: active
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - Corporeal
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
+  - type: NoSlip
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: Visibility
+    layer: 2 #ghost vis layer
+  - type: Speech
+    speechVerb: Ghost
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: UniversalLanguageSpeaker # Einstein Engines - Languages
+  - type: NightVision # Goobstation - Nightvision
+    color: MediumPurple
+    activateSound: null
+    deactivateSound: null
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+  - type: WeakToHoly
+    alwaysTakeHoly: true
