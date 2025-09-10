@@ -153,11 +153,6 @@ public partial class SharedBodySystem
             RaiseLocalEvent(organEnt, ref removedInBodyEv);
         }
 
-        if (parentPartUid is { Valid: true }
-            && TryComp(parentPartUid, out DamageableComponent? damageable)
-            && damageable.TotalDamage > 200)
-            TrySetOrganUsed(organEnt, true, organEnt.Comp);
-
         organEnt.Comp.Body = null;
         Dirty(organEnt, organEnt.Comp);
     }
@@ -343,17 +338,6 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change Start
-
-    public bool TrySetOrganUsed(EntityUid organId, bool used, OrganComponent? organ = null)
-    {
-        if (!Resolve(organId, ref organ)
-            || organ.Used == used)
-            return false;
-
-        organ.Used = used;
-        Dirty(organId, organ);
-        return true;
-    }
 
     private void OnOrganEnableChanged(Entity<OrganComponent> organEnt, ref OrganEnableChangedEvent args)
     {
