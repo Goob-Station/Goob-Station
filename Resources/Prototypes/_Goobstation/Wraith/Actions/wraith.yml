@@ -11,7 +11,7 @@
     startDelay: true
     useDelay: 5
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi/blood_writing.png
+      sprite: _Goobstation/Wraith/actions.rsi
       state: blood_writing
   - type: InstantAction
     event: !type:WraithBloodWritingEvent
