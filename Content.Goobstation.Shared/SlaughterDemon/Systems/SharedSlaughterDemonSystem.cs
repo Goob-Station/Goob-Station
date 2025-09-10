@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -49,6 +50,9 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
+
+        // cant pickup items
+        SubscribeLocalEvent<SlaughterDemonComponent, PickupAttemptEvent>(OnPickup);
     }
 
     public override void Update(float frameTime)
@@ -151,6 +155,9 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         PredictedSpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
     }
+
+    private void OnPickup(Entity<SlaughterDemonComponent> ent, ref PickupAttemptEvent args) =>
+        args.Cancel();
 
     protected virtual void RemoveBlood(EntityUid uid) {}
 
