@@ -5,6 +5,7 @@ namespace Content.Shared.Chat;
 
     /// <summary>
     /// Raised for a specific entity to allow overriding or cancelling chat messages in voice range.
+    /// all of this is Goob btw
     /// </summary>
     public sealed class ChatMessageOverrideInVoiceRangeEvent : EntityEventArgs
     {
