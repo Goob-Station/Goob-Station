@@ -4189,3 +4189,10 @@
   id: 8948
   time: '2025-09-10T21:48:53.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40265
+- author: Princess-Cheeseballs
+  changes:
+  - message: Cardboard boxes can no longer freely move in space.
+    type: Fix
+  id: 8949
+  time: '2025-09-10T22:13:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40260
