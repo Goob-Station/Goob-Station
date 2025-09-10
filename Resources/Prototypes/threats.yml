@@ -28,3 +28,9 @@
   announcement: terror-slaughter-demon
   rule: SlaughterDemonMidround
 # Goobstation - end
+
+#- type: ninjaHackingThreat
+#  id: Revenant
+#  announcement: terror-revenant
+#  rule: RevenantSpawn
+# Revenant was disabledz
