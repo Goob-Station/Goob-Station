@@ -52,7 +52,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Dead
+      100: Dead
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 40
