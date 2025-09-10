@@ -1,0 +1,23 @@
+- type: entity
+  id: Boombox
+  name: boombox
+  parent: BaseItem
+  description: An old boombox made in the earth country of kazakhstan.
+  components:
+  - type: Sprite
+    sprite: _DreamWalkers/Objects/Misc/boombox.rsi
+    state: icon
+  - type: Item
+    sprite: _DreamWalkers/Objects/Misc/boombox.rsi
+    size: Large
+  - type: Jukebox
+    onState: on
+    offState: off
+    selectState: select
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+        enum.JukeboxUiKey.Key:
+          type: JukeboxBoundUserInterface
