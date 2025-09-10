@@ -258,6 +258,5 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 ///     Defines a set item listing that is available in a store
 /// </summary>
 [Prototype("listing")]
-[Serializable, NetSerializable]
 [DataDefinition]
 public sealed partial class ListingPrototype : ListingData, IPrototype;
