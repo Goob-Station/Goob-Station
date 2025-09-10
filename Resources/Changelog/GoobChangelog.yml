@@ -14650,3 +14650,11 @@ Entries:
         language
   id: 1630
   time: '2025-09-10T22:04:07.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: >-
+        Bugspray has been applied to all monitors. You no longer have to fear
+        spiders on your screen.
+  id: 1631
+  time: '2025-09-10T22:05:51.0000000+00:00'
