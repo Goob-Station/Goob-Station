@@ -63,17 +63,14 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (args.Handled)
             return;
 
+
         if (_net.IsClient)
         {
-            var next = !component.Enabled;
-            _appearance.SetData(uid, SneakMode.Enabled, next);
             args.Handled = true;
             return;
         }
 
         var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
-        _appearance.SetData(uid, SneakMode.Enabled, component.Enabled);
-        Dirty(uid, component);
 
         var now = IsOnSubfloor(uid);
         var old = component.WasOnSubfloor;
@@ -87,6 +84,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         var wentUnder = component.Enabled && !IsOnSubfloor(uid);
         var selfKey = wentUnder ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
         var othersKey = wentUnder ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
+
 
         _popup.PopupEntity(Loc.GetString(selfKey), uid, uid);
         _popup.PopupEntity(Loc.GetString(othersKey, ("name", Name(uid))), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
@@ -109,6 +107,12 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             if (_transform.GetGrid(xform.Coordinates) is not { } g || g != gridUid)
                 continue;
 
+            if (comp.Enabled && IsInSpace(uid))
+            {
+                DisableSneakMode(uid, comp);
+                continue;
+            }
+
             var now = IsOnSubfloor(uid);
             var old = comp.WasOnSubfloor;
             comp.WasOnSubfloor = now;
@@ -122,6 +126,11 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     private void OnMove(EntityUid uid, CrawlUnderFloorComponent comp, ref MoveEvent args)
     {
+        if (comp.Enabled && IsInSpace(uid))
+        {
+            DisableSneakMode(uid, comp);
+            return;
+        }
 
         var now = IsOnSubfloor(uid);
         var old = comp.WasOnSubfloor;
@@ -209,9 +218,15 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     public bool IsOnCollidingTile(EntityUid uid)
     {
         var xform = Transform(uid);
-        if (xform.Coordinates.GetTileRef() is not { } tile)
+        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
             return false;
-        return _turf.IsTileBlocked(tile, CollisionGroup.SmallMobMask);
+        if (!TryComp<MapGridComponent>(gridUid, out var grid))
+            return false;
+        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
+        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
+        if (tileRef.Tile.IsEmpty)
+            return false;
+        return _turf.IsTileBlocked(tileRef, CollisionGroup.MobMask);
     }
 
     public bool IsOnSubfloor(EntityUid uid)
@@ -227,6 +242,18 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return false;
         var tileDef = (ContentTileDefinition) _tileManager[tileRef.Tile.TypeId];
         return tileDef.IsSubFloor;
+    }
+
+    private bool IsInSpace(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
+            return true;
+        if (!TryComp<MapGridComponent>(gridUid, out var grid))
+            return true;
+        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
+        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
+        return tileRef.Tile.IsEmpty;
     }
 
     public bool IsHidden(EntityUid uid, CrawlUnderFloorComponent comp)
