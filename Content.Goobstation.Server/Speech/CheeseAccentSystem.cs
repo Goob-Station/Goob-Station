@@ -9,13 +9,13 @@
 
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Speech;
 
 public sealed class CheeseAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()

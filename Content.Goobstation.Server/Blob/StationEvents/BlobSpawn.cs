@@ -20,13 +20,13 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.Player;
 using Robust.Shared.Map;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Blob.StationEvents;
 
 public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     [Dependency] private readonly IPlayerManager _playerSystem = default!;
 
     public override void Initialize()

@@ -15,7 +15,7 @@ using Robust.Shared.Physics.Events;
 using Content.Goobstation.Shared.Contraband;
 using Content.Server.Power.EntitySystems;
 using Robust.Server.Audio;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Contraband;
 
@@ -25,7 +25,7 @@ public sealed class ContrabandDetectorSystem : SharedContrabandDetectorSystem
     [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
 
     public override void Initialize()
     {

@@ -13,7 +13,7 @@ using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 

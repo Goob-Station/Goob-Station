@@ -13,12 +13,13 @@ using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Speech;
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
-
+using Content.Goobstation.Server.Random;
 namespace Content.Goobstation.Server.Speech;
 
 public sealed class GlorpAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     private static readonly string[] StartingLetters = { "n", "x", "z", "v", "g" };
     private static readonly string[] Suffixes = { "narp", "lorp", "leeb", "orp", "orple", "ip", "op", "eegle" };
     private static readonly string[] RandomInserts = { "Glupshitto", "Glorpshit" };
@@ -39,8 +40,8 @@ public sealed class GlorpAccentSystem : EntitySystem
 
     private string GenerateRandomAlienWord()
     {
-        var start = StartingLetters[Random.Shared.Next(StartingLetters.Length)];
-        var suffix = Suffixes[Random.Shared.Next(Suffixes.Length)];
+        var start = StartingLetters[_random.Next(StartingLetters.Length)];
+        var suffix = Suffixes[_random.Next(Suffixes.Length)];
         return start + suffix;
     }
 
@@ -109,10 +110,10 @@ public sealed class GlorpAccentSystem : EntitySystem
         }
 
         // adds glupshitto and glorpshit randomly
-        if (Random.Shared.NextDouble() < 0.25) // percent chance
+        if (_random.NextDouble() < 0.25) // percent chance
         {
-            var randomInsert = RandomInserts[Random.Shared.Next(RandomInserts.Length)];
-            var randomPosition = Random.Shared.Next(words.Count + 1);
+            var randomInsert = RandomInserts[_random.Next(RandomInserts.Length)];
+            var randomPosition = _random.Next(words.Count + 1);
             words.Insert(randomPosition, AdjustCapitalization(randomInsert, allCaps));
         }
 

@@ -14,7 +14,7 @@ using Content.Shared.Drugs;
 using Content.Shared.Heretic;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Clothing;
 
@@ -24,7 +24,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
 
     public override void Update(float frameTime)
     {

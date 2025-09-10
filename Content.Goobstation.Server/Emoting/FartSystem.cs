@@ -25,7 +25,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Goobstation.Server.Emoting;
@@ -35,7 +35,7 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
+    [Dependency] private readonly IGoobRandom _rng = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;

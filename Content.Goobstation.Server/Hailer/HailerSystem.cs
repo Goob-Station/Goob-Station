@@ -16,7 +16,7 @@ using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Hailer;
@@ -27,7 +27,7 @@ public sealed class HailerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGoobRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();

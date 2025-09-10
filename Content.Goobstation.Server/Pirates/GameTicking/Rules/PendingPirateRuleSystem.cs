@@ -21,14 +21,14 @@ using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
 public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPirateRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IGoobRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly GameTicker _gt = default!;
     [Dependency] private readonly StationSystem _station = default!;

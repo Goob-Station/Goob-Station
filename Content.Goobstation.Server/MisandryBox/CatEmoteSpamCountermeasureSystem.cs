@@ -8,7 +8,7 @@ using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
-using Robust.Shared.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.MisandryBox;
 
@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.MisandryBox;
 public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IGoobRandom _rand = default!;
 
     private const float ClearInterval = 20.0f;
     private const float PitchModulo = 0.08f;

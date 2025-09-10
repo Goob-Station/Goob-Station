@@ -16,6 +16,7 @@ using Content.Goobstation.Server.ServerCurrency;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Timing;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.Entry;
 
@@ -23,6 +24,7 @@ public sealed class EntryPoint : GameServer
 {
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
+    private ApiRandomManager _rand = default!;
 
     public override void Init()
     {
@@ -37,8 +39,10 @@ public sealed class EntryPoint : GameServer
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
         IoCManager.Resolve<ISpiderManager>().Initialize();
 
-        _curr = IoCManager.Resolve<ICommonCurrencyManager>(); // Goobstation
-        _curr.Initialize(); // Goobstation
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>();
+        _curr.Initialize();
+        _rand = IoCManager.Resolve<ApiRandomManager>();
+        _rand.Initialize();
     }
 
     public override void PostInit()
@@ -63,6 +67,7 @@ public sealed class EntryPoint : GameServer
     {
         base.Dispose(disposing);
 
-        _curr.Shutdown(); // Goobstation
+        _curr.Shutdown();
+        _rand.Shutdown();
     }
 }

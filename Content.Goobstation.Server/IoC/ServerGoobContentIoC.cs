@@ -18,6 +18,8 @@ using Content.Goobstation.Server.ServerCurrency;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.IoC;
+using Content.Goobstation.Server.Random;
+using Content.Goobstation.Server.Random;
 
 namespace Content.Goobstation.Server.IoC;
 
@@ -33,5 +35,7 @@ internal static class ServerGoobContentIoC
         instance.Register<IFullScreenImageJumpscare, ServerFullScreenImageJumpscare>();
         instance.Register<ISpiderManager, ServerSpiderManager>();
         instance.Register<ICommonCurrencyManager, ServerCurrencyManager>();
+        instance.Register<ApiRandomManager>();
+        instance.Register<IGoobRandom, GoobRandom>();
     }
 }
