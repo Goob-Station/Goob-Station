@@ -50,17 +50,15 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
     private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
     {
-        if (_netManager.IsClient)
-            return;
-
         if (!IsStandingOnBlood((uid, component)))
         {
-            _popup.PopupEntity(Loc.GetString("slaughter-blood-jaunt-fail"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("slaughter-blood-jaunt-fail"), uid, uid);
             _actions.SetCooldown(args.Action.Owner, component.ActionCooldown);
             return;
         }
 
         component.IsCrawling = !component.IsCrawling;
+        Dirty(uid, component);
 
         if (!CheckAlreadyCrawling((uid, component)))
             return;
@@ -71,7 +69,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         if (evAttempt.Cancelled)
             return;
 
-        _audio.PlayPvs(component.EnterJauntSound, Transform(uid).Coordinates);
+        _audio.PlayPredicted(component.EnterJauntSound, Transform(uid).Coordinates, uid);
 
         PolymorphDemon(uid, component.Jaunt);
 

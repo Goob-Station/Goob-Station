@@ -52,5 +52,6 @@ public sealed partial class SlaughterDevourComponent : Component
     /// <summary>
     /// A container that holds the entities instead of outright removing them
     /// </summary>
-    public Container Container = default!;
+    [DataField]
+    public Container? Container;
 }
