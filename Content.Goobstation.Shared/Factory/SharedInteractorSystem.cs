@@ -11,6 +11,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Throwing;
 using Robust.Shared.Containers;
@@ -25,6 +26,7 @@ public abstract class SharedInteractorSystem : EntitySystem
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] protected readonly StartableMachineSystem Machine = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _doAfterQuery;
@@ -131,11 +133,11 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
     {
-        if (_handsQuery.CompOrNull(ent)?.ActiveHandEntity is not {} tool)
+        if (!_hands.TryGetActiveItem(ent.Owner, out var tool))
             return _interaction.InteractHand(ent, target);
 
         var coords = Transform(target).Coordinates;
-        return _interaction.InteractUsing(ent, tool, target, coords);
+        return _interaction.InteractUsing(ent, tool.Value, target, coords);
     }
 
     protected void TryRemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
@@ -169,7 +171,7 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     private void UpdateToolAppearance(EntityUid uid)
     {
-        var state = _handsQuery.CompOrNull(uid)?.ActiveHand?.IsEmpty == false
+        var state = _hands.ActiveHandIsEmpty(uid) == false
             ? InteractorState.Inactive
             : InteractorState.Empty;
         UpdateAppearance(uid, state);

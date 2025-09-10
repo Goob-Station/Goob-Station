@@ -14566,3 +14566,45 @@ Entries:
       message: Surgery Crates now have a Nitrous Oxide tank and a breath mask included.
   id: 1623
   time: '2025-09-09T20:12:53.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Drinking a few cups of coffee will now cause intense jittering and also
+        slightly increase your movement speed.
+    - type: Add
+      message: >-
+        Drinking too much coffee will have adverse consequences. Everything in
+        moderation!
+    - type: Tweak
+      message: Changed the metabolism rate of coffee so it lasts longer in your system.
+  id: 1624
+  time: '2025-09-09T20:17:25.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Corrected chair rendering so entities appear behind chairs only when
+        facing north.
+  id: 1625
+  time: '2025-09-09T20:24:39.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Fix
+      message: train map updated!
+  id: 1626
+  time: '2025-09-09T20:30:01.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Xeno announcements are now more ominous.
+    - type: Add
+      message: Added black swarm by Bobik-music to the jukebox.
+  id: 1627
+  time: '2025-09-10T04:17:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Abductor duos can now be picked by Secret+ roundstart. 👽👽
+  id: 1628
+  time: '2025-09-10T15:00:50.0000000+00:00'
