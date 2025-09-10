@@ -43,19 +43,28 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Morgue;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Morgue;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
@@ -78,6 +87,7 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly CommonGoobCrematoriumSystem _goobCrematorium = default!;
 
     public override void Initialize()
     {
@@ -135,8 +145,7 @@ public sealed class CrematoriumSystem : EntitySystem
         {
             Text = Loc.GetString("cremate-verb-get-data-text"),
             // TODO VERB ICON add flame/burn symbol?
-            Act = () => TryCremate(uid, component, storage),
-            Impact = LogImpact.High // could be a body? or evidence? I dunno.
+            Act = () => TryCremate(uid, args.User, component, storage)
         };
         args.Verbs.Add(verb);
     }
@@ -158,13 +167,28 @@ public sealed class CrematoriumSystem : EntitySystem
         return true;
     }
 
-    public bool TryCremate(EntityUid uid, CrematoriumComponent? component = null, EntityStorageComponent? storage = null)
+    public bool TryCremate(EntityUid uid, EntityUid user, CrematoriumComponent? component = null, EntityStorageComponent? storage = null, AccessReaderComponent? reader = null)
     {
-        if (!Resolve(uid, ref component, ref storage))
+        if (!Resolve(uid, ref component, ref storage, ref reader))
             return false;
 
         if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
             return false;
+
+        var target = storage.Contents.ContainedEntities[0];
+
+        if (!_goobCrematorium.IsAllowed(uid, user))
+            return false;
+
+        if (!_goobCrematorium.CanCremate(uid, target, out var reason))
+        {
+            _audio.PlayPvs(component.CremateDeniedSound, uid);
+            _popup.PopupEntity(reason, uid);
+
+            return false;
+        }
+
+        _goobCrematorium.LogPassedChecks(user, target);
 
         return Cremate(uid, component, storage);
     }
@@ -174,6 +198,8 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!Resolve(uid, ref storage))
             return;
 
+        bool spawnAsh = false; // el goob
+
         _appearance.SetData(uid, CrematoriumVisuals.Burning, false);
         RemComp<ActiveCrematoriumComponent>(uid);
 
@@ -181,15 +207,29 @@ public sealed class CrematoriumSystem : EntitySystem
         {
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
-                var item = storage.Contents.ContainedEntities[i];
-                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
-                    continue;
+                // Goobstation - crematorium extensions
+                var target = storage.Contents.ContainedEntities[i];
 
-                _containers.Remove(item, storage.Contents);
-                EntityManager.DeleteEntity(item);
+                /*
+                 TODO: Come back to this when the "woundmed" makes "wounds" so bad they're just unrevivable.
+                 Or ashing comes back in any form
+                if (HasComp<MobStateComponent>(target))
+                {
+                    _goobCrematorium.Execute(uid, target);
+                    continue;
+                }
+                */
+
+                spawnAsh = true;
+                _containers.Remove(target, storage.Contents);
+                EntityManager.DeleteEntity(target);
             }
-            var ash = Spawn("Ash", Transform(uid).Coordinates);
-            _containers.Insert(ash, storage.Contents);
+
+            if (spawnAsh) // This condition check is also el goob
+            {
+                var ash = Spawn("Ash", Transform(uid).Coordinates);
+                _containers.Insert(ash, storage.Contents);
+            }
         }
 
         _entityStorage.OpenStorage(uid, storage);
