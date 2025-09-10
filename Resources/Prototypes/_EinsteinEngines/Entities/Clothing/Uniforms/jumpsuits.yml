@@ -1,0 +1,128 @@
+---
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFlannelJeans
+  name: flannel shirt and jeans
+  description: A red flannel shirt paired with pale blue jeans. How original.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/flannel_jeans.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/flannel_jeans.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFlannelBlackJeans
+  name: black flannel shirt and jeans
+  description: Not just any flannel, a flannel shirt that's black! Daring today,
+    aren't we?
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/black_flannel_jeans.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/black_flannel_jeans.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFlannelKhakis
+  name: flannel shirt and khakis
+  description: A red flannel shirt with tan khaki pants, a smart pairing.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/flannel_khakis.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/flannel_khakis.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFlannelBlackKhakis
+  name: black flannel shirt and khakis
+  description: A black flannel shirt with tan khaki pants, a smart pairing.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/black_flannel_khakis.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/black_flannel_khakis.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitBlueBlazer
+  name: blue blazer
+  description: A bold yet conservative outfit, red corduroys, navy blazer and a
+    tie.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/blue_blazer.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/blue_blazer.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCheckered
+  name: checkered suit
+  description: The game was rigged from the start.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/checkered.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/checkered.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitOliveSweater
+  name: olive sweater
+  description: A cozy sweater that fits snugly on top of grey work pants.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/olive_sweater.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/olive_sweater.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitVictorianRedBlack
+  name: red and black victorian suit
+  description: A Victorian-style suit, fancy!
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_red_black.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_red_black.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitVictorianRedVest
+  name: red victorian suit
+  description: A Victorian-style suit, fancy!
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_red_vest.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_red_vest.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitVictorianVest
+  name: victorian suit
+  description: A Victorian-style suit, fancy!
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitYogaGymBra
+  name: yoga gym bra
+  description: A gym bra paired with yoga pants, perfect for working out and looking
+    good at the same time.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRippedPunk
+  name: ripped punk jeans
+  description: Black ripped jeans and a fishnet top. How punk.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/rippedpunk.rsi

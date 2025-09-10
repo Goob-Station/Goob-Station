@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatOvercoat
+  name: overcoat
+  description: A warm, dark overcoat, suitable for formal occasions.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.75

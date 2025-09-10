@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  parent: [ClothingBackpackSatchel, BaseFoldable]
+  id: ClothingBackpackSatchelPurse
+  name: purse
+  description: A small, fashionable bag typically worn over the shoulder.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/Back/Satchels/purse.rsi
+    - type: Foldable
+      canFoldInsideContainer: true
+      unfoldVerbText: fold-flip-verb
+      foldVerbText: fold-flip-verb
+    - type: FoldableClothing
+      foldedEquippedPrefix: flipped
+- type: entity
+  parent: ClothingBackpackSatchelPurse
+  id: ClothingBackpackSatchelPurseFlipped
+  suffix: flipped
+  components:
+    - type: Foldable
+      folded: true
+    - type: Clothing
+      equippedPrefix: flipped

@@ -72,6 +72,12 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Head
@@ -79,8 +85,6 @@
   id: BartenderHead
   equipment:
     head: ClothingHeadHatTophat
-
-
 - type: loadout
   id: BartenderBowler
   equipment:
@@ -92,18 +96,19 @@
   id: BartenderJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartender
-
-
 - type: loadout
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
 
-
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
+- type: loadout
+  id: WaitressUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtWaitress
 
 
 # Outer clothing
@@ -111,12 +116,10 @@
   id: BartenderApron
   equipment:
     outerClothing: ClothingOuterApronBar
-
 - type: loadout
   id: BartenderVest
   equipment:
     outerClothing: ClothingOuterVest
-
 - type: loadout
   id: BartenderWintercoat
   equipment:

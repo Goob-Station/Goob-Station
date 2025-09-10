@@ -86,17 +86,21 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutEffectGroup
   id: SeniorJanitorial
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 187200 #52 hrs (1 hour per week for 1 year)
+    - !type:JobRequirementLoadoutEffect
+      requirement: !type:RoleTimeRequirement
+        role: JobJanitor
+        time: 187200  # 52 hrs (1 hour per week for 1 year)
 
 # Head
 - type: loadout
@@ -110,12 +114,14 @@
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
-
-
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+- type: loadout
+  id: MaidOutfitJanitor
+  equipment:
+    jumpsuit: UniformMaid
 
 
 # Gloves
@@ -123,14 +129,10 @@
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
-
-
 - type: loadout
   id: OrangeGloves
   equipment:
     gloves: ClothingHandsGlovesColorOrange
-
-
 - type: loadout
   id: PurpleGloves
   equipment:
@@ -147,8 +149,8 @@
 - type: loadout
   id: JanitorGoldenPlunger
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorJanitorial
+    - !type:GroupLoadoutEffect
+      proto: SeniorJanitorial
   storage:
     back:
     - GoldenPlunger

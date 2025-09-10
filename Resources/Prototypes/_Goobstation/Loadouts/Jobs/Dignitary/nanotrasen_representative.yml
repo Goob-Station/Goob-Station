@@ -73,8 +73,10 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
@@ -133,6 +135,11 @@
   equipment:
     neck: ClothingNeckScarfStripedCentcom
 
+- type: loadout
+  id: ClothingCloakBoatNT
+  equipment:
+    neck: ClothingNeckCloakBoat
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
@@ -181,11 +188,6 @@
   id: NanotrasenRepresentativeClipboard
   equipment:
     belt: BoxFolderCentComClipboard
-
-- type: loadout
-  id: NanotrasenRepresentativeWaistbag
-  equipment:
-    belt: ClothingBeltStorageWaistbag
 
 # Shoes
 - type: loadout

@@ -1,9 +1,417 @@
+---
 # SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Head
+
+# Face
+
+# Jumpsuits
+
+# Random Clothing
+- type: loadout
+  id: AssymetricDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressAsymmetric
+- type: loadout
+  id: EveningDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressEvening
+- type: loadout
+  id: MidiDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressMidi
+- type: loadout
+  id: TeaDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressTea
+- type: loadout
+  id: SlevelessDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressSleeveless
+- type: loadout
+  id: LongSleeveDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressLongSleeve
+- type: loadout
+  id: BlackNGoldDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressBlackAndGold
+- type: loadout
+  id: TangoDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressBlackTango
+- type: loadout
+  id: CheonsamGreenDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressCheongsamGreen
+- type: loadout
+  id: CheonsamPurpleDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressCheongsamPurple
+- type: loadout
+  id: CheonsamRedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressCheongsamRed
+- type: loadout
+  id: CheonsamWhiteDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressCheongsamWhite
+- type: loadout
+  id: BlueSundress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressBlueSundress
+- type: loadout
+  id: ClubDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressClub
+- type: loadout
+  id: CovetDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressCoveter
+- type: loadout
+  id: FlamencoDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressFlamenco
+- type: loadout
+  id: FireDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressFire
+- type: loadout
+  id: OrangeDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressOrange
+- type: loadout
+  id: YellowDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressYellow
+- type: loadout
+  id: FlowergirlDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressFlowergirl
+- type: loadout
+  id: FluffyDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressFluffy
+- type: loadout
+  id: FormalRedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressFormalRed
+- type: loadout
+  id: GothicDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressGothic
+- type: loadout
+  id: OutfitKimono
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtKimonoColor
+- type: loadout
+  id: LacyGownDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressLacyGown
+- type: loadout
+  id: LongLongDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressLong
+- type: loadout
+  id: FlaredDressOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressLongFlared
+- type: loadout
+  id: QipaoOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtQipao
+- type: loadout
+  id: QipaoOutfitSlim
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtQipaoSlim
+- type: loadout
+  id: RedSweptDressOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressRedSwept
+- type: loadout
+  id: GymBraOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPencilSkirtGymBra
+- type: loadout
+  id: PuffyDressOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressPuffy
+- type: loadout
+  id: SailorDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSailor
+- type: loadout
+  id: StripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressStriped
+- type: loadout
+  id: SundressOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressSundress
+- type: loadout
+  id: SundressOutfitWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressSundressWhite
+- type: loadout
+  id: VictorianBlackDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressVictorianBlack
+- type: loadout
+  id: VictorianRedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressVictorianRed
+- type: loadout
+  id: YellowSwoopDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressYellowSwoop
+- type: loadout
+  id: JumpsuitTShirtJeans
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeans
+- type: loadout
+  id: JumpsuitTShirtJeansGray
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansGray
+- type: loadout
+  id: JumpsuitTShirtJeansPeach
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansPeach
+- type: loadout
+  id: JumpsuitTShirtJeansKhaki
+  equipment:
+    jumpsuit: ClothingUniformTShirtKhakiPants
+- type: loadout
+  id: FlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelJeans
+- type: loadout
+  id: BlackFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelBlackJeans
+- type: loadout
+  id: KhakiFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelKhakis
+- type: loadout
+  id: BlackKhakiFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelBlackKhakis
+- type: loadout
+  id: BlueBlazerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlueBlazer
+- type: loadout
+  id: CheckeredSuitOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelKhakis
+- type: loadout
+  id: OliveSweaterOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOliveSweater
+- type: loadout
+  id: VictorianBlackRedVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianRedBlack
+- type: loadout
+  id: VictorianRedVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianRedVest
+- type: loadout
+  id: VictorianVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianVest
+- type: loadout
+  id: GymBra
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitYogaGymBra
+- type: loadout
+  id: RippedPunk
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRippedPunk
+
+# Neck
+- type: loadout
+  id: FurWrap
+  equipment:
+    neck: ClothingNeckFurWrap
 - type: loadout
   id: OldNeckWrap
   equipment:
     neck: ClothingNeckOldClothWrap
+
+# Back
+- type: loadout
+  id: ClothingPurse
+  equipment:
+    back: ClothingBackpackSatchelPurse
+
+# Gloves
+
+# Outerclothing
+- type: loadout
+  id: PassengerWinterCoatLong
+  equipment:
+    outerClothing: ClothingOuterWinterCoatLong
+- type: loadout
+  id: PassengerWinterCoatPlaid
+  equipment:
+    outerClothing: ClothingOuterWinterCoatPlaid
+- type: loadout
+  id: PassengerRedVictorianCoat
+  equipment:
+    outerClothing: ClothingOuterCoatVictorianRed
+- type: loadout
+  id: PassengerBlackVictorianCoat
+  equipment:
+    outerClothing: ClothingOuterCoatVictorian
+- type: loadout
+  id: LettermanJacketBlue
+  equipment:
+    outerClothing: ClothingOuterCoatLettermanBlue
+- type: loadout
+  id: LettermanJacketRed
+  equipment:
+    outerClothing: ClothingOuterCoatLettermanRed
+- type: loadout
+  id: LettermanJacketBrown
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanBrown
+- type: loadout
+  id: LettermanJacketMagenta
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanMagenta
+- type: loadout
+  id: HoodieBlack
+  equipment:
+    outerClothing: ClothingOuterHoodieBlack
+- type: loadout
+  id: HoodieGrey
+  equipment:
+    outerClothing: ClothingOuterHoodieGrey
+- type: loadout
+  id: HyenhSweater
+  equipment:
+    outerClothing: ClothingOuterCoatHyenhSweater
+- type: loadout
+  id: Vest
+  equipment:
+    outerClothing: ClothingOuterVest
+- type: loadout
+  id: VestThick
+  equipment:
+    outerClothing: ClothingOuterVestThick
+- type: loadout
+  id: DenimJacket
+  equipment:
+    outerClothing: ClothingOuterDenimJacket
+- type: loadout
+  id: FlannelRed
+  equipment:
+    outerClothing: ClothingOuterFlannelRed
+- type: loadout
+  id: FlannelGreen
+  equipment:
+    outerClothing: ClothingOuterFlannelGreen
+- type: loadout
+  id: FlannelBlue
+  equipment:
+    outerClothing: ClothingOuterFlannelBlue
+- type: loadout
+  id: Trench
+  equipment:
+    outerClothing: ClothingOuterCoatTrench
+- type: loadout
+  id: Jensen
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+- type: loadout
+  id: Gentle
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+- type: loadout
+  id: Inspector
+  equipment:
+    outerClothing: ClothingOuterCoatInspector
+- type: loadout
+  id: Overcoat
+  equipment:
+    outerClothing: ClothingOuterCoatOvercoat
+- type: loadout
+  id: SuitJacket
+  equipment:
+    outerClothing: ClothingOuterSuitJacket
+- type: loadout
+  id: Modern
+  equipment:
+    outerClothing: ClothingOuterCoatModern
+- type: loadout
+  id: Tailcoat
+  equipment:
+    outerClothing: ClothingOuterTailcoat
+- type: loadout
+  id: Cardigan
+  equipment:
+    outerClothing: ClothingOuterCardigan
+- type: loadout
+  id: CardiganArgyle
+  equipment:
+    outerClothing: ClothingOuterCardiganArgyle
+- type: loadout
+  id: CardiganSweater
+  equipment:
+    outerClothing: ClothingOuterCardiganSweater
+- type: loadout
+  id: CowboyDuster
+  equipment:
+    outerClothing: ClothingOuterCowboyDuster
+- type: loadout
+  id: Blazer
+  equipment:
+    outerClothing: ClothingOuterBlazer
+- type: loadout
+  id: BlazerLong
+  equipment:
+    outerClothing: ClothingOuterBlazerLong
+- type: loadout
+  id: BlazerFormal
+  equipment:
+    outerClothing: ClothingOuterBlazerFormal
+- type: loadout
+  id: BlazerLooseSleeve
+  equipment:
+    outerClothing: ClothingOuterBlazerLooseSleeve
+- type: loadout
+  id: BlazerFlatCollar
+  equipment:
+    outerClothing: ClothingOuterBlazerFlatCollar
+- type: loadout
+  id: BlazerPosh
+  equipment:
+    outerClothing: ClothingOuterBlazerPosh
+- type: loadout
+  id: CoatPeacoat
+  equipment:
+    outerClothing: ClothingOuterCoatPeacoat
+- type: loadout
+  id: CoatAsymmetric
+  equipment:
+    outerClothing: ClothingOuterCoatAsymmetric
+- type: loadout
+  id: CoatSubmariner
+  equipment:
+    outerClothing: ClothingOuterCoatSubmariner
+- type: loadout
+  id: CoatExpensive
+  equipment:
+    outerClothing: ClothingOuterCoatExpensive
+
+# Belt
+- type: loadout
+  id: WaistLeatherBag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+# Shoes

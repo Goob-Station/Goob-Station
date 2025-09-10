@@ -40,6 +40,9 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JustinWinningham <justinmwinningham@gmail.com>
@@ -53,7 +56,6 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: AutoDrobeInventory
   startingInventory:
@@ -114,17 +116,38 @@
     ClothingShoesBootsCowboyWhite: 1
     ClothingCostumeAbductorHead: 1
     ClothingCostumeAbductor: 1
+    # Loadouts Rework Stuff Start
+    ClothingUniformMNKOfficeSkirt: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKUnderGarment: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKGymBra: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKDressBlack: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKBlackShoulder: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKTracksuitBlack: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingHeadHatBunny: 1  # Goobstation
+    ClothingCostumeBunnySuit: 1  # Goobstation - If you want it, you'll have to take it
+    UniformGeisha: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingCostumeMioSkirt: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingCostumeNaota: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformRat: 1  # Loadouts Rework addition - Nyanotrasen - The fucking rat that I hate
+    ClothingUniformDressRed: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformKendoHakama: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoBlue: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoPink: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoSky: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoGreen: 1  # Loadouts Rework addition - Nyanotrasen
+    # Loadouts Rework Stuff End
     ClothingHeadSanabi: 1 # Goobstation
     ClothingNeckCloakSanabi: 1 # Goobstation
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
-    WeaponLauncherTaiwanPond: 1 # Goobstation
-    GrenadeToy: 5 # Goobstation
-    ClothingShoesResonant: 1 # Goobstation
-    ClothingNeckCloakResonant: 1 # Goobstation
-    ClothingUniformJumpsuitResonant: 1 # Goobstation
+    WeaponLauncherTaiwanPond: 1  # Goobstation
+    GrenadeToy: 5  # Goobstation
+    ClothingShoesResonant: 1  # Goobstation
+    ClothingNeckCloakResonant: 1  # Goobstation
+    ClothingUniformJumpsuitResonant: 1  # Goobstation
+    ClothingCostumeArcDress: 1  # Seal away the beast
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
@@ -132,3 +155,4 @@
     ClothingMaskSexyClown: 1
     ClothingMaskSexyMime: 1
     ClothingHeadHatCowboyBountyHunter: 1
+    ClothingUniformSwimsuitBlue: 1  # Goobstation - It came in the trash

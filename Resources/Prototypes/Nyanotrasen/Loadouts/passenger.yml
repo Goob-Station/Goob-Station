@@ -1,0 +1,105 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Random Clothing
+- type: loadout
+  id: NekoArcCurse
+  equipment:
+    jumpsuit: ClothingCostumeArcDress
+- type: loadout
+  id: GeishaOutfit
+  equipment:
+    jumpsuit: UniformGeisha
+- type: loadout
+  id: ClothingCostumeMioSkirtOutfit
+  equipment:
+    jumpsuit: ClothingCostumeMioSkirt
+- type: loadout
+  id: ClothingCostumeNaotaOutfit
+  equipment:
+    jumpsuit: ClothingCostumeNaota
+- type: loadout
+  id: ClothingUniformRatOutfit
+  equipment:
+    jumpsuit: ClothingUniformRat
+- type: loadout
+  id: ClothingUniformDressRedOutfit
+  equipment:
+    jumpsuit: ClothingUniformDressRed
+- type: loadout
+  id: ClothingUniformKendoHakamaOutfit
+  equipment:
+    jumpsuit: ClothingUniformKendoHakama
+- type: loadout
+  id: ClothingKimonoBlueOutfit
+  equipment:
+    jumpsuit: ClothingKimonoBlue
+- type: loadout
+  id: ClothingKimonoPinkOutfit
+  equipment:
+    jumpsuit: ClothingKimonoPink
+- type: loadout
+  id: ClothingKimonoPurpleOutfit
+  equipment:
+    jumpsuit: ClothingKimonoPurple
+- type: loadout
+  id: ClothingKimonoSkyOutfit
+  equipment:
+    jumpsuit: ClothingKimonoSky
+- type: loadout
+  id: ClothingKimonoGreenOutfit
+  equipment:
+    jumpsuit: ClothingKimonoGreen
+- type: loadout
+  id: UniformSchoolgirlDuskOutfit
+  equipment:
+    jumpsuit: UniformSchoolgirlDusk
+- type: loadout
+  id: UniformSchoolgirlBlazerTanOutfit
+  equipment:
+    jumpsuit: UniformSchoolgirlBlazerTan
+- type: loadout
+  id: ClothingUniformMNKOfficeSkirtOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKOfficeSkirt
+- type: loadout
+  id: ClothingUniformMNKUnderGarmentOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKUnderGarment
+- type: loadout
+  id: ClothingUniformMNKGymBraOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKGymBra
+- type: loadout
+  id: ClothingUniformMNKDressBlackOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKDressBlack
+- type: loadout
+  id: ClothingUniformMNKBlackOverallsOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKBlackOveralls
+- type: loadout
+  id: ClothingUniformMNKBlackShoulderOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKBlackShoulder
+- type: loadout
+  id: ClothingUniformMNKTracksuitBlackOutfit
+  equipment:
+    jumpsuit: ClothingUniformMNKTracksuitBlack
+
+# Outerclothing
+- type: loadout
+  id: MNKWhiteHoodie
+  equipment:
+    outerClothing: ClothingOuterCoatMNKWhiteHoodie
+- type: loadout
+  id: MNKBlackTopCoat
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackTopCoat
+- type: loadout
+  id: MNKBlackJacket
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackJacket

@@ -906,10 +906,12 @@
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
+  - ClothingCloakBoatNT
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
+  exclusiveWith: BACK
   loadouts:
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeSatchel
@@ -919,6 +921,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
   name: loadout-group-ntr-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
@@ -929,11 +932,11 @@
   minLimit: 0
   loadouts:
   - NanotrasenRepresentativeClipboard
-  - NanotrasenRepresentativeWaistbag
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
+  minLimit: 1
   loadouts:
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
@@ -983,6 +986,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
   name: loadout-group-bso-backpack
+  exclusiveWith: BACK
   loadouts:
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerSatchel
@@ -992,14 +996,14 @@
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
-  - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
-  - BlueshieldOfficerInnerBlueshieldShirt
 
 - type: loadoutGroup
   id: BlueshieldOfficerOuter
   name: loadout-group-bso-outer
+  minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
@@ -1023,6 +1027,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
+  minLimit: 1
   loadouts:
   - JackBoots
   - BlackCowboyBoots
@@ -1073,6 +1078,7 @@
 - type: loadoutGroup
   id: NanotrasenTrainerBackpack
   name: loadout-group-nct-backpack
+  exclusiveWith: BACK
   loadouts:
   - NanotrasenTrainerSatchel
   - NanotrasenTrainerBackpack
@@ -1081,6 +1087,7 @@
 - type: loadoutGroup
   id: NanotrasenTrainerJumpsuit
   name: loadout-group-nct-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - NanotrasenTrainerJumpsuit
   - NanotrasenTrainerJumpskirt
@@ -1238,6 +1245,7 @@
   minLimit: 0
   loadouts:
   - MinerCloak
+  - SalvageCloak
 
 # Chemist
 
@@ -1321,6 +1329,7 @@
 - type: loadoutGroup
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
@@ -1348,6 +1357,7 @@
 - type: loadoutGroup
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
+  exclusiveWith: BACK
   loadouts:
   - BrigmedicBackpack
   - BrigmedicSatchel

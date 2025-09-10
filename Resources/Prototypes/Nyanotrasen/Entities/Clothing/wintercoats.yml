@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatLettermanBlue
+  name: blue letterman jacket
+  description: It's a blue highschool jacket with a big '14' stitched onto the back.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_blue.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_blue.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatLettermanRed
+  name: red letterman jacket
+  description: It's a red highschool jacket with a big '14' stitched onto the back.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatHyenhSweater
+  name: comfy sweater
+  description: It's comfy.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatLong
+  name: long winter coat
+  description: Even your legs will be warm with this stylish coat.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/long_winter_coat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/long_winter_coat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatPlaid
+  name: plaid winter coat
+  description: It might be made out of actual wool.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/plaid_winter_coat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/plaid_winter_coat.rsi
