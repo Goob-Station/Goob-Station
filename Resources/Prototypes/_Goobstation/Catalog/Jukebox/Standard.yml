@@ -293,7 +293,7 @@
   id: blackswarm
   name: Bobik-music - Black Swarm
   path:
-    path: /Audio/_Goobstation/music/Black_Swarm.ogg
+    path: /Audio/_Goobstation/Music/Black_Swarm.ogg
 
 - type: jukebox
   id: asgore
