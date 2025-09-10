@@ -14602,3 +14602,9 @@ Entries:
       message: Added black swarm by Bobik-music to the jukebox.
   id: 1627
   time: '2025-09-10T04:17:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Abductor duos can now be picked by Secret+ roundstart. 👽👽
+  id: 1628
+  time: '2025-09-10T15:00:50.0000000+00:00'
