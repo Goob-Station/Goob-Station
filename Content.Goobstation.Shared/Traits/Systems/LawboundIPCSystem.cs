@@ -1,6 +1,6 @@
 using Content.Shared.Silicons.Laws.Components;
 
-namespace Content.Server.Silicons;
+namespace Content.Goobstation.Shared.Traits.Systems;
 
 public sealed class LawboundIPCSystem : EntitySystem
 {
@@ -16,8 +16,7 @@ public sealed class LawboundIPCSystem : EntitySystem
         if (_ui.HasUi(uid, SiliconLawsUiKey.Key))
             return;
 
-        var ent = new Entity<UserInterfaceComponent?>(uid, CompOrNull<UserInterfaceComponent>(uid));
-        _ui.SetUi(ent, SiliconLawsUiKey.Key, new InterfaceData("SiliconLawBoundUserInterface"));
+        _ui.SetUi(uid, SiliconLawsUiKey.Key, new InterfaceData("SiliconLawBoundUserInterface"));
     }
 
 }
