@@ -1,0 +1,297 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicSiphon
+  name: Siphon Entropy
+  description: Silently siphon entropy from your target, dealing some damage in the process.
+  components:
+  - type: Action
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: siphon
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+        - HumanoidAppearance
+    blacklist:
+      components:
+      - CosmicCult
+    event: !type:EventCosmicSiphon {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicBlank
+  name: Shunt Subjectivity
+  description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 120
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: blank
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: true
+    whitelist:
+      components:
+        - HumanoidAppearance
+    blacklist:
+      components:
+      - CosmicCult
+    event: !type:EventCosmicBlank {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicPlaceMonument
+  name: Beckon The Monument
+  description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 999
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument
+  - type: ConfirmableAction
+    popup: cosmicability-monument-spawn-confirm
+    primeTime: 10 #increased to give you more time to figure out where you want to put it
+  - type: InstantAction
+    event: !type:EventCosmicPlaceMonument {}
+  - type: MonumentPlacementPreview
+    tier: 1
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicMoveMonument
+  name: Relocate The Monument
+  description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 600
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: monument-relocate
+  - type: ConfirmableAction
+    popup: cosmicability-monument-move-confirm
+    primeTime: 10 #increased to give you more time to figure out where you want to put it
+  - type: InstantAction
+    event: !type:EventCosmicMoveMonument
+  - type: MonumentPlacementPreview
+    tier: 1
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicReturn
+  name: Return
+  description: Dissipate your astral projection and return to your body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 0
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: return
+  - type: InstantAction
+    event: !type:EventCosmicReturn {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicLapse
+  name: Abberant Lapse
+  description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 24
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: lapse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: true
+    whitelist:
+      components:
+        - HumanoidAppearance
+    event: !type:EventCosmicLapse {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicGlare
+  name: Null Glare
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: glare
+  - type: InstantAction
+    event: !type:EventCosmicGlare {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicIngress
+  name: Force Ingress
+  description: Use a concentrated blast of power to force a secure doorway open.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+        - Door
+    event: !type:EventCosmicIngress {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicImposition
+  name: Vacuous Imposition
+  description: You negate any incoming damage for a short time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: entropic
+  - type: InstantAction
+    event: !type:EventCosmicImposition {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicNova
+  name: Astral Nova
+  description: Hurl a large and disruptive blast of astral energy.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    raiseOnUser: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: nova
+  - type: TargetAction
+    range: 60
+  - type: WorldTargetAction
+    event: !type:EventCosmicNova {}
+
+#################################### ROGUE ASCENDANT ACTIONS ######################################
+
+- type: entity
+  parent: BaseAction
+  id: ActionRogueCosmicNova
+  name: Usurped Astral Nova
+  description: Hurl a large and disruptive blast of astral energy.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    raiseOnUser: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: roguenova
+  - type: TargetAction
+    range: 60
+  - type: WorldTargetAction
+    event: !type:EventRogueCosmicNova {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionRogueInfection
+  name: Malign Corruption
+  description: Instill the essence of endings into a subdued target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: rogueinfect
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+        - HumanoidAppearance
+    blacklist:
+      components:
+        - RogueAscendedInfection
+        - CosmicCult
+        - BibleUser
+    event: !type:EventRogueInfection {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionRogueSlumber
+  name: Slumber Shell
+  description: Instantly slumber a target's mortal shell, rendering them asleep and ready for Malign Corruption.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 55
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: rogueshatter
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+        - HumanoidAppearance
+    blacklist:
+      components:
+        - RogueAscendedInfection
+        - CosmicCult
+        - BibleUser
+    event: !type:EventRogueSlumber {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionRogueGrandShunt
+  name: Malign Mindspike
+  description: Shunt the minds of all nearby out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 100
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: rogueshunt
+  - type: InstantAction
+    event: !type:EventRogueGrandShunt {}
