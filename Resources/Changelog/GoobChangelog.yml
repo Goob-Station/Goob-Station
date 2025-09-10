@@ -14608,3 +14608,11 @@ Entries:
       message: Abductor duos can now be picked by Secret+ roundstart. 👽👽
   id: 1628
   time: '2025-09-10T15:00:50.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: >-
+        Lavaland gateway is now immovable, but can be deconstructed by welding
+        to get the flatpack back.
+  id: 1629
+  time: '2025-09-10T20:17:03.0000000+00:00'
