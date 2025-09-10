@@ -1,4 +1,4 @@
-xenomorphs-announcement = Unidentified life signs detected aboard the station. Secure all external access points, including scrubbers and ventilation.
+xenomorphs-announcement = Warning: Hostile bio-signatures detected. Unknown entities are moving through the station’s vents and maintenance shafts. All personnel, initiate lockdown protocols and avoid isolated areas.
 xenomorphs-no-more-threat-announcement = According to data from our long-range sensors, all xenomorphs have been eliminated.
 xenomorphs-win-announcement-shuttle-call =
     We have detected that xenomorphs have overtaken the station. All remaining personnel should arm the nuclear fission explosive and proceed to the evacuation shuttle.
