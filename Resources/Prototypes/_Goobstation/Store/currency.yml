@@ -1,0 +1,5 @@
+# Malf AI
+- type: currency
+  id: ProcessingPower
+  displayName: store-currency-display-processing-power
+  canWithdraw: false

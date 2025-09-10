@@ -137,6 +137,7 @@
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
+  - type: StationAiWhitelist # Goobstation - malf AI
 
 - type: entity
   parent: GasBinaryBase
@@ -211,6 +212,7 @@
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
+    - type: StationAiWhitelist # Goobstation - malf AI
 
 - type: entity
   parent: GasBinaryBase
@@ -316,6 +318,7 @@
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
+    - type: StationAiWhitelist # Goobstation - malf AI
 
 - type: entity
   parent: GasBinaryBase

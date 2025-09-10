@@ -141,6 +141,7 @@
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
+    - type: StationAiWhitelist # Goobstation - malf AI
 
 # Goobstation - reparent to new base filter proto
 - type: entity

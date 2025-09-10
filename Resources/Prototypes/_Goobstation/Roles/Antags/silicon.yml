@@ -1,0 +1,7 @@
+- type: antag
+  id: MalfunctionalAI
+  name: roles-antag-malf-ai
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-malf-ai-objective
+  # TODO: hour requirements for AI and overall, this is a complicated antag.

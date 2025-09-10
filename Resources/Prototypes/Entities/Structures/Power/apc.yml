@@ -205,6 +205,7 @@
     - Power
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 10000
+  - type: MalfStationAIHackable # Goobstation - Malf AI antag
 
 # APC under construction
 - type: entity

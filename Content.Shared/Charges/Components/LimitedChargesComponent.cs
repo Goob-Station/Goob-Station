@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -38,6 +39,12 @@ public sealed partial class LimitedChargesComponent : Component
     /// <summary>
     /// Last time charges was changed. Used to derive current charges.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan LastUpdate;
+
+    /// <summary>
+    /// Goobstation.
+    /// </summary>
+    [DataField]
+    public bool RemoveActionOnNoCharges = false;
 }
