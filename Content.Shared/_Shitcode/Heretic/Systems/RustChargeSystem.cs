@@ -39,7 +39,7 @@ public sealed class RustChargeSystem : EntitySystem
         SubscribeLocalEvent<RustChargeComponent, StopThrowEvent>(OnStopThrow);
         SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
-        SubscribeLocalEvent<RustChargeComponent, BeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
+        SubscribeLocalEvent<RustChargeComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
         SubscribeLocalEvent<RustChargeComponent, ComponentShutdown>(OnRustChargeShutdown);
     }
 
@@ -51,7 +51,7 @@ public sealed class RustChargeSystem : EntitySystem
         RemCompDeferred<RustObjectsInRadiusComponent>(ent);
     }
 
-    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
     {
         if (args.Key == "KnockedDown")
             args.Cancelled = true;
