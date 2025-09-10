@@ -288,3 +288,9 @@
   name: Crockitz - Abductor
   path:
     path: /Audio/_Goobstation/Music/Abductor.ogg
+
+- type: jukebox
+  id: blackswarm
+  name: Bobik-music - Black Swarm
+  path:
+    path: /Audio/_Goobstation/music/Black_Swarm.ogg
