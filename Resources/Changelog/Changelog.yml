@@ -4174,3 +4174,11 @@
   id: 8946
   time: '2025-09-10T19:22:24.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39880
+- author: SweetAplle
+  changes:
+  - message: Saying "idk" now no longer forces the shrug emote, instead expanding
+      to "I don't know".
+    type: Tweak
+  id: 8947
+  time: '2025-09-10T20:09:58.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39024
