@@ -4166,3 +4166,11 @@
   id: 8945
   time: '2025-09-10T11:42:33.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40258
+- author: insoPL
+  changes:
+  - message: Doafters are now cancalled when the target/user is enclosed in a container
+      during it.
+    type: Fix
+  id: 8946
+  time: '2025-09-10T19:22:24.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39880
