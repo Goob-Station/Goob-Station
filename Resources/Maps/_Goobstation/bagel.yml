@@ -61459,18 +61459,6 @@ entities:
     - type: Transform
       pos: -40.498245,-36.02266
       parent: 2
-- proto: ClothingNeckHeadphones
-  entities:
-  - uid: 9356
-    components:
-    - type: Transform
-      pos: 54.640587,-35.651684
-      parent: 2
-  - uid: 9357
-    components:
-    - type: Transform
-      pos: -38.4609,19.6876
-      parent: 2
 - proto: ClothingNeckIntersexPin
   entities:
   - uid: 9358
