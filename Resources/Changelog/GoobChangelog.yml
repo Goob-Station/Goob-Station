@@ -14616,3 +14616,37 @@ Entries:
         to get the flatpack back.
   id: 1629
   time: '2025-09-10T20:17:03.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added xenomorph doors. They are really extremely weak to heat so I
+        recommend only using them for privacy
+    - type: Remove
+      message: >-
+        Removed xenomorph windows (There was no reason to use them and it just
+        griefed your hive)
+    - type: Tweak
+      message: Nerfed Xenomorph healing
+    - type: Tweak
+      message: Nerfed Xenomorph stun
+    - type: Tweak
+      message: Nerfed Xenomorph structure health
+    - type: Tweak
+      message: >-
+        Massively lowered the rest state for Facehuggers. They should latch to
+        people much more often now
+    - type: Tweak
+      message: >-
+        Acid spit is now stronger and should be able to destroy resin walls much
+        quicker.
+    - type: Tweak
+      message: Xenomorphs are now slightly more common
+    - type: Tweak
+      message: Tail whip now injects sleepy chemicals and deals less brute
+    - type: Tweak
+      message: >-
+        Hivemind now uses collective mind (+Z) instead of being a separate
+        language
+  id: 1630
+  time: '2025-09-10T22:04:07.0000000+00:00'
