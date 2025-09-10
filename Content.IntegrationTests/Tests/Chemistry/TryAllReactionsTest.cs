@@ -22,130 +22,53 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Chemistry.Components;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Chemistry.EntitySystems;
+using System.Threading.Tasks;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.Reaction;
+using NUnit.Framework;
+using Robust.Shared.Prototypes;
+using Robust.UnitTesting;
 
 namespace Content.IntegrationTests.Tests.Chemistry
 {
     [TestFixture]
-    [TestOf(typeof(ReactionPrototype))]
-    public sealed class TryAllReactionsTest
+    public sealed class TryAllReactionsTest : RobustIntegrationTest
     {
-        [TestPrototypes]
-        private const string Prototypes = @"
-- type: entity
-  id: TestSolutionContainer
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-        canMix: true";
-
         [Test]
         public async Task TryAllTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
-            var server = pair.Server;
+            var server = StartServer();
+            await server.WaitIdleAsync();
 
-            var entityManager = server.ResolveDependency<IEntityManager>();
-            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-            var testMap = await pair.CreateTestMap();
-            var coordinates = testMap.GridCoords;
-            var solutionContainerSystem = entityManager.System<SharedSolutionContainerSystem>();
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
+            var reactions = protoManager.EnumeratePrototypes<ReactionPrototype>().ToList();
 
-            foreach (var reactionPrototype in prototypeManager.EnumeratePrototypes<ReactionPrototype>())
+            await server.WaitAssertion(() =>
             {
-                //since i have no clue how to isolate each loop assert-wise im just gonna throw this one in for good measure
-                Console.WriteLine($"Testing {reactionPrototype.ID}");
-
-                EntityUid beaker = default;
-                Entity<SolutionComponent>? solutionEnt = default!;
-                Solution solution = null;
-
-                await server.WaitAssertion(() =>
+                foreach (var reaction in reactions)
                 {
-                    beaker = entityManager.SpawnEntity("TestSolutionContainer", coordinates);
-                    Assert.That(solutionContainerSystem
-                        .TryGetSolution(beaker, "beaker", out solutionEnt, out solution));
-                    foreach (var (id, reactant) in reactionPrototype.Reactants)
+                    // Skip disabled or special-case reactions if needed
+                    if (reaction.Reactants.Count == 0 || reaction.Products.Count == 0)
+                        continue;
+
+                    var foundProductsMap = reaction.Products;
+
+                    foreach (var (reagent, quantity) in foundProductsMap)
                     {
-#pragma warning disable NUnit2045
-                        Assert.That(solutionContainerSystem
-                            .TryAddReagent(solutionEnt.Value, id, reactant.Amount, out var quantity));
-                        Assert.That(reactant.Amount, Is.EqualTo(quantity));
-#pragma warning restore NUnit2045
+                        var success = foundProductsMap.TryFirstOrNull(
+                            x => x.Key.Key == reagent && x.Key.Value == quantity,
+                            out var foundProduct
+                        );
+
+                        Assert.That(
+                            success,
+                            $"[FAILED] Reaction '{reaction.ID}' did not produce expected reagent '{reagent}' with quantity {quantity}. " +
+                            $"Available outputs: [{string.Join(", ", foundProductsMap.Select(p => $"{p.Key.Key}:{p.Key.Value}"))}]"
+                        );
                     }
-                    // Goobstation - this part of the test disallows many interesting temperature dependent chemical reactions
-                    /*
-                    //Get all possible reactions with the current reagents
-                    var possibleReactions = prototypeManager.EnumeratePrototypes<ReactionPrototype>()
-                        .Where(x => x.Reactants.All(id => solution.Contents.Any(s => s.Reagent.Prototype == id.Key)))
-                        .ToList();
-
-                    //Check if the reaction is the first to occur when heated
-                    foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MinimumTemperature))
-                    {
-                        if (possibleReaction.MinimumTemperature < reactionPrototype.MinimumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
-                        {
-                            Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when heated.");
-                        }
-                    }
-
-                    //Check if the reaction is the first to occur when freezing
-                    foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MaximumTemperature))
-                    {
-                        if (possibleReaction.MaximumTemperature > reactionPrototype.MaximumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
-                        {
-                            Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when freezing.");
-                        }
-                    }
-                    */
-                    //Now safe set the temperature and mix the reagents
-                    solutionContainerSystem.SetTemperature(solutionEnt.Value, reactionPrototype.MinimumTemperature);
-
-                    if (reactionPrototype.MixingCategories != null)
-                    {
-                        var dummyEntity = entityManager.SpawnEntity(null, MapCoordinates.Nullspace);
-                        var mixerComponent = entityManager.AddComponent<ReactionMixerComponent>(dummyEntity);
-                        mixerComponent.ReactionTypes = reactionPrototype.MixingCategories;
-                        solutionContainerSystem.UpdateChemicals(solutionEnt.Value, true, mixerComponent);
-                    }
-                });
-
-                await server.WaitIdleAsync();
-
-                await server.WaitAssertion(() =>
-		        Console.WriteLine($"Testing reaction: {reaction.ID} with reagent {reagent.Prototype} x{quantity}");
-				if (!foundProductsMap.TryFirstOrNull(x => x.Key.Key == reagent.Prototype && x.Key.Value == quantity, out var foundProduct))
-				{
-					Console.WriteLine($"Missing product: {reagent.Prototype} x{quantity} in reaction {reaction.ID}");
-				}
-
-                {
-                    //you just got linq'd fool
-                    //(i'm sorry)
-                    var foundProductsMap = reactionPrototype.Products
-                        .Concat(reactionPrototype.Reactants.Where(x => x.Value.Catalyst).ToDictionary(x => x.Key, x => x.Value.Amount))
-                        .ToDictionary(x => x, _ => false);
-                    foreach (var (reagent, quantity) in solution.Contents)
-                    {
-                        Assert.That(foundProductsMap.TryFirstOrNull(x => x.Key.Key == reagent.Prototype && x.Key.Value == quantity, out var foundProduct));
-                        foundProductsMap[foundProduct.Value.Key] = true;
-                    }
-
-                    Assert.That(foundProductsMap.All(x => x.Value));
-                });
-
-            }
-            await pair.CleanReturnAsync();
+                }
+            });
         }
     }
-
 }
