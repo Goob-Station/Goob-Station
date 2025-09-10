@@ -46,7 +46,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
-        SubscribeLocalEvent<TransformComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttackAttemptEvent>(OnAttemptAttack);
         SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
@@ -120,10 +120,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         }
     }
 
-    private void OnMove(EntityUid uid, TransformComponent xform, ref MoveEvent args)
+    private void OnMove(EntityUid uid, CrawlUnderFloorComponent comp, ref MoveEvent args)
     {
-        if (!TryComp<CrawlUnderFloorComponent>(uid, out var comp))
-            return;
 
         var now = IsOnSubfloor(uid);
         var old = comp.WasOnSubfloor;

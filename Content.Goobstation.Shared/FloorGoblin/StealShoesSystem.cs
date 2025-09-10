@@ -107,11 +107,8 @@ public sealed partial class StealShoesSystem : EntitySystem
         if (!TryRemoveShoes(target, shoes))
             return;
 
-        if (_net.IsServer)
-        {
-            var container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
-            _containers.Insert(shoes, container);
-        }
+        var container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
+        _containers.Insert(shoes, container);
 
         if (component.ChompSound is { } chomp)
             _audio.PlayPredicted(chomp, uid, uid);
