@@ -4,13 +4,13 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2025 21:12:00
-  entityCount: 6211
-maps:
-- 1
+  time: 09/10/2025 22:14:22
+  entityCount: 6210
+maps: []
 grids:
 - 1668
-orphans: []
+orphans:
+- 1668
 nullspace: []
 tilemap:
   0: Space
@@ -46,22 +46,12 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 1
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 1668
     components:
     - type: MetaData
       name: Central Command
     - type: Transform
-      parent: 1
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -17039,7 +17029,7 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -5286.4854
+      secondsUntilStateChange: -5326.9097
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
