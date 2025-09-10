@@ -60,6 +60,9 @@
       points: 1
       required: true
       defaultMarkings: [ MobIPCHeadDefault ]
+    Hair:
+      points: 1
+      required: false
     Face:
       points: 1
       required: false
