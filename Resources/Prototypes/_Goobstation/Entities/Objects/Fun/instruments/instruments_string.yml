@@ -6,5 +6,13 @@
   components:
   - type: Instrument
     program: 110
+  - type: SwappableInstrument
+    instrumentList:
+      "Violin": { 40: 0 }
+      "Fiddle": { 110: 0 }
+      "Viola": { 41: 0 }
+      "Cello": { 42: 0 }
+      "Banjo": { 105: 0 }
+      "Guitar": { 24: 0 }
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/Instruments/goldenfiddle.rsi
