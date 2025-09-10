@@ -57,16 +57,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Bingle;
 
-public sealed class BinglePitSystem : EntitySystem
+public sealed partial class BingleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly BingleSystem _bingle = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -76,6 +73,7 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private EntityQuery<BingleComponent> _query;
     private EntityQuery<BinglePitFallingComponent> _fallingQuery;
@@ -83,10 +81,8 @@ public sealed class BinglePitSystem : EntitySystem
     private readonly List<Entity<BinglePitComponent>> _pits = new();
     public static readonly ProtoId<ContentTileDefinition> FloorTile = "FloorBingle";
 
-    public override void Initialize()
+    private void InitializePit()
     {
-        base.Initialize();
-
         _query = GetEntityQuery<BingleComponent>();
         _fallingQuery = GetEntityQuery<BinglePitFallingComponent>();
 
@@ -153,11 +149,14 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
-        {
-            SpawnBingle(uid, component);
-            component.BinglePoints -= ( component.SpawnNewAt * component.Level);
-        }
+        if (component.BinglePoints < component.SpawnNewAt * component.Level)
+            return;
+
+        component.BinglePoints -= component.SpawnNewAt * component.Level;
+
+        SpawnBingle(uid, component);
+
+        SpawnTiles(uid, component);
     }
 
     private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
@@ -191,7 +190,6 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
-        OnSpawnTile(uid,component.Level*2);
 
         component.MinionsMade++;
         if (component.MinionsMade < component.UpgradeMinionsAfter)
@@ -214,7 +212,7 @@ public sealed class BinglePitSystem : EntitySystem
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
             if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
-                _bingle.UpgradeBingle(queryUid, queryBingleComp);
+                UpgradeBingle(queryUid, queryBingleComp);
 
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
@@ -303,27 +301,52 @@ public sealed class BinglePitSystem : EntitySystem
         ev.AddLine("");
     }
 
-    private void OnSpawnTile(EntityUid uid, float radius)
+    private void SpawnTiles(EntityUid uid, BinglePitComponent component)
+    {
+        var angle = _random.NextFloat(-MathF.PI, MathF.PI);
+
+        for (var i = 0; i < component.Level * 2; i++)
+        {
+            TrySpawnTile(uid, i, angle, component);
+
+            angle += _random.NextFloat(-0.5f, 0.5f);
+        }
+    }
+
+    private void TrySpawnTile(EntityUid uid, float radius, float angle, BinglePitComponent component)
     {
         var tgtPos = Transform(uid);
+
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
-        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
-        var convertTile = (ContentTileDefinition)_tiledef[FloorTile];
+        var convertTile = (ContentTileDefinition) _tiledef[FloorTile];
 
-        while (tileEnumerator.MoveNext(out var tile))
-        {
-            if (tile.Tile.TypeId == convertTile.TileId)
-                continue;
-            if (tile.GetContentTileDefinition().Name != convertTile.Name &&
-                _random.Prob(0.1f)) // 10% probability to transform tile
-            {
-                _tile.ReplaceTile(tile, convertTile);
-                _tile.PickVariant(convertTile);
-            }
-        }
+        var xPos = Math.Floor(tgtPos.LocalPosition.X + Math.Sin(angle) * radius);
+        var yPos = Math.Floor(tgtPos.LocalPosition.Y + Math.Cos(angle) * radius);
 
+        var tilePos = new Vector2i((int) xPos, (int) yPos);
+
+        var tile = _map.GetTileRef((gridUid, mapGrid), tilePos);
+
+        if (tile.Tile.TypeId == convertTile.TileId || tile.Tile.IsEmpty)
+            return;
+
+        _tile.ReplaceTile(tile, convertTile);
+        _tile.PickVariant(convertTile);
+
+        var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
+
+        // Why not just slap an RNG check and call it a day?
+        // Well because the placement looks ugly and with this the mushrooms
+        // are spread out evenly.
+        if (component.Level < component.LevelForMushroom
+            || _lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
+            || component.TilesUntilNextMushroom-- > 0)
+            return;
+
+        Spawn(_random.Pick(component.MushroomPrototypes), coords);
+        component.TilesUntilNextMushroom = component.TilesPerMushroom;
     }
 
 }

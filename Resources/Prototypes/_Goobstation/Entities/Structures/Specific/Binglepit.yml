@@ -20,6 +20,9 @@
     mode: SnapgridCenter
   components:
   - type: BinglePit
+    mushroomPrototypes:
+    - BingleShroomSpawnerCap
+    - BingleShroomSpawnerMorel
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4

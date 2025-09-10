@@ -75,4 +75,27 @@ public sealed partial class BinglePitComponent : Component
     /// </summary>
     [DataField]
     public int StartingBingles = 3;
+
+    [DataField]
+    public List<EntProtoId> MushroomPrototypes;
+
+    /// <summary>
+    /// The level the pit must reach to spawn mushrooms.
+    /// </summary>
+    [DataField]
+    public int LevelForMushroom = 3;
+
+    /// <summary>
+    /// How many bingle tiles must be placed before the pit
+    /// can spawn a mushroom.
+    /// </summary>
+    [DataField]
+    public int TilesPerMushroom = 3;
+
+    /// <summary>
+    /// How many bingle tiles left must be placed before the pit
+    /// can spawn a mushroom.
+    /// </summary>
+    [DataField]
+    public int TilesUntilNextMushroom = 3;
 }
