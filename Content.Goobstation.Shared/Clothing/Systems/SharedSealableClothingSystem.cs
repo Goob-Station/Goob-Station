@@ -36,6 +36,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Vector2 = System.Numerics.Vector2;
+using Content.Shared.Silicons.StationAi;
 
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
