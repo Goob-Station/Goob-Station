@@ -1,0 +1,167 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseObjective
+  id: SlaughterBaseObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-slaughter-satan
+
+- type: entity
+  parent: BaseObjective
+  id: SlaughterFluffBaseObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-slaughter-bubblegum
+  - type: SlaughterBaseObjective
+
+# Major Objectives
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterKillTheWizardObjective
+  components:
+  - type: Objective
+    issuer: objective-condition-kill-wizard-first
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-condition-kill-wizard-title
+  - type: SlaughterKillTheWizardCondition
+    title: objective-condition-kill-wizard-title
+    description: objective-kill-wizard-desc
+
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterKillEveryoneObjective
+  components:
+  - type: Objective
+    issuer: objective-condition-kill-everyone-else
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterKillEveryoneCondition
+    title: objective-condition-kill-everyone-else-title
+    description: objective-kill-everyone-desc
+
+# laughter objectives
+- type: entity
+  parent: SlaughterKillEveryoneObjective
+  id: SlaughterHugAndTickleObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-slaughter-devil
+    icon:
+      sprite: Objects/Consumable/Food/Baked/cake.rsi
+      state: clown
+  - type: SlaughterKillEveryoneCondition
+    title: objective-condition-hug-and-tickle-title
+    description: objective-condition-hug-and-tickle-desc
+
+# Midround Objectives
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterDevourObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: NumberObjective
+    min: 10
+    max: 20
+    title: objective-condition-slaughter-devour-title
+    description: objective-condition-slaughter-devour-desc
+  - type: SlaughterDevourCondition
+
+# Fluff objectives (midround)
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: AnnihilateAllJanitorsObjectiveFluff
+  description: Wipe out all Janitors and their synthetic kin, no broom shall stand.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Janitorial/advmop.rsi
+      state: advmop
+  - type: SlaughterBaseObjective
+    title: objective-annihilate-janitors-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: SpareCrewObjectiveFluff
+  description: Let some survive… only to suffer longer.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Fun/dice.rsi
+      state: d6_2
+  - type: SlaughterBaseObjective
+    title: objective-spare-crew-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: HuntTheBraveObjectiveFluff
+  description: Find and punish those foolish enough to face you.
+  components:
+  - type: Objective
+    icon:
+      sprite: Markers/jobs.rsi
+      state: security_officer
+  - type: SlaughterBaseObjective
+    title: objective-hunt-for-brave-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: HuntTheCowardsObjectiveFluff
+  description: Track down the ones who run, fear only prolongs their agony.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: gib
+  - type: SlaughterBaseObjective
+    title: objective-hunt-the-cowards-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: ShowCrewPowerObjectiveFluff
+  description: Let them witness your awful might firsthand.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: blood_siphon
+  - type: TargetObjective
+    title: objective-show-power-title
+  - type: PickRandomPerson
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: DriveInsaneObjectiveFluff
+  description: Whisper they break, madness is your gift.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: whisper
+  - type: TargetObjective
+    title: objective-drive-insane-title
+  - type: PickRandomPerson
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: SpreadBloodObjectiveFluff
+  description: Paint it in red, let no clean tile remain.
+  components:
+  - type: Objective
+    icon:
+      sprite: Fluids/tomato_splat.rsi
+      state: puddle-2
+  - type: SlaughterSpreadBloodObjective
+    title: objective-spread-blood

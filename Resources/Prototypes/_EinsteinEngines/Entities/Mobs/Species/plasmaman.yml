@@ -4,6 +4,7 @@
   name: Urist McPlasma
   abstract: true
   components:
+  - type: ZombieImmune
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
     state: full
@@ -190,6 +191,8 @@
   - type: TemperatureSpeed
     thresholds:
       243: 0.8
+  - type: Fart
+    gasToFart: Plasma
 
 - type: entity
   parent: BaseSpeciesDummy
