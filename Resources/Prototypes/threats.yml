@@ -17,11 +17,6 @@
   announcement: terror-dragon
   rule: DragonSpawn
 
-- type: ninjaHackingThreat
-  id: Revenant
-  announcement: terror-revenant
-  rule: RevenantSpawn
-
 # Goobstation - start
 - type: ninjaHackingThreat
   id: SlaughterDemon
