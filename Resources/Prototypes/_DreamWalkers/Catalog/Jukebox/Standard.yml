@@ -29,12 +29,6 @@
     path: /Audio/_DreamWalkers/Jukebox/half_life_credits.ogg
 
 - type: jukebox
-  id: DWcascade
-  name: "[DW] Cascade"
-  path:
-    path: /Audio/_DreamWalkers/Jukebox/cascade.ogg
-
-- type: jukebox
   id: DWwantchanges
   name: "[DW] Want Changes"
   path:
@@ -45,12 +39,6 @@
   name: "[DW] Fortunate Son"
   path:
     path: /Audio/_DreamWalkers/Jukebox/fortunate_son.ogg
-
-- type: jukebox
-  id: DWswallowingdust
-  name: "[DW] Swallowing Dust"
-  path:
-    path: /Audio/_DreamWalkers/Jukebox/swallowingdust.ogg
 
 - type: jukebox
   id: DWeverybodywantstoruletheworld
