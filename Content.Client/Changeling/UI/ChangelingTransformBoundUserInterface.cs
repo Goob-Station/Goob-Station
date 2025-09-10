@@ -1,4 +1,3 @@
-/* Goob nope
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Changeling.Components;
@@ -67,4 +66,4 @@ public sealed partial class ChangelingTransformBoundUserInterface(EntityUid owne
         SendPredictedMessage(new ChangelingTransformIdentitySelectMessage(identityId));
     }
 }
-*/
+
