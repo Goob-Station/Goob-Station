@@ -122,6 +122,12 @@ namespace Content.IntegrationTests.Tests.Chemistry
                 await server.WaitIdleAsync();
 
                 await server.WaitAssertion(() =>
+		        Console.WriteLine($"Testing reaction: {reaction.ID} with reagent {reagent.Prototype} x{quantity}");
+				if (!foundProductsMap.TryFirstOrNull(x => x.Key.Key == reagent.Prototype && x.Key.Value == quantity, out var foundProduct))
+				{
+					Console.WriteLine($"Missing product: {reagent.Prototype} x{quantity} in reaction {reaction.ID}");
+				}
+
                 {
                     //you just got linq'd fool
                     //(i'm sorry)
