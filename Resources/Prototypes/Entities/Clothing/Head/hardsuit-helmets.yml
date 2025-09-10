@@ -156,6 +156,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-dog:
+      - state: equipped-head-light-dog
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -165,6 +168,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-dog:
+      - state: equipped-head-dog
+      - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
     color: "#adffe6"
@@ -185,6 +192,10 @@
         Heat: 0.8
         Radiation: 0.15
   - type: EyeProtection # goob - do we even still use this suit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Engineering Hardsuit
 - type: entity
@@ -209,6 +220,10 @@
         Caustic: 0.7
         Radiation: 0.05
   - type: EyeProtection # goob
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Spationaut Hardsuit
 - type: entity
@@ -237,6 +252,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-dog:
+      - state: equipped-head-light-dog
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -246,6 +264,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-dog:
+      - state: equipped-head-dog
+      - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -260,6 +282,10 @@
         Piercing: 0.9
         Radiation: 0.1
         Caustic: 0.8
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Salvage Hardsuit
 - type: entity
@@ -287,6 +313,10 @@
         Heat: 0.75
         Radiation: 0.1
         Caustic: 0.7
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
@@ -314,6 +344,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-dog:
+      - state: equipped-head-light-dog
+        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
@@ -323,6 +356,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-dog:
+      - state: equipped-head-dog
+      - state: equipped-head-unshaded-dog
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -338,6 +375,10 @@
         Heat: 0.75 #Goliath hide gets grilled instead of you
         Radiation: 0.1
         Caustic: 0.8
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -400,6 +441,10 @@
         Caustic: 0.7
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Brigmedic Hardsuit
 - type: entity
@@ -493,6 +538,10 @@
         Heat: 0.65
         Radiation: 0.15
         Caustic: 0.65 #Goob - Modsuit Rebalance end
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -522,6 +571,10 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: EyeProtection # goob
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -543,6 +596,10 @@
     modifiers:
       coefficients:
         Caustic: 0.1
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Research Director's Hardsuit
 - type: entity
@@ -569,6 +626,10 @@
         Heat: 0.45
         Radiation: 0.05
         Caustic: 0.4
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Head of Security's hardsuit
 - type: entity
@@ -665,6 +726,10 @@
         Caustic: 0.5
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -716,6 +781,10 @@
         Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -750,6 +819,10 @@
         Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -782,6 +855,10 @@
         Caustic: 0.2
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity
@@ -819,6 +896,10 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
   - type: WizardClothes # Goobstation
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Organic Space Suit
 - type: entity
