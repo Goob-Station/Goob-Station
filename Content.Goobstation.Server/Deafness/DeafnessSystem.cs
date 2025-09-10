@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Shared.Traits.Components;
+using Content.Goobstation.Common.Traits;
 using Content.Server.Chat.V2;
 using Content.Server.Radio;
 using Content.Shared.Chat;

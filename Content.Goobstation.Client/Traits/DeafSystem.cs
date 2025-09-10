@@ -3,7 +3,7 @@ using Robust.Client.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Goobstation.Shared.Traits.Components;
+using Content.Goobstation.Common.Traits;
 
 namespace Content.Goobstation.Client.Traits;
 
