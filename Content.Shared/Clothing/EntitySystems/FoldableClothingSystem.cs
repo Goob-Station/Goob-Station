@@ -88,7 +88,6 @@ public sealed class FoldableClothingSystem : EntitySystem
             // TODO CLOTHING fix this.
             if (TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp)) // goob - removed layers != 0 check
                 hideLayerComp.Slots = ent.Comp.FoldedHideLayers;
-
         }
         else
         {
@@ -104,7 +103,6 @@ public sealed class FoldableClothingSystem : EntitySystem
             // TODO CLOTHING fix this.
             if (TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp)) // goob - removed layers != 0 check
                 hideLayerComp.Slots = ent.Comp.UnfoldedHideLayers;
-
         }
     }
 }
