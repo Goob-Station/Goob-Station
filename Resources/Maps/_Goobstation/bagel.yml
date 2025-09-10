@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2025 22:35:27
-  entityCount: 24958
+  time: 09/10/2025 21:51:06
+  entityCount: 24972
 maps:
 - 1
 grids:
@@ -12197,7 +12197,7 @@ entities:
       pos: 0.5,-0.5
       parent: 24940
     - type: Door
-      secondsUntilStateChange: -6174.1113
+      secondsUntilStateChange: -6235.8594
       changeAirtight: False
       state: Opening
     - type: DeviceLinkSource
@@ -12660,7 +12660,7 @@ entities:
       pos: 42.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6405.078
+      secondsUntilStateChange: -6466.826
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12672,7 +12672,7 @@ entities:
       pos: 42.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6404.5444
+      secondsUntilStateChange: -6466.2925
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13022,7 +13022,7 @@ entities:
       pos: 35.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6407.311
+      secondsUntilStateChange: -6469.059
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -64055,6 +64055,75 @@ entities:
     components:
     - type: Transform
       pos: 24.517786,-13.4080305
+      parent: 2
+- proto: DecalSpawnerDirtNear
+  entities:
+  - uid: 24196
+    components:
+    - type: Transform
+      pos: -30.5,-9.5
+      parent: 2
+  - uid: 24198
+    components:
+    - type: Transform
+      pos: -33.5,-3.5
+      parent: 2
+  - uid: 24255
+    components:
+    - type: Transform
+      pos: -31.5,0.5
+      parent: 2
+  - uid: 24256
+    components:
+    - type: Transform
+      pos: -33.5,1.5
+      parent: 2
+- proto: DecalSpawnerDirtWide
+  entities:
+  - uid: 24263
+    components:
+    - type: Transform
+      pos: -26.5,-10.5
+      parent: 2
+  - uid: 24272
+    components:
+    - type: Transform
+      pos: -23.5,-8.5
+      parent: 2
+  - uid: 24304
+    components:
+    - type: Transform
+      pos: -14.5,-13.5
+      parent: 2
+  - uid: 24330
+    components:
+    - type: Transform
+      pos: -8.5,-14.5
+      parent: 2
+  - uid: 24331
+    components:
+    - type: Transform
+      pos: -10.5,-18.5
+      parent: 2
+  - uid: 24336
+    components:
+    - type: Transform
+      pos: -14.5,-19.5
+      parent: 2
+  - uid: 24346
+    components:
+    - type: Transform
+      pos: -15.5,-19.5
+      parent: 2
+  - uid: 24349
+    components:
+    - type: Transform
+      pos: -14.5,-17.5
+      parent: 2
+  - uid: 24350
+    components:
+    - type: Transform
+      pos: -23.5,-19.5
       parent: 2
 - proto: DecoratedFirTree
   entities:
@@ -131216,6 +131285,11 @@ entities:
       parent: 2
 - proto: SpawnPointSecurityCadet
   entities:
+  - uid: 16592
+    components:
+    - type: Transform
+      pos: -32.5,1.5
+      parent: 2
   - uid: 20186
     components:
     - type: Transform
@@ -131235,6 +131309,68 @@ entities:
     components:
     - type: Transform
       pos: -30.5,1.5
+      parent: 2
+  - uid: 24173
+    components:
+    - type: Transform
+      pos: -32.5,0.5
+      parent: 2
+- proto: SpawnPointSecurityOfficer
+  entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: -24.5,-8.5
+      parent: 2
+  - uid: 7
+    components:
+    - type: Transform
+      pos: -23.5,-8.5
+      parent: 2
+  - uid: 8
+    components:
+    - type: Transform
+      pos: -22.5,-8.5
+      parent: 2
+  - uid: 9
+    components:
+    - type: Transform
+      pos: -22.5,-10.5
+      parent: 2
+  - uid: 10
+    components:
+    - type: Transform
+      pos: -23.5,-10.5
+      parent: 2
+  - uid: 11
+    components:
+    - type: Transform
+      pos: -24.5,-10.5
+      parent: 2
+  - uid: 12
+    components:
+    - type: Transform
+      pos: -26.5,-8.5
+      parent: 2
+  - uid: 13
+    components:
+    - type: Transform
+      pos: -26.5,-9.5
+      parent: 2
+  - uid: 14
+    components:
+    - type: Transform
+      pos: -26.5,-10.5
+      parent: 2
+  - uid: 15
+    components:
+    - type: Transform
+      pos: -33.5,-5.5
+      parent: 2
+  - uid: 16
+    components:
+    - type: Transform
+      pos: -33.5,-4.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:
