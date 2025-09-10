@@ -21,6 +21,10 @@
   name: Wraith Abilities
   category: [ HideSpawnMenu ]
   components:
+  - type: BloodCrayon
+  - type: ActionGrant
+    actions:
+    - ActionBloodWriting
   # - Haunt
   # - ActionGrant
   # actions:

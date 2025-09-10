@@ -18,10 +18,10 @@ public sealed class BloodCrayonSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BloodCrayonComponent, AfterInteractEvent>(OnCrayonUse, before: [typeof(SharedCrayonSystem)]);
-        SubscribeLocalEvent<WraithComponent, WraithBloodWritingEvent>(OnBloodWritingAction);
+        SubscribeLocalEvent<BloodWritingComponent, WraithBloodWritingEvent>(OnBloodWritingAction);
     }
 
-    private void OnBloodWritingAction(EntityUid uid, WraithComponent component, WraithBloodWritingEvent args)
+    private void OnBloodWritingAction(EntityUid uid, BloodWritingComponent component, WraithBloodWritingEvent args)
     {
         if (args.Handled)
             return;
@@ -29,18 +29,18 @@ public sealed class BloodCrayonSystem : EntitySystem
         if (!TryComp<HandsComponent>(uid, out var hands))
             return;
 
-        if (component.BloodCrayon != null)
+        if (component.BloodWriting != null)
         {
             // Disable blood writing
             _handsSystem.RemoveHands(uid);
-            QueueDel(component.BloodCrayon);
-            component.BloodCrayon = null;
+            QueueDel(component.BloodWriting);
+            component.BloodWriting = null;
         }
         else
         {
             _handsSystem.AddHand(uid, "crayon", HandLocation.Middle);
             var crayon = Spawn("CrayonBlood");
-            component.BloodCrayon = crayon;
+            component.BloodWriting = crayon;
             _handsSystem.DoPickup(uid, hands.Hands["crayon"], crayon);
             EnsureComp<UnremoveableComponent>(crayon);
         }

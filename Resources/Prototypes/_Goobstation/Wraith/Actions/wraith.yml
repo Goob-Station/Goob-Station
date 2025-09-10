@@ -3,14 +3,18 @@
 
 # Base Wraith Actions
 - type: entity
-  id: ActionRevenantBloodWriting
+  id: ActionBloodWriting
   name: Blood Writing
   description: Costs 2 WP per glyph.
   components:
-    - type: InstantAction
-      icon: _Goobstation/Wraith/actions.rsi/blood_writing.png
-      event: !type:WraithBloodWritingEvent
-      useDelay: 1
+  - type: Action
+    startDelay: true
+    useDelay: 5
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi/blood_writing.png
+      state: blood_writing
+  - type: InstantAction
+    event: !type:WraithBloodWritingEvent
 # Harbinger Actions
 
 # Plaguebringer Actions
