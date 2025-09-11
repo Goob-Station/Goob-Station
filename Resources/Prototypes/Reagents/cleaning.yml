@@ -120,7 +120,7 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
-  evaporationSpeed: 0.1
+#  evaporationSpeed: 0.1 # Goobstation - SpaceLube no evaporate
   slipData:
     requiredSlipSpeed: 0.1 # Goobstation - no crawling to avoid it
     superSlippery: true
@@ -157,11 +157,10 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 5
+        type: Add
         refresh: false
     Drink:
       effects:

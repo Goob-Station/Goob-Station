@@ -1,0 +1,93 @@
+- type: entity
+  parent: CMBaseXenoStructure
+  id: ResinDoor
+  name: resin Door
+  description: Thick resin solidified into a door.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
+    layers:
+    - state: resin
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: Door
+    canPry: false
+    crushDamage:
+      types:
+        Blunt: 15
+    openSpriteState: resinopen
+    closedSpriteState: resin
+    openingSpriteState: resinopening
+    closingSpriteState: resinclosing
+    openSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
+    closeSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move2.ogg
+  - type: Appearance
+  - type: Airtight
+    fixVacuum: true
+    noAirWhenFullyAirBlocked: false
+  - type: Occluder
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: blood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 25
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airlock
+    emergencyAccessLayer: false
+    animatePanel: false
+    powered: true
+    openingSpriteState: closed_unlit
+    closingSpriteState: closed_unlit
+  - type: AccessReader
+    access: [["Xenomorph"]]
+
