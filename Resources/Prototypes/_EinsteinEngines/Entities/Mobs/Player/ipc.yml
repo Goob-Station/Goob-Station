@@ -75,6 +75,9 @@
         locked: true
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: # Goobstation - IPCs can't disable their gimmick
+          tags:
+          - IpcBlacklisted
   - type: BatterySlotRequiresLock
     itemSlot: cell_slot
   - type: EncryptionHolderRequiresLock

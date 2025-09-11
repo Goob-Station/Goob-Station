@@ -362,6 +362,11 @@
       Gold: 12
     chemicalComposition:
       Zinc: 20
+  - type: Tag # Goobstation - IPCs can't use microreactors
+    tags:
+    - PowerCell
+    - DroneUsable
+    - IpcBlacklisted
 
 - type: entity
   parent: PowerCellMicroreactor
@@ -421,6 +426,7 @@
   - type: Tag
     tags:
       - PowerCage
+      - IpcBlacklisted # Goobstation - IPCs can't use power cages
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

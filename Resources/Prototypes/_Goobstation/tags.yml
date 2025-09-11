@@ -319,6 +319,9 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IpcBlacklisted
+
+- type: Tag
   id: ItemPickaxe
 
 - type: Tag
