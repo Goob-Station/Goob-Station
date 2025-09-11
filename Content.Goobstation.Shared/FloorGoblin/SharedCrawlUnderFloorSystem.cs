@@ -35,6 +35,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
 
     private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable);
     private const int HiddenLayer = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.MobLayer);
@@ -63,28 +64,23 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (args.Handled)
             return;
 
-
         if (_net.IsClient)
         {
             args.Handled = true;
             return;
         }
 
+        var wasOnSubfloor = IsOnSubfloor(uid);
         var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
 
-        var now = IsOnSubfloor(uid);
-        var old = component.WasOnSubfloor;
-        component.WasOnSubfloor = now;
+        RefreshCrawlSubfloorState(uid, component, false);
 
-        if (component.Enabled && now != old)
-            UpdateSneakCollision(uid, component);
+        if (!wasOnSubfloor)
+            PryTileIfUnder(uid, component);
 
-        HandleCrawlTransition(uid, old, now, component, false);
-
-        var wentUnder = component.Enabled && !IsOnSubfloor(uid);
+        var wentUnder = component.Enabled && !wasOnSubfloor;
         var selfKey = wentUnder ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
         var othersKey = wentUnder ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
-
 
         _popup.PopupEntity(Loc.GetString(selfKey), uid, uid);
         _popup.PopupEntity(Loc.GetString(othersKey, ("name", Name(uid))), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
@@ -107,39 +103,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             if (_transform.GetGrid(xform.Coordinates) is not { } g || g != gridUid)
                 continue;
 
-            if (comp.Enabled && IsInSpace(uid))
-            {
-                DisableSneakMode(uid, comp);
-                continue;
-            }
-
-            var now = IsOnSubfloor(uid);
-            var old = comp.WasOnSubfloor;
-            comp.WasOnSubfloor = now;
-
-            if (comp.Enabled && now != old)
-                UpdateSneakCollision(uid, comp);
-
-            HandleCrawlTransition(uid, old, now, comp, true);
+            ProcessCrawlStateChange(uid, comp, true);
         }
     }
 
     private void OnMove(EntityUid uid, CrawlUnderFloorComponent comp, ref MoveEvent args)
     {
-        if (comp.Enabled && IsInSpace(uid))
-        {
-            DisableSneakMode(uid, comp);
-            return;
-        }
-
-        var now = IsOnSubfloor(uid);
-        var old = comp.WasOnSubfloor;
-        comp.WasOnSubfloor = now;
-
-        if (comp.Enabled && now != old)
-            UpdateSneakCollision(uid, comp);
-
-        HandleCrawlTransition(uid, old, now, comp, false);
+        ProcessCrawlStateChange(uid, comp, false);
     }
 
     private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
@@ -217,13 +187,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     public bool IsOnCollidingTile(EntityUid uid)
     {
-        var xform = Transform(uid);
-        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
+        if (!TryGetCurrentTile(uid, out var tileRef, out _))
             return false;
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
-            return false;
-        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
         if (tileRef.Tile.IsEmpty)
             return false;
         return _turf.IsTileBlocked(tileRef, CollisionGroup.MobMask);
@@ -231,13 +196,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     public bool IsOnSubfloor(EntityUid uid)
     {
-        var xform = Transform(uid);
-        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
+        if (!TryGetCurrentTile(uid, out var tileRef, out _))
             return false;
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
-            return false;
-        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
         if (tileRef.Tile.IsEmpty)
             return false;
         var tileDef = (ContentTileDefinition) _tileManager[tileRef.Tile.TypeId];
@@ -246,13 +206,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     private bool IsInSpace(EntityUid uid)
     {
-        var xform = Transform(uid);
-        if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
+        if (!TryGetCurrentTile(uid, out var tileRef, out _))
             return true;
-        if (!TryComp<MapGridComponent>(gridUid, out var grid))
-            return true;
-        var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-        var tileRef = _map.GetTileRef(gridUid, grid, snapPos);
         return tileRef.Tile.IsEmpty;
     }
 
@@ -289,5 +244,59 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return list[idx].Item2;
         list.Add((key, current));
         return current;
+    }
+
+    private void PryTileIfUnder(EntityUid uid, CrawlUnderFloorComponent comp)
+    {
+        if (!TryGetCurrentTile(uid, out var tileRef, out var snapPos))
+            return;
+        if (tileRef.Tile.IsEmpty || ((ContentTileDefinition) _tileManager[tileRef.Tile.TypeId]).IsSubFloor)
+            return;
+
+        var coords = Transform(uid).Coordinates;
+        if (_transform.GetGrid(coords) is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out _))
+            return;
+
+        _audio.PlayPvs(comp.PrySound, uid);
+
+        _tile.PryTile(snapPos, gridUid);
+    }
+
+
+    private void RefreshCrawlSubfloorState(EntityUid uid, CrawlUnderFloorComponent comp, bool causedByTileChange)
+    {
+        var now = IsOnSubfloor(uid);
+        var old = comp.WasOnSubfloor;
+        comp.WasOnSubfloor = now;
+
+        if (comp.Enabled && now != old)
+            UpdateSneakCollision(uid, comp);
+
+        HandleCrawlTransition(uid, old, now, comp, causedByTileChange);
+    }
+
+    private void ProcessCrawlStateChange(EntityUid uid, CrawlUnderFloorComponent comp, bool causedByTileChange)
+    {
+        if (comp.Enabled && IsInSpace(uid))
+        {
+            DisableSneakMode(uid, comp);
+            return;
+        }
+
+        RefreshCrawlSubfloorState(uid, comp, causedByTileChange);
+    }
+
+    private bool TryGetCurrentTile(EntityUid uid, out TileRef tileRef, out Robust.Shared.Maths.Vector2i snapPos)
+    {
+        var transform = Transform(uid);
+        tileRef = default;
+        snapPos = default;
+        if (_transform.GetGrid(transform.Coordinates) is not { } gridUid)
+            return false;
+        if (!TryComp<MapGridComponent>(gridUid, out var grid))
+            return false;
+        snapPos = _map.TileIndicesFor((gridUid, grid), transform.Coordinates);
+        tileRef = _map.GetTileRef(gridUid, grid, snapPos);
+        return true;
     }
 }
