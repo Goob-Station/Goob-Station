@@ -34,7 +34,6 @@ public sealed partial class AutomatedSolution : AutomationSlot
         if (_solutionSys.TryGetSolution(Owner, SolutionName, out _solution, true))
             return _solution;
 
-        Log.Error($"Entity {EntMan.ToPrettyString(Owner)} had no solution {SolutionName} for automation!");
-        return null;
+        throw new InvalidOperationException($"Entity {EntMan.ToPrettyString(Owner)} had no solution {SolutionName} for automation!");
     }
 }
