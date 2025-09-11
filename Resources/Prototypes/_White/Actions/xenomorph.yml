@@ -117,28 +117,52 @@
       - WallLayer
   - type: PlasmaCostAction
 
-# TODO: delete it
-- type: entity
-  id: ActionSpawnResinMembrane
+# TODO: delete it # Goobstation - removed
+#- type: entity
+#  id: ActionSpawnResinMembrane
+#  parent: BaseAction
+#  name: Build a resin membrane (50)
+#  description: Secrete tough malleable resin.
+#  components:
+#  - type: Action
+#    useDelay: 1
+#    itemIconStyle: BigAction
+#    icon: { sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi, state: membrane } # Goobstation new sprites
+#  - type: TargetAction
+#    range: 2
+#  - type: WorldTargetAction
+#    event: !type:PlaceTileEntityEvent
+#      entity: ResinMembrane
+#      length: 0.5
+#      blockedCollisionMask:
+#      - FullTileMask
+#      blockedCollisionLayer:
+#      - GlassLayer
+#  - type: PlasmaCostAction
+
+- type: entity # Goobstation - new action
+  id: ActionSpawnResinDoor
   parent: BaseAction
-  name: Build a resin membrane (50)
+  name: Build a resin door (75)
   description: Secrete tough malleable resin.
   components:
   - type: Action
     useDelay: 1
     itemIconStyle: BigAction
-    icon: { sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi, state: membrane } # Goobstation new sprites
+    icon: { sprite :  _RMC14/Structures/Xenos/xeno_resin_door.rsi, state: resin }
   - type: TargetAction
     range: 2
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
-      entity: ResinMembrane
+      entity: ResinDoor
       length: 0.5
       blockedCollisionMask:
-      - FullTileMask
+      - TableMask
       blockedCollisionLayer:
-      - GlassLayer
+      - TableLayer
+      - BulletImpassable
   - type: PlasmaCostAction
+    plasmaCost: 75
 
 # TODO: delete it
 - type: entity
