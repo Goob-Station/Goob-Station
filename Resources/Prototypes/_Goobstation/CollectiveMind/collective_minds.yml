@@ -82,3 +82,9 @@
   name: collective-mind-fracturemind
   keycode: 'q'
   color: "#a832a8"
+  
+- type: collectiveMind
+  id: Xenomorphivemind
+  name: collective-mind-xeno
+  keycode: 'z'
+  color: "#8c3986"
