@@ -3,9 +3,37 @@
 
 # Base Wraith Actions
 - type: entity
+  id: ActionHaunt
+  name: Haunt
+  description: Temporarily become corporeal to scare people and/or gloat. This ability will remain active until used again, with the second use returning you to your incorporeal state. Every witness present gives you an increased rate of WP regeneration.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: haunt
+  - type: InstantAction
+    event: !type:HauntEvent
+
+- type: entity
+  id: ActionWhisper
+  name: Whisper
+  description: Send a spooky ghost message to somebody, which they hear as "A netherworld voice whispers in your ear..." This, alongside Blood Writing, is your only way to communicate with the living.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 5
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: whisper
+  - type: InstantAction
+    event: !type:WhisperEvent
+
+- type: entity
   id: ActionBloodWriting
   name: Blood Writing
-  description: Costs 2 WP per glyph.
+  description: Draws a single letter or pictogram of your choice on tile, complete with fancy animation. At least, that's what it will do. Right now, it just gives you a crayon. #We are absolutely going to rework this :clueless:
   components:
   - type: Action
     startDelay: true
@@ -14,7 +42,105 @@
       sprite: _Goobstation/Wraith/actions.rsi
       state: blood_writing
   - type: InstantAction
-    event: !type:WraithBloodWritingEvent
+    event: !type:BloodWritingEvent
+
+- type: entity
+  id: ActionAbsorbCorpse
+  name: Absorb corpse
+  description: Skeletonizes a targeted corpse in a cloud of black smoke with a big red message, and permanently increases your rate of WP regeneration. Cooldown starts at 45 seconds and scales exponentially with each use, but is reset by banishment. Must be used on a corpse that hasn't skeletonized. Doesn't work when the corpse has at least 25 units of formaldehyde. Instead, it only removes the formaldehyde, while still activating the cooldown.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 45
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: absorb_corpse
+  - type: InstantAction
+    event: !type:AbsorbCorpseEvent
+
+- type: entity
+  id: ActionSpook
+  name: Spook
+  description: The first use Marks an area, and the second use lets you choose a spooky thing to do to that area.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: spook
+  - type: InstantAction
+    event: !type:SpookEvent
+
+- type: entity
+  id: ActionDecay
+  name: Decay
+  description: When used on living entities, it drains a significant amount of stamina. When used on inanimate objects, it EMAGs them, if possible.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: decay
+  - type: InstantAction
+    event: !type:DecayEvent
+
+- type: entity
+  id: ActionCommand
+  name: Command
+  description: Hurls a few nearby loose objects at the chosen target.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 20
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: command
+  - type: InstantAction
+    event: !type:CommandEvent
+
+- type: entity
+  id: ActionAnimateObject
+  name: Animate object
+  description: Causes an object to come to life and try to murder anything and everything nearby.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: anim_object
+  - type: InstantAction
+    event: !type:AnimateObjectEvent
+
+- type: entity
+  id: ActionPossessObject
+  name: Possess object
+  description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people, all while taunting them (somehow).
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: possess_object
+  - type: InstantAction
+    event: !type:PossessObjectEvent
+
+- type: entity
+  id: ActionEvolve
+  name: Evolve
+  description: With three corpses absorbed, your power has grown. Allows you to pick a path to evolve into.
+  components:
+  - type: Action
+    startDelay: true
+    useDelay: 0
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: evolve
+  - type: InstantAction
+    event: !type:WraithEvolveEvent
 # Harbinger Actions
 
 # Plaguebringer Actions

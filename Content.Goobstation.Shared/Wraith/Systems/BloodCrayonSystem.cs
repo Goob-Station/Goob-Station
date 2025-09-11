@@ -18,10 +18,10 @@ public sealed class BloodCrayonSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BloodCrayonComponent, AfterInteractEvent>(OnCrayonUse, before: [typeof(SharedCrayonSystem)]);
-        SubscribeLocalEvent<BloodWritingComponent, WraithBloodWritingEvent>(OnBloodWritingAction);
+        SubscribeLocalEvent<BloodWritingComponent, BloodWritingEvent>(OnBloodWritingAction);
     }
 
-    private void OnBloodWritingAction(EntityUid uid, BloodWritingComponent component, WraithBloodWritingEvent args)
+    private void OnBloodWritingAction(EntityUid uid, BloodWritingComponent component, BloodWritingEvent args)
     {
         if (args.Handled)
             return;
