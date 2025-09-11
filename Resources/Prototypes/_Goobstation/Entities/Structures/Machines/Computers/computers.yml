@@ -26,9 +26,19 @@
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: ContainerContainer # why this exists oh my god
+  - type: ContainerContainer
     containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
+      documentSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      board: !type:Container
+        showEnts: False
+        occludes: True
         ents: [ ]
   - type: ItemSlots
     slots:
