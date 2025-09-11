@@ -2,8 +2,9 @@ using System.Linq;
 using Content.Goobstation.Common.Traits;
 using Content.Server.Chat.V2;
 using Content.Server.Radio;
-using Content.Shared.Chat;
 using Content.Server.Chat;
+using Content.Shared.Chat;
+using Content.Shared._Shitcode.Chat;
 
 namespace Content.Goobstation.Server.Deafness;
 

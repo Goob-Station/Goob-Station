@@ -1,7 +1,7 @@
 using Robust.Shared.Network;
 using Content.Shared.Chat;
 
-namespace Content.Shared.Chat;
+namespace Content.Shared._Shitcode.Chat;
 
     /// <summary>
     /// Raised for a specific entity to allow overriding or cancelling chat messages in voice range.
