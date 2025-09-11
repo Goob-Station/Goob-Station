@@ -134,7 +134,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
-    #region MisandryBox
+    #region Player Listener
 
     /// <summary>
     ///     Is sprint enabled.
@@ -188,15 +188,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
-    /// <summary>
-    /// User has opted in to adopt a spider friend!
-    /// Will persist across goob codebases that support spiders
-    /// Will be set if client receives a permanent spider msg.
-    /// </summary>
-    public static readonly CVarDef<bool> SpiderFriend =
-        CVarDef.Create("spider.enable", false, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    #endregion MisandryBox
+    #endregion PlayerListener
 
     #region Discord AHelp Reply System
 

@@ -676,6 +676,8 @@
   id: XenobiologyAdamantineExtract
 
 # XENOBIO - END
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity
