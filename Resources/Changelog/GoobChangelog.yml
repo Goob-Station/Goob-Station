@@ -14676,3 +14676,9 @@ Entries:
       message: Fixed mothroaches missing groin legs and feet.
   id: 1634
   time: '2025-09-11T11:20:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to attach peoples heads to literally any animal.
+  id: 1635
+  time: '2025-09-11T11:22:21.0000000+00:00'
