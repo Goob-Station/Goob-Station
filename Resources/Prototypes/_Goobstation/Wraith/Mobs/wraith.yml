@@ -10,6 +10,8 @@
   components:
   - type: Wraith
     abilities: WraithAbilities
+  - type: WraithPoints
+    startingWraithPoints: 9999
   - type: Input
     context: "ghost"
   - type: Spectral

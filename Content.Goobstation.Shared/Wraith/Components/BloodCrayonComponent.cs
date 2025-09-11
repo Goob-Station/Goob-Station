@@ -3,4 +3,9 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 [RegisterComponent]
 public sealed partial class BloodCrayonComponent : Component
 {
+    /// <summary>
+    /// Wraith Points to consume on use
+    /// </summary>
+    [DataField(required: true)]
+    public int WPConsume;
 }

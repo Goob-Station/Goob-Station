@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Crayon;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,6 +13,7 @@ public sealed class BloodCrayonSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly WraithPointsSystem _wpSystem = default!;
 
     public override void Initialize()
     {
@@ -21,39 +23,54 @@ public sealed class BloodCrayonSystem : EntitySystem
         SubscribeLocalEvent<BloodWritingComponent, BloodWritingEvent>(OnBloodWritingAction);
     }
 
-    private void OnBloodWritingAction(EntityUid uid, BloodWritingComponent component, BloodWritingEvent args)
+    private void OnBloodWritingAction(Entity<BloodWritingComponent> ent, ref BloodWritingEvent args)
     {
+        var uid = ent.Owner;
+        var comp = ent.Comp;
+
         if (args.Handled)
             return;
 
         if (!TryComp<HandsComponent>(uid, out var hands))
             return;
 
-        if (component.BloodWriting != null)
+        if (comp.BloodCrayon != null)
         {
             // Disable blood writing
-            _handsSystem.RemoveHands(uid);
-            QueueDel(component.BloodWriting);
-            component.BloodWriting = null;
+            PredictedQueueDel(comp.BloodCrayon);
+            comp.BloodCrayon = null;
+            Dirty(ent);
+
+            if (_handsSystem.TryGetHand(uid, "crayon", out _))
+                _handsSystem.RemoveHand(uid, "crayon", hands);
         }
         else
         {
-            _handsSystem.AddHand(uid, "crayon", HandLocation.Middle);
-            var crayon = Spawn("CrayonBlood");
-            component.BloodWriting = crayon;
-            _handsSystem.DoPickup(uid, hands.Hands["crayon"], crayon);
+            if (!_handsSystem.TryGetHand(uid, "crayon", out _))
+                _handsSystem.AddHand(uid, "crayon", HandLocation.Middle);
+
+            if (hands.ActiveHand == null
+                || hands.ActiveHand.Container == null)
+                return;
+
+            var crayon = PredictedSpawnInContainerOrDrop(
+                "CrayonBlood",
+                hands.ActiveHand.Container.Owner,
+                "crayon");
+
+            comp.BloodCrayon = crayon;
+            Dirty(ent);
             EnsureComp<UnremoveableComponent>(crayon);
         }
+
+        args.Handled = true;
     }
 
-    private void OnCrayonUse(EntityUid uid, BloodCrayonComponent comp, AfterInteractEvent args)
+    private void OnCrayonUse(Entity<BloodCrayonComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled)
             return;
 
-        //TO DO: Add check to see if user has Wraith component
-
-        //TO DO: Reduce WP after using the skill
-
+        _wpSystem.AdjustWraithPoints(ent.Comp.WPConsume, args.User);
     }
 }
