@@ -391,7 +391,7 @@
   name: uplink-AKM-name
   description: uplink-AKM-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
-  productEntity: WeaponRifleAk
+  productEntity: WeaponRifleAkSyndicate
   cost:
     Telecrystal: 80
   categories:
