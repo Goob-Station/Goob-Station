@@ -331,6 +331,9 @@
   id: Justice
 
 - type: Tag
+  id: Keyring
+
+- type: Tag
   id: Kidneys
 
 - type: Tag

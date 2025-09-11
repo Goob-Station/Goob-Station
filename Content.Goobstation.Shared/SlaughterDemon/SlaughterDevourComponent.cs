@@ -16,6 +16,12 @@ namespace Content.Goobstation.Shared.SlaughterDemon;
 public sealed partial class SlaughterDevourComponent : Component
 {
     /// <summary>
+    /// Devouring doafter
+    /// </summary>
+    [DataField(required: true)]
+    public float DoAfterDelay;
+
+    /// <summary>
     /// Healing done when eating someone
     /// </summary>
     [DataField(required: true)]
@@ -43,7 +49,7 @@ public sealed partial class SlaughterDevourComponent : Component
     };
 
     /// <summary>
-    /// Laughter Demon exclusive: A container that holds the entities instead of outright removing them
+    /// A container that holds the entities instead of outright removing them
     /// </summary>
     public Container Container = default!;
 }

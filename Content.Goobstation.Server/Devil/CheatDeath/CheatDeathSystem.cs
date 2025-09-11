@@ -71,7 +71,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
     private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
     {
         if (args.PreventRevive)
-            RemComp(ent.Owner, ent.Comp);
+            RemCompDeferred(ent.Owner, ent.Comp);
     }
 
 
