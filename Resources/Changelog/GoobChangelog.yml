@@ -14670,3 +14670,27 @@ Entries:
       message: CC mapping
   id: 1633
   time: '2025-09-10T22:42:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mothroaches missing groin legs and feet.
+  id: 1634
+  time: '2025-09-11T11:20:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to attach peoples heads to literally any animal.
+  id: 1635
+  time: '2025-09-11T11:22:21.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed traitors with sleeping carp being outed by the reflect examine.
+  id: 1636
+  time: '2025-09-11T12:51:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed borgs and station AI crashing the game.
+  id: 1637
+  time: '2025-09-11T13:04:20.0000000+00:00'
