@@ -285,6 +285,11 @@
   icon: { sprite: Objects/Fun/Instruments/structureinstruments.rsi, state: daw-base } # Goobstation
   result: DawInstrumentMachineCircuitboard
 
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe]
+  id: SmartFridgeCircuitboard
+  result: SmartFridgeCircuitboard
+  
 # Bar
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
