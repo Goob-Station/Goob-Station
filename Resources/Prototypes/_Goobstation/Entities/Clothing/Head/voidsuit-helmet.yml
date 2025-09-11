@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: blueshield tacsuit helmet
-  description: The helmet of the captain's bodyguard's tacsuit.
+  name: blueshield hardsuit helmet
+  description: The helmet of the captain's bodyguard's hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -101,7 +101,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth tacsuit helmet
+  name: cybersun stealth hardsuit helmet
   description: A helmet with photo-reactive plating for stealth operations.
   components:
   - type: Sprite
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
-  name: security tacsuit helmet
-  description: A well-built faceplate attached to the security tacsuit.
+  name: security hardsuit helmet
+  description: A well-built faceplate attached to the security hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced tacsuit helmet
-  description: Security tacsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
+  name: head of security's advanced hardsuit helmet
+  description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi

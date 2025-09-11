@@ -29,16 +29,16 @@
 
 # Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Tacsuit
-uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic tacsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Hardsuit
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit, from the Gorlex Marauders.
 
-uplink-hardsuit-syndiecommander-name = Gorlex Commander Tacsuit
-uplink-hardsuit-syndiecommander-desc = A surplus commander tacsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Tacsuit
-uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan technology, this tacsuit has stealth plating in it for those special ops. Slightly slower and less armored than other tacsuits.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
+uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armored than other hardsuits.
 
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit

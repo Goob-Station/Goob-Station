@@ -95,7 +95,7 @@ selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
     Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
     Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    a blood-red tacsuit and some basic nuclear operative gear.
+    a blood-red hardsuit and some basic nuclear operative gear.
 
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
@@ -154,7 +154,7 @@ selectable-set-blueshield-syringe-description =
 
 # Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = blueshield tacsuit
+selectable-set-blueshield-hardsuit-light-name = blueshield hardsuit
 selectable-set-blueshield-hardsuit-light-description =
     An armoured hardsuit, allowing for more speed at the cost of protection.
 
@@ -189,7 +189,7 @@ selectable-set-paramedic-modsuit-desc =
     A modular hardsuit with heavier plates
     to shrug off a bullet or two, hopefully.
 
-selectable-set-security-voidsuit-name = Security tacsuit
+selectable-set-security-voidsuit-name = Security hardsuit
 selectable-set-security-voidsuit-desc =
     A light hardsuit with an in-built plate carrier to provide
     moderate protection while remaining mobile for low intensity kinetic ops.
@@ -197,13 +197,13 @@ selectable-set-security-voidsuit-desc =
 selectable-set-security-modsuit-name = Security 'soldat' modsuit
 selectable-set-security-modsuit-desc =
     A modular hardsuit with ceramic inserts to provide more protection
-    than the tacsuit counterpart, but with less mobility.
+    than the hardsuit counterpart, but with less mobility.
 
-selectable-set-headofsecurity-voidsuit-name = Head of security's tacsuit
+selectable-set-headofsecurity-voidsuit-name = Head of security's hardsuit
 selectable-set-headofsecurity-voidsuit-desc =
-    A light tacsuit with material cut from non-vital areas to slightly increase
+    A light hardsuit with material cut from non-vital areas to slightly increase
     the armour value of the vital organs and increase mobility
-    compared to the standard security tacsuit.
+    compared to the standard security hardsuit.
 
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' modsuit
 selectable-set-headofsecurity-modsuit-desc =

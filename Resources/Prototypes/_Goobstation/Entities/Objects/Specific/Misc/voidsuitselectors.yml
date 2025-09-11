@@ -22,8 +22,8 @@
 # security
 - type: entity
   id: UndeterminedVoidsuitSecurity
-  name: security tacsuit selector
-  description: A small remote utilizing bluespace technology to drop in a tacsuit or modsuit of your choosing.
+  name: security hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -37,8 +37,8 @@
 # head of security
 - type: entity
   id: UndeterminedVoidsuitHeadOfSecurity
-  name: head of security tacsuit selector
-  description: A small remote utilizing bluespace technology to drop in a tacsuit or modsuit of your choosing.
+  name: head of security hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
