@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Traits.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Standing;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -20,7 +21,7 @@ public sealed partial class SocialAnxietySystem : EntitySystem
     {
         _standingSystem.Down(uid);
         _stunSystem.TryStun(uid, TimeSpan.FromSeconds(3), true);
-        var mobName = MetaData(uid).EntityName;
+        var mobName = Identity.Name(uid, EntityManager);
         _popupSystem.PopupEntity(Loc.GetString("social-anxiety-hugged", ("user", mobName)), uid, PopupType.MediumCaution);
     }
 }
