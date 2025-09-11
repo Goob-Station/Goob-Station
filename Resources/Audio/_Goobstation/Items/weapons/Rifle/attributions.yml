@@ -1,2 +1,5 @@
-# pickup1/2/3 taken from fuck knows where, converted to mono by @deltanedas (github)
-# brave goidaarcheologists please source them
+# brave goidaarcheologists please source these
+- files: [ "pickup1.ogg", "pickup2.ogg", "pickup3.ogg" ]
+  license: "CC-BY-SA-3.0"
+  copyright: "stolen by russians from somewhere, converted to mono by @deltanedas (github)"
+  source: "https://goida.zip/unknown"
