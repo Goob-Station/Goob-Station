@@ -14682,3 +14682,9 @@ Entries:
       message: Fixed being able to attach peoples heads to literally any animal.
   id: 1635
   time: '2025-09-11T11:22:21.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed traitors with sleeping carp being outed by the reflect examine.
+  id: 1636
+  time: '2025-09-11T12:51:43.0000000+00:00'
