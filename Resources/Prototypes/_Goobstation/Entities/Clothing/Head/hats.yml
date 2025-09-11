@@ -361,3 +361,22 @@
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseJanitorContraband ]
+  id: ClothingHeadHatJanitorCap
+  name: janitorial cap
+  description: An extravagant purple cap for only the BEST of janitorial workers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/janitor_cap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/janitor_cap.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Head/Hats/janitor_cap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
