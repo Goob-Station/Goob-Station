@@ -435,6 +435,22 @@
     - MagazineMagnum
 
 - type: selectableSet
+  id: ERTBallisticsSet2
+  name: selectable-set-ert-ballistic2-name
+  description: selectable-set-ert-ballistic2-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/antelope.rsi
+    state: base
+  content:
+    - WeaponShotgunAntelope
+    - MagazineShotgun
+    - MagazineShotgun
+    - MagazineShotgun
+    - WeaponPistolN1984
+    - MagazineMagnum
+    - MagazineMagnum
+
+- type: selectableSet
   id: ERTPulseSet
   name: selectable-set-ert-pulse-name
   description: selectable-set-ert-pulse-description
