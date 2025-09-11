@@ -71,6 +71,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - SurplusBundle # Dream Walker
 
 # Thermal Vision
 
@@ -103,3 +104,4 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - SurplusBundle # Dream Walker

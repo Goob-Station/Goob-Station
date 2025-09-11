@@ -1,0 +1,25 @@
+- type: listing
+  id: UplinkBoombox
+  name: Boombox
+  description: "For when you want to shitpost to the whole station."
+  productEntity: Boombox
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless
+
+# Just for super surplus
+
+- type: listing
+  id: UplinkPulserifle
+  name: Pulserifle
+  description: "Lucky man."
+  productEntity: WeaponPulseRifle
+  cost:
+    Telecrystal: 400
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+    - SurplusBundle

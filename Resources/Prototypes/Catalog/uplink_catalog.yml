@@ -811,10 +811,11 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # DreamWalker
+  # - !type:BuyerWhitelistCondition
+  #   blacklist:
+  #     components:
+  #     - SurplusBundle
 
 - type: listing
   id: UplinkNocturineChemistryBottle
@@ -896,10 +897,11 @@
       whitelist:
         tags:
           - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+    # DreamWalker
+    # - !type:BuyerWhitelistCondition
+    #   blacklist:
+    #     components:
+    #       - SurplusBundle
 
 
 # Deception
@@ -1648,7 +1650,8 @@
     - !type:BuyerWhitelistCondition
       blacklist:
         components:
-          - SurplusBundle
+          # DreamWalker
+          # - SurplusBundle
           - ContravendUplink
 
 - type: listing
@@ -2127,10 +2130,11 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chaplain
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # DreamWalker
+  # - !type:BuyerWhitelistCondition
+  #   blacklist:
+  #     components:
+  #     - SurplusBundle
 
 
 - type: listing

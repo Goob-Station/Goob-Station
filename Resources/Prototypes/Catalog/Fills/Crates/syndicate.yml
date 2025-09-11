@@ -44,7 +44,7 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate super surplus crate
   # Goobstation - Telecrystal rework
-  description: Contains 625 telecrystals worth of completely random Syndicate items.
+  description: Contains 700 telecrystals worth of completely random Syndicate items. # Dreamwalker
   components:
     - type: SurplusBundle
-      totalPrice: 625
+      totalPrice: 700 # Dreamwalker - Raised TC to 700 to allow maulers and other op things to spawn
