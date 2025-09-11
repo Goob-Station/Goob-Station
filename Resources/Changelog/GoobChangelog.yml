@@ -14670,3 +14670,9 @@ Entries:
       message: CC mapping
   id: 1633
   time: '2025-09-10T22:42:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mothroaches missing groin legs and feet.
+  id: 1634
+  time: '2025-09-11T11:20:16.0000000+00:00'
