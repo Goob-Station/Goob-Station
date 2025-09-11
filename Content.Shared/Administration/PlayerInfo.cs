@@ -22,6 +22,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Content.Shared.Mind;
 
@@ -34,7 +35,7 @@ public sealed record PlayerInfo(
     string IdentityName,
     string StartingJob,
     bool Antag,
-    RoleTypePrototype RoleProto,
+    ProtoId<RoleTypePrototype>? RoleProto,
     LocId? Subtype,
     int SortWeight,
     NetEntity? NetEntity,

@@ -3,7 +3,7 @@
   id: XenomorphsInfestation
   components:
   - type: StationEvent
-    weight: 5
+    weight: 7.5 # New antag I wanna be able to actually play it
     duration: null
     minimumPlayers: 20
     earliestStart: 35
