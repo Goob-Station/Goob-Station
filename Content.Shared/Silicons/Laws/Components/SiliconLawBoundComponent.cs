@@ -24,6 +24,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -75,9 +76,9 @@ public enum SiliconLawsUiKey : byte
 public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
     public List<SiliconLaw> Laws;
-    public HashSet<string>? RadioChannels;
+    public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
 
-    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<string>? radioChannels)
+    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
     {
         Laws = laws;
         RadioChannels = radioChannels;
