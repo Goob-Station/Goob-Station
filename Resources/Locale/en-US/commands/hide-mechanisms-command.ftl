@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-cmd-hidemechanisms-desc = Reverts the effects of {$showMechanismsCommand}
-cmd-hidemechanisms-help = Usage: {$command}
+cmd-hidemechanisms-desc = Reverts the effects of showmechanisms command.
+cmd-hidemechanisms-help = Usage: hidemechanisms
