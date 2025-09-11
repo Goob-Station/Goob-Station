@@ -4222,3 +4222,11 @@
   id: 8953
   time: '2025-09-11T11:37:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39203
+- author: aada
+  changes:
+  - message: Cups, bottles, mugs, and other drinks have had minor changes. Most are
+      now destructible.
+    type: Tweak
+  id: 8954
+  time: '2025-09-11T15:59:11.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39221
