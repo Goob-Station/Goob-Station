@@ -14694,3 +14694,13 @@ Entries:
       message: Fixed borgs and station AI crashing the game.
   id: 1637
   time: '2025-09-11T13:04:20.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added a Seclite to BSO's Locker.
+    - type: Add
+      message: >-
+        Added a knife into BSO's backpack on spawn and removed it from the
+        boots 
+  id: 1638
+  time: '2025-09-11T18:51:33.0000000+00:00'
