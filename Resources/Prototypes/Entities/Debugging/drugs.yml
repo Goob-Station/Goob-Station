@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkBaseMaterialGlass, DrinkBase]
   id: DrinkMeth
   name: meth  # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
   description: Just a whole glass of meth.
