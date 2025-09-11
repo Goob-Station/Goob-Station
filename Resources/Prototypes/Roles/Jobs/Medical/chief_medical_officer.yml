@@ -154,6 +154,7 @@
   supervisors: job-supervisors-captain
   canBeAntag: false
   goobcoins: 40 #Goob content
+  weight: 10 #Goob Edit
   access:
   - Medical
   - Command
