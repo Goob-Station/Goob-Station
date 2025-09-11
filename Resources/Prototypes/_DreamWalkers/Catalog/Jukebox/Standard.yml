@@ -2,13 +2,13 @@
   id: DWinvisible
   name: "[DW] Invisible"
   path:
-    path: /Audio/_DreamWalkers/Jukebox/Invisible.ogg
+    path: /Audio/_DreamWalkers/Jukebox/invisible.ogg
 
 - type: jukebox
   id: DWthemanwhosoldtheworld
   name: "[DW] The Man Who Sold the World"
   path:
-    path: /Audio/_DreamWalkers/Jukebox/The_Man_Who_Sold_the_World.ogg
+    path: /Audio/_DreamWalkers/Jukebox/the_man_who_sold_the_world.ogg
 
 - type: jukebox
   id: DWgruppakrovi
@@ -20,7 +20,7 @@
   id: DWridin
   name: "[DW] Ridin"
   path:
-    path: /Audio/_DreamWalkers/Jukebox/Ridin.ogg
+    path: /Audio/_DreamWalkers/Jukebox/ridin.ogg
 
 - type: jukebox
   id: DWhalflifecredits
@@ -62,7 +62,7 @@
   id: DWlysendraa
   name: "[DW] Lysendraa"
   path:
-    path: /Audio/_DreamWalkers/Jukebox/Lysendraa.ogg
+    path: /Audio/_DreamWalkers/Jukebox/lysendraa.ogg
 
 - type: jukebox
   id: DWelibao
@@ -74,7 +74,7 @@
   id: DWspacehero
   name: "[DW] Space Hero"
   path:
-    path: /Audio/_DreamWalkers/Jukebox/SpaceHero.ogg
+    path: /Audio/_DreamWalkers/Jukebox/spacehero.ogg
 
 - type: jukebox
   id: DWforwhomthebelltolls
@@ -87,3 +87,93 @@
   name: "[DW] Bandit Radio"
   path:
     path: /Audio/_DreamWalkers/Jukebox/bandit_radio.ogg
+
+- type: jukebox
+  id: DWkillallxenos
+  name: "[DW] Kill All Xenos"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/kill_all_xenos.ogg
+
+- type: jukebox
+  id: DWcalifornication
+  name: "[DW] Californication"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/californication.ogg
+
+- type: jukebox
+  id: DWdragula
+  name: "[DW] Dragula"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/dragula.ogg
+
+- type: jukebox
+  id: DWrazormind
+  name: "[DW] Razormind"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/razormind.ogg
+
+- type: jukebox
+  id: DWthehandthatfeeds
+  name: "[DW] The Hand That Feeds"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/the_hand_that_feeds.ogg
+
+- type: jukebox
+  id: DWbluemonday
+  name: "[DW] Blue Monday"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/blue_monday.ogg
+
+- type: jukebox
+  id: DWkickstartmyheart
+  name: "[DW] Kickstart My Heart"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/kickstart_my_heart.ogg
+
+- type: jukebox
+  id: DWbfgdivision
+  name: "[DW] BFG Division"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/bfg_division.ogg
+
+- type: jukebox
+  id: DWkillerklowns
+  name: "[DW] Killer Klowns"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/killer_klowns.ogg
+
+- type: jukebox
+  id: DWtenebrerossosangue
+  name: "[DW] Tenebre Rosso Sangue"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/tenebre_rosso_sangue.ogg
+
+- type: jukebox
+  id: DWeverlong
+  name: "[DW] Everlong"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/Everlong.ogg
+
+- type: jukebox
+  id: DWiveseenfootage
+  name: "[DW] I've Seen Footage"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/ive_seen_footage.ogg
+
+- type: jukebox
+  id: DWhacker
+  name: "[DW] Hacker"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/hacker.ogg
+
+- type: jukebox
+  id: DWblowmeaway
+  name: "[DW] Blow Me Away"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/blow_me_away.ogg
+
+- type: jukebox
+  id: DWparanoid
+  name: "[DW] Paranoid"
+  path:
+    path: /Audio/_DreamWalkers/Jukebox/paranoid.ogg
