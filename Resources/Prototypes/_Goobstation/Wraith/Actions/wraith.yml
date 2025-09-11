@@ -43,6 +43,8 @@
       state: blood_writing
   - type: InstantAction
     event: !type:BloodWritingEvent
+  - type: ActionWraithPoints
+    wpConsume: -5
 
 - type: entity
   id: ActionAbsorbCorpse

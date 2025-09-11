@@ -1,10 +1,13 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
 
-/// <summary>
-/// This is used for...
-/// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ActionWraithPointsComponent : Component
 {
-    
+    /// <summary>
+    /// The amount of WP to reduce from the entity on action use
+    /// </summary>
+    [DataField(required: true)]
+    public int WpConsume;
 }
