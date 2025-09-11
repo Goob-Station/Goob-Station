@@ -4,15 +4,16 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
+using Robust.Shared.GameStates;
 
-namespace Content.Server.Radio.Components;
+namespace Content.Shared.Radio.Components;
 
 /// <summary>
 ///     This component is used to tag players that are currently wearing an ACTIVE headset.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class WearingHeadsetComponent : Component
 {
-    [DataField("headset")]
+    [DataField]
     public EntityUid Headset;
 }
