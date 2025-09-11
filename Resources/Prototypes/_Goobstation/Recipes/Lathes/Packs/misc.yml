@@ -18,6 +18,8 @@
   - MagazineCaselessRifleEmpty
   - MagazineCaselessRifle
   - MagazineLowCaliberM7S
+  - MagazineLightRifle
+  - MagazineLightRifleEmpty
 
 - type: latheRecipePack
   id: SyndicateAmmoHeavyStatic

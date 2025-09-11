@@ -163,7 +163,7 @@
 
 - type: entity
   name: AKM
-  parent: [BaseWeaponRifle, BaseSecurityContraband]
+  parent: [BaseWeaponRifle, BaseSyndicateContraband] #goob, removed BaseSecurityContraband
   id: WeaponRifleAk
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
@@ -175,6 +175,14 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 6 #goobstart
+    shotsPerBurst: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - Burst
+    - SemiAuto
+    burstFireRate: 12
+    burstCooldown: 0.6 #goobend
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider

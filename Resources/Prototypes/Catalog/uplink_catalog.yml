@@ -335,16 +335,17 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkEstoc # goob unbundle
-  name: uplink-estoc-name # goob unbundle
-  description: uplink-estoc-desc # goob unbundle
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-  productEntity: WeaponRifleEstoc # goob unbundle
-  cost:
-    Telecrystal: 55 # goob unbundle
-  categories:
-  - UplinkWeaponry
+# goob, removed from uplink, replaced with akm
+#- type: listing
+#  id: UplinkEstoc # goob unbundle
+#  name: uplink-estoc-name # goob unbundle
+#  description: uplink-estoc-desc # goob unbundle
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+#  productEntity: WeaponRifleEstoc # goob unbundle
+#  cost:
+#    Telecrystal: 55 # goob unbundle
+#  categories:
+#  - UplinkWeaponry
 
 - type: listing
   id: UplinkBulldog #goob
@@ -717,16 +718,17 @@
   categories:
   - UplinkAmmo
 
+#GOOB, replaced estoc with AK
 # For the Estoc
-- type: listing
-  id: UplinkEstocAmmo
-  name: uplink-estoc-ammo-name
-  description: uplink-estoc-ammo-desc
-  productEntity: MagazineRifle
-  cost:
-    Telecrystal: 5 # goob - on par with c20
-  categories:
-  - UplinkAmmo
+# - type: listing
+#  id: UplinkEstocAmmo
+#  name: uplink-estoc-ammo-name # goob, Wrong name and desc btw LMAOOOOO
+#  description: uplink-estoc-ammo-desc
+#  productEntity: MagazineRifle
+#  cost:
+#    Telecrystal: 5 # goob - on par with c20
+#  categories:
+#  - UplinkAmmo
 
 # for the hristov
 - type: listing
@@ -1185,7 +1187,7 @@
   categories:
   - UplinkDisruption
 # Goob - Antimov was given the same price for traitors and nukies
-#  conditions:                     
+#  conditions:
 #  - !type:StoreWhitelistCondition
 #     blacklist:
 #       tags:
@@ -1205,7 +1207,7 @@
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - NukeOpsUplink 
+#      - NukeOpsUplink
 
 
 

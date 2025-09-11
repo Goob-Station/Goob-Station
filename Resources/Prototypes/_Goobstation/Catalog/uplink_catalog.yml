@@ -387,6 +387,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkAKM
+  name: uplink-AKM-name
+  description: uplink-AKM-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  productEntity: WeaponRifleAk
+  cost:
+    Telecrystal: 80
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkWeaponRifleBurner
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
@@ -1038,6 +1049,17 @@
   productEntity: MagazineShotgun
   cost:
     Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineLightRifle
+  name: uplink-akm-magazine-name
+  description: uplink-akm-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
+  productEntity: MagazineLightRifle
+  cost:
+    Telecrystal: 10
   categories:
   - UplinkAmmo
 
