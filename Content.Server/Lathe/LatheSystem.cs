@@ -260,7 +260,7 @@ namespace Content.Server.Lathe
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
             }
-            component.Queue.Add(recipe);
+            component.Queue.Enqueue(recipe);
 
             return true;
         }
@@ -272,8 +272,8 @@ namespace Content.Server.Lathe
             if (component.CurrentRecipe != null || component.Queue.Count <= 0 || !this.IsPowered(uid, EntityManager))
                 return false;
 
-            var recipe = component.Queue.First();
-            component.Queue.RemoveAt(0);
+            var recipeProto = component.Queue.Dequeue();
+            var recipe = _proto.Index(recipeProto);
 
             var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.TimeMultiplier;
 
@@ -303,7 +303,8 @@ namespace Content.Server.Lathe
 
             if (comp.CurrentRecipe != null)
             {
-                if (comp.CurrentRecipe.Result is { } resultProto)
+                var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
+                if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
                     _stack.TryMergeToContacts(result);
@@ -311,7 +312,7 @@ namespace Content.Server.Lathe
                         scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
                 }
 
-                if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&
+                if (currentRecipe.ResultReagents is { } resultReagents &&
                     comp.ReagentOutputSlotId is { } slotId)
                 {
                     var toAdd = new Solution(
@@ -349,9 +350,11 @@ namespace Content.Server.Lathe
             if (!Resolve(uid, ref component))
                 return;
 
-            var producing = component.CurrentRecipe ?? component.Queue.FirstOrDefault();
+            var producing = component.CurrentRecipe;
+            if (producing == null && component.Queue.TryPeek(out var next))
+                producing = next;
 
-            var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue, producing);
+            var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing);
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
         }
 
@@ -465,12 +468,12 @@ namespace Content.Server.Lathe
         {
             if (component.Queue.Count > 0)
             {
-                var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q).Materials);
                 var totalMaterials = new Dictionary<string, int>();
 
                 foreach (var (mat, amount) in allMaterials)
                 {
-                    if(!totalMaterials.ContainsKey(mat)) 
+                    if(!totalMaterials.ContainsKey(mat))
                         totalMaterials[mat] = 0;
                     totalMaterials[mat] += amount;
                 }
