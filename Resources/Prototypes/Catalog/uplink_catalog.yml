@@ -247,27 +247,6 @@
   categories:
   - UplinkWeaponry
 
-
-- type: listing
-  id: UplinkHyperEutacticBlade
-  name: uplink-hypereutactic-blade-name
-  description: uplink-hypereutactic-blade-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-  productEntity: HyperEutacticBlade
-  cost:
-    Telecrystal: 74 # goob - desword is 74 and this should be the same
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
 - type: listing
   id: UplinkHyperEutaticBlade
   name: uplink-hypereutatic-blade-name
