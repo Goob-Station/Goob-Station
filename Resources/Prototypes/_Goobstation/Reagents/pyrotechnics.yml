@@ -34,7 +34,7 @@
 - type: reagent
   id: Methanol
   name: reagent-name-methanol
-  parent: BasePyrotechnic
+  group: Pyrotechnic
   desc: reagent-desc-methanol
   physicalDesc: reagent-physical-desc-pungent
   color: "#c4f5ff"
