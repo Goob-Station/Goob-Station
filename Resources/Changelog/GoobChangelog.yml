@@ -14616,3 +14616,81 @@ Entries:
         to get the flatpack back.
   id: 1629
   time: '2025-09-10T20:17:03.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added xenomorph doors. They are really extremely weak to heat so I
+        recommend only using them for privacy
+    - type: Remove
+      message: >-
+        Removed xenomorph windows (There was no reason to use them and it just
+        griefed your hive)
+    - type: Tweak
+      message: Nerfed Xenomorph healing
+    - type: Tweak
+      message: Nerfed Xenomorph stun
+    - type: Tweak
+      message: Nerfed Xenomorph structure health
+    - type: Tweak
+      message: >-
+        Massively lowered the rest state for Facehuggers. They should latch to
+        people much more often now
+    - type: Tweak
+      message: >-
+        Acid spit is now stronger and should be able to destroy resin walls much
+        quicker.
+    - type: Tweak
+      message: Xenomorphs are now slightly more common
+    - type: Tweak
+      message: Tail whip now injects sleepy chemicals and deals less brute
+    - type: Tweak
+      message: >-
+        Hivemind now uses collective mind (+Z) instead of being a separate
+        language
+  id: 1630
+  time: '2025-09-10T22:04:07.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: >-
+        Bugspray has been applied to all monitors. You no longer have to fear
+        spiders on your screen.
+  id: 1631
+  time: '2025-09-10T22:05:51.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: mapping on delta
+  id: 1632
+  time: '2025-09-10T22:31:46.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: CC mapping
+  id: 1633
+  time: '2025-09-10T22:42:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mothroaches missing groin legs and feet.
+  id: 1634
+  time: '2025-09-11T11:20:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed being able to attach peoples heads to literally any animal.
+  id: 1635
+  time: '2025-09-11T11:22:21.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed traitors with sleeping carp being outed by the reflect examine.
+  id: 1636
+  time: '2025-09-11T12:51:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed borgs and station AI crashing the game.
+  id: 1637
+  time: '2025-09-11T13:04:20.0000000+00:00'
