@@ -9,6 +9,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -16,7 +17,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Numerics;
 
@@ -39,6 +39,7 @@ public sealed partial class StealShoesSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedCrawlUnderFloorSystem _crawlUnderFloorSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobstate = default!;
 
     public override void Initialize()
     {
@@ -122,16 +123,13 @@ public sealed partial class StealShoesSystem : EntitySystem
 
     private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
     {
-        var isDead = TryComp<Content.Shared.Mobs.Components.MobStateComponent>(target, out var mob) &&
-                     mob.CurrentState == Content.Shared.Mobs.MobState.Dead;
+        const string slotId = "shoes";
 
-        if (!isDead)
-            return _inventory.TryUnequip(target, "shoes", silent: true, predicted: true, reparent: false);
+        if (!_mobstate.IsDead(target))
+            return _inventory.TryUnequip(target, slotId, silent: true, predicted: true, reparent: false);
 
-        if (!_inventory.TryGetSlotContainer(target, "shoes", out var slot, out Content.Shared.Inventory.SlotDefinition? _))
-            return false;
-
-        return _containers.Remove(shoes, slot, force: true, reparent: false);
+        return _inventory.TryGetSlotContainer(target, slotId, out var slot, out SlotDefinition? _)
+            && _containers.Remove(shoes, slot, force: true, reparent: false);
     }
 
 
