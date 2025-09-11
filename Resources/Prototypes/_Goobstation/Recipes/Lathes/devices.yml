@@ -55,7 +55,7 @@
     Gold: 200
 
 - type: latheRecipe
-  id: ExplosivePayload
+  id: ExplosivePayloadRecipe
   result: ExplosivePayload
   categories:
   - Parts
