@@ -6,4 +6,4 @@
   components:
   - type: Blueprint
     providedRecipes:
-    - ExplosivePayloadRecipe
+    - ExplosivePayload
