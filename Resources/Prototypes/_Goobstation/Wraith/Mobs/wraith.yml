@@ -11,7 +11,7 @@
   - type: Wraith
     abilities: WraithAbilities
   - type: WraithPoints
-    startingWraithPoints: 1000
+    startingWraithPoints: 9999
   - type: Input
     context: "ghost"
   - type: Spectral

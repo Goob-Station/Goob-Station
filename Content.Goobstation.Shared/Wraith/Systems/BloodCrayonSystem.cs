@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Crayon;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,6 +13,7 @@ public sealed class BloodCrayonSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly WraithPointsSystem _wpSystem = default!;
 
     public override void Initialize()
     {
@@ -35,11 +37,12 @@ public sealed class BloodCrayonSystem : EntitySystem
         if (comp.BloodCrayon != null)
         {
             // Disable blood writing
-            if (_handsSystem.TryGetHand(uid, "crayon", out _))
-                _handsSystem.RemoveHand(uid, "crayon", hands);
             PredictedQueueDel(comp.BloodCrayon);
             comp.BloodCrayon = null;
             Dirty(ent);
+
+            if (_handsSystem.TryGetHand(uid, "crayon", out _))
+                _handsSystem.RemoveHand(uid, "crayon", hands);
         }
         else
         {
@@ -63,14 +66,11 @@ public sealed class BloodCrayonSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnCrayonUse(EntityUid uid, BloodCrayonComponent comp, AfterInteractEvent args)
+    private void OnCrayonUse(Entity<BloodCrayonComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled)
             return;
 
-        //TO DO: Add check to see if user has Wraith component
-
-        //TO DO: Reduce WP after using the skill
-
+        _wpSystem.AdjustWraithPoints(ent.Comp.WPConsume, args.User);
     }
 }
