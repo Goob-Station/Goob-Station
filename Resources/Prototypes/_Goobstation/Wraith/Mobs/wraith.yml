@@ -33,6 +33,13 @@
     visMask:
     - Normal
     - Ghost
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 5
+    softness: 5
+    autoRot: true
+    castShadows: false
   - type: ContentEye
     maxZoom: 1.2, 1.2
   - type: NameIdentifier
@@ -55,3 +62,57 @@
       Acidic: [ Touch ]
   - type: WeakToHoly
     alwaysTakeHoly: true
+
+- type: entity
+  id: MobWraithPlague
+  parent: MobWraith
+  name: Plague Wraith
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: plague
+  - type: PointLight
+    enabled: true
+    color: "#434f2a"
+    radius: 5
+    softness: 5
+    autoRot: true
+    castShadows: false
+
+- type: entity
+  id: MobWraithHarbinger
+  parent: MobWraith
+  name: Harbinger Wraith
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: harbinger
+  - type: PointLight
+    enabled: true
+    color: "#ebb02b"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+    castShadows: false
+
+- type: entity
+  id: MobWraithTrickster
+  parent: MobWraith
+  name: Trickster Wraith
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: trickster
+  - type: PointLight
+    enabled: true
+    color: "#66ccff"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+    castShadows: false
