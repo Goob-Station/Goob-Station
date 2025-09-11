@@ -15,6 +15,7 @@ public sealed partial class BloodWritingEvent : InstantActionEvent
 }
 public sealed partial class AbsorbCorpseEvent : InstantActionEvent
 {
+    public EntityUid Target;
 }
 public sealed partial class SpookEvent : InstantActionEvent
 {
