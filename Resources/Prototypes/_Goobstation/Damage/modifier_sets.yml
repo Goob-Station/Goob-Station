@@ -38,6 +38,19 @@
     Piercing: 0.9
 
 - type: damageModifierSet
+  id: Backpacks
+  coefficients:
+    Heat: 0
+    Blunt: 0
+    Slash: 2
+    Piercing: 0
+    Cold: 0
+    Bloodloss: 0
+    Poison: 0
+    Radiation: 0
+    Ion: 0
+
+- type: damageModifierSet
   id: SiliconProtected
   coefficients:
     Blunt: 0.6
