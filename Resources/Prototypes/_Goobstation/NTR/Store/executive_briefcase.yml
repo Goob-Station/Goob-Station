@@ -29,7 +29,13 @@
   - type: ContainerContainer # why this exists oh my god
     containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents: [ ]
+      CorporateOverrideSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: BriefcaseScanner
     scanDuration: 7.5
   - type: CorporateOverride
