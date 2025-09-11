@@ -4203,3 +4203,11 @@
   id: 8951
   time: '2025-09-11T02:37:10.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40253
+- author: IProduceWidgets
+  changes:
+  - message: Tennis balls! Found in arcade machines, maintenance and the cargo toy
+      crate!
+    type: Add
+  id: 8952
+  time: '2025-09-11T10:57:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40143
