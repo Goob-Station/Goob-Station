@@ -16,7 +16,6 @@
     selectState: select
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
-  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
         enum.JukeboxUiKey.Key:
