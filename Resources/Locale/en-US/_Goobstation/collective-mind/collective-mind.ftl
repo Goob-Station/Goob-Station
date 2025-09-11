@@ -14,3 +14,4 @@ collective-mind-mousemind = Piepmind
 collective-mind-dronemind = Dronemind
 collective-mind-empathy = Empathy
 collective-mind-bingle = Binglemind
+collective-mind-xeno = Hivemind

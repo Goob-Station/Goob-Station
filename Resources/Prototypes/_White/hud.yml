@@ -8,3 +8,9 @@
   name: ui-options-hud-theme-operative
   path: /Textures/_White/Interface/Operative/
   order: 7
+
+- type: hudTheme
+  id: SS14XenomorphTheme
+  name: ui-options-hud-theme-xenomorph
+  path: /Textures/_White/Interface/Xenomorph/
+  order: 9

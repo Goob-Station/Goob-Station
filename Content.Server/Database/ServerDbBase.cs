@@ -92,7 +92,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -100,6 +99,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
@@ -110,10 +110,8 @@
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -394,6 +392,8 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
+                profile.Height, // Goobstation: port EE height/width sliders
+                profile.Width, // Goobstation: port EE height/width sliders
                 profile.Age,
                 sex,
                 gender,
@@ -430,6 +430,8 @@ namespace Content.Server.Database
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
+            profile.Height = humanoid.Height; // Goobstation: port EE height/width sliders
+            profile.Width = humanoid.Width; // Goobstation: port EE height/width sliders
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
@@ -867,8 +869,11 @@ namespace Content.Server.Database
         {
             await using var db = await GetDb();
             var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
+
+            // Check if we didn't get user from DB
+            if (dbPlayer == null || dbPlayer.UserId != userId)
                 return false;
+
             dbPlayer.LastRolledAntag = to;
             await db.DbContext.SaveChangesAsync();
             return true;
@@ -2146,25 +2151,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
-        #endregion
-
-        #region Comedy
-
-        public async Task<List<Guid>> GetAllSpiderFriends()
-        {
-            await using var db = await GetDb();
-            return await db.DbContext.GoobMisandrySpiderFriends
-                .Select(p => p.Guid)
-                .ToListAsync();
-        }
-
-        public async Task AddSpiderFriend(SpiderFriend friend)
-        {
-            await using var db = await GetDb();
-            db.DbContext.GoobMisandrySpiderFriends.Add(friend);
-
-            await db.DbContext.SaveChangesAsync();
-        }
         #endregion
 
         public abstract Task SendNotification(DatabaseNotification notification);

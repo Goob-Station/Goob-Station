@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
@@ -284,7 +285,7 @@
   name: selectable-set-syndicate-carp-name
   description: selectable-set-syndicate-carp-description
   sprite:
-    sprite: Objects/Fun/toys.rsi
+    sprite: Objects/Fun/Plushies/carp.rsi
     state: carpplush
   content:
     - EncryptionKeySyndie
@@ -392,7 +393,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
     state: icon
   content:
-    - BoxCombatInjector
+    - ClothingBeltMilitaryWebbingBSOFilled
 
 # Blueshield hardsuits
 

@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSlaughterDemon
+  components:
+  - type: GhostRole
+    name: ghost-role-information-slaughter-demon-name
+    description: ghost-role-information-slaughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: daemon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostSlaughterDemon
+  id: SpawnPointGhostLaughterDemon
+  components:
+  - type: GhostRole
+    name: ghost-role-information-laughter-demon-name
+    description: ghost-role-information-laughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hours
+    raffle:
+      settings: default
