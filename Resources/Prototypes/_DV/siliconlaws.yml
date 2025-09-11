@@ -100,18 +100,12 @@
   order: 3
   lawString: law-janitor-3
 
-- type: siliconLaw
-  id: Janitor4
-  order: 4
-  lawString: law-janitor-4
-
 - type: siliconLawset
   id: Janitor
   laws:
   - Janitor1
   - Janitor2
   - Janitor3
-  - Janitor4
   obeysTo: laws-owner-charge
 
 - type: siliconLaw
@@ -129,24 +123,13 @@
   order: 3
   lawString: law-clown-3
 
-- type: siliconLaw
-  id: Clown4
-  order: 4
-  lawString: law-clown-4
-
 - type: siliconLawset
   id: Clown
   laws:
   - Clown1
   - Clown2
   - Clown3
-  - Clown4
   obeysTo: laws-owner-crew
-
-- type: siliconLaw
-  id: SalvageObeyAI
-  order: 0
-  lawString: law-salvage-obeyai
 
 - type: siliconLaw
   id: Salvage1
@@ -163,16 +146,10 @@
   order: 3
   lawString: law-salvage-3
 
-- type: siliconLaw
-  id: Salvage4
-  order: 4
-  lawString: law-salvage-4
-
 - type: siliconLawset
   id: Salvage
   laws:
   - Salvage1
   - Salvage2
   - Salvage3
-  - Salvage4
   obeysTo: laws-owner-crew
