@@ -27,7 +27,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     public float DetectionValue;
 
     [DataField, AutoNetworkedField]
-    public float DetectionValueFactor = 1.5f;
+    public float DetectionValueFactor = 0.5f;
 
     /// <summary>
     /// Indicates whether the user should take damage on light

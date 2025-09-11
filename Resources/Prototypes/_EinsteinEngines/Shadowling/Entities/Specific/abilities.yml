@@ -56,6 +56,7 @@
   description: Entity that contains all components for Nightmares.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Nightmare
   - type: LightDetection
   - type: LightDetectionDamage
   - type: LightEaterUser

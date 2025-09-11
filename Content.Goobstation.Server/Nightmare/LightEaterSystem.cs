@@ -68,7 +68,7 @@ public sealed class LightEaterSystem : EntitySystem
     private void OnMeleeHit(EntityUid uid, LightEaterComponent component, MeleeHitEvent args)
     {
         if (args.Handled
-            ||!args.IsHit
+            || !args.IsHit
             || !args.HitEntities.Any())
             return;
 
