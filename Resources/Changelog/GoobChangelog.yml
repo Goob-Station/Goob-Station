@@ -14688,3 +14688,9 @@ Entries:
       message: Fixed traitors with sleeping carp being outed by the reflect examine.
   id: 1636
   time: '2025-09-11T12:51:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed borgs and station AI crashing the game.
+  id: 1637
+  time: '2025-09-11T13:04:20.0000000+00:00'
