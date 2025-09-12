@@ -1,5 +1,3 @@
-#will add explosive payload after my War Factory PR merges
-
 - type: entity
   name: minibomb payload
   parent: [ BasePayload, BaseSyndicateContraband ]
@@ -294,6 +292,22 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
     state: payload-triple
+=======
+- type: entity
+  name: explosive payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: ExplosivePayload
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/payload.rsi
+    state: icon
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 85
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
   - type: Destructible
     thresholds:
     - trigger:
@@ -301,6 +315,10 @@
         damage: 25
       behaviors:
       - !type:TriggerBehavior
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
@@ -536,3 +554,4 @@
           Quantity: 30
         - ReagentId: FoamingAgent
           Quantity: 30
+

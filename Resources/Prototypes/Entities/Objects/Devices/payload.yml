@@ -37,7 +37,7 @@
 - type: entity
   name: shrapnel payload # Goobstation - shrapnel payload
   parent: [ BasePayload, BaseSecurityContraband ]
-  id: ExplosivePayload
+  id: ShrapnelPayload
   components:
   - type: Sprite
     sprite: Objects/Devices/payload.rsi
