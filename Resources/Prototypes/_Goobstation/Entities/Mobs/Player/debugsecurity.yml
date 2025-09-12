@@ -242,3 +242,69 @@
   - type: AutoImplant
     implants:
     - MindShieldImplant
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanBSOBase
+  name: Blueshield Officer Base
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ BlueShieldOfficerGearDebug ]
+    roleLoadout: [ RoleSurvivalSecurity ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    #adding bluespace implanter would be stupid
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanBSOSuit
+  name: Blueshield Officer
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ BlueShieldOfficerGearSuit ]
+    roleLoadout: [ RoleSurvivalSecurity ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    #adding bluespace implanter would be stupid
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanBSOModSuit
+  name: Blueshield Officer
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ BlueShieldOfficerGearModSuit ]
+    roleLoadout: [ RoleSurvivalSecurity ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    #adding bluespace implanter would be stupid

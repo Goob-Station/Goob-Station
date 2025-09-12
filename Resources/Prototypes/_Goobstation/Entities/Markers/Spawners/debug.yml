@@ -318,3 +318,48 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHumanWarden
+
+- type: entity
+  name: Blueshield Officer Base Spawner
+  id: SpawnMobHumanBSOBase
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOBase
+
+- type: entity
+  name: Blueshield Officer Suit Spawner
+  id: SpawnMobHumanBSOSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOSuit
+
+- type: entity
+  name: Blueshield Officer ModSuit Spawner
+  id: SpawnMobHumanBSOModSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOModSuit
