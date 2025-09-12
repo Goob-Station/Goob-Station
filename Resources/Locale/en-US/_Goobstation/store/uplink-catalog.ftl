@@ -219,7 +219,7 @@ uplink-RPOA-name = RPO-A 'Shmel'
 uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
 
 uplink-ExplosivePayloadBlueprint-name = Explosive Payload Blueprint
-uplink-ExplosivePayloadBlueprint-desc = A blueprint that will allow a single lathe to print explosive payloads, an illigal and dangerous device that can be used in grenades.
+uplink-ExplosivePayloadBlueprint-desc = A blueprint that will allow a single lathe to print explosive payloads, an illegal and dangerous device that can be used in grenades.
 
 # Mechs
 
