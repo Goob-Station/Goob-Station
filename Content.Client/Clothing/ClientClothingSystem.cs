@@ -53,7 +53,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using static Robust.Client.GameObjects.SpriteComponent;
 
-
 namespace Content.Client.Clothing;
 
 public sealed class ClientClothingSystem : ClothingSystem
