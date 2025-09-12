@@ -87,3 +87,30 @@
       Plastic: 25
   - type: SoundOnTrigger
     removeOnTrigger: true
+
+- type: entity
+  parent: [BaseItem , BaseSyndicateContraband]
+  id: HolyTimer
+  name: holy timer
+  description: For the Grail...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: timer-holy
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 40
+  - type: PayloadTrigger
+    components:
+    - type: OnUseTimerTrigger
+      delay: 3
+      initialBeepDelay: 1
+      delayOptions: [3]
+      beepInterval: 3
+      beepSound:
+        path: /Audio/Effects/hallelujah.ogg
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25

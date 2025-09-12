@@ -1,3 +1,6 @@
+#smoke, lube, clean, and glue payloads are chemical payloads with the proper chem ratio
+#will add explosive payload after my War Factory PR merges
+
 - type: entity
   name: minibomb payload
   parent: [ BasePayload, BaseSyndicateContraband ]
@@ -80,8 +83,6 @@
             volume: 15
       - type: DeleteOnTrigger
 
-#will add explosive payload after my War Factory PR merges
-
 - type: entity
   name: nuclear option payload
   parent: [ BasePayload, BaseMajorContraband ]
@@ -127,7 +128,6 @@
     totalIntensity: 200
     intensitySlope: 30
     maxIntensity: 120
-  - type: AnchorOnTrigger
     removeOnTrigger: true
   - type: TwoStageTrigger
     triggerDelay: 10.45
@@ -158,6 +158,231 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
           params:
             volume: 5
-      - type: DeleteOnTrigger
+      - type: ExplodeOnTrigger
 
-#smoke payload is a chemical payload with the proper chem ratio
+- type: entity
+  name: stinger payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: StingerPayload
+  description: Launches many of less-lethal stunning rubber pellets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-stinger
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterRubber
+    capacity: 30
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+
+- type: entity
+  name: tear gas payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: TearGasPayload
+  description: Releases a large amount of blinding gas.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-teargas
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 20
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  name: sarin gas payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SarinGasPayload
+  description: Releases a large amount of deadly gas.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-saringas
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 20
+    spreadAmount: 30
+    solution:
+      reagents:
+      - ReagentId: Sarin
+        Quantity: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  name: incendiary payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: IncendiaryPayload
+  description: Launches many firey fragments.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-incendiary
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterIncendiary
+    capacity: 30
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  name: holy payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: HolyPayload
+  description: Causes a HUGE, deadly explosion.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-HHG
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: Explosive
+    explosionType: Holy
+    totalIntensity: 3500
+    intensitySlope: 15
+    maxIntensity: 70
+    canCreateVacuum: true
+  - type: ExplodeOnTrigger
+  - type: PointLight
+    radius: 7
+    energy: 3
+    netsync: false
+
+- type: entity
+  name: cluster payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: ClusterBombPayload
+  description: Causes three large, deadly explosions.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-triple
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ScatteringGrenade
+    fillPrototype: ExGrenade
+    capacity: 3
+    distance: 4
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  name: clusterbang payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: ClusterBangPayload
+  description: Releashes three flashbangs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-triple
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ScatteringGrenade
+    fillPrototype: GrenadeFlashBang
+    capacity: 5
+    distance: 6
+    velocity: 6
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  name: air payload
+  parent: [ BasePayload, BaseEngineeringContraband ]
+  id: AirPayload
+  description: Releases air I guess.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-air
+  - type: DeleteOnTrigger
+  - type: ReleaseGasOnTrigger
+    removeFraction: 0.25
+    air:
+      volume: 1000
+      moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
+      - 654.7464 # oxygen
+      - 2463.0936 # nitrogen
+      temperature: 293.15
+
+- type: entity
+  name: foam payload
+  parent: BasePayload
+  id: FoamPayload
+  description: Makes a giant fucking mess. Shame on you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-trick
+  - type: ScatteringGrenade
+    fillPrototype: BulletFoam
+    capacity: 30
+    velocity: 30
+
+- type: entity
+  name: EMP payload
+  parent: BasePayload
+  id: EMPPayload
+  description: Releases an electro magnetic pulse, disrupts electronics.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-EMP
+  - type: EmpOnTrigger
+    range: 5.5
+    energyConsumption: 50000
+  - type: DeleteOnTrigger
+
+- type: entity
+  name: bee payload
+  parent: BasePayload
+  id: BeePayload
+  description: Releases bees. (they are mean)
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-bee
+  - type: ScatteringGrenade
+    fillPrototype: MobSyndieAngryBee
+    capacity: 5
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"

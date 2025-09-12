@@ -362,7 +362,7 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
           params:
             volume: 5
-      - type: DeleteOnTrigger
+      - type: ExplodeOnTrigger
   - type: StaticPrice
     price: 1000
 

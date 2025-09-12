@@ -17,7 +17,37 @@
       "name": "timer-supermatter"
 	},
     {
+      "name": "timer-holy"
+	},
+    {
       "name": "payload-trick"
+	},
+    {
+      "name": "payload-stinger"
+	},
+    {
+      "name": "payload-teargas"
+	},
+    {
+      "name": "payload-saringas"
+	},
+    {
+      "name": "payload-incendiary"
+	},
+    {
+      "name": "payload-triple"
+	},
+    {
+      "name": "payload-HHG"
+	},
+    {
+      "name": "payload-EMP"
+	},
+    {
+      "name": "payload-bee"
+	},
+    {
+      "name": "payload-air"
 	},
     {
       "name": "payload-nuclearoption"
