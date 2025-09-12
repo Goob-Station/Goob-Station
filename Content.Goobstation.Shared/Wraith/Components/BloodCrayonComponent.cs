@@ -7,5 +7,5 @@ public sealed partial class BloodCrayonComponent : Component
     /// Wraith Points to consume on use
     /// </summary>
     [DataField(required: true)]
-    public int WPConsume;
+    public int WpConsume;
 }

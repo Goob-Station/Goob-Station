@@ -29,27 +29,30 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     {
         var uid = ent.Owner;
         var comp = ent.Comp;
+        var target = args.Target;
 
         if (args.Handled)
             return;
 
-        if (args.Target == uid)
-            return;
-
-        if (HasComp<BorgChassisComponent>(args.Target))
+        if (HasComp<BorgChassisComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("wraith-fail-target-borg"), uid);
             return;
         }
 
-        if (!_mobState.IsDead(args.Target))
+        if (HasComp<HumanoidAppearanceComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("wraith-fail-target-not-humanoid"), uid);
+            return;
+        }
+
+        if (!_mobState.IsDead(target))
         {
             _popup.PopupEntity(Loc.GetString("wraith-fail-target-alive"), uid);
             return;
         }
 
-        //TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
-
+        // TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
         var doAfter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(comp.AbsorbDuration), new AbsorbCorpseDoAfter(), uid, target: args.Target)
         {
             BreakOnDamage = true,
@@ -59,15 +62,15 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         if (!_doAfter.TryStartDoAfter(doAfter))
         {
-            //If it fails to start for any one reason.
+            // If it fails to start for any one reason.
             _popup.PopupEntity(Loc.GetString("wraith-absorb-fail-start"), args.Target);
             args.Handled = true;
         }
 
         _popup.PopupEntity(Loc.GetString("wraith-absorb-start", ("target", args.Target)), uid, uid, PopupType.Medium);
         args.Handled = true;
-
     }
+
     private void OnAbsorbCorpseDoAfter(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseDoAfter args)
     {
         var uid = ent.Owner;
@@ -76,36 +79,20 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (args.Handled)
             return;
 
-        //TO DO: A check for if the do after is cancelled or if the target is null.
-
-        //Just to be sure the target is still dead.
-        if (!_mobState.IsDead(args.Target))
-        {
-            _popup.PopupEntity(Loc.GetString("wraith-absorb-fail-target-alive"), uid);
-            return;
-        }
-
-        //TO DO: Transform target into a skeleton.
-        //TO DO: Increase WP regeneration.
-        //TO DO: Lessen the cooldown for next use of Absorb Corpse.
+        // TO DO: Rot the target
+        // TO DO: Increase WP regeneration.
+        // TO DO: Lessen the cooldown for next use of Absorb Corpse.
 
         comp.CorpsesAbsorbed++;
         _popup.PopupEntity(Loc.GetString("wraith-absorb-success"), uid);
-
         args.Handled = true;
-
-    }
-
-    private void Skeletonize(EntityUid corpse)
-    {
-        //TO DO: Logic for turning perrson into skeleton.
     }
 
     private void EmpowerWraith(EntityUid wraith, AbsorbCorpseComponent comp)
     {
         //TO DO: Logic for lowering cooldown and increaseing WP regeneration.
 
-        //So that the cooldown does not get reduced too much.
+        //TO DO: Make this a generic component to be reusable.
         if (comp.CorpsesAbsorbed <= 3)
         {
             comp.AbsorbCooldown += comp.CooldownReducer;

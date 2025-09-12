@@ -50,19 +50,21 @@
 - type: entity
   id: ActionAbsorbCorpse
   name: Absorb corpse
-  description: Skeletonizes a targeted corpse in a cloud of black smoke with a big red message, and permanently increases your rate of WP regeneration. Cooldown starts at 45 seconds and scales exponentially with each use, but is reset by banishment. Must be used on a corpse that hasn't skeletonized. Doesn't work when the corpse has at least 25 units of formaldehyde. Instead, it only removes the formaldehyde, while still activating the cooldown.
+  description: Rots a corpse with a cloud of black smoke and boosts WP regeneration. Cooldown lessens with each use but resets on banishment. Can be stopped by formaldehyde.
   components:
   - type: Action
-    startDelay: true
+    startDelay: false
     useDelay: 45
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: absorb_corpse
+  - type: TargetAction
+    deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
       components:
-      - HumanoidAppearance
+      - MobState
     event: !type:AbsorbCorpseEvent
 
 - type: entity

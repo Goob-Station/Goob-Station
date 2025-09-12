@@ -71,6 +71,6 @@ public sealed class BloodCrayonSystem : EntitySystem
         if (args.Handled)
             return;
 
-        _wpSystem.AdjustWraithPoints(ent.Comp.WPConsume, args.User);
+        _wpSystem.AdjustWraithPoints(ent.Comp.WpConsume, args.User);
     }
 }
