@@ -61,7 +61,11 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
         component.WasOnSubfloor = IsOnSubfloor(uid);
 
-        SetStealth(uid, false); // We use stealth component for allowing medhuds and such to be hidden, terrible solution, couldn't think of anything better.
+        if (!_net.IsClient)
+        {
+            EnableSneakMode(uid, component);
+            SetStealth(uid, !IsOnSubfloor(uid)); // We use stealth component for allowing medhuds and such to be hidden, terrible solution, couldn't think of anything better.
+        }
     }
 
     private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)

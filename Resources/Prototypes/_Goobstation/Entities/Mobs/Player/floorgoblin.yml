@@ -34,6 +34,8 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: FloorGoblin
