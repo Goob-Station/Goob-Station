@@ -14760,3 +14760,17 @@ Entries:
       message: Xeno Nest provides life support functions.
   id: 1642
   time: '2025-09-12T17:25:38.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Explosive Payload Blueprint to syndicate uplink
+    - type: Tweak
+      message: >-
+        Explosive payload weaker than before, cannot space rooms and only does
+        75 damage to an unarmored target.
+    - type: Tweak
+      message: >-
+        Remove nerf on signal payloads to give them a delayed explosion, making
+        them mostly useless
+  id: 1643
+  time: '2025-09-12T18:49:11.0000000+00:00'
