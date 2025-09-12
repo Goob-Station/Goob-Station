@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Wraith.Events;
 
@@ -14,7 +15,11 @@ public sealed partial class WhisperEvent : InstantActionEvent
 public sealed partial class BloodWritingEvent : InstantActionEvent
 {
 }
-public sealed partial class AbsorbCorpseEvent : SimpleDoAfterEvent
+public sealed partial class AbsorbCorpseEvent : EntityTargetActionEvent
+{
+    public EntityUid Target;
+}
+public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent //Is this really the way to do it?
 {
     public EntityUid Target;
 }

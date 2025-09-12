@@ -21,6 +21,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     {
         base.Initialize();
 
+        // ERROR: Can't use the AbsorbCorpseEvent twice. Fix? Not sure.
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorbTry);
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorbComplete);
     }
@@ -50,7 +51,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         //TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
 
-        var doAfter = new DoAfterArgs(EntityManager, uid, comp.AbsorbDuration, new AbsorbCorpseEvent(), uid, target: args.Target)
+        var doAfter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(comp.AbsorbDuration), new AbsorbCorpseDoAfter(), uid, target: args.Target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -73,11 +74,10 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         var uid = ent.Owner;
         var comp = ent.Comp;
 
-        if (args.Cancelled || args.Handled)
+        if (args.Handled)
             return;
 
-        if (args.Args.Target == null)
-            return;
+        //TO DO: A check for if the do after is cancelled or if the target is null.
 
         //Just to be sure the target is still dead.
         if (!_mobState.IsDead(args.Target))
