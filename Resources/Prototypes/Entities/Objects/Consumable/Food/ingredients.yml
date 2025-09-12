@@ -173,10 +173,10 @@
     solution: food
   - type: DrainableSolution
     solution: food
-  - type: Drink
+  - type: Edible
+    edible: Food # usually contains powders like flour or condiments like ketchup
     solution: food
-    useSound:
-      collection: eating
+    utensil: Spoon
   - type: Damageable
     damageContainer: Inorganic
   - type: Spillable
@@ -372,6 +372,8 @@
         reagents:
         - ReagentId: OilOlive
           Quantity: 20
+  - type: Edible
+    edible: Drink # slurping sounds!
 
 - type: entity
   parent: ReagentPacketBase
