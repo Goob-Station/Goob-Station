@@ -1,2 +1,10 @@
 namespace Content.Goobstation.Common.Chat;
-public sealed class ChatMessageOverrideInVoiceRange : CancellableEntityEventArgs;
+
+[ByRefEvent]
+public record struct ChatMessageOverrideInVoiceRange(bool Cancelled = false)
+{
+    public void Cancel()
+    {
+        Cancelled = true;
+    }
+}

@@ -1086,7 +1086,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (channel == ChatChannel.Local)
             {
                 var ev = new ChatMessageOverrideInVoiceRange();
-                RaiseLocalEvent(listener, ev);
+                RaiseLocalEvent(listener, ref ev);
                 if (ev.Cancelled)
                     continue;
             }
