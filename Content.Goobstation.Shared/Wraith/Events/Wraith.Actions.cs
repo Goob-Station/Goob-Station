@@ -17,11 +17,10 @@ public sealed partial class BloodWritingEvent : InstantActionEvent
 }
 public sealed partial class AbsorbCorpseEvent : EntityTargetActionEvent
 {
-    public EntityUid Target;
 }
+[Serializable, NetSerializable]
 public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent
 {
-    public EntityUid Target;
 }
 public sealed partial class SpookEvent : InstantActionEvent
 {

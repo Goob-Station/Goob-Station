@@ -34,12 +34,6 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (HasComp<BorgChassisComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-borg"), uid);
-            return;
-        }
-
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("wraith-fail-target-not-humanoid"), uid);
