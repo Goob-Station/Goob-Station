@@ -16,7 +16,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
-[RegisterComponent, NetworkedComponent]
 public sealed partial class AbsorbCorpseSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -55,7 +54,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             return;
         }
 
-        if (HasComp<WraithAbsorbable>(target))
+        if (HasComp<WraithAbsorbableComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("wraith-fail-target-absorbed"), uid);
             return;
@@ -100,9 +99,9 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         {
             var rot = EntityManager.AddComponent<RottingComponent>(target!.Value);
         }
-        if (!HasComp<WraithAbsorbable>(target.Value))
+        if (!HasComp<WraithAbsorbableComponent>(target.Value))
         {
-            var absorbable = EntityManager.AddComponent<WraithAbsorbable>(target!.Value);
+            var absorbable = EntityManager.AddComponent<WraithAbsorbableComponent>(target!.Value);
         }
         if (TryComp<TransformComponent>(target.Value, out var targetXform))
 
