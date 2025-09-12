@@ -26,6 +26,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: latheRecipe
+  id: ClothingArmGuard
+  result: ClothingArmGuard
+  completetime: 6
+  materials:
+    Plastic: 500
+    Steel: 1000
+
+- type: latheRecipe
+  id: ClothingLegGuard
+  result: ClothingLegGuard
+  completetime: 6
+  materials:
+    Plastic: 500
+    Steel: 1000
+
+- type: latheRecipe
   id: GrenadeFlashBang
   result: GrenadeFlashBang
   completetime: 3
