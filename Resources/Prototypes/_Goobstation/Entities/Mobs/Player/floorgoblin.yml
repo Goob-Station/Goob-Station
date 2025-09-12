@@ -52,7 +52,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      60: Dead
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 40
@@ -64,7 +64,7 @@
     spawned: []
   - type: NpcFactionMember
     factions:
-      - Mouse
+      - SimpleNeutral
   - type: VentCrawler
   - type: MeleeWeapon
     soundHit:
@@ -97,3 +97,4 @@
         Blunt: 0.1
   - type: Puller
     needsHands: false
+  - type: Stealth # Hijacking this to prevent huds from showing, tell me if you got a better solution.
