@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, Access(typeof(WraithPointsSystem))]
 [AutoGenerateComponentState]
 public sealed partial class WraithPointsComponent : Component
 {
@@ -17,10 +17,4 @@ public sealed partial class WraithPointsComponent : Component
     /// </summary>
     [DataField(required: true)]
     public int StartingWraithPoints;
-
-    /// <summary>
-    /// The rate at which the wraith regenerates WP.
-    /// </summary>
-    [DataField]
-    public int WpRegeneration = 1;
 }
