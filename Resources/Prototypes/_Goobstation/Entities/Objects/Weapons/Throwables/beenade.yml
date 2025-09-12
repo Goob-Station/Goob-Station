@@ -34,3 +34,6 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: Construction
+    graph: BeeGrenadeGraph
+    node: grenade1

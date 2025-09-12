@@ -365,6 +365,9 @@
       - type: ExplodeOnTrigger
   - type: StaticPrice
     price: 1000
+  - type: Construction #goob
+    graph: SupermatterGrenadeGraph
+    node: grenade1
 
 - type: entity
   name: whitehole grenade
@@ -414,6 +417,9 @@
       - type: DeleteOnTrigger
   - type: StaticPrice
     price: 1000
+  - type: Construction #goob
+    graph: WhiteholeGrenadeGraph
+    node: grenade1
 
 - type: entity
   name: the nuclear option
@@ -444,6 +450,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: Construction #goob
+    graph: NuclearOptionGraph
+    node: grenade1
 
 - type: entity
   name: modular grenade
@@ -511,6 +520,9 @@
       path: /Audio/Effects/countdown.ogg
   - type: StaticPrice
     price: 666 # 2000 for 3, I love fractions
+  - type: Construction #Goob
+    graph: EMPGrenadeGraph
+    node: grenade1
 
 - type: entity
   name: holy hand grenade
@@ -538,6 +550,9 @@
       path: /Audio/Effects/hallelujah.ogg
   - type: StaticPrice
     price: 10000
+  - type: Construction
+    graph: HolyHandGrenadeGraph
+    node: grenade1
 
 - type: entity
   parent: [ GrenadeBase, BaseSecurityContraband ]
@@ -590,6 +605,9 @@
       reagents:
       - ReagentId: TearGas
         Quantity: 20
+  - type: Construction
+    graph: TearGasGrenadeGraph
+    node: grenade1
 
 - type: entity
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
@@ -639,6 +657,9 @@
         enabled:
           True: { state: active }
           False: { state: spent }
+  - type: Construction
+    graph: AirGrenadeGraph
+    node: grenade1
 
 # Non-explosive "dummy" grenades to use as a distraction.
 
@@ -682,3 +703,6 @@
         volume: 12
   - type: StaticPrice
     price: 1000
+  - type: Construction #Goob
+    graph: SyndicateTrickybombGraph
+    node: grenade1
