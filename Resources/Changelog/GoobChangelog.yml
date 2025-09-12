@@ -14740,3 +14740,9 @@ Entries:
       message: Slaughter Demon will feel smoother and more responsive to play now.
   id: 1640
   time: '2025-09-12T07:27:55.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Add
+      message: Added Floor Goblin ghost role, Beware of the shoe thief!
+  id: 1641
+  time: '2025-09-12T09:31:13.0000000+00:00'
