@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Atmos.Rotting;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -7,6 +9,9 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -15,6 +20,8 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
+    private static readonly EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
 
 
     public override void Initialize()
@@ -46,6 +53,12 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             return;
         }
 
+        if (HasComp<WraithAbsorbable>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("wraith-fail-target-absorbed"), uid);
+            return;
+        }
+
         // TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
         var doAfter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(comp.AbsorbDuration), new AbsorbCorpseDoAfter(), uid, target: args.Target)
         {
@@ -62,6 +75,9 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
 
         _popup.PopupEntity(Loc.GetString("wraith-absorb-start", ("target", args.Target)), uid, uid, PopupType.Medium);
+
+        //TO DO: Make the wraith corporial during the do after.
+
         args.Handled = true;
     }
 
@@ -69,27 +85,40 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     {
         var uid = ent.Owner;
         var comp = ent.Comp;
+        var target = args.Target;
 
         if (args.Handled)
             return;
 
-        // TO DO: Rot the target
-        // TO DO: Increase WP regeneration.
-        // TO DO: Lessen the cooldown for next use of Absorb Corpse.
+        if (target == null)
+            return;
 
-        comp.CorpsesAbsorbed++;
-        _popup.PopupEntity(Loc.GetString("wraith-absorb-success"), uid);
-        args.Handled = true;
-    }
+        //Rots the targetted corpse
+        if (!HasComp<RottingComponent>(target.Value))
+        {
+            var rot = EntityManager.AddComponent<RottingComponent>(target!.Value);
+        }
+        if (!HasComp<WraithAbsorbable>(target.Value))
+        {
+            var absorbable = EntityManager.AddComponent<WraithAbsorbable>(target!.Value);
+        }
+        if (TryComp<TransformComponent>(target.Value, out var targetXform))
 
-    private void EmpowerWraith(EntityUid wraith, AbsorbCorpseComponent comp)
-    {
-        //TO DO: Logic for lowering cooldown and increaseing WP regeneration.
+        Spawn(SmokeProto, targetXform.MapPosition);
 
-        //TO DO: Make this a generic component to be reusable.
+        //Lowers the cooldown for the next use.
         if (comp.CorpsesAbsorbed <= 3)
         {
             comp.AbsorbCooldown += comp.CooldownReducer;
         }
+        // Increases WP regeneration
+        if (TryComp<WraithPointsComponent>(uid, out var wpComp))
+        {
+            wpComp.WpRegeneration += 1;
+        }
+
+        comp.CorpsesAbsorbed++;
+        _popup.PopupEntity(Loc.GetString("wraith-absorb-success"), uid);
+        args.Handled = true;
     }
 }

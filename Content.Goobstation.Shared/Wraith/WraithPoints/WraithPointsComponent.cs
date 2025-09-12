@@ -17,4 +17,10 @@ public sealed partial class WraithPointsComponent : Component
     /// </summary>
     [DataField(required: true)]
     public int StartingWraithPoints;
+
+    /// <summary>
+    /// The rate at which the wraith regenerates WP.
+    /// </summary>
+    [DataField(required: true)]
+    public int WpRegeneration = 1;
 }
