@@ -25,7 +25,7 @@
   - GrenadeFlashBang
   - BolaEnergy
   - ClothingLegGuard
-  - ClothingArmGuard
+  - ClothingArmsGuard
 
 - type: latheRecipePack
   id: SecurityHypoStatic

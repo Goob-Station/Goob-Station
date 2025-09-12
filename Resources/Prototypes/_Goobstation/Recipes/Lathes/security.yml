@@ -26,8 +26,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: latheRecipe
-  id: ClothingArmGuard
-  result: ClothingArmGuard
+  id: ClothingArmsGuard
+  result: ClothingArmsGuard
   completetime: 6
   materials:
     Plastic: 500
