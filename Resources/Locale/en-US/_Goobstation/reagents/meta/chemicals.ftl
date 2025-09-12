@@ -17,12 +17,3 @@ reagent-desc-blackpowder = A primitive yet powerful explosive. Explodes when hea
 
 reagent-name-cryostylane = cryostylane
 reagent-desc-cryostylane = A useful chemical, consumes oxygen or iodine to cool down the solution it's in.
-
-reagent-name-hydrogen-peroxide = hydrogen peroxide
-reagent-desc-hydrogen-peroxide = A powerful oxidizing agent occasionally used as disinfectant.
-
-reagent-name-acetone-oxide = acetone oxide
-reagent-desc-acetone-oxide = A corrosive substance used in explosive compounds.
-
-reagent-name-nitric-acid = nitric acid
-reagent-desc-nitric-acid = A strong acid used in the creation of explosive compounds.

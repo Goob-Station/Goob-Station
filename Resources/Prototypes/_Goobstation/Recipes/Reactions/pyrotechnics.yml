@@ -15,3 +15,47 @@
       amount: 1
   products:
     BlackPowder: 3
+
+- type: reaction
+  id: FlashPowder
+  conserveEnergy: false
+  reactants:
+    Aluminum:
+      amount: 1
+    Potassium:
+      amount: 1
+    Sulfur:
+      amount: 1
+    StabilizingAgent:
+      amount: 1
+      catalyst: true
+  products:
+    FlashPowder: 3
+
+- type: reaction
+  id: SmokePowder
+  conserveEnergy: false
+  reactants:
+    Phosphorus:
+      amount: 1
+    Potassium:
+      amount: 1
+    Sugar:
+      amount: 1
+    StabilizingAgent:
+      amount: 1
+      catalyst: true
+  products:
+    SmokePowder: 3
+
+- type: reaction
+  id: StabilizingAgent
+  reactants:
+    Hydrogen:
+      amount: 1
+    Iron:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    StabilizingAgent: 3

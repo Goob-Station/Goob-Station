@@ -26,4 +26,31 @@
           shouldHave: false
         damage:
           types: # black powder is bad for your health.
-            Poison: 0.1 # 2 damage/u
+            Poison: 0.1 # 2 damage/
+
+- type: reagent
+  id: SmokePowder
+  name: reagent-name-smoke-powder
+  group: Pyrotechnic
+  desc: reagent-desc-smoke-powder
+  flavor: metallic
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#bababa"
+
+- type: reagent
+  id: FlashPowder
+  name: reagent-name-flash-powder
+  group: Pyrotechnic
+  desc: reagent-desc-flash-powder
+  flavor: metallic
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#bababa"
+
+- type: reagent
+  id: StabilizingAgent
+  name: reagent-name-stabilizing-agent
+  group: Pyrotechnic
+  desc: reagent-desc-stabilizing-agent
+  flavor: metallic
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
