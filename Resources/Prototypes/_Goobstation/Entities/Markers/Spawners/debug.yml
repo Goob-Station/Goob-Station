@@ -363,3 +363,33 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHumanBSOModSuit
+
+- type: entity
+  name: Wizard Spawner
+  id: SpawnMobHumanWizardDEBUG
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWizardDEBUG
+
+- type: entity
+  name: Wizard Suit Spawner
+  id: SpawnMobHumanWizardDEBUGSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWizardDEBUGSuit

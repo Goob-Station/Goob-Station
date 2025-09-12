@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerSuit
   name: Security Officer Suit
@@ -19,7 +19,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerModSuit
   name: Security Officer ModSuit
@@ -36,7 +36,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHosModSuit
   name: Head Of Security ModSuit
@@ -53,7 +53,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHoSSuit
   name: Head Of Security Suit
@@ -70,7 +70,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanWardenSuit
   name: Warden Suit
@@ -87,7 +87,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedicSuit
   name: Brigmedic Suit
@@ -104,7 +104,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerBulletproofArmorHelmet
   name: Security Officer Bulletproof Armor
@@ -121,7 +121,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerRiotArmorHelmet
   name: Security Officer Riot Armor
@@ -138,7 +138,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerReflectiveArmorHelmet
   name: Security Officer Reflective Armor
@@ -155,7 +155,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerBasicArmorHelmet
   name: Security Officer Basic Armor
@@ -172,7 +172,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHos
   name: Head Of Security
@@ -189,7 +189,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedic
   name: Brigmedic
@@ -206,7 +206,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanWarden
   name: Warden
@@ -223,7 +223,7 @@
     nameFormat: name-format-standard
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHuman
   id: MobHumanSecurityBase
   name: Security Base
@@ -244,7 +244,7 @@
     - MindShieldImplant
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [  ]
   parent: MobHuman
   id: MobHumanBSOBase
   name: Blueshield Officer Base
@@ -266,7 +266,7 @@
     #adding bluespace implanter would be stupid
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHuman
   id: MobHumanBSOSuit
   name: Blueshield Officer
@@ -288,7 +288,7 @@
     #adding bluespace implanter would be stupid
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ ]
   parent: MobHuman
   id: MobHumanBSOModSuit
   name: Blueshield Officer
@@ -308,3 +308,31 @@
     implants:
     - MindShieldImplant
     #adding bluespace implanter would be stupid
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanWizardDEBUG
+  name: Wizard
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ WizardGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories: [  ]
+  parent: MobHumanWizardDEBUG
+  id: MobHumanWizardDEBUGSuit
+  name: Wizard Suit
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ WizardHardsuitGearDebug ]
