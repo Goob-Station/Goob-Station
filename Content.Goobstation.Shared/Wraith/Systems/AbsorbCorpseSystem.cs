@@ -40,7 +40,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             return;
         }
 
-        if (HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidAppearanceComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("wraith-fail-target-not-humanoid"), uid);
             return;
