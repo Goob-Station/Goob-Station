@@ -9,12 +9,14 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
+using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
+[RegisterComponent, NetworkedComponent]
 public sealed partial class AbsorbCorpseSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
