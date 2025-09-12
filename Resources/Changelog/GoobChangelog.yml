@@ -14704,3 +14704,45 @@ Entries:
         boots 
   id: 1638
   time: '2025-09-11T18:51:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Removed 9/11 dimension pots.
+  id: 1639
+  time: '2025-09-12T07:05:23.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Add
+      message: Demon's blood prevents you from getting devoured by a Slaughter Demon.
+    - type: Add
+      message: >-
+        Devil's kiss prevents you from getting devoured by a Slaughter Demon and
+        deals 50 damage to them.
+    - type: Add
+      message: Slaughter Demon added to ninja communication console threats.
+    - type: Add
+      message: >-
+        Slaughter Demon got an audio overhaul. You can laugh and scream. New
+        speech sounds added. Blood Crawl may randomly cause voices to be heard.
+    - type: Fix
+      message: Wizard can no longer cast spells inside Blood Crawl.
+    - type: Fix
+      message: Slaughter Demons no longer die in space
+    - type: Fix
+      message: Slaughter Demons can no longer pickup items through the pickup verb.
+    - type: Tweak
+      message: Blood Crawl has a jaunt sprite so you can see where you're at.
+    - type: Tweak
+      message: Demonic Heart is magical contraband
+    - type: Tweak
+      message: New blood types are supported by Blood Crawl.
+    - type: Tweak
+      message: Slaughter Demon will feel smoother and more responsive to play now.
+  id: 1640
+  time: '2025-09-12T07:27:55.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Add
+      message: Added Floor Goblin ghost role, Beware of the shoe thief!
+  id: 1641
+  time: '2025-09-12T09:31:13.0000000+00:00'
