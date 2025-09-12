@@ -248,38 +248,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkHyperEutaticBlade
-  name: uplink-hypereutatic-blade-name
-  description: uplink-hypereutatic-blade-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-  productEntity: HyperEutaticBlade
-  cost:
-    Telecrystal: 74 # goob - same as double energy sword
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkEnergyDagger
-  name: uplink-edagger-name
-  description: uplink-edagger-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
-  productEntity: EnergyDaggerBox
-  cost:
-    Telecrystal: 10 # goob
-  categories:
-  - UplinkWeaponry
-
-
-- type: listing
   id: UplinkThrowingKnivesKit
   name: uplink-knives-kit-name
   description: uplink-knives-kit-desc
