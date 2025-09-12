@@ -1,0 +1,30 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanWizardDEBUG
+  name: Wizard
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ WizardGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories: [  ]
+  parent: MobHumanWizardDEBUG
+  id: MobHumanWizardDEBUGSuit
+  name: Wizard Suit
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ WizardHardsuitGearDebug ]
