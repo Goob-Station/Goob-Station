@@ -20,6 +20,7 @@
 
 - type: entity
   id: ActionWhisper
+  parent: DemonicWhisperAction
   name: Whisper
   description: Send a spooky ghost message to somebody, which they hear as "A netherworld voice whispers in your ear..." This, alongside Blood Writing, is your only way to communicate with the living.
   components:
@@ -28,8 +29,6 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: whisper
-  - type: InstantAction
-    event: !type:WhisperEvent
 
 - type: entity
   id: ActionBloodWriting
@@ -109,6 +108,7 @@
 
 - type: entity
   id: ActionAnimateObject
+  parent: ActionAnimateSpell
   name: Animate object
   description: Causes an object to come to life and try to murder anything and everything nearby.
   components:
@@ -117,8 +117,6 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: anim_object
-  - type: InstantAction
-    event: !type:AnimateObjectEvent
 
 - type: entity
   id: ActionPossessObject

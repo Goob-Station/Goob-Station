@@ -24,11 +24,14 @@
   - type: BloodWriting
   - type: Decay
   - type: AbsorbCorpse
+  - type: DemonicWhisper
   - type: ActionGrant
     actions:
+    - ActionWhisper
     - ActionBloodWriting
     - ActionAbsorbCorpse
     - ActionDecay
+    - ActionAnimateObject
   # - Haunt
   # - ActionGrant
   # actions:
