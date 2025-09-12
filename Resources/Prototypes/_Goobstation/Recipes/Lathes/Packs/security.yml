@@ -15,7 +15,7 @@
 - type: latheRecipePack
   id: SecurityAmmoStaticGoob
   recipes:
-  - MagazineBoxShotgunHighCaliber
+  - MagazineBoxShotgunBeanbagHighCaliber
   - MagazineBoxShotgunSlugHighCaliber
   - MagazineBoxShotgunPracticeHighCaliber
 
