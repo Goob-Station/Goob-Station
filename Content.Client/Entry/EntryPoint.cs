@@ -135,6 +135,7 @@ using Content.Client.Lobby;
 using Content.Client.MainMenu;
 using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
+using Content.Client.Playtime;
 using Content.Client.Radiation.Overlays;
 using Content.Client.Replay;
 using Content.Client.Screenshot;
@@ -196,6 +197,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
 
         public override void Init()
         {
@@ -245,6 +247,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("codewordGenerator");
+            _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
 
@@ -258,6 +262,7 @@ namespace Content.Client.Entry
             _extendedDisconnectInformation.Initialize();
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
+            _clientsidePlaytimeManager.Initialize();
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);

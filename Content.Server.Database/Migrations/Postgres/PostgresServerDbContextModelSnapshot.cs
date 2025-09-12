@@ -28,10 +28,12 @@
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
@@ -918,6 +920,16 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("hair_name");
 
+                    // begin Goobstation: port EE height/width sliders
+                    b.Property<float>("Height")
+                        .HasColumnType("real")
+                        .HasColumnName("height");
+
+                    b.Property<float>("Width")
+                        .HasColumnType("real")
+                        .HasColumnName("width");
+                    // end Goobstation: port EE height/width sliders
+
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
@@ -1591,26 +1603,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsUnique();
 
                     b.ToTable("server_unban", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.SpiderFriend", b =>
-                {
-                    b.Property<decimal>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("numeric(20,0)")
-                        .HasColumnName("goob_spiders_id");
-
-                    b.Property<Guid>("Guid")
-                        .HasColumnType("uuid")
-                        .HasColumnName("guid");
-
-                    b.HasKey("Id")
-                        .HasName("PK_goob_spiders");
-
-                    b.HasIndex("Guid")
-                        .IsUnique();
-
-                    b.ToTable("goob_spiders", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>

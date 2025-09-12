@@ -156,6 +156,23 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  # Goobstation edit end
   - type: Sprite
   - type: Item
     size: Small
@@ -300,7 +317,7 @@
     storedSprite: null
 
 - type: entity
-  parent: ClothingHeadHatGreyFlatcap
+  parent: [ClothingHeadHatGreyFlatcap, BaseMinorContraband]
   id: BladedFlatcapGrey
   name: grey flatcap
   description: Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim.
@@ -330,7 +347,7 @@
   parent: BladedFlatcapGrey
   id: BladedFlatcapBrown
   name: brown flatcap
-  description: Stupid clown! You made me look bad! It has glass shards hidden in the brim.
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
   components:
   - type: Construction
     graph: BladedFlatcapBrown
@@ -458,3 +475,5 @@
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
   - type: ThrowingAngle
     angle: 225
+  - type: StaticPrice
+    price: 500 # 2000 for a set of 4

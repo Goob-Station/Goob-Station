@@ -266,6 +266,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitAtmos
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 # Engineering hardsuit, heavily edited by goobstation
 - type: entity
@@ -296,7 +301,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitEngineering
-
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Spationaut Hardsuit
 - type: entity
@@ -321,7 +330,7 @@
         Radiation: 0.1
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -337,6 +346,7 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+    - CorgiWearable
 
 #Salvage Hardsuit
 - type: entity
@@ -375,6 +385,11 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Goliath Hardsuit
 - type: entity
@@ -416,6 +431,11 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Maxim Hardsuit
 - type: entity
@@ -504,8 +524,12 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
-#Brigmedic Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
@@ -629,8 +653,12 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
-#Chief Engineer's Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitEngineeringWhite
@@ -658,7 +686,7 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -674,6 +702,11 @@
         - Tesla
     # can touch containment fields safely
     - type: ContainmentFieldIgnore
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -700,12 +733,17 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.95
     sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitMedical
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Research Director's Hardsuit
 - type: entity
@@ -745,6 +783,8 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
+    - CorgiWearable
+    - Hardsuit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitRd
@@ -828,7 +868,7 @@
         Radiation: 0.15
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -858,7 +898,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.45
+    damageCoefficient: 0.5
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.45 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -886,11 +928,12 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+    - CorgiWearable
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.45
+  - type: StaticPrice
+    price: 5000
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -937,6 +980,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.55 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -954,20 +999,16 @@
         Caustic: 0.4
   - type: Item
     size: Huge
-  - type: ClothingSpeedModifier # goobstation - duke nukies
-    walkModifier: 1.0
-    sprintModifier: 1.0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitSyndieElite
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.55
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
-#Syndicate Commander Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
@@ -982,7 +1023,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.35 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.6
@@ -1008,8 +1051,11 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.35
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -1027,6 +1073,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: StaminaResistance # Goobstation uncommented
+    damageCoefficient: 0.8
   - type: Armor
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
@@ -1043,7 +1091,7 @@
         Radiation: 0.2
         Caustic: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.65
     sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -1052,11 +1100,12 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.8
   - type: Tag
     tags:
     - MonkeyWearable
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity
@@ -1104,6 +1153,7 @@
     - Hardsuit
     - WhitelistChameleon
     - SyringeArmor
+    - CorgiWearable
 
 #Ling Space Suit (goob - not used)
 - type: entity

@@ -153,6 +153,7 @@
       - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
+      - id: ClothingMaskBreath # Goobstation
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -376,7 +377,7 @@
         - id: ClothingEyesChameleon
         - id: ClothingHeadsetChameleon
         - id: ClothingShoesChameleon
-        - id: BarberScissors
+        - id: ChameleonControllerImplanter
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -392,6 +393,7 @@
       - id: ClothingHandsGlovesColorYellowBudget
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -406,6 +408,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -420,6 +423,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -433,6 +437,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

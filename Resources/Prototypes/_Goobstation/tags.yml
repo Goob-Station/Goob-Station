@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
@@ -26,6 +27,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -185,6 +187,9 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EmergencyPlasmaTank
+
+- type: Tag
   id: EnergySpeedloader
 
 - type: Tag
@@ -200,6 +205,12 @@
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
+  id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: ExtendedEmergencyPlasmaTank
+
+- type: Tag
   id: Eyes
 
 - type: Tag
@@ -213,9 +224,6 @@
 
 - type: Tag
   id: FlashIgnoreResistances
-
-- type: Tag
-  id: FlashVulnerable
 
 - type: Tag
   id: FollowerStayOnPolymorph
@@ -323,6 +331,9 @@
   id: Justice
 
 - type: Tag
+  id: Keyring
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -376,6 +387,9 @@
 
 - type: Tag
   id: MedicalPatch
+
+- type: Tag
+  id: Medipen
 
 - type: Tag
   id: MilitaryPowerCell
@@ -561,6 +575,9 @@
   id: UristHand
 
 - type: Tag
+  id: Ushanka
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
@@ -593,6 +610,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
+
 - type: Tag
   id: HudMedicalSecurity
 
@@ -622,3 +642,6 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: DisposableBattery

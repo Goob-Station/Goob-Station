@@ -280,7 +280,7 @@ namespace Content.Server.Construction
 
             // ChangeEntity will handle the pathfinding update.
             if (node.Entity.GetId(uid, userUid, new(EntityManager)) is { } newEntity
-                && ChangeEntity(uid, userUid, newEntity, construction) != null)
+                && ChangeEntity(uid, userUid, newEntity, construction, oldNode) != null)
                 return true;
 
             if (performActions)
@@ -303,6 +303,7 @@ namespace Content.Server.Construction
         /// <param name="userUid">An optional user entity, for actions.</param>
         /// <param name="newEntity">The entity prototype identifier for the new entity.</param>
         /// <param name="construction">The construction component of the target entity. Will be resolved if null.</param>
+        /// <param name="previousNode">The previous node, if any, this graph was on before changing entity.</param>
         /// <param name="metaData">The metadata component of the target entity. Will be resolved if null.</param>
         /// <param name="transform">The transform component of the target entity. Will be resolved if null.</param>
         /// <param name="containerManager">The container manager component of the target entity. Will be resolved if null,
@@ -310,6 +311,7 @@ namespace Content.Server.Construction
         /// <returns>The new entity, or null if the method did not succeed.</returns>
         private EntityUid? ChangeEntity(EntityUid uid, EntityUid? userUid, string newEntity,
             ConstructionComponent? construction = null,
+            string? previousNode = null,
             MetaDataComponent? metaData = null,
             TransformComponent? transform = null,
             ContainerManagerComponent? containerManager = null)
@@ -345,7 +347,7 @@ namespace Content.Server.Construction
             var newUid = EntityManager.CreateEntityUninitialized(newEntity, transform.Coordinates);
 
             // Construction transferring.
-            var newConstruction = EntityManager.EnsureComponent<ConstructionComponent>(newUid);
+            var newConstruction = EnsureComp<ConstructionComponent>(newUid);
 
             // Transfer all construction-owned containers.
             newConstruction.Containers.UnionWith(construction.Containers);
@@ -392,7 +394,7 @@ namespace Content.Server.Construction
             if (containerManager != null)
             {
                 // Ensure the new entity has a container manager. Also for resolve goodness.
-                var newContainerManager = EntityManager.EnsureComponent<ContainerManagerComponent>(newUid);
+                var newContainerManager = EnsureComp<ContainerManagerComponent>(newUid);
 
                 // Transfer all construction-owned containers from the old entity to the new one.
                 foreach (var container in construction.Containers)
@@ -419,10 +421,7 @@ namespace Content.Server.Construction
             // WD EDIT START
             if (userUid != null && IsTransformParentOf(userUid.Value, transform) && TryComp(userUid, out HandsComponent? hands))
             {
-                var hand = hands.Hands.Values.FirstOrDefault(h => h.HeldEntity == uid);
-                if (hand != null)
-                    _handsSystem.TryDrop(userUid.Value, hand, handsComp: hands);
-
+                _handsSystem.TryDrop((userUid.Value, hands), uid);
                 _handsSystem.PickupOrDrop(userUid, newUid, handsComp: hands);
             }
             // WD EDIT END
@@ -439,6 +438,11 @@ namespace Content.Server.Construction
             EntityManager.InitializeAndStartEntity(newUid);
 
             QueueDel(uid);
+
+            // If ChangeEntity has ran, then the entity uid has changed and the
+            // new entity should be initialized by this point.
+            var afterChangeEv = new AfterConstructionChangeEntityEvent(construction.Graph, construction.Node, previousNode);
+            RaiseLocalEvent(newUid, ref afterChangeEv);
 
             return newUid;
         }
@@ -492,5 +496,17 @@ namespace Content.Server.Construction
             New = newUid;
             Old = oldUid;
         }
+    }
+
+    /// <summary>
+    /// This event is raised after an entity changes prototype/uid during construction.
+    /// This is only raised at the new entity, after it has been initialized.
+    /// </summary>
+    /// <param name="Graph">Construction graph for this entity.</param>
+    /// <param name="CurrentNode">New node that has become active.</param>
+    /// <param name="PreviousNode">Previous node that was active on the graph.</param>
+    [ByRefEvent]
+    public record struct AfterConstructionChangeEntityEvent(string Graph, string CurrentNode, string? PreviousNode)
+    {
     }
 }

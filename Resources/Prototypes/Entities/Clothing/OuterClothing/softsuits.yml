@@ -107,6 +107,7 @@
     tags:
     - SuitEVA
     - MonkeyWearable
+    - CorgiWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty
 
@@ -127,6 +128,8 @@
     - MonkeyWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty
+  - type: StaticPrice
+    price: 1000 # Helmet is 500
 
 #Emergency EVA
 - type: entity
@@ -149,6 +152,7 @@
   - type: Tag
     tags:
     - SuitEVA
+    - CorgiWearable
     - MonkeyWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty

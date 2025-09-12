@@ -87,8 +87,10 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -163,7 +165,7 @@ namespace Content.Server.Forensics
             if (args.Handled || args.Cancelled)
                 return;
 
-            if (!EntityManager.TryGetComponent(uid, out ForensicScannerComponent? scanner))
+            if (!TryComp(uid, out ForensicScannerComponent? scanner))
                 return;
 
             if (args.Args.Target != null)
@@ -290,7 +292,7 @@ namespace Content.Server.Forensics
             }
 
             // Spawn a piece of paper.
-            var printed = EntityManager.SpawnEntity(component.MachineOutput, Transform(uid).Coordinates);
+            var printed = Spawn(component.MachineOutput, Transform(uid).Coordinates);
             _handsSystem.PickupOrDrop(args.Actor, printed, checkActionBlocker: false);
 
             if (!TryComp<PaperComponent>(printed, out var paperComp))
@@ -316,17 +318,35 @@ namespace Content.Server.Forensics
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
-            foreach (var dna in component.TouchDNAs)
+            // Goobstation Start
+            foreach (var (dna, freshnessTimestamp) in component.TouchDNAs)
             {
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
+                }
+                else
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
+                }
             }
-            foreach (var dna in component.SolutionDNAs)
+            foreach (var (dna, freshnessTimestamp) in component.SolutionDNAs)
             {
                 Log.Debug(dna);
-                if (component.TouchDNAs.Contains(dna))
+                if (component.TouchDNAs.Contains((dna, freshnessTimestamp)))
                     continue;
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
+                }
+                else
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
+                }
             }
+            // Goobstation End
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));
             foreach (var residue in component.Residues)
