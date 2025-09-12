@@ -48,7 +48,7 @@ public sealed partial class DecaySystem : EntitySystem
         }
 
         // Try emagging anything that can be emagged
-        var emagType = EmagType.Access; // or whichever makes sense
+        var emagType = EmagType.Access;
         var emagEvent = new GotEmaggedEvent(uid, emagType);
         RaiseLocalEvent(target, ref emagEvent);
 
@@ -59,6 +59,7 @@ public sealed partial class DecaySystem : EntitySystem
             return;
         }
 
-        args.Handled = true;
+        _popup.PopupPredicted(Loc.GetString("wraith-decay-fail"), uid, uid);
+        return;
     }
 }

@@ -92,9 +92,6 @@
     deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
-    whitelist:
-      components:
-      - MobState
     event: !type:DecayEvent
 
 - type: entity
