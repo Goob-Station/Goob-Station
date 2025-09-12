@@ -20,7 +20,7 @@
   id: FlashPowder
   conserveEnergy: false
   reactants:
-    Aluminum:
+    Aluminium:
       amount: 1
     Potassium:
       amount: 1
