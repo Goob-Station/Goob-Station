@@ -37,4 +37,30 @@
       maxIntensity: 10
       intensityPerUnit: 2 # this is scary
       intensitySlope: 2.5 # spreads out a lot
-      maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole department
+      maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole
+
+- type: reaction
+  id: FlashPowderFlash
+  minTemp: 374
+  priority: 20
+  impact: High
+  reactants:
+    FlashPowder:
+      amount: 3
+  effects:
+    - !type:FlashReactionEffect
+
+- type: reaction
+  id: SmokePowderSmoke
+  minTemp: 374
+  priority: 10
+  impact: High
+  reactants:
+    SmokePowder:
+      amount: 3
+  effects:
+    - !type:AreaReactionEffect
+      duration: 10
+      prototypeId: Smoke
+      sound:
+        path: /Audio/Effects/smoke.ogg
