@@ -2,7 +2,7 @@
   parent: BaseItem
   id: MinibombTimerTrigger
   name: minibomb timer trigger
-  description: A sinister timer.
+  description: A sinister timer, only has the option to count to 5.
   components:
   - type: Sprite
     sprite: Objects/Devices/timer.rsi
@@ -15,11 +15,10 @@
     components:
     - type: OnUseTimerTrigger
       delay: 5
-      delayOptions: [3, 5, 10, 15, 30]
+      delayOptions: [5]
       initialBeepDelay: 0
       beepSound:
-        path: /Audio/Effects/minibombcountdown.ogg
-        params:
+        path: /Audio/_Goobstation/Machines/BombComponents/minibombbeep.ogg
           volume: 11
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
