@@ -25,7 +25,7 @@
       - !type:TimerStartBehavior
     - trigger:
         !type:DamageTrigger
-        damage: 45
+        damage: 25
       behaviors:
       - !type:TriggerBehavior
       - !type:DoActsBehavior
@@ -34,6 +34,8 @@
     graph: SyndicateMinibombGraph
     node: emptyCase
   - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
 
 - type: entity
   name: syndicate trickybomb
@@ -359,4 +361,18 @@
     state: icon
   - type: Construction
     graph: MetalFoamGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: explosive grenade
+  description: Grenade that creates a small but devastating explosion, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: ExplosiveGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  - type: Construction
+    graph: ExplosiveGrenadeGraph
     node: emptyCase
