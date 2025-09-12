@@ -1,7 +1,7 @@
 - type: entity
   name: syndicate minibomb
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos, this one has been modified.
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseMajorContraband]
   id: SyndieMiniBombModular
   categories: [ HideSpawnMenu ]
   components:
@@ -168,7 +168,7 @@
     node: emptyCase
 
 - type: entity
-  name: clustergrenade
+  name: ClusterGrenade
   description: Why use one grenade when you can use three at once! Seems like someone has modiefied these?
   parent: [SyndieMiniBombModular, BaseSyndicateContraband]
   id: ClusterGrenadeModular
@@ -196,7 +196,7 @@
     node: emptyCase
 
 - type: entity
-  name: AirGrenade
+  name: air grenade
   description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles, this one has been modified.
   parent: [SyndieMiniBombModular, BaseEngineeringContraband]
   id: AirGrenadeModular
@@ -210,7 +210,7 @@
     node: emptyCase
 
 - type: entity
-  name: GrenadeFoamDartModular
+  name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching, this one has been modified.
   parent: [SyndieMiniBombModular , BaseCivilianContraband]
   id: GrenadeFoamDartModular

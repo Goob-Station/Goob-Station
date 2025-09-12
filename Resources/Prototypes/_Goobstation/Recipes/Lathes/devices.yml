@@ -55,6 +55,30 @@
     Gold: 200
 
 - type: latheRecipe
+  id: SarinGasPayload
+  result: SarinGasPayload
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 100
+    Gold: 50
+    Plasma: 100
+
+- type: latheRecipe
+  id: SmokePayload
+  result: SmokePayload
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Glass: 100
+
+- type: latheRecipe
   id: ExplosivePayload
   result: ExplosivePayload
   categories:
@@ -66,3 +90,100 @@
     Glass: 100
     Gold: 50
     Plasma: 100
+
+- type: latheRecipe
+  id: IncendiaryPayload
+  result: IncendiaryPayload
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 100
+    Gold: 50
+    Plasma: 100
+
+- type: latheRecipe
+  id: StrongShrapnelPayload
+  result: StrongShrapnelPayload
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 100
+    Gold: 50
+    Plasma: 100
+
+- type: latheRecipe
+  id: EMPPayload
+  result: EMPPayload
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+    Glass: 100
+
+- type: latheRecipe
+  id: ExplosiveGrenadeModular
+  result: ExplosiveGrenadeModular
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: WhiteHoleTimerTrigger
+  result: WhiteHoleTimerTrigger
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
+  id: SupermatterTimerTrigger
+  result: SupermatterTimerTrigger
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
+  id: MinibombTimerTrigger
+  result: MinibombTimerTrigger
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
+  id: SilentTimerTrigger
+  result: SilentTimerTrigger
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200
+
+- type: latheRecipe
+  id: HolyTimer
+  result: HolyTimer
+  categories:
+  - Parts
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200
+    Gold: 100

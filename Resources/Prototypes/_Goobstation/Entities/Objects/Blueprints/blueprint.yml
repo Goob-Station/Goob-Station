@@ -2,8 +2,24 @@
   parent: BaseBlueprint
   id: BlueprintExplosivePayload
   name: explosive payload blueprint
-  description: A blueprint with a schematic of a seismic charge. It can be inserted into an autolathe.
+  description: A blueprint with schematics for numerous explosive components.
   components:
   - type: Blueprint
     providedRecipes:
     - ExplosivePayload
+    - SarinGasPayload
+    - SmokePayload
+    - IncendiaryPayload
+    - FlashPayload
+    - StrongShrapnelPayload
+    - EMPPayload
+    - ExplosiveGrenadeModular
+    - WhiteHoleTimerTrigger
+    - MinibombTimerTrigger
+    - SupermatterTimerTrigger
+    - SilentTimerTrigger
+    - HolyTimer
+    - TimerTrigger
+    - SignalTrigger
+    - VoiceTrigger
+    - Signaller
