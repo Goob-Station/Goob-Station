@@ -21,6 +21,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
 
     private static readonly EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
 
@@ -113,10 +114,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             comp.AbsorbCooldown += comp.CooldownReducer;
         }
         // Increases WP regeneration
-        if (TryComp<WraithPointsComponent>(uid, out var wpComp))
-        {
-            wpComp.WpRegeneration += 1;
-        }
+        // _wraithPoints.AdjustWraithPoints();
 
         comp.CorpsesAbsorbed++;
         _popup.PopupPredicted(Loc.GetString("wraith-absorb-success"), uid, uid);
