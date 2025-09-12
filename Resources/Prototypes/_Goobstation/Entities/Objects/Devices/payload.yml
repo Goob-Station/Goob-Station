@@ -81,3 +81,81 @@
       - type: DeleteOnTrigger
 
 #will add explosive payload after my War Factory PR merges
+
+- type: entity
+  name: nuclear option payload
+  parent: [ BasePayload, BaseMajorContraband ]
+  id: NuclearOptionPayload
+  description: Oh no.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-nuclearoption
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: Explosive
+    explosionType: Minibomb
+    maxIntensity: 20000 # ~15 tile radius.
+    intensitySlope: 5
+    maxIntensity: 50
+  - type: ExplodeOnTrigger
+
+- type: entity
+  name: supermatter payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SupermatterGrenadePayload
+  description: Pulls nearby objects close, then explodes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-supermatter
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 30
+    maxIntensity: 120
+  - type: AnchorOnTrigger
+    removeOnTrigger: true
+  - type: TwoStageTrigger
+    triggerDelay: 10.45
+    components:
+      - type: AmbientSound
+        enabled: true
+        volume: -5
+        range: 14
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+      - type: GravityWell
+        maxRange: 8
+        baseRadialAcceleration: 8
+        baseTangentialAcceleration: .5
+        gravPulsePeriod: 0.02
+      - type: SingularityDistortion
+        intensity: 150
+        falloffPower: 1.5
+      - type: PointLight
+        enabled: true
+        color: "#ffaa44"
+        energy: 8
+        radius: 6
+        softness: 1
+        offset: "0, 0"
+      - type: SoundOnTrigger
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+          params:
+            volume: 5
+      - type: DeleteOnTrigger

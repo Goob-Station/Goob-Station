@@ -42,15 +42,45 @@
   - type: PayloadTrigger
     components:
     - type: OnUseTimerTrigger
-      delay: 5
+      delay: 3
       initialBeepDelay: 0
       delayOptions: [3, 5, 10, 15, 30]
       beepInterval: 0.69
       beepSound:
         path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
-
         params:
           volume: 5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25
+  - type: SoundOnTrigger
+    removeOnTrigger: true
+
+- type: entity
+  parent: [BaseItem , BaseSyndicateContraband]
+  id: SupermatterTimerTrigger
+  name: supermatter timer
+  description: An atttractive timer.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: timer-supermatter
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 40
+  - type: PayloadTrigger
+    components:
+    - type: OnUseTimerTrigger
+      delay: 3
+      initialBeepDelay: 0
+      delayOptions: [3, 5, 10, 15, 30]
+      beepInterval: 0.46
+      beepSound:
+        path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+        params:
+          volume: -5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 75

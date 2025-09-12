@@ -14,7 +14,16 @@
       "name": "timer-whitehole"
 	},
     {
+      "name": "timer-supermatter"
+	},
+    {
       "name": "payload-trick"
+	},
+    {
+      "name": "payload-nuclearoption"
+	},
+    {
+      "name": "payload-supermatter"
 	},
     {
       "name": "payload-whitehole"
