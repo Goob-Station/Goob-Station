@@ -346,3 +346,17 @@
   - type: Construction
     graph: CleanerGrenadeGraph
     node: emptyCase
+
+- type: entity
+  name: metal foam grenade
+  description: An emergency tool used for patching hull breaches with special quick-set metal foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseEngineeringContraband]
+  id: MetalFoamGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/metalfoam.rsi
+    state: icon
+  - type: Construction
+    graph: MetalFoamGrenadeGraph
+    node: emptyCase

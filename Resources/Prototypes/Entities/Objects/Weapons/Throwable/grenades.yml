@@ -635,6 +635,9 @@
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice
     price: 350
+  - type: Construction #goob
+    graph: MetalFoamGrenadeGraph
+    node: grenade1
 
 - type: entity
   parent: [ BaseEngineeringContraband, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade

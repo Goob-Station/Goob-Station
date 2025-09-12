@@ -519,10 +519,8 @@
       beaker:
         maxVol: 100
         reagents:
-        - ReagentId: Fluorosurfactant
-          Quantity: 70
-        - ReagentId: SpaceCleaner
-          Quantity: 30
+        - ReagentId: Aluminium
+          Quantity: 90
 
 - type: entity
   id: FoamPayload2
@@ -534,5 +532,7 @@
       beaker:
         maxVol: 100
         reagents:
-        - ReagentId: Water
-          Quantity: 70
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 30
+        - ReagentId: FoamingAgent
+          Quantity: 30
