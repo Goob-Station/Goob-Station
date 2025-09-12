@@ -602,16 +602,19 @@ namespace Content.Shared.Cuffs
             EnsureComp<HandcuffComponent>(handcuff, out var handcuffsComp);
             handcuffsComp.Used = true;
             Dirty(handcuff, handcuffsComp);
-            
-            var ev = new TargetHandcuffedEvent();
-            RaiseLocalEvent(target, ref ev);
 
             // Success!
             _hands.TryDrop(user, handcuff);
             var result = _container.Insert(handcuff, component.Container);
             // Shitmed Change End
 
+            _container.Insert(handcuff, component.Container);
+
+            var ev = new TargetHandcuffedEvent();
+            RaiseLocalEvent(target, ref ev);
+
             UpdateHeldItems(target, handcuff, component);
+
             return true;
         }
 
