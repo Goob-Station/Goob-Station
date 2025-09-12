@@ -28,7 +28,7 @@
 
 - type: entity
   parent: [BaseItem , BaseSyndicateContraband]
-  id: WhiteholeTimerTrigger
+  id: WhiteHoleTimerTrigger
   name: whitehole timer
   description: A repulsive timer.
   components:

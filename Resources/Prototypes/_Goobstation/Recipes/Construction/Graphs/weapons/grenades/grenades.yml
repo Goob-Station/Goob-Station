@@ -202,7 +202,7 @@
         doAfter: 0.5
         completed:
         - !type:SpawnPrototype
-          prototype: WhiteholeTimerTrigger
+          prototype: WhiteHoleTimerTrigger
           amount: 1
         - !type:SpawnPrototype
           prototype: WhiteHolePayload
@@ -1559,7 +1559,7 @@
   graph:
 
   - node: grenade1
-    entity: GrenadeFlashbang
+    entity: GrenadeFlashBang
     edges:
     - to: emptyCase
       steps:
