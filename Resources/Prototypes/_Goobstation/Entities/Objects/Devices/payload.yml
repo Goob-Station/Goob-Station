@@ -101,9 +101,9 @@
   - type: DeleteOnTrigger
   - type: Explosive
     explosionType: Minibomb
-    maxIntensity: 20000 # ~15 tile radius.
-    intensitySlope: 5
     maxIntensity: 50
+    intensitySlope: 5
+    totalIntensity: 20000
   - type: ExplodeOnTrigger
 
 - type: entity
@@ -159,3 +159,5 @@
           params:
             volume: 5
       - type: DeleteOnTrigger
+
+#smoke payload is a chemical payload with the proper chem ratio
