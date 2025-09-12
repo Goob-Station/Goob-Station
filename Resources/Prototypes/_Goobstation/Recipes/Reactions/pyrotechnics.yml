@@ -18,6 +18,7 @@
 
 - type: reaction
   id: FlashPowder
+  priority: 21
   conserveEnergy: false
   reactants:
     Aluminium:
@@ -34,6 +35,7 @@
 
 - type: reaction
   id: SmokePowder
+  priority: 11
   conserveEnergy: false
   reactants:
     Phosphorus:
