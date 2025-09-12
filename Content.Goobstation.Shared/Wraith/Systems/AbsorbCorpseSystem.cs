@@ -44,19 +44,19 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-not-humanoid"), uid);
+            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-not-humanoid"), uid, uid);
             return;
         }
 
         if (!_mobState.IsDead(target))
         {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-alive"), uid);
+            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-alive"), uid, uid);
             return;
         }
 
         if (HasComp<WraithAbsorbableComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-absorbed"), uid);
+            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-absorbed"), uid, uid);
             return;
         }
 
@@ -71,11 +71,11 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfter))
         {
             // If it fails to start for any one reason.
-            _popup.PopupEntity(Loc.GetString("wraith-absorb-fail-start"), args.Target);
+            _popup.PopupPredicted(Loc.GetString("wraith-absorb-fail-start"), args.Target, args.Target);
             args.Handled = true;
         }
 
-        _popup.PopupEntity(Loc.GetString("wraith-absorb-start", ("target", args.Target)), uid, uid, PopupType.Medium);
+        _popup.PopupPredicted(Loc.GetString("wraith-absorb-start", ("target", args.Target)), uid, uid, PopupType.Medium);
 
         //TO DO: Make the wraith corporial during the do after.
 
@@ -119,7 +119,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
 
         comp.CorpsesAbsorbed++;
-        _popup.PopupEntity(Loc.GetString("wraith-absorb-success"), uid);
+        _popup.PopupPredicted(Loc.GetString("wraith-absorb-success"), uid, uid);
         args.Handled = true;
     }
 }

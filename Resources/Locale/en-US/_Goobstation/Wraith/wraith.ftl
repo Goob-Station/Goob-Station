@@ -5,4 +5,5 @@ wraith-absorb-fail-start = Something is preventing me from starting my feast.
 wraith-absorb-start = The feast begins. I shall have its soul, soon enough.
 wraith-absorb-success = I have absorbed their soul, and with it, I grow stronger.
 
-wraith-decay = You suddenly feel tired and unable to move, something else is with you in the room...
+wraith-decay = The rot begins...
+wraith-decay-emagged = Their components sizzle and crackle as your rot alters their functionality.

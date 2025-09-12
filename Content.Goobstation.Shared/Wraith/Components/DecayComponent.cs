@@ -1,24 +1,13 @@
-using Content.Shared.Damage;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class DecayComponent : Component
 {
-    [DataField]
-    public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
-
     /// <summary>
-    /// The debuff applied while the component is present.
+    /// How much stamina damage to apply over time.
     /// </summary>
     [DataField]
-    public DamageSpecifier WraithDecay = new()
-    {
-        DamageDict = new()
-        {
-            { "Asphyxiation", 5.0},
-            { "Ion", 10.0},
-        }
-    };
+    public float StaminaDamageAmount = 150f;
 }
