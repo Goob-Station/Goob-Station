@@ -53,6 +53,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using static Robust.Client.GameObjects.SpriteComponent;
 
+
 namespace Content.Client.Clothing;
 
 public sealed class ClientClothingSystem : ClothingSystem
@@ -374,11 +375,6 @@ public sealed class ClientClothingSystem : ClothingSystem
             {
                 _sprite.LayerSetRsi(layer, clothingSprite.BaseRSI);
             }
-
-            // EE Plasmamen Change: Another "temporary" fix for clothing stencil masks.
-            // Sprite layer refactor when
-            if (slot == Jumpsuit)
-                layerData.Shader ??= "StencilDraw";
 
             _sprite.LayerSetData((equipee, sprite), index, layerData);
             _sprite.LayerSetOffset(layer, layer.Offset + slotDef.Offset);
