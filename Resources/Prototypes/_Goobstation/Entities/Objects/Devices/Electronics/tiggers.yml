@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseItem
+  id: MinibombTimerTrigger
+  name: minibomb timer trigger
+  description: A sinister timer.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/timer.rsi
+    state: timer
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 40
+  - type: PayloadTrigger
+    components:
+    - type: OnUseTimerTrigger
+      delay: 5
+      delayOptions: [3, 5, 10, 15, 30]
+      initialBeepDelay: 0
+      beepSound:
+        path: /Audio/Effects/minibombcountdown.ogg
+        params:
+          volume: 11
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25

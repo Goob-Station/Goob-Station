@@ -106,7 +106,7 @@ namespace Content.Shared.Construction.Prototypes
             // Follow the chain backwards.
 
             var start = _nodes[startNode];
-            var finish = _nodes[finishNode];
+
 
             var current = finish;
             var path = new List<ConstructionGraphNode>();

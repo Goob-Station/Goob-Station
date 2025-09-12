@@ -1,0 +1,97 @@
+# SPDX-FileCopyrightText: 2022 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: SyndicateMinibombGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: SyndieMiniBomb
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: MinibombTimerTrigger
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: MiniBombPayload
+          amount: 1
+
+  - node: emptyCase
+    entity: SyndieMiniBombModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload

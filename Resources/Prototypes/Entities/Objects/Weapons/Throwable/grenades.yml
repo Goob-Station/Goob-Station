@@ -273,6 +273,9 @@
         volume: 12
   - type: StaticPrice
     price: 2000
+  - type: Construction
+    graph: SyndicateMinibombGraph
+    node: grenade1
 
 - type: entity
   name: self destruct

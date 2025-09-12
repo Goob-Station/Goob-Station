@@ -1,0 +1,22 @@
+- type: entity
+  name: minibomb payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: MiniBombPayload
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/payload.rsi
+    state: payload-minibomb
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: Explosive
+    explosionType: Minibomb
+    maxIntensity: 200
+    intensitySlope: 30
+    totalIntensity: 60
+  - type: ExplodeOnTrigger
