@@ -33,6 +33,13 @@
     - ActionSpawnXenomorphEgg
   - type: Body
     prototype: XenomorphQueen
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
   - type: TypingIndicator
     proto: alien_royal
   - type: Fixtures
