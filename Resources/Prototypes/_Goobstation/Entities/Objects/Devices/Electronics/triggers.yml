@@ -110,3 +110,32 @@
     materialComposition:
       Steel: 75
       Plastic: 25
+
+- type: entity
+  parent: [BaseItem , BaseSyndicateContraband]
+  id: SilentTimerTrigger
+  name: silent timer
+  description: A silent timer.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: timer-silent
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 40
+  - type: PayloadTrigger
+    components:
+    - type: OnUseTimerTrigger
+      delay: 5
+      initialBeepDelay: 0
+      beepInterval: 30
+      delayOptions: [3, 5, 10, 15, 30]
+      beepSound:
+        path: /Audio/Items/smoke_grenade_prime.ogg
+        params:
+          volume: 11
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25

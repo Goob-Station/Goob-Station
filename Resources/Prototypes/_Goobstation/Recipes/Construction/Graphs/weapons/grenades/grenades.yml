@@ -569,7 +569,7 @@
           prototype: TearGasPayload
           amount: 1
         - !type:SpawnPrototype
-          prototype: TimerTrigger
+          prototype: SilentTimerTrigger
           amount: 1
 
   - node: emptyCase
@@ -660,7 +660,7 @@
           prototype: SarinGasPayload
           amount: 1
         - !type:SpawnPrototype
-          prototype: TimerTrigger
+          prototype: SilentTimerTrigger
           amount: 1
 
   - node: emptyCase
@@ -1393,6 +1393,661 @@
 
   - node: emptyCase
     entity: BeeGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: ShrapnelGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: GrenadeShrapnel
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: StrongShrapnelPayload
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: TimerTrigger
+          amount: 1
+
+  - node: emptyCase
+    entity: ShrapnelGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: FlashbangGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: Flashbang
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: FlashPayload
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: TimerTrigger
+          amount: 1
+
+  - node: emptyCase
+    entity: FlashbangModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: TrickGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: GrenadeDummy
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: FakeMiniBombPayload
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: TimerTrigger
+          amount: 1
+
+  - node: emptyCase
+    entity: TrickGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: LubeGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: LubeGrenade
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: SilentTimerTrigger
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: LubePayload2
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: LubePayload1
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: ChemicalPayload
+          amount: 1
+
+  - node: emptyCase
+    entity: LubeGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: GlueGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: GlueGrenade
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: SilentTimerTrigger
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: GluePayload2
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: GluePayload1
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: ChemicalPayload
+          amount: 1
+
+  - node: emptyCase
+    entity: GlueGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: CleanerGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: CleanerGrenade
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: SilentTimerTrigger
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: CleanPayload1
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: CleanPayload2
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: ChemicalPayload
+          amount: 1
+
+  - node: emptyCase
+    entity: CleanerGrenadeModular
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+    - to: caseWithPayload
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithTrigger
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payloadTrigger
+    - to: grenade2
+      steps:
+      - tag: Payload
+        store: payload
+        name: construction-graph-tag-payload
+        doAfter: 0.5
+
+  - node: caseWithPayload
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+    - to: grenade2
+      steps:
+      - component: PayloadTrigger
+        store: payloadTrigger
+        name: construction-graph-component-payload-trigger
+        doAfter: 0.5
+
+  - node: grenade2
+    actions:
+    - !type:PlaySound
+      sound: /Audio/Machines/button.ogg
+    edges:
+    - to: caseWithTrigger
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:EmptyContainer
+          container: payload
+
+#Start New
+- type: constructionGraph
+  id: SmokeGrenadeGraph
+  start: grenade1
+  graph:
+
+  - node: grenade1
+    entity: SmokeGrenade
+    edges:
+    - to: emptyCase
+      steps:
+      - tool: Prying
+        doAfter: 0.5
+        completed:
+        - !type:SpawnPrototype
+          prototype: SilentTimerTrigger
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: SmokePayload
+          amount: 1
+
+  - node: emptyCase
+    entity: SmokeGrenadeModular
     actions:
     - !type:PlaySound
       sound: /Audio/Machines/button.ogg

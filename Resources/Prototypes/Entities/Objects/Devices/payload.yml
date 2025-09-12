@@ -138,3 +138,6 @@
         Steel: 12
         Plastic: 25
         Glass: 12
+    - type: SoundOnTrigger #goob
+      sound:
+        path: "/Audio/Effects/flash_bang.ogg"

@@ -216,6 +216,9 @@
     tags:
     - HandGrenade
     - GrenadeFlashBang
+  - type: Construction #goob
+    graph: FlashbangGraph
+    node: grenade1
 
 - type: entity
   id: GrenadeFlashEffect
@@ -571,6 +574,10 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
+  - type: Construction
+    graph: SmokeGrenadeGraph
+    node: grenade1
+
 
 - type: entity
   parent: [ BaseCivilianContraband, SmokeGrenade ]
@@ -588,6 +595,9 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Construction
+    graph: CleanerGrenadeGraph
+    node: grenade1
 
 - type: entity
   parent: SmokeGrenade
@@ -681,6 +691,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: Construction #goob
+    graph: TrickGrenadeGraph
+    node: grenade1
 
 - type: entity
   name: syndicate trickybomb

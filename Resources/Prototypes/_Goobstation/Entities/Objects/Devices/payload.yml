@@ -1,4 +1,3 @@
-#smoke, lube, clean, and glue payloads are chemical payloads with the proper chem ratio
 #will add explosive payload after my War Factory PR merges
 
 - type: entity
@@ -199,6 +198,22 @@
     sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
+  name: smoke payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SmokePayload
+  description: Releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-stinger
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 30
+    spreadAmount: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
   name: sarin gas payload
   parent: [ BasePayload, BaseSyndicateContraband ]
   id: SarinGasPayload
@@ -383,3 +398,141 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+
+- type: entity
+  name: plasteel shrapnel payload # Goobstation - shrapnel payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: StrongShrapnelPayload
+  description: Launches tons of sharp plasteel shards in all directions.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/payload.rsi
+    state: payload-explosive-armed
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 30
+
+- type: entity
+  id: LubePayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 25
+        - ReagentId: SpaceLube
+          Quantity: 20
+
+- type: entity
+  id: LubePayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 25
+
+- type: entity
+  id: GluePayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 25
+        - ReagentId: SpaceGlue
+          Quantity: 20
+
+- type: entity
+  id: GluePayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Potassium
+          Quantity: 25
+        - ReagentId: Phosphorus
+          Quantity: 25
+
+- type: entity
+  id: CleanPayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 70
+        - ReagentId: SpaceCleaner
+          Quantity: 30
+
+- type: entity
+  id: CleanPayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 70
+
+- type: entity
+  id: FoamPayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 70
+        - ReagentId: SpaceCleaner
+          Quantity: 30
+
+- type: entity
+  id: FoamPayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 70

@@ -248,3 +248,101 @@
   - type: Construction
     graph: BeeGrenadeGraph
     node: emptyCase
+
+- type: entity
+  name: shrapnel grenade
+  description: Releases a deadly spray of shrapnel that causes severe bleeding, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: ShrapnelGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    state: icon
+  - type: Construction
+    graph: ShrapnelGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: flashbang
+  description: Eeeeeeeeeeeeeeeeeeeeee. (looks like someone modified this)
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: FlashbangModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    state: icon
+  - type: Construction
+    graph: FlashbangGraph
+    node: emptyCase
+
+- type: entity
+  name: trick grenade
+  description: All the grenade without any of the boom. (looks like someone modified this)
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: TrickGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  - type: Construction
+    graph: TrickGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: lube grenade
+  description: A grenade that releases Space Lube foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: LubeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/foamdart.rsi
+    state: icon
+  - type: Construction
+    graph: LubeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: glue grenade
+  description: A grenade that releases Space Glue foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: GlueGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    state: icon
+  - type: Construction
+    graph: GlueGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: smoke grenade
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: SmokeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    state: icon
+  - type: Construction
+    graph: SmokeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: cleanade
+  description: A grenade that releases Space Glue foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: CleanerGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/janitor.rsi
+    state: icon
+  - type: Construction
+    graph: CleanerGrenadeGraph
+    node: emptyCase

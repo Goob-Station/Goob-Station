@@ -129,3 +129,6 @@
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
   - type: StaticPrice
     price: 1500
+  - type: Construction #goob
+    graph: ShrapnelGrenadeGraph
+    node: grenade1
