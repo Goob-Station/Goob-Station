@@ -85,6 +85,8 @@
         weight: 0.05
       - id: MobLootbug # Goobstation
         weight: 0.25
+      - id: MobFloorGoblin # Goobstation
+        weight: 0.25
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
@@ -117,6 +119,8 @@
         weight: 0.1
       - id: MobLootbug # Goobstation
         weight: 0.3
+      - id: MobFloorGoblin # Goobstation
+        weight: 0.15
 
 - type: entity
   id: SnailMigrationLowPop
