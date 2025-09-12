@@ -1,2 +1,2 @@
 station-beacon-blueshield = Офис ОСЩ
-station-beacon-representernt = Офис ПНТ
+station-beacon-representernt = Офис ИNT

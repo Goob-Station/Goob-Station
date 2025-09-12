@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-job-supervisors-ntr-centcom = Представитель Nanotrasen и Центрального Командования
+job-supervisors-ntr-centcom = Инспектор Nanotrasen
 job-supervisors-commander = Капитан ВКФ
 job-supervisors-null = никто, кроме тебя самого.
 job-supervisor-syndicate = Представитель Синдиката

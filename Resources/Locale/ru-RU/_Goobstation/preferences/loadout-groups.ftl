@@ -10,12 +10,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-loadout-group-ntr-head = Голова представителя Nanotrasen
-loadout-group-ntr-backpack = Рюкзак представителя Nanotrasen
-loadout-group-ntr-neck = Ожерелье представителя Nanotrasen
-loadout-group-ntr-jumpsuit = Комбинезон представителя Nanotrasen
-loadout-group-ntr-belt = Пояс представителя Nanotrasen
-loadout-group-ntr-shoes = Обувь представителя Nanotrasen
+loadout-group-ntr-head = Голова инспектора Nanotrasen
+loadout-group-ntr-backpack = Рюкзак инспектора Nanotrasen
+loadout-group-ntr-neck = Ожерелье инспектора Nanotrasen
+loadout-group-ntr-jumpsuit = Комбинезон инспектора Nanotrasen
+loadout-group-ntr-belt = Пояс инспектора Nanotrasen
+loadout-group-ntr-shoes = Обувь инспектора Nanotrasen
 loadout-group-bso-head = Голова офицера Синего Щита
 loadout-group-bso-backpack = Рюкзак офицера Синего Щита
 loadout-group-bso-jumpsuit = Комбинезон офицера Синего Щита

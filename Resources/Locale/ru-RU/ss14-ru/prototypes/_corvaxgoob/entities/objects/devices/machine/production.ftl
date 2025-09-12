@@ -7,3 +7,5 @@ ent-StasisOperatingTableCircuitboard = стазисный операционны
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-MachineMedipenRefillerCircuitboard = заполнитель медипенов (машинная плата)
     .desc = Печатная плата заполнителя медипенов.
+ent-QuantumTelepadMachineCircuitboard = квантовый телепад (машинная плата)
+    .desc = { ent-BaseMachineCircuitboard.desc }

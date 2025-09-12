@@ -6,7 +6,7 @@ highlights-chief-medical-officer = Главный врач, "ГВ", "СМО", Д
 highlights-head-of-security = Глава Службы безопасности, "ГСБ", "ХОС", Служба безопасности, СБшник,  Бриг, "СБ", "КЗ", "Перма", Пермабриг, Мостик, Командование
 highlights-quartermaster = Квартирмейстер, "КМ", "Карго", Каргония, Мостик, Командование
 highlights-research-director = Научный Руководитель, "НР", "РД", Научный, "Ученый", "Ученые", "РНД", Робототехника, "Робо", Мостик, Командование
-highlights-nanotrasen-representative = Представитель Nanotrasen, Представитель
+highlights-nanotrasen-representative = Инспектор Nanotrasen, Инспектор
 highlights-blueshield-officer = Офицер Синего Щита, Синий Щит, "ОСЩ", Мостик, Командование
 # Security
 highlights-detective = Детектив, "Дек", Служба безопасности, Бриг, "СБ", "КЗ"

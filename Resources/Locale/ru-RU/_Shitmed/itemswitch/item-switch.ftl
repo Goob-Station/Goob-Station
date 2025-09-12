@@ -58,4 +58,6 @@ itemswitch-component-state-bonegel = костный гель
 itemswitch-component-state-bonesetter = установщик костей
 itemswitch-component-state-cautery = термокаутер
 itemswitch-component-state-drill = дрель
+
 # CorvaxGoob-shitcode-localization-end
+

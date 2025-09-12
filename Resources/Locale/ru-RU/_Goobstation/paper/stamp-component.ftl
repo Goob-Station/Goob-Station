@@ -5,4 +5,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-stamp-component-stamped-name-nanorep = Представитель Nanotrasen
+stamp-component-stamped-name-nanorep = Инспектор Nanotrasen

@@ -63,8 +63,8 @@ guide-entry-sop-searches = Обыски
 guide-entry-sop-cargotech = Грузовой техник
 guide-entry-sop-salvage = Специалист по спасению
 # - Командование
-guide-entry-sop-ntr = Представитель Нанотразен
-guide-entry-sop-bso = Офицер блющит
+guide-entry-sop-ntr = Инспектор Nanotrasen
+guide-entry-sop-bso = Офицер Синего Щита
 guide-entry-sop-captain = Капитан
 guide-entry-sop-hop = Начальник кадров
 guide-entry-sop-hos = Начальник охраны
