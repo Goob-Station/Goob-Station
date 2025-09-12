@@ -21,9 +21,8 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     {
         base.Initialize();
 
-        // ERROR: Can't use the AbsorbCorpseEvent twice. Fix? Not sure.
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorbTry);
-        SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorbComplete);
+        SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseDoAfter>(OnAbsorbCorpseDoAfter);
     }
 
     private void OnAbsorbTry(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseEvent args)
@@ -69,7 +68,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         args.Handled = true;
 
     }
-    private void OnAbsorbComplete(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseEvent args)
+    private void OnAbsorbCorpseDoAfter(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseDoAfter args)
     {
         var uid = ent.Owner;
         var comp = ent.Comp;

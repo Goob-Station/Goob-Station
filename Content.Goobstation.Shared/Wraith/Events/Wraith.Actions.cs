@@ -19,7 +19,7 @@ public sealed partial class AbsorbCorpseEvent : EntityTargetActionEvent
 {
     public EntityUid Target;
 }
-public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent //Is this really the way to do it?
+public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent
 {
     public EntityUid Target;
 }
