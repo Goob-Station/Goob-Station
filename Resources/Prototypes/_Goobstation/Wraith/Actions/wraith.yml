@@ -55,6 +55,7 @@
   - type: Action
     startDelay: false
     useDelay: 45
+    itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: absorb_corpse
@@ -89,6 +90,7 @@
   - type: Action
     startDelay: true
     useDelay: 60
+    itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: decay

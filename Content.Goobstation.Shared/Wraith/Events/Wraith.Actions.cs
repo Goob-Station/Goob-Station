@@ -25,7 +25,7 @@ public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent
 public sealed partial class SpookEvent : InstantActionEvent
 {
 }
-public sealed partial class DecayEvent : InstantActionEvent
+public sealed partial class DecayEvent : EntityTargetActionEvent
 {
 }
 public sealed partial class CommandEvent : InstantActionEvent
