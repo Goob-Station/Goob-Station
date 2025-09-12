@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Armok",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "timer-minibomb"
+	},
+    {
+      "name": "timer-whitehole"
+	},
+    {
+      "name": "payload-trick"
+	},
+    {
+      "name": "payload-whitehole"
+	},
+	{
+	  "name": "payload-minibomb"
+	}
+  ]
+}

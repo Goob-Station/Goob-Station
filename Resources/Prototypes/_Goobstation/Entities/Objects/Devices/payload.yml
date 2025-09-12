@@ -2,9 +2,10 @@
   name: minibomb payload
   parent: [ BasePayload, BaseSyndicateContraband ]
   id: MiniBombPayload
+  description: Causes a small, deadly explosion.
   components:
   - type: Sprite
-    sprite: Objects/Devices/payload.rsi
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
     state: payload-minibomb
   - type: Destructible
     thresholds:
@@ -20,3 +21,63 @@
     intensitySlope: 30
     totalIntensity: 60
   - type: ExplodeOnTrigger
+
+- type: entity
+  name: small speaker
+  parent: BasePayload
+  description: Its preprogrammed with a fart noise...
+  id: FakeMiniBombPayload
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-trick
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Effects/Emotes/parp1.ogg
+
+- type: entity
+  name: whitehole payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: WhiteHolePayload
+  description: Pushes everything away very quickly.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-whitehole
+  - type: SoundOnTrigger
+    removeOnTrigger: true
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
+      volume: 5
+  - type: TwoStageTrigger
+    triggerDelay: 11.14
+    components:
+      - type: AmbientSound
+        enabled: true
+        volume: -5
+        range: 14
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
+      - type: GravityWell
+        maxRange: 10
+        baseRadialAcceleration: -180
+        baseTangentialAcceleration: -5
+        gravPulsePeriod: 0.01
+      - type: SingularityDistortion
+        intensity: -200
+        falloffPower: 1.5
+      - type: PointLight
+        enabled: true
+        color: "#ffffff"
+        energy: 8
+        radius: 6
+        softness: 1
+        offset: "0, 0"
+      - type: SoundOnTrigger
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+          params:
+            volume: 15
+      - type: DeleteOnTrigger
+
+#will add explosive payload after my War Factory PR merges

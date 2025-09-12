@@ -3,6 +3,7 @@
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos, this one has been modified.
   parent: [BaseItem, BaseSyndicateContraband]
   id: SyndieMiniBombModular
+  categories: [ HideSpawnMenu ]
   components:
   - type: ExplosionResistance
     damageCoefficient: 0.1

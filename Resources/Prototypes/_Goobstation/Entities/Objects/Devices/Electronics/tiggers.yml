@@ -1,12 +1,12 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem , BaseSyndicateContraband]
   id: MinibombTimerTrigger
-  name: minibomb timer trigger
-  description: A sinister timer, only has the option to count to 5.
+  name: minibomb timer
+  description: A sinister timer.
   components:
   - type: Sprite
-    sprite: Objects/Devices/timer.rsi
-    state: timer
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: timer-minibomb
   - type: Item
     size: Small
   - type: StaticPrice
@@ -15,12 +15,45 @@
     components:
     - type: OnUseTimerTrigger
       delay: 5
-      delayOptions: [5]
       initialBeepDelay: 0
+      delayOptions: [3, 5, 10, 15, 30]
       beepSound:
         path: /Audio/_Goobstation/Machines/BombComponents/minibombbeep.ogg
+        params:
           volume: 11
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 25
+
+- type: entity
+  parent: [BaseItem , BaseSyndicateContraband]
+  id: WhiteholeTimerTrigger
+  name: whitehole timer
+  description: A repulsive timer.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: timer-whitehole
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 40
+  - type: PayloadTrigger
+    components:
+    - type: OnUseTimerTrigger
+      delay: 5
+      initialBeepDelay: 0
+      delayOptions: [3, 5, 10, 15, 30]
+      beepInterval: 0.69
+      beepSound:
+        path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+
+        params:
+          volume: 5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25
+  - type: SoundOnTrigger
+    removeOnTrigger: true
