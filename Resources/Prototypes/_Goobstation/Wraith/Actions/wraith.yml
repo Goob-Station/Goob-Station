@@ -60,7 +60,11 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: absorb_corpse
-  - type: InstantAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
     event: !type:AbsorbCorpseEvent
 
 - type: entity

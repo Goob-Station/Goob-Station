@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Shared.Wraith.Events;
 
@@ -13,7 +14,7 @@ public sealed partial class WhisperEvent : InstantActionEvent
 public sealed partial class BloodWritingEvent : InstantActionEvent
 {
 }
-public sealed partial class AbsorbCorpseEvent : InstantActionEvent
+public sealed partial class AbsorbCorpseEvent : SimpleDoAfterEvent
 {
     public EntityUid Target;
 }

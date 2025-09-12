@@ -22,9 +22,11 @@
   category: [ HideSpawnMenu ]
   components:
   - type: BloodWriting
+  - type: AbsorbCorpse
   - type: ActionGrant
     actions:
     - ActionBloodWriting
+    - ActionAbsorbCorpse
   # - Haunt
   # - ActionGrant
   # actions:
