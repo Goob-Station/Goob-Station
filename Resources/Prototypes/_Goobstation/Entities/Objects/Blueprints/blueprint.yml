@@ -14,10 +14,10 @@
     - StrongShrapnelPayload
     - EMPPayload
     - ExplosiveGrenadeModular
-    - WhiteHoleTimerTrigger
     - MinibombTimerTrigger
     - SupermatterTimerTrigger
     - SilentTimerTrigger
+    - WhiteHoleTimerTrigger
     - HolyTimer
     - TimerTrigger
     - SignalTrigger

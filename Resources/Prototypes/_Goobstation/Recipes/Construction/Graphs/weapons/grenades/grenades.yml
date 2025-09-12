@@ -1559,7 +1559,7 @@
   graph:
 
   - node: grenade1
-    entity: Flashbang
+    entity: GrenadeFlashbang
     edges:
     - to: emptyCase
       steps:
