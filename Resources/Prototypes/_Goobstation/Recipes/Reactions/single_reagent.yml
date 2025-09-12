@@ -37,7 +37,7 @@
       maxIntensity: 10
       intensityPerUnit: 2 # this is scary
       intensitySlope: 2.5 # spreads out a lot
-      maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole
+      maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole department
 
 - type: reaction
   id: FlashPowderFlash
