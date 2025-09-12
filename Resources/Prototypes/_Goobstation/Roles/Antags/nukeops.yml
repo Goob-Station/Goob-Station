@@ -18,3 +18,47 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     pocket2: BaseUplinkRadio50TCNukeOps
+
+- type: startingGear
+  id: SyndicateOperativeGearBaseSuit
+  parent: SyndicateOperativeGearFull
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndie
+    shoes: ClothingShoesBootsMagSyndie
+
+
+- type: startingGear
+  id: SyndicateOperativeGearJuggSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitJuggernaut
+
+- type: startingGear
+  id: SyndicateOperativeGearMedicSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieMedic
+
+- type: startingGear
+  id: SyndicateOperativeGearStealthSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitCybersunStealth
+
+- type: startingGear
+  id: SyndicateOperativeGearCommanderSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieCommander
+
+- type: startingGear
+  id: SyndicateOperativeGearEliteSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitSyndieElite
+
+- type: startingGear
+  id: SyndicateOperativeGearDreadSuit
+  parent: SyndicateOperativeGearBaseSuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitCybersunDreadnought
