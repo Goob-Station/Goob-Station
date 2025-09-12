@@ -77,6 +77,12 @@
         "name": "uniform"
       },
       {
+        "name": "arms"
+      },
+      {
+        "name": "legs"
+      },
+      {
         "name": "inventory"
       },
       {
