@@ -27,7 +27,7 @@
     earliestStart: 0
     minimumPlayers: 15
     weight: 5
-    ReoccurrenceDelay: 30
+    reoccurrenceDelay: 30
     eventType: Neutral
   - type: GameRule
     chaosScore: 0
