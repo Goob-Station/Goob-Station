@@ -48,7 +48,6 @@
     sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
     state: payload-whitehole
   - type: SoundOnTrigger
-    removeOnTrigger: true
     sound:
       path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
       volume: 5
@@ -128,7 +127,6 @@
     totalIntensity: 200
     intensitySlope: 30
     maxIntensity: 120
-    removeOnTrigger: true
   - type: TwoStageTrigger
     triggerDelay: 10.45
     components:
@@ -260,7 +258,6 @@
         damage: 25
       behaviors:
       - !type:TriggerBehavior
-  - type: DeleteOnTrigger
   - type: Explosive
     explosionType: Holy
     totalIntensity: 3500
