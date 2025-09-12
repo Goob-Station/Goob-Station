@@ -1383,7 +1383,7 @@
   id: UplinkRPOA
   name: uplink-ExplosivePayloadBlueprint-name
   description: uplink-ExplosivePayloadBlueprint-desc
-  productEntity: UplinkExplosivePayloadBlueprint
+  productEntity: ExplosivePayloadBlueprint
   icon: { sprite: _Goobstation/Objects/Devices/payload.rsi, state: icon }
   cost:
     Telecrystal: 40 #Should be alot, its an investment item
