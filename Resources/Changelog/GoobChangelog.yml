@@ -14825,3 +14825,11 @@ Entries:
       message: Fixed wonderprod not sleeping. Abductors can abduct again.
   id: 1647
   time: '2025-09-13T18:23:57.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Spacesuits protect slimes from water damage
+    - type: Tweak
+      message: Slime people take more damage from water
+  id: 1648
+  time: '2025-09-13T18:25:58.0000000+00:00'
