@@ -38,6 +38,15 @@
         Quantity: 10
       - ReagentId: FluorosulfuricAcid
         Quantity: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   id: GroinXenomorph
