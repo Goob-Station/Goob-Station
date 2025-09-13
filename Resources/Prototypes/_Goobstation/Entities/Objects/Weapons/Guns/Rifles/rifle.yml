@@ -215,3 +215,61 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: AKM
+  parent: [BaseWeaponRifle, BaseSyndicateContraband] #exists so i can remove BaseSecurityContraband without affecting parent
+  id: WeaponRifleAkSyndicate
+  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 6 #goobstart
+    shotsPerBurst: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - Burst
+    - SemiAuto
+    - FullAuto
+    burstFireRate: 12
+    burstCooldown: 0.6 #goobend, goobcommenting even though its in goob comment to note how its diffrent from parent, todo, paint a bit of it red or smtn
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null # Goobstation
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
