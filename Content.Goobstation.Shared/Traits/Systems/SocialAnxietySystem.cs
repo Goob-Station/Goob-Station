@@ -20,7 +20,7 @@ public sealed partial class SocialAnxietySystem : EntitySystem
     {
         _standingSystem.Down(uid);
         _stunSystem.TryStun(uid, TimeSpan.FromSeconds(component.DownedTime), true);
-        var mobName = MetaData(uid).EntityName;
+        var mobName = Identity.Name(uid, EntityManager);
         _popupSystem.PopupEntity(Loc.GetString("social-anxiety-hugged", ("user", mobName)), uid, PopupType.MediumCaution);
     }
 }
