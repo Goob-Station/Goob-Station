@@ -14780,3 +14780,31 @@ Entries:
       message: Fixed Jumpsuits not rendering properly on Humanoid species.
   id: 1644
   time: '2025-09-13T05:00:51.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Tweak
+      message: Floor goblin health was decreased from 100 to 60.
+    - type: Tweak
+      message: >-
+        Floor goblins are now under the floor when they spawn, to avoid them
+        getting killed immediately.
+    - type: Tweak
+      message: Added role raffle to floor goblin ghost role.
+    - type: Fix
+      message: >-
+        Hud UIs can no longer see floor goblins through floors. (Thermal vision
+        can still be used.)
+    - type: Fix
+      message: >-
+        Floor goblin steal action is now cancelled by placing a tile above it,
+        if it is under the floor.
+    - type: Fix
+      message: >-
+        When a floor goblin crawls into the floor on a sub floor tile, it no
+        longer shows the wrong popup.
+    - type: Fix
+      message: Floor goblins can no longer be seen when inside of vents.
+    - type: Fix
+      message: Floor goblins can no longer use their abilities inside of vents.
+  id: 1645
+  time: '2025-09-13T08:05:02.0000000+00:00'
