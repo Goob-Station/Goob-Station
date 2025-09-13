@@ -26,7 +26,7 @@
     Sulfur:
       amount: 1
   products:
-    FlashPowder: 3
+    Fluorine: 3
 
 # - type: reaction
 #   id: FlashPowder
