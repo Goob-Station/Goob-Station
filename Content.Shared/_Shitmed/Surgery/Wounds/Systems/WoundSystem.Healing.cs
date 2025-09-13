@@ -6,23 +6,62 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.CPUJob.JobQueues;
-using Robust.Shared.CPUJob.JobQueues.Queues;
-using Robust.Shared.Timing;
-using Robust.Shared.Threading;
+using Content.Shared._Shitmed.Medical.Surgery.Pain;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared.Body.Part;
+using Content.Goobstation.Maths.FixedPoint;
+
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
+/// <summary>
+/// This class is responsible for managing wound healing in the shared game code.
+/// It contains methods for updating the pain state after wounds are healed,
+/// and for halting all bleeding on a given entity.
+/// </summary>
 public partial class WoundSystem
 {
+    [Dependency] private readonly PainSystem _pain = default!;
+
+    /// Private helper method that updates the pain state after wounds are healed.
+    /// <param name="woundable">The entity on which to update the pain state.</param>
+    private void UpdatePainAfterHealing(EntityUid woundable)
+    {
+        // Check if the entity has a BodyPartComponent and if it is part of a body.
+        if (!TryComp<BodyPartComponent>(woundable, out var bodyPart) || !bodyPart.Body.HasValue)
+            return;
+
+        // Get the body entity.
+        var body = bodyPart.Body.Value;
+
+        // Check if the body has a NerveSystemComponent.
+        if (!TryComp<NerveSystemComponent>(body, out var nerveSystem))
+            return;
+
+        // Create a temporary pain modifier ID for triggering the pain update.
+        const string tempPainUpdateId = "WoundHealingPainUpdate";
+
+        // Add a zero-duration modifier to the pain system to trigger the pain update.
+        _pain.TryAddPainModifier(
+            body,
+            body,
+            tempPainUpdateId,
+            FixedPoint2.Zero,
+            PainDamageTypes.WoundPain,
+            nerveSystem,
+            TimeSpan.Zero);
+
+        // Remove the temporary pain modifier.
+        _pain.TryRemovePainModifier(body, body, tempPainUpdateId, nerveSystem);
+    }
+
     #region Public API
 
     public bool TryHaltAllBleeding(EntityUid woundable, WoundableComponent? component = null, bool force = false)
@@ -171,6 +210,12 @@ public partial class WoundSystem
 
         UpdateWoundableIntegrity(woundable, component);
         CheckWoundableSeverityThresholds(woundable, component);
+
+        // Update pain state after healing wounds if any wounds were healed
+        if (woundsToHeal.Count > 0)
+        {
+            UpdatePainAfterHealing(woundable);
+        }
     }
 
     public bool TryHealWoundsOnWoundable(EntityUid woundable,
