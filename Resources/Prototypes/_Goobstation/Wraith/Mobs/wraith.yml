@@ -63,8 +63,21 @@
   - type: Reactive
     groups:
       Acidic: [ Touch ]
+    reactions:
+    - reagents: [TableSalt]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:GenericStatusEffect
+        key: Corporeal
+        component: Corporeal
+        time: 10
+        type: Add
+        probability: 1
   - type: WeakToHoly
     alwaysTakeHoly: true
+  - type: Tag
+    tags:
+    - CorporealOnSalt
 
 - type: entity
   id: MobWraithPlague
