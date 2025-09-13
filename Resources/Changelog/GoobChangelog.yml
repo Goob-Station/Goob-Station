@@ -14881,3 +14881,13 @@ Entries:
       message: Station AI being able to toggle modsuits seals.
   id: 1655
   time: '2025-09-13T18:51:21.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Tweak
+      message: Amber and Packed genpop exit exist now
+    - type: Fix
+      message: >-
+        missing disposal in Omega Sec and also remove Packed Extra implanter
+        crate
+  id: 1656
+  time: '2025-09-13T18:53:18.0000000+00:00'
