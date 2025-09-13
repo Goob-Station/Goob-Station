@@ -503,6 +503,9 @@
   id: SnapPop
 
 - type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
+
+- type: Tag
   id: SoulTapped
 
 - type: Tag
