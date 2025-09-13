@@ -178,6 +178,23 @@
   - BrigmedicEnvirosuit
   - BrigmedicEnvirogloves
 
+- type: roleLoadout
+  id: JobXenobiologist
+  groups:
+  - XenobiologistHead
+  - XenobiologistNeck
+  - XenobiologistBackpack
+  - XenobiologistJumpsuit
+  - XenobiologistBelt
+  - XenobiologistOuterClothing
+  - XenobiologistShoes
+  - XenobiologistGloves
+  - XenobiologistPDA
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  - Survival
+
 
 # gives plasmaman a plasma breathing tank
 # other species get nothing
