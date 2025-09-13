@@ -4,14 +4,10 @@
     TriggerMusic: 1
     TriggerHeat: 1
     TriggerCold: 0.5
-    TriggerNoOxygen: 1
     TriggerWater: 1
     TriggerCO2: 0.5
     TriggerPlasma: 0.5
     TriggerN2O: 0.5
-    TriggerTritium: 0.1
-    TriggerAmmonia: 0.1
-    TriggerFrezon: 0.1
     TriggerRadiation: 1
     TriggerPressureHigh: 0.5
     TriggerPressureLow: 1
@@ -27,11 +23,6 @@
     TriggerThrow: 1
     TriggerDeath: 1
     TriggerMagnet: 1
-    # Goob triggers - advanced gases
-    TriggerBZ: 0.05
-    TriggerHealium: 0.05
-    TriggerNitrium: 0.05
-    TriggerPluoxium: 0.05
 
 - type: xenoArchTrigger
   id: TriggerMusic
