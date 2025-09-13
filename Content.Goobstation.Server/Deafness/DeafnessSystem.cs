@@ -1,10 +1,11 @@
+
 using System.Linq;
 using Content.Goobstation.Common.Traits;
 using Content.Server.Chat.V2;
 using Content.Server.Radio;
 using Content.Server.Chat;
 using Content.Shared.Chat;
-using Content.Shared._Shitcode.Chat;
+using Content.Goobstation.Common.Chat;
 
 namespace Content.Goobstation.Server.Deafness;
 
@@ -18,20 +19,12 @@ public sealed class DeafnessSystem : EntitySystem
 
         _deafQuery = GetEntityQuery<DeafComponent>();
         SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
-        SubscribeLocalEvent<DeafComponent, ChatMessageOverrideInVoiceRangeEvent>(OnOverrideInVoiceRange);
+        SubscribeLocalEvent<DeafComponent, ChatMessageOverrideInVoiceRange>(OnOverrideInVoiceRange);
     }
 
-    private void OnOverrideInVoiceRange(EntityUid uid, DeafComponent comp, ref ChatMessageOverrideInVoiceRangeEvent args)  // blocks normal chat
+    private void OnOverrideInVoiceRange(EntityUid uid, DeafComponent comp, ref ChatMessageOverrideInVoiceRange args)  // blocks normal chat
     {
-        if (args.Channel is ChatChannel.Emotes 
-            or ChatChannel.Damage
-            or ChatChannel.Visual
-            or ChatChannel.Notifications
-            or ChatChannel.OOC
-            or ChatChannel.LOOC)
-            return;
-
-        args.Cancelled = true;
+        args.Cancel();
     }
 
     private void OnRadioReceiveAttempt(ref RadioReceiveAttemptEvent args) // blocks radio

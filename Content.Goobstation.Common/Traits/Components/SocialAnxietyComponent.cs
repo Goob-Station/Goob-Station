@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Traits.Components;
+namespace Content.Goobstation.Common.Traits.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SocialAnxietyComponent : Component

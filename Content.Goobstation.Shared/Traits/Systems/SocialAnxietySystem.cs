@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Traits.Components;
+using Content.Goobstation.Common.Traits.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Standing;

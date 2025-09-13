@@ -143,7 +143,7 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
-using Content.Shared._Shitcode.Chat;
+using Content.Goobstation.Common.Chat;
 using Content.Goobstation.Common.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -566,7 +566,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (!TryComp<StationDataComponent>(station, out var stationDataComp)) return;
+        if (!EntityManager.TryGetComponent<StationDataComponent>(station, out var stationDataComp)) return;
 
         var filter = _stationSystem.GetInStation(stationDataComp);
 
@@ -1083,10 +1083,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // Goob edit start
             // Raises a event for the deaf component
-            var ev = new ChatMessageOverrideInVoiceRangeEvent(channel, message, wrappedMessage);
-            RaiseLocalEvent(listener, ev);
-            if (ev.Cancelled)
-                continue;
+            if (channel == ChatChannel.Local)
+            {
+                var ev = new ChatMessageOverrideInVoiceRange();
+                RaiseLocalEvent(listener, ref ev);
+                if (ev.Cancelled)
+                    continue;
+            }
             //Goob edit end
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
