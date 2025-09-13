@@ -1,0 +1,36 @@
+- type: entity
+  id: VoidPortal
+  name: void portal
+  description: A portal to the void which grows in power the longer it remains on this realm.
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Effects
+    layers:
+    - state: void_portal
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: AmbientSound
+    volume: -8
+    range: 12
+    sound:
+      path: /Audio/_Goobstation/Ambience/horror_crowd_ambience.ogg
+  - type: PointLight
+    radius: 6
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
