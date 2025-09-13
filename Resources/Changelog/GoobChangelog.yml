@@ -14808,3 +14808,92 @@ Entries:
       message: Floor goblins can no longer use their abilities inside of vents.
   id: 1645
   time: '2025-09-13T08:05:02.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: >-
+        Addendum to antagonist roleplay rules, more clearly explaining labels
+        and intention of antags e.g Heretics are explicitly solo antagonists.
+        Traitors and Lings may team, but this does not meant they are loyal to
+        each other. Bingles 1 goal is to feed the hole, nothing more. Abductors
+        can steal, but you look like an idiot doing it.
+  id: 1646
+  time: '2025-09-13T18:21:10.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed wonderprod not sleeping. Abductors can abduct again.
+  id: 1647
+  time: '2025-09-13T18:23:57.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Spacesuits protect slimes from water damage
+    - type: Tweak
+      message: Slime people take more damage from water
+  id: 1648
+  time: '2025-09-13T18:25:58.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Paradox Clone IPC's spawning without the proper encryption keys.
+  id: 1649
+  time: '2025-09-13T18:27:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Syndicate elite voidsuit helmet can now be equipped again
+    - type: Tweak
+      message: Bananium esword now has a clown specific contra tag
+  id: 1650
+  time: '2025-09-13T18:39:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Conveyors cannot be rotated while wrenched down
+    - type: Tweak
+      message: Proximity signallers trigger unless youre moving very slow (crawl speed)
+  id: 1651
+  time: '2025-09-13T18:42:21.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed augments being deleted if you reinstalled them.
+  id: 1652
+  time: '2025-09-13T18:45:54.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: >-
+        Spacesuit naming scheme is no longer arbitrarily different from
+        everywhere else
+  id: 1653
+  time: '2025-09-13T18:47:36.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rust walkers slightly harder to mass produce
+  id: 1654
+  time: '2025-09-13T18:50:33.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Station AI being able to toggle modsuits seals.
+  id: 1655
+  time: '2025-09-13T18:51:21.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Tweak
+      message: Amber and Packed genpop exit exist now
+    - type: Fix
+      message: >-
+        missing disposal in Omega Sec and also remove Packed Extra implanter
+        crate
+  id: 1656
+  time: '2025-09-13T18:53:18.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: Boggle and Lehmin plushes are here.
+  id: 1657
+  time: '2025-09-13T18:53:58.0000000+00:00'

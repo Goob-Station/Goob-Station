@@ -36,6 +36,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Vector2 = System.Numerics.Vector2;
+using Content.Shared.Silicons.StationAi;
 
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
@@ -181,6 +182,9 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (!args.CanComplexInteract)
             return;
 
+        // Prevent Station AI from toggling modsuit seals
+        if (HasComp<StationAiHeldComponent>(user))
+            return;
         // Since sealing control in wearer's container system just won't show verb on args.CanAccess
         if (!_interactionSystem.InRangeUnobstructed(user, uid))
             return;
