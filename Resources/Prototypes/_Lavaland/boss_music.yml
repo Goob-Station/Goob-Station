@@ -21,7 +21,8 @@
 
 - type: bossMusic
   id: Hierophant
-  fade: true
+  fadeIn: true
+  fadeOut: true
   fadeInTime: 5
   fadeOutTime: 8
   positionOnEnd: 0
