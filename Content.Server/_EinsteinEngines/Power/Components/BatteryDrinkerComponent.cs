@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist; // Goobstation - Energycrit
+
 namespace Content.Server._EinsteinEngines.Power.Components;
 
 [RegisterComponent]
@@ -33,4 +35,12 @@ public sealed partial class BatteryDrinkerComponent : Component
     /// </summary>
     [DataField]
     public float DrinkAllMultiplier = 2.5f;
+
+    /// <Goobstation> Energycrit: BatteryDrinker blacklist. </Goobstation>
+    /// <summary>
+    ///     Blacklist for items that can not be drank from. This should not be used to disable drinking from a type
+    ///     of power cell, it is not checked for entities inside a power cell slot.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }

@@ -148,6 +148,9 @@
       0: 0.20
   - type: BatteryDrinker
     drinkAll: true # Goobstation - Energycrit
+    blacklist:
+      tags:
+      - IPCDrinkBlacklist
   - type: EncryptionKeyHolder
     keySlots: 4
     examineWhileLocked: false
@@ -176,7 +179,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other ipcs.
 - type: entity
   save: false
   name: Urist McPositronic

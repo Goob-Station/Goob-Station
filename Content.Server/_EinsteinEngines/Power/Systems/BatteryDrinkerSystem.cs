@@ -21,6 +21,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Server._EinsteinEngines.Power.Components;
+using Content.Shared.Whitelist; // Goobstation - Energycrit
 
 namespace Content.Server._EinsteinEngines.Power;
 
@@ -35,6 +36,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ChargerSystem _chargers = default!; // Goobstation
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Energycrit
 
     public override void Initialize()
     {
@@ -54,6 +56,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
             !TestDrinkableBattery(uid, drinkerComp) ||
+            // Goobstation - Energycrit: Check blacklist
+            _whitelist.IsBlacklistPass(drinkerComp.Blacklist, uid) ||
             // Goobstation - replaced battery lookup to allow augment power cells
             !_chargers.SearchForBattery(args.User, out _, out _) ||
             // Goobstation - Energycrit: Drain from batteries inside electronics
