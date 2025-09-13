@@ -16,6 +16,7 @@
   id: SecurityAmmoStaticGoob
   recipes:
   - MagazineBoxShotgunBeanbagHighCaliber
+  - MagazineBoxShotgunHighCaliber
   - MagazineBoxShotgunSlugHighCaliber
   - MagazineBoxShotgunPracticeHighCaliber
 

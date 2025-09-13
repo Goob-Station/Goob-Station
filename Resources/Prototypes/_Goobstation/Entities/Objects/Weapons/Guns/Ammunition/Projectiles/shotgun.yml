@@ -25,7 +25,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
+        Piercing: 14
 
 - type: entity
   id: HighCaliberPelletShotgunSpread
@@ -34,8 +34,8 @@
   components:
   - type: ProjectileSpread
     proto: HighCaliberPelletShotgun
-    count: 6
-    spread: 15
+    count: 5
+    spread: 13
 
 # Incendiary
 
@@ -63,8 +63,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunIncendiary
-      count: 6
-      spread: 15
+      count: 5
+      spread: 13
 
 # Practice
 
@@ -89,8 +89,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunPractice
-      count: 8
-      spread: 15
+      count: 5 #realligned with normal rounds, how can one practice if the spread and pellet count is different..
+      spread: 13
 
 # Depleted Uranium
 
@@ -116,8 +116,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunUranium
-      count: 6
-      spread: 6
+      count: 5
+      spread: 13
 
 ## Slugs
 
