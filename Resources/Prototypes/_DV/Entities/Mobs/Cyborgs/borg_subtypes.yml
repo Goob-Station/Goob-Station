@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 AgentePanela <agentepanela@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_standard
+  spritePath: _DV/Mobs/Silicon/chassis.rsi
+  dummyPrototype: security
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_peace_keeper
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisPeaceKeeper

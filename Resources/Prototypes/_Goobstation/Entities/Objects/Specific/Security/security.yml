@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 AgentePanela <agentepanela@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: WeaponLaserCarbine
+  id: WeaponLaserCarbineRecharging
+  categories: [HideSpawnMenu]
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 24 # energy shotgun values
+      autoRechargePause: true
+      autoRechargePauseTime: 30
+
+- type: entity
+  parent: WeaponDisabler
+  id: WeaponDisablerRecharging
+  categories: [HideSpawnMenu]
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 20

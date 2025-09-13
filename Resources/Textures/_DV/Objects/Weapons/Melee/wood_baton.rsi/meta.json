@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation from commit 293577ab8a85e1306b8c00be45e0da9c2c4e55fe at https://github.com/tgstation/tgstation/commits/470cff519e57263dc0f7adcbbf04febd90de0088/icons/obj/weapons/baton.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}
