@@ -28,3 +28,24 @@
   components:
   - type: Loadout
     prototypes: [ WizardHardsuitGearDebug ]
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanChangelingArmor
+  name: Urist McChangeling
+  suffix: DEBUG
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ ChangelingArmor ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+      - AntagImplantChangeling
