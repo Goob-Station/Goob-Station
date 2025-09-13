@@ -14839,3 +14839,11 @@ Entries:
       message: Paradox Clone IPC's spawning without the proper encryption keys.
   id: 1649
   time: '2025-09-13T18:27:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Syndicate elite voidsuit helmet can now be equipped again
+    - type: Tweak
+      message: Bananium esword now has a clown specific contra tag
+  id: 1650
+  time: '2025-09-13T18:39:01.0000000+00:00'
