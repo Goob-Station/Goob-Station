@@ -64,3 +64,18 @@
   position: 1,-2
   technologyPrerequisites:
   - PowerGeneration
+
+- type: technology
+  id: Plumbing
+  name: research-technology-plumbing
+  icon:
+    sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 6500
+  recipeUnlocks:
+  - PlumbingPumpCircuitboard
+  position: 1,-7
+  technologyPrerequisites:
+  - IndustrialEngineering
