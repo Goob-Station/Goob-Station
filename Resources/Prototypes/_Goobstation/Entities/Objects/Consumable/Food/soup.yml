@@ -1,0 +1,46 @@
+
+- type: entity
+  name: bingle stew
+  parent: FoodBowlBase
+  id: FoodSoupBingle
+  description: The stew looks hungry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - shit
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle_soup.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+
+# SALADS
+
+- type: entity
+  name: tuna salad
+  parent: FoodBowlBase
+  id: FoodSaladTuna
+  description: A simple salad made out of onions, mayo, and tuna.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fish
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/tuna_salad.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
