@@ -17,7 +17,7 @@
     BlackPowder: 3
 
 - type: reaction
-  id: FlashPowder
+  id: Fluorine
   reactants:
     Aluminium:
       amount: 1
