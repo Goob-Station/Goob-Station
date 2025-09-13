@@ -29,6 +29,13 @@ public sealed partial class SummonPortalSystem : EntitySystem
         if (args.Handled)
             return;
 
+        //TO DO: Add logic for asking if the player wants to move the portal's location, rather than just denying a new portal.
+        if (comp.CurrentActivePortals >= comp.PortalLimit)
+        {
+            _popup.PopupPredicted(Loc.GetString("wraith-portal-limit"), uid, uid, PopupType.LargeCaution);
+            return;
+        }
+
         var xform = Transform(uid);
 
         // Portal can only be summoned while on grid
@@ -40,7 +47,9 @@ public sealed partial class SummonPortalSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("wraith-portal-success"), uid, uid, PopupType.Large);
         var voidUid = Spawn(VoidPortal, _transform.GetMapCoordinates(uid, xform: xform));
-
+        comp.CurrentActivePortals++;
         args.Handled = true;
+
+        //TO DO: Add logic for if the portal gets destroyed. (Though honestly that might end up just being handled through the 
     }
 }

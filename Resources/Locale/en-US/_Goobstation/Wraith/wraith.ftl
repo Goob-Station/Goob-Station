@@ -12,3 +12,5 @@ wraith-decay-fail = This cannot be decayed...
 wraith-portal-anchor = The portal requires a stable surface to spawn.
 wraith-portal-fail-corporeal = I must be in corporeal form to summon this!
 wraith-portal-success = The veil has been breached. Arise, creatures of the void!
+wraith-portal-limit = We haven't implemented the logic for switching portal locations yet.
+
