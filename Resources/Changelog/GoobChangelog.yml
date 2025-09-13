@@ -14808,3 +14808,14 @@ Entries:
       message: Floor goblins can no longer use their abilities inside of vents.
   id: 1645
   time: '2025-09-13T08:05:02.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: >-
+        Addendum to antagonist roleplay rules, more clearly explaining labels
+        and intention of antags e.g Heretics are explicitly solo antagonists.
+        Traitors and Lings may team, but this does not meant they are loyal to
+        each other. Bingles 1 goal is to feed the hole, nothing more. Abductors
+        can steal, but you look like an idiot doing it.
+  id: 1646
+  time: '2025-09-13T18:21:10.0000000+00:00'
