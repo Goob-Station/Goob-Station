@@ -333,4 +333,4 @@ uplink-bloodred-casette-name = Bloodred Casette Player
 uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
 uplink-syndiedrobe-name = Syndiedrobe
-uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded apparel. Crisp, practical, and unmistakably red-and-black, it provides operatives with a wardrobe that’s equal parts uniform and statement.
+uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
