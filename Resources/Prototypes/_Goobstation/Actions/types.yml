@@ -157,3 +157,39 @@
     priority: -8
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.StationMapUiKey.Key }
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleFloorBoardsMode
+  name: Enter or Exit Floor
+  description: Crawl under the floor boards.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: Structures/Piping/Atmospherics/vent.rsi
+      state: vent_off
+  - type: InstantAction
+    event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStealShoes
+  name: Steal Shoes
+  description: A tasty snack it will be!
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Clothing/Shoes/Boots/jackboots.rsi
+      state: icon
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Inventory
+    canTargetSelf: false
+    event: !type:StealShoesEvent {}

@@ -43,13 +43,13 @@ public sealed partial class FaceHuggerComponent : Component
     public TimeSpan MaxInfectTime = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public TimeSpan MaxRestTime = TimeSpan.FromSeconds(20);
+    public TimeSpan MaxRestTime = TimeSpan.FromSeconds(5); // Goobstation - 20 to 5. Facehuggers shouldn't take that long to recover.
 
     [DataField]
     public TimeSpan MinInfectTime = TimeSpan.FromSeconds(10);
 
     [DataField]
-    public TimeSpan MinRestTime = TimeSpan.FromSeconds(10);
+    public TimeSpan MinRestTime = TimeSpan.FromSeconds(2); // Goobstation - 10 to 2. Facehuggers shouldn't take that long to recover.
 
     [ViewVariables]
     public bool Active = true;

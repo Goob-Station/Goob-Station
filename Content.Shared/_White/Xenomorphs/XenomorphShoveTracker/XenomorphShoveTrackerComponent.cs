@@ -21,13 +21,13 @@ public sealed partial class XenomorphShoveTrackerComponent : Component
     /// Duration of the knockdown effect
     /// </summary>
     [DataField]
-    public TimeSpan KnockdownDuration = TimeSpan.FromSeconds(15);
+    public TimeSpan KnockdownDuration = TimeSpan.FromSeconds(7);
 
     /// <summary>
     /// Time after which shove counts reset if no new shoves occur
     /// </summary>
     [DataField]
-    public TimeSpan ShoveResetTime = TimeSpan.FromSeconds(10);
+    public TimeSpan ShoveResetTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Dictionary tracking when each target was last shoved
