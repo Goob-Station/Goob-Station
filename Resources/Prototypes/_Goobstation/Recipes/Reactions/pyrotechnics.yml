@@ -19,12 +19,15 @@
 - type: reaction # added for testing
   id: FlashPowder
   reactants:
-    Charcoal:
+    Aluminium:
       amount: 1
-    Saltpeter:
+    Potassium:
       amount: 1
-    SulfuricAcid:
+    Sulfur:
       amount: 1
+    StabilizingAgent:
+      amount: 1
+      catalyst: true
   products:
     BlackPowder: 3
 
