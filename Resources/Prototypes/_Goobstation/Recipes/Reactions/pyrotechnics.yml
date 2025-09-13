@@ -23,11 +23,8 @@
       amount: 1
     Potassium:
       amount: 1
-    Sulfur:
+    Water: # TESTING, DO NOT KEEP HERE
       amount: 1
-    # StabilizingAgent:
-    #   amount: 1
-    #   catalyst: true
   products:
     BlackPowder: 3
 
