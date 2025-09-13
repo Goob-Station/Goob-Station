@@ -53,7 +53,7 @@ public sealed class LegsParalyzedSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly StandingStateSystem _standingSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -68,7 +68,7 @@ public sealed class LegsParalyzedSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, LegsParalyzedComponent component, ComponentStartup args)
     {
-        // TODO: In future probably must be surgery related wound
+        // Completely paralyzed: cannot walk or run.
         _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 0, 0, 20);
     }
 
@@ -81,15 +81,26 @@ public sealed class LegsParalyzedSystem : EntitySystem
     private void OnBuckled(EntityUid uid, LegsParalyzedComponent component, ref BuckledEvent args)
     {
         _standingSystem.Stand(uid);
-        _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 2, 2, 20);
+        _movementSpeedModifierSystem.ChangeBaseSpeed(
+            uid,
+            component.CrawlMoveSpeed,
+            component.CrawlMoveSpeed,
+            component.CrawlMoveAcceleration);
     }
 
     private void OnUnbuckled(EntityUid uid, LegsParalyzedComponent component, ref UnbuckledEvent args)
     {
         _standingSystem.Down(uid);
     }
-    private void OnDowned(EntityUid uid, LegsParalyzedComponent component, DownedEvent args) =>
-         _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 2, 2, 20);
+
+    private void OnDowned(EntityUid uid, LegsParalyzedComponent component, DownedEvent args)
+    {
+        _movementSpeedModifierSystem.ChangeBaseSpeed(
+            uid,
+            component.CrawlMoveSpeed,
+            component.CrawlMoveSpeed,
+            component.CrawlMoveAcceleration);
+    }
 
     private void OnStandTry(EntityUid uid, LegsParalyzedComponent component, StandAttemptEvent args)
     {
@@ -97,6 +108,7 @@ public sealed class LegsParalyzedSystem : EntitySystem
         _popupSystem.PopupClient(Loc.GetString("paralyzed-no-stand"), uid, uid, PopupType.Medium);
         _standingSystem.Down(uid);
     }
+
     private void OnThrowPushbackAttempt(EntityUid uid, LegsParalyzedComponent component, ThrowPushbackAttemptEvent args)
     {
         args.Cancel();
