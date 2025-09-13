@@ -14897,3 +14897,11 @@ Entries:
       message: Boggle and Lehmin plushes are here.
   id: 1657
   time: '2025-09-13T18:53:58.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: >-
+        Head Revolutionaries must now speak a language their target actually
+        understands to convert.
+  id: 1658
+  time: '2025-09-13T23:24:56.0000000+00:00'
