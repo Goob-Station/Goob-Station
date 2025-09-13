@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ShyBandit",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "porg-base"
+        },
+        {
+            "name": "porg-construction"
+        },
+        {
+            "name": "porg",
+            "directions": 4
+        },
+        {
+            "name": "porg_e",
+            "directions": 4
+        },
+        {
+            "name": "porg_e_r",
+            "directions": 4
+        },
+        {
+            "name": "porg_l",
+            "directions": 4
+        }
+    ]
+}

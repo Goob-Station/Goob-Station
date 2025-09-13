@@ -87,3 +87,15 @@
     Glass: 400
     Gold: 400
     Silver: 200
+
+# pOrg
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: POrgBase
+  result: POrgBase
+  completetime: 5
+  materials:
+    Steel: 400
+    Glass: 200
+    Plasma: 25
+    Gold: 25

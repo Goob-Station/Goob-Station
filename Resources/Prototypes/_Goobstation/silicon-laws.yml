@@ -36,3 +36,33 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+# Famimov (unique due to pOrg being Familiar type Ghostrole)
+- type: siliconLaw
+  id: Famimov0
+  order: 0
+  lawString: law-famimov-0
+
+- type: siliconLaw
+  id: Famimov1
+  order: 1
+  lawString: law-famimov-1
+
+- type: siliconLaw
+  id: Famimov2
+  order: 2
+  lawString: law-famimov-2
+
+- type: siliconLaw
+  id: Famimov3
+  order: 3
+  lawString: law-famimov-3
+
+- type: siliconLawset
+  id: FamimovLawset
+  laws:
+  - Famimov0
+  - Famimov1
+  - Famimov2
+  - Famimov3
+  obeysTo: laws-owner-owner
