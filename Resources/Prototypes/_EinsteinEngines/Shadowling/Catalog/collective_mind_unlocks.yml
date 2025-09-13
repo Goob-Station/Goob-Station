@@ -1,0 +1,43 @@
+- type: shadowlingAbilityUnlock
+  id: SonicScreech
+  count: 3
+  addComponents:
+  - type: ShadowlingSonicScreech
+
+- type: shadowlingAbilityUnlock
+  id: NullCharge
+  count: 5
+  addComponents:
+  - type: ShadowlingNullCharge
+
+- type: shadowlingAbilityUnlock
+  id: BlackRecuperation
+  count: 7
+  addComponents:
+  - type: ShadowlingBlackRecuperation
+
+- type: shadowlingAbilityUnlock
+  id: BlindnessSmoke
+  count: 10
+  addComponents:
+  - type: ShadowlingBlindnessSmoke
+
+- type: shadowlingAbilityUnlock
+  id: EmpoweredEnthrall
+  count: 12
+  addComponents:
+  - type: ShadowlingEmpoweredEnthrall
+  removeComponents:
+  - type: ShadowlingEnthrall
+
+- type: shadowlingAbilityUnlock
+  id: NoxImperii
+  count: 15
+  addComponents:
+  - type: ShadowlingNoxImperii
+
+- type: shadowlingAbilityUnlock
+  id: Ascendance
+  count: 20
+  addComponents:
+  - type: ShadowlingAscendance

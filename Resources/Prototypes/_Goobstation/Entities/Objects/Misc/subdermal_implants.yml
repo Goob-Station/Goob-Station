@@ -165,6 +165,18 @@
   components:
   - type: ClumsyImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ShadowmindImplant
+  name: shadowmind implant
+  description: This implant allows the user to access Shadowmind channel (use +q).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: ImplantGrantCollectiveMind
+    collectiveMind: Shadowmind
+
 # Admeme
 
 - type: entity
