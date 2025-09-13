@@ -71,7 +71,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             Text = Loc.GetString("battery-drinker-verb-drink"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
             // Goobstation - Energycrit: dont block removing power cells
-            Priority = -100
+            Priority = -5
         };
 
         args.Verbs.Add(verb);
