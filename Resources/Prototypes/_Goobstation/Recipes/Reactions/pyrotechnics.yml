@@ -16,21 +16,33 @@
   products:
     BlackPowder: 3
 
-- type: reaction
-  id: FlashPowder
-  # priority: 21 # Must be higher priority than the original reaction
+- type: reaction # added for testing
+  id: BlackPowder2
   reactants:
-    Aluminium:
+    Charcoal:
       amount: 1
-    Potassium:
+    Saltpeter:
       amount: 1
-    Sulfur:
+    SulfuricAcid:
       amount: 1
-    StabilizingAgent:
-      amount: 1
-      catalyst: true
   products:
-    FlashPowder: 3
+    BlackPowder: 3
+
+# - type: reaction
+#   id: FlashPowder
+#   # priority: 21 # Must be higher priority than the original reaction
+#   reactants:
+#     Aluminium:
+#       amount: 1
+#     Potassium:
+#       amount: 1
+#     Sulfur:
+#       amount: 1
+#     StabilizingAgent:
+#       amount: 1
+#       catalyst: true
+#   products:
+#     FlashPowder: 3
 
 # - type: reaction
 #   id: SmokePowder
