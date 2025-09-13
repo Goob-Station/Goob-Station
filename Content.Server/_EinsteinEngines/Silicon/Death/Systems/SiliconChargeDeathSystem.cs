@@ -11,6 +11,10 @@ using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Hands.Components; // Monolith - IPC rework.
+using Content.Shared.Hands.EntitySystems;
+using Content.Goobstation.Shared.Sprinting; // Goobstation - Energycrit
+using Content.Server.Radio;
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
 
@@ -20,12 +24,14 @@ public sealed class SiliconDeathSystem : EntitySystem
     [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // Monolith - IPC rework
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SiliconDownOnDeadComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
+        SubscribeLocalEvent<SiliconDownOnDeadComponent, RadioSendAttemptEvent>(OnRadioSendAttempt); // Goobstation - Energycrit
     }
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
@@ -45,6 +51,18 @@ public sealed class SiliconDeathSystem : EntitySystem
             SiliconUnDead(uid, siliconDeadComp, batteryComp, uid);
     }
 
+    // Goobstation - Energycrit
+    private void OnRadioSendAttempt(Entity<SiliconDownOnDeadComponent> ent, ref RadioSendAttemptEvent args)
+    {
+        // Prevent talking on radio if energycrit
+        if (args.Cancelled || !ent.Comp.Dead)
+            return;
+
+        Log.Debug("Cancel radio send");
+
+        args.Cancelled = true;
+    }
+
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
     {
         var deadEvent = new SiliconChargeDyingEvent(uid, batteryComp, batteryUid);
@@ -53,9 +71,24 @@ public sealed class SiliconDeathSystem : EntitySystem
         if (deadEvent.Cancelled)
             return;
 
+        // Monolith Start - IPC rework
+        /*
         EntityManager.EnsureComponent<SleepingComponent>(uid);
         // Im too lazy to rewrite fucking stupid API so instead of sleeping infinitely IPCs will sleep for 2 damn days.
         _status.TryAddStatusEffectDuration(uid, "StatusEffectForcedSleeping", TimeSpan.FromDays(2));
+        */
+        if (!TryComp<HandsComponent>(uid, out var handsComp))
+            return;
+        _hands.RemoveHands((uid, handsComp));
+
+        // Goobstation - Energycrit: Disable sprinting while energycrit
+        if (TryComp<SprinterComponent>(uid, out var sprint))
+        {
+            sprint.CanSprint = false;
+            Dirty<SprinterComponent>((uid, sprint));
+        }
+
+        // Monolith End - IPC rework
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
@@ -70,8 +103,22 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void SiliconUnDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
     {
+        // Monolith Start - IPC Rework
+        /*
         _status.TryRemoveStatusEffect(uid, "StatusEffectForcedSleeping");
         _sleep.TryWaking(uid, true);
+        */
+        _hands.AddHand(uid, "right hand", HandLocation.Right);
+        _hands.AddHand(uid, "left hand", HandLocation.Left);
+
+        // Goobstation - Energycrit: Disable sprinting while energycrit
+        if (TryComp<SprinterComponent>(uid, out var sprint))
+        {
+            sprint.CanSprint = true;
+            Dirty<SprinterComponent>((uid, sprint));
+        }
+
+        // Monolith End - IPC rework
 
         siliconDeadComp.Dead = false;
 

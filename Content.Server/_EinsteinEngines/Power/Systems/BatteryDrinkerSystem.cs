@@ -41,11 +41,13 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BatteryComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
+        SubscribeLocalEvent<PowerCellSlotComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb); // Goobstation - Energycrit
 
         SubscribeLocalEvent<BatteryDrinkerComponent, BatteryDrinkerDoAfterEvent>(OnDoAfter);
     }
 
-    private void AddAltVerb(EntityUid uid, BatteryComponent batteryComponent, GetVerbsEvent<AlternativeVerb> args)
+    // Goobstation - Energycrit: Switched component from BatteryComponent to generic type.
+    private void AddAltVerb<TComp>(EntityUid uid, TComp component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
@@ -53,14 +55,19 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
             !TestDrinkableBattery(uid, drinkerComp) ||
             // Goobstation - replaced battery lookup to allow augment power cells
-            !_chargers.SearchForBattery(args.User, out _, out _))
+            !_chargers.SearchForBattery(args.User, out _, out _) ||
+            // Goobstation - Energycrit: Drain from batteries inside electronics
+            !_chargers.SearchForBattery(uid, out var battery, out _))
             return;
 
         AlternativeVerb verb = new()
         {
-            Act = () => DrinkBattery(uid, args.User, drinkerComp),
+            // Goobstation - Energycrit
+            Act = () => DrinkBattery(battery.Value, args.User, drinkerComp),
             Text = Loc.GetString("battery-drinker-verb-drink"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
+            // Goobstation - Energycrit: dont block removing power cells
+            Priority = -100
         };
 
         args.Verbs.Add(verb);
