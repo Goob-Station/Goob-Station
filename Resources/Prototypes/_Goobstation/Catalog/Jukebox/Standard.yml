@@ -290,7 +290,14 @@
     path: /Audio/_Goobstation/Music/Abductor.ogg
 
 - type: jukebox
+  id: blackswarm
+  name: Bobik-music - Black Swarm
+  path:
+    path: /Audio/_Goobstation/Music/Black_Swarm.ogg
+
+- type: jukebox
   id: asgore
-  name: Asgore - Runs Over Dess With
+  name: KennyTheLyr1c1st - Asgore Runs Over Dess
   path:
     path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
+
