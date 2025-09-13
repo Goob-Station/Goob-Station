@@ -234,7 +234,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitAtmos
-  name: atmos voidsuit # Goob edit
+  name: atmospherics hardsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
@@ -266,13 +266,18 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitAtmos
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 # Engineering hardsuit, heavily edited by goobstation
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitEngineering
-  name: engineering voidsuit
-  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
+  name: engineering hardsuit
+  description: A special hardsuit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
@@ -296,14 +301,18 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitEngineering
-
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Spationaut Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSpatio
-  name: spationaut voidsuit # Goob edit
-  description: A lightweight voidsuit designed for industrial EVA in zero gravity. # Goob edit
+  name: spationaut hardsuit # Goob edit
+  description: A lightweight hardsuit designed for industrial EVA in zero gravity. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
@@ -337,12 +346,13 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+    - CorgiWearable
 
 #Salvage Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSalvage
-  name: mining voidsuit # Goob edit
+  name: mining hardsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
@@ -375,13 +385,18 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Goliath Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
-  name: goliath voidsuit # Goob edit
-  description: A lightweight voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
+  name: goliath hardsuit # Goob edit
+  description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -416,12 +431,17 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Maxim Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitMaxim
-  name: salvager maxim voidsuit # Goob edit
+  name: salvager maxim hardsuit # Goob edit
   description: Fire. Heat. These things forge great weapons, they also forge great salvagers.
   components:
   - type: Sprite
@@ -504,13 +524,17 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
-#Brigmedic Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: brigmedic voidsuit # Goob edit
-  description: Special voidsuit of the guardian angel of the brig. It is the medical version of the security voidsuit. # Goob edit
+  name: brigmedic hardsuit # Goob edit
+  description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
@@ -547,7 +571,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseWardenContraband]
   id: ClothingOuterHardsuitWarden
-  name: warden's voidsuit # Goob edit
+  name: warden's hardsuit # Goob edit
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
@@ -590,8 +614,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitCap
-  name: captain's parade voidsuit # Goob edit
-  description: A formal and slightly armored voidsuit, made for the station's captain. # Goob edit
+  name: captain's parade hardsuit # Goob edit
+  description: A formal and slightly armored hardsuit, made for the station's captain. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
@@ -629,13 +653,17 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
-#Chief Engineer's Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitEngineeringWhite
-  name: chief engineer's voidsuit # Goob edit
-  description: A special voidsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station. # Goob edit
+  name: chief engineer's hardsuit # Goob edit
+  description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
@@ -674,12 +702,17 @@
         - Tesla
     # can touch containment fields safely
     - type: ContainmentFieldIgnore
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Chief Medical Officer's Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitMedical
-  name: chief medical officer's voidsuit # Goob edit
+  name: chief medical officer's hardsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. # Goob edit
   components:
   - type: Sprite
@@ -706,12 +739,17 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitMedical
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Research Director's Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband]
   id: ClothingOuterHardsuitRd
-  name: experimental research voidsuit # Goob edit
+  name: experimental research hardsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
@@ -745,6 +783,8 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
+    - CorgiWearable
+    - Hardsuit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitRd
@@ -762,8 +802,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitSecurityRed
-  name: head of security's voidsuit
-  description: Lighter and more protective than the standard security voidsuit, but not by much.
+  name: head of security's hardsuit
+  description: Lighter and more protective than the standard security hardsuit, but not by much.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
@@ -806,8 +846,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining voidsuit # Goob edit
-  description: A refurbished mining voidsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move. # Goob edit
+  name: luxury mining hardsuit # Goob edit
+  description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move. # Goob edit
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -845,8 +885,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndie
-  name: blood-red voidsuit # Goob edit
-  description: A heavily armored voidsuit designed for work in special operations. Property of Gorlex Marauders.
+  name: blood-red hardsuit # Goob edit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -858,7 +898,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.45
+    damageCoefficient: 0.5
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.45 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -886,11 +928,10 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+    - CorgiWearable
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.45
   - type: StaticPrice
     price: 5000
 
@@ -898,8 +939,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieMedic
-  name: blood-red medic voidsuit # Goob edit
-  description: A heavily armored and agile advanced voidsuit specifically designed for field medic operations.
+  name: blood-red medic hardsuit # Goob edit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
@@ -922,8 +963,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: syndicate elite voidsuit # Goob edit
-  description: An elite version of the blood-red voidsuit, with improved mobility and fireproofing. Property of Gorlex Marauders. # Goob edit
+  name: syndicate elite hardsuit # Goob edit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -939,6 +980,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.55 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -960,21 +1003,20 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSyndieElite
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.55
 
-#Syndicate Commander Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
-  name: syndicate commander voidsuit # Goob edit
-  description: A bulked up version of the blood-red voidsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
+  name: syndicate commander hardsuit # Goob edit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
@@ -984,7 +1026,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.35 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.6
@@ -1010,15 +1054,18 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.35
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - Hardsuit
+    - WhitelistChameleon
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitJuggernaut
   name: cybersun juggernaut suit
-  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
+  description: A suit made by the cutting edge R&D department at Cybersun to be hyper resilient.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
@@ -1029,6 +1076,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: StaminaResistance # Goobstation uncommented
+    damageCoefficient: 0.8
   - type: Armor
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
@@ -1054,18 +1103,18 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.8
   - type: Tag
     tags:
     - MonkeyWearable
+    - CorgiWearable
+    - Hardsuit
     - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, ClothingOuterWizardBaseArmor, BaseMagicalContraband] # Goob edit
   id: ClothingOuterHardsuitWizard
-  name: wizard voidsuit # Goob edit
+  name: wizard hardsuit # Goob edit
   description: A bizarre gem-encrusted suit that radiates magical energies.
   components:
   - type: Sprite
@@ -1107,6 +1156,7 @@
     - Hardsuit
     - WhitelistChameleon
     - SyringeArmor
+    - CorgiWearable
 
 #Ling Space Suit (goob - not used)
 - type: entity
@@ -1187,8 +1237,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitPirateCap
-  name: pirate captain's voidsuit # Goob edit
-  description: An ancient armored voidsuit, perfect for defending against space scurvy and toolbox-wielding scallywags. # Goob edit
+  name: pirate captain's hardsuit # Goob edit
+  description: An ancient armored hardsuit, perfect for defending against space scurvy and toolbox-wielding scallywags. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
@@ -1229,8 +1279,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
-  name: ERT leader's voidsuit # Goob edit
-  description: A protective voidsuit worn by the leader of an emergency response team. # Goob edit
+  name: ERT leader's hardsuit # Goob edit
+  description: A protective hardsuit worn by the leader of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
@@ -1244,8 +1294,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
   id: ClothingOuterHardsuitERTChaplain
-  name: ERT chaplain's voidsuit # Goob edit
-  description: A protective voidsuit worn by the chaplains of an Emergency Response Team. # Goob edit
+  name: ERT chaplain's hardsuit # Goob edit
+  description: A protective hardsuit worn by the chaplains of an Emergency Response Team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
@@ -1259,8 +1309,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTEngineer
-  name: ERT engineer's voidsuit # Goob edit
-  description: A protective voidsuit worn by the engineers of an emergency response team. # Goob edit
+  name: ERT engineer's hardsuit # Goob edit
+  description: A protective hardsuit worn by the engineers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
@@ -1276,8 +1326,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
-  name: ERT medic's voidsuit # Goob edit
-  description: A protective voidsuit worn by the medics of an emergency response team. # Goob edit
+  name: ERT medic's hardsuit # Goob edit
+  description: A protective hardsuit worn by the medics of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
@@ -1291,8 +1341,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
-  name: ERT security's voidsuit # Goob edit
-  description: A protective voidsuit worn by the security officers of an emergency response team. # Goob edit
+  name: ERT security's hardsuit # Goob edit
+  description: A protective hardsuit worn by the security officers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
@@ -1310,8 +1360,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTJanitor
-  name: ERT janitor's voidsuit # Goob edit
-  description: A protective voidsuit worn by the janitors of an emergency response team. # Goob edit
+  name: ERT janitor's hardsuit # Goob edit
+  description: A protective hardsuit worn by the janitors of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
@@ -1325,8 +1375,8 @@
 - type: entity # Goobstation - Start
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitDeathsquad # Todo - This should be a modsuit when those are done.
-  name: PI-52 "Lucifer" voidsuit # Goob edit
-  description: A famous voidsuit used by Central Commands death-squadrons, often shown in movies by nanotrasen intended to increase recruitment. # Goob edit
+  name: PI-52 "Lucifer" hardsuit # Goob edit
+  description: A famous hardsuit used by Central Command's death-squadrons, often shown in movies by Nanotrasen intended to increase recruitment. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
@@ -1429,8 +1479,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitClown
-  name: clown voidsuit # Goob edit
-  description: A custom-made clown voidsuit. # Goob edit
+  name: clown hardsuit # Goob edit
+  description: A custom-made clown hardsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
@@ -1466,8 +1516,8 @@
 - type: entity
   parent: ClothingOuterHardsuitClown
   id: ClothingOuterHardsuitMime
-  name: mime voidsuit # Goob edit
-  description: A custom-made mime voidsuit. # Goob edit.
+  name: mime hardsuit # Goob edit
+  description: A custom-made mime hardsuit. # Goob edit.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
@@ -1484,8 +1534,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSanta
-  name: Santa's voidsuit # Goob edit
-  description: A festive, cheerful voidsuit that protects the jolly gift-giver while on sleighrides in space. Offers some resistance against asteroid strikes. # Goob edit
+  name: Santa's hardsuit # Goob edit
+  description: A festive, cheerful hardsuit that protects the jolly gift-giver while on sleighrides in space. Offers some resistance against asteroid strikes. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/santahardsuit.rsi

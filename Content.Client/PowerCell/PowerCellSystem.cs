@@ -61,18 +61,14 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         if (!_sprite.LayerExists((uid, args.Sprite), PowerCellVisualLayers.Unshaded))
             return;
 
-        if (_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
-        {
-            if (level == 0)
-            {
-                _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, false);
-                return;
-            }
+        if (!_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
+            level = 0;
 
-            // Goobstation - Not sure why this was false, but i think it was wizden bug and it should be replaced with wizden code on upstream
-            _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, true);
+        var positiveCharge = level > 0;
+        _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, positiveCharge);
+
+        if (positiveCharge)
             _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
-        }
     }
 
     private enum PowerCellVisualLayers : byte

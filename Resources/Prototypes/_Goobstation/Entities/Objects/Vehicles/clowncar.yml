@@ -122,6 +122,13 @@
   - type: Damageable
     damageContainer: ClowncarDamageContainer
     damageModifierSet: Metallic
+  - type: Jukebox
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.JukeboxUiKey.Key:
+        type: JukeboxBoundUserInterface
 
 - type: entity
   parent: VehicleClowncarBase
