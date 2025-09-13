@@ -86,6 +86,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BuffOrphan <horsepuncher3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -109,6 +110,7 @@
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lizelive <github@lize.live>
 # SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -425,6 +427,58 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  # Einstein Engines - Language begin
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge #Equivalent to PAI
+    speaks:
+    - TauCetiBasic
+    - RobotTalk #Borg, IPC
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - DroneTalk
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    understands:
+    - TauCetiBasic
+    - RobotTalk #Borg, IPC
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - DroneTalk
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - NovuNederic
+    - Sign # Should know it but not speak it, for obvious reasons.
+  # Einstein Engines - Language end
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
