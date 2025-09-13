@@ -1008,6 +1008,9 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSyndieElite
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
