@@ -1,5 +1,4 @@
-﻿using Content.Shared._Shitmed.CCVar;
-using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -21,6 +20,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -74,6 +75,17 @@ public sealed partial class PainSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        // Process pain decay for all entities with active decay
+        var decayQuery = EntityQueryEnumerator<PainDecayComponent, NerveSystemComponent>();
+        while (decayQuery.MoveNext(out var uid, out var decay, out var nerveSystem))
+        {
+            if (TerminatingOrDeleted(uid))
+                continue;
+
+            UpdatePainDecay(uid, decay, nerveSystem);
+        }
+
+        // Process regular pain updates
         using var query = EntityQueryEnumerator<NerveSystemComponent>();
         while (query.MoveNext(out var ent, out var nerveSystem))
         {
@@ -178,4 +190,74 @@ public sealed partial class PainSystem : EntitySystem
             Dirty(bodyPart.Id, nerve); // ヾ(≧▽≦*)o
         }
     }
+
+    #region Pain Decay
+
+    // Starts pain decay for a nerve system
+    // uid: The entity with the nerve system
+    // initialPain: The initial pain value when decay starts
+    // decayDuration: How long the decay should take
+    // nerveSystem: The nerve system component
+    public void StartPainDecay(EntityUid uid, FixedPoint2 initialPain, TimeSpan decayDuration, NerveSystemComponent? nerveSystem = null)
+    {
+        if (!Resolve(uid, ref nerveSystem, false))
+            return;
+
+        // Remove any existing decay
+        if (TryComp<PainDecayComponent>(uid, out var existingDecay))
+        {
+            // If the new decay would be longer than remaining time, keep the existing one
+            var remainingTime = (existingDecay.StartTime + existingDecay.DecayDuration) - _timing.CurTime;
+            if (remainingTime > decayDuration)
+                return;
+
+            RemComp<PainDecayComponent>(uid);
+        }
+
+        var decay = EnsureComp<PainDecayComponent>(uid);
+        decay.InitialPain = initialPain;
+        decay.StartTime = _timing.CurTime;
+        decay.DecayDuration = decayDuration;
+        decay.NerveSystemUid = uid;
+        Dirty(uid, decay);
+    }
+
+    // Stops any active pain decay for an entity
+    // uid: The entity to stop decay for
+    public void StopPainDecay(EntityUid uid)
+    {
+        if (HasComp<PainDecayComponent>(uid))
+            RemComp<PainDecayComponent>(uid);
+    }
+
+    // Updates the pain value based on decay progress
+    // uid: The entity with decaying pain
+    // decay: The decay component tracking the decay state
+    // nerveSystem: The nerve system component to update
+    private void UpdatePainDecay(EntityUid uid, PainDecayComponent decay, NerveSystemComponent nerveSystem)
+    {
+        var elapsed = _timing.CurTime - decay.StartTime;
+
+        // If decay duration has passed, set pain to 0 and remove decay component
+        if (elapsed >= decay.DecayDuration)
+        {
+            nerveSystem.Pain = FixedPoint2.Zero;
+            Dirty(uid, nerveSystem);
+            RemComp<PainDecayComponent>(uid);
+            return;
+        }
+
+        // Calculate current pain based on decay progress
+        var progress = (float)(elapsed.TotalSeconds / decay.DecayDuration.TotalSeconds);
+        var currentPain = decay.InitialPain * (1 - progress);
+
+        // Only update if pain would decrease
+        if (currentPain < nerveSystem.Pain)
+        {
+            nerveSystem.Pain = currentPain;
+            Dirty(uid, nerveSystem);
+        }
+    }
+
+    #endregion
 }

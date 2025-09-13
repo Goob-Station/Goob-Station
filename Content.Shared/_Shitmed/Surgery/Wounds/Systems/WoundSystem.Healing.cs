@@ -30,8 +30,8 @@ public partial class WoundSystem
 {
     [Dependency] private readonly PainSystem _pain = default!;
 
-    /// Private helper method that updates the pain state after wounds are healed.
-    /// <param name="woundable">The entity on which to update the pain state.</param>
+    // Updates pain state after wounds are healed and starts pain decay
+    /// <param name="woundable">The entity on which to update the pain state</param>
     private void UpdatePainAfterHealing(EntityUid woundable)
     {
         // Check if the entity has a BodyPartComponent and if it is part of a body.
@@ -45,21 +45,15 @@ public partial class WoundSystem
         if (!TryComp<NerveSystemComponent>(body, out var nerveSystem))
             return;
 
-        // Create a temporary pain modifier ID for triggering the pain update.
-        const string tempPainUpdateId = "WoundHealingPainUpdate";
+        // Start pain decay if there's still pain after healing
+        if (nerveSystem.Pain > FixedPoint2.Zero)
+        {
+            // Calculate decay duration based on current pain level
+            var decayDuration = TimeSpan.FromSeconds(nerveSystem.Pain.Float() * 12);
 
-        // Add a zero-duration modifier to the pain system to trigger the pain update.
-        _pain.TryAddPainModifier(
-            body,
-            body,
-            tempPainUpdateId,
-            FixedPoint2.Zero,
-            PainDamageTypes.WoundPain,
-            nerveSystem,
-            TimeSpan.Zero);
-
-        // Remove the temporary pain modifier.
-        _pain.TryRemovePainModifier(body, body, tempPainUpdateId, nerveSystem);
+            // Start the pain decay process
+            _pain.StartPainDecay(body, nerveSystem.Pain, decayDuration, nerveSystem);
+        }
     }
 
     #region Public API
