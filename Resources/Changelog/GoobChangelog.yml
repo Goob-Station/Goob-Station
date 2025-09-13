@@ -14746,3 +14746,65 @@ Entries:
       message: Added Floor Goblin ghost role, Beware of the shoe thief!
   id: 1641
   time: '2025-09-12T09:31:13.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Fixed xenos procreation (you can no longer die when you have an
+        facehugger embryo).
+    - type: Tweak
+      message: >-
+        Adult xenos have been given the ability to see health status (alive,
+        critical, dead).
+    - type: Tweak
+      message: Xeno Nest provides life support functions.
+  id: 1642
+  time: '2025-09-12T17:25:38.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Explosive Payload Blueprint to syndicate uplink
+    - type: Tweak
+      message: >-
+        Explosive payload weaker than before, cannot space rooms and only does
+        75 damage to an unarmored target.
+    - type: Tweak
+      message: >-
+        Remove nerf on signal payloads to give them a delayed explosion, making
+        them mostly useless
+  id: 1643
+  time: '2025-09-12T18:49:11.0000000+00:00'
+- author: Clinux
+  changes:
+    - type: Fix
+      message: Fixed Jumpsuits not rendering properly on Humanoid species.
+  id: 1644
+  time: '2025-09-13T05:00:51.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Tweak
+      message: Floor goblin health was decreased from 100 to 60.
+    - type: Tweak
+      message: >-
+        Floor goblins are now under the floor when they spawn, to avoid them
+        getting killed immediately.
+    - type: Tweak
+      message: Added role raffle to floor goblin ghost role.
+    - type: Fix
+      message: >-
+        Hud UIs can no longer see floor goblins through floors. (Thermal vision
+        can still be used.)
+    - type: Fix
+      message: >-
+        Floor goblin steal action is now cancelled by placing a tile above it,
+        if it is under the floor.
+    - type: Fix
+      message: >-
+        When a floor goblin crawls into the floor on a sub floor tile, it no
+        longer shows the wrong popup.
+    - type: Fix
+      message: Floor goblins can no longer be seen when inside of vents.
+    - type: Fix
+      message: Floor goblins can no longer use their abilities inside of vents.
+  id: 1645
+  time: '2025-09-13T08:05:02.0000000+00:00'
