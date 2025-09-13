@@ -142,6 +142,9 @@
   id: CombatMech
 
 - type: Tag
+  id: CorporateOverride
+
+- type: Tag
   id: ContrabandDetectorCircuitboard
 
 - type: Tag
@@ -588,6 +591,9 @@
 
 - type: Tag
   id: VulpEmotes
+
+- type: Tag
+  id: Vial
 
 - type: Tag
   id: WaterTank
