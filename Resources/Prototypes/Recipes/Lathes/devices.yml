@@ -86,8 +86,8 @@
     #one fourth of what making a flash would cost
 
 - type: latheRecipe
-  id: ExplosivePayload
-  result: ExplosivePayload
+  id: ShrapnelPayload
+  result: ShrapnelPayload
   categories:
   - Weapons
   completetime: 4

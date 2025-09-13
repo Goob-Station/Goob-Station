@@ -161,6 +161,7 @@
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands
+  - type: ShowHealthIcons
   - type: Puller
     needsHands: false
   - type: IdExaminable
