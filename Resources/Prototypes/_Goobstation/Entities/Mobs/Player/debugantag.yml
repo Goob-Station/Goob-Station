@@ -4,7 +4,7 @@
 - type: entity
   categories:
   parent: MobHuman
-  id: MobHumanWizardDEBUG
+  id: MobHumanWizardDebug
   name: Wizard
   suffix: DEBUG
   components:
@@ -21,7 +21,7 @@
 
 - type: entity
   categories: [  ]
-  parent: MobHumanWizardDEBUG
+  parent: MobHumanWizardDebug
   id: MobHumanWizardDEBUGSuit
   name: Wizard Suit
   suffix: DEBUG
