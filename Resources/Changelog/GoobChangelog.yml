@@ -14833,3 +14833,9 @@ Entries:
       message: Slime people take more damage from water
   id: 1648
   time: '2025-09-13T18:25:58.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Paradox Clone IPC's spawning without the proper encryption keys.
+  id: 1649
+  time: '2025-09-13T18:27:26.0000000+00:00'
