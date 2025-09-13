@@ -18,8 +18,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
-  name: syndicate medic voidsuit bundle
-  description: "A surplus combat medic voidsuit, bundled for your LARP."
+  name: syndicate medic hardsuit bundle
+  description: "A surplus combat medic hardsuit, bundled for your LARP."
   components:
   - type: StorageFill
     contents:
@@ -34,7 +34,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   name: cybersun stealthsuit bundle
-  description: "An advanced cybersun stealth voidsuit bundle."
+  description: "An advanced cybersun stealth hardsuit bundle."
   components:
   - type: StorageFill
     contents:
