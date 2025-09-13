@@ -3,6 +3,10 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+artisticroomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -26,10 +30,10 @@ public sealed partial class ThievingComponent : Component
     public TimeSpan StripTimeReduction = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    /// Should it notify the user if they're stripping a pocket?
+    /// Should the pickpocketing progress bar be hidden from the target?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Stealthy;
+    public bool Stealthy = true;
 
     /// <summary>
     /// Variable pointing at the Alert modal

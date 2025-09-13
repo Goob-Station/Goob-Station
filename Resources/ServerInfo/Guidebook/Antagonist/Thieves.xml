@@ -35,7 +35,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   However, this will instantly out you if found and make it extremely easy for people to reclaim their "missing" possessions. [bold]Make sure to hide it well![/bold]
 
   <Box>
-    <GuideEntityEmbed Entity="ThiefBeacon"/>
+    <GuideEntityEmbed Entity="ThiefBeacon" Caption="the thieving beacon"/>
   </Box>
 
   Your [color=cyan]satchel[/color] contains... well, whatever you remembered to pack. [bold]You can select two pre-made kits[/bold] to help you complete grander heists.

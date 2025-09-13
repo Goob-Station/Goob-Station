@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,7 +61,7 @@
   name: selectable-set-thief-chameleon-name
   description: selectable-set-thief-chameleon-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -115,8 +116,8 @@
   name: selectable-set-thief-smuggler-name
   description: selectable-set-thief-smuggler-description
   sprite:
-    sprite: Clothing/Neck/Cloaks/void.rsi
-    state: icon
+    sprite: /Textures/Objects/Tools/fulton.rsi
+    state: extraction_pack
   content:
   - InvisibleCrate
   - FultonBeacon
