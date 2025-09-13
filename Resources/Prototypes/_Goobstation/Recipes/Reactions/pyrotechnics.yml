@@ -17,7 +17,7 @@
     BlackPowder: 3
 
 - type: reaction # added for testing
-  id: BlackPowder2
+  id: FlashPowder
   reactants:
     Charcoal:
       amount: 1
