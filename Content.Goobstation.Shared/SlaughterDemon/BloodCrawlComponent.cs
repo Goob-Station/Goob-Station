@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class BloodCrawlComponent : Component
 {
     /// <summary>
@@ -42,14 +43,14 @@ public sealed partial class BloodCrawlComponent : Component
     /// <summary>
     /// This indicates whether the entity is crawling, or not. Used for toggling the ability.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsCrawling;
 
     /// <summary>
     /// The reagents to look out for when searching for puddles
     /// </summary>
     [DataField(required: true)]
-    public List<ProtoId<ReagentPrototype>?> Blood;
+    public List<ProtoId<ReagentPrototype>> Blood = new();
 
     /// <summary>
     /// The sound to play once entering the jaunt
