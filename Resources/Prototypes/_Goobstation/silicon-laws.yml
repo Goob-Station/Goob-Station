@@ -36,3 +36,26 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+- type: siliconLaw
+  id: LawboundIPC1
+  order: 1
+  lawString: law-lawbound-ipc-1
+
+- type: siliconLaw
+  id: LawboundIPC2
+  order: 2
+  lawString: law-lawbound-ipc-2
+
+- type: siliconLaw
+  id: LawboundIPC3
+  order: 3
+  lawString: law-lawbound-ipc-3
+
+- type: siliconLawset
+  id: LawboundIPCLawset
+  laws:
+  - LawboundIPC1
+  - LawboundIPC2
+  - LawboundIPC3
+  obeysTo: laws-owner-station
