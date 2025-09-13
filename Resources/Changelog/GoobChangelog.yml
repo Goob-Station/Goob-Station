@@ -14869,3 +14869,9 @@ Entries:
         everywhere else
   id: 1653
   time: '2025-09-13T18:47:36.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rust walkers slightly harder to mass produce
+  id: 1654
+  time: '2025-09-13T18:50:33.0000000+00:00'
