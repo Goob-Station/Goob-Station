@@ -124,7 +124,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseMagicalContraband]
+  parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordans
   name: air jordans
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
@@ -162,7 +162,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  parent: [ClothingShoesBaseButcherable, BaseMinorContraband]
   id: ClothingShoesFakeJordans
   name: air jordans
   suffix: fake
@@ -205,7 +205,7 @@
       collection: StepHeavyBoots
 
 - type: entity
-  parent: ClothingShoesRealJordans
+  parent: [ClothingShoesBootsMagBase, BaseMajorContraband]
   id: ClothingShoesRealJordansAutographed
   name: air jordans
   description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
