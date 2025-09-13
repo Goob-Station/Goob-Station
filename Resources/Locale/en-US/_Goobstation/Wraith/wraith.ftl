@@ -8,3 +8,7 @@ wraith-absorb-success = I have absorbed their soul, and with it, I grow stronger
 wraith-decay = The rot begins...
 wraith-decay-emagged = Their components sizzle and crackle as your rot alters their functionality.
 wraith-decay-fail = This cannot be decayed...
+
+wraith-portal-anchor = The portal requires a stable surface to spawn.
+wraith-portal-fail-corporeal = I must be in corporeal form to summon this!
+wraith-portal-success = The veil has been breached. Arise, creatures of the void!

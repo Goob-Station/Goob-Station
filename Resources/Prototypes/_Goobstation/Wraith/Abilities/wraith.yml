@@ -25,6 +25,7 @@
   - type: Decay
   - type: AbsorbCorpse
   - type: DemonicWhisper
+  - type: SummonPortal
   - type: ActionGrant
     actions:
     - ActionWhisper
@@ -32,6 +33,7 @@
     - ActionAbsorbCorpse
     - ActionDecay
     - ActionAnimateObject
+    - ActionSummonVoidPortal
   # - Haunt
   # - ActionGrant
   # actions:

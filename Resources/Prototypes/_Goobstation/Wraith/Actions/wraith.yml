@@ -144,6 +144,18 @@
   - type: InstantAction
     event: !type:WraithEvolveEvent
 # Harbinger Actions
+- type: entity
+  id: ActionSummonVoidPortal
+  name: Summon void portal
+  description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
+  components:
+  - type: Action
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: open_portal
+  - type: InstantAction
+    event: !type:SummonPortalEvent
 
 # Plaguebringer Actions
 
