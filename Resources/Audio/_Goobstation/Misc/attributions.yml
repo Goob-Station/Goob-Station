@@ -10,7 +10,7 @@
 
 - files: ["omicron.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Made by SolsticeOfTheWinter"
+  copyright: "Made by SolsticeOfTheWinter, converted to mono by @deltanedas (github)"
   source: "https://uppbeat.io/sfx/category/alert"
 
 - files: ["umbrella.ogg"]
