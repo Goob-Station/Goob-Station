@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Armok",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "timer-minibomb"
+	},
+    {
+      "name": "timer-whitehole"
+	},
+    {
+      "name": "timer-supermatter"
+	},
+    {
+      "name": "timer-holy"
+	},
+    {
+      "name": "timer-silent"
+	},
+    {
+      "name": "payload-trick"
+	},
+    {
+      "name": "payload-stinger"
+	},
+    {
+      "name": "payload-teargas"
+	},
+    {
+      "name": "payload-saringas"
+	},
+    {
+      "name": "payload-incendiary"
+	},
+    {
+      "name": "payload-triple"
+	},
+    {
+      "name": "payload-HHG"
+	},
+    {
+      "name": "payload-EMP"
+	},
+    {
+      "name": "payload-bee"
+	},
+    {
+      "name": "payload-air"
+	},
+    {
+      "name": "payload-nuclearoption"
+	},
+    {
+      "name": "payload-supermatter"
+	},
+    {
+      "name": "payload-whitehole"
+	},
+	{
+	  "name": "payload-minibomb"
+	}
+  ]
+}
