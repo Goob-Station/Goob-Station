@@ -40,7 +40,6 @@
   - inrangeunoccluded
   - lsgrid
   - lsmap
-  - listplayers
   - loc
   - mem
   - netaudit
@@ -95,7 +94,6 @@
   - pvs_override_info
   - merge_grids
 
-
 - Flags: MAPPING
   Commands:
   - addmap
@@ -115,9 +113,12 @@
 
 - Flags: ADMIN
   Commands:
-  - listplayers
   - tp
   - tpto
+
+- Flags: PII
+  Commands:
+  - listplayers
 
 - Flags: FULLADMIN # Goobstation (and every setting in this flag)
   Commands:
