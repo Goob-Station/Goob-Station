@@ -16,17 +16,18 @@
   products:
     BlackPowder: 3
 
-- type: reaction # added for testing
+- type: reaction
   id: FlashPowder
+  priority: 21
   reactants:
     Aluminium:
       amount: 1
     Potassium:
       amount: 1
-    Water: # TESTING, DO NOT KEEP HERE
+    Sulfur:
       amount: 1
   products:
-    BlackPowder: 3
+    FlashPowder: 3
 
 # - type: reaction
 #   id: FlashPowder
