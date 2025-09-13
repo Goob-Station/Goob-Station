@@ -39,9 +39,13 @@ public sealed partial class BatteryDrinkerComponent : Component
 
     /// <Goobstation> Energycrit: BatteryDrinker blacklist. </Goobstation>
     /// <summary>
-    ///     Blacklist for battery containers that can not be drank from. This should not be used to disable drinking from a type
-    ///     of power cell, as it is not checked for entities inside a power cell slot.
+    ///     Blacklist for battery containers that can not be drank from.
     /// </summary>
+    /// <remarks>
+    ///     This should not be used to disable drinking from a type of power cell, as it is not checked for entities
+    ///     inside a power cell slot. If you want to ban drinking from a power cell, remove BatteryDrinkerSourceComponent
+    ///     from it.
+    /// </remarks>
     [DataField]
     public EntityWhitelist? Blacklist;
 }

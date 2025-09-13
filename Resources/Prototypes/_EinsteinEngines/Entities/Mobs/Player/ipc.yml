@@ -147,8 +147,7 @@
       1: 0.45
       0: 0.20
   - type: BatteryDrinker
-    drinkAll: true # Goobstation - Energycrit
-    blacklist:
+    blacklist: # Goobstation - Energycrit
       tags:
       - IPCDrinkBlacklist
   - type: EncryptionKeyHolder

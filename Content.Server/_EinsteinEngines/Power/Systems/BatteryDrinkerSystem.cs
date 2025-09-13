@@ -20,12 +20,16 @@ using Content.Server.PowerCell;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Server._EinsteinEngines.Power.Components;
-using Content.Shared.Whitelist; // Goobstation - Energycrit
+// Goobstation Start - Energycrit
+using Content.Shared._EinsteinEngines.Power.Components;
+using Content.Shared._EinsteinEngines.Power.Systems;
+using Content.Shared.Whitelist;
+// Goobstation End
 
 namespace Content.Server._EinsteinEngines.Power;
 
-public sealed class BatteryDrinkerSystem : EntitySystem
+// Goobstation - Energycrit: Create SharedBatteryDrinkerSystem so client can predict drink verbs
+public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 {
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -55,13 +59,13 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
-            !TestDrinkableBattery(uid, drinkerComp) ||
-            // Goobstation - Energycrit: Check blacklist
+            // Goobstation Start - Energycrit
             _whitelist.IsBlacklistPass(drinkerComp.Blacklist, uid) ||
             // Goobstation - replaced battery lookup to allow augment power cells
             !_chargers.SearchForBattery(args.User, out _, out _) ||
-            // Goobstation - Energycrit: Drain from batteries inside electronics
-            !_chargers.SearchForBattery(uid, out var battery, out _))
+            !_chargers.SearchForBattery(uid, out var battery, out _) ||
+            !TestDrinkableBattery(battery.Value, drinkerComp))
+            // Goobstation End - Energycrit
             return;
 
         AlternativeVerb verb = new()
