@@ -1483,6 +1483,6 @@
   icon: { sprite: Structures/Machines/VendingMachines/syndiedrobe.rsi, state: off }
   productEntity: VendingMachineSyndieDrobe
   cost:
-    Telecrystal: 30
+    Telecrystal: 40
   categories:
   - UplinkPointless
