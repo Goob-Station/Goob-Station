@@ -112,7 +112,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             comp.AbsorbCooldown += comp.CooldownReducer;
         }
         // Increases WP regeneration
-        // _wraithPoints.AdjustWraithPoints();
+        _wraithPoints.AdjustWpGenerationRate(comp.WpPassiveAdd, uid);
 
         comp.CorpsesAbsorbed++;
         _popup.PopupPredicted(Loc.GetString("wraith-absorb-success"), uid, uid);

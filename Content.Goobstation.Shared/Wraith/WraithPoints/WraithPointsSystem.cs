@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -75,12 +76,12 @@ public sealed class WraithPointsSystem : EntitySystem
     /// </summary>
     /// <param name="wraithPoints"></param> The wraith points to replace the existing ones with.
     /// <param name="ent"></param> The entity
-    public void ChangeWraithPoints(int wraithPoints, Entity<WraithPointsComponent?> ent)
+    public void ChangeWraithPoints(FixedPoint2 wraithPoints, Entity<WraithPointsComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp))
             return;
 
-        ent.Comp.WraithPoints = Math.Clamp(wraithPoints, 0, int.MaxValue);
+        ent.Comp.WraithPoints = FixedPoint2.Clamp(wraithPoints, 0, FixedPoint2.MaxValue);
         Dirty(ent);
     }
 
@@ -89,12 +90,12 @@ public sealed class WraithPointsSystem : EntitySystem
     /// </summary>
     /// <param name="wraithPoints"></param> The wraith points to add to the existing ones.
     /// <param name="ent"></param> The entity
-    public void AdjustWraithPoints(int wraithPoints, Entity<WraithPointsComponent?> ent)
+    public void AdjustWraithPoints(FixedPoint2 wraithPoints, Entity<WraithPointsComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp))
             return;
 
-        ent.Comp.WraithPoints = Math.Clamp(ent.Comp.WraithPoints + wraithPoints, 0, int.MaxValue);
+        ent.Comp.WraithPoints = FixedPoint2.Clamp(ent.Comp.WraithPoints + wraithPoints, 0, FixedPoint2.MaxValue);
         Dirty(ent);
 
         // debug
@@ -109,7 +110,7 @@ public sealed class WraithPointsSystem : EntitySystem
     /// </summary>
     /// <param name="rate"></param> The rate to add to the existing rate
     /// <param name="ent"></param>
-    public void AdjustWpGenerationRate(int rate, Entity<PassiveWraithPointsComponent?> ent)
+    public void AdjustWpGenerationRate(FixedPoint2 rate, Entity<PassiveWraithPointsComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp))
             return;

@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
@@ -10,11 +11,11 @@ public sealed partial class WraithPointsComponent : Component
     ///  Current wraith points the entity has
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public int WraithPoints;
+    public FixedPoint2 WraithPoints;
 
     /// <summary>
     /// How many wraith points the entity starts with
     /// </summary>
     [DataField(required: true)]
-    public int StartingWraithPoints;
+    public FixedPoint2 StartingWraithPoints;
 }

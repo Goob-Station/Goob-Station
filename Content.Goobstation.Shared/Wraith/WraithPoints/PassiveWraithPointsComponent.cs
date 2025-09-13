@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
@@ -13,14 +14,14 @@ public sealed partial class PassiveWraithPointsComponent : Component
     /// The rate at which the wraith regenerates WP.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int WpGeneration = 1;
+    public FixedPoint2 WpGeneration = 1;
 
     /// <summary>
     ///  The amount of WP that gets generated passively.
     /// Gets multiplied by WpRegeneration variable
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int BaseWpGeneration = 5;
+    public FixedPoint2 BaseWpGeneration = 5;
 
     /// <summary>
     /// The accumulator for passive WP generation
@@ -39,5 +40,5 @@ public sealed partial class PassiveWraithPointsComponent : Component
     /// Usually in wraith due to Banishment.
     /// </summary>
     [ViewVariables]
-    public int BaseWpResetter;
+    public FixedPoint2 BaseWpResetter;
 }

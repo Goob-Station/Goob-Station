@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -32,4 +33,10 @@ public sealed partial class AbsorbCorpseComponent : Component
 
     [DataField]
     public EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
+
+    /// <summary>
+    /// How much to add to the generation rate of WP of the entity
+    /// </summary>
+    [DataField]
+    public FixedPoint2 WpPassiveAdd = 0.4;
 }
