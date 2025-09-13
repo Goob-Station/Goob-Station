@@ -166,6 +166,8 @@
   - type: Tag
     tags:
       - Debug
+  - type: SubstationCanFail # Goobstation - Added for substation fault event
+    canBeDeactivated: false
 
 - type: entity
   id: DebugAPC
