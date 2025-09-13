@@ -18,7 +18,7 @@
 
 - type: reaction
   id: FlashPowder
-  priority: 21 # Must be higher priority than the original reaction
+  # priority: 21 # Must be higher priority than the original reaction
   reactants:
     Aluminium:
       amount: 1
