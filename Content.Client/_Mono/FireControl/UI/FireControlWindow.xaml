@@ -1,0 +1,58 @@
+<!-- Copyright Rane (elijahrane@gmail.com) 2025 -->
+<!-- All rights reserved. Relicensed under AGPL with permission -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:ui="clr-namespace:Content.Client._Mono.FireControl.UI"
+            Title="{Loc 'gunnery-window-title'}"
+            SetSize="1000 800"
+            MinSize="1000 800">
+    <BoxContainer Name="RootBox" Orientation="Horizontal">
+        <BoxContainer Name="ControlsBox" Orientation="Vertical" MinWidth="256" MaxWidth="256" HorizontalExpand="False" Margin="5 0 5 5">
+            <!-- Status Section -->
+            <controls:StripeBack MinSize="48 48">
+                <Label Name="ServerStatus" Text="{Loc 'gunnery-window-disconnected'}"
+                       StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <Button Name="RefreshButton" Access="Public" Text="{Loc admin-logs-refresh}"
+                    StyleClasses="ButtonSquare OpenRight" Margin="0 0"/>
+
+            <!-- Weapons Control Section -->
+            <controls:StripeBack MinSize="48 48" Margin="0 0 0 0">
+                <Label Name="WeaponsLabel" Text="{Loc 'gunnery-guns'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer Orientation="Horizontal" Margin="0 0">
+                <Button Name="SelectAllButton" Access="Public" Text="{Loc 'gunnery-select-all'}"
+                        StyleClasses="OpenRight" HorizontalExpand="True"/>
+                <Button Name="UnselectAllButton" Access="Public" Text="{Loc 'gunnery-unselect-all'}"
+                        StyleClasses="OpenLeft" HorizontalExpand="True"/>
+            </BoxContainer>
+            <Button Name="SelectBallisticButton" Access="Public" Text="{Loc 'gunnery-select-ballistics'}"
+                    StyleClasses="ButtonSquare OpenRight" HorizontalExpand="True" Margin="0 1"/>
+            <Button Name="SelectEnergyButton" Access="Public" Text="{Loc 'gunnery-select-energy'}"
+                    StyleClasses="ButtonSquare OpenRight" HorizontalExpand="True" Margin="0 1"/>
+            <Button Name="SelectMissileButton" Access="Public" Text="{Loc 'gunnery-select-missiles'}"
+                    StyleClasses="ButtonSquare OpenRight" HorizontalExpand="True" Margin="0 0"/>
+            <!--Lua Addition-->
+            <Button Name="SelectMiningButton" Access="Public" Text="{Loc 'gunnery-select-mining'}"
+                    StyleClasses="ButtonSquare OpenRight" HorizontalExpand="True" Margin="0 0"/>
+
+            <!-- Weapons List -->
+            <PanelContainer VerticalExpand="True" Margin="0 3">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#111111" />
+                </PanelContainer.PanelOverride>
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ControllablesBox" Orientation="Vertical"
+                                 HorizontalExpand="True" StyleClasses="transparentItemList"/>
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <!-- Radar Display -->
+        <BoxContainer Name="RadarContainer" Orientation="Horizontal" HorizontalExpand="True" Margin="50 50 50 50">
+            <ui:FireControlNavControl Name="NavRadar" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
