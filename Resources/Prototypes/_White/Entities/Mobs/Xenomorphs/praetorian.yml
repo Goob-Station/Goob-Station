@@ -18,14 +18,15 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 12
+        Brute: 5
     inject:
-      Tirizene: 5
+      ChloralHydrate: 5 # Goobstation - new chemical
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-    - ActionSpawnResinMembrane
+#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
   - type: Body
