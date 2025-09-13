@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -22,4 +23,11 @@ public sealed partial class SummonPortalComponent : Component
     /// </summary>
     [DataField]
     public float PortalRange = 10f;
+
+
+    /// <summary>
+    /// The prototype ID for the void portal.
+    /// </summary>
+    [DataField]
+    public EntProtoId VoidPortal = "VoidPortal";
 }

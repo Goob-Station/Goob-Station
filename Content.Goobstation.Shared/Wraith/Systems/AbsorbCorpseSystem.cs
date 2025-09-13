@@ -23,8 +23,6 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
 
-    private static readonly EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
-
 
     public override void Initialize()
     {
@@ -106,7 +104,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
         if (TryComp<TransformComponent>(target.Value, out var targetXform))
 
-            Spawn(SmokeProto, targetXform.MapPosition);
+           PredictedSpawnAtPosition(comp.SmokeProto, targetXform.Coordinates);
 
         //Lowers the cooldown for the next use.
         if (comp.CorpsesAbsorbed <= 3)

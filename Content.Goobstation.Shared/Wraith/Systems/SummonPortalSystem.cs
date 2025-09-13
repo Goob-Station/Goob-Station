@@ -12,8 +12,6 @@ public sealed partial class SummonPortalSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private static readonly EntProtoId VoidPortal = "VoidPortal";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -46,7 +44,7 @@ public sealed partial class SummonPortalSystem : EntitySystem
         }
 
         _popup.PopupPredicted(Loc.GetString("wraith-portal-success"), uid, uid, PopupType.Large);
-        var voidUid = Spawn(VoidPortal, _transform.GetMapCoordinates(uid, xform: xform));
+        var voidUid = PredictedSpawnAtPosition(comp.VoidPortal, xform.Coordinates);
         comp.CurrentActivePortals++;
         args.Handled = true;
 

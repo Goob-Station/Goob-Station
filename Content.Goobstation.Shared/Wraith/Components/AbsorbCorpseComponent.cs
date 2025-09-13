@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -28,4 +29,7 @@ public sealed partial class AbsorbCorpseComponent : Component
     /// </summary>
     [DataField]
     public int CorpsesAbsorbed;
+
+    [DataField]
+    public EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
 }
