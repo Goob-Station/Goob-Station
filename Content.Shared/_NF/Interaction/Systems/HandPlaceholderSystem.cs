@@ -138,7 +138,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
             return;
 
         // Can't get the hand we're holding this with? Something's wrong, abort.  No empty hands.
-        if (!_hands.IsHolding(user, ent, out var hand, hands))
+        if (!_hands.IsHolding((user, hands), ent, out var hand))
             return;
 
         SetPlaceholder(target, ent);

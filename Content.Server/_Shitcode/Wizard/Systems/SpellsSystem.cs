@@ -95,6 +95,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -197,7 +198,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             tileRef.Tile.IsEmpty)
             return;
 
-        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && _turf.IsSpace(tileRef.Tile))
             return;
 
         var coords = Map.MapToGrid(gridUid, mapCoords);
