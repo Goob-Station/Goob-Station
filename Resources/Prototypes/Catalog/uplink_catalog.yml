@@ -1789,7 +1789,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 10 # goob
   categories:
   - UplinkWearables
 
@@ -1800,7 +1800,7 @@
   description: uplink-clothing-outer-vest-web-elite-desc
   productEntity: ClothingOuterVestWebElite
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 10 # goob
   categories:
   - UplinkWearables
 
