@@ -14774,3 +14774,9 @@ Entries:
         them mostly useless
   id: 1643
   time: '2025-09-12T18:49:11.0000000+00:00'
+- author: Clinux
+  changes:
+    - type: Fix
+      message: Fixed Jumpsuits not rendering properly on Humanoid species.
+  id: 1644
+  time: '2025-09-13T05:00:51.0000000+00:00'
