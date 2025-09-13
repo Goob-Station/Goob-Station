@@ -16,46 +16,46 @@
   products:
     BlackPowder: 3
 
-- type: reaction
-  id: FlashPowder
-  priority: 21 # Must be higher priority than the original reaction
-  reactants:
-    Aluminium:
-      amount: 1
-    Potassium:
-      amount: 1
-    Sulfur:
-      amount: 1
-    StabilizingAgent:
-      amount: 1
-      catalyst: true
-  products:
-    FlashPowder: 3
+# - type: reaction
+#   id: FlashPowder
+#   priority: 21 # Must be higher priority than the original reaction
+#   reactants:
+#     Aluminium:
+#       amount: 1
+#     Potassium:
+#       amount: 1
+#     Sulfur:
+#       amount: 1
+#     StabilizingAgent:
+#       amount: 1
+#       catalyst: true
+#   products:
+#     FlashPowder: 3
 
-- type: reaction
-  id: SmokePowder
-  priority: 11
-  reactants:
-    Phosphorus:
-      amount: 1
-    Potassium:
-      amount: 1
-    Sugar:
-      amount: 1
-    StabilizingAgent:
-      amount: 1
-      catalyst: true
-  products:
-    SmokePowder: 3
+# - type: reaction
+#   id: SmokePowder
+#   priority: 11
+#   reactants:
+#     Phosphorus:
+#       amount: 1
+#     Potassium:
+#       amount: 1
+#     Sugar:
+#       amount: 1
+#     StabilizingAgent:
+#       amount: 1
+#       catalyst: true
+#   products:
+#     SmokePowder: 3
 
-- type: reaction
-  id: StabilizingAgent
-  reactants:
-    Hydrogen:
-      amount: 1
-    Iron:
-      amount: 1
-    Oxygen:
-      amount: 1
-  products:
-    StabilizingAgent: 3
+# - type: reaction
+#   id: StabilizingAgent
+#   reactants:
+#     Hydrogen:
+#       amount: 1
+#     Iron:
+#       amount: 1
+#     Oxygen:
+#       amount: 1
+#   products:
+#     StabilizingAgent: 3
