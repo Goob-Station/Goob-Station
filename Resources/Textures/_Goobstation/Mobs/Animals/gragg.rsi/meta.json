@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites taken from Goonstation 13, edited by AI garbage machine.",
+    "size": {
+        "x": 124,
+        "y": 200
+    },
+    "states": [
+        {
+            "name": "gragg_sit"
+        },
+        {
+            "name": "gragg_full"
+        }
+    ]
+}
