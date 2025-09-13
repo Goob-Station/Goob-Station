@@ -14847,3 +14847,11 @@ Entries:
       message: Bananium esword now has a clown specific contra tag
   id: 1650
   time: '2025-09-13T18:39:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Conveyors cannot be rotated while wrenched down
+    - type: Tweak
+      message: Proximity signallers trigger unless youre moving very slow (crawl speed)
+  id: 1651
+  time: '2025-09-13T18:42:21.0000000+00:00'
