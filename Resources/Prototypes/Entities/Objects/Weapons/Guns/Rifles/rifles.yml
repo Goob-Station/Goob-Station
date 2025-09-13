@@ -138,7 +138,9 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation V
-    missChance: 0.3
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 60 #youre not multifiring a rifle
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon

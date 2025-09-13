@@ -33,8 +33,6 @@
     proto: BulletPlasmaCutter
     fireCost: 100
   - type: Appearance
-  - type: Multishot
-    spreadMultiplier: 1.2
   - type: PhysicalComposition
     materialComposition:
       Steel: 125

@@ -196,6 +196,10 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 40
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -304,6 +308,10 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 2
+    spreadAddition: 40
 
 - type: entity
   name: svalinn laser pistol
@@ -325,8 +333,6 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Multishot # Goobstation
-    spreadAddition: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
@@ -354,8 +360,6 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Multishot # Goobstation
-    spreadAddition: 10
 
 - type: entity
   name: makeshift laser pistol
@@ -384,8 +388,6 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Multishot # Goobstation
-    spreadAddition: 10
 
 - type: entity
   name: tesla gun
@@ -497,8 +499,6 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: Multishot # Goobstation
-    spreadAddition: 10
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
@@ -924,8 +924,6 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: Multishot # Goobstation
-    spreadAddition: 10
 
 - type: entity
   name: advanced laser pistol
@@ -961,8 +959,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: Multishot # Goobstation
-    spreadAddition: 10
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -1009,7 +1005,6 @@
     node: start
   - type: StaticPrice
     price: 100
-  - type: Multishot # Goobstation
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 125

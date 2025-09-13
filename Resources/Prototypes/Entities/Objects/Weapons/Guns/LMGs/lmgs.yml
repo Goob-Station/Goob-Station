@@ -113,8 +113,8 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: Multishot # Goobstation
-    missChance: 0.4
+  - type: Multishot # Goobstation V
+    missChance: 0.4 #MISS CHANCE DOESNT WORK LMAO
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
