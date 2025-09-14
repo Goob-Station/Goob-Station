@@ -52,6 +52,16 @@
   - type: MedievalAccent
 
 - type: trait
+  id: NewYorkAccent
+  name: trait-newyork-name
+  description: trait-newyork-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: newyork
+
+- type: trait
   id: british
   name: trait-british-name
   description: trait-british-desc

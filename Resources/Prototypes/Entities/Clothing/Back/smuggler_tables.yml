@@ -209,7 +209,7 @@
     - id: ChemicalPayload
       amount: !type:RangeNumberSelector
         range: 1, 2
-    - id: ExplosivePayload
+    - id: ShrapnelPayload
       amount: !type:RangeNumberSelector
         range: 1, 2
 

@@ -380,8 +380,7 @@ public abstract partial class SharedSurgerySystem
 
         EnsureComp<OrganReattachedComponent>(args.Tool);
 
-        if (!_body.TrySetOrganUsed(args.Tool, true, insertedOrgan)
-            || insertedOrgan.OriginalBody == args.Body)
+        if (insertedOrgan.OriginalBody == args.Body)
             return;
 
         var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
