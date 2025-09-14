@@ -14925,3 +14925,11 @@ Entries:
         they have no hands.
   id: 1661
   time: '2025-09-14T10:33:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Secret doors now show their condition on inspection (Like regular walls
+        do)
+  id: 1662
+  time: '2025-09-14T10:39:30.0000000+00:00'
