@@ -1,0 +1,15 @@
+- type: reagent
+  id: PulverizedLantern
+  name: reagent-name-pulverizedlantern
+  group: Medicine
+  desc: reagent-desc-pulverizedlantern
+  physicalDesc: reagent-physical-desc-pulverizedlantern
+  flavor: medicine
+  color: "#FFCA86"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2

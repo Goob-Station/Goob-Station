@@ -569,6 +569,7 @@
     - Log
   mutationPrototypes:
     - steelcap
+    - glasscap # BotanySupermancy-add
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -590,6 +591,8 @@
   packetPrototype: SteelcapSeeds
   productPrototypes:
     - SteelLog
+  mutationPrototypes: # BotanySupermancy-add
+    - plaststeelcap # BotanySupermancy-add
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -1036,6 +1039,7 @@
     - LeavesCannabis
   mutationPrototypes:
     - rainbowCannabis
+    - CannabisVita # BotanySupermancy-add
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -1306,7 +1310,7 @@
   name: seeds-lily-name
   noun: seeds-noun-seeds
   displayName: seeds-lily-display-name
-  plantRsi: Objects/Specific/Hydroponics/lily.rsi
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi # BotanySupermancy-Edit
   packetPrototype: LilySeeds
   productPrototypes:
     - FoodLily
@@ -1725,6 +1729,7 @@
     - FoodWatermelon
   mutationPrototypes:
     - holymelon
+    - Barrelmelon # BotanySupermancy-add
   lifespan: 55
   maturation: 12
   production: 3

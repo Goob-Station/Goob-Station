@@ -1,0 +1,39 @@
+﻿- type: construction
+  name: construction-graph-tag-geranium-crown
+  id: GeraniumCrown
+  graph: GeraniumCrown
+  startNode: start
+  targetNode: GeraniumCrown
+  category: construction-category-misc
+  objectType: Item
+  description: construction-graph-tag-geranium-crown-desc
+
+- type: construction
+  name: construction-graph-tag-poppy-crown
+  id: PoppyCrown
+  graph: PoppyCrown
+  startNode: start
+  targetNode: PoppyCrown
+  category: construction-category-misc
+  objectType: Item
+  description: construction-graph-tag-poppy-crown-desc
+
+- type: construction
+  name: construction-graph-tag-sunflower-crown
+  id: SunflowerCrown
+  graph: SunflowerCrown
+  startNode: start
+  targetNode: SunflowerCrown
+  category: construction-category-misc
+  objectType: Item
+  description: construction-graph-tag-sunflower-crown-desc
+
+- type: construction
+  name: construction-graph-tag-lily-wreath
+  id: LilyWreath
+  graph: LilyWreath
+  startNode: start
+  targetNode: lilywreath
+  category: construction-category-misc
+  objectType: Item
+  description: construction-graph-tag-lily-wreath-desc

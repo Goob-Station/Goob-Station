@@ -1,0 +1,107 @@
+- type: constructionGraph
+  id: GeraniumCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: GeraniumCrown
+      steps:
+      - tag: Geranium
+        name: construction-graph-tag-geranium
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+          state: produce
+      - tag: Geranium
+        name: construction-graph-tag-geranium
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+          state: produce
+      - tag: Geranium
+        name: construction-graph-tag-geranium
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+          state: produce
+        doAfter: 6
+  - node: GeraniumCrown
+    entity: GeraniumCrown
+
+- type: constructionGraph
+  id: PoppyCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: PoppyCrown
+      steps:
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+        doAfter: 6
+  - node: PoppyCrown
+    entity: PoppyCrown
+
+- type: constructionGraph
+  id: SunflowerCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: SunflowerCrown
+      steps:
+      - tag: Sunflower
+        name: construction-graph-tag-sunflower
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+          state: produce
+      - tag: Sunflower
+        name: construction-graph-tag-sunflower
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+          state: produce
+      - tag: Sunflower
+        name: construction-graph-tag-sunflower
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+          state: produce
+        doAfter: 6
+  - node: SunflowerCrown
+    entity: SunflowerCrown
+
+- type: constructionGraph
+  id: LilyWreath
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: lilywreath
+      steps:
+      - tag: Lily
+        name: construction-graph-tag-lily
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: Lily
+        name: construction-graph-tag-lily
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: Lily
+        name: construction-graph-tag-lily
+        icon:
+          sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+        doAfter: 5
+  - node: lilywreath
+    entity: LilyWreath

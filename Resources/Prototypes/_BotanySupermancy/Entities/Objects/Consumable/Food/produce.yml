@@ -1,0 +1,420 @@
+- type: entity
+  name: explosive banana
+  description: explosive banana
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: ExplosiveBanana
+  components:
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/explosive_banana.rsi
+    state: produce
+  - type: Produce
+    seedId: ExplosiveBanana
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 40
+        canReact: false
+      food:
+        maxVol: 5
+        canReact: false
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Potassium
+          Quantity: 1
+        - ReagentId: Water
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: coffe arabica
+  description: A coffe arabica grains, main food of scientist.
+  parent: FoodProduceBase
+  id: FoodCoffeeArabica
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_arabica.rsi
+    state: produce
+  - type: Produce
+    seedId: CoffeeArabica
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Grcoffee
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: coffe robast
+  description: A coffe robust grains, main food of shutcurity.
+  parent: FoodProduceBase
+  id: FoodCoffeeRobust
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_robust.rsi
+    state: produce
+  - type: Produce
+    seedId: CoffeeRobust
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Grcoffee
+          Quantity: 2
+        - ReagentId: Ephedrine
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: geranium
+  parent: FoodProduceBase
+  id: FoodGeranium
+  description: A flower with extracts often used in the production of medicine.
+  components:
+  - type: Clothing
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: FlavorProfile
+    flavors:
+    - medicine
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 22
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Lacerinol
+          Quantity: 20
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+  - type: Produce
+    seedId: Geranium
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Geranium
+
+- type: entity
+  name: glasscap
+  description: Glass doesn't grow on trees! It grows on mushrooms, of course.
+  id: GlassLog
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/glasscap.rsi
+  - type: SolutionContainerManager
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Produce
+    seedId: glasscap
+  - type: Log
+    spawnedPrototype: SheetGlass1
+    spawnCount: 1
+
+- type: entity
+  name: plaststeelcap
+  description: Plaststeel doesn't grow on trees! It grows on mushrooms, of course.
+  id: PlastSteelLog
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/plaststeelcap.rsi
+  - type: SolutionContainerManager
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+  - type: Produce
+    seedId: plaststeelcap
+  - type: Log
+    spawnedPrototype: SheetPlasteel1
+    spawnCount: 1
+
+- type: entity
+  name: barrelmelon
+  parent: FoodProduceBase
+  id: FoodBarrelmelon
+  description: Round brown object that you can slice and eat.
+  components:
+  - type: Item
+    size: Small
+  - type: FlavorProfile
+    flavors:
+    - watermelon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Moonshine
+          Quantity: 15
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/barrelmelon.rsi
+  - type: Produce
+    seedId: Barrelmelon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Moonshine
+        Quantity: 20
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SliceableFood
+    count: 5
+    slice: FoodBarrelmelonSlice
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: barrelmelon slice
+  parent: ProduceSliceBase
+  id: FoodBarrelmelonSlice
+  description: Juicy green and brown slice.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - watermelon
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/barrelmelon.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Moonshine
+          Quantity: 3
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Moonshine
+        Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+
+- type: entity
+  name: lantern fruit
+  description: A sofly glowing fruit with a handle-shaped stem, an Ethereal favorite!.
+  parent: FoodProduceBase
+  id: FoodLanternfruit
+  components:
+  - type: PointLight
+    radius: 3
+    energy: 1
+    softness: 0.3
+    color: "#e8ca54"
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lanternfruit.rsi
+    state: produce
+  - type: Produce
+    seedId: Lanternfruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: PulverizedLantern
+          Quantity: 5
+        - ReagentId: Sulfur
+          Quantity: 10
+        - ReagentId: Licoxide
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: red rose
+  description: The classic fleur d'amour - flower of love. Watch for its thorns!
+  parent: FoodProduceBase
+  id: FoodRedrose
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/redrose.rsi
+    state: produce
+  - type: Produce
+    seedId: Redrose
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: white rose
+  description: The classic fleur d'amour - flower of love. Watch for its thorns!
+  parent: FoodProduceBase
+  id: FoodWhiterose
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/whiterose.rsi
+    state: produce
+  - type: Produce
+    seedId: Whiterose
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: Sunflower
+  description: It's beautiful! A certain person might beat you to death if you trample these.
+  parent: FoodProduceBase
+  id: FoodSunflower
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+    state: produce
+  - type: Produce
+    seedId: Sunflower
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Oil
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+    - Sunflower
+
+- type: entity
+  name: ambrosia gaia
+  parent: FoodProduceBase
+  id: FoodAmbrosiaGaia
+  description: The bringer of light.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - leafy
+      - medicine
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: EarthBlood
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 2
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/ambrosia_gaia.rsi
+  - type: Produce
+    seedId: AmbrosiaGaia
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Clothing
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/ambrosia_gaia.rsi
+    slots:
+    - HEAD
+  - type: Tag
+    tags:
+    - Ambrosia

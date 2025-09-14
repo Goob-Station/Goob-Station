@@ -1,0 +1,70 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: GeraniumCrown
+  name: geranium crown
+  description: A majestic crown made of fresh geranium flowers. Perfect for botanists and nature lovers.
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Clothing/Head/Misc/geranium_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _BotanySupermancy/Clothing/Head/Misc/geranium_crown.rsi
+    slots:
+    - HEAD
+  - type: Construction
+    graph: GeraniumCrown
+    node: GeraniumCrown
+
+- type: entity
+  parent: ClothingHeadBase
+  id: PoppyCrown
+  name: poppy crown
+  description: A flower crown made out of a string of bright red poppies.
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Clothing/Head/Misc/poppy_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _BotanySupermancy/Clothing/Head/Misc/poppy_crown.rsi
+    slots:
+    - HEAD
+  - type: Construction
+    graph: PoppyCrown
+    node: PoppyCrown
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SunflowerCrown
+  name: sunflower crown
+  description: A bright flower crown made out sunflowers that is sure to brighten up anyone's day!
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Clothing/Head/Misc/sunflower_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _BotanySupermancy/Clothing/Head/Misc/sunflower_crown.rsi
+    slots:
+    - HEAD
+  - type: Construction
+    graph: SunflowerCrown
+    node: SunflowerCrown
+
+- type: entity
+  parent: ClothingHeadBase
+  id: LilyWreath
+  name: lily wreath
+  description: A delicate lily wreath - pure, graceful, timeless
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Clothing/Head/Misc/lily_wreath.rsi
+    state: icon
+  - type: Clothing
+    sprite: _BotanySupermancy/Clothing/Head/Misc/lily_wreath.rsi
+    slots:
+    - HEAD
+  - type: Construction
+    graph: LilyWreath
+    node: lilywreath
+  - type: Tag
+    tags:
+    - LilyWreath

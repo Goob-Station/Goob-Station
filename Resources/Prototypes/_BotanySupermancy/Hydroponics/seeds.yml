@@ -1,0 +1,370 @@
+- type: seed
+  id: ExplosiveBanana
+  name: seeds-explosive-banana-name
+  noun: seeds-noun-seeds
+  displayName: seeds-explosive-banana-display-name
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/explosive_banana.rsi
+  packetPrototype: ExplosiveBananaSeeds
+  productPrototypes:
+  - ExplosiveBanana
+  lifespan: 25
+  maturation: 12
+  production: 2
+  yield: 2
+  potency: 10
+  growthStages: 6
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  chemicals:
+    Potassium:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 4
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 30
+    Water:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 4
+
+- type: seed
+  id: CoffeeArabica
+  name: seeds-coffee-arabica-name
+  noun: seeds-noun-seeds
+  displayName: seeds-coffee-arabica-display-name
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_arabica.rsi
+  packetPrototype: CoffeeArabicaSeeds
+  productPrototypes:
+  - FoodCoffeeArabica
+  harvestRepeat: Repeat
+  mutationPrototypes:
+  - CoffeeRobust
+  lifespan: 25
+  maturation: 6
+  production: 4
+  yield: 3
+  potency: 10
+  growthStages: 5
+  idealLight: 7
+  waterConsumption: 0.40
+  nutrientConsumption: 0.30
+  idealHeat: 298
+  chemicals:
+    Grcoffee:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 4
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 4
+
+- type: seed
+  id: CoffeeRobust
+  name: seeds-coffee-robust-name
+  noun: seeds-noun-seeds
+  displayName: seeds-coffee-robust-display-name
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_robust.rsi
+  packetPrototype: CoffeeRobustSeeds
+  productPrototypes:
+  - FoodCoffeeRobust
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 4
+  yield: 3
+  potency: 10
+  growthStages: 5
+  idealLight: 7
+  waterConsumption: 0.40
+  nutrientConsumption: 0.30
+  idealHeat: 298
+  chemicals:
+    Grcoffee:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 2
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 2
+    Ephedrine:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
+
+- type: seed
+  id: Geranium
+  name: seeds-geranium-name
+  noun: seeds-noun-seeds
+  displayName: seeds-geranium-display-name
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+  packetPrototype: GeraniumSeeds
+  productPrototypes:
+  - FoodGeranium
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50
+    Lacerinol:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 5
+
+
+- type: seed
+  id: plaststeelcap
+  name: plaststeelcap
+  noun: seeds-noun-spores
+  displayName: plaststeelcap
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/plaststeelcap.rsi
+  packetPrototype: PlastSteelcapSeeds
+  productPrototypes:
+  - PlastSteelLog
+  lifespan: 80
+  maturation: 15
+  ligneous: true
+  production: 3
+  yield: 3
+  potency: 1
+  growthStages: 3
+  waterConsumption: 0.60
+  nutrientConsumption: 0.80
+  lightTolerance: 6
+  idealHeat: 288
+
+- type: seed
+  id: glasscap
+  name: glasscap
+  noun: seeds-noun-spores
+  displayName: glasscap
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/glasscap.rsi
+  packetPrototype: GlasscapSeeds
+  productPrototypes:
+  - GlassLog
+  lifespan: 80
+  maturation: 15
+  ligneous: true
+  production: 3
+  yield: 5
+  potency: 1
+  growthStages: 3
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  lightTolerance: 6
+  idealHeat: 288
+
+- type: seed
+  id: CannabisVita
+  name: Cannabis Vita
+  noun: seeds-noun-seeds
+  displayName: cannabis vita
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/cannabis_vita.rsi
+  packetPrototype: CannabisVitaSeeds
+  productPrototypes:
+  - CannabisVitaLeaves
+  harvestRepeat: Repeat
+  lifespan: 40
+  maturation: 8
+  production: 5
+  yield: 2
+  potency: 20
+  growthStages: 3
+  idealLight: 11
+  idealHeat: 298
+  chemicals:
+    Omnizine:
+      Min: 1
+      Max: 6
+      PotencyDivisor: 35
+    THC:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+
+- type: seed
+  id: Barrelmelon
+  name: Barrelmelon
+  noun: seeds-noun-seeds
+  displayName: Barrelmelon
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/barrelmelon.rsi
+  packetPrototype: BarrelmelonSeeds
+  productPrototypes:
+  - FoodBarrelmelon
+  lifespan: 55
+  maturation: 12
+  production: 3
+  yield: 1
+  potency: 1
+  idealLight: 8
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Moonshine:
+      Min: 1
+      Max: 15
+      PotencyDivisor: 20
+
+- type: seed
+  id: Lanternfruit
+  name: Lantern fruit
+  noun: seeds-noun-seeds
+  displayName: lantern fruit
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/lanternfruit.rsi
+  packetPrototype: LanternfruitSeeds
+  productPrototypes:
+  - FoodLanternfruit
+  harvestRepeat: Repeat
+  lifespan: 60
+  maturation: 8
+  production: 3
+  yield: 1
+  potency: 20
+  growthStages: 3
+  idealLight: 7
+  idealHeat: 298
+  chemicals:
+    PulverizedLantern:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 5
+    Sulfur:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Licoxide:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 5
+
+- type: seed
+  id: Redrose
+  name: red rose
+  noun: seeds-noun-seeds
+  displayName: red rose
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/redrose.rsi
+  packetPrototype: RedroseSeeds
+  productPrototypes:
+  - FoodRedrose
+  harvestRepeat: Repeat
+  lifespan: 60
+  maturation: 8
+  production: 3
+  yield: 2
+  potency: 11
+  growthStages: 3
+  idealLight: 7
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+
+- type: seed
+  id: Whiterose
+  name: White rose
+  noun: seeds-noun-seeds
+  displayName: white rose
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/whiterose.rsi
+  packetPrototype: WhiteroseSeeds
+  productPrototypes:
+  - FoodWhiterose
+  mutationPrototypes:
+  - Geranium
+  harvestRepeat: Repeat
+  lifespan: 60
+  maturation: 8
+  production: 3
+  yield: 2
+  potency: 20
+  growthStages: 3
+  idealLight: 7
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+
+- type: seed
+  id: Sunflower
+  name: Sunflower
+  noun: seeds-noun-seeds
+  displayName: Sunflower
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+  packetPrototype: SunflowerSeeds
+  productPrototypes:
+  - FoodSunflower
+  harvestRepeat: Repeat
+  lifespan: 40
+  maturation: 8
+  production: 4
+  yield: 1
+  potency: 10
+  growthStages: 3
+  idealLight: 7
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 5
+    Oil:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+
+- type: seed
+  id: AmbrosiaGaia
+  name: seeds-ambrosiagaia-name
+  noun: seeds-noun-seeds
+  displayName: seeds-ambrosiagaia-display-name
+  plantRsi: _BotanySupermancy/Objects/Specific/Hydroponics/ambrosia_gaia.rsi
+  packetPrototype: AmbrosiaGaiaSeeds
+  productPrototypes:
+    - FoodAmbrosiaGaia
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 6
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    EarthBlood:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 35

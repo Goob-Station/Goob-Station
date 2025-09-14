@@ -1,0 +1,13 @@
+- type: stack
+  id: GroundCannabisVita
+  name: construction-graph-tag-ground-cannabis-vita
+  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  spawn: GroundCannabisVita
+  maxCount:
+
+- type: stack
+  id: LeavesCannabisVitaDried
+  name: construction-graph-tag-dried-cannabis-vita
+  icon: { sprite: _BotanySupermancy/Objects/Specific/Hydroponics/cannabis_vita.rsi, state: dried }
+  spawn: LeavesCannabisVitaDried
+  maxCount: 5

@@ -1,0 +1,19 @@
+- type: construction
+  name: construction-graph-tag-ground-cannabis-vita
+  id: smokeableGroundCannabisVita
+  graph: smokeableGroundCannabisVita
+  startNode: start
+  targetNode: groundVita
+  category: construction-category-misc
+  description: construction-graph-tag-ground-cannabis-vita-desc
+  objectType: Item
+
+- type: construction
+  name: construction-graph-tag-joint-vita
+  id: smokeableJointVita
+  graph: smokeableJointVita
+  startNode: start
+  targetNode: jointVita
+  category: construction-category-misc
+  description: construction-graph-tag-joint-vita-desc
+  objectType: Item
