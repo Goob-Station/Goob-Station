@@ -1,8 +1,8 @@
 - type: reagent
   id: EarthBlood
-  name: Earth Blood
+  name: reagent-name-earthblood
   group: Medicine
-  desc: Ichor from an extremely powerful plant. Great for restoring wounds, but it's a little heavy on the brain.
+  desc: reagent-desc-earthblood
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
   color: "#f4bf20"
