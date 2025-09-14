@@ -37,8 +37,10 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
-    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable);
-    private const int HiddenLayer = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.MobLayer);
+    // When hidden, we want to ignore most collision layers except for walls and other solid structures
+    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable | CollisionGroup.DoorPassable);
+    // Keep the mob layer but remove the impassable flags that would prevent movement under floors
+    private const int HiddenLayer = (int) (CollisionGroup.MobLayer & ~(CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable));
 
     public override void Initialize()
     {
@@ -187,6 +189,10 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     public bool IsOnCollidingTile(EntityUid uid)
     {
+        // If we're under the floor, don't consider any tiles as colliding
+        if (TryComp<CrawlUnderFloorComponent>(uid, out var crawlComp) && crawlComp.Enabled && !IsOnSubfloor(uid))
+            return false;
+            
         if (!TryGetCurrentTile(uid, out var tileRef, out _))
             return false;
         if (tileRef.Tile.IsEmpty)
