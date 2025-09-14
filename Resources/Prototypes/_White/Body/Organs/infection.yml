@@ -10,7 +10,7 @@
   - type: Organ
     slotId: xenomorph_larva
   - type: StaticPrice
-    price: 2000
+    price: 10000
   - type: XenomorphInfection
     maxGrowthStage: 6
     growProb: 0.5
