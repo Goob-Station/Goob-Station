@@ -14953,3 +14953,9 @@ Entries:
         Acid.
   id: 1665
   time: '2025-09-14T10:49:01.0000000+00:00'
+- author: troytroy400
+  changes:
+    - type: Add
+      message: Player can select new New York accent in game!
+  id: 1666
+  time: '2025-09-14T11:06:52.0000000+00:00'
