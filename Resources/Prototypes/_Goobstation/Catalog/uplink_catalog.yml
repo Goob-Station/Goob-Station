@@ -1475,3 +1475,14 @@
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkSyndiedrobe
+  name: uplink-syndiedrobe-name
+  description: uplink-syndiedrobe-desc
+  icon: { sprite: Structures/Machines/VendingMachines/syndiedrobe.rsi, state: off }
+  productEntity: VendingMachineSyndieDrobe
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkPointless
