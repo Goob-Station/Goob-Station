@@ -81,6 +81,9 @@
         probability: 1
   - type: WeakToHoly
     alwaysTakeHoly: true
+  - type: Tag
+    tags:
+    - WeakToSalt
 
 - type: entity
   id: MobWraithPlague
