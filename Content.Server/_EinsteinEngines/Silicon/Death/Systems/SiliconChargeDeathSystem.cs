@@ -13,8 +13,12 @@ using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Hands.Components; // Monolith - IPC rework.
 using Content.Shared.Hands.EntitySystems;
-using Content.Goobstation.Shared.Sprinting; // Goobstation - Energycrit
+// Goobstation Start - Energycrit
+using Content.Goobstation.Shared.Sprinting;
 using Content.Server.Radio;
+using Content.Shared.Actions;
+using Content.Shared.CombatMode;
+// Goobstation End - Energycrit
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
 
@@ -25,6 +29,10 @@ public sealed class SiliconDeathSystem : EntitySystem
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Monolith - IPC rework
+    // Goobstation Start - Energycrit
+    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    // Goobstation End - Energycrit
 
     public override void Initialize()
     {
@@ -58,8 +66,6 @@ public sealed class SiliconDeathSystem : EntitySystem
         if (args.Cancelled || !ent.Comp.Dead)
             return;
 
-        Log.Debug("Cancel radio send");
-
         args.Cancelled = true;
     }
 
@@ -80,15 +86,23 @@ public sealed class SiliconDeathSystem : EntitySystem
         if (!TryComp<HandsComponent>(uid, out var handsComp))
             return;
         _hands.RemoveHands((uid, handsComp));
+        // Monolith End - IPC rework
 
-        // Goobstation - Energycrit: Disable sprinting while energycrit
+        // Goobstation Start - Energycrit
+        // Disable sprinting.
         if (TryComp<SprinterComponent>(uid, out var sprint))
         {
             sprint.CanSprint = false;
-            Dirty<SprinterComponent>((uid, sprint));
+            Dirty(uid, sprint);
         }
 
-        // Monolith End - IPC rework
+        // Disable combat mode
+        if (TryComp<CombatModeComponent>(uid, out var combatMode))
+        {
+            _combat.SetInCombatMode(uid, false);
+            _actions.SetEnabled(combatMode.CombatToggleActionEntity, false);
+        }
+        // Goobstation End - Energycrit
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
@@ -110,15 +124,20 @@ public sealed class SiliconDeathSystem : EntitySystem
         */
         _hands.AddHand(uid, "right hand", HandLocation.Right);
         _hands.AddHand(uid, "left hand", HandLocation.Left);
+        // Monolith End - IPC rework
 
-        // Goobstation - Energycrit: Disable sprinting while energycrit
+        // Goobstation Start - Energycrit
+        // Enable sprinting
         if (TryComp<SprinterComponent>(uid, out var sprint))
         {
             sprint.CanSprint = true;
-            Dirty<SprinterComponent>((uid, sprint));
+            Dirty(uid, sprint);
         }
 
-        // Monolith End - IPC rework
+        // Enable combat mode
+        if (TryComp<CombatModeComponent>(uid, out var combatMode))
+            _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
+        // Goobstation End - Energycrit
 
         siliconDeadComp.Dead = false;
 
