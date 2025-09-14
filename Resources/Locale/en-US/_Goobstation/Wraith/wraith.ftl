@@ -17,3 +17,5 @@ wraith-portal-limit = We haven't implemented the logic for switching portal loca
 wraith-in-solid = I cannot interact with the corporeal realm from within a solid object.
 
 wraith-salt-reveal = Salt reveal debug
+
+wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } been haunted.

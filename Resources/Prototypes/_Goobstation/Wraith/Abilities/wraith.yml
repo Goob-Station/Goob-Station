@@ -21,6 +21,7 @@
   name: Wraith Abilities
   category: [ HideSpawnMenu ]
   components:
+  - type: Haunt
   - type: BloodWriting
   - type: Decay
   - type: AbsorbCorpse
@@ -28,6 +29,7 @@
   - type: SummonPortal
   - type: ActionGrant
     actions:
+    - ActionHaunt
     - ActionWhisper
     - ActionBloodWriting
     - ActionAbsorbCorpse
