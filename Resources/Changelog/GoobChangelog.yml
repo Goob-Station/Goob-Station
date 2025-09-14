@@ -14959,3 +14959,11 @@ Entries:
       message: Player can select new New York accent in game!
   id: 1666
   time: '2025-09-14T11:06:52.0000000+00:00'
+- author: LFMoth
+  changes:
+    - type: Add
+      message: >-
+        It's bring-casual-clothes-to-work day! Most command members now have the
+        choice of using their own, custom-made summer clothing.
+  id: 1667
+  time: '2025-09-14T15:21:49.0000000+00:00'
