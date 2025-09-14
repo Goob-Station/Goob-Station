@@ -54,16 +54,6 @@
   result: ClothingUniformJumpsuitCasualSyndicate
 
 - type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualCommand
-  result: ClothingUniformJumpsuitCasualCommand
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualEngineer
-  result: ClothingUniformJumpsuitCasualEngineer
-
-- type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitHoSSummer
   result: ClothingUniformJumpsuitHoSSummer
