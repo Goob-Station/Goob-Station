@@ -4,11 +4,13 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
+using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -75,7 +77,50 @@ public sealed partial class StealShoesSystem : EntitySystem
             return;
         }
 
-        if (!_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) || shoesUid == null)
+        // First check the shoes slot (most common case)
+        if (_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) && shoesUid != null)
+        {
+            // We found shoes in the shoes slot, proceed with these
+        }
+        // Only check other slots if this is a critter
+        else if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Critical)
+        {
+            // Common slots that might contain footwear for critters
+            string[] potentialSlots = { "feet", "shoes", "suit", "outerClothing", "belt" };
+            
+            foreach (var slot in potentialSlots)
+            {
+                if (!_inventory.TryGetSlotContainer(target, slot, out var container, out _))
+                    continue;
+                    
+                foreach (var item in container.ContainedEntities)
+                {
+                    if (!HasComp<ClothingComponent>(item))
+                        continue;
+                        
+                    var itemName = Name(item);
+                    if (itemName.IndexOf("shoe", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        itemName.IndexOf("boot", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        itemName.IndexOf("sandal", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        itemName.IndexOf("foot", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        shoesUid = item;
+                        break;
+                    }
+                }
+                
+                if (shoesUid != null)
+                    break;
+            }
+            
+            if (shoesUid == null)
+            {
+                _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
+                args.Handled = true;
+                return;
+            }
+        }
+        else
         {
             _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
             args.Handled = true;
@@ -123,13 +168,24 @@ public sealed partial class StealShoesSystem : EntitySystem
 
     private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
     {
-        const string slotId = "shoes";
-
+        // First try to unequip normally for living targets
         if (!_mobstate.IsDead(target))
-            return _inventory.TryUnequip(target, slotId, silent: true, predicted: true, reparent: false);
+        {
+            // Find which slot the item is in
+            if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slotDef))
+                return false;
+                
+            return _inventory.TryUnequip(target, slotDef.Name, silent: true, predicted: true, reparent: false);
+        }
 
-        return _inventory.TryGetSlotContainer(target, slotId, out var slot, out SlotDefinition? _)
-            && _containers.Remove(shoes, slot, force: true, reparent: false);
+        // For dead targets, we need to remove the item directly
+        if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) || 
+            !_inventory.TryGetSlotContainer(target, slot.Name, out var container, out _))
+        {
+            return false;
+        }
+        
+        return _containers.Remove(shoes, container, force: true, reparent: false);
     }
 
 
