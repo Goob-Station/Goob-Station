@@ -14945,3 +14945,11 @@ Entries:
       message: Tranquilizer shotgun shells are no longer contraband for Zookeepers.
   id: 1664
   time: '2025-09-14T10:46:41.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        Emergency Medipens now contain 5u Atropine, Epinephrine, and Tranexamic
+        Acid.
+  id: 1665
+  time: '2025-09-14T10:49:01.0000000+00:00'
