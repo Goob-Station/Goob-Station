@@ -1,14 +1,17 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Drugs;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using System.Linq;
+using System.Threading;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 //Partially ported from Impstation
@@ -54,8 +57,7 @@ public sealed partial class HauntSystem : EntitySystem
                 .Select(ply => GetNetEntity(ply.AttachedEntity!.Value))
         );
 
-        //TO DO: Make wraith corporeal.
-
+        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, comp.CorporealEffect, comp.HauntCorporealDuration, false);
         // Play global haunt sound
         _audioSystem.PlayGlobal(comp.HauntSound, witnessFilter, true);
 
