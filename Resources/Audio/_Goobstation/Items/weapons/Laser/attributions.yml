@@ -1,0 +1,6 @@
+# i have no idea but i traced it from backmen #1309 to ss220-space/Paradise #3856 but cant find them in it
+# holy goida
+- files: [ "drop1.ogg", "pickup1.ogg", "pickup2.ogg" ]
+  license: "CC-BY-SA-3.0"
+  copyright: "stolen by russians from somewhere, converted to mono by @deltanedas (github)"
+  source: "https://goida.zip/unknown"
