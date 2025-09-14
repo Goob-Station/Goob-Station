@@ -95,7 +95,7 @@
   reactants:
     Uranium:
       amount: 2
-    BananaJuice:
+    JuiceBanana:
       amount: 1
     SpaceLube:
       amount: 1
