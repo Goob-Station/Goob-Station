@@ -201,10 +201,9 @@ public sealed partial class PainSystem : EntitySystem
     #region Pain Decay
 
     /// <summary>
-    ///     Starts pain decay for a nerve system
+    /// Starts pain decay for a nerve system
     /// </summary>
-    /// <param name="initialPain"></param>
-    <et cetera>
+
     public void StartPainDecay(EntityUid uid, FixedPoint2 initialPain, TimeSpan decayDuration, NerveSystemComponent? nerveSystem = null)
     {
         if (!Resolve(uid, ref nerveSystem, false))
@@ -230,7 +229,6 @@ public sealed partial class PainSystem : EntitySystem
     }
 
     // Stops any active pain decay for an entity
-    // uid: The entity to stop decay for
     public void StopPainDecay(EntityUid uid)
     {
         if (HasComp<PainDecayComponent>(uid))
@@ -238,9 +236,6 @@ public sealed partial class PainSystem : EntitySystem
     }
 
     // Updates the pain value based on decay progress
-    // uid: The entity with decaying pain
-    // decay: The decay component tracking the decay state
-    // nerveSystem: The nerve system component to update
     private void UpdatePainDecay(EntityUid uid, PainDecayComponent decay, NerveSystemComponent nerveSystem)
     {
         var elapsed = _timing.CurTime - decay.StartTime;
