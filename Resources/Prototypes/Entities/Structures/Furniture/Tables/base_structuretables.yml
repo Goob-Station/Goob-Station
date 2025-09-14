@@ -89,4 +89,4 @@
         - TableMask
         layer:
         - BulletImpassable # Goobstation - Crawling
-        - CounterLayer
+        - TableLayer
