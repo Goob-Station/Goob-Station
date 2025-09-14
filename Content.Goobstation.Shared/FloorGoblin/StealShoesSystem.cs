@@ -22,6 +22,9 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using System.Numerics;
 
+// This system allows floor goblins to steal shoes from other entities.
+// It handles the entire process from checking valid targets to transferring the shoes to the goblin's inventory.
+
 namespace Content.Goobstation.Shared.FloorGoblin;
 
 public sealed partial class StealShoesSystem : EntitySystem
@@ -36,8 +39,6 @@ public sealed partial class StealShoesSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedCrawlUnderFloorSystem _crawlUnderFloorSystem = default!;
@@ -60,6 +61,8 @@ public sealed partial class StealShoesSystem : EntitySystem
         _containers.EnsureContainer<Container>(uid, component.ContainerId);
     }
 
+    // Handles the shoe stealing interaction
+    // Checks range, line of sight, and then attempts to find and take footwear
     private void OnStealShoes(EntityUid uid, StealShoesComponent component, StealShoesEvent args)
     {
         if (args.Handled)
@@ -85,19 +88,20 @@ public sealed partial class StealShoesSystem : EntitySystem
         // Only check other slots if this is a critter
         else if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Critical)
         {
-            // Common slots that might contain footwear for critters
+            // Check common equipment slots that might contain footwear
+        // This includes feet, shoes, and other potential slots where footwear might be equipped
             string[] potentialSlots = { "feet", "shoes", "suit", "outerClothing", "belt" };
-            
+
             foreach (var slot in potentialSlots)
             {
                 if (!_inventory.TryGetSlotContainer(target, slot, out var container, out _))
                     continue;
-                    
+
                 foreach (var item in container.ContainedEntities)
                 {
                     if (!HasComp<ClothingComponent>(item))
                         continue;
-                        
+
                     var itemName = Name(item);
                     if (itemName.IndexOf("shoe", StringComparison.OrdinalIgnoreCase) >= 0 ||
                         itemName.IndexOf("boot", StringComparison.OrdinalIgnoreCase) >= 0 ||
@@ -108,11 +112,11 @@ public sealed partial class StealShoesSystem : EntitySystem
                         break;
                     }
                 }
-                
+
                 if (shoesUid != null)
                     break;
             }
-            
+
             if (shoesUid == null)
             {
                 _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
@@ -165,7 +169,10 @@ public sealed partial class StealShoesSystem : EntitySystem
         ev.Handled = true;
     }
 
-
+    /// <summary>
+    /// Attempts to remove shoes from the target's equipment or containers.
+    /// Returns true if successful, false otherwise.
+    /// </summary>
     private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
     {
         // First try to unequip normally for living targets
@@ -174,17 +181,17 @@ public sealed partial class StealShoesSystem : EntitySystem
             // Find which slot the item is in
             if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slotDef))
                 return false;
-                
+
             return _inventory.TryUnequip(target, slotDef.Name, silent: true, predicted: true, reparent: false);
         }
 
         // For dead targets, we need to remove the item directly
-        if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) || 
+        if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) ||
             !_inventory.TryGetSlotContainer(target, slot.Name, out var container, out _))
         {
             return false;
         }
-        
+
         return _containers.Remove(shoes, container, force: true, reparent: false);
     }
 

@@ -30,7 +30,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -38,10 +37,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
 
     // When hidden, we want to ignore most collision layers except for walls and other solid structures
-    // We also exclude ConveyorMask to prevent being moved by conveyors when under the floor
-    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable | CollisionGroup.DoorPassable | CollisionGroup.ConveyorMask);
-    // Keep the mob layer but remove the impassable flags that would prevent movement under floors
-    private const int HiddenLayer = (int) (CollisionGroup.MobLayer & ~(CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable));
+    // We allow passing under all doors (both HighImpassable and DoorPassable are not in the mask)
+    // We exclude ConveyorMask to prevent being moved by conveyors when under the floor
+    private const int HiddenMask = (int) (CollisionGroup.MidImpassable | CollisionGroup.LowImpassable |
+                                         CollisionGroup.InteractImpassable | CollisionGroup.ConveyorMask);
+
+    // Include DoorPassable to allow moving under all door types
+    private const int HiddenLayer = (int) (CollisionGroup.MobLayer | CollisionGroup.DoorPassable | CollisionGroup.HighImpassable);
 
     public override void Initialize()
     {
@@ -112,8 +114,11 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     private void OnMove(EntityUid uid, CrawlUnderFloorComponent comp, ref MoveEvent args)
     {
-        ProcessCrawlStateChange(uid, comp, false);
+        // Just update the crawl state based on whether we're enabled
+        ProcessCrawlStateChange(uid, comp, comp.Enabled);
     }
+
+    // Door detection methods removed as they're no longer needed
 
     private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
     {
@@ -193,7 +198,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         // If we're under the floor, don't consider any tiles as colliding
         if (TryComp<CrawlUnderFloorComponent>(uid, out var crawlComp) && crawlComp.Enabled && !IsOnSubfloor(uid))
             return false;
-            
+
         if (!TryGetCurrentTile(uid, out var tileRef, out _))
             return false;
         if (tileRef.Tile.IsEmpty)
@@ -219,7 +224,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     }
 
     public bool IsHidden(EntityUid uid, CrawlUnderFloorComponent comp)
-        => comp.Enabled && !IsOnSubfloor(uid);
+        => comp.Enabled; // No longer check for subfloor, just check if crawling is enabled
 
     private void HandleCrawlTransition(EntityUid uid, bool wasOnSubfloor, bool isOnSubfloor, CrawlUnderFloorComponent comp, bool causedByTileChange)
     {
