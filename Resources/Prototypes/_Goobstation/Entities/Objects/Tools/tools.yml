@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Murphy Ibbs <Murphyibbs@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
@@ -30,11 +32,6 @@
   - type: Tag
     tags:
     - Multitool
-  - type: Flash
-    duration: 20000
-    aoeFlashDuration: 10000
-    slowTo: 0.2
-    range: 15
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -239,3 +236,14 @@
   - type: AutoRecharge
     rechargeDuration: 10
 
+- type: entity
+  parent: RCD
+  id: RCDRechargingCE
+  name: experimental RCD
+  description: Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10

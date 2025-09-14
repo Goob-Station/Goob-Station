@@ -1,0 +1,80 @@
+- type: loadout
+  id: EmergencyPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsPlasma
+
+- type: loadout
+  id: EmergencyPlasmaExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringPlasma
+
+- type: loadout
+  id: EmergencyPlasmaSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityPlasma
+
+- type: loadout
+  id: EmergencyPlasmaMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalPlasma
+
+- type: loadout
+  id: EmergencyPlasmaSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicatePlasma
+
+- type: loadout
+  id: EmergencyPlasmaMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxMimeSlotsPlasma
+
+- type: loadout
+  id: EmergencyPlasmaClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxHugSlotsPlasma
+
+# Full tank for plasmamen as part of any Survival loadout
+- type: loadout
+  id: LoadoutSpeciesPlasma
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  equipment:
+    suitstorage: PlasmaTankFilledInternals
+
+- type: loadout
+  id: EmergencySilicon
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Silicon
+  storage:
+    back:
+    - BoxSurvivalSlotsSilicon

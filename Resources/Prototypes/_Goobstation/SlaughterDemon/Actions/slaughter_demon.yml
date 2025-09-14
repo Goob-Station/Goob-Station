@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BloodCrawlAction
+  name: Blood Crawl
+  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: crawl
+    useDelay: 3
+  - type: InstantAction
+    event: !type:BloodCrawlEvent
+
+- type: entity
+  id: DemonicWhisperAction
+  name: Demonic Whisper
+  description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: whisper
+    itemIconStyle: NoItem
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:DemonicWhisperEvent
+

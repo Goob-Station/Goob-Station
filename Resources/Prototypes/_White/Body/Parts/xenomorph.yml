@@ -1,0 +1,144 @@
+# TODO: Add descriptions (many)
+# TODO: Sprite
+- type: entity
+  id: PartXenomorph
+  parent: BasePart
+  name: xenomorph body part
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 3
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+  - type: Woundable
+    integrity: 750
+    integrityCap: 750
+    thresholds:
+      Minor: 700
+      Moderate: 600
+      Severe: 350
+      Critical: 150
+      Mangled: 0
+
+- type: entity
+  id: ChestXenomorph
+  name: xenomorph chest
+  parent: [PartXenomorph, BaseChest]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: chest_m
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: GroinXenomorph
+  name: xenomorph groin
+  parent: [PartXenomorph, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: groin_m
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: HeadXenomorph
+  name: xenomorph head
+  parent: [PartXenomorph, BaseHead]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: head_m
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 5
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+
+- type: entity
+  id: LeftArmXenomorph
+  name: left xenomorph arm
+  parent: [PartXenomorph, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: l_arm
+
+- type: entity
+  id: RightArmXenomorph
+  name: right xenomorph arm
+  parent: [PartXenomorph, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: r_arm
+
+- type: entity
+  id: LeftHandXenomorph
+  name: left xenomorph hand
+  parent: [PartXenomorph, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: l_hand
+
+- type: entity
+  id: RightHandXenomorph
+  name: right xenomorph hand
+  parent: [PartXenomorph, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: r_hand
+
+- type: entity
+  id: LeftLegXenomorph
+  name: left xenomorph leg
+  parent: [PartXenomorph, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: l_leg
+
+- type: entity
+  id: RightLegXenomorph
+  name: right xenomorph leg
+  parent: [PartXenomorph, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: r_leg
+
+- type: entity
+  id: LeftFootXenomorph
+  name: left xenomorph foot
+  parent: [PartXenomorph, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: l_foot
+
+- type: entity
+  id: RightFootXenomorph
+  name: right xenomorph foot
+  parent: [PartXenomorph, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: r_foot

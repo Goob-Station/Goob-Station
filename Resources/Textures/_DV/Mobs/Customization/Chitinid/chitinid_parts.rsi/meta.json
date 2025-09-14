@@ -1,0 +1,143 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/MilenVolf, Charred further modified and new assets by https://github.com/ElusiveCoin",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "toxic_head",
+            "directions": 4
+        },
+        {
+            "name": "toxic_chest",
+            "directions": 4
+        },
+        {
+            "name": "toxic_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "toxic_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "toxic_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "toxic_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "charred_head",
+            "directions": 4
+        },
+        {
+            "name": "charred_chest",
+            "directions": 4
+        },
+        {
+            "name": "charred_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "charred_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "charred_r_leg",
+            "directions": 4
+        },
+        {
+          "name": "charred_l_leg",
+          "directions": 4
+        },
+        {
+            "name": "radiant_head",
+            "directions": 4
+        },
+        {
+            "name": "radiant_chest",
+            "directions": 4
+        },
+        {
+            "name": "radiant_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "radiant_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "radiant_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "radiant_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "plated_chest",
+            "directions": 4
+        },
+        {
+            "name": "plated_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "plated_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "stripes_head",
+            "directions": 4
+        },
+        {
+            "name": "stripes_chest",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "stripes_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "stripes_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "spotted_head",
+            "directions": 4
+        },
+        {
+            "name": "spotted_chest",
+            "directions": 4
+        },
+        {
+            "name": "spotted_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "spotted_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "spotted_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "spotted_l_leg",
+            "directions": 4
+        }
+    ]
+}

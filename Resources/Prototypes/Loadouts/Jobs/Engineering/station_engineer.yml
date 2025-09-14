@@ -108,15 +108,18 @@
   equipment:
     head: ClothingHeadHatHardhatYellow
 
+
 - type: loadout
   id: StationEngineerHardhatOrange
   equipment:
     head: ClothingHeadHatHardhatOrange
 
+
 - type: loadout
   id: StationEngineerHardhatRed
   equipment:
     head: ClothingHeadHatHardhatRed
+
 
 - type: loadout
   id: SeniorEngineerBeret
@@ -131,15 +134,18 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
 
+
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
 
+
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+
 
 - type: loadout
   id: SeniorEngineerJumpsuit
@@ -161,6 +167,7 @@
   id: EngiMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineering
+
 
 # Back
 - type: loadout
