@@ -6,6 +6,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -56,7 +57,7 @@ public sealed partial class HauntSystem : EntitySystem
                 .Select(ply => GetNetEntity(ply.AttachedEntity!.Value))
         );
 
-        _statusEffects.TryAddStatusEffect<HauntComponent>(uid, comp.CorporealEffect, comp.HauntCorporealDuration, false);
+        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, comp.CorporealEffect, comp.HauntCorporealDuration, false);
         // Play global haunt sound
         _audioSystem.PlayGlobal(comp.HauntSound, witnessFilter, true);
 
