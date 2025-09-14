@@ -14933,3 +14933,9 @@ Entries:
         do)
   id: 1662
   time: '2025-09-14T10:39:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Trevor can now access Sec, Brig and Maints again
+  id: 1663
+  time: '2025-09-14T10:39:49.0000000+00:00'
