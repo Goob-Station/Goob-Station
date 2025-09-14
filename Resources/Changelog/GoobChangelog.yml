@@ -14917,3 +14917,11 @@ Entries:
       message: Cargo biomass crate
   id: 1660
   time: '2025-09-14T10:33:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed devils being able to offer handless mobs handshakes, or do so when
+        they have no hands.
+  id: 1661
+  time: '2025-09-14T10:33:30.0000000+00:00'
