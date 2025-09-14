@@ -14,4 +14,6 @@ wraith-portal-fail-corporeal = I must be in corporeal form to summon this!
 wraith-portal-success = The veil has been breached. Arise, creatures of the void!
 wraith-portal-limit = We haven't implemented the logic for switching portal locations yet.
 
+wraith-in-solid = I cannot interact with the corporeal realm from within a solid object.
+
 wraith-salt-reveal = Salt reveal debug

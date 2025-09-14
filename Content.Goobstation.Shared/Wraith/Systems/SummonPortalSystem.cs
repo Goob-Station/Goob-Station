@@ -2,15 +2,16 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Prototypes;
+using Content.Shared.Physics;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 public sealed partial class SummonPortalSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
 
     public override void Initialize()
     {
@@ -26,6 +27,12 @@ public sealed partial class SummonPortalSystem : EntitySystem
 
         if (args.Handled)
             return;
+
+        if (_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
+        {
+            _popup.PopupPredicted(Loc.GetString("wraith-in-solid"), uid, uid, PopupType.MediumCaution);
+            return;
+        }
 
         //TO DO: Add logic for asking if the player wants to move the portal's location, rather than just denying a new portal.
         if (comp.CurrentActivePortals >= comp.PortalLimit)
@@ -48,6 +55,6 @@ public sealed partial class SummonPortalSystem : EntitySystem
         comp.CurrentActivePortals++;
         args.Handled = true;
 
-        //TO DO: Add logic for if the portal gets destroyed. (Though honestly that might end up just being handled through the 
+        //TO DO: Add logic for if the portal gets destroyed. (Though honestly that might end up just being handled through the portal component itself)
     }
 }
