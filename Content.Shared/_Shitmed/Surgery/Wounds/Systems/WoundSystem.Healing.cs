@@ -49,7 +49,8 @@ public partial class WoundSystem
         // Start pain decay if there's still pain after healing
         if (nerveSystem.Pain > FixedPoint2.Zero)
         {
-            // Calculate decay duration based on current pain level
+            // Calculate decay duration based on current pain level - 12 seconds per pain point
+            // 50 pain * 12 seconds per pain point = 600 seconds = 10 minutes
             var decayDuration = TimeSpan.FromSeconds(nerveSystem.Pain.Float() * 12);
 
             // Start the pain decay process
