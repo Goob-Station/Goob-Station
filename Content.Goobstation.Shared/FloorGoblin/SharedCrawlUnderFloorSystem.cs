@@ -38,7 +38,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
 
     // When hidden, we want to ignore most collision layers except for walls and other solid structures
-    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable | CollisionGroup.DoorPassable);
+    // We also exclude ConveyorMask to prevent being moved by conveyors when under the floor
+    private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable | CollisionGroup.DoorPassable | CollisionGroup.ConveyorMask);
     // Keep the mob layer but remove the impassable flags that would prevent movement under floors
     private const int HiddenLayer = (int) (CollisionGroup.MobLayer & ~(CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable));
 
