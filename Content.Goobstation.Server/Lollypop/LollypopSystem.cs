@@ -1,6 +1,5 @@
 using Content.Server.Popups;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Inventory;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
