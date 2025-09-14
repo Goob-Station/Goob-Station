@@ -89,15 +89,20 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Species
@@ -130,6 +135,7 @@
     - Oni
     - Resomi
     - Tajaran
+    - Chitinid # DeltaV
     - Shadowkin
 
 - type: loadoutEffectGroup
@@ -188,6 +194,17 @@
     - Dwarf
     - Human
     - Reptilian
+    # Goobstation - Custom Races
+    - Vulpkanin
+    - Felinid
+    - Harpy
+    - Gingerbread
+    - Rodentia
+    - Yowie
+    - Oni
+    - Resomi
+    - Tajaran
+    - Shadowkin
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
@@ -221,7 +238,7 @@
     proto: OxygenBreatherMimeMoth
   storage:
     back:
-    - BoxMimeMoth
+    - BoxMimeMothSlots # Goobstation - Slots Bases Survival Boxes
 
 # Engineering / Extended
 - type: loadout

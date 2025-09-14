@@ -32,6 +32,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -53,6 +54,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Maths; // Shitmed Change
+using Content.Goobstation.Common.Movement; // Goob edit
 
 namespace Content.Shared.Movement.Systems
 {
@@ -142,7 +144,7 @@ namespace Content.Shared.Movement.Systems
             RaiseLocalEvent(entity, ref moveEvent);
             Dirty(entity, entity.Comp);
 
-            var ev = new SpriteMoveEvent(entity.Comp.HeldMoveButtons != MoveButtons.None);
+            var ev = new SpriteMoveEvent(entity.Comp.HasDirectionalMovement);
             RaiseLocalEvent(entity, ref ev);
         }
 
@@ -173,7 +175,7 @@ namespace Content.Shared.Movement.Systems
                 entity.Comp.HeldMoveButtons = state.HeldMoveButtons;
                 RaiseLocalEvent(entity.Owner, ref moveEvent);
 
-                var ev = new SpriteMoveEvent(entity.Comp.HeldMoveButtons != MoveButtons.None);
+                var ev = new SpriteMoveEvent(entity.Comp.HasDirectionalMovement);
                 RaiseLocalEvent(entity, ref ev);
             }
         }
@@ -406,6 +408,7 @@ namespace Content.Shared.Movement.Systems
 
             entity.Comp.RelativeEntity = xform.GridUid ?? xform.MapUid;
             entity.Comp.TargetRelativeRotation = Angle.Zero;
+            RaiseLocalEvent(entity, new SprintingInputEvent(entity)); // WD EDIT
         }
 
         private void HandleRunChange(EntityUid uid, ushort subTick, bool walking)
@@ -418,6 +421,7 @@ namespace Content.Shared.Movement.Systems
                 if (moverComp != null)
                 {
                     SetMoveInput((uid, moverComp), MoveButtons.None);
+                    RaiseLocalEvent(uid, new SprintingInputEvent((uid, moverComp))); // WD EDIT
                 }
 
                 HandleRunChange(relayMover.RelayEntity, subTick, walking);
@@ -538,6 +542,8 @@ namespace Content.Shared.Movement.Systems
             // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
 
             SetMoveInput(entity, subTick, walking, MoveButtons.Walk);
+            RaiseLocalEvent(entity, new ToggleWalkEvent(walking)); // Goob edit
+            RaiseLocalEvent(entity, new SprintingInputEvent(entity)); // WD EDIT
         }
 
         /// <summary>

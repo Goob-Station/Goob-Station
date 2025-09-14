@@ -71,6 +71,8 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -126,11 +128,11 @@
           basic_icon_base-11: ""
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -179,6 +181,9 @@
   - type: Tool #Goob
     qualities:
     - Ignition
+  - type: Tag #Goobstation - whitelisted cig pack strorage (added new tag)
+    tags:
+    - Lighter
 
 - type: entity
   name: cheap lighter
@@ -254,7 +259,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         flame:
           True: { visible: true }
           False: { visible: false }
@@ -278,7 +283,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -302,6 +307,9 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: Tag
+    tags:
+      - Lighter #Goobstation - whitelisted cig pack strorage (added tag)
 
 - type: entity
   name: flippo engraved lighter

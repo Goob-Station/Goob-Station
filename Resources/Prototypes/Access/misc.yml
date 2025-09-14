@@ -74,6 +74,11 @@
   - GenpopEnter
   - GenpopLeave
 
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance
+
 - type: accessLevel
   id: 1A
   name: id-card-access-level-1A

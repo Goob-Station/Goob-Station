@@ -33,7 +33,6 @@
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -69,7 +68,6 @@
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
@@ -89,10 +87,15 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -940,13 +943,20 @@ public sealed class PullingSystem : EntitySystem
         if (!_netManager.IsServer)
             return false;
 
-        if (!releaseAttempt)
+        switch (releaseAttempt)
         {
-            _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-                pullableUid,
-                pullableUid,
-                PopupType.SmallCaution);
-            return false;
+            case GrabResistResult.Failed:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
+            case GrabResistResult.TooSoon:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-too-soon"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
         }
 
         _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
@@ -1189,18 +1199,18 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     /// <param name="pullable">Grabbed entity</param>
     /// <returns></returns>
-    private bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
+    private GrabResistResult AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp)
             || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
-            return false;
+            return GrabResistResult.TooSoon;
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
-            return true;
+            return GrabResistResult.Succeeded;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
         Dirty(pullable.Owner, pullable.Comp);
-        return false;
+        return GrabResistResult.Failed;
     }
 
     private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)

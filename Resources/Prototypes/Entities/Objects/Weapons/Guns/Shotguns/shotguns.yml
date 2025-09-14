@@ -113,6 +113,17 @@
         ents: []
   - type: StaticPrice
     price: 500
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: ShotgunsDrop
+  # Goobstation edit end
   - type: AltFireMelee # Goobstation V
     attackType: Heavy
   - type: MeleeWeapon
@@ -180,7 +191,7 @@
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice
-    price: 500
+    price: 5000
 
 - type: entity
   name: double-barreled shotgun

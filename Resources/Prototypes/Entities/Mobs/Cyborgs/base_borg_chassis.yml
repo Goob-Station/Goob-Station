@@ -145,6 +145,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
@@ -194,7 +196,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 150
+        density: 300
         mask:
         - MobMask
         layer:
@@ -249,7 +251,7 @@
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
-        toggleAction: ActionAGhostShowStationMap
+        toggleAction: ActionShowStationMap
   - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
@@ -335,6 +337,11 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+    allowedEmotes: # Goobstation - Cyborg emote sounds
+    - Laugh
+    - Sigh
+    - Crying
+    - Whistle
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
@@ -404,7 +411,8 @@
       minValue: 0.1
       maxValue: 2.0
       isLooped: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -559,6 +567,11 @@
     speechSounds: SyndieBorg
     allowedEmotes:
     - Laugh
+    # Goobstation - Cyborg emote sounds
+    - Sigh
+    - Crying
+    - Whistle
+    # end Goobstation - Cyborg emote sounds
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
@@ -642,6 +655,11 @@
     speechSounds: Xenoborg
     allowedEmotes:
     - Laugh
+    # Goobstation - Cyborg emote sounds
+    - Sigh
+    - Crying
+    - Whistle
+    # end Goobstation - Cyborg emote sounds
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconXenoborg
