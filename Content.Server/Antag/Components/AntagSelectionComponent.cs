@@ -284,8 +284,8 @@ public partial struct AntagSelectionDefinition()
     /// <summary>
     /// A special language added to the player.
     /// </summary>
-    [DataField]
-    public ProtoId<LanguagePrototype>? Language;
+    [DataField] // Goob Station - Antag Language
+    public ProtoId<LanguagePrototype>? Language; // Goob Station - Antag Language
 
     /// <summary>
     /// A list of role loadouts, from which a randomly selected one will be equipped.

@@ -95,7 +95,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._EinsteinEngines.Language;
+using Content.Server._EinsteinEngines.Language; // Goob Station - Antag Language
 using Content.Server._Goobstation.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -111,8 +111,6 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
-using Content.Server.Station.Events;
-using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -602,10 +600,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         _loadout.Equip(player, gear, def.RoleLoadout);
 
-        // Add languages to the entity
+        // Add language to the entity
         if (def.Language is not null)
         {
-            _languageSystem.AddLanguage(player, def.Language.Value);
+            _languageSystem.AddLanguage(player, def.Language.Value); // Goob Station - Antag Language
         }
 
         if (session != null)

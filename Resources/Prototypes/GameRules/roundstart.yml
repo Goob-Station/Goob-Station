@@ -348,7 +348,7 @@
     selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
-      language: SyndieCant
+      language: SyndieCant # Goobstation
       blacklist: # Goobstation
         components:
         - CommandStaff
@@ -365,7 +365,7 @@
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
-      language: SyndieCant
+      language: SyndieCant # Goobstation
       max: 8
       playerRatio: 10
       chaosScore: 150 # Goobstation
