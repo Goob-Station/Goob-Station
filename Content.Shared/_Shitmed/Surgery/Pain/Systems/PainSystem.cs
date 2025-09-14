@@ -200,11 +200,11 @@ public sealed partial class PainSystem : EntitySystem
 
     #region Pain Decay
 
-    // Starts pain decay for a nerve system
-    // uid: The entity with the nerve system
-    // initialPain: The initial pain value when decay starts
-    // decayDuration: How long the decay should take
-    // nerveSystem: The nerve system component
+    /// <summary>
+    ///     Starts pain decay for a nerve system
+    /// </summary>
+    /// <param name="initialPain"></param>
+    <et cetera>
     public void StartPainDecay(EntityUid uid, FixedPoint2 initialPain, TimeSpan decayDuration, NerveSystemComponent? nerveSystem = null)
     {
         if (!Resolve(uid, ref nerveSystem, false))
