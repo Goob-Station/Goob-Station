@@ -75,6 +75,19 @@ public sealed partial class HereticActionComponent : Component
     }
 }
 
+[Serializable, NetSerializable] public sealed partial class EventHereticVolcanoBlastDoAfter : DoAfterEvent
+{
+    [DataField]
+    public float Radius = 5;
+
+    public EventHereticVolcanoBlastDoAfter(float radius)
+    {
+        Radius = radius;
+    }
+
+    public override DoAfterEvent Clone() => this;
+}
+
 #endregion
 
 #region Abilities
@@ -116,7 +129,16 @@ public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
 public sealed partial class EventHereticAshenShift : InstantActionEvent { }
-public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
+
+public sealed partial class EventHereticVolcanoBlast : InstantActionEvent
+{
+    [DataField]
+    public float Radius = 5;
+
+    [DataField]
+    public TimeSpan ChannelTime = TimeSpan.FromSeconds(3);
+}
+
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
