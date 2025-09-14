@@ -83,6 +83,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -279,6 +280,12 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public ProtoId<StartingGearPrototype>? StartingGear;
+
+    /// <summary>
+    /// A special language added to the player.
+    /// </summary>
+    [DataField]
+    public ProtoId<LanguagePrototype>? Language;
 
     /// <summary>
     /// A list of role loadouts, from which a randomly selected one will be equipped.

@@ -4,3 +4,6 @@ language-SpaceItalian-description =
 
 language-Cheval-name = Cheval
 language-Cheval-description = The language of horses.
+
+language-SyndieCant-name = Syndie Cant
+language-SyndieCant-description = A code language used by elite operators when covert communication is required.
