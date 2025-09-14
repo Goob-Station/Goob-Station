@@ -4,7 +4,4 @@
 namespace Content.Goobstation.Common.SpaceImmunityOnBuckle;
 
 [RegisterComponent]
-public sealed partial class SpaceImmunityOnBuckleComponent : Component
-{
-
-}
+public sealed partial class SpaceImmunityOnBuckleComponent : Component;
