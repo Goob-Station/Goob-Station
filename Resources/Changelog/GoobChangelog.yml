@@ -14939,3 +14939,9 @@ Entries:
       message: Trevor can now access Sec, Brig and Maints again
   id: 1663
   time: '2025-09-14T10:39:49.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Tranquilizer shotgun shells are no longer contraband for Zookeepers.
+  id: 1664
+  time: '2025-09-14T10:46:41.0000000+00:00'
