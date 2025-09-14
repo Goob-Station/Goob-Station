@@ -4260,3 +4260,10 @@
   id: 8958
   time: '2025-09-13T07:01:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40103
+- author: Winkarst-cpu
+  changes:
+  - message: Fixed the wizard's recharge spell not working on some wands.
+    type: Fix
+  id: 8963
+  time: '2025-09-14T19:26:42.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40347
