@@ -2,6 +2,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
@@ -40,13 +41,26 @@ public sealed partial class HauntComponent : Component
     public SoundSpecifier? HauntSound = new SoundCollectionSpecifier("RevenantHaunt");
 
     /// <summary>
+    /// How much the Wp regeneration gets boosted per witness.
+    /// </summary>
+    [DataField]
+    public TimeSpan HauntCorporealDuration = new TimeSpan(5);
+
+    /// <summary>
     /// How long the flash effect lasts when someone gets haunted.
     /// </summary>
     [DataField]
     public TimeSpan HauntFlashDuration = TimeSpan.FromSeconds(2);
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("flashedId")]
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    public string FlashedId = "Flashed";
+    /// <summary>
+    /// The status effect to flash anyone who gets haunted.
+    /// </summary>
+    [DataField]
+    public EntProtoId FlashedId = "Flashed";
+
+    /// <summary>
+    /// The status effect to make the Wraith corporeal upon using haunt.
+    /// </summary>
+    [DataField]
+    public ProtoId<StatusEffectPrototype> CorporealEffect = "Corporeal";
 }
