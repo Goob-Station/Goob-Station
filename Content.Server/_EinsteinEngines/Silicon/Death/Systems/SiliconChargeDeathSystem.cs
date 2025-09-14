@@ -18,6 +18,8 @@ using Content.Goobstation.Shared.Sprinting;
 using Content.Server.Radio;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
+using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 // Goobstation End - Energycrit
 
 namespace Content.Server._EinsteinEngines.Silicon.Death;
@@ -32,6 +34,7 @@ public sealed class SiliconDeathSystem : EntitySystem
     // Goobstation Start - Energycrit
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     // Goobstation End - Energycrit
 
     public override void Initialize()
@@ -39,7 +42,11 @@ public sealed class SiliconDeathSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SiliconDownOnDeadComponent, SiliconChargeStateUpdateEvent>(OnSiliconChargeStateUpdate);
-        SubscribeLocalEvent<SiliconDownOnDeadComponent, RadioSendAttemptEvent>(OnRadioSendAttempt); // Goobstation - Energycrit
+
+        // Goobstation Start - Energycrit
+        SubscribeLocalEvent<SiliconDownOnDeadComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
+        SubscribeLocalEvent<SiliconDownOnDeadComponent, StandAttemptEvent>(OnStandAttempt);
+        // Goobstation End - Energycrit
     }
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
@@ -59,7 +66,7 @@ public sealed class SiliconDeathSystem : EntitySystem
             SiliconUnDead(uid, siliconDeadComp, batteryComp, uid);
     }
 
-    // Goobstation - Energycrit
+    /// <Goobstation> Energycrit </Goobstation>
     private void OnRadioSendAttempt(Entity<SiliconDownOnDeadComponent> ent, ref RadioSendAttemptEvent args)
     {
         // Prevent talking on radio if energycrit
@@ -67,6 +74,21 @@ public sealed class SiliconDeathSystem : EntitySystem
             return;
 
         args.Cancelled = true;
+    }
+
+    /// <Goobstation> Energycrit </Goobstation>
+    /// <summary>
+    ///     Some actions, like picking up an IPC and carrying it remove the KnockedDownComponent, if they try to stand when they
+    ///     shouldn't, just knock them down again
+    /// </summary>
+    private void OnStandAttempt(Entity<SiliconDownOnDeadComponent> ent, ref StandAttemptEvent args)
+    {
+        // Prevent standing up if energycrit
+        if (args.Cancelled || !ent.Comp.Dead)
+            return;
+
+        EnsureComp<KnockedDownComponent>(ent);
+        args.Cancel();
     }
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
@@ -102,6 +124,11 @@ public sealed class SiliconDeathSystem : EntitySystem
             _combat.SetInCombatMode(uid, false);
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, false);
         }
+
+        // Knock down
+        _standing.Down(uid);
+        EnsureComp<KnockedDownComponent>(uid);
+
         // Goobstation End - Energycrit
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
@@ -137,6 +164,10 @@ public sealed class SiliconDeathSystem : EntitySystem
         // Enable combat mode
         if (TryComp<CombatModeComponent>(uid, out var combatMode))
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
+
+        // Let you stand again
+        RemComp<KnockedDownComponent>(uid);
+
         // Goobstation End - Energycrit
 
         siliconDeadComp.Dead = false;
