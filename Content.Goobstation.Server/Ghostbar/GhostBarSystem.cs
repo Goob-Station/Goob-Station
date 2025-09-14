@@ -13,6 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Ghostbar.Components;
+using Content.Server._CorvaxGoob.Objectives.Components;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -115,6 +116,7 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
         _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
+        _entityManager.EnsureComponent<AntagObjectiveImmunityComponent>(mobUid); // CorvaxGoob antag-target-immunity
 
         if (mind.Objectives.Count == 0)
             _mindSystem.WipeMind(player);
