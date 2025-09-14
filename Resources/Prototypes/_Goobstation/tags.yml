@@ -322,6 +322,9 @@
   id: ItemPickaxe
 
 - type: Tag
+  id: ImprovisedShotgun
+
+- type: Tag
   id: IndustrialMech
 
 - type: Tag
@@ -501,6 +504,9 @@
 
 - type: Tag
   id: SnapPop
+
+- type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
 
 - type: Tag
   id: SoulTapped
