@@ -70,7 +70,6 @@
   description: survival-description
   rules:
     - MeteorSwarmScheduler
-    -
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler

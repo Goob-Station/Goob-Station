@@ -118,7 +118,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         ProcessCrawlStateChange(uid, comp, comp.Enabled);
     }
 
-    // Door detection methods removed as they're no longer needed
 
     private void OnAttemptAttack(EntityUid uid, CrawlUnderFloorComponent comp, AttackAttemptEvent args)
     {
