@@ -14897,3 +14897,73 @@ Entries:
       message: Boggle and Lehmin plushes are here.
   id: 1657
   time: '2025-09-13T18:53:58.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: >-
+        Head Revolutionaries must now speak a language their target actually
+        understands to convert.
+  id: 1658
+  time: '2025-09-13T23:24:56.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Syndiedrobe to uplink
+  id: 1659
+  time: '2025-09-14T03:50:51.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Cargo biomass crate
+  id: 1660
+  time: '2025-09-14T10:33:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed devils being able to offer handless mobs handshakes, or do so when
+        they have no hands.
+  id: 1661
+  time: '2025-09-14T10:33:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Secret doors now show their condition on inspection (Like regular walls
+        do)
+  id: 1662
+  time: '2025-09-14T10:39:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Trevor can now access Sec, Brig and Maints again
+  id: 1663
+  time: '2025-09-14T10:39:49.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Tranquilizer shotgun shells are no longer contraband for Zookeepers.
+  id: 1664
+  time: '2025-09-14T10:46:41.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        Emergency Medipens now contain 5u Atropine, Epinephrine, and Tranexamic
+        Acid.
+  id: 1665
+  time: '2025-09-14T10:49:01.0000000+00:00'
+- author: troytroy400
+  changes:
+    - type: Add
+      message: Player can select new New York accent in game!
+  id: 1666
+  time: '2025-09-14T11:06:52.0000000+00:00'
+- author: LFMoth
+  changes:
+    - type: Add
+      message: >-
+        It's bring-casual-clothes-to-work day! Most command members now have the
+        choice of using their own, custom-made summer clothing.
+  id: 1667
+  time: '2025-09-14T15:21:49.0000000+00:00'
