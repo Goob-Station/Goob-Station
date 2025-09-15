@@ -3,7 +3,6 @@ using Content.Shared._EinsteinEngines.Power.Components;
 using Content.Shared._EinsteinEngines.Power.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Charge;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -47,7 +46,7 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinker) ||
             _whitelist.IsBlacklistPass(drinker.Blacklist, ent) ||
-            !SearchForSource(args.User, out _) ||
+            !SearchForDrinker(args.User, out _) ||
             !SearchForSource(ent, out _))
             return;
 
@@ -83,5 +82,30 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
         // We found nothing
         source = null;
         return false;
+    }
+
+    private bool SearchForDrinker(EntityUid ent, [NotNullWhen(true)] out EntityUid? drinker)
+    {
+        drinker = null;
+
+        // Do we have a power cell slot
+        if (TryComp<PowerCellSlotComponent>(ent, out var slotId))
+        {
+            // Do we have a battery to charge?
+            if (HasComp<ItemSlotsComponent>(ent) &&
+                _itemSlots.TryGetSlot(ent, slotId.CellSlotId, out var slot) &&
+                slot.HasItem && HasComp<BatteryDrinkerSourceComponent>(slot.Item))
+            {
+                drinker = slot.Item;
+                return true;
+            }
+
+            // We don't have a battery to charge
+            return false;
+        }
+
+        // We don't have a power cell slot, assume it's inside us
+        drinker = ent;
+        return true;
     }
 }
