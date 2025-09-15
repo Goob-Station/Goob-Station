@@ -143,6 +143,7 @@
   - type: Tag
     tags:
     - HudMedical
+    - CorgiWearable
     - WhitelistChameleon
 
 - type: entity
@@ -158,6 +159,7 @@
   - type: Tag
     tags:
     - HudSecurity
+    - CorgiWearable
     - WhitelistChameleon
 
 - type: entity
@@ -171,6 +173,10 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/command.rsi
   - type: ShowJobIcons
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -186,6 +192,10 @@
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
   - type: SolutionScanner
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -313,6 +323,10 @@
   - type: ShowSyndicateIcons
   - type: ShowJobIcons # Goob
   - type: ShowMindShieldIcons # Goob
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
@@ -331,6 +345,10 @@
     - SiliconRadiation # Goobstation - IPCs
   - type: ShowJobIcons # Goob
   - type: ShowMindShieldIcons # Goob
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
@@ -347,6 +365,11 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medpatch.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+    - HudMedical
 
 - type: entity
   parent: [ClothingEyesEyepatchHudMedical, ClothingHeadEyeBaseFlipped]
@@ -363,6 +386,11 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/secpatch.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+    - HudSecurity
 
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]

@@ -2265,7 +2265,7 @@ entities:
     - type: Transform
       pos: 5.5,-5.5
       parent: 1
-- proto: ExplosivePayload
+- proto: ShrapnelPayload
   entities:
   - uid: 357
     components:

@@ -1,13 +1,10 @@
 using Content.Goobstation.Shared.Augments;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
-using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Augments;
 
@@ -16,8 +13,6 @@ public sealed class AugmentToolPanelSystem : SharedAugmentToolPanelSystem
     [Dependency] private readonly AugmentPowerCellSystem _augmentPowerCell = default!;
     [Dependency] private readonly AugmentSystem _augment = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
@@ -33,7 +28,8 @@ public sealed class AugmentToolPanelSystem : SharedAugmentToolPanelSystem
         _partQuery = GetEntityQuery<BodyPartComponent>();
 
         SubscribeLocalEvent<AugmentToolPanelComponent, AugmentLostPowerEvent>(OnLostPower);
-        Subs.BuiEvents<AugmentToolPanelComponent>(AugmentToolPanelUiKey.Key, subs =>
+        Subs.BuiEvents<AugmentToolPanelComponent>(AugmentToolPanelUiKey.Key,
+            subs =>
         {
             subs.Event<AugmentToolPanelSwitchMessage>(OnSwitchTool);
         });
@@ -59,23 +55,24 @@ public sealed class AugmentToolPanelSystem : SharedAugmentToolPanelSystem
     /// </summary>
     public void SwitchTool(Entity<AugmentToolPanelComponent> augment, EntityUid? tool, EntityUid body)
     {
-        if (!_handsQuery.TryComp(body, out var hands))
+        if (!_handsQuery.TryComp(body, out var handsComp))
             return;
 
         // organs get parented to the body part
         // the arm's symmetry is the same as the hand
         var partUid = Transform(augment).ParentUid;
         var part = _partQuery.Comp(partUid);
-        var location = part.Symmetry switch {
+        var location = part.Symmetry switch
+        {
             BodyPartSymmetry.None => HandLocation.Middle,
             BodyPartSymmetry.Left => HandLocation.Left,
-            BodyPartSymmetry.Right => HandLocation.Right
+            BodyPartSymmetry.Right => HandLocation.Right,
+            _ => HandLocation.Middle,
         };
 
-        // TODO: need to update this after upstream merge to use nu hands
-        foreach (var hand in hands.Hands.Values)
+        foreach (var (hand, handLocation) in handsComp.Hands)
         {
-            if (hand.Location == location)
+            if (handLocation.Location == location)
             {
                 SwitchTool(augment, tool, body, hand);
                 return;
@@ -89,9 +86,9 @@ public sealed class AugmentToolPanelSystem : SharedAugmentToolPanelSystem
     /// <summary>
     /// Switches to a tool using the specified hand.
     /// </summary>
-    public void SwitchTool(Entity<AugmentToolPanelComponent> augment, EntityUid? desiredTool, EntityUid body, Hand hand)
+    public void SwitchTool(Entity<AugmentToolPanelComponent> augment, EntityUid? desiredTool, EntityUid body, string hand)
     {
-        if (hand.HeldEntity is {} item)
+        if (_hands.GetHeldItem(body, hand) is {} item)
         {
             // if we have a tool that's currently out, deposit it back into the storage
             if (RemComp<AugmentToolPanelActiveItemComponent>(item))

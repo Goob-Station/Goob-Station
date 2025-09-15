@@ -744,7 +744,7 @@ public sealed class FaxSystem : EntitySystem
 
         var entityToSpawn = printout.PrototypeId.Length == 0 ? component.PrintPaperId.ToString() : printout.PrototypeId;
         var coordinates = _transform.GetMapCoordinates(uid); // Goobstation
-        var printed = EntityManager.SpawnEntity(entityToSpawn, coordinates);
+        var printed = Spawn(entityToSpawn, coordinates);
 
         if (TryComp<PaperComponent>(printed, out var paper))
         {

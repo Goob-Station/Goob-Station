@@ -254,7 +254,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             var otherEnt = args.OtherEntity;
 
-            if (!EntityManager.TryGetComponent(otherEnt, out FlammableComponent? flammable))
+            if (!TryComp(otherEnt, out FlammableComponent? flammable))
                 return;
 
             //Only ignite when the colliding fixture is projectile or ignition.
