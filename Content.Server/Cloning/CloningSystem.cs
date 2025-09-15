@@ -89,6 +89,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Radio.Components; // Goobstation
+using Content.Shared.Radio.EntitySystems; // Goobstation
 
 namespace Content.Server.Cloning;
 
@@ -180,6 +182,42 @@ public sealed partial class CloningSystem : EntitySystem
             componentsToCopy.ExceptWith(statusComps!);
             componentsToEvent.ExceptWith(statusComps!);
         }
+
+        // Goobstation Start
+        // Ensure EncryptionKeyHolderComponent is in the components to copy if it exists on the original
+        if (HasComp<EncryptionKeyHolderComponent>(original) &&
+            TryComp<EncryptionKeyHolderComponent>(original, out var originalKeyHolder) &&
+            TryComp<EncryptionKeyHolderComponent>(clone, out var cloneKeyHolder))
+        {
+            // The component is already copied by the cloning system, we just need to copy the keys
+            var originalContainer = originalKeyHolder.KeyContainer;
+            var cloneContainer = cloneKeyHolder.KeyContainer;
+
+            // Clear any existing keys in the clone
+            _container.CleanContainer(cloneContainer);
+
+            // Copy each key from original to clone
+            foreach (var key in originalContainer.ContainedEntities.ToList())
+            {
+                if (!Exists(key))
+                    continue;
+
+                // Create a new instance of the key
+                if (MetaData(key).EntityPrototype is { } proto)
+                {
+                    var newKey = Spawn(proto.ID, Transform(clone).Coordinates);
+                    if (!_container.Insert(newKey, cloneContainer))
+                    {
+                        Log.Warning($"Failed to insert key {ToPrettyString(newKey)} into clone's container");
+                        Del(newKey);
+                    }
+                }
+            }
+            // Update the encryption channels on the clone
+            var encSystem = EntityManager.System<EncryptionKeySystem>();
+            encSystem.UpdateChannels(clone, cloneKeyHolder);
+        }
+        // Goobstation End
 
         foreach (var componentName in componentsToCopy)
         {

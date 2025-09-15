@@ -7,8 +7,10 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared._EinsteinEngines.Language.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._EinsteinEngines.Language.Components;
 
 namespace Content.Shared._EinsteinEngines.Revolutionary;
 
@@ -20,6 +22,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     private LocalizedDatasetPrototype? _speechLocalization;
 
@@ -87,7 +90,14 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         if (user == target)
             return;
 
-        SpeakPropaganda(converter, user);
+        if (SpeakPropaganda(converter, user)
+            // Note: this check is skipped if the speaker speaks lines and somehow doesn't have a languageSpeaker component.
+            && EntityManager.TryGetComponent<LanguageSpeakerComponent>(user, out var speakerComponent)) // returns true if the chosen conversion method uses a spoken line of text
+        {
+            //check if spoken language can be understood by target
+            if (!_language.CanUnderstand(target, speakerComponent.CurrentLanguage))
+                return; //the target does not understand the speaker's language, so the conversion fails
+        }
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
             user,

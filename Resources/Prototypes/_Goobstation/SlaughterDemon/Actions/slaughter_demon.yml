@@ -30,6 +30,7 @@
     itemIconStyle: NoItem
   - type: TargetAction
     interactOnMiss: false
+    range: 15
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:DemonicWhisperEvent
