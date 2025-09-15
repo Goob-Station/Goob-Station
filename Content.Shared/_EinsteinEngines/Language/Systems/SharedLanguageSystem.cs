@@ -1,6 +1,7 @@
-using System.Text;
+using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
+using System.Text;
 
 namespace Content.Shared._EinsteinEngines.Language.Systems;
 
@@ -75,5 +76,21 @@ public abstract class SharedLanguageSystem : EntitySystem
         seed = seed ^ (_ticker.RoundId * 127);
         var random = seed * 1103515245 + 12345;
         return min + Math.Abs(random) % (max - min + 1);
+    }
+
+    public virtual bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
+    {
+        if (language == PsychomanticPrototype || language == UniversalPrototype || TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) && uni.Enabled)
+            return true;
+
+        return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
+    }
+
+    public virtual bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return false;
+
+        return ent.Comp.SpokenLanguages.Contains(language);
     }
 }
