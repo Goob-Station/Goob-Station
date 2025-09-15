@@ -22,6 +22,18 @@
             "name": "overlay-3"
         },
         {
+            "name": "base-mech"
+        },
+		{
+            "name": "overlay-mech-1"
+        },
+        {
+            "name": "overlay-mech-2"
+        },
+        {
+            "name": "overlay-mech-3"
+        },
+        {
             "name": "display"
         }
     ]

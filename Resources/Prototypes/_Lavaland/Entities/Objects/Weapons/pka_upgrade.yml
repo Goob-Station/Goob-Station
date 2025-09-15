@@ -113,11 +113,11 @@
     layers:
     - state: base
     - state: overlay-1
-      color: "#bbf134"
+      color: "#ffffa6"
     - state: overlay-2
-      color: "#07901b"
+      color: "#ffffa6"
     - state: overlay-3
-      color: "#9bf134"
+      color: "#ffffa6"
   - type: GunUpgrade
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-light

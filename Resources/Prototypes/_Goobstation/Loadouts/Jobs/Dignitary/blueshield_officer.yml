@@ -44,6 +44,15 @@
   equipment:
     head: ClothingHeadHatUshankaBlueshield
 
+- type: loadout
+  id: BlueshieldOfficerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
 # RA - N14 items ported for Ranger job
 - type: loadout
   id: RedAstraRangerReconBeret
@@ -115,6 +124,15 @@
   id: BlueshieldOfficerInnerBlueshieldShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+- type: loadout
+  id: BlueshieldOfficerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
 
 # RA
 - type: loadout
@@ -217,6 +235,21 @@
   id: RedAstraRangerArmorSpider
   equipment:
     outerClothing: N14ClothingOuterRangerPrice
+
+# Gloves
+- type: loadout
+  id: CombatEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCombat
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CombatGloves
+  equipment:
+    gloves: ClothingHandsGlovesCombat
 
 # Neck
 - type: loadout

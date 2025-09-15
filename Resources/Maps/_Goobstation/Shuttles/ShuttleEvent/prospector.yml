@@ -46,19 +46,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
-  format: 7
-  category: Grid
-  engineVersion: 247.2.0
-  forkId: ""
-  forkVersion: ""
-  time: 04/15/2025 15:55:46
-  entityCount: 232
-maps: []
-grids:
-- 201
-orphans:
-- 201
-nullspace: []
+  format: 6
+  postmapinit: false
 tilemap:
   0: Space
   28: FloorDark
@@ -70,13 +59,24 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 8
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
+    - type: LoadedMap
   - uid: 201
     components:
     - type: MetaData
       name: Prospector
     - type: Transform
       pos: 0.13793182,0.67738855
-      parent: invalid
+      parent: 8
     - type: MapGrid
       chunks:
         -1,-1:
@@ -248,17 +248,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -276,10 +268,6 @@ entities:
           moles:
           - 20.078888
           - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -358,7 +346,7 @@ entities:
       pos: -4.5,-1.5
       parent: 201
     - type: Door
-      secondsUntilStateChange: -1300.4465
+      secondsUntilStateChange: -1284.1216
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1280,10 +1268,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 141
     components:
     - type: Transform
@@ -1519,6 +1503,33 @@ entities:
     - type: Transform
       pos: 0.51698303,-6.477809
       parent: 201
+- proto: SignalButtonDirectional
+  entities:
+  - uid: 23
+    components:
+    - type: Transform
+      pos: -1.5,0.5
+      parent: 201
+    - type: DeviceLinkSource
+      linkedPorts:
+        229:
+        - Pressed: Toggle
+        230:
+        - Pressed: Toggle
+        231:
+        - Pressed: Toggle
+  - uid: 28
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-3.5
+      parent: 201
+    - type: DeviceLinkSource
+      linkedPorts:
+        171:
+        - Pressed: Toggle
+        206:
+        - Pressed: Toggle
 - proto: SignShipDock
   entities:
   - uid: 151
@@ -1625,6 +1636,52 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: TwoWayLever
+  entities:
+  - uid: 169
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 201
+    - type: TwoWayLever
+      state: Right
+    - type: DeviceLinkSource
+      linkedPorts:
+        16:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        15:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        14:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+  - uid: 179
+    components:
+    - type: Transform
+      pos: -2.5,-0.5
+      parent: 201
+    - type: DeviceLinkSource
+      linkedPorts:
+        144:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        17:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        19:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+        20:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
 - proto: VendingMachineTankDispenserEVA
   entities:
   - uid: 116

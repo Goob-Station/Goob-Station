@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -38,6 +39,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Armor
     coverage:
     - Head
@@ -47,6 +52,12 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   abstract: true
@@ -120,14 +131,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 3
     energy: 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -155,6 +165,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - Envirohelm
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -222,14 +239,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -317,14 +333,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -397,14 +412,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -480,14 +494,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -577,14 +590,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -667,14 +679,13 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -770,14 +781,13 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking

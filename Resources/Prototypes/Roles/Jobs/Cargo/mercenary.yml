@@ -23,3 +23,13 @@
   storage:
     back:
     - SecHypo # Goobstation
+
+- type: chameleonOutfit
+  id: MercenaryChameleonOutfit
+  job: Mercenary
+  equipment:
+    ears: ClothingHeadsetAltMercenary
+    gloves: ClothingHandsGlovesCombat
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    id: MercenaryPDA
+    shoes: ClothingShoesBootsJack

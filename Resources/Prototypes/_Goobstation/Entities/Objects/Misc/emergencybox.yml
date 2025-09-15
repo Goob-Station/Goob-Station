@@ -5,6 +5,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -66,6 +72,9 @@
           - ExtendedEmergencyOxygenTank
           - ClownEmergencyOxygenTank
           - EmergencyNitrogenTank
+          - ExtendedEmergencyNitrogenTank
+          - EmergencyPlasmaTank
+          - ExtendedEmergencyPlasmaTank
       mask:
         ejectOnInteract: false
         whitelist:
@@ -150,6 +159,18 @@
         whitelist:
           tags:
           - EmergencyNitrogenTank
+      battery:
+        whitelist:
+          tags:
+          - DisposableBattery
+      welder:
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        whitelist:
+          tags:
+          - CableCoil
 
 
 - type: entity
@@ -246,7 +267,7 @@
       tank:
       - ExtendedEmergencyOxygenTankFilled
       mask:
-      - ClothingMaskBreath
+      - ClothingMaskGasSecurity
       emergencypen:
       - EmergencyMedipen
       spacepen:
@@ -270,7 +291,7 @@
       tank:
       - ExtendedEmergencyNitrogenTankFilled
       mask:
-      - ClothingMaskBreath
+      - ClothingMaskGasSecurity
       emergencypen:
       - EmergencyMedipen
       spacepen:
@@ -463,6 +484,28 @@
 
 - type: entity
   parent: BoxSurvivalSlots
+  id: BoxMimeMothSlots
+  suffix: Mime, Emergency Moth
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodBreadBaguetteCotton
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlots
   id: BoxMimeSlotsNitrogen
   suffix: Mime, Emergency N2
   components:
@@ -484,3 +527,229 @@
       - SpaceMedipen
   - type: Label
     currentLabel: reagent-name-nitrogen
+
+
+## EE PLASMAMEN
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsPlasma
+  suffix: Standard Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSlotsEngineering
+  id: BoxSurvivalSlotsEngineeringPlasma
+  suffix: Extended Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+  - type: Sprite
+    state: box_extend
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsSecurityPlasma
+  suffix: Security Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskGasSecurity
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+  - type: Sprite
+    state: box_sec
+
+- type: entity
+  parent: BoxSurvivalSlotsMedical
+  id: BoxSurvivalSlotsMedicalPlasma
+  suffix: Medical Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+  - type: Sprite
+    state: box_med
+
+- type: entity
+  parent: BoxHugSlots
+  id: BoxHugSlotsPlasma
+  suffix: Emergency Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSlotsSyndicate
+  id: BoxSurvivalSlotsSyndicatePlasma
+  suffix: Syndicate Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+  - type: Sprite
+    state: box_syndie
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxMimeSlotsPlasma
+  suffix: Mime, Emergency Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkMilkBottleFull
+      nutriblock:
+      - FoodBreadBaguette
+      flare:
+      - Flare
+      tank:
+      - EmergencyPlasmaTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsSilicon
+  name: silicon survival box
+  description: It's a box with basic tools for self-repair inside.
+  components:
+  - type: ContainerContainer
+    containers:
+      battery: !type:ContainerSlot
+      flare: !type:ContainerSlot
+      welder: !type:ContainerSlot
+      cable: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      battery:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - DisposableBattery
+      flare:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - Flare
+      welder:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - CableCoil
+  - type: ContainerFill
+    containers:
+      battery:
+      - BatteryDisposable
+      flare:
+      - Flare
+      welder:
+      - WelderMini
+      cable:
+      - CableApcStack10
+  - type: Sprite
+    state: box_silicon

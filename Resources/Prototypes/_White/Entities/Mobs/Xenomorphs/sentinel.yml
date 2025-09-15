@@ -1,0 +1,71 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphSentinel
+  name: xenomorph sentinel
+  description: A specialized specimen designed to hit targets at a distance. Particularly dangerous in narrow corridors and confined spaces.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/sentinel.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: _White/Objects/Misc/handcuffs.rsi
+      state: body-overlay-xenomorph
+      visible: false
+  - type: Xenomorph
+    caste: Sentinel
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnResinWeedNode
+  - type: VentCrawler
+  - type: Cuffable
+  - type: Body
+    prototype: XenomorphSentinel
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      225: Critical
+      240: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.9
+      170: 0.7
+      195: 0.6
+  # - type: GuideHelp
+  #   guides:
+  #   - XenomorphSentinel
+
+- type: entity
+  parent: BaseMobXenomorphSentinel
+  id: MobXenomorphSentinel
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-sentinel-name
+    description: ghost-role-information-xenomorph-sentinel-description
+    rules: ghost-role-information-rules-default-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphSentinel]
+  id: MobXenomorphSentinelDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.2
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.7
+      170: 0.6
+      195: 0.5

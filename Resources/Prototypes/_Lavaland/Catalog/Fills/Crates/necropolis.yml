@@ -54,4 +54,4 @@
   components:
   - type: StorageFill
     contents:
-      - id: LavalandVampirismCrystal
+      - id: PKAUpgradeLavalandVampirismCrystal

@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticFleshSurgery
+  name: flesh surgery
+  description: Remove a random organ from someone, or heal your teammates.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: flesh_surgery
+    checkCanInteract: true
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:EventHereticFleshSurgery
+  - type: HereticAction
+    messageLoc: heretic-speech-flesh-surgery
