@@ -1755,8 +1755,8 @@
   - MercenaryHolster
 
 - type: loadoutGroup
-  id: MercenaryLockertelepoerter
-  name: loadout-group-mercenary-telepoerter
+  id: MercenaryLockerteleporter
+  name: loadout-group-mercenary-teleporter
   minLimit: 0
   maxLimit: 1
   loadouts:
