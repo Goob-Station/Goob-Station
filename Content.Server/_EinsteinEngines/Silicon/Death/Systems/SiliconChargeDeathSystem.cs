@@ -51,7 +51,8 @@ public sealed class SiliconDeathSystem : EntitySystem
 
     private void OnSiliconChargeStateUpdate(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, SiliconChargeStateUpdateEvent args)
     {
-        if (!_silicon.TryGetSiliconBattery(uid, out var batteryComp))
+        // Goobstation - Added batteryEnt argument
+        if (!_silicon.TryGetSiliconBattery(uid, out var batteryComp, out var batteryEnt))
         {
             SiliconDead(uid, siliconDeadComp, batteryComp, uid);
             return;
@@ -60,10 +61,12 @@ public sealed class SiliconDeathSystem : EntitySystem
         if (args.ChargePercent == 0 && siliconDeadComp.Dead)
             return;
 
+        // Goobstation Start - Added batteryEnt arguments
         if (args.ChargePercent == 0 && !siliconDeadComp.Dead)
-            SiliconDead(uid, siliconDeadComp, batteryComp, uid);
+            SiliconDead(uid, siliconDeadComp, batteryComp, batteryEnt.Value);
         else if (args.ChargePercent != 0 && siliconDeadComp.Dead)
-            SiliconUnDead(uid, siliconDeadComp, batteryComp, uid);
+            SiliconUnDead(uid, siliconDeadComp, batteryComp, batteryEnt.Value);
+        // Goobstation End - Added batteryEnt arguments
     }
 
     /// <Goobstation> Energycrit </Goobstation>

@@ -66,17 +66,22 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: true
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        locked: true
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: BatterySlotRequiresLock
-    itemSlot: cell_slot
+  # Goobstation Start - Energycrit
+  # - type: PowerCellSlot
+  #   cellSlotId: cell_slot
+  #   fitsInCharger: true
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       locked: true
+  #       name: power-cell-slot-component-slot-name-default
+  #       startingItem: PowerCellMedium
+  # - type: BatterySlotRequiresLock
+  #   itemSlot: cell_slot
+  - type: Battery # Power cell slot replaced with high capacity battery
+    maxCharge: 1080
+    startingCharge: 1080
+  # Goobstation End - Energycrit
   - type: EncryptionHolderRequiresLock
   # Goobstation - Energycrit
   #- type: SiliconEmitSoundOnDrained
@@ -145,7 +150,7 @@
       3: 1
       2: 0.80
       1: 0.45
-      0: 0.40
+      0: 0.40 # Goobstation - Energycrit
   - type: BatteryDrinker
     blacklist: # Goobstation - Energycrit
       tags:
