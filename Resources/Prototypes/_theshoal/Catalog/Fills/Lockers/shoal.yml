@@ -1,0 +1,26 @@
+- type: entity
+  id: LockerShoalMercFilled
+  suffix: Filled
+  parent: LockerShoalMerc
+  components:
+  - type: StorageFill
+    contents: 
+    - id: ClothingEyesGlassesMeson
+    - id: KukriKnife
+    - id: HandheldGPSBasic
+    - id: RadioHandheld
+    - id: OreBag
+    - id: Pickaxe
+    - id: ClothingBeltUtilityFilled
+    - id: LavalandJaunter
+    - id: ShelterCapsule
+    - id: MineralScanner
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingShoesBootsMagMercenary
+    - id: FlashlightSeclite
+    - id: MagazinePistol
+    - id: MagazinePistol
+    - id: WeaponPistolSLB1
+    - id: Weaponselectshoal
+    - id: Meleeselectshoal
+    - id: hardsuitselectshoal

@@ -1961,6 +1961,71 @@
       - state: equipped-decor-epaulets
         color: "#ffce5b"
 
+- type: entity #start of shoal changes
+  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  id: ClothingUniformJumpsuitMilitaryTurtleneckShoalMercenary
+  name: Shoal mercenary jumpsuit
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#412f24"
+    - state: icon-base-top-turtleneck
+      color: "#672c50"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+      color: "#ffce5b"
+    - state: icon-decor-shoulder-patch
+      color: "#36672c"
+    - state: icon-decor-epaulets
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#412f24"
+      - state: inhand-left-base-top-turtleneck
+        color: "#672c50"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-left-decor-shoulder-patch
+        color: "#36672c"
+      - state: inhand-left-decor-epaulets
+        color: "#ffce5b"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#412f24"
+      - state: inhand-right-base-top-turtleneck
+        color: "#672c50"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-right-decor-shoulder-patch
+        color: "#36672c"
+      - state: inhand-right-decor-epaulets
+        color: "#ffce5b"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#412f24"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#672c50"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+        color: "#ffce5b"
+      - state: equipped-decor-shoulder-patch
+        color: "#36672c"
+      - state: equipped-decor-epaulets
+        color: "#ffce5b" #end of shoal changes
+
 - type: entity
   parent: ClothingUniformJumpsuitMercenary
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenarySergeant

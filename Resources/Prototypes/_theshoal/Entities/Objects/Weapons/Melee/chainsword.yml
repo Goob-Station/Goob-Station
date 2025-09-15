@@ -1,0 +1,23 @@
+- type: entity
+  name: handheld chainsword
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: Shoalchainsword
+  description: Absolute overkill...
+  components:
+  - type: Sprite
+    sprite: _theshoal/Objects/Weapons/Melee/chainsword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.7
+    damage:
+      types:
+        Slash: 30
+    soundHit:
+        path: /Audio/Weapons/chainsaw.ogg
+  - type: Item
+    sprite: _theshoal/Objects/Weapons/Melee/chainsword_inhands.rsi
+    storedSprite:
+      state: storage
+      sprite: _theshoal/Objects/Weapons/Melee/chainsword_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
+  - type: DisarmMalus
