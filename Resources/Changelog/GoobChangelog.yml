@@ -14967,3 +14967,13 @@ Entries:
         choice of using their own, custom-made summer clothing.
   id: 1667
   time: '2025-09-14T15:21:49.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Pain will now decay slowly over time.
+    - type: Tweak
+      message: >-
+        Pain medication such as **ibuprofen** or **Epinephrine** will work with
+        the new system as normal.
+  id: 1668
+  time: '2025-09-15T00:32:49.0000000+00:00'
