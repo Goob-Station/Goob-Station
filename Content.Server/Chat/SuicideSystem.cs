@@ -91,6 +91,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
@@ -178,7 +179,8 @@ public sealed class SuicideSystem : EntitySystem
 
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
-        if (_tagSystem.HasTag(victim, CannotSuicideTag))
+        if (_tagSystem.HasTag(victim, CannotSuicideTag)
+            || HasComp<XenomorphPreventSuicideComponent>(victim))
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -229,7 +231,8 @@ public sealed class SuicideSystem : EntitySystem
     /// </summary>
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || HasComp<XenomorphPreventSuicideComponent>(victim))
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
