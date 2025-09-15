@@ -15,20 +15,6 @@ public sealed partial class HauntedSystem : EntitySystem
         SubscribeLocalEvent<HauntedComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnExamined(EntityUid uid, HauntedComponent comp, ExaminedEvent args)
-    {
-        if (HasComp<WraithComponent>(args.Examiner))
-        {
-            var remaining = comp.DeletionTime - _timing.CurTime;
-            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("wraith-already-haunted", ("target", uid))}[/color]");
-            args.PushMarkup($"Expires in: {remaining.Minutes}m {remaining.Seconds}s");
-        }
-    }
-    private void OnMapInit(EntityUid uid, HauntedComponent comp, MapInitEvent args)
-    {
-        comp.DeletionTime = _timing.CurTime + comp.Lifetime;
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -41,5 +27,19 @@ public sealed partial class HauntedSystem : EntitySystem
 
             RemCompDeferred<HauntedComponent>(uid);
         }
+    }
+    private void OnExamined(EntityUid uid, HauntedComponent comp, ExaminedEvent args)
+    {
+        if (HasComp<WraithComponent>(args.Examiner))
+        {
+            var remaining = comp.DeletionTime - _timing.CurTime;
+            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("wraith-already-haunted", ("target", uid))}[/color]");
+            args.PushMarkup($"Expires in: {remaining.Minutes}m {remaining.Seconds}s");
+        }
+    }
+    private void OnMapInit(EntityUid uid, HauntedComponent comp, MapInitEvent args)
+    {
+        Dirty(uid, comp);
+        comp.DeletionTime = _timing.CurTime + comp.Lifetime;
     }
 }

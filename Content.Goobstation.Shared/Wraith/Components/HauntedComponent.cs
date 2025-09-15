@@ -8,7 +8,7 @@ public sealed partial class HauntedComponent : Component
     /// <summary>
     /// How long the Haunted component lasts until it deletes itself.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan Lifetime = TimeSpan.FromMinutes(3);
 
     /// <summary>
