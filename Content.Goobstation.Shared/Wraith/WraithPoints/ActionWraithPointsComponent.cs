@@ -10,4 +10,7 @@ public sealed partial class ActionWraithPointsComponent : Component
     /// </summary>
     [DataField(required: true)]
     public int WpConsume;
+
+    [DataField]
+    public LocId Popup = "wraith-action-generic-fail";
 }

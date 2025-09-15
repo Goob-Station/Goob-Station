@@ -28,18 +28,18 @@ public sealed partial class HauntedSystem : EntitySystem
             RemCompDeferred<HauntedComponent>(uid);
         }
     }
-    private void OnExamined(EntityUid uid, HauntedComponent comp, ExaminedEvent args)
+    private void OnExamined(Entity<HauntedComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<WraithComponent>(args.Examiner))
         {
-            var remaining = comp.DeletionTime - _timing.CurTime;
-            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("wraith-already-haunted", ("target", uid))}[/color]");
-            args.PushMarkup($"Expires in: {remaining.Minutes}m {remaining.Seconds}s");
+            var remaining = ent.Comp.DeletionTime - _timing.CurTime;
+            args.PushMarkup($"[color=mediumpurple]{Loc.GetString("wraith-already-haunted", ("target", ent.Owner))}[/color]");
+            args.PushMarkup($"Expires in: {remaining.Minutes}m {remaining.Seconds}s"); // todo: add proper locstring chud
         }
     }
-    private void OnMapInit(EntityUid uid, HauntedComponent comp, MapInitEvent args)
+    private void OnMapInit(Entity<HauntedComponent> ent, ref MapInitEvent args)
     {
-        Dirty(uid, comp);
-        comp.DeletionTime = _timing.CurTime + comp.Lifetime;
+        ent.Comp.DeletionTime = _timing.CurTime + ent.Comp.Lifetime;
+        Dirty(ent);
     }
 }

@@ -24,6 +24,7 @@ public sealed class WraithPointsSystem : EntitySystem
         SubscribeLocalEvent<WraithPointsComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PassiveWraithPointsComponent, MapInitEvent>(PassiveOnMapInit);
 
+        SubscribeLocalEvent<ActionWraithPointsComponent, ActionAttemptEvent>(OnActionAttempt);
         SubscribeLocalEvent<ActionWraithPointsComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
@@ -65,6 +66,18 @@ public sealed class WraithPointsSystem : EntitySystem
     #endregion
 
     #region Action Handlers
+
+    private void OnActionAttempt(Entity<ActionWraithPointsComponent> ent, ref ActionAttemptEvent args)
+    {
+        var user = args.User;
+
+        if (!TryComp<WraithPointsComponent>(user, out var comp)
+            || comp.WraithPoints < ent.Comp.WpConsume)
+        {
+            _popupSystem.PopupPredicted(Loc.GetString(ent.Comp.Popup), user, user);
+            args.Cancelled = true;
+        }
+    }
 
     private void OnActionPerformed(Entity<ActionWraithPointsComponent> ent, ref ActionPerformedEvent args)
     {

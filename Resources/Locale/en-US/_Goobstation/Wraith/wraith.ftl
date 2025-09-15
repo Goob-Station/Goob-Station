@@ -22,3 +22,5 @@ wraith-salt-reveal = Salt reveal debug
 wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } been haunted.
 
 wraith-banishment = I goida
+
+wraith-action-generic-fail = Not enough WP.
