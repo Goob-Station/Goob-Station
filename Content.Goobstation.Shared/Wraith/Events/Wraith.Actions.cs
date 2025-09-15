@@ -42,6 +42,10 @@ public sealed partial class WraithEvolveEvent : InstantActionEvent
 }
 
 // Here belong all action events for the harbinger wraith :clueless:
+
+public sealed partial class RaiseSkeletonEvent : EntityTargetActionEvent
+{
+}
 public sealed partial class SummonPortalEvent : InstantActionEvent
 {
 }
