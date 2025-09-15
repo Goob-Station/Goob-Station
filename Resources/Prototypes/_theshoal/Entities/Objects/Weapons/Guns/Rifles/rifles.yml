@@ -1,0 +1,64 @@
+- type: entity
+  name: HG-Cruel
+  parent: [BaseWeaponRifle, BaseSecurityCargoContraband]
+  id: WeaponRifleCruel
+  description: A formerly rare caseless rifle once produced by a german rifle company. Now reprinted by the shoal it now has a proper scope. uses 10x24 caseless.
+  components:
+  - type: Sprite
+    sprite: _theshoal/Objects/Weapons/Guns/SMGs/hgcruel.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _theshoal/Objects/Weapons/Guns/SMGs/hgcruel.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+    minAngle: 30
+    maxAngle: 43
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - SemiAuto
+    burstFireRate: 14
+  - type: GunWieldBonus
+    minAngle: -28
+    maxAngle: -35 # goob
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineCaselessRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeCaselessRifle
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9 # goob
+    sprintModifier: 0.9 # goob
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.2
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

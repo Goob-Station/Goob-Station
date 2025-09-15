@@ -1,0 +1,31 @@
+- type: entity
+  name: mace
+  parent: [BaseItem, BaseSecurityContraband]
+  id: Shoalmace
+  description: A brutal steel mace made for law enforcement as a companion to the stunbaton.
+  components:
+  - type: Sprite
+    sprite: _theshoal/Objects/Weapons/Melee/mace.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 1.5
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - Truncheon
+  - type: Clothing
+    sprite: _theshoal/Objects/Weapons/Melee/mace.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Appearance
+  - type: StaticPrice
+    price: 80

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by jack-thedragon95",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "shoal_blank"
+    },
+    {
+      "name": "shoal_astra"
+    },
+    {
+      "name": "shoal_NT"
+    },
+    {
+      "name": "shoal_merc"
+    },
+    {
+      "name": "shoal_haruspex"
+    }
+  ]
+}

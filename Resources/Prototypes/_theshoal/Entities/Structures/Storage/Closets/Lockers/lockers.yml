@@ -1,0 +1,15 @@
+- type: entity
+  id: LockerShoalMerc
+  name: Shoal merc locker
+  description: A shoal mercenary locker a wax seal and parchment scroll ensure the quality of the locker and contents inside.
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _theshoal/Structures/Storage/closet.rsi
+  - type: AccessReader
+    access: [["Mercenary"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: shoalmerc
+    stateDoorOpen: shoalmerc_open
+    stateDoorClosed: shoalmerc_door

@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Based off TGstation sprites (they didnt look for the original and im gonna be blunt looking for the source of 10-20 year old sprites myself would be imposible) also had to slip in the locked and unlocked sprites in here or else the engine shits itself",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "shoalmerc"
+        },
+        {
+            "name": "shoalmerc_door"
+        },
+        {
+            "name": "shoalmerc_open"
+        },
+		{
+            "name": "locked" 
+        },
+		{
+            "name": "unlocked"
+        },
+		{
+			"name": "welded"
+		}
+    ]
+}

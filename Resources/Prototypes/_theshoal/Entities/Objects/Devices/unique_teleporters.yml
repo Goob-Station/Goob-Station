@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseLockerTeleporter
+  id: ShoalmercLockerTeleporter
+  name: Shoal merc locker teleporter
+  description: Device that allows you to request delivery of blueshield officer locker.
+  components:
+  - type: Sprite
+    state: shoal
+  - type: SpawnItemsOnUse
+    items: 
+    - id: LockerShoalMercFilled

@@ -1,0 +1,48 @@
+- type: entity
+  parent: BasePDA
+  id: ShoalMercPDA
+  name: shoal mercenary PDA
+  description: A shoal pda with the mercenary module attached it smells of blood and gun powder.
+  components:
+  - type: Pda
+    id: ShoalMercIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda_shoalmerc
+  - type: PdaBorderColor
+    borderColor: "#212a3e"
+    accentVColor: "#53c83e"
+  - type: Icon
+    state: pda-shoalmerc #had to put sprites in base game files instead of the "_theshoal" folder since this ancient code didnt expect peeps to create '_ folders' to sort shit
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: ShoalharuspexPDA
+  name: haruspex PDA
+  description: A shoal pda with the traveling haruspex module attached it smells of scented candle wax.
+  components:
+  - type: Pda
+    id: ShoalMercIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda_shoalharuspex
+  - type: PdaBorderColor
+    borderColor: "#212a3e"
+    accentVColor: "#3150af"
+  - type: Icon
+    state: pda_shoalharuspex #had to put sprites in base game files instead of the "_theshoal" folder since this ancient code didnt expect peeps to create '_ folders' to sort shit
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - MedTekCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DeltaV

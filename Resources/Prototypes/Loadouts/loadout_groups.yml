@@ -1705,6 +1705,7 @@
   loadouts:
   - MercenaryJumpsuit
   - MercenarySergeantJumpsuit
+  - MercenaryShoalJumpsuit
 
 - type: loadoutGroup
   id: MercenaryBackpackGroup
@@ -1714,6 +1715,7 @@
   loadouts:
   - MercenaryBackpack
   - MercenarySatchel
+  - MercenaryLeatherSatchel
   - MercenaryDuffel
 
 - type: loadoutGroup
@@ -1751,6 +1753,21 @@
   loadouts:
   - MercenaryRig
   - MercenaryHolster
+
+- type: loadoutGroup
+  id: MercenaryLockertelepoerter
+  name: locker teleporter
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutToolsShoalmerclockertele
+
+- type: loadoutGroup
+  id: MercenaryPDA
+  name: PDA
+  loadouts:
+  - MercPDA
+  - ShoalMercPDA
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMerc

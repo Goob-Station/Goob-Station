@@ -1,0 +1,44 @@
+- type: entity
+  name: spike thrower 
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityCargoContraband]
+  id: WeaponSpikethrower
+  description: A formally living yet still iconic shoal "firearm" remade using stolen PKA tech.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _theshoal/Objects/Weapons/Guns/Battery/Spikethrower.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _the/Objects/Weapons/Guns/Battery/Spikethrower.rsi
+  - type: Gun
+    burstfireRate: 2
+    selectedMode: burst
+    availableModes:
+    - burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+    shotsPerBurst: 2
+  - type: ProjectileBatteryAmmoProvider
+    proto: RapidBulletKinetic
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Slash: 12
+    angle: 0
+    wideAnimationRotation: -90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^

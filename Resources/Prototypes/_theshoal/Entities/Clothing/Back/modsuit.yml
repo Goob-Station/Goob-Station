@@ -1,0 +1,42 @@
+- type: entity
+  parent: [ClothingModsuitStandard, BaseSecurityContraband]
+  id: ClothingModsuitShoal
+  name: battle carapace mkII control unit
+  description: From space nazies to solgov to the amish who managed to send a threat via horse. this ancient battle suit has seen it all.
+  components:
+  - type: Appearance
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+  - type: Sprite
+    sprite: _theshoal/Clothing/Back/Modsuits/battlemk2.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetShoal
+      gloves: ClothingModsuitGauntletsShoal
+      outerClothing: ClothingModsuitChestplateShoal
+      shoes: ClothingModsuitBootsShoal
+  - type: Construction
+    graph: Modsuit
+    node: standard
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitShoal
+  id: ClothingModsuitShoalPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell

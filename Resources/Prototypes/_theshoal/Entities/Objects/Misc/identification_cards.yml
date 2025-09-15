@@ -1,0 +1,27 @@
+- type: entity
+  parent: IDCardStandard
+  id: ShoalMercIDCard
+  name: shoal mercenary ID card
+  components:
+  - type: Sprite
+    sprite: _theshoal/Objects/Misc/id_cards.rsi
+    layers:
+    - state: shoal_astra
+    - state: shoal_merc
+  - type: PresetIdCard
+    job: Mercenary
+
+- type: entity
+  parent: IDCardStandard
+  id: ShoalharuspexIDCard
+  name: haruspex ID card
+  components:
+  - type: Sprite
+    sprite: _theshoal/Objects/Misc/id_cards.rsi
+    layers:
+     - state: shoal_blank
+     - state: shoal_haruspex
+  - type: PresetIdCard
+    job: ERTMedical
+  - type: NanoChatCard # DeltaV
+  listNumber: false
