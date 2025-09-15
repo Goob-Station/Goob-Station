@@ -1,0 +1,17 @@
+- type: reagent
+  parent: Nocturine
+  id: NocturineWonderprod
+  name: reagent-name-nocturine-wonderprod
+  desc: reagent-desc-nocturine-wonderprod
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        # this intentionally has no yowie condition so abductors can sleep disgruntled yowies
+        - !type:ReagentThreshold
+          reagent: NocturineWonderprod
+          min: 8
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Add

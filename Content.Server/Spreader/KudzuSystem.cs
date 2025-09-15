@@ -48,7 +48,7 @@ public sealed class KudzuSystem : EntitySystem
                 component.GrowthLevel = 3;
 
             component.GrowthLevel = Math.Max(1, component.GrowthLevel - growthDamage);
-            if (EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
+            if (TryComp<AppearanceComponent>(uid, out var appearance))
             {
                 _appearance.SetData(uid, KudzuVisuals.GrowthLevel, component.GrowthLevel, appearance);
             }
@@ -91,7 +91,7 @@ public sealed class KudzuSystem : EntitySystem
 
     private void SetupKudzu(EntityUid uid, KudzuComponent component, ComponentStartup args)
     {
-        if (!EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
+        if (!TryComp<AppearanceComponent>(uid, out var appearance))
         {
             return;
         }

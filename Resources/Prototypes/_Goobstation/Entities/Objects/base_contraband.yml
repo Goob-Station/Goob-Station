@@ -21,3 +21,20 @@
   components:
   - type: Contraband
     allowedJobs: [ Warden ]
+
+- type: entity
+  id: BaseSecurityEngineeringCargoContraband #exists for combat gloves
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security, Engineering, Cargo ]
+
+- type: entity
+  id: BaseSecurityZookeeperContraband # Tranq shells
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Zookeeper ]

@@ -116,11 +116,12 @@ public sealed class SharedMultishotSystem : EntitySystem
         if (component.HandDamageAmount == 0)
             return;
 
-        if (!_handsSystem.IsHolding(target, weapon, out var hand))
+        if (!_handsSystem.IsHolding(target, weapon, out var handId)
+            || !_handsSystem.TryGetHand(target, handId, out var hand))
             return;
 
         // I didn't find better way to get hand
-        var bodySymmetry = hand.Location switch
+        var bodySymmetry = hand.Value.Location switch
         {
             HandLocation.Left => BodyPartSymmetry.Left,
             HandLocation.Right => BodyPartSymmetry.Right,

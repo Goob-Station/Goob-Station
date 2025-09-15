@@ -187,7 +187,7 @@ public sealed partial class ExplosionSystem
                 continue;
             }
 
-            var xforms = EntityManager.GetEntityQuery<TransformComponent>();
+            var xforms = GetEntityQuery<TransformComponent>();
             var xform = xforms.GetComponent(gridToTransform);
             var  (_, gridWorldRotation, gridWorldMatrix, invGridWorldMatrid) = _transformSystem.GetWorldPositionRotationMatrixWithInv(xform, xforms);
 

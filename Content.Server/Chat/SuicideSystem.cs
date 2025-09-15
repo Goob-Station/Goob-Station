@@ -75,11 +75,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Ghost;
+using Content.Server.Hands.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -91,6 +91,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
@@ -100,6 +101,7 @@ public sealed class SuicideSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -128,7 +130,7 @@ public sealed class SuicideSystem : EntitySystem
         if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState) || _tagSystem.HasTag(victim, "CannotSuicideAny")) // Goobstation
             return false;
 
-        _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} is attempting to suicide");
+        _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} is attempting to suicide");
 
         ICommonSession? session = null;
 
@@ -154,7 +156,7 @@ public sealed class SuicideSystem : EntitySystem
         }
         else
         {
-            _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
+            _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} suicided.");
         }
 
         return true;
@@ -177,7 +179,8 @@ public sealed class SuicideSystem : EntitySystem
 
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
-        if (_tagSystem.HasTag(victim, CannotSuicideTag))
+        if (_tagSystem.HasTag(victim, CannotSuicideTag)
+            || HasComp<XenomorphPreventSuicideComponent>(victim))
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -195,10 +198,9 @@ public sealed class SuicideSystem : EntitySystem
         var suicideByEnvironmentEvent = new SuicideByEnvironmentEvent(victim);
 
         // Try to suicide by raising an event on the held item
-        if (EntityManager.TryGetComponent(victim, out HandsComponent? handsComponent)
-            && handsComponent.ActiveHandEntity is { } item)
+        if (_hands.TryGetActiveItem(victim.Owner, out var item))
         {
-            RaiseLocalEvent(item, suicideByEnvironmentEvent);
+            RaiseLocalEvent(item.Value, suicideByEnvironmentEvent);
             if (suicideByEnvironmentEvent.Handled)
             {
                 args.Handled = suicideByEnvironmentEvent.Handled;
@@ -229,7 +231,8 @@ public sealed class SuicideSystem : EntitySystem
     /// </summary>
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || HasComp<XenomorphPreventSuicideComponent>(victim))
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
