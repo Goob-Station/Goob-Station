@@ -5,10 +5,9 @@
 
 using Robust.Shared.Audio;
 
-namespace Content.Server._EinsteinEngines.Silicon.Charge;
+namespace Content.Shared._EinsteinEngines.Silicon.Charge;
 
-// Goobstation - Energycrit: Moved to shared.
-/*
+/// <Goobstation> Energycrit: Moved from server to shared. </Goobstation>
 [RegisterComponent]
 public sealed partial class BatteryDrinkerSourceComponent : Component
 {
@@ -31,4 +30,3 @@ public sealed partial class BatteryDrinkerSourceComponent : Component
     [DataField]
     public SoundSpecifier? DrinkSound = new SoundCollectionSpecifier("sparks");
 }
-*/

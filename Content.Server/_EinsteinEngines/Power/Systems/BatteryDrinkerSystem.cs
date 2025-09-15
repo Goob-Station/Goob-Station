@@ -14,6 +14,7 @@ using Content.Shared._EinsteinEngines.Silicon;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Server._EinsteinEngines.Silicon.Charge;
+using Content.Shared._EinsteinEngines.Silicon.Charge; // Goobstation - Energycrit: BatteryDrinkerSourceComponent moved to shared
 using Content.Server.Power.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
@@ -28,7 +29,7 @@ using Content.Shared.Whitelist;
 
 namespace Content.Server._EinsteinEngines.Power;
 
-// Goobstation - Energycrit: Create SharedBatteryDrinkerSystem so client can predict drink verbs
+// Goobstation - Energycrit: Create SharedBatteryDrinkerSystem and Client BatteryDrinkerSystem so client can predict drink verbs
 public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 {
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
