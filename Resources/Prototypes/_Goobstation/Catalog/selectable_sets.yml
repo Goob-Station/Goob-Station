@@ -284,7 +284,7 @@
   name: selectable-set-syndicate-carp-name
   description: selectable-set-syndicate-carp-description
   sprite:
-    sprite: Objects/Fun/toys.rsi
+    sprite: Objects/Fun/Plushies/carp.rsi
     state: carpplush
   content:
     - EncryptionKeySyndie

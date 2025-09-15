@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
@@ -12,6 +13,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class BloodCrawlComponent : Component
 {
     /// <summary>
@@ -41,14 +43,14 @@ public sealed partial class BloodCrawlComponent : Component
     /// <summary>
     /// This indicates whether the entity is crawling, or not. Used for toggling the ability.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsCrawling;
 
     /// <summary>
     /// The reagents to look out for when searching for puddles
     /// </summary>
     [DataField(required: true)]
-    public List<ProtoId<ReagentPrototype>?> Blood;
+    public List<ProtoId<ReagentPrototype>> Blood = new();
 
     /// <summary>
     /// The sound to play once entering the jaunt
@@ -61,4 +63,10 @@ public sealed partial class BloodCrawlComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier? ExitJauntSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/exit_blood.ogg");
+
+    /// <summary>
+    ///  The required amount required for a puddle to have in order for the jaunt to activate
+    /// </summary>
+    [DataField]
+    public FixedPoint2 RequiredReagentAmount = 0.5;
 }
