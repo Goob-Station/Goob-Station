@@ -18,7 +18,6 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    Hair: HEAD
     slots:
     - Snout
   - type: SealableClothing

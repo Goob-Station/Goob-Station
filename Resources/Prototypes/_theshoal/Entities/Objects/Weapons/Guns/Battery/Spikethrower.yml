@@ -14,7 +14,6 @@
   - type: Clothing
     sprite: _the/Objects/Weapons/Guns/Battery/Spikethrower.rsi
   - type: Gun
-    burstfireRate: 2
     selectedMode: burst
     availableModes:
     - burst
