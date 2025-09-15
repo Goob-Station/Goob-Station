@@ -275,7 +275,7 @@
     Piercing: 1
     Slash: 2
     Cold: 0.3
-    Heat: 1
+    Heat: 2
     Poison: 0.0
     Radiation: 0.0
   ignoreArmorPierceFlags: All # Goobstation
