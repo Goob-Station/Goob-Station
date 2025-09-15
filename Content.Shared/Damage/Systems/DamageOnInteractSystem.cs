@@ -87,14 +87,12 @@ using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
-using Content.Shared.Random;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Effects;
 using Content.Shared.Stunnable;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared.Hands.Components; // Shitmed Change
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems; // Shitmed Change
 
 namespace Content.Shared.Damage.Systems;
 
@@ -109,6 +107,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -159,10 +158,10 @@ public sealed class DamageOnInteractSystem : EntitySystem
 
         // Shitmed Change Start
         TargetBodyPart? targetPart = null;
-        var hands = CompOrNull<HandsComponent>(args.User);
-        if (hands is { ActiveHand: not null })
+        if (_hands.GetActiveHand(args.User) is { } handId
+            && _hands.TryGetHand(args.User, handId, out var hand))
         {
-            targetPart = hands.ActiveHand.Location switch
+            targetPart = hand.Value.Location switch
             {
                 HandLocation.Left => TargetBodyPart.LeftHand,
                 HandLocation.Right => TargetBodyPart.RightHand,

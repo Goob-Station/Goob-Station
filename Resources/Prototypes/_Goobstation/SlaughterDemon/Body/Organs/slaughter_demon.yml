@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [OrganAnimalHeart, BaseMagicalContraband]
   id: OrganSlaughterHeart
   name: demonic heart
   components:
@@ -20,3 +20,12 @@
       Destroyed: 0
     onAdd:
     - type: BloodCrawl
+      blood:
+      - Blood
+      - AmmoniaBlood
+      - InsectBlood
+      - CopperBlood
+      - ZombieBlood
+      - AlienBlood
+      - BlackBlood
+      - BloodChangeling

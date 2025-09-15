@@ -22,6 +22,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Server.Audio; // Goobstation - Play music on announcement
 
 namespace Content.Server._White.GameTicking.Rules;
 
@@ -39,6 +40,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!; // Goobstation - Play music on announcement
 
     public override void Initialize()
     {
@@ -233,7 +235,9 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
             component.Announced = true;
 
             if (!string.IsNullOrEmpty(component.Announcement))
-                _chat.DispatchGlobalAnnouncement(component.Announcement, component.Sender, colorOverride: component.AnnouncementColor);
+                _chat.DispatchGlobalAnnouncement(Loc.GetString(component.Announcement), component.Sender != null ? Loc.GetString(component.Sender) : null, colorOverride: component.AnnouncementColor);
+
+            _audioSystem.PlayGlobal(component.XenomorphInfestationSound, Filter.Broadcast(), true); // Goobstation - Play music on announcement
         }
 
         CheckRoundEnd(uid, component, gameRule);
@@ -249,7 +253,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         if (xenomorphs.Count == 0)
         {
             if (component.Announced && !string.IsNullOrEmpty(component.NoMoreThreatAnnouncement))
-                _chat.DispatchGlobalAnnouncement(component.NoMoreThreatAnnouncement, component.Sender, colorOverride: component.NoMoreThreatAnnouncementColor);
+                _chat.DispatchGlobalAnnouncement(Loc.GetString(component.NoMoreThreatAnnouncement), component.Sender != null ? Loc.GetString(component.Sender) : null, colorOverride: component.NoMoreThreatAnnouncementColor);
 
             component.WinType = WinType.CrewMajor;
             component.WinConditions.Add(WinCondition.AllReproduceXenoDead);

@@ -116,7 +116,10 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -137,7 +140,7 @@ namespace Content.Shared.Chemistry.Components
     /// </summary>
     [Serializable, NetSerializable]
     [DataDefinition]
-    public sealed partial class Solution : IEnumerable<ReagentQuantity>, ISerializationHooks
+    public sealed partial class Solution : IEnumerable<ReagentQuantity>, ISerializationHooks, IRobustCloneable<Solution>
     {
         // This is a list because it is actually faster to add and remove reagents from
         // a list than a dictionary, though contains-reagent checks are slightly slower,
@@ -296,6 +299,7 @@ namespace Content.Shared.Chemistry.Components
             Volume = solution.Volume;
             MaxVolume = solution.MaxVolume;
             Temperature = solution.Temperature;
+            CanReact = solution.CanReact;
             _heatCapacity = solution._heatCapacity;
             _heatCapacityDirty = solution._heatCapacityDirty;
             _heatCapacityUpdateCounter = solution._heatCapacityUpdateCounter;
@@ -972,6 +976,31 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
+			// Goobstation Start
+
+			// Find the maximum freshness for each unique DNA string in the other solution.
+			// This is done by flattening the nested lists, filtering for DnaData objects,
+			// grouping them by the DNA string, and creating a dictionary with the max freshness for each.
+			var freshestDnasFromOther = otherSolution.Contents
+			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+			    .OfType<DnaData>()
+			    .GroupBy(dna => dna.DNA)
+			    .ToDictionary(
+			        group => group.Key,
+			        group => group.Max(dna => dna.Freshness));
+
+			// Get all DnaData objects in the current solution to be updated.
+			var allCurrentDna = Contents
+			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+			    .OfType<DnaData>();
+
+			// Iterate through the current solution's DNA and update its freshness
+			// if a fresher version exists in the other solution.
+			foreach (var dna in allCurrentDna)
+			    if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
+			        dna.Freshness = fresherFreshness;
+
+			// Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();
