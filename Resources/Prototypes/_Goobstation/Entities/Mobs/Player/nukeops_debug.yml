@@ -7,8 +7,6 @@
   id: MobHumanLoneNuclearOperativeSuitDebug
   name: Lone Operative Suit Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearBaseSuit ]
@@ -25,8 +23,6 @@
   id: MobHumanLoneNuclearOperativeSuitEliteDebug
   name: Lone Operative Suit Elite Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearEliteSuit ]
@@ -43,8 +39,6 @@
   id: MobHumanLoneNuclearOperativeSuitJuggDebug
   name: Lone Operative Suit Juggernaut Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearJuggSuit ]
@@ -61,8 +55,6 @@
   id: MobHumanLoneNuclearOperativeSuitCommanderDebug
   name: Lone Operative Suit Commander Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearCommanderSuit ]
@@ -79,8 +71,6 @@
   id: MobHumanLoneNuclearOperativeSuitStealthDebug
   name: Lone Operative Suit Stealth Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearStealthSuit ]
@@ -97,8 +87,6 @@
   id: MobHumanLoneNuclearOperativeSuitMedicDebug
   name: Lone Operative Suit Medic Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearMedicSuit ]
@@ -115,8 +103,6 @@
   id: MobHumanLoneNuclearOperativeSuitDreadDebug
   name: Lone Operative Suit Dread Debug
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: NukeOperative
   - type: Loadout
     prototypes: [ SyndicateOperativeGearDreadSuit ]

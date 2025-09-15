@@ -393,3 +393,18 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHumanWizardDebugSuit
+
+- type: entity
+  name: Changeling Armor Spawner
+  id: SpawnMobHumanChangelingArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanChangelingArmor

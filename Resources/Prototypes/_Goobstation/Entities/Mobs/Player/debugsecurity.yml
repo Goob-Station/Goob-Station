@@ -7,8 +7,6 @@
   id: MobHumanSecurityOfficerSuit
   name: Security Officer Suit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -24,8 +22,6 @@
   id: MobHumanSecurityOfficerModSuit
   name: Security Officer ModSuit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerModSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -41,8 +37,6 @@
   id: MobHumanHosModSuit
   name: Head Of Security ModSuit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityHoSModSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -58,8 +52,6 @@
   id: MobHumanHoSSuit
   name: Head Of Security Suit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityHoSSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -75,8 +67,6 @@
   id: MobHumanWardenSuit
   name: Warden Suit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityWardenSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -92,8 +82,6 @@
   id: MobHumanBrigmedicSuit
   name: Brigmedic Suit
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityBrigmedicSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -109,8 +97,6 @@
   id: MobHumanSecurityOfficerBulletproofArmorHelmet
   name: Security Officer Bulletproof Armor
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerBulletproofArmorHelmet ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -126,8 +112,6 @@
   id: MobHumanSecurityOfficerRiotArmorHelmet
   name: Security Officer Riot Armor
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerRiotArmorHelmet ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -143,8 +127,6 @@
   id: MobHumanSecurityOfficerReflectiveArmorHelmet
   name: Security Officer Reflective Armor
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerReflectiveArmorHelmet ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -160,8 +142,6 @@
   id: MobHumanSecurityOfficerBasicArmorHelmet
   name: Security Officer Basic Armor
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -177,8 +157,6 @@
   id: MobHumanHos
   name: Head Of Security
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ HoSGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -194,8 +172,6 @@
   id: MobHumanBrigmedic
   name: Brigmedic
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ BrigmedicGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -211,8 +187,6 @@
   id: MobHumanWarden
   name: Warden
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ WardenGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -229,8 +203,6 @@
   name: Security Base
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ SecurityOfficerGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -250,8 +222,6 @@
   name: Blueshield Officer Base
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ BlueShieldOfficerGearDebug ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -272,8 +242,6 @@
   name: Blueshield Officer
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ BlueShieldOfficerGearSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]
@@ -294,8 +262,6 @@
   name: Blueshield Officer
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ BlueShieldOfficerGearModSuit ]
     roleLoadout: [ RoleSurvivalSecurity ]

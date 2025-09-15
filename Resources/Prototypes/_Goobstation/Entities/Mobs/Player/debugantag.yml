@@ -8,8 +8,6 @@
   name: Wizard
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ WizardGear ]
     roleLoadout: [ RoleSurvivalExtended ]
@@ -36,8 +34,6 @@
   name: Urist McChangeling
   suffix: DEBUG
   components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
   - type: Loadout
     prototypes: [ ChangelingArmor ]
     roleLoadout: [ RoleSurvivalExtended ]
