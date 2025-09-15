@@ -271,11 +271,11 @@
 - type: damageModifierSet
   id: Zombie #Goob change, make zombies great again
   coefficients:
-    Blunt: 2
-    Piercing: 2
+    Blunt: 1
+    Piercing: 1
     Slash: 2
     Cold: 0.3
-    Heat: 2
+    Heat: 1
     Poison: 0.0
     Radiation: 0.0
   ignoreArmorPierceFlags: All # Goobstation
