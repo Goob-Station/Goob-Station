@@ -84,6 +84,18 @@
   - type: Tag
     tags:
     - WeakToSalt
+  - type: Banishment # revive on death, resets WP
+    lives: 1
+    popup: wraith-banishment
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+
 
 - type: entity
   id: MobWraithPlague

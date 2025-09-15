@@ -20,3 +20,5 @@ wraith-in-solid = I cannot interact with the corporeal realm from within a solid
 wraith-salt-reveal = Salt reveal debug
 
 wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } been haunted.
+
+wraith-banishment = I goida

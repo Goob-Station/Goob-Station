@@ -12,6 +12,9 @@ public sealed partial class StatusEffectOnCollideGhostComponent : Component
     public ProtoId<StatusEffectPrototype> StatusEffect = "Corporeal";
 
     [DataField]
+    public string Component = "Corporeal";
+
+    [DataField]
     public EntityWhitelist? Whitelist;
 
     [DataField]

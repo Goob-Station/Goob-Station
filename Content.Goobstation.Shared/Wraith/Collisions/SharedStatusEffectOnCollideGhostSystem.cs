@@ -27,6 +27,7 @@ public abstract class SharedStatusEffectOnCollideGhostSystem : EntitySystem
             args.OtherEntity,
             ent.Comp.StatusEffect,
             ent.Comp.Duration,
-            ent.Comp.Refresh);
+            ent.Comp.Refresh,
+            ent.Comp.Component);
     }
 }
