@@ -31,6 +31,18 @@ public sealed partial class InteractorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<(NetEntity, bool)> TargetEntities = new();
+
+    /// <summary>
+    /// Signal port to toggle or enable/disable <see cref="AltInteract"/>.
+    /// </summary>
+    [DataField]
+    public ProtoId<SinkPortPrototype> AltInteractPort = "AltInteract";
+
+    /// <summary>
+    /// Whether to use alt interaction, i.e. use the highest priority verb on the target entity.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AltInteract;
 }
 
 [Serializable, NetSerializable]

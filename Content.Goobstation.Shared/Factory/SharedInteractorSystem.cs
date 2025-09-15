@@ -8,6 +8,7 @@
 using Content.Goobstation.Common.DoAfter;
 using Content.Goobstation.Shared.Factory.Filters;
 using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -44,6 +45,7 @@ public abstract class SharedInteractorSystem : EntitySystem
         SubscribeLocalEvent<InteractorComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<InteractorComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<InteractorComponent, DoAfterEndedEvent>(OnDoAfterEnded);
+        SubscribeLocalEvent<InteractorComponent, SignalReceivedEvent>(OnSignalReceived);
         // target entities
         SubscribeLocalEvent<InteractorComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<InteractorComponent, EndCollideEvent>(OnEndCollide);
@@ -129,10 +131,30 @@ public abstract class SharedInteractorSystem : EntitySystem
             Machine.Completed(ent.Owner);
     }
 
+    private void OnSignalReceived(Entity<InteractorComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port != ent.Comp.AltInteractPort)
+            return;
+
+        var state = SignalState.Momentary;
+        args.Data?.TryGetValue<SignalState>("logic_state", out state);
+        var alt = state switch
+        {
+            SignalState.Momentary => !ent.Comp.AltInteract,
+            SignalState.Low => false,
+            SignalState.High => true
+        };
+        SetAltInteract(ent, alt);
+    }
+
     protected bool HasDoAfter(EntityUid uid) => _doAfterQuery.HasComp(uid);
 
     protected bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
     {
+        // alt interaction checks for held items via verbs system, just defer to it
+        if (ent.Comp.AltInteract)
+            return _interaction.AltInteract(ent, target);
+
         if (!_hands.TryGetActiveItem(ent.Owner, out var tool))
             return _interaction.InteractHand(ent, target);
 
@@ -179,4 +201,16 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected void UpdateAppearance(EntityUid uid, InteractorState state) =>
         _appearance.SetData(uid, InteractorVisuals.State, state);
+
+    /// <summary>
+    /// Set <see cref="InteractorComponent.AltInteract"> and dirty it.
+    /// </summary>
+    public void SetAltInteract(Entity<InteractorComponent> ent, bool alt)
+    {
+        if (ent.Comp.AltInteract == alt)
+            return;
+
+        ent.Comp.AltInteract = alt;
+        DirtyField(ent, ent.Comp, nameof(InteractorComponent.AltInteract));
+    }
 }
