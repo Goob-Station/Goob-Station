@@ -76,7 +76,7 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
             _itemSlots.TryGetSlot(ent, slotId.CellSlotId, out var slot) &&
             slot.HasItem && HasComp<BatteryDrinkerSourceComponent>(slot.Item))
         {
-            source = ent;
+            source = slot.Item;
             return true;
         }
 
