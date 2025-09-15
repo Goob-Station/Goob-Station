@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions.Events;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using MvcContrib;
@@ -13,6 +14,7 @@ namespace Content.Goobstation.Shared.Wraith.WraithPoints;
 public sealed class WraithPointsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
@@ -32,6 +34,9 @@ public sealed class WraithPointsSystem : EntitySystem
         var eqe = EntityQueryEnumerator<PassiveWraithPointsComponent>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
+            if (_mobState.IsDead(uid))
+                continue;
+
             if (_timing.CurTime < comp.WpGenerationAccumulator)
                 continue;
 
