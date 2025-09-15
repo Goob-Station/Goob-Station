@@ -14,6 +14,8 @@ station-report-text =
     >[mono][/mono]
     • [bold]Medical Departmental Report[/bold]
     >[mono][/mono]
+    • [bold]Science Departmental Report[/bold]
+    >[mono][/mono]
     • [bold]Service Departmental Report[/bold]
     >[mono][/mono]
     • [bold]Silicon Report[/bold]
