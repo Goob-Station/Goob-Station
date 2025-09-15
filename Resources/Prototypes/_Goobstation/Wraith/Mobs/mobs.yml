@@ -1,0 +1,66 @@
+- type: entity
+  id: MobSkeletonGoon
+  parent: [ BaseMob, MobCombat ]
+  name: malicious skeleton
+  description: A hostile skeleton summoned by a wraith.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/skeleton.rsi
+    layers:
+      - state: skeletonGoon
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bone_rattle.ogg
+    damage:
+      types:
+        Blunt: 24
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - Opaque
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Skeleton
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalThud
