@@ -148,8 +148,8 @@
       types:
         Blunt: 26
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 2.5 #Goobedit
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 3.5 #Goobedit
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: StaticPrice
