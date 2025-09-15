@@ -13,7 +13,7 @@
   - type: StaticPrice
     price: 40
   - type: DeviceLinkSource
-    ports: 
+    ports:
       - Triggered
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -26,7 +26,7 @@
   parent: MiscSignallerBase
   id: VoiceSignaller
   name: voice signaller
-  description: A device that transmits a signal when its activation word has been spoken. Comes with an inbuilt recorder. 
+  description: A device that transmits a signal when its activation word has been spoken. Comes with an inbuilt recorder.
   components:
    - type: Sprite
      sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
@@ -45,7 +45,7 @@
       Glass: 25
       Silver: 25
 
-# proximity signaller 
+# proximity signaller
 - type: entity
   parent: MiscSignallerBase
   id: ProximitySignaller
@@ -56,8 +56,9 @@
       sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
       state: proxysignaller_on
     - type: TriggerOnProximity
+      triggerSpeed: 1.5
       enabled: true
-      cooldown: 3 
+      cooldown: 3
       shape:
         !type:PhysShapeCircle
           radius: 2

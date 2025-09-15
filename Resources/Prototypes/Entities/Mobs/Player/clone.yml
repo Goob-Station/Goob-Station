@@ -14,6 +14,7 @@
   - Dna
   - Fingerprint
   - NpcFactionMember
+  - EncryptionKeyHolder # Goobstation
   # traits
   # - LegsParalyzed (you get healed)
   - BlackAndWhiteOverlay
