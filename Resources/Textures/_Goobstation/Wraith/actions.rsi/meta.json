@@ -9,7 +9,6 @@
     "states": [
         { "name": "absorb_corpse" },
         { "name": "anim_object" },
-        { "name": "base_frame" },
         { "name": "blind_curse" },
         { "name": "blood_curse" },
         { "name": "blood_writing" },
@@ -25,7 +24,6 @@
         { "name": "evil_touch" },
         { "name": "evolve" },
         { "name": "fake_sound" },
-        { "name": "harbinger_frame" },
         { "name": "haunt" },
         { "name": "hide_chat" },
         { "name": "leave_master" },
@@ -33,7 +31,6 @@
         { "name": "mass_comm" },
         { "name": "mass_whisper" },
         { "name": "open_portal" },
-        { "name": "plague_frame" },
         { "name": "possess_object" },
         { "name": "possession" },
         { "name": "push" },
@@ -49,9 +46,9 @@
         { "name": "summon_goo" },
         { "name": "summon_rats" },
         { "name": "terror" },
-        { "name": "trickster_frame" },
         { "name": "weak_curse" },
         { "name": "whisper" },
+        { "name": "trickster_haunt" },
         { "name": "wraith_poison" }
     ]
 }

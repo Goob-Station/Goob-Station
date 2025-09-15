@@ -143,7 +143,25 @@
       state: evolve
   - type: InstantAction
     event: !type:WraithEvolveEvent
+
 # Harbinger Actions
+- type: entity
+  id: ActionRaiseSkeleton
+  name: Raise skeleton
+  description: Commands the skeleton inside a corpse to detonate out and free its brothers still trapped in the living. By murdering them. Best used in combination with Absorb Corpse, because only completely decomposed cadavers can be raised as skeletons. This ability can also be used on closets, spawning one skeleton per closet.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: skeleton
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:RaiseSkeletonEvent
+
 - type: entity
   id: ActionSummonVoidPortal
   name: Summon void portal

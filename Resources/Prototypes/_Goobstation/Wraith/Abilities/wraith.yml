@@ -27,6 +27,7 @@
   - type: AbsorbCorpse
   - type: DemonicWhisper
   - type: SummonPortal
+  - type: RaiseSkeleton
   - type: ActionGrant
     actions:
     - ActionHaunt
@@ -35,6 +36,7 @@
     - ActionAbsorbCorpse
     - ActionDecay
     - ActionAnimateObject
+    - ActionRaiseSkeleton
     - ActionSummonVoidPortal
   # - Haunt
   # - ActionGrant

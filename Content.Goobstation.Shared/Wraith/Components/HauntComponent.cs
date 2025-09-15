@@ -44,7 +44,7 @@ public sealed partial class HauntComponent : Component
     /// How much the Wp regeneration gets boosted per witness.
     /// </summary>
     [DataField]
-    public TimeSpan HauntCorporealDuration = new TimeSpan.FromSeconds(5);
+    public TimeSpan HauntCorporealDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// How long the flash effect lasts when someone gets haunted.
