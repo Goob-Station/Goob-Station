@@ -659,6 +659,8 @@
     - BasicCybernetics
     - MedicalCybernetics
     - AdvancedCybernetics
+    - PowerAugments
+    - ToolAugments
     - PowerCells
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
@@ -929,6 +931,7 @@
     - Bedsheets
     # Goobstation Packs
     - ClothingCasualJumpsuits
+    - ClothingCommandSummer
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

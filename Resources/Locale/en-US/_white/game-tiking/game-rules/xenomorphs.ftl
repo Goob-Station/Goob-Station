@@ -1,4 +1,4 @@
-xenomorphs-announcement = Unidentified life signs detected aboard the station. Secure all external access points, including scrubbers and ventilation.
+xenomorphs-announcement = Warning: Hostile bio-signatures detected. Unknown entities are moving through the station’s vents and maintenance shafts. All personnel, initiate lockdown protocols and avoid isolated areas.
 xenomorphs-no-more-threat-announcement = According to data from our long-range sensors, all xenomorphs have been eliminated.
 xenomorphs-win-announcement-shuttle-call =
     We have detected that xenomorphs have overtaken the station. All remaining personnel should arm the nuclear fission explosive and proceed to the evacuation shuttle.
@@ -19,5 +19,5 @@ xenomorphs-cond-nukeexplodedonstation = The crew destroyed the xenomorphs with t
 xenomorphs-cond-nukeactiveinstation = The crew left the armed nuclear fission explosive on the station.
 xenomorphs-cond-xenotakeoverstation = The xenomorphs managed to take over the station.
 xenomorphs-cond-xenoinfiltratedoncentcom = Xenomorphs infiltrated the Central Command station.
-xenomorphs-cond-allreproducexenodead = ThecCrew eliminated all Xenomorphs capable of reproduction.
+xenomorphs-cond-allreproducexenodead = The crew eliminated all Xenomorphs capable of reproduction.
 xenomorphs-cond-allcrewdead = All crew members have died.

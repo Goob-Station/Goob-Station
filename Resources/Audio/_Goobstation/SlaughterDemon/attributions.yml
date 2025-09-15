@@ -1,0 +1,19 @@
+- files: 
+  - demon_laugh.ogg
+  - demon_laugh2.ogg
+  - demon_scream.ogg
+  license: "CC0-1.0"
+  copyright: "Tim Rockk, converted to OGG and Mono by Luminal"
+  source: "https://opengameart.org/content/demon-voice"
+
+- files: 
+  - demon_speech.ogg
+  - demon_speech2.ogg
+  license: "CC0-1.0"
+  copyright: "pauliuw, converted to OGG and Mono by Luminal"
+  source: "https://opengameart.org/content/monster-or-beast-sounds"
+
+- files: ["briefing.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "GTDStudio aka Palrom"
+  source: "https://opengameart.org/content/n%D0%B8nn-metal"

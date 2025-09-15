@@ -1,3 +1,5 @@
+using Robust.Shared.Audio; // Goobstation - Play music on announcement
+
 namespace Content.Server._White.GameTicking.Rules.Components;
 
 [RegisterComponent]
@@ -20,6 +22,14 @@ public sealed partial class XenomorphsRuleComponent : Component
 
     [DataField]
     public string? Announcement = "xenomorphs-announcement";
+
+    [DataField] // Goobstation - play music on announcement
+    public SoundSpecifier XenomorphInfestationSound =
+            new SoundPathSpecifier("/Audio/_Goobstation/Music/Black_Swarm_Short.ogg")
+            {
+                Params = AudioParams.Default
+                    .WithVolume(-8f)
+            };
 
     [DataField]
     public Color AnnouncementColor = Color.Red;
