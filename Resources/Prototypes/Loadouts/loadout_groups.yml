@@ -1756,7 +1756,7 @@
 
 - type: loadoutGroup
   id: MercenaryLockertelepoerter
-  name: locker teleporter
+  name: loadout-group-mercenary-telepoerter
   minLimit: 0
   maxLimit: 1
   loadouts:
@@ -1764,7 +1764,7 @@
 
 - type: loadoutGroup
   id: MercenaryPDA
-  name: PDA
+  name: loadout-group-mercenary-pda
   loadouts:
   - MercPDA
   - ShoalMercPDA
