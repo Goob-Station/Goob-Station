@@ -90,8 +90,8 @@
       types:
         Blunt: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 1 #Goobedit
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2 #Goobedit
   - type: Damageable
     damageModifierSet: MediumArmorNT
   - type: StaticPrice

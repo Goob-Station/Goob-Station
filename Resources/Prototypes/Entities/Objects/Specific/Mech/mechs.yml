@@ -254,6 +254,9 @@
       collection: FootstepClown
       params:
         variation: 0.17
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2.5 #Goobedit
   - type: Mech
     baseState: honker
     openState: honker-open
