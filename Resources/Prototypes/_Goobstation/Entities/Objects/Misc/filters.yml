@@ -29,8 +29,8 @@
   id: BaseAutomationFilterToggled
   components:
   - type: ItemToggle
-    activateSound: /Audio/Machines/lightswitch.ogg
-    deactivateSound: /Audio/Machines/lightswitch.ogg
+    soundActivate: /Audio/Machines/lightswitch.ogg
+    soundDeactivate: /Audio/Machines/lightswitch.ogg
   - type: ToggleExamine
 
 - type: entity
