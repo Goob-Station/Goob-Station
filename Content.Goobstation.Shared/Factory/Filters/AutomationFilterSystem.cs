@@ -340,7 +340,7 @@ public sealed class AutomationFilterSystem : EntitySystem
     private void OnMobToggle(Entity<MobFilterComponent> ent, ref MobFilterToggleMessage args)
     {
         // no chudding out
-        if (args.State is not { MobState.Alive or MobState.Dead or MobState.Critical })
+        if (args is not { State: MobState.Alive or MobState.Dead or MobState.Critical })
             return;
 
         if (!ent.Comp.States.Remove(args.State))
