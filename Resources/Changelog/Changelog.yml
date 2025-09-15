@@ -4274,3 +4274,14 @@
   id: 8964
   time: '2025-09-15T01:30:12.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37867
+- author: chromiumboy
+  changes:
+  - message: Devices with access restrictions now list those restrictions in their
+      examination description
+    type: Add
+  - message: Wearing a diagnostic HUD will reveal if a device's access restrictions
+      have been modified and in what way
+    type: Add
+  id: 8965
+  time: '2025-09-15T07:19:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37712
