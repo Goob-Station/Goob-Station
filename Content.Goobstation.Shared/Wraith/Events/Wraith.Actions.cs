@@ -49,3 +49,7 @@ public sealed partial class RaiseSkeletonEvent : EntityTargetActionEvent
 public sealed partial class SummonPortalEvent : InstantActionEvent
 {
 }
+
+public sealed partial class SummonVoidCreatureEvent : InstantActionEvent
+{
+}

@@ -175,6 +175,19 @@
   - type: InstantAction
     event: !type:SummonPortalEvent
 
+- type: entity
+  id: ActionSummonVoidCreatures
+  name: Summon void creatures
+  description: Randomly picks between one of three powerful void entities to summon.
+  components:
+  - type: Action
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_creature
+  - type: InstantAction
+    event: !type:SummonVoidCreatureEvent
+
 # Plaguebringer Actions
 
 # Trickster Actions

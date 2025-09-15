@@ -28,6 +28,7 @@
   - type: DemonicWhisper
   - type: SummonPortal
   - type: RaiseSkeleton
+  - type: SummonVoidCreature
   - type: ActionGrant
     actions:
     - ActionHaunt
@@ -38,6 +39,7 @@
     - ActionAnimateObject
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
+    - ActionSummonVoidCreatures
   # - Haunt
   # - ActionGrant
   # actions:
