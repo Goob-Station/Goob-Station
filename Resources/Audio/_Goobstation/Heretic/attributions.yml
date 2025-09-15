@@ -11,7 +11,7 @@
 
 - files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "voidblink.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Taken from /tg/station"
+  copyright: "Taken from /tg/station. hereticknock.ogg and voidblink.ogg converted to mono by @deltanedas (github)"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
 
 - files: ["repluse.ogg"]

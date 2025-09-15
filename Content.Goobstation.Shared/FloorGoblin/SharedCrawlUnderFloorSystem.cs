@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._DV.Abilities;
+using Content.Shared._Starlight.VentCrawling;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
@@ -10,6 +11,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Stealth;
+using Content.Shared.Stealth.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -17,8 +20,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
@@ -30,12 +33,12 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
     private const int HiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable);
     private const int HiddenLayer = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.MobLayer);
@@ -57,6 +60,12 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (component.ToggleHideAction == null)
             _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
         component.WasOnSubfloor = IsOnSubfloor(uid);
+
+        if (!_net.IsClient)
+        {
+            EnableSneakMode(uid, component);
+            SetStealth(uid, !IsOnSubfloor(uid)); // We use stealth component for allowing medhuds and such to be hidden, terrible solution, couldn't think of anything better.
+        }
     }
 
     private void OnAbilityToggle(EntityUid uid, CrawlUnderFloorComponent component, ToggleCrawlingStateEvent args)
@@ -70,17 +79,29 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return;
         }
 
+        if (TryComp<VentCrawlerComponent>(uid, out var vent) && vent.InTube)
+        {
+            args.Handled = true;
+            return;
+        }
+
         var wasOnSubfloor = IsOnSubfloor(uid);
         var result = component.Enabled ? DisableSneakMode(uid, component) : EnableSneakMode(uid, component);
 
         RefreshCrawlSubfloorState(uid, component, false);
 
+        var onSubfloorNow = IsOnSubfloor(uid);
+        if (component.Enabled)
+            SetStealth(uid, !onSubfloorNow);
+        else
+            SetStealth(uid, false);
+
         if (!wasOnSubfloor)
             PryTileIfUnder(uid, component);
 
-        var wentUnder = component.Enabled && !wasOnSubfloor;
-        var selfKey = wentUnder ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
-        var othersKey = wentUnder ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
+        var enabling = component.Enabled;
+        var selfKey = enabling ? "crawl-under-floor-toggle-on-self" : "crawl-under-floor-toggle-off-self";
+        var othersKey = enabling ? "crawl-under-floor-toggle-on" : "crawl-under-floor-toggle-off";
 
         _popup.PopupEntity(Loc.GetString(selfKey), uid, uid);
         _popup.PopupEntity(Loc.GetString(othersKey, ("name", Name(uid))), uid, Filter.PvsExcept(uid), true, PopupType.Medium);
@@ -136,6 +157,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     protected bool EnableSneakMode(EntityUid uid, CrawlUnderFloorComponent component)
     {
+        if (TryComp<VentCrawlerComponent>(uid, out var vent) && vent.InTube)
+            return false;
         if (component.Enabled || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing))
             return false;
         component.Enabled = true;
@@ -146,6 +169,8 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
 
     protected bool DisableSneakMode(EntityUid uid, CrawlUnderFloorComponent component)
     {
+        if (TryComp<VentCrawlerComponent>(uid, out var vent) && vent.InTube)
+            return false;
         if (!component.Enabled || IsOnCollidingTile(uid) || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing))
             return false;
         component.Enabled = false;
@@ -224,10 +249,17 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return;
 
         var movedOutOfCover = !wasOnSubfloor && isOnSubfloor;
+        var enteredCover = wasOnSubfloor && !isOnSubfloor;
+
+        if (enteredCover)
+            SetStealth(uid, true);
+        else if (movedOutOfCover)
+            SetStealth(uid, false);
 
         if (movedOutOfCover)
             PlayDuendeSound(uid, causedByTileChange ? 1f : 0.3f);
     }
+
 
     private static int GetHiddenMask(int baseMask)
         => baseMask
@@ -262,6 +294,29 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         _tile.PryTile(snapPos, gridUid);
     }
 
+    private void SetStealth(EntityUid uid, bool enabled)
+    {
+        // Evil hud overlay hiding shitcode that hijacks StealthComponent
+        if (enabled)
+        {
+            var stealth = EnsureComp<StealthComponent>(uid);
+            if (!stealth.Enabled)
+            {
+                _stealth.SetEnabled(uid, true);
+                Dirty(uid, stealth);
+            }
+        }
+        else
+        {
+            if (TryComp<StealthComponent>(uid, out var stealth) && stealth.Enabled)
+            {
+                _stealth.SetEnabled(uid, false);
+                Dirty(uid, stealth);
+            }
+        }
+    }
+
+
 
     private void RefreshCrawlSubfloorState(EntityUid uid, CrawlUnderFloorComponent comp, bool causedByTileChange)
     {
@@ -286,7 +341,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         RefreshCrawlSubfloorState(uid, comp, causedByTileChange);
     }
 
-    private bool TryGetCurrentTile(EntityUid uid, out TileRef tileRef, out Robust.Shared.Maths.Vector2i snapPos)
+    private bool TryGetCurrentTile(EntityUid uid, out TileRef tileRef, out Vector2i snapPos)
     {
         var transform = Transform(uid);
         tileRef = default;
