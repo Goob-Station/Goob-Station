@@ -60,11 +60,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2025 23:25:29
-  entityCount: 22844
+  time: 09/15/2025 11:52:55
+  entityCount: 22845
 maps:
 - 1
 grids:
@@ -53608,6 +53608,13 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: ClothingMultipleHeadphones
+  entities:
+  - uid: 8256
+    components:
+    - type: Transform
+      pos: 18.544088,42.565483
+      parent: 2
 - proto: ClothingNeckBling
   entities:
   - uid: 8254
@@ -53621,13 +53628,6 @@ entities:
     components:
     - type: Transform
       pos: -56.501534,-67.426544
-      parent: 2
-- proto: ClothingNeckHeadphones
-  entities:
-  - uid: 8256
-    components:
-    - type: Transform
-      pos: 18.544088,42.565483
       parent: 2
 - proto: ClothingNeckScarfStripedBlue
   entities:
@@ -65737,7 +65737,8 @@ entities:
       pos: 36.5,-3.5
       parent: 2
     - type: DeviceNetwork
-
+      configurators:
+      - invalid
       deviceLists:
       - 9820
   - uid: 22823
@@ -65746,6 +65747,8 @@ entities:
       pos: 36.5,-4.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 9820
   - uid: 22826
@@ -65754,6 +65757,8 @@ entities:
       pos: 36.5,-5.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 9820
 - proto: Fireplace
@@ -89937,12 +89942,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 48.5,-3.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 22701
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 48.5,-5.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 22702
     components:
     - type: Transform
@@ -89957,6 +89966,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 37.5,-9.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 22830
     components:
     - type: Transform
@@ -91349,7 +91360,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 37.5,-5.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 22829
   - uid: 22828
@@ -91358,7 +91373,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 37.5,-11.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 22829
 - proto: GasVolumePump
@@ -119444,6 +119463,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -27.5,5.5
+      parent: 2
+- proto: SpawnMobHorseTrevor
+  entities:
+  - uid: 22845
+    components:
+    - type: Transform
+      pos: -32.5,49.5
       parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
