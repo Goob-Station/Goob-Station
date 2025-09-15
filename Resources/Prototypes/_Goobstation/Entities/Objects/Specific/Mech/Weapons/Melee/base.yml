@@ -19,3 +19,10 @@
     walkModifier: 0.5
     sprintModifier: 0.5
   - type: HeldSpeedModifier
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 20
+    whitelist:
+      tags:
+      - WeaponUpgradeMechMelee
+  - type: Clothing
+    slots: BACK, SUITSTORAGE

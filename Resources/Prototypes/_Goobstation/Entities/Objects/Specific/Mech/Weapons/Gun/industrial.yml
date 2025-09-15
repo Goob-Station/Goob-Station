@@ -18,7 +18,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_kineticgun
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -27,13 +27,14 @@
     projectileSpeed: 25
   - type: ProjectileBatteryAmmoProvider
     proto: BulletKineticShuttle
-    fireCost: 0.1
+    fireCost: 6.25
   - type: Appearance
   - type: AmmoCounter
   - type: PressureDamageChange
   - type: UpgradeableGun
-    maxUpgradeCapacity: 40
+    maxUpgradeCapacity: 80
     whitelist:
       tags:
+      - WeaponUpgradeMech
       - PKAUpgrade
 # TODO: Plasma Cutter
