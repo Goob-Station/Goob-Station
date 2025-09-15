@@ -65738,7 +65738,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 9820
   - uid: 22823
@@ -65748,7 +65747,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 9820
   - uid: 22826
@@ -65758,7 +65756,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 9820
 - proto: Fireplace
@@ -91364,7 +91361,6 @@ entities:
       color: '#990000FF'
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 22829
   - uid: 22828
@@ -91377,7 +91373,6 @@ entities:
       color: '#990000FF'
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 22829
 - proto: GasVolumePump
