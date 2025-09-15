@@ -247,6 +247,7 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    - BlackBlood # Goobstation
 
 - type: xenoArchTrigger
   id: TriggerThrow

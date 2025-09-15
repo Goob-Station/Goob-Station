@@ -174,7 +174,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [ValidatePrototypeId<ReagentPrototype>] // goobstation
     private const string BloodChangeling = "BloodChangeling"; // goobstation
 
-    private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // goobstation - added BloodChangeling
+    [ValidatePrototypeId<ReagentPrototype>] // goobstation
+    private const string BlackBlood = "BlackBlood"; // goobstation
+
+    private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling, BlackBlood]; // goobstation - added BloodChangeling, BlackBlood
 
     // Using local deletion queue instead of the standard queue so that we can easily "undelete" if a puddle
     // loses & then gains reagents in a single tick.
