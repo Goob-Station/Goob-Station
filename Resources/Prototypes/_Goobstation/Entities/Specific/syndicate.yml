@@ -11,7 +11,7 @@
   parent: [BaseItem, BaseSyndicateContraband]
   id: CQCManual
   name: old manual
-  description: A thin, unassuming manual. Its pages contain intricate diagrams of precise gestures and somatic forms.
+  description: A small, black manual. There are drawn instructions of tactical hand-to-hand combat.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
@@ -68,8 +68,8 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: MimejutsuManual
-  name: Mimejutsu manual
-  description: 
+  name: mimejutsu manual
+  description: A thin, unassuming manual. Its pages contain intricate diagrams of precise gestures and somatic forms.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi
