@@ -1,9 +1,7 @@
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
-using Content.Shared.Physics; // Goobstation
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Physics.Components; //Goobstation
 
 namespace Content.Shared.Turrets;
 
@@ -122,20 +120,6 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
     public bool EntityIsTargetForTurret(Entity<TurretTargetSettingsComponent> ent, EntityUid target)
     {
         var accessLevels = _accessReader.FindAccessTags(target);
-
-        // Goobstation - Ignore hidden Floor Goblins
-        if (TryComp<PhysicsComponent>(target, out var physics))
-        {
-            const int hiddenMask = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.InteractImpassable);
-            const int hiddenLayer = (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.MobLayer);
-
-            // Check if the entity has the same collision state as a hidden Floor Goblin
-            if ((physics.CollisionLayer & hiddenLayer) == 0 &&
-                (physics.CollisionMask & hiddenMask) == 0)
-            {
-                return false;
-            }
-        }
 
         if (accessLevels.Contains(_accessLevelBorg))
             return !HasAccessLevelExemption(ent, _accessLevelBorg);
