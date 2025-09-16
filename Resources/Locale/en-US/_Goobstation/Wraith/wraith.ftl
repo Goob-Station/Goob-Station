@@ -21,6 +21,9 @@ wraith-salt-reveal = Salt reveal debug
 
 wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } been haunted.
 
+void-portal-current-power = The portal has { $points } points of essence left to use.
+void-portal-current-wave = The portal has summoned { $wave } waves from the void.
+
 wraith-banishment = I goida
 
 wraith-action-generic-fail = Not enough WP.

@@ -29,8 +29,44 @@
     range: 12
     sound:
       path: /Audio/_Goobstation/Ambience/horror_crowd_ambience.ogg
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300 #Maybe nerf it too strong, but carp rifts are also pretty strong
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Voice/Diona/diona_scream.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.8
   - type: PointLight
     radius: 6
     netsync: false
     energy: 5
     color: "#ebb02b"
+  - type: VoidPortal #You could do custom portal spawners by changing the values through here, for future reference. Refer to VoidPortalComponent.
+    mobEntries:
+    - prototype: MobNanites
+      cost: 3
+    - prototype: MobGiantSpider
+      cost: 4
+    - prototype: MobSpookyGhost1
+      cost: 5
+    - prototype: MobSkeletonGoon
+      cost: 8
+    - prototype: MobBearGoon
+      cost: 10
+    - prototype: MobBrullbar
+      cost: 15
+    - prototype: GunBot
+      cost: 15
+    - prototype: NukeBot
+      cost: 20
