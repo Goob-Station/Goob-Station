@@ -88,7 +88,7 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.Body.Events;
 
 // _pofitlo CombatExtended
-using Content.Shared._pofitlo.CombatExtended.FightAction.AttackStrategyManager.Strategies;
+//using Content.Shared._pofitlo.CombatExtended.FightAction.AttackStrategyManager.Strategies;
 
 namespace Content.Shared.ActionBlocker
 {

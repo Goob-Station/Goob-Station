@@ -2,6 +2,12 @@ using Robust.Shared.GameStates;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Damage;
+using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction;
 
@@ -14,4 +20,13 @@ public sealed partial class FightActionComponent : Component
 
     [DataField, AutoNetworkedField]
     public AttackStrategy Strategy;
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId Animation = "FightActionArcTailAttack";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<CombatAnimationPrototype>? CombatAnimationPrototype = "PunchAnimation";
+
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, object> AnimationSettings = new();
 }

@@ -1,0 +1,13 @@
+- type: combatAnimation
+  id: TailAttackAnimation
+  animationType: Slash
+  animationPrototype: WeaponArcSlash
+  animationDuration: 1.5
+  fadeoutDuration: 0.05
+  fadeoutStartTime: 0.065
+  angleStart: -15
+  angleEnd: 160
+  thrustDistance: 1.0
+  useFadeout: true
+  copyWeaponSprite: true
+  trackUser: true

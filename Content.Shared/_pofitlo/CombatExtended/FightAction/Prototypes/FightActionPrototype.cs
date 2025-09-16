@@ -28,6 +28,8 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
     //TODO дать описание
     [DataField] public AttackStrategy SetAttackStrategy = AttackStrategy.Punch;
 
+    [DataField] public ProtoId<CombatAnimationPrototype> AnimationPrototype = "PunchAnimation";
+
     public object Clone()
     {
         return new FightActionPrototype()

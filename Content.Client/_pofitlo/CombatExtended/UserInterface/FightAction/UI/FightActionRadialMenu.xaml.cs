@@ -55,7 +55,10 @@ public sealed partial class FightActionRadialMenu : RadialMenu
                 ProtoId = fightActionPrototype.ID
             };
 
-            button.OnPressed += _ => _controller.SetFightAction(fightActionPrototype.SetAttackStrategy, fightActionPrototype.Icon);
+            button.OnPressed += _ => _controller.SetFightAction(
+                fightActionPrototype.SetAttackStrategy,
+                fightActionPrototype.Icon,
+                fightActionPrototype.AnimationPrototype);
 
             var texture = new TextureRect
             {

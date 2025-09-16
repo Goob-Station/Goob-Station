@@ -12,6 +12,8 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Utility;
 using System.Numerics;
 using Robust.Client.GameObjects;
+using Robust.Shared.Prototypes;
+using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 
 
 namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
@@ -104,13 +106,14 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     //    }
     //}
 
-    public void SetFightAction(AttackStrategy fightAction, SpriteSpecifier icon)
+    public void SetFightAction(AttackStrategy fightAction, SpriteSpecifier icon, ProtoId<CombatAnimationPrototype> proto)
     {
         if (_playerManager.LocalEntity is not { } user
             || _entManager.GetComponent<FightActionComponent>(user) is not { } fightActionComp
             || FightActionControl == null)
             return;
 
+        fightActionComp.CombatAnimationPrototype = proto; // TODO вынести в говорящие функции
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {

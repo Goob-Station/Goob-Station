@@ -6,6 +6,7 @@
     sprite: _pofitlo/CombatExtended/FightAction/punch.rsi
     state: icon
   setAttackStrategy: Punch
+  animationPrototype: PunchAnimation
 
 - type: fightAction
   id: TailAttack
@@ -15,3 +16,4 @@
     sprite: _pofitlo/CombatExtended/FightAction/tail_attack.rsi
     state: icon
   setAttackStrategy: TailAttack
+  animationPrototype: TailAttackAnimation
