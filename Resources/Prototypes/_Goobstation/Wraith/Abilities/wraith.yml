@@ -29,6 +29,11 @@
   - type: SummonPortal
   - type: RaiseSkeleton
   - type: SummonVoidCreature
+  - type: Evolve
+    availableEvolutions:
+    - prototype: MobWraithHarbinger
+    - prototype: MobWraithPlague
+    - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
     - ActionHaunt
