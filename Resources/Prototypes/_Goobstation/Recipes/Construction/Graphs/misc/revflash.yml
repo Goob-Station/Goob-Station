@@ -7,7 +7,7 @@
         - to: revFlash
           steps:
             - tag: Flash
-              name: Flash
+              name: construction-graph-component-flash
               icon:
                 sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
                 state: flash

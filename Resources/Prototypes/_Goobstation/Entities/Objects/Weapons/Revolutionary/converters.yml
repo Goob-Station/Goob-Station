@@ -8,7 +8,7 @@
     - type: RevolutionaryConverter
       conversionDuration: 0.001
       silent: true
-      consumesCharge: 1 # The flash parent already consumes the charge
+      consumesCharges: 1 # The flash parent already consumes the charge
       applyFlashEffect: true
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
