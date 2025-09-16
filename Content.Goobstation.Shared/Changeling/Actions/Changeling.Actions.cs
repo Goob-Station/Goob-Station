@@ -28,13 +28,20 @@ namespace Content.Goobstation.Shared.Changeling.Actions;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField] public float ChemicalCost = 0;
+    [DataField]
+    public float ChemicalCost = 0;
 
-    [DataField] public bool UseInLastResort = false;
+    [DataField]
+    public bool UseInLastResort = false;
 
-    [DataField] public bool UseInLesserForm = false;
+    [DataField]
+    public bool UseInLesserForm = false;
 
-    [DataField] public float RequireAbsorbed = 0;
+    [DataField]
+    public float RequireAbsorbed = 0;
+
+    [DataField]
+    public bool BlockedByFire = false;
 }
 
 #region Events - Basic

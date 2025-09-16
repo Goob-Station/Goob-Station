@@ -45,7 +45,6 @@ using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
@@ -96,7 +95,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmClawEvent>(OnToggleClaw);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleDartGunEvent>(OnToggleDartGun);
         SubscribeLocalEvent<ChangelingIdentityComponent, CreateBoneShardEvent>(OnCreateBoneShard);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleChitinousArmorEvent>(OnToggleArmor);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleOrganicShieldEvent>(OnToggleShield);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
@@ -536,21 +534,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
     }
-    private void OnToggleArmor(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleChitinousArmorEvent args)
-    {
-        float? chemCostOverride = comp.ActiveArmor == null ? null : 0f;
 
-        if (!TryUseAbility(uid, comp, args, chemCostOverride))
-            return;
-
-        if (!TryToggleArmor(uid, comp, [(ArmorHelmetPrototype, "head"), (ArmorPrototype, "outerClothing")]))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            return;
-        }
-
-    }
     private void OnToggleShield(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleOrganicShieldEvent args)
     {
         if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ShieldPrototype)))

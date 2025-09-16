@@ -291,12 +291,21 @@
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: chitinous_armor
   - type: InstantAction
-    event: !type:ToggleChitinousArmorEvent {}
+    event: !type:RetractableClothingActionEvent {}
+  - type: RetractableClothingAction
+    spawnedPrototypes: 
+      head: ChangelingClothingHeadHelmet
+      outerClothing: ChangelingClothingOuterArmor
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
   - type: ChangelingAction
     chemicalCost: 25
     requireAbsorbed: 2
