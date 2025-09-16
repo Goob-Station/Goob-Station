@@ -56,10 +56,11 @@
     - Ammonia
     - NitrousOxide
     - Frezon
-    - BZ
-    - Healium
-    - Nitrium
     #- Helium3 TODO: fusion
+    # <Goobstation> - healium not included for ADVANCED mech trolling
+    - BZ
+    - Nitrium
+    # </Goobstation>
     # remove everything except oxygen to maintain oxygen ratio
     overflowGases:
     - Nitrogen
@@ -70,11 +71,13 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    #- Helium3 TODO: fusion
+    # <Goobstation>
     - BZ
     - Healium
     - Nitrium
     - Pluoxium
-    #- Helium3 TODO: fusion
+    # </Goobstation>
   - type: AirIntake
   # for intake and filter to work
   - type: AtmosDevice
