@@ -102,6 +102,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeDragon();
         InitializeNinjutsu();
         InitializeHellRip();
+        InitializeMimejutsu();
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -275,6 +276,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.Capoeira:
                 OnCapoeiraAttackPerformed(ent, ref args);
                 break;
+            case MartialArtsForms.Mimejutsu:
+                OnMimejustuAttackPerformed(ent, ref args);
+                break;
         }
     }
 
@@ -383,7 +387,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
+        if (TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
 
         RemCompDeferred<DragonKungFuTimerComponent>(ent);
@@ -503,22 +507,22 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.CloseQuartersCombat:
                 var itcryeverytime =
                     new CanDoCQCEvent();
-                  /*
-                var riposte = EnsureComp<RiposteeComponent>(user);
-                riposte.Data.TryAdd("CQC",
-                    new(0.1f,
-                    false,
-                    null,
-                    true,
-                    new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
-                    TimeSpan.Zero,
-                    TimeSpan.FromSeconds(4),
-                    false,
-                    0.75f,
-                    null,
-                    null,
-                    new CanDoCQCEvent()));
-                    */
+                /*
+              var riposte = EnsureComp<RiposteeComponent>(user);
+              riposte.Data.TryAdd("CQC",
+                  new(0.1f,
+                  false,
+                  null,
+                  true,
+                  new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
+                  TimeSpan.Zero,
+                  TimeSpan.FromSeconds(4),
+                  false,
+                  0.75f,
+                  null,
+                  null,
+                  new CanDoCQCEvent()));
+                  */
                 break;
         }
 
@@ -606,7 +610,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         TargetBodyPart? targetBodyPart = null)
     {
         damage = new DamageSpecifier();
-        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
+        if (!TryComp<TargetingComponent>(ent, out var targetingComponent))
             return;
         damage.DamageDict.Add(damageType, damageAmount);
         if (TryComp(ent, out MartialArtModifiersComponent? modifiers))

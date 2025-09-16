@@ -11,6 +11,7 @@
   - Ninjutsu
   - DragonKungFu
   - HellRip
+  - Mimejutsu
 
 - type: guideEntry
   id: CQC
@@ -51,3 +52,9 @@
   id: DragonKungFu
   name: guide-entry-dragon-kung-fu
   text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/DragonKungFu.xml"
+  
+- type: guideEntry
+  id: Mimejutsu
+  name: guide-entry-mimejutsu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/Mimejutsu.xml"
+
