@@ -14977,3 +14977,9 @@ Entries:
         the new system as normal.
   id: 1668
   time: '2025-09-15T00:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Foam Dart inhand sprite is no longer a whole crossbow
+  id: 1669
+  time: '2025-09-16T04:50:34.0000000+00:00'
