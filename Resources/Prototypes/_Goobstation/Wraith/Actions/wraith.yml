@@ -73,8 +73,13 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: spook
-  - type: InstantAction
-    event: !type:SpookEvent
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SpookObject
+        amount: 1
 
 - type: entity
   id: ActionDecay

@@ -1,0 +1,22 @@
+- type: entity
+  id: SpookObject
+  name: The Spook
+  description: It can do various things by being interacted with.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/unknownplushie.rsi
+    state: plushie_cosmic
+  - type: Spook
+    actions:
+    - prototype: ActionFlipLights
+  - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionFlipLights
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI

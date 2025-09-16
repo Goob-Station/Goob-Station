@@ -45,6 +45,7 @@
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
     - ActionSummonVoidCreatures
+    - ActionSpook
   # - Haunt
   # - ActionGrant
   # actions:
