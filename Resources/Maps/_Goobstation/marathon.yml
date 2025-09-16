@@ -65737,7 +65737,6 @@ entities:
       pos: 36.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 9820
   - uid: 22823
@@ -65746,7 +65745,6 @@ entities:
       pos: 36.5,-4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 9820
   - uid: 22826
@@ -65755,7 +65753,6 @@ entities:
       pos: 36.5,-5.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 9820
 - proto: Fireplace
@@ -91360,7 +91357,6 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 22829
   - uid: 22828
@@ -91372,7 +91368,6 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 22829
 - proto: GasVolumePump
