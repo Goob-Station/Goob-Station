@@ -20,7 +20,7 @@
 - type: entity
   categories: [  ]
   parent: MobHumanWizardDebug
-  id: MobHumanWizardDEBUGSuit
+  id: MobHumanWizardDebugSuit
   name: Wizard Suit
   suffix: DEBUG
   components:
