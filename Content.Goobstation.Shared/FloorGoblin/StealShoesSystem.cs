@@ -196,24 +196,24 @@ public sealed partial class StealShoesSystem : EntitySystem
 
     private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
     {
-        // First try to unequip normally for living targets
-        if (!_mobstate.IsDead(target))
+        // For dead or critical targets, we need to remove the item directly
+        if (_mobstate.IsDead(target) || 
+            (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Critical))
         {
-            // Find which slot the item is in
-            if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slotDef))
+            if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) ||
+                !_inventory.TryGetSlotContainer(target, slot.Name, out var container, out _))
+            {
                 return false;
+            }
 
-            return _inventory.TryUnequip(target, slotDef.Name, silent: true, predicted: true, reparent: false);
+            return _containers.Remove(shoes, container, force: true, reparent: false);
         }
 
-        // For dead targets, we need to remove the item directly
-        if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) ||
-            !_inventory.TryGetSlotContainer(target, slot.Name, out var container, out _))
-        {
+        // For living targets, try to unequip normally
+        if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slotDef))
             return false;
-        }
 
-        return _containers.Remove(shoes, container, force: true, reparent: false);
+        return _inventory.TryUnequip(target, slotDef.Name, silent: true, predicted: true, reparent: false);
     }
 
 
