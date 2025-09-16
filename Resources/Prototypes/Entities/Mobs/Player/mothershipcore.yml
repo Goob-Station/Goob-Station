@@ -1,14 +1,11 @@
-#- type: startingGear # <//fixborghands>
-#  id: MothershipCoreGear
-#  inhand:
-#  - DoorRemoteXenoborg
-#  - Omnitool
+- type: startingGear
+  id: MothershipCoreGear
+  inhand:
+  - DoorRemoteXenoborg
+  - Omnitool
 
 - type: entity
-  parent:
-  #- BaseMachinePowered  # <//fixborghands>
-  - BaseStructure # <//fixborghands>
-  - BaseMob
+  parent: [ BaseControllable, BaseMachinePowered ]
   id: MothershipCore
   name: mothership core
   description: A sentient machine that can produce Xenoborgs. Without this the Xenoborgs are doomed.
@@ -178,37 +175,21 @@
   - type: NpcFactionMember
     factions:
     - Xenoborg
-  #- type: Body <//fixborghands>
-  #  prototype: MothershipCoreBody
   - type: Hands
-    showInHands: false # <fixborghands>
-    disableExplosionRecursion: true
-    canBeStripped: false
-  - type: BorgChassis
-    maxModules: 3
-    hasMindState: core-e
-    noMindState: core-e
-    moduleWhitelist:
-      tags:
-      # - MothershipModule # Goob add this later as we go
-      - BorgModuleEngineering
-  - type: ContainerFill
-    containers:
-      borg_module:
-      # - MothershipModule # Goob add this later as we go
-      - BorgModuleAdvancedTool
-      - BorgModuleConstruction # Accursed
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot { }
-      borg_module: !type:Container { }
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor # </fixborghands>
+    hands:
+      hand_right1:
+        location: Right
+      hand_right2:
+        location: Right
+      hand_left1:
+        location: Left
+      hand_left2:
+        location: Left
+    sortedHands:
+    - hand_right1
+    - hand_right2
+    - hand_left1
+    - hand_left2
   # - type: Puller # use the conveyor
   - type: Eye
     drawFov: false
