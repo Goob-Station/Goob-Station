@@ -308,7 +308,9 @@
         maxVol: 20 # goobstation
         reagents:
         - ReagentId: Dexalin # Goobstation
-          Quantity: 10
+          Quantity: 5
+        - ReagentId: Epinephrine # Goobstation
+          Quantity: 5
         - ReagentId: Ibuprofen # Goobstation
           Quantity: 5
         - ReagentId: Omnizine # Goobstation
