@@ -90,12 +90,8 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, EnterStasisEvent>(OnEnterStasis);
         SubscribeLocalEvent<ChangelingIdentityComponent, ExitStasisEvent>(OnExitStasis);
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmClawEvent>(OnToggleClaw);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleDartGunEvent>(OnToggleDartGun);
         SubscribeLocalEvent<ChangelingIdentityComponent, CreateBoneShardEvent>(OnCreateBoneShard);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleOrganicShieldEvent>(OnToggleShield);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
@@ -446,37 +442,6 @@ public sealed partial class ChangelingSystem
     #endregion
 
     #region Combat Abilities
-
-    private void OnToggleArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmbladeEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ArmbladePrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ArmbladePrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnToggleHammer(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmHammerEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, HammerPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, HammerPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnToggleClaw(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmClawEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ClawPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ClawPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
     private void OnToggleDartGun(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleDartGunEvent args)
     {
         var chemCostOverride = GetEquipmentChemCostOverride(comp, DartGunPrototype);
@@ -531,17 +496,6 @@ public sealed partial class ChangelingSystem
 
         var star = Spawn(BoneShardPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, star);
-
-        PlayMeatySound(uid, comp);
-    }
-
-    private void OnToggleShield(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleOrganicShieldEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ShieldPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ShieldPrototype, comp, out _))
-            return;
 
         PlayMeatySound(uid, comp);
     }

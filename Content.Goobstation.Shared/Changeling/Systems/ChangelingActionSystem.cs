@@ -26,16 +26,32 @@ public sealed class ChangelingActionSystem : EntitySystem
 
     private void OnChangelingActionAttempt(Entity<ChangelingActionComponent> action, ref ActionAttemptEvent args)
     {
-        var user = args.User;)
+        var user = args.User;
+
+        if (args.Cancelled)
+            return;
 
         if (!_changelingQuery.TryComp(user, out var changelingComp))
         {
             _popupSystem.PopupClient(Loc.GetString("changeling-action-not-changeling"), user, user);
+            args.Cancelled = true;
             return;
         }
 
         if (action.Comp.BlockedByFire && CheckFireStatus(user))
+        {
+            _popupSystem.PopupClient(Loc.GetString("changeling-onfire"), user, user, PopupType.LargeCaution);
+            args.Cancelled = true;
             return;
+        }
+
+        // TODO: Change this shit to something good
+        if (!action.Comp.UseInLesserForm && changelingComp.IsInLesserForm || !action.Comp.UseInLastResort &&  changelingComp.IsInLastResort)
+        {
+            _popupSystem.PopupClient(Loc.GetString("changeling-action-fail-lesserform"), user, user);
+            args.Cancelled = true;
+            return;
+        }
     }
 
     private bool CheckFireStatus(EntityUid uid) => HasComp<OnFireComponent>(uid);

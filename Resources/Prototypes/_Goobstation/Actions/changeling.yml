@@ -187,7 +187,7 @@
 # combat
 - type: entity
   parent: BaseAction
-  id: ActionToggleArmblade
+  id: ActionToggleArmbladeNoChems
   name: Toggle Arm Blade
   description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
@@ -207,30 +207,47 @@
       collection: gib
     retractSounds:
       collection: gib
+
+- type: entity
+  parent: ActionToggleArmbladeNoChems
+  id: ActionToggleArmblade
+  components:
   - type: ChangelingAction
     chemicalCost: 15
 
 - type: entity
   parent: BaseAction
-  id: ActionToggleHammer
+  id: ActionToggleHammerNoChems
   name: Toggle Arm Hammer
   description: Reform one of your arms into a strong hammer, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     useDelay: 2
+    raiseOnAction: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: hammer
   - type: InstantAction
-    event: !type:ToggleArmHammerEvent {}
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: ArmHammerChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+
+- type: entity
+  parent: ActionToggleHammerNoChems
+  id: ActionToggleHammer
+  components:
   - type: ChangelingAction
     chemicalCost: 15
 
 - type: entity
   parent: BaseAction
-  id: ActionToggleClaw
+  id: ActionToggleClawNoChems
   name: Toggle Arm Claw
   description: Reform one of your arms into a strong claw, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
@@ -242,7 +259,20 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: claw
   - type: InstantAction
-    event: !type:ToggleArmClawEvent {}
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: ArmClawChangeling
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
+  parent: ActionToggleClawNoChems
+  id: ActionToggleClaw
+  components:
   - type: ChangelingAction
     chemicalCost: 15
 
@@ -284,7 +314,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionToggleChitinousArmor
+  id: ActionToggleChitinousArmorNoChems
   name: Toggle Armor
   description: Inflate your body into an all-consuming chitinous mass of armor. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
@@ -311,8 +341,16 @@
     requireAbsorbed: 2
 
 - type: entity
+  parent: ActionToggleChitinousArmorNoChems
+  id: ActionToggleChitinousArmor
+  components:
+  - type: ChangelingAction
+    chemicalCost: 25
+    requireAbsorbed: 2
+
+- type: entity
   parent: BaseAction
-  id: ActionToggleOrganicShield
+  id: ActionToggleOrganicShieldNoChems
   name: Form Shield
   description: Reform one of your arms into a large, fleshy shield. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
@@ -324,7 +362,21 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: organic_shield
   - type: InstantAction
-    event: !type:ToggleOrganicShieldEvent {}
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: ChangelingShield
+    summonSounds:
+      collection: gib
+    retractSounds:
+      collection: gib
+  - type: ChangelingAction
+    chemicalCost: 20
+    requireAbsorbed: 1
+
+- type: entity
+  parent: ActionToggleOrganicShieldNoChems
+  id: ActionToggleOrganicShield
+  components:
   - type: ChangelingAction
     chemicalCost: 20
     requireAbsorbed: 1

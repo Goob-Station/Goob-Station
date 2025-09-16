@@ -154,13 +154,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
-    public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    public EntProtoId HammerPrototype = "ArmHammerChangeling";
-    public EntProtoId ClawPrototype = "ArmClawChangeling";
     public EntProtoId DartGunPrototype = "DartGunChangeling";
 
-    public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public override void Initialize()

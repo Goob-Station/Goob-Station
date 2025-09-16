@@ -41,7 +41,7 @@ public sealed partial class ChangelingActionComponent : Component
     public float RequireAbsorbed = 0;
 
     [DataField]
-    public bool BlockedByFire = false;
+    public bool BlockedByFire = true;
 }
 
 #region Events - Basic
