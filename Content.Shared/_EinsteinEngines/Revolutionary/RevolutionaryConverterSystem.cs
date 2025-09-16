@@ -1,16 +1,19 @@
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared._EinsteinEngines.Revolutionary.Components;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.DoAfter;
+using Content.Shared.Flash;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared._EinsteinEngines.Language.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared._EinsteinEngines.Language.Components;
 
 namespace Content.Shared._EinsteinEngines.Revolutionary;
 
@@ -18,11 +21,14 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 {
     private static readonly ProtoId<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
 
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
+    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
+    [Dependency] private readonly SharedFlashSystem _flash = default!;
 
     private LocalizedDatasetPrototype? _speechLocalization;
 
@@ -73,8 +79,19 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
     public void OnConverterAfterInteract(Entity<RevolutionaryConverterComponent> entity, ref AfterInteractEvent args)
     {
         if (args.Handled
-            || !args.CanReach)
+            || !args.Target.HasValue
+            || !args.CanReach
+            || (entity.Comp.ConsumesCharges > 0 && !_chargesSystem.TryUseCharges(entity.Owner, entity.Comp.ConsumesCharges)))
             return;
+
+        if (entity.Comp.ApplyFlashEffect)
+        {
+            _flash.Flash(args.Target.Value, args.User, entity.Owner, entity.Comp.FlashDuration, entity.Comp.SlowToOnFlashed, melee: true);
+
+            bool hasChargesLeft = entity.Comp.ConsumesCharges <= 0 || _chargesSystem.HasCharges(entity.Owner, entity.Comp.ConsumesCharges);
+            _appearance.SetData(entity.Owner, FlashVisuals.Flashing, hasChargesLeft);
+            _appearance.SetData(entity.Owner, FlashVisuals.Burnt, !hasChargesLeft);
+        }
 
         if (args.Target is not { Valid: true } target
             || !HasComp<MobStateComponent>(target)
