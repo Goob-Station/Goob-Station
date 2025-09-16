@@ -311,6 +311,8 @@ uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
 uplink-sleeping-carp-desc = This single-use scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
+uplink-mimejutsu-name = Mimejutsu Manual
+uplink-mimejutsu-desc = A manual that teaches a single user Mimejutsu before self-destructing. Mimejutsu is an aggressive and debilitating fighting style that focuses on precise strikes - designed to quickly subdue targets by breaking bones, impairing movement, and shutting down their ability to speak.
 
 # Misc
 

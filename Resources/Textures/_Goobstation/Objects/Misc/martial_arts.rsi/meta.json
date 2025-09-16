@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "made by pheenty",
+  "copyright": "made by pheenty, modified to mimejutsu by wejff",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,9 @@
     },
     {
       "name": "ninjutsu"
+    },
+	{
+      "name": "mimejutsu"
     }
   ]
 }

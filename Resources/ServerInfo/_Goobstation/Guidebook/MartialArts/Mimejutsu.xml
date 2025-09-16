@@ -1,0 +1,69 @@
+<Document>
+
+  # Mimejutsu
+
+  <Box>
+      <GuideEntityEmbed Entity="MimejutsuManual" Caption=""/>
+  </Box>
+
+  Mimejutsu is a [textlink="martial art" link="MartialArts"] built around a series of precise combos designed to debilitate and control opponents.
+  It focuses on misdirection and invisible weapons to disorient targets, applying pressure to critical points to weaken and silence them without relying on brute force.
+
+  Mimejutsu is an aggressive and debilitating fighting style that focuses on precise strikes - designed to quickly subdue targets by breaking bones,
+  impairing movement, and shutting down their ability to communicate. This art requires a thorough knowledge of intents.
+
+  ## Special Abilities
+
+  Mimejutsu users are better at Disarm intent, as their shoves will deal extra stamina damage to the opponent.
+
+  ### Riposte
+
+  With lightning reflexes, a mimejutsu master has a chance to parry any incoming melee attack. In that brief moment, the attacker is left vulnerable,
+  so the mimejutse master strikes back and stuns them automatically, unless they are also a mimejutsu master. A calculated, deadly response to any assault.
+
+  ### Silent punch
+
+  On a successful hit, there is a chance the strike will target key nerve clusters and muscle groups,
+  weakening the target's limbs and slowing their movement for 2 seconds. A subtle yet effective way to gain a tactical advantage.
+
+  ## Combo Attacks
+
+  ### Silent Execution
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Delivers a precise, silent strike to a targeted limb. Breaks a bone in the chosen body part. If the bone is already broken, the force of the blow deals 40 Brute damage instead.
+
+  ### Mimechucks
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  The user strikes the target with an invisible but devastating pair of nunchucks, dealing 60 stamina damage and briefly disorienting them.
+
+  ### Silencer
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  A swift chop to the throat disrupts the target's ability to speak and move freely. Slows the target for 3 seconds and completely silences them for 10 seconds.
+
+  ### Silent Palm
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  The user channels force into an open-palm strike, releasing a concussive wave of silent energy. Knocks the target back four tiles, deals 20 Brute damage, and slows them for 1 second.
+
+</Document>

@@ -9,3 +9,5 @@ namespace Content.Goobstation.Common.MartialArts;
 public abstract partial class BaseRiposteCheckEvent : HandledEntityEventArgs;
 
 public sealed partial class CanDoCQCEvent : BaseRiposteCheckEvent;
+
+public sealed partial class CanDoMimejutsuEvent : BaseRiposteCheckEvent;

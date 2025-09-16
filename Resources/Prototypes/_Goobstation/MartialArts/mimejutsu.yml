@@ -1,0 +1,55 @@
+- type: martialArt
+  id: Mimejutsu
+  martialArtsForm: Mimejutsu
+  roundstartCombos: MimejutsuMoves
+  baseDamageModifier: 10
+
+- type: comboList
+  id: MimejutsuMoves
+  combos:
+  - MimejutsuSilentExecution
+  - MimejutsuMimechucks
+  - MimejutsuSilencer
+  - MimejutsuSilentPalm
+
+- type: combo
+  id: MimejutsuSilentExecution
+  name: Silent execution
+  martialArtsForm: Mimejutsu
+  attacks:
+  - Harm
+  - Disarm
+  - Disarm
+  - Harm
+  event: !type:MimejutsuSilentExecutionPerformedEvent
+  extraDamage: 40
+  
+- type: combo
+  id: MimejutsuMimechucks
+  name: Mimechucks
+  martialArtsForm: Mimejutsu
+  attacks:
+  - Disarm
+  - Grab
+  event: !type:MimejutsuMimechucksPerformedEvent
+  staminaDamage: 60
+  
+- type: combo
+  id: MimejutsuSilencer
+  name: Silencer
+  martialArtsForm: Mimejutsu
+  attacks:
+  - Grab
+  - Disarm
+  event: !type:MimejutsuSilencerPerformedEvent
+  staminaDamage: 5
+  
+- type: combo
+  id: MimejutsuSilentPalm
+  name: Silent palm
+  martialArtsForm: Mimejutsu
+  attacks:
+  - Grab
+  - Harm
+  event: !type:MimejutsuSilentPalmPerformedEvent
+  extraDamage: 10

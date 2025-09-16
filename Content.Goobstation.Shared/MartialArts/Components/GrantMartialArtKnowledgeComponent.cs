@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -112,4 +113,13 @@ public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComp
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.HellRip;
+}
+
+[RegisterComponent]
+public sealed partial class GrantMimejutsuComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Mimejutsu;
+
+    public override LocId? LearnMessage { get; set; } = "mimejutsu-success-learned";
 }
