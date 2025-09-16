@@ -12655,9 +12655,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,2.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -6480.4644
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -12667,9 +12664,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 42.5,3.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -6479.9307
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -13017,9 +13011,6 @@ entities:
     - type: Transform
       pos: 35.5,11.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -6482.6973
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
