@@ -46,12 +46,31 @@ public sealed class ChangelingActionSystem : EntitySystem
         }
 
         // TODO: Change this shit to something good
-        if (!action.Comp.UseInLesserForm && changelingComp.IsInLesserForm || !action.Comp.UseInLastResort &&  changelingComp.IsInLastResort)
+        if (!action.Comp.UseInLesserForm && changelingComp.IsInLesserForm || !action.Comp.UseInLastResort && changelingComp.IsInLastResort)
         {
             _popupSystem.PopupClient(Loc.GetString("changeling-action-fail-lesserform"), user, user);
             args.Cancelled = true;
             return;
         }
+
+        if (changelingComp.Chemicals < action.Comp.ChemicalCost)
+        {
+            _popupSystem.PopupClient(Loc.GetString("changeling-chemicals-deficit"), user, user);
+            args.Cancelled = true;
+            return;
+        }
+
+        if (changelingComp.TotalAbsorbedEntities < action.Comp.RequireAbsorbed)
+        {
+            var delta = action.Comp.RequireAbsorbed - changelingComp.TotalAbsorbedEntities;
+
+            _popupSystem.PopupClient(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), user, user);
+            args.Cancelled = true;
+            return;
+        }
+
+        // Update chemicals
+
     }
 
     private bool CheckFireStatus(EntityUid uid) => HasComp<OnFireComponent>(uid);
