@@ -382,7 +382,3 @@ ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your ma
 
 ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
 ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.
-
-ghost-role-information-rules-default-xeno = You are a [color={role-type-team-antagonist-color}][bold]Xenomorph[/bold][/color]
-                                            Your objective is to protect your Queen and expand your Hive.
-                                            Achieve this by bringing your Queen crewmembers to feast upon.
