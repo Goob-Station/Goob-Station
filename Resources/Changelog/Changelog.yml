@@ -4323,3 +4323,10 @@
   id: 8970
   time: '2025-09-17T17:00:22.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40374
+- author: IProduceWidgets
+  changes:
+  - message: Gender pins no longer shuffle when EMP'd
+    type: Fix
+  id: 8971
+  time: '2025-09-17T21:49:50.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40425
