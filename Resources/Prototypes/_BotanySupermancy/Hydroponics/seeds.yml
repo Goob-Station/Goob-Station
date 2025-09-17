@@ -52,10 +52,6 @@
   nutrientConsumption: 0.30
   idealHeat: 298
   chemicals:
-    Grcoffee:
-      Min: 1
-      Max: 20
-      PotencyDivisor: 4
     Nutriment:
       Min: 1
       Max: 2
@@ -82,10 +78,6 @@
   nutrientConsumption: 0.30
   idealHeat: 298
   chemicals:
-    Grcoffee:
-      Min: 1
-      Max: 10
-      PotencyDivisor: 2
     Nutriment:
       Min: 1
       Max: 2

@@ -7,9 +7,13 @@
   flavor: medicine
   color: "#FFCA86"
   metabolisms:
-    Poison:
+    Medicine:
       effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 4
+        probability: 0.3

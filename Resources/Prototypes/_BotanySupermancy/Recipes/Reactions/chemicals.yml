@@ -1,0 +1,12 @@
+- type: reaction
+  id: LanternFlash
+  impact: High
+  priority: 20
+  reactants:
+    PulverizedLantern:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  effects:
+  - !type:FlashReactionEffect
+

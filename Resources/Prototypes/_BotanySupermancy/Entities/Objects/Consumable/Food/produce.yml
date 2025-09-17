@@ -70,14 +70,37 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Grcoffee
+        - ReagentId: Nutriment
           Quantity: 1
   - type: Tag
     tags:
     - Fruit
 
 - type: entity
-  name: coffe robast
+  name: roasted arabica coffee beans
+  description: A coffe arabica grains, main food of scientist.
+  parent: FoodProduceBase
+  id: FoodCoffeeArabicaRoasted
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_arabica.rsi
+    state: produce
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Grcoffee
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: coffe robust
   description: A coffe robust grains, main food of shutcurity.
   parent: FoodProduceBase
   id: FoodCoffeeRobust
@@ -95,8 +118,6 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Grcoffee
-          Quantity: 2
         - ReagentId: Ephedrine
           Quantity: 1
   - type: Tag
