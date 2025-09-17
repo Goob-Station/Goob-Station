@@ -17,13 +17,14 @@ public sealed partial class RadiationBlockingContainerComponent : Component
 {
     /// <Goobstation> Radiation Rework: Default value changed to 0f </Goobstation>
     /// <summary>
-    ///     How many rads per second does the blocker absorb?
+    ///     Flat reduction in radiation when an item is in the container.
     /// </summary>
     [DataField("resistance")]
     public float RadResistance = 0f;
 
     /// <Goobstation> Radiation Rework </Goobstation>
     /// <summary>
+    ///     TODO: Clarify this.
     ///     Radiation decay for the Goobstation radiation overhaul after applying the flat reduction.
     /// </summary>
     [DataField("decay")]
