@@ -15,6 +15,7 @@ namespace Content.Server.Radiation.Components;
 [Access(typeof(RadiationSystem))]
 public sealed partial class RadiationBlockingContainerComponent : Component
 {
+    /// <Goobstation> Radiation Rework: Default value changed to 0f </Goobstation>
     /// <summary>
     ///     How many rads per second does the blocker absorb?
     /// </summary>

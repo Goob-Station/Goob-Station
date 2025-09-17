@@ -249,8 +249,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         //Radiate stuff
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
         {
+            // Goobstation Start - Radiation Overhaul
             var transmittedpower = sm.Power * Math.Max(0, 1f + transmissionBonus / 10f);
             rad.Intensity = transmittedpower * sm.RadiationOutputFactor;
+            // Goobstation End - Radiation Overhaul
         }
 
         //Power * 0.55 * a value between 1 and 0.8
