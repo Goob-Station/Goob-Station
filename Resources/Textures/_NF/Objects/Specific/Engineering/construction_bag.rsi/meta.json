@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original ore bag sprites homegrown by @ninruB#7795, inhand sprites by лазік#7305; resprited in engineering department colors by erhardsteinhauer (discord/github)",
+  "copyright": "icon-on taken from sprites by @kilath",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-on",
+      "delays": [
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ]
+      ]
+    },
+    {
+      "name": "icon-on-bluespace",
+      "delays": [
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ]
+      ]
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "icon-bluespace-overlay",
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "icon-bluespace-overlay-unshaded",
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "equipped-BELT-bluespace-overlay",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "equipped-BELT-bluespace-overlay-unshaded",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "inhand-left-bluespace-overlay",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "inhand-left-bluespace-overlay-unshaded",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "inhand-right-bluespace-overlay",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "inhand-right-bluespace-overlay-unshaded",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    }
+  ]
+}
