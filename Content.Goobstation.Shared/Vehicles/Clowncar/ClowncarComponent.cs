@@ -9,7 +9,6 @@
 //using Content.Shared.Actions.ActionTypes;
 
 using Content.Shared.Actions;
-using MvcContrib.UI.ParamBuilder;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
