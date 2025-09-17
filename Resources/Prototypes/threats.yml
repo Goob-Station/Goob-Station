@@ -9,7 +9,7 @@
   id: NinjaThreats
   weights:
     Dragon: 1
-    Revenant: 1
+  #  Revenant: 1 # Revenant removed pending rework
     SlaughterDemon: 1
 
 - type: ninjaHackingThreat
