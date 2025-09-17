@@ -733,6 +733,7 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -766,6 +767,7 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
+      job: Borg
     - type: GhostTakeoverAvailable
 
 - type: entity
@@ -819,6 +821,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -853,6 +856,7 @@
       raffle:
         settings: default
       reregister: false
+      job: Borg
       requirements: # Goobstation - ghost roles requirements
       - !type:RoleTimeRequirement
         role: JobBorg
@@ -893,6 +897,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -930,6 +935,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -966,6 +972,7 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -1001,4 +1008,5 @@
     raffle:
       settings: default
     reregister: false
+    job: Borg
   - type: GhostTakeoverAvailable

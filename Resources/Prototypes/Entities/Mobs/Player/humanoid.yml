@@ -221,6 +221,9 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      job: DeathSquad
       requirements:
       - !type:DepartmentTimeRequirement
         department: Security
@@ -717,6 +720,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      job: CBURN
       requirements:
       - !type:DepartmentTimeRequirement
         department: Security
@@ -754,6 +758,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]
