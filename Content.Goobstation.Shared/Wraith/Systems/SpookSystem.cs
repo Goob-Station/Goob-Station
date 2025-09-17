@@ -1,8 +1,12 @@
+using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Goobstation.Shared.Wraith.Spook;
 using Content.Shared._White.RadialSelector;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Prototypes;
 using Content.Shared.UserInterface;
@@ -19,6 +23,10 @@ public sealed class SpookSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedDoorSystem _door = default!;
+
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -28,6 +36,7 @@ public sealed class SpookSystem : EntitySystem
         SubscribeLocalEvent<SpookComponent, RadialSelectorSelectedMessage>(OnRadialSelectorSelected);
     }
 
+    #region UI
     private void OnUIOpenAttempt(Entity<SpookComponent> ent, ref ActivatableUIOpenAttemptEvent args)
     {
         if (!HasComp<WraithComponent>(args.User))
@@ -44,7 +53,14 @@ public sealed class SpookSystem : EntitySystem
 
         _userInterfaceSystem.CloseUi(ent.Owner, RadialSelectorUiKey.Key);
     }
+    #endregion
 
+    #region Actions
+
+
+    #endregion
+
+    #region Helpers
     private void DoSelectedAction(EntityUid uid, string? action)
     {
         if (action == null
@@ -64,4 +80,6 @@ public sealed class SpookSystem : EntitySystem
             break;
         }
     }
+
+    #endregion
 }

@@ -1,10 +1,33 @@
+using Content.Shared.Chemistry.Components;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.Wraith.Spook;
 
-/// <summary>
-/// This is used for...
-/// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CreateSpookSmokeComponent : Component
 {
-    
+    [DataField]
+    public EntProtoId SmokeProto = "Smoke";
+
+    [DataField]
+    public Solution SmokeSolution = new ("ThickSmoke", 50);
+
+    /// <summary>
+    ///  Duration of the smoke in seconds
+    /// </summary>
+    [DataField]
+    public float Duration = 60f;
+
+    /// <summary>
+    /// Spread amount of the smoke
+    /// </summary>
+    [DataField]
+    public int SpreadAmount = 30;
+
+    /// <summary>
+    ///  How many smokes to spawn
+    /// </summary>
+    [DataField]
+    public int SmokeAmount = 3;
 }
