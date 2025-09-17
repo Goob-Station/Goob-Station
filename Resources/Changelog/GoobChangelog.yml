@@ -15015,3 +15015,9 @@ Entries:
       message: Xenomorph Queen is killable again.
   id: 1673
   time: '2025-09-16T18:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Jordans are now major contraband. Fake Jordans are now minor contraband.
+  id: 1674
+  time: '2025-09-17T03:05:22.0000000+00:00'
