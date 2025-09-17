@@ -103,7 +103,7 @@ ghost-role-information-ancient-rogue-king-rules = You bow to no one. Kill anythi
 
 ghost-role-information-rules-default-xeno = You are a [color={role-type-team-antagonist-color}][bold]Xenomorph[/bold][/color] 
                                             Your objective is to protect your Queen and expand your Hive.
-                                            Achieve this by bringing your Queen crewmembers to reproduce with.
+                                            Achieve this by bringing your Queen crewmembers to infest.
 
 # Token Roles
 
