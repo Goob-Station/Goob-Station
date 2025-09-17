@@ -69,11 +69,14 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             || args.Cancelled)
             return;
 
-        var ev = new AfterRevolutionaryConvertedEvent(args.Target!.Value, args.User, args.Used);
-        RaiseLocalEvent(args.User, ref ev);
+        ConvertTarget(args.Used!.Value, args.Target!.Value, args.User);
+    }
 
-        if (args.Used != null)
-            RaiseLocalEvent(args.Used.Value, ref ev);
+    public void ConvertTarget(EntityUid used, EntityUid targetConvertee, EntityUid user)
+    {
+        var ev = new AfterRevolutionaryConvertedEvent(targetConvertee, user, used);
+        RaiseLocalEvent(user, ref ev);
+        RaiseLocalEvent(used, ref ev);
     }
 
     public void OnConverterAfterInteract(Entity<RevolutionaryConverterComponent> entity, ref AfterInteractEvent args)
@@ -116,27 +119,34 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
                 return; //the target does not understand the speaker's language, so the conversion fails
         }
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
-            user,
-            converter.Comp.ConversionDuration,
-            new RevolutionaryConverterDoAfterEvent(),
-            converter.Owner,
-            target: target,
-            used: converter.Owner,
-            showTo: converter.Owner)
+        if (converter.Comp.ConversionDuration > TimeSpan.Zero)
         {
-            Hidden = !converter.Comp.VisibleDoAfter,
-            BreakOnMove = false,
-            BreakOnWeightlessMove = false,
-            BreakOnDamage = true,
-            NeedHand = true,
-            BreakOnHandChange = false,
-        });
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
+                user,
+                converter.Comp.ConversionDuration,
+                new RevolutionaryConverterDoAfterEvent(),
+                converter.Owner,
+                target: target,
+                used: converter.Owner,
+                showTo: converter.Owner)
+            {
+                Hidden = !converter.Comp.VisibleDoAfter,
+                BreakOnMove = false,
+                BreakOnWeightlessMove = false,
+                BreakOnDamage = true,
+                NeedHand = true,
+                BreakOnHandChange = false,
+            });
+        }
+        else
+        {
+            ConvertTarget(converter.Owner, target, user);
+        }
     }
 }
 
 /// <summary>
-/// Called after a converter is used via melee on another person to check for rev conversion.
+/// Called after a converter is used on another person to check for rev conversion.
 /// Raised on the user of the converter, the target hit by the converter, and the converter used.
 /// </summary>
 [ByRefEvent]

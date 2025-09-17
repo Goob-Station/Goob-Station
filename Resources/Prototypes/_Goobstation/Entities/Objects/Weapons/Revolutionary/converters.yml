@@ -6,9 +6,9 @@
   suffix: Revolutionary
   components:
     - type: RevolutionaryConverter
-      conversionDuration: 0.001
+      conversionDuration: 0
       silent: true
-      consumesCharges: 1 # The flash parent already consumes the charge
+      consumesCharges: 1
       applyFlashEffect: true
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
