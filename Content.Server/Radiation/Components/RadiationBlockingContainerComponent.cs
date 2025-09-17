@@ -19,5 +19,12 @@ public sealed partial class RadiationBlockingContainerComponent : Component
     ///     How many rads per second does the blocker absorb?
     /// </summary>
     [DataField("resistance")]
-    public float RadResistance = 1f;
+    public float RadResistance = 0f;
+
+    /// <Goobstation> Radiation Rework </Goobstation>
+    /// <summary>
+    ///     Radiation decay for the Goobstation radiation overhaul after applying the flat reduction.
+    /// </summary>
+    [DataField("decay")]
+    public float RadDecay = 1f;
 }
