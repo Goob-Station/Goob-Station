@@ -10,6 +10,8 @@
       silent: true
       consumesCharges: 1
       applyFlashEffect: true
+    - type: LimitedCharges
+      maxCharges: 5
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
       layers:
@@ -30,7 +32,7 @@
         path: /Audio/_Goobstation/Items/handling/component_drop.ogg
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/revflash.rsi
+      sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
     - type: UseDelay
       delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
     - type: StaticPrice
@@ -40,14 +42,14 @@
       visuals:
         enum.FlashVisuals.Burnt:
           enum.FlashVisualLayers.BaseLayer:
-            True: {state: burnt}
+            True: { state: burnt }
     - type: GuideHelp
       guides:
-      - Security
-      - Antagonists
+        - Security
+        - Antagonists
     - type: Construction
       graph: RevFlash
       node: revFlash
     - type: Tag
       tags:
-      - RevFlash
+        - RevFlash
