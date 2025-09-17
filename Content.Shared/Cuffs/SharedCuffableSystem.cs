@@ -126,6 +126,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -351,7 +352,7 @@ namespace Content.Shared.Cuffs
 
         private void HandleMoveAttempt(EntityUid uid, CuffableComponent component, UpdateCanMoveEvent args)
         {
-            if (component.CanStillInteract || !EntityManager.TryGetComponent(uid, out PullableComponent? pullable) || !pullable.BeingPulled)
+            if (component.CanStillInteract || !TryComp(uid, out PullableComponent? pullable) || !pullable.BeingPulled)
                 return;
 
             args.Cancel();
@@ -512,6 +513,10 @@ namespace Content.Shared.Cuffs
         /// </summary>
         private void OnHandCountChanged(Entity<CuffableComponent> ent, ref HandCountChangedEvent message)
         {
+            // TODO: either don't store a container ref, or make it actually nullable.
+            if (ent.Comp.Container == default!)
+                return;
+
             var dirty = false;
             var handCount = CompOrNull<HandsComponent>(ent.Owner)?.Count ?? 0;
 
@@ -546,19 +551,19 @@ namespace Content.Shared.Cuffs
                 return;
 
             var freeHands = 0;
-            foreach (var hand in _hands.EnumerateHands(uid, handsComponent))
+            foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
             {
-                if (hand.HeldEntity == null)
+                if (!_hands.TryGetHeldItem((uid, handsComponent), hand, out var held))
                 {
                     freeHands++;
                     continue;
                 }
 
                 // Is this entity removable? (it might be an existing handcuff blocker)
-                if (HasComp<UnremoveableComponent>(hand.HeldEntity))
+                if (HasComp<UnremoveableComponent>(held))
                     continue;
 
-                _hands.DoDrop(uid, hand, true, handsComponent);
+                _hands.DoDrop(uid, hand, true);
                 freeHands++;
                 if (freeHands == 2)
                     break;
@@ -592,6 +597,10 @@ namespace Content.Shared.Cuffs
             EnsureComp<HandcuffComponent>(handcuff, out var handcuffsComp);
             handcuffsComp.Used = true;
             Dirty(handcuff, handcuffsComp);
+            
+            var ev = new TargetHandcuffedEvent();
+            RaiseLocalEvent(target, ref ev);
+
             // Success!
             _hands.TryDrop(user, handcuff);
             var result = _container.Insert(handcuff, component.Container);
@@ -944,12 +953,25 @@ namespace Content.Shared.Cuffs
         {
             return component.Container.ContainedEntities;
         }
+    }
 
-        [Serializable, NetSerializable]
-        private sealed partial class UnCuffDoAfterEvent : SimpleDoAfterEvent
-        {
-        }
+    [Serializable, NetSerializable]
+    public sealed partial class UnCuffDoAfterEvent : SimpleDoAfterEvent;
 
+    [Serializable, NetSerializable]
+    public sealed partial class AddCuffDoAfterEvent : SimpleDoAfterEvent;
+
+    /// <summary>
+    /// Raised on the target when they get handcuffed.
+    /// Relayed to their held items.
+    /// </summary>
+    [ByRefEvent]
+    public record struct TargetHandcuffedEvent : IInventoryRelayEvent
+    {
+        /// <summary>
+        /// All slots to relay to
+        /// </summary>
+        public SlotFlags TargetSlots { get; set; }
     }
 }
 

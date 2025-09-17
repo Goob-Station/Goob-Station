@@ -18,7 +18,7 @@
   - type: Hunger
   - type: Thirst
   - type: Sprite # smaller size
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -69,6 +69,13 @@
   - type: Speech
     speechVerb: Felinid
     speechSounds: Alto
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - SiikMaas
+    understands:
+    - TauCetiBasic
+    - SiikMaas
   - type: Reactive
     groups:
       Flammable: [ Touch ]

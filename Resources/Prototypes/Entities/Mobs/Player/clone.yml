@@ -14,8 +14,10 @@
   - Dna
   - Fingerprint
   - NpcFactionMember
+  - EncryptionKeyHolder # Goobstation
   # traits
   # - LegsParalyzed (you get healed)
+  - BlackAndWhiteOverlay
   - LightweightDrunk
   - Muted
   - Narcolepsy
@@ -60,6 +62,11 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  # Einstein Engines - Language begin
+  - LanguageSpeaker
+  - LanguageKnowledge
+  - ForeignerTrait
+  # Einstein Engines - Language end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

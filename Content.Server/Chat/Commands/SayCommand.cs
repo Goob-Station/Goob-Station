@@ -15,27 +15,30 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Chat;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 
 namespace Content.Server.Chat.Commands
 {
     [AnyCommand]
-    internal sealed class SayCommand : IConsoleCommand
+    internal sealed class SayCommand : LocalizedEntityCommands
     {
-        public string Command => "say";
-        public string Description => "Send chat messages to the local channel or a specified radio channel.";
-        public string Help => "say <text>";
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
+        public override string Command => "say";
 
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (shell.Player is not { } player)
             {
@@ -48,7 +51,7 @@ namespace Content.Server.Chat.Commands
 
             if (player.AttachedEntity is not {} playerEntity)
             {
-                shell.WriteError("You don't have an entity!");
+                shell.WriteError(Loc.GetString($"shell-must-be-attached-to-entity"));
                 return;
             }
 
@@ -59,8 +62,7 @@ namespace Content.Server.Chat.Commands
             if (string.IsNullOrEmpty(message))
                 return;
 
-            IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>()
-                .TrySendInGameICMessage(playerEntity, message, InGameICChatType.Speak, ChatTransmitRange.Normal, false, shell, player);
+            _chatSystem.TrySendInGameICMessage(playerEntity, message, InGameICChatType.Speak, ChatTransmitRange.Normal, false, shell, player);
         }
     }
 }

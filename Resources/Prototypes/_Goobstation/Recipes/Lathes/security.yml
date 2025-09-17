@@ -57,6 +57,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeAtropine
@@ -65,6 +66,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 200
 
 - type: latheRecipe
   id: CartridgeBicaridine
@@ -73,6 +75,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeDermaline
@@ -81,6 +84,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeSaline
@@ -170,16 +174,6 @@
     Silver: 1000
     Gold: 1000
     Glass: 1500
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponTemperatureGun
-  result: WeaponTemperatureGun
-  materials:
-    Steel: 1500
-    Glass: 800
-    Plastic: 500
-    Plasma: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

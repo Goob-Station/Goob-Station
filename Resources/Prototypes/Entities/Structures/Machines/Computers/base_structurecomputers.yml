@@ -112,6 +112,28 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 300
+    maxInterval: 900
+    sound:
+      collection: RandomComputerSounds
+      params:
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
+  - type: SpamEmitSoundRequirePower # Goobstation
+  - type: InteractedBlacklist # Goobstation - xenos too stupid to use computer
+    blacklist:
+      components:
+      - Xenomorph
+  # Einstein Engines - Language begin
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  # Einstein Engines - Language end
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

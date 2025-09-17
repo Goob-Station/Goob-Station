@@ -70,6 +70,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Actions.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -640,10 +641,7 @@ public sealed partial class ChangelingSystem
         if (TryComp<HandsComponent>(target, out var handComp)
             && handsValid)
         {
-            var weaponCount = handComp.Hands.Values.Count(
-                hand => hand.HeldEntity != null
-                && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value));
-
+            var weaponCount = _hands.EnumerateHeld((target, handComp)).Count(HasComp<ChangelingFakeWeaponComponent>);
             handsValid = (weaponCount <= 1);
         }
 
@@ -838,17 +836,17 @@ public sealed partial class ChangelingSystem
     // john space made me do this
     public void OnHealUltraSwag(EntityUid uid, ChangelingIdentityComponent comp, ref ActionFleshmendEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args)
+            || !TryComp(uid, out StatusEffectsComponent? status))
             return;
 
-        var reagents = new Dictionary<string, FixedPoint2>
-        {
-            { "LingFleshmend", 5f },
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
-        else return;
-        PlayMeatySound(uid, comp);
+        _statusEffects.TryAddStatusEffect<FleshmendComponent>(uid,
+                    args.StatusID,
+                    args.Duration,
+                    true,
+                    status);
+
+        _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
     }
     public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {

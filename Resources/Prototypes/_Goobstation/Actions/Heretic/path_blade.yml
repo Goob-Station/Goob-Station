@@ -1,0 +1,54 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# actions
+- type: entity
+  parent: BaseAction
+  id: ActionHereticRealignment
+  name: Realignment
+  description: Recover from all stuns and knockdowns, gaining short term pacifism.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: realignment
+  - type: InstantAction
+    event: !type:EventHereticRealignment
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-realignment
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticFuriousSteel
+  name: Furious steel
+  description: Summon three orbiting protecting blades around you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: furious_steel
+  - type: InstantAction
+    event: !type:EventHereticFuriousSteel
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-blade-furioussteel
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 30
+    requiredPath: Blade

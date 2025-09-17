@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
@@ -14,8 +15,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitPraetorian
-  name: Praetorian hardsuit control unit # Goob edit
-  description: The main controller for a Praetorian hardsuit. # Goob edit
+  name: Praetorian modsuit control unit
+  description: The main controller for a Praetorian modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
@@ -55,8 +56,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsPraetorian
-  name: Praetorian hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Praetorian hardsuit. # Goob edit
+  name: Praetorian modsuit gauntlets
+  description: A pair of gauntlets made for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -68,12 +69,13 @@
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
           shader: unshaded
+    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
   parent: ClothingModsuitHelmetStandard
   id: ClothingModsuitHelmetPraetorian
-  name: Praetorian hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian hardsuit. # Goob edit
+  name: Praetorian modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Clothing
@@ -119,8 +121,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplatePraetorian
-  name: Praetorian hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Praetorian hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  name: Praetorian modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Praetorian modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -162,8 +164,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsPraetorian
-  name: Praetorian hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Praetorian hardsuit. # Goob edit
+  name: Praetorian modsuit boots
+  description: A state-of-the-art pair of magboots for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

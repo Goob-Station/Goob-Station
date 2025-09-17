@@ -2,9 +2,13 @@
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -69,6 +73,8 @@
   - BorgModuleRCD
   - BorgModuleCable
 
+  lawset: Engineer # DeltaV: Custom lawset
+
   radioChannels:
   - Engineering
   - Science
@@ -112,6 +118,10 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
+  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
+    law: SalvageObeyAI
+
+  lawset: Salvage # DeltaV: Custom lawset
 
   # Visual
   inventoryTemplateId: borgTall
@@ -149,6 +159,8 @@
   - Science
   - Service
 
+  lawset: Janitor # DeltaV: Custom lawset
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: janitor
@@ -183,6 +195,8 @@
   - BorgModuleRescue
   - BorgModuleSurgery
   - BorgModuleLollypop # Goobstation
+
+  lawset: Medical # DeltaV: Custom lawset
 
   radioChannels:
   - Science
@@ -241,6 +255,8 @@
   - BorgModuleGardening
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
+
+  lawset: Clown # DeltaV: Custom lawset
 
   radioChannels:
   - Science

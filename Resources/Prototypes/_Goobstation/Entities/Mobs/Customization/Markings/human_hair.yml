@@ -2,8 +2,12 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sylvain REMY <sremy2012@hotmail.fr>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -95,6 +99,14 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: jinx
+
+- type: marking
+  id: HumanHairPoofed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+    state: poofed
 
 - type: marking
   id: HumanHairJellyfish
@@ -288,3 +300,10 @@
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: spikehawk
 
+- type: marking
+  id: HumanHairLongTwinTails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longtwintails

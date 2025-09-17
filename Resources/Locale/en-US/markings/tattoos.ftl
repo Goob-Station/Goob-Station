@@ -13,6 +13,9 @@ marking-TattooHiveChest = Back Tattoo (Hive)
 marking-TattooNightlingChest-tattoo_nightling = Chest Tattoo (nightling)
 marking-TattooNightlingChest = Chest Tattoo (Nightling)
 
+marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Chest Tattoo (Nanotrasen)
+marking-TattooNanotrasenChest = Chest Tattoo (Nanotrasen)
+
 marking-TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg = Left Leg Tattoo (Silverburg)
 marking-TattooSilverburghLeftLeg = Left Leg Tattoo (Silverburg)
 
@@ -46,8 +49,16 @@ marking-TattooTribal1 = Tribal Tattoo
 marking-BuffChest_buff = Buff
 marking-BuffChest = Buff
 
+
+marking-TattooEyeRightGlowy-tattoo_eye_r = Glowing Right Eye
+marking-TattooEyeRightGlowy = Glowing Right Eye
+
+marking-TattooEyeLeftGlowy-tattoo_eye_l = Glowing Left Eye
+marking-TattooEyeLeftGlowy = Glowing Left Eye
+
 marking-TattooEyeMothRight-tattoo_eye_moth_r = Right Eye
 marking-TattooEyeMothRight = Right Eye
 
 marking-TattooEyeMothLeft-tattoo_eye_moth_l = Left Eye
 marking-TattooEyeMothLeft = Left Eye
+

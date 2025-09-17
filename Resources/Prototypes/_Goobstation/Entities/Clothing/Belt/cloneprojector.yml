@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -32,11 +33,25 @@
     - type: NoSlip
     - type: ZombieImmune
     - type: CrematoriumImmune
+    - type: BreathingImmunity
+    - type: TemperatureImmunity
     - type: TypingIndicator
       proto: robot
     - type: Speech
       speechVerb: Robotic
       speechSounds: Borg
+    - type: Silicon
+      entityType: enum.SiliconType.Player
+      batteryPowered: false
+      chargeThresholdMid: null
+      chargeThresholdLow: null
+      chargeThresholdCritical: null
+      speedModifierThresholds:
+        4: 1
+        3: 1
+        2: 0.80
+        1: 0.45
+        0: 0.00
     - type: Vocal
       sounds:
         Unsexed: UnisexSilicon
@@ -66,7 +81,9 @@
       - Unimplantable
     removedComponents:
     - type: Destructible
+    - type: SurgeryTarget
     - type: Deathgasp
+    - type: Polymorphable
     - type: HealthExaminable
       examinableTypes:
       - Shock
@@ -74,6 +91,9 @@
     - type: AtmosExposed
     - type: MovedByPressure
     - type: ThermalRegulator
+    - type: SSDIndicator
+    - type: Condemned # Disgusting silicon.
+      soulOwnedNotDevil: true
     - type: Flammable
       damage:
         types:
@@ -105,6 +125,7 @@
     - type: Hunger
     - type: Thirst
     - type: FootprintOwner
+    - type: ItemSlots # No infinite batteries.
 
 - type: entity
   parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
@@ -125,6 +146,11 @@
     clonedItemWhitelist:
       components:
       - Clothing
+    removedComponents:
+    - type: CanHostGuardian
+    userBlacklist:
+      components:
+      - Zombie
   - type: Tag
     tags:
       - HighRiskItem
@@ -134,23 +160,23 @@
   parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
   id: ClothingBeltMonozygoticHoloProjector
   name: ax-48 "monozygotic" holo-projector rig
-  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command. The name "C. Ward" is small text on the front.
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
-  - type: StealTarget
-    stealGroup: ClothingBeltGeminiHoloProjector
   - type: CloneProjector
     nameSuffix: monozygotic-projector-clone-name-suffix
-    stunOnDestroyed: false
+    ghostRoleName: ghost-role-information-monozygotic-clone-name
+    ghostRoleDescription: ghost-role-information-monozygotic-clone-description
+    doStun: false
     restrictRangedWeapons: false
     addedComponents:
     - type: MobThresholds
       thresholds:
         0: Alive
-        350: Dead # This ain't your mothers clone projector.
+        420: Dead
     clonedItemBlacklist:
       components:
       - CloneProjector

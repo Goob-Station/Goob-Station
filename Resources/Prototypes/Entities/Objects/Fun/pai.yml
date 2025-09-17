@@ -34,7 +34,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -101,9 +100,14 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -213,6 +217,50 @@
       components:
         - SecretStash
         - WrappedParcel
+  # Einstein Engines - Language begin
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic # Add individual languages so they can speak in said language for privacy.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
+    understands:
+    - TauCetiBasic # Add individual languages so they can understand without understanding animals.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign # Should know it but not speak it, for obvious reasons.
+    - Schechi
+    - NewKinPidgin
+  # Einstein Engines - Language end
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -249,6 +297,8 @@
           On: { state: syndicate-pai-on-overlay }
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     enabled: false
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: PersonalAI
@@ -282,51 +332,51 @@
     node: potatoai
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionPAIOpenShop
   name: Software Catalog
   description: Install new software to assist your owner.
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
+  - type: Action
     icon: Interface/Actions/shop.png
+  - type: InstantAction
     event: !type:PAIShopActionEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionPAIMassScanner
   name: Mass Scanner
   description: View a mass scanner interface.
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
+  - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
     itemIconStyle: NoItem
+  - type: InstantAction
     event: !type:OpenUiActionEvent
-        key: enum.RadarConsoleUiKey.Key
+      key: enum.RadarConsoleUiKey.Key
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionPAIPlayMidi
   name: Play MIDI
   description: Open your portable MIDI interface to soothe your owner.
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
+  - type: Action
     icon: Interface/Actions/pai-midi.png
     itemIconStyle: NoItem
+  - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionPAIOpenMap
   name: Open Map
   description: Open your map interface and guide your owner.
   components:
-    - type: InstantAction
-      checkCanInteract: false
-      checkConsciousness: false
-      icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
-      itemIconStyle: NoItem
-      event: !type:OpenUiActionEvent
-        key: enum.StationMapUiKey.Key
+  - type: Action
+    icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.StationMapUiKey.Key

@@ -66,6 +66,9 @@ ghost-role-information-inspector-description = Perform inspections on the statio
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
+ghost-role-information-trevor-name = Trevor
+ghost-role-information-trevor-description = Securities trusted battle steed.
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man
@@ -83,6 +86,21 @@ ghost-role-information-conquest-name = Conquest
 ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
 ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
 
+# Justice Persona Role
+justice-role-name = Justice Persona
+justice-role-description = Help the HOS carry out arrests by shouting phrases for them while they deliver Justice.
+
+# Ancient Xenos
+
+ghost-role-information-ancient-queen-name = Ancient Xeno Queen
+ghost-role-information-ancient-king-name = Ancient Xeno King
+ghost-role-information-ancient-rogue-king-name = Ancient Rogue Xeno King
+
+ghost-role-information-ancient-xeno-description = A creature thought to be extinct, and yet...
+ghost-role-information-ancient-rogue-king-description = The lone king, with only vengeance in its eyes. Show them no mercy!
+
+ghost-role-information-ancient-rogue-king-rules = You bow to no one. Kill anything that stands in your way.
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!
@@ -96,3 +114,6 @@ ghost-role-information-bingle-name-token = Bingle (Token)
 blob-carrier-role-name-token = Blob Carrier (Token)
 abductor-lone-ghost-role-name-token = Lone Abductor (Token)
 roles-wizard-name-token = Wizard (Token)
+roles-slaughter-demon-name-token = Slaughter Demon (Token)
+roles-laughter-demon-name-token = Laughter Demon (Token)
+ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)

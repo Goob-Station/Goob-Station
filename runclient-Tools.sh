@@ -6,5 +6,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 #!/bin/sh
-dotnet run --project Content.Client --configuration Tools
+dotnet run --project Content.Goobstation.Client --configuration Tools
 read -p "Press enter to continue"

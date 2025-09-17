@@ -3,7 +3,11 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -35,7 +39,7 @@ public abstract class SharedBlobMobSystem : EntitySystem
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _mobQuery = GetEntityQuery<BlobMobComponent>();
 
-        SubscribeLocalEvent<BlobSpeakComponent,GetDefaultRadioChannelEvent>(OnGetDefaultRadioChannel);
+        // SubscribeLocalEvent<BlobSpeakComponent, GetDefaultRadioChannelEvent>(OnGetDefaultRadioChannel);
     }
 
     private void OnGetDefaultRadioChannel(Entity<BlobSpeakComponent> ent, ref GetDefaultRadioChannelEvent args)
@@ -43,13 +47,12 @@ public abstract class SharedBlobMobSystem : EntitySystem
         //args.Channel = ent.Comp.Channel;
     }
 
-
     [ValidatePrototypeId<EntityPrototype>]
     private const string HealEffect = "EffectHealPlusTripleYellow";
 
     private void OnPulse(BlobMobGetPulseEvent ev)
     {
-        if(!TryGetEntity(ev.BlobEntity, out var blobEntity))
+        if (!TryGetEntity(ev.BlobEntity, out var blobEntity))
             return;
 
         SpawnAttachedTo(HealEffect, new EntityCoordinates(blobEntity.Value, Vector2.Zero));

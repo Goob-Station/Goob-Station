@@ -72,6 +72,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -94,6 +95,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -196,7 +198,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             tileRef.Tile.IsEmpty)
             return;
 
-        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && _turf.IsSpace(tileRef.Tile))
             return;
 
         var coords = Map.MapToGrid(gridUid, mapCoords);
@@ -403,12 +405,10 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         MapCoordinates targetMap;
 
-        if (ev.Coords != null)
-            targetMap = TransformSystem.ToMapCoordinates(ev.Coords.Value);
-        else if (TryComp(ev.Entity, out TransformComponent? xform))
+        targetMap = TransformSystem.ToMapCoordinates(ev.Target);
+
+        if (TryComp(ev.Entity, out TransformComponent? xform))
             targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
-        else
-            return;
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 

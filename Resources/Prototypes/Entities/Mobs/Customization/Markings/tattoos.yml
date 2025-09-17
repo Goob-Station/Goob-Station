@@ -9,12 +9,18 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Pgriha <133212269+Pgriha@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -49,10 +55,24 @@
     state: tattoo_nightling
 
 - type: marking
+  id: TattooNanotrasenChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_nanotrasen_chest
+
+- type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: LeftLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -65,8 +85,8 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: RightLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -79,8 +99,8 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: LeftArm
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -93,8 +113,8 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: RightArm
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -107,8 +127,8 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: LeftLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -121,8 +141,8 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE- Oni
+  markingCategory: RightLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -136,7 +156,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -150,7 +170,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -225,3 +245,33 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_moth_l
+
+- type: marking
+  id: TattooEyeRightGlowy
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+  shader: unshaded
+
+- type: marking
+  id: TattooEyeLeftGlowy
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+  shader: unshaded
