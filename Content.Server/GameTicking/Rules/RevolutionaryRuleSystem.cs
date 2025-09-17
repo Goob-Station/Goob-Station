@@ -250,8 +250,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
             HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
-            HasComp<AntagImmuneComponent>(ev.Target) ||
-            !alwaysConvertible) // Antag immune MEANS antag immune.
+            HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             if (ev.User != null)
                 _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
