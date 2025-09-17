@@ -135,6 +135,10 @@
     understands:
     - TauCetiBasic
     - Moffic
+  - type: ItemCougher #Durk fully implements a bounty challenge ( IMPOSSIBLE )
+    item: Chitzite
+    action: ActionChitzite
+    coughPopup: chitzite-cough
 
 - type: entity
   parent: BaseSpeciesDummy
