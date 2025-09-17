@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: language
+  id: SyndieCant
+  obfuscation:
+    !type:PhraseObfuscation
+    proportion: 0.88
+    minPhrases: 1
+    maxPhrases: 5
+    replacement:
+    - alpha
+    - bravo
+    - charlie
+    - delta
+    - echo
+    - foxtrot
+    - golf
+    - hotel
+    - india
+    - juliett
+    - kilo
+    - lima
+    - mike
+    - november
+    - oscar
+    - papa
+    - quebec
+    - romeo
+    - sierra
+    - tango
+    - uniform
+    - victor
+    - whiskey
+    - x-ray
+    - yankee
+    - zulu

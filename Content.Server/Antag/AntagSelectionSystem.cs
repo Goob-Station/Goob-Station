@@ -95,6 +95,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._EinsteinEngines.Language; // Goob Station - Antag Language
 using Content.Server._Goobstation.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -110,7 +111,6 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
-using Content.Server.Station.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -153,6 +153,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly LanguageSystem _languageSystem = default!; // Goobstation
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -598,6 +599,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             gear.Add(def.StartingGear.Value);
 
         _loadout.Equip(player, gear, def.RoleLoadout);
+
+        // Add language to the entity
+        if (def.Language is not null)
+        {
+            _languageSystem.AddLanguage(player, def.Language.Value); // Goob Station - Antag Language
+        }
 
         if (session != null)
         {
