@@ -5,6 +5,7 @@
 - type: entity
   parent: ChairOfficeLight
   id: ChairOfficeRocketBase
+  description: Launch from department to department because walking is for interns.
   abstract: true
   components:
   - type: Sprite

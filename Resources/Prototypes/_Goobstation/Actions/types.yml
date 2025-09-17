@@ -198,6 +198,7 @@
 - type: entity
   id: ActionVehicleWallPush
   name: Wall Launch
+  description: Launch yourself off the nearest surface, tiders count as surfaces.
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -214,8 +215,8 @@
 - type: entity
   id: ActionRocketChairBoost
   parent: BaseAction
-  name: rocket boost
-  description: burn water to surge forward
+  name: Boost
+  description: Spray water to launch forward.
   components:
   - type: Action
     itemIconStyle: NoItem
