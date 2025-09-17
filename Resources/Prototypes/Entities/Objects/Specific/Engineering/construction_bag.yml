@@ -110,7 +110,7 @@
 #  - type: Storage
 #    grid:
 #    - 0,0,19,9
-#
+
 - type: entity
   parent: BaseStorageItem
   id: ConstructionBag
@@ -122,7 +122,17 @@
     sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
     layers:
     - state: icon
+    - state: icon-on
+      shader: unshaded
+      visible: false
       map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: Clothing
     sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
     quickEquip: false
@@ -130,6 +140,13 @@
     - belt
   - type: Item
     size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        shader: unshaded
+      right:
+      - state: inhand-right
+        shader: unshaded
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -138,8 +155,7 @@
     areaInsert: true
     whitelist:
       tags:
-      - ArtifactFragment
-      - Ore
+      - Sheet
   - type: Dumpable
   - type: ItemToggle
     soundActivate:
@@ -150,10 +166,49 @@
       collection: sparks
       params:
         variation: 0.250
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: { state: icon-on }
-          False: { state: icon }
+
+- type: entity
+  parent: ConstructionBag
+  id: ConstructionBagOfHolding
+  name: construction bag of holding
+  description: A robust bag of holding for rich construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
+  components:
+    - type: MagnetPickup
+      range: 2
+    - type: Sprite
+      sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+      layers:
+        - state: icon
+        - state: icon-bluespace-overlay
+        - state: icon-bluespace-overlay-unshaded
+          shader: unshaded
+        - state: icon-on-bluespace
+          visible: false
+          map: [ "enum.ToggleableVisuals.Layer" ]
+    - type: Item
+      size: Huge
+      inhandVisuals:
+        left:
+          - state: inhand-left
+          - state: inhand-left-bluespace-overlay
+          - state: inhand-left-bluespace-overlay-unshaded
+            shader: unshaded
+        right:
+          - state: inhand-right
+          - state: inhand-right-bluespace-overlay
+          - state: inhand-right-bluespace-overlay-unshaded
+            shader: unshaded
+    - type: Clothing
+      sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+      quickEquip: false
+      slots:
+        - belt
+      clothingVisuals:
+        belt:
+          - state: equipped-BELT
+          - state: equipped-BELT-bluespace-overlay
+          - state: equipped-BELT-bluespace-overlay-unshaded
+            shader: unshaded
+    - type: Storage
+      grid:
+        - 0,0,19,9
