@@ -1,0 +1,67 @@
+# Power
+
+- type: construction
+  id: AugmentPowerCellSlot
+  graph: AugmentPowerCellSlot
+  startNode: start
+  targetNode: augment
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentRechargerAPC
+  graph: AugmentRecharger
+  startNode: start
+  targetNode: apc
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentRechargerStation
+  graph: AugmentRecharger
+  startNode: start
+  targetNode: station
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+# Arm
+
+- type: construction
+  id: AugmentToolsPanel
+  graph: AugmentToolsPanel
+  startNode: start
+  targetNode: "utility tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentBotanyPanel
+  graph: AugmentToolsPanel
+  startNode: start
+  targetNode: "botany tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentPaperworkPanel
+  graph: AugmentToolsPanel
+  startNode: start
+  targetNode: "paperwork tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentSurgicalPanel
+  graph: AugmentToolsPanel
+  startNode: start
+  targetNode: "surgery tools panel"
+  category: construction-category-utilities
+  canBuildInImpassable: false
+
+- type: construction
+  id: AugmentStrength
+  graph: AugmentStrength
+  startNode: start
+  targetNode: augment
+  category: construction-category-utilities
+  canBuildInImpassable: false

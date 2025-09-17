@@ -1,0 +1,22 @@
+- type: soundCollection
+  id: bloodCrawl
+  files:
+  - /Audio/_Goobstation/Hallucinations/behind_you1.ogg
+  - /Audio/_Goobstation/Hallucinations/i_see_you1.ogg
+  - /Audio/_Goobstation/Hallucinations/im_here1.ogg
+  - /Audio/_Goobstation/Hallucinations/turn_around1.ogg
+
+- type: soundCollection
+  id: demonLaugh
+  files:
+  - /Audio/_Goobstation/SlaughterDemon/demon_laugh.ogg
+  - /Audio/_Goobstation/SlaughterDemon/demon_laugh2.ogg
+
+- type: speechSounds
+  id: SlaughterDemon
+  saySound:
+    path: /Audio/_Goobstation/SlaughterDemon/demon_speech.ogg
+  askSound:
+    path: /Audio/_Goobstation/SlaughterDemon/demon_speech2.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/SlaughterDemon/demon_speech.ogg

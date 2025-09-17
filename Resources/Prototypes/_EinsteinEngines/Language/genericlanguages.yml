@@ -21,6 +21,7 @@
   isVisibleLanguage: true
   speech:
     fontId: Monospace
+    boldFontId: MonospaceBold
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -35,6 +36,7 @@
   isVisibleLanguage: true
   speech:
     fontId: Monospace
+    boldFontId: MonospaceBold
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

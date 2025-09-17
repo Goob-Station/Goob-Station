@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
-  name: Apocryphal hardsuit control unit # Goob edit
-  description: The main controller for a Apocryphal hardsuit. # Goob edit
+  name: Apocryphal modsuit control unit
+  description: The main controller for a Apocryphal modsuit.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsApocryphal
-  name: Apocryphal hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Apocryphal hardsuit. # Goob edit
+  name: Apocryphal modsuit gauntlets
+  description: A pair of gauntlets made for the Apocryphal modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -64,8 +64,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetApocryphal
-  name: Apocryphal hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Apocryphal hardsuit. It includes a built-in HUD. # Goob edit
+  name: Apocryphal modsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Apocryphal modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -113,7 +113,7 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateApocryphal
-  name: Apocryphal hardsuit chestplate # Goob edit
+  name: Apocryphal modsuit chestplate
   description: A state of the art chestplate designed by NanoTrasen for the Apocryphal Modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
@@ -157,7 +157,7 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsApocryphal
-  name: Apocryphal hardsuit boots # Goob edit
+  name: Apocryphal modsuit boots
   description: A state-of-the-art pair of magboots for the Apocryphal modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
