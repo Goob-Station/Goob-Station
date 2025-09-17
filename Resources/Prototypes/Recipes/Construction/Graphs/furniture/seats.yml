@@ -162,13 +162,13 @@
         - to: chairOfficeRocket
           steps:
             - tag: FireExtinguisher
-              name: fire extinguisher
+              name: construction-graph-tag-fire-extinguisher
               icon:
                 sprite: Objects/Misc/fire_extinguisher.rsi
                 state: fire_extinguisher_closed
               doAfter: 1
             - tag: FireExtinguisher
-              name: fire extinguisher
+              name: construction-graph-tag-fire-extinguisher
               icon:
                 sprite: Objects/Misc/fire_extinguisher.rsi
                 state: fire_extinguisher_closed
@@ -204,13 +204,13 @@
         - to: chairOfficeDarkRocket
           steps:
             - tag: FireExtinguisher
-              name: fire extinguisher
+              name: construction-graph-tag-fire-extinguisher
               icon:
                 sprite: Objects/Misc/fire_extinguisher.rsi
                 state: fire_extinguisher_closed
               doAfter: 1
             - tag: FireExtinguisher
-              name: fire extinguisher
+              name: construction-graph-tag-fire-extinguisher
               icon:
                 sprite: Objects/Misc/fire_extinguisher.rsi
                 state: fire_extinguisher_closed
