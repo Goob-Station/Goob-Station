@@ -4346,3 +4346,11 @@
   id: 8973
   time: '2025-09-17T23:34:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40234
+- author: PicklOH, Archee
+  changes:
+  - message: Nukie Operative, Corpsman, and Commander now have unique PDAs with unique
+      IDs that can copy accesses.
+    type: Add
+  id: 8974
+  time: '2025-09-18T00:15:18.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37304
