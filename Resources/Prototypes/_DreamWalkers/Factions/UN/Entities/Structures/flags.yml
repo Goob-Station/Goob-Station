@@ -1,0 +1,19 @@
+- type: entity
+  parent: PosterBase
+  id: FlagUN
+  name: "United Nations flag"
+  description: "Belongs to the gloryous peace keepers of earth."
+  components:
+  - type: Sprite
+    sprite: _DreamWalkers/Factions/UN/Objects/Structures/flags.rsi
+    state: UN
+
+- type: entity
+  parent: PosterBase
+  id: FlagUSA
+  name: "United States flag"
+  description: "Belongs to a gloryous bastion of freedom."
+  components:
+  - type: Sprite
+    sprite: _DreamWalkers/Factions/UN/Objects/Structures/flags.rsi
+    state: USA
