@@ -1,10 +1,10 @@
-﻿using Content.Shared.Interaction;
-using Content.Shared.Standing;
+﻿using Content.Goobstation.Common.Standing;
+using Content.Shared.Interaction;
 using Content.Shared.Stunnable;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared.Repulsor;
+namespace Content.Goobstation.Shared.BloodCult.Repulsor;
 
 public sealed class RepulseSystem : EntitySystem
 {

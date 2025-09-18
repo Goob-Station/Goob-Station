@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: cult barrier
   description: Can be destroyed with ritual dagger.
   id: BloodCultBarrier
@@ -45,14 +45,34 @@
 
 - type: entity
   id: WallForceCult
-  parent: WallForce
   name: glowing wall
   description: An unholy shield that blocks all attacks.
   components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Tag
+    tags:
+      - Wall
+      - BlockLightning
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+          - SpecialWallLayer
+        layer:
+          - SpecialWallLayer
+  - type: Airtight
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
     state: icon
   - type: Icon
     sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
     state: icon
-  - type: Dispellable
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: Clickable

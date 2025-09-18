@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
 using Content.Goobstation.Shared.BloodCult;
-using Content.Shared.WhiteDream.BloodCult.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -31,7 +30,7 @@ public sealed class BloodCultistSystem : EntitySystem
         var layer = _sprite.AddLayer((uid, sprite), new SpriteSpecifier.Rsi(component.RsiPath, randomState));
 
         _sprite.LayerMapSet((uid, sprite), PentagramKey.Key, layer);
-        _sprite.LayerSetOffset((uid, sprite), layer, new Vector2(0.0f, adj))
+        _sprite.LayerSetOffset((uid, sprite), layer, new Vector2(0.0f, adj));
     }
 
     private void OnPentagramRemoved(EntityUid uid, Shared.BloodCult.Components.PentagramComponent component, ComponentShutdown args)

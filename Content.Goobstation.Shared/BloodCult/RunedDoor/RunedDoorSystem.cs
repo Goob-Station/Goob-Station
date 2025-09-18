@@ -1,6 +1,6 @@
-﻿using Content.Shared.Doors;
+﻿using Content.Goobstation.Shared.BloodCult.Repulsor;
+using Content.Shared.Doors;
 using Content.Shared.Prying.Components;
-using Content.Shared.Repulsor;
 
 namespace Content.Goobstation.Shared.BloodCult.RunedDoor;
 

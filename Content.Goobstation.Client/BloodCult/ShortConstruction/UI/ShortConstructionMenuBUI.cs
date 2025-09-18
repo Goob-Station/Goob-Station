@@ -1,8 +1,8 @@
 ﻿using System.Numerics;
 using Content.Client.Construction;
 using Content.Client.UserInterface.Controls;
+using Content.Goobstation.Shared.ShortConstruction;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.ShortConstruction;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -12,11 +12,10 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 // ReSharper disable InconsistentNaming
 
-namespace Content.Client.ShortConstruction.UI;
+namespace Content.Goobstation.Client.BloodCult.ShortConstruction.UI;
 
 [UsedImplicitly]
 public sealed class ShortConstructionMenuBUI : BoundUserInterface
@@ -31,6 +30,7 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
     private readonly SpriteSystem _spriteSystem;
 
     private RadialMenu? _menu;
+
     public ShortConstructionMenuBUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _construction = _entManager.System<ConstructionSystem>();
@@ -39,6 +39,8 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
 
     protected override void Open()
     {
+        base.Open();
+
         _menu = new RadialMenu
         {
             HorizontalExpand = true,
@@ -51,13 +53,6 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
             CreateMenu(crafting.Entries);
 
         _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / _displayManager.ScreenSize);
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-        if (disposing)
-            _menu?.Dispose();
     }
 
     private void CreateMenu(List<ShortConstructionEntry> entries, string? parentCategory = null)
@@ -77,23 +72,23 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
         {
             if (entry.Category != null)
             {
-                var button = CreateButton(entry.Category.Name, entry.Category.Icon);
-                button.TargetLayer = entry.Category.Name;
+                var button = CreateButton(entry.Category.Name, _spriteSystem.Frame0(entry.Category.Icon));
+                button.TargetLayerControlName = entry.Category.Name;
                 CreateMenu(entry.Category.Entries, entry.Category.Name);
                 container.AddChild(button);
             }
-            else if (entry.Prototype != null
-                && _protoManager.TryIndex(entry.Prototype, out var proto))
+            else if (entry.Prototype != null && _protoManager.TryIndex(entry.Prototype, out var proto) &&
+                     proto.Name != null && _construction.TryGetRecipePrototype(proto.ID, out var targetProtoId) &&
+                     _protoManager.TryIndex(targetProtoId, out EntityPrototype? entProto))
             {
-                var button = CreateButton(proto.Name, proto.Icon);
+                var button = CreateButton(proto.Name, _spriteSystem.GetPrototypeIcon(entProto).Default);
                 button.OnButtonUp += _ => ConstructItem(proto);
                 container.AddChild(button);
             }
         }
-
     }
 
-    private RadialMenuTextureButton CreateButton(string name, SpriteSpecifier icon)
+    private RadialMenuTextureButton CreateButton(string name, Texture icon)
     {
         var button = new RadialMenuTextureButton
         {
@@ -106,7 +101,7 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
         {
             VerticalAlignment = Control.VAlignment.Center,
             HorizontalAlignment = Control.HAlignment.Center,
-            Texture = _spriteSystem.Frame0(icon),
+            Texture = icon,
             TextureScale = new Vector2(2f, 2f)
         };
 
@@ -126,10 +121,11 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
         }
 
         _placementManager.BeginPlacing(new PlacementInformation
-        {
-            IsTile = false,
-            PlacementOption = prototype.PlacementMode
-        }, new ConstructionPlacementHijack(_construction, prototype));
+            {
+                IsTile = false,
+                PlacementOption = prototype.PlacementMode
+            },
+            new ConstructionPlacementHijack(_construction, prototype));
 
         // Should only close the menu if we're placing a construction hijack.
         // Theres not much point to closing it though. _menu!.Close();

@@ -1,5 +1,5 @@
-﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+﻿using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseObjective
   id: KillTargetCultObjective
   description: This fool person should be sacrificed in the glory of our Goddess.
@@ -13,7 +13,6 @@
       state: icon
   - type: RoleRequirement
     roles:
-      components:
-      - BloodCultistRole
+    - BloodCultistRole
   - type: KillTargetCult
     title: objective-condition-kill-person-title

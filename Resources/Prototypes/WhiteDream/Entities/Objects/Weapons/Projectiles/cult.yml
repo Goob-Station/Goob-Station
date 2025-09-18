@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ProjectileGauntlet
   name: gauntlet
   description: Oh no.
@@ -15,6 +15,6 @@
       types:
         Blunt: 50
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: WhiteDream/BloodCult/actions.rsi
     layers:
     - state: gauntlet_echo

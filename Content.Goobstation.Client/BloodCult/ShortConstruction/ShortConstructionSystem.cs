@@ -1,14 +1,14 @@
 ﻿using Content.Client.Construction;
-// using Content.Client.WhiteDream.BloodCult.UI;
+using Content.Goobstation.Shared.ShortConstruction;
+using Content.Shared._White.RadialSelector;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.RadialSelector;
-using Content.Shared.ShortConstruction;
 using Robust.Client.Placement;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+// using Content.Client.WhiteDream.BloodCult.UI;
 
-namespace Content.Client.ShortConstruction;
+namespace Content.Goobstation.Client.BloodCult.ShortConstruction;
 
 public sealed class ShortConstructionSystem : EntitySystem
 {

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: CultFactoryBase
   parent: BaseStructure
   name: base cult factory
@@ -82,7 +82,7 @@
     sprite: WhiteDream/BloodCult/Entities/Structures/forge.rsi
   - type: TimedFactory
     entries:
-    - prototype: MirrorShieldCult
+    - prototype: MirrorShield
     - prototype: EldritchLongsword
     - prototype: ClothingOuterCultArmor
     - prototype: ClothingOuterRobesCultTrue
@@ -103,7 +103,6 @@
     - prototype: ShuttleCurse
     - prototype: ClothingEyeCultBlindfold
     - prototype: VeilShifter
-    - prototype: VoidTorch
   - type: Construction
     graph: CultFactoryArchives
     node: archives

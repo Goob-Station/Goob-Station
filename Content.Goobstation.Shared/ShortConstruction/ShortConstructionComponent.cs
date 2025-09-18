@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ShortConstruction;
+namespace Content.Goobstation.Shared.ShortConstruction;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShortConstructionComponent : Component

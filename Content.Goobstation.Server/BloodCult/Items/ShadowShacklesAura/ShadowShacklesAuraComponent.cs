@@ -1,4 +1,4 @@
-using Content.Server.WhiteDream.BloodCult.Items.BaseAura;
+using Content.Goobstation.Server.BloodCult.Items.BaseAura;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.BloodCult.Items.ShadowShacklesAura;

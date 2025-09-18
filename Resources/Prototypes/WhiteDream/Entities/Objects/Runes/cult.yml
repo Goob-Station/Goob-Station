@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: CultRuneBase
   name: based rune
   abstract: true
@@ -120,38 +120,38 @@
   - type: Sprite
     state: blood_boil
   - type: CultRuneBase
-    invokePhrase: "N'Dedo ol'btoh!"
+    invokePhrase: "Dedo ol'btoh!"
     requiredInvokers: 3
     activationDamage:
       types:
         Slash: 35
   - type: CultRuneBloodBoil
 
-- type: entity
-  parent: CultRuneBase
-  id: CultRuneApocalypse
-  name: rune of apocalypse
-  description: Harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects. Requires 3 invokers.
-  components:
-  - type: Sprite
-    sprite: WhiteDream/BloodCult/Entities/Runes/apocalypse.rsi
-    layers:
-      - state: icon
-        map: [ "enum.ApocalypseRuneVisuals.Layer" ]
-  - type: CultRuneBase
-    requiredInvokers: 3
-    invokePhrase: "Ta'gh fara'qha fel d'amar det!"
-    triggerRendingMarkers: true
-    canBeErased: false
-    activationDamage:
-      types:
-        Slash: 35
-  - type: CultRuneApocalypse
-  - type: GenericVisualizer
-    visuals:
-      enum.ApocalypseRuneVisuals.Used:
-        enum.ApocalypseRuneVisuals.Layer:
-          True: { color: "#696969" }
+# - type: entity
+#   parent: CultRuneBase
+#   id: CultRuneApocalypse
+#   name: rune of apocalypse
+#   description: Harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects. Requires 3 invokers.
+#   components:
+#   - type: Sprite
+#     sprite: WhiteDream/BloodCult/Entities/Runes/apocalypse.rsi
+#     layers:
+#       - state: icon
+#         map: [ "enum.ApocalypseRuneVisuals.Layer" ]
+#   - type: CultRuneBase
+#     requiredInvokers: 3
+#     invokePhrase: "Ta'gh fara'qha fel d'amar det!"
+#     triggerRendingMarkers: true
+#     canBeErased: false
+#     activationDamage:
+#       types:
+#         Slash: 35
+#   - type: CultRuneApocalypse
+#   - type: GenericVisualizer
+#     visuals:
+#       enum.ApocalypseRuneVisuals.Used:
+#         enum.ApocalypseRuneVisuals.Layer:
+#           True: { color: "#696969" }
 
 - type: entity
   parent: CultRuneBase

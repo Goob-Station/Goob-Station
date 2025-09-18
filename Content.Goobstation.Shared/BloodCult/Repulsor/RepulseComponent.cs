@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.Repulsor;
+﻿namespace Content.Goobstation.Shared.BloodCult.Repulsor;
 
 [RegisterComponent]
 public sealed partial class RepulseComponent : Component

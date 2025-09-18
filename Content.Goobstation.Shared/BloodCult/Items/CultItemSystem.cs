@@ -8,7 +8,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
-using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.BloodCult.Items;
@@ -92,5 +91,5 @@ public sealed class CultItemSystem : EntitySystem
         _hands.TryDrop(user);
     }
 
-    private bool CanUse(EntityUid? uid) => HasComp<Goobstation.Shared.BloodCult.BloodCultist.BloodCultistComponent>(uid) || HasComp<GhostComponent>(uid);
+    private bool CanUse(EntityUid? uid) => HasComp<BloodCultist.BloodCultistComponent>(uid) || HasComp<GhostComponent>(uid);
 }

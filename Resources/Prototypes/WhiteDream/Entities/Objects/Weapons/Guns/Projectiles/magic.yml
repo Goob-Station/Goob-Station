@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BloodBoilProjectile
   parent: BaseBullet
   name: Concentrated Blood
@@ -18,4 +18,3 @@
     color: "#ff4300"
     radius: 2.0
     energy: 7.0
-  - type: BloodBoilProjectile

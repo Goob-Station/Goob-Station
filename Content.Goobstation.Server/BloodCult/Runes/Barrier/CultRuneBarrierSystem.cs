@@ -1,6 +1,4 @@
-﻿using Content.Server.WhiteDream.BloodCult.Runes;
-
-namespace Content.Goobstation.Server.BloodCult.Runes.Barrier;
+﻿namespace Content.Goobstation.Server.BloodCult.Runes.Barrier;
 
 public sealed class CultRuneBarrierSystem : EntitySystem
 {

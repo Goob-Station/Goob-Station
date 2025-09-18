@@ -1,5 +1,4 @@
 ﻿using Content.Server.Popups;
-using Content.Server.WhiteDream.BloodCult.Runes;
 
 namespace Content.Goobstation.Server.BloodCult.Runes.Empower;
 

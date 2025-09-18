@@ -3,17 +3,13 @@ using Content.Server._EinsteinEngines.Language;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.Language;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.Chat;
-using Content.Shared.Language;
-using Content.Shared.WhiteDream.BloodCult.BloodCultist;
-using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Server.WhiteDream.BloodCult;
+namespace Content.Goobstation.Server.BloodCult;
 
 public sealed class BloodCultChatSystem : EntitySystem
 {

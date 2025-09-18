@@ -1,6 +1,6 @@
 using Content.Shared.Chat;
 
-namespace Content.Server.WhiteDream.BloodCult.Items.BaseAura;
+namespace Content.Goobstation.Server.BloodCult.Items.BaseAura;
 
 public abstract partial class BaseAuraComponent : Component
 {

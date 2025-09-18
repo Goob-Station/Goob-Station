@@ -1,11 +1,9 @@
 ﻿using Content.Goobstation.Shared.BloodCult;
 using Content.Server.Actions;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Shared.Mobs;
-using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.WhiteDream.BloodCult.Constructs;
+namespace Content.Goobstation.Server.BloodCult.Constructs;
 
 public sealed class ConstructSystem : EntitySystem
 {

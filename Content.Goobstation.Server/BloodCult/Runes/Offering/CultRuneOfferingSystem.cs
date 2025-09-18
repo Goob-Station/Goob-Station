@@ -6,8 +6,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
-using Content.Server.WhiteDream.BloodCult.Runes;
-using Content.Server.WhiteDream.BloodCult.Runes.Revive;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;

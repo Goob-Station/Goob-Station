@@ -14,10 +14,6 @@ using Content.Server.Mind;
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
-using Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
-using Content.Server.WhiteDream.BloodCult.Objectives;
-using Content.Server.WhiteDream.BloodCult.RendingRunePlacement;
-using Content.Server.WhiteDream.BloodCult.Spells;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
@@ -136,7 +132,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
-        RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
         _language.AddLanguage(cultist, cultist.Comp.CultLanguageId);
 
         var query = QueryActiveRules();
@@ -163,7 +158,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RemoveAllCultItems(cultist);
         RemoveCultistAppearance(cultist);
         RemoveObjectiveAndRole(cultist.Owner);
-        RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
         _language.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
 
         if (!TryComp(cultist, out Spells.BloodCultSpellsHolderComponent? powersHolder))

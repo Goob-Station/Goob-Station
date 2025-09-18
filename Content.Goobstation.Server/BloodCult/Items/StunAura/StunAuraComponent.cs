@@ -1,4 +1,4 @@
-using Content.Server.WhiteDream.BloodCult.Items.BaseAura;
+using Content.Goobstation.Server.BloodCult.Items.BaseAura;
 
 namespace Content.Goobstation.Server.BloodCult.Items.StunAura;
 
