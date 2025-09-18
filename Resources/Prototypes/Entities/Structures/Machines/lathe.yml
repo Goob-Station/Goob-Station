@@ -436,6 +436,7 @@
     - GrenadeTriggersStatic
     - TapeRecorderStatic
     - MiscSignallersStatic
+    - ConstructionBag
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityWeaponsStatic
@@ -525,6 +526,7 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    - ConstructionBagOfHolding
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
