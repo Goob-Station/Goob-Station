@@ -150,10 +150,15 @@
     - NamesLastScurret
     nameFormat: name-format-standard
   # They come in a variety of colours
-  - type: RandomSprite
-    available:
-    - enum.DamageStateVisualLayers.Base:
-        scurret: ScurretColors
+  # Shitmed Start
+  # - type: RandomSprite
+  #   available:
+  #   - enum.DamageStateVisualLayers.Base:
+  #       scurret: ScurretColors
+  # Not quite the same, it doesn't have the reference colors, but it works.
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  # Shitmed End
 
 # Emotional Support Scurrets have a ghost role and equipment. At the moment, these are intended to be used for admemes, but
 # feel free to hook them into random content.
