@@ -178,7 +178,7 @@
 
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  parent: [ClothingShoesBaseButcherable, BaseHighlyIllegalContraband]
   id: ClothingShoesSpaceNinja
   name: space ninja shoes
   description: A pair of nano-enhanced boots with built-in magnetic suction cups.
