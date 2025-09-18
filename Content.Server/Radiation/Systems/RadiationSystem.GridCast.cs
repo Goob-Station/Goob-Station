@@ -206,7 +206,7 @@ public partial class RadiationSystem
         return ray;
     }
 
-    /// <Goobstation> Radiation Overhaul </Goobstation>
+    // Goobstation - Radiation Overhaul
     /// <summary>
     /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
     /// </summary>

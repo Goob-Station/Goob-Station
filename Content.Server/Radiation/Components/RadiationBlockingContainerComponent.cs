@@ -15,14 +15,14 @@ namespace Content.Server.Radiation.Components;
 [Access(typeof(RadiationSystem))]
 public sealed partial class RadiationBlockingContainerComponent : Component
 {
-    /// <Goobstation> Radiation Rework: Default value changed to 0f </Goobstation>
+    // Goobstation - Radiation Rework: Default value changed to 0f
     /// <summary>
     ///     Flat reduction in radiation when an item is in the container.
     /// </summary>
     [DataField("resistance")]
     public float RadResistance = 0f;
 
-    /// <Goobstation> Radiation Rework </Goobstation>
+    // Goobstation - Radiation Rework
     /// <summary>
     ///     TODO: Clarify this.
     ///     Radiation decay for the Goobstation radiation overhaul after applying the flat reduction.
