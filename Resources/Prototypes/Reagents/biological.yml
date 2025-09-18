@@ -264,12 +264,15 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      # Goob start
       - !type:SuppressPain
         amount: 4
         time: 28
       - !type:HealthChange # Goobstation - Make Ichor less shit
         damage:
-          types: 
+          types:
             Heat: -5
             Shock: -5
             Cold: -5
@@ -280,17 +283,14 @@
             Bloodloss: -5
             Blunt: -5
             Slash: -5
-            Piercing: -5 
-   
+            Piercing: -5
       - !type:ModifyBloodLevel
             amount: 3
-  
-      - !type:ModifyBleedAmount
-            amount: -1.5
-  # Goobstation, just in case you REALLY  REALLY want to water your plants
+      # Goob end
+  # Just in case you REALLY  REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 1
+    amount: 1 # Goobstation
   footstepSound:
     collection: FootstepBlood
     params:
