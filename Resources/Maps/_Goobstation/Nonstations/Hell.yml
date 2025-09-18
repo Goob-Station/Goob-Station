@@ -20,6 +20,7 @@ entities:
   entities:
   - uid: 1
     components:
+    - type: HellMap
     - type: MapLight
       ambientLightColor: '#a00404'
     - type: MetaData

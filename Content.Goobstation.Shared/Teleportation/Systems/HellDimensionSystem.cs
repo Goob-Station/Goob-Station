@@ -2,6 +2,7 @@
 // Always-active portal that teleports the user into a custom "hell" map.
 
 using Content.Goobstation.Shared.Teleportation.Components;
+using Content.Goobstation.Shared.Maps;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
 using Robust.Shared.Audio.Systems;
@@ -9,6 +10,7 @@ using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
@@ -25,15 +27,20 @@ public sealed class HellPortalSystem : EntitySystem
         base.Initialize();
         _sawmill = Logger.GetSawmill("hell_portal");
 
-        SubscribeLocalEvent<HellPortalComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<HellPortalComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnStartup(EntityUid uid, HellPortalComponent comp, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, HellPortalComponent comp, MapInitEvent args)
     {
-        if (comp.HellMap != null && !Deleted(comp.HellMap.Value))
+        // Check if any HellMapComponent already exists in the map
+        var existingHellMaps = EntityQuery<HellMapComponent>();
+        if (existingHellMaps.Any())
+        {
+            // Hell map already exists, do nothing
             return;
+        }
 
-        // Load the hell map
+        // Load the hell map if it doesn't exist
         if (!_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml"),
                 out var map, out var roots,
                 options: new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true }))
@@ -42,6 +49,9 @@ public sealed class HellPortalSystem : EntitySystem
             QueueDel(map);
             return;
         }
+
+        // Add HellMapComponent to mark the map as loaded
+        EnsureComp<HellMapComponent>(map.Value);
 
         comp.HellMap = map;
 
@@ -62,8 +72,6 @@ public sealed class HellPortalSystem : EntitySystem
             var hellExit = Spawn(comp.ExitPortalPrototype, pos);
             EnsureComp<PortalComponent>(hellExit, out var hellPortalComp);
             EnsureComp<LinkedEntityComponent>(hellExit);
-
-            hellPortalComp.CanTeleportToOtherMaps = true;
 
             // Permanently link both ways
             _link.TryLink(uid, hellExit);
