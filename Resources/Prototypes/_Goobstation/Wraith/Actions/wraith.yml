@@ -130,8 +130,68 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: possess_object
-  - type: InstantAction
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister
+    blacklist:
+      components:
+      - MindContainer
+      - NukeDisk
+      - GravityGenerator
+      - AnomalyGenerator
+      - TegGenerator
+      - TegCirculator
+      - XenoArtifact
     event: !type:PossessObjectEvent
+      toAdd:
+      - type: Wraith
+      - type: Animate
+      - type: MindContainer
+      - type: InputMover
+      - type: MobMover
+      - type: MovementSpeedModifier
+      - type: CombatMode
+      - type: MeleeWeapon
+        animation: WeaponArcPunch
+        wideAnimation: WeaponArcPunch
+        altDisarm: false
+        soundHit: /Audio/Weapons/smash.ogg
+        range: 1.5
+        angle: 0.0
+        damage:
+          types:
+            Slash: 20
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      - type: NoSlip
+      - type: MovementAlwaysTouching
+      - type: CanMoveInAir
+      - type: Damageable
+        damageContainer: ManifestedSpirit
+        damageModifierSet: ManifestedSpirit
+      - type: Destructible
+        thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+      - type: Hands
+      - type: CanEscapeInventory
+      - type: MobCollision
+      toRemove:
+      - RequireProjectileTarget
+      - BlockMovement
+      - Item
+      - MeleeRequiresWield
 
 - type: entity
   id: ActionEvolve
