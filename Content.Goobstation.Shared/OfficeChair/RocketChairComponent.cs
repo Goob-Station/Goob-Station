@@ -108,10 +108,10 @@ public sealed partial class RocketChairComponent : Component
     [DataField] public bool LockHitAndRunComponent = true;
 
     // Internal shit
-    public float EmitAccumulator { get; set; }
+    public TimeSpan EmitElapsed;
     public TimeSpan BoostStart;
-    public TimeSpan BoostEnd { get; set; }
-    public Vector2 BoostDir { get; set; }
+    public TimeSpan BoostEnd;
+    public Vector2 BoostDir;
     public EntityUid? LastPilot;
     public EntityUid? BoostAction;
 }

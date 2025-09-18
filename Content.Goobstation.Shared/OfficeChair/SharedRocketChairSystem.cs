@@ -105,7 +105,7 @@ public abstract partial class SharedRocketChairSystem : EntitySystem
 
         comp.BoostDir = aim / len;
         comp.LastPilot = args.Performer;
-        comp.EmitAccumulator = 0f;
+        comp.EmitElapsed = TimeSpan.Zero;
 
         args.Handled = true;
     }

@@ -48,7 +48,8 @@ public sealed partial class VehicleWallPushComponent : Component
     /// <summary>
     /// Sound played when a valid kick connects with a surface.
     /// </summary>
-    public SoundSpecifier KickSound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/punchmiss.ogg")
+    [DataField]
+    public SoundSpecifier KickSound = new SoundPathSpecifier("/Audio/Weapons/punchmiss.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f).WithVariation(0.025f),
     };

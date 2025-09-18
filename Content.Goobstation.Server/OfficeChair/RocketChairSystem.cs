@@ -38,9 +38,6 @@ public sealed partial class RocketChairSystem : SharedRocketChairSystem
     {
         base.Update(frameTime);
 
-        if (!_net.IsServer)
-            return;
-
         var query = EntityQueryEnumerator<RocketChairComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -68,12 +65,13 @@ public sealed partial class RocketChairSystem : SharedRocketChairSystem
             if (have < need)
                 comp.BoostEnd = _timing.CurTime;
 
-            comp.EmitAccumulator += frameTime;
+            comp.EmitElapsed += TimeSpan.FromSeconds(MathF.Max(frameTime, 0f));
             var emits = 0;
-            while (comp.EmitAccumulator >= comp.EmitInterval && emits < comp.EmitMaxPerTick)
+            var interval = TimeSpan.FromSeconds(comp.EmitInterval);
+            while (comp.EmitElapsed >= interval && emits < comp.EmitMaxPerTick)
             {
                 SpawnVaporBurst(uid, comp);
-                comp.EmitAccumulator -= comp.EmitInterval;
+                comp.EmitElapsed -= interval;
                 emits++;
             }
         }
@@ -145,7 +143,5 @@ public sealed partial class RocketChairSystem : SharedRocketChairSystem
         }
 
         _audio.PlayPvs(comp.SpraySound, uid, comp.SpraySound.Params.WithVariation(0.125f));
-
     }
-
 }

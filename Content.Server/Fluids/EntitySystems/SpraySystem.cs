@@ -65,7 +65,6 @@ using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
 using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
 using Content.Shared.Hands.EntitySystems; // Assmos - Extinguisher Nozzle
 using Content.Goobstation.Shared.OfficeChair; // Goobstation - Vehicle Spray Pushback (Office chairs)
-using Content.Shared.Buckle.Components; // Goobstation - Vehicle Spray Pushback (Office chairs)
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -114,23 +113,6 @@ public sealed class SpraySystem : EntitySystem
     {
         _gridImpulseMultiplier = value;
     }
-
-    // Goobstation start - Vehicle Spray Pushback (Office chairs)
-    private void ApplyVehicleSprayPush(EntityUid user, Vector2 impulse)
-    {
-        // This is works like shit because spray system lives entirely in server, so no prediction, and I honestly don't care.
-        if (impulse == Vector2.Zero)
-            return;
-
-        if (TryComp<BuckleComponent>(user, out var buckle) && buckle.Buckled && buckle.BuckledTo is EntityUid vehicle)
-        {
-            if (!TryComp<SprayPushableVehicleComponent>(vehicle, out var pushable))
-                return;
-
-            _sprayPushSys.EnqueueImpulse(vehicle, impulse * pushable.Multiplier);
-        }
-    }
-    // Goobstation end - Vehicle Spray Pushback (Office chairs)
 
     private void OnAfterInteract(Entity<SprayComponent> entity, ref AfterInteractEvent args)
     {
@@ -257,7 +239,7 @@ public sealed class SpraySystem : EntitySystem
                         _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
                 }
 
-                ApplyVehicleSprayPush(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount); // Goobstation - Vehicle Spray Pushback (Office chairs)
+                RaiseLocalEvent(user, new SprayUserImpulseEvent(-impulseDirection.Normalized() * entity.Comp.PushbackAmount)); // Goobstation - Vehicle Spray Pushback (Office chairs)
 
                 _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 
@@ -353,7 +335,7 @@ public sealed class SpraySystem : EntitySystem
             accumulatedVehiclePush += -impulseDirection * entity.Comp.PushbackAmount; // Goobstation - Vehicle Spray Pushback (Office chairs)
         }
 
-        ApplyVehicleSprayPush(user, accumulatedVehiclePush);  // Goobstation - Vehicle Spray Pushback (Office chairs)
+        RaiseLocalEvent(user, new SprayUserImpulseEvent(accumulatedVehiclePush));  // Goobstation - Vehicle Spray Pushback (Office chairs)
 
         _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 

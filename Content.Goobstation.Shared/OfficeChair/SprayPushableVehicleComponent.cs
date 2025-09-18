@@ -19,27 +19,23 @@ public sealed partial class SprayPushableVehicleComponent : Component
     public float Multiplier = 0.5f;
 
     /// <summary>
-    /// Default time in seconds over which an enqueued impulse is spread/smoothed.
+    /// Default time in seconds over which an enqueued impulse is spread.
     /// </summary>
     [DataField]
     public float ImpulseDuration = 0.5f;
 
     // Internal shit
     public Vector2 PendingImpulseRemaining;
-    public float PendingImpulseTimeLeft;
+    public TimeSpan PendingImpulseTimeLeft;
 }
 
 [NetSerializable, Serializable]
-public sealed partial class SprayVehicleImpulseEvent : EntityEventArgs
+public sealed partial class SprayUserImpulseEvent : EntityEventArgs
 {
-    public NetEntity Vehicle;
-    public Vector2 Velocity;
-    public float Duration;
+    public Vector2 Impulse;
 
-    public SprayVehicleImpulseEvent(NetEntity vehicle, Vector2 velocity, float duration)
+    public SprayUserImpulseEvent(Vector2 impulse)
     {
-        Vehicle = vehicle;
-        Velocity = velocity;
-        Duration = duration;
+        Impulse = impulse;
     }
 }
