@@ -10,29 +10,43 @@
   # Custom names
   - type: ReplacementAccent
     accent: scurret
-  # Shitmed - Scurret Species
+  # Shitmed Start
   - type: HumanoidAppearance
     species: Scurret
+  - type: Body
+    prototype: Scurret
+    bodyType: Complex
+    requiredLegs: 2
   - type: Sprite
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/scurret/scurret.rsi
-      state: scurret
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
   # Custom visuals for dead scurrets; be aware these do not work well with equipment.
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: scurret
-      Critical:
-        Base: scurret_oof
-      Dead:
-        Base: scurret_rip
+  # - type: DamageStateVisuals
+  #   states:
+  #     Alive:
+  #       Base: scurret
+  #     Critical:
+  #       Base: scurret_oof
+  #     Dead:
+  #       Base: scurret_rip
   #  About as tough as a monkey
+  # Shitmed End
   - type: MobThresholds
     thresholds:
       0: Alive

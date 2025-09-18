@@ -11,9 +11,9 @@
   - type: Appearance
   - type: HumanoidAppearance
     species: Scurret
-  # - type: Body
-  #   prototype: Scurret
-  #   requiredLegs: 2
+  - type: Body
+    prototype: Scurret
+    requiredLegs: 2
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:
