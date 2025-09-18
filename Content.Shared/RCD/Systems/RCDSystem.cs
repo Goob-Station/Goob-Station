@@ -615,7 +615,7 @@ public sealed class RCDSystem : EntitySystem
                     : prototype.Prototype;
 
                 // Funky - Calculate rotation and apply it before spawning
-                var rotation = component.CachedPrototype.Rotation switch
+                var rotation = proto.Rotation switch
                 {
                     RcdRotation.Fixed => Angle.Zero,
                     RcdRotation.Camera => Transform(uid).LocalRotation,
@@ -624,7 +624,7 @@ public sealed class RCDSystem : EntitySystem
                 };
 
                 // Convert EntityCoordinates to MapCoordinates
-                var entityCoords = _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position);
+                var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
                 var mapCoords = _transform.ToMapCoordinates(entityCoords);
                 var ent = Spawn(proto, mapCoords, rotation: rotation);
                 // End of funky changes
