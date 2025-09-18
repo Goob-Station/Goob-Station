@@ -139,6 +139,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.BloodCult;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
@@ -382,11 +383,19 @@ namespace Content.Server.Hands.Systems
             if (ev.Cancelled)
                 return true;
 
+            // Goobstation start
+            var ev2 = new BeforeGettingThrownEvent(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid);
+            RaiseLocalEvent(throwEnt.Value, ref ev2);
+
+            if (ev2.Cancelled)
+                return true;
+            // Goobstation end
+
             // This can grief the above event so we raise it afterwards
             if (IsHolding((player, hands), throwEnt, out _) && !TryDrop(player, throwEnt.Value))
                 return false;
 
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            _throwingSystem.TryThrow(ev2.ItemUid, ev2.Direction, ev2.ThrowSpeed, ev2.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid)); // Goob edit
 
             return true;
         }

@@ -28,7 +28,7 @@ public sealed partial class PurifyEvil : ReagentEffect
     {
         var entityManager = args.EntityManager;
         var uid = args.SolutionEntity;
-        if (!entityManager.TryGetComponent(uid, out BloodCultistComponent? bloodCultist) ||
+        if (!entityManager.TryGetComponent(uid, out Goobstation.Shared.BloodCult.BloodCultist.BloodCultistComponent? bloodCultist) ||
             bloodCultist.DeconvertToken is not null)
         {
             return;
@@ -43,7 +43,7 @@ public sealed partial class PurifyEvil : ReagentEffect
 
     private void DeconvertCultist(EntityUid uid, IEntityManager entityManager)
     {
-        if (entityManager.HasComponent<BloodCultistComponent>(uid))
-            entityManager.RemoveComponent<BloodCultistComponent>(uid);
+        if (entityManager.HasComponent<Goobstation.Shared.BloodCult.BloodCultist.BloodCultistComponent>(uid))
+            entityManager.RemoveComponent<Goobstation.Shared.BloodCult.BloodCultist.BloodCultistComponent>(uid);
     }
 }

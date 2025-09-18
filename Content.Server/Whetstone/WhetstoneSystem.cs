@@ -1,7 +1,7 @@
-﻿using Content.Shared.Interaction;
+﻿using Content.Goobstation.Shared.BloodCult;
+using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.WhiteDream.BloodCult;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
