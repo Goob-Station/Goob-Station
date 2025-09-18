@@ -4426,3 +4426,10 @@
   id: 8985
   time: '2025-09-18T19:37:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40311
+- author: Kittygyat
+  changes:
+  - message: Tarantulas and other spider mobs can now pull objects.
+    type: Add
+  id: 8986
+  time: '2025-09-18T19:59:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40433
