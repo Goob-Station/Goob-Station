@@ -135,7 +135,7 @@
     understands:
     - TauCetiBasic
     - Moffic
-  - type: ItemCougher #Durk fully implements a bounty challenge ( IMPOSSIBLE )
+  - type: ItemCougher
     item: Chitzite
     action: ActionChitzite
     coughPopup: chitzite-cough
