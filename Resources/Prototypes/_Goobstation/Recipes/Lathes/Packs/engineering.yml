@@ -33,3 +33,13 @@
   - LatheUpgradeKitCryo
   - UpgradeKitAutomation
   - AutodocUpgradeKitBluespace
+
+- type: latheRecipePack
+  id: ConstructionBagOfHolding
+  recipes:
+  - ConstructionBagOfHolding
+
+- type: latheRecipePack
+  id: ConstructionBag
+  recipes:
+  - ConstructionBag

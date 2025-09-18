@@ -49,6 +49,7 @@
     whitelist:
       tags:
       - Sheet
+      - CableCoil
   - type: Dumpable
   - type: ItemToggle
     soundActivate:

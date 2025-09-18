@@ -57,7 +57,9 @@
     - MiscSignallersStatic
     - NailgunStatic
     - NailsStatic
+    - ConstructionBag
     dynamicPacks:
+    - ConstructionBagOfHolding
     - AdvancedTools
     - AtmosTools
     - EngineeringWeapons
