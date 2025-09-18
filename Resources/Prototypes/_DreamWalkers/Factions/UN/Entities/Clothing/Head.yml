@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadHelmetArmoredBase
   id: ClothingHeadUNHelmetStandard
-  name: united nations helmet
+  name: UN helmet
   description: A standard helmet of the united nations military. Bunch of blueberrys.
   components:
   - type: Sprite

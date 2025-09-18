@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformUNUniformWoodland
+  name: UN woodland uniform
+  description: The standard uniform of the United Nations.
+  components:
+  - type: Sprite
+    sprite: _DreamWalkers/Factions/UN/Clothing/un_woodland_uniform.rsi
+  - type: Clothing
+    sprite: _DreamWalkers/Factions/UN/Clothing/un_woodland_uniform.rsi

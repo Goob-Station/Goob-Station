@@ -1,7 +1,7 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
   id: ClothingOuterUNArmorStandard
-  name: united nations armor vest
+  name: UN armor vest
   description: A standard issue armor vest for the united nations military.
   components:
   - type: Sprite
