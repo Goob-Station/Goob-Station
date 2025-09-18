@@ -26,7 +26,7 @@ public sealed partial class N2OFormationReaction : IGasReactionEffect
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
 
         var n2oAdded = Math.Min(initOxygen * 0.5f, initNitrogen); // collect reaction amount, could be more but it's more interesting to limit reaction rate
-        if (initNitrogen < n2oAdded || initOxygen < n2oAdded)
+        if (initNitrogen < n2oAdded || initOxygen * 0.5f < n2oAdded)
             return ReactionResult.NoReaction;
 
         mixture.AdjustMoles(Gas.NitrousOxide, n2oAdded);
