@@ -24,6 +24,8 @@ public sealed class RetractableClothingSystem : EntitySystem
 
         SubscribeLocalEvent<RetractableClothingActionComponent, MapInitEvent>(OnActionInit);
         SubscribeLocalEvent<RetractableClothingActionComponent, RetractableClothingActionEvent>(OnRetractableClothingAction);
+
+        SubscribeLocalEvent<RetractableClothingComponent, ComponentShutdown>(OnRetractableClothingShutdown);
     }
 
     private void OnActionInit(Entity<RetractableClothingActionComponent> entity, ref MapInitEvent args)
@@ -79,6 +81,17 @@ public sealed class RetractableClothingSystem : EntitySystem
         }
 
         args.Handled = true;
+    }
+
+    private void OnRetractableClothingShutdown(Entity<RetractableClothingComponent> clothing, ref ComponentShutdown args)
+    {
+        if (_actionsSystem.GetAction(clothing.Comp.SummoningAction) is not { } action)
+            return;
+
+        if (!TryComp<RetractableClothingActionComponent>(action, out var retract) || retract.ActionClothingUid.ContainsValue(clothing.Owner))
+            return;
+
+        PopulateClothing(action.Owner);
     }
 
     public void PopulateClothing(Entity<RetractableClothingActionComponent?> entity)
