@@ -26,6 +26,7 @@
   - type: Decay
   - type: AbsorbCorpse
   - type: DemonicWhisper
+  - type: PossessObject
   - type: SummonPortal
   - type: RaiseSkeleton
   - type: SummonVoidCreature
@@ -40,12 +41,13 @@
     - ActionWhisper
     - ActionBloodWriting
     - ActionAbsorbCorpse
+    - ActionSpook
     - ActionDecay
     - ActionAnimateObject
+    - ActionPossessObject
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
     - ActionSummonVoidCreatures
-    - ActionSpook
   # - Haunt
   # - ActionGrant
   # actions:
