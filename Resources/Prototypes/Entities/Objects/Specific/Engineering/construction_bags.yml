@@ -50,6 +50,8 @@
       tags:
       - Sheet
       - CableCoil
+      - RawMaterial
+      - PartBase
   - type: Dumpable
   - type: ItemToggle
     soundActivate:

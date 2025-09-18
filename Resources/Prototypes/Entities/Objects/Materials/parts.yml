@@ -43,6 +43,7 @@
   - type: Tag
     tags:
       - DroneUsable # Goobstation
+      - PartBase # Goobstation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
