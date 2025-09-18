@@ -4,13 +4,13 @@
   description: Light switches that are on turn off and off on.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: flip
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: flip
   - type: InstantAction
     event: !type:FlipLightsEvent
 
@@ -20,13 +20,13 @@
   description: Breaks up to four light tubes and bulbs in the area, creating sparks that can ignite flammables.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: burn
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: burn
   - type: InstantAction
     event: !type:BurnLightsEvent
 
@@ -36,13 +36,13 @@
   description: Opens and closes a few random doors, lockers, and crates in the area.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: open
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: open
   - type: InstantAction
     event: !type:OpenDoorsSpookEvent
 
@@ -52,13 +52,13 @@
   description: Creates multiple clouds of smoke near you that can completely obscure people's vision. Clouds persist for about a minute.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: smoke
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: smoke
   - type: InstantAction
     event: !type:CreateSmokeSpookEvent
 
@@ -68,13 +68,13 @@
   description: Spawns a few globs of ectoplasm in the area.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: ectoplasm
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: ectoplasm
   - type: InstantAction
     event: !type:CreateEctoplasmEvent
 
@@ -84,13 +84,13 @@
   description: Drains a bit of power from the area's APC. The higher your WP regen rate, the more power drained. Cannot drain multiple APCs.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: apc
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: apc
   - type: InstantAction
     event: !type:SapApcEvent
 
@@ -100,12 +100,12 @@
   description: Does one random action.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wraith/actions.rsi
-    state: haunt
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: random
   - type: Action
     useDelay: 60
     icon:
-      sprite: _Goobstation/Wraith/actions.rsi
-      state: haunt
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: random
   - type: InstantAction
     event: !type:RandomSpookEvent
