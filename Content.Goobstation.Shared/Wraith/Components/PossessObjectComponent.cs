@@ -9,4 +9,7 @@ public sealed partial class PossessObjectComponent : Component
 {
     [DataField]
     public SoundSpecifier? Sound;
+
+    [DataField]
+    public bool HasMind = false;
 }

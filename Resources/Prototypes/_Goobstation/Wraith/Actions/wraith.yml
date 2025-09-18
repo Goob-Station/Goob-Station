@@ -128,9 +128,10 @@
 - type: entity
   id: ActionPossessObject
   name: Possess object
-  description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people, all while taunting them (somehow).
+  description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people. While powerful, you are now corporeal, and can be killed in this form.
   components:
   - type: Action
+    itemIconStyle: BigAction
     useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -156,13 +157,13 @@
       - type: MindContainer
       - type: InputMover
       - type: MobMover
-      - type: MovementSpeedModifier
       - type: CombatMode
       - type: MeleeWeapon
-        animation: WeaponArcPunch
-        wideAnimation: WeaponArcPunch
+        animation: Slash
+        wideAnimation: WeaponArcClaw
         altDisarm: false
-        soundHit: /Audio/Weapons/smash.ogg
+        soundHit:
+          collection: Flesh_Stab
         range: 1.5
         angle: 0.0
         damage:
@@ -172,6 +173,9 @@
         factions:
         - SimpleHostile
       - type: NoSlip
+      - type: MovementSpeedModifier
+        baseWalkSpeed: 5
+        baseSprintSpeed: 5
       - type: MovementAlwaysTouching
       - type: CanMoveInAir
       - type: Damageable
@@ -181,7 +185,7 @@
         thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 200
+            damage: 300 #Easily killable with holy damage so it has to be somewhat high for it to be worth the wraith risking it
           behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]

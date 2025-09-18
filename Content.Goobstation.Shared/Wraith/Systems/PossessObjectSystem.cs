@@ -8,9 +8,11 @@ using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
 using System.Linq;
 using YamlDotNet.Core.Tokens;
 
@@ -30,6 +32,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
         SubscribeLocalEvent<PossessObjectEvent>(OnChangeComponents);
     }
 
+    //TO DO: Make the wraith return to their body if they get killed as a possessed object.
     public void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
     {
         var uid = ent.Owner;
@@ -62,6 +65,14 @@ public sealed partial class PossessObjectSystem : EntitySystem
             _audio.PlayEntity(comp.Sound, target, target);
         }
 
+        Timer.Spawn(TimeSpan.FromSeconds(15), () =>
+        {
+            if (EntityManager.Deleted(uid))
+                return;
+
+            _mind.TransferTo(perMind, uid);
+        });
+
         args.Handled = true;
     }
 
@@ -70,7 +81,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
         if (!HasComp(target, type))
             return false;
 
-        _popup.PopupPredicted(Loc.GetString("wraith-possess"), uid, uid);
+        _popup.PopupPredicted(Loc.GetString("wraith-possess"), target, target);
         return true;
     }
 

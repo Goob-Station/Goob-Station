@@ -1,0 +1,59 @@
+- files: ["Blade_Small.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Blade_Small_Bloody.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Break_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Break_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Crush_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Cut_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Stab_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Stab_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Stab_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Tear_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Tear_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Flesh_Tear_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
