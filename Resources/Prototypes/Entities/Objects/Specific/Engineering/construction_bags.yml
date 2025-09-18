@@ -110,8 +110,8 @@
         - 0,0,19,9
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 500
-        Silver: 187
-        Plasma: 375
-        Uranium: 37
-        BSCrystal: 25
+        Steel: 250
+        Silver: 180
+        Plasma: 90
+        Uranium: 90
+        BSCrystal: 20

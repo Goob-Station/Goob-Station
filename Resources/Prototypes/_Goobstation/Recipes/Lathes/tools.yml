@@ -73,8 +73,8 @@
   result: ConstructionBagOfHolding
   completetime: 5
   materials:
-    Steel: 1500
+    Steel: 1000
     Silver: 500
-    Plasma: 100
-    Uranium: 100
+    Plasma: 200
+    Uranium: 200
     BSCrystal: 50
