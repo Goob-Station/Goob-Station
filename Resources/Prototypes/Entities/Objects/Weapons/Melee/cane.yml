@@ -51,14 +51,12 @@
 
 - type: entity
   name: cane blade
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseSword, BaseSyndicateContraband]
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
   components:
-  - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
-    state: icon
   - type: MeleeWeapon
     animationRotation: 45 # WWDP
     wideAnimationRotation: 65
@@ -69,7 +67,6 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    size: Normal
     sprite: Objects/Weapons/Melee/cane_blade.rsi
   - type: Tag
     tags:
