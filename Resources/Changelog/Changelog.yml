@@ -4412,3 +4412,10 @@
   id: 8983
   time: '2025-09-18T18:47:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39466
+- author: SlamBamActionman
+  changes:
+  - message: Several reagents now have contraband levels listed in the guidebook.
+    type: Add
+  id: 8984
+  time: '2025-09-18T19:01:22.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40426
