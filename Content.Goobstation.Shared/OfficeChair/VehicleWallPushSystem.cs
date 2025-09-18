@@ -11,9 +11,11 @@ using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Numerics;
 
@@ -28,6 +30,8 @@ public sealed partial class VehicleWallPushSystem : EntitySystem
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -73,15 +77,16 @@ public sealed partial class VehicleWallPushSystem : EntitySystem
 
         var aim = to.Position - from.Position;
         var aimLen = aim.Length();
+        if (aimLen == 0)
+            return;
 
         var dir = aim / aimLen;
-
         var ray = new CollisionRay(from.Position, dir, VehicleWallPushComponent.KickMask);
 
         if (_physics.IntersectRayWithPredicate(to.MapId, ray, comp.MaxDistance, x => x == vehicle.Driver || x == uid).FirstOrNull() is not { HitEntity: { } blocker })
             return;
 
-        _audio.PlayPredicted(comp.KickSound, blocker, blocker);
+        _audio.PlayPredicted(comp.KickSound, blocker, args.Performer);
 
         if (HasComp<PhysicsComponent>(blocker))
         {
@@ -97,14 +102,13 @@ public sealed partial class VehicleWallPushSystem : EntitySystem
             {
                 var force = shoveRange * _contests.MassContest(args.Performer, blocker, rangeFactor: shoveMass);
                 var pushVec = Vector2.Normalize(delta) * force;
-                var animated = HasComp<ItemComponent>(blocker);
-                _throwing.TryThrow(blocker, pushVec, force * shoveSpeed, animated: animated, playSound: false);
+                _throwing.TryThrow(blocker, pushVec, force * shoveSpeed, args.Performer, animated: true, playSound: false);
             }
         }
 
         var addVel = -dir * comp.KickSpeed;
         _physics.SetLinearVelocity(uid, physics.LinearVelocity + addVel);
-
         args.Handled = true;
     }
+
 }
