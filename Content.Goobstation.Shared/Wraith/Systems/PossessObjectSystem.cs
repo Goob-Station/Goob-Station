@@ -27,7 +27,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PossessObjectComponent, PossessObjectEvent>(OnPossess);
-        SubscribeLocalEvent<ChangeComponentsEvent>(OnChangeComponents);
+        SubscribeLocalEvent<PossessObjectEvent>(OnChangeComponents);
     }
 
     public void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
@@ -48,7 +48,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
         (typeof(SpectralComponent), "ghost")
     };
 
-        if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
+        if (blockers.Any(x => CheckMindswapBlocker(target, uid, x.Item1, x.Item2)))
             return;
 
         if (!_mind.TryGetMind(uid, out var perMind, out var _))
@@ -62,19 +62,19 @@ public sealed partial class PossessObjectSystem : EntitySystem
             _audio.PlayEntity(comp.Sound, target, target);
         }
 
-        bool CheckMindswapBlocker(Type type, string message)
-        {
-            if (!HasComp(target, type))
-                return false;
-
-            _popup.PopupPredicted(Loc.GetString("wraith-possess"), uid, uid);
-            return true;
-        }
-
         args.Handled = true;
     }
 
-    private void OnChangeComponents(ChangeComponentsEvent args)
+    private bool CheckMindswapBlocker(EntityUid target, EntityUid uid, Type type, string message)
+    {
+        if (!HasComp(target, type))
+            return false;
+
+        _popup.PopupPredicted(Loc.GetString("wraith-possess"), uid, uid);
+        return true;
+    }
+
+    private void OnChangeComponents(PossessObjectEvent args)
     {
         var target = args.Target;
 

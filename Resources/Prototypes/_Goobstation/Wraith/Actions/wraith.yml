@@ -147,7 +147,6 @@
       - XenoArtifact
     event: !type:PossessObjectEvent
       toAdd:
-      - type: Wraith
       - type: Animate
       - type: MindContainer
       - type: InputMover
