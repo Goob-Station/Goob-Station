@@ -19,6 +19,7 @@ public sealed class HellPortalSystem : EntitySystem
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
+    EntityUid hellExit;
 
     private ISawmill _sawmill = default!;
 
@@ -36,7 +37,8 @@ public sealed class HellPortalSystem : EntitySystem
         var existingHellMaps = EntityQuery<HellMapComponent>();
         if (existingHellMaps.Any())
         {
-            // Hell map already exists, do nothing
+            // Hell map already exists, just link the portal
+            _link.TryLink(uid, hellExit);
             return;
         }
 
@@ -69,7 +71,7 @@ public sealed class HellPortalSystem : EntitySystem
             portalComp.CanTeleportToOtherMaps = true;
 
             // Spawn a receiver portal inside hell
-            var hellExit = Spawn(comp.ExitPortalPrototype, pos);
+            hellExit = Spawn(comp.ExitPortalPrototype, pos);
             EnsureComp<PortalComponent>(hellExit, out var hellPortalComp);
             EnsureComp<LinkedEntityComponent>(hellExit);
 

@@ -180,6 +180,7 @@
     - id: AncientXenoVentsHard # Goobstation
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinSpawn # Goobstation
+    - id: HellGooseSpawn # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
