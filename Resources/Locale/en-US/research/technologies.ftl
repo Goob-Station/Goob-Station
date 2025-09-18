@@ -45,7 +45,6 @@ research-technology-optimized-microgalvanism = Optimized Microgalvanism
 research-technology-space-scanning = Space Scanning
 research-technology-excavation = Mass Excavation
 
-
 research-technology-salvage-weapons = Salvage Weapons
 research-technology-draconic-munitions = Draconic Munitions
 research-technology-uranium-munitions = Uranium Munitions
