@@ -4419,3 +4419,10 @@
   id: 8984
   time: '2025-09-18T19:01:22.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40426
+- author: Shot
+  changes:
+  - message: The cane blade can now slice, cut and execute
+    type: Tweak
+  id: 8985
+  time: '2025-09-18T19:37:04.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40311
