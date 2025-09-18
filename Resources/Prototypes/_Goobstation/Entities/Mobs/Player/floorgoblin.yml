@@ -22,9 +22,9 @@
           radius: 0.2
         density: 100
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

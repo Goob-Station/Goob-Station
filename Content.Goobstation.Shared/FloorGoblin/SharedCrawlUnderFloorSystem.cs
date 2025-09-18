@@ -4,7 +4,6 @@
 
 using Content.Shared._DV.Abilities;
 using Content.Shared._Starlight.VentCrawling;
-using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Interaction.Events;
@@ -22,6 +21,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Actions;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
@@ -39,15 +39,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
-
-    // When hidden, we want to ignore most collision layers except for walls and other solid structures
-    // We allow passing under all doors (both HighImpassable and DoorPassable are not in the mask)
-    // We exclude ConveyorMask to prevent being moved by conveyors when under the floor
-    private const int HiddenMask = (int) (CollisionGroup.MidImpassable | CollisionGroup.LowImpassable |
-                                         CollisionGroup.InteractImpassable | CollisionGroup.ConveyorMask);
-
-    // Include DoorPassable to allow moving under all door types
-    private const int HiddenLayer = (int) (CollisionGroup.MobLayer | CollisionGroup.DoorPassable | CollisionGroup.HighImpassable);
 
     public override void Initialize()
     {
@@ -203,31 +194,46 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return;
 
         var hidden = IsHidden(uid, comp);
-
+        
         foreach (var (key, fixture) in fixtures.Fixtures)
         {
+            // Start with the base collision mask
             var baseMask = GetOrCacheBase(comp.ChangedFixtures, key, fixture.CollisionMask);
-            var desiredMask = hidden ? GetHiddenMask(baseMask) : baseMask;
-            if (fixture.CollisionMask != desiredMask)
-                _physics.SetCollisionMask(uid, key, fixture, desiredMask, manager: fixtures);
-
-            var baseLayer = GetOrCacheBase(comp.ChangedFixtureLayers, key, fixture.CollisionLayer);
-            var desiredLayer = hidden ? GetHiddenLayer(baseLayer) : baseLayer;
-            if (fixture.CollisionLayer != desiredLayer)
-                _physics.SetCollisionLayer(uid, key, fixture, desiredLayer, manager: fixtures);
+            
+            // Always ignore mobs and tables
+            var mask = baseMask & ~(int)(CollisionGroup.MobMask | CollisionGroup.TableMask);
+            
+            if (hidden)
+            {
+                // When hidden, only collide with major obstacles
+                mask = (int)CollisionGroup.Impassable;
+            }
+            else
+            {
+                // When not hidden, ensure we collide with walls and doors
+                mask |= (int)(CollisionGroup.Impassable | CollisionGroup.MidImpassable);
+            }
+            
+            // Apply the changes if they're different
+            if (fixture.CollisionMask != mask)
+                _physics.SetCollisionMask(uid, key, fixture, mask, manager: fixtures);
         }
     }
 
     public bool IsOnCollidingTile(EntityUid uid)
     {
         // If we're under the floor, don't consider any tiles as colliding
-        if (TryComp<CrawlUnderFloorComponent>(uid, out var crawlComp) && crawlComp.Enabled && !IsOnSubfloor(uid))
+        if (TryComp<CrawlUnderFloorComponent>(uid, out var crawlComp) &&
+            crawlComp.Enabled &&
+            !IsOnSubfloor(uid))
+        {
+            return false;
+        }
+
+        // Standard collision check for tiles
+        if (!TryGetCurrentTile(uid, out var tileRef, out _) || tileRef.Tile.IsEmpty)
             return false;
 
-        if (!TryGetCurrentTile(uid, out var tileRef, out _))
-            return false;
-        if (tileRef.Tile.IsEmpty)
-            return false;
         return _turf.IsTileBlocked(tileRef, CollisionGroup.MobMask);
     }
 
@@ -271,15 +277,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (movedOutOfCover)
             PlayDuendeSound(uid, causedByTileChange ? 1f : 0.3f);
     }
-
-
-    private static int GetHiddenMask(int baseMask)
-        => baseMask
-           & ~HiddenMask;
-
-    private static int GetHiddenLayer(int baseLayer)
-        => baseLayer
-           & ~HiddenLayer;
 
     private static int GetOrCacheBase<TKey>(List<(TKey, int)> list, TKey key, int current)
     {
