@@ -69,7 +69,7 @@ public sealed class SiliconDeathSystem : EntitySystem
         // Goobstation End - Added batteryEnt arguments
     }
 
-    /// <Goobstation> Energycrit </Goobstation>
+    // Goobstation - Energycrit
     private void OnRadioSendAttempt(Entity<SiliconDownOnDeadComponent> ent, ref RadioSendAttemptEvent args)
     {
         // Prevent talking on radio if energycrit
@@ -79,7 +79,7 @@ public sealed class SiliconDeathSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    /// <Goobstation> Energycrit </Goobstation>
+    // Goobstation - Energycrit
     /// <summary>
     ///     Some actions, like picking up an IPC and carrying it remove the KnockedDownComponent, if they try to stand when they
     ///     shouldn't, just knock them down again

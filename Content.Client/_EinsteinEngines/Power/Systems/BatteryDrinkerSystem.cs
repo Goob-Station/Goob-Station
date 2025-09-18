@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._EinsteinEngines.Power.Systems;
 
-/// <Goobstation> Energycrit </Goobstation>
+// Goobstation - Energycrit
 /// <summary>
 ///     Client-side prediction for BatteryDrinkerSystem.
 /// </summary>

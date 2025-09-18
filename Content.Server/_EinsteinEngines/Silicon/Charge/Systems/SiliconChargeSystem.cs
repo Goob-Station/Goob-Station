@@ -51,7 +51,7 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    /// <Goobstation> Energycrit: Added batteryEnt argument </Goobstation>
+    // Goobstation - Energycrit: Added batteryEnt argument
     public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp, [NotNullWhen(true)] out EntityUid? batteryEnt)
     {
         batteryComp = null;

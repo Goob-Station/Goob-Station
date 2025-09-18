@@ -7,7 +7,7 @@ using Content.Shared.Whitelist; // Goobstation - Energycrit
 
 namespace Content.Shared._EinsteinEngines.Power.Components;
 
-/// <Goobstation> Moved from EE server to EE shared </Goobstation>
+// Goobstation - Moved from EE server to EE shared
 [RegisterComponent]
 public sealed partial class BatteryDrinkerComponent : Component
 {
@@ -37,7 +37,7 @@ public sealed partial class BatteryDrinkerComponent : Component
     [DataField]
     public float DrinkAllMultiplier = 2.5f;
 
-    /// <Goobstation> Energycrit: BatteryDrinker blacklist. </Goobstation>
+    // Goobstation - Energycrit: BatteryDrinker blacklist.
     /// <summary>
     ///     Blacklist for battery containers that can not be drank from.
     /// </summary>

@@ -7,7 +7,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared._EinsteinEngines.Silicon.Charge;
 
-/// <Goobstation> Energycrit: Moved from server to shared. </Goobstation>
+// Goobstation - Energycrit: Moved from server to shared.
 [RegisterComponent]
 public sealed partial class BatteryDrinkerSourceComponent : Component
 {
