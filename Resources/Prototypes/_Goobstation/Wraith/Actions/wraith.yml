@@ -69,6 +69,7 @@
   description: The first use Marks an area, and the second use lets you choose a spooky thing to do to that area.
   components:
   - type: Action
+    itemIconStyle: BigAction
     useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -102,11 +103,15 @@
   components:
   - type: Action
     useDelay: 20
+    itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: command
-  - type: InstantAction
-    event: !type:CommandEvent
+  - type: TargetAction
+    range: 10
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:WraithCommandEvent
 
 - type: entity
   id: ActionAnimateObject

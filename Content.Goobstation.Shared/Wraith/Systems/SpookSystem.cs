@@ -69,10 +69,7 @@ public sealed class SpookSystem : EntitySystem
             if (metadata.EntityPrototype != actionProto
                 || !TryComp<ActionComponent>(actionEnt, out var actionComp)
                 || _actions.IsCooldownActive(actionComp, _timing.CurTime))
-            {
-                _popupSystem.PopupPredicted(Loc.GetString("spook-on-cooldown"), uid, uid, PopupType.MediumCaution);
                 continue;
-            }
 
             _actions.PerformAction(uid, (actionEnt, actionComp));
             break;

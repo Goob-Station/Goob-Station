@@ -31,6 +31,12 @@
   - type: RaiseSkeleton
   - type: SummonVoidCreature
   - type: SpookMark
+  - type: WraithCommand
+    blacklist:
+      components:
+      - MobState
+      - Body
+      - Food
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger
@@ -49,6 +55,7 @@
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
     - ActionSummonVoidCreatures
+    - ActionCommand
   # - Haunt
   # - ActionGrant
   # actions:

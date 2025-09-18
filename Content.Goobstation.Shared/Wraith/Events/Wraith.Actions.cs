@@ -30,7 +30,7 @@ public sealed partial class SpookEvent : WorldTargetActionEvent
 public sealed partial class DecayEvent : EntityTargetActionEvent
 {
 }
-public sealed partial class CommandEvent : InstantActionEvent
+public sealed partial class WraithCommandEvent : EntityTargetActionEvent
 {
 }
 public sealed partial class AnimateObjectEvent : InstantActionEvent
