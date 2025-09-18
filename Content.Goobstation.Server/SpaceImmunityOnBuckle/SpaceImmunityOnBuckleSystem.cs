@@ -21,16 +21,20 @@ public sealed class SpaceImmunityOnBuckleSystem : EntitySystem
         SubscribeLocalEvent<SpaceImmunityOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
     }
 
-    private void OnBuckled(Entity<SpaceImmunityOnBuckleComponent> ent, ref StrappedEvent args)
+    private void OnBuckled(EntityUid uid, SpaceImmunityOnBuckleComponent comp, ref StrappedEvent args)
     {
+        comp.HadPressureImmunityComponent = HasComp<PressureImmunityComponent>(args.Buckle.Owner);
+        comp.HadSpecialLowTempImmunityComponent = HasComp<SpecialLowTempImmunityComponent>(args.Buckle.Owner);
+
         EnsureComp<PressureImmunityComponent>(args.Buckle.Owner);
         EnsureComp<SpecialLowTempImmunityComponent>(args.Buckle.Owner);
     }
 
-    private void OnUnstrapped(Entity<SpaceImmunityOnBuckleComponent> ent, ref UnstrappedEvent args)
+    private void OnUnstrapped(EntityUid uid, SpaceImmunityOnBuckleComponent comp, ref UnstrappedEvent args)
     {
-        RemComp<PressureImmunityComponent>(args.Buckle.Owner);
-        RemComp<SpecialLowTempImmunityComponent>(args.Buckle.Owner);
+        if (!comp.HadPressureImmunityComponent)
+            RemComp<PressureImmunityComponent>(args.Buckle.Owner);
+        if (!comp.HadSpecialLowTempImmunityComponent)
+            RemComp<SpecialLowTempImmunityComponent>(args.Buckle.Owner);
     }
-
 }
