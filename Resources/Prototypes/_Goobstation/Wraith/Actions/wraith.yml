@@ -25,6 +25,8 @@
   description: Send a spooky ghost message to somebody, which they hear as "A netherworld voice whispers in your ear..." This, alongside Blood Writing, is your only way to communicate with the living.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithwhisper2.ogg
     useDelay: 5
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -49,6 +51,8 @@
   description: Rots a corpse with a cloud of black smoke and boosts WP regeneration. Cooldown lessens with each use but resets on banishment. Can be stopped by formaldehyde.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithsoulsucc1.ogg
     useDelay: 45
     itemIconStyle: BigAction
     icon:
@@ -69,6 +73,8 @@
   description: The first use Marks an area, and the second use lets you choose a spooky thing to do to that area.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithspook1.ogg
     itemIconStyle: BigAction
     useDelay: 30
     icon:
@@ -85,6 +91,8 @@
   description: When used on living entities, it drains a significant amount of stamina. When used on inanimate objects, it EMAGs them, if possible.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
     useDelay: 60
     itemIconStyle: BigAction
     icon:
@@ -120,6 +128,8 @@
   description: Causes an object to come to life and try to murder anything and everything nearby.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithlivingobject.ogg
     useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -131,6 +141,8 @@
   description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people. While powerful, you are now corporeal, and can be killed in this form.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithpossesobject.ogg
     itemIconStyle: BigAction
     useDelay: 150
     icon:
@@ -221,6 +233,8 @@
   description: Commands the skeleton inside a corpse to detonate out and free its brothers still trapped in the living. By murdering them. Best used in combination with Absorb Corpse, because only completely decomposed cadavers can be raised as skeletons. This ability can also be used on closets, spawning one skeleton per closet.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithraise1.ogg
     useDelay: 60
     itemIconStyle: BigAction
     icon:
@@ -238,6 +252,8 @@
   description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
     useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
