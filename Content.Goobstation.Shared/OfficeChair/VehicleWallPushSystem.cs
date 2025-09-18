@@ -86,7 +86,7 @@ public sealed partial class VehicleWallPushSystem : EntitySystem
         if (_physics.IntersectRayWithPredicate(to.MapId, ray, comp.MaxDistance, x => x == vehicle.Driver || x == uid).FirstOrNull() is not { HitEntity: { } blocker })
             return;
 
-        _audio.PlayPredicted(comp.KickSound, blocker, args.Performer);
+        _audio.PlayPredicted(comp.RollSound, args.Performer, args.Performer);
 
         if (HasComp<PhysicsComponent>(blocker))
         {

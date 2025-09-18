@@ -46,12 +46,12 @@ public sealed partial class VehicleWallPushComponent : Component
     );
 
     /// <summary>
-    /// Sound played when a valid kick connects with a surface.
+    /// Sound played when the chair rolls
     /// </summary>
     [DataField]
-    public SoundSpecifier KickSound = new SoundPathSpecifier("/Audio/Weapons/punchmiss.ogg")
+    public SoundSpecifier RollSound = new SoundPathSpecifier("/Audio/_Goobstation/OfficeChair/roll.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-3f).WithVariation(0.025f),
+        Params = AudioParams.Default.WithVariation(0.025f),
     };
 }
 
