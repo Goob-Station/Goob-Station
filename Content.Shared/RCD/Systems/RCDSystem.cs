@@ -615,7 +615,7 @@ public sealed class RCDSystem : EntitySystem
                     : prototype.Prototype;
 
                 // Funky - Calculate rotation and apply it before spawning
-                var rotation = proto.Rotation switch
+                var rotation = prototype.Rotation switch
                 {
                     RcdRotation.Fixed => Angle.Zero,
                     RcdRotation.Camera => Transform(uid).LocalRotation,
