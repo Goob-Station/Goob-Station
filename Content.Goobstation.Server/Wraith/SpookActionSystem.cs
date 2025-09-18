@@ -10,23 +10,25 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Respawn;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Actions.Components;
-using Content.Shared.Containers;
 using Content.Shared.Doors.Components;
-using Robust.Server.Containers;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Wraith;
 
 public sealed class SpookActionSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
@@ -34,11 +36,10 @@ public sealed class SpookActionSystem : EntitySystem
     [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     private EntityQuery<PoweredLightComponent> _poweredLightQuery;
     private EntityQuery<DoorComponent> _doorQuery;
@@ -66,7 +67,6 @@ public sealed class SpookActionSystem : EntitySystem
         SubscribeLocalEvent<SapAPCComponent, SapApcEvent>(OnSapAPC);
         SubscribeLocalEvent<RandomSpookComponent, RandomSpookEvent>(OnRandomSpook);
     }
-    // todo: add popups on failed attemps
     // todo: Haunt PDAs (ngl js do it in part 2 im tired)
 
     private void OnSpookEvent(Entity<SpookMarkComponent> ent, ref SpookEvent args)
@@ -76,6 +76,8 @@ public sealed class SpookActionSystem : EntitySystem
 
         var spookEnt = SpawnAtPosition(ent.Comp.Spook, args.Target);
         ent.Comp.SpookEntity = spookEnt;
+
+        _popup.PopupEntity(Loc.GetString("spook-on-create"), ent.Owner, PopupType.Medium);
 
         args.Handled = true;
     }
@@ -103,6 +105,7 @@ public sealed class SpookActionSystem : EntitySystem
                 break;
         }
 
+        _popup.PopupEntity(Loc.GetString("spook-flip-lights"), ent.Owner, PopupType.Medium);
         args.Handled = true;
     }
 
@@ -128,6 +131,7 @@ public sealed class SpookActionSystem : EntitySystem
             lightBrokenCounter++;
         }
 
+        _popup.PopupEntity(Loc.GetString("spook-burn-lights"), ent.Owner, PopupType.Medium);
         args.Handled = true;
     }
 
@@ -180,6 +184,7 @@ public sealed class SpookActionSystem : EntitySystem
             _smoke.StartSmoke(smokeEnt, ent.Comp.SmokeSolution, ent.Comp.Duration, ent.Comp.SpreadAmount);
         }
 
+        _popup.PopupEntity(Loc.GetString("spook-create-smoke"), ent.Owner, PopupType.Medium);
         args.Handled = true;
     }
 
@@ -203,6 +208,7 @@ public sealed class SpookActionSystem : EntitySystem
             SpawnAtPosition(ent.Comp.EctoplasmProto, targetCoords);
         }
 
+        _popup.PopupEntity(Loc.GetString("spook-create-ectoplasm"), ent.Owner, PopupType.Medium);
         args.Handled = true;
     }
 
@@ -223,9 +229,9 @@ public sealed class SpookActionSystem : EntitySystem
                 continue;
 
             _battery.ChangeCharge(entity, -chargeToRemove);
+            _popup.PopupEntity(Loc.GetString("spook-apc-sap"), entity, PopupType.MediumCaution);
             break;
         }
-
         args.Handled = true;
     }
 
@@ -238,8 +244,11 @@ public sealed class SpookActionSystem : EntitySystem
         {
             if (!_actionQuery.TryComp(action, out var actionComp)
                 || action == args.Action // skip itself
-                || _actions.IsCooldownActive(actionComp))
+                || _actions.IsCooldownActive(actionComp, _timing.CurTime))
+            {
+                _popup.PopupEntity(Loc.GetString("spook-on-cooldown"), ent.Owner);
                 continue;
+            }
 
             _actions.PerformAction(args.Performer, action);
             _actions.StartUseDelay(action.Owner);
