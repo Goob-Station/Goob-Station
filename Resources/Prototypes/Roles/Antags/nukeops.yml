@@ -166,7 +166,7 @@
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDANukie # Goobstation
+    id: SyndiOperativePDA
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -196,6 +196,7 @@
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
+    id: SyndiCommanderPDA
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
@@ -221,7 +222,7 @@
     eyes: ClothingEyesHudSyndicateAgent # Goob edit
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
-    id: SyndiAgentPDA
+    id: SyndiCorpsmanPDA
     belt: ClothingBeltChemBagSyndiFilled # Goobstation
     pocket2: BaseUplinkRadio225TCMedic
   storage:
