@@ -1,0 +1,18 @@
+- type: species
+  id: Scurret
+  name: species-name-scurret
+  roundStart: false
+  prototype: MobScurret
+  sprites: MobScurretSprites
+  dollPrototype: MobScurretDummy
+  skinColoration: Hues
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobScurretMarkingLimits
+
+- type: speciesBaseSprites
+  id: MobScurretSprites
+  sprites: {}
+
+- type: markingPoints
+  id: MobScurretMarkingLimits
+  points: {}

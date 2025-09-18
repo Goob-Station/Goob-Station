@@ -10,6 +10,9 @@
   # Custom names
   - type: ReplacementAccent
     accent: scurret
+  # Shitmed - Scurret Species
+  - type: HumanoidAppearance
+    species: Scurret
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
