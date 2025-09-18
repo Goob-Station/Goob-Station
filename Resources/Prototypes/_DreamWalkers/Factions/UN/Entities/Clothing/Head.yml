@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHelmetArmoredBase
+  id: ClothingHeadUNHelmetStandard
+  name: united nations helmet
+  description: A standard helmet of the united nations military. Bunch of blueberrys.
+  components:
+  - type: Sprite
+    sprite: _DreamWalkers/Factions/UN/Clothing/un_standard_helmet.rsi
+  - type: Clothing
+    sprite: _DreamWalkers/Factions/UN/Clothing/un_standard_helmet.rsi
