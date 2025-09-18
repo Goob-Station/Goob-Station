@@ -76,10 +76,7 @@
   - type: TargetAction
     range: 10
   - type: WorldTargetAction
-    event: !type:WorldSpawnSpellEvent
-      prototypes:
-      - id: SpookObject
-        amount: 1
+    event: !type:SpookEvent
 
 - type: entity
   id: ActionDecay

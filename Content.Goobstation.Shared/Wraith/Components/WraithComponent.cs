@@ -9,4 +9,9 @@ public sealed partial class WraithComponent : Component
 {
     [DataField(required: true)]
     public EntProtoId Abilities;
+
+    #region Spook Handling
+    [ViewVariables]
+    public List<EntityUid?> ActiveSpooks;
+    #endregion
 }

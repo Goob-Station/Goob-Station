@@ -8,6 +8,9 @@ namespace Content.Goobstation.Shared.Wraith.Spook;
 public sealed partial class CreateSpookSmokeComponent : Component
 {
     [DataField]
+    public int SearchRange = 10;
+
+    [DataField]
     public EntProtoId SmokeProto = "Smoke";
 
     [DataField]
@@ -23,11 +26,11 @@ public sealed partial class CreateSpookSmokeComponent : Component
     /// Spread amount of the smoke
     /// </summary>
     [DataField]
-    public int SpreadAmount = 30;
+    public int SpreadAmount = 15;
 
     /// <summary>
     ///  How many smokes to spawn
     /// </summary>
     [DataField]
-    public int SmokeAmount = 3;
+    public int SmokeAmount = 2;
 }

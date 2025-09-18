@@ -29,6 +29,7 @@
   - type: SummonPortal
   - type: RaiseSkeleton
   - type: SummonVoidCreature
+  - type: SpookMark
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger

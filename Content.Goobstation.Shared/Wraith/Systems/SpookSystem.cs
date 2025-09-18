@@ -8,10 +8,12 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Magic.Events;
 using Content.Shared.Prototypes;
 using Content.Shared.UserInterface;
 using MvcContrib;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -23,9 +25,7 @@ public sealed class SpookSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -35,7 +35,6 @@ public sealed class SpookSystem : EntitySystem
         SubscribeLocalEvent<SpookComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<SpookComponent, RadialSelectorSelectedMessage>(OnRadialSelectorSelected);
     }
-
     #region UI
     private void OnUIOpenAttempt(Entity<SpookComponent> ent, ref ActivatableUIOpenAttemptEvent args)
     {
@@ -54,12 +53,6 @@ public sealed class SpookSystem : EntitySystem
         _userInterfaceSystem.CloseUi(ent.Owner, RadialSelectorUiKey.Key);
     }
     #endregion
-
-    #region Actions
-
-
-    #endregion
-
     #region Helpers
     private void DoSelectedAction(EntityUid uid, string? action)
     {
@@ -73,7 +66,7 @@ public sealed class SpookSystem : EntitySystem
             var metadata = MetaData(actionEnt);
             if (metadata.EntityPrototype != actionProto
                 || !TryComp<ActionComponent>(actionEnt, out var actionComp)
-                || _actions.IsCooldownActive(actionComp))
+                || _actions.IsCooldownActive(actionComp, _timing.CurTime))
                 continue;
 
             _actions.PerformAction(uid, (actionEnt, actionComp));

@@ -22,7 +22,7 @@ public sealed partial class AbsorbCorpseEvent : EntityTargetActionEvent
 public sealed partial class AbsorbCorpseDoAfter : SimpleDoAfterEvent
 {
 }
-public sealed partial class SpookEvent : InstantActionEvent
+public sealed partial class SpookEvent : WorldTargetActionEvent
 {
 }
 public sealed partial class DecayEvent : EntityTargetActionEvent

@@ -8,6 +8,9 @@ namespace Content.Goobstation.Shared.Wraith.Spook;
 public sealed partial class CreateEctoplasmComponent : Component
 {
     [DataField]
+    public int SearchRange = 10;
+
+    [DataField]
     public EntProtoId EctoplasmProto = "Ectoplasm";
 
     /// <summary>

@@ -1,10 +1,6 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Goobstation.Shared.Wraith.Spook;
 
-/// <summary>
-/// This is used for...
-/// </summary>
-[RegisterComponent]
-public sealed partial class RandomSpookComponent : Component
-{
-    
-}
+[RegisterComponent, NetworkedComponent]
+public sealed partial class RandomSpookComponent : Component;

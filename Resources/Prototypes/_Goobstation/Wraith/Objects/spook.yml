@@ -3,16 +3,48 @@
   name: The Spook
   description: It can do various things by being interacted with.
   components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 15
+        layer:
+        - GhostImpassable
+  - type: InteractionOutline
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/unknownplushie.rsi
     state: plushie_cosmic
+    overrideContainerOcclusion: true # Always show up regardless of where they're contained.
+    drawdepth: Ghosts
+  - type: Visibility
+    layer: 2
+  - type: Spectral
   - type: Spook
     actions:
     - prototype: ActionFlipLights
+    - prototype: ActionBurnLights
+    - prototype: ActionOpenDoors
+    - prototype: ActionCreateSmoke
+    - prototype: ActionCreateEctoplasm
+    - prototype: ActionSapApc
+    - prototype: ActionSpookRandom
   - type: Actions
   - type: ActionGrant
     actions:
     - ActionFlipLights
+    - ActionBurnLights
+    - ActionOpenDoors
+    - ActionCreateSmoke
+    - ActionCreateEctoplasm
+    - ActionSapApc
+    - ActionSpookRandom
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     requiresComplex: false
@@ -20,3 +52,10 @@
     interfaces:
       enum.RadialSelectorUiKey.Key:
         type: TrackedRadialSelectorMenuBUI
+  - type: FlipLights
+  - type: BurnLights
+  - type: CreateEctoplasm
+  - type: CreateSpookSmoke
+  - type: OpenDoorsSpook
+  - type: SapAPC
+  - type: RandomSpook
