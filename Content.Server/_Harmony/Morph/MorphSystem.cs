@@ -192,7 +192,7 @@ public sealed partial class MorphSystem : EntitySystem
         //abort atack if morphed
         if (HasComp<ChameleonDisguisedComponent>(uid))
         {
-            _popupSystem.PopupEntity("Can't Atack While Morphed",uid,uid);//TODO make a localasided
+            _popupSystem.PopupEntity(Loc.GetString("morph-attack-failure"),uid,uid);
             args.Cancelled = true;
         }
     }
