@@ -50,14 +50,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      150: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4
   - type: Respirator
+    saturation: 25
+    maxSaturation: 25
+    gaspEmoteCooldown: 300
     damage:
       types:
-        Asphyxiation: 0.25
+        Asphyxiation: 0.1
     damageRecovery:
       types:
         Asphyxiation: -0.25
@@ -101,6 +104,7 @@
       tags:
       - Bot # no biomass if its a bot
       - SiliconMob # no biomass if its borg or ipc
+      - ClothMade # some clothes or cloth have food comp. morph cant use cloth for biomass
   - type: ChameleonProjector
     whitelist:
       components:
@@ -174,6 +178,7 @@
       tags:
       - Bot
     event: !type:MorphEvent
+
 
 - type: entity
   id: ActionUnMorph

@@ -20,10 +20,13 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -59,11 +62,11 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
-
+        SubscribeLocalEvent<MorphComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName);
         SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
         SubscribeLocalEvent<MorphComponent, AttemptMeleeEvent>(OnAtack);
         SubscribeLocalEvent<MorphComponent, DamageChangedEvent>(OnTakeDamage);
-        SubscribeLocalEvent<MorphComponent,MobStateChangedEvent>(OnDeath);
+        SubscribeLocalEvent<MorphComponent, MobStateChangedEvent>(OnDeath);
     }
 
     private void OnMapInit(EntityUid uid, MorphComponent component, MapInitEvent args)
@@ -124,7 +127,6 @@ public sealed partial class MorphSystem : EntitySystem
         };
 
 
-
         _doAfterSystem.TryStartDoAfter(doafterArgs);
 
         _popupSystem.PopupEntity(Loc.GetString("morph-reproduce-start"), uid, arg.Performer, PopupType.Medium);
@@ -156,14 +158,11 @@ public sealed partial class MorphSystem : EntitySystem
     private void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
     {
         _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
-        var voice =EnsureComp<VoiceOverrideComponent>(ent.Owner);
-        voice.NameOverride = MetaData(arg.Target).EntityName;
     }
 
     private void TryUnMorph(Entity<ChameleonDisguisedComponent> ent, ref UnMorphEvent arg)
     {
         _chamleon.TryReveal(ent!);
-        RemCompDeferred<VoiceOverrideComponent>(ent.Owner);
     }
 
     private void AddMorphExamine(EntityUid uid, MorphDisguiseComponent component, ExaminedEvent args)
@@ -186,10 +185,9 @@ public sealed partial class MorphSystem : EntitySystem
             return; // if damage is over threshold, unmorph
 
         if (TryComp<ChameleonDisguisedComponent>(uid, out var comp))
-        {
             _chamleon.TryReveal((uid,comp));
-            RemCompDeferred<VoiceOverrideComponent>(uid);
-        }
+
+
     }
 
     private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
@@ -206,11 +204,21 @@ public sealed partial class MorphSystem : EntitySystem
     {
         //remove disguise in case morph dies while in disguise
         if (args.NewMobState is MobState.Dead && TryComp<ChameleonDisguisedComponent>(ent.Owner, out var comp))
-        {
             _chamleon.TryReveal((ent.Owner,comp));
-            RemCompDeferred<VoiceOverrideComponent>(ent.Owner);
-        }
+
+
     }
+
+    private void OnTransformSpeakerName(Entity<MorphComponent> ent, ref TransformSpeakerNameEvent arg)
+    {
+        if (!TryComp<ChameleonDisguisedComponent>(ent.Owner, out var comp))
+            return; //not disguised
+
+        arg.VoiceName = MetaData(comp.Disguise).EntityName;
+        arg.Sender = comp.Disguise;
+
+    }
+
     # endregion
 
 }
