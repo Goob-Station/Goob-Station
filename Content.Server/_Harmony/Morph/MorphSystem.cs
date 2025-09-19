@@ -29,6 +29,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
@@ -45,6 +46,7 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MobStateSystem _mobstate= default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -94,12 +96,15 @@ public sealed partial class MorphSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(arg.Target, out var physics))
             _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass-target"), uid, arg.User, PopupType.Medium);
 
-        else if (HasComp<BodyComponent>(arg.Target) || //TODO add whitelist / blacklist to morphcomponent
-                HasComp<FoodComponent>(arg.Target))
+        else if (_whitelist.IsWhitelistPass(component.BiomassWhitelist, arg.Target.Value)
+                 && _whitelist.IsBlacklistFail(component.BiomassBlacklist, arg.Target.Value))
             ChangeBiomassAmount(physics.Mass , uid, component);
+        
+        else
+            _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass-target"), uid, arg.User, PopupType.Medium);
 
         if (TryComp<MobStateComponent>(arg.Target, out var mob))
-           _mobstate.ChangeMobState(arg.Target.Value,MobState.Dead); // kill the food upon devouer if not dead
+           _mobstate.ChangeMobState(arg.Target.Value, MobState.Dead); // kill the food upon devour if not dead
 
     }
 

@@ -93,6 +93,14 @@
       - MobState
       - Item
   - type: Morph
+    biomassWhitelist:
+      components:
+      - Food # give biomass if food
+      - MobState # give biomass if it can live
+    biomassBlacklist:
+      tags:
+      - Bot # no biomass if its a bot
+      - SiliconMob # no biomass if its borg or ipc
   - type: ChameleonProjector
     whitelist:
       components:

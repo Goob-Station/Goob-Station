@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Alert;
 //using Content.Shared.FixedPoint;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -85,4 +86,16 @@ public sealed partial class MorphComponent : Component
     // Morph Sounds
     [DataField]
     public SoundSpecifier ReplicateSound = new SoundPathSpecifier("/Audio/_Harmony/Misc/mutate.ogg");
+
+    /// <summary>
+    /// If non-null, whitelist for valid entities that provide biomass.
+    /// </summary>
+    [DataField(required: true)]
+    public EntityWhitelist? BiomassWhitelist;
+
+    /// <summary>
+    /// If non-null, blacklist that does not provide biomass.
+    /// </summary>
+    [DataField(required: true)]
+    public EntityWhitelist? BiomassBlacklist;
 }
