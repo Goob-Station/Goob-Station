@@ -120,8 +120,8 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Morph
-  - type: ReplacementAccent
-    accent: slimes
+  #- type: ReplacementAccent # Todo make a better accent
+  #  accent: slimes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Morph
@@ -131,6 +131,7 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: VentCrawler
 
 - type: entity
   parent: BaseAction
