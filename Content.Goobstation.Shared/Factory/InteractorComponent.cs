@@ -11,6 +11,7 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Factory;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedInteractorSystem))]
+[AutoGenerateComponentState]
 public sealed partial class InteractorComponent : Component
 {
     [DataField]
