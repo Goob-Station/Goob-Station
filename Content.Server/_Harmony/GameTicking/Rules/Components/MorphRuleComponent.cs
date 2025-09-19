@@ -1,7 +1,7 @@
 ﻿namespace Content.Server._Harmony.GameTicking.Rules.Components;
 
 /// <summary>
-/// Game rule for blood brothers. Handles conversion.
+/// Game rule for Morph. Handles conversion.
 /// </summary>
-[RegisterComponent, Access(typeof(BloodBrotherRuleSystem))]
+[RegisterComponent]
 public sealed partial class MorphRuleComponent : Component;

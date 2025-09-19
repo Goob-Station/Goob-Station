@@ -31,9 +31,9 @@ public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
             var count = MorphComponent.Children;
 
             if (MorphComponent.Children != 1)
-            args.AddLine(Loc.GetString("morph-name-user", ("name", name), ("username", data.UserName), ("count", count)));
+                args.AddLine(Loc.GetString("morph-name-user", ("name", name), ("username", data.UserName), ("count", count)));
             else
-            args.AddLine(Loc.GetString("morph-name-user-lone", ("name", name), ("username", data.UserName), ("count", count)));
+                args.AddLine(Loc.GetString("morph-name-user-lone", ("name", name), ("username", data.UserName), ("count", count)));
         }
     }
 
