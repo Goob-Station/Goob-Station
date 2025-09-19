@@ -1,9 +1,7 @@
-using Content.Client.Alerts;
 using Content.Shared._Harmony.Morph;
 using Content.Shared.Alert.Components;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Client.GameObjects;
 
 namespace Content.Client._Harmony.Morph;
 
@@ -12,8 +10,6 @@ namespace Content.Client._Harmony.Morph;
 /// </summary>
 public sealed class MorphSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -39,7 +35,6 @@ public sealed class MorphSystem : EntitySystem
         //abort atack if morphed
         if (HasComp<ChameleonDisguisedComponent>(uid))
             args.Cancelled = true;
-
     }
 
 }

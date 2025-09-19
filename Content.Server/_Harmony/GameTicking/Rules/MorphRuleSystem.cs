@@ -30,7 +30,7 @@ public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
             _role.MindHasRole<MorphComponent>(mind, out var role);
             var count = MorphComponent.Children;
 
-            if (MorphComponent.Children != 1)
+            if (count != 1)
                 args.AddLine(Loc.GetString("morph-name-user", ("name", name), ("username", data.UserName), ("count", count)));
             else
                 args.AddLine(Loc.GetString("morph-name-user-lone", ("name", name), ("username", data.UserName), ("count", count)));
