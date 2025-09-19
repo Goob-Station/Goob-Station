@@ -15029,3 +15029,17 @@ Entries:
         covertly
   id: 1675
   time: '2025-09-17T08:28:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed autodocs not being able to install organs/parts (thank the chud
+        that made it so you have to swap hands, they are completely to blame)
+    - type: Fix
+      message: Fixed colliding with downed/crawling/carried players.
+    - type: Fix
+      message: >-
+        Fixed interactors not being usable with anchored objects like walls and
+        girders.
+  id: 1676
+  time: '2025-09-19T12:32:52.0000000+00:00'
