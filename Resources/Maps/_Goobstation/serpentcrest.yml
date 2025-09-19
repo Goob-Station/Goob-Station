@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2025 05:37:36
-  entityCount: 28307
+  time: 09/15/2025 17:25:22
+  entityCount: 28305
 maps:
 - 1
 grids:
@@ -11392,9 +11392,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -14.5,-86.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
-  - uid: 22936
+  - uid: 7495
     components:
     - type: Transform
       pos: 44.5,-47.5
@@ -71509,9 +71509,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 118
           - 5972
           - 25
+          - 118
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -128308,12 +128308,6 @@ entities:
     - type: Transform
       pos: -15.519958,-33.444862
       parent: 2
-  - uid: 28305
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 44.635475,-40.608067
-      parent: 2
 - proto: OreBox
   entities:
   - uid: 25338
@@ -128335,6 +128329,17 @@ entities:
       parent: 2
 - proto: OreProcessor
   entities:
+  - uid: 20985
+    components:
+    - type: Transform
+      pos: 44.5,-40.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
   - uid: 25336
     components:
     - type: Transform
@@ -129104,12 +129109,6 @@ entities:
     components:
     - type: Transform
       pos: -15.441615,-21.419151
-      parent: 2
-  - uid: 28304
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 44.49485,-40.52994
       parent: 2
 - proto: PillCanister
   entities:
@@ -134879,12 +134878,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-54.5
-      parent: 2
-  - uid: 7495
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 44.5,-40.5
       parent: 2
   - uid: 7536
     components:
@@ -177196,14 +177189,6 @@ entities:
       deviceLists:
       - 28292
       - 28296
-  - uid: 20985
-    components:
-    - type: Transform
-      pos: 6.5,39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27949
   - uid: 28286
     components:
     - type: Transform
@@ -177293,6 +177278,16 @@ entities:
       - 28286
       - 28287
       - 28290
+- proto: WeaponEnergyTurretCommand
+  entities:
+  - uid: 22936
+    components:
+    - type: Transform
+      pos: 6.5,39.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 27949
 - proto: WeaponEnergyTurretCommandControlPanel
   entities:
   - uid: 27949
@@ -177303,7 +177298,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 20985
+      - 22936
 - proto: WeaponFlareGun
   entities:
   - uid: 7255

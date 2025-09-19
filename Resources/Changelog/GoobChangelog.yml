@@ -14897,3 +14897,149 @@ Entries:
       message: Boggle and Lehmin plushes are here.
   id: 1657
   time: '2025-09-13T18:53:58.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: >-
+        Head Revolutionaries must now speak a language their target actually
+        understands to convert.
+  id: 1658
+  time: '2025-09-13T23:24:56.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Syndiedrobe to uplink
+  id: 1659
+  time: '2025-09-14T03:50:51.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Cargo biomass crate
+  id: 1660
+  time: '2025-09-14T10:33:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed devils being able to offer handless mobs handshakes, or do so when
+        they have no hands.
+  id: 1661
+  time: '2025-09-14T10:33:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Secret doors now show their condition on inspection (Like regular walls
+        do)
+  id: 1662
+  time: '2025-09-14T10:39:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Trevor can now access Sec, Brig and Maints again
+  id: 1663
+  time: '2025-09-14T10:39:49.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Tranquilizer shotgun shells are no longer contraband for Zookeepers.
+  id: 1664
+  time: '2025-09-14T10:46:41.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        Emergency Medipens now contain 5u Atropine, Epinephrine, and Tranexamic
+        Acid.
+  id: 1665
+  time: '2025-09-14T10:49:01.0000000+00:00'
+- author: troytroy400
+  changes:
+    - type: Add
+      message: Player can select new New York accent in game!
+  id: 1666
+  time: '2025-09-14T11:06:52.0000000+00:00'
+- author: LFMoth
+  changes:
+    - type: Add
+      message: >-
+        It's bring-casual-clothes-to-work day! Most command members now have the
+        choice of using their own, custom-made summer clothing.
+  id: 1667
+  time: '2025-09-14T15:21:49.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Pain will now decay slowly over time.
+    - type: Tweak
+      message: >-
+        Pain medication such as **ibuprofen** or **Epinephrine** will work with
+        the new system as normal.
+  id: 1668
+  time: '2025-09-15T00:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Foam Dart inhand sprite is no longer a whole crossbow
+  id: 1669
+  time: '2025-09-16T04:50:34.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: >-
+        Oni have lost their asphyxiation damage bonus in exchange for increased
+        structural.
+  id: 1670
+  time: '2025-09-16T11:30:09.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Departmental Request Computers to Marathon
+    - type: Add
+      message: Trevor to Marathon
+    - type: Fix
+      message: Cargo shuttle can now dock to Marathon
+    - type: Fix
+      message: Mining shuttle can now dock to Marathon
+  id: 1671
+  time: '2025-09-16T11:38:04.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Bagel mapping
+  id: 1672
+  time: '2025-09-16T16:57:34.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Xenomorph Queen is killable again.
+  id: 1673
+  time: '2025-09-16T18:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Jordans are now major contraband. Fake Jordans are now minor contraband.
+  id: 1674
+  time: '2025-09-17T03:05:22.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Added a secret Revolutionary language to speak with your comrades
+        covertly
+  id: 1675
+  time: '2025-09-17T08:28:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed autodocs not being able to install organs/parts (thank the chud
+        that made it so you have to swap hands, they are completely to blame)
+    - type: Fix
+      message: Fixed colliding with downed/crawling/carried players.
+    - type: Fix
+      message: >-
+        Fixed interactors not being usable with anchored objects like walls and
+        girders.
+  id: 1676
+  time: '2025-09-19T12:32:52.0000000+00:00'

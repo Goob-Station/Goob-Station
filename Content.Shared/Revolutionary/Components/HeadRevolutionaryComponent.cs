@@ -78,6 +78,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._EinsteinEngines.Language; // Goob Station - Revolutionary Language
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -101,6 +102,12 @@ public sealed partial class HeadRevolutionaryComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan StunTime = TimeSpan.FromSeconds(3);
+
+    /// <summary>
+    /// The language revolutionaries can speak
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)] // Goob Station - Revolutionary Language
+    public ProtoId<LanguagePrototype> Language { get; set; } = "Revolutionary"; // Goob Station - Revolutionary Language
 
     public override bool SessionSpecific => true;
 
