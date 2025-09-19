@@ -11,7 +11,7 @@
     Dragon: 1
     SlaughterDemon: 1
     LoneOperative: 1 # Goobstaiton
-    #Revenant: 1 Disabled till rework TM, Goobstation
+    Revenant: 0
 
 - type: ninjaHackingThreat
   id: Dragon
