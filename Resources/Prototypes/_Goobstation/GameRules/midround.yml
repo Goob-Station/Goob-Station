@@ -227,26 +227,26 @@
       - MidroundAntag
 
 # Floor Goblin Midround
-- type: entity
-  parent: BaseGameRule
-  id: FloorGoblinMidRound
-  components:
-  - type: StationEvent
-    weight: 15
-    earliestStart: 15
-    minimumPlayers: 15
-    duration: null
-    maxOccurrences: 2
-    eventType: Neutral
-  - type: GameRule
-  - type: VentCrittersRule
-    table:
-      MobFloorGoblin: 1
-    min: 1
-    max: 1
-    playerRatio: 15
-    specialEntries:
-      MobFloorGoblin: 1  # Simplified format
-  - type: Tag
-    tags:
-    - MidroundAntag
+#- type: entity
+#  parent: BaseGameRule
+#  id: FloorGoblinMidRound
+#  components:
+#  - type: StationEvent
+#    weight: 15
+#    earliestStart: 15
+#    minimumPlayers: 15
+#    duration: null
+#    maxOccurrences: 2
+#    eventType: Neutral
+#  - type: GameRule
+#  - type: VentCrittersRule
+#    table:
+#      MobFloorGoblin: 1
+#    min: 1
+#    max: 1
+#    playerRatio: 15
+#    specialEntries:
+#      MobFloorGoblin: 1  # Simplified format
+#  - type: Tag
+#    tags:
+#    - MidroundAntag
