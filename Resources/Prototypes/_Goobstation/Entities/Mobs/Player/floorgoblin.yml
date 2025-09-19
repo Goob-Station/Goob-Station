@@ -14,6 +14,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: floor_goblin
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
@@ -25,6 +26,7 @@
         - MobMask
         layer:
         - MobLayer
+        # Regular mob collision, but we'll handle small mob behavior in code
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

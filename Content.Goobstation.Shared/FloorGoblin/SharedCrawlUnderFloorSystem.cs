@@ -22,6 +22,13 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Actions;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Doors.Components;
+using Content.Shared.Conveyor;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 
@@ -48,6 +55,7 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<MapGridComponent, TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<CrawlUnderFloorComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<CrawlUnderFloorComponent, PreventCollideEvent>(OnPreventCollision);
         SubscribeLocalEvent<CrawlUnderFloorComponent, AttackAttemptEvent>(OnAttemptAttack);
         SubscribeLocalEvent<AttackAttemptEvent>(OnAnyAttackAttempt);
     }
@@ -138,12 +146,36 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnAnyAttackAttempt(AttackAttemptEvent args)
+    private void OnAnyAttackAttempt(AttackAttemptEvent ev)
     {
-        if (args.Target is not { } target)
+        if (HasComp<CrawlUnderFloorComponent>(ev.Target))
+            ev.Cancel();
+    }
+
+    private void OnPreventCollision(EntityUid uid, CrawlUnderFloorComponent component, ref PreventCollideEvent args)
+    {
+        var otherUid = args.OtherEntity;
+
+        // Always prevent collision with mobs
+        if (HasComp<MobStateComponent>(otherUid))
+        {
+            args.Cancelled = true;
             return;
-        if (TryComp(target, out CrawlUnderFloorComponent? goblinComp) && IsHidden(target, goblinComp))
-            args.Cancel();
+        }
+
+        // Handle airlocks - allow phasing in stealth mode
+        if (HasComp<AirlockComponent>(otherUid) && component.Enabled)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // Handle conveyor belts - allow phasing in stealth mode
+        if (HasComp<ConveyorComponent>(otherUid) && component.Enabled)
+        {
+            args.Cancelled = true;
+            return;
+        }
     }
 
     protected void PlayDuendeSound(EntityUid uid, float probability = 0.3f)
@@ -162,7 +194,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
             return false;
         component.Enabled = true;
         Dirty(uid, component);
-        UpdateSneakCollision(uid, component);
         return true;
     }
 
@@ -188,37 +219,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         return true;
     }
 
-    protected void UpdateSneakCollision(EntityUid uid, CrawlUnderFloorComponent comp)
-    {
-        if (!TryComp(uid, out FixturesComponent? fixtures))
-            return;
-
-        var hidden = IsHidden(uid, comp);
-        
-        foreach (var (key, fixture) in fixtures.Fixtures)
-        {
-            // Start with the base collision mask
-            var baseMask = GetOrCacheBase(comp.ChangedFixtures, key, fixture.CollisionMask);
-            
-            // Always ignore mobs and tables
-            var mask = baseMask & ~(int)(CollisionGroup.MobMask | CollisionGroup.TableMask);
-            
-            if (hidden)
-            {
-                // When hidden, only collide with major obstacles
-                mask = (int)CollisionGroup.Impassable;
-            }
-            else
-            {
-                // When not hidden, ensure we collide with walls and doors
-                mask |= (int)(CollisionGroup.Impassable | CollisionGroup.MidImpassable);
-            }
-            
-            // Apply the changes if they're different
-            if (fixture.CollisionMask != mask)
-                _physics.SetCollisionMask(uid, key, fixture, mask, manager: fixtures);
-        }
-    }
 
     public bool IsOnCollidingTile(EntityUid uid)
     {
@@ -303,8 +303,39 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         _tile.PryTile(snapPos, gridUid);
     }
 
+    private void UpdateCollisionMask(EntityUid uid, bool stealthMode)
+    {
+        if (!TryComp<FixturesComponent>(uid, out var fixtures))
+            return;
+
+        if (stealthMode)
+        {
+            // In stealth mode, set to SmallMob collision to maintain some physics
+            // while still allowing phasing through most objects
+            foreach (var (id, fixture) in fixtures.Fixtures)
+            {
+                _physics.SetCollisionMask(uid, id, fixture, (int)CollisionGroup.SmallMobMask, fixtures);
+                _physics.SetCollisionLayer(uid, id, fixture, (int)CollisionGroup.SmallMobLayer, fixtures);
+            }
+        }
+        else
+        {
+            // In normal mode, use standard mob collision
+            foreach (var (id, fixture) in fixtures.Fixtures)
+            {
+                _physics.SetCollisionMask(uid, id, fixture, (int)CollisionGroup.MobMask, fixtures);
+                _physics.SetCollisionLayer(uid, id, fixture, (int)CollisionGroup.MobLayer, fixtures);
+            }
+        }
+
+        Dirty(uid, fixtures);
+    }
+
     private void SetStealth(EntityUid uid, bool enabled)
     {
+        // Update collision mask based on stealth state
+        UpdateCollisionMask(uid, enabled);
+
         // Evil hud overlay hiding shitcode that hijacks StealthComponent
         if (enabled)
         {
@@ -332,9 +363,6 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         var now = IsOnSubfloor(uid);
         var old = comp.WasOnSubfloor;
         comp.WasOnSubfloor = now;
-
-        if (comp.Enabled && now != old)
-            UpdateSneakCollision(uid, comp);
 
         HandleCrawlTransition(uid, old, now, comp, causedByTileChange);
     }
