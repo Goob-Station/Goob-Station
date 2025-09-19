@@ -6731,7 +6731,7 @@ entities:
       parent: 1653
     - type: PointLight
       enabled: True
-- proto: ExplosivePayload
+- proto: ShrapnelPayload
   entities:
   - uid: 1104
     components:

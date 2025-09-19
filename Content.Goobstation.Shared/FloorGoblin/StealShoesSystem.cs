@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Starlight.VentCrawling;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
@@ -11,6 +12,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.VentCrawler.Tube.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -48,6 +50,7 @@ public sealed partial class StealShoesSystem : EntitySystem
         SubscribeLocalEvent<StealShoesComponent, StealShoesEvent>(OnStealShoes);
         SubscribeLocalEvent<StealShoesComponent, StealShoesDoAfterEvent>(OnStealShoesDoAfter);
         SubscribeLocalEvent<StealShoesComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<StealShoesComponent, DoAfterAttemptEvent<StealShoesDoAfterEvent>>(OnStealShoesAttempt);
     }
 
     private void OnMapInit(EntityUid uid, StealShoesComponent component, MapInitEvent args)
@@ -62,6 +65,13 @@ public sealed partial class StealShoesSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        if (TryComp<VentCrawlerComponent>(uid, out var vent) && vent.InTube)
+        {
+            _popup.PopupPredicted(Loc.GetString("steal-shoes-covered"), uid, uid);
+            args.Handled = true;
+            return;
+        }
 
         var target = args.Target;
 
@@ -89,7 +99,7 @@ public sealed partial class StealShoesSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnWeightlessMove = true,
             NeedHand = false,
-            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            AttemptFrequency = AttemptFrequency.EveryTick,
             DuplicateCondition = DuplicateConditions.SameEvent
         };
 
@@ -97,15 +107,17 @@ public sealed partial class StealShoesSystem : EntitySystem
             args.Handled = true;
     }
 
+
     private void OnStealShoesDoAfter(EntityUid uid, StealShoesComponent component, ref StealShoesDoAfterEvent ev)
     {
         if (ev.Handled || ev.Cancelled || ev.Args.Target is not { } target)
             return;
 
-        if (!_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) || shoesUid is not { } shoes)
-            return;
-
-        if (!TryRemoveShoes(target, shoes))
+        if (!CanStealHere(uid) ||
+            !_interaction.InRangeUnobstructed(uid, target) ||
+            !_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) ||
+            shoesUid is not { } shoes ||
+            !TryRemoveShoes(target, shoes))
             return;
 
         var container = _containers.EnsureContainer<Container>(uid, component.ContainerId);
@@ -118,6 +130,15 @@ public sealed partial class StealShoesSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("shoes-stolen-target-event"), target, target);
 
         ev.Handled = true;
+    }
+
+    private void OnStealShoesAttempt(EntityUid uid, StealShoesComponent component, ref DoAfterAttemptEvent<StealShoesDoAfterEvent> ev)
+    {
+        if (ev.Cancelled)
+            return;
+
+        if (!CanStealHere(uid))
+            ev.Cancel();
     }
 
 
@@ -162,8 +183,12 @@ public sealed partial class StealShoesSystem : EntitySystem
 
     private bool CanStealHere(EntityUid uid)
     {
+        if (TryComp<VentCrawlerComponent>(uid, out var vent) && vent.InTube)
+            return false;
+
         if (!TryComp<CrawlUnderFloorComponent>(uid, out var crawl) || !crawl.Enabled)
             return true;
+
         return _crawlUnderFloorSystem.IsOnSubfloor(uid);
     }
 
