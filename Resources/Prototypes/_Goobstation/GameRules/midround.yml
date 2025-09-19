@@ -238,15 +238,11 @@
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
-    # Add any required GameRule properties here or remove if not needed
+    chaosScore: 0
   - type: VentCrittersRule
-    table:
-      MobFloorGoblin: 1
-    min: 1
     max: 1
-    playerRatio: 15
-    specialEntries:
-      MobFloorGoblin: 1
+    table:
+      id: MobFloorGoblin
   - type: Tag
     tags:
     - MidroundAntag
