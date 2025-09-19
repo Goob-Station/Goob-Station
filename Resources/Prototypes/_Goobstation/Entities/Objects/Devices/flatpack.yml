@@ -152,10 +152,6 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/flatpack.rsi
     layers:
-    - state: base
-    - state: overlay
-      color: "#e2b900"
-      map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: teg-circulator
   - type: StaticPrice
     price: 500
@@ -171,10 +167,6 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/flatpack.rsi
     layers:
-    - state: base
-    - state: overlay
-      color: "#e2b900"
-      map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: teg-middle
   - type: StaticPrice
     price: 500
