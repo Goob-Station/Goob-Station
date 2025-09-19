@@ -1,0 +1,228 @@
+﻿- type: entity
+  name: morph
+  parent: SimpleMobBase
+  id: MobMorph
+  components:
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-morph-name
+    description: ghost-role-information-morph-description
+    rules: ghost-role-information-rules-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: morph
+      sprite: _Harmony/Mobs/Animals/morph.rsi
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: morph
+      Dead:
+        Base: morph_dead
+  - type: Deathgasp
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Effects/metal_thud2.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    wideAnimation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 20
+        Structural: 30
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: Devourer
+    devourAction: ActionMorphDevour
+    soundStructureDevour: /Audio/Effects/sizzle.ogg
+    structureDevourTime: 1.5
+    healRate: 7.5
+    whitelist:
+      components:
+      - MobState
+      - Item
+    stomachStorageWhitelist:
+      components:
+      - MobState
+      - Item
+  - type: Morph
+  - type: ChameleonProjector
+    whitelist:
+      components:
+        - Anchorable
+        - Item
+        - MobState
+    blacklist:
+      components:
+        - ChameleonDisguiser
+        - Pda
+        - NukeDisk
+    disguiseProto: ChameleonDisguiseMorph
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 2
+  - type: TypingIndicator
+    proto: slime
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Morph
+  - type: ReplacementAccent
+    accent: slimes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Morph
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  parent: BaseAction
+  id: ActionMorphReplicate
+  name: Replicate
+  description: Copies your cells to create replica of yourself, costs 50 biomass.
+  components:
+  - type: Action
+    icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
+  - type: InstantAction
+    event: !type:MorphReplicateEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMorph
+  name: Morph
+  description: Warps you to become the item.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Consumable/Drinks/mug_one.rsi
+      state: icon-0
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+      - Anchorable
+      - Item
+      tags:
+      - Bot
+    event: !type:MorphEvent
+
+- type: entity
+  id: ActionUnMorph
+  name: UnMorph
+  description: Tries to revert you to your original form if you are morphed.
+  components:
+  - type: Action
+    icon: { sprite : Objects/Devices/chameleon_projector.rsi, state: icon}
+  - type: InstantAction
+    event: !type:UnMorphEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMorphDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to eat an item or creature.
+  components:
+  - type: Action
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Item
+    event: !type:DevourActionEvent
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChameleonDisguiseMorph
+  name: Urist McKleiner
+  components:
+  # this and the name/desc get replaced, this is just placeholder incase something goes wrong
+  - type: Sprite
+    sprite: /Textures/Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Transform
+    noRot: true # players rotation and anchor is used instead
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+  - type: ChameleonDisguise
+    removeActions: false
+  - type: MorphDisguise
+
+
+# guidebook dummy
+
+- type: entity
+  id: ClownDummy
+  categories: [ HideSpawnMenu ]
+  name: Yummy Clown
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: clown
