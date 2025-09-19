@@ -136,7 +136,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         var newActiveIndex = (currentIndex + (reverse ? -1 : 1) + ent.Comp.Hands.Count) % ent.Comp.Hands.Count;
         var nextHand = ent.Comp.SortedHands[newActiveIndex];
 
-        TrySetActiveHand(ent, nextHand);
+        TrySetActiveHand((ent, ent), nextHand);
     }
 
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
