@@ -11,6 +11,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Polymorph.Systems;
 using Robust.Client.GameObjects;
+using Content.Client.Inventory; //Goobstation
 
 namespace Content.Client.Polymorph.Systems;
 
@@ -42,6 +43,7 @@ public sealed class ChameleonProjectorSystem : SharedChameleonProjectorSystem
         CopyComp<GenericVisualizerComponent>(ent);
         CopyComp<SolutionContainerVisualsComponent>(ent);
         CopyComp<BurnStateVisualsComponent>(ent);
+        CopyComp<InventorySlotsComponent>(ent); // goobstation
 
         // reload appearance to hopefully prevent any invisible layers
         if (_appearanceQuery.TryComp(ent, out var appearance))

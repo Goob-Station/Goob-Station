@@ -25,6 +25,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Humanoid; // Goobstation  - added for morph
+using Content.Shared.Inventory; // Goobstation - added for morph
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -45,6 +47,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -90,7 +93,16 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        if (ent.Comp.RemoveActions)
+            _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        else
+        {
+            if (!TryComp<ChameleonProjectorComponent>(ent.Comp.Projector, out var comp))
+                return;
+
+            _actions.RemoveAction(comp.AnchorActionEntity);
+            _actions.RemoveAction(comp.NoRotActionEntity);
+        }
     }
 
     #endregion
@@ -245,6 +257,27 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
         // item disguises can be picked up to be revealed, also makes sure their examine size is correct
         CopyComp<ItemComponent>((disguise, comp));
+
+        // Goobstation - start added for morph
+        if (HasComp<HumanoidAppearanceComponent>(entity))
+            CopyComp<HumanoidAppearanceComponent>((disguise, comp));
+
+        if (TryComp<InventoryComponent>(entity, out var inventory))
+        {
+            CopyComp<InventoryComponent>((disguise, comp));
+
+            foreach (var slot in inventory.Slots)
+            {
+                if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
+                    continue;
+
+                var proto = MetaData(slotEntity.Value).EntityPrototype;
+                if (proto is not null) //proto was a little moody so had to add a check for it
+                    _inventory.SpawnItemInSlot(disguise, slot.Name, proto.ID, true,true);
+            }
+        }
+
+        //goob end
 
         _appearance.CopyData(entity, disguise);
     }

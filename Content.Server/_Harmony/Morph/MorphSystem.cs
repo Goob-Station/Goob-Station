@@ -1,11 +1,10 @@
 using System.Collections;
-//using Content.Server._Harmony.Morph.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Commands;
 using Content.Shared.Alert;
 using Content.Shared.Devour;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Popups;
 using Content.Shared._Harmony.Morph;
 using Content.Server.Popups;
@@ -17,6 +16,7 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Examine;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Nutrition.Components;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Shared.Body.Components;
@@ -95,7 +95,7 @@ public sealed partial class MorphSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass-target"), uid, arg.User, PopupType.Medium);
 
         else if (HasComp<BodyComponent>(arg.Target) || //TODO add whitelist / blacklist to morphcomponent
-                HasComp<EdibleComponent>(arg.Target))
+                HasComp<FoodComponent>(arg.Target))
             ChangeBiomassAmount(physics.Mass , uid, component);
 
         if (TryComp<MobStateComponent>(arg.Target, out var mob))
