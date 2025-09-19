@@ -163,13 +163,13 @@ public sealed partial class MorphSystem : EntitySystem
 
     private void AddMorphExamine(EntityUid uid, MorphDisguiseComponent component, ExaminedEvent args)
     {
-        if(args.IsInDetailsRange)
+        if (args.IsInDetailsRange)
             args.PushMarkup(Loc.GetString(component.ExamineMessage), component.Priority);
     }
 
     private void OnTakeDamage(EntityUid uid, MorphComponent morph,  DamageChangedEvent args)
     {
-        if(!HasComp<ChameleonDisguisedComponent>(uid))
+        if (!HasComp<ChameleonDisguisedComponent>(uid))
             return;// you are not Disguised
 
         if (args.DamageDelta is null)
@@ -189,7 +189,7 @@ public sealed partial class MorphSystem : EntitySystem
 
     private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
     {
-        //abort atack if morphed
+        //abort attack if morphed
         if (HasComp<ChameleonDisguisedComponent>(uid))
         {
             _popupSystem.PopupEntity(Loc.GetString("morph-attack-failure"),uid,uid);
