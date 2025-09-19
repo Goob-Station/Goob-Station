@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Morph
+  saySound:
+    path: /Audio/Effects/Fluids/glug.ogg
+  askSound:
+    path: /Audio/Effects/Fluids/glug.ogg
+  exclaimSound:
+    path: /Audio/Effects/Fluids/glug.ogg
