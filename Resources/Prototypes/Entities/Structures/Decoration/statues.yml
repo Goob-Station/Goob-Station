@@ -63,3 +63,4 @@
     state: hell_goose
     drawdepth: Mobs
     offset: "0.0,0.5"
+  - type: HellGooseStatue

@@ -33,7 +33,7 @@ public sealed class HellPortalSystem : EntitySystem
 
     private void OnComponentStartup(EntityUid uid, HellPortalComponent comp, ComponentStartup args)
     {
-        // Check if any HellMapComponent already exists in the map
+        // Check if hell already exists
         var existingHellMaps = EntityQuery<HellMapComponent>();
         if (existingHellMaps.Any())
         {
