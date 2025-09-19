@@ -8,7 +8,10 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 public sealed partial class PossessObjectComponent : Component
 {
     [DataField]
-    public SoundSpecifier? Sound;
+    public SoundSpecifier? PossessSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithlivingobject.ogg");
+
+    [DataField]
+    public SoundSpecifier? PossessEndSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithleaveobject.ogg");
 
     [DataField]
     public bool HasMind = false;

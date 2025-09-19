@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.Spook;
@@ -19,9 +18,11 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Wraith;
 
@@ -33,6 +34,7 @@ public sealed class SpookActionSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
@@ -71,12 +73,15 @@ public sealed class SpookActionSystem : EntitySystem
 
     private void OnSpookEvent(Entity<SpookMarkComponent> ent, ref SpookEvent args)
     {
+        var comp = ent.Comp;
+        var uid = ent.Owner;
+
         if (ent.Comp.SpookEntity is {} spook)
             QueueDel(spook);
 
         var spookEnt = SpawnAtPosition(ent.Comp.Spook, args.Target);
         ent.Comp.SpookEntity = spookEnt;
-
+        _audio.PlayPredicted(comp.SpookSound, uid, uid);
         _popup.PopupEntity(Loc.GetString("spook-on-create"), ent.Owner, PopupType.Medium);
 
         args.Handled = true;

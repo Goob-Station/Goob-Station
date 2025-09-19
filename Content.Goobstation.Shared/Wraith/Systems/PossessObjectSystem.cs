@@ -60,10 +60,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
         // Transfer wraith mind into the object
         _mind.TransferTo(perMind, target);
 
-        if (_net.IsServer)
-        {
-            _audio.PlayEntity(comp.Sound, target, target);
-        }
+        _audio.PlayPredicted(comp.PossessSound, target, target);
 
         Timer.Spawn(TimeSpan.FromSeconds(15), () =>
         {
@@ -71,6 +68,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
                 return;
 
             _mind.TransferTo(perMind, uid);
+            _audio.PlayPredicted(comp.PossessEndSound, uid, uid);
         });
 
         args.Handled = true;

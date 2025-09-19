@@ -141,8 +141,6 @@
   description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people. While powerful, you are now corporeal, and can be killed in this form.
   components:
   - type: Action
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wraith/wraithpossesobject.ogg
     itemIconStyle: BigAction
     useDelay: 150
     icon:
@@ -252,8 +250,6 @@
   description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
   components:
   - type: Action
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
     useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi

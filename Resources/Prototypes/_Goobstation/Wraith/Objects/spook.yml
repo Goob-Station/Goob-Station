@@ -59,3 +59,30 @@
   - type: OpenDoorsSpook
   - type: SapAPC
   - type: RandomSpook
+
+- type: entity
+  parent: Ectoplasm
+  id: EctoplasmGoon
+  name: ectoplasm
+  description: A glob of who knows what. Just staring at it gives you the creeps.
+  components:
+    - type: Sprite
+      noRot: true
+      sprite: _Goobstation/Wraith/Objects/ectoplasm.rsi
+      state: ectoplasmaGoon
+    - type: Tag
+      tags:
+        - Trash
+        - Ectoplasm
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 50
+          reagents:
+            - ReagentId: Ash
+              Quantity: 25
+            - ReagentId: ColdSauce
+              Quantity: 25
+    - type: GuideHelp
+      guides:
+      - MinorAntagonists

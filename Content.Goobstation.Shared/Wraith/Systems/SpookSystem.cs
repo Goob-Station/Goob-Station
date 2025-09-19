@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.Spook;
@@ -13,8 +12,10 @@ using Content.Shared.Popups;
 using Content.Shared.Prototypes;
 using Content.Shared.UserInterface;
 using MvcContrib;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 

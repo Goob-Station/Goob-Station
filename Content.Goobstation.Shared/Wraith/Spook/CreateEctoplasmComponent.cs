@@ -11,7 +11,7 @@ public sealed partial class CreateEctoplasmComponent : Component
     public int SearchRange = 10;
 
     [DataField]
-    public EntProtoId EctoplasmProto = "Ectoplasm";
+    public EntProtoId EctoplasmProto = "EctoplasmGoon";
 
     /// <summary>
     /// Minimum and Maximum amounts of ectoplasm to spawn

@@ -4,15 +4,10 @@ using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Borgs.Components;
-using Robust.Shared.GameStates;
-using Robust.Shared.Physics;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
+using Robust.Shared.Audio.Systems;
+
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -22,7 +17,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
-
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -104,7 +99,9 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
         if (TryComp<TransformComponent>(target.Value, out var targetXform))
 
+
            PredictedSpawnAtPosition(comp.SmokeProto, targetXform.Coordinates);
+        _audio.PlayPredicted(comp.AbsorbSound, uid, uid);
 
         //Lowers the cooldown for the next use.
         if (comp.CorpsesAbsorbed <= 3)

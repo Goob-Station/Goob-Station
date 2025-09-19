@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -39,4 +40,10 @@ public sealed partial class AbsorbCorpseComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 WpPassiveAdd = 0.4;
+
+    /// <summary>
+    /// Sounds to be played whwn wraith absorbs someone.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? AbsorbSound = new SoundCollectionSpecifier("Wraith_SoulSucc");
 }
