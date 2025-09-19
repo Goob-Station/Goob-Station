@@ -99,11 +99,11 @@ public sealed partial class MorphSystem : EntitySystem
         else if (_whitelist.IsWhitelistPass(component.BiomassWhitelist, arg.Target.Value)
                  && _whitelist.IsBlacklistFail(component.BiomassBlacklist, arg.Target.Value))
             ChangeBiomassAmount(physics.Mass , uid, component);
-        
+
         else
             _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass-target"), uid, arg.User, PopupType.Medium);
 
-        if (TryComp<MobStateComponent>(arg.Target, out var mob))
+        if (TryComp<MobStateComponent>(arg.Target, out var mob) && mob.CurrentState == MobState.Critical)
            _mobstate.ChangeMobState(arg.Target.Value, MobState.Dead); // kill the food upon devour if not dead
 
     }
