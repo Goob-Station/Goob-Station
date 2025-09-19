@@ -28,10 +28,10 @@ public sealed class HellPortalSystem : EntitySystem
         base.Initialize();
         _sawmill = Logger.GetSawmill("hell_portal");
 
-        SubscribeLocalEvent<HellPortalComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HellPortalComponent, ComponentStartup>(OnComponentStartup);
     }
 
-    private void OnMapInit(EntityUid uid, HellPortalComponent comp, MapInitEvent args)
+    private void OnComponentStartup(EntityUid uid, HellPortalComponent comp, ComponentStartup args)
     {
         // Check if any HellMapComponent already exists in the map
         var existingHellMaps = EntityQuery<HellMapComponent>();
