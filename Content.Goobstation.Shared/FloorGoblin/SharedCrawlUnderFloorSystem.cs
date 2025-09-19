@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-//
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._DV.Abilities;

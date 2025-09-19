@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-//
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Starlight.VentCrawling;
@@ -180,7 +180,7 @@ public sealed partial class StealShoesSystem : EntitySystem
 
         ev.Handled = true;
     }
-    
+
     /// <summary>
     /// Attempts to remove shoes from the target's equipment or containers.
     /// Returns true if successful, false otherwise.
@@ -197,7 +197,7 @@ public sealed partial class StealShoesSystem : EntitySystem
     private bool TryRemoveShoes(EntityUid target, EntityUid shoes)
     {
         // For dead or critical targets, we need to remove the item directly
-        if (_mobstate.IsDead(target) || 
+        if (_mobstate.IsDead(target) ||
             (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Critical))
         {
             if (!_inventory.TryGetContainingSlot((shoes, null, null), out var slot) ||
