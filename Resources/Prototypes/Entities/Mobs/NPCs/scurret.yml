@@ -45,8 +45,8 @@
   #       Base: scurret_oof
   #     Dead:
   #       Base: scurret_rip
-  #  About as tough as a monkey
   # Shitmed End
+  #  About as tough as a monkey
   - type: MobThresholds
     thresholds:
       0: Alive
