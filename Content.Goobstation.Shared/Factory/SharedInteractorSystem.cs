@@ -156,7 +156,7 @@ public abstract class SharedInteractorSystem : EntitySystem
             return;
 
         ent.Comp.AltInteract = alt;
-        DirtyField(ent, ent.Comp, nameof(InteractorComponent.AltInteract));
+        Dirty(ent);
     }
 
     public EntityCoordinates TargetsPosition(EntityUid uid)
