@@ -246,8 +246,7 @@
     max: 1
     playerRatio: 15
     specialEntries:
-    - prototypeId: MobFloorGoblin
-      weight: 1
+      MobFloorGoblin: 1  # Simplified format
   - type: Tag
     tags:
     - MidroundAntag
