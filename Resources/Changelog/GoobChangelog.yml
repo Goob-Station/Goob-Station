@@ -14977,3 +14977,69 @@ Entries:
         the new system as normal.
   id: 1668
   time: '2025-09-15T00:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Foam Dart inhand sprite is no longer a whole crossbow
+  id: 1669
+  time: '2025-09-16T04:50:34.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: >-
+        Oni have lost their asphyxiation damage bonus in exchange for increased
+        structural.
+  id: 1670
+  time: '2025-09-16T11:30:09.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Departmental Request Computers to Marathon
+    - type: Add
+      message: Trevor to Marathon
+    - type: Fix
+      message: Cargo shuttle can now dock to Marathon
+    - type: Fix
+      message: Mining shuttle can now dock to Marathon
+  id: 1671
+  time: '2025-09-16T11:38:04.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Bagel mapping
+  id: 1672
+  time: '2025-09-16T16:57:34.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Xenomorph Queen is killable again.
+  id: 1673
+  time: '2025-09-16T18:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Jordans are now major contraband. Fake Jordans are now minor contraband.
+  id: 1674
+  time: '2025-09-17T03:05:22.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Added a secret Revolutionary language to speak with your comrades
+        covertly
+  id: 1675
+  time: '2025-09-17T08:28:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed autodocs not being able to install organs/parts (thank the chud
+        that made it so you have to swap hands, they are completely to blame)
+    - type: Fix
+      message: Fixed colliding with downed/crawling/carried players.
+    - type: Fix
+      message: >-
+        Fixed interactors not being usable with anchored objects like walls and
+        girders.
+  id: 1676
+  time: '2025-09-19T12:32:52.0000000+00:00'
