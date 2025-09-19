@@ -7,7 +7,7 @@
   components:
   - type: Icon
     sprite: Mobs/Animals/scurret/scurret.rsi
-    state: full
+    state: scurret
   - type: Appearance
   - type: HumanoidAppearance
     species: Scurret
