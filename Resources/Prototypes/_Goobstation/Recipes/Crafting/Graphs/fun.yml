@@ -14,8 +14,8 @@
             - tag: SnapPop
               name: construction-graph-tag-snap-pop
               icon:
-                sprite: Objects/Fun/toys.rsi
-                state: snappop
+                sprite: Objects/Fun/snap_pops.rsi
+                state: icon
               doAfter: 1
             - tag: MailCapsule
               name: construction-graph-tag-mail-capsule

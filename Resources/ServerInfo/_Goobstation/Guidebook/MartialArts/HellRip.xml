@@ -35,7 +35,7 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Rip off the head of an opponent who is knocked down, very lethal. Cannot be done while on the ground.
+  Rip off the head of an opponent who is dead, very lethal. Cannot be done while target is alive.
 
   ### Hellish Slam
 
