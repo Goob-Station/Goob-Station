@@ -4444,3 +4444,11 @@
   id: 8987
   time: '2025-09-18T20:09:45.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39867
+- author: IProduceWidgets
+  changes:
+  - message: The Experimental Lecter 8 (XL8) has been added as an admin event weapon
+      for roles such as ERT.
+    type: Add
+  id: 8988
+  time: '2025-09-19T19:30:08.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40372
