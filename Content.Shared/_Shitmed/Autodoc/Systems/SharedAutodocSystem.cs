@@ -505,6 +505,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         catch (AutodocError e)
         {
             var error = Loc.GetString("autodoc-error-" + e.Message);
+            var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
             if (program.SkipFailed)
             {
                 Say(ent, Loc.GetString("autodoc-error", ("error", error)));
