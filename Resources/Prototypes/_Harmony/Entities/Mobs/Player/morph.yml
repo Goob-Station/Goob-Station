@@ -91,10 +91,6 @@
       components:
       - MobState
       - Item
-    stomachStorageWhitelist:
-      components:
-      - MobState
-      - Item
   - type: Morph
     biomassWhitelist:
       components:
