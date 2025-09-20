@@ -9,8 +9,9 @@
   id: NinjaThreats
   weights:
     Dragon: 1
+    # Revenant: 1 # Goob - Removed in favor of LoneOperative
     SlaughterDemon: 1
-    LoneOperative: 1 # Goobstaiton
+    LoneOperative: 1 # Goobstation
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -27,6 +28,7 @@
   id: LoneOperative
   announcement: terror-lone-operative
   rule: LoneOpsSpawn
+# Goobstation - end
 
 #- type: ninjaHackingThreat
 #  id: Revenant
