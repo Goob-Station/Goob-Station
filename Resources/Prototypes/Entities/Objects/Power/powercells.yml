@@ -104,6 +104,8 @@
   - type: Riggable
   - type: StealTarget #Goobstation - IPC steal
     stealGroup: Battery
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 360
 
 - type: entity
   name: potato battery
