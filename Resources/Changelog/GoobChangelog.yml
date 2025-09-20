@@ -15155,3 +15155,9 @@ Entries:
       message: Clarke movespeed increased from 2.5 to 3.5
   id: 1692
   time: '2025-09-20T07:03:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR now starts with Administrator sunglasses.
+  id: 1693
+  time: '2025-09-20T07:04:23.0000000+00:00'
