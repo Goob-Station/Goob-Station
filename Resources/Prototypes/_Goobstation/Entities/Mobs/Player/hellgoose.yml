@@ -80,7 +80,3 @@
     actions:
     - ActionCreateHellPortal
     - ActionHellGooseTeleport
-  - type: Damageable
-    resistances:
-      - type: Fire
-        multiplier: 0.0
