@@ -66,10 +66,12 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
     public void OnConvertDoAfter(Entity<RevolutionaryConverterComponent> entity, ref RevolutionaryConverterDoAfterEvent args)
     {
         if (args.Target == null
-            || args.Cancelled)
+            || args.Cancelled
+            || args.Used == null
+            || args.Target == null)
             return;
 
-        ConvertTarget(args.Used!.Value, args.Target!.Value, args.User);
+        ConvertTarget(args.Used.Value, args.Target.Value, args.User);
     }
 
     public void ConvertTarget(EntityUid used, EntityUid targetConvertee, EntityUid user)
