@@ -104,6 +104,7 @@
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 lambdatiger <11843718+lambdatiger@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -393,6 +394,11 @@ namespace Content.Shared.Atmos
         ///     The maximum portion of the N2O that can decompose each reaction tick. (50%)
         /// </summary>
         public const float N2ODecompositionRate = 2f;
+
+        /// <summary>
+        ///     The amount of energy 1 mol of Nitrous Oxide forming from Oxygen and Nitrogen catalyzed by BZ releases.
+        /// </summary>
+        public const float N2OFormationEnergy = 10e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     Divisor for Ammonia Oxygen reaction so that it doesn't happen instantaneously.
