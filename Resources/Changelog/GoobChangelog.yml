@@ -15101,3 +15101,11 @@ Entries:
         throwing angry rocks!
   id: 1685
   time: '2025-09-20T06:42:11.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Added missing name and description for the Estoc ammo.
+    - type: Fix
+      message: Pistol magazine now show the correct maximum capacity.
+  id: 1686
+  time: '2025-09-20T06:42:59.0000000+00:00'
