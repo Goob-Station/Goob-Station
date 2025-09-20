@@ -15057,3 +15057,9 @@ Entries:
       message: Scurrets no longer have a monkey sprite.
   id: 1678
   time: '2025-09-20T06:30:04.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: 'Nuke actually nukes now '
+  id: 1679
+  time: '2025-09-20T06:30:39.0000000+00:00'
