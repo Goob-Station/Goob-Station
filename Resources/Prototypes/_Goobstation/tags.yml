@@ -322,6 +322,9 @@
   id: ItemPickaxe
 
 - type: Tag
+  id: ImprovisedShotgun
+
+- type: Tag
   id: IndustrialMech
 
 - type: Tag
@@ -503,6 +506,9 @@
   id: SnapPop
 
 - type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
+
+- type: Tag
   id: SoulTapped
 
 - type: Tag
@@ -609,6 +615,9 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity

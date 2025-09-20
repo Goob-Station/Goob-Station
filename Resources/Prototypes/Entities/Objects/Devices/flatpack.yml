@@ -80,6 +80,10 @@
     - state: solar-assembly-part
   - type: StaticPrice
     price: 75
+  - type: Tag # Goobstation - stupid chuds didnt add the tag
+    tags:
+    - DroneUsable
+    - SolarAssemblyFlatpack
 
 - type: entity
   parent: BaseFlatpack

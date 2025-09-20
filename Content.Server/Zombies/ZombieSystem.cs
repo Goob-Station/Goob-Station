@@ -66,6 +66,7 @@ using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
+using Content.Shared.Blocking; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -295,6 +296,11 @@ namespace Content.Server.Zombies
             }
         }
 
+        private bool IsUserBlocking(BlockingUserComponent? component) // Goobstation
+        {
+            return (TryComp<BlockingComponent>(component?.BlockingItem, out var blockComp) && blockComp.IsBlocking);
+        }
+
         private float GetZombieInfectionChance(EntityUid uid, ZombieComponent zombieComponent)
         {
             var chance = zombieComponent.BaseZombieInfectionChance;
@@ -335,6 +341,9 @@ namespace Content.Server.Zombies
 
                 if (!TryComp<MobStateComponent>(entity, out var mobState))
                     continue;
+
+                if (TryComp<BlockingUserComponent>(entity, out var blockingUser) && IsUserBlocking(blockingUser)) // Goobstation edit - prevents infection if user is actively blocking
+                    return;
 
                 if (HasComp<ZombieComponent>(entity) || HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
                 {

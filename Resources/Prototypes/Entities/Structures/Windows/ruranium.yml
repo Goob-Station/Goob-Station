@@ -73,7 +73,7 @@
   - type: StaticPrice
     price: 215
   - type: RadiationBlocker
-    resistance: 20
+    resistance: 20 # Goobstation - Radiation Overhaul
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
 
@@ -133,7 +133,7 @@
   - type: StaticPrice
     price: 110
   - type: RadiationBlocker
-    resistance: 10
+    resistance: 10 # Goobstation - Radiation Overhaul
 
 - type: entity
   parent: ReinforcedUraniumWindow

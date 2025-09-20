@@ -313,6 +313,7 @@ public sealed class ReflectSystem : EntitySystem
     #region Examine
     private void OnExamine(Entity<ReflectComponent> ent, ref ExaminedEvent args)
     {
+        if (!ent.Comp.Examinable) return; // Goobstation
         // This isn't examine verb or something just because it looks too much bad.
         // Trust me, universal verb for the potential weapons, armor and walls looks awful.
         var value = MathF.Round(ent.Comp.ReflectProb * 100, 1);
