@@ -15161,3 +15161,11 @@ Entries:
       message: NTR now starts with Administrator sunglasses.
   id: 1693
   time: '2025-09-20T07:04:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Fix
+      message: >-
+        Roleplay rule 6 having incorrect referenced precedent - Roleplay and
+        repetition applies to antags.
+  id: 1694
+  time: '2025-09-20T07:04:47.0000000+00:00'
