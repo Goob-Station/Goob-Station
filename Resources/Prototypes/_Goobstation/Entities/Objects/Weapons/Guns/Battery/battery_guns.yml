@@ -76,6 +76,10 @@
       collection: MetalThud # Goobstation ^
   - type: BatteryDrinkerSource # Goobstation - Energycrit
     maxAmount: 180
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 50 #very hard to hold two of these steady let alone steady while shooting them
 
 - type: entity
   id: BaseWeaponCustomCellSmall
