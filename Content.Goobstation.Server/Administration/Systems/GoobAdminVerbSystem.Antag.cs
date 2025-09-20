@@ -9,6 +9,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
+using Content.Goobstation.Server.BloodCult.Gamerule;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Server.Administration.Managers;
@@ -80,6 +81,21 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-devil"),
         };
         args.Verbs.Add(devilAntag);
+
+        // Blood cult
+        Verb cultist = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-blood-cultist"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/cult_dagger.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, "BloodCult");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-blood-cultist"),
+        };
+        args.Verbs.Add(cultist);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

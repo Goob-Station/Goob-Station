@@ -465,3 +465,5 @@ reagent-effect-guidebook-add-to-chemicals =
         [1] to
         *[-1] from
     } the solution
+
+reagent-effect-guidebook-purify-evil = Purifies evil powers

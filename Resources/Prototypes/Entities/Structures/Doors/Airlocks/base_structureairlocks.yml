@@ -272,6 +272,9 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75
     damagePenalty: 0.2
+  - type: TwistedConstructionTarget
+    replacementProto: CultDoor
+    doAfterDelay: 10
   placement:
     mode: SnapgridCenter
 

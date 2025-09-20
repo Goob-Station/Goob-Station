@@ -49,6 +49,7 @@
             - material: ReinforcedPlasmaGlass
               amount: 1
               doAfter: 3
+
         - to: uraniumWindowDirectional
           steps:
             - material: UraniumGlass
@@ -157,6 +158,7 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
     - node: uraniumWindowDirectional
       entity: UraniumWindowDirectional
       edges:

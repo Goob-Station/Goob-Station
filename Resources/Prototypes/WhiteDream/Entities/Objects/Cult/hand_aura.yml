@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseItem
+  id: BaseBloodCultAura
+  name: blood aura
+  description: A sinister looking aura that distorts the flow of reality around it.
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Ginormous
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    heavyStaminaCost: 0
+    maxTargets: 1
+    animation: WeaponArcSlash
+    angle: 1
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: CultItem
+  - type: DeleteOnDrop
+
+- type: entity
+  parent: BaseBloodCultAura
+  id: BloodRitesAura
+  name: blood rite aura
+  description: Absorbs blood from anything you touch. Touching cultists and constructs can heal them. Use in-hand to cast an advanced rite.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/rites.rsi
+    state: icon
+  - type: BloodRitesAura
+  - type: UserInterface
+    interfaces:
+      enum.BloodRitesUiKey.Key:
+        type: BloodRitesUi
+  - type: ActivatableUI
+    key: enum.BloodRitesUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+
+- type: entity
+  parent: BaseBloodCultAura
+  id: StunAura
+  name: stunning aura
+  description: Will stun and mute a weak-minded victim on hit.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/stun.rsi
+    state: icon
+  - type: Item
+    sprite: WhiteDream/BloodCult/Entities/Items/stun.rsi
+  - type: StunAura
+    speech: Fuu ma'jin!
+
+- type: entity
+  parent: BaseBloodCultAura
+  id: ShadowShacklesAura
+  name: shadow shackles aura
+  description: Will shackles the target with shadow shackles on hit.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/shadow_shaсkles.rsi
+    state: icon
+  - type: Item
+    sprite: WhiteDream/BloodCult/Entities/Items/shadow_shaсkles.rsi
+  - type: ShadowShacklesAura
+    speech: In'totum Lig'abis!

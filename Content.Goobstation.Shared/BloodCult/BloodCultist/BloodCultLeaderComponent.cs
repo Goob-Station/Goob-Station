@@ -1,0 +1,15 @@
+﻿using Content.Shared.StatusIcon;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.BloodCult.BloodCultist;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class BloodCultLeaderComponent : Component
+{
+    [DataField]
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BloodCultLeader";
+
+    [DataField]
+    public bool IconVisibleToGhost { get; set; } = true;
+}

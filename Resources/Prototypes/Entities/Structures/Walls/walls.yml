@@ -424,6 +424,7 @@
   parent: BaseWall
   id: WallCult
   name: cult wall
+  description: Keeps the cult in and the crew out.
   components:
   - type: Sprite
     sprite: Structures/Walls/cult.rsi
@@ -447,6 +448,9 @@
     base: cult
   - type: RustRequiresPathStage # Goobstation
     pathStage: 4 # Mark of rust
+  - type: Construction
+    graph: CultGirder
+    node: wall
 
 - type: entity
   parent: BaseWall

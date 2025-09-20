@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise Station 13, edited by @kilath (discord 493110710377906196)",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "rune"
+    },
+    {
+      "name": "rune_animated",
+      "delays": [
+        [
+          0.50,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07
+        ]
+      ]
+    }
+  ]
+}

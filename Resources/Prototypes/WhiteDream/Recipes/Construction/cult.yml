@@ -1,0 +1,107 @@
+﻿- type: construction
+  id: CultPylon
+  name: cult pylon
+  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: CultPylon
+  startNode: start
+  targetNode: pylon
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/pylon.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: AlignPylonConstruction
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryAltar
+  name: altar
+  description: A bloodstained altar dedicated to Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryAltar
+  startNode: start
+  targetNode: altar
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/altar.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryForge
+  name: daemon forge
+  description: A forge used in crafting the unholy weapons used by the armies of Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryForge
+  startNode: start
+  targetNode: forge
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/forge.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryArchives
+  name: archives
+  description: A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl.
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryArchives
+  startNode: start
+  targetNode: archives
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/archives.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultDoor
+  name: runed door
+  description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
+  category: construction-category-structures
+  hide: true
+  graph: CultDoor
+  startNode: start
+  targetNode: door
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_airlock.rsi
+    state: closed
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultGirder
+  name: runed girder
+  description: Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts
+  category: construction-category-structures
+  hide: true
+  graph: CultGirder
+  startNode: start
+  targetNode: girder
+  icon:
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_girder.rsi
+    state: icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

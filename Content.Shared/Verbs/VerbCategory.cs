@@ -55,10 +55,23 @@ namespace Content.Shared.Verbs
         /// </remarks>
         public readonly bool IconsOnly;
 
-        public VerbCategory(string text, string? icon, bool iconsOnly = false)
+        public VerbCategory(string text, bool iconsOnly = false)
         {
             Text = Loc.GetString(text);
-            Icon = icon == null ? null : new SpriteSpecifier.Texture(new(icon));
+            IconsOnly = iconsOnly;
+        }
+
+        public VerbCategory(string text, string icon, bool iconsOnly = false)
+        {
+            Text = Loc.GetString(text);
+            Icon = new SpriteSpecifier.Texture(new ResPath(icon));
+            IconsOnly = iconsOnly;
+        }
+
+        public VerbCategory(string text, SpriteSpecifier? sprite, bool iconsOnly = false)
+        {
+            Text = Loc.GetString(text);
+            Icon = sprite;
             IconsOnly = iconsOnly;
         }
 
@@ -66,7 +79,8 @@ namespace Content.Shared.Verbs
             new("verb-categories-admin", "/Textures/Interface/character.svg.192dpi.png");
 
         public static readonly VerbCategory Antag =
-            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true) { Columns = 5 };
+            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true)
+                { Columns = 5 };
 
         public static readonly VerbCategory Examine =
             new("verb-categories-examine", "/Textures/Interface/VerbIcons/examine.svg.192dpi.png");
@@ -87,36 +101,41 @@ namespace Content.Shared.Verbs
             new("verb-categories-unbuckle", "/Textures/Interface/VerbIcons/unbuckle.svg.192dpi.png");
 
         public static readonly VerbCategory Rotate =
-            new("verb-categories-rotate", "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png", iconsOnly: true) { Columns = 5 };
+            new("verb-categories-rotate", "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png", iconsOnly: true)
+                { Columns = 5 };
 
         public static readonly VerbCategory Smite =
-            new("verb-categories-smite", "/Textures/Interface/VerbIcons/smite.svg.192dpi.png", iconsOnly: true) { Columns = 6 };
+            new("verb-categories-smite", "/Textures/Interface/VerbIcons/smite.svg.192dpi.png", iconsOnly: true)
+                { Columns = 6 };
+
         public static readonly VerbCategory Tricks =
-            new("verb-categories-tricks", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: true) { Columns = 5 };
+            new("verb-categories-tricks", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: true)
+                { Columns = 5 };
 
         public static readonly VerbCategory SetTransferAmount =
             new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");
 
-        public static readonly VerbCategory Split =
-            new("verb-categories-split", null);
+        public static readonly VerbCategory Split = new("verb-categories-split");
 
-        public static readonly VerbCategory InstrumentStyle =
-            new("verb-categories-instrument-style", null);
+        public static readonly VerbCategory InstrumentStyle = new("verb-categories-instrument-style");
 
-        public static readonly VerbCategory ChannelSelect = new("verb-categories-channel-select", null);
+        public static readonly VerbCategory ChannelSelect = new("verb-categories-channel-select");
 
-        public static readonly VerbCategory SetSensor = new("verb-categories-set-sensor", null);
+        public static readonly VerbCategory SetSensor = new("verb-categories-set-sensor");
 
-        public static readonly VerbCategory Lever = new("verb-categories-lever", null);
+        public static readonly VerbCategory Lever = new("verb-categories-lever");
 
-        public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
+        public static readonly VerbCategory SelectType = new("verb-categories-select-type");
 
-        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
+        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level");
 
         public static readonly VerbCategory Adjust =
             new("verb-categories-adjust", "/Textures/Interface/VerbIcons/screwdriver.png");
-        
+
         // Shitmed - Starlight Abductors
         public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
+
+        public static readonly VerbCategory BloodSpells = new("verb-categories-blood-cult",
+            new SpriteSpecifier.Rsi(new ResPath("/Textures/WhiteDream/BloodCult/actions.rsi"), "blood_spells"));
     }
 }

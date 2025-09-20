@@ -1,0 +1,47 @@
+﻿- type: runeSelector
+  id: CultRuneOffering
+  prototype: CultRuneOffering
+
+- type: runeSelector
+  id: CultRuneEmpower
+  prototype: CultRuneEmpower
+
+- type: runeSelector
+  id: CultRuneTeleport
+  prototype: CultRuneTeleport
+
+- type: runeSelector
+  id: CultRuneRevive
+  prototype: CultRuneRevive
+
+- type: runeSelector
+  id: CultRuneBarrier
+  prototype: CultRuneBarrier
+
+- type: runeSelector
+  id: CultRuneSummoning
+  prototype: CultRuneSummoning
+
+- type: runeSelector
+  id: CultRuneBloodBoil
+  prototype: CultRuneBloodBoil
+
+- type: runeSelector
+  id: CultRuneApocalypse
+  prototype: CultRuneApocalypse
+  requireTargetDead: true
+  requiredTotalCultists: 10
+  drawTime: 40
+  drawDamage:
+    types:
+      Slash: 20
+
+- type: runeSelector
+  id: CultRuneDimensionalRending
+  prototype: CultRuneDimensionalRending
+  requireTargetDead: true
+  requiredTotalCultists: 10
+  drawTime: 40
+  drawDamage:
+    types:
+      Slash: 50
