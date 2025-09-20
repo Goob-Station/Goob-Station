@@ -67,11 +67,21 @@
     state: icon
   - type: Item
     size: Huge
+  - type: Damageable # Goobstation edit start
+    damageContainer: StructuralInorganic
+    damageModifierSet: Backpacks
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Clothing
     quickEquip: false
     slots:
     - back
-  # Goobstation edit start
     equipSound:
       path: /Audio/_Goobstation/Items/handling/backpack_equip.ogg
       params:
@@ -108,7 +118,7 @@
   - type: UseDelay
     delay: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0
   - type: Tag
     tags:
     - WhitelistChameleon
