@@ -1,15 +1,15 @@
 - type: gameMap
-  id: Nebula
-  mapName: 'Nebula'
-  mapPath: /Maps/_Goobstation/nebula.yml
-  minPlayers: 10
+  id: Covalent
+  mapName: 'Covalent'
+  mapPath: /Maps/_Goobstation/covalent.yml
+  minPlayers: 0
   maxPlayers: 85
   stations:
-    Nebula:
+    Covalent:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Nebula {1}'
+          mapNameTemplate: '{0} Covalent {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
