@@ -32,13 +32,13 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVolcanoBlast
-  name: Volcanic Blast
-  description: Charge up a blast of fire that chains between nearby targets, setting them ablaze.
+  name: Volcano Blast
+  description: Charge up a blast of fire that chains between nearby targets, setting them ablaze. Targets already on fire will take priority. If the target fails to catch ablaze, or extinguishes themselves before it bounces, the chain will stop.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     checkCanInteract: false
-    useDelay: 10
+    useDelay: 45
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -48,6 +48,9 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-volcano
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 30
+    requiredPath: Ash
 
 - type: entity
   parent: BaseAction

@@ -23,7 +23,7 @@ public sealed partial class ClientStatusEffectsSystem : SharedStatusEffectsSyste
         var toRemove = new ValueList<EntityUid>();
         foreach (var effect in ent.Comp.ActiveStatusEffects)
         {
-            if (state.ActiveStatusEffects.Contains(GetNetEntity(effect)))
+            if (TryGetNetEntity(effect, out var netEffect) && state.ActiveStatusEffects.Contains(netEffect.Value)) // Goob edit
                 continue;
 
             toRemove.Add(effect);

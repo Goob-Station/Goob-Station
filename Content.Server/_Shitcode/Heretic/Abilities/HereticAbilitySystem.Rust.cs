@@ -263,7 +263,7 @@ public sealed partial class HereticAbilitySystem
 
         MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
 
-        foreach (var toRust in _lookup.GetEntitiesInRange(xform.Coordinates, comp.LookupRange, LookupFlags.Static))
+        foreach (var toRust in Lookup.GetEntitiesInRange(xform.Coordinates, comp.LookupRange, LookupFlags.Static))
         {
             TryMakeRustWall(toRust);
         }
@@ -325,7 +325,7 @@ public sealed partial class HereticAbilitySystem
             if (CanRustTile((ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId]))
                 MakeRustTile(gridUid, mapGrid, tileRef, tileRune);
 
-            foreach (var toRust in _lookup.GetEntitiesInRange(coords, lookupRange, LookupFlags.Static))
+            foreach (var toRust in Lookup.GetEntitiesInRange(coords, lookupRange, LookupFlags.Static))
             {
                 TryMakeRustWall(toRust);
             }
@@ -375,7 +375,7 @@ public sealed partial class HereticAbilitySystem
             if (CanRustTile((ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId]))
                 MakeRustTile(gridUid, mapGrid, tileRef, args.TileRune);
 
-            foreach (var toRust in _lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
+            foreach (var toRust in Lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
             {
                 TryMakeRustWall(toRust);
             }
@@ -466,7 +466,7 @@ public sealed partial class HereticAbilitySystem
                    CollisionGroup.Impassable;
 
         var lookup =
-            _lookup.GetEntitiesInRange<FixturesComponent>(args.Target, args.ObstacleCheckRange, LookupFlags.Static);
+            Lookup.GetEntitiesInRange<FixturesComponent>(args.Target, args.ObstacleCheckRange, LookupFlags.Static);
         foreach (var (_, fix) in lookup)
         {
             if (fix.Fixtures.All(x => (x.Value.CollisionLayer & (int) mask) == 0))
@@ -479,7 +479,7 @@ public sealed partial class HereticAbilitySystem
         var mapCoords = _transform.ToMapCoordinates(args.Target);
 
         var lookup2 =
-            _lookup.GetEntitiesInRange<TransformComponent>(args.Target, args.MobCheckRange, LookupFlags.Dynamic);
+            Lookup.GetEntitiesInRange<TransformComponent>(args.Target, args.MobCheckRange, LookupFlags.Dynamic);
         foreach (var (entity, xform) in lookup2)
         {
             var dir = _transform.GetWorldPosition(xform) - mapCoords.Position;

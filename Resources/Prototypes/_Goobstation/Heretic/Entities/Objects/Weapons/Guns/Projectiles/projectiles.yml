@@ -6,37 +6,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseBulletTrigger
-  id: FireballChain
-  name: twisted fireball
-  description: Uh oh.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: ChainFireball
-  - type: Reflective
-    reflective: Magic
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: fireball
-      shader: unshaded
-  - type: IgnitionSource
-    temperature: 1000
-    ignited: true
-  - type: IgniteOnCollide
-    fireStacks: 0.5
-  - type: PointLight
-    color: "#E25822"
-    radius: 2.0
-    energy: 5.0
-  - type: Projectile
-    damage:
-      types:
-        Heat: 5
-  - type: TimedDespawn
-    lifetime: 1
-
-- type: entity
   parent: BaseBullet
   id: ProjectileWaveRust
   name: patron's reach
