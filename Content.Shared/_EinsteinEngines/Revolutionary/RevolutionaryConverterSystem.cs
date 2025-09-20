@@ -139,9 +139,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             });
         }
         else
-        {
             ConvertTarget(converter.Owner, target, user);
-        }
     }
 }
 
