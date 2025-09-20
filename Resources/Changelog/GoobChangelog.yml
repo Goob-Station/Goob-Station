@@ -15199,3 +15199,127 @@ Entries:
       message: Lollypops now gets consumed over time if you put them in mouth.
   id: 1699
   time: '2025-09-20T07:31:45.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Add
+      message: >-
+        Added Rocket Chairs, which can be crafted by attaching fire
+        extinguishers to office chairs.
+    - type: Add
+      message: >-
+        Office chairs now give you an ability that lets you launch yourself off
+        surfaces.
+    - type: Add
+      message: You can now use fire extinguishers to launch office chairs around.
+  id: 1700
+  time: '2025-09-20T12:46:33.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added new trait "social anxiety" anyone with this trait will have a
+        panic attack when they're hugged by another player.
+    - type: Add
+      message: >-
+        Added new trait "Deaf" anyone with this trait will no longer hear any
+        sounds in game or be able to hear anyone speaking in a language that
+        requires speech, anyone who is deaf is still able to talk but they
+        cannot hear themselves, so I hope you checked your spelling!
+    - type: Fix
+      message: >-
+        Fixed the wheelchair bound trait not actually making you paralyzed from
+        the waist down, if you have the trait you will no longer be able to
+        stand and can only move by crawling or your wheelchair.
+  id: 1701
+  time: '2025-09-20T13:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Medical items in Uplink are now cheaper in TC: Combat medkit 15->10,
+        combat medipen 12->8, advanced medipen 28->20.
+  id: 1702
+  time: '2025-09-20T13:34:49.0000000+00:00'
+- author: Rouden, Monolith Station
+  changes:
+    - type: Add
+      message: >-
+        Added bluespace drives. They extend FTL range of a shuttle and modify
+        FTL efficiency when installed. You can research them with other shuttle
+        parts.
+    - type: Tweak
+      message: >-
+        All shuttles now can't FTL on to the same map without a bluespace drive.
+        You still can travel between maps without any drives.
+    - type: Tweak
+      message: Default FTL cooldown is now increased, 10 -> 90 seconds.
+    - type: Tweak
+      message: >-
+        Shuttle console UI was reworked and now has more indication and
+        functionality.
+  id: 1703
+  time: '2025-09-20T17:28:20.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Visiting librarians now understand most languages
+    - type: Add
+      message: Visiting chefs now knows cqc, and can speak space italian
+    - type: Add
+      message: Visiting chaplains now have a null rod
+  id: 1704
+  time: '2025-09-20T17:34:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fix borg lawsets
+  id: 1705
+  time: '2025-09-20T17:38:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Heavy multifire nerf, use one gun to aim, use two to mow down crowds
+  id: 1706
+  time: '2025-09-20T17:39:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Wizden desword redundant item
+  id: 1707
+  time: '2025-09-20T17:39:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR and BSO now have default highlights.
+  id: 1708
+  time: '2025-09-20T17:43:41.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added a reaction for synthetic honk reagent.
+  id: 1709
+  time: '2025-09-20T17:44:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed two instances of high energy power cells in salv vendor
+  id: 1710
+  time: '2025-09-20T17:45:51.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Made air alarms less sensitive to lower pressure, danger is at 40kPa
+        instead of 80kPa.
+    - type: Tweak
+      message: Air alarms now ignore Healium since it is safe on its own.
+  id: 1711
+  time: '2025-09-20T17:48:03.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Revolutionaries can now tamper with Flashes via the crafting menu to
+        allow Head Revolutionaries to use them for conversion.
+  id: 1712
+  time: '2025-09-20T18:28:50.0000000+00:00'

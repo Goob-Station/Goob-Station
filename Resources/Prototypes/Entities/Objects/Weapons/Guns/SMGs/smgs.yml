@@ -132,6 +132,9 @@
       collection: SMGDrop
   # Goobstation edit end
   - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 50 #very hard to hold two of these steady let alone steady while shooting them
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon

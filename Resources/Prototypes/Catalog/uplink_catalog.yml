@@ -247,7 +247,6 @@
   categories:
   - UplinkWeaponry
 
-
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
@@ -833,7 +832,7 @@
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 10 #goob
   categories:
   - UplinkChemicals
 
@@ -844,7 +843,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 12 # Goobstation - Combat pen rebalance
+    Telecrystal: 8 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 

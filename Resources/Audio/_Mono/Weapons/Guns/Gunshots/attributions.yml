@@ -1,0 +1,54 @@
+- files: ["uaf_57mm.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from UAF"
+  source: "https://fractalsoftworks.com/forum/index.php?topic=12709.0"
+
+- files: ["uaf_tona_iv_608.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from UAF"
+  source: "https://fractalsoftworks.com/forum/index.php?topic=12709.0"
+
+- files: ["uaf_cyrexa_452.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from UAF"
+  source: "https://fractalsoftworks.com/forum/index.php?topic=12709.0"
+
+- files: ["carcannon3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from NSV13"
+  source: "https://github.com/BeeStation/NSV13/blob/master/sound/vehicles/carcannon3.ogg"
+
+- files: ["mortar.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/mortar.ogg"
+
+- files: ["railgun.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/railgun.ogg"
+
+- files: ["120mm_mortar.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg"
+
+- files: ["leviathan_fire.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/gunshot/ship_weapons/leviathan_fire.ogg"
+
+- files: ["flak_fire.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Modified from Aurora.3 flak_fire.ogg"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/gunshot/ship_weapons/flak_fire.ogg"
+
+- files: ["cannon.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/gunshot/cannon.ogg"
+
+- files: ["slammer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Aurora.3"
+  source: "https://github.com/Aurorastation/Aurora.3/blob/master/sound/weapons/gunshot/slammer.ogg"
