@@ -15240,3 +15240,22 @@ Entries:
         combat medipen 12->8, advanced medipen 28->20.
   id: 1702
   time: '2025-09-20T13:34:49.0000000+00:00'
+- author: Rouden, Monolith Station
+  changes:
+    - type: Add
+      message: >-
+        Added bluespace drives. They extend FTL range of a shuttle and modify
+        FTL efficiency when installed. You can research them with other shuttle
+        parts.
+    - type: Tweak
+      message: >-
+        All shuttles now can't FTL on to the same map without a bluespace drive.
+        You still can travel between maps without any drives.
+    - type: Tweak
+      message: Default FTL cooldown is now increased, 10 -> 90 seconds.
+    - type: Tweak
+      message: >-
+        Shuttle console UI was reworked and now has more indication and
+        functionality.
+  id: 1703
+  time: '2025-09-20T17:28:20.0000000+00:00'
