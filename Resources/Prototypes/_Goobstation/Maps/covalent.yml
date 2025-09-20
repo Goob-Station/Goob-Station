@@ -19,11 +19,10 @@
           availableJobs:
             #service
             StationAi: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 2, 2 ]
+          #  Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 3, 3 ]
             Janitor: [ 3, 3 ]
