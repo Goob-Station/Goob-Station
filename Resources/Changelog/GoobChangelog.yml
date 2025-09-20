@@ -15081,3 +15081,9 @@ Entries:
       message: Fixed advanced cybernetics lungs description.
   id: 1682
   time: '2025-09-20T06:34:04.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Tweak
+      message: Artifact containers block rads again.
+  id: 1683
+  time: '2025-09-20T06:36:45.0000000+00:00'
