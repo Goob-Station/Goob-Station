@@ -15175,3 +15175,9 @@ Entries:
       message: Camera construction now requires glass.
   id: 1695
   time: '2025-09-20T07:11:06.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Sec no longer starts with a 40mm slug
+  id: 1696
+  time: '2025-09-20T07:18:54.0000000+00:00'
