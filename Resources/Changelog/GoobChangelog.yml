@@ -15145,3 +15145,13 @@ Entries:
       message: Removed Salvage Shuttle board from QM Locker
   id: 1691
   time: '2025-09-20T07:03:02.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: All mechs (Except the H.O.N.K) can no longer sprint
+    - type: Tweak
+      message: Doubled the move speed of the Ripley MkII (It's still pretty damn slow)
+    - type: Tweak
+      message: Clarke movespeed increased from 2.5 to 3.5
+  id: 1692
+  time: '2025-09-20T07:03:50.0000000+00:00'
