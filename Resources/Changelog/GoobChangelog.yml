@@ -15323,3 +15323,9 @@ Entries:
         allow Head Revolutionaries to use them for conversion.
   id: 1712
   time: '2025-09-20T18:28:50.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Salvage can no longer be antagonists.
+  id: 1713
+  time: '2025-09-20T18:54:23.0000000+00:00'
