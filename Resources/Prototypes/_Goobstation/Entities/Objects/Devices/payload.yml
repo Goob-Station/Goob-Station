@@ -1,23 +1,561 @@
 - type: entity
+  name: minibomb payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: MiniBombPayload
+  description: Causes a small, deadly explosion.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-minibomb
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: Explosive
+    explosionType: Minibomb
+    maxIntensity: 200
+    intensitySlope: 30
+    totalIntensity: 60
+  - type: ExplodeOnTrigger
+
+- type: entity
+  name: small speaker
+  parent: BasePayload
+  description: Its preprogrammed with a fart noise...
+  id: FakeMiniBombPayload
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-trick
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Effects/Emotes/parp1.ogg
+
+- type: entity
+  name: whitehole payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: WhiteHolePayload
+  description: Pushes everything away very quickly.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-whitehole
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
+      volume: 5
+  - type: TwoStageTrigger
+    triggerDelay: 11.14
+    components:
+      - type: AmbientSound
+        enabled: true
+        volume: -5
+        range: 14
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
+      - type: GravityWell
+        maxRange: 10
+        baseRadialAcceleration: -180
+        baseTangentialAcceleration: -5
+        gravPulsePeriod: 0.01
+      - type: SingularityDistortion
+        intensity: -200
+        falloffPower: 1.5
+      - type: PointLight
+        enabled: true
+        color: "#ffffff"
+        energy: 8
+        radius: 6
+        softness: 1
+        offset: "0, 0"
+      - type: SoundOnTrigger
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+          params:
+            volume: 15
+      - type: DeleteOnTrigger
+
+- type: entity
+  name: nuclear option payload
+  parent: [ BasePayload, BaseMajorContraband ]
+  id: NuclearOptionPayload
+  description: Oh no.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-nuclearoption
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: Explosive
+    explosionType: Minibomb
+    maxIntensity: 50
+    intensitySlope: 5
+    totalIntensity: 20000
+  - type: ExplodeOnTrigger
+
+- type: entity
+  name: supermatter payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SupermatterGrenadePayload
+  description: Pulls nearby objects close, then explodes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-supermatter
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 30
+    maxIntensity: 120
+  - type: TwoStageTrigger
+    triggerDelay: 10.45
+    components:
+      - type: AmbientSound
+        enabled: true
+        volume: -5
+        range: 14
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+      - type: GravityWell
+        maxRange: 8
+        baseRadialAcceleration: 8
+        baseTangentialAcceleration: .5
+        gravPulsePeriod: 0.02
+      - type: SingularityDistortion
+        intensity: 150
+        falloffPower: 1.5
+      - type: PointLight
+        enabled: true
+        color: "#ffaa44"
+        energy: 8
+        radius: 6
+        softness: 1
+        offset: "0, 0"
+      - type: SoundOnTrigger
+        sound:
+          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+          params:
+            volume: 5
+      - type: ExplodeOnTrigger
+
+- type: entity
+  name: stinger payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: StingerPayload
+  description: Launches many of less-lethal stunning rubber pellets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-stinger
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterRubber
+    capacity: 30
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+
+- type: entity
+  name: tear gas payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: TearGasPayload
+  description: Releases a large amount of blinding gas.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-teargas
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 20
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  name: smoke payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SmokePayload
+  description: Releases a large, long-lasting cloud of smoke when used.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-stinger
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 30
+    spreadAmount: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  name: sarin gas payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: SarinGasPayload
+  description: Releases a large amount of deadly gas.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-saringas
+  - type: DeleteOnTrigger
+  - type: SmokeOnTrigger
+    duration: 20
+    spreadAmount: 30
+    solution:
+      reagents:
+      - ReagentId: Sarin
+        Quantity: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  name: incendiary payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: IncendiaryPayload
+  description: Launches many firey fragments.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-incendiary
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterIncendiary
+    capacity: 30
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  name: holy payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: HolyPayload
+  description: Causes a HUGE, deadly explosion.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-HHG
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: Explosive
+    explosionType: Holy
+    totalIntensity: 3500
+    intensitySlope: 15
+    maxIntensity: 70
+    canCreateVacuum: true
+  - type: ExplodeOnTrigger
+  - type: PointLight
+    radius: 7
+    energy: 3
+    netsync: false
+
+- type: entity
+  name: cluster payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: ClusterBombPayload
+  description: Causes three large, deadly explosions.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-triple
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ScatteringGrenade
+    fillPrototype: ExGrenade
+    capacity: 3
+    distance: 4
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
   name: explosive payload
   parent: [ BasePayload, BaseSyndicateContraband ]
   id: ExplosivePayload
+  description: Explodes when triggered, moderately strong.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/payload.rsi
     state: icon
   - type: Explosive
     explosionType: Default
-    maxIntensity: 5
+    maxIntensity: 10
     intensitySlope: 3
-    totalIntensity: 85
+    totalIntensity: 120
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 25
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+      - !type:TriggerBehavior
+
+- type: entity
+  name: clusterbang payload
+  parent: [ BasePayload, BaseSecurityContraband ]
+  id: ClusterBangPayload
+  description: Releashes three flashbangs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-triple
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ScatteringGrenade
+    fillPrototype: GrenadeFlashBang
+    capacity: 5
+    distance: 6
+    velocity: 6
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  name: air payload
+  parent: [ BasePayload, BaseEngineeringContraband ]
+  id: AirPayload
+  description: Releases air I guess.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-air
+  - type: DeleteOnTrigger
+  - type: ReleaseGasOnTrigger
+    removeFraction: 0.25
+    air:
+      volume: 1000
+      moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
+      - 654.7464 # oxygen
+      - 2463.0936 # nitrogen
+      temperature: 293.15
+
+- type: entity
+  name: foam payload
+  parent: BasePayload
+  id: FoamPayload
+  description: Makes a giant fucking mess. Shame on you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-trick
+  - type: ScatteringGrenade
+    fillPrototype: BulletFoam
+    capacity: 30
+    velocity: 30
+
+- type: entity
+  name: EMP payload
+  parent: BasePayload
+  id: EMPPayload
+  description: Releases an electro magnetic pulse, disrupts electronics.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-EMP
+  - type: EmpOnTrigger
+    range: 5.5
+    energyConsumption: 50000
+  - type: DeleteOnTrigger
+
+- type: entity
+  name: bee payload
+  parent: BasePayload
+  id: BeePayload
+  description: Releases bees. (they are mean)
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/bombcomponents.rsi
+    state: payload-bee
+  - type: ScatteringGrenade
+    fillPrototype: MobSyndieAngryBee
+    capacity: 5
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+
+- type: entity
+  name: plasteel shrapnel payload # Goobstation - shrapnel payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: StrongShrapnelPayload
+  description: Launches tons of sharp plasteel shards in all directions.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/payload.rsi
+    state: payload-explosive-armed
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 30
+
+- type: entity
+  id: LubePayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 25
+        - ReagentId: SpaceLube
+          Quantity: 20
+
+- type: entity
+  id: LubePayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 25
+
+- type: entity
+  id: GluePayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 25
+        - ReagentId: SpaceGlue
+          Quantity: 20
+
+- type: entity
+  id: GluePayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Potassium
+          Quantity: 25
+        - ReagentId: Phosphorus
+          Quantity: 25
+
+- type: entity
+  id: CleanPayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 70
+        - ReagentId: SpaceCleaner
+          Quantity: 30
+
+- type: entity
+  id: CleanPayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 70
+
+- type: entity
+  id: FoamPayload1
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 90
+
+- type: entity
+  id: FoamPayload2
+  parent: LargeBeaker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 30
+        - ReagentId: FoamingAgent
+          Quantity: 30
+

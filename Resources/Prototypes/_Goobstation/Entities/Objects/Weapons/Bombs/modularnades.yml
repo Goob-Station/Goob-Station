@@ -1,0 +1,378 @@
+- type: entity
+  name: syndicate minibomb
+  description: A syndicate-manufactured explosive used to stow destruction and cause chaos, this one has been modified.
+  parent: [BaseItem, BaseMajorContraband]
+  id: SyndieMiniBombModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - HandGrenade
+  - type: PayloadCase
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TimerStartBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: SyndicateMinibombGraph
+    node: emptyCase
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+
+- type: entity
+  name: syndicate trickybomb
+  description: A syndicate-manufactured explosive used to make an excellent distraction, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: SyndieTrickyBombModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    state: icon
+  - type: Construction
+    graph: SyndicateTrickybombGraph
+    node: emptyCase
+
+- type: entity
+  name: whitehole grenade
+  description: A grenade that repulses everything around for some time, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: WhiteholeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/whiteholegrenade.rsi
+    state: icon
+  - type: Construction
+    graph: WhiteholeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: the nuclear option
+  description: WHY WOULD YOU MODIFY THIS.
+  parent: [SyndieMiniBombModular, BaseMajorContraband]
+  id: NuclearGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/nukenade.rsi
+    state: icon
+  - type: Construction
+    graph: NuclearOptionGraph
+    node: emptyCase
+
+- type: entity
+  name: supermatter grenade
+  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time, this ones been modified.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: SupermatterGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/supermattergrenade.rsi
+    state: icon
+  - type: Construction
+    graph: SupermatterGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: stinger grenade
+  description: A less-lethal stinger grenade, this ones been modified.
+  parent: [SyndieMiniBombModular, BaseSecurityContraband]
+  id: StingerGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/stingergrenade.rsi
+    state: icon
+  - type: Construction
+    graph: SupermatterGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: tear gas grenade
+  description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out, this ones been modified.
+  parent: [SyndieMiniBombModular, BaseSecurityContraband]
+  id: TearGasGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    state: icon
+  - type: Construction
+    graph: TearGasGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: sarin gas grenade
+  description: A brutal neurotoxin gas grenade that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: SarinGasGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    state: icon
+  - type: Construction
+    graph: SarinGasGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: incendiary grenade
+  description: A brutal grenade that fires flaming shrapnel, igniting anyone it hits, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: IncendiaryGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
+    state: icon
+  - type: Construction
+    graph: IncendiaryGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: holy hand grenade
+  description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy, someone has modified this artifact.
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: HolyHandGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
+    state: icon
+  - type: PointLight
+    radius: 7
+    energy: 3
+    netsync: false
+  - type: Construction
+    graph: HolyHandGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: ClusterGrenade
+  description: Why use one grenade when you can use three at once! Seems like someone has modiefied these?
+  parent: [SyndieMiniBombModular, BaseSyndicateContraband]
+  id: ClusterGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/clusterbomb.rsi
+    state: icon
+  - type: Construction
+    graph: ClusterGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: ClusterBang
+  description: Launches three flashbangs after the timer runs out, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseSecurityContraband]
+  id: ClusterBangModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/clusterbang.rsi
+    state: icon
+  - type: Construction
+    graph: ClusterBangGraph
+    node: emptyCase
+
+- type: entity
+  name: air grenade
+  description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles, this one has been modified.
+  parent: [SyndieMiniBombModular, BaseEngineeringContraband]
+  id: AirGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/airboom.rsi
+    state: icon
+  - type: Construction
+    graph: AirGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: foam dart grenade
+  description: Releases a bothersome spray of foam darts that cause severe welching, this one has been modified.
+  parent: [SyndieMiniBombModular , BaseCivilianContraband]
+  id: GrenadeFoamDartModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/foamdart.rsi
+    state: icon
+  - type: Construction
+    graph: FoamGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: EMP Grenade
+  description: A grenade designed to wreak havoc on electronic systems, this one has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: EmpGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    state: icon
+  - type: Construction
+    graph: EMPGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: Beenade
+  description: Not the bees!!! (looks like someone modified this)
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: BeeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    state: icon
+  - type: Construction
+    graph: BeeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: shrapnel grenade
+  description: Releases a deadly spray of shrapnel that causes severe bleeding, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: ShrapnelGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    state: icon
+  - type: Construction
+    graph: ShrapnelGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: flashbang
+  description: Eeeeeeeeeeeeeeeeeeeeee. (looks like someone modified this)
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: FlashbangModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    state: icon
+  - type: Construction
+    graph: FlashbangGraph
+    node: emptyCase
+
+- type: entity
+  name: trick grenade
+  description: All the grenade without any of the boom. (looks like someone modified this)
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: TrickGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  - type: Construction
+    graph: TrickGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: lube grenade
+  description: A grenade that releases Space Lube foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: LubeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/foamdart.rsi
+    state: icon
+  - type: Construction
+    graph: LubeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: glue grenade
+  description: A grenade that releases Space Glue foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: GlueGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    state: icon
+  - type: Construction
+    graph: GlueGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: smoke grenade
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: SmokeGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    state: icon
+  - type: Construction
+    graph: SmokeGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: cleanade
+  description: A grenade that releases Space Glue foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: CleanerGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/janitor.rsi
+    state: icon
+  - type: Construction
+    graph: CleanerGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: metal foam grenade
+  description: An emergency tool used for patching hull breaches with special quick-set metal foam, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseEngineeringContraband]
+  id: MetalFoamGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/metalfoam.rsi
+    state: icon
+  - type: Construction
+    graph: MetalFoamGrenadeGraph
+    node: emptyCase
+
+- type: entity
+  name: explosive grenade
+  description: Grenade that creates a small but devastating explosion, looks like it has been modified.
+  parent: [SyndieMiniBombModular , BaseSyndicateContraband]
+  id: ExplosiveGrenadeModular
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  - type: Construction
+    graph: ExplosiveGrenadeGraph
+    node: emptyCase

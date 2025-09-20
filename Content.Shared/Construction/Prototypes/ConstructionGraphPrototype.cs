@@ -108,6 +108,7 @@ namespace Content.Shared.Construction.Prototypes
             var start = _nodes[startNode];
             var finish = _nodes[finishNode];
 
+
             var current = finish;
             var path = new List<ConstructionGraphNode>();
             while (current != start)
