@@ -15287,3 +15287,9 @@ Entries:
       message: Wizden desword redundant item
   id: 1707
   time: '2025-09-20T17:39:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR and BSO now have default highlights.
+  id: 1708
+  time: '2025-09-20T17:43:41.0000000+00:00'
