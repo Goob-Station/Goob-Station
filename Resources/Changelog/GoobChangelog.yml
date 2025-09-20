@@ -15127,3 +15127,13 @@ Entries:
       message: New moth variants of most goob station sunglasses
   id: 1689
   time: '2025-09-20T06:50:15.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Floor Goblins can now spawn midround.
+    - type: Fix
+      message: Ninja Threats not spawning anything.
+    - type: Add
+      message: Ninja Threats can now spawn Lone Nuclear Operative.
+  id: 1690
+  time: '2025-09-20T06:51:24.0000000+00:00'
