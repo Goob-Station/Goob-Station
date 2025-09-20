@@ -20,7 +20,6 @@
     - Syndicate
     - MercFaction
 
-
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MobHuman
@@ -41,8 +40,6 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-    - MercFaction
-
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -64,8 +61,6 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-    - MercFaction
-
 
 - type: entity
   id: SpawnPointGhostMercOperative
