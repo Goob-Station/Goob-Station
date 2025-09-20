@@ -15293,3 +15293,9 @@ Entries:
       message: NTR and BSO now have default highlights.
   id: 1708
   time: '2025-09-20T17:43:41.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added a reaction for synthetic honk reagent.
+  id: 1709
+  time: '2025-09-20T17:44:41.0000000+00:00'
