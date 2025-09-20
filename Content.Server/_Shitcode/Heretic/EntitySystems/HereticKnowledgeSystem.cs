@@ -75,7 +75,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
                 comp.ProvidedActions.RemoveAll(action =>
                 {
                     // goida
-                    if (Prototype(action)?.ID != act)
+                    if (Prototype(action)?.ID is not {} id || id != act)
                         return false;
 
                     _action.RemoveAction(action);
