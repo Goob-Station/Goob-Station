@@ -69,9 +69,10 @@
   parent: MercGearFullNoUplink
   equipment:
     back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    id: MercPHA
+    id: MercCorpsmanId
     belt: ClothingBeltChemBagSyndiFilled # Goobstation
     pocket2: BaseUplinkRadioMerc200TC
+    pocket1: HandheldHealthAnalyzer
   storage:
     back:
     - SyndiHypo

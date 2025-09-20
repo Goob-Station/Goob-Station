@@ -195,7 +195,6 @@
   id: UplinkThrowingKnivesKit2
   name: uplink-knives-kit-name
   description: uplink-knives-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
   productEntity: ThrowingKnivesKit
   cost:
     CompanyCredit: 20 # goob - Pretty weak, but resusable ranged crit potential shouldn't be less.
@@ -206,7 +205,6 @@
   id: UplinkBulldog2 #goob
   name: uplink-buldog-name #goob
   description: uplink-buldog-desc #goob
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: WeaponShotgunBulldog
   cost:
     CompanyCredit: 60 # goob
@@ -217,7 +215,6 @@
   id: UplinkL6Saw2 #goob
   name: uplink-l6-saw-name #goob
   description: uplink-l6-saw-desc #goob
-  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: WeaponLightMachineGunL6
   cost:
     CompanyCredit: 100 # goob
@@ -238,7 +235,6 @@
   id: UplinkWeaponRifleBurner2
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
     CompanyCredit: 100 # don't kill me piras
@@ -279,7 +275,6 @@
   id: UplinkWeaponHE1SG82
   name: uplink-he1sg8-bundle-name
   description: uplink-he1sg8-bundle-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
   productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
     CompanyCredit: 130
@@ -290,7 +285,6 @@
   id: UplinkEshield2
   name: uplink-eshield-name
   description: uplink-eshield-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
     CompanyCredit: 15 # goob
@@ -362,7 +356,6 @@
   id: UplinkHardsuitSyndie2
   name: uplink-hardsuit-syndie-name
   description: uplink-hardsuit-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
     CompanyCredit: 50 # goob
@@ -373,7 +366,6 @@
   id: UplinkHardsuitSyndieElite2
   name: uplink-hardsuit-syndieelite-name
   description: uplink-hardsuit-syndieelite-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     CompanyCredit: 75 # goob
@@ -384,7 +376,6 @@
   id: UplinkClothingOuterHardsuitJuggernaut2
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
     CompanyCredit: 80 # goob
@@ -395,7 +386,6 @@
   id: UplinkClothingDreadnought2
   name: uplink-hardsuit-cybersun-dreadnought-name
   description: uplink-hardsuit-cybersun-dreadnought-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
   productEntity: CrateSyndicateDreadnought
   cost:
     Telecrystal: 200
@@ -406,7 +396,6 @@
   id: UplinkAutosurgeonRightMantisBlade2
   name: uplink-autosurgeon-right-mantis-blade-name
   description: uplink-autosurgeon-mantis-blade-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
   productEntity: AutosurgeonRightMantisBlade
   cost:
     CompanyCredit: 17
@@ -417,7 +406,6 @@
   id: UplinkAutosurgeonLeftMantisBlade2
   name: uplink-autosurgeon-left-mantis-blade-name
   description: uplink-autosurgeon-mantis-blade-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
   productEntity: AutosurgeonLeftMantisBlade
   cost:
     CompanyCredit: 17
@@ -428,7 +416,6 @@
   id: UplinkAutosurgeonSandevistan2
   name: uplink-autosurgeon-sandevistan-name
   description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
     CompanyCredit: 66 # The urge to make it 65...
@@ -481,7 +468,6 @@
   id: UplinkMagazineShotgun2
   name: uplink-shotgun-magazine-name
   description: uplink-shotgun-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
   productEntity: MagazineShotgun
   cost:
     CompanyCredit: 5
@@ -492,7 +478,6 @@
   id: UplinkMagazineShotgunSlug2
   name: uplink-shotgun-magazine-slug-name
   description: uplink-shotgun-magazine-slug-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
   productEntity: MagazineShotgunSlug
   cost:
     CompanyCredit: 4 # So little total damage
@@ -503,7 +488,6 @@
   id: UplinkMagazineLightRifleBox2
   name: uplink-l6-box-name
   description: uplink-l6-box-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
   productEntity: MagazineLightRifleBox
   cost:
     CompanyCredit: 20
@@ -514,7 +498,6 @@
   id: UplinkMagazineM7S2
   name: uplink-m7s-mag-name
   description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
   productEntity: MagazineLowCaliberM7S
   cost:
     CompanyCredit: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
@@ -525,7 +508,6 @@
   id: UplinkMagazineHighCaliber2
   name: uplink-high-caliber-magazine-name
   description: uplink-high-caliber-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
     CompanyCredit: 8
@@ -536,7 +518,6 @@
   id: UplinkMagazineHighCaliberExplosive2
   name: uplink-high-caliber-explosive-magazine-name
   description: uplink-high-caliber-explosive-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
     CompanyCredit: 12
@@ -547,7 +528,6 @@
   id: UplinkPistol9mmMagazine2
   name: uplink-pistol-magazine-name
   description: uplink-pistol-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
     CompanyCredit: 2 # goob - Ammo should be cheap.
@@ -558,7 +538,6 @@
   id: UplinkCaselessRifleMag2
   name: uplink-rifle-caseless-mag-name
   description: uplink-rifle-caseless-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
   productEntity: MagazineCaselessRifle
   cost:
     CompanyCredit: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
@@ -570,7 +549,6 @@
   id: UplinkMagazinePistolSubMachineGun2
   name: uplink-pistol-magazine-c20r-name
   description: uplink-pistol-magazine-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
     CompanyCredit: 5 # goob - Ammo should be cheap. 96 dmg per TC.
@@ -582,7 +560,6 @@
   id: UplinkMagazinePistolCaselessRifle2
   name: uplink-pistol-magazine-caseless-name
   description: uplink-pistol-magazine-caseless-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
     CompanyCredit: 3 # goob
@@ -594,7 +571,6 @@
   id: UplinkSpeedLoaderMagnumAP2
   name: uplink-speedloader-magnum-name
   description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
     CompanyCredit: 3 # goob - AP, but only 6 bullets in speedloader
@@ -751,7 +727,6 @@
   id: UplinkZombieBundle2
   name: uplink-zombie-bundle-name
   description: uplink-zombie-bundle-desc
-  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
     CompanyCredit: 200 # goob

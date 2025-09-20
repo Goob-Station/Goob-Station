@@ -473,6 +473,9 @@
   id: CartridgeCaselessRifle
 
 - type: Tag
+  id: BulletXLR2
+
+- type: Tag
   id: CartridgeCHIMP
 
 - type: Tag
