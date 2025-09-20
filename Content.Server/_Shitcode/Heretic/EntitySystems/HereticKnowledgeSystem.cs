@@ -34,8 +34,15 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             RaiseLocalEvent(uid, (object) data.Event, true);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
+        {
             foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
+            {
+                if (_action.AddAction(uid, act) is {} action)
+                    comp.ProvidedActions.Add(action);
+                else
+                    Log.Error($"Failed to give heretic {ToPrettyString(uid)} action {act}!");
+            }
+        }
 
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
@@ -65,11 +72,15 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         {
             foreach (var act in data.ActionPrototypes)
             {
-                var actionName = (EntityPrototype) _proto.Index(typeof(EntityPrototype), act);
-                // jesus christ.
-                foreach (var action in _action.GetActions(uid))
-                    if (Name(action.Owner) == actionName.Name)
-                        _action.RemoveAction(action.Owner);
+                comp.ProvidedActions.RemoveAll(action =>
+                {
+                    // goida
+                    if (Prototype(action)?.ID is not {} id || id != act)
+                        return false;
+
+                    _action.RemoveAction(action);
+                    return true;
+                });
             }
         }
 
