@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Client.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;

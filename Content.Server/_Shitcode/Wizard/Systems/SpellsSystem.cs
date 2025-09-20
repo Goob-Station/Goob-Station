@@ -73,6 +73,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Actions.Components;
+using Content.Shared.Body.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -469,8 +470,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Spawn(ev.Effect, TransformSystem.GetMapCoordinates(ev.Target));
 
-        _bloodstream.SpillAllSolutions(ev.Target, bloodstream);
-        _bloodstream.TryModifyBleedAmount(ev.Target, bloodstream.MaxBleedAmount, bloodstream);
+        _bloodstream.SpillAllSolutions((ev.Target, bloodstream));
+        _bloodstream.TryModifyBleedAmount((ev.Target, bloodstream), bloodstream.MaxBleedAmount);
         EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
 
         return true;

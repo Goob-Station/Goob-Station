@@ -567,13 +567,10 @@
             "name": "asteroid-inhand-left",
             "directions": 4
         },
-        {
-            "name": "dark-squiggly"
-        },
-	      {
-	          "name": "white-marble"
-	      },
-	      {
+	    {
+	        "name": "white-marble"
+	    },
+	    {
             "name": "white-marble-inhand-left",
             "directions": 4
         },

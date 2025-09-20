@@ -52,10 +52,16 @@ public sealed class TextLinkTag : IMarkupTagHandler
         if (control == null)
             return;
 
-        if (control.TryGetParentHandler<ILinkClickHandler>(out var handler))
+        var current = control;
+        while (current != null)
+        {
+            current = current.Parent;
+
+            if (current is not ILinkClickHandler handler)
+                continue;
             handler.HandleClick(link);
-        else
-            Logger.Warning("Warning! No valid ILinkClickHandler found.");
+            return;
+        }
     }
 }
 

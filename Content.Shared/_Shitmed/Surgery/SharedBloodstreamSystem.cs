@@ -17,6 +17,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Robust.Shared.Audio;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared.Body.Components;
 
 // ReSharper disable once CheckNamespace
 namespace Content.Shared.Body.Systems;
@@ -353,4 +354,14 @@ public abstract partial class SharedBloodstreamSystem
             bodyPart.Body.Value,
             PopupType.Medium);
     }
+
+    // begin Goobstation: port EE height/width sliders
+    public void SetBloodMaxVolume(Entity<BloodstreamComponent?> ent, FixedPoint2 volume)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        ent.Comp.BloodMaxVolume = volume;
+    }
+    // end Goobstation: port EE height/width sliders
 }

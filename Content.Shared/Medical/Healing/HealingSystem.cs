@@ -119,11 +119,10 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        var dontRepeat = false;
         // Shitmed Change: Consciousness check because some body entities don't have Consciousness
         if (!TryComp(args.Used, out HealingComponent? healing)
-            || HasComp<BodyComponent>(entity)
-            && HasComp<ConsciousnessComponent>(entity))
+            || HasComp<BodyComponent>(target)
+            && HasComp<ConsciousnessComponent>(target))
             return;
 
         if (healing.DamageContainers is not null &&
@@ -434,12 +433,12 @@ public sealed class HealingSystem : EntitySystem
 
         // Shitmed Change Start
         var anythingToDo =
-            HasDamage((target, targetDamage), component) ||
+            HasDamage(healing, (target.Owner, target.Comp)) ||
             TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
-            IsBodyDamaged((target, bodyComp), user, component) ||
-            component.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+            IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
+            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
-                && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                && _solutionContainerSystem.ResolveSolution(target.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume; // ...and there is lost blood to restore.
 
         if (!anythingToDo)
@@ -461,7 +460,7 @@ public sealed class HealingSystem : EntitySystem
 
         var delay = isNotSelf
             ? healing.Comp.Delay
-            : healing.Comp.Delay * GetScaledHealingPenalty(healing);
+            : healing.Comp.Delay * GetScaledHealingPenalty(target.Owner, healing.Comp.SelfHealPenaltyMultiplier);
 
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)
@@ -480,26 +479,23 @@ public sealed class HealingSystem : EntitySystem
     /// <summary>
     /// Scales the self-heal penalty based on the amount of damage taken
     /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <returns></returns>
-    public float GetScaledHealingPenalty(Entity<HealingComponent> healing)
+    /// <param name="ent">Entity we're healing</param>
+    /// <param name="mod">Maximum modifier we can have.</param>
+    /// <returns>Modifier we multiply our healing time by</returns>
+    public float GetScaledHealingPenalty(Entity<DamageableComponent?, MobThresholdsComponent?> ent, float mod)
     {
-        var output = healing.Comp.Delay;
-        if (!TryComp<MobThresholdsComponent>(healing, out var mobThreshold) ||
-            !TryComp<DamageableComponent>(healing, out var damageable))
-            return output;
-        if (!_mobThresholdSystem.TryGetThresholdForState(healing, MobState.Critical, out var amount, mobThreshold))
+        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
+            return mod;
+
+        if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var amount, ent.Comp2))
             return 1;
 
-        var percentDamage = (float) 1;
-
-        if (TryComp<ConsciousnessComponent>(uid, out var consciousness))
+        var percentDamage = (float)(ent.Comp1.TotalDamage / amount);
+        if (TryComp<ConsciousnessComponent>(ent.Owner, out var consciousness))
             percentDamage *= (float) (consciousness.Threshold / consciousness.Cap - consciousness.Consciousness);
-            
-        var percentDamage = (float)(damageable.TotalDamage / amount);
+
         //basically make it scale from 1 to the multiplier.
-        var modifier = percentDamage * (healing.Comp.SelfHealPenaltyMultiplier - 1) + 1;
-        return Math.Max(modifier, 1);
+        var output = percentDamage * (mod - 1) + 1;
+        return Math.Max(output, 1);
     }
 }

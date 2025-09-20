@@ -21,7 +21,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Update(float frameTime)

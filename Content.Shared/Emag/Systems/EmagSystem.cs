@@ -98,9 +98,6 @@ public sealed class EmagSystem : EntitySystem
 
         var typeToUse = customEmagType ?? ent.Comp.EmagType;
 
-        var emaggedEvent = new GotEmaggedEvent(user, typeToUse);
-        RaiseLocalEvent(target, ref emaggedEvent);
-
         var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType, EmagUid: ent);
         RaiseLocalEvent(target, ref emaggedEvent);
         if (!emaggedEvent.Handled)

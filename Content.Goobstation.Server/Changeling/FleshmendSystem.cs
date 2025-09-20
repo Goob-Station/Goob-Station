@@ -129,6 +129,7 @@ public sealed partial class FleshmendSystem : EntitySystem
 
     public readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     public readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
+
     private void DoFleshmend(Entity<FleshmendComponent> ent)
     {
         // the dmg groups
@@ -167,8 +168,8 @@ public sealed partial class FleshmendSystem : EntitySystem
         _dmg.TryChangeDamage(ent, healSpec, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
 
         // heal bleeding and restore blood
-        _bloodstream.TryModifyBleedAmount(ent, ent.Comp.BleedingAdjust);
+        _bloodstream.TryModifyBleedAmount(ent.Owner, ent.Comp.BleedingAdjust);
         _wound.TryHealMostSevereBleedingWoundables(ent, -ent.Comp.BleedingAdjust, out _);
-        _bloodstream.TryModifyBloodLevel(ent, ent.Comp.BloodLevelAdjust);
+        _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodLevelAdjust);
     }
 }

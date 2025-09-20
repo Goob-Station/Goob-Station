@@ -32,6 +32,7 @@
     node: sealedAirlock
   - type: PaintableAirlock
     group: Standard
+    department: null
   - type: Tag
     tags:
       - SealedAirlock
@@ -64,6 +65,7 @@
     node: sealedGlassAirlock
   - type: PaintableAirlock
     group: Glass
+    department: null
   - type: Tag
     tags:
       - SealedGlassAirlock

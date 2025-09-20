@@ -133,7 +133,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
-using Content.Shared.DragDrop; // # GoobStation
+using Content.Shared.DragDrop;
+using Robust.Shared.Prototypes; // # GoobStation
 
 namespace Content.Server.Medical.BiomassReclaimer
 {

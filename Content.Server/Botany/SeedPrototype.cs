@@ -26,6 +26,7 @@ using Content.Server.Botany.Systems;
 using Content.Server.EntityEffects;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
+using Content.Shared.EntityEffects;
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

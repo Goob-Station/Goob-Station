@@ -730,12 +730,6 @@
   maxCount: 30
 
 - type: stack
-  id: FloorTileDarkSquiggly
-  name: stack-dark-squiggly
-  spawn: FloorTileItemDarkSquiggly
-  maxCount: 30
-
-- type: stack
   id: FloorTileWhiteMarble
   name: stack-white-marble-floor
   spawn: FloorTileItemWhiteMarble

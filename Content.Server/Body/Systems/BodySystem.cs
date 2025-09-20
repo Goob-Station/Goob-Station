@@ -94,6 +94,7 @@ using Content.Shared.Damage.Components;
 
 // Shitmed Change
 using System.Linq;
+using Content.Shared.Body.Events;
 using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Body.Systems;

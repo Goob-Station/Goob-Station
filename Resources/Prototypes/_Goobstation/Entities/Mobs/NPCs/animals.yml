@@ -291,8 +291,9 @@
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Devourer
-    foodPreference: All
-    shouldStoreDevoured: true
+    stomachStorageWhitelist:
+      components:
+      - Item
     chemical: Ichor
     healRate: 7.5
     whitelist:

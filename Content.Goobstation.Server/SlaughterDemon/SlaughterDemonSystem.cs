@@ -8,6 +8,8 @@ using Content.Goobstation.Shared.SlaughterDemon.Systems;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
@@ -53,6 +55,6 @@ public sealed class SlaughterDemonSystem : SharedSlaughterDemonSystem
         if (!_bloodstreamQuery.TryComp(uid, out var comp))
             return;
 
-        _bloodstream.SpillAllSolutions(uid, comp);
+        _bloodstream.SpillAllSolutions((uid, comp));
     }
 }

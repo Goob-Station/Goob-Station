@@ -277,7 +277,7 @@ public partial class ChatSystem
     /// <param name="uid">The entity which is emoting</param>
     /// <param name="proto">The emote which is being performed</param>
     /// <returns>True if the emote was performed, false otherwise.</returns>
-    private bool TryInvokeEmoteEvent(EntityUid uid, EmotePrototype prot, bool voluntary = falseo)
+    private bool TryInvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = false)
     {
         var beforeEv = new BeforeEmoteEvent(uid, proto);
         RaiseLocalEvent(uid, ref beforeEv);

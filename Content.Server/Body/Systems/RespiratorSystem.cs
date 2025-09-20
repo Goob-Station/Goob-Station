@@ -543,11 +543,14 @@ public sealed class RespiratorSystem : EntitySystem
             _alertsSystem.ClearAlert(ent, entity.Comp1.Alert);
         }
 
+        if (!TryComp<RespiratorComponent>(ent.Owner, out var respirator))
+            return;
+
         // Shitmed Change Start
         if (_consciousness.TryGetNerveSystem(ent, out var nerveSys)
             && _consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
         {
-            if (modifier.Value.Change < ent.Comp.DamageRecovery.GetTotal())
+            if (modifier.Value.Change < respirator.DamageRecovery.GetTotal())
             {
                 _consciousness.RemoveConsciousnessModifier(ent, nerveSys.Value, "Suffocation");
             }
@@ -556,13 +559,13 @@ public sealed class RespiratorSystem : EntitySystem
                 _consciousness.SetConsciousnessModifier(
                     ent,
                     nerveSys.Value,
-                    modifier.Value.Change + ent.Comp.DamageRecovery.GetTotal(),
+                    modifier.Value.Change + respirator.DamageRecovery.GetTotal(),
                     identifier: "Suffocation",
                     type: ConsciousnessModType.Pain);
             }
         }
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+        _damageableSys.TryChangeDamage(ent, respirator.DamageRecovery, targetPart: TargetBodyPart.All, ignoreBlockers: true);
         // Shitmed Change End
     }
 

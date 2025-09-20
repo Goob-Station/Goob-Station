@@ -1851,17 +1851,3 @@
     energy: 0.8
     castShadows: false
     color: "#9be792"
-
-- type: entity
-  parent: FloorTileItemDark
-  id: FloorTileItemDarkSquiggly
-  name: dark steel squiggly tile
-  components:
-  - type: Sprite
-    state: dark-squiggly
-  - type: FloorTile
-    outputs:
-    - Plating
-    - FloorDarkSquiggly
-  - type: Stack
-    stackType: FloorTileDarkSquiggly

@@ -92,7 +92,7 @@ public sealed class DevourSystem : EntitySystem
         // Goobstation start - Consumable devouring (food/drink only)
         if (HasComp<DrinkComponent>(target) || HasComp<ItemComponent>(target))
         {
-            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DevourTime, new DevourDoAfterEvent(), ent.Owner, target: target, used: ent.Owner)
             {
                 BreakOnMove = true,
             });

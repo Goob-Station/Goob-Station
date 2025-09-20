@@ -540,7 +540,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (!hardStun)
         {
             if (!_statusEffect.HasStatusEffect(uid, "KnockedDown"))
-                _stunSystem.TryKnockdown(uid, component.StunTime, true);
+                StunSystem.TryKnockdown(uid, component.StunTime, true);
             return;
         }
 
@@ -557,7 +557,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         // Goobstation - Modularization
 
         // Give them buffer before being able to be re-stunned
-        component.NextUpdate = _timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goobstation - Modularization
+        component.NextUpdate = Timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goobstation - Modularization
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
 

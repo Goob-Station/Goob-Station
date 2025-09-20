@@ -3,13 +3,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._EinsteinEngines.HeightAdjust;
+using Content.Shared.Body.Components;
 using Robust.Shared.Configuration;
 
 namespace Content.Server._EinsteinEngines.HeightAdjust;
@@ -48,7 +48,7 @@ public sealed class BloodstreamAdjustSystem : EntitySystem
         bloodSolution.MaxVolume = newVolume;
         bloodSolution.SetContents([new ReagentQuantity(bloodstream.BloodReagent, newBloodLevel, null)], false);
 
-        _bloodstream.SetBloodMaxVolume(ent.Owner, newVolume, bloodstream);
+        _bloodstream.SetBloodMaxVolume((ent.Owner, bloodstream), newVolume);
 
         return true;
     }

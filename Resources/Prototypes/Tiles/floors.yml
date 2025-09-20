@@ -2293,25 +2293,6 @@
   tileRipResistance: 100
 
 - type: tile
-  id: FloorDarkSquiggly
-  name: tiles-dark-squiggly
-  sprite: /Textures/Tiles/dark_squiggly.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemDarkSquiggly
-  heatCapacity: 10000
-  allowRotationMirror: true
-
-- type: tile
   id: FloorWhiteMarble
   name: tiles-white-marble
   sprite: /Textures/Tiles/white_marble.png

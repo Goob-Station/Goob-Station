@@ -138,7 +138,7 @@ public abstract partial class InventorySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
 
-    private static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small";
+    public static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small"; // Goobstation - make it public
 
     private void InitializeEquip()
     {

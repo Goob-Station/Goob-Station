@@ -8,7 +8,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.StatusEffectNew;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;

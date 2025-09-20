@@ -35,7 +35,7 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        _sprite.LayerSetRsiState((uid, sprite), StorageVisualLayers.Base, comp.StateBaseClosed);
+        SpriteSystem.LayerSetRsiState((uid, sprite), StorageVisualLayers.Base, comp.StateBaseClosed);
     }
 
     protected override void OnAppearanceChange(EntityUid uid,
@@ -67,21 +67,21 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
         }
 
         // Open/Closed state for the storage entity.
-        if (_sprite.LayerMapTryGet((uid, args.Sprite), StorageVisualLayers.Door, out _, false))
+        if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), StorageVisualLayers.Door, out _, false))
         {
             if (open)
             {
                 if (comp.OpenDrawDepth != null)
-                    _sprite.SetDrawDepth((uid, args.Sprite), comp.OpenDrawDepth.Value);
+                    SpriteSystem.SetDrawDepth((uid, args.Sprite), comp.OpenDrawDepth.Value);
 
                 if (comp.StateDoorOpen != null)
                 {
-                    _sprite.LayerSetRsiState((uid, args.Sprite), StorageVisualLayers.Door, comp.StateDoorOpen);
-                    _sprite.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, true);
+                    SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageVisualLayers.Door, comp.StateDoorOpen);
+                    SpriteSystem.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, true);
                 }
                 else
                 {
-                    _sprite.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, false);
+                    SpriteSystem.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, false);
                 }
 
                 if (comp.StateBaseOpen != null)
@@ -92,15 +92,15 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
             else
             {
                 if (comp.ClosedDrawDepth != null)
-                    _sprite.SetDrawDepth((uid, args.Sprite), comp.ClosedDrawDepth.Value);
+                    SpriteSystem.SetDrawDepth((uid, args.Sprite), comp.ClosedDrawDepth.Value);
 
                 if (comp.StateDoorClosed != null)
                 {
-                    _sprite.LayerSetRsiState((uid, args.Sprite), StorageVisualLayers.Door, comp.StateDoorClosed);
-                    _sprite.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, true);
+                    SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageVisualLayers.Door, comp.StateDoorClosed);
+                    SpriteSystem.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, true);
                 }
                 else
-                    _sprite.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, false);
+                    SpriteSystem.LayerSetVisible((uid, args.Sprite), StorageVisualLayers.Door, false);
 
                 if (comp.StateBaseClosed != null)
                     SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageVisualLayers.Base, comp.StateBaseClosed);
