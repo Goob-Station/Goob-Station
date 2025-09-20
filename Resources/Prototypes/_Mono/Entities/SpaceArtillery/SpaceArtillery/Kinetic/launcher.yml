@@ -1,0 +1,532 @@
+# L85 20mm
+
+- type: entity
+  id: WeaponShuttleKineticL85
+  name: L85 20mm autocannon
+  parent: BallisticArtillery
+  description: A cheap and light 20mm autocannon. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/50cal.rsi
+    layers:
+    - state: space_artillery
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: ExaminableBattery
+  - type: Appearance
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 700
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Gun
+    fireRate: 12
+    projectileSpeed: 75
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 550
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 100
+  - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
+  - type: Airtight
+  - type: ProjectileBatteryAmmoProvider
+    proto: 20mmBulletArmorPiercing
+    fireCost: 15
+  - type: RadiationBlocker
+    resistance: 8
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Light
+
+# DRAVON 57mm
+
+- type: entity
+  id: WeaponShuttleKineticDravon
+  name: ADBP-7 DRAVON 57mm Autocannon
+  parent: BallisticArtillery
+  description: A single-barrel autocannon made by Aetherion Dynamics. High fire rate, but relatively low impact. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 650
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/dravon.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 30000
+    startingCharge: 30000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 1.5
+    projectileSpeed: 75
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 220
+  - type: SpaceArtillery
+    powerChargeRate: 220
+    powerUsePassive: 750
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipDravonProjectile
+    fireCost: 250
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+
+# AK570 90mm
+
+- type: entity
+  id: WeaponShuttleKineticAK570
+  name: AK570 90mm heavy autocannon
+  parent: BallisticArtillery
+  description: A dual barrel, heavy autocannon. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 1250
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/artillery.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 2.5
+    projectileSpeed: 75
+    burstCooldown: 0.5
+    burstFireRate: 10
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes: Burst
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 125
+  - type: SpaceArtillery
+    powerChargeRate: 125
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: 90mmBulletArmorPiercing
+    fireCost: 50
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+
+# TARNYX EMP 150mm
+
+- type: entity
+  id: WeaponShuttleKineticTarnyx
+  name: ADBX-31 TARNYX 150mm EMP Cannon
+  parent: BallisticArtilleryUnanchorable
+  description: A heavy EMP Cannon made by Aetherion Dynamics. It can disable massive parts of an enemy ship, making it effective in asymmetric combat. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 10000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/tarnyx.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.05
+    projectileSpeed: 75
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 214
+  - type: SpaceArtillery
+    powerChargeRate: 214
+    powerUsePassive: 3500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipTarnyxProjectile
+    fireCost: 17500 # low shot weapon moved back to the original spot
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Heavy
+
+# CYREXA 220mm
+
+- type: entity
+  id: WeaponShuttleKineticCyrexa
+  name: CYREXA 220mm cannon
+  parent: BallisticArtilleryUnanchorable
+  description: A dual barrel, main-battery cannon firing 220mm auto shells with slight reduction in brute strength. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/cyrexa.rsi
+    layers:
+    - state: space_artillery
+    scale: 1, 1
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 75
+    fireRate: 0.2
+    burstCooldown: 10
+    burstFireRate: 2
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes: Burst
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+  - type: SpaceArtillery
+    powerChargeRate: 12000
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipCyrexaProjectile
+    fireCost: 6000
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+
+# HADES 305mm
+
+- type: entity
+  id: WeaponShuttleKineticHades
+  name: HADES 305mm cannon
+  parent: BallisticArtilleryUnanchorable
+  description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381.
+  components:
+  - type: StaticPrice
+    price: 40000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/hades.rsi
+    layers:
+    - state: space_artillery
+    scale: 1.15, 1.15
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 75
+    fireRate: 0.2
+    burstCooldown: 10
+    burstFireRate: 2
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes: Burst
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+  - type: SpaceArtillery
+    powerChargeRate: 12000
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipHadesProjectile
+    fireCost: 6000
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Heavy
+
+# CHARON
+
+- type: entity
+  id: WeaponShuttleKineticCharon
+  name: M381 CHARON mass driver
+  parent: BallisticArtilleryUnanchorable
+  description: A heavy linear accelerator, capable of devastating targets with kinetic energy. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 40000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/charon.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.05
+    projectileSpeed: 75
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 1000
+    powerUseActive: 7500
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipRailgunProjectile
+    fireCost: 1500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#CF0E0E"
+    scale: 3
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Heavy
+
+# Bofors 255mm
+
+- type: entity
+  id: WeaponShuttleKineticBofors
+  name: Bofors 255mm cannon
+  parent: BallisticArtilleryUnanchorable
+  description: A single barrelled, heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/bofors.rsi
+    layers:
+    - state: space_artillery
+    scale: 1, 1
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 75
+    fireRate: 0.075
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+    autoRechargePause: true
+  - type: SpaceArtillery
+    powerChargeRate: 800
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipBoforsProjectile
+    fireCost: 6000
+  - type: RadarBlip
+    radarColor: "#03FC9D"
+    scale: 3.5
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+
+# Kargil 203mm
+
+- type: entity
+  id: WeaponShuttleKineticKargil
+  name: Kargil 203mm cannon
+  parent: BallisticArtilleryUnanchorable
+  description: A single barrelled, medium-heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/kargil.rsi
+    layers:
+    - state: space_artillery
+    scale: 1, 1
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 75
+    fireRate: 0.2
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+    autoRechargePause: true
+  - type: SpaceArtillery
+    powerChargeRate: 700
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipKargilProjectile
+    fireCost: 6000
+  - type: RadarBlip
+    radarColor: "#03FC9D"
+    scale: 3
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
