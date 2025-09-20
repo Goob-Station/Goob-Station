@@ -1,4 +1,4 @@
-﻿namespace Content.Server._Harmony.GameTicking.Rules.Components;
+﻿namespace Content.Goobstation.Server.Morph.GameTicking;
 
 /// <summary>
 /// Game rule for Morph. Handles conversion.

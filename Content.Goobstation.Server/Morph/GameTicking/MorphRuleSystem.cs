@@ -1,13 +1,11 @@
-using Content.Server._Harmony.GameTicking.Rules.Components;
+using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Roles;
-using Content.Server.Antag;
-using Content.Shared.GameTicking.Components;
 using Content.Shared._Harmony.Morph;
+using Content.Shared.GameTicking.Components;
 
-
-namespace Content.Server._Harmony.Gameticking.Rules;
+namespace Content.Goobstation.Server.Morph.GameTicking;
 
 /// <summary>
 /// Sets round end breif for morphs.

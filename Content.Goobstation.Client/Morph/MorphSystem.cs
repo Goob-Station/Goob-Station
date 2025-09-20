@@ -3,7 +3,7 @@ using Content.Shared.Alert.Components;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Client._Harmony.Morph;
+namespace Content.Goobstation.Client.Morph;
 
 /// <summary>
 /// Handles setting the morphs biomass UI
