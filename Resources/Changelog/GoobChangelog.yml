@@ -15169,3 +15169,9 @@ Entries:
         repetition applies to antags.
   id: 1694
   time: '2025-09-20T07:04:47.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Camera construction now requires glass.
+  id: 1695
+  time: '2025-09-20T07:11:06.0000000+00:00'
