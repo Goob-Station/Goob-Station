@@ -24,7 +24,6 @@
   id: ChangelingClothingOuterArmor
   name: chitinous armor
   description: An all-consuming chitinous mass of armor.
-  suffix: Unremoveable
   components:
   - type: Sprite
     sprite: _Goobstation/Changeling/ling_armor.rsi
@@ -67,7 +66,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
-  - type: Unremoveable
   - type: ModifyDelayedKnockdown
     cancel: true
   - type: StaminaResistance
