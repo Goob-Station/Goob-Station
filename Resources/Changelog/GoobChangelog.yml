@@ -15093,3 +15093,11 @@ Entries:
       message: 'Carp can now ventcrawl. :fish: '
   id: 1684
   time: '2025-09-20T06:37:48.0000000+00:00'
+- author: ThanosDeGraf
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Chitinids not being able to puke up their Chitzite. Have fun
+        throwing angry rocks!
+  id: 1685
+  time: '2025-09-20T06:42:11.0000000+00:00'
