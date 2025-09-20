@@ -15315,3 +15315,11 @@ Entries:
       message: Air alarms now ignore Healium since it is safe on its own.
   id: 1711
   time: '2025-09-20T17:48:03.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Revolutionaries can now tamper with Flashes via the crafting menu to
+        allow Head Revolutionaries to use them for conversion.
+  id: 1712
+  time: '2025-09-20T18:28:50.0000000+00:00'
