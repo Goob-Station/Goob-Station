@@ -17,30 +17,48 @@ public sealed partial class HellGooseTeleportSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
         // Make sure the user is valid
         if (!TryComp<TransformComponent>(args.Performer, out var performerXform))
             return;
 
         args.Handled = true;
-        // Find the Bar beacon entity by its prototype ID
-        EntityUid? barBeacon = null;
+
+        EntityUid? targetBeacon = null;
+
+        // try to find the Bar beacon
         foreach (var entity in EntityManager.GetEntities())
         {
-            if (TryComp<MetaDataComponent>(entity, out var meta) &&
-                meta.EntityPrototype?.ID == "DefaultStationBeaconBar")
+            if (TryComp<MetaDataComponent>(entity, out var meta))
             {
-                barBeacon = entity;
-                break;
+                if (meta.EntityPrototype?.ID == "DefaultStationBeaconBar")
+                {
+                    targetBeacon = entity;
+                    break;
+                }
             }
         }
 
-        if (barBeacon == null)
+        // If no Bar beacon, try to find the Medical beacon
+        if (targetBeacon == null)
         {
-            return;
+            foreach (var entity in EntityManager.GetEntities())
+            {
+                if (TryComp<MetaDataComponent>(entity, out var meta) &&
+                    meta.EntityPrototype?.ID == "DefaultStationBeaconMedical")
+                {
+                    targetBeacon = entity;
+                    break;
+                }
+            }
         }
 
+        // If still no beacon found, just return
+        if (targetBeacon == null)
+            return;
+
         // Get beacon transform
-        if (!TryComp<TransformComponent>(barBeacon.Value, out var beaconXform))
+        if (!TryComp<TransformComponent>(targetBeacon.Value, out var beaconXform))
             return;
 
         // Teleport performer to beacon coordinates
