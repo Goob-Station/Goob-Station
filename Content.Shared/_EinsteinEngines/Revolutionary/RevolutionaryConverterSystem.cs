@@ -84,7 +84,8 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         if (args.Handled
             || !args.Target.HasValue
             || !args.CanReach
-            || (entity.Comp.ConsumesCharges > 0 && !_chargesSystem.TryUseCharges(entity.Owner, entity.Comp.ConsumesCharges)))
+            || (entity.Comp.ConsumesCharges > 0
+            && !_chargesSystem.TryUseCharges(entity.Owner, entity.Comp.ConsumesCharges)))
             return;
 
         if (entity.Comp.ApplyFlashEffect)
