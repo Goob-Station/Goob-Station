@@ -65,6 +65,7 @@
   # <Goobstation>
   - Heretic
   - Changeling
+  - ChangelingIdentity # the actual ling component
   - WeakToHoly
   - CanEnchant
   - Store # needed for heretic and any other antags with an intrinsic store, IDEALLY this would be on the mind
