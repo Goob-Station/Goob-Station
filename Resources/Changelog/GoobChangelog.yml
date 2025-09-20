@@ -15069,3 +15069,9 @@ Entries:
       message: Changed red boxing gloves colour from orange-ish to red.
   id: 1680
   time: '2025-09-20T06:32:12.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with the RPD not anchoring crossing pipes.
+  id: 1681
+  time: '2025-09-20T06:33:14.0000000+00:00'
