@@ -1,0 +1,24 @@
+advertisement-space-rockworm-1 = GRAGG HUNGRY. SELL ORE TO GRAGG.
+advertisement-space-rockworm-2 = GOT ROCKS? GRAGG EAT ROCKS. TRADE NOW.
+advertisement-space-rockworm-3 = DO NOT HOARD ORE. GIVE TO gragg.
+advertisement-space-rockworm-4 = YOUR TRASH ROCK. GRAGG DINNER.
+advertisement-space-rockworm-5 = SELL ROCKS TO gragg. KEEP HUMANS SAFE.
+advertisement-space-rockworm-6 = GRAGG PAY FAIR. NEED FOOD. NEED ORE.
+advertisement-space-rockworm-7 = FEED GRAGG ORE. GRAGG FRIEND THEN.
+advertisement-space-rockworm-8 = STARSTONE BEST DESSERT. BRING TO GRAGG.
+
+gragg-voice-1 = GRAGG HUNGRY. NEED ORE.
+gragg-voice-2 = TRADE GOOD. MORE ROCKS FOR GRAGG.
+gragg-voice-3 = WHY HUMANS NOT EAT ROCKS? SOFT TEETH.
+gragg-voice-4 = TASTY STONE. CRUNCHY. MMM.
+gragg-voice-5 = GRAGG STRONG. ROCK BRAIN BETTER THAN SQUISHY BRAIN.
+gragg-voice-6 = NEED MORE COBRYL. COBRYL TASTY.
+gragg-voice-7 = HUMANS LOOK FUNNY WHEN LICK ROCK.
+gragg-voice-8 = GRAGG DIG DEEP. FIND WEIRD THING. SELL IT.
+gragg-voice-9 = BIG ROCK WORM. SMALL ROCK SNACKS.
+gragg-voice-10 = ROCK POOP STILL ROCK. NOT WASTE.
+gragg-voice-11 = WHY HUMANS LIKE GOLD? TASTE TERRIBLE.
+gragg-voice-12 = STARSTONE BEST DESSERT. RARE. SWEET.
+gragg-voice-13 = ROCKS TALK TO GRAGG. SAY 'EAT ME.'
+gragg-voice-14 = HUMANS SLOW. GRAGG FAST DIGGER.
+gragg-voice-15 = GRAGG NO LIE. ROCKS ONLY LIE WHEN CRACKED.

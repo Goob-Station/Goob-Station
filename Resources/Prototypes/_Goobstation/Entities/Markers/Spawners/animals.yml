@@ -30,3 +30,15 @@
   - type: ConditionalSpawner
     prototypes:
     - MobTrevor
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGragg
+  name: gragg Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - MobGragg
