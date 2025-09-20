@@ -15299,3 +15299,9 @@ Entries:
       message: Added a reaction for synthetic honk reagent.
   id: 1709
   time: '2025-09-20T17:44:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed two instances of high energy power cells in salv vendor
+  id: 1710
+  time: '2025-09-20T17:45:51.0000000+00:00'
