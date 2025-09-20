@@ -291,4 +291,23 @@
 
 # Plaguebringer Actions
 
+- type: entity
+  id: ActionCurseBlindness
+  name: Curse of blindness
+  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/reventer.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: blind_curse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BlindCurseEvent
+
 # Trickster Actions

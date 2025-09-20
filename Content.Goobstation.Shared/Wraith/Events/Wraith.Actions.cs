@@ -45,7 +45,7 @@ public sealed partial class WraithEvolveEvent : InstantActionEvent
 {
 }
 
-// Here belong all action events for the harbinger wraith :clueless:
+// Here belong all action events for the harbinger wraith
 
 public sealed partial class RaiseSkeletonEvent : EntityTargetActionEvent
 {
@@ -57,5 +57,11 @@ public sealed partial class SummonVoidCreatureEvent : InstantActionEvent
 {
 }
 public sealed partial class MakeRevenantEvent : EntityTargetActionEvent
+{
+}
+
+// Here belong all action events for the plague wraith
+
+public sealed partial class BlindCurseEvent : EntityTargetActionEvent
 {
 }

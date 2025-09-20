@@ -32,6 +32,7 @@
   - type: SummonVoidCreature
   - type: MakeRevenant
   - type: SpookMark
+  - type: CurseOfBlindness
   - type: WraithCommand
     blacklist:
       components:
@@ -51,13 +52,14 @@
     - ActionAbsorbCorpse
     - ActionSpook
     - ActionDecay
+    - ActionCommand
     - ActionAnimateObject
     - ActionPossessObject
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
     - ActionSummonVoidCreatures
     - ActionMakeRevenant
-    - ActionCommand
+    - ActionCurseBlindness
   # - Haunt
   # - ActionGrant
   # actions:

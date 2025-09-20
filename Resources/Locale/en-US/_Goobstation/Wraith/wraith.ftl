@@ -27,6 +27,18 @@ void-portal-current-wave = The portal has summoned { $wave } waves from the void
 wraith-fail-target-not-rotting = The target is not rotting.
 wraith-fail-target-rotting = The target is rotting.
 
+wraith-already-cursed = They have already been afflicted by this curse. Wait for it to bloom.
+wraith-curse = The curse begins to take effect, and will bloom after some time.
+wraith-fail-curse = The curse fails to set in.
+
+wraith-cursed-blind = They are blinded by our curse.
+wraith-cursed-weak = They are weakened by our curse.
+wraith-cursed-blood = Their blood is tainted by our curse.
+wraith-cursed-rot = They are rotting from our curse.
+wraith-cursed-death = Their death is nigh.
+
+target-curse-blind-worsen = It is becoming hard to see...
+
 wraith-possess = Your essence takes over the object!
 wraith-leave-body = The wraith's possession has coem to an end.
 
