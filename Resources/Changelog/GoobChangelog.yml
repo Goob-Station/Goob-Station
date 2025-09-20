@@ -15305,3 +15305,13 @@ Entries:
       message: Removed two instances of high energy power cells in salv vendor
   id: 1710
   time: '2025-09-20T17:45:51.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Made air alarms less sensitive to lower pressure, danger is at 40kPa
+        instead of 80kPa.
+    - type: Tweak
+      message: Air alarms now ignore Healium since it is safe on its own.
+  id: 1711
+  time: '2025-09-20T17:48:03.0000000+00:00'
