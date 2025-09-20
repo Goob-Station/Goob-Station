@@ -59,7 +59,10 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -67,6 +70,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Common.Interaction; // Goob edit
 using Content.Shared.Body.Events;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
@@ -158,8 +163,8 @@ namespace Content.Shared.ActionBlocker
             if (!CanConsciouslyPerformAction(user))
                 return false;
 
-            // Shitmed Change
-            if (HasComp<StationAiOverlayComponent>(user) && HasComp<AbductorScientistComponent>(user))
+            // Goob edit
+            if (HasComp<NoNormalInteractionComponent>(user))
                 return false;
 
             var ev = new InteractionAttemptEvent(user, target);

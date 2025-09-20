@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Hologram projection that the Cyberdeck's user eye tracks.
+- type: entity
+  parent:
+  - Incorporeal
+  - BaseMob
+  id: CyberdeckProjection
+  name: cyberdeck eye
+  description: The cyberdeck's viewer.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/cyberdeck.rsi
+    layers:
+    - state: hack_camera
+      shader: unshaded
+      map: ["base"]
+  - type: Eye
+    pvsScale: 1.5
+    visMask:
+    - Normal
+    - StationAiNetwork # Goobstation
+  - type: Visibility
+    layer: 128
+  - type: LagCompensation
+  - type: StationAiWhitelist
+  - type: NoFTL

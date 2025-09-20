@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
@@ -22,10 +21,18 @@
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cyberdeck.Components; // Goob edit
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -190,6 +197,7 @@ public abstract partial class SharedStationAiSystem
 
         if (!args.CanComplexInteract
             || !HasComp<StationAiHeldComponent>(args.User)
+            && !HasComp<CyberdeckUserComponent>(args.User) // Goob edit
             || !args.CanInteract)
         {
             return;
@@ -257,6 +265,8 @@ public abstract class BaseStationAiAction
 {
     [field:NonSerialized]
     public EntityUid User { get; set; }
+
+    public bool Cancelled; // Goob edit - make it cancellable
 }
 
 // No idea if there's a better way to do this.

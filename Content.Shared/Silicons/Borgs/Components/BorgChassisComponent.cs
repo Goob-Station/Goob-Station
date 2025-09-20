@@ -89,6 +89,13 @@ public sealed partial class BorgChassisComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+
+    /// <summary>
+    /// Goobstation
+    /// For how long this borg will delay cyberdeck's hacking
+    /// </summary>
+    [DataField]
+    public TimeSpan CyberdeckPenaltyTime = TimeSpan.FromSeconds(4);
 }
 
 [Serializable, NetSerializable]
