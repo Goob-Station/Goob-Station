@@ -1,0 +1,10 @@
+- type: latheRecipe
+  id: ClothingBackpackXenoBioTank
+  result: ClothingBackpackXenoBioTankFilled
+  completetime: 6
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 500
+    Plasma: 100
+

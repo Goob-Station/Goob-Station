@@ -23,6 +23,7 @@ namespace Content.Server._Shitmed.StatusEffects;
 
 public sealed class ScrambleDnaEffectSystem : EntitySystem
 {
+
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -62,6 +63,4 @@ public sealed class ScrambleDnaEffectSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), uid, uid);
     }
-
-
 }
