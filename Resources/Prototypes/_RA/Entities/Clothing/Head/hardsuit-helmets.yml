@@ -338,9 +338,9 @@
   description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Head\cybersunhelmet.rsi
+    sprite: _Crescent/Clothing/Head/cybersunhelmet.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Head\cybersunhelmet.rsi
+    sprite: _Crescent/Clothing/Head/cybersunhelmet.rsi
   - type: PointLight
     color: "#B02828"
   - type: PressureProtection
@@ -370,9 +370,9 @@
   description: Armored hardsuit helmet for Medical needs.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Head\trauma_helmet.rsi
+    sprite: _Crescent/Clothing/Head/trauma_helmet.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Head\trauma_helmet.rsi
+    sprite: _Crescent/Clothing/Head/trauma_helmet.rsi
   - type: PointLight
     color: "#B02828"
   - type: PressureProtection
@@ -397,9 +397,9 @@
   description: Armored hardsuit helmet for Commanding needs.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Head\coordinator_helmet.rsi
+    sprite: _Crescent/Clothing/Head/coordinator_helmet.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Head\coordinator_helmet.rsi
+    sprite: _Crescent/Clothing/Head/coordinator_helmet.rsi
   - type: PointLight
     color: "#B02828"
   - type: PressureProtection

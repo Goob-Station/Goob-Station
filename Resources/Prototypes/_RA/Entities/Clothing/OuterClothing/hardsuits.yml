@@ -473,9 +473,9 @@
   description: A specialized suit designed by Cybersun for their Security forces however it has seen use with Mercenaries.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -515,9 +515,9 @@
   description: A specialized suit designed by Cybersun for their Security forces however it has seen use with Mercenaries.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -552,9 +552,9 @@
   description: A specialized suit designed by Cybersun for their Ranked Security forces however it has seen use with Mercenaries.
   components:
   - type: Sprite
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: Clothing
-    sprite: _Crescent\Clothing\Outerclothing\syndicatecybersun.rsi
+    sprite: _Crescent/Clothing/Outerclothing/syndicatecybersun.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
