@@ -671,6 +671,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 return (recipe, 0);
             }
 
+            // Frontier: microwave recipe machine types
+            if ((recipe.RecipeType & component.ValidRecipeTypes) == 0)
+            {
+                return (recipe, 0);
+            }
+            // End Frontier
+
             foreach (var solid in recipe.IngredientsSolids)
             {
                 if (!solids.ContainsKey(solid.Key))

@@ -1,0 +1,10 @@
+- type: entity
+  name: holographic meatloaf
+  parent: FoodBreadBase
+  id: FoodBreadDigital
+  description: Your hand slightly phases through it when you touch it.
+  components:
+  - type: Food
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/digitalbread.rsi
+    state: icon
