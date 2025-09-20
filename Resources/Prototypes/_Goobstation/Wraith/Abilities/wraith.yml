@@ -40,6 +40,11 @@
       - MobState
       - Body
       - Food
+      - EntityStorage
+    maxObjects: 8
+    statusEffect: Stun
+    statusEffectComponent: Stunned
+    statusEffectDuration: 10
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger

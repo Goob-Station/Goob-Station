@@ -1,6 +1,6 @@
-using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 
@@ -15,6 +15,7 @@ public sealed class WraithCommandSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -39,6 +40,16 @@ public sealed class WraithCommandSystem : EntitySystem
             _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
             objectsSelected++;
         }
+
+        if (ent.Comp.StatusEffectComponent == string.Empty)
+            return;
+
+        _statusEffectsSystem.TryAddStatusEffect(
+            args.Target,
+            ent.Comp.StatusEffect,
+            ent.Comp.StatusEffectDuration,
+            true,
+            ent.Comp.StatusEffectComponent);
 
         // args.Handled = true;
     }
