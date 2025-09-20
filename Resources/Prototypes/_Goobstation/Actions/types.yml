@@ -231,6 +231,7 @@
   - type: InstantAction
     event: !type:GooseTeleportEvent
 
+- type: entity
   id: ActionVehicleWallPush
   name: Wall Launch
   description: Launch yourself off the nearest surface, tiders count as surfaces.
