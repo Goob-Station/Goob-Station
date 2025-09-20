@@ -153,6 +153,8 @@
     back:
     - Flash
     - TelescopicBaton
+  # inhand:
+  #   - ExecutiveBriefcaseEmpty # TODO: Maybe change this to not-empty, so that ntr wouldn't be poor at the start of every shift but whatever
 
 - type: chameleonOutfit
   id: NanotrasenRepresentativeChameleonOutfit
