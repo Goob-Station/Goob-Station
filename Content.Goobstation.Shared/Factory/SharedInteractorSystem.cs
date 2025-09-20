@@ -15,7 +15,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Throwing;
 using Robust.Shared.Containers;
-using Robust.Shared.Physics.Events;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Goobstation.Shared.Factory;
 
@@ -24,14 +25,19 @@ public abstract class SharedInteractorSystem : EntitySystem
     [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] protected readonly StartableMachineSystem Machine = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _doAfterQuery;
     private EntityQuery<HandsComponent> _handsQuery;
+    private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<ThrownItemComponent> _thrownQuery;
+
+    private readonly HashSet<EntityUid> _targets = new();
 
     public override void Initialize()
     {
@@ -39,14 +45,12 @@ public abstract class SharedInteractorSystem : EntitySystem
 
         _doAfterQuery = GetEntityQuery<ActiveDoAfterComponent>();
         _handsQuery = GetEntityQuery<HandsComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
         _thrownQuery = GetEntityQuery<ThrownItemComponent>();
 
         SubscribeLocalEvent<InteractorComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<InteractorComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<InteractorComponent, DoAfterEndedEvent>(OnDoAfterEnded);
-        // target entities
-        SubscribeLocalEvent<InteractorComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<InteractorComponent, EndCollideEvent>(OnEndCollide);
         // hand visuals
         SubscribeLocalEvent<InteractorComponent, EntInsertedIntoContainerMessage>(OnItemModified);
         SubscribeLocalEvent<InteractorComponent, EntRemovedFromContainerMessage>(OnItemModified);
@@ -67,45 +71,9 @@ public abstract class SharedInteractorSystem : EntitySystem
             : Loc.GetString("robotic-arm-examine-no-filter"));
     }
 
-    private void OnStartCollide(Entity<InteractorComponent> ent, ref StartCollideEvent args)
-    {
-        // only care about entities in the target area
-        if (args.OurFixtureId != ent.Comp.TargetFixtureId)
-            return;
-
-        AddTarget(ent, args.OtherEntity);
-    }
-
-    private void AddTarget(Entity<InteractorComponent> ent, EntityUid target)
-    {
-        if (_thrownQuery.HasComp(target) // thrown items move too fast to be "clicked" on...
-            || _filter.IsBlocked(_filter.GetSlot(ent), target)) // ignore non-filtered entities
-            return;
-
-        var wake = CompOrNull<CollisionWakeComponent>(target);
-        var wakeEnabled = wake?.Enabled ?? false;
-        // need to only get EndCollide when it leaves the area, not when it sleeps
-        _wake.SetEnabled(target, false, wake);
-        ent.Comp.TargetEntities.Add((GetNetEntity(target), wakeEnabled));
-        DirtyField(ent, ent.Comp, nameof(InteractorComponent.TargetEntities));
-    }
-
-    private void OnEndCollide(Entity<InteractorComponent> ent, ref EndCollideEvent args)
-    {
-        // only care about entities leaving the input area
-        if (args.OurFixtureId != ent.Comp.TargetFixtureId)
-            return;
-
-        var target = GetNetEntity(args.OtherEntity);
-        var i = ent.Comp.TargetEntities.FindIndex(pair => pair.Item1 == target);
-        if (i < 0)
-            return;
-
-        var wake = ent.Comp.TargetEntities[i].Item2;
-        ent.Comp.TargetEntities.RemoveAt(i);
-        DirtyField(ent, ent.Comp, nameof(InteractorComponent.TargetEntities));
-        _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped entities
-    }
+    public bool IsValidTarget(Entity<InteractorComponent> ent, EntityUid target)
+        => !_thrownQuery.HasComp(target) // thrown items move too fast to be "clicked" on...
+            || _filter.IsAllowed(_filter.GetSlot(ent), target); // ignore non-filtered entities
 
     private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerModifiedMessage
     {
@@ -120,8 +88,6 @@ public abstract class SharedInteractorSystem : EntitySystem
         UpdateToolAppearance(ent);
         if (args.Target is not { } target)
             return;
-
-        TryRemoveTarget(ent, target);
 
         if (args.Cancelled)
             Machine.Failed(ent.Owner);
@@ -138,27 +104,6 @@ public abstract class SharedInteractorSystem : EntitySystem
 
         var coords = Transform(target).Coordinates;
         return _interaction.InteractUsing(ent, tool.Value, target, coords);
-    }
-
-    protected void TryRemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
-    {
-        // if it still exists and is still allowed by the filter keep it
-        if (!TerminatingOrDeleted(target)
-            && _filter.IsAllowed(_filter.GetSlot(ent), target))
-            return;
-
-        RemoveTarget(ent, target);
-    }
-
-    protected void RemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
-    {
-        // if it no longer exists it should be removed by collision events
-        if (TerminatingOrDeleted(target))
-            return;
-
-        var netEnt = GetNetEntity(target);
-        ent.Comp.TargetEntities.RemoveAll(pair => pair.Item1 == netEnt);
-        DirtyField(ent, ent.Comp, nameof(InteractorComponent.TargetEntities));
     }
 
     protected void UpdateAppearance(EntityUid uid)
@@ -179,4 +124,32 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected void UpdateAppearance(EntityUid uid, InteractorState state) =>
         _appearance.SetData(uid, InteractorVisuals.State, state);
+
+    public EntityCoordinates TargetsPosition(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        var offset = (xform.LocalRotation - Angle.FromDegrees(90)).ToVec();
+        return xform.Coordinates.Offset(offset);
+    }
+
+    /// <summary>
+    /// Find the first valid target infront of the interactor.
+    /// </summary>
+    public EntityUid? FindTarget(Entity<InteractorComponent> ent)
+    {
+        if (Transform(ent).GridUid is not {} gridUid || !_gridQuery.TryComp(gridUid, out var grid))
+            return null;
+
+        var coords = TargetsPosition(ent);
+        var tile = _map.CoordinatesToTile(gridUid, grid, coords);
+
+        _targets.Clear();
+        _lookup.GetLocalEntitiesIntersecting(gridUid, tile, _targets, flags: LookupFlags.Uncontained);
+        foreach (var target in _targets)
+        {
+            if (IsValidTarget(ent, target))
+                return target;
+        }
+        return null;
+    }
 }

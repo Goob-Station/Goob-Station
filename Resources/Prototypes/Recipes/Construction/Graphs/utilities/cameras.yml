@@ -19,9 +19,9 @@
     - node: assembly
       entity: SurveillanceCameraAssembly
       edges:
-        - to: wired
+        - to: lens #goobstation edge - lens to cameras
           steps:
-            - material: Cable
+            - material: Glass
               amount: 1
               doAfter: 1
         - to: start
@@ -33,6 +33,16 @@
           steps:
             - tool: Welding
               doAfter: 2
+
+# goobstation node - lens to cameras
+    - node: lens
+      entity: SurveillanceCameraAssembly
+      edges:
+        - to: wired
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 1
 
     - node: wired
       entity: SurveillanceCameraAssembly
@@ -56,6 +66,9 @@
             - !type:GivePrototype
               prototype: SheetSteel1
               amount: 2
+            - !type:GivePrototype # goobstation - lens to camera
+              prototype: SheetGlass1
+              amount: 1
             - !type:DeleteEntity {}
           steps:
             - tool: Welding
