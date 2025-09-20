@@ -1,18 +1,19 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.StatusEffect;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using System.Linq;
-using Content.Goobstation.Shared.Wraith.WraithPoints;
-using Content.Shared.Flash.Components;
 using Content.Shared.Revenant.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 //Partially ported from Impstation
@@ -20,7 +21,7 @@ public sealed partial class HauntSystem : EntitySystem
 {
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPointsSystem = default!;
@@ -82,21 +83,13 @@ public sealed partial class HauntSystem : EntitySystem
                 .Select(ply => GetNetEntity(ply.AttachedEntity!.Value))
         );
 
-        _statusEffects.TryAddStatusEffect<CorporealComponent>(
-            ent.Owner,
-            ent.Comp.CorporealEffect,
-            ent.Comp.HauntCorporealDuration,
-            false);
+        _statusEffects.TryAddStatusEffect(ent.Owner, ent.Comp.CorporealEffect, out _, ent.Comp.HauntCorporealDuration);
 
         foreach (var witness in witnesses)
         {
             var witnessEnt = GetEntity(witness);
 
-            _statusEffects.TryAddStatusEffect<FlashedComponent>(
-                witnessEnt,
-                ent.Comp.FlashedId,
-                ent.Comp.HauntFlashDuration,
-                false);
+            _statusEffects.TryAddStatusEffect(witnessEnt, ent.Comp.FlashedId, out _, ent.Comp.HauntFlashDuration);
             // Apply haunted effect
             EnsureComp<HauntedComponent>(witnessEnt);
         }

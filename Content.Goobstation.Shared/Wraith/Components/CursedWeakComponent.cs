@@ -4,10 +4,16 @@ using Robust.Shared.GameStates;
 public sealed partial class CursedWeakComponent : Component
 {
     /// <summary>
-    /// How long before the blindness curse ticks and becomes stronger.
+    /// How long before the stamina damage ticks and becomes stronger.
     /// </summary>
     [DataField]
-    public TimeSpan TimeTillIncrement = TimeSpan.FromSeconds(15);
+    public TimeSpan TimeTillIncrementStamina = TimeSpan.FromSeconds(15);
+
+    /// <summary>
+    /// How long before the drowsinness ticks and becomes stronger.
+    /// </summary>
+    [DataField]
+    public TimeSpan TimeTillIncrementDrowsy = TimeSpan.FromSeconds(55);
 
     /// <summary>
     /// How much stamina damage to apply over time.
@@ -43,13 +49,13 @@ public sealed partial class CursedWeakComponent : Component
     /// How much stamina damage can be received.
     /// </summary>
     [DataField]
-    public TimeSpan SleepTimeMax = TimeSpan.FromSeconds(3);
+    public TimeSpan SleepTimeMax = TimeSpan.FromSeconds(8);
 
     /// <summary>
     /// Status effect to make you sleep.
     /// </summary>
     [DataField]
-    public string StatusEffectKey = "ForcedSleep";
+    public string ForcedSleep = "StatusEffectForcedSleeping";
 
     /// <summary>
     /// Needed for death curse later. Gets set to true once max stacks are in.
@@ -58,7 +64,12 @@ public sealed partial class CursedWeakComponent : Component
     public bool WeakCurseFullBloom;
 
     /// <summary>
-    /// Next time at which blindness should increment.
+    /// Next time at which stamina damage should increment.
     /// </summary>
-    public TimeSpan NextTick = TimeSpan.Zero;
+    public TimeSpan NextTickStamina = TimeSpan.Zero;
+
+    /// <summary>
+    /// Next time at which drowsy should increment.
+    /// </summary>
+    public TimeSpan NextTickDrowsy = TimeSpan.Zero;
 }
