@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: constructionGraph
+  id: POrg
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: porgfull
+          steps:
+          - material: Cable
+            amount: 2
+          - tag: POrgHead
+            name: IPC head
+            icon:
+              sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+              state: head_m
+            doAfter: 2
+
+    - node: porgfull
+      entity: POrgBuild
+      edges:
+        - to: porg
+          steps:
+          - material: Glass
+            amount: 1
+            doAfter: 2
+          - tool: Screwing
+            doAfter: 1
+    - node: porg
+      entity: POrg
