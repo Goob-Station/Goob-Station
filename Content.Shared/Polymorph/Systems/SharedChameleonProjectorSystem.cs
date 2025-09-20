@@ -93,6 +93,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
+        // Goobstation - Start
         if (ent.Comp.RemoveActions)
             _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
         else
@@ -102,7 +103,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
             _actions.RemoveAction(comp.AnchorActionEntity);
             _actions.RemoveAction(comp.NoRotActionEntity);
-        }
+        }//Goobstation - End
     }
 
     #endregion

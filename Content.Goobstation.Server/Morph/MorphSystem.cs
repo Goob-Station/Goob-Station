@@ -1,7 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Actions;
 using Content.Server.Popups;
-using Content.Shared._Harmony.Morph;
+using Content.Goobstation.Shared.Morph;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -120,15 +120,15 @@ public sealed partial class MorphSystem : EntitySystem
         if (arg.Handled || arg.Cancelled)
             return;
 
-        var UserCoords = Transform(arg.User);
-        var MorphSpawnCoords = UserCoords.Coordinates;
+        var userCoords = Transform(arg.User);
+        var morphSpawnCoords = userCoords.Coordinates;
 
 
         arg.Handled = true;
 
         ChangeBiomassAmount(-(component.ReplicateCost), uid, component);
 
-        Spawn(component.MorphPrototype, MorphSpawnCoords);
+        Spawn(component.MorphPrototype, morphSpawnCoords);
         _audio.PlayPvs(component.ReplicateSound, uid, null);
         MorphComponent.Children += 1;
     }

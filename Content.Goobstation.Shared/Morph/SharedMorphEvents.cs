@@ -2,7 +2,7 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Harmony.Morph;
+namespace Content.Goobstation.Shared.Morph;
 
 public sealed partial class MorphReplicateEvent : InstantActionEvent
 {

@@ -2,7 +2,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Roles;
-using Content.Shared._Harmony.Morph;
+using Content.Goobstation.Shared.Morph;
 using Content.Shared.GameTicking.Components;
 
 namespace Content.Goobstation.Server.Morph.GameTicking;

@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.GameStates;
 
-namespace Content.Shared._Harmony.Morph;
+namespace Content.Goobstation.Shared.Morph;
 
 [RegisterComponent, NetworkedComponent]
 //[AutoGenerateComponentState]
