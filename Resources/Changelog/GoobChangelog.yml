@@ -15329,3 +15329,9 @@ Entries:
       message: Salvage can no longer be antagonists.
   id: 1713
   time: '2025-09-20T18:54:23.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Drones can now be flashed.
+  id: 1714
+  time: '2025-09-20T19:17:29.0000000+00:00'
