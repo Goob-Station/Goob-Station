@@ -99,7 +99,7 @@
   - type: FlashVulnerable
   - type: TypingIndicator
     proto: robot
-  - type: Speech # Goob
+  - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
   # </Goobstation>
