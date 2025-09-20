@@ -6,30 +6,19 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class AbsorbCorpseComponent : Component
 {
     /// <summary>
     /// The amount of time the doafter takes for the Wraith to absorb a corpse.
     /// </summary>
     [DataField]
-    public float AbsorbDuration = 5f;
-
-    /// <summary>
-    /// The cooldown for the absorb corpse action.
-    /// </summary>
-    [DataField]
-    public float AbsorbCooldown = 45f;
-
-    /// <summary>
-    /// The amount of time that should be reduced from the cooldown.
-    /// </summary>
-    [DataField]
-    public float CooldownReducer = -5f;
+    public TimeSpan AbsorbDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The amount of corpses that have already been absorbed
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int CorpsesAbsorbed;
 
     [DataField]
@@ -47,3 +36,10 @@ public sealed partial class AbsorbCorpseComponent : Component
     [DataField]
     public SoundSpecifier? AbsorbSound = new SoundCollectionSpecifier("Wraith_SoulSucc");
 }
+
+[ByRefEvent]
+public record struct AbsorbCorpseAttemptEvent(
+    EntityUid User,
+    EntityUid Target,
+    bool Cancelled = false,
+    bool Handled = false);

@@ -3,7 +3,6 @@ using Content.Shared.Actions.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
-using MvcContrib;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
@@ -156,6 +155,25 @@ public sealed class WraithPointsSystem : EntitySystem
             passiveWp.WpGeneration = 1;
             passiveWp.BaseWpGeneration = passiveWp.BaseWpResetter;
         }
+    }
+
+    public void SetWpRate(FixedPoint2 rate, Entity<PassiveWraithPointsComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        ent.Comp.WpGeneration = rate;
+        Dirty(ent);
+
+        AdjustWpGeneration((ent.Owner, ent.Comp));
+    }
+
+    public FixedPoint2 GetCurrentWpRate(Entity<PassiveWraithPointsComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return FixedPoint2.Zero;
+
+        return ent.Comp.WpGeneration;
     }
     #endregion
 

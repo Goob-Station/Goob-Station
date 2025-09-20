@@ -1,5 +1,5 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -12,4 +12,10 @@ public sealed partial class BloodWritingComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? BloodCrayon;
+
+    [ViewVariables]
+    public string HandName = "bloodCrayon";
+
+    [ViewVariables]
+    public EntProtoId BloodCrayonEntId = "CrayonBlood";
 }

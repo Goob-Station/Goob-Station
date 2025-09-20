@@ -42,9 +42,8 @@
       - Food
       - EntityStorage
     maxObjects: 8
-    statusEffect: Stun
-    statusEffectComponent: Stunned
-    statusEffectDuration: 10
+    searchRange: 3
+    stunDuration: 5
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger

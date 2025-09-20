@@ -5,13 +5,10 @@ using Content.Shared.Crayon;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 public sealed class BloodCrayonSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly WraithPointsSystem _wpSystem = default!;
 
@@ -25,43 +22,25 @@ public sealed class BloodCrayonSystem : EntitySystem
 
     private void OnBloodWritingAction(Entity<BloodWritingComponent> ent, ref BloodWritingEvent args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-
         if (args.Handled)
             return;
 
-        if (!TryComp<HandsComponent>(uid, out var hands))
-            return;
-
-        if (comp.BloodCrayon != null)
+        if (ent.Comp.BloodCrayon == null)
         {
-            // Disable blood writing
-            PredictedQueueDel(comp.BloodCrayon);
-            comp.BloodCrayon = null;
-            Dirty(ent);
+            _handsSystem.AddHand(ent.Owner, ent.Comp.HandName, HandLocation.Middle);
 
-            if (_handsSystem.TryGetHand(uid, "crayon", out _))
-                _handsSystem.RemoveHand(uid, "crayon", hands);
+            var crayon = PredictedSpawnAtPosition(ent.Comp.BloodCrayonEntId, Transform(ent.Owner).Coordinates);
+            _handsSystem.TryForcePickup(ent.Owner, crayon, ent.Comp.HandName, false);
+
+            ent.Comp.BloodCrayon = crayon;
         }
         else
         {
-            if (!_handsSystem.TryGetHand(uid, "crayon", out _))
-                _handsSystem.AddHand(uid, "crayon", HandLocation.Middle);
-
-            if (hands.ActiveHand == null
-                || hands.ActiveHand.Container == null)
-                return;
-
-            var crayon = PredictedSpawnInContainerOrDrop(
-                "CrayonBlood",
-                hands.ActiveHand.Container.Owner,
-                "crayon");
-
-            comp.BloodCrayon = crayon;
-            Dirty(ent);
-            EnsureComp<UnremoveableComponent>(crayon);
+            _handsSystem.RemoveHand(ent.Owner, ent.Comp.HandName);
+            PredictedQueueDel(ent.Comp.BloodCrayon);
+            ent.Comp.BloodCrayon = null;
         }
+        Dirty(ent);
 
         args.Handled = true;
     }

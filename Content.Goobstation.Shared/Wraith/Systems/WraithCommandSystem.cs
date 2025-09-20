@@ -1,8 +1,13 @@
+using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
+using Robust.Shared.Network;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -15,7 +20,9 @@ public sealed class WraithCommandSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -26,30 +33,21 @@ public sealed class WraithCommandSystem : EntitySystem
 
     private void OnCommand(Entity<WraithCommandComponent> ent, ref WraithCommandEvent args)
     {
-        var entities = _lookupSystem.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange);
+        _stun.TryStun(args.Target, ent.Comp.StunDuration, false);
 
-        var objectsSelected = 0;
+        if (_netManager.IsClient)
+            return;
+
+        var entities = _lookupSystem.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange).ToList();
+        _random.Shuffle(entities);
+
         foreach (var entity in entities)
         {
             if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
                 continue;
 
-            if (objectsSelected > ent.Comp.MaxObjects)
-                break;
-
             _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
-            objectsSelected++;
         }
-
-        if (ent.Comp.StatusEffectComponent == string.Empty)
-            return;
-
-        _statusEffectsSystem.TryAddStatusEffect(
-            args.Target,
-            ent.Comp.StatusEffect,
-            ent.Comp.StatusEffectDuration,
-            true,
-            ent.Comp.StatusEffectComponent);
 
         // args.Handled = true;
     }

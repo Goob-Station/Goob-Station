@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Actions;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -18,6 +19,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedRottingSystem _rotting = default!;
 
     public override void Initialize()
     {
@@ -25,37 +27,29 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorbTry);
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseDoAfter>(OnAbsorbCorpseDoAfter);
+
+        SubscribeLocalEvent<WraithAbsorbableComponent, AbsorbCorpseAttemptEvent>(OnAbsorbableAttempt);
     }
 
     private void OnAbsorbTry(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseEvent args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-        var target = args.Target;
+        var attemptEv = new AbsorbCorpseAttemptEvent(args.Performer, args.Target);
+        RaiseLocalEvent(args.Target, ref attemptEv);
 
-        if (args.Handled)
-            return;
-
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (attemptEv.Cancelled || !attemptEv.Handled)
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-not-humanoid"), uid, uid);
-            return;
-        }
-
-        if (!_mobState.IsDead(target))
-        {
-            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-alive"), uid, uid);
-            return;
-        }
-
-        if (HasComp<WraithAbsorbableComponent>(target))
-        {
-            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-absorbed"), uid, uid);
+            // todo: fail popup here
             return;
         }
 
         // TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
-        var doAfter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(comp.AbsorbDuration), new AbsorbCorpseDoAfter(), uid, target: args.Target)
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            ent.Owner,
+            ent.Comp.AbsorbDuration,
+            new AbsorbCorpseDoAfter(),
+            ent.Owner,
+            target: args.Target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -65,54 +59,59 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfter))
         {
             // If it fails to start for any one reason.
-            _popup.PopupPredicted(Loc.GetString("wraith-absorb-fail-start"), args.Target, args.Target);
-            args.Handled = true;
+            _popup.PopupPredicted(Loc.GetString("wraith-absorb-fail-start"), ent.Owner, ent.Owner);
+            return;
         }
 
-        _popup.PopupPredicted(Loc.GetString("wraith-absorb-start", ("target", args.Target)), uid, uid, PopupType.Medium);
-
+        _popup.PopupPredicted(Loc.GetString("wraith-absorb-start", ("target", args.Target)), ent.Owner, ent.Owner, PopupType.Medium);
+        args.Handled = true; // todo: do it through cooldown action component every time its handled (check wraith actions folder)
         //TO DO: Make the wraith corporial during the do after.
-
-        args.Handled = true;
     }
 
     private void OnAbsorbCorpseDoAfter(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseDoAfter args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-        var target = args.Target;
-
-        if (args.Handled)
+        if (args.Handled || args.Cancelled || args.Target == null)
             return;
 
-        if (target == null)
+        EnsureComp<RottingComponent>(args.Target.Value);
+        PredictedSpawnAtPosition(ent.Comp.SmokeProto, Transform(args.Target.Value).Coordinates);
+
+        _audio.PlayPredicted(ent.Comp.AbsorbSound, ent.Owner, ent.Owner);
+        _wraithPoints.AdjustWpGenerationRate(ent.Comp.WpPassiveAdd, ent.Owner);
+
+        ent.Comp.CorpsesAbsorbed++;
+        Dirty(ent);
+
+        _popup.PopupPredicted(Loc.GetString("wraith-absorb-success"), ent.Owner, ent.Owner);
+        args.Handled = true;
+    }
+
+    private void OnAbsorbableAttempt(Entity<WraithAbsorbableComponent> ent, ref AbsorbCorpseAttemptEvent args)
+    {
+        if (args.Cancelled || args.Handled)
             return;
 
-        //Rots the targetted corpse
-        if (!HasComp<RottingComponent>(target.Value))
+        // if user is already absorbed then do nothing
+        if (ent.Comp.Absorbed)
         {
-            var rot = EntityManager.AddComponent<RottingComponent>(target!.Value);
+            args.Cancelled = true;
+            return;
         }
-        if (!HasComp<WraithAbsorbableComponent>(target.Value))
+
+        // if user is dead do nothing
+        if (!_mobState.IsDead(args.Target))
         {
-            var absorbable = EntityManager.AddComponent<WraithAbsorbableComponent>(target!.Value);
+            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-alive"), args.User, args.User);
+            args.Cancelled = true;
+            return;
         }
-        if (TryComp<TransformComponent>(target.Value, out var targetXform))
 
-
-           PredictedSpawnAtPosition(comp.SmokeProto, targetXform.Coordinates);
-        _audio.PlayPredicted(comp.AbsorbSound, uid, uid);
-
-        //Lowers the cooldown for the next use.
-        if (comp.CorpsesAbsorbed <= 3)
+        if (_rotting.IsRotten(args.Target))
         {
-            comp.AbsorbCooldown += comp.CooldownReducer;
+            // todo: rotting popup here
+            args.Cancelled = true;
+            return;
         }
-        // Increases WP regeneration
-        _wraithPoints.AdjustWpGenerationRate(comp.WpPassiveAdd, uid);
-
-        comp.CorpsesAbsorbed++;
-        _popup.PopupPredicted(Loc.GetString("wraith-absorb-success"), uid, uid);
         args.Handled = true;
     }
 }

@@ -47,15 +47,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
             if (comp.SleepTimeAmount < comp.SleepTimeMax)
                 comp.SleepTimeAmount += comp.SleepTimeIncrease;
 
-            var effects = new Action[]
-            {
-        () => _stamina.TakeOvertimeStaminaDamage(uid, comp.StaminaDamageAmount),
-        () => _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(
-                uid, comp.StatusEffectKey, comp.SleepTimeAmount, false)
-            };
-
-            //TO DO: Add reduced stamina regeneration
-            _random.Pick(effects)();
+            // remake this shit onsen: var effects = new Action[]
 
             // Schedule the next tick
             comp.NextTick = curTime + comp.TimeTillIncrement;

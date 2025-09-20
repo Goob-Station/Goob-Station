@@ -8,14 +8,9 @@ using System.Numerics;
 namespace Content.Goobstation.Shared.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class HauntComponent : Component
 {
-    /// <summary>
-    /// How many debuffs to apply depending on the number of witnesses. (I think)
-    /// </summary>
-    [DataField]
-    public Vector2 HauntDebuffs = new(2, 6);
-
     /// <summary>
     /// How much Wp you gain from using the action per witness.
     /// </summary>
@@ -32,7 +27,10 @@ public sealed partial class HauntComponent : Component
     /// How long the Wp regen boost lasts.
     /// </summary>
     [DataField]
-    public TimeSpan HauntWpRegenDuration = TimeSpan.FromSeconds(10);
+    public TimeSpan HauntWpRegenDuration = TimeSpan.FromSeconds(60);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextHauntWpRegenUpdate = TimeSpan.Zero;
 
     /// <summary>
     /// Sounds to be played whwn someone gets haunted.
@@ -44,7 +42,7 @@ public sealed partial class HauntComponent : Component
     /// How much the Wp regeneration gets boosted per witness.
     /// </summary>
     [DataField]
-    public TimeSpan HauntCorporealDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan HauntCorporealDuration = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// How long the flash effect lasts when someone gets haunted.
@@ -62,5 +60,11 @@ public sealed partial class HauntComponent : Component
     /// The status effect to make the Wraith corporeal upon using haunt.
     /// </summary>
     [DataField]
-    public ProtoId<StatusEffectPrototype> CorporealEffect = "Corporeal";
+    public EntProtoId CorporealEffect = "Corporeal";
+
+    [ViewVariables, AutoNetworkedField]
+    public bool Active;
+
+    [ViewVariables, AutoNetworkedField]
+    public FixedPoint2 PreviousWpRate;
 }

@@ -5,4 +5,12 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class WraithAbsorbableComponent : Component;
+[AutoGenerateComponentState]
+public sealed partial class WraithAbsorbableComponent : Component
+{
+    /// <summary>
+    ///  Whether the user has been absorbed
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Absorbed;
+}

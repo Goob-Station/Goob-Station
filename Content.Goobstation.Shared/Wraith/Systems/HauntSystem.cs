@@ -1,26 +1,29 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared.Drugs;
-using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using System.Linq;
-using System.Threading;
+using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Flash.Components;
+using Content.Shared.Revenant.Components;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 //Partially ported from Impstation
 public sealed partial class HauntSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly WraithPointsSystem _wraithPointsSystem = default!;
 
     public override void Initialize()
     {
@@ -29,15 +32,33 @@ public sealed partial class HauntSystem : EntitySystem
         SubscribeLocalEvent<HauntComponent, HauntEvent>(OnHaunt);
     }
 
-    public void OnHaunt(Entity<HauntComponent> ent, ref HauntEvent args)
+    public override void Update(float frameTime)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
+        base.Update(frameTime);
 
-        if (args.Handled)
-            return;
+        var query = EntityQueryEnumerator<HauntComponent>();
+        while (query.MoveNext(out var uid, out var haunt))
+        {
+            if (!haunt.Active)
+                continue;
 
-        var witnessFilter = Filter.Pvs(uid).RemoveWhere(player =>
+            if (_timing.CurTime < haunt.NextHauntWpRegenUpdate)
+                continue;
+
+            // reset generation rate to previous state
+            _wraithPointsSystem.SetWpRate(haunt.PreviousWpRate, uid);
+            haunt.Active = false;
+            Dirty(uid, haunt);
+        }
+    }
+
+    private void OnHaunt(Entity<HauntComponent> ent, ref HauntEvent args)
+    {
+        ent.Comp.PreviousWpRate = _wraithPointsSystem.GetCurrentWpRate(ent.Owner);
+        Dirty(ent);
+
+        // stop writing unreadable linq im gonna kms
+        var witnessFilter = Filter.Pvs(ent.Owner).RemoveWhere(player =>
         {
             if (player.AttachedEntity == null)
                 return true;
@@ -45,41 +66,52 @@ public sealed partial class HauntSystem : EntitySystem
             var targetEnt = player.AttachedEntity.Value;
 
             // Skip non-humanoids, dead mobs, or wraith itself
-            if (!HasComp<MobStateComponent>(targetEnt) || !HasComp<HumanoidAppearanceComponent>(targetEnt) || targetEnt == uid)
+            if (!HasComp<MobStateComponent>(targetEnt)
+                || !HasComp<HumanoidAppearanceComponent>(targetEnt)
+                || targetEnt == ent.Owner
+                || HasComp<HauntedComponent>(targetEnt))
                 return true;
 
             // Skip if out of range or obstructed
-            return !_interact.InRangeUnobstructed((uid, Transform(uid)), (targetEnt, Transform(targetEnt)), range: 0, collisionMask: CollisionGroup.Impassable);
+            return !_interact.InRangeUnobstructed((ent.Owner, Transform(ent.Owner)), (targetEnt, Transform(targetEnt)), range: 0, collisionMask: CollisionGroup.Impassable);
         });
 
+
         var witnesses = new HashSet<NetEntity>(
-            witnessFilter.RemovePlayerByAttachedEntity(uid).Recipients
+            witnessFilter.RemovePlayerByAttachedEntity(ent.Owner).Recipients
                 .Select(ply => GetNetEntity(ply.AttachedEntity!.Value))
         );
 
-        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, comp.CorporealEffect, comp.HauntCorporealDuration, false);
-        // Play global haunt sound
-        _audioSystem.PlayGlobal(comp.HauntSound, witnessFilter, true);
-
-        var newHaunts = 0;
+        _statusEffects.TryAddStatusEffect<CorporealComponent>(
+            ent.Owner,
+            ent.Comp.CorporealEffect,
+            ent.Comp.HauntCorporealDuration,
+            false);
 
         foreach (var witness in witnesses)
         {
             var witnessEnt = GetEntity(witness);
 
-            // Apply flash effect
-            _statusEffects.TryAddStatusEffect<FlashedComponent>(witnessEnt,
-                comp.FlashedId,
-                comp.HauntFlashDuration,
-                false
-            );
-
+            _statusEffects.TryAddStatusEffect<FlashedComponent>(
+                witnessEnt,
+                ent.Comp.FlashedId,
+                ent.Comp.HauntFlashDuration,
+                false);
             // Apply haunted effect
-            if (!EnsureComp<HauntedComponent>(witnessEnt, out var haunted))
-                newHaunts += 1;
+            EnsureComp<HauntedComponent>(witnessEnt);
         }
 
+        if (_net.IsServer)
+            _audioSystem.PlayGlobal(ent.Comp.HauntSound, witnessFilter, true);
+
         //TO DO: Increase WP regeneration for a limited period of time and gain WP based on how many people were witnesses.
+
+        ent.Comp.Active = true;
+        ent.Comp.NextHauntWpRegenUpdate = _timing.CurTime + ent.Comp.HauntWpRegenDuration;
+        Dirty(ent);
+
+        _wraithPointsSystem.AdjustWraithPoints(ent.Comp.HauntStolenWpPerWitness * witnesses.Count, ent.Owner);
+        _wraithPointsSystem.AdjustWpGenerationRate(ent.Comp.HauntWpRegenPerWitness * witnesses.Count, ent.Owner);
 
         args.Handled = true;
     }

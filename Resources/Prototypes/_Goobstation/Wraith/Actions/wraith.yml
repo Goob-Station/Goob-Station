@@ -63,8 +63,10 @@
   - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
+      requireAll: true
       components:
       - MobState
+      - HumanoidAppearance
     event: !type:AbsorbCorpseEvent
 
 - type: entity
@@ -102,6 +104,9 @@
     deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
+    blacklist:
+      components:
+      - BorgChassis
     event: !type:DecayEvent
 
 - type: entity
