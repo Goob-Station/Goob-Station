@@ -15043,3 +15043,9 @@ Entries:
         girders.
   id: 1676
   time: '2025-09-19T12:32:52.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cloned changelings and heretics not being able to do anything.
+  id: 1677
+  time: '2025-09-20T04:58:18.0000000+00:00'
