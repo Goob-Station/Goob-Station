@@ -15259,3 +15259,13 @@ Entries:
         functionality.
   id: 1703
   time: '2025-09-20T17:28:20.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Visiting librarians now understand most languages
+    - type: Add
+      message: Visiting chefs now knows cqc, and can speak space italian
+    - type: Add
+      message: Visiting chaplains now have a null rod
+  id: 1704
+  time: '2025-09-20T17:34:15.0000000+00:00'
