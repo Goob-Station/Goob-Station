@@ -1,0 +1,87 @@
+- type: entity
+  id: ShadowlingAbilitiesPostHatch
+  name: shadowling post-hatch abilities
+  description: Entity that contains all actions that are assigned after a shadowling hatched.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingGlare
+  - type: ShadowlingEnthrall
+  - type: ShadowlingVeil
+  - type: ShadowlingRapidRehatch
+  - type: ShadowlingShadowWalk
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingCollectiveMind
+    availableAbilities:
+    - SonicScreech
+    - NullCharge
+    - BlackRecuperation
+    - BlindnessSmoke
+    - EmpoweredEnthrall
+    - NoxImperii
+    - Ascendance
+  - type: LightDetection
+  - type: LightDetectionDamage
+    resistanceModifier: 0.5
+
+- type: entity
+  id: ShadowlingAbilitiesObtainable
+  name: shadowling obtainable abilities
+  description: Entity that contains all actions that are obtainable for a shadowling through crew conversion.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingBlackRecuperation
+  - type: ShadowlingEmpoweredEnthrall
+  - type: ShadowlingNoxImperii
+  - type: ShadowlingAscendance
+
+- type: entity
+  id: ShadowlingAbilitiesAscension
+  name: shadowling ascension abilities
+  description: Entity that contains all actions that are obtainable for a shadowling through ascension.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingAnnihilate
+  - type: ShadowlingPlaneShift
+  - type: ShadowlingLightningStorm
+  - type: ShadowlingAscendantBroadcast
+  #- type: ShadowlingHypnosis
+
+- type: entity
+  id: NightmareAbilities
+  name: shadowling ascension abilities
+  description: Entity that contains all components for Nightmares.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Nightmare
+  - type: LightDetection
+  - type: LightDetectionDamage
+  - type: LightEaterUser
+  - type: ShadowlingPlaneShift
+  - type: Reflect
+  - type: PressureImmunity
+
+- type: entity
+  id: LesserShadowlingAbilities
+  name: lesser shadowling abilities
+  description: Entity that contains all components for Lesser Shadowlings.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LesserShadowling
+  - type: ShadowlingShadowWalk
+  - type: LightDetection
+  - type: LightDetectionDamage
+    maxDetection: 10
+
+- type: entity
+  id: ThrallAbilities
+  name: thrall abilities
+  description: Entity that contains all components for Thralls after Hypnosis.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Thrall
+  - type: NightVision
+  - type: ThrallGuise
