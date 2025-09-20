@@ -15049,3 +15049,11 @@ Entries:
       message: Fixed cloned changelings and heretics not being able to do anything.
   id: 1677
   time: '2025-09-20T04:58:18.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Scurrets have woundmed now.
+    - type: Fix
+      message: Scurrets no longer have a monkey sprite.
+  id: 1678
+  time: '2025-09-20T06:30:04.0000000+00:00'
