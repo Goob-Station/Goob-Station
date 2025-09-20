@@ -93,6 +93,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -108,6 +109,8 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorGimmickObjectivesMinor: 0.15 # Goobstation - intended as 1 agent per every 8 or so really
+    TraitorGimmickObjectivesMajor: 0.05 # Goobstation - Basically passes to pull off larger antag plays in reality so pretty rare
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
