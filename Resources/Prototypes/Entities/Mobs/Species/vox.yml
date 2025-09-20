@@ -212,7 +212,7 @@
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
-    - map: [ "belt" ]
+    - map: [ "belt" ] #Goobedit - Belts over outerwear
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.Face" ]
     - map: [ "neck" ]

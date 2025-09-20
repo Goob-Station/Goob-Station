@@ -229,7 +229,7 @@
       - map: [ "eyes" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
-      - map: [ "belt" ]
+      - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]
