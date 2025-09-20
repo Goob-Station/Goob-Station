@@ -15087,3 +15087,9 @@ Entries:
       message: Artifact containers block rads again.
   id: 1683
   time: '2025-09-20T06:36:45.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: 'Carp can now ventcrawl. :fish: '
+  id: 1684
+  time: '2025-09-20T06:37:48.0000000+00:00'
