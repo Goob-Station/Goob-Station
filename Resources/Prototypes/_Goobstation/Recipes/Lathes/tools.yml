@@ -56,3 +56,25 @@
   result: MagazineBoxNailArmorPiercing
   materials:
     Steel: 800
+
+- type: latheRecipe
+  id: ConstructionBag
+  result: ConstructionBag
+  categories:
+  - Tools
+  completetime: 3
+  materials:
+    Plastic: 500
+    Cloth: 200
+    Steel: 100
+
+- type: latheRecipe
+  id: ConstructionBagOfHolding
+  result: ConstructionBagOfHolding
+  completetime: 5
+  materials:
+    Steel: 1000
+    Silver: 500
+    Plasma: 200
+    Uranium: 200
+    BSCrystal: 50
