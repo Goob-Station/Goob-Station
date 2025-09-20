@@ -16,6 +16,4 @@ public sealed partial class HellPortalComponent : Component
     public bool PortalEnabled = false;
 
     [DataField] public string ExitPortalPrototype = "PortalHellExit";
-    [DataField] public SoundSpecifier OpenPortalSound = new SoundPathSpecifier("/Audio/Effects/portal_open.ogg");
-    [DataField] public SoundSpecifier ClosePortalSound = new SoundPathSpecifier("/Audio/Effects/portal_close.ogg");
 }
