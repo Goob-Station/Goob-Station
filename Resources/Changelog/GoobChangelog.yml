@@ -15181,3 +15181,9 @@ Entries:
       message: Sec no longer starts with a 40mm slug
   id: 1696
   time: '2025-09-20T07:18:54.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: CMO and Station AI show as the heads of their respective departments
+  id: 1697
+  time: '2025-09-20T07:21:33.0000000+00:00'
