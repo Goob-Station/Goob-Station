@@ -100,6 +100,11 @@
   name: signal-port-name-automation-slot-tool
   description: signal-port-description-automation-slot-tool
 
+- type: sinkPort
+  id: AltInteract
+  name: signal-port-name-alt-interact
+  description: signal-port-description-alt-interact
+
 # Autodoc
 
 - type: sinkPort

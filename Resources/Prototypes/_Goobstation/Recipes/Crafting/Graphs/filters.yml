@@ -58,6 +58,43 @@
       - material: Cable
         amount: 5
         doAfter: 1
+    - to: anchor
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+    - to: mob
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - tag: DiscreteHealthAnalyzer
+        name: construction-graph-tag-health-analyzer
+        icon:
+          sprite: Objects/Specific/Medical/healthanalyzer.rsi
+          state: analyzer
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+    - to: cuff
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - tag: Handcuffs # need cuffs to detect cuffs :)
+        name: construction-graph-tag-cuffs
+        icon:
+          sprite: Objects/Misc/cablecuffs.rsi
+          state: cuff
+          color: red
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
   - node: label
     entity: AutomationFilterLabel
   - node: name
@@ -68,3 +105,9 @@
     entity: AutomationFilterPressure
   - node: combined
     entity: AutomationFilterCombined
+  - node: anchor
+    entity: AutomationFilterAnchor
+  - node: mob
+    entity: AutomationFilterMob
+  - node: cuff
+    entity: AutomationFilterCuff

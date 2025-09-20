@@ -1,0 +1,10 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="using:Content.Client.UserInterface.Controls"
+        Title="{Loc 'mob-filter-window-title'}"
+        MinSize="280 180">
+    <BoxContainer Orientation="Vertical" Align="Center" Margin="10">
+    	<CheckButton Name="AliveButton" Text="{Loc 'mob-state-Alive'}" SetWidth="60" ToggleMode="True"/>
+    	<CheckButton Name="DeadButton" Text="{Loc 'mob-state-Dead'}" SetWidth="60" ToggleMode="True"/>
+    	<CheckButton Name="CriticalButton" Text="{Loc 'mob-state-Critical'}" SetWidth="60" ToggleMode="True"/>
+    </BoxContainer>
+</controls:FancyWindow>
