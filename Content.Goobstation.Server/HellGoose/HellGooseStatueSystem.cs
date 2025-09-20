@@ -1,8 +1,9 @@
-using Content.Goobstation.Shared.HellGoose;
+using Content.Goobstation.Shared.HellGoose.Components;
 using Content.Server.Pointing.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 public sealed class HellGooseStatueSystem : EntitySystem
 {
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
@@ -21,6 +22,7 @@ public sealed class HellGooseStatueSystem : EntitySystem
         AlternativeVerb verb = new()
         {
             Text = Loc.GetString("hell-goose-statue-accept"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/pray.svg.png")),
             Act = () => HandleActivation(uid, comp, args.User)
         };
         args.Verbs.Add(verb);

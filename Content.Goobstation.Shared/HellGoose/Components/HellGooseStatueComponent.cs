@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.HellGoose;
+namespace Content.Goobstation.Shared.HellGoose.Components;
 
 /// <summary>
 /// Component for the hell goose statue in hell

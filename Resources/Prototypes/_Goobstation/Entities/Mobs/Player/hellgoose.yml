@@ -75,9 +75,11 @@
   - type: Vocal
     sounds:
       Unsexed: HellGoose
+  - type: HellGooseTeleport
   - type: ActionGrant
     actions:
     - ActionCreateHellPortal
+    - ActionHellGooseTeleport
   - type: Damageable
     resistances:
       - type: Fire

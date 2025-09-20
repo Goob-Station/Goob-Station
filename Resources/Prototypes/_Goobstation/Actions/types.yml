@@ -214,3 +214,18 @@
       - id: HellPortal
         amount: 1
       offset: 0, 0
+
+- type: entity
+  parent: BaseAction
+  id: ActionHellGooseTeleport
+  name: Teleport to station
+  description: Teleport to the bar on the station.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Effects/portal.rsi
+      state: portal-chrono
+  - type: InstantAction
+    event: !type:GooseTeleportEvent

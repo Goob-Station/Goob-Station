@@ -27,7 +27,6 @@ public sealed class HellPortalSystem : EntitySystem
     {
         base.Initialize();
         _sawmill = Logger.GetSawmill("hell_portal");
-
         SubscribeLocalEvent<HellPortalComponent, ComponentStartup>(OnComponentStartup);
     }
 
