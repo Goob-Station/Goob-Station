@@ -15109,3 +15109,9 @@ Entries:
       message: Pistol magazine now show the correct maximum capacity.
   id: 1686
   time: '2025-09-20T06:42:59.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Nerfed biomass crate
+  id: 1687
+  time: '2025-09-20T06:43:47.0000000+00:00'
