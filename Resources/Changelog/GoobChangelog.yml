@@ -15063,3 +15063,9 @@ Entries:
       message: 'Nuke actually nukes now '
   id: 1679
   time: '2025-09-20T06:30:39.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Changed red boxing gloves colour from orange-ish to red.
+  id: 1680
+  time: '2025-09-20T06:32:12.0000000+00:00'
