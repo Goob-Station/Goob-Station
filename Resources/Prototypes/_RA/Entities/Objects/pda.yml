@@ -65,12 +65,6 @@
 
 - type: entity
   parent: BasePDAM
-  id: BaseCorpsmanPDA
-  abstract: true
-  components:
-
-- type: entity
-  parent: BasePDAM
   id: MercPHA
   name: Personal Health Analyzer
   description: A personal Health Analyzer capable of fitting multiple Ids with it utilizing the accesses from the FIRST ID INSERTED.
