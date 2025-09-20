@@ -180,9 +180,9 @@
   - type: CombatMode
   - type: MobMover
   - type: InputMover
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 5
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 6.5
     baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
