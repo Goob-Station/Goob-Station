@@ -732,6 +732,7 @@
     damage:
       types:
         Piercing: 0
+  - type: ZombieImmune #Goob
 
 - type: entity
   name: glockroach
@@ -1147,6 +1148,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune #goob
 
 - type: entity
   name: cow
@@ -2575,6 +2577,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune #goob
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -3573,7 +3576,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
@@ -3973,6 +3976,7 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune #goob
 
 - type: entity
   name: pig

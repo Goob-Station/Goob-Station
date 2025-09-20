@@ -304,6 +304,7 @@
       - Telecrystal
   - type: MobPrice
     price: 500
+  - type: ZombieImmune
 
 - type: entity
   name: space carp
