@@ -15232,3 +15232,11 @@ Entries:
         stand and can only move by crawling or your wheelchair.
   id: 1701
   time: '2025-09-20T13:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Medical items in Uplink are now cheaper in TC: Combat medkit 15->10,
+        combat medipen 12->8, advanced medipen 28->20.
+  id: 1702
+  time: '2025-09-20T13:34:49.0000000+00:00'
