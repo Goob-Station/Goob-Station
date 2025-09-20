@@ -232,7 +232,8 @@ namespace Content.IntegrationTests.Tests
             "Lavatest", // Lavaland Change
             "Loop",
             "Delta", // Goobstation - add Delta
-            "Nebula",
+            "Nebula", // RAE 
+            "Covalent", // RAE
             "dm01-entryway",
             "Chloris", // Goobstation
             "Serpentcrest", // Goobstation
