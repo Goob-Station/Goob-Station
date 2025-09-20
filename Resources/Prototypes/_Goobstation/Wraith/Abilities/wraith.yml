@@ -30,6 +30,7 @@
   - type: SummonPortal
   - type: RaiseSkeleton
   - type: SummonVoidCreature
+  - type: MakeRevenant
   - type: SpookMark
   - type: WraithCommand
     blacklist:
@@ -55,6 +56,7 @@
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
     - ActionSummonVoidCreatures
+    - ActionMakeRevenant
     - ActionCommand
   # - Haunt
   # - ActionGrant

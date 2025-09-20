@@ -24,7 +24,11 @@ wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($targ
 void-portal-current-power = The portal has { $points } points of essence left to use.
 void-portal-current-wave = The portal has summoned { $wave } waves from the void.
 
+wraith-fail-target-not-rotting = The target is not rotting.
+wraith-fail-target-rotting = The target is rotting.
+
 wraith-possess = Your essence takes over the object!
+wraith-leave-body = The wraith's possession has coem to an end.
 
 wraith-banishment = I goida
 

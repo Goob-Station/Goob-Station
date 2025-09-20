@@ -270,6 +270,25 @@
   - type: InstantAction
     event: !type:SummonVoidCreatureEvent
 
+- type: entity
+  id: ActionMakeRevenant
+  name: Make revenant
+  description: Allows you to possess a corpse and empower it as a Revenant, so you can murder people with their co-workers. Must be used on a relatively fresh corpse.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/reventer.ogg
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: revenant
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:MakeRevenantEvent
+
 # Plaguebringer Actions
 
 # Trickster Actions
