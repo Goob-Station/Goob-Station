@@ -15213,3 +15213,22 @@ Entries:
       message: You can now use fire extinguishers to launch office chairs around.
   id: 1700
   time: '2025-09-20T12:46:33.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added new trait "social anxiety" anyone with this trait will have a
+        panic attack when they're hugged by another player.
+    - type: Add
+      message: >-
+        Added new trait "Deaf" anyone with this trait will no longer hear any
+        sounds in game or be able to hear anyone speaking in a language that
+        requires speech, anyone who is deaf is still able to talk but they
+        cannot hear themselves, so I hope you checked your spelling!
+    - type: Fix
+      message: >-
+        Fixed the wheelchair bound trait not actually making you paralyzed from
+        the waist down, if you have the trait you will no longer be able to
+        stand and can only move by crawling or your wheelchair.
+  id: 1701
+  time: '2025-09-20T13:16:03.0000000+00:00'
