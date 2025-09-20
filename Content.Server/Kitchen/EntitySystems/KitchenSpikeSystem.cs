@@ -332,19 +332,6 @@ namespace Content.Server.Kitchen.EntitySystems
                 return false;
             }
 
-            // Goobstation - start
-            if (HasComp<ChangelingComponent>(victimUid))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
-                return false;
-            }
-            if (HasComp<AbsorbedComponent>(victimUid))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
-                return false;
-            }
-            // Goobstation - end
-
             switch (butcherable.Type)
             {
                 case ButcheringType.Spike:

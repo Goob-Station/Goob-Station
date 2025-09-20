@@ -33,4 +33,10 @@ public sealed partial class AbsorbableComponent : Component
     /// </summary>
     [DataField]
     public float BonusChemicals = 10f;
+
+    /// <summary>
+    /// Is this entity absorbed already?
+    /// </summary>
+    [ViewVariables]
+    public bool Absorbed = false;
 }

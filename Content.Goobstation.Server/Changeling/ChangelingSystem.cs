@@ -106,6 +106,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using MvcContrib;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -448,7 +449,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         var target = action.Target;
 
         // can't sting a dried out husk
-        if (HasComp<AbsorbedComponent>(target))
+        if (TryComp<AbsorbableComponent>(target, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-hollow"), uid, uid);
             return false;
@@ -738,7 +739,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
-        if (HasComp<AbsorbedComponent>(target))
+        if (TryComp<AbsorbableComponent>(target, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), target, target);
             return false;
@@ -799,6 +800,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<CanHostGuardianComponent>(uid);
         RemComp<MartialArtsKnowledgeComponent>(uid);
         RemComp<CanPerformComboComponent>(uid);
+        RemComp<ButcherableComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
 
         // add actions

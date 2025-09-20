@@ -128,21 +128,24 @@ public sealed partial class ChangelingSystem
     {
         var target = args.Target;
 
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
+        if (!TryComp<AbsorbableComponent>(target, out var absorbable))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
+
+        if (absorbable.Absorbed)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
+            return;
+        }
+
         if (!IsIncapacitated(target) && !IsHardGrabbed(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
             return;
         }
+
         if (CheckFireStatus(target)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
@@ -176,9 +179,9 @@ public sealed partial class ChangelingSystem
         var target = args.Args.Target.Value;
 
         if (args.Cancelled ||
-            HasComp<AbsorbedComponent>(target) ||
-            !IsIncapacitated(target) && !IsHardGrabbed(target)
-            || !TryComp<AbsorbableComponent>(target, out var absorbable))
+            !TryComp<AbsorbableComponent>(target, out var absorbable) ||
+            absorbable.Absorbed ||
+            !IsIncapacitated(target) && !IsHardGrabbed(target))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -188,7 +191,8 @@ public sealed partial class ChangelingSystem
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
-        EnsureComp<AbsorbedComponent>(target);
+        absorbable.Absorbed = true;
+
         EnsureComp<UnrevivableComponent>(target);
 
         var popup = string.Empty;
@@ -365,7 +369,7 @@ public sealed partial class ChangelingSystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
+        if (comp.IsInStasis || TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
             return;
@@ -405,7 +409,7 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
             return;
         }
-        if (HasComp<AbsorbedComponent>(uid))
+        if (TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
             return;
@@ -603,21 +607,25 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
             return;
         }
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
+
+        if (!TryComp<AbsorbableComponent>(target, out var absorbable))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
+
+        if (absorbable.Absorbed)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
+            return;
+        }
+
         if (CheckFireStatus(uid)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
             return;
         }
+
         var mind = _mind.GetMind(uid);
         if (mind == null)
             return;
@@ -633,7 +641,8 @@ public sealed partial class ChangelingSystem
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
         eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
-        EnsureComp<AbsorbedComponent>(target);
+        absorbable.Absorbed = true;
+
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
