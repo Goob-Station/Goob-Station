@@ -12,7 +12,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System.Linq;
 
-namespace Content.Goobstation.Shared.Teleportation.Systems;
+namespace Content.Goobstation.Server.HellGoose;
 
 public sealed class HellPortalSystem : EntitySystem
 {
