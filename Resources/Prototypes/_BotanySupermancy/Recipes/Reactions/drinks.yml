@@ -1,0 +1,9 @@
+- type: reaction
+  id: Coffee
+  reactants:
+    Grcoffee:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    DrinkCoffeArabica: 2

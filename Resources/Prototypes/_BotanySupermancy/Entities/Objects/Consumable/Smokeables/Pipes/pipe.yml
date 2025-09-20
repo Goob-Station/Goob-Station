@@ -1,0 +1,22 @@
+- type: entity
+  id: SmokingPipeFilledCannabisVita
+  parent: SmokingPipe
+  name: pipe
+  suffix: Vita
+  description: Just like grandpappy used to smoke.
+  components:
+  - type: ContainerContainer
+    containers:
+      bowl_slot: !type:ContainerSlot
+  - type: ItemSlots
+  - type: SmokingPipe
+    bowl_slot:
+      name: smoking-pipe-slot-component-slot-name-bowl
+      startingItem: GroundCannabisVita
+      whitelist:
+        tags:
+        - Smokable
+      insertSound:
+        path: /Audio/Weapons/Guns/Empty/empty.ogg
+      ejectSound:
+        path: /Audio/Weapons/Guns/Empty/empty.ogg

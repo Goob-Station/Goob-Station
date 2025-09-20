@@ -73,6 +73,11 @@
     TowercapSeeds: 5
     WheatSeeds: 5
     WatermelonSeeds: 5
+    CoffeeArabicaSeeds: 5 # _BotanySupermancy-add
+    RedroseSeeds: 5 # _BotanySupermancy-add
+    SunflowerSeeds: 5 # _BotanySupermancy-add
+    WhiteroseSeeds: 5 # _BotanySupermancy-add
+    GeraniumSeeds: 5 # _BotanySupermancy-add
   contrabandInventory:
     TobaccoSeeds: 2
     FoodSnackSemki: 2

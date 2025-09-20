@@ -1,0 +1,70 @@
+- type: entity
+  name: Cannabis Vita leaves
+  parent: ProduceBase
+  id: CannabisVitaLeaves
+  description: Medicinal hemp leaves.
+  components:
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/cannabis_vita.rsi
+  - type: Produce
+    seedId: CannabisVita
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 2
+        - ReagentId: THC
+          Quantity: 15
+
+- type: entity
+  name: Dried cannabis vita leaves
+  parent: BaseItem
+  id: LeavesCannabisVitaDried
+  description: "Dried cannabis vita leaves, ready to be ground."
+  components:
+  - type: Stack
+    stackType: LeavesCannabisVitaDried
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 2
+        - ReagentId: THC
+          Quantity: 12
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/cannabis_vita.rsi
+    state: dried
+
+- type: entity
+  name: ground cannabis vita
+  parent: BaseItem
+  id: GroundCannabisVita
+  description: "Ground cannabis vita, ready to take you on a trip."
+  components:
+  - type: Stack
+    stackType: GroundCannabisVita
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: THC
+          Quantity: 20
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+    color: white
+  - type: Construction
+    graph: smokeableGroundCannabisVita
+    node: groundVita
+  - type: Tag
+    tags:
+    - Smokable
+  - type: Item
+    size: Tiny

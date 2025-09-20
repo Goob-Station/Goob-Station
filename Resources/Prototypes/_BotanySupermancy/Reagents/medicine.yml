@@ -1,0 +1,42 @@
+- type: reagent
+  id: EarthBlood
+  name: reagent-name-earthblood
+  group: Medicine
+  desc: reagent-desc-earthblood
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#f4bf20"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -3
+            Toxin: -3
+            Airloss: -3
+            Brute: -3
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.25
+
+- type: reagent
+  id: EarthBlessing
+  name: reagent-name-earthblessing
+  group: Botanical
+  desc: reagent-desc-earthblessing
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: bitter
+  color: "#997000"
+  plantMetabolism:
+  - !type:PlantAdjustPests
+    amount: -10
+  - !type:PlantAdjustNutrition
+    amount: 10
+  - !type:PlantAdjustWater
+    amount: 10
+  - !type:PlantAdjustWeeds
+    amount: -10
