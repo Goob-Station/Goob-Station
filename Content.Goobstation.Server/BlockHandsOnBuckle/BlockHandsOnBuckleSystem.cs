@@ -42,11 +42,13 @@ public sealed class BlockHandsOnBuckleSystem : EntitySystem
             }
         }
     }
+    
     private void OnUnstrapped(Entity<BlockHandsOnBuckleComponent> ent, ref UnstrappedEvent args)
     {
         _virtualItem.DeleteInHandsMatching(args.Buckle.Owner, ent.Owner);
 
     }
+    
     private void OnCanAttack(EntityUid uid, BuckleComponent buckle, ref AttackAttemptEvent args)
     {
         if (buckle.BuckledTo != null
