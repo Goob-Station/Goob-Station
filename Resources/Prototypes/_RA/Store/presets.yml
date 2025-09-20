@@ -1,0 +1,24 @@
+- type: entity
+  id: StoreMercUplink
+  components:
+  - type: Store
+    name: store-preset-name-uplink
+    categories:
+    - UplinkAmmoMercs
+    - UplinkMercUtilities
+    - UplinkMercExplosives
+    - UplinkNanotrasen
+    - UplinkCybersun
+    - UplinkNanoTRANSen
+    - UplinkSalesMerc # WD EDIT
+    currencyWhitelist:
+    - CompanyCredit
+    balance:
+      CompanyCredit: 0
+    sales: # WD EDIT
+      enabled: true
+      minMultiplier: 0.2
+      maxMultiplier: 0.8
+      minItems: 4
+      maxItems: 8
+      salesCategory: UplinkSalesMerc

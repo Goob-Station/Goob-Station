@@ -1,0 +1,39 @@
+- type: entity
+  parent: [ClothingBackpack, BaseSyndicateContraband]
+  id: ClothingBackpackSinder
+  name: Sinder Industries Backpack
+  description:
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Back/shibackpack.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    - 8,1,8,3
+
+- type: entity
+  parent: [ClothingBackpackSatchel, BaseSyndicateContraband]
+  id: ClothingBackpackSatchelSinder
+  name: Sinder Industries Satchel
+  description: A tough satchel made of fire resistant fibers. Smells like plasma.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Back/shisatchel.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSyndicateContraband]
+  id: ClothingBackpackDuffelSinder
+  name: Sinder Industries Duffelbag
+  description: A large duffel bag for holding various traitor goods.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Back/shidufflebag.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,8,4

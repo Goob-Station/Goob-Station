@@ -1,0 +1,86 @@
+
+- type: entity
+  abstract: true
+  parent: [ BaseItem]
+  id: BasePDAM
+  name: PDA
+  description: Personal Data Assistant.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda
+  - type: Sprite
+    sprite: _RA/Objects/Misc/MercIds/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _RA/Objects/Misc/MercIds/pda.rsi
+    state: pda
+  - type: Pda
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - IdCard
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      PDA-id: !type:ContainerSlot {}
+  - type: ItemSlots
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
+    heldPrefix: analyzer
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: ItemToggle
+    onUse: false
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Tag
+    tags:
+      - DiscreteHealthAnalyzer
+
+- type: entity
+  parent: BasePDAM
+  id: BaseCorpsmanPDA
+  abstract: true
+  components:
+
+- type: entity
+  parent: BasePDAM
+  id: MercPHA
+  name: Personal Health Analyzer
+  description: A personal Health Analyzer capable of fitting multiple Ids with it utilizing the accesses from the FIRST ID INSERTED.
+  components:
+  - type: Pda
+    id: MercCorpsmanId
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-medical
+  - type: Icon
+    state: pda-medical

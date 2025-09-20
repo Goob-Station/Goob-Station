@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from shiptest-ss13 head.dmi at mob/clothing/faction/frontiersman/head, mob/clothing/faction/frontiersman/suits, obj/clothing/faction/frontiersman/head, obj/clothing/faction/frontiersman/suits.(https://github.com/shiptest-ss13/Shiptest/blob/master/icons/mob/clothing/faction/frontiersmen/head.dmi)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
+    }
+  ]
+}

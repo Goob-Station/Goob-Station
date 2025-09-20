@@ -1,0 +1,23 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMerc
+  icon:
+    sprite: /Textures/_RA/Interface/Misc/job_icons.rsi
+    state: MercOperative
+  jobName: job-name-MercOperative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMercCommander
+  icon:
+    sprite: /Textures/_RA/Interface/Misc/job_icons.rsi
+    state: MercCommander
+  jobName: job-name-MercCommander
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMercCorpsman
+  icon:
+    sprite: /Textures/_RA/Interface/Misc/job_icons.rsi
+    state: MercCorpsman
+  jobName: job-name-MercCorpsman
