@@ -65,3 +65,12 @@ public sealed partial class MakeRevenantEvent : EntityTargetActionEvent
 public sealed partial class BlindCurseEvent : EntityTargetActionEvent
 {
 }
+public sealed partial class WeakCurseEvent : EntityTargetActionEvent
+{
+}
+public sealed partial class BloodCurseEvent : EntityTargetActionEvent
+{
+}
+public sealed partial class RotCurseEvent : EntityTargetActionEvent
+{
+}

@@ -298,12 +298,69 @@
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wraith/reventer.ogg
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
     useDelay: 45
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: blind_curse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BlindCurseEvent
+
+- type: entity
+  id: ActionCurseWeakness
+  name: Curse of weakness
+  description: Causes regular slowdowns in movement of the afflicted being, as well as drowsiness. #TO DO: Add reduced stamina regeneration
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: weak_curse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:WeakCurseEvent
+
+- type: entity
+  id: ActionCurseBlood
+  name: Curse of blood
+  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: blood_curse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BlindCurseEvent
+
+- type: entity
+  id: ActionCurseRot
+  name: Curse of rot
+  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: rot_curse
   - type: TargetAction
     deselectOnMiss: true
   - type: EntityTargetAction
