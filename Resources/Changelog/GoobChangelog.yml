@@ -15199,3 +15199,17 @@ Entries:
       message: Lollypops now gets consumed over time if you put them in mouth.
   id: 1699
   time: '2025-09-20T07:31:45.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Add
+      message: >-
+        Added Rocket Chairs, which can be crafted by attaching fire
+        extinguishers to office chairs.
+    - type: Add
+      message: >-
+        Office chairs now give you an ability that lets you launch yourself off
+        surfaces.
+    - type: Add
+      message: You can now use fire extinguishers to launch office chairs around.
+  id: 1700
+  time: '2025-09-20T12:46:33.0000000+00:00'
