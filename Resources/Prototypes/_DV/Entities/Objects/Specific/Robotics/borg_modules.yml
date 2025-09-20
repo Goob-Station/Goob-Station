@@ -1,0 +1,91 @@
+# SPDX-FileCopyrightText: 2025 AgentePanela <agentepanela@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseBorgModuleSecurity
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSecurity
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/borgmodule.rsi
+
+# Security Modules
+
+- type: entity
+  id: BorgModuleSecurityPeacekeeper # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: peacekeeper cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-peacekeeper
+  - type: ItemBorgModule
+    moduleId: SecurityPeacekeeper
+    items:
+    - WoodBaton
+    - SecurityWhistle
+
+- type: entity
+  id: BorgModuleSecurityPatrol # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: patrol cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-patrol
+  - type: ItemBorgModule
+    moduleId: SecurityPatrol
+    items:
+    - FlashlightSecliteRecharging
+    - SecurityWhistle
+
+- type: entity
+  id: BorgModuleSecurityBastion # Peacekeeper Set, Available on Round Start
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: bastion cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-hold
+  - type: ItemBorgModule
+    moduleId: SecurityBastion
+    items:
+    - HoloprojectorSecurityRecharging
+
+- type: entity
+  id: BorgModuleSecurityDeescalate # Research Locked - AdvancedRiotControl
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: de-escalation cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-detain
+  - type: ItemBorgModule
+    moduleId: SecurityDeescalate
+    items:
+    - StunbatonSelfCharging
+    - FlashRecharging
+
+- type: entity
+  id: BorgModuleSecurityChase # Research Locked - EnergyGunsAdvanced
+  parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: chase cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-chase
+  - type: ItemBorgModule
+    moduleId: SecurityChase
+    items:
+    - WeaponLaserCarbineRecharging # Goob edit
+    - WeaponDisablerRecharging # Goob edit

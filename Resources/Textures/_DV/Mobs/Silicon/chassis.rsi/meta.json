@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "From Security Borg taken from vgstation at https://github.com/vgstation-coders/vgstation13/blob/3a9e07249b31814233b400f0343435f5a2f5e14c/icons/mob/robots.dmi",
+  "states": [
+    {
+      "name": "security",
+      "directions": 4
+    },
+    {
+      "name": "security_e",
+      "directions": 4
+    },
+    {
+      "name": "security_e_r",
+      "directions": 4
+    },
+    {
+      "name": "security_l",
+      "directions": 4
+    }
+
+  ]
+}
