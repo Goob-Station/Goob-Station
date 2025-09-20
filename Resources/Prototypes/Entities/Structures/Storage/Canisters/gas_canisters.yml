@@ -187,6 +187,8 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: Paintable
+      group: Canisters
 
 - type: entity
   parent: GasCanister

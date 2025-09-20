@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 
@@ -52,8 +52,8 @@ public sealed partial class HereticAbilitySystem
             if (!bloodQuery.TryComp(target, out var blood))
                 continue;
 
-            _blood.TryModifyBloodLevel(target, args.BloodModifyAmount, blood);
-            _blood.TryModifyBleedAmount(target, blood.MaxBleedAmount, blood);
+            _blood.TryModifyBloodLevel((target, blood), args.BloodModifyAmount);
+            _blood.TryModifyBleedAmount((target, blood), blood.MaxBleedAmount);
         }
 
         if (hasTargets)

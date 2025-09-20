@@ -14,10 +14,10 @@ using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Server.Repairable;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Repairable;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 

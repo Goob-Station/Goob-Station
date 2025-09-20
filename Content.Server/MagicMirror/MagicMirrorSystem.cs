@@ -215,7 +215,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
         if (component.Target is not { } target)
             return;
 
-                // Check if the target getting their hair altered has any clothes that hides their hair
+        // Check if the target getting their hair altered has any clothes that hides their hair
         if (CheckHeadSlotOrClothes(message.Actor, component.Target.Value))
         {
             _popup.PopupEntity(

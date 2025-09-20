@@ -47,12 +47,9 @@
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
-
-  contrabandInventory: # Goobstation
-    ClothingOuterDavidsJacket: 1
-
-  emaggedInventory:
+  contrabandInventory: 
+    ClothingOuterDavidsJacket: 1 # Goobstation
     ClothingNeckScarfStripedSyndieGreen: 3
     ClothingNeckScarfStripedSyndieRed: 3
-    ClothingNeckScarfStripedCentcom: 3
-    ClothingOuterCoatSpaceAsshole: 1
+    ClothingNeckScarfStripedCentcom: 3 # Goobstation
+    ClothingOuterCoatSpaceAsshole: 1 # Goobstation

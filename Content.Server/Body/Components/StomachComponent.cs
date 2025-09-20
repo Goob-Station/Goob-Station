@@ -15,6 +15,7 @@
 
 using Content.Server.Body.Systems;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;

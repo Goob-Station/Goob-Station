@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Salvage.Expeditions.Modifiers;
 
@@ -12,5 +13,5 @@ public interface IBiomeSpecificMod : ISalvageMod
     /// <summary>
     /// Whitelist for biomes. If null then any biome is allowed.
     /// </summary>
-    List<string>? Biomes { get; }
+    List<ProtoId<SalvageBiomeModPrototype>>? Biomes { get; }
 }

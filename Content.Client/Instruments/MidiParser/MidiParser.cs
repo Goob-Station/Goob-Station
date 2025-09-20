@@ -82,54 +82,54 @@ public static class MidiParser
                     return false;
                 }
 
-                var eventType = (byte) (lastStatusByte & 0xF0);
+                var eventType = (byte)(lastStatusByte & 0xF0);
 
                 switch (lastStatusByte)
                 {
                     // Meta events
                     case 0xFF:
-                        {
-                            var metaType = stream.ReadByte();
-                            var metaLength = stream.ReadVariableLengthQuantity();
-                            var metaData = stream.ReadBytes((int) metaLength);
-                            if (metaType == 0x00) // SequenceNumber event
-                                continue;
+                    {
+                        var metaType = stream.ReadByte();
+                        var metaLength = stream.ReadVariableLengthQuantity();
+                        var metaData = stream.ReadBytes((int)metaLength);
+                        if (metaType == 0x00) // SequenceNumber event
+                            continue;
 
-                            // Meta event types 01 through 0F are reserved for text and all follow the basic FF 01 len text format
-                            if (metaType is < 0x01 or > 0x0F)
-                                break;
-
-                            // 0x03 is TrackName,
-                            // 0x04 is InstrumentName
-
-                            // This string can potentially contain control characters, including 0x00 which can cause problems if it ends up in database entries via admin logs
-                            // we sanitize TrackName and InstrumentName after they have been send to the server
-                            var text = Encoding.ASCII.GetString(metaData, 0, (int) metaLength);
-                            switch (metaType)
-                            {
-                                case 0x03 when track.TrackName == null:
-                                    track.TrackName = text;
-                                    break;
-                                case 0x04 when track.InstrumentName == null:
-                                    track.InstrumentName = text;
-                                    break;
-                            }
-
-                            // still here? then we dont care about the event
+                        // Meta event types 01 through 0F are reserved for text and all follow the basic FF 01 len text format
+                        if (metaType is < 0x01 or > 0x0F)
                             break;
+
+                        // 0x03 is TrackName,
+                        // 0x04 is InstrumentName
+
+                        // This string can potentially contain control characters, including 0x00 which can cause problems if it ends up in database entries via admin logs
+                        // we sanitize TrackName and InstrumentName after they have been send to the server
+                        var text = Encoding.ASCII.GetString(metaData, 0, (int)metaLength);
+                        switch (metaType)
+                        {
+                            case 0x03 when track.TrackName == null:
+                                track.TrackName = text;
+                                break;
+                            case 0x04 when track.InstrumentName == null:
+                                track.InstrumentName = text;
+                                break;
                         }
+
+                        // still here? then we dont care about the event
+                        break;
+                    }
 
                     // SysEx events
                     case 0xF0:
                     case 0xF7:
-                        {
-                            var sysexLength = stream.ReadVariableLengthQuantity();
-                            stream.Skip((int) sysexLength);
-                            // Sysex events and meta-events cancel any running status which was in effect.
-                            // Running status does not apply to and may not be used for these messages.
-                            lastStatusByte = null;
-                            break;
-                        }
+                    {
+                        var sysexLength = stream.ReadVariableLengthQuantity();
+                        stream.Skip((int)sysexLength);
+                        // Sysex events and meta-events cancel any running status which was in effect.
+                        // Running status does not apply to and may not be used for these messages.
+                        lastStatusByte = null;
+                        break;
+                    }
 
 
                     default:
@@ -137,33 +137,33 @@ public static class MidiParser
                         {
                             // Program Change
                             case 0xC0:
+                            {
+                                var programNumber = stream.ReadByte();
+                                if (track.ProgramName == null)
                                 {
-                                    var programNumber = stream.ReadByte();
-                                    if (track.ProgramName == null)
-                                    {
-                                        if (programNumber < Enum.GetValues<MidiInstrument>().Length)
-                                            track.ProgramName = Loc.GetString($"instruments-component-menu-midi-channel-{((MidiInstrument) programNumber).GetStringRep()}");
-                                    }
-                                    break;
+                                    if (programNumber < Enum.GetValues<MidiInstrument>().Length)
+                                        track.ProgramName = Loc.GetString($"instruments-component-menu-midi-channel-{((MidiInstrument)programNumber).GetStringRep()}");
                                 }
+                                break;
+                            }
 
                             case 0x80: // Note Off
                             case 0x90: // Note On
                             case 0xA0: // Polyphonic Key Pressure
                             case 0xB0: // Control Change
                             case 0xE0: // Pitch Bend
-                                {
-                                    hasMidiEvent = true;
-                                    stream.Skip(2);
-                                    break;
-                                }
+                            {
+                                hasMidiEvent = true;
+                                stream.Skip(2);
+                                break;
+                            }
 
                             case 0xD0: // Channel Pressure
-                                {
-                                    hasMidiEvent = true;
-                                    stream.Skip(1);
-                                    break;
-                                }
+                            {
+                                hasMidiEvent = true;
+                                stream.Skip(1);
+                                break;
+                            }
 
                             default:
                                 error = $"Unknown MIDI event type {lastStatusByte:X2}";

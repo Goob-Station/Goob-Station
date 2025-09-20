@@ -74,7 +74,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] protected readonly SharedStatusEffectsSystem Status = default!;
+    [Dependency] protected readonly StatusEffectsSystem Status = default!;
 
     private EntityQuery<StackComponent> _stackQuery;
 

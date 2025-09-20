@@ -24,6 +24,8 @@ namespace Content.Client.SurveillanceCamera.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goobstation
 {
+    private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private IEntityManager _entManager = default!; // Goobstation
@@ -49,7 +51,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
         // This could be done better. I don't want to deal with stylesheets at the moment.
         var texture = _resourceCache.GetTexture("/Textures/Interface/Nano/square_black.png");
-        var shader = _prototypeManager.Index<ShaderPrototype>("CameraStatic").Instance().Duplicate();
+        var shader = _prototypeManager.Index(CameraStaticShader).Instance().Duplicate();
 
         CameraView.ViewportSize = new Vector2i(770, 770);
         CameraView.Eye = _defaultEye; // sure

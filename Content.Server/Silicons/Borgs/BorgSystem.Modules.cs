@@ -220,7 +220,7 @@ public sealed partial class BorgSystem
             else
             {
                 item = component.ProvidedContainer.ContainedEntities
-                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto);
+                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto.Id);
                 if (!item.IsValid())
                 {
                     Log.Debug($"no items found: {component.ProvidedContainer.ContainedEntities.Count}");
