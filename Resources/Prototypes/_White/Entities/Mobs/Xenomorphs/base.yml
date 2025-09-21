@@ -46,7 +46,6 @@
   - type: Deathgasp
     prototype: XenomorphDeathgasp
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: xenomorph

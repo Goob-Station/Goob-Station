@@ -6,3 +6,4 @@ name-identifier-format-positronic-brain = PB-{$number}
 name-identifier-format-silicon = Si-{$number}
 name-identifier-format-station-ai = AI-{$number}
 name-identifier-format-telepad = TELE-{$number}
+name-identifier-format-drone = DR-{$number}

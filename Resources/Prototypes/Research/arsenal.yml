@@ -303,9 +303,10 @@
   cost: 10000
   recipeUnlocks:
   - ClothingBackpackHarmpack
-  technologyPrerequisites:
-  - Shuttlecraft  # Goobstation R&D Console rework
-  position: 50,-1  # Goobstation R&D Console rework
+  technologyPrerequisites: # Goobstation R&D Console rework
+  - SmartWeaponry
+  - SpecialMeans
+  position: 5, 3 # Goobstation R&D Console rework
 
 # Tier 3
 

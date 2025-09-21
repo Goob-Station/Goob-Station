@@ -980,8 +980,6 @@
         variation: 0.125
     Clap:
       collection: Claps
-    ClapSingle:
-      collection: ClapSingle
     Snap:
       collection: Snaps
       params:

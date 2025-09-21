@@ -462,6 +462,7 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
+  - type: HideLayerClothing
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker

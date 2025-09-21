@@ -51,7 +51,7 @@
     - PersonalAI
 
 - type: loadout
-  id: GoldPersonalAI
+  id: GoldenPersonalAI
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -60,7 +60,7 @@
       time: 180000 # 50 hrs
   storage:
     back:
-    - GoldPersonalAI
+    - GoldenPersonalAI
 
 # Cheap Sunglasses
 - type: loadout

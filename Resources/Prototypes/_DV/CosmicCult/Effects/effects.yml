@@ -71,7 +71,6 @@
   - type: Sprite
     netsync: false
     drawdepth: Mobs
-    shader: unshaded
   - type: Tag
     tags:
     - HideContextMenu

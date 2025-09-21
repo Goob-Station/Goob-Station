@@ -176,11 +176,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
-
-
+    noRot: true
 
 - type: entity
   parent: BaseBinglePlushie
@@ -189,10 +187,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingleing
-
+    noRot: true
 
 - type: entity
   parent: BaseBinglePlushie
@@ -201,10 +198,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
-
+    noRot: true
 
 - type: entity
   parent: BasePlushie
@@ -213,7 +209,7 @@
   description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bongle
 
@@ -224,7 +220,7 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingle_pony
 
