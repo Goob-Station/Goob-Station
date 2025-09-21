@@ -291,6 +291,14 @@
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Devourer
+    devourAction: ActionDevourLootbug
+    foodPreferenceWhitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
     stomachStorageWhitelist:
       components:
       - Item

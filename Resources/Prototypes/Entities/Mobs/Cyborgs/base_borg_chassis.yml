@@ -430,6 +430,7 @@
     - CanPilot
     - Unimplantable
     - SiliconMob
+    - SiliconEmotes
   - type: Emoting
   - type: GuideHelp
     guides:

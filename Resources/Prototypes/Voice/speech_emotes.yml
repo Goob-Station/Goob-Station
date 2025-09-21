@@ -134,6 +134,7 @@
     requireAll: true
     components:
     - Vocal
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
@@ -151,7 +152,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
@@ -168,7 +169,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
@@ -185,7 +186,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
@@ -206,7 +207,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
@@ -224,7 +225,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
@@ -242,7 +243,7 @@
     components:
       - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
@@ -260,7 +261,7 @@
     components:
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
@@ -277,7 +278,7 @@
     components:
     - Hands
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
@@ -294,7 +295,7 @@
     components:
     - Hands
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-snap"] # snaps <{THEIR($ent)}> fingers?
   chatTriggers:
@@ -318,7 +319,7 @@
     components:
     - Hands
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
@@ -342,7 +343,7 @@
     components:
     - Hands
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
@@ -371,6 +372,7 @@
   blacklist: #Goobstation - Replace deathgasp for IPCs and cyborgs
     components:
     - Silicon
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
@@ -397,6 +399,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
+    tags:
     - SiliconEmotes
   chatTriggers:
     - buzzing
@@ -412,10 +415,10 @@
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
     tags:
-      - ReptilianEmotes # Goob - restrict wehs to the OG lizz
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
-    components:
-      - SiliconEmotes
+    tags:
+    - SiliconEmotes
   chatTriggers: # Floof - you can weh now
     - weh
     - wehs
@@ -438,7 +441,7 @@
     - Nymph
     - Vocal
   blacklist:
-    components:
+    tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
@@ -457,8 +460,9 @@
   whitelist: #Goobstation - IPCs, C4 sentience
     components:
     - Silicon
-    - SiliconEmotes
     - Explosive
+    tags:
+    - SiliconEmotes
   chatTriggers:
     - beep
     - beeps
@@ -474,6 +478,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
+    tags:
     - SiliconEmotes
   chatTriggers:
     - chime
@@ -490,6 +495,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
+    tags:
     - SiliconEmotes
   chatTriggers:
     - buzztwice
@@ -512,6 +518,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
+    tags:
     - SiliconEmotes
   chatTriggers:
     - ping

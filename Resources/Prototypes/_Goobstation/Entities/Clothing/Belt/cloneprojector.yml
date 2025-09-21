@@ -80,6 +80,7 @@
       - CanPilot
       - DoorBumpOpener
       - Unimplantable
+      - SiliconEmotes
     removedComponents:
     - type: Destructible
     - type: SurgeryTarget

@@ -13,12 +13,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <BoxContainer Margin="8,0,8,8" Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
             <Label Name="StoreItemName" HorizontalExpand="True" />
-            <!-- goob edit - fuck newstore -->
-            <Button
-                Name="StoreItemBuyButton"
-                MinWidth="64"
-                HorizontalAlignment="Right"
-                Access="Public" />
         </BoxContainer>
         <PanelContainer StyleClasses="HighDivider" Margin="0,1,0,2"/>
         <BoxContainer HorizontalExpand="True" Orientation="Horizontal">

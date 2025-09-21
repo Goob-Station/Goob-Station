@@ -11,8 +11,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
-using Content.Shared.Item; // Goobstation
-using Content.Shared.Nutrition.Components; // Goobstation
 
 namespace Content.Shared.Devour;
 
@@ -88,17 +86,6 @@ public sealed class DevourSystem : EntitySystem
 
             return;
         }
-
-        // Goobstation start - Consumable devouring (food/drink only)
-        if (HasComp<DrinkComponent>(target) || HasComp<ItemComponent>(target))
-        {
-            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DevourTime, new DevourDoAfterEvent(), ent.Owner, target: target, used: ent.Owner)
-            {
-                BreakOnMove = true,
-            });
-            return;
-        }
-        // Goobstation end
 
         _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-structure"), ent.Owner, ent.Owner);
 
