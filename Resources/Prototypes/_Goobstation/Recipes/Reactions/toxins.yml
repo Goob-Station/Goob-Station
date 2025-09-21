@@ -87,3 +87,17 @@
       amount: 1
   products:
     Tirizene: 2
+
+- type: reaction
+  id: Honk
+  impact: Medium
+  minTemp: 420
+  reactants:
+    Uranium:
+      amount: 2
+    JuiceBanana:
+      amount: 1
+    SpaceLube:
+      amount: 1
+  products:
+    Honk: 4
