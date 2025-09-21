@@ -46,7 +46,7 @@ public sealed partial class CursedBlindSystem : EntitySystem
                 if (TryComp<BlindableComponent>(uid, out var blindable))
                 {
                     _blindable.AdjustEyeDamage((uid, blindable), 1);
-                    _popup.PopupPredicted("target-curse-blind-worsen", uid, uid);
+                    _popup.PopupClient("Your eyesight worsens...", uid, uid);
                 }
 
                 // Aplly full bloom upon hitting max stacks.
@@ -62,10 +62,11 @@ public sealed partial class CursedBlindSystem : EntitySystem
     {
         if (HasComp<WraithComponent>(args.Examiner))
         {
-            args.PushMarkup(
-                $"[color=mediumpurple]{Loc.GetString("wraith-cursed-blind", ("target", ent.Owner))}[/color]");
-            args.PushMarkup(
-                $"Blindness stacks: {ent.Comp.BlindnessStacks}/{ent.Comp.MaxStacks}");
+            var bloomText = ent.Comp.BlindCurseFullBloom
+               ? "The curse of blindness has fully bloomed."
+               : "The curse of blindness has yet to fully bloom.";
+
+            args.PushMarkup($"[color=mediumpurple]{bloomText}[/color]");
         }
     }
 

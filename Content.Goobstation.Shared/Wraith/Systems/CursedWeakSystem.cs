@@ -50,7 +50,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
                     comp.WeakCurseFullBloom = true;
                 }
 
-                _popup.PopupPredicted(Loc.GetString("Your body feels heavy..."), uid, uid);
+                _popup.PopupClient(Loc.GetString("Your body feels heavy..."), uid, uid);
                 _stamina.TakeOvertimeStaminaDamage(uid, comp.StaminaDamageAmount);
 
                 // Schedule next stamina tick
@@ -63,7 +63,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
                 if (comp.SleepTimeAmount < comp.SleepTimeMax)
                     comp.SleepTimeAmount += comp.SleepTimeIncrease;
 
-                _popup.PopupPredicted(Loc.GetString("You feel drowsy. Maybe now is a good time for a nap..."), uid, uid);
+                _popup.PopupClient(Loc.GetString("You feel drowsy. Maybe now is a good time for a nap..."), uid, uid);
                 _statusEffects.TryAddStatusEffect(uid, comp.ForcedSleep, out _, comp.SleepTimeAmount);
 
                 // Schedule next drowsy tick
@@ -76,9 +76,6 @@ public sealed partial class CursedWeakSystem : EntitySystem
         if (HasComp<WraithComponent>(args.Examiner))
         {
             //Tells the wraith that the target is cursed, and if the curse has fully bloomed or not.
-            args.PushMarkup(
-            $"[color=mediumpurple]{Loc.GetString("wraith-cursed-weak", ("target", ent.Owner))}[/color]");
-
             var bloomText = ent.Comp.WeakCurseFullBloom
                 ? "The curse of weakness has fully bloomed."
                 : "The curse of weakness has yet to fully bloom.";

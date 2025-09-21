@@ -34,6 +34,7 @@
   - type: SpookMark
   - type: CurseOfBlindness
   - type: CurseOfWeakness
+  - type: CurseOfBlood
   - type: WraithCommand
     blacklist:
       components:
@@ -66,6 +67,7 @@
     - ActionMakeRevenant
     - ActionCurseBlindness
     - ActionCurseWeakness
+    - ActionCurseBlood
   # - Haunt
   # - ActionGrant
   # actions:
