@@ -25,6 +25,9 @@ public sealed partial class CursedBloodComponent : Component
     /// </summary>
     public TimeSpan NextTickBigPuke = TimeSpan.Zero;
 
+    [DataField]
+    public int BleedAmount = 15;
+
     /// <summary>
     /// Needed for death curse later. Gets set to true once max stacks are in.
     /// </summary>

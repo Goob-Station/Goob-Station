@@ -40,11 +40,12 @@ public sealed partial class CursedBloodSystem : EntitySystem
             // Small puke Timer
             if (curTime >= comp.NextTickPuke)
             {
-                _popup.PopupClient(Loc.GetString("You cough up some blood. Something is wrong..."), uid, uid);
+                _popup.PopupEntity(Loc.GetString("You cough up some blood. Something is wrong..."), uid, uid);
                 //TO DO: Make them puke a litle bit of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(uid, 5f, blood);
+                    _blood.TryModifyBloodLevel(uid, comp.BleedAmount, blood);
+                    _blood.TryModifyBleedAmount(uid, blood.MaxBleedAmount, blood);
                 }
                 // Schedule next puke tick
                 comp.NextTickPuke = curTime + comp.TimeTillPuke;
@@ -57,11 +58,11 @@ public sealed partial class CursedBloodSystem : EntitySystem
                 {
                     comp.BloodCurseFullBloom = true;
                 }
-                _popup.PopupPredicted(Loc.GetString("Blood splatters all over the floor! Nasty!"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("Blood splatters all over the floor! Nasty!"), uid);
                 //TO DO: Make them puke a lot of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(uid, 5f, blood);
+                    _blood.TryModifyBleedAmount(uid, 50f, blood);
                     _blood.SpillAllSolutions(uid, blood);
                 }
                 // Schedule next drowsy tick
@@ -86,6 +87,5 @@ public sealed partial class CursedBloodSystem : EntitySystem
     {
         ent.Comp.NextTickPuke = _timing.CurTime + ent.Comp.TimeTillPuke;
         ent.Comp.NextTickBigPuke = _timing.CurTime + ent.Comp.TimeTillBigPuke;
-        Dirty(ent); // I probably don't need to dirty it since I'm not showing it, but maybe the bool is affected.
     }
 }
