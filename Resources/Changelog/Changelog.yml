@@ -4474,3 +4474,11 @@
   id: 8991
   time: '2025-09-21T05:16:17.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40181
+- author: cmorley191
+  changes:
+  - message: Improved reliability of cleanade/grenade launcher rounds and other collision-triggered
+      devices and spells.
+    type: Fix
+  id: 8992
+  time: '2025-09-21T15:23:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40428
