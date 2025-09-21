@@ -352,7 +352,7 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 75
+    earliestStart: 60
     reoccurrenceDelay: 60
     minimumPlayers: 65
     duration: null
@@ -830,7 +830,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 1
+    weight: 2.5
     minimumPlayers: 65
     duration: 1
     chaos: # Goobstation
