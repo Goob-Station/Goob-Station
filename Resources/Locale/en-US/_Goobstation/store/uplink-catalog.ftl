@@ -29,20 +29,20 @@
 
 # Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Voidsuit
-uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic voidsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Hardsuit
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit, from the Gorlex Marauders.
 
-uplink-hardsuit-syndiecommander-name = Gorlex Commander Voidsuit
-uplink-hardsuit-syndiecommander-desc = A surplus commander voidsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Voidsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this voidsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default voidsuits.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
+uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armored than other hardsuits.
 
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat voidsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
 
 # Misc
 
@@ -202,21 +202,27 @@ uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
 uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
 
 uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
-uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those with flash protection.
 
 uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
+uplink-estoc-ammo-name = Rifle Magazine (.20 rifle)
+uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc.
+
 # Grenades
 
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
-uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
+uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff as well as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off.
 
 uplink-M172LAW-name = M172 Light Anti-structure Weapon
 uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
 
 uplink-RPOA-name = RPO-A 'Shmel'
 uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
+
+uplink-ExplosivePayloadBlueprint-name = Explosive Payload Blueprint
+uplink-ExplosivePayloadBlueprint-desc = A blueprint that will allow a single lathe to print explosive payloads, an illegal and dangerous device that can be used in grenades.
 
 # Mechs
 
@@ -329,3 +335,5 @@ uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of 
 uplink-bloodred-casette-name = Bloodred Casette Player
 uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
+uplink-syndiedrobe-name = Syndiedrobe
+uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.

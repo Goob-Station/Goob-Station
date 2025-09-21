@@ -89,6 +89,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -115,7 +116,7 @@ using Content.Goobstation.Shared.Chemistry;
 namespace Content.Server.Chemistry.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class VaporSystem : EntitySystem
+    public sealed class VaporSystem : EntitySystem // Goobstation: Made this public instead of internal. Cry about it.
     {
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
@@ -134,7 +135,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
         {
-            if (!EntityManager.TryGetComponent(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
+            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
 
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
             {
@@ -151,7 +152,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // Check for collision with a impassable object (e.g. wall) and stop
             if ((args.OtherFixture.CollisionLayer & (int)CollisionGroup.Impassable) != 0 && args.OtherFixture.Hard)
             {
-                EntityManager.QueueDeleteEntity(entity);
+                QueueDel(entity);
             }
         }
 
@@ -168,7 +169,7 @@ namespace Content.Server.Chemistry.EntitySystems
             despawn.Lifetime = aliveTime;
 
             // Set Move
-            if (EntityManager.TryGetComponent(vapor, out PhysicsComponent? physics))
+            if (TryComp(vapor, out PhysicsComponent? physics))
             {
                 _physics.SetLinearDamping(vapor, physics, 0f);
                 _physics.SetAngularDamping(vapor, physics, 0f);
@@ -181,7 +182,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
         }
 
-        internal bool TryAddSolution(Entity<VaporComponent> vapor, Solution solution)
+        public bool TryAddSolution(Entity<VaporComponent> vapor, Solution solution) // Goobstation: Made this public instead of internal.
         {
             if (solution.Volume == 0)
             {
@@ -257,7 +258,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
                         // Delete the vapor entity if it has no contents
                         if (contents.Volume == 0)
-                            EntityManager.QueueDeleteEntity(uid);
+                            QueueDel(uid);
 
                     }
 

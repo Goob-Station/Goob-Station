@@ -248,6 +248,46 @@
   - UplinkWeaponry
 
 
+#- type: listing
+#  id: UplinkHyperEutacticBlade
+#  name: uplink-hypereutactic-blade-name
+#  description: uplink-hypereutactic-blade-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
+#  productEntity: HyperEutacticBlade
+#  cost:
+#    Telecrystal: 74 # goob - desword is 74 and this should be the same
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+
+#- type: listing
+#  id: UplinkHyperEutaticBlade
+#  name: uplink-hypereutatic-blade-name
+#  description: uplink-hypereutatic-blade-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
+#  productEntity: HyperEutaticBlade
+#  cost:
+#    Telecrystal: 74 # goob - same as double energy sword
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
@@ -833,7 +873,7 @@
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 10 #goob
   categories:
   - UplinkChemicals
 
@@ -844,7 +884,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 12 # Goobstation - Combat pen rebalance
+    Telecrystal: 8 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 
@@ -1185,7 +1225,7 @@
   categories:
   - UplinkDisruption
 # Goob - Antimov was given the same price for traitors and nukies
-#  conditions:                     
+#  conditions:
 #  - !type:StoreWhitelistCondition
 #     blacklist:
 #       tags:
@@ -1205,7 +1245,7 @@
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - NukeOpsUplink 
+#      - NukeOpsUplink
 
 
 

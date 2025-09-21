@@ -75,7 +75,7 @@ public sealed class LaserPointerSystem : SharedLaserPointerSystem
 
         Vector2? dir = mousePos == null ? null : mousePos.Value.Position - _transform.GetWorldPosition(xform);
 
-        foreach (var held in _hands.EnumerateHeld(player, hands))
+        foreach (var held in _hands.EnumerateHeld((player, hands)))
         {
             if (!HasComp<LaserPointerComponent>(held))
                 continue;
