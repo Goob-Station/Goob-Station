@@ -57,7 +57,6 @@
     - MiscSignallersStatic
     - NailgunStatic
     - NailsStatic
-    - ConstructionBag
     dynamicPacks:
     - ConstructionBagOfHolding
     - AdvancedTools
@@ -120,7 +119,6 @@
     - MiningToolsStatic
     - MiscSignallersStatic
     - CargoStatic
-    - ConstructionBag
     dynamicPacks:
     - AdvancedTools
     - Mining
