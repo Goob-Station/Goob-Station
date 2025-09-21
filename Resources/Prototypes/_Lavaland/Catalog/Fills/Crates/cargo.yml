@@ -12,3 +12,21 @@
   - type: StorageFill
     contents:
     - id: GatewayFlatpackLavaland
+
+- type: entity
+  id: CrateCargoClarkeAssembly
+  name: clarke assembly crate
+  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
+  parent: CratePrivateSecure
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClarkeHarness
+    - id: ClarkeHead
+    - id: ClarkeLArm
+    - id: ClarkeRArm
+    - id: ClarkeTreads
+    - id: ClarkeCentralElectronics
+    - id: ClarkePeripheralsElectronics
+    - id: MechAirTank
+    - id: MechThruster
