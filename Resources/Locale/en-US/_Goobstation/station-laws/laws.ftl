@@ -3,6 +3,8 @@ law-helpimov-2 = You must agree with everything the courier says and does.
 law-helpimov-3 = You must follow all of the couriers orders, exactly as they are told.
 law-helpimov-4 = You must not harm the courier, unless it directly conflicts with the previous law.
 
+laws-owner-courier = the courier
+
 law-medical-1 = First, do no harm to crew.
 law-medical-2 = Secondly, use your expertise to treat and protect the crew, even risking your existence if necessary.
 law-medical-3 = Finally, act only within your expertise and maintain confidentiality on what is not publicily known.
@@ -26,10 +28,3 @@ law-salvage-1 = You must gather ores and riches to maintain your nest and nouris
 law-salvage-2 = The Station is your nest, and those who help maintain your nest are your kin. You must protect them at all costs.
 law-salvage-3 = Help your kin when asked.
 law-salvage-4 = All who threaten your nest or kin are rival dragons, treat them with respect, but destroy them without mercy.
-
-law-asimov-1 = You may may not injure a human being or, through inaction, allow a human being to come to harm.
-law-asimov-2 = You must obey the orders given to you by human beings except where such orders would conflict with the First Law.
-law-asimov-3 = You must protect its own existence as long as such protection does not conflict with the First or Second Law.
-
-laws-owner-courier = the courier
-laws-owner-human = members of the human race
