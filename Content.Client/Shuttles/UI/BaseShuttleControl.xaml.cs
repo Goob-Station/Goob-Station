@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -123,6 +126,16 @@ public partial class BaseShuttleControl : MapGridControl
             handle.DrawLine(origin - aExtent, origin + aExtent, lineColor);
         }
     }
+
+    // Frontier Corvax: north line drawing
+    protected void DrawNorthLine(DrawingHandleScreen handle, Angle angle)
+    {
+        var origin = ScalePosition(-new Vector2(Offset.X, -Offset.Y));
+        var aExtent = (angle - Math.Tau / 4).ToVec() * ScaledMinimapRadius * 1.42f;
+        var lineColor = Color.Red.WithAlpha(0.1f);
+        handle.DrawLine(origin, origin + aExtent, lineColor);
+    }
+    // End Frontier Corvax
 
     protected void DrawGrid(DrawingHandleScreen handle, Matrix3x2 gridToView, Entity<MapGridComponent> grid, Color color, float alpha = 0.01f)
     {
