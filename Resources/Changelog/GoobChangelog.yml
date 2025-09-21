@@ -15345,3 +15345,9 @@ Entries:
       message: 'You can no longer clone Vox and IPCs. '
   id: 1716
   time: '2025-09-21T07:16:35.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Pots are no longer items.
+  id: 1717
+  time: '2025-09-21T15:14:14.0000000+00:00'
