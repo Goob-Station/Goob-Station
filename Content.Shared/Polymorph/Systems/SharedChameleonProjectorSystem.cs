@@ -26,6 +26,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Humanoid; // Goobstation  - added for morph
+using Content.Shared.Interaction.Components; // Goobstation  - added for morph
 using Content.Shared.Inventory; // Goobstation - added for morph
 
 namespace Content.Shared.Polymorph.Systems;
