@@ -4466,3 +4466,11 @@
   id: 8990
   time: '2025-09-20T19:00:22.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40334
+- author: PJB3005
+  changes:
+  - message: Fixed stuff like camera views causing your computer to melt, explode,
+      and then collapse into a black hole.
+    type: Fix
+  id: 8991
+  time: '2025-09-21T05:16:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40181
