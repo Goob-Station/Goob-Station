@@ -41,10 +41,10 @@
     lastVisibility: 0.2
   - type: Jump
     jumpAction: ActionJumpXenomorph
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to organ
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnResinWeedNode
   - type: VentCrawler
   - type: Cuffable
   - type: Body

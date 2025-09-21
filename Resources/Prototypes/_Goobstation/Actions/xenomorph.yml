@@ -1,0 +1,23 @@
+- type: entity
+  id: ActionSpawnResinDoor
+  parent: BaseAction
+  name: Build a resin door (75)
+  description: Secrete tough malleable resin.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite :  _RMC14/Structures/Xenos/xeno_resin_door.rsi, state: resin }
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: ResinDoor
+      length: 0.5
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
+  - type: PlasmaCostAction
+    plasmaCost: 75

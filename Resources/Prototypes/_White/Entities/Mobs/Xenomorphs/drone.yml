@@ -19,14 +19,13 @@
       visible: false
   - type: Xenomorph
     caste: Drone
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnWallResin
-#    - ActionSpawnResinMembrane # Goobstation - removed
-    - ActionSpawnResinDoor # Goobstation - xeno doors
-    - ActionSpawnResinNest
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to orgnas
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnWallResin
+  #  - ActionSpawnResinMembrane # no membrane its for chuds
+  #  - ActionSpawnResinNest
+  #  - ActionSpawnResinWeedNode
   - type: VentCrawler
   - type: Cuffable
   - type: Body

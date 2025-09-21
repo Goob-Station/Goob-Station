@@ -12,6 +12,10 @@
   abstract: true
   id: SurgeryBase
   components:
+  - type: SurgeryPartComponentCondition
+    inverse: true # regular surgeries can't be done on xenos (xeno surgeries are more complex, damage the user and have unique flavour text)
+    components:
+    - type: XenoBodyPart
   - type: Surgery
 
 - type: entity
@@ -84,7 +88,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemovePart
-  name: Remove Part
+  name: Amputate
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision

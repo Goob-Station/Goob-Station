@@ -678,11 +678,15 @@ public abstract partial class SharedSurgerySystem
 
     private void OnSurgeryTargetStepChosen(Entity<SurgeryTargetComponent> ent, ref SurgeryStepChosenBuiMsg args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var user = args.Actor;
         if (GetEntity(args.Entity) is {} body &&
             GetEntity(args.Part) is {} targetPart)
         {
-            TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step);
+            TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step, out var error);
+            Log.Debug($"{args.Surgery} {args.Step} -> {error}");
         }
     }
     #endregion

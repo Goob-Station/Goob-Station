@@ -7,9 +7,6 @@ namespace Content.Shared._White.Xenomorphs.Acid.Components;
 public sealed partial class XenomorphAcidComponent : Component
 {
     [DataField]
-    public EntProtoId AcidActionId = "ActionAcid";
-
-    [DataField]
     public EntProtoId AcidId = "XenomorphAcid";
 
     [DataField]
@@ -17,7 +14,4 @@ public sealed partial class XenomorphAcidComponent : Component
 
     [DataField]
     public DamageSpecifier DamagePerSecond;
-
-    [ViewVariables]
-    public EntityUid? AcidAction;
 }
