@@ -107,8 +107,10 @@
         - Anchorable
         - Item
         - MobState
+        - Supermatter # needs to be here.
     blacklist:
       components:
+        - Morph # cant copy another morph
         - ChameleonDisguiser
         - Pda
         - NukeDisk
@@ -140,6 +142,12 @@
     rootTask:
       task: SimpleHostileCompound
   - type: VentCrawler
+  - type: CrawlUnderObjects # copied from rodentiaa so it can hide under tables
+    actionProto: ActionToggleSneakMode
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: BaseAction

@@ -276,6 +276,18 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
                 if (proto is not null) //proto was a little moody so had to add a check for it
                     _inventory.SpawnItemInSlot(disguise, slot.Name, proto.ID, true,true);
             }
+
+            if (TryComp<InventoryComponent>(disguise, out var disguiseInventory))
+            {
+                foreach (var slot in disguiseInventory.Slots)
+                {
+                    if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
+                        continue;
+
+                    EnsureComp<UnremoveableComponent>(slotEntity.Value); // to make sure the item cant be taken away
+                }
+            }
+
         }
 
         //goob end
