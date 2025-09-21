@@ -206,14 +206,14 @@
   components:
   - type: StationEvent
     weight: 1
-    earliestStart: 60
-    minimumPlayers: 65
+    earliestStart: 45
+    minimumPlayers: 50
     duration: null
     maxOccurrences: 1
     chaos:
-      Hostile: 600
-      Medical: 600
-      Death: 600
+      Hostile: 400
+      Medical: 400
+      Death: 400
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 1000
