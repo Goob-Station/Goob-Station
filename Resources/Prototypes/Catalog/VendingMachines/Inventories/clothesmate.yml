@@ -144,8 +144,29 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
-    ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
-    ClothingShoesSandals: 1 # Goobstation
+    ClothingUniformJumpskirtDressOpenShoulder: 1 # --- Goobstation section starts here ---
+    ClothingShoesSandals: 1 
+    ClothingOuterCoatBomberPunkRed: 3
+    ClothingOuterCoatJacketLeather: 3
+    ClothingOuterCoatJacketBiker: 3
+    ClothingOuterCoatJacketJamrock: 3
+    ClothingOuterCoatBomberAerostatic: 3
+    ClothingOuterCoatJacketLettermanBlue: 3
+    ClothingOuterCoatJacketLettermanBrown: 3
+    ClothingOuterCoatJacketLettermanRed: 3
+    ClothingOuterCoatJacketLettermanMagenta: 3
+    ClothingOuterCoatBomberPinkSleeves: 3
+    ClothingNeckCloakCOG: 3
+    ClothingShoesClothwrap: 3
+    ClothingNeckPonchoBlack: 3
+    ClothingNeckPonchoBlackStripe: 3
+    ClothingNeckPonchoArctic: 3
+    ClothingNeckPonchoSyndicate: 3
+    ClothingNeckPonchoSmallPink: 3
+    ClothingNeckPonchoSmallRed: 3
+    ClothingNeckPonchoSmallPurple: 3
+    ClothingNeckPonchoSmallBlack: 3
+    ClothingNeckPonchoSmallWhite: 3 # --- Goobstation section ends here ---
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
