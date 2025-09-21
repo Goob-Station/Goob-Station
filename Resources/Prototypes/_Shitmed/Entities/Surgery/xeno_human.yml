@@ -8,7 +8,7 @@
   id: BaseSurgeryOpenXenoCavity
   components:
   - type: Surgery
-    requirement: SurgeryOpenIncision
+    requirement: SurgeryOpenIncisionScalpel
     steps:
     - SurgeryStepSawBones
     - SurgeryStepGraftXenoSample
@@ -82,7 +82,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertHiveNode
     - SurgeryStepSealOrganWound
@@ -99,7 +99,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertResinSpinner
     - SurgeryStepSealOrganWound
@@ -116,7 +116,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertNeurotoxinGland
     - SurgeryStepSealOrganWound
@@ -133,7 +133,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertAcidGland
     - SurgeryStepSealOrganWound
@@ -150,7 +150,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertPlasmaVessel
     - SurgeryStepSealOrganWound
@@ -169,7 +169,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepInsertEggSack
     - SurgeryStepSealOrganWound

@@ -189,6 +189,7 @@ public partial class SharedBodySystem
         }
         // </Shitmed>
 
+        Log.Debug($"{ToPrettyString(insertedUid)} inserted into {ToPrettyString(ent)} ({ToPrettyString(ent.Comp.Body})");
         var body = ent.Comp.Body; // Shitmed Change
         if (body is null)
             return;

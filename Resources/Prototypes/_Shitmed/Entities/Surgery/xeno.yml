@@ -305,6 +305,9 @@
     - SurgeryStepXenoOpenIncision
     - SurgeryStepXenoNeutralizeAcid
     - SurgeryStepXenoTakeSample
+  - type: SurgeryBodyComponentCondition
+    components:
+    - type: Xenomorph
   - type: SurgeryPartComponentCondition
     inverse: false
     components:
