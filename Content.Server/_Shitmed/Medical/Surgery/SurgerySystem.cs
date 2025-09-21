@@ -62,7 +62,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         _surgeries.Clear();
         foreach (var part in _body.GetBodyChildren(body))
         {
-            var valid = new();
+             valid = new List<EntProtoId>();
             foreach (var surgery in AllSurgeries)
             {
                 if (GetSingleton(surgery) is not { } surgeryEnt)
