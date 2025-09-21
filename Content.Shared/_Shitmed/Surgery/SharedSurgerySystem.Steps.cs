@@ -685,7 +685,7 @@ public abstract partial class SharedSurgerySystem
         if (GetEntity(args.Entity) is {} body &&
             GetEntity(args.Part) is {} targetPart)
         {
-            TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step, out var error);
+            TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step);
         }
     }
     #endregion

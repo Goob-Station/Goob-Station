@@ -285,7 +285,7 @@
       components: # should cover all the bases (no IPCs)
       - Body
       - Bloodstream
-      - DNA
+      - Dna
   - type: ComponentsImplant
     added:
     - type: XenoCompatible

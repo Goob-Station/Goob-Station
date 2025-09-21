@@ -54,7 +54,7 @@
   - type: Surgery
     requirement: SurgeryOpenIncision # change to ribcage for chest
     steps:
-    - SurgeryStepOpenIncision
+    - SurgeryStepOpenIncisionScalpel
     - SurgeryStepClampBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
