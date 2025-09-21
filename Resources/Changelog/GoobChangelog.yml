@@ -15323,3 +15323,25 @@ Entries:
         allow Head Revolutionaries to use them for conversion.
   id: 1712
   time: '2025-09-20T18:28:50.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Salvage can no longer be antagonists.
+  id: 1713
+  time: '2025-09-20T18:54:23.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Drones can now be flashed.
+  id: 1714
+  time: '2025-09-20T19:17:29.0000000+00:00'
+- author: Baptr0b0t
+  changes: []
+  id: 1715
+  time: '2025-09-20T20:04:06.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'You can no longer clone Vox and IPCs. '
+  id: 1716
+  time: '2025-09-21T07:16:35.0000000+00:00'
