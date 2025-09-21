@@ -4489,3 +4489,11 @@
   id: 8993
   time: '2025-09-21T19:27:53.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40486
+- author: Nyxilath
+  changes:
+  - message: Posters now have proper damage resistances and values, instead of acting
+      like they were made out of metal.
+    type: Fix
+  id: 8994
+  time: '2025-09-21T20:40:58.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40489
