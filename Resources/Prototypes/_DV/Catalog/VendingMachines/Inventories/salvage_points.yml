@@ -79,8 +79,6 @@
     cost: 750
   - id: SurvivalMedipen
     cost: 800
-  - id: PowerCellHigh
-    cost: 900
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate

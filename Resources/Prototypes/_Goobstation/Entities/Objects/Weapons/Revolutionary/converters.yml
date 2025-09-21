@@ -1,0 +1,55 @@
+- type: entity
+  name: flash
+  id: RevFlash
+  parent: [BaseItem, BaseSecurityScienceCommandContraband]
+  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out. This one seems to have been tampered with.
+  suffix: Revolutionary
+  components:
+    - type: RevolutionaryConverter
+      conversionDuration: 0
+      silent: true
+      consumesCharges: 1
+      applyFlashEffect: true
+    - type: LimitedCharges
+      maxCharges: 5
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
+      layers:
+        - state: flash
+          map: ["enum.FlashVisualLayers.BaseLayer"]
+        - state: flashing
+          map: ["enum.FlashVisualLayers.LightLayer"]
+          visible: false
+          shader: unshaded
+    - type: EmitSoundOnPickup
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+    - type: Item
+      size: Small
+      sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
+    - type: UseDelay
+      delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+    - type: StaticPrice
+      price: 30
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FlashVisuals.Burnt:
+          enum.FlashVisualLayers.BaseLayer:
+            True: { state: burnt }
+    - type: GuideHelp
+      guides:
+        - Security
+        - Antagonists
+    - type: Construction
+      graph: RevFlash
+      node: revFlash
+    - type: Tag
+      tags:
+        - RevFlash
