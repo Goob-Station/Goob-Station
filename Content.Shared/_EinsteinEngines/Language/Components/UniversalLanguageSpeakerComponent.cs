@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._EinsteinEngines.Language;
+namespace Content.Shared._EinsteinEngines.Language.Components;
 
 // <summary>
 //     Signifies that this entity can speak and understand any language.

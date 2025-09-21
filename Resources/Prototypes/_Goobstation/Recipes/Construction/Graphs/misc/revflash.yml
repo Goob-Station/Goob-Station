@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: RevFlash
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: revFlash
+          steps:
+            - tag: Flash
+              name: construction-graph-component-flash
+              icon:
+                sprite: _Goobstation/Objects/Weapons/Melee/revflash.rsi
+                state: flash
+              doAfter: 5
+    - node: revFlash
+      entity: RevFlash

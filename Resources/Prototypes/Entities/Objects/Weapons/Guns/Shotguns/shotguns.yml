@@ -386,6 +386,9 @@
     node: shotgun
   - type: StaticPrice
     price: 20
+  - type: Tag
+    tags:
+    - ImprovisedShotgun # Goobstation
 
 - type: entity
   name: improvised shotgun

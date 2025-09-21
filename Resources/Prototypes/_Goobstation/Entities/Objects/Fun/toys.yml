@@ -577,6 +577,72 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieBoggle
+  name: Boggle plushie
+  description: You can feel money inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_boggle
+  - type: Item
+    heldPrefix: plushieboggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/kaching.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLehmin
+  name: Lehmin plushie
+  description: Smells like chemicals, you feel uneasy holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_lehmin
+  - type: Item
+    heldPrefix: plushielehmin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieMnwaar
   name: Mnwaar plush
   description: "A plushie of a small, deep gray, semi-heterochromic Shadowkin wearing the outfit of a Chief Medical Officer.\nThe tag reads: \"Mnwaar: Medical's Muted Manager!™ Now with magnetically attaching Hypospray!\""
