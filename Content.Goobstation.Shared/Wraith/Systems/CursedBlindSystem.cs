@@ -29,8 +29,8 @@ public sealed partial class CursedBlindSystem : EntitySystem
         var query = EntityQueryEnumerator<CursedBlindComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Already fully bloomed, nothing to do
-            if (comp.BlindCurseFullBloom)
+            // Already blind, nothing else to do.
+            if (comp.FullyBlind)
                 continue;
 
             // Not time yet
@@ -51,7 +51,7 @@ public sealed partial class CursedBlindSystem : EntitySystem
 
                 // Aplly full bloom upon hitting max stacks.
                 if (comp.BlindnessStacks >= comp.MaxStacks)
-                    comp.BlindCurseFullBloom = true;
+                    comp.FullyBlind = true;
 
                 Dirty(uid, comp);
             }
@@ -62,11 +62,9 @@ public sealed partial class CursedBlindSystem : EntitySystem
     {
         if (HasComp<WraithComponent>(args.Examiner))
         {
-            var bloomText = ent.Comp.BlindCurseFullBloom
-               ? "The curse of blindness has fully bloomed."
-               : "The curse of blindness has yet to fully bloom.";
-
-            args.PushMarkup($"[color=gray]{bloomText}[/color]");
+            //Tells the wraith that the target is cursed
+            args.PushMarkup(
+                $"[color=gray]{Loc.GetString("wraith-cursed-blind", ("target", ent.Owner))}[/color]");
         }
     }
 

@@ -36,18 +36,12 @@ public sealed partial class CursedWeakSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            //If both effects of the curse are maxed out, the curse will be at full bloom.
-            if (comp.SleepTimeAmount >= comp.SleepTimeMax || comp.StaminaDamageAmount >= comp.StaminaDamageMax)
-            {
-                comp.WeakCurseFullBloom = true;
-            }
             // Stamina Damage Timer
             if (curTime >= comp.NextTickStamina)
             {
                 if (comp.StaminaDamageAmount < comp.StaminaDamageMax)
                 {
                     comp.StaminaDamageAmount += comp.StaminaDamageIncrease;
-                    comp.WeakCurseFullBloom = true;
                 }
 
                 _popup.PopupClient(Loc.GetString("Your body feels heavy..."), uid, uid);
@@ -75,12 +69,9 @@ public sealed partial class CursedWeakSystem : EntitySystem
     {
         if (HasComp<WraithComponent>(args.Examiner))
         {
-            //Tells the wraith that the target is cursed, and if the curse has fully bloomed or not.
-            var bloomText = ent.Comp.WeakCurseFullBloom
-                ? "The curse of weakness has fully bloomed."
-                : "The curse of weakness has yet to fully bloom.";
-
-            args.PushMarkup($"[color=yellow]{bloomText}[/color]");
+            //Tells the wraith that the target is cursed.
+            args.PushMarkup(
+                $"[color=yellow]{Loc.GetString("wraith-cursed-weak", ("target", ent.Owner))}[/color]");
         }
     }
 

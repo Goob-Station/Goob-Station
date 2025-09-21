@@ -112,20 +112,3 @@
   category: Disabilities
   components:
   - type: PainNumbness
-
-- type: trait
-  id: Hemophilia
-  category: Physical
-  points: 1
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Borg
-        - MedicalBorg
-  components:
-    - type: Hemophilia
-      bleedReductionModifier: 0.5
-      damageModifiers:
-        coefficients:
-          Blunt: 1.1

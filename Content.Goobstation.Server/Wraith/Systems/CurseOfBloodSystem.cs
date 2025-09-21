@@ -38,7 +38,7 @@ public sealed partial class CurseOfBlood : EntitySystem
 
         //TO DO: Give the cursed icon on the target for readibility for the wraith.
         var cursed = EnsureComp<CursedBloodComponent>(target);
-        //var cursed2 = EnsureComp<HemophiliaComponent>(target);
+        //var cursed2 = EnsureComp<HemophiliaComponent>(target); Hemophilia from EE is unstable. Waiting for hemophilia from upstream.
 
         args.Handled = true;
     }

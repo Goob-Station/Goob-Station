@@ -58,12 +58,6 @@ public sealed partial class CursedWeakComponent : Component
     public string ForcedSleep = "StatusEffectForcedSleeping";
 
     /// <summary>
-    /// Needed for death curse later. Gets set to true once max stacks are in.
-    /// </summary>
-    [DataField]
-    public bool WeakCurseFullBloom;
-
-    /// <summary>
     /// Next time at which stamina damage should increment.
     /// </summary>
     public TimeSpan NextTickStamina = TimeSpan.Zero;

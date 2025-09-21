@@ -54,10 +54,6 @@ public sealed partial class CursedBloodSystem : EntitySystem
             // Big puke Timer
             if (curTime >= comp.NextTickBigPuke)
             {
-                if (!comp.BloodCurseFullBloom)
-                {
-                    comp.BloodCurseFullBloom = true;
-                }
                 _popup.PopupEntity(Loc.GetString("Blood splatters all over the floor! Nasty!"), uid);
                 //TO DO: Make them puke a lot of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
@@ -75,14 +71,10 @@ public sealed partial class CursedBloodSystem : EntitySystem
         if (HasComp<WraithComponent>(args.Examiner))
         {
             //Tells the wraith that the target is cursed, and if the curse has fully bloomed or not.
-            var bloomText = ent.Comp.BloodCurseFullBloom
-                ? "The curse of blood has fully bloomed."
-                : "The curse of blood has yet to fully bloom.";
-
-            args.PushMarkup($"[color=darkred]{bloomText}[/color]");
+            args.PushMarkup(
+                $"[color=darkred]{Loc.GetString("wraith-cursed-blood", ("target", ent.Owner))}[/color]");
         }
     }
-
     private void OnMapInit(Entity<CursedBloodComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextTickPuke = _timing.CurTime + ent.Comp.TimeTillPuke;

@@ -22,10 +22,10 @@ public sealed partial class CursedBlindComponent : Component
     public int MaxStacks = 7;
 
     /// <summary>
-    /// Needed for death curse later. Gets set to true once max stacks are in.
+    /// Checks if they are fully blind before applying further stacks.
     /// </summary>
     [DataField]
-    public bool BlindCurseFullBloom;
+    public bool FullyBlind;
 
     /// <summary>
     /// Next time at which blindness should increment.

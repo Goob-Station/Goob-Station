@@ -27,10 +27,4 @@ public sealed partial class CursedBloodComponent : Component
 
     [DataField]
     public int BleedAmount = 15;
-
-    /// <summary>
-    /// Needed for death curse later. Gets set to true once max stacks are in.
-    /// </summary>
-    [DataField]
-    public bool BloodCurseFullBloom;
 }
