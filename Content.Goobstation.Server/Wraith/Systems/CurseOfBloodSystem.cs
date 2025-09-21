@@ -1,9 +1,10 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Server.Traits.Assorted;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Goobstation.Server.Wraith.Systems;
 public sealed partial class CurseOfBlood : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -36,7 +37,8 @@ public sealed partial class CurseOfBlood : EntitySystem
         }
 
         //TO DO: Give the cursed icon on the target for readibility for the wraith.
-        var cursed = EnsureComp<CursedBloodComponent>(target); // TO DO: || EnsureComp<HemophiliaComponent>(target)
+        var cursed = EnsureComp<CursedBloodComponent>(target);
+        var cursed2 = EnsureComp<HemophiliaComponent>(target);
 
         args.Handled = true;
     }

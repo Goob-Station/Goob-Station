@@ -1,4 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
@@ -6,7 +9,7 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
 
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Goobstation.Server.Wraith.Systems;
 
 public sealed partial class CursedBloodSystem : EntitySystem
 {
@@ -15,6 +18,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
 
     public override void Initialize()
     {
@@ -38,7 +42,10 @@ public sealed partial class CursedBloodSystem : EntitySystem
             {
                 _popup.PopupClient(Loc.GetString("You cough up some blood. Something is wrong..."), uid, uid);
                 //TO DO: Make them puke a litle bit of blood
-
+                if (TryComp<BloodstreamComponent>(uid, out var blood))
+                {
+                    _blood.TryModifyBleedAmount(uid, 5f, blood);
+                }
                 // Schedule next puke tick
                 comp.NextTickPuke = curTime + comp.TimeTillPuke;
             }
@@ -52,7 +59,11 @@ public sealed partial class CursedBloodSystem : EntitySystem
                 }
                 _popup.PopupPredicted(Loc.GetString("Blood splatters all over the floor! Nasty!"), uid, uid);
                 //TO DO: Make them puke a lot of blood
-
+                if (TryComp<BloodstreamComponent>(uid, out var blood))
+                {
+                    _blood.TryModifyBleedAmount(uid, 5f, blood);
+                    _blood.SpillAllSolutions(uid, blood);
+                }
                 // Schedule next drowsy tick
                 comp.NextTickBigPuke = curTime + comp.TimeTillBigPuke;
             }
@@ -67,7 +78,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
                 ? "The curse of blood has fully bloomed."
                 : "The curse of blood has yet to fully bloom.";
 
-            args.PushMarkup($"[color=mediumpurple]{bloomText}[/color]");
+            args.PushMarkup($"[color=darkred]{bloomText}[/color]");
         }
     }
 

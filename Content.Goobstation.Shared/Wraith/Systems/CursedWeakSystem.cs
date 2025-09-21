@@ -80,7 +80,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
                 ? "The curse of weakness has fully bloomed."
                 : "The curse of weakness has yet to fully bloom.";
 
-            args.PushMarkup($"[color=mediumpurple]{bloomText}[/color]");
+            args.PushMarkup($"[color=yellow]{bloomText}[/color]");
         }
     }
 

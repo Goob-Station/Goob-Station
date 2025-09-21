@@ -66,7 +66,7 @@ public sealed partial class CursedBlindSystem : EntitySystem
                ? "The curse of blindness has fully bloomed."
                : "The curse of blindness has yet to fully bloom.";
 
-            args.PushMarkup($"[color=mediumpurple]{bloomText}[/color]");
+            args.PushMarkup($"[color=gray]{bloomText}[/color]");
         }
     }
 
