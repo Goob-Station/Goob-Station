@@ -1,5 +1,4 @@
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-using Content.Shared.Examine;
 
 namespace Content.Goobstation.Shared.Surgery.Steps.Parts;
 
@@ -11,6 +10,6 @@ public sealed class TissueSampleSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TissueSampleComponent, ExaminedEvent>(_toolExamine.OnExamined);
+        SubscribeLocalEvent<TissueSampleComponent, SurgeryToolExaminedEvent>(_toolExamine.OnExamined);
     }
 }

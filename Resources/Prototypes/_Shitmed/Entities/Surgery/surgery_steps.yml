@@ -649,12 +649,6 @@
     damageType: Rot
     isConsumable: true
 
-# Doesn't serve much of a purpose right now. Just here for completeness-sake.
-- type: entity
-  parent: SurgeryStepInsertOrgan
-  id: SurgeryStepInsertStomach
-  name: Add stomach
-
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepSealOrganWound

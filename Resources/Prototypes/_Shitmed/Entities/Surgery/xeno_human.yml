@@ -163,7 +163,7 @@
     - type: PlasmaVessel
 
 - type: entity
-  parent: BaseSurgeryOrganInsert
+  parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEggSack
   name: Insert Egg Sack
   components:

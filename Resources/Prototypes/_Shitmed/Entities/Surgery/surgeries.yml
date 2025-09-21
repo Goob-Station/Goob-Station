@@ -34,7 +34,10 @@
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
-    # add steps
+    steps: # change them if theres unique behaviour for inserting
+    - SurgeryStepSawBones
+    - SurgeryStepInsertOrgan
+    - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
     part: Head # change if needed
   - type: SurgeryOrganCondition
@@ -522,17 +525,11 @@
     - type: Brain
 
 - type: entity
-  parent: SurgeryBase
+  parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveBorgBrain
   name: Remove Positronic Brain
   components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    # TODO: ipc surgery steps
-    - SurgeryStepSawBones
-    - SurgeryStepClampInternalBleeders
-    - SurgeryStepRemoveOrgan
+  # TODO: ipc surgery steps
   - type: SurgeryPartCondition
     part: Chest
   - type: SurgeryOrganCondition
@@ -555,7 +552,7 @@
   id: SurgeryInsertBorgBrain
   name: Insert Positronic Brain
   components:
-  - type: SurgeryPartContion
+  - type: SurgeryPartCondition
     part: Chest
   - type: SurgeryOrganSlotCondition
     organSlot: posbrain
@@ -673,7 +670,7 @@
   components:
   - type: Surgery
     steps:
-    - SurgeryStepInsertStomach
+    - SurgeryStepInsertOrgan
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
     part: Groin
