@@ -249,11 +249,29 @@
   id: SurgeryStepXenoTakeSample
   name: Remove tissue sample
   components:
-  - type: Surgery
+  - type: SurgeryStep
     duration: 6
     tool:
     - type: Tweezers
     remove:
-    - type: TissueSample
+    - type: HasTissueSample
   - type: SurgeryStepSpawnEffect
     entity: XenoTissueSample
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+
+- type: entity
+  parent: SurgeryStepBase # this is a regular surgery
+  id: SurgeryStepGraftXenoSample
+  name: Graft xeno tissue sample
+  components:
+  - type: SurgeryStep
+    duration: 8
+    tool:
+    - type: TissueSample
+    add:
+    - type: HasTissueSample
+  - type: Sprite
+    sprite: _Shitmed/Objects/Misc/tissue_sample.rsi
+    state: xeno

@@ -308,7 +308,7 @@
   - type: SurgeryPartComponentCondition
     inverse: false
     components:
-    - type: TissueSample
+    - type: HasTissueSample
 
 - type: entity
   abstract: true
@@ -316,6 +316,7 @@
   id: BaseSurgeryOpenXenoCavity
   components:
   - type: Surgery
+    requirement: SurgeryOpenIncision
     steps:
     - SurgeryStepSawBones
     - SurgeryStepGraftXenoSample
@@ -363,6 +364,10 @@
   id: SurgeryOpenXenoCavityPlasmaVessel
   name: Open Plasma Vessel Cavity
   components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    part: Chest
   - type: SurgeryOrganSlotCondition
     organSlot: plasma_vessel
 

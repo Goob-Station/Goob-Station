@@ -9,7 +9,7 @@
   - type: Icon
     sprite: _Shitmed/Mobs/Species/Xenomorph/parts.rsi
   - type: XenoBodyPart
-  - type: TissueSample
+  - type: HasTissueSample
   # </Goobstation>
   - type: Extractable
     juiceSolution:
