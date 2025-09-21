@@ -78,6 +78,9 @@ public abstract class SharedPortalSystem : EntitySystem
                     return;
 
                 var ent = link.LinkedEntities.First();
+                if (TerminatingOrDeleted(ent)) // Goobstation edit
+                    return;
+
                 TeleportEntity(uid, args.User, Transform(ent).Coordinates, ent, false);
             },
             Disabled = disabled,

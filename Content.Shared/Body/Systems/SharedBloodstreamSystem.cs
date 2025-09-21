@@ -295,7 +295,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             // because it's burn damage that cauterized their wounds.
 
             // We'll play a special sound and popup for feedback.
-            _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), ent,
+            _popup.PopupPredicted(Loc.GetString("bloodstream-component-wounds-cauterized"), ent,
                     ent, PopupType.Medium); // only the burned entity can see this
             _audio.PlayPredicted(ent.Comp.BloodHealedSound, ent, args.Origin);
         }

@@ -10,7 +10,9 @@
     itemIconStyle: BigAction
     priority: 1
   - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
+    event: !type:DevourActionEvent
     canTargetSelf: false
     whitelist:
       tags:
@@ -19,4 +21,4 @@
       - Steel
       - Ore
       - Telecrystal
-    event: !type:DevourActionEvent
+

@@ -349,7 +349,7 @@ public abstract partial class SharedBloodstreamSystem
             return;
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), bodyPart.Body.Value);
-        _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"),
+        _popup.PopupPredicted(Loc.GetString("bloodstream-component-wounds-cauterized"),
             bodyPart.Body.Value,
             bodyPart.Body.Value,
             PopupType.Medium);

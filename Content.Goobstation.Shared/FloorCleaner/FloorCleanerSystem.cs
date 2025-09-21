@@ -96,7 +96,7 @@ public sealed class FloorCleanerSystem : EntitySystem
             return;
 
         foreach (var ent in GetEntityList(args.Entities))
-            TryQueueDel(ent);
+            PredictedQueueDel(ent);
 
         foreach (var (index, _) in args.Decals)
         {
