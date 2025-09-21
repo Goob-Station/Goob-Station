@@ -8,6 +8,3 @@
     sprite: _NF/Clothing/Shoes/Misc/clothwrap.rsi
   - type: Clothing
     sprite: _NF/Clothing/Shoes/Misc/clothwrap.rsi
-  - type: Construction
-    graph: CraftShoesClothwrap
-    node: CraftShoesClothwrap
