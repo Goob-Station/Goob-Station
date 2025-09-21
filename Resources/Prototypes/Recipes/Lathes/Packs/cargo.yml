@@ -12,6 +12,7 @@
   recipes:
   - AppraisalTool
   - Pickaxe
+  - ConstructionBag
 
 - type: latheRecipePack
   id: CargoBoardsStatic

@@ -120,7 +120,6 @@
     - MiningToolsStatic
     - MiscSignallersStatic
     - CargoStatic
-    - ConstructionBag
     dynamicPacks:
     - AdvancedTools
     - Mining

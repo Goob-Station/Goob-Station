@@ -32,7 +32,7 @@
     slots:
     - belt
   - type: Item
-    size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
+    size: Ginormous
     inhandVisuals:
       left:
       - state: inhand-left

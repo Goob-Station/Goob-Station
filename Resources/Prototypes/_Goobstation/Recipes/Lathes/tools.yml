@@ -74,7 +74,7 @@
   completetime: 5
   materials:
     Steel: 1000
-    Silver: 500
+    Plastic: 500
     Plasma: 200
     Uranium: 200
     BSCrystal: 50

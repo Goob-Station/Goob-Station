@@ -17,6 +17,7 @@
   - WeaponNailgun
   - MagazineNailgun
   - MagazineNailgunEmpty
+  - ConstructionBag #maintainer told me to find packs
 
 - type: latheRecipePack
   id: NailgunEvilStatic # Emag-locked
@@ -38,8 +39,3 @@
   id: ConstructionBagOfHolding
   recipes:
   - ConstructionBagOfHolding
-
-- type: latheRecipePack
-  id: ConstructionBag
-  recipes:
-  - ConstructionBag
