@@ -93,3 +93,5 @@ surgery-popup-step-SurgeryStepInsertNeurotoxinGland = {$user} is inserting a neu
 surgery-popup-step-SurgeryStepInsertAcidGland = {$user} is inserting an acid gland into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertPlasmaVessel = {$user} is inserting a plasma vessel into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertEggSack = {$user} is inserting an egg sack into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepXenoTakeSample = {$user} is carefully removing a piece of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepGraftXenoSample = {$user} is grafting xeno tissue onto {$target}'s {$part}!

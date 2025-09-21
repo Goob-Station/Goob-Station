@@ -686,7 +686,6 @@ public abstract partial class SharedSurgerySystem
             GetEntity(args.Part) is {} targetPart)
         {
             TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step, out var error);
-            Log.Debug($"{args.Surgery} {args.Step} -> {error}");
         }
     }
     #endregion

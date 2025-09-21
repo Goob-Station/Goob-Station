@@ -196,7 +196,7 @@
 - type: entity
   abstract: true
   parent: BaseSurgeryXeno
-  id: BaseSurgeryXenoRemove
+  id: BaseSurgeryXenoRemoveOrgan
   components:
   - type: Surgery
     requirement: SurgeryXenoExposeEndoskeleton
@@ -208,8 +208,8 @@
     part: Head
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemoveHiveNode
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveHiveNode
   name: Remove Hive Node
   components:
   - type: SurgeryOrganCondition
@@ -217,8 +217,8 @@
     - type: HiveNode
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemoveResinSpinner
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveResinSpinner
   name: Remove Resin Spinner
   components:
   - type: SurgeryOrganCondition
@@ -226,8 +226,8 @@
     - type: ResinSpinner
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemoveNeurotoxinGland
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveNeurotoxinGland
   name: Remove Neurotoxin Gland
   components:
   - type: Surgery
@@ -241,8 +241,8 @@
     - type: NeurotoxinGland
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemoveAcidGland
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveAcidGland
   name: Remove Acid Gland
   components:
   - type: Surgery
@@ -257,8 +257,8 @@
     - type: AcidGland
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemovePlasmaVessel
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemovePlasmaVessel
   name: Remove Plasma Vessel
   components:
   - type: Surgery
@@ -275,8 +275,8 @@
     - type: PlasmaVessel
 
 - type: entity
-  parent: BaseSurgeryXenoRemove
-  id: SurgeryRemoveEggSack
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveEggSack
   name: Remove Egg Sack
   components:
   - type: Surgery
@@ -309,74 +309,3 @@
     inverse: false
     components:
     - type: HasTissueSample
-
-- type: entity
-  abstract: true
-  parent: SurgeryOpenCavityBase
-  id: BaseSurgeryOpenXenoCavity
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepSawBones
-    - SurgeryStepGraftXenoSample
-    - SurgeryStepOpenOrganSlot
-  - type: SurgeryPartCondition
-    part: Head
-  - type: SurgeryBodyComponentCondition
-    components:
-    - type: XenoCompatible
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityHiveNode
-  name: Open Hive Node Cavity
-  components:
-  - type: SurgeryOrganSlotCondition
-    organSlot: hive_node
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityResinSpinner
-  name: Open Resin Spinner Cavity
-  components:
-  - type: SurgeryOrganSlotCondition
-    organSlot: resin_spinner
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityNeurotoxinGland
-  name: Open Neurotoxin Gland Cavity
-  components:
-  - type: SurgeryOrganSlotCondition
-    organSlot: neurotoxin_gland
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityAcidGland
-  name: Open Acid Gland Cavity
-  components:
-  - type: SurgeryOrganSlotCondition
-    organSlot: acid_gland
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityPlasmaVessel
-  name: Open Plasma Vessel Cavity
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenRibcage
-  - type: SurgeryPartCondition
-    part: Chest
-  - type: SurgeryOrganSlotCondition
-    organSlot: plasma_vessel
-
-- type: entity
-  parent: BaseSurgeryOpenXenoCavity
-  id: SurgeryOpenXenoCavityEggSack
-  name: Open Egg Sack Cavity
-  components:
-  - type: SurgeryPartCondition
-    part: Groin
-  - type: SurgeryOrganSlotCondition
-    organSlot: egg_sack
