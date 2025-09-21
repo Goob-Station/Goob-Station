@@ -1,0 +1,12 @@
+ent-ChestSlaughter = грудь демона резни
+    .desc = { ent-PartAnimalBase.desc }
+ent-GroinSlaughter = пах демона резни
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightArmSlaughter = правая рука демона резни
+    .desc = { ent-PartAnimalBase.desc }
+ent-LeftArmSlaughter = левая рука демона резни
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightHandSlaughter = правая ладонь демона резни
+    .desc = { ent-PartAnimalBase.desc }
+ent-LeftHandSlaughter = левая ладонь демона резни
+    .desc = { ent-PartAnimalBase.desc }

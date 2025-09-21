@@ -1,0 +1,12 @@
+ent-ChestSlaughter = slaughter chest
+    .desc = { ent-PartAnimalBase.desc }
+ent-GroinSlaughter = slaughter groin
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightArmSlaughter = right arm slaughter
+    .desc = { ent-PartAnimalBase.desc }
+ent-LeftArmSlaughter = left arm slaughter
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightHandSlaughter = right hand slaughter
+    .desc = { ent-PartAnimalBase.desc }
+ent-LeftHandSlaughter = left hand slaughter
+    .desc = { ent-PartAnimalBase.desc }

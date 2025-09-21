@@ -13,3 +13,5 @@ ent-ClothingBeltSheathHeadOfSecurity = head of security's sheath
     .desc = A rugged sheath, designed to hold the Head of Security's custom energy sword.
 ent-ClothingBeltMilitaryRigGrenadier = grenadier belt
     .desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+ent-ClothingBeltMilitaryWebbingBSOFilled = blueshield chest rig
+    .desc = A set of tactical webbing worn by Central Command support units.

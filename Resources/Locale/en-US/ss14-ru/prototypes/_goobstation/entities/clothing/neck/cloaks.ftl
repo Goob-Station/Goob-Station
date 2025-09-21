@@ -1,4 +1,4 @@
-ent-ClothingNeckCloakHelldiver = salvage pure loality cape
+ent-ClothingNeckCloakHelldiver = salvage pure loyality cape
     .desc = A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
 ent-ClothingNeckCloakResonant = resonant cape
     .desc = The stage calls for us. We should gladly play along.

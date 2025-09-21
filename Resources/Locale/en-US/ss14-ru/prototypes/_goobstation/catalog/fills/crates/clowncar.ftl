@@ -1,6 +1,9 @@
 ent-CrateFunClownCarUplink = clown car crate
     .desc = Contains one car, Clown not included
     .suffix = Uplink item
+ent-CrateFunClownCarNukieUplink = clown car crate
+    .desc = Contains one car, Clown not included
+    .suffix = Uplink item
 ent-CrateFunClownCarCargo = clown car crate
     .desc = Contains one car, Clown not included
     .suffix = Cargo Order

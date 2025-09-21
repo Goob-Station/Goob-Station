@@ -1,3 +1,5 @@
+ent-ClothingOuterModsuitBase = { ent-ClothingOuterBase }
+    .desc = { ent-ClothingOuterBase.desc }
 ent-ClothingModsuitChestplateStandard = стандартная нагрудная пластина скафандра MOD
     .desc = Специальное космозащитное покрытие для модульного костюма, разработанное для компактного складывания внутри управления модульным костюмом.
 ent-ClothingModsuitChestplateSecurity = нагрудная пластина скафандра MOD «Солдат»

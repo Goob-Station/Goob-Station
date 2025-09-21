@@ -1,3 +1,5 @@
+ent-ClothingShoesModsuitBase = { ent-ClothingShoesBase }
+    .desc = { ent-ClothingShoesBase.desc }
 ent-ClothingModsuitBootsStandard = standard hardsuit boots
     .desc = A special modular suit boots designed for compact folding inside modular suit control.
 ent-ClothingModsuitBootsSecurity = soldat hardsuit boots

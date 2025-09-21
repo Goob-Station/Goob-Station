@@ -1,3 +1,5 @@
+ent-ClothingHandModsuitBase = { ent-ClothingHandsBase }
+    .desc = { ent-ClothingHandsBase.desc }
 ent-ClothingModsuitGauntletsStandard = standard hardsuit gauntlets
     .desc = Special modular suit gloves that protect wearer from electric shock.
 ent-ClothingModsuitGauntletsSecurity = soldat hardsuit gauntlets

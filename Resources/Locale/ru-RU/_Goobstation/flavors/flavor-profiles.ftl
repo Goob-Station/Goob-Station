@@ -19,3 +19,4 @@ flavor-base-alienblood = инопланетный
 flavor-base-old = старый
 flavor-base-robust = крепкий
 flavor-complex-unicorntears = как слёзы единорога
+flavor-base-chuddy = приятный

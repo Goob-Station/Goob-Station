@@ -16,3 +16,6 @@ ent-MultitoolBorg = borg multitool
 ent-RPDRecharging = experimental RPD
     .desc = A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
     .suffix = AutoRecharge
+ent-RCDRechargingCE = experimental RCD
+    .desc = Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+    .suffix = AutoRecharge

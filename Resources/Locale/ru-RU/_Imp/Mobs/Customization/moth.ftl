@@ -199,5 +199,5 @@ marking-WingsDragonfly = Крылья (Стрекоза)
 marking-WingsDragonfly-dragonfly1 = Шея
 marking-WingsDragonfly-dragonfly2 = Крылья
 marking-WingsDragonfly-dragonfly3 = Хвост
-marking-WingsLanterfly = Крылья (Фонарь)
-marking-WingsLanterfly-lanternfly = Крылья
+marking-WingsLanternfly = Крылья (Фонарь)
+marking-WingsLanternfly-lanternfly = Крылья

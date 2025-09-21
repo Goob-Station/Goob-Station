@@ -1,3 +1,5 @@
+ent-ClothingHandModsuitBase = { ent-ClothingHandsBase }
+    .desc = { ent-ClothingHandsBase.desc }
 ent-ClothingModsuitGauntletsStandard = стандартные перчатки скафандра MOD
     .desc = Специальные модульные перчатки костюма, защищающие владельца от электрического удара.
 ent-ClothingModsuitGauntletsSecurity = перчатки скафандра MOD «Солдат»

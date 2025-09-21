@@ -64,3 +64,5 @@ ent-BoxSurvivalSlotsSyndicatePlasma = { ent-BoxSurvivalSlotsSyndicate }
 ent-BoxMimeSlotsPlasma = { ent-BoxSurvivalSlots }
     .suffix = Мим, Плазма
     .desc = { ent-BoxSurvivalSlots.desc }
+ent-BoxSurvivalSlotsSilicon = набор выживания ИИ
+    .desc = Это коробка с базовыми инструментами для починки.

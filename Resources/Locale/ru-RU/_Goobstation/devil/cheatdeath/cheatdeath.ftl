@@ -8,5 +8,6 @@ cheat-death-component-remaining-revives =
 cheat-death-component-remaining-revives-unlimited = У вас неограниченное количество попыток воскрешения. Разве это не здорово?
 action-cheat-death-fail-no-lives = На этот раз тебе не уйти...
 action-cheat-death-fail-not-dead = Ты не можешь обмануть смерть, пока жив!
+action-cheat-death-holy-damage = Божественное вмешательство предотвращает ваше воскрешение.
 action-cheated-death-dead = { $name } резко просыпается. Кости срастаются, раны закрываются, органы идеально встают на места.
 action-cheated-death-alive = { $name } яростно трясется, все раны исчезают в вспышке огня.

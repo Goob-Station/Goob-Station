@@ -16,3 +16,5 @@ ent-ActionToggleLeftMantisBlade = Toggle Left Mantis Blade
     .desc = Extend or retract the mantis blade in your left arm.
 ent-ActionToggleSandevistan = Toggle Sandevistan
     .desc = Enable or disable your improved reflexes provided by the Sandevistan.
+ent-ActionShowStationMap = Station Map Interface
+    .desc = View a Station Map Interface.

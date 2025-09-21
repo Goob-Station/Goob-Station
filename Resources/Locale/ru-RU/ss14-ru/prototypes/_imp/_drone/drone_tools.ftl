@@ -21,5 +21,3 @@ ent-PinpointerStationUnremoveable = { ent-PinpointerStationGoob }
     .suffix = Неснимаемый
 ent-ActionDroneOpenMap = Открыть карту
     .desc = Найдите себя.
-ent-ActionDronePlayMidi = Играть MIDI
-    .desc = Поддержите окружение.

@@ -7,3 +7,5 @@ ent-CrateFunBingleLoot = добыча Бингла
 ent-CrateFunBingleAdmeme = Бингл
     .suffix = Ящик с Бингл, активируемый голосом Admeme
     .desc = { ent-CrateBingle.desc }
+ent-CrateWizardAnomCore = ящик зачарований
+    .desc = Коробка, содержащая украденные аномальные ядра, используемые для зачарования.

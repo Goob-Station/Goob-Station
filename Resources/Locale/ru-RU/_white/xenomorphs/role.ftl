@@ -1,7 +1,5 @@
 xenomorph-round-end-agent-name = [color=#8c3986]Ксеноморф[/color]
-
 objective-issuer-xenomorph-hive = [color=#8c3986]Улей ксеноморфов[/color]
-
 xenomorph-role-greeting =
     Вы - ксеноморф. Помогите своему улью расширяться.
     Если вы первый, или последний в своём улье - эволюционируйте в [color=Red]ДРОНА[/color], иначе рой не сможет продолжить своё существование.

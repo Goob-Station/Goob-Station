@@ -19,7 +19,3 @@ ent-NetworkConfiguratorUnremoveable = { ent-NetworkConfigurator }
 ent-PinpointerStationUnremoveable = { ent-PinpointerStationGoob }
     .desc = You are the station. Find yourself. Press E to activate.
     .suffix = Unremoveable
-ent-ActionDroneOpenMap = Open Map
-    .desc = Look upon yourself.
-ent-ActionDronePlayMidi = Play MIDI
-    .desc = Contribute to the ambiance.

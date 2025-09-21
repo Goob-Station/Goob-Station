@@ -13,6 +13,7 @@ ent-CrateMaterialBrass = ящик латуни
 ent-CrateMaterialPlasteel = ящик пластали
     .desc = 90 единиц пластали.
 ent-CrateMaterialPlasma = ящик твёрдой плазмы
+    .suffix = Защищённый
     .desc = 30 единиц плазмы.
 ent-CrateMaterialGold = ящик золота
     .desc = 30 слитков золота.

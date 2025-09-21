@@ -28,3 +28,7 @@ ent-SiikMaasTranslatorImplant = siik'maas translator implant
     .desc = An implant giving the ability to understand and speak Siik'maas.
 ent-MarishTranslatorImplant = marish translator implant
     .desc = An implant giving the ability to understand and speak Marish.
+ent-SchechiTranslatorImplant = schechi translator implant
+    .desc = An implant giving the ability to understand and speak Schechi.
+ent-NewKinPidginTranslatorImplant = ka'rakk translator implant
+    .desc = An implant giving the ability to understand and speak Ka'rakk.

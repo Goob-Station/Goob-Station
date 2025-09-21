@@ -30,3 +30,7 @@ ent-SiikMaasTranslatorImplanter = siik'maas translator implant
     .desc = { ent-BaseTranslatorImplanter.desc }
 ent-MarishTranslatorImplanter = marish translator implant
     .desc = { ent-BaseTranslatorImplanter.desc }
+ent-SchechiTranslatorImplanter = schechi translator implant
+    .desc = { ent-BaseTranslatorImplanter.desc }
+ent-NewKinPidginTranslatorImplanter = ka'rakk translator implant
+    .desc = { ent-BaseTranslatorImplanter.desc }

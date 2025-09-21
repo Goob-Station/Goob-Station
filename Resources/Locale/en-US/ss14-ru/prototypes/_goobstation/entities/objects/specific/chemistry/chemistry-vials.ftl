@@ -22,3 +22,5 @@ ent-ProcenylLazideChemistryVial = { ent-BaseChemistryEmptyVial }
 ent-EbifinlLazideChemistryVial = { ent-BaseChemistryEmptyVial }
     .suffix = ebifin
     .desc = { ent-BaseChemistryEmptyVial.desc }
+ent-BluespaceChemistryVial = bluespace vial
+    .desc = It's longer on the inside!

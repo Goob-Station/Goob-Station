@@ -1,3 +1,5 @@
+ent-ClothingShoesModsuitBase = { ent-ClothingShoesBase }
+    .desc = { ent-ClothingShoesBase.desc }
 ent-ClothingModsuitBootsStandard = стандартные ботинки скафандра MOD
     .desc = Специальные модульные ботинки, разработанные для компактного хранения в модульном скафандра.
 ent-ClothingModsuitBootsSecurity = ботинки скафандра MOD «Солдат»

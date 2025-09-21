@@ -37,3 +37,7 @@ ent-SiikMaasTranslator = Siik'maas translator
     .desc = Translates speech between Siik'maas and Tau-Ceti Basic. For talking to Tajara!
 ent-MarishTranslator = Marish translator
     .desc = Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
+ent-NewKinPidginTranslator = Ka'rakk translator
+    .desc = Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
+ent-SchechiTranslator = Schechi translator
+    .desc = Interprets the birdsong known as Schechi and translates it to Galactic Common. Primarily spoken by Resomi.

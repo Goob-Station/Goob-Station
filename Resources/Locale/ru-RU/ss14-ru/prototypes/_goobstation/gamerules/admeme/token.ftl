@@ -18,3 +18,7 @@ ent-TokenLoneAbductorSpawn = { ent-LoneAbductorSpawn }
     .desc = { ent-LoneAbductorSpawn.desc }
 ent-TokenWizard = { ent-WizardMidround }
     .desc = { ent-WizardMidround.desc }
+ent-TokenSlaughterDemon = { ent-SlaughterDemonMidround }
+    .desc = { ent-SlaughterDemonMidround.desc }
+ent-TokenLaughterDemon = { ent-LaughterDemonSummon }
+    .desc = { ent-LaughterDemonSummon.desc }

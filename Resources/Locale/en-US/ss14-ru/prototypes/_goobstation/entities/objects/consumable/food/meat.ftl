@@ -6,3 +6,5 @@ ent-FoodMeatBingle = raw bingle meat
     .desc = Smells like shit.
 ent-FoodMeatBingleCooked = bingle steak
     .desc = Still smells like shit.
+ent-FoodMeatVoxFried = fried "chicken"
+    .desc = A juicy hunk of chicken meat... I think...

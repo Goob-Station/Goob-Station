@@ -7,3 +7,5 @@ ent-CrateFunBingleLoot = Bingle loot
 ent-CrateFunBingleAdmeme = Bingle
     .suffix = Admeme voice triggered bingle crate
     .desc = { ent-CrateBingle.desc }
+ent-CrateWizardAnomCore = Crate of Enchanting
+    .desc = A box containing stolen anomaly cores, used for enchanting.

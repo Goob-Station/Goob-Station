@@ -28,3 +28,5 @@ ent-ClothingHeadHatBeretSeniorBotanist = botanical beret
     .desc = A green beret featuring a small blue flower given to experienced botanists.
 ent-ClothingHeadSanabi = brigadier general hat
     .desc = Smells like steel.
+ent-ClothingHeadHatJanitorCap = janitorial cap
+    .desc = An extravagant purple cap for only the BEST of janitorial workers.

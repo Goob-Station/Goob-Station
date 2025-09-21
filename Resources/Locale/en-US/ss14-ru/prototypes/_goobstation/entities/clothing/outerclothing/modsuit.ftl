@@ -1,3 +1,5 @@
+ent-ClothingOuterModsuitBase = { ent-ClothingOuterBase }
+    .desc = { ent-ClothingOuterBase.desc }
 ent-ClothingModsuitChestplateStandard = standard hardsuit chestplate
     .desc = A special modular suit spaceproof cover designed for compact folding inside modular suit control.
 ent-ClothingModsuitChestplateSecurity = soldat hardsuit chestplate
