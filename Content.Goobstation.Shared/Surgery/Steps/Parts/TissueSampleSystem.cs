@@ -1,4 +1,5 @@
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared.Examine;
 
 namespace Content.Goobstation.Shared.Surgery.Steps.Parts;
 
