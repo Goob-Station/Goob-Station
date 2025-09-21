@@ -6,7 +6,7 @@
     weight: 1
     duration: null
     minimumPlayers: 65
-    earliestStart: 90
+    earliestStart: 60
     chaos:
       Hostile: 600
       Medical: 600

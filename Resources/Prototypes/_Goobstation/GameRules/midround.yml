@@ -206,7 +206,7 @@
   components:
   - type: StationEvent
     weight: 1
-    earliestStart: 90
+    earliestStart: 60
     minimumPlayers: 65
     duration: null
     maxOccurrences: 1
