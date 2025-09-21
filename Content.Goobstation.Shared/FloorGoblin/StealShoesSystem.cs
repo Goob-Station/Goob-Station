@@ -90,51 +90,10 @@ public sealed partial class StealShoesSystem : EntitySystem
             return;
         }
 
-        // First check the shoes slot (most common case)
-        if (_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid) && shoesUid != null)
-        {
-            // We found shoes in the shoes slot, proceed with these
-        }
-        // Only check other slots if this is a critter
-        else if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Critical)
-        {
-            // Check common equipment slots that might contain footwear
-        // This includes feet, shoes, and other potential slots where footwear might be equipped
-            string[] potentialSlots = { "feet", "shoes", "suit", "outerClothing", "belt" };
-
-            foreach (var slot in potentialSlots)
-            {
-                if (!_inventory.TryGetSlotContainer(target, slot, out var container, out _))
-                    continue;
-
-                foreach (var item in container.ContainedEntities)
-                {
-                    if (!HasComp<ClothingComponent>(item))
-                        continue;
-
-                    var itemName = Name(item);
-                    if (itemName.IndexOf("shoe", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        itemName.IndexOf("boot", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        itemName.IndexOf("sandal", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                        itemName.IndexOf("foot", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                        shoesUid = item;
-                        break;
-                    }
-                }
-
-                if (shoesUid != null)
-                    break;
-            }
-
-            if (shoesUid == null)
-            {
-                _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
-                args.Handled = true;
-                return;
-            }
-        }
-        else
+        // Only check the shoes slot
+        if (!_inventory.TryGetSlotEntity(target, "shoes", out var shoesUid)
+            || shoesUid == null
+            || !HasComp<ClothingComponent>(shoesUid))
         {
             _popup.PopupPredicted(Loc.GetString("steal-shoes-no-shoes"), uid, uid);
             args.Handled = true;
