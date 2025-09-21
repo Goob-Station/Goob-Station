@@ -1,0 +1,71 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: martialArt
+  id: HellRip
+  martialArtsForm: HellRip
+  roundstartCombos: HellRipMoves
+  randomDamageModifier: True
+  baseDamageModifier: 15
+
+- type: comboList
+  id: HellRipMoves
+  combos:
+  - DropKick
+  - HeadRip
+  - Slam
+  - TearDown
+
+- type: combo
+  id: DropKick
+  name: Flying DropKick
+  martialArtsForm: HellRip
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:HellRipDropKickPerformedEvent
+  damageType: Slash
+  paralyzeTime: 6
+  staminaDamage: 80
+  canDoWhileProne: false
+
+- type: combo
+  id: HeadRip
+  name: Head Rip
+  martialArtsForm: HellRip
+  attacks:
+  - Harm
+  - Harm
+  - Harm
+  - Grab
+  event: !type:HellRipHeadRipPerformedEvent
+  damageType: Slash
+  extraDamage: 100
+  canDoWhileProne: false
+
+- type: combo
+  id: TearDown
+  name: Tear Down
+  martialArtsForm: HellRip
+  attacks:
+  - Harm
+  - Disarm
+  - Grab
+  event: !type:HellRipTearDownPerformedEvent
+  staminaDamage: 50
+  extraDamage: 60
+
+- type: combo
+  id: Slam
+  name: Hellish Slam
+  martialArtsForm: HellRip
+  attacks:
+  - Disarm
+  - Harm
+  event: !type:HellRipSlamPerformedEvent
+  paralyzeTime: 8
+  staminaDamage: 100

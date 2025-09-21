@@ -245,11 +245,9 @@
     - SlowedDown
     - Stutter
     - Electrocution
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Temperature
     heatDamageThreshold: 800
@@ -288,7 +286,7 @@
       components:
       - MobState
       - Door
-      - Item # Goobstation
+      - Food # Goobstation - Allow devouring food items only
       tags:
       - Wall
   - type: Tag
@@ -426,6 +424,7 @@
       components:
       - MobState
       - Door
+      - Food # Goobstation - Allow targeting food items only
       tags:
       - Wall
     event: !type:DevourActionEvent
