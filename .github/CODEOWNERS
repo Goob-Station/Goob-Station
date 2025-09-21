@@ -6,6 +6,9 @@
 # Locale
 /Resources/Locale @Ko4ergaPunk
 
+# Textures
+/Resources/Textures/_CorvaxGoob @SonicHDC
+
 # Map files
 /Resources/Prototypes/_CorvaxGoob/Entities/Stations @Ko4ergaPunk
 /Resources/Prototypes/_CorvaxGoob/Maps @Ko4ergaPunk
