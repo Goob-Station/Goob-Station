@@ -4482,3 +4482,10 @@
   id: 8992
   time: '2025-09-21T15:23:37.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40428
+- author: ToastEnjoyer
+  changes:
+  - message: Changed the description to the corpsman antagonist.
+    type: Tweak
+  id: 8993
+  time: '2025-09-21T19:27:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40486
