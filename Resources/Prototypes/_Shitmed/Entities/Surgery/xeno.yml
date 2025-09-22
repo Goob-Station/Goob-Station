@@ -129,7 +129,7 @@
   - type: Surgery
     steps:
     - SurgeryStepXenoOpenIncision
-    - SurgeryStepInsertStomach
+    - SurgeryStepInsertOrgan
     - SurgeryStepXenoSealOrganWound
   - type: SurgeryPartCondition
     part: Groin
