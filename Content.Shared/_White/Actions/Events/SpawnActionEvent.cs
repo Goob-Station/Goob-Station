@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Dynamics;
@@ -79,19 +80,13 @@ public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
 public sealed partial class PlaceTileEntityDoAfterEvent : DoAfterEvent
 {
     public NetCoordinates Target;
-
     public EntProtoId? Entity;
-
     public string? TileId;
-
     public SoundSpecifier? Audio;
-
     public int BlockedCollisionMask;
-
     public int BlockedCollisionLayer;
-
-    [DataField("plasmaCost")]
-    public int PlasmaCost;
+    public FixedPoint2 PlasmaCost;
+    public NetEntity Action;
 
     public override DoAfterEvent Clone() => this;
 }

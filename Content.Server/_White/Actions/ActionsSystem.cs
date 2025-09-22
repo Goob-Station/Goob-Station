@@ -1,10 +1,10 @@
 using Content.Server.DoAfter;
 using Content.Shared._White.Actions;
 using Content.Shared._White.Actions.Events;
-using Content.Shared.Actions.Components;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -46,13 +46,9 @@ public sealed class ActionsSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Check plasma cost if this is a plasma-cost action
-        if (TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost) &&
-            !_plasmaCost.CheckPlasmaCost(args.Performer, plasmaCost.PlasmaCost))
-            // TODO Fix plasma check to be done after the check if our actin got broken
-        {
-            return;
-        }
+        // Check if this is a plasma-cost action and get the cost
+        TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost);
+        var plasmaCostValue = plasmaCost?.PlasmaCost ?? FixedPoint2.Zero;
 
         if (args.Length != 0)
         {
@@ -66,7 +62,9 @@ public sealed class ActionsSystem : EntitySystem
                 TileId = args.TileId,
                 Audio = args.Audio,
                 BlockedCollisionLayer = args.BlockedCollisionLayer,
-                BlockedCollisionMask = args.BlockedCollisionMask
+                BlockedCollisionMask = args.BlockedCollisionMask,
+                PlasmaCost = plasmaCostValue,
+                Action = GetNetEntity(args.Action)
             };
 
             var doAfter = new DoAfterArgs(EntityManager, args.Performer, args.Length, ev, null)
@@ -90,6 +88,10 @@ public sealed class ActionsSystem : EntitySystem
     private void OnPlaceTileEntityDoAfter(PlaceTileEntityDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
+            return;
+
+        // Check plasma cost only when the action is about to complete
+        if (args.PlasmaCost > FixedPoint2.Zero && !_plasmaCost.CheckPlasmaCost(args.User, args.PlasmaCost))
             return;
 
         if (CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
