@@ -1,5 +1,7 @@
 using Content.Server.DoAfter;
+using Content.Shared._White.Actions;
 using Content.Shared._White.Actions.Events;
+using Content.Shared.Actions.Components;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
@@ -22,6 +24,7 @@ public sealed class ActionsSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly PlasmaCostActionSystem _plasmaCost = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
@@ -42,6 +45,13 @@ public sealed class ActionsSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        // Check plasma cost if this is a plasma-cost action
+        if (TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost) &&
+            !_plasmaCost.CheckPlasmaCost(args.Performer, plasmaCost.PlasmaCost))
+        {
+            return;
+        }
 
         if (args.Length != 0)
         {
