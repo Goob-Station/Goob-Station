@@ -128,8 +128,8 @@ public abstract class SharedInteractorSystem : EntitySystem
     public EntityCoordinates TargetsPosition(EntityUid uid)
     {
         var xform = Transform(uid);
-        var offset = xform.LocalRotation.ToVec();
-        return xform.Coordinates.Offset(-offset);
+        var offset = (xform.LocalRotation - Angle.FromDegrees(90)).ToVec();
+        return xform.Coordinates.Offset(offset);
     }
 
     /// <summary>
