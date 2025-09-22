@@ -91,8 +91,10 @@ public sealed class ActionsSystem : EntitySystem
             return;
 
         // Check plasma cost only when the action is about to complete
-        if (args.PlasmaCost > FixedPoint2.Zero && !_plasmaCost.CheckPlasmaCost(args.User, args.PlasmaCost))
+        if (!_plasmaCost.HasEnoughPlasma(args.User, args.PlasmaCost))
             return;
+            
+        _plasmaCost.DeductPlasma(args.User, args.PlasmaCost);
 
         if (CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
             args.Handled = true;

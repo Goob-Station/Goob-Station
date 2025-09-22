@@ -19,21 +19,34 @@ public sealed class PlasmaCostActionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Call this from systems that handle placement events to check plasma cost.
+    /// Checks if the performer has enough plasma for the action.
     /// Returns true if the action should proceed, false if it should be blocked.
     /// </summary>
-    public bool CheckPlasmaCost(EntityUid performer, FixedPoint2 cost)
+    public bool HasEnoughPlasma(EntityUid performer, FixedPoint2 cost)
     {
         if (cost <= 0)
             return true;
 
-        if (!TryComp<PlasmaVesselComponent>(performer, out var plasmaVessel) ||
-            plasmaVessel.Plasma < cost)
-        {
-            return false;
-        }
+        return TryComp<PlasmaVesselComponent>(performer, out var plasmaVessel) && 
+               plasmaVessel.Plasma >= cost;
+    }
 
-        _plasma.ChangePlasmaAmount(performer, -cost);
+    /// <summary>
+    /// Deducts plasma from the performer. Call this after confirming the action succeeds.
+    /// </summary>
+    public void DeductPlasma(EntityUid performer, FixedPoint2 cost)
+    {
+        if (cost > 0)
+            _plasma.ChangePlasmaAmount(performer, -cost);
+    }
+
+    [Obsolete("Use HasEnoughPlasma and DeductPlasma separately for better control")]
+    public bool CheckPlasmaCost(EntityUid performer, FixedPoint2 cost)
+    {
+        if (!HasEnoughPlasma(performer, cost))
+            return false;
+            
+        DeductPlasma(performer, cost);
         return true;
     }
 
@@ -44,8 +57,7 @@ public sealed class PlasmaCostActionSystem : EntitySystem
 
     private void OnActionPerformed(EntityUid uid, PlasmaCostActionComponent component, ActionPerformedEvent args)
     {
-        if (component.ShouldChangePlasma)
-            _plasma.ChangePlasmaAmount(args.Performer, -component.PlasmaCost);
+        // Plasma is now deducted by the calling system for better control
     }
 
 }
