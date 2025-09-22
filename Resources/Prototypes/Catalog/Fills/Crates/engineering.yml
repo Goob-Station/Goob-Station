@@ -258,6 +258,7 @@
     - id: FirelockElectronics
     - id: APCElectronics
     - id: SignalTimerElectronics
+    - id: ScreenTimerElectronics
     - id: SMESMachineCircuitboard
     - id: SubstationMachineCircuitboard
     - id: BorgChargerCircuitboard
