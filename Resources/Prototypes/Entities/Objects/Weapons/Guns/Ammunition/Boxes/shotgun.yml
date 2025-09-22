@@ -75,7 +75,7 @@
       - state: beanbag
 
 - type: entity
-  name: ammunition box (12 Gauge pellet) # Goob edit
+  name: ammunition box (12 Gauge carpshot) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
   components:

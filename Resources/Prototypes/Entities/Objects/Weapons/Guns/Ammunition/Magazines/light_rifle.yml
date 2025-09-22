@@ -89,7 +89,7 @@
 
 - type: entity
   id: MagazineLightRifle
-  name: "magazine (7.62x51mm)"
+  name: "magazine (7.62x51mm FMJ)"
   parent: BaseMagazineLightRifle
   description: A curved 30-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:

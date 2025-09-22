@@ -162,10 +162,10 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (7.62x51mm FMJ)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (12 gauge pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge carpshot)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (12 gauge slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Rifle Magazine (.50 BMG anti-materiel)

@@ -139,7 +139,7 @@
 
 - type: entity
   id: MagazinePistolSubMachineGunTopMounted
-  name: WT550 magazine (9x19mm top-mounted FMJ)
+  name: top-mounted SMG magazine (9x19mm FMJ)
   parent: [ BaseItem, BaseSecurityContraband ]
   description: An unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
@@ -171,7 +171,7 @@
 
 - type: entity
   id: MagazinePistolSubMachineGunTopMountedEmpty
-  name: WT550 magazine (9x19mm top-mounted any)
+  name: top-mounted SMG magazine (9x19mm any)
   parent: MagazinePistolSubMachineGunTopMounted
   description: An unconventional 30-round top feeding magazine for the WT550 SMG.
   components:

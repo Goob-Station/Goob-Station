@@ -86,7 +86,7 @@
 
 - type: entity
   id: MagazineShotgun
-  name: ammo drum (12 Gauge pellet) # Goobstation
+  name: ammo drum (12 Gauge carpshot) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
