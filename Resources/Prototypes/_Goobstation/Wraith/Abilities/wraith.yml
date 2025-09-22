@@ -35,6 +35,7 @@
   - type: CurseOfBlindness
   - type: CurseOfWeakness
   - type: CurseOfBlood
+  - type: CurseOfRot
   - type: WraithCommand
     blacklist:
       components:
@@ -68,6 +69,7 @@
     - ActionCurseBlindness
     - ActionCurseWeakness
     - ActionCurseBlood
+    - ActionCurseRot
   # - Haunt
   # - ActionGrant
   # actions:

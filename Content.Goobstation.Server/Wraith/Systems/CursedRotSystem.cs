@@ -1,0 +1,83 @@
+using Content.Goobstation.Shared.Wraith.Components;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
+using Content.Server.Medical;
+using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.Damage.ForceSay;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Popups;
+using Content.Shared.StatusEffectNew;
+using Robust.Shared.Timing;
+
+
+namespace Content.Goobstation.Server.Wraith.Systems;
+
+public sealed partial class CursedRotSystem : EntitySystem
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly VomitSystem _vomitSystem = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CursedRotComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<CursedRotComponent, MapInitEvent>(OnMapInit);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<CursedRotComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // Cough Timer
+            if (curTime >= comp.NextTickCough)
+            {
+                _popup.PopupEntity(Loc.GetString("You feel sick..."), uid, uid); //This isn't popping up, but it doesn't matter since the cough isn't implemented yet.
+
+                //TO DO: Force a cough.
+                /*var ev = new DamageForceSayEvent This does not work as I intended, and I can't find any other examples of similar systems.
+                {
+                    Suffix = "@coughs"
+                };
+                RaiseLocalEvent(uid, ev);*/
+
+                // Schedule next tick
+                comp.NextTickCough = curTime + comp.TimeTillCough;
+            }
+
+            // Puke Timer
+            if (curTime >= comp.NextTickPuke)
+            {
+                _popup.PopupEntity(Loc.GetString("You spray vomit all over the floor!"), uid, uid);
+                _vomitSystem.Vomit(uid, -5, -5);
+
+                // Schedule next tick
+                comp.NextTickPuke = curTime + comp.TimeTillPuke;
+            }
+        }
+    }
+    private void OnExamined(Entity<CursedRotComponent> ent, ref ExaminedEvent args)
+    {
+        if (HasComp<WraithComponent>(args.Examiner))
+        {
+            //Tells the wraith that the target is cursed.
+            args.PushMarkup(
+                $"[color=darkgreen]{Loc.GetString("wraith-cursed-rot", ("target", ent.Owner))}[/color]");
+        }
+    }
+    private void OnMapInit(Entity<CursedRotComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextTickPuke = _timing.CurTime + ent.Comp.TimeTillPuke;
+        ent.Comp.NextTickCough = _timing.CurTime + ent.Comp.TimeTillCough;
+    }
+}

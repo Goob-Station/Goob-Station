@@ -370,6 +370,6 @@
     deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
-    event: !type:BlindCurseEvent
+    event: !type:RotCurseEvent
 
 # Trickster Actions
