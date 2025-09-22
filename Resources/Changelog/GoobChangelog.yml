@@ -15357,3 +15357,9 @@ Entries:
       message: 'Three new hairstyles: Classic Bun, Loose Bun and Low Ponytail'
   id: 1718
   time: '2025-09-22T05:54:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Xenomorph Rules String for ghostrole raffle has been added
+  id: 1719
+  time: '2025-09-22T05:56:42.0000000+00:00'
