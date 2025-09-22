@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: GunneryControlComputerCircuitboard
+  name: gunnery control computer board
+  description: A computer printed circuit board for a gunnery control computer.
+  components:
+    - type: Sprite
+      state: cpu_command
+    - type: ComputerBoard
+      prototype: ComputerGunneryConsole

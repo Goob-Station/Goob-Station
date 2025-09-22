@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Gunnery sprites by justanorang for Monolith. Comm_rogue and rogue_key made by supernoob6677 (discord) for Monolith",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "computer_not_rot",
+      "directions": 4
+    },
+	{
+      "name": "comm_rogue",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+      "name": "rogue_key",
+      "directions": 4
+    },
+    {
+      "name": "gunnery_keyboard",
+      "directions": 4
+    },
+    {
+      "name": "gunnery_keys",
+      "directions": 4
+    },
+    {
+      "name": "generic_panel_open",
+      "directions": 4
+    },
+	{
+      "name": "gunnery_screen",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2
+            ]
+        ]
+    }
+  ]
+}

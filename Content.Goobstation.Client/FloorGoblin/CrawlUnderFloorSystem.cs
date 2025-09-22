@@ -4,6 +4,8 @@
 
 using Content.Goobstation.Shared.FloorGoblin;
 using Content.Shared._DV.Abilities;
+using Content.Shared._Starlight.VentCrawling;
+using Content.Shared.VentCrawler.Tube.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map.Components;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
@@ -22,16 +24,18 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CrawlUnderFloorComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
+        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, VentCrawlerComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var vent, out var sprite, out var xform))
         {
+            if (vent.InTube)
+                continue;
+
             if (!comp.Enabled)
             {
                 if (comp.OriginalDrawDepth != null && sprite.DrawDepth != comp.OriginalDrawDepth)
@@ -45,13 +49,12 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
                 continue;
             }
 
-            if (_transform.GetGrid(xform.Coordinates) is not { } gridUid)
-                continue;
-            if (!TryComp<MapGridComponent>(gridUid, out var grid))
-                continue;
+            if (_transform.GetGrid(xform.Coordinates) is { } gridUid && TryComp<MapGridComponent>(gridUid, out var grid))
+            {
+                var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
+                _lastCell[uid] = (gridUid, snapPos);
+            }
 
-            var snapPos = _map.TileIndicesFor((gridUid, grid), xform.Coordinates);
-            _lastCell[uid] = (gridUid, snapPos);
             ApplySneakVisuals(uid, comp, sprite);
         }
     }
@@ -91,11 +94,4 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         }
     }
 
-
-    private void OnAppearanceChange(EntityUid uid, CrawlUnderFloorComponent component, AppearanceChangeEvent args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-        ApplySneakVisuals(uid, component, sprite);
-    }
 }
