@@ -47,7 +47,7 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakCaptainFeathery
-  name: Captain fethered cape
+  name: captain fethered cape
   description: The garment worth of the true cock of this coop
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   parent: [ClothingNeckBase, BaseSecurityContraband]
   id: ClothingNeckCloakSecFeathery
-  name: Security fethered cape
+  name: security fethered cape
   description: Unfortunately, this cape wont allow you fly. But you can run down the hallway pretending you are a hawk chasing its prey.
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 - type: entity
   parent: [ClothingNeckBase, BaseSecurityContraband]
   id: ClothingNeckCloakSecSeniorFeathery
-  name: Security senior fethered cape
+  name: security senior fethered cape
   description: It is mandated by Nanotrasen, that you screech like an eagle when you beat clown for slipping you. This one feels softer than regular featherly cape
   components:
   - type: Sprite
@@ -80,7 +80,7 @@
 - type: entity
   parent: [ClothingNeckBase, BaseSecurityContraband]
   id: ClothingNeckCloakBrigmedFeathery
-  name: Brigmed fethered cape
+  name: brigmed fethered cape
   description: You can now pretend you are an angel. A very bloody angel. Feathers feel sterile and smooth.
   components:
   - type: Sprite
