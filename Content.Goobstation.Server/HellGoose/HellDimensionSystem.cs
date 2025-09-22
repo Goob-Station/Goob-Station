@@ -26,11 +26,10 @@ public sealed class HellPortalSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = Logger.GetSawmill("hell_portal");
-        SubscribeLocalEvent<HellPortalComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<HellPortalComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnComponentStartup(EntityUid uid, HellPortalComponent comp, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, HellPortalComponent comp, MapInitEvent args)
     {
         // Check if hell already exists
         var existingHellMaps = EntityQuery<HellMapComponent>();
@@ -46,7 +45,7 @@ public sealed class HellPortalSystem : EntitySystem
                 out var map, out var roots,
                 options: new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true }))
         {
-            _sawmill.Error("Failed to load hell map at /Maps/_Goobstation/Nonstations/Hell.yml");
+            Logger.Error("Failed to load hell map at /Maps/_Goobstation/Nonstations/Hell.yml");
             QueueDel(map);
             return;
         }
