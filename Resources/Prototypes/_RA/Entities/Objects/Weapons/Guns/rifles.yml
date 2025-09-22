@@ -129,7 +129,7 @@
     energy: 9.0
 
 - type: entity
-  parent: [BaseWeaponRifle, BaseSyndicateContraband ]
+  parent: [BaseWeaponRifle2, BaseSyndicateContraband ]
   id: WeaponRifleXLREvil
   name: NTEWR-XLR20
   description: A large strange looking rifle capable of supplying itself with the ammo on the way using a built-in fabricator.
@@ -146,10 +146,6 @@
     sprite: _Mono/Objects/Weapons/Guns/Rifles/xlr556_inhands_32x.rsi
   - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Rifles/xlr556_inhands_32x.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
   - type: Gun
     fireRate: 3
     availableModes:
@@ -170,22 +166,45 @@
       ballistic-ammo: !type:Container
   - type: Multishot
     missChance: 0.3
-  - type: ItemSlots
+
+- type: entity
+  name: BaseWeaponRifle2
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponRifle2
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+    shape: # Goobstation
+    - 0,0,4,2
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    quickEquip: false
     slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: BulletXLR2
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - BulletXLR2
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        startingItem: BulletXLR2
-        priority: 1
-        whitelist:
-          tags:
-          - BulletXLR2
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: StaticPrice
+    price: 500
+  - type: Multishot # Goobstation V
+    missChance: 0.3
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
