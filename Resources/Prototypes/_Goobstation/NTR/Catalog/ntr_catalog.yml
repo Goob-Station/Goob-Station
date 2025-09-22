@@ -515,7 +515,7 @@
     sprite: Structures/Storage/Crates/engicrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 50
+    NTLoyaltyPoint: 30
   categories:
   - NTRBoards
   restockTime: 1200 # 20min
