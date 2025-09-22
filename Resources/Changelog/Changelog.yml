@@ -4497,3 +4497,11 @@
   id: 8994
   time: '2025-09-21T20:40:58.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40489
+- author: beck-thompson
+  changes:
+  - message: Shuttle UI is now fixed. You won't go into pilot mode when not having
+      access
+    type: Fix
+  id: 8995
+  time: '2025-09-22T06:40:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40491
