@@ -21,7 +21,7 @@
 
 - type: entity
   id: MagazineSmart
-  name: "magazine (.160 smart)"
+  name: "magazine (13x35mm gyrojet)"
   parent: [ BaseItem, BaseSecurityContraband ]
   components:
   - type: Tag

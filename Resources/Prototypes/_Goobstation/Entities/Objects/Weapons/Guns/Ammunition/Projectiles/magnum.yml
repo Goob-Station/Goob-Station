@@ -10,7 +10,7 @@
 
 - type: entity
   id: BulletMagnumNeurotoxin
-  name: bullet (.45 subsonic neurotoxin)
+  name: bullet (.44 subsonic neurotoxin)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:

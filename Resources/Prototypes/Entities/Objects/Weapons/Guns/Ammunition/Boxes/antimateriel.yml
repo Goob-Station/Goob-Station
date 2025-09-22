@@ -32,9 +32,9 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
-  components:
   # Goobstation edit start
+  name: ammunition box (14.5x114mm anti-materiel)
+  components:
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
@@ -69,7 +69,7 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMaterielBig
-  name: ammunition box (.60 anti-materiel)
+  name: ammunition box (14.5x114mm anti-materiel) # Goobstation
   components:
   - type: BallisticAmmoProvider
     capacity: 30
@@ -89,7 +89,7 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
+  name: ammunition box (14.5x114mm anti-materiel) # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel

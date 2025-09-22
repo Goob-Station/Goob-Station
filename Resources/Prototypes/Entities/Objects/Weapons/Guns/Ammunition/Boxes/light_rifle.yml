@@ -23,9 +23,9 @@
   abstract: true
   parent: BaseItem
   id: BaseMagazineBoxLightRifle
-  name: ammunition box (.30 rifle)
-  components:
   # Goobstation edit start
+  name: ammunition box (7.62x51mm)
+  components:
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
@@ -60,7 +60,7 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleBig
-  name: ammunition box (.30 rifle)
+  name: ammunition box (7.62x51mm FMJ) # Goobstation
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -80,8 +80,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifle
-  name: ammunition box (.30 rifle)
-  description: A cardboard box of .30 rifle rounds. Intended to hold general-purpose kinetic ammunition.
+  name: ammunition box (7.62x51mm FMJ) # Goobstation
+  description: A cardboard box of 7.62x51mm rounds. Intended to hold general-purpose kinetic ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -95,8 +95,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRiflePractice
-  name: ammunition box (.30 rifle practice)
-  description: A cardboard box of .30 rifle rounds. Intended to hold non-harmful chalk ammunition.
+  name: ammunition box (7.62x51mm practice) # Goobstation
+  description: A cardboard box of 7.62x51mm rounds. Intended to hold non-harmful chalk ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -111,8 +111,8 @@
 - type: entity
   id: MagazineBoxLightRifleIncendiary
   parent: BaseMagazineBoxLightRifle
-  name: ammunition box (.30 rifle incendiary)
-  description: A cardboard box of .30 rifle rounds. Intended to hold self-igniting incendiary ammunition.
+  name: ammunition box (7.62x51mm incendiary) # Goobstation
+  description: A cardboard box of 7.62x51mm rounds. Intended to hold self-igniting incendiary ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
@@ -127,8 +127,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleUranium
-  name: ammunition box (.30 rifle uranium)
-  description: A cardboard box of .30 rifle rounds. Intended to hold exotic uranium-core ammunition.
+  name: ammunition box (7.62x51mm uranium) # Goobstation
+  description: A cardboard box of 7.62x51mm rounds. Intended to hold exotic uranium-core ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium

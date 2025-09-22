@@ -62,10 +62,10 @@
 
 # LightRifle
 - type: entity
-  name: box of .30 rifle magazines
+  name: box of 7.62x51mm magazines
   parent: BoxMagazine
   id: BoxMagazineLightRifle
-  description: A box full of .30 rifle magazines.
+  description: A box full of 7.62x51mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -73,10 +73,10 @@
         amount: 4
 
 - type: entity
-  name: box of .30 rifle (practice) magazines
+  name: box of 7.62x51mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazineLightRiflePractice
-  description: A box full of .30 rifle (practice) magazines.
+  description: A box full of 7.62x51mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -85,10 +85,10 @@
 
 # Magnum
 - type: entity
-  name: box of SMG .45 magnum magazines
+  name: box of SMG .44 magnum magazines
   parent: BoxMagazine
   id: BoxMagazineMagnumSubMachineGun
-  description: A box full of SMG .45 magnum magazines.
+  description: A box full of SMG .44 magnum magazines.
   components:
   - type: StorageFill
     contents:
@@ -96,10 +96,10 @@
         amount: 3
 
 - type: entity
-  name: box of SMG .45 magnum (practice) magazines
+  name: box of SMG .44 magnum (practice) magazines
   parent: BoxMagazine
   id: BoxMagazineMagnumSubMachineGunPractice
-  description: A box full of SMG .45 magnum (practice) magazines.
+  description: A box full of SMG .44 magnum (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -108,10 +108,10 @@
 
 # Pistol
 - type: entity
-  name: box of WT550 .35 auto magazines
+  name: box of WT550 9x19mm magazines
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGunTopMounted
-  description: A box full of WT550 .35 auto magazines.
+  description: A box full of WT550 9x19mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -119,10 +119,10 @@
         amount: 3
 
 - type: entity
-  name: box of pistol .35 auto magazines
+  name: box of pistol 9x19mm magazines
   parent: BoxMagazine
   id: BoxMagazinePistol
-  description: A box full of pistol .35 auto magazines.
+  description: A box full of pistol 9x19mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -130,7 +130,7 @@
         amount: 4
 
 - type: entity
-  name: box of pistol .35 auto (practice) magazines
+  name: box of pistol 9x19mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazinePistolPractice
   description: A box full of  magazines.
@@ -141,10 +141,10 @@
         amount: 4
 
 - type: entity
-  name: box of machine pistol .35 auto magazines
+  name: box of machine pistol 9x19mm magazines
   parent: BoxMagazine
   id: BoxMagazinePistolHighCapacity
-  description: A box full of machine pistol .35 auto magazines.
+  description: A box full of machine pistol 9x19mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -152,10 +152,10 @@
         amount: 4
 
 - type: entity
-  name: box of machine pistol .35 auto (practice) magazines
+  name: box of machine pistol 9x19mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazinePistolHighCapacityPractice
-  description: A box full of machine pistol .35 auto (practice) magazines.
+  description: A box full of machine pistol 9x19mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -163,10 +163,10 @@
         amount: 4
 
 - type: entity
-  name: box of SMG .35 auto magazines
+  name: box of SMG 9x19mm magazines
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGun
-  description: A box full of SMG .35 auto magazines.
+  description: A box full of SMG 9x19mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -174,10 +174,10 @@
         amount: 3
 
 - type: entity
-  name: box of SMG .35 auto (practice) magazines
+  name: box of SMG 9x19mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGunPractice
-  description: A box full of SMG .35 auto (practice) magazines.
+  description: A box full of SMG 9x19mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
@@ -231,10 +231,10 @@
 
 # Rifle
 - type: entity
-  name: box of .20 rifle magazines
+  name: box of 5.56x45mm magazines
   parent: BoxMagazine
   id: BoxMagazineRifle
-  description: A box full of .20 rifle magazines.
+  description: A box full of 5.56x45mm magazines.
   components:
   - type: StorageFill
     contents:
@@ -242,10 +242,10 @@
         amount: 4
 
 - type: entity
-  name: box of .20 rifle (practice) magazines
+  name: box of 5.56x45mm (practice) magazines
   parent: BoxMagazine
   id: BoxMagazineRiflePractice
-  description: A box full of .20 rifle (practice) magazines.
+  description: A box full of 5.56x45mm (practice) magazines.
   components:
   - type: StorageFill
     contents:

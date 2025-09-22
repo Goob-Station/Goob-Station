@@ -71,7 +71,7 @@
 - type: entity
   id: MagazineBoxMagnumNeurotoxin
   parent: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum neurotoxin)
+  name: ammunition box (.44 magnum neurotoxin)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumNeurotoxin

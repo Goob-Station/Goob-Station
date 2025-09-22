@@ -1,6 +1,6 @@
 - type: entity
   id: BulletLowCaliber
-  name: bullet (5x23mm)
+  name: bullet (5.7x28mm FMJ)
   parent: BaseBullet
   components:
   - type: Projectile

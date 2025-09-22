@@ -114,7 +114,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletHighCaliber
-  name: bullet (.50 anti-materiel)
+  name: bullet (.50 BMG anti-materiel)
   components:
   - type: Projectile
     damage:

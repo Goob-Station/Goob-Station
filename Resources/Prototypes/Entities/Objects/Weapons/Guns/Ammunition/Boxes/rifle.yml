@@ -59,7 +59,7 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifleBig
-  name: ammunition box (.20 rifle)
+  name: ammunition box (5.56x45mm) # Goobstation
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -79,7 +79,8 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifle
-  name: ammunition box (.20 rifle)
+  name: ammunition box (5.56x45mm) # Goobstation
+  description: A cardboard box of 5.56x45mm rounds. Intended to hold general-purpose kinetic ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -93,7 +94,8 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRiflePractice
-  name: ammunition box (.20 rifle practice)
+  name: ammunition box (5.56x45mm practice) # Goobstation
+  description: A cardboard box of 5.56x45mm rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -108,7 +110,8 @@
 - type: entity
   id: MagazineBoxRifleIncendiary
   parent: BaseMagazineBoxRifle
-  name: ammunition box (.20 rifle incendiary)
+  name: ammunition box (5.56x45mm incendiary) # Goobstation
+  description: A cardboard box of 5.56x45mm rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
@@ -123,7 +126,8 @@
 - type: entity
   id: MagazineBoxRifleUranium
   parent: BaseMagazineBoxRifle
-  name: ammunition box (.20 rifle uranium)
+  name: ammunition box (5.56x45mm uranium) # Goobstation
+  description: A cardboard box of 5.56x45mm rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium

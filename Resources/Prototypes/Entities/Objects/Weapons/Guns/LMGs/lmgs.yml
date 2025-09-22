@@ -159,7 +159,7 @@
   name: L6C ROW
   id: WeaponLightMachineGunL6C
   parent: BaseItem
-  description: A L6 SAW for use by cyborgs. Creates .30 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  description: A L6 SAW for use by cyborgs. Creates 7.62x51mm ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
     - type: Gun
       minAngle: 4

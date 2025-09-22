@@ -23,7 +23,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifle
-  name: "magazine (9.5mm HP)" # Goob edit
+  name: "magazine (9.5x18mm HP)" # Goob edit
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifleShort
-  name: "caseless rifle short magazine (9.5mm HP)" # Goob edit
+  name: "caseless rifle short magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -76,7 +76,7 @@
 
 - type: entity
   id: BaseMagazinePistolCaselessRifle
-  name: "pistol magazine (9.5mm HP)" # Goob edit
+  name: "pistol magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -106,7 +106,7 @@
 
 - type: entity
   id: MagazineCaselessRifle10x24
-  name: "box magazine (9.5mm HP)" # Goob edit
+  name: "box magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -121,7 +121,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifle
-  name: "pistol magazine (9.5mm HP)" # Goob edit
+  name: "pistol magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
   description: 10-round magazine for the Cobra pistol. Intended to hold general-purpose kinetic ammunition.
   components:
@@ -149,7 +149,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRiflePractice
-  name: "pistol magazine (9.5mm practice)" # Goob edit
+  name: "pistol magazine (9.5x18mm practice)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
   description: 10-round magazine for the Cobra pistol. Intended to hold non-harmful chalk ammunition.
   components:
@@ -182,7 +182,7 @@
 
 - type: entity
   id: MagazineCaselessRifle
-  name: "magazine (9.5mm HP)" # Goob edit
+  name: "magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -202,7 +202,7 @@
 
 - type: entity
   id: MagazineCaselessRiflePractice
-  name: "magazine (9.5mm practice)" # Goob edit
+  name: "magazine (9.5x18mm practice)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -228,7 +228,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShort
-  name: "short magazine (9.5mm HP)" # Goob edit
+  name: "short magazine (9.5x18mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider
@@ -249,7 +249,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShortPractice
-  name: "short magazine (9.5mm practice)" # Goob edit
+  name: "short magazine (9.5x18mm practice)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider

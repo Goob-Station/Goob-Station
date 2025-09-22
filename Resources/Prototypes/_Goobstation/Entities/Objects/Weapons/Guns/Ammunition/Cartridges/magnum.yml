@@ -54,7 +54,7 @@
 
 - type: entity
   id: CartridgeMagnumNeurotoxin
-  name: shell (.45 subsonic neurotoxin)
+  name: shell (.44 subsonic neurotoxin)
   parent: BaseCartridgeMagnum
   components:
   - type: Sprite

@@ -34,8 +34,8 @@
 
 - type: entity
   id: BaseCartridgeMagnum
-  name: cartridge (.45 magnum)
-  parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goob edit - captain's N1984
+  name: cartridge (.44 magnum)
+  parent: [ BaseCartridge, BaseSecurityCommandContraband ]
   abstract: true
   components:
   - type: Tag
@@ -54,18 +54,18 @@
 
 - type: entity
   id: CartridgeMagnum
-  name: cartridge (.45 magnum)
+  name: cartridge (.44 magnum FMJ) # Goobstation
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Standard kinetic ammunition is common and useful in most situations.
+  description: A heavy, rimmed cartridge designed for use in revolvers. This standard full metal jacket ammunition is designed to be as cheap to produce as possible. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
 
 - type: entity
   id: CartridgeMagnumPractice
-  name: cartridge (.45 magnum practice)
+  name: cartridge (.44 magnum practice) # Goobstation
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Chalk ammunition is generally non-harmful, used for practice.
+  description: A heavy, rimmed cartridge designed for use in revolvers. This chalk ammunition is generally non-harmful, and used for practice. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumPractice
@@ -79,9 +79,9 @@
 
 - type: entity
   id: CartridgeMagnumIncendiary
-  name: cartridge (.45 magnum incendiary)
+  name: cartridge (.44 magnum incendiary) # Goobstation
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  description: A heavy, rimmed cartridge designed for use in revolvers. This incendiary ammunition contains a phosphorus charge that ignites upon hitting a target. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumIncendiary
@@ -95,9 +95,9 @@
 
 - type: entity
   id: CartridgeMagnumAP
-  name: cartridge (.45 magnum armor-piercing)
+  name: cartridge (.44 magnum armor-piercing) # Goobstation
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Armor piercing ammunition is renowned for its ability to cut straight through body armor.
+  description: A heavy, rimmed cartridge designed for use in revolvers. This armor-piercing ammunition is built around a plasteel core, allowing it to penetrate most vests and hardsuits at the cost of damage. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumAP
@@ -111,9 +111,9 @@
 
 - type: entity
   id: CartridgeMagnumUranium
-  name: cartridge (.45 magnum uranium)
+  name: cartridge (.44 magnum uranium) # Goobstation
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
+  description: A heavy, rimmed cartridge designed for use in revolvers. This uranium ammunition contains a fissile core that irradiates the target from the inside, held within a lead case that breaks away on impact. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumUranium

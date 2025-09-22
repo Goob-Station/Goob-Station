@@ -21,7 +21,7 @@
 
 - type: entity
   id: BaseCartridgeRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (5.56x45mm)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -41,16 +41,18 @@
 
 - type: entity
   id: CartridgeRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (5.56x45mm FMJ) # Goobstation
   parent: BaseCartridgeRifle
+  description: An intermediate rifle cartridge that trades lighter recoil for less punch. This standard full metal jacket ammunition is designed to be as cheap to produce as possible. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletRifle
 
 - type: entity
   id: CartridgeRiflePractice
-  name: cartridge (.20 rifle practice)
+  name: cartridge (5.56x45mm practice) # Goobstation
   parent: BaseCartridgeRifle
+  description: An intermediate rifle cartridge that trades lighter recoil for less punch. This chalk ammunition is generally non-harmful, and used for practice. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletRiflePractice
@@ -64,8 +66,9 @@
 
 - type: entity
   id: CartridgeRifleIncendiary
-  name: cartridge (.20 rifle incendiary)
+  name: cartridge (5.56x45mm incendiary) # Goobstation
   parent: BaseCartridgeRifle
+  description: An intermediate rifle cartridge that trades lighter recoil for less punch. This incendiary ammunition contains a phosphorus charge that ignites upon hitting a target. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletRifleIncendiary
@@ -79,8 +82,9 @@
 
 - type: entity
   id: CartridgeRifleUranium
-  name: cartridge (.20 rifle uranium)
+  name: cartridge (5.56x45mm uranium) # Goobstation
   parent: BaseCartridgeRifle
+  description: An intermediate rifle cartridge that trades lighter recoil for less punch. This uranium ammunition contains a fissile core that irradiates the target from the inside, held within a lead case that breaks away on impact. # Goobstation
   components:
   - type: CartridgeAmmo
     proto: BulletRifleUranium

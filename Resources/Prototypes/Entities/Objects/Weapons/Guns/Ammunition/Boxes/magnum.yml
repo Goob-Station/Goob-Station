@@ -67,8 +67,8 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnum
-  name: ammunition box (.45 magnum)
-  description: A cardboard box of .45 magnum rounds. Intended to hold general-purpose kinetic ammunition.
+  name: ammunition box (.44 magnum) # Goobstation
+  description: A cardboard box of .44 magnum rounds. Intended to hold general-purpose kinetic ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumPractice
-  name: ammunition box (.45 magnum practice)
-  description: A cardboard box of .45 magnum rounds. Intended to hold non-harmful chalk ammunition.
+  name: ammunition box (.44 magnum practice) # Goobstation
+  description: A cardboard box of .44 magnum rounds. Intended to hold non-harmful chalk ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -98,8 +98,8 @@
 - type: entity
   id: MagazineBoxMagnumIncendiary
   parent: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum incendiary)
-  description: A cardboard box of .45 magnum rounds. Intended to hold self-igniting incendiary ammunition.
+  name: ammunition box (.44 magnum incendiary) # Goobstation
+  description: A cardboard box of .44 magnum rounds. Intended to hold self-igniting incendiary ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
@@ -114,8 +114,8 @@
 - type: entity
   id: MagazineBoxMagnumUranium
   parent: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum uranium)
-  description: A cardboard box of .45 magnum rounds. Intended to hold exotic uranium-core ammunition.
+  name: ammunition box (.44 magnum uranium) # Goobstation
+  description: A cardboard box of .44 magnum rounds. Intended to hold exotic uranium-core ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -130,8 +130,8 @@
 - type: entity
   id: MagazineBoxMagnumAP
   parent: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum armor-piercing)
-  description: A cardboard box of .45 magnum rounds. Intended to hold rare armor-piercing ammunition.
+  name: ammunition box (.44 magnum armor-piercing) # Goobstation
+  description: A cardboard box of .44 magnum rounds. Intended to hold rare armor-piercing ammunition. # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

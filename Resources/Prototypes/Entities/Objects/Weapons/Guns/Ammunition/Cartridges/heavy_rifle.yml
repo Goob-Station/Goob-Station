@@ -28,7 +28,7 @@
 
 - type: entity
   id: BaseCartridgeHeavyRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (5.56x45mm)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -50,7 +50,7 @@
 
 - type: entity
   id: CartridgeMinigun
-  name: cartridge (.10 rifle)
+  name: cartridge (.22 LR) # Goobstation
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo

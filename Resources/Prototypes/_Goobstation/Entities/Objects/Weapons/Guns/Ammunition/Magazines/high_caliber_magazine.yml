@@ -52,7 +52,7 @@
 
 - type: entity
   id: MagazineHighCaliber
-  name: "magazine (.50 anti-materiel)"
+  name: "magazine (.50 BMG anti-materiel)"
   parent: BaseMagazineHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -60,7 +60,7 @@
 
 - type: entity
   id: MagazineHighCaliberExplosive
-  name: "magazine (.50 high-explosive incendiary)"
+  name: "magazine (.50 BMG high-explosive incendiary)"
   parent: BaseMagazineHighCaliber
   components:
   - type: BallisticAmmoProvider
@@ -75,7 +75,7 @@
 
 - type: entity
   id: BaseMagazineAntiMateriel
-  name: "magazine (.60 caliber)"
+  name: "magazine (14.5x114mm FMJ)"
   parent: [ BaseItem, BaseSyndicateContraband ]
   abstract: true
   components:
@@ -109,7 +109,7 @@
 
 - type: entity
   id: MagazineAntiMaterielEmpty
-  name: "magazine (.60 empty)"
+  name: "magazine (14.5x114mm empty)"
   parent: BaseMagazineAntiMateriel
   components:
   - type: BallisticAmmoProvider
@@ -117,7 +117,7 @@
 
 - type: entity
   id: MagazineAntiMateriel
-  name: "magazine (.60 anti-materiel)"
+  name: "magazine (14.5x114mm anti-materiel)"
   parent: BaseMagazineAntiMateriel
   components:
   - type: BallisticAmmoProvider

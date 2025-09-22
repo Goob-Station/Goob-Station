@@ -17,9 +17,9 @@
 
 - type: entity
   id: SpeedLoaderLightRifle
-  name: "speed loader (.30 rifle)"
+  name: "speed loader (7.62x51mm)"
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Holds 5 rounds of .30 rifle.
+  description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Holds 5 rounds of 7.62x51mm.
   components:
   - type: Tag
     tags:

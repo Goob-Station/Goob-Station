@@ -35,7 +35,7 @@
 
 - type: entity
   id: BaseCartridgePistol
-  name: cartridge (.35 auto)
+  name: cartridge (9x19mm)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -55,8 +55,8 @@
 
 - type: entity
   id: CartridgePistol
-  name: cartridge (.35 auto)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Standard kinetic ammunition is common and useful in most situations.
+  name: cartridge (9x19mm FMJ) # Goobstation
+  description: Arguably the most common caliber on the market, used by all manner of pistols and submachine guns. This full metal jacket ammunition is designed to be as cheap to produce as possible.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -64,8 +64,8 @@
 
 - type: entity
   id: CartridgePistolPractice
-  name: cartridge (.35 auto practice)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Chalk ammunition is generally non-harmful, used for practice.
+  name: cartridge (9x19mm practice) # Goobstation
+  description: Arguably the most common caliber on the market, used by all manner of pistols and submachine guns. This chalk ammunition is generally non-harmful, and used for practice.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -80,8 +80,8 @@
 
 - type: entity
   id: CartridgePistolIncendiary
-  name: cartridge (.35 auto incendiary)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  name: cartridge (9x19mm incendiary) # Goobstation
+  description: Arguably the most common caliber on the market, used by all manner of pistols and submachine guns. This incendiary ammunition contains a phosphorus charge that ignites upon hitting a target.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -96,8 +96,8 @@
 
 - type: entity
   id: CartridgePistolUranium
-  name: cartridge (.35 auto uranium)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium core ammunition features a load of fissile material, irradiating the target from the inside.
+  name: cartridge (9x19mm uranium) # Goobstation
+  description: Arguably the most common caliber on the market, used by all manner of pistols and submachine guns. This uranium ammunition contains a fissile core that irradiates the target from the inside, held within a lead case that breaks away on impact.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -112,7 +112,8 @@
 
 - type: entity
   id: CartridgePistolSpent
-  name: cartridge (.35 auto)
+  name: cartridge (9x19mm) # Goobstation
+  description: An empty brass case. Smells like gunpowder.
   suffix: spent
   parent: BaseCartridgePistol
   components:

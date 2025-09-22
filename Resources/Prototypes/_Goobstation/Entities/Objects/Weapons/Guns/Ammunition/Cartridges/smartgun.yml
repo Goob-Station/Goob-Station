@@ -9,8 +9,8 @@
 - type: entity
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: CartridgeSmart
-  name: cartridge (.160 smart)
-  description: A .160 smart bullet with a small charge of booster propellant at the bottom.
+  name: cartridge (13x35mm gyrojet)
+  description: A solid-fuel rocket in pocket size. Corrects its flight path based on the target selected on ignition. Being self-propelled, it has little to no recoil and can be fired out of a small barrel without complications.
   components:
   - type: Tag
     tags:

@@ -5,7 +5,7 @@
 
 - type: entity
   id: BulletSmart
-  name: bullet (.160 smart)
+  name: bullet (13x35mm gyrojet)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
