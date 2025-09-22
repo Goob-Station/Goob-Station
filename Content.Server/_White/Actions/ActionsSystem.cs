@@ -49,6 +49,7 @@ public sealed class ActionsSystem : EntitySystem
         // Check plasma cost if this is a plasma-cost action
         if (TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost) &&
             !_plasmaCost.CheckPlasmaCost(args.Performer, plasmaCost.PlasmaCost))
+            // TODO Fix plasma check to be done after the check if our actin got broken
         {
             return;
         }
@@ -72,8 +73,9 @@ public sealed class ActionsSystem : EntitySystem
             {
                 BlockDuplicate = true,
                 BreakOnDamage = true,
-                CancelDuplicate = true,
                 BreakOnMove = true,
+                NeedHand = false,
+                CancelDuplicate = true,
                 Broadcast = true
             };
 
@@ -87,7 +89,10 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnPlaceTileEntityDoAfter(PlaceTileEntityDoAfterEvent args)
     {
-        if (!args.Handled && CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
             args.Handled = true;
     }
 

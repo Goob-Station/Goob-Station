@@ -111,7 +111,7 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: WallResin
-      length: 0.5
+      length: 2
       blockedCollisionMask:
       - FullTileMask
       blockedCollisionLayer:
@@ -157,7 +157,7 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: ResinDoor
-      length: 0.5
+      length: 2
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:
@@ -182,7 +182,7 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
-      length: 0.5
+      length: 2
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:

@@ -90,5 +90,8 @@ public sealed partial class PlaceTileEntityDoAfterEvent : DoAfterEvent
 
     public int BlockedCollisionLayer;
 
+    [DataField("plasmaCost")]
+    public int PlasmaCost;
+
     public override DoAfterEvent Clone() => this;
 }
