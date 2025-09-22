@@ -1,0 +1,18 @@
+- type: entity
+  id: RevenantAbilities
+  name: Revenant Abilities
+  category: [ HideSpawnMenu ]
+  components:
+  - type: WraithCommand
+    blacklist:
+      components:
+      - MobState
+      - Body
+      - Food
+      - EntityStorage
+    maxObjects: 20
+    searchRange: 8
+    stunDuration: 8
+  - type: ActionGrant
+    actions:
+    - ActionCommand
