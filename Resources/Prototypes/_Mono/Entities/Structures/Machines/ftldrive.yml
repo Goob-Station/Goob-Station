@@ -1,0 +1,134 @@
+# Base
+- type: entity
+  id: FTLDriveBase
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: PointLight
+    enabled: false
+    color: "#349BEB" # beb color
+    radius: 2.0
+    energy: 1.5
+  - type: LitOnPowered
+  - type: ExtensionCableReceiver
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/anomaly_generator.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.PowerChargeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.PowerChargeUiKey.Key:
+        type: PowerChargeBoundUserInterface
+  - type: WiresPanel
+  - type: StaticPrice
+    price: 2000
+
+# Bluespace Drives
+# Please sort them with their Priority stat!!!
+- type: entity
+  id: MachineFTLDrive
+  parent: FTLDriveBase
+  name: FSS-512 bluespace drive
+  description: Low-power bluespace FTL engine that increases FTL radius.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control600
+    - state: control_on
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 3000
+  - type: PowerCharge
+    windowTitle: ftl-drive-window-title
+    idlePower: 100
+    activePower: 3000
+  - type: Machine
+    board: MachineFTLDriveCircuitboard
+  - type: FTLDriveGenerator
+    priority: 1
+    data:
+      range: 512
+      ftlToSameMap: true
+      cooldownTime: 120
+
+- type: entity
+  id: MachineFTLDriveHigh
+  parent: FTLDriveBase
+  name: CTLA-2048 bluespace drive
+  description: High-power bluespace FTL engine that drastically extends FTL radius. Has high cooldown time.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control
+    - state: control_on
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 6000
+  - type: PowerCharge
+    windowTitle: ftl-drive-window-title
+    idlePower: 300
+    activePower: 6000
+  - type: Machine
+    board: MachineFTLDriveHighCircuitboard
+  - type: FTLDriveGenerator
+    priority: 2
+    data:
+      range: 2048
+      ftlToSameMap: true
+      cooldownTime: 180
+
+# Debug drives
+- type: entity
+  id: MachineFTLDriveDebug
+  parent: FTLDriveBase
+  name: debug bluespace drive
+  description: Super-duper kool drive, only for testing!
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control
+    - state: control_on
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 1
+  - type: FTLDriveGenerator
+    priority: 999
+    data:
+      range: 5000
+      ftlToSameMap: true
+      startupTime: 2
+      knockdownTime: 1
+      travelTime: 5
+      arrivalTime: 1
+      cooldownTime: 0.5
