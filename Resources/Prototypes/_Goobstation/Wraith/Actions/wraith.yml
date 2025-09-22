@@ -372,4 +372,30 @@
     canTargetSelf: false
     event: !type:RotCurseEvent
 
+- type: entity
+  id: ActionCurseDeath
+  name: Curse of death
+  description: The final, brutal curse that can be placed on a being once all four prior curses have been placed on them. Once afflicted, the target begins to shake and be ripped apart. The curse completes once the target gibs, releasing a large amount of miasma. Counts as a consume, increasing point generation.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: death_curse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      requireAll: true
+      components:
+      - CursedBlind
+      - CursedWeak
+      - CurseRot
+      - CursedBlood
+    event: !type:DeathCurseEvent
+
 # Trickster Actions

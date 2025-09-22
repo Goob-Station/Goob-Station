@@ -37,6 +37,8 @@ wraith-cursed-blood = Their blood is tainted by our curse.
 wraith-cursed-rot = They are rotting from our curse.
 wraith-cursed-death = Their death is nigh.
 
+wraith-not-enough-curses = All four curses must be applied before we can inflict them with death.
+
 target-curse-blind-worsen = It is becoming hard to see...
 
 wraith-possess = Your essence takes over the object!

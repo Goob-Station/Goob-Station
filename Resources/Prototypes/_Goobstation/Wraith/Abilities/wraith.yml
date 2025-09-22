@@ -36,6 +36,7 @@
   - type: CurseOfWeakness
   - type: CurseOfBlood
   - type: CurseOfRot
+  - type: CurseOfDeath
   - type: WraithCommand
     blacklist:
       components:
@@ -70,6 +71,7 @@
     - ActionCurseWeakness
     - ActionCurseBlood
     - ActionCurseRot
+    - ActionCurseDeath
   # - Haunt
   # - ActionGrant
   # actions:

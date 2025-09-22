@@ -74,3 +74,6 @@ public sealed partial class BloodCurseEvent : EntityTargetActionEvent
 public sealed partial class RotCurseEvent : EntityTargetActionEvent
 {
 }
+public sealed partial class DeathCurseEvent : EntityTargetActionEvent
+{
+}
