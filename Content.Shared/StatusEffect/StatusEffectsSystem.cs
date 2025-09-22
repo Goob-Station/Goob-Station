@@ -122,6 +122,34 @@ namespace Content.Shared.StatusEffect
         }
 
         /// <summary>
+        ///     Goobstation/EE
+        ///     Tries to add a status effect to an entity, with a given component added as well.
+        /// </summary>
+        /// <param name="uid">The entity to add the effect to.</param>
+        /// <param name="key">The status effect ID to add.</param>
+        /// <param name="time">How long the effect should last for.</param>
+        /// <param name="refresh">The status effect cooldown should be refreshed (true) or accumulated (false).</param>
+        /// <param name="component">The component of status effect itself.</param>
+        /// <param name="status">The status effects component to change, if you already have it.</param>
+        /// <returns>False if the effect could not be added or the component already exists, true otherwise.</returns>
+        [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
+        public bool TryAddStatusEffect(EntityUid uid,
+            string key,
+            TimeSpan time,
+            bool refresh,
+            Component component,
+            StatusEffectsComponent? status = null)
+        {
+            if (!Resolve(uid, ref status, false) || !TryAddStatusEffect(uid, key, time, refresh, status))
+                return false;
+
+            // If we already have this component, overwrite it, since new component could have different data
+            AddComp(uid, component, true);
+            status.ActiveEffects[key].RelevantComponent = Factory.GetComponentName(component.GetType());
+            return true;
+        }
+
+        /// <summary>
         ///     Tries to add a status effect to an entity, with a given component added as well.
         /// </summary>
         /// <param name="uid">The entity to add the effect to.</param>
