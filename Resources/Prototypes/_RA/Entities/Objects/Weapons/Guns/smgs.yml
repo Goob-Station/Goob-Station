@@ -113,3 +113,114 @@
   - type: Item # Goobstation
     shape:
     - 0,0,2,1
+
+- type: entity
+  name: NTSAD-68 Drozd
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
+  id: WeaponSubMachineGunDrozdEvil
+  description: A modern SMG platform manufactured by Nanotransen's Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
+  components:
+    - type: Sprite
+      sprite: _Mono/Objects/Weapons/Guns/SMGs/drozd.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _Mono/Objects/Weapons/Guns/SMGs/drozd_inhands_32x.rsi
+    - type: Item
+      sprite: _Mono/Objects/Weapons/Guns/SMGs/drozd_inhands_32x.rsi
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -19
+      maxAngle: -16
+    - type: Gun
+      minAngle: 27
+      maxAngle: 32
+      fireRate: 6
+      burstFireRate: 10
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      availableModes:
+      - Burst
+      #- FullAuto # Goobstation - start
+      #- SemiAuto
+      selectedMode: Burst
+      shotsPerBurst: 3
+      burstCooldown: 0.35 # Goobstation - end
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: MagazinePistolSubMachineGun
+          insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MagazinePistolSubMachineGun
+          whitelistFailPopup: gun-magazine-whitelist-fail
+        gun_chamber:
+          name: Chamber
+          startingItem: CartridgePistol
+          priority: 1
+          whitelist:
+            tags:
+              - CartridgePistol
+    - type: ChamberMagazineAmmoProvider
+      autoEject: true
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: RestrictGunshotsByUserTag # Goobstation
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
+
+- type: entity
+  name: C-25r submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunC25r
+  description: A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today being reproduced by Cybersun Industries. Feeds from .35 SMG magazines.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/c20r.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/SMGs/c20r.rsi
+#  - type: Wieldable # Goob - one-handed C20R - start
+#    unwieldOnUse: false
+#  - type: GunWieldBonus
+#    minAngle: -19
+#    maxAngle: -16
+  - type: Gun
+#    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
+#    maxAngle: 32 # Goob - one-handed C20R - end
+    shotsPerBurst: 5
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1

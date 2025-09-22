@@ -10,3 +10,9 @@
   name: stack-telecrystal
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Telecrystal1
+
+- type: stack
+  id: CompanyCredit
+  name: stack-CompanyCredit
+  icon: Objects/Specific/Syndicate/telecrystal.rsi
+  spawn: CompanyCredit1

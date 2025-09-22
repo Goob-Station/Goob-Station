@@ -551,6 +551,9 @@
   id: Telecrystal
 
 - type: Tag
+  id: CompanyCredit
+
+- type: Tag
   id: TemplarHelmet
 
 - type: Tag

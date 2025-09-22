@@ -1,0 +1,8 @@
+- type: factionIcon
+  id: MercFaction
+  priority: 0
+  locationPreference: Left
+  icon:
+    sprite: /Textures/_RA/Interface/Misc/job_icons.rsi
+    state: Sinder
+  hideOnStealth: false

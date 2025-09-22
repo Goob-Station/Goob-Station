@@ -1,0 +1,11 @@
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetSwat] # Goob edit
+  id: ClothingHeadHelmetSinder
+  name: SI helmet
+  description: An extremely robust helmet, commonly used by Sinder Industries.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Head/traumahelmet.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Head/traumahelmet.rsi

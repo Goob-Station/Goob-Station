@@ -1,0 +1,36 @@
+#uplink categories
+
+- type: storeCategory
+  id: UplinkAmmoMercs
+  name: store-category-MercAmmo
+  priority: 0
+
+- type: storeCategory
+  id: UplinkMercUtilities
+  name: store-category-MercUtilities
+  priority: 1
+
+- type: storeCategory
+  id: UplinkMercExplosives
+  name: store-category-MercExplosives
+  priority: 2
+
+- type: storeCategory
+  id: UplinkNanotrasen
+  name: store-category-Nanotrasen
+  priority: 3
+
+- type: storeCategory
+  id: UplinkCybersun
+  name: store-category-Cybersun
+  priority: 4
+
+- type: storeCategory
+  id: UplinkNanoTRANSen
+  name: store-category-Trans
+  priority: 5
+
+- type: storeCategory
+  id: UplinkSalesMerc
+  name: store-MercSales-items
+  priority: 6
