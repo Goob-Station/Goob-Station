@@ -951,7 +951,7 @@
   heatCapacity: 10000
   tileRipResistance: 250
 
-# Departamental
+# Departmental
 - type: tile
   id: FloorFreezer
   name: tiles-freezer
