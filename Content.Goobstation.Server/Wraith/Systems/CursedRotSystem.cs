@@ -7,8 +7,10 @@ using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Nutrition;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
@@ -28,6 +30,7 @@ public sealed partial class CursedRotSystem : EntitySystem
 
         SubscribeLocalEvent<CursedRotComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CursedRotComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CursedRotComponent, IngestionAttemptEvent>(OnIngestAttempt);
     }
 
     public override void Update(float frameTime)
@@ -69,6 +72,18 @@ public sealed partial class CursedRotSystem : EntitySystem
             args.PushMarkup(
                 $"[color=darkgreen]{Loc.GetString("wraith-cursed-rot", ("target", ent.Owner))}[/color]");
         }
+    }
+    private void OnIngestAttempt(Entity<CursedRotComponent> ent, ref IngestionAttemptEvent args)
+    {
+        var uid = ent.Owner;
+
+        if (args.Cancelled)
+            return;
+
+        // Prevent eating
+        args.Cancel();
+
+        _popup.PopupEntity("You feel too sick to eat...", uid, uid);
     }
     private void OnMapInit(Entity<CursedRotComponent> ent, ref MapInitEvent args)
     {
