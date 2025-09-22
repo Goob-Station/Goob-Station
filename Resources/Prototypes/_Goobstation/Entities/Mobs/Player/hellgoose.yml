@@ -76,6 +76,7 @@
     sounds:
       Unsexed: HellGoose
   - type: HellGooseTeleport
+  - type: LinkedEntity
   - type: ActionGrant
     actions:
     - ActionCreateHellPortal

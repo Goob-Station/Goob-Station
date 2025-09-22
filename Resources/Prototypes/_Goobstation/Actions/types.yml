@@ -208,7 +208,7 @@
       sprite: /Textures/_Goobstation/Effects/portal.rsi
       state: portal-hell
   - type: TargetAction
-    range: 4
+    range: 1
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -220,7 +220,7 @@
   parent: BaseAction
   id: ActionHellGooseTeleport
   name: Teleport to station
-  description: Teleport to the bar on the station.
+  description: Teleports you to the station.
   components:
   - type: Action
     useDelay: 30
