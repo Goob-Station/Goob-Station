@@ -75,7 +75,7 @@
 - type: entity
   abstract: true
   parent: BaseSurgeryXeno
-  id: BaseSurgeryXenoInsert
+  id: BaseSurgeryXenoInsertOrgan
   components:
   - type: Surgery
     requirement: SurgeryXenoExposeEndoskeleton
@@ -85,8 +85,64 @@
     inverse: true
     reattaching: true
 
+## Basic Organs (Intentionally missing brain)
+
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
+  id: SurgeryXenoInsertEyes
+  name: Insert Xeno Eyes
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepXenoOpenIncision
+    - SurgeryStepInsertEyes
+    - SurgeryStepXenoSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: eyes
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Eyes
+
+- type: entity
+  parent: BaseSurgeryXenoInsertOrgan
+  id: SurgeryXenoInsertLiver
+  name: Insert Xeno Liver
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepXenoOpenIncision
+    - SurgeryStepInsertLiver
+    - SurgeryStepXenoSealOrganWound
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganSlotCondition
+    organSlot: liver
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Liver
+
+- type: entity
+  parent: BaseSurgeryXenoInsertOrgan
+  id: SurgeryXenoInsertStomach
+  name: Insert Xeno Stomach
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepXenoOpenIncision
+    - SurgeryStepInsertStomach
+    - SurgeryStepXenoSealOrganWound
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganSlotCondition
+    organSlot: stomach
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Stomach
+
+## Xeno Organs
+
+- type: entity
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertHiveNode
   name: Insert Hive Node
   components:
@@ -103,7 +159,7 @@
     - type: HiveNode
 
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertResinSpinner
   name: Insert Resin Spinner
   components:
@@ -120,7 +176,7 @@
     - type: ResinSpinner
 
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertNeurotoxinGland
   name: Insert Neurotoxin Gland
   components:
@@ -137,7 +193,7 @@
     - type: NeurotoxinGland
 
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertAcidGland
   name: Insert Acid Gland
   components:
@@ -154,7 +210,7 @@
     - type: AcidGland
 
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertPlasmaVessel
   name: Insert Plasma Vessel
   components:
@@ -173,7 +229,7 @@
     - type: PlasmaVessel
 
 - type: entity
-  parent: BaseSurgeryXenoInsert
+  parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertEggSack
   name: Insert Egg Sack
   components:
@@ -206,6 +262,41 @@
     - SurgeryStepXenoRemoveOrgan
   - type: SurgeryPartCondition
     part: Head
+
+## Basic Organs
+
+- type: entity
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveEyes
+  name: Remove Xeno Eyes
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Eyes
+
+- type: entity
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveLiver
+  name: Remove Xeno Liver
+  components:
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Liver
+
+- type: entity
+  parent: BaseSurgeryXenoRemoveOrgan
+  id: SurgeryXenoRemoveStomach
+  name: Remove Xeno Stomach
+  components:
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Stomach
+
+## Xeno Organs
 
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan

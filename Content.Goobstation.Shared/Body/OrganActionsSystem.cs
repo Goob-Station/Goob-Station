@@ -3,12 +3,14 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Body;
 
 public sealed class OrganActionsSystem : EntitySystem
 {
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     private EntityQuery<OrganComponent> _organQuery;
@@ -37,6 +39,9 @@ public sealed class OrganActionsSystem : EntitySystem
 
     private void OnAdded(Entity<OrganActionsComponent> ent, ref OrganAddedEvent args)
     {
+        // container shit chuds out
+        if (_net.IsClient) return;
+
         if (_organQuery.CompOrNull(ent)?.Enabled != true)
             return;
 

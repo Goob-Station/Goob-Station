@@ -681,7 +681,7 @@
     - type: Stomach
 
 - type: entity
-  parent: BaseSurgeryInsertOrgan
+  parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveEyes
   name: Remove Eyes
   components:
