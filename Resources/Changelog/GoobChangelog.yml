@@ -15363,3 +15363,13 @@ Entries:
       message: Xenomorph Rules String for ghostrole raffle has been added
   id: 1719
   time: '2025-09-22T05:56:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added alt interact port for the interactor, which makes it simulate alt
+        clicks.
+    - type: Add
+      message: Added anchor, mob and cuff filters for factory machines.
+  id: 1720
+  time: '2025-09-22T06:02:05.0000000+00:00'
