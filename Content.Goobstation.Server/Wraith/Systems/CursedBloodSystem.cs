@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
@@ -19,6 +20,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedChatSystem _chatSystem = default!;
 
     public override void Initialize()
     {
@@ -41,6 +43,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
             if (curTime >= comp.NextTickPuke)
             {
                 _popup.PopupEntity(Loc.GetString("You cough up some blood. Something is wrong..."), uid, uid);
+                _chatSystem.TrySendInGameICMessage(uid, "coughs", InGameICChatType.Emote, false);
                 //TO DO: Make them puke a litle bit of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {

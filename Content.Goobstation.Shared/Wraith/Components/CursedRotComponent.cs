@@ -7,13 +7,13 @@ public sealed partial class CursedRotComponent : Component
     /// How long before they puke blood.
     /// </summary>
     [DataField]
-    public TimeSpan TimeTillPuke = TimeSpan.FromSeconds(10);
+    public TimeSpan TimeTillPuke = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// How long before they puke a lot of blood.
     /// </summary>
     [DataField]
-    public TimeSpan TimeTillCough = TimeSpan.FromSeconds(30);
+    public TimeSpan TimeTillCough = TimeSpan.FromSeconds(10);
 
     /// <summary>
     /// Next time at which they will puke blood.

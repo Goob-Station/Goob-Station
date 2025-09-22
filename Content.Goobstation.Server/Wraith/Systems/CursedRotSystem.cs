@@ -3,13 +3,13 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Medical;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
-
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
@@ -21,7 +21,7 @@ public sealed partial class CursedRotSystem : EntitySystem
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly VomitSystem _vomitSystem = default!;
-
+    [Dependency] private readonly SharedChatSystem _chatSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -44,12 +44,7 @@ public sealed partial class CursedRotSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString("You feel sick..."), uid, uid); //This isn't popping up, but it doesn't matter since the cough isn't implemented yet.
 
-                //TO DO: Force a cough.
-                /*var ev = new DamageForceSayEvent This does not work as I intended, and I can't find any other examples of similar systems.
-                {
-                    Suffix = "@coughs"
-                };
-                RaiseLocalEvent(uid, ev);*/
+                _chatSystem.TrySendInGameICMessage(uid, "coughs", InGameICChatType.Emote, false);
 
                 // Schedule next tick
                 comp.NextTickCough = curTime + comp.TimeTillCough;
@@ -58,7 +53,7 @@ public sealed partial class CursedRotSystem : EntitySystem
             // Puke Timer
             if (curTime >= comp.NextTickPuke)
             {
-                _popup.PopupEntity(Loc.GetString("You spray vomit all over the floor!"), uid, uid);
+                //The code I copied from made you puke -1000, and yet -5 still makes you completely starve :shrugs:
                 _vomitSystem.Vomit(uid, -5, -5);
 
                 // Schedule next tick
