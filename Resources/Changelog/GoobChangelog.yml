@@ -15373,3 +15373,9 @@ Entries:
       message: Added anchor, mob and cuff filters for factory machines.
   id: 1720
   time: '2025-09-22T06:02:05.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Tweak
+      message: made the M7S "Ventilator" less slop
+  id: 1721
+  time: '2025-09-22T06:02:47.0000000+00:00'
