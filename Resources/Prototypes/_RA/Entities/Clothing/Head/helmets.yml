@@ -9,6 +9,3 @@
     sprite: _Crescent/Clothing/Head/traumahelmet.rsi
   - type: Clothing
     sprite: _Crescent/Clothing/Head/traumahelmet.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
