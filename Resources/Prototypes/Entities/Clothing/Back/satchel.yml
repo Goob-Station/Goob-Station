@@ -147,6 +147,8 @@
   name: security satchel
   description: A robust satchel for security related needs.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
 
@@ -156,6 +158,8 @@
   name: brigmedic satchel
   description: A sterile satchel for medical related needs.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Satchels/brigmedic.rsi
 

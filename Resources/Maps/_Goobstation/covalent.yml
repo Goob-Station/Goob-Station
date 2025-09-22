@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/20/2025 09:44:48
-  entityCount: 8965
+  time: 09/20/2025 20:09:21
+  entityCount: 9054
 maps:
 - 1
 grids:
@@ -856,12 +856,15 @@ entities:
             0: 65535
           -8,-1:
             0: 65038
-            2: 17
+            2: 1
           -9,0:
             0: 3276
             2: 4369
           -8,1:
             0: 65535
+          -9,1:
+            0: 52428
+            2: 4369
           -8,2:
             0: 65532
           -8,3:
@@ -944,7 +947,7 @@ entities:
           7,8:
             2: 248
           -8,-2:
-            2: 4352
+            2: 4096
             0: 57480
           -9,-2:
             2: 59392
@@ -1061,7 +1064,7 @@ entities:
           3,9:
             0: 273
           4,9:
-            3: 26214
+            3: 30310
           4,10:
             3: 26214
           4,11:
@@ -1138,10 +1141,8 @@ entities:
             2: 34952
           -10,1:
             2: 34952
-          -9,1:
-            2: 30583
           -9,2:
-            2: 1639
+            2: 1633
           -9,3:
             6: 4
           8,-1:
@@ -2829,7 +2830,7 @@ entities:
       parent: 2
 - proto: AirlockExternalGlassShuttleMining
   entities:
-  - uid: 2055
+  - uid: 1711
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -17388,12 +17389,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 31.5,6.5
       parent: 2
-  - uid: 3500
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 31.5,7.5
-      parent: 2
   - uid: 3501
     components:
     - type: Transform
@@ -17423,6 +17418,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 33.5,4.5
+      parent: 2
+  - uid: 9041
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 31.5,7.5
       parent: 2
 - proto: ChairWood
   entities:
@@ -18666,10 +18667,10 @@ entities:
       bodyType: Static
 - proto: CrewMonitoringServer
   entities:
-  - uid: 1710
+  - uid: 3500
     components:
     - type: Transform
-      pos: 19.5,57.5
+      pos: 5.5,26.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -46229,6 +46230,13 @@ entities:
     - type: Transform
       pos: -30.5,10.5
       parent: 2
+- proto: SpawnPointBartender
+  entities:
+  - uid: 8969
+    components:
+    - type: Transform
+      pos: 10.5,17.5
+      parent: 2
 - proto: SpawnPointBlueshieldOfficer
   entities:
   - uid: 8192
@@ -46372,6 +46380,18 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-3.5
+      parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 8967
+    components:
+    - type: Transform
+      pos: 18.5,25.5
+      parent: 2
+  - uid: 8968
+    components:
+    - type: Transform
+      pos: 17.5,25.5
       parent: 2
 - proto: SpawnPointLawyer
   entities:
@@ -47061,6 +47081,449 @@ entities:
           occludes: True
           ents:
           - 882
+- proto: SurveillanceCameraCommand
+  entities:
+  - uid: 8970
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,28.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: HoP's office
+  - uid: 8971
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,28.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Vault
+  - uid: 8972
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,33.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Bridge entrance
+  - uid: 8973
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,38.5
+      parent: 2
+  - uid: 8974
+    components:
+    - type: Transform
+      pos: -14.5,38.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: LEO's bunk
+  - uid: 8975
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,40.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: CMO's bunk
+  - uid: 8976
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,40.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: QM's bunk
+  - uid: 8977
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,40.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: HoP's bunk
+  - uid: 8978
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,41.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Captain's bunk
+  - uid: 8979
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,37.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: RAR's bunk
+  - uid: 8980
+    components:
+    - type: Transform
+      pos: 5.5,32.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Control deck entrance
+  - uid: 8981
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,28.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Command external access
+  - uid: 8982
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,37.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Control deck North
+  - uid: 8983
+    components:
+    - type: Transform
+      pos: 19.5,52.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Telecomms/AI/Anchor/Cameras
+  - uid: 8992
+    components:
+    - type: Transform
+      pos: -25.5,31.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: HoS's bunk
+  - uid: 9053
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,40.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: RD's bunk
+- proto: SurveillanceCameraEngineering
+  entities:
+  - uid: 8996
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,43.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: North solars
+  - uid: 9024
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -26.5,-2.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Front desk
+  - uid: 9025
+    components:
+    - type: Transform
+      pos: -26.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Gravity generator
+  - uid: 9026
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -31.5,3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Power West
+  - uid: 9027
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,5.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Power east
+  - uid: 9028
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -23.5,12.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Atmospherics east
+  - uid: 9052
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -31.5,11.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Atmospherics west
+- proto: SurveillanceCameraGeneral
+  entities:
+  - uid: 1710
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,22.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Arrivals hallway
+  - uid: 9029
+    components:
+    - type: Transform
+      pos: -21.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Engineering hallway
+  - uid: 9030
+    components:
+    - type: Transform
+      pos: -8.5,-5.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Tool room hallway
+  - uid: 9031
+    components:
+    - type: Transform
+      pos: -5.5,-10.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Tool room
+  - uid: 9032
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Junction south
+  - uid: 9033
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Cargo hallway
+  - uid: 9034
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Science hallway
+  - uid: 9035
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Southern hallway
+  - uid: 9036
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-10.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Red Astra News
+  - uid: 9037
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 36.5,-10.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Library
+  - uid: 9038
+    components:
+    - type: Transform
+      pos: 30.5,-8.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Reporter/Library hallway
+  - uid: 9039
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,0.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Evac south
+  - uid: 9040
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,16.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Evac north
+  - uid: 9042
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Evac
+  - uid: 9043
+    components:
+    - type: Transform
+      pos: 18.5,20.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Cryosleep hallway
+  - uid: 9044
+    components:
+    - type: Transform
+      pos: 2.5,21.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Junction north
+  - uid: 9045
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,25.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: EVA
+  - uid: 9046
+    components:
+    - type: Transform
+      pos: -1.5,26.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Bridge hallway
+  - uid: 9047
+    components:
+    - type: Transform
+      pos: -8.5,21.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Security hallway
+  - uid: 9048
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,16.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Center north
+  - uid: 9049
+    components:
+    - type: Transform
+      pos: -1.5,0.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Center South
+  - uid: 9050
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,9.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Center east
+  - uid: 9051
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,9.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Center west
+- proto: SurveillanceCameraMedical
+  entities:
+  - uid: 9003
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Medical entrance
+  - uid: 9004
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,6.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Medbay
+  - uid: 9005
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Front desk
+  - uid: 9006
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,1.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Locker room
+  - uid: 9007
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,1.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Morgue
+  - uid: 9008
+    components:
+    - type: Transform
+      pos: 9.5,9.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Surgery
+  - uid: 9009
+    components:
+    - type: Transform
+      pos: 13.5,11.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Supply closet
+  - uid: 9010
+    components:
+    - type: Transform
+      pos: 19.5,11.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Quarantine wing
+  - uid: 9011
+    components:
+    - type: Transform
+      pos: 24.5,6.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Chemistry
+  - uid: 9012
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,2.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Cryonics
+- proto: SurveillanceCameraRouterEngineering
+  entities:
+  - uid: 9054
+    components:
+    - type: Transform
+      pos: 19.5,57.5
+      parent: 2
 - proto: SurveillanceCameraRouterGeneral
   entities:
   - uid: 1734
@@ -47103,9 +47566,240 @@ entities:
     - type: Transform
       pos: 16.5,57.5
       parent: 2
+- proto: SurveillanceCameraScience
+  entities:
+  - uid: 9017
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,-16.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Front desk
+  - uid: 9018
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-23.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Locker room
+  - uid: 9019
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-19.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Artifact lab lower
+  - uid: 9020
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-15.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Artifact lab upper
+  - uid: 9021
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Utilities
+  - uid: 9022
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Robotics
+  - uid: 9023
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,-12.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Anomaly lab
+- proto: SurveillanceCameraSecurity
+  entities:
+  - uid: 8984
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,33.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Brigmedical
+  - uid: 8985
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,29.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Security entrance
+  - uid: 8986
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -13.5,25.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Security front desk
+  - uid: 8987
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,30.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Brig
+  - uid: 8988
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,25.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Perma lockers
+  - uid: 8989
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,22.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Perma general area
+  - uid: 8990
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,29.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Security bunks
+  - uid: 8991
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,28.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Security locker room
+  - uid: 8993
+    components:
+    - type: Transform
+      pos: -20.5,24.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Warden's bunk
+  - uid: 8994
+    components:
+    - type: Transform
+      pos: -23.5,19.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Armory
+  - uid: 8995
+    components:
+    - type: Transform
+      pos: -28.5,20.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Detective's bunk
+- proto: SurveillanceCameraService
+  entities:
+  - uid: 8997
+    components:
+    - type: Transform
+      pos: 7.5,14.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Bar
+  - uid: 8998
+    components:
+    - type: Transform
+      pos: -6.5,14.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Kitchen
+  - uid: 8999
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,15.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Freezer
+  - uid: 9000
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,13.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Pantry
+  - uid: 9001
+    components:
+    - type: Transform
+      pos: -11.5,3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Botany
+  - uid: 9002
+    components:
+    - type: Transform
+      pos: -15.5,3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Botany back room
+- proto: SurveillanceCameraSupply
+  entities:
+  - uid: 8966
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-9.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Salvage dock
+  - uid: 9013
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-15.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Salvage
+  - uid: 9014
+    components:
+    - type: Transform
+      pos: -7.5,-21.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Break room
+  - uid: 9015
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-19.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Cargo bay
+  - uid: 9016
+    components:
+    - type: Transform
+      pos: 3.5,-17.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Front desk
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
-  - uid: 1711
+  - uid: 2055
     components:
     - type: Transform
       pos: 19.5,56.5

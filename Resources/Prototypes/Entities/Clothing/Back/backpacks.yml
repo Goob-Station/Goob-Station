@@ -144,6 +144,8 @@
   name: security backpack
   description: It's a very robust backpack.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Backpacks/security.rsi
 
@@ -153,6 +155,8 @@
   name: brigmedic backpack
   description: It's a very sterile backpack.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Backpacks/brigmedic.rsi
 
