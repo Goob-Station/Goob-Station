@@ -15379,3 +15379,11 @@ Entries:
       message: made the M7S "Ventilator" less slop
   id: 1721
   time: '2025-09-22T06:02:47.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Changed many midround spawn rates
+    - type: Tweak
+      message: removed chud xenos
+  id: 1722
+  time: '2025-09-22T13:02:14.0000000+00:00'
