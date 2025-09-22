@@ -26,6 +26,9 @@ public sealed partial class WraithCommandComponent : Component
     [DataField]
     public float ThrowSpeed = 30f;
 
+    [DataField]
+    public int MaxObjects = 10;
+
     [DataField(required: true)]
     public TimeSpan StunDuration = TimeSpan.Zero;
 }

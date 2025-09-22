@@ -1,20 +1,10 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared.Ghost;
-using Content.Shared.Magic.Events;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Spawners;
-using Robust.Shared.Timing;
-using System.Linq;
-using YamlDotNet.Core.Tokens;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 public sealed partial class PossessObjectSystem : EntitySystem
@@ -23,7 +13,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly WraithPossessedSystem _possessed = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -33,54 +23,22 @@ public sealed partial class PossessObjectSystem : EntitySystem
     }
 
     //TO DO: Make the wraith return to their body if they get killed as a possessed object.
-    public void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
+    private void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-        var target = args.Target;
-
-        if (args.Handled)
+        if (!_mind.TryGetMind(args.Performer, out var mindId, out _))
             return;
 
-        // Block certain target types that should not be inhabitable
-        List<(Type, string)> blockers = new()
-    {
-        (typeof(TimedDespawnComponent), "temporary"),
-        (typeof(FadingTimedDespawnComponent), "temporary"),
-        (typeof(GhostComponent), "ghost"),
-        (typeof(SpectralComponent), "ghost")
-    };
+        _popup.PopupClient(Loc.GetString("wraith-possess"), args.Target, args.Target);
+        _audio.PlayPredicted(ent.Comp.PossessSound, args.Target, args.Target);
 
-        if (blockers.Any(x => CheckMindswapBlocker(target, uid, x.Item1, x.Item2)))
-            return;
+        // Make the object possessed
+        var possession = EnsureComp<WraithPossessedComponent>(args.Target);
+        var possessedObject = (args.Target, possession);
 
-        if (!_mind.TryGetMind(uid, out var perMind, out var _))
-            return;
-
-        // Transfer wraith mind into the object
-        _mind.TransferTo(perMind, target);
-
-        _audio.PlayPredicted(comp.PossessSound, target, target);
-
-        Timer.Spawn(TimeSpan.FromSeconds(15), () =>
-        {
-            if (EntityManager.Deleted(uid))
-                return;
-
-            _mind.TransferTo(perMind, uid);
-            _audio.PlayPredicted(comp.PossessEndSound, uid, uid);
-        });
+        _possessed.SetPossessionDuration(possessedObject, ent.Comp.PossessDuration);
+        _possessed.StartPossession(possessedObject, args.Performer, mindId);
 
         args.Handled = true;
-    }
-
-    private bool CheckMindswapBlocker(EntityUid target, EntityUid uid, Type type, string message)
-    {
-        if (!HasComp(target, type))
-            return false;
-
-        _popup.PopupPredicted(Loc.GetString("wraith-possess"), target, target);
-        return true;
     }
 
     private void OnChangeComponents(PossessObjectEvent args)

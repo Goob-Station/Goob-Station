@@ -14,5 +14,5 @@ public sealed partial class PossessObjectComponent : Component
     public SoundSpecifier? PossessEndSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithleaveobject.ogg");
 
     [DataField]
-    public bool HasMind = false;
+    public TimeSpan PossessDuration = TimeSpan.FromSeconds(5f);
 }

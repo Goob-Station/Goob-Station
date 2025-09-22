@@ -41,12 +41,17 @@ public sealed class WraithCommandSystem : EntitySystem
         var entities = _lookupSystem.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange).ToList();
         _random.Shuffle(entities);
 
+        var selectedObjects = 0;
         foreach (var entity in entities)
         {
             if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
                 continue;
 
+            if (selectedObjects > ent.Comp.MaxObjects)
+                return;
+
             _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
+            selectedObjects++;
         }
 
         // args.Handled = true;
