@@ -85,6 +85,9 @@ signal-port-description-automation-slot-tool = An automation slot for an interac
 signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
 signal-port-description-automation-slot-autodoc-hand = An automation slot for an autodoc's held organ/part/etc from STORE ITEM / GRAB ITEM instructions.
 
+signal-port-name-alt-interact = Alt Interact Mode
+signal-port-description-alt-interact = Signal port to toggle alt interact mode, or set it to a HIGH/LOW value.
+
 # Gas Canister
 
 signal-port-name-automation-slot-gas-tank = Item: Gas Tank

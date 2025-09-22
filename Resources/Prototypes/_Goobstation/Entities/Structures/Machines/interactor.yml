@@ -114,6 +114,7 @@
     ports:
     - Start
     - AutoStart
+    - AltInteract
   - type: DeviceLinkSource
     ports:
     - Started
