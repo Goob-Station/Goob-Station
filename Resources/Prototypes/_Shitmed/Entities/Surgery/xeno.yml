@@ -233,7 +233,6 @@
   - type: Surgery
     steps:
     - SurgeryStepXenoOpenIncision
-    - SurgeryStepXenoClampBleeders
     - SurgeryStepXenoNeutralizeAcid
     - SurgeryStepXenoRemoveOrgan
   - type: SurgeryOrganCondition
@@ -249,8 +248,6 @@
     steps:
     - SurgeryStepXenoOpenIncision
     - SurgeryStepXenoNeutralizeAcid
-    - SurgeryStepXenoClampBleeders
-    - SurgeryStepXenoNeutralizeAcid
     - SurgeryStepXenoRemoveOrgan
   - type: SurgeryOrganCondition
     organ:
@@ -265,7 +262,6 @@
     steps:
     - SurgeryStepXenoOpenIncision
     - SurgeryStepXenoSeverPlasma
-    - SurgeryStepXenoClampBleeders
     - SurgeryStepXenoNeutralizeAcid
     - SurgeryStepXenoRemoveOrgan
   - type: SurgeryPartCondition
@@ -280,10 +276,9 @@
   name: Remove Egg Sack
   components:
   - type: Surgery
-    steps: # by far the longest
+    steps:
     - SurgeryStepXenoOpenIncision
     - SurgeryStepXenoNeutralizeAcid
-    - SurgeryStepXenoClampBleeders
     - SurgeryStepXenoSeverPlasma
     - SurgeryStepXenoRemoveOrgan
   - type: SurgeryPartCondition
@@ -306,8 +301,10 @@
     - SurgeryStepXenoNeutralizeAcid
     - SurgeryStepXenoTakeSample
   - type: SurgeryBodyComponentCondition
+    inverse: false
     components:
     - type: Xenomorph
+      caste: Drone # yml major
   - type: SurgeryPartComponentCondition
     inverse: false
     components:

@@ -8,7 +8,7 @@
   id: BaseSurgeryOpenXenoCavity
   components:
   - type: Surgery
-    requirement: SurgeryOpenIncisionScalpel
+    requirement: SurgeryOpenIncision
     steps:
     - SurgeryStepSawBones
     - SurgeryStepGraftXenoSample
@@ -78,7 +78,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertHiveNode
-  name: Insert Hive Node
+  name: Transplant Hive Node
   components:
   - type: Surgery
     steps:
@@ -95,7 +95,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertResinSpinner
-  name: Insert Resin Spinner
+  name: Transplant Resin Spinner
   components:
   - type: Surgery
     steps:
@@ -112,7 +112,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertNeurotoxinGland
-  name: Insert Neurotoxin Gland
+  name: Transplant Neurotoxin Gland
   components:
   - type: Surgery
     steps:
@@ -129,7 +129,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertAcidGland
-  name: Insert Acid Gland
+  name: Transplant Acid Gland
   components:
   - type: Surgery
     steps:
@@ -146,7 +146,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertPlasmaVessel
-  name: Insert Plasma Vessel
+  name: Transplant Plasma Vessel
   components:
   - type: Surgery
     steps:
@@ -165,7 +165,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEggSack
-  name: Insert Egg Sack
+  name: Transplant Egg Sack
   components:
   - type: Surgery
     steps:
@@ -186,7 +186,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveHiveNode
-  name: Remove Hive Node
+  name: Remove Transplanted Hive Node
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -195,7 +195,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveResinSpinner
-  name: Remove Resin Spinner
+  name: Remove Transplanted Resin Spinner
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -204,7 +204,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveNeurotoxinGland
-  name: Remove Neurotoxin Gland
+  name: Remove Transplanted Neurotoxin Gland
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -213,7 +213,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveAcidGland
-  name: Remove Acid Gland
+  name: Remove Transplanted Acid Gland
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -222,7 +222,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemovePlasmaVessel
-  name: Remove Plasma Vessel
+  name: Remove Transplanted Plasma Vessel
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -235,7 +235,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveEggSack
-  name: Remove Egg Sack
+  name: Remove Transplanted Egg Sack
   components:
   - type: SurgeryPartCondition
     part: Groin
