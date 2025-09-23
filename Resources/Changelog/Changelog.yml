@@ -4505,3 +4505,10 @@
   id: 8995
   time: '2025-09-22T06:40:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40491
+- author: hoshizora-sayo
+  changes:
+  - message: Fixed fire helmets alone giving you full temperature protection
+    type: Fix
+  id: 8996
+  time: '2025-09-23T17:02:50.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40481
