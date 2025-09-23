@@ -78,7 +78,7 @@
 - type: MLA Boljevic
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: For when you need to repel home invaders that are behind two plasteel walls, a fridge, and a car door. Pump action and fun as hell to shoot, though not as much for your shoulder. '8 GAUGE' is stamped on the barrel.
+  description: "For when you need to repel home invaders that are behind two plasteel walls, a fridge, and a car door. Pump action and fun as hell to shoot, though not as much for your shoulder. '8 GAUGE' is stamped on the barrel."
   components:
   - type: Item
     size: Large
