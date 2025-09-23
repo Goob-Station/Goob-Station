@@ -612,7 +612,7 @@
   parent: [BaseThiefObjective, BaseLivingObjective]
   id: EscapeThiefShuttleObjective
   name: Escape to centcomm alive and unrestrained.
-  description: You don't want your illegal activities to be discovered by anyone, do you?
+  description: You don't want your illegal activities to be discovered by anyone, do you? Get out on the evacuation shuttle. # Goobstation
   components:
   - type: Objective
     difficulty: 1.3

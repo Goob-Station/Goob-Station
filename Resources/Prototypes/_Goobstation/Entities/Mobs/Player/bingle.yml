@@ -18,6 +18,25 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# This is for random skins
+- type: entity
+  id: MobBingleRandom
+  parent: MarkerBase
+  name: bingle
+  suffix: Random
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    state: alive
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobBingle
+        weight: 49    # 49/50
+      - id: MobTurkle
+        weight: 1     # 01/50
+
+# Base bingle
 - type: entity
   name: bingle
   id: MobBingle
@@ -25,6 +44,7 @@
   description: bingle
   components:
   - type: Bingle
+    upgradedID: MobBingleUpgraded
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -171,3 +191,51 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded
+
+# Skin - turkle
+- type: entity
+  name: turkle
+  id: MobTurkle
+  parent: MobBingle
+  description: A bingle from foreign lands lost to time. Seems very proud of their homeland.
+  components:
+  - type: Bingle
+    upgradedID: MobTurkleUpgraded
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/turkle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: combat
+      visible: false
+  - type: NightVision
+    color: "#802000"
+    activateSound: null
+    deactivateSound: null
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#ad2a33"
+
+- type: entity
+  id: MobTurkleUpgraded
+  parent: MobBingleUpgraded
+  suffix: Upgraded
+  components:
+  - type: Bingle
+    upgraded: true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/turkle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: Upgraded
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: combat
+      visible: false
+

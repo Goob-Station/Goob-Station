@@ -398,8 +398,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate voidsuit bundle
-  description: "Contains the Syndicate's signature blood red voidsuit."
+  name: syndicate hardsuit bundle
+  description: "Contains the Syndicate's signature blood red hardsuit."
   components:
   - type: StorageFill
     contents:
@@ -413,8 +413,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite voidsuit bundle
-  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
+  name: syndicate elite hardsuit bundle
+  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:

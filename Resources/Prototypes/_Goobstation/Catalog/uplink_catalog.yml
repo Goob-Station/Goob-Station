@@ -775,7 +775,7 @@
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
   cost:
-    Telecrystal: 28
+    Telecrystal: 20
   categories:
   - UplinkChemicals
 
@@ -1381,6 +1381,17 @@
 
 - type: listing
   id: UplinkRPOA
+  name: uplink-ExplosivePayloadBlueprint-name
+  description: uplink-ExplosivePayloadBlueprint-desc
+  productEntity: BlueprintExplosivePayload
+  icon: { sprite: _Goobstation/Objects/Devices/payload.rsi, state: icon }
+  cost:
+    Telecrystal: 40 #Should be alot, its an investment item
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkExplosivePayloadBlueprint
   name: uplink-RPOA-name
   description: uplink-RPOA-desc
   productEntity: WeaponLauncherRocketDisposableThermobaric
@@ -1462,5 +1473,16 @@
   productEntity: BloodredCasette
   cost:
     Telecrystal: 3
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkSyndiedrobe
+  name: uplink-syndiedrobe-name
+  description: uplink-syndiedrobe-desc
+  icon: { sprite: Structures/Machines/VendingMachines/syndiedrobe.rsi, state: off }
+  productEntity: VendingMachineSyndieDrobe
+  cost:
+    Telecrystal: 40
   categories:
   - UplinkPointless
