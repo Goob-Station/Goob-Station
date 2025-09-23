@@ -301,6 +301,30 @@
       state: spikehawk
 
 - type: marking
+  id: HumanHairClassicBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: classic_bun
+
+- type: marking
+  id: HumanHairLooseBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: loosebun
+
+- type: marking
+  id: HumanHairLowPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: lowponytail
+
+- type: marking
   id: HumanHairLongTwinTails
   bodyPart: Hair
   markingCategory: Hair

@@ -143,6 +143,8 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
+using Content.Goobstation.Common.Chat;
+using Content.Goobstation.Common.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -818,6 +820,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
+            // Goob edit start
+            if (TryComp<DeafComponent>(listener, out var modifier) && language.SpeechOverride.RequireSpeech)
+                continue; // blocks anyone with the deaf component from hearing.
+            // Goob edit end
+
             // Einstein Engines - Language begin
             var canUnderstandLanguage = _language.CanUnderstand(listener, language.ID);
             // How the entity perceives the message depends on whether it can understand its language
@@ -1073,6 +1080,16 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (checkLOS && !data.Observer && !data.InLOS)
                 continue; // Floofstation - Some things don't go through walls, but they can go through windows!
             EntityUid listener = session.AttachedEntity.Value;
+
+            // Goob edit start
+            // Raises a event for the deaf component
+            var ev = new ChatMessageOverrideInVoiceRange();
+            RaiseLocalEvent(listener, ref ev);
+            if (channel == ChatChannel.Local
+                && language.SpeechOverride.RequireSpeech // Check for whether speech is required.
+                && ev.Cancelled)
+                continue;
+            //Goob edit end
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))

@@ -175,9 +175,6 @@
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
-    - id: AncientXenoVentsEasy # Goobstation
-    - id: AncientXenoVentsMedium # Goobstation
-    - id: AncientXenoVentsHard # Goobstation
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinSpawn # Goobstation
 
@@ -201,7 +198,6 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
-    - id: AncientXenoVentsRogue # Goobstation
 
 - type: entity
   id: BaseStationEvent
@@ -356,10 +352,10 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 2
     earliestStart: 45
-    reoccurrenceDelay: 20
-    minimumPlayers: 60
+    maxOccurrences: 1
+    minimumPlayers: 50
     duration: null
     chaos: # Goobstation
       Hostile: 20
@@ -395,10 +391,10 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3
     duration: null
-    earliestStart: 45
-    reoccurrenceDelay: 20
+    earliestStart: 30
+    maxOccurrences: 1
     minimumPlayers: 30
     chaos: # Goobstation
       Hostile: 20
@@ -698,7 +694,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -724,7 +720,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -750,7 +746,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -773,7 +769,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
-    weight: 1 # DeltaV - was 1.5
+    weight: 3 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -792,7 +788,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90
+    earliestStart: 60
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -835,13 +831,13 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
-    minimumPlayers: 20
+    weight: 2.5
+    minimumPlayers: 50
     duration: 1
     chaos: # Goobstation
-      Hostile: 60
-      Medical: 75
-      Death: 100
+      Hostile: 200
+      Medical: 200
+      Death: 200
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
