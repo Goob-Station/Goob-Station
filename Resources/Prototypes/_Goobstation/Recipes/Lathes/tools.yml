@@ -18,6 +18,20 @@
     Steel: 1000
 
 - type: latheRecipe
+  parent: BaseBigToolRecipe
+  id: DrinkSpaceLube
+  result: DrinkSpaceLube
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseBigToolRecipe
+  id: CrazyGlue
+  result: CrazyGlue
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
   id: OreBag
   result: OreBag
   categories:

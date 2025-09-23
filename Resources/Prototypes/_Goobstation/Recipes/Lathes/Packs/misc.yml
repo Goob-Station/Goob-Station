@@ -36,6 +36,8 @@
   recipes:
   - ToolboxMechanical
   - Pen
+  - CrazyGlue
+  - DrinkSpaceLube
 
 - type: latheRecipePack
   id: SyndicateCatridgesStatic
