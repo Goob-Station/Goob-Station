@@ -408,3 +408,33 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHumanChangelingArmor
+
+- type: entity
+  name: Space Ninja Armor Spawner
+  id: SpawnMobHumanNinjaArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanNinjaArmor
+
+- type: entity
+  name: Heretic Armor Spawner
+  id: SpawnHumanHereticArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - HumanHereticArmor

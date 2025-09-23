@@ -45,3 +45,41 @@
   - type: AutoImplant
     implants:
       - AntagImplantChangeling
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanNinjaArmor
+  name: Urist Ninja
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ SpaceNinjaGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - AntagImplantSpaceNinja
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanHereticArmor
+  name: Urist Heretic
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ HereticArmor ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - AntagImplantHeretic
