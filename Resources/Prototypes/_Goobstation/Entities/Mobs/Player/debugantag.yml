@@ -83,3 +83,43 @@
   - type: AutoImplant
     implants:
     - AntagImplantHeretic
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanCaptainHardsuit
+  name: Urist McCaptain
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ CaptainHardsuit ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories:
+  parent: [ MobHuman, MobHumanCaptainHardsuit ]
+  id: MobHumanCaptainModsuit
+  name: Urist McCaptain Mogsuit
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ CaptainModsuit ]
+    roleLoadout: [ RoleSurvivalExtended ]
+
+- type: entity
+  categories:
+  parent: [ MobHuman, MobHumanCaptainHardsuit ]
+  id: MobHumanCaptainDebug
+  name: Urist McCaptain
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ VisitorCaptain ]
+    roleLoadout: [ RoleSurvivalExtended ]
+
+
