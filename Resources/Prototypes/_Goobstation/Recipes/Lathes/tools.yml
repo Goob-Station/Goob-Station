@@ -75,6 +75,6 @@
   materials:
     Steel: 1000
     Plastic: 500
-    Plasma: 200
-    Uranium: 200
+    Plasma: 250
+    Uranium: 250
     BSCrystal: 50

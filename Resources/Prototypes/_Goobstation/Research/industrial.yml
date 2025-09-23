@@ -78,5 +78,5 @@
   recipeUnlocks:
   - ConstructionBagOfHolding
   technologyPrerequisites:
-  - AdvancedToolsTechnology  # Goobstation R&D Console rework
+  - AdvancedToolsTechnology
   position: 3, -5
