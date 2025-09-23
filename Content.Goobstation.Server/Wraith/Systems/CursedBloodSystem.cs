@@ -1,13 +1,17 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
+using Content.Server.Fluids.EntitySystems;
 
 
 namespace Content.Goobstation.Server.Wraith.Systems;
@@ -21,6 +25,9 @@ public sealed partial class CursedBloodSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
 
     public override void Initialize()
     {
@@ -61,8 +68,14 @@ public sealed partial class CursedBloodSystem : EntitySystem
                 //TO DO: Make them puke a lot of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(uid, 50f, blood);
-                    _blood.SpillAllSolutions(uid, blood);
+                    if (_solutionContainer.TryGetSolution(uid, blood.BloodSolutionName, out var solution))
+                    {
+                        // Split out a fixed amount, e.g. 30 units
+                        var split = _solutionContainer.SplitSolution(solution.Value, FixedPoint2.New(comp.BloodToSpill));
+
+                        // Spill their blood.
+                        _puddle.TrySpillAt(uid, split, out _);
+                    }
                 }
                 // Schedule next drowsy tick
                 comp.NextTickBigPuke = curTime + comp.TimeTillBigPuke;

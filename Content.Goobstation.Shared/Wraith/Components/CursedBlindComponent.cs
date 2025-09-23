@@ -7,7 +7,7 @@ public sealed partial class CursedBlindComponent : Component
     /// How long before the blindness curse ticks and becomes stronger.
     /// </summary>
     [DataField]
-    public TimeSpan TimeTillIncrement = TimeSpan.FromSeconds(5);
+    public TimeSpan TimeTillIncrement = TimeSpan.FromSeconds(10);
 
     /// <summary>
     /// How many stacks of blindness the curse has applied.

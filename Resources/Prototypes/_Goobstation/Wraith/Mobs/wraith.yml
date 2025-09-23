@@ -125,6 +125,11 @@
     softness: 5
     autoRot: true
     castShadows: false
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
 
 - type: entity
   id: MobWraithHarbinger
@@ -144,8 +149,8 @@
     autoRot: true
     castShadows: false
   - type: AmbientSound
-    range: 20
-    volume: -10
+    range: 10
+    volume: -15
     sound:
       path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
 
@@ -166,3 +171,9 @@
     softness: 1
     autoRot: true
     castShadows: false
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
+

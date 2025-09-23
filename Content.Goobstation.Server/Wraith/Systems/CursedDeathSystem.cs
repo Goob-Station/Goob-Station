@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
@@ -12,10 +11,9 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Jittering;
 using Content.Shared.Popups;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Player;
+using JetBrains.FormatRipper.Elf;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
@@ -32,6 +30,7 @@ public sealed partial class CursedDeathSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -50,12 +49,54 @@ public sealed partial class CursedDeathSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
+
+            if (curTime >= comp.NextTickPopup)
+            {
+               switch (comp.NextLine)
+                {
+                    case 1:
+                        {
+                            _popup.PopupEntity(Loc.GetString("The air feels heavier..."), uid, uid);
+                            _audio.PlayEntity(comp.CurseSound1, uid, uid);
+                            break;
+                        }
+                    case 2:
+                        {
+                            _popup.PopupEntity(Loc.GetString("Shadows cling to the corners of your vision."), uid, uid);
+                            break;
+                        }
+                    case 3:
+                        {
+                            _popup.PopupEntity(Loc.GetString("You feel a smile where no face should be."), uid, uid);
+                            _audio.PlayEntity(comp.CurseSound2, uid, uid);
+                            break;
+                        }
+                    case 4:
+                        {
+                            _popup.PopupEntity(Loc.GetString("A thought that isn’t yours whispers: 'Give in…"), uid, uid);
+                            break;
+                        }
+                    case 5:
+                        {
+                            _popup.PopupEntity(Loc.GetString("A faint whisper curls around your thoughts: 'Not long now...'"), uid, uid);
+                            break;
+                        }
+                    case 6:
+                        {
+                            _popup.PopupEntity(Loc.GetString("The end is nigh."), uid, uid, PopupType.LargeCaution);
+                            _audio.PlayEntity(comp.CurseSound3, uid, uid);
+                            break;
+                        }
+                }
+
+                comp.NextLine++;
+                comp.NextTickPopup = curTime + comp.TimeTillPopup;
+            }
             // Damage timer
             if (curTime >= comp.NextTickDamage)
             {
                 _chatSystem.TrySendInGameICMessage(uid, "screams", InGameICChatType.Emote, false);
                 _damage.TryChangeDamage(uid, comp.DamageCurse, targetPart: TargetBodyPart.All);
-                _popup.PopupClient(Loc.GetString("Your whole body is being torn apart!"), uid, uid);
                 comp.NextTickDamage = curTime + comp.TimeTillDamage;
             }
 
@@ -63,7 +104,6 @@ public sealed partial class CursedDeathSystem : EntitySystem
             if (curTime >= comp.NextTickStun)
             {
                 _stun.TryKnockdown(uid, comp.StunDuration, true);
-                _popup.PopupClient(Loc.GetString("Your muscles seize up!"), uid, uid);
                 comp.NextTickStun = curTime + comp.TimeTillStun;
             }
 
@@ -71,7 +111,6 @@ public sealed partial class CursedDeathSystem : EntitySystem
             if (curTime >= comp.NextTickStaminaDamage)
             {
                 comp.StaminaDamageAmount += comp.StaminaDamageIncrease;
-                _popup.PopupClient(Loc.GetString("Your body feels heavy..."), uid, uid);
                 _stamina.TakeOvertimeStaminaDamage(uid, comp.StaminaDamageAmount);
 
                 comp.NextTickStaminaDamage = curTime + comp.TimeTillStaminaDamage;
@@ -85,11 +124,10 @@ public sealed partial class CursedDeathSystem : EntitySystem
                     if (_solutionContainer.TryGetSolution(uid, blood.BloodSolutionName, out var solution))
                     {
                         // Split out a fixed amount, e.g. 30 units
-                        var split = _solutionContainer.SplitSolution(solution.Value, FixedPoint2.New(30));
+                        var split = _solutionContainer.SplitSolution(solution.Value, FixedPoint2.New(comp.BloodToSpill));
 
-                        // Spill the split blood at their feet
+                        // Spill their blood.
                         _puddle.TrySpillAt(uid, split, out _);
-                        _popup.PopupClient(Loc.GetString("The end is nigh!"), uid, uid);
                     }
                 }
 
@@ -98,8 +136,11 @@ public sealed partial class CursedDeathSystem : EntitySystem
 
             if (curTime >= comp.NextTickGib)
             {
+                SpawnAtPosition(comp.SmokeProto, Transform(uid).Coordinates);
                 _bodySystem.GibBody(uid);
                 RemCompDeferred<CursedDeathComponent>(uid);
+
+                //TO DO: Increase amount of corpses abosrbed.
             }
         }
     }

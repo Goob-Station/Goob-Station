@@ -45,7 +45,7 @@ public sealed partial class CursedRotSystem : EntitySystem
             // Cough Timer
             if (curTime >= comp.NextTickCough)
             {
-                _popup.PopupEntity(Loc.GetString("You feel sick..."), uid, uid); //This isn't popping up, but it doesn't matter since the cough isn't implemented yet.
+                _popup.PopupEntity(Loc.GetString("You feel sick..."), uid, uid);
 
                 _chatSystem.TrySendInGameICMessage(uid, "coughs", InGameICChatType.Emote, false);
 

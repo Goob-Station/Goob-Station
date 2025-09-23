@@ -27,4 +27,10 @@ public sealed partial class CursedBloodComponent : Component
 
     [DataField]
     public int BleedAmount = 15;
+
+    /// <summary>
+    /// How much blood they lose per tick.
+    /// </summary>
+    [DataField]
+    public float BloodToSpill = 30f;
 }

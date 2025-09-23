@@ -4,24 +4,24 @@ using Robust.Shared.GameStates;
 public sealed partial class CursedRotComponent : Component
 {
     /// <summary>
-    /// How long before they puke blood.
+    /// How long before they puke.
     /// </summary>
     [DataField]
     public TimeSpan TimeTillPuke = TimeSpan.FromSeconds(30);
 
     /// <summary>
-    /// How long before they puke a lot of blood.
+    /// How long before they cough.
     /// </summary>
     [DataField]
     public TimeSpan TimeTillCough = TimeSpan.FromSeconds(10);
 
     /// <summary>
-    /// Next time at which they will puke blood.
+    /// Next time at which they will puke.
     /// </summary>
     public TimeSpan NextTickPuke = TimeSpan.Zero;
 
     /// <summary>
-    /// Next time at which they will puke a lot of blood.
+    /// Next time at which they will cough.
     /// </summary>
     public TimeSpan NextTickCough = TimeSpan.Zero;
 }
