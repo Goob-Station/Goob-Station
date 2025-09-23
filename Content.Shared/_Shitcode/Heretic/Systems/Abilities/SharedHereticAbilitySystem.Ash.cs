@@ -1,5 +1,4 @@
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
@@ -16,7 +15,7 @@ public abstract partial class SharedHereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (!Status.TrySetStatusEffectDuration(ent,
+        if (!_statusNew.TrySetStatusEffectDuration(ent,
                 SharedFireBlastSystem.FireBlastStatusEffect,
                 TimeSpan.FromSeconds(2)))
             return;

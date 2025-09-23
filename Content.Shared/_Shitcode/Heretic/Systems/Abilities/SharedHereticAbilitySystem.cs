@@ -7,7 +7,6 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew;
 using Content.Shared.Throwing;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -24,14 +23,13 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
-    [Dependency] protected readonly SharedStatusEffectsSystem Status = default!;
-
+    [Dependency] protected readonly StatusEffect.StatusEffectsSystem Status = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
@@ -55,7 +53,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
         {
-            _status.TryRemoveStatusEffect(ent, args.Status, status, false);
+            Status.TryRemoveStatusEffect(ent, args.Status, status, false);
             RemCompDeferred(ent.Owner, shadowCloaked);
             args.Handled = true;
             return;
@@ -67,7 +65,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return;
 
         args.Handled = true;
-        _status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
+        Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
