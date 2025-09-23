@@ -72,7 +72,6 @@ private void ProcessBleeding(EntityUid uid, BodyComponent body)
 {
     const float bleedReduction = 0.5f;
     var reduction = FixedPoint2.New(bleedReduction);
-    bool anyHealed = false;
 
     // Get Bodyparts
     var bodyParts = _body.GetBodyChildren(uid, body).ToList();
@@ -99,7 +98,6 @@ private void ProcessBleeding(EntityUid uid, BodyComponent body)
             // Apply changes
             bleedComp.BleedingAmountRaw = newBleed;
             Dirty(wound, bleedComp);
-            anyHealed = true;
         }
     }
 }
