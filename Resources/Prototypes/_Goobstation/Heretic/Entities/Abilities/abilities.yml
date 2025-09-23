@@ -74,6 +74,23 @@
       - HideContextMenu
 
 - type: entity
+  id: EffectVolcanoExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: explosion
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
   id: ShadowCloakEntity
   save: false
   name: a shadow?

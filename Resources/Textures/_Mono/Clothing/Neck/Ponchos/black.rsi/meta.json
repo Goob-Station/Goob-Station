@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Based on https://github.com/DeltaV-Station/Delta-v/tree/7443161ab8f4144655f290e24879afe2ca3c7f71/Resources/Textures/_DV/Clothing/Neck/Misc/cwparctic.rsi, sprites by @bogus_0451 on discord",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

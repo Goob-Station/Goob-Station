@@ -39,7 +39,7 @@ public sealed partial class HereticAbilitySystem
 
         var hasTargets = false;
 
-        var targets = _lookup.GetEntitiesInRange<MobStateComponent>(args.Target, args.Range, LookupFlags.Dynamic);
+        var targets = Lookup.GetEntitiesInRange<MobStateComponent>(args.Target, args.Range, LookupFlags.Dynamic);
         foreach (var (target, _) in targets)
         {
             if (target == ent.Owner || HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target))

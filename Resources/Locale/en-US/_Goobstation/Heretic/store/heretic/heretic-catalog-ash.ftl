@@ -52,13 +52,13 @@ knowledge-path-ash-s4-desc =
     When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to a nearby heathen.
     Damage dealt is decreased with each transfer.
 
-knowledge-path-ash-s5-name = Volcanic Blast
+knowledge-path-ash-s5-name = Volcano Blast
 knowledge-path-ash-s5-desc =
     No fire was hot enough to rekindle them. No fire was bright enough to save them. No fire is eternal.
 
-    Grants you Volcanic Blast, a spell that fires a ball of flames to the nearest Heathen.
-    On successful hit, the fireball continues it's way to another heathen.
-    Be careful, as fire still hurts. Make sure to carry an extinguisher on yourself.
+    Grants you Volcano Blast, a spell that - after a short charge - fires off a beam of energy at a nearby enemy,
+    setting them on fire and burning them.
+    If they do not extinguish themselves, the beam will continue to another target.
 
 knowledge-path-ash-s6-name = Mask of Madness
 knowledge-path-ash-s6-desc =
