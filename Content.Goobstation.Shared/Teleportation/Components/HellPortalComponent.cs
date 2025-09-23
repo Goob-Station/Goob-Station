@@ -15,13 +15,10 @@ public sealed partial class HellPortalComponent : Component
     public EntityUid? HellMap;
 
     [DataField]
-    public EntityUid? ExitPortal;
+    public EntityUid ExitPortal;
 
     [DataField]
     public bool PortalEnabled;
-
-    [DataField]
-    public EntityUid hellExit;
 
     [DataField]
     public EntProtoId ExitPortalPrototype = "PortalHellExit";

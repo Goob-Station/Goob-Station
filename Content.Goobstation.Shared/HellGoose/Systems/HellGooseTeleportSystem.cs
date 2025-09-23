@@ -18,50 +18,34 @@ public sealed partial class HellGooseTeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Make sure the user is valid
-        if (!TryComp<TransformComponent>(args.Performer, out var performerXform))
+        // Make sure the user has a transform
+        if (!EntityManager.TryGetComponent<TransformComponent>(args.Performer, out var performerXform))
             return;
 
         args.Handled = true;
 
-        EntityUid? targetBeacon = null;
+        HellGooseBeaconTeleportComponent? targetBeacon = null;
 
-        // try to find the Bar beacon
-        foreach (var entity in EntityManager.GetEntities())
+        // Find the first beacon component
+        var query = EntityQueryEnumerator<HellGooseBeaconTeleportComponent>();
+        while (query.MoveNext(out _, out var beaconComp))
         {
-            if (TryComp<MetaDataComponent>(entity, out var meta))
+            if (beaconComp != null)
             {
-                if (meta.EntityPrototype?.ID == "DefaultStationBeaconBar")
-                {
-                    targetBeacon = entity;
-                    break;
-                }
+                targetBeacon = beaconComp;
+                break;
             }
         }
 
-        // If no Bar beacon, try to find the Medical beacon
-        if (targetBeacon == null)
-        {
-            foreach (var entity in EntityManager.GetEntities())
-            {
-                if (TryComp<MetaDataComponent>(entity, out var meta) &&
-                    meta.EntityPrototype?.ID == "DefaultStationBeaconMedical")
-                {
-                    targetBeacon = entity;
-                    break;
-                }
-            }
-        }
-
-        // If still no beacon found, just return
+        // If no beacon found, abort
         if (targetBeacon == null)
             return;
 
-        // Get beacon transform
-        if (!TryComp<TransformComponent>(targetBeacon.Value, out var beaconXform))
+        // Get the beacon's transform
+        if (!EntityManager.TryGetComponent<TransformComponent>(targetBeacon.Owner, out var beaconXform))
             return;
 
-        // Teleport performer to beacon coordinates
+        // Teleport performer using TransformSystem
         performerXform.Coordinates = beaconXform.Coordinates;
     }
 }

@@ -28,14 +28,16 @@ public sealed class HellPortalSystem : EntitySystem
     private void OnMapInit(EntityUid uid, HellPortalComponent comp, MapInitEvent args)
     {
         // Check if hell already exists
-        var existingHellMaps = EntityQuery<HellMapComponent>();
-        if (existingHellMaps.Any())
+        var query = EntityQueryEnumerator<HellMapComponent>();
+        if (query.MoveNext(out var hellMapUid, out var hellMapComp))
         {
-            // Hell map already exists, just link the portal
-            _link.TryLink(uid, comp.hellExit);
+            // If the map exists, ensure the ExitPortal is valid before linking
+            if (comp.ExitPortal != default && EntityManager.EntityExists(comp.ExitPortal))
+            {
+                _link.TryLink(uid, comp.ExitPortal);
+            }
             return;
         }
-
         // Load the hell map if it doesn't exist
         if (!_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml"),
                 out var map, out var roots,
@@ -63,14 +65,23 @@ public sealed class HellPortalSystem : EntitySystem
             EnsureComp<LinkedEntityComponent>(uid);
 
             portalComp.CanTeleportToOtherMaps = true;
-
+            if (string.IsNullOrEmpty(comp.ExitPortalPrototype))
+            {
+                Log.Error("HellPortalComponent.ExitPortalPrototype is null or empty");
+                return;
+            }
             // Spawn a receiver portal inside hell
-            comp.hellExit = Spawn(comp.ExitPortalPrototype, pos);
-            EnsureComp<PortalComponent>(comp.hellExit, out var hellPortalComp);
-            EnsureComp<LinkedEntityComponent>(comp.hellExit);
+            comp.ExitPortal = Spawn(comp.ExitPortalPrototype, pos);
+            if (comp.ExitPortal == default)
+            {
+                Log.Error("Failed to spawn hell exit portal");
+                return;
+            }
+            EnsureComp<PortalComponent>(comp.ExitPortal, out var hellPortalComp);
+            EnsureComp<LinkedEntityComponent>(comp.ExitPortal);
 
             // Permanently link both ways
-            _link.TryLink(uid, comp.hellExit);
+            _link.TryLink(uid, comp.ExitPortal);
 
             break;
         }
