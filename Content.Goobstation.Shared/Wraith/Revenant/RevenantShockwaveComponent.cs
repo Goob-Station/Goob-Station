@@ -24,7 +24,7 @@ public sealed partial class RevenantShockwaveComponent : Component
     /// How long to knockdown people
     /// </summary>
     [DataField]
-    public float KnockdownDuration = 10f;
+    public TimeSpan KnockdownDuration = TimeSpan.FromSeconds(10f);
 
     [ViewVariables]
     public ProtoId<TagPrototype> WindowTag = "Window";

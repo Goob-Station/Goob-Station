@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -39,6 +40,9 @@ public sealed partial class WraithPossessedComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool CancelEarly;
+
+    [DataField]
+    public DamageSpecifier RevenantDamageOvertime;
 }
 
 /// <summary>

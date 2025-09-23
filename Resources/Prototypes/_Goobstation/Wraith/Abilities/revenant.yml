@@ -13,6 +13,16 @@
     maxObjects: 20
     searchRange: 8
     stunDuration: 8
+  - type: WraithPoints
+    startingWraithPoints: 50
+  - type: PassiveWraithPoints
+    wpGeneration: 5 # generate points 5x than a normal wraith
   - type: ActionGrant
     actions:
     - ActionCommand
+  - type: TriggerOnMobstateChange # smoke on death
+    mobState:
+      - Dead
+  - type: SmokeOnTrigger
+    duration: 4
+    spreadAmount: 50

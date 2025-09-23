@@ -31,6 +31,9 @@
   - type: RaiseSkeleton
   - type: SummonVoidCreature
   - type: MakeRevenant
+    revenantDamageOvertime:
+      groups:
+        Brute: 5
   - type: SpookMark
   - type: CurseOfBlindness
   - type: CurseOfWeakness

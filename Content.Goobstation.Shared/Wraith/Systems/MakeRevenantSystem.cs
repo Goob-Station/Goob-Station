@@ -48,17 +48,21 @@ public sealed partial class MakeRevenentSystem : EntitySystem
         //  - stun immunity
         //  - ignore stamina penalties
         // Mechanics:
-        //  - lose their normal set of powers (hide old actions)
-        //  - constantly lose health
-        //  - cannot be healed
-        //  - death = black smoke
+        //  - lose their normal set of powers (honestly block doing this on magic antags)
+        //  - constantly lose health (done)
+        //  - cannot be healed (done)
+        //  - death = black smoke (done)
         //  - you can identify one easily
         // Actions:
-        //  - Push
+        //  - Push (done)
         //  - Mass Command (done)
-        //  - Shockwave
-        //  - Touch of Evil
-        //  - Crush
+        //  - Shockwave (done)
+        //  - Touch of Evil (done)
+        //  - Crush (done)
+        // Polish:
+        // - add popups
+        // - add sounds
+        // - actually playtest all abilities lmao (i havent even launched the game at all)
 
         args.Handled = true;
     }

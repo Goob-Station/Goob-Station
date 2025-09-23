@@ -88,7 +88,16 @@ public sealed class WraithPossessedSystem : EntitySystem
                 return;
 
             _mind.TransferTo(possessorMind, ent.Owner);
-            EnsureComp<WraithRevenantComponent>(ent.Owner);
+            var rev = EnsureComp<WraithRevenantComponent>(ent.Owner);
+            // HELP HELP HELP HELP HELP HELP HELPH ELP HELP HELPHELHPLELHEPL PHLELPHE HELHLEHPELHPELHPELHPELHPELHLEPHLE
+
+            var alive = new List<MobState>();
+            alive.Add(MobState.Alive);
+
+            rev.AllowedStates = alive;
+            rev.DamageOvertime = ent.Comp.RevenantDamageOvertime;
+            Dirty(ent.Owner, rev);
+
             return;
         }
 
