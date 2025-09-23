@@ -19,10 +19,6 @@ public sealed class HellPortalSystem : EntitySystem
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    EntityUid hellExit;
-
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +32,7 @@ public sealed class HellPortalSystem : EntitySystem
         if (existingHellMaps.Any())
         {
             // Hell map already exists, just link the portal
-            _link.TryLink(uid, hellExit);
+            _link.TryLink(uid, comp.hellExit);
             return;
         }
 
@@ -45,7 +41,7 @@ public sealed class HellPortalSystem : EntitySystem
                 out var map, out var roots,
                 options: new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true }))
         {
-            Logger.Error("Failed to load hell map at /Maps/_Goobstation/Nonstations/Hell.yml");
+            Log.Error("Failed to load hell map at /Maps/_Goobstation/Nonstations/Hell.yml");
             QueueDel(map);
             return;
         }
@@ -69,12 +65,12 @@ public sealed class HellPortalSystem : EntitySystem
             portalComp.CanTeleportToOtherMaps = true;
 
             // Spawn a receiver portal inside hell
-            hellExit = Spawn(comp.ExitPortalPrototype, pos);
-            EnsureComp<PortalComponent>(hellExit, out var hellPortalComp);
-            EnsureComp<LinkedEntityComponent>(hellExit);
+            comp.hellExit = Spawn(comp.ExitPortalPrototype, pos);
+            EnsureComp<PortalComponent>(comp.hellExit, out var hellPortalComp);
+            EnsureComp<LinkedEntityComponent>(comp.hellExit);
 
             // Permanently link both ways
-            _link.TryLink(uid, hellExit);
+            _link.TryLink(uid, comp.hellExit);
 
             break;
         }

@@ -11,9 +11,19 @@ namespace Content.Goobstation.Shared.Teleportation.Components;
 [RegisterComponent]
 public sealed partial class HellPortalComponent : Component
 {
+    [DataField]
     public EntityUid? HellMap;
-    public EntityUid? ExitPortal;
-    public bool PortalEnabled = false;
 
-    [DataField] public string ExitPortalPrototype = "PortalHellExit";
+    [DataField]
+    public EntityUid? ExitPortal;
+
+    [DataField]
+    public bool PortalEnabled;
+
+    [DataField]
+    public EntityUid hellExit;
+
+    [DataField]
+    public EntProtoId ExitPortalPrototype = "PortalHellExit";
+
 }

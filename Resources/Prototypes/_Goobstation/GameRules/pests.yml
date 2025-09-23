@@ -41,10 +41,10 @@
   id: HellGooseSpawn
   components:
   - type: StationEvent
-    earliestStart: 30
-    minimumPlayers: 15
-    weight: 5
-    reoccurrenceDelay: 30
+    earliestStart: 45
+    minimumPlayers: 30
+    weight: 2
+    reoccurrenceDelay: 60
     eventType: Neutral
   - type: GameRule
     chaosScore: 0
