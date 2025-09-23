@@ -2,6 +2,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
@@ -11,7 +12,9 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.StatusIcon.Components;
 using JetBrains.FormatRipper.Elf;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -38,6 +41,7 @@ public sealed partial class CursedDeathSystem : EntitySystem
 
         SubscribeLocalEvent<CursedDeathComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CursedDeathComponent, MapInitEvent>(OnMapInit);
+
     }
 
     public override void Update(float frameTime)

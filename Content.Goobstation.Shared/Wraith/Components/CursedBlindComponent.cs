@@ -1,4 +1,6 @@
+using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CursedBlindComponent : Component
@@ -31,4 +33,10 @@ public sealed partial class CursedBlindComponent : Component
     /// Next time at which blindness should increment.
     /// </summary>
     public TimeSpan NextTick = TimeSpan.Zero;
+
+    /// <summary>
+    /// The status icon prototype displayed for revolutionaries
+    /// </summary>
+    [DataField]
+    public ProtoId<DiseaseIconPrototype> StatusIcon = "BlindCurseIcon";
 }

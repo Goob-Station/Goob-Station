@@ -2,7 +2,12 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
+using Content.Shared.StatusIcon.Components;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
@@ -12,6 +17,7 @@ public sealed partial class CursedBlindSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -19,6 +25,8 @@ public sealed partial class CursedBlindSystem : EntitySystem
 
         SubscribeLocalEvent<CursedBlindComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CursedBlindComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CursedBlindComponent, GetStatusIconsEvent>(GetIcon);
+        SubscribeLocalEvent<CursedBlindComponent, ComponentGetStateAttemptEvent>(OnCursedBlindGetStateAttempt);
     }
 
     public override void Update(float frameTime)
@@ -56,6 +64,22 @@ public sealed partial class CursedBlindSystem : EntitySystem
                 Dirty(uid, comp);
             }
         }
+    }
+    private void GetIcon(Entity<CursedBlindComponent> ent, ref GetStatusIconsEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (_prototype.TryIndex(comp.StatusIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
+    }
+
+    private void OnCursedBlindGetStateAttempt(EntityUid uid, CursedBlindComponent comp, ref ComponentGetStateAttemptEvent args)
+    {
+        if (args.Player?.AttachedEntity is not { } viewer)
+            return;
+
+        if (!HasComp<WraithComponent>(viewer))
+            args.Cancelled = true;
     }
 
     private void OnExamined(Entity<CursedBlindComponent> ent, ref ExaminedEvent args)
