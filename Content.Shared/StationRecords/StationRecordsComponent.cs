@@ -8,11 +8,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.StationRecords.Systems;
+namespace Content.Shared.StationRecords;
 
-namespace Content.Server.StationRecords;
-
-[Access(typeof(StationRecordsSystem))]
+[Access(typeof(SharedStationRecordsSystem))]
 [RegisterComponent]
 public sealed partial class StationRecordsComponent : Component
 {
