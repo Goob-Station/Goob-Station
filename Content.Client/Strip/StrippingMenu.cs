@@ -40,9 +40,9 @@ namespace Content.Client.Strip
 
         public void ClearButtons()
         {
-            InventoryContainer.DisposeAllChildren();
-            HandsContainer.DisposeAllChildren();
-            SnareContainer.DisposeAllChildren();
+            InventoryContainer.RemoveAllChildren();
+            HandsContainer.RemoveAllChildren();
+            SnareContainer.RemoveAllChildren();
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
