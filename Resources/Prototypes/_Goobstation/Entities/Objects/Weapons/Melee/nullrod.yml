@@ -400,6 +400,7 @@
   - type: HeldSpeedModifier
   - type: Damageable
     damageContainer: Shield
+  - type: MultiHandedItem
 
 - type: entity
   name: Honkmother's Maw

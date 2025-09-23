@@ -254,6 +254,9 @@
     rodProto: Bulwark # Shitchap
     effectProto: EffectSpark
     soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: BlueAltarNode
 
 - type: entity
   id: AltarConvertBurden
