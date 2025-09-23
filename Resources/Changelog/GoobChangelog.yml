@@ -15407,3 +15407,9 @@ Entries:
         evacuation shuttle and not in a pod when you arrive at CC.
   id: 1725
   time: '2025-09-23T03:30:01.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Ported some Monolith and NF clothing for more options.
+  id: 1726
+  time: '2025-09-23T16:34:12.0000000+00:00'
