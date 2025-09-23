@@ -237,6 +237,16 @@
   equipment:
     outerClothing: N14ClothingOuterRangerPrice
 
+- type: loadout
+  id: RedAstraRangerPaddedJacket
+  equipment:
+    outerClothing: N14ClothingOuterPreventorJacket
+
+- type: loadout
+  id: RedAstraRangerLeatherVest
+  equipment:
+    outerClothing: N14ClothingOuterRangerVest
+
 # Gloves
 - type: loadout
   id: CombatEnvirogloves

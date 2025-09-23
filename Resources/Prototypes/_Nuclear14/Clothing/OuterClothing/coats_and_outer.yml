@@ -1,0 +1,19 @@
+#MARK: Vancouver preventor
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterPreventorJacket
+  name: preventor padded jacket
+  description: A winter leather jacket with internal armor layers. Common among smugglers and spacers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Coats/armoredjacket.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Coats/armoredjacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.6
+    priceMultiplier: 0.5

@@ -1036,6 +1036,8 @@
   - RedAstraRangerArmorSpider
   - RedAstraRangerArmorWeathered
   - RedAstraRangerArmorElite
+  - RedAstraRangerLeatherVest
+  - RedAstraRangerPaddedJacket
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
