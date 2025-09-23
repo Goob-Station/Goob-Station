@@ -1,0 +1,17 @@
+- type: gamePreset
+  id: Shadowling
+  alias:
+  - Shadowling
+  - Shadowlings
+  - Slings
+  - Sling
+  name: shadowling-title
+  showInVote: false
+  description: shadowling-description
+  rules:
+  - Shadowling
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule
+  - LavalandStormScheduler # Lavaland Change
