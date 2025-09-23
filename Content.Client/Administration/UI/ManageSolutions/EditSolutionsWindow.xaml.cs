@@ -81,7 +81,7 @@ namespace Content.Client.Administration.UI.ManageSolutions
         /// </summary>
         public void UpdateReagents()
         {
-            ReagentList.DisposeAllChildren();
+            ReagentList.RemoveAllChildren();
 
             if (_selectedSolution == null || _solutions == null)
                 return;
@@ -106,7 +106,7 @@ namespace Content.Client.Administration.UI.ManageSolutions
         /// <param name="solution">The selected solution.</param>
         private void UpdateVolumeBox(Solution solution)
         {
-            VolumeBox.DisposeAllChildren();
+            VolumeBox.RemoveAllChildren();
 
             var volumeLabel = new Label();
             volumeLabel.HorizontalExpand = true;
@@ -145,7 +145,7 @@ namespace Content.Client.Administration.UI.ManageSolutions
         /// <param name="solution">The selected solution.</param>
         private void UpdateThermalBox(Solution solution)
         {
-            ThermalBox.DisposeAllChildren();
+            ThermalBox.RemoveAllChildren();
             var heatCap = solution.GetHeatCapacity(null);
             var specificHeatLabel = new Label();
             specificHeatLabel.HorizontalExpand = true;

@@ -273,6 +273,16 @@ namespace Content.Client.HealthAnalyzer.UI
             DamageLabelHeading.Visible = true;
             DamageLabel.Visible = true;
             DamageLabel.Text = damageable.TotalDamage.ToString();
+
+            // Alerts
+
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true;
+
+            AlertsDivider.Visible = showAlerts;
+            AlertsContainer.Visible = showAlerts;
+
+            if (showAlerts)
+                AlertsContainer.RemoveAllChildren();
             // Goobstation start
             DamageLabelHeadingVital.Visible = true;
             DamageLabelVital.Visible = true;
