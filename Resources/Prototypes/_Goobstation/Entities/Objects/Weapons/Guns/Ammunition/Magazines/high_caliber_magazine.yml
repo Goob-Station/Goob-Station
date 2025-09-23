@@ -10,7 +10,7 @@
 
 - type: entity
   id: BaseMagazineHighCaliber
-  name: "magazine (.50 caliber)"
+  name: "magazine (.50 BMG)"
   parent: [ BaseItem, BaseSyndicateContraband ]
   abstract: true
   components:

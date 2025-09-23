@@ -15,10 +15,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Burner
+  name: MLA Burner
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleBurner
-  description: A high caliber syndicate gun chambered in .50 caliber, capable of firing anti-materiel and high explosive rounds.
+  description: An obscene anti-materiel and anti-personnel assault rifle that fires .50 BMG as long as you can shoulder it. Whatever you can afford, it's five times as expensive as that. Feeds from .50 BMG magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi
@@ -67,10 +67,10 @@
     - 0,0,5,2
 
 - type: entity
-  name: M-90
+  name: UI M-90
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90
-  description: A revision of the M-90gl that removes the inbuilt grenade launcher. Uses 5.56x45mm ammo.
+  description: A revision of the M-90GL that omits the inbuilt grenade launcher. Feeds from 5.56x45 magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi

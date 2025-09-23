@@ -14,10 +14,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Chester
+  name: NT Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized 8 gauge ammunition for rapid threat removal.
+  description: A flashy lever-action shotgun designed for NT's Blueshield corps. Elegant in design, for the work it does. Takes 8 Gauge shells.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi

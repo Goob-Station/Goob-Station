@@ -147,10 +147,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: Atreides
+  name: MLA Atreides
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunAtreides
-  description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from 9x19mm SMG magazines.
+  description: A rare, compact machine pistol design not found often in the Spinward sector. A now defunct design by Midnight Light Arms, the Atredies excels at CQB and deleting anything in the general direction you point it in. Feeds from 9x19mm SMG magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
@@ -170,10 +170,10 @@
   - type: Appearance
 
 - type: entity
-  name: C-20r submachine gun
+  name: UI C-20R # Goobstation
   parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
-  description: A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today. Feeds from 9x19mm SMG magazines.
+  description: The right hand of those who fight under the three serpents. A bullpup SMG from Ullman Industries that sacrifices accuracy for pure firerate. Feeds from 9x19mm SMG magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
@@ -213,10 +213,10 @@
     price: 5000
 
 - type: entity
-  name: Drozd
+  name: HWM Drozd # Goobstation
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from 9x19mm SMG magazines.
+  description: A classic from Hertsal Weapon Manufacture, the Drozd is a versatile SMG platform designed for use by private security and police forces. Runs optimally when burst-fired.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -279,10 +279,10 @@
       - oni-cannot-shoot-guns-3
 
 - type: entity
-  name: WT550 autorifle # Goobstation
+  name: MLA WT-550 # Goobstation
   parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
-  description: A truly unique firearm, the WT550 was designed by Nanotrasen's Small Arms Division as a compact, cheap, and mass produced submachine gun fully controllable with one hand. It contains an exotic internal recoil buffer and feeds from special top-mounted 9x19mm magazines.
+  description: A truly unique firearm, Midnight Light Arms' WT-550 loads from a top-mounted magazine that rotates the cartridges forward when fed into the magwell. While the firerate isn't anything to call home about, the small size and manageable recoil make it fully usable one-handed. Feeds from top-mounted 9x19mm SMG magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi

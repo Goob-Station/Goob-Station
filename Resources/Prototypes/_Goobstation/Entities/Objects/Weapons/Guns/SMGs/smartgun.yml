@@ -12,7 +12,7 @@
   name: Abielle Smart-SMG
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineSmart
-  description: An experiment in smart-weapon technology that guides bullets towards the target the gun was aimed at when fired. While the tracking functions work fine, the gun is prone to insanely wide spread thanks to its practically nonexistent barrel.
+  description: An experimental weapons platform that fires self-correcting gyrojets that home to the target chosen on ignition. Though expensive, it's popular among civilians due to the lack of skill needed to fire it. Feeds from 13x35mm gyrojet magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi

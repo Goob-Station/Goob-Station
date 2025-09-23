@@ -167,7 +167,7 @@
   name: AKM
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from 7.62x51mm magazines.
+  description: A somewhat battered combat rifle of a design originating from old Earth, converted for use with a modern cartridge. Favored by criminals, militias, and terrorists alike due to its second-to-none reliability and easy to manufacture design. Feeds from 7.62x51mm magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -213,7 +213,7 @@
   - type: Appearance
 
 - type: entity
-  name: M-90gl
+  name: UI M-90GL
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90GrenadeLauncher
   description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses 5.56x45mm ammo.
@@ -259,10 +259,10 @@
     fireRate: 6
 
 - type: entity
-  name: Lecter
+  name: HWM Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: A high end military grade assault rifle. Uses 5.56x45mm ammo.
+  description: A high-grade, modular assault rifle that's seen more wars than you can remember. Due to the intermediate cartridge and full-size barrel, it can hit surprisingly tight groupings at long range. Feeds from 5.56x45mm magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
@@ -307,10 +307,10 @@
   - type: Appearance
 
 - type: entity
-  name: Estoc # goob
+  name: MLA Estoc # goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses 5.56x45mm ammo. # goob
+  description: A military grade DMR designed to put three shots into an inch wide target at 10 yards, every single time. The mounted ACOG's tritium sights shine even in bright environments.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
