@@ -21,11 +21,11 @@
       - material: Cable
         amount: 5
         doAfter: 4
-      - tag: Telecrystal
-        name: Telecrystal
+      - tag: CrystalRed
+        name: red crystal shard
         icon:
-          sprite: Objects/Specific/Syndicate/telecrystal.rsi
-          state: telecrystal
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
         amount: 2
         doAfter: 8
   - node: welderSword
@@ -54,11 +54,11 @@
       - material: Cable
         amount: 5
         doAfter: 4
-      - tag: Telecrystal
-        name: Telecrystal
+      - tag: CrystalOrange
+        name: orange crystal shard
         icon:
-          sprite: Objects/Specific/Syndicate/telecrystal.rsi
-          state: telecrystal
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
         amount: 2
         doAfter: 8
   - node: welderSwordIndustrial
@@ -87,11 +87,11 @@
       - material: Cable
         amount: 5
         doAfter: 4
-      - tag: Telecrystal
-        name: Telecrystal
+      - tag: CrystalBlue
+        name: blue crystal shard
         icon:
-          sprite: Objects/Specific/Syndicate/telecrystal.rsi
-          state: telecrystal
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
         amount: 2
         doAfter: 8
   - node: welderSwordExperimental
