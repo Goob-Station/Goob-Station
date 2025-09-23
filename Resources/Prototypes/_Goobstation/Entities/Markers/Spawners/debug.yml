@@ -438,3 +438,48 @@
   - type: ConditionalSpawner
     prototypes:
     - HumanHereticArmor
+
+- type: entity
+  name: Captain Armor Spawner Hardsuit
+  id: SpawnMobHumanCaptainHardsuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainHardsuit
+
+- type: entity
+  name: Captain Armor Spawner Modsuit
+  id: SpawnMobHumanCaptainModsuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainModsuit
+
+- type: entity
+  name: Captain Armor Spawner
+  id: SpawnMobHumanCaptainDebug
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainDebug
