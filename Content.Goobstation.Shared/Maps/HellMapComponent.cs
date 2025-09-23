@@ -4,4 +4,7 @@ namespace Content.Goobstation.Shared.Maps;
 /// Component for Hell Map
 /// </summary>
 [RegisterComponent]
-public sealed partial class HellMapComponent : Component;
+public sealed partial class HellMapComponent : Component
+{
+    [DataField] public EntityUid? ExitPortal;
+}
