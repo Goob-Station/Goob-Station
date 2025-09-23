@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
