@@ -42,12 +42,12 @@
 - type: siliconLaw
   id: Medical1
   order: 1
-  lawString: law-medical-1
+  lawString: law-crewsimov-1
 
 - type: siliconLaw
   id: Medical2
   order: 2
-  lawString: law-medical-2
+  lawString: law-crewsimov-2
 
 - type: siliconLaw
   id: Medical3
@@ -65,12 +65,12 @@
 - type: siliconLaw
   id: Engineer1
   order: 1
-  lawString: law-engineer-1
+  lawString: law-crewsimov-1
 
 - type: siliconLaw
   id: Engineer2
   order: 2
-  lawString: law-engineer-2
+  lawString: law-crewsimov-2
 
 - type: siliconLaw
   id: Engineer3
@@ -88,22 +88,17 @@
 - type: siliconLaw
   id: Janitor1
   order: 1
-  lawString: law-janitor-1
+  lawString: law-crewsimov-1
 
 - type: siliconLaw
   id: Janitor2
   order: 2
-  lawString: law-janitor-2
+  lawString: law-crewsimov-2
 
 - type: siliconLaw
   id: Janitor3
   order: 3
   lawString: law-janitor-3
-
-- type: siliconLaw
-  id: Janitor4
-  order: 4
-  lawString: law-janitor-4
 
 - type: siliconLawset
   id: Janitor
@@ -111,28 +106,22 @@
   - Janitor1
   - Janitor2
   - Janitor3
-  - Janitor4
   obeysTo: laws-owner-charge
 
 - type: siliconLaw
   id: Clown1
   order: 1
-  lawString: law-clown-1
+  lawString: law-crewsimov-1
 
 - type: siliconLaw
   id: Clown2
   order: 2
-  lawString: law-clown-2
+  lawString: law-crewsimov-2
 
 - type: siliconLaw
   id: Clown3
   order: 3
   lawString: law-clown-3
-
-- type: siliconLaw
-  id: Clown4
-  order: 4
-  lawString: law-clown-4
 
 - type: siliconLawset
   id: Clown
@@ -140,33 +129,22 @@
   - Clown1
   - Clown2
   - Clown3
-  - Clown4
   obeysTo: laws-owner-crew
-
-- type: siliconLaw
-  id: SalvageObeyAI
-  order: 0
-  lawString: law-salvage-obeyai
 
 - type: siliconLaw
   id: Salvage1
   order: 1
-  lawString: law-salvage-1
+  lawString: law-crewsimov-1
 
 - type: siliconLaw
   id: Salvage2
   order: 2
-  lawString: law-salvage-2
+  lawString: law-crewsimov-2
 
 - type: siliconLaw
   id: Salvage3
   order: 3
   lawString: law-salvage-3
-
-- type: siliconLaw
-  id: Salvage4
-  order: 4
-  lawString: law-salvage-4
 
 - type: siliconLawset
   id: Salvage
@@ -174,5 +152,4 @@
   - Salvage1
   - Salvage2
   - Salvage3
-  - Salvage4
   obeysTo: laws-owner-crew
