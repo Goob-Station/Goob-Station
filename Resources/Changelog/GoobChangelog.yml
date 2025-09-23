@@ -15399,3 +15399,11 @@ Entries:
       message: Fixed some knockdowns/stuns not working.
   id: 1724
   time: '2025-09-22T16:47:42.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Tweak
+      message: >-
+        Escape objective description is now clear that you must be on the
+        evacuation shuttle and not in a pod when you arrive at CC.
+  id: 1725
+  time: '2025-09-23T03:30:01.0000000+00:00'
