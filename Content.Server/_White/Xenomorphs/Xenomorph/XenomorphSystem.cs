@@ -40,85 +40,86 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
         SubscribeLocalEvent<XenomorphComponent, EntitySpokeEvent>(OnEntitySpoke);
     }
 
-    public override void Update(float frameTime)
+public override void Update(float frameTime)
+{
+    base.Update(frameTime);
+
+    var time = _timing.CurTime;
+    var query = EntityQueryEnumerator<XenomorphComponent, BloodstreamComponent, BodyComponent>();  // Added BodyComponent to query
+
+    while (query.MoveNext(out var uid, out var xenomorph, out var bloodstream, out var body))
     {
-        base.Update(frameTime);
+        if (xenomorph.WeedHeal == null || time < xenomorph.NextPointsAt)
+            continue;
 
-        var time = _timing.CurTime;
-        var query = EntityQueryEnumerator<XenomorphComponent, BloodstreamComponent>();
+        // Update next heal time
+        xenomorph.NextPointsAt = time + xenomorph.WeedHealRate;
 
-        while (query.MoveNext(out var uid, out var xenomorph, out var bloodstream))
+        if (!xenomorph.OnWeed)
+            continue;
+
+        // Apply regular weed healing if on weeds
+        _damageable.TryChangeDamage(uid, xenomorph.WeedHeal);
+
+        // Process bleeding and blood loss in parallel with cached values
+        ProcessBleeding(uid, body);
+        ProcessBloodLoss(uid, bloodstream);
+    }
+}
+
+// Heal/Seal any bleeding parts over time.
+private void ProcessBleeding(EntityUid uid, BodyComponent body)
+{
+    const float bleedReduction = 0.5f;
+    var reduction = FixedPoint2.New(bleedReduction);
+    bool anyHealed = false;
+
+    // Get Bodyparts
+    var bodyParts = _body.GetBodyChildren(uid, body).ToList();
+
+    foreach (var part in bodyParts)
+    {
+        // Process all wounds in this part
+        foreach (var wound in _wounds.GetWoundableWounds(part.Id))
         {
-            if (xenomorph.WeedHeal == null || time < xenomorph.NextPointsAt)
-                continue;
-
-            // Update next heal time
-            xenomorph.NextPointsAt = time + xenomorph.WeedHealRate;
-
-            if (!xenomorph.OnWeed)
-                continue;
-
-            // Apply regular weed healing if on weeds
-            _damageable.TryChangeDamage(uid, xenomorph.WeedHeal);
-
-            // Bleeding Handling
-            if (TryComp<BodyComponent>(uid, out var body))
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleedComp) ||
+                !bleedComp.IsBleeding ||
+                bleedComp.BleedingAmountRaw <= FixedPoint2.Zero)
             {
-                // Amount to reduce bleeding by each tick
-                const float bleedReduction = 0.5f;
-                bool anyBleeding = false;
-                bool anyHealed = false;
-
-                // Process each wound directly
-                foreach (var part in _body.GetBodyChildren(uid, body))
-                {
-                    foreach (var wound in _wounds.GetWoundableWounds(part.Id))
-                    {
-                        if (!TryComp<BleedInflicterComponent>(wound, out var bleedComp) || !bleedComp.IsBleeding)
-                            continue;
-
-                        anyBleeding = true;
-
-                        // Only heal if there's actual bleeding to reduce
-                        if (bleedComp.BleedingAmountRaw > FixedPoint2.New(0))
-                        {
-                            // Reduce bleeding amount but keep it above 0
-                            var reduction = FixedPoint2.New(bleedReduction);
-                            var newBleed = FixedPoint2.Max(FixedPoint2.New(0), bleedComp.BleedingAmountRaw - reduction);
-                            var amountHealed = bleedComp.BleedingAmountRaw - newBleed;
-
-                            if (amountHealed > 0)
-                            {
-                                bleedComp.BleedingAmountRaw = newBleed;
-                                Dirty(wound, bleedComp);
-                                anyHealed = true;
-                                Log.Debug($"Reduced bleeding on {ToPrettyString(wound)} by {amountHealed}");
-                            }
-                        }
-                    }
-                }
-
-                if (anyHealed)
-                {
-                    Log.Debug($"Healed bleeding damage on {ToPrettyString(uid)}");
-                }
-                else if (anyBleeding)
-                {
-                    Log.Debug($"No healing applied to {ToPrettyString(uid)} (bleeding amount too low?)");
-                }
+                continue;
             }
 
-            // Heal existing blood loss damage if not at max blood
-            if (_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
-                && bloodSolution.Volume < bloodstream.BloodMaxVolume)
-            {
-                var bloodloss = new DamageSpecifier();
-                bloodloss.DamageDict.Add("Bloodloss", -0.2); // Heal blood per tick.
-                _damageable.TryChangeDamage(uid, bloodloss);
-                Log.Debug("Healing blood loss");
-            }
+            // Calculate new bleed amount
+            var newBleed = FixedPoint2.Max(FixedPoint2.Zero, bleedComp.BleedingAmountRaw - reduction);
+            var amountHealed = bleedComp.BleedingAmountRaw - newBleed;
+
+            if (amountHealed <= FixedPoint2.Zero)
+                continue;
+
+            // Apply changes
+            bleedComp.BleedingAmountRaw = newBleed;
+            Dirty(wound, bleedComp);
+            anyHealed = true;
         }
     }
+}
+
+// Slowly heal bloodloss
+private void ProcessBloodLoss(EntityUid uid, BloodstreamComponent bloodstream)
+{
+    if (!_solutionContainer.ResolveSolution(uid,
+            bloodstream.BloodSolutionName,
+            ref bloodstream.BloodSolution,
+            out var bloodSolution)
+            || bloodSolution.Volume >= bloodstream.BloodMaxVolume)
+    {
+        return;
+    }
+
+    var bloodloss = new DamageSpecifier();
+    bloodloss.DamageDict["Bloodloss"] = -0.2f;  // Heal blood per tick
+    _damageable.TryChangeDamage(uid, bloodloss);
+}
 
     private void OnEntitySpoke(EntityUid uid, XenomorphComponent component, EntitySpokeEvent args)
     {
