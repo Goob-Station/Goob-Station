@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Administration.Managers;
 using Content.Server.Body.Components;
@@ -60,23 +61,50 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
             // Apply regular weed healing if on weeds
             _damageable.TryChangeDamage(uid, xenomorph.WeedHeal);
 
-            // Then ensure all wounds are marked as not bleeding
+            // Bleeding Handling
             if (TryComp<BodyComponent>(uid, out var body))
             {
-                // Get all body parts
+                // Amount to reduce bleeding by each tick
+                const float bleedReduction = 0.5f;
+                bool anyBleeding = false;
+                bool anyHealed = false;
+
+                // Process each wound directly
                 foreach (var part in _body.GetBodyChildren(uid, body))
                 {
-                    // Get all wounds on this body part
-                    var wounds = _wounds.GetWoundableWounds(part.Id);
-                    foreach (var wound in wounds)
+                    foreach (var wound in _wounds.GetWoundableWounds(part.Id))
                     {
-                        //  Remove & Add the bleeding component to get rid of bleeding & allow it to work
-                        if (!HasComp<BleedInflicterComponent>(wound))
+                        if (!TryComp<BleedInflicterComponent>(wound, out var bleedComp) || !bleedComp.IsBleeding)
                             continue;
-                        RemComp<BleedInflicterComponent>(wound);
-                        AddComp<BleedInflicterComponent>(wound);
-                        Log.Debug($"Stopped bleeding on wound {ToPrettyString(wound)}");
+
+                        anyBleeding = true;
+
+                        // Only heal if there's actual bleeding to reduce
+                        if (bleedComp.BleedingAmountRaw > FixedPoint2.New(0))
+                        {
+                            // Reduce bleeding amount but keep it above 0
+                            var reduction = FixedPoint2.New(bleedReduction);
+                            var newBleed = FixedPoint2.Max(FixedPoint2.New(0), bleedComp.BleedingAmountRaw - reduction);
+                            var amountHealed = bleedComp.BleedingAmountRaw - newBleed;
+
+                            if (amountHealed > 0)
+                            {
+                                bleedComp.BleedingAmountRaw = newBleed;
+                                Dirty(wound, bleedComp);
+                                anyHealed = true;
+                                Log.Debug($"Reduced bleeding on {ToPrettyString(wound)} by {amountHealed}");
+                            }
+                        }
                     }
+                }
+
+                if (anyHealed)
+                {
+                    Log.Debug($"Healed bleeding damage on {ToPrettyString(uid)}");
+                }
+                else if (anyBleeding)
+                {
+                    Log.Debug($"No healing applied to {ToPrettyString(uid)} (bleeding amount too low?)");
                 }
             }
 
