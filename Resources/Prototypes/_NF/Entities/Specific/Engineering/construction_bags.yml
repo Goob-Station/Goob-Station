@@ -108,10 +108,10 @@
     - type: Storage
       grid:
         - 0,0,19,9
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
         Steel: 250
-        Silver: 180
-        Plasma: 90
-        Uranium: 90
+        Plastic: 100
+        Plasma: 100
+        Uranium: 100
         BSCrystal: 20
