@@ -1,0 +1,184 @@
+<Document>
+  Be ware - this document is just almost a full copy of /tg/ station blood cult guide.
+
+  # Blood Cult
+
+  Even in the far future, some things are never quite understood. There are things that lurk in the darkness of space,
+  unspeakable horrors of ancient power that wish to bring ruin to the universe and to shape it into their image. They
+  reach out from the void, and turn the minds of mortal men and women in their favor in hopes that one day they shall be
+  brought once more into this plane of existence.
+
+  The Geometer of Blood, Nar-Sie, has sent a number of her followers to Space Station 14. As a cultist, you have an
+  abundance of cult magics at your disposal, something for all situations. You must work with your brethren to summon an
+  avatar of your eldritch goddess!
+
+  ## Objectives
+
+  Your objective requires you to sacrifice a certain crewmember and summon Nar-Sie.
+
+  The general path of action of the cult and those in it:
+
+  - 1. From a discrete location, contact your allies. You can do it by speaking Eldritch language - everyone in the cult
+  can hear you when you speak it.
+  - 2. Find an area to convert into a base, usually accessible by one or more members of the cult, but well-hidden
+  enough that security or crew won't find it easily.
+  - 3. Setup a teleport rune, so all cultists can access it.
+  - 4. Setup an empowering rune and then prepare up to 4 blood spells. Stun spells are your bread and butter - but
+  diversifying with spells like EMP, Teleport, Blood Rites, etc. will ensure you're ready for anything.
+  - 5. Convert new members, or sacrifice implanted crew, on the offering rune. Combine the filled soul shard from
+  sacrificed humans to create powerful cult constructs!
+  - 6. Use teamwork to find your sacrifice target.
+  - 7. Kill the sacrifice target and place them on an offer rune with 3 cultists nearby.
+  - 8. Prepare to summon Nar-Sie. She can only be summoned in a few locations and the crew will fight desperately to
+  stop you! Make sure you have enough cultists and equipment to withstand their assault.
+  - 9. Gather 10 cultists on the final rune to summon Nar-Sie!
+
+  ## Ritual Dagger
+
+  <Box>
+    <GuideEntityEmbed Entity="RitualDagger" Caption="Ritual Dagger"/>
+  </Box>
+
+  Your dagger is your most important tool and has several functions:
+
+  - You can draw runes with it.
+  - Hitting a non-cultist with it will result in you stabbing them (huh), dealing 15 piercing damage.
+  - Using it on the rune with erase it.
+  - Using it on the cult barrier will remove it.
+
+  ## Minor Runes
+
+  These are minor runes cultists can draw anywhere on the station.
+
+  <Box Orientation="Vertical" HorizontalAlignment="Center">
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneOffering" Caption="Rune of Offering"/>
+    </Box>
+    Can be used to convert or sacrifice targets on it. It takes two cultists to convert someone.
+
+    [bold]REMINDER: One cultist is required to sacrifice a dead body and three for a live one,
+    standing adjacent to the rune. Each sacrifice will add to the Cult's total number of sacrifices, which are used
+    to revive deceased bretheren instantly over a Revival Rune.[/bold]
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneEmpower" Caption="Rune of Empower"/>
+    </Box>
+    Grants a buff allowing cultists to prepare greater amounts of blood magic at far less of a cost. While you have
+    it, the spell count is capped at 4 instead of 1. Additionally, drawing runes takes far less time and you don't
+    lose as much blood while doing it.
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneTeleport" Caption="Rune of Teleportation"/>
+    </Box>
+    This rune warps everything above it to another teleport rune when used. Creating a teleport rune will allow you to
+    set a tag for it.
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneRevive" Caption="Rune of Rejuvenation"/>
+    </Box>
+    Placing a cultist corpse on the rune and activating it will bring them back to life. Consumes one charge on use
+    and starts with three freebie revivals, so use it sparingly. .
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneBarrier" Caption="Rune of Barrier"/>
+    </Box>
+    When invoked, makes a temporary barrier to block passage.
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneSummoning" Caption="Rune of Summoning"/>
+    </Box>
+    This rune allows you to instantly summon any living cultist to the rune, consuming it afterward. Does not work on
+    restrained cultists who are buckled or being pulled.
+
+    <Box>
+      <GuideEntityEmbed Entity="CultRuneBloodBoil" Caption="Rune of Boiling Blood"/>
+    </Box>
+    When invoked, it saps some health from the invokers to send three damaging pulses to anyone who can see the
+    rune and ignites them.
+  </Box>
+
+  ## Major runes
+
+  These are the major runes cultists can draw once they meet certain conditions. They need a free 3x3 space, and can only
+  be summoned in 3 areas around the station (or have 3 global charges). Depleting all of them makes you unable to draw
+  them anymore. So be careful not to consume all of them with apocalypse runes or you'll never be able to summon
+  Nar'Sie!
+
+  <Box>
+    <GuideEntityEmbed Entity="CultRuneApocalypse" Caption="Rune of Apocalypse"/>
+  </Box>
+
+  A harbinger of the end times. It scales depending on the crew's strength relative to the cult. Effect includes a
+  massive EMP, total blackout, solar flare and if the cult is doing poorly, certain events. If the cult makes up to
+  less than 15% of current players, and an apocalypse rune is activated, a random event will
+  occur:
+  - Immovable Rod x3
+  - Mouse Migration x2
+  - Meteor Swarm x2
+  - Vent Crickets x3
+  - Four Random Anomalies
+  - Kudzu Growth x2
+  - Vendor Mimics x2
+
+  <Box>
+    <GuideEntityEmbed Entity="CultRuneDimensionalRending" Caption="Rune of Dimensional Rending"/>
+  </Box>
+  This rune tears apart dimensional barriers, calling forth the Geometer. To start drawing it the requested target
+  must have already been sacrificed. Starting to draw this rune alarms the entire station of its location. The caster
+  must be defended for 45 seconds before it's complete.
+  After it's drawn, 10 cultists, constructs, or summoned ghosts must stand on the rune, which can then be invoked to
+  manifest Nar'Sie itself.
+
+  ## Blood Spells
+
+  Blood Spells are limited-use blood magic spells that dissipate after they're spent, and they're your bread and butter
+  when fighting the crew. Blood Spells can be created at any time via a menu when right clicking your character.
+  However, blood spells created without an Empowering Rune will take longer, cause significant blood loss, and
+  will cap your spell count at a measly one
+
+  A good tip is to make sure to try and have a stun spell and a teleport spell with you to escape risky situations. This
+  will leave only two other options for spells though, so carefully choose what you think might help best for a
+  particular situation.
+
+
+  ## Constructs
+
+  Shades and constructs are slaved to their masters will. They must follow the orders of their master at any cost. They
+  are capable of grasping intent, unlike synthetic beings. Constructs created by cultists automatically become cultists
+  themselves, allowing them to identify their team mates, and even count for the escape objective.
+
+  <Box>
+    <GuideEntityEmbed Entity="ShadeCult" Caption="Shade"/>
+  </Box>
+  Shades are fragile, but being recaptured into their soul shard heals them. Useful if you quickly need someone to help
+  you activate a rune.
+
+  <Box>
+    <GuideEntityEmbed Entity="ConstructArtificer" Caption="Artificer"/>
+  </Box>
+  The artificer is the "drone" of the cult. It can construct cult-floors, walls and reinforced walls, as well as take
+  apart the station, but its main purpose is to provide the materials to construct additional constructs. It can create
+  new soul stones or shells after a certain time.
+
+  <Box>
+    <GuideEntityEmbed Entity="ConstructWraith" Caption="Wraith"/>
+  </Box>
+  The wraith is a tiny bit more fragile than a human but has a strong melee attack. It can become invisible and travel
+  through closed doors and even walls by using it's phase shift ability.
+
+  <Box>
+    <GuideEntityEmbed Entity="ConstructJuggernaut" Caption="Juggernaut"/>
+  </Box>
+  Juggernauts are strong, slow and have lots of health. They can destroy any wall by simply punching it and do more
+  damage than Wraiths. They cannot be pushed or grabbed and even have a force-wall ability similar to the wizard spell.
+
+  ## Tips
+  - Only cultists can know a rune's name and effects by examining it.
+  - Always be ready to summon a cultist in trouble. You can't summon them if they're already cuffed.
+  - Keeping a shade in a Soulstone Shard with you will allow you to use two-person runes by yourself, by releasing and
+  then recapturing the shade.
+  - Cultists often find a use for medibots. Having a single bot with a low threshold, backed up by brutepacks or pylons,
+  can keep your cult in fighting shape.
+  - The EMP spell and Apocalypse Rune are both incredibly useful. They can give you access almost anywhere, just don't
+  forget your crowbar!
+</Document>

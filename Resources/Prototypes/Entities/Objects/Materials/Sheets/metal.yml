@@ -248,6 +248,8 @@
     interfaces:
       enum.StackCustomSplitUiKey.Key:
         type: StackCustomSplitBoundUserInterface
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
   - type: Sprite
     state: plasteel_3
     layers:
@@ -269,6 +271,15 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SecureWindoor
+  - type: TwistedConstructionTarget
+    replacementProto: RunedMetal1
 
 - type: entity
   parent: SheetPlasteel

@@ -49,6 +49,7 @@
   - Devil # Goob content
   - SlaughterDemon # Goob content
   - Xenomorphs # WD - Xenomorphs
+  - BloodCult
 
 - type: guideEntry
   id: Traitors
@@ -84,3 +85,8 @@
   id: Thieves
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry
+  id: BloodCult
+  name: guide-entry-blood-cult
+  text: "/ServerInfo/Guidebook/Antagonist/BloodCult.xml"

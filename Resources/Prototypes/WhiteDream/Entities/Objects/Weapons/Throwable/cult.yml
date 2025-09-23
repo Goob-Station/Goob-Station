@@ -1,0 +1,22 @@
+﻿- type: entity
+  parent: [BaseBola]
+  id: CultBola
+  name: nar'sien bola
+  description: A strong bola, bound with dark magic that allows it to pass harmlessly through Nar'Sien cultists. Throw it to trip and slow your victim.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/bola.rsi
+    state: icon
+  - type: CultItem
+  - type: Ensnaring
+    freeTime: 2.0
+    breakoutTime: 3.5
+    walkSpeed: 0.7
+    sprintSpeed: 0.7
+    staminaDamage: 55
+    canThrowTrigger: true
+    canMoveBreakout: true
+    destroyOnRemove: true
+    ignoredTargets:
+      components:
+      - BloodCultist

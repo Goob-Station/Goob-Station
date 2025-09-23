@@ -1,0 +1,75 @@
+- type: entity
+  name: soul shard
+  description: Mysterious glowing shard.
+  parent: BaseItem
+  id: SoulShard
+  components:
+  - type: LagCompensation
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/soul_stone.rsi
+    layers:
+    - state: soul_stone
+      map: [ "enum.SoulShardVisualState.Sprite" ]
+    - state: soul_stone_glow
+      map: [ "enum.SoulShardVisualState.Glow" ]
+      visible: false
+  - type: MindContainer
+  - type: Examiner
+    skipChecks: true
+  - type: PointLight
+    color: Red
+    radius: 2
+    softness: 1
+    enabled: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SoulShardVisualState.HasMind:
+        enum.SoulShardVisualState.Glow:
+          True: { visible: true }
+          False: { visible: false }
+      enum.SoulShardVisualState.Blessed:
+        enum.SoulShardVisualState.Sprite:
+          True: { state: "soul_stone_blessed" }
+          False: { state: "soul_stone" }
+  - type: Speech
+  - type: IsDeadIC
+  - type: SoulShard
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Eldritch
+    understands:
+    - TauCetiBasic
+    - Eldritch
+  - type: LanguageSpeaker
+
+- type: entity
+  parent: SoulShard
+  id: SoulShardGhost
+  suffix: Ghost Role
+  components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-soul-shard-name
+    description: ghost-role-information-soul-shard-description
+    rules: ghost-role-information-soul-shard-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SoulShard
+  id: SoulShardHoly
+  components:
+  - type: SoulShard
+    isBlessed: true
+
+- type: entity
+  parent: SoulShardHoly
+  id: SoulShardHolyGhost
+  components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-soul-shard-holy-name
+    description: ghost-role-information-soul-shard-holy-description
+    rules: ghost-role-information-soul-shard-holy-rules
+  - type: GhostTakeoverAvailable

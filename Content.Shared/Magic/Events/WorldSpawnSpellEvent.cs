@@ -10,6 +10,7 @@
 
 using System.Numerics;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Storage;
 
 namespace Content.Shared.Magic.Events;

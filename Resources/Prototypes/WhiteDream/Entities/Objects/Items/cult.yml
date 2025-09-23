@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseItem
+  id: ShuttleCurse
+  name: cursed orb
+  description: You peer within this smokey orb and glimpse terrible fates befalling the emergency escape shuttle.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/shuttle_curse.rsi
+    state: icon
+  - type: CultItem
+  - type: ShuttleCurse
+
+- type: entity
+  parent: BaseItem
+  id: WhetstoneCult
+  name: eldritch whetstone
+  description: A block, empowered by dark magic. Sharp weapons will be enhanced when used on the stone.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/whetstone_cult.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: Whetstone
+    whitelist:
+      components:
+      - Sharp
+    blacklist:
+      components:
+      - EnergySword
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+
+- type: entity
+  parent: BaseItem
+  id: VeilShifter
+  name: veil shifter
+  description: This relic instantly teleports you, and anything you're pulling, forward by a moderate distance.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/veil_shifter.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: VeilShifter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+
+- type: entity
+  parent: BaseItem
+  id: ShadowShackles
+  name: shadow shackles
+  description: Shackles that bind the wrists with sinister magic.
+  components:
+  - type: Item
+    size: Small
+    storedRotation: 90
+  - type: Handcuff
+    breakoutTime: 5
+    breakOnRemove: true
+    cuffedRSI: Objects/Misc/cablecuffs.rsi
+    bodyIconState: body-overlay
+    color: black
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: cuff

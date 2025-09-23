@@ -1,0 +1,124 @@
+﻿- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterCultArmor
+  name: true nar'sien hardened armor
+  description: heavily-armored exosuit worn by warriors of the Nar'Sien cult. It can withstand hard vacuum.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Outer/cult_armor.rsi
+  - type: Clothing
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Outer/cult_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.2
+        Radiation: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetCultArmor
+  - type: CultItem
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetCultArmor
+  categories: [ HideSpawnMenu ]
+  name: true nar'sien hardened helmet
+  description: A heavily-armored helmet worn by warriors of the Nar'Sien cult. It can withstand hard vacuum.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Helmet/cult_helmet.rsi
+  - type: Clothing
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Helmet/cult_helmet.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+
+- type: entity
+  parent: ClothingOuterRobesCult
+  id: ClothingOuterRobesCultTrue
+  name: flagellant's robe
+  description: Blood-soaked robes infused with dark magic; allows the user to move at inhuman speeds, but at the cost of increased damage.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Outer/cult_robe.rsi
+  - type: Clothing
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Outer/cult_robe.rsi
+  - type: CultItem
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1.4
+        Slash: 1.4
+        Piercing: 1.4
+        Heat: 1.4
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodCultHoodTrue
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+
+- type: entity
+  parent: ClothingHeadHatHoodCulthood
+  id: ClothingHeadHatHoodCultHoodTrue
+  name: flagellant's hood
+  description: A blood-soaked hood infused with dark magic.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Helmet/cult_hood.rsi
+  - type: Clothing
+    sprite: WhiteDream/BloodCult/Entities/Clothes/Helmet/cult_hood.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1.4
+        Slash: 1.4
+        Piercing: 1.4
+        Heat: 1.4
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyeCultBlindfold
+  name: zealot's blindfold
+  description: May Nar'Sie guide you through the darkness and shield you from the light
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  # TODO: ADD NIGHT VISION
+

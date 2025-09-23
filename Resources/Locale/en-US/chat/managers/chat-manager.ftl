@@ -88,6 +88,9 @@ chat-manager-admin-channel-name = ADMIN
 chat-manager-rate-limited = You are sending messages too quickly!
 chat-manager-rate-limit-admin-announcement = Rate limit warning: { $player }
 
+chat-manager-send-cult-chat-wrap-message = [bold]\[{ $channelName }\] [BubbleHeader]{ $player }[/BubbleHeader]:[/bold] [BubbleContent]{ $message }[/BubbleContent]
+chat-manager-cult-channel-name = Blood Cult
+
 ## Speech verbs for chat
 
 chat-speech-verb-suffix-exclamation = !
