@@ -80,6 +80,7 @@
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   goobcoins: 20 #Goob content
+  canBeAntag: false # Goobstation - salv lings crashing the economy
   supervisors: job-supervisors-qm
   access:
   - Cargo

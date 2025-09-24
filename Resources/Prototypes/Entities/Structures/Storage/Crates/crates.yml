@@ -67,7 +67,10 @@
     reflectProb: 0.2
     spread: 90
   - type: RadiationBlockingContainer
-    resistance: 2.5
+    # Goobstation Start - Radiation Overhaul
+    # resistance: 2.5
+    decay: 2.5
+    # Goobstation End - Radiation Overhaul
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 125
