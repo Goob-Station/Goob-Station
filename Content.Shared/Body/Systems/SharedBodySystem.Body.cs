@@ -208,7 +208,7 @@ public partial class SharedBodySystem
 
         // Setup the rest of the body entities.
         SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
-        MapInitParts(rootPartUid, rootPart, prototype); // Shitmed Change
+        MapInitParts(bodyEntity, rootPartUid, rootPart, prototype); // Shitmed Change
     }
 
     private void OnBodyCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)
@@ -219,7 +219,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// Sets up all of the relevant body parts for a particular body entity and root part.
     /// </summary>
-    private void MapInitParts(EntityUid rootPartId, BodyPartComponent rootPart, BodyPrototype prototype) // Shitmed Change
+    private void MapInitParts(EntityUid body, EntityUid rootPartId, BodyPartComponent rootPart, BodyPrototype prototype) // Shitmed Change
     {
         // Start at the root part and traverse the body graph, setting up parts as we go.
         // Basic BFS pathfind.
@@ -258,6 +258,7 @@ public partial class SharedBodySystem
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
                 TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, childPartComponent.Symmetry, out var partSlot, parentPartComponent);
                 // Shitmed Change Start
+                childPartComponent.Body = body;
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
                 // Shitmed Change End

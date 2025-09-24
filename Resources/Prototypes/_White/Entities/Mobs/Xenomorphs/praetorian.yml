@@ -21,14 +21,13 @@
         Brute: 5
     inject:
       ChloralHydrate: 5 # Goobstation - new chemical
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnWallResin
-#    - ActionSpawnResinMembrane # Goobstation - removed
-    - ActionSpawnResinDoor # Goobstation - xeno doors
-    - ActionSpawnResinNest
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to organs
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnWallResin
+  #  - ActionSpawnResinMembrane
+  #  - ActionSpawnResinNest
+  #  - ActionSpawnResinWeedNode
   - type: Body
     prototype: XenomorphPraetorian
   - type: TypingIndicator
@@ -76,7 +75,7 @@
     makeSentient: true
     name: ghost-role-information-xenomorph-praetorian-name
     description: ghost-role-information-xenomorph-praetorian-description
-    rules: ghost-role-information-rules-default-team-antagonist
+    rules: ghost-role-information-rules-default-xeno
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:

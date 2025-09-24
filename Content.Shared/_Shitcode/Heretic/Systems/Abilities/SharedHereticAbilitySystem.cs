@@ -1,16 +1,14 @@
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
-using Content.Shared.Tag;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Throwing;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -24,6 +22,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected readonly EntityLookupSystem Lookup = default!;
+    [Dependency] protected readonly SharedStatusEffectsSystem Status = default!;
 
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -39,6 +40,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeAsh();
         SubscribeBlade();
         SubscribeRust();
         SubscribeSide();
