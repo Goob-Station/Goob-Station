@@ -132,7 +132,7 @@ selectable-set-blueshield-revolver-name = revolver set
 selectable-set-blueshield-revolver-description =
     Running out of ammo is the worst thing that could happen in a firefight.
     Includes: The EG-4 energy revolver, capable of firing bolts using
-    recharging speedloaders, both lethal and not, and a shoulder holster.
+    speedloaders, both lethal and not, and a shoulder holster.
 
 selectable-set-blueshield-dragon-name = kung fu manual set
 selectable-set-blueshield-dragon-description =

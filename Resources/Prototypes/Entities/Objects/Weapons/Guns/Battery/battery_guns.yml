@@ -168,7 +168,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: Battery
     maxCharge: 1000
-    startingCharge: 1000
+    startingCharge: 0 #goob
   - type: StaticPrice
     price: 500
   - type: Cautery # Shitmed
@@ -387,7 +387,7 @@
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
-    startingCharge: 500
+    startingCharge: 0
 
 - type: entity
   name: tesla gun
@@ -680,7 +680,7 @@
       fireCost: 500
     - type: Battery
       maxCharge: 10000
-      startingCharge: 10000
+      startingCharge: 0 #goob - attrition
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
         Steel: 187
@@ -926,10 +926,10 @@
     # not putting a BlockMovement component here cause that's funny.
 
 - type: entity
-  name: advanced laser pistol
+  name: laser pistol
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
-  description: An experimental high-energy laser pistol with a self-charging nuclear battery.
+  description: An laser rifle that has been shrunk to fit in a single hand. #goob
   components:
   - type: Item
     # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
@@ -949,9 +949,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 30
+#  - type: BatterySelfRecharger - attrition update
+#    autoRecharge: true
+#    autoRechargeRate: 30
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -959,6 +959,9 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: Battery
+    maxCharge: 1600
+    startingCharge: 0 #goob attrition
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -1122,16 +1125,20 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 24
-    autoRechargePause: true
-    autoRechargePauseTime: 30
+#  - type: BatterySelfRecharger #goob attrition
+#    autoRecharge: true
+#    autoRechargeRate: 24
+#    autoRechargePause: true
+#    autoRechargePauseTime: 30
 
 - type: entity
   name: xenoborg laser gun
   parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
   id: XenoborgLaserGun
+  components:
+  - type: BatterySelfRecharger
+  autoRecharge: true
+  autoRechargeRate: 30
 
 - type: entity
   name: xenoborg heavy laser gun
@@ -1140,3 +1147,6 @@
   components:
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
+  - type: BatterySelfRecharger
+  autoRecharge: true
+  autoRechargeRate: 30

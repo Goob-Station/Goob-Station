@@ -16,11 +16,6 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40
-    autoRechargePause: true
-    autoRechargePauseTime: 12
   - type: AmmoCounter
   - type: Appearance
   - type: Tag
@@ -31,7 +26,7 @@
   id: EnergySpeedloaderLethal
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (lethal)
-  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
+  description: A volatile powercell for the EG-4. These cells were made to be versatile and have multiple functions.
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
