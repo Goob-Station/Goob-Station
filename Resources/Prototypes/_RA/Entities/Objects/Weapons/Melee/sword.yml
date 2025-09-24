@@ -74,6 +74,24 @@
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: DisarmMalus
+    malus: 0.6
+  - type: Sharp
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+  - type: ComponentToggler
+    components:
+    - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
+      speed: 0.2
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
@@ -108,7 +126,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals # Add support for multiple layers
+  - type: ToggleableVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -124,7 +142,6 @@
     temperature: 700
   - type: Item
     sprite: _RA/Objects/Weapons/Melee/reds_sabre.rsi
-  - type: DisarmMalus
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal

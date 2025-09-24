@@ -30,3 +30,39 @@
   - type: Tag
     tags:
     - Keyring
+
+- type: entity # RAE | Stealth item
+  name: janitor's key ring
+  id: KeyRingJanitorNT
+  parent: [BaseItem, BaseJanitorContraband]
+  description: A janitor's best friend; their trusty old key ring. These keys have little labels on them!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Appearance
+  - type: Keyring
+    unlockAttemptDuration: 4
+    maxPossibleAccesses: 15
+    possibleAccesses:
+    - Medical
+    - Research
+    - Chapel
+    - Engineering
+    - Cargo
+    - Salvage
+    - Kitchen
+    - Service
+    - Command # Start of extended access
+    - Security
+    - Atmospherics
+    - External
+    - Bar
+    - Chemistry
+    - Hydroponics
+  - type: Tag
+    tags:
+    - Keyring

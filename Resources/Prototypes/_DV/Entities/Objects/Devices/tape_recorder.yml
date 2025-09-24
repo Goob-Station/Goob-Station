@@ -150,3 +150,87 @@
       - timestamp: 58
         name: Officer Belview
         message: "I would say so."
+# Start of RAE stuff
+- type: entity 
+  parent: [BaseItem, BaseMajorContraband]
+  id: CassetteTapeBluespace
+  name: bluespace cassette tape
+  description: An extremely high tech cassette tape. The magnetic tape seems to be made out of a strange material.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/bluespace_cassette_tapes.rsi
+    layers:
+    - state: bluespace_tape
+    - state: tape_ribbonoverlay
+      map: [ "enum.ToggleableVisuals.Layer" ]
+      visible: false
+  - type: Item
+    size: Tiny
+  - type: Damageable
+  - type: TapeCassette
+    maxCapacity: 10800
+    repairWhitelist:
+      tags:
+      - Screwdriver
+      - Write
+  - type: FitsInTapeRecorder
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  parent: BaseItem
+  id: TapeRecorderBluespace
+  name: bluespace tape recorder
+  description: An extremely advanced tape recorder with added functionality for strange tapes. Seems to have a few other modules attached as well.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/bluespace_tape_recorder.rsi
+    layers:
+    - state: empty
+    - state: idle
+      map: ["tape"]
+      visible: false
+  - type: Item
+    size: Small
+  - type: TapeRecorder
+  - type: ActiveListener
+    range: 4
+  - type: UseDelay
+    delay: 1
+  - type: Speech
+  - type: ItemSlots
+    slots:
+      cassette_tape:
+        priority: 4
+        whitelist:
+          components:
+          - FitsInTapeRecorder
+  - type: ContainerContainer
+    containers:
+      cassette_tape: !type:ContainerSlot
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TapeRecorderVisuals.Mode:
+        tape:
+          Stopped: { state: "idle" }
+          Playing: { state: "playing" }
+          Recording: { state: "recording" }
+          Rewinding: { state: "rewinding" }
+      enum.TapeRecorderVisuals.TapeInserted:
+        tape:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.TapeRecorderUIKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: UserInterface
+    interfaces:
+      enum.TapeRecorderUIKey.Key:
+        type: TapeRecorderBoundUserInterface

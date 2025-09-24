@@ -120,6 +120,8 @@
   name: security duffel bag
   description: A large duffel bag for holding extra security related goods.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Duffels/security.rsi
 
@@ -129,6 +131,8 @@
   name: brigmedic duffel bag
   description: A large duffel bag for holding extra medical related goods.
   components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Sprite
     sprite: Clothing/Back/Duffels/brigmedic.rsi
 

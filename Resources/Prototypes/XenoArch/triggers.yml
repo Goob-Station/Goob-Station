@@ -27,11 +27,12 @@
     TriggerThrow: 1
     TriggerDeath: 1
     TriggerMagnet: 1
-    # Goob triggers - advanced gases
+    # <Goobstation>
     TriggerBZ: 0.05
     TriggerHealium: 0.05
     TriggerNitrium: 0.05
     TriggerPluoxium: 0.05
+    # </Goobstation>
 
 - type: xenoArchTrigger
   id: TriggerMusic
@@ -268,44 +269,3 @@
   tip: xenoarch-trigger-tip-magnet
   components:
   - type: XATMagnet
-
-# Goob trigger defs
-- type: xenoArchTrigger
-  id: TriggerBZ
-  tip: xenoarch-trigger-tip-bz
-  components:
-  - type: XATGas
-    targetGas: BZ
-  - type: XATReactive
-    reagents:
-    - BZ
-
-- type: xenoArchTrigger
-  id: TriggerNitrium
-  tip: xenoarch-trigger-tip-nitrium
-  components:
-  - type: XATGas
-    targetGas: Nitrium
-  - type: XATReactive
-    reagents:
-    - Nitrium
-
-- type: xenoArchTrigger
-  id: TriggerHealium
-  tip: xenoarch-trigger-tip-healium
-  components:
-  - type: XATGas
-    targetGas: Healium
-  - type: XATReactive
-    reagents:
-    - Healium
-
-- type: xenoArchTrigger
-  id: TriggerPluoxium
-  tip: xenoarch-trigger-tip-pluoxium
-  components:
-  - type: XATGas
-    targetGas: Pluoxium
-  - type: XATReactive
-    reagents:
-    - Pluoxium

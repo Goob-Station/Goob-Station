@@ -11,7 +11,7 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<bool> MovementMobPushing =
-        CVarDef.Create("movement.mob_pushing", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("movement.mob_pushing", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// Can we push mobs not moving.

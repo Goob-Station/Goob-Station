@@ -1,0 +1,142 @@
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartScurret
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartScurret, BaseChest]
+  id: ChestScurret
+  name: "scurret chest"
+  components:
+  - type: Sprite
+    state: "chest"
+    enableDirectionOverride: true
+    overrideDir: south
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [PartScurret, BaseGroin]
+  id: GroinScurret
+  name: "scurret groin"
+  components:
+  - type: Sprite
+    state: "groin"
+    enableDirectionOverride: true
+    overrideDir: south
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [PartScurret, BaseHead]
+  id: HeadScurret
+  name: "scurret head"
+  description: "It shall never wawa again."
+  components:
+  - type: Sprite
+    state: "head"
+    enableDirectionOverride: true
+    overrideDir: south
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartScurret, BaseLeftArm]
+  id: LeftArmScurret
+  name: "left scurret arm"
+  components:
+  - type: Sprite
+    state: "l_arm"
+    enableDirectionOverride: true
+    overrideDir: west
+
+- type: entity
+  parent: [PartScurret, BaseRightArm]
+  id: RightArmScurret
+  name: "right scurret arm"
+  components:
+  - type: Sprite
+    state: "r_arm"
+    enableDirectionOverride: true
+    overrideDir: east
+
+- type: entity
+  parent: [PartScurret, BaseLeftHand]
+  id: LeftHandScurret
+  name: "left scurret hand"
+  components:
+  - type: Sprite
+    state: "l_hand"
+    enableDirectionOverride: true
+    overrideDir: west
+
+- type: entity
+  parent: [PartScurret, BaseRightHand]
+  id: RightHandScurret
+  name: "right scurret hand"
+  components:
+  - type: Sprite
+    state: "r_hand"
+    enableDirectionOverride: true
+    overrideDir: east
+
+- type: entity
+  parent: [PartScurret, BaseLeftLeg]
+  id: LeftLegScurret
+  name: "left scurret leg"
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  parent: [PartScurret, BaseRightLeg]
+  id: RightLegScurret
+  name: "right scurret leg"
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  parent: [PartScurret, BaseLeftFoot]
+  id: LeftFootScurret
+  name: "left scurret foot"
+  components:
+  - type: Sprite
+    state: "l_foot"
+    enableDirectionOverride: true
+    overrideDir: west
+
+- type: entity
+  parent: [PartScurret, BaseRightFoot]
+  id: RightFootScurret
+  name: "right scurret foot"
+  components:
+  - type: Sprite
+    state: "r_foot"
+    enableDirectionOverride: true
+    overrideDir: east

@@ -31,8 +31,14 @@ public sealed partial class KeyringComponent : Component
     /// <summary>
     /// How many access levels will be chosen.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int MaxPossibleAccesses = 3;
+
+    /// <summary>
+    /// How many access levels are chosen for the NT variant.
+    /// </summary>
+   // [DataField]
+   // public int MaxPossibleAccessesNT = 15;
 
     [DataField]
     public SoundSpecifier UseSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/key_rustle.ogg");

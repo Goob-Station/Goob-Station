@@ -8,24 +8,24 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-name: Check Merge Conflicts
+#name: Check Merge Conflicts
 
-on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+#on:
+#  pull_request_target:
+#    types:
+#      - opened
+#      - synchronize
+#      - reopened
+#      - ready_for_review
       
-jobs:
-  Label:
-    if: ( github.event.pull_request.draft == false )
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for Merge Conflicts
-        uses: eps1lon/actions-label-merge-conflict@v3.0.0
-        with:
-          dirtyLabel: "S: Merge Conflict"
-          repoToken: "${{ secrets.BOT_TOKEN }}"
-          commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."
+#jobs:
+#  Label:
+#    if: ( github.event.pull_request.draft == false )
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Check for Merge Conflicts
+#        uses: eps1lon/actions-label-merge-conflict@v3.0.0
+#        with:
+#          dirtyLabel: "S: Merge Conflict"
+#          repoToken: "${{ secrets.BOT_TOKEN }}"
+#          commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."
