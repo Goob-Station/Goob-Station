@@ -262,6 +262,8 @@
       - Abductor
   - type: OwnInteractionVerbs
     allowedVerbs: []
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   abstract: true

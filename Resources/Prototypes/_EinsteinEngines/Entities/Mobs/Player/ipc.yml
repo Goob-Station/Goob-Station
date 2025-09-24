@@ -172,6 +172,7 @@
   - type: Tag
     tags:
     - SiliconMob
+    - SiliconEmotes
     - CanPilot
     - FootstepSound
     - DoorBumpOpener

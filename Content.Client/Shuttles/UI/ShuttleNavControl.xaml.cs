@@ -342,7 +342,54 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             var shouldDrawIFF = ShowIFF && labelName != null;
             if (IFFFilter != null)
             {
-                shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff);
+                var gridBounds = grid.Comp.LocalAABB;
+
+                var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
+
+                var gridDistance = (gridBody.LocalCenter - xform.LocalPosition).Length();
+                var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName ?? "Unknown"),
+                    ("distance", $"{gridDistance:0.0}"));
+
+                var mapCoords = _transform.GetWorldPosition(gUid);
+                var coordsText = $"({mapCoords.X:0.0}, {mapCoords.Y:0.0})";
+
+                // yes 1.0 scale is intended here.
+                var labelDimensions = handle.GetDimensions(Font, labelText, 1f);
+                var coordsDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
+
+                // y-offset the control to always render below the grid (vertically)
+                var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * MinimapScale / 1.8f;
+
+                // The actual position in the UI.
+                var gridScaledPosition = gridCentre - new Vector2(0, -yOffset);
+
+                // Normalize the grid position if it exceeds the viewport bounds
+                // normalizing it instead of clamping it preserves the direction of the vector and prevents corner-hugging
+                var gridOffset = gridScaledPosition / PixelSize - new Vector2(0.5f, 0.5f);
+                var offsetMax = Math.Max(Math.Abs(gridOffset.X), Math.Abs(gridOffset.Y)) * 2f;
+                if (offsetMax > 1)
+                {
+                    gridOffset = new Vector2(gridOffset.X / offsetMax, gridOffset.Y / offsetMax);
+
+                    gridScaledPosition = (gridOffset + new Vector2(0.5f, 0.5f)) * PixelSize;
+                }
+
+                var labelUiPosition = gridScaledPosition - new Vector2(labelDimensions.X / 2f, 0);
+                var coordUiPosition = gridScaledPosition - new Vector2(coordsDimensions.X / 2f, -labelDimensions.Y);
+
+                // clamp the IFF label's UI position to within the viewport extents so it hugs the edges of the viewport
+                // coord label intentionally isn't clamped so we don't get ugly clutter at the edges
+                var controlExtents = PixelSize - new Vector2(labelDimensions.X, labelDimensions.Y); //new Vector2(labelDimensions.X * 2f, labelDimensions.Y);
+                labelUiPosition = Vector2.Clamp(labelUiPosition, Vector2.Zero, controlExtents);
+
+                // draw IFF label
+                handle.DrawString(Font, labelUiPosition, labelText, labelColor);
+
+                // only draw coords label if close enough
+                if (offsetMax < 1)
+                {
+                    handle.DrawString(Font, coordUiPosition, coordsText, 0.7f, coordColor);
+                }
             }
 
             //var mapCenter = curGridToWorld. * gridBody.LocalCenter;

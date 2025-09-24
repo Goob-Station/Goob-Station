@@ -88,6 +88,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared.Body.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -472,16 +473,15 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (bloodQuery.TryComp(uid, out var blood))
             {
                 if (blood.BleedAmount > 0f)
-                    _blood.TryModifyBleedAmount(uid, -blood.BleedAmount, blood);
+                    _blood.TryModifyBleedAmount((uid, blood), -blood.BleedAmount);
 
                 if (solutionQuery.TryComp(uid, out var sol) &&
                     _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
                     blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
                 {
-                    _blood.TryModifyBloodLevel(uid,
+                    _blood.TryModifyBloodLevel((uid, blood),
                         FixedPoint2.Min(leech.BloodHeal * multiplier,
-                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume),
-                        blood);
+                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
                 }
             }
 
