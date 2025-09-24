@@ -1714,7 +1714,6 @@
         enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
-
   - type: Body # Shitmed Change
     bodyType: Complex
     prototype: Monkey
