@@ -147,9 +147,9 @@
       - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
-      - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
+      - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
       - map: [ "back" ]
       - map: [ "neck" ]

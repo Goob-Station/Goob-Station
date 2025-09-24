@@ -23,3 +23,29 @@
     - type: Tag
       tags:
         - HideContextMenu
+
+- type: entity
+  id: WeaponArcShadowClaw
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Shadowling/Effects/arcs.rsi
+    layers:
+    - state: shadow_claw
+      color: "#000000"
+    drawdepth: Effects
+  - type: WeaponArcVisuals
+    fadeOut: false
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: PointLight
+    radius: 1.13
+    energy: 50
+    color: "#880808"
+    netsync: false
+  - type: LightFade
+    rampUpDuration: 0.1
+    duration: 0.449
+  - type: Tag
+    tags:
+    - HideContextMenu
