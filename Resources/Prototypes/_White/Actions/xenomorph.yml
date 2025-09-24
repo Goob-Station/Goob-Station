@@ -216,10 +216,13 @@
   components:
   - type: Action
     useDelay: 11
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid }
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
   - type: TargetAction
     interactOnMiss: false
     range: 2
+    targetingIndicator: true
+    checkCanAccess: true
   - type: EntityTargetAction
     event: !type:AcidActionEvent
   - type: PlasmaCostAction

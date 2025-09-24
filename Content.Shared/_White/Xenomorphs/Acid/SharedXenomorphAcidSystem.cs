@@ -28,17 +28,18 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
 
         if (!HasComp<StructureComponent>(args.Target)) // TODO: This should check whether the target is a structure.
         {
-            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), uid, uid);
+            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 
         if (HasComp<AcidCorrodingComponent>(args.Target))
         {
-            _popup.PopupClient(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid);
+            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 
         args.Handled = true;
+        _popup.PopupEntity(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), uid, uid, type: PopupType.Small);
 
         if (_net.IsClient)
             return;
