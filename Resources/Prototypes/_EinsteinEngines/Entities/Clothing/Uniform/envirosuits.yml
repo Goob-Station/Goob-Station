@@ -96,9 +96,6 @@
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/clown.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/clown.rsi
-  - type: Tag
-    tags:
-    - ClownSuit
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
