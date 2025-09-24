@@ -352,8 +352,16 @@
     Silver: 150
 
 # Ammo
+
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  abstract: true
+  id: BaseLaserAmmoRecipe
+  categories:
+  - Ammo
+  completetime: 15
+
+- type: latheRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIRRevolver
   result: PowerCellIRRevolver
   materials:
@@ -363,7 +371,7 @@
     Plasma: 100
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIonRevolver
   result: PowerCellIonRevolver
   materials:
@@ -373,7 +381,7 @@
     Plasma: 100
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellXrayRevolver
   result: PowerCellXrayRevolver
   materials:
@@ -384,7 +392,7 @@
     Uranium: 100
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellOverchargedRevolver
   result: PowerCellOverchargedRevolver
   materials:
@@ -394,7 +402,7 @@
     Plasma: 500
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIRSMG
   result: PowerCellIRSMG
   materials:
@@ -404,7 +412,7 @@
     Plasma: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIonSMG
   result: PowerCellIonSMG
   materials:
@@ -414,7 +422,7 @@
     Plasma: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellXraySMG
   result: PowerCellXraySMG
   materials:
@@ -425,7 +433,7 @@
     Uranium: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellOverchargedSMG
   result: PowerCellOverchargedSMG
   materials:
@@ -435,7 +443,7 @@
     Plasma: 1000
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIRSniper
   result: PowerCellIRSniper
   materials:
@@ -445,7 +453,7 @@
     Plasma: 300
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellIonSniper
   result: PowerCellIonSniper
   materials:
@@ -455,7 +463,7 @@
     Plasma: 300
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellXraySniper
   result: PowerCellXraySniper
   materials:
@@ -466,7 +474,7 @@
     Uranium: 300
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: PowerCellOverchargedSniper
   result: PowerCellOverchargedSniper
   materials:
@@ -476,7 +484,7 @@
     Plasma: 1500
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: MilitaryPowerCellLMG
   result: MilitaryPowerCellLMG
   materials:
@@ -486,7 +494,7 @@
     Plasma: 1000
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: EnergyMagRifleLethal
   result: EnergyMagRifleLethal
   materials:
@@ -496,7 +504,7 @@
     Plasma: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: EnergyMagRifleDisabler
   result: EnergyMagRifleDisabler
   materials:
@@ -506,7 +514,7 @@
     Plasma: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: EnergyMagRifleIon
   result: EnergyMagRifleIon
   materials:
@@ -516,7 +524,7 @@
     Plasma: 200
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseLaserAmmoRecipe
   id: EnergyMagRifleOverchargeLethal
   result: EnergyMagRifleOverchargeLethal
   materials:
