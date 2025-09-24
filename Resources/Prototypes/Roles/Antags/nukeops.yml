@@ -147,11 +147,11 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
+# should be changed to nukie playtime when thats tracked (wyci)
   - !type:SpeciesRequirement
     inverted: true
     species:
     - Plasmaman
-  # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
 - type: startingGear
