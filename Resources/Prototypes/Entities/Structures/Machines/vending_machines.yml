@@ -1238,11 +1238,26 @@
   - type: GuideHelp
     guides:
     - MedicalDoctor
-  - type: Transform
-    noRot: false
-  - type: Rotatable
-    rotateWhileAnchored: false
-    rotateWhilePulling: true
+
+- type: entity
+  parent: VendingMachineMedicalBase
+  id: VendingMachineMedical
+  name: NanoMed Plus
+  components:
+  - type: VendingMachine
+    pack: NanoMedPlusInventory
+    offState: off
+  - type: Sprite
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Medical"]]
 
 - type: entity
   parent: VendingMachine
@@ -2670,9 +2685,9 @@
 # wallmount
 - type: entity
   parent: VendingMachineWallmount
-  id: VendingMachineWallMedical
-  name: NanoMed
-  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
+  id: VendingMachineWallMedicalCivilian
+  name: NanoMed band-aid
+  description: It's a wall-mounted medical equipment dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
     pack: NanoMedInventory
@@ -2699,3 +2714,23 @@
   - type: GuideHelp
     guides:
     - Medical
+
+- type: entity
+  parent: VendingMachineWallMedicalCivilian
+  id: VendingMachineWallMedical
+  name: NanoMed
+  components:
+  - type: VendingMachine
+    pack: NanoMedInventory
+    offState: off
+  - type: Sprite
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - texture: Structures/Machines/VendingMachines/maintenance_panel.png
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Medical"]]
