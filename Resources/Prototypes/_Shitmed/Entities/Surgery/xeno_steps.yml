@@ -1,0 +1,277 @@
+# Base
+
+- type: entity
+  abstract: true
+  parent: SurgeryStepBase
+  id: BaseSurgeryStepXeno
+  components:
+  # TODO: higher base chance of catastrophic failure
+  - type: SurgeryDamageUser
+    popup: surgery-step-acid-popup
+    damage:
+      types:
+        Caustic: 10 # need very good PPE to do a lot of xeno surgery
+
+# Common steps
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepOpenIncisionScalpel ]
+  id: SurgeryStepXenoOpenIncision
+  name: Open an incision
+  components:
+  - type: SurgeryStep
+    duration: 4
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepClampBleeders ]
+  id: SurgeryStepXenoClampBleeders
+  name: Clamp the acid vessels
+  components:
+  - type: SurgeryStep
+    duration: 6
+  - type: SurgeryDamageUser
+    damage:
+      types:
+        Caustic: 15 # especially bloody
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
+  id: SurgeryStepXenoSeverPlasma
+  name: Sever plasma connections
+  components:
+  - type: SurgeryStep
+    add:
+    - type: PlasmaSevered
+    duration: 8
+
+- type: entity
+  parent: SurgeryStepBase # no damage from it duh
+  id: SurgeryStepXenoNeutralizeAcid
+  name: Neutralize acid
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneGel # bone gel is basic idk, the alternative is port tg chem :)
+    add:
+    - type: AcidNeutralized
+    duration: 4
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
+    state: bone-gel
+
+# Exoskeleton
+
+- type: entity
+  parent: SurgeryStepXenoOpenIncision
+  id: SurgeryStepXenoCutExoskeleton
+  name: Score the exoskeleton
+  components:
+  - type: SurgeryStep
+    add:
+    - type: ExoskeletonIncision
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepPriseOpenBones ]
+  id: SurgeryStepXenoRetractExoskeleton
+  name: Retract the exoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 6
+    add:
+    - type: ExoskeletonOpen
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
+  id: SurgeryStepXenoSawExoskeleton
+  name: Saw through the exoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 8
+    add:
+    - type: ExoskeletonSawed
+
+- type: entity
+  parent: BaseSurgeryStepXeno
+  id: SurgeryStepXenoMendExoskeleton
+  name: Reseal the exoskeleton
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Cautery
+    remove:
+    - type: BleedersClamped
+    - type: ExoskeletonSawed
+    - type: ExoskeletonIncision
+    duration: 6
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
+    state: cautery
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepCloseBones ]
+  id: SurgeryStepXenoCloseExoskeleton
+  name: Close the exoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 4
+    remove:
+    - type: ExoskeletonOpen
+
+# Endoskeleton - this is the same as a human's ribcage
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepPriseOpenBones ]
+  id: SurgeryStepXenoRetractEndoskeleton
+  name: Retract the endoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 4
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
+  id: SurgeryStepXenoSawEndoskeleton
+  name: Saw through the endoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 8
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepMendRibcage ]
+  id: SurgeryStepXenoMendEndoskeleton
+  name: Mend the endoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 4
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepCloseBones ]
+  id: SurgeryStepXenoCloseEndoskeleton
+  name: Close the endoskeleton
+  components:
+  - type: SurgeryStep
+    duration: 4
+
+# Common
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepCloseIncision ]
+  id: SurgeryStepXenoCloseIncision
+  components:
+  - type: SurgeryStep
+    duration: 4
+    remove:
+    - type: SkinRetracted
+    - type: BleedersClamped
+    - type: IncisionOpen
+    - type: BodyPartReattached
+    - type: InternalBleedersClamped
+    # above are from the parent
+    - type: PlasmaSevered
+    - type: AcidNeutralized
+  - type: SurgeryDamageUser
+    damage:
+      types:
+        Caustic: 2 # minimal damage
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepSealOrganWound ]
+  id: SurgeryStepXenoSealOrganWound
+  components:
+  - type: SurgeryStep
+    duration: 4
+    remove:
+    - type: SkinRetracted
+    - type: BleedersClamped
+    - type: IncisionOpen
+    - type: InternalBleedersClamped
+    # above are from the parent
+    - type: PlasmaSevered
+  - type: SurgeryDamageUser
+    damage:
+      types:
+        Caustic: 5 # less damage, but its an organ
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepRemoveFeature ]
+  id: SurgeryStepXenoRemoveFeature
+  components:
+  - type: SurgeryDamageUser
+    damage:
+      types:
+        Caustic: 40 # big blood
+
+# Xeno organs
+
+- type: entity
+  parent: [ BaseSurgeryStepXeno, SurgeryStepRemoveOrgan ]
+  id: SurgeryStepXenoRemoveOrgan
+  components:
+  - type: SurgeryDamageUser
+    damage:
+      types:
+        Caustic: 20
+
+# putting organs in does no damage
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertHiveNode
+  name: Add hive node
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertResinSpinner
+  name: Add resin spinner
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertNeurotoxinGland
+  name: Add neurotoxin gland
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertAcidGland
+  name: Add acid gland
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertPlasmaVessel
+  name: Add plasma vessel
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertEggSack
+  name: Add egg sack
+
+# Shitty xenobio
+
+- type: entity
+  parent: BaseSurgeryStepXeno
+  id: SurgeryStepXenoTakeSample
+  name: Remove tissue sample
+  components:
+  - type: SurgeryStep
+    duration: 6
+    tool:
+    - type: Tweezers
+    remove:
+    - type: HasTissueSample
+  - type: SurgeryStepSpawnEffect
+    entity: XenoTissueSample
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+
+- type: entity
+  parent: SurgeryStepBase # this is a regular surgery
+  id: SurgeryStepGraftXenoSample
+  name: Graft xeno tissue sample
+  components:
+  - type: SurgeryStep
+    duration: 8
+    tool:
+    - type: TissueSample
+    add:
+    - type: HasTissueSample
+  - type: Sprite
+    sprite: _Shitmed/Objects/Misc/tissue_sample.rsi
+    state: xeno

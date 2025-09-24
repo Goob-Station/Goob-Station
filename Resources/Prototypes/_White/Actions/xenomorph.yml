@@ -165,7 +165,7 @@
       - BulletImpassable
   - type: PlasmaCostAction
     plasmaCost: 75
-
+    
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest

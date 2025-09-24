@@ -1,0 +1,69 @@
+# used for nightmares and lesser shadowlings
+- type: entity
+  save: false
+  name: Urist McShadow
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobShadow
+  abstract: true
+  components:
+  - type: Absorbable # idk why
+  - type: HumanoidAppearance
+    species: Shadow
+  - type: Fingerprint
+  - type: Blindable
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Damageable
+    damageContainer: Biological
+  - type: Inventory
+    speciesId: shadowling
+  - type: Body
+    prototype: Shadow
+    requiredLegs: 2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: MeleeWeapon
+    soundHit:
+      collection: FirePunch
+    animation: WeaponArcShadowClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 40
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+  - type: Targeting
+  - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+  - type: PressureImmunity
+  - type: NightVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobShadowDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Shadow
+
+- type: entity
+  parent: BaseMobShadow
+  id: MobShadow

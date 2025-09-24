@@ -72,8 +72,6 @@ public abstract partial class SharedSurgerySystem
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryCanPerformStepEvent>(OnToolCanPerform);
         SubscribeLocalEvent<SurgeryOperatingTableConditionComponent, SurgeryCanPerformStepEvent>(OnTableCanPerform);
 
-        //SubSurgery<SurgeryCutLarvaRootsStepComponent>(OnCutLarvaRootsStep, OnCutLarvaRootsCheck);
-
         /*  Abandon all hope ye who enter here. Now I am become shitcoder, the bloater of files.
             On a serious note, I really hate how much bloat this pattern of subscribing to a StepEvent and a CheckEvent
             creates in terms of readability. And while Check DOES only run on the server side, it's still annoying to parse through.*/
@@ -227,27 +225,6 @@ public abstract partial class SharedSurgerySystem
         if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup, true))
             args.Cancelled = true;
     }
-
-    /*private void OnCutLarvaRootsStep(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepEvent args)
-    {
-        if (TryComp(args.Body, out VictimInfectedComponent? infected) &&
-            infected.BurstAt > _timing.CurTime &&
-            infected.SpawnedLarva == null)
-        {
-            infected.RootsCut = true;
-        }
-    }
-
-    private void OnCutLarvaRootsCheck(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
-    {
-        if (!TryComp(args.Body, out VictimInfectedComponent? infected) || !infected.RootsCut)
-            args.Cancelled = true;
-
-        // The larva has fully developed and surgery is now impossible
-        // TODO: Surgery should still be possible, but the fully developed larva should escape while also saving the hosts life
-        if (infected != null && infected.SpawnedLarva != null)
-            args.Cancelled = true;
-    }*/
 
     private void OnCavityStep(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepEvent args)
     {
@@ -678,6 +655,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnSurgeryTargetStepChosen(Entity<SurgeryTargetComponent> ent, ref SurgeryStepChosenBuiMsg args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var user = args.Actor;
         if (GetEntity(args.Entity) is {} body &&
             GetEntity(args.Part) is {} targetPart)

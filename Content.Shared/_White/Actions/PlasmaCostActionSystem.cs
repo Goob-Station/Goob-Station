@@ -15,6 +15,7 @@ public sealed class PlasmaCostActionSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<PlasmaCostActionComponent, ActionRelayedEvent<PlasmaAmountChangeEvent>>(OnPlasmaAmountChange);
+        SubscribeLocalEvent<PlasmaCostActionComponent, ActionAttemptEvent>(OnActionAttempt); // Goobstation
         SubscribeLocalEvent<PlasmaCostActionComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
@@ -54,6 +55,14 @@ public sealed class PlasmaCostActionSystem : EntitySystem
     {
         _actions.SetEnabled(uid, component.PlasmaCost <= args.Args.Amount);
     }
+
+    // <Goobstation>
+    private void OnActionAttempt(Entity<PlasmaCostActionComponent> ent, ref ActionAttemptEvent args)
+    {
+        if (!_plasma.HasPlasma(args.User, ent.Comp.PlasmaCost))
+            args.Cancelled = true;
+    }
+    // </Goobstation>
 
     private void OnActionPerformed(EntityUid uid, PlasmaCostActionComponent component, ActionPerformedEvent args)
     {
