@@ -1,0 +1,129 @@
+- type: entity
+  parent: SeedBase
+  name: packet of explosive banana
+  id: ExplosiveBananaSeeds
+  components:
+  - type: Seed
+    seedId: ExplosiveBanana
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/explosive_banana.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of coffee arabica
+  id: CoffeeArabicaSeeds
+  components:
+  - type: Seed
+    seedId: CoffeeArabica
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_arabica.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of coffee robust
+  id: CoffeeRobustSeeds
+  components:
+  - type: Seed
+    seedId: CoffeeRobust
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/coffee_robust.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of geranium
+  id: GeraniumSeeds
+  components:
+  - type: Seed
+    seedId: Geranium
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/geranium.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of glasscap
+  id: GlasscapSeeds
+  components:
+  - type: Seed
+    seedId: glasscap
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/glasscap.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of plaststeelcap
+  id: PlastSteelcapSeeds
+  components:
+  - type: Seed
+    seedId: plaststeelcap
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/plaststeelcap.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of cannabis vita
+  id: CannabisVitaSeeds
+  components:
+  - type: Seed
+    seedId: CannabisVita
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/cannabis_vita.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of barrelmelon
+  id: BarrelmelonSeeds
+  components:
+  - type: Seed
+    seedId: Barrelmelon
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/barrelmelon.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of lanternfruit
+  id: LanternfruitSeeds
+  components:
+  - type: Seed
+    seedId: Lanternfruit
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lanternfruit.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of red rose
+  id: RedroseSeeds
+  components:
+  - type: Seed
+    seedId: Redrose
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/redrose.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of white rose
+  id: WhiteroseSeeds
+  components:
+  - type: Seed
+    seedId: Whiterose
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/whiterose.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of sunflower
+  id: SunflowerSeeds
+  components:
+  - type: Seed
+    seedId: Sunflower
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/sunflower.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of ambrosia gaia
+  id: AmbrosiaGaiaSeeds
+  components:
+  - type: Seed
+    seedId: AmbrosiaGaia
+  - type: Sprite
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/ambrosia_gaia.rsi

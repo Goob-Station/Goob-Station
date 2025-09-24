@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: smokeableGroundCannabisVita
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: groundVita
+      steps:
+      - material: LeavesCannabisVitaDried
+        amount: 2
+        doAfter: 5
+  - node: groundVita
+    entity: GroundCannabisVita
+
+- type: constructionGraph
+  id: smokeableJointVita
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: jointVita
+      steps:
+      - material: PaperRolling
+      - material: GroundCannabisVita
+        doAfter: 2
+  - node: jointVita
+    entity: JointVita

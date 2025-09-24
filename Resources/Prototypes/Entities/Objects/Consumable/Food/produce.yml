@@ -1960,7 +1960,7 @@
         - ReagentId: StypticPowder
           Quantity: 20
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/lily.rsi
+    sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi # BotanySupermancy-Edit
   - type: Produce
     seedId: lily
   - type: Extractable
@@ -1970,7 +1970,7 @@
     - Flower
   - type: FoodSequenceElement
     sprite:
-      sprite: Objects/Specific/Hydroponics/lily.rsi
+      sprite: _BotanySupermancy/Objects/Specific/Hydroponics/lily.rsi # BotanySupermancy-Edit
       state: produce
     entries:
       burger:

@@ -1,0 +1,19 @@
+- type: reagent
+  id: PulverizedLantern
+  name: reagent-name-pulverizedlantern
+  group: Medicine
+  desc: reagent-desc-pulverizedlantern
+  physicalDesc: reagent-physical-desc-pulverizedlantern
+  flavor: medicine
+  color: "#FFCA86"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ChemVomit
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 4
+        probability: 0.3

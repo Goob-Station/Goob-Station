@@ -92,6 +92,8 @@
         amount: 2
       - id: BungoSeeds
         amount: 2
+      - id: LanternfruitSeeds #_BotanySupermancy-add
+        amount: 2
 
 - type: entity
   id: CrateHydroponicsSeedsMedicinal

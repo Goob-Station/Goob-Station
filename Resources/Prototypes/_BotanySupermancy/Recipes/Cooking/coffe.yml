@@ -1,0 +1,7 @@
+- type: microwaveMealRecipe
+  id: RecipeCoffeeArabica
+  name: Coffe arabica
+  result: FoodCoffeeArabicaRoasted
+  time: 5
+  solids:
+    FoodCoffeeArabica: 1

@@ -1,0 +1,16 @@
+construction-graph-tag-dried-cannabis-vita = dried cannabis vita
+construction-graph-tag-geranium = geranium
+construction-graph-tag-geranium-crown = geranium crown
+construction-graph-tag-geranium-crown-desc = A majestic crown made of fresh geranium flowers. Perfect for botanists and nature lovers.
+construction-graph-tag-sunflower-crown = sunflower crown
+construction-graph-tag-sunflower-crown-desc = A bright flower crown made out sunflowers that is sure to brighten up anyone's day!
+construction-graph-tag-lily = lily
+construction-graph-tag-ground-cannabis-vita = ground cannabis vita
+construction-graph-tag-ground-cannabis-vita-desc = ground cannabis vita
+construction-graph-tag-sunflower = sunflower
+construction-graph-tag-poppy-crown = poppy crown
+construction-graph-tag-poppy-crown-desc = poppy crown
+construction-graph-tag-lily-wreath = lily wreath
+construction-graph-tag-lily-wreath-desc = lily wreath
+construction-graph-tag-joint-vita = joint vita
+construction-graph-tag-joint-vita-desc = joint vita

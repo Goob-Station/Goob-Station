@@ -1,0 +1,33 @@
+- type: entity
+  id: JointVita
+  parent: Joint
+  name: joint
+  suffix: Vita
+  description: A roll of dried plant matter wrapped in thin paper.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cannabis/joint.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+    - Cigarette
+    - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cannabis/joint.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+  - type: Construction
+    graph: smokeableJointVita
+    node: jointVita
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 30
+        reagents:
+        - ReagentId: THC
+          Quantity: 20
+        - ReagentId: Omnizine
+          Quantity: 10
