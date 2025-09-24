@@ -21,7 +21,7 @@ public sealed partial class CCVars
     ///     Change this to have the changelog and rules "last seen" date stored separately.
     /// </summary>
     public static readonly CVarDef<string> ServerId =
-        CVarDef.Create("server.id", "Goobstation", CVar.REPLICATED | CVar.SERVER); // if ur a fork of goob pls change this thanks :)
+        CVarDef.Create("server.id", "Red Astra Enterprises", CVar.REPLICATED | CVar.SERVER); // if ur a fork of goob pls change this thanks :)
 
     /// <summary>
     ///     Guide Entry Prototype ID to be displayed as the server rules.
@@ -55,7 +55,7 @@ public sealed partial class CCVars
     ///     If empty, the title will be {ui-lobby-title} + the server's full name from the hub
     /// </summary>
     public static readonly CVarDef<string> ServerLobbyName =
-        CVarDef.Create("server.lobby_name", "", CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("server.lobby_name", "Red Astra Enterprises", CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     The width of the right side (chat) panel in the lobby
