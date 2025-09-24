@@ -91,3 +91,27 @@
   - type: Tag # Goobstation
     tags:
     - DrinkBottle
+
+- type: entity
+  parent: DrinkSpaceLube
+  id: DrinkSpaceLubeEmpty
+  name: space lube tube
+  description: High performance lubricant intended for maintenance of extremely complex mechanical equipment.
+  categories: [HideSpawnMenu]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+
+- type: entity
+  parent: CrazyGlue
+  id: CrazyGlueEmpty
+  name: crazy glue
+  description:  A bottle of crazy glue manufactured by Honk! Co.
+  categories: [HideSpawnMenu]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100

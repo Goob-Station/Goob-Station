@@ -93,18 +93,6 @@
   - type: TrashOnSolutionEmpty
     solution: drink
 
-- type: entity #Goob
-  parent: DrinkSpaceLube
-  id: DrinkSpaceLubeEmpty
-  name: space lube tube
-  description: High performance lubricant intended for maintenance of extremely complex mechanical equipment.
-  categories: [HideSpawnMenu]
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30 #Goob End
-
 # Mopwata
 - type: weightedRandomFillSolution
   id: RandomFillMopwata
