@@ -698,7 +698,7 @@
     - item: Shovel
     - item: AdvancedMineralScannerUnpowered
     - item: OreBagOfHolding
-    - item: WeaponProtoKineticAccelerator
+    - item: WeaponProtoKineticAccelerator # Goob
       hand:
         emptyRepresentative: WeaponProtoKineticAccelerator
         emptyLabel: borg-slot-WeaponProtoKineticAccelerator-empty-goob
@@ -1408,7 +1408,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleC20r
-  name: C20-r ROW cyborg module
+  name: C-20r ROW cyborg module
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite
@@ -1457,102 +1457,6 @@
           color: "#7B0F12"
     - type: StaticPrice
       price: 2000
-
-# Goob upstreamer todo fixborghands earlyadding this so i dont have to do shitcode for xenoborgs and i dont want to earlymerge every part of them
-## Kill this shit when you start upstreaming xenoborgs proper
-## <Goobstreamer>
-## mothership module
-#- type: entity
-#  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
-#  id: MothershipModule
-#  name: mothership module
-#  description: A module that helps the mothership borg brains and install other modules.
-#  components:
-#  - type: Tag
-#    tags:
-#    - MothershipModule
-#  - type: Sprite
-#    layers:
-#    - state: xenoborg_generic
-#    - state: icon-xenoborg-tools
-#  - type: ItemBorgModule
-#    moduleId: MothershipBasic # This makes this version of xenoborgs technically a backport which is so accursed.
-#    items:
-#    - DoorRemoteXenoborg
-#    - MMI
-#    - PowerCellHigh
-#    - XenoborgModuleBasic
-#    - HandheldGPSBasic
-#    - MaterialBag
-#  - type: BorgModuleIcon
-#    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-#- type: Tag
-#  id: MothershipModule # Cyborg module category for evil xenoborg core
-#  # Yeah im just, whatever, ill kill this as i upstream.
-
-# </Goobstreamer>
-
-# Shitmed Modules
-
-- type: entity
-  id: BorgModuleSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-surgery
-  - type: ItemBorgModule
-    hands:
-    - item: Scalpel
-    - item: SawElectric
-    - item: Retractor
-    - item: Hemostat
-    - item: Cautery
-    - item: MedicalStitches
-    - item: BoneGel
-    - item: Bonesetter
-    - item: OrganHumanBrain
-      hand:
-        emptyRepresentative: OrganHumanBrain
-        emptyLabel: borg-slot-organs-empty-goob
-        whitelist:
-          components:
-          - BodyPart
-          tags:
-          - Organ
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
-
-- type: entity
-  id: BorgModuleAdvancedSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-advanced-surgery
-  - type: ItemBorgModule
-    hands:
-    - item: EnergyScalpel
-    - item: EnergyCautery
-    - item: AdvancedRetractor
-    - item: AdvancedBoneGel
-    - item: OrganHumanBrain
-      hand:
-        emptyRepresentative: OrganHumanBrain
-        emptyLabel: borg-slot-organs-empty-goob
-        whitelist:
-          components:
-          - BodyPart
-          tags:
-          - Organ
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
-
-# Shitmed modules end
 
 # xenoborg modules
 - type: entity
