@@ -34,7 +34,14 @@
     offset: 0
     prototypes:
     - LavalandCrateNecropolisCultRobe
-    - LavalandCrateNecropolisCultArmor
     - LavalandCrateNecropolisHeart
     - LavalandCrateNecropolisVampirismCrystal
+    - LavalandCrateNecropolisTeleporterCube
+    - LavalandCrateNecropolisRodOfAsclepius
+    - LavalandCrateNecropolisMinersChalic
+    - LavalandCrateNecropolisInvisibilityCloak
+    - LavalandCrateNecropolisMementoMori
+    #- LavalandCrateNecropolisHardsuitBerserker # need sprite
+    #- LavalandCrateNecropolisBookofBabel # error whit used sprite
+
     chance: 1

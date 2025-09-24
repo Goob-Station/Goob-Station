@@ -49,3 +49,163 @@
         Slash: -1.5
         Piercing: -1.5
         Blunt: -1.5
+
+- type: entity
+  id: LavalandAmuletMementoMori
+  parent: ClothingNeckBase
+  name: Memento Mori
+  components:
+  - type: Clothing
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    equipDelay: 3
+    unequipDelay: 3
+  - type: AshOnRemoval
+  - type: ClothingGrantComponent
+    component:
+    - type: PreventDamage  #max damage: 190
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: memento_mori
+
+- type: entity
+  id: LavalandBookofBabel
+  parent: LibrarianTranslatorImplanter # its just an implaner with a new sprite
+  name: book Of babel
+  description: contains all the knowledge of the world
+  components:
+  - type: Tag
+    tags:
+    - Book
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#332d27"
+      map: [ "cover" ]
+    - state: decor_wingette
+      color: "#453f3a"
+      map: [ "decor" ]
+    - state: icon_text
+      map: [ "icon" ]
+    - state: overlay_null
+      map: [ "overlay" ]
+
+- type: entity
+  id: LavalandAmuletImortalityTalisman
+  parent: ClothingNeckBase
+  name: imortality talisman
+  description: A dread talisman that can render you completely invulnerable.
+  components:
+  # add action preventing damage
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: imortality_talisman
+
+- type: entity
+  id: LavalandStaffOfHealing
+  parent: [WeaponStaffHealing, OmnimedTool]
+  name: Rod of Asclepius
+  description: Something about it seems to inspire in you the responsibility and duty to help others.
+  components:
+  - type: Unremoveable # pick this up and you cant drop it
+    deleteOnDrop: false
+  - type: HeldGrantComponent
+    components:
+    - type: Pacified # pick it up you become a pacifist
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileHealingBolt
+    capacity: 4 #less then staff of healing
+    count: 4
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 10 # slower then staff of healing
+
+- type: entity
+  id: LavalandMinersChalic
+  parent: DrinkBase
+  name: Miners Chalic
+  description: a drink fit for a miner
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/evermug.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MinersSalve
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: drink
+    duration: 10
+    generated:
+      reagents:
+      - ReagentId: MinersSalve
+        Quantity: 5
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  parent: ClothingNeckCloakVoid
+  id: LavalandInvisibilityCloak
+  name: the invisibility cloak
+  description: An invisibility cloak. where is it?
+  components:
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandInvisibilityCloakHood
+  - type: ClothingGrantComponent
+    component:
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.6
+
+- type: entity
+  parent: ClothingHeadHatHoodVoidCloak
+  id: LavalandInvisibilityCloakHood
+  name: void cloak hood
+  description: The hood of an invisibility cloak.
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: Stealth
+      enabledOnDeath: false
+      enabledOnCrit: false
+
+- type: entity
+  id: LavalandCubeRed
+  parent: DeviceQuantumSpinInverter
+  name: red cube
+  description: a strange puzzle cube
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/warp_cube.rsi
+    state: icon
+  - type: SwapTeleporter
+    cooldown: 30 # shorter cooldown
+    teleporterWhitelist:
+      tags:
+      - CubeTeleporter # add new tag so it cant be used whit QuantumSpinInverter
+  - type: Tag
+    tags:
+    - CubeTeleporter # add new tag
+  - type: GenericVisualizer
+    visuals:
+      enum.SwapTeleporterVisuals.Linked:
+        base:
+          True: { state: linked_red }
+          False: { state: icon }
+
+- type: entity
+  id: LavalandCubeBlue
+  parent: LavalandCubeRed
+  name: Blue cube
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.SwapTeleporterVisuals.Linked:
+        base:
+          True: { state: linked_blue }
+
+

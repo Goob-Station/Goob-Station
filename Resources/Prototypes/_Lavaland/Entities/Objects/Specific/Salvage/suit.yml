@@ -1,0 +1,33 @@
+- type: entity
+  id: LavalandHardsuitBerserker
+  parent: ClothingOuterHardsuitJuggernaut # not sure what to use as base so i used Juggernaut felt fitting
+  name: Berserker Hardsuit
+  description: the berserk dont care from who the blood flows
+  components:
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandHardsuitBerserkerHelmet
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: PreventGunUse
+    - type: ModifyMeleeDamage
+      modifier: 1.25 # 25% more melee damage
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: LavalandHardsuitBerserkerHelmet
+  name: Berserker Helmet
+  description: bears the mark of the God of war
+  component:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+    state: icon-HELMET
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
