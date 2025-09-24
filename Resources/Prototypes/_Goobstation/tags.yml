@@ -572,6 +572,9 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
   id: MolotovConstruction
 
 - type: Tag
