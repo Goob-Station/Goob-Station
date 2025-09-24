@@ -13,3 +13,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMinaDress
+  name: fancy red uniform
+  description: A fancy red uniform.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mina.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mina.rsi
