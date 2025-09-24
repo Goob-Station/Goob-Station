@@ -721,15 +721,15 @@
   categories:
   - SpellbookEquipment
 
-- type: listing
-  id: SpellbookStaffHealing
-  name: spellbook-staff-healing-name
-  description: spellbook-staff-healing-desc
-  productEntity: WeaponStaffHealing
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookEquipment
+#- type: listing
+#  id: SpellbookStaffHealing
+#  name: spellbook-staff-healing-name
+#  description: spellbook-staff-healing-desc
+#  productEntity: WeaponStaffHealing
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookEquipment
 
 - type: listing
   id: SpellBookStaffAnimate
