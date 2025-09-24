@@ -3,7 +3,6 @@ using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Server.GameTicking;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -13,7 +12,7 @@ using Robust.Shared.Configuration;
 namespace Content.Goobstation.Server.Clothing.Systems;
 
 /// <summary>
-/// This handles clothign that grant server currency for items if worn on end of round
+/// This handles items that grant server currency for items if worn on end of round
 /// </summary>
 public sealed class ClothingGrantServerCurrencySystem : EntitySystem
 {
@@ -39,9 +38,9 @@ public sealed class ClothingGrantServerCurrencySystem : EntitySystem
         if (_players.PlayerCount < _goobcoinsMinPlayers)
             return;
 
-        var query = EntityQueryEnumerator<ClothingGrantServerCurrencyComponent, ClothingComponent>();
+        var query = EntityQueryEnumerator<ClothingGrantServerCurrencyComponent>();
 
-        while (query.MoveNext(out var uid, out var comp,out var clothing))
+        while (query.MoveNext(out var uid, out var comp))
         {
             if (!_inventory.InSlotWithFlags((uid ,Transform(uid),MetaData(uid)), comp.Slot))
                 continue;
