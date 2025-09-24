@@ -15,6 +15,9 @@ public sealed partial class ClothingGrantServerCurrencyComponent : Component
     [DataField]
     public SlotFlags Slot = SlotFlags.NECK;
 
+    [DataField]
+    public bool RewardCommand;
+
 }
 
 

@@ -48,7 +48,7 @@ public sealed class ClothingGrantServerCurrencySystem : EntitySystem
             if (!_inventory.TryGetContainingEntity(uid, out var wearer))
                 continue;
 
-            if(HasComp<CommandStaffComponent>(wearer.Value)) //no medals for command
+            if(!comp.RewardCommand && HasComp<CommandStaffComponent>(wearer.Value)) //no medals for command
                 continue;
 
             if(!TryComp<MindContainerComponent>(wearer.Value, out var mindContainer))
