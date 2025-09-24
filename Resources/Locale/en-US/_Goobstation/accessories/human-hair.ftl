@@ -58,4 +58,7 @@ marking-HumanHairStyledCurls = Styled Curls
 marking-HumanHairUnkemptScientist = Unkempt Scientist
 marking-HumanHairWispy = Wispy
 marking-HumanHairSpikeHawk = Spikey Mohawk
+marking-HumanHairClassicBun = Classic Bun
+marking-HumanHairLooseBun = Loose Bun
+marking-HumanHairLowPonytail = Low Ponytail
 marking-HumanHairLongTwinTails = Long Twintails
