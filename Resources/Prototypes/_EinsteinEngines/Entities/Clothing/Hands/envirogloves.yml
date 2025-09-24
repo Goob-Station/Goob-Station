@@ -456,8 +456,8 @@
   - type: FingerprintMask
   - type: Insulated
   - type: Fiber
-  fiberMaterial: fibers-durathread
-  fiberColor: fibers-regal-blue #Goobstation - Captain enviroglove parity
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-regal-blue #Goobstation - Captain enviroglove parity
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
