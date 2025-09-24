@@ -77,8 +77,6 @@
 using Content.Server.Body.Components;
 using System.Numerics;
 using Content.Server.Ghost;
-using Content.Server.GhostTypes;
-using Content.Server.Body.Components;
 using Content.Server.Humanoid;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Body.Components;
@@ -201,9 +199,6 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         List<string>? allowedContainers = null,
         List<string>? excludedContainers = null)
     {
-        //var beforeEvent = new BeforeBodyDestructionEvent();
-        //RaiseLocalEvent(bodyId, ref beforeEvent);
-
         if (!Resolve(bodyId, ref body, logMissing: false)
             || TerminatingOrDeleted(bodyId)
             || EntityManager.IsQueuedForDeletion(bodyId))
