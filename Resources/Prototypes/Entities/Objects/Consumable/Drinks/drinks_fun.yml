@@ -93,7 +93,6 @@
   - type: TrashOnSolutionEmpty
     solution: drink
 
-
 # Mopwata
 - type: weightedRandomFillSolution
   id: RandomFillMopwata
