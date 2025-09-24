@@ -24,6 +24,8 @@
   recipes:
   - GrenadeFlashBang
   - BolaEnergy
+  - ClothingLegGuard
+  - ClothingArmsGuard
 
 - type: latheRecipePack
   id: SecurityHypoStatic
