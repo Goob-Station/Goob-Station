@@ -189,7 +189,7 @@
   description: An extremely advanced tape recorder with added functionality for strange tapes. Seems to have a few other modules attached as well.
   components:
   - type: Sprite
-    sprite: _RA/Objects/misc/bluespace_tape_recorder.rsi
+    sprite: _RA/Objects/Misc/bluespace_tape_recorder.rsi
     layers:
     - state: empty
     - state: idle
