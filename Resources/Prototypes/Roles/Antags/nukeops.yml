@@ -126,6 +126,10 @@
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -143,6 +147,10 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
