@@ -30,7 +30,7 @@ public sealed partial class TapeCassetteComponent : Component
     /// Maximum capacity of this tape
     /// </summary>
     [DataField]
-    public TimeSpan MaxCapacity = TimeSpan.FromSeconds(120);
+    public TimeSpan MaxCapacity = TimeSpan.FromSeconds(10800);
 
     /// <summary>
     /// How long to spool the tape after it was damaged
