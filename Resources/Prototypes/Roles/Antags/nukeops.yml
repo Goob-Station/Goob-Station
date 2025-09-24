@@ -105,6 +105,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
