@@ -1,0 +1,65 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: BaseMobShadowlingAscendant
+  name: shadowling ascendant
+  suffix: ""
+  description: A shadowling ascendant. If you're seeing this, you're probably dead.
+  components:
+  - type: Bloodstream
+    bloodMaxVolume: 650
+    bloodReagent: FluorosulfuricAcid
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/shadowling_ascend.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: shadowling_ascend
+  - type: Damageable
+    damageContainer: Biological
+  - type: MobMover
+  - type: InputMover
+  - type: InteractionOutline
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+    weightlessModifier: 1.5
+  - type: NoSlip
+  - type: Insulated
+  - type: Clickable
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Critical
+      500: Dead
+  - type: Examiner
+  - type: PointLight
+    color: "#880808"
+    radius: 2
+    softness: 1
+    energy: 50
+  - type: NightVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      collection: FirePunch
+    animation: WeaponArcShadowClaw
+    damage:
+      types:
+        Slash: 20
+        Piercing: 30
+        Caustic: 10
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shadowling_ascend
+      Dead:
+        Base: asc_dead

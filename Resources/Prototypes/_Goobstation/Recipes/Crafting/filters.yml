@@ -43,3 +43,27 @@
   targetNode: combined
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  id: AutomationFilterAnchor
+  graph: AutomationFilter
+  startNode: start
+  targetNode: anchor
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterMob
+  graph: AutomationFilter
+  startNode: start
+  targetNode: mob
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterCuff
+  graph: AutomationFilter
+  startNode: start
+  targetNode: cuff
+  category: construction-category-misc
+  objectType: Item
