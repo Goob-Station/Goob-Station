@@ -86,9 +86,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using static Content.Server.Power.Pow3r.PowerState;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
 
 namespace Content.Server.Medical;
@@ -240,12 +237,15 @@ public sealed class HealingSystem : EntitySystem
     private string? GetDamageGroupByType(string id)
         => (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault();
 
+
+    ////////////// GOOBEDIT Start
     // Target: the target Entity
     // User: The person trying to heal, can be null.
     // healing: the healing component
     // targetedPart: bypasses targeting system to specify a limb. Must be set if user is null.
     private bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null)
     {
+
         if (user is null && targetedPart is null) // no limb can be targeted at all
             return false;
 
@@ -268,6 +268,7 @@ public sealed class HealingSystem : EntitySystem
                 _popupSystem.PopupEntity(Loc.GetString("missing-body-part"), target, user.Value, PopupType.MediumCaution);
             return false;
         }
+        
 
         if (healing.Damage.DamageDict.Keys
             .Any(damageKey => _wounds.GetWoundableSeverityPoint(
@@ -286,6 +287,7 @@ public sealed class HealingSystem : EntitySystem
 
             return true;
         }
+        //////// GOOBEDIT END
 
         return false;
     }
@@ -328,9 +330,11 @@ public sealed class HealingSystem : EntitySystem
             targetedWoundable = targetedBodyPart.Id;
         }
 
+        // GOOBEDIT START
         if (!IsBodyDamaged((ent, comp), null, healing, targetedWoundable))                          // Check if there is anything to heal on the initial limb target
             if (TryGetNextDamagedPart(ent, healing, out var limbTemp) && limbTemp is not null)      // If not then get the next limb to heal
                 targetedWoundable = limbTemp.Value;
+        // GOOBEDIT END
 
         if (targetedWoundable == EntityUid.Invalid)
         {
@@ -382,7 +386,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (canHeal)
         {
-            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User);
+            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User); // GOOBEDIT
 
             if (damageChanged is not null)
                 healedTotal += -damageChanged.GetTotal();
@@ -422,8 +426,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPvs(healing.HealingEndSound, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         // Logic to determine whether or not to repeat the healing action
-        //args.Repeat = IsBodyDamaged((ent, comp), args.User, healing);
-        args.Repeat = IsAnythingToHeal(args.User, ent, healing);
+        args.Repeat = IsAnythingToHeal(args.User, ent, healing); // GOOBEDIT
         args.Handled = true;
 
         if (args.Repeat || dontRepeat)
@@ -453,6 +456,7 @@ public sealed class HealingSystem : EntitySystem
             args.Handled = true;
     }
 
+    // GOOBEDIT START
     private bool IsAnythingToHeal(EntityUid user, EntityUid target, HealingComponent component)
     {
         if (!TryComp<DamageableComponent>(target, out var targetDamage))
@@ -466,6 +470,7 @@ public sealed class HealingSystem : EntitySystem
                 && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume;
     }
+    // GOOBEDIT END
 
     private bool TryHeal(EntityUid uid, EntityUid user, EntityUid target, HealingComponent component)
     {
