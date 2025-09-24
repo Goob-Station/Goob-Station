@@ -27,6 +27,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
@@ -53,6 +54,8 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
+    amount: 6 # a little more
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/gold.rsi
@@ -81,6 +84,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
@@ -107,6 +111,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
@@ -133,6 +138,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
@@ -159,6 +165,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
@@ -185,6 +192,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/securitymedal.rsi
@@ -211,6 +219,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: ClothingGrantServerCurrency
   # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/clownmedal.rsi
