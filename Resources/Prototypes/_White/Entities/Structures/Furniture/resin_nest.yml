@@ -55,12 +55,20 @@
   - type: HealOnBuckle
     damage:
       types:
-        Poison: -0.01
-        Blunt: -0.01
+        Poison: -0.05
+        Blunt: -0.05
+        Slash: -0.05
+        Piercing: -0.05
+        Caustic: -0.05
+        Cold: -0.03
+        Asphyxiation: -0.8
+        Bloodloss: -1.8 #Need to keep someone alive without blood
+  - type: SpaceImmunityOnBuckle
+  - type: BlockHandsOnBuckle
   - type: Strap
     position: Down
     rotation: -90
-    selfUnBuckleDelay: 100
+    selfUnBuckleDelay: 120
   - type: Transform
     anchored: true
     noRot: true

@@ -238,7 +238,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
         var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
         var sprite = comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite;
         var color = comp.UberActivated ? comp.UberLineColor : comp.DefaultLineColor;
-        var visuals = new ComplexJointVisualsData(sprite, color);
+        var visuals = new ComplexJointVisualsData("medigun", sprite, color);
         beam.Data.Add(GetNetEntity(target), visuals);
         Dirty(uid, beam);
 

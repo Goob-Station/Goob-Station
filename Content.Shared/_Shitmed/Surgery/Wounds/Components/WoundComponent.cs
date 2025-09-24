@@ -54,7 +54,7 @@ public sealed partial class WoundComponent : Component
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public DamageGroupPrototype? DamageGroup;
+    public ProtoId<DamageGroupPrototype>? DamageGroup;
 
     /// <summary>
     /// Damage type of this wound.
@@ -124,7 +124,7 @@ public sealed class WoundComponentState : ComponentState
 
     public WoundType WoundType;
 
-    public DamageGroupPrototype? DamageGroup;
+    public ProtoId<DamageGroupPrototype>? DamageGroup;
     public string? DamageType;
 
     public EntProtoId? ScarWound;

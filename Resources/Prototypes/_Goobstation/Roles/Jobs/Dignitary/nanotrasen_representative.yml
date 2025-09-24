@@ -146,6 +146,7 @@
   id: NanotrasenRepresentativeGear
   equipment:
     id: NanotrasenRepresentativePDA
+    eyes: ClothingEyesGlassesCommand
     ears: ClothingHeadsetAltCentCom
     pocket1: UniqueNanorepLockerTeleporter
   storage:
@@ -157,7 +158,7 @@
   id: NanotrasenRepresentativeChameleonOutfit
   job: NanotrasenRepresentative
   equipment:
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     mask: ClothingMaskBreath
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesHeavyGoldenTrim

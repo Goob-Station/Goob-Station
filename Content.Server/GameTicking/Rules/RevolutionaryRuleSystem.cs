@@ -58,6 +58,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Components;
 using Content.Shared.Database;
+using Content.Shared.Flash;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -233,9 +234,12 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         // Goob edit end (for now)
 
+        if (uid != ev.User)
+            return;
+
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
 
-        if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
+        if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind))
             return;
 
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
@@ -248,7 +252,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
-            if(ev.User != null)
+            if (ev.User != null)
                 _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
 
             return;

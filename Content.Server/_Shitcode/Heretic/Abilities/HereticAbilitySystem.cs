@@ -77,6 +77,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Examine;
+using Content.Server.Interaction;
 using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
@@ -98,14 +100,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly ChainFireballSystem _splitball = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
-    [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -137,6 +136,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly StutteringSystem _stutter = default!;
+    [Dependency] private readonly ExamineSystem _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
@@ -144,7 +144,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
         var list = new List<EntityUid>();
-        var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
+        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
 
         foreach (var look in lookup)
         {
@@ -176,7 +176,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
-        SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
         SubscribeLock();
@@ -203,20 +202,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
-                return;
-            foreach (var hand in handsComp.Hands.Values)
+            foreach (var item in _hands.EnumerateHeld(ent.Owner))
             {
-                if (hand.HeldEntity == null)
-                    continue;
-                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
-                    QueueDel(hand.HeldEntity);
+                if (HasComp<MansusGraspComponent>(item ))
+                    QueueDel(item );
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
             if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
@@ -378,7 +373,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         };
         Popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
         Popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
-        _doafter.TryStartDoAfter(dargs);
+        DoAfter.TryStartDoAfter(dargs);
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
@@ -388,7 +383,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        // updated: get upstream'ed you clanker
+        _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 
     private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)

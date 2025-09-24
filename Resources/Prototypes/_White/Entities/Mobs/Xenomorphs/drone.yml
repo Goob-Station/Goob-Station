@@ -23,7 +23,8 @@
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-    - ActionSpawnResinMembrane
+#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
   - type: VentCrawler
@@ -48,7 +49,7 @@
     makeSentient: true
     name: ghost-role-information-xenomorph-drone-name
     description: ghost-role-information-xenomorph-drone-description
-    rules: ghost-role-information-rules-default-team-antagonist
+    rules: ghost-role-information-rules-default-xeno
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:

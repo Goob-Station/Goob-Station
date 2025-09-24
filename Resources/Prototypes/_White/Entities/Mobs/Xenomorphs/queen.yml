@@ -19,14 +19,15 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 17
+        Brute: 5
     inject:
-      Tirizene: 5
+      ChloralHydrate: 10 # Goobstation - new chemical
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-    - ActionSpawnResinMembrane
+#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
     - ActionSpawnXenomorphEgg
@@ -70,11 +71,11 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - TauCetiBasic
     understands:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - Hissing
     - Draconic
     - TauCetiBasic
@@ -92,7 +93,7 @@
     makeSentient: true
     name: ghost-role-information-xenomorph-queen-name
     description: ghost-role-information-xenomorph-queen-description
-    rules: ghost-role-information-rules-default-team-antagonist
+    rules: ghost-role-information-rules-default-xeno
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:

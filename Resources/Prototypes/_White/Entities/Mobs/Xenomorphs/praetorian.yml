@@ -18,14 +18,15 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 12
+        Brute: 5
     inject:
-      Tirizene: 5
+      ChloralHydrate: 5 # Goobstation - new chemical
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-    - ActionSpawnResinMembrane
+#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
   - type: Body
@@ -75,7 +76,7 @@
     makeSentient: true
     name: ghost-role-information-xenomorph-praetorian-name
     description: ghost-role-information-xenomorph-praetorian-description
-    rules: ghost-role-information-rules-default-team-antagonist
+    rules: ghost-role-information-rules-default-xeno
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:
