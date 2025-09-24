@@ -1137,8 +1137,8 @@
   id: XenoborgLaserGun
   components:
   - type: BatterySelfRecharger
-  autoRecharge: true
-  autoRechargeRate: 30
+    autoRecharge: true
+    autoRechargeRate: 30
 
 - type: entity
   name: xenoborg heavy laser gun
@@ -1148,5 +1148,5 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
   - type: BatterySelfRecharger
-  autoRecharge: true
-  autoRechargeRate: 30
+    autoRecharge: true
+    autoRechargeRate: 30
