@@ -1419,15 +1419,15 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Holy: 0.7 # Goobstation - Down from two. You can't just inta-kill people with super-soakers, as funny as that is.
+#    Acidic:  # Goobstation - Removing holy water damage on touch pending rework.
+#      methods: [ Touch ]
+#      effects:
+#      - !type:HealthChange
+#        scaleByQuantity: true
+#        ignoreResistances: false
+#        damage:
+#          types:
+#            Holy: 0.7
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
