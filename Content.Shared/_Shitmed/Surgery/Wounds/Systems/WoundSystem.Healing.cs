@@ -154,26 +154,6 @@ public partial class WoundSystem
         return anyHealed;
     }
 
-    /// <summary>
-    ///     Returns wether or not there is wound to be healed
-    /// </summary>
-    public bool CanHealBleedingWounds(EntityUid woundable, WoundableComponent? component = null)
-    {
-        if (!Resolve(woundable, ref component))
-            return false;
-
-        foreach (var wound in GetWoundableWounds(woundable, component))
-        {
-            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
-                || !bleeds.IsBleeding)
-                continue;
-
-            if (bleeds.BleedingAmount > 0)
-                return true;
-        }
-        return false;
-    }
-
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
     {
         modifiedBleed = FixedPoint2.New(-bleedStopAbility);
