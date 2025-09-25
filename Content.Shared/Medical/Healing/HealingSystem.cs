@@ -430,7 +430,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPvs(healing.HealingEndSound, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         // Logic to determine whether or not to repeat the healing action
-        args.Repeat = IsAnythingToHeal(args.User, ent, healing); // GOOBEDIT
+        args.Repeat = IsAnythingToHeal(args.User, ent, (args.Used.Value, healing)); // GOOBEDIT
         args.Handled = true;
 
         if (args.Repeat || dontRepeat)
@@ -460,15 +460,15 @@ public sealed class HealingSystem : EntitySystem
     }
 
     // Goobstation start
-    private bool IsAnythingToHeal(EntityUid user, EntityUid target, HealingComponent component)
+    private bool IsAnythingToHeal(EntityUid user, EntityUid target, Entity<HealingComponent> healing)
     {
         if (!TryComp<DamageableComponent>(target, out var targetDamage))
             return false;
 
-        return HasDamage((target, targetDamage), component) ||
+        return HasDamage(healing, (target, targetDamage)) ||
             TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
-            IsBodyDamaged((target, bodyComp), user, component) ||
-            component.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+            IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
+            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
                 && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume;
