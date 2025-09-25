@@ -74,11 +74,13 @@
       - SlowedDown
       - Pacified
       - Flashed
+    - type: Uncloneable
     - type: Tag
       tags:
       - CanPilot
       - DoorBumpOpener
       - Unimplantable
+      - SiliconEmotes
     removedComponents:
     - type: Destructible
     - type: SurgeryTarget
