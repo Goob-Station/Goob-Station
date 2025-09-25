@@ -596,6 +596,12 @@
   id: WeaponDisabler
 
 - type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
