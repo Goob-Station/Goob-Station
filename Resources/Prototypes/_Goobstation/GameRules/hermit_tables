@@ -1,0 +1,57 @@
+- type: entityTable
+  id: HermitGameRulesTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: HermitCalmEventsTable
+      - !type:NestedSelector
+        tableId: HermitAntagEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+
+- type: entityTable
+  id: HermitSpaceTrafficControlTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: UnknownShuttlesFriendlyTableHermit
+      - !type:NestedSelector
+        tableId: UnknownShuttlesFreelanceTableHermit
+      - !type:NestedSelector
+        tableId: UnknownShuttlesHostileTableHermit
+
+
+# variation passes Hermit guy :( im not fucking with this right now)
+- type: entity
+  id: BasicRoundstartVariation
+  parent: BaseGameRule
+  components:
+  - type: RoundstartStationVariationRule
+    rules:
+    - id: BasicPoweredLightVariationPass
+    - id: BasicTrashVariationPass
+    - id: SolidWallRustingVariationPass
+    - id: ReinforcedWallRustingVariationPass
+    - id: BasicPuddleMessVariationPass
+      prob: 0.99
+      orGroup: puddleMess
+    - id: BloodbathPuddleMessVariationPass
+      prob: 0.01
+      orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90
+    - id: SolarPanelDamageVariationPass
+    - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
