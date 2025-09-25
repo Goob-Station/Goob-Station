@@ -4566,3 +4566,10 @@
   id: 9003
   time: '2025-09-25T21:33:28.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/25875
+- author: Hitlinemoss
+  changes:
+  - message: The autolathe and uniform printer can now produce towels.
+    type: Add
+  id: 9004
+  time: '2025-09-25T21:53:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40160
