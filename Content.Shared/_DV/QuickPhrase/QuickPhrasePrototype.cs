@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
-namespace Content.Shared.DeltaV.QuickPhrase;
+namespace Content.Shared._DV.QuickPhrase;
 
 [Prototype]
 public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingPrototype

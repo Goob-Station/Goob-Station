@@ -69,15 +69,10 @@
   parent: BaseCrewSpeciesPhrase
   text: species-name-rodentia
 
-- type: quickPhrase
-  id: SpeciesFeroxiPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-feroxi
-
-- type: quickPhrase
-  id: SpeciesKitsunePhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-kitsune
+#- type: quickPhrase #Uncomment when feroxi here - Goob
+#  id: SpeciesFeroxiPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-feroxi
 
 - type: quickPhrase
   id: SpeciesIPCPhrase
@@ -85,11 +80,33 @@
   text: species-name-ipc
 
 - type: quickPhrase
-  id: SpeciesKThavenPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-thaven
-
-- type: quickPhrase
   id: SpeciesChitnidePhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-chitinid
+
+#Goob start
+
+- type: quickPhrase
+  id: SpeciesResomiPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-resomi
+
+- type: quickPhrase
+  id: SpeciesPlasmamanPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-plasmaman
+
+- type: quickPhrase
+  id: SpeciesShadowkinPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-shadowkin
+
+- type: quickPhrase
+  id: SpeciesYowiePhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-yowie
+
+- type: quickPhrase
+  id: SpeciesTajaranPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-tajaran

@@ -7,6 +7,7 @@ namespace Content.Client.Chat.TypingIndicator;
 public sealed partial class TypingIndicatorSystem
 {
     private bool _shouldShowTyping;
+
     private void InitializeAlternateTyping()
     {
         Subs.CVar(_cfg, CCVars.ChatShowTypingIndicator, OnShowTypingChangedAlternate);
@@ -28,6 +29,6 @@ public sealed partial class TypingIndicatorSystem
 
         _isClientTyping = true;
         _lastTextChange = _time.CurTime;
-        RaisePredictiveEvent(new TypingChangedEvent(true, protoId));
+        RaisePredictiveEvent(new TypingChangedEvent(TypingIndicatorState.Typing, protoId));
     }
 }

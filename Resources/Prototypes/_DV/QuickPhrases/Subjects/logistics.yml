@@ -159,3 +159,45 @@
   id: PhraseLogisticsDiamond
   parent: BaseLogisticsSubjectPhrase
   text: phrase-diamond
+
+# Goob start specific
+
+- type: quickPhrase
+  id: PhraseCargoLavaland # yeah i know im inconsistent with dep names, whatever
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-lavaland
+
+- type: quickPhrase
+  id: PhraseCargoGps
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-gps
+
+- type: quickPhrase
+  id: PhraseCargoGlobalPositioningSystem
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-globalpositioningsystem
+
+- type: quickPhrase
+  id: PhraseCargoLost
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-lost
+
+- type: quickPhrase
+  id: PhraseCargoMassScanner
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-massscanner
+
+- type: quickPhrase
+  id: PhraseCargoSyndiebase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-syndiebase
+
+- type: quickPhrase
+  id: PhraseCargoHeirophant
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-heirophant
+
+- type: quickPhrase
+  id: PhraseCargoMiningShuttle
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-miningshuttle

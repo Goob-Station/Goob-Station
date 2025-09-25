@@ -51,19 +51,19 @@
 
 - type: quickPhrase
   id: BaseEpistemicsPhrase
-  group: Epistemics
+  group: Science #Goobchange
   styleClass: EpistemicsButton
   abstract: true
 
 - type: quickPhrase
   id: BaseJusticePhrase
-  group: Justice
+  group: Justice # Doesnt exist but fuck it leave it for courtroom stuff - Goob
   styleClass: JusticeButton
   abstract: true
 
 - type: quickPhrase
   id: BaseLogisticsPhrase
-  group: Logistics
+  group: Cargo #Goob
   styleClass: LogisticsButton
   abstract: true
 

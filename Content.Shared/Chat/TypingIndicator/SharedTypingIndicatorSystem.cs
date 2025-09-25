@@ -30,7 +30,6 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
     ///     Default ID of <see cref="TypingIndicatorPrototype"/>
     /// </summary>
     public static readonly ProtoId<TypingIndicatorPrototype> InitialIndicatorId = "default";
-	public const string InitialIndicatorId = "default";
 
     public override void Initialize()
     {

@@ -83,14 +83,18 @@ phrase-robotics = robotics
 phrase-circuit-board = circuit board
 phrase-research = research
 phrase-research-console = R&D computer
-phrase-oracle = Oracle
-phrase-sophie = Sophie
-phrase-glimmer = glimmer
-phrase-psionic = psionic
-phrase-lotophagol-oil = lotophagol oil
-phrase-mindbreak-phase = mindbreak
 phrase-protolathe = protolathe
 phrase-circuit-imprinter = circuit imprinter
+# Goob start
+phrase-lavaland = lavaland
+phrase-miningshuttle = mining shuttle
+phrase-heirophant = heirophant
+phrase-syndiebase = syndicate base
+phrase-lost = lost
+phrase-gps = gps
+phrase-massscanner = mass scanner
+phrase-globalpositioningsystem = global positioning system
+# Goob end
 phrase-bounty = bounty
 phrase-cargo-shuttle = cargo shuttle
 phrase-crate = crate
@@ -135,6 +139,14 @@ phrase-arrest = arrest
 phrase-warrant = warrant
 phrase-wanted = wanted
 phrase-search = search
+#Goob start
+phrase-marked = marked
+phrase-dangerous = dangerous
+phrase-suspicious = suspicious
+phrase-sus = sus
+phrase-chud = chud
+phrase-shitsec = shitsec
+#Goob end
 phrase-detain = detain
 phrase-suspect = suspect
 phrase-forensic-scanner = forensic scanner

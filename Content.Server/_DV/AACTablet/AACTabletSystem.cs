@@ -1,13 +1,13 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
-using Content.Shared.DeltaV.AACTablet;
+using Content.Shared._DV.AACTablet;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Chat;
 
 
-namespace Content.Server.DeltaV.AACTablet;
+namespace Content.Server._DV.AACTablet;
 
 public sealed class AACTabletSystem : EntitySystem
 {

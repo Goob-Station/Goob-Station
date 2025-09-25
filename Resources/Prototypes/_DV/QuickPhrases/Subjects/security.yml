@@ -82,3 +82,35 @@
   id: ParolePhrase
   parent: BaseSecuritySubjectPhrase
   text: phrase-parole
+
+#Goob start
+
+- type: quickPhrase
+  id: MarkedPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-marked
+
+- type: quickPhrase
+  id: SuspiciousPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-suspicious
+
+- type: quickPhrase
+  id: SusPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-sus
+
+- type: quickPhrase
+  id: ChudPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-chud
+
+- type: quickPhrase
+  id: DangerousPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-dangerous
+
+- type: quickPhrase
+  id: ShitsecPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-shitsec

@@ -210,16 +210,6 @@
 
 - type: quickPhrase
   parent: BaseEpistemicsLocationPhrase
-  id: LocationMystagoguePhrase
-  text: station-beacon-mystagogue
-
-- type: quickPhrase
-  parent: BaseEpistemicsLocationPhrase
-  id: LocationMantisPhrase
-  text: station-beacon-forensic-mantis
-
-- type: quickPhrase
-  parent: BaseEpistemicsLocationPhrase
   id: LocationChapelPhrase
   text: station-beacon-chapel
 
@@ -254,21 +244,6 @@
   parent: BaseJusticeLocationPhrase
   id: LocationLawOfficePhrase
   text: station-beacon-law
-
-- type: quickPhrase
-  parent: BaseJusticeLocationPhrase
-  id: LocationProsecutorPhrase
-  text: station-beacon-prosecutor
-
-- type: quickPhrase
-  parent: BaseJusticeLocationPhrase
-  id: LocationChiefJusticePhrase
-  text: station-beacon-chiefjustice
-
-- type: quickPhrase
-  parent: BaseJusticeLocationPhrase
-  id: LocationClerkPhrase
-  text: station-beacon-clerk
 
 # Logistics
 

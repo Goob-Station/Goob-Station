@@ -187,3 +187,155 @@
   id: LimbsPhrase
   parent: BaseMedicinePhrase
   text: phrase-limbs
+
+# Goob start
+
+- type: quickPhrase
+  id: ChemSalAcidPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-salicylic-acid
+
+- type: quickPhrase
+  id: ChemOxanPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-oxandrolon
+
+- type: quickPhrase
+  id: ChemStasiziumPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-stasizium
+
+- type: quickPhrase
+  id: ChemProbitalPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-probital
+
+- type: quickPhrase
+  id: ChemMitogenPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-mitogen
+
+- type: quickPhrase
+  id: ChemMitotrophinPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-mitotrophin
+
+- type: quickPhrase
+  id: ChemTirimolPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-tirimol
+
+- type: quickPhrase
+  id: ChemSyriniverPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-syriniver
+
+- type: quickPhrase
+  id: ChemMusiverPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-musiver
+
+- type: quickPhrase
+  id: ChemMultiverPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-multiver
+
+- type: quickPhrase
+  id: ChemMonoverPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-monover
+
+- type: quickPhrase
+  id: ChemSynthcellsPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-synthcells
+
+- type: quickPhrase
+  id: ChemPentenicAcidPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-pentenic-acid
+
+- type: quickPhrase
+  id: ChemAtropinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-atropine
+
+- type: quickPhrase
+  id: ChemCalomelPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-calomel
+
+- type: quickPhrase
+  id: ChemAmmoniatedMercuryPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-ammoniated-mercury
+
+- type: quickPhrase
+  id: ChemAntiholPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-antihol
+
+- type: quickPhrase
+  id: ChemIbuprofenPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-ibuprofen
+
+- type: quickPhrase
+  id: ChemSilverSulfadiazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-silver-sulfadiazine
+
+- type: quickPhrase
+  id: ChemStypticPowderPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-styptic-powder
+
+- type: quickPhrase
+  id: ChemTehifinPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-tehifin
+
+- type: quickPhrase
+  id: ChemEbifinPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-ebifin
+
+- type: quickPhrase
+  id: ChemProcenylLazidePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-procenyl-lazide
+
+- type: quickPhrase
+  id: ChemBozaidePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-bozaide
+
+- type: quickPhrase
+  id: ChemGenecidePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-genecide
+
+- type: quickPhrase
+  id: ChemProcenylLazideSludgePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-procenyl-lazide-sludge
+
+- type: quickPhrase
+  id: ChemStypticCrystalCatalystPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-styptic-crystal-catalyst
+
+- type: quickPhrase
+  id: ChemSynthfleshPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-synthflesh
+
+- type: quickPhrase
+  id: ChemHercuriPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-hercuri
+
+- type: quickPhrase
+  id: ChemHerignisPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-herignis
