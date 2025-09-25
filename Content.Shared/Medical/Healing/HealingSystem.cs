@@ -80,6 +80,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Medical.Healing;
 
@@ -102,6 +103,9 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedTargetingSystem _targetingSystem = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
+
+    // Goobstation edit
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -427,7 +431,8 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal:damage} damage");
         }
 
-        _audio.PlayPvs(healing.HealingEndSound, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
+        if (_net.IsServer) // Goobedit
+            _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         // Logic to determine whether or not to repeat the healing action
         args.Repeat = IsAnythingToHeal(args.User, ent, (args.Used.Value, healing)); // GOOBEDIT
