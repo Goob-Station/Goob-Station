@@ -49,36 +49,6 @@
   text: phrase-research-console
 
 - type: quickPhrase
-  id: OraclePhrase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-oracle
-
-- type: quickPhrase
-  id: SophiePhrase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-sophie
-
-- type: quickPhrase
-  id: GlimmerPhrase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-glimmer
-
-- type: quickPhrase
-  id: PsionicsPhrase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-psionic
-
-- type: quickPhrase
-  id: LotophagolOilPhrase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-lotophagol-oil
-
-- type: quickPhrase
-  id: MindbreakPhase
-  parent: BaseEpistemicsSubjectPhrase
-  text: phrase-mindbreak-phase
-
-- type: quickPhrase
   id: ProtolathePhrase
   parent: BaseEpistemicsSubjectPhrase
   text: phrase-protolathe
