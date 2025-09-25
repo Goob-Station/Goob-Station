@@ -34,3 +34,9 @@
   storage:
     back:
     - TapeRecorderFilled
+
+- type: loadout
+  id: AACTablet
+  storage:
+    back:
+    - AACTablet
