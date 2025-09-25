@@ -31,7 +31,7 @@
   abstract: true
   components:
   - type: Contraband
-    severity: Major # placeholder until they make a better severity
+    severity: HighlyIllegal
   - type: ScannableForPoints # Goobstation - NTR update
     points: 1 # idk how much points they would cost so whatever
 
