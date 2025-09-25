@@ -25,6 +25,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Clothing.Components; // Goobstation  - added for morph
 using Content.Shared.Humanoid; // Goobstation  - added for morph
 using Content.Shared.Interaction.Components; // Goobstation  - added for morph
 using Content.Shared.Inventory; // Goobstation - added for morph
@@ -283,9 +284,25 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
                 foreach (var slot in disguiseInventory.Slots)
                 {
                     if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
-                        continue;
+                        continue; // no item in slot
 
-                    EnsureComp<UnremoveableComponent>(slotEntity.Value); // to make sure the item cant be taken away
+                    if(!TryComp<ClothingComponent>(slotEntity, out var clothing))
+                        continue; // item dont have clothing aka, nothing visual
+
+                    var item = Spawn("VirtualItem", Transform(ent.Owner).Coordinates);
+                    if (!TryCopyComponent(slotEntity.Value, item, ref clothing, out var _))
+                    {
+                        Del(item);// delete if we cant copy the clothings
+                        continue;
+                    }
+
+                    if (_inventory.TryEquip(disguise, item, slot.Name, true, true))
+                    {
+                        Del(item); // delete if it cant be equipted
+                        continue;
+                    }
+
+                    EnsureComp<UnremoveableComponent>(item); // to make sure the item cant be taken away
                 }
             }
 
