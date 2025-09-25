@@ -247,47 +247,6 @@
   categories:
   - UplinkWeaponry
 
-
-#- type: listing
-#  id: UplinkHyperEutacticBlade
-#  name: uplink-hypereutactic-blade-name
-#  description: uplink-hypereutactic-blade-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-#  productEntity: HyperEutacticBlade
-#  cost:
-#    Telecrystal: 74 # goob - desword is 74 and this should be the same
-#  categories:
-#  - UplinkWeaponry
-#  conditions:
-#  - !type:BuyerWhitelistCondition
-#    blacklist:
-#      components:
-#      - SurplusBundle
-#  - !type:StoreWhitelistCondition
-#    blacklist:
-#      tags:
-#      - NukeOpsUplink
-
-#- type: listing
-#  id: UplinkHyperEutaticBlade
-#  name: uplink-hypereutatic-blade-name
-#  description: uplink-hypereutatic-blade-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-#  productEntity: HyperEutaticBlade
-#  cost:
-#    Telecrystal: 74 # goob - same as double energy sword
-#  categories:
-#  - UplinkWeaponry
-#  conditions:
-#  - !type:BuyerWhitelistCondition
-#    blacklist:
-#      components:
-#      - SurplusBundle
-#  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - NukeOpsUplink
-
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
@@ -2359,6 +2318,17 @@
     - Mime
 
 - type: listing
+  id: UplinkContrabandLighter
+  name: uplink-contraband-lighter-name
+  description: uplink-contraband-lighter-desc
+  icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
+  productEntity: UplinkLighterBox
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: UplinkSmugglerSatchel
   name: uplink-smuggler-satchel-name
   description: uplink-smuggler-satchel-desc
@@ -2367,3 +2337,18 @@
     Telecrystal: 10 # Goobstation
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkAcolyteArmor
+  name: uplink-acolyte-armor-name
+  description: uplink-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  cost:
+    Telecrystal: 20 # Goobstation
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
