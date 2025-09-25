@@ -15,6 +15,7 @@
       state: shadowling_ascend
   - type: Damageable
     damageContainer: Biological
+    damageModifierSet: ShadowlingAscendant
   - type: MobMover
   - type: InputMover
   - type: InteractionOutline

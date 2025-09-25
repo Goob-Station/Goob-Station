@@ -26,6 +26,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -133,6 +134,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
                 EnsureComp<SlowedDownComponent>(uid);
                 _appearance.AddMarking(uid, "AbominationTorso");
                 _appearance.AddMarking(uid, "AbominationHorns");
+
+                // take another hardcoded variable
+                _damageable.SetDamageModifierSetId(uid, "ShadowlingAbomination");
                 break;
             }
         }
