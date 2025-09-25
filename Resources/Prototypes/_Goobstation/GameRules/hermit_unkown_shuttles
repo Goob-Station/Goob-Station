@@ -13,7 +13,7 @@
     - id: UnknownShuttleEternal
     - id: UnknownShuttleFlatlineHermit
     - id: UnknownShuttleGymHermit
-    - id: UnknownShuttleNTIncorporation
+    - id: UnknownShuttleNTIncorporationHermit
     - id: UnknownShuttleJoe
     - id: UnknownShuttleLambordeere
     - id: UnknownShuttleMeatZone
@@ -39,30 +39,17 @@
 
 - type: entity
   abstract: true
-  parent: BaseGameRule
+  parent: BaseUnknownShuttleRule
   id: UnknownShuttleRuleHermit
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     weight: 2.5 #decreased by 1.5
-    reoccurrenceDelay: 30
-    earliestStart: 20 # Goobstation
-    duration: 1
-    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
-    chaos: # Goobstation
-      Friend: -20
-      Power: -10 # can be salvaged for power
-    eventType: FriendlySpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: -90 #increased by 50
-  - type: RuleGrids
-  - type: LoadMapRule
+
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleCargoLost
   id: UnknownShuttleCargoLostHermit
   components:
   - type: StationEvent
@@ -71,7 +58,7 @@
     preloadedGrid: ShuttleCargoLost
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleRuleHermit
   id: UnknownShuttleTravelingCuisineHermit
   components:
   - type: StationEvent
@@ -81,7 +68,7 @@
     preloadedGrid: TravelingCuisine
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleRuleHermit
   id: UnknownShuttleDisasterEvacPodHermit
   components:
   - type: StationEvent
@@ -92,98 +79,39 @@
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleHonki
   id: UnknownShuttleHonkiHermit
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 1.5 #clown abuse .5 point decrease
-    chaos: # Goobstation
-      Friend: -10
-      Mess: 20
-    eventType: Chaotic # Goobstation
-  # Goobstation
-  - type: GameRule
-    chaosScore: -80
-  - type: LoadMapRule
-    preloadedGrid: Honki
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleSyndieEvacPod
   id: UnknownShuttleSyndieEvacPodHermit
   components:
   - type: StationEvent
-    startAnnouncement: null # It should be silent.
     weight: 2 # lower because gamemode 2 points decrease
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
-  - type: LoadMapRule
-    preloadedGrid: SyndieEvacPod
-
-- type: entity
-  id: UnknownShuttleNTQuark
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: null # It should be silent.
-    weight: .5 # I havent ever seen this on normal.... so it stays the same
-    earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly.
-    minimumPlayers: 25
-  - type: LoadMapRule
-    preloadedGrid: NTQuark
 
 - type: entity
   id: UnknownShuttleCruiserHermit
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleCruiser
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 1 # decreased by one
-    chaos: # Goobstation
-      Friend: -60
-    eventType: FriendlySpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: -100 #decreased by 50
-  - type: LoadMapRule
-    preloadedGrid: Cruiser
-
-- type: entity
-  id: UnknownShuttleCryptid
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Cryptid
-
-- type: entity
-  id: UnknownShuttleEternal
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Eternal
 
 - type: entity
   id: UnknownShuttleFlatlineHermit
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleFlatline
   components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    chaos: # Goobstation
-      Friend: -20
-      Medical: -20
-    eventType: FriendlySpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: -90 #increased by 50
-  - type: LoadMapRule
-    preloadedGrid: Flatline
 
 - type: entity
   id: UnknownShuttleGymHermit
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleRuleHermit
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
@@ -192,59 +120,22 @@
     preloadedGrid: Gym
 
 - type: entity
-  id: UnknownShuttleNTIncorporation
-  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleNTIncorporationHermit
+  parent: UnknownShuttleNTIncorporation
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 1 # decreased by 1 this is the big defence ship its never filled unless crew is all dead!
-    earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
-    chaos: # Goobstation
-      Friend: -50
-    eventType: FriendlySpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: -100 #increased by 50
-  - type: LoadMapRule
-    preloadedGrid: NTIncorporation
 
 - type: entity
   id: UnknownShuttleInstigatorHermit
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleInstigator
   components:
   - type: StationEvent
-    startAnnouncement: null #dont nark on antags
     weight: .5 #  Decreased by .5
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
-    chaos: # Goobstation
-      # holy mini-nukies
-      Hostile: 80
-      Death: 100
-      Medical: 100
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 1000 #increased by 100
-  - type: LoadMapRule
-    preloadedGrid: Instigator
-
-- type: entity
-  id: UnknownShuttleJoe
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Joe
-
-- type: entity
-  id: UnknownShuttleLambordeere
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Lambordeere
 
 # Goob - Nuke the man-o-war
 #- type: entity
@@ -264,15 +155,6 @@
 #    preloadedGrid: ManOWar
 
 - type: entity
-  id: UnknownShuttleMeatZone
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Meatzone
-
-- type: entity
   id: UnknownShuttleMicroshuttleHermit
   parent: BaseUnknownShuttleRule
   components:
@@ -284,25 +166,10 @@
     preloadedGrid: Microshuttle
 
 - type: entity
-  id: UnknownShuttleSpacebus
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
-  - type: LoadMapRule
-    preloadedGrid: Spacebus
-
-- type: entity
   id: UnknownShuttleAlienTouristHermit
-  parent: BaseUnknownShuttleRule
+  parent: UnknownShuttleAlienTourist
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # decreased by 2
-    chaos:
-      Friend: -20
-    eventType: FriendlySpawn
   - type: GameRule
     chaosScore: -70 #increased by 10
-  - type: LoadMapRule
-    preloadedGrid: AlienTourist

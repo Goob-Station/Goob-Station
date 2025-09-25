@@ -48,7 +48,7 @@
     - id: HereticMidroundHermit
     - id: RevolutionaryMidroundHermit #remove if despised
     - id: DevilmidroundHermit
-    - id: ZombieOutbreakHermit
+    - id: ZombieOutbreak
     - id: LoneOpsSpawnHermit
     - id: DerelictCyborgSpawnHermit
     - id: BlobMidroundHermit # Goobstation - Where is the orignal? armok changed this version which isnt the version this uses
@@ -58,7 +58,6 @@
     - id: SlaughterDemonMidroundHermit # Goobstation - Slaughter Demon
     - id: XenomorphsInfestationHermit # WD EDIT
 
-
 - type: entity
   parent: DerelictCyborgSyndicateSpawn
   id: DerelictCyborgSyndicateSpawnHermit
@@ -66,836 +65,165 @@
   - type: GameRule
     chaosScore: 300
   - type: StationEvent
-    weight: 2.5 # rarer
-    earliestStart: 30
-    reoccurrenceDelay: 30
-    minimumPlayers: 4
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerBorgDerelictSyndicateAssaultBattery
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictCyborgSyndicate
-      min: 1
-      max: 1
-      pickPlayer: false
+    weight: 2.5 # rarer by one point
 
 - type: entity
   id: BingleSpawnHermit
-  parent: BaseStationEventShortDelay
+  parent: BingleSpawn
   components:
   - type: StationEvent
     earliestStart: 50
     weight: 2 #decreased by 1 point
-    duration: 50
-    minimumPlayers: 50
-    chaos: # Goobstation
-      Hostile: 200
-      Friend: 20
-      Combat: 200
-      Death: 200
-      Medical: 200
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 700 #increased by 100
-  - type: RandomSpawnRule
-    prototype: SpawnPointGhostBinglePrime
 
 - type: entity
-  parent: Traitor
+  parent: TraitorMidround
   id: TraitorMidroundHermit
   components:
   - type: StationEvent
     earliestStart: 30
     weight: 8  #kept the same pretty high
     minimumPlayers: 15
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 100
-      Medical: 100
-      Death: 100
-    eventType: HostilesSpawn
-  - type: GameRule
     chaosScore: 240 # decreased by 60 points
-  - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 1
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-        - CommandStaff
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 - type: entity
-  parent: Changeling
+  parent: ChangelingMidround
   id: ChangelingMidroundHermit
   components:
   - type: StationEvent
     earliestStart: 20
     weight: 5 #increased by two yell at me if its too high for balance
-    minimumPlayers: 15
-    startAnnouncement: station-event-genomic-pulse
-    startAudio:
-      path: /Audio/Announcements/biopulse.ogg
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 150
-      Medical: 150
-      Death: 150
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 260 #decreased BY 40 points
-  - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    agentName: changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 1
-      playerRatio: 10
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 - type: entity
-  parent: Heretic
+  parent: HereticMidround
   id: HereticMidroundHermit
   components:
   - type: StationEvent
     earliestStart: 20
     weight: 4.5 #increased by 1.5
-    minimumPlayers: 30
-    startAnnouncement: station-event-unholy-wave
-    startAudio:
-      path: /Audio/Announcements/unholypulse.ogg
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 200
-      Medical: 150
-      Death: 200
-    eventType: HostilesSpawn
-  - type: GameRule
     chaosScore: 270 #decreased by 30
-  - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 1
-      playerRatio: 15
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
-      mindRoles:
-      - MindRoleHeretic
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 - type: entity
-  parent: Revolutionary
+  parent: RevolutionaryMidround
   id: RevolutionaryMidroundHermit
   components:
   - type: StationEvent
     earliestStart: 20
     weight: 3.5 #increased by .5
-    minimumPlayers: 30
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
-    maxOccurrences: 1
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 250
-      Medical: 250
-      Death: 250
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 600 #decreased by 200
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    definitions:
-    - prefRoles: [ HeadRev ]
-      max: 3
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        - CommandStaff
-      briefing:
-        text: head-rev-role-greeting
-        color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
-      components:
-      - type: Revolutionary
-      - type: HeadRevolutionary
-      mindRoles:
-      - MindRoleHeadRevolutionary
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 - type: entity
-  parent: BaseGameRule
+  parent: ClosetSkeleton
   id: ClosetSkeletonHermit
   components:
   - type: StationEvent
     weight: 3.5 #decreased by 1.5
-    duration: 1
-    minimumPlayers: 10
-    eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 150 #increased
-  - type: RandomEntityStorageSpawnRule
-    prototype: MobSkeletonCloset
+    chaosScore: 100 #increased by 40
 
 - type: entity
-  parent: BaseGameRule
+  parent: BlobMidround
   id: BlobMidroundHermit
   components:
   - type: StationEvent
     weight: 1 #kept the same low as it goes also this isnt the one that the og gamemode uses idk where the one it uses is
-    earliestStart: 45
-    minimumPlayers: 50
-    duration: null
-    maxOccurrences: 1
-    chaos:
-      Hostile: 400
-      Medical: 400
-      Death: 400
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 1100 #increased by 100
-  - type: BlobSpawnRule
-    carrierBlobProtos:
-    - SpawnPointGhostBlobRat
-    playersPerCarrierBlob: 30
-    maxCarrierBlob: 1
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 - type: entity
-  parent: Devil
+  parent: Devilmidround
   id: DevilmidroundHermit
   components:
   - type: StationEvent
     earliestStart: 20
     weight: 3.5 # increased by .5
-    minimumPlayers: 30
-    startAnnouncement: station-event-unholy-wave
-    startAudio:
-      path: /Audio/Announcements/unholypulse.ogg
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 200
-      Medical: 150
-      Death: 200
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400 #decreased by 100
-  - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    agentName: Devil-roundend-name
-    definitions:
-    - prefRoles: [ Devil ]
-      max: 1
-      playerRatio: 15
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
-      mindRoles:
-      - DevilMindRole
-  - type: Tag
-    tags:
-      - MidroundAntag
 
 # MIDROUND KILL SLASH MURDER RIP
 - type: entity
-  parent: BaseGameRule
+  parent: SlaughterDemonMidround
   id: SlaughterDemonMidroundHermit
   components:
-  - type: AntagSelection
-    agentName: lesser-slaughter-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSlaughterDemon
-      min: 1
-      max: 1
-      pickPlayer: false
-      mindRoles:
-      - MindRoleSlaughterDemon
-      briefing:
-        text: slaughter-role-greeting
-        color: Red
-        sound: /Audio/Misc/narsie_rises.ogg
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSlaughterTitle
-        - NamesSlaughter
-        nameFormat: name-format-slaughter
-  - type: AntagRandomSpawn
-  - type: AntagSpawner
-    prototype: MobLesserSlaughterDemon
   - type: StationEvent
     weight: 1 #kept the same, at rock bottom
-    earliestStart: 45
-    minimumPlayers: 50
-    duration: null
-    maxOccurrences: 1
-    chaos:
-      Hostile: 200
-      Friend: 40
-      Medical: 200
-      Death: 200
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 1000 #increased by 100
-  - type: Tag
-    tags:
-    - MidroundAntag
-  - type: AntagObjectives
-    objectives:
-      - SlaughterDevourObjective
-      - AnnihilateAllJanitorsObjectiveFluff
-      - SpareCrewObjectiveFluff
-      - HuntTheBraveObjectiveFluff
-      - HuntTheCowardsObjectiveFluff
-      - ShowCrewPowerObjectiveFluff
-      - DriveInsaneObjectiveFluff
-      - SpreadBloodObjectiveFluff
 
 - type: entity
-  parent: BaseGameRule
+  parent: LoneAbductorSpawn
   id: LoneAbductorSpawnhermit
   components:
   - type: StationEvent
-    earliestStart: 15
-    reoccurrenceDelay: 45
     weight: 3 # hermit decreased by 1
-    minimumPlayers: 10
-    duration: 1
-    chaos:
-      Hostile: 75
-      Medical: 75
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400 # increased by 100
-  - type: RuleGrids
-  - type: LoadMapRule
-    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
-  - type: AntagObjectives
-    objectives:
-    - AbductObjective
-  - type: AntagLoadProfileRule
-    speciesHardOverride: Abductor
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: LoneAbductorSpawner
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: LoneAbductorGear
-      briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
-      components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: GhostRole
-        name: abductor-lone-ghost-role-name
-        description: abductor-lone-ghost-role-desc
-        rules: abductors-ghost-role-rules
-        mindRoles:
-        - MindRoleGhostRoleSoloAntagonist
-        raffle:
-          settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 7200 #2 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 7200 #2 hours
-      - type: GhostTakeoverAvailable
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
-      mindRoles:
-      - MindRoleLoneAbductor
 
 - type: entity
-  parent: BaseGameRule
+  parent: DuoAbductorSpawn
   id: DuoAbductorSpawnHermit
   components:
   - type: StationEvent
-    earliestStart: 15
-    reoccurrenceDelay: 45
     weight: 3 # hermit decreased by 1
-    minimumPlayers: 20
-    duration: 1
-    chaos:
-      Hostile: 150
-      Medical: 150
-    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 450 #increased by 100
-  - type: RuleGrids
-  - type: LoadMapRule
-    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
-  - type: AntagObjectives
-    objectives:
-    - AbductObjective
-  - type: AntagLoadProfileRule
-    speciesHardOverride: Abductor
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: AbductorScientistSpawner
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: AbductorScientistGear
-      briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
-      components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: GhostRole
-        name: abductor-scientist-ghost-role-name
-        description: abductor-scientist-ghost-role-desc
-        rules: abductors-ghost-role-rules
-        mindRoles:
-        - MindRoleGhostRoleTeamAntagonist
-        raffle:
-          settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 10800 #3 hours
-      - type: GhostTakeoverAvailable
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
-      mindRoles:
-      - MindRoleAbductorScientist
-    - spawnerPrototype: AbductorAgentSpawner
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: AbductorAgentGear
-      briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
-      components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: GhostRole
-        name: abductor-agent-ghost-role-name
-        description: abductor-agent-ghost-role-desc
-        rules: abductors-ghost-role-rules
-        mindRoles:
-        - MindRoleGhostRoleTeamAntagonist
-        raffle:
-          settings: default
-        requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 10800 #3 hours
-      - type: GhostTakeoverAvailable
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorAgentPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist # Should be removed when we have proper teleportation system
-      mindRoles:
-      - MindRoleAbductorAgent
 
 - type: entity
-  parent: BaseGameRule
+  parent: XenomorphsInfestation
   id: XenomorphsInfestationHermit
   components:
   - type: StationEvent
     weight: 1 #kept the same
-    duration: null
-    minimumPlayers: 50
-    earliestStart: 60
-    chaos:
-      Hostile: 400
-      Medical: 400
-      Death: 400
-    eventType: HostilesSpawn
-    maxOccurrences: 1
   - type: GameRule
     chaosScore: 600 #increased by 100
-  - type: VentSpawnRule
-  - type: AntagSpawner
-    prototype: MobXenomorphLarva
-  - type: XenomorphsRule
-  - type: AntagObjectives
-    objectives:
-    - XenomorphSurviveObjective
-  - type: AntagSelection
-    agentName: xenomorph-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostXenomorph
-      min: 2
-      max: 4
-      pickPlayer: false
-      briefing:
-        text: xenomorph-role-greeting
-        color: "#8c3986"
-      mindRoles:
-      - MindRoleXenomorph
 
 - type: entity
-  parent: BaseGameRule
+  parent: DragonSpawn
   id: DragonSpawnHermit
   components:
   - type: StationEvent
     weight: 1 #decreased by 1.5
-    earliestStart: 45
-    maxOccurrences: 1
-    minimumPlayers: 50
-    duration: null
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 600 #increased by 200
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: MobDragon
-  - type: DragonRule
-  - type: AntagObjectives
-    objectives:
-    - CarpRiftsObjective
-    - DragonSurviveObjective
-  - type: AntagSelection
-    agentName: dragon-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDragon
-      min: 1
-      max: 1
-      pickPlayer: false
-      mindRoles:
-      - MindRoleDragon
 
 - type: entity
-  parent: BaseGameRule
+  parent: NinjaSpawn
   id: NinjaSpawnHermit
   components:
   - type: StationEvent
     weight: 2 #decreased by 1
-    duration: null
-    earliestStart: 30
-    maxOccurrences: 1
-    minimumPlayers: 30
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 40
-      Medical: 40
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 350 #increased by 100
-  - type: SpaceSpawnRule
-  - type: AntagLoadProfileRule
-    # Goobstation start
-    speciesOverride: Human
-    speciesOverrideBlacklist:
-    - Yowie
-    - IPC
-    - Diona
-    - Abductor
-    - Harpy
-    # Goobstation end
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective
-    - DoorjackObjective
-    - SpiderChargeObjective
-    - TerrorObjective
-    - MassArrestObjective
-    - NinjaSurviveObjective
-  - type: AntagSelection
-    agentName: ninja-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSpaceNinja
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SpaceNinjaGear
-      roleLoadout:
-      - RoleSurvivalEVA
-      briefing:
-        text: ninja-role-greeting
-        color: Green
-        sound: /Audio/Misc/ninja_greeting.ogg
-      components:
-      - type: SpaceNinja
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: AutoImplant
-        implants:
-        - MicroBombImplant # Goobstation
-      - type: RandomMetadata
-        nameSegments:
-        - NamesNinjaTitle
-        - NamesNinja
-        nameFormat: name-format-ninja
-      mindRoles:
-      - MindRoleNinja
 #is this a internal or external threat? im thinking internal due to deception correct me if im wrong
 
 - type: entity
-  parent: BaseGameRule
+  parent: ParadoxCloneSpawn
   id: ParadoxCloneSpawnHermit
   components:
   - type: StationEvent
     weight: 6 #increased by one
-    duration: null
-    earliestStart: 20
-    reoccurrenceDelay: 20
-    minimumPlayers: 15
-    eventType: Chaotic # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 75 # decreased by 5
-  - type: ParadoxCloneRule
-    objectiveBlacklist:
-      tags:
-      - ParadoxCloneObjectiveBlacklist
-    targetBlacklist: # Goobstation
-      components:
-      - BorgBrain # No copying the AI or borgs.
-      - AntagImmune # No copying people who are immune to antags. (Gemini Hologram, Ghost bar, etcetera.)
 
 - type: entity
-  id: ZombieOutbreakHermit
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    earliestStart: 60
-    minimumPlayers: 40
-    weight: 1.5 # increased by.5
-    duration: 1
-    chaos: # Goobstation
-      Hostile: 100
-      Medical: 200
-      Death: 200
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
-  - type: GameRule
-    chaosScore: 1350 #decreased by 50
-  - type: ZombieRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 3
-      playerRatio: 10
-      blacklist:
-        components:
-        - BibleUser
-        - ZombieImmune
-        - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie #less time to prepare than normal
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 450
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindRoles:
-      - MindRoleInitialInfected
-
-- type: entity
-  parent: BaseNukeopsRule
+  parent: LoneOpsSpawn
   id: LoneOpsSpawnHermit
   components:
   - type: StationEvent
-    earliestStart: 35
     weight: 1.5 # decreased by 1
-    minimumPlayers: 50
-    duration: 1
-    chaos: # Goobstation
-      Hostile: 200
-      Medical: 200
-      Death: 200
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 750 #increased by 50
-  - type: RuleGrids
-  - type: LoadMapRule
-    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
-  - type: NukeopsRule
-    roundEndBehavior: Nothing
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointLoneNukeOperative
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateLoneOperativeGearFull
-      unequipOldGear: true
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSyndicatePrefix
-        - NamesSyndicateNormal
-        nameFormat: name-format-nukie-generic
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant # Goobstation
-      mindRoles:
-      - MindRoleNukeops
-  - type: AntagLoadProfileRule # Goobstation
-    speciesOverride: Human
-    alwaysUseSpeciesOverride: true
 
 - type: entity
-  parent: BaseGameRule
+  parent: DerelictCyborgSpawn
   id: DerelictCyborgSpawnHermit
   components:
   - type: StationEvent
     weight: 3.5 #decreased by 1.5
-    earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
-    duration: null
-    chaos: # Goobstation
-      # can be both hostile and friendly
-      Hostile: 10
-      Friend: -10
-    eventType: Chaotic # Goobstation
-  # Goobstation
   - type: GameRule
     chaosScore: 100 #increased by 20
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerBorgDerelict
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
