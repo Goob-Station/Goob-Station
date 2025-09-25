@@ -52,6 +52,16 @@
   id: OrganXenomorphEyes
   name: xenomorph eyes
   description: It turned out they had them after all!
+  components: # Goobstation - eyes give you xeno vision
+  - type: Organ
+    onAdd:
+    - type: ThermalVision
+      toggleAction: ToggleThermalVisionXenomorph
+      color: "#7d0cc9"
+      lightRadius: 10
+      strength: 0
+      noise: 0
+      tint: 3, 3, 3
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanTongue]
@@ -64,6 +74,7 @@
   id: OrganXenomorphStomach
   name: xenomorph stomach
   description: Its walls are capable of both significantly expanding and contracting with enormous force.
+  # TODO port xeno devouring
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanLiver]
@@ -93,6 +104,12 @@
         types:
           Caustic: 20
           Heat: 20 # Goobstation
+  # <Goobstation>
+  - type: AcidGland
+  - type: OrganActions
+    actions:
+    - ActionAcid
+  # </Goobstation>
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -117,6 +134,7 @@
       availableModes:
       - FullAuto
       soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: NeurotoxinGland # Goobstation
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -129,7 +147,12 @@
     state: egg_sack
   - type: Organ
     slotId: egg_sack
-    # TODO: Organ should give egg spawn actions
+  # <Goobstation>
+  - type: EggSack
+  - type: OrganActions
+    actions:
+    - ActionSpawnXenomorphEgg
+  # </Goobstation>
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -141,7 +164,14 @@
     state: resin_spinner
   - type: Organ
     slotId: resin_spinner
-    # TODO: Organ should give construction actions
+  # <Goobstation>
+  - type: ResinSpinner
+  - type: OrganActions
+    actions:
+    - ActionSpawnWallResin
+    - ActionSpawnResinDoor
+    - ActionSpawnResinNest
+  # </Goobstation>
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -153,6 +183,7 @@
     state: hive_node
   - type: Organ
     slotId: hive_node
+  - type: HiveNode
     # TODO: Organ should give XenoHivemind language and Xeno faction
 
 - type: entity
@@ -167,7 +198,13 @@
     slotId: plasma_vessel
     onAdd:
     - type: PlasmaVessel
-    # TODO: Organ should give plant weeds and transfer plasma action
+  # <Goobstation>
+  - type: PlasmaVessel # just used for whitelist, shouldn't do anything funny
+  - type: OrganActions
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnResinWeedNode
+  # </Goobstation>
 
 - type: entity
   parent: OrganXenomorphPlasmaVessel
@@ -222,3 +259,6 @@
     onAdd:
     - type: PlasmaVessel
       maxPlasma: 100
+  - type: OrganActions # Goobstation - larba cant spread weeds, only transfer
+    actions:
+    - ActionTransferPlasma

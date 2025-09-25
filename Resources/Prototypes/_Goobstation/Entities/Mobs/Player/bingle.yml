@@ -75,7 +75,6 @@
       - Alive
       - Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: alive
@@ -171,7 +170,6 @@
       state: combat
       visible: false
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: Upgraded

@@ -288,3 +288,13 @@
   components:
   - type: Implanter
     implant: AntagImplantSpaceNinja
+
+# Xeno
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: XenoCompatibilityImplanter
+  name: xeno compatibility implanter
+  components:
+  - type: Implanter
+    implant: XenoCompatibilityImplant

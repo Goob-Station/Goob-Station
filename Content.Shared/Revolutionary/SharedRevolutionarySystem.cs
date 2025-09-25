@@ -33,9 +33,11 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<MindShieldComponent, MapInitEvent>(MindShieldImplanted);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
-        SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
-        SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
-        SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
+
+        SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(OnRevolutionaryComponentStartup); // Goob Station - Revolutionary Language
+        SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(OnRevolutionaryComponentStartup); // Goob Station - Revolutionary Language
+
+        SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(OnRevolutionaryComponentStartup);
     }
 
     /// <summary>
@@ -99,7 +101,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     /// becomes a rev then we need to send all the components to it. To my knowledge there is no way to do this on a
     /// per client basis so we are just dirtying all the components.
     /// </summary>
-    private void DirtyRevComps<T>(EntityUid someUid, T someComp, ComponentStartup ev)
+    public virtual void OnRevolutionaryComponentStartup<T>(EntityUid someUid, T someComp, ComponentStartup ev) // Goob Station - Revolutionary Language (made public virtual)
     {
         var revComps = AllEntityQuery<RevolutionaryComponent>();
         while (revComps.MoveNext(out var uid, out var comp))
