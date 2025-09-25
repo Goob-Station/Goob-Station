@@ -77,6 +77,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Examine;
+using Content.Server.Interaction;
 using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
@@ -86,6 +88,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared.Body.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -98,14 +101,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly ChainFireballSystem _splitball = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
-    [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -137,6 +137,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly StutteringSystem _stutter = default!;
+    [Dependency] private readonly ExamineSystem _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
@@ -144,7 +145,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
         var list = new List<EntityUid>();
-        var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
+        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
 
         foreach (var look in lookup)
         {
@@ -176,7 +177,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
-        SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
         SubscribeLock();
@@ -374,7 +374,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         };
         Popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
         Popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
-        _doafter.TryStartDoAfter(dargs);
+        DoAfter.TryStartDoAfter(dargs);
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
@@ -473,16 +473,15 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (bloodQuery.TryComp(uid, out var blood))
             {
                 if (blood.BleedAmount > 0f)
-                    _blood.TryModifyBleedAmount(uid, -blood.BleedAmount, blood);
+                    _blood.TryModifyBleedAmount((uid, blood), -blood.BleedAmount);
 
                 if (solutionQuery.TryComp(uid, out var sol) &&
                     _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
                     blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
                 {
-                    _blood.TryModifyBloodLevel(uid,
+                    _blood.TryModifyBloodLevel((uid, blood),
                         FixedPoint2.Min(leech.BloodHeal * multiplier,
-                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume),
-                        blood);
+                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
                 }
             }
 

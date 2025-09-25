@@ -684,10 +684,12 @@
       - MobState
     damage:
       types:
-        Blunt: 20
-        Slash: 5
+    # Lavaland Change start
+        Blunt: 20 # 18 -> 20
+        Slash: 5 # 4 -> 5
     effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
     sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+    # Lavaland change end
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -696,6 +698,21 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+
+  # Deals less damage, glaive has better HP recovery
+- type: entity
+  id: BulletChargeGlaive
+  name: leech bolt
+  parent: BulletCharge
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+        - MobState
+    damage:
+      types:
+        Blunt: 1
+        Slash: 5
 
 - type: entity
   parent: BaseBullet
