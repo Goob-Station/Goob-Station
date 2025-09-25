@@ -668,6 +668,9 @@
         - EnergySpeedloader # Goobstation
         - MilitaryPowerCell # Goobstation
         - HandGrenade
+        - PepperSpray # Goobstation
+        - PanicButton # Goobstation
+        - SecHypo # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

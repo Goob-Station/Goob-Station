@@ -11,7 +11,8 @@
   name: package
   components:
   - type: Item
-    size: Ginormous
+    size: Large
+    storedRotation: -90
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _NF/Objects/Specific/Mail/mail_large.rsi
