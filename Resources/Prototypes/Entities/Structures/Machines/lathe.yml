@@ -426,6 +426,7 @@
     - AtmosStatic
     - CablesStatic
     - PaperworkStatic
+    - TowelsStatic
     #- CargoStatic Goob edit - Moved to Cargo fab
     - MaterialsStatic
     - BasicChemistryStatic
@@ -925,6 +926,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
