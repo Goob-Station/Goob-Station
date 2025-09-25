@@ -193,3 +193,40 @@ phrase-salt = salt
 phrase-artifact-fragment = artifact fragment
 phrase-bluespace-crystal = bluespace
 phrase-diamond = diamond
+phrase-chemicals = chemicals
+phrase-box = box
+phrase-locker = locker
+phrase-machine = machine
+phrase-blood = blood
+
+# colors
+phrase-color-red = red
+phrase-color-orange = orange
+phrase-color-yellow = yellow
+phrase-color-green = green
+phrase-color-blue = blue
+phrase-color-purple = purple
+phrase-color-pink = pink
+phrase-color-black = black
+phrase-color-white = white
+phrase-color-bright = bright
+phrase-color-light = light
+phrase-color-dark = dark
+phrase-color-rainbow = rainbow
+phrase-color-brown = brown
+phrase-color-gray = gray
+
+# flavors
+phrase-sweet = sweet
+phrase-sour = sour
+phrase-spicy = spicy
+phrase-savory = savory
+phrase-bitter = bitter
+
+# plants
+phrase-tomato = tomato
+phrase-potato = potato
+phrase-onion = onion
+phrase-aloe = aloe
+phrase-poppy = poppy
+phrase-galaxythistle = galaxythistle

@@ -72,11 +72,26 @@ public sealed partial class AACWindow : FancyWindow
 
         foreach (var group in groups)
         {
+            var header = CreateHeaderForGroup(group.Key);
             var buttonContainer = CreateButtonContainerForGroup(group.Value);
+            boxContainer.AddChild(header);
             boxContainer.AddChild(buttonContainer);
         }
 
         return boxContainer;
+    }
+
+    private Label CreateHeaderForGroup(string groupName)
+    {
+        var header = new Label
+        {
+            HorizontalExpand = true,
+            Text = groupName,
+            Margin = new Thickness(10, 10, 10, 0),
+            StyleClasses = { "LabelBig" }
+        };
+
+        return header;
     }
 
     private GridContainer CreateButtonContainerForGroup(List<QuickPhrasePrototype> phrases)

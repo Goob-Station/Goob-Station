@@ -177,3 +177,8 @@
   id: HealthyPhrase
   parent: BaseMedicinePhrase
   text: phrase-healthy
+
+- type: quickPhrase
+  id: MedicalChemicalsPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-chemicals

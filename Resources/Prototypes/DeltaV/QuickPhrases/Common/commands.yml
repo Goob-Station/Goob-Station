@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseImperativePhrase
   parent: BaseCommonPhrase
-  group: Command
+  group: Commands and Requests
   abstract: true
 
 - type: quickPhrase

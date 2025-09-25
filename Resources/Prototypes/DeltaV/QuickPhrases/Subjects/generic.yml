@@ -164,6 +164,33 @@
   text: phrase-bag
 
 - type: quickPhrase
+  id: LockerPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-locker
+
+- type: quickPhrase
+  id: BoxPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-box
+
+- type: quickPhrase
+  id: ChemicalsPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-chemicals
+
+- type: quickPhrase
+  id: MachinePhrase
+  parent: BaseSubjectPhrase
+  text: phrase-machine
+
+- type: quickPhrase
+  id: BloodPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-blood
+
+# Materials
+
+- type: quickPhrase
   id: BaseMaterialPhrase
   parent: BaseSubjectPhrase
   group: Materials
@@ -228,3 +255,86 @@
   id: BluespacePhrase
   parent: BaseMaterialPhrase
   text: phrase-bluespace
+
+# Colors
+
+- type: quickPhrase
+  id: BaseColorPhrase
+  parent: BaseSubjectPhrase
+  group: Colors
+  abstract: true
+
+- type: quickPhrase
+  id: ColorRedPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-red
+
+- type: quickPhrase
+  id: ColorOrangePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-orange
+
+- type: quickPhrase
+  id: ColorYellowPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-yellow
+
+- type: quickPhrase
+  id: ColorGreenPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-green
+
+- type: quickPhrase
+  id: ColorBluePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-blue
+
+- type: quickPhrase
+  id: ColorPurplePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-purple
+
+- type: quickPhrase
+  id: ColorPinkPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-pink
+
+- type: quickPhrase
+  id: ColorBlackPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-black
+
+- type: quickPhrase
+  id: ColorWhitePhrase
+  parent: BaseColorPhrase
+  text: phrase-color-white
+
+- type: quickPhrase
+  id: ColorBrightPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-bright
+
+- type: quickPhrase
+  id: ColorDarkPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-dark
+
+- type: quickPhrase
+  id: ColorRainbowPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-rainbow
+
+- type: quickPhrase
+  id: ColorLightPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-light
+
+- type: quickPhrase
+  id: ColorBrownPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-brown
+
+- type: quickPhrase
+  id: ColorGrayPhrase
+  parent: BaseColorPhrase
+  text: phrase-color-gray

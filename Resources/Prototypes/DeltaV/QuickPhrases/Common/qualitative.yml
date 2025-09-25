@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseQualitativePhrase
   parent: BaseCommonPhrase
-  group: Quantity or Quality
+  group: Quantity and Quality
   abstract: true
 
 - type: quickPhrase

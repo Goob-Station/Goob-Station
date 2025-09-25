@@ -142,3 +142,58 @@
   id: GrillPhrase
   parent: BaseServiceSubjectPhrase
   text: phrase-grill
+
+- type: quickPhrase
+  id: SweetPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-sweet
+
+- type: quickPhrase
+  id: SourPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-sour
+
+- type: quickPhrase
+  id: SpicyPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-spicy
+
+- type: quickPhrase
+  id: SavoryPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-savory
+
+- type: quickPhrase
+  id: BitterPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-bitter
+
+- type: quickPhrase
+  id: TomatoPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-tomato
+
+- type: quickPhrase
+  id: PotatoPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-potato
+
+- type: quickPhrase
+  id: OnionPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-onion
+
+- type: quickPhrase
+  id: AloePhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-aloe
+
+- type: quickPhrase
+  id: PoppyPhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-poppy
+
+- type: quickPhrase
+  id: GalaxyThistlePhrase
+  parent: BaseServiceSubjectPhrase
+  text: phrase-galaxythistle

@@ -90,3 +90,7 @@ phrase-stack = stack
 phrase-hour = hour
 phrase-minute = minute
 phrase-second = second
+phrase-i-am = I am
+phrase-you-are = You are
+phrase-mine = Mine
+phrase-yours = Yours

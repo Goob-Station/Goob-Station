@@ -43,6 +43,72 @@
   id: BaseServiceLocationPhrase
   abstract: true
 
+# Relative (ungrouped, so it's at the top)
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationNearPhrase
+  text: phrase-location-near
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationFarPhrase
+  text: phrase-location-far
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationInsidePhrase
+  text: phrase-location-inside
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationOutsidePhrase
+  text: phrase-location-outside
+
+## Compass directions
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationNorthPhrase
+  text: phrase-location-north
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationEastPhrase
+  text: phrase-location-east
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationSouthPhrase
+  text: phrase-location-south
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationWestPhrase
+  text: phrase-location-west
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationNorthEastPhrase
+  text: phrase-location-northeast
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationSouthEastPhrase
+  text: phrase-location-southeast
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationSouthWestPhrase
+  text: phrase-location-southwest
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationNorthWestPhrase
+  text: phrase-location-northwest
+
+# Command
+
 - type: quickPhrase
   parent: BaseCommandLocationPhrase
   id: LocationCommandPhrase
@@ -72,6 +138,8 @@
   parent: BaseCommandLocationPhrase
   id: LocationConferenceRoomPhrase
   text: station-beacon-conference-room
+
+# Engineering
 
 - type: quickPhrase
   parent: BaseEngineeringLocationPhrase
@@ -128,6 +196,8 @@
   id: LocationTechVaultPhrase
   text: station-beacon-tech-vault
 
+# Epistemics
+
 - type: quickPhrase
   parent: BaseEpistemicsLocationPhrase
   id: LocationEpistemicsPhrase
@@ -168,6 +238,8 @@
   id: LocationServerPhrase
   text: station-beacon-research-server
 
+# Justice
+
 - type: quickPhrase
   parent: BaseJusticeLocationPhrase
   id: LocationCourtroomPhrase
@@ -192,6 +264,8 @@
   parent: BaseJusticeLocationPhrase
   id: LocationClerkPhrase
   text: station-beacon-clerk
+
+# Logistics
 
 - type: quickPhrase
   parent: BaseLogisticsLocationPhrase
@@ -228,6 +302,8 @@
   id: LocationShipyardPhrase
   text: phrase-location-shipyard
 
+# Medical
+
 - type: quickPhrase
   parent: BaseMedicalLocationPhrase
   id: LocationMedicalPhrase
@@ -262,6 +338,8 @@
   parent: BaseMedicalLocationPhrase
   id: LocationSurgeryPhrase
   text: station-beacon-surgery
+
+# Security
 
 - type: quickPhrase
   parent: BaseSecurityLocationPhrase
@@ -308,6 +386,8 @@
   id: LocationCorpsmanPhrase
   text: station-beacon-corpsman
 
+# Service
+
 - type: quickPhrase
   parent: BaseServiceLocationPhrase
   id: LocationServicePhrase
@@ -352,6 +432,8 @@
   parent: BaseServiceLocationPhrase
   id: LocationTheaterPhrase
   text: station-beacon-theater
+
+# Civilian
 
 - type: quickPhrase
   parent: BaseCivilianLocationPhrase

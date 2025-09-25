@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseNounsPhrase
   parent: BaseCommonPhrase
-  group: Nouns
+  group: Nouns and Pronouns
   abstract: true
 
 - type: quickPhrase
@@ -63,3 +63,23 @@
   id: MePhrase
   parent: BaseNounsPhrase
   text: phrase-me
+
+- type: quickPhrase
+  id: IAmPhrase
+  parent: BaseNounsPhrase
+  text: phrase-i-am
+
+- type: quickPhrase
+  id: YouArePhrase
+  parent: BaseNounsPhrase
+  text: phrase-you-are
+
+- type: quickPhrase
+  id: MinePhrase
+  parent: BaseNounsPhrase
+  text: phrase-mine
+
+- type: quickPhrase
+  id: YoursPhrase
+  parent: BaseNounsPhrase
+  text: phrase-yours

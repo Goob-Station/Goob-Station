@@ -104,3 +104,33 @@
   id: HazardBrokenEquipmentPhrase
   parent: BaseHazardThreatPhrase
   text: phrase-hazard-broken-equipment
+
+- type: quickPhrase
+  id: HazardHotPhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-hazard-hot
+
+- type: quickPhrase
+  id: HazardBurningPhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-hazard-burning
+
+- type: quickPhrase
+  id: HazardBadTemperaturePhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-hazard-bad-temperature
+
+- type: quickPhrase
+  id: HazardFreezingPhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-hazard-freezing
+
+- type: quickPhrase
+  id: HazardDarknessPhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-hazard-darkness
+
+- type: quickPhrase
+  id: HazardBloodPhrase
+  parent: BaseHazardThreatPhrase
+  text: phrase-blood
