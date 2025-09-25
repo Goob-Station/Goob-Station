@@ -45,6 +45,7 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
+  - AntiMindControlDevice
   #- SignallerAdvanced - Goobstation - Removed from there. Still in Equipment.
   - DeviceQuantumSpinInverter
   - DeviceDesynchronizer
