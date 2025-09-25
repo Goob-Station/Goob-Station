@@ -53,7 +53,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Shock: 5
+        Shock: 8
   - type: Stunbaton
     energyPerUse: 120
     lightAttackEnergyMultiplier: 1.5 # Goob edit
@@ -66,7 +66,7 @@
     animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
-    damage: 5
+    damage: 8
     overtime: 1
     lightAttackOvertimeDamageMultiplier: 40
     sound: /Audio/Weapons/egloves.ogg
