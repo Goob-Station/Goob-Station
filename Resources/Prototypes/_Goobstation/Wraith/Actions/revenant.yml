@@ -7,7 +7,7 @@
   description: Shoves the targeted victim or object away from you, dealing damage if they collide with something.
   components:
   - type: Action
-    useDelay: 30
+    # useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -24,7 +24,7 @@
   description: Like Command, only it throws a LOT more nearby objects at the target.
   components:
   - type: Action
-    useDelay: 30
+    # useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -41,7 +41,7 @@
   description: Emits a large shockwave that knocks people down, destroys windows, and strips the plating off nearby walls and floors.
   components:
   - type: Action
-    useDelay: 30
+    # useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: shockwave
@@ -54,7 +54,7 @@
   description: Temporarily gives you an ENORMOUS damage buff to punches, and punches knock people across the room.
   components:
   - type: Action
-    useDelay: 30
+    # useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: evil_touch
@@ -63,12 +63,12 @@
     event: !type:TouchOfEvilEvent
 
 - type: entity
-  id: ActionTouchOfEvil
-  name: Touch of Evil
+  id: ActionCrush
+  name: Crush
   description: The target immediately collapses and begins to take a huge amount of brute damage over time as their bones crack and their body implodes. The victim explodes into gibs once this damage becomes lethal, but the process is interrupted if they are removed from your line of sight or you move (or are moved).
   components:
   - type: Action
-    useDelay: 60
+    # useDelay: 60
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi

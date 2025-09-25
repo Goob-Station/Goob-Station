@@ -16,6 +16,6 @@ public sealed partial class RevenantPushComponent : Component
     /// Damage to deal to the target when colliding once thrown
     /// </summary>
     [DataField(required: true)]
-    public DamageSpecifier DamageWhenThrown;
+    public DamageSpecifier? DamageWhenThrown = new();
 
 }

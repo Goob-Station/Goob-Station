@@ -3,9 +3,8 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
 
 
@@ -15,8 +14,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()

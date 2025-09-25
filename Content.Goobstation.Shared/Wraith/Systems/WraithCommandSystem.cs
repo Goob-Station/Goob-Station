@@ -23,10 +23,14 @@ public sealed class WraithCommandSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+
+    private EntityQuery<TransformComponent> _transformQuery;
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+
+        _transformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<WraithCommandComponent, WraithCommandEvent>(OnCommand);
     }
@@ -44,11 +48,15 @@ public sealed class WraithCommandSystem : EntitySystem
         var selectedObjects = 0;
         foreach (var entity in entities)
         {
+            if (selectedObjects > ent.Comp.MaxObjects)
+                return;
+
             if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
                 continue;
 
-            if (selectedObjects > ent.Comp.MaxObjects)
-                return;
+            if (_transformQuery.TryComp(entity, out var xform)
+                && xform.Anchored)
+                continue;
 
             _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
             selectedObjects++;

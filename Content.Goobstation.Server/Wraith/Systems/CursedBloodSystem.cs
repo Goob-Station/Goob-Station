@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.Body.Components;
 
 
 namespace Content.Goobstation.Server.Wraith.Systems;
@@ -21,7 +22,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
@@ -54,8 +55,8 @@ public sealed partial class CursedBloodSystem : EntitySystem
                 //TO DO: Make them puke a litle bit of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
-                    _blood.TryModifyBloodLevel(uid, comp.BleedAmount, blood);
-                    _blood.TryModifyBleedAmount(uid, blood.MaxBleedAmount, blood);
+                    _blood.TryModifyBloodLevel((uid, blood), comp.BleedAmount);
+                    _blood.TryModifyBleedAmount((uid, blood), blood.MaxBleedAmount);
                 }
                 // Schedule next puke tick
                 comp.NextTickPuke = curTime + comp.TimeTillPuke;

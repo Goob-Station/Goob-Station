@@ -36,5 +36,5 @@ public sealed partial class RevenantShockwaveComponent : Component
     /// Damage dealt to windows and walls
     /// </summary>
     [DataField]
-    public DamageSpecifier StructureDamage;
+    public DamageSpecifier? StructureDamage = new();
 }

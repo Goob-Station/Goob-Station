@@ -43,6 +43,9 @@ public sealed class RevenantShockwaveSystem : EntitySystem
     {
         PryAnyTiles(ent);
 
+        if (ent.Comp.StructureDamage == null)
+            return;
+
         var lookup = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange);
 
         foreach (var entity in lookup)

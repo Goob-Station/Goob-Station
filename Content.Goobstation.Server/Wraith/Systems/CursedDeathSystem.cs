@@ -6,6 +6,7 @@ using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.EntitySystems;
