@@ -41,3 +41,4 @@
   - type: Speech
     speechSounds: Alto
   - type: AACTablet
+  - type: VoiceMask
