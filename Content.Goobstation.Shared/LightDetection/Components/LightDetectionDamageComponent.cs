@@ -100,10 +100,10 @@ public sealed partial class LightDetectionDamageComponent : Component
     [DataField, AutoNetworkedField]
     public bool ShowAlert = true;
 
-    [ViewVariables]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextUpdate;
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1f);
 }
