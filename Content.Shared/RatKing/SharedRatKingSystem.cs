@@ -15,28 +15,16 @@
 using Content.Shared.Abilities;
 using Content.Shared.Actions;
 ﻿using Content.Shared.Actions.Components;
-using Content.Shared.DoAfter;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Verbs;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.RatKing;
 
 public abstract class SharedRatKingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Used for rummage cooldown
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,12 +32,7 @@ public abstract class SharedRatKingSystem : EntitySystem
         SubscribeLocalEvent<RatKingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RatKingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RatKingComponent, RatKingOrderActionEvent>(OnOrderAction);
-
         SubscribeLocalEvent<RatKingServantComponent, ComponentShutdown>(OnServantShutdown);
-
-        SubscribeLocalEvent<RatKingRummageableComponent, ComponentInit>(OnComponentInit); // Goobstation
-        SubscribeLocalEvent<RatKingRummageableComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerb);
-        SubscribeLocalEvent<RatKingRummageableComponent, RatKingRummageDoAfterEvent>(OnDoAfterComplete);
     }
 
     private void OnStartup(EntityUid uid, RatKingComponent component, ComponentStartup args)
@@ -122,63 +105,6 @@ public abstract class SharedRatKingSystem : EntitySystem
         _action.StartUseDelay(component.ActionOrderLooseEntity);
     }
 
-    // Goobstation
-    public void OnComponentInit(EntityUid uid, RatKingRummageableComponent component, ComponentInit args)
-    {
-        component.LastLooted = _gameTiming.CurTime;
-        Dirty(uid, component);
-    }
-
-    private void OnGetVerb(EntityUid uid, RatKingRummageableComponent component, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!HasComp<RummagerComponent>(args.User)
-            || component.Looted
-            || _gameTiming.CurTime < component.LastLooted + component.RummageCooldown)
-            // DeltaV - Use RummagerComponent instead of RatKingComponent
-            // (This is so we can give Rodentia rummage abilities)
-            // Additionally, adds a cooldown check
-            return;
-
-        args.Verbs.Add(new AlternativeVerb
-        {
-            Text = Loc.GetString("rat-king-rummage-text"),
-            Priority = 0,
-            Act = () =>
-            {
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.RummageDuration,
-                    new RatKingRummageDoAfterEvent(), uid, uid)
-                {
-                    BlockDuplicate = true,
-                    BreakOnDamage = true,
-                    BreakOnMove = true,
-                    DistanceThreshold = 2f
-                });
-            }
-        });
-    }
-
-    private void OnDoAfterComplete(EntityUid uid, RatKingRummageableComponent component, RatKingRummageDoAfterEvent args)
-    {
-        // DeltaV - Rummaging an object updates the looting cooldown rather than a "previously looted" check.
-        // Note that the "Looted" boolean can still be checked (by mappers/admins)
-        // to disable rummaging on the object indefinitely, but rummaging will no
-        // longer permanently prevent future rummaging.
-        var time = _gameTiming.CurTime;
-        if (args.Cancelled
-            || component.Looted
-            || time < component.LastLooted + component.RummageCooldown)
-            return;
-
-        component.LastLooted = time;
-        // End DeltaV change
-        Dirty(uid, component);
-        _audio.PlayPredicted(component.Sound, uid, args.User);
-
-        var spawn = PrototypeManager.Index<WeightedRandomEntityPrototype>(component.RummageLoot).Pick(Random);
-        if (_net.IsServer)
-            Spawn(spawn, Transform(uid).Coordinates);
-    }
-
     public void UpdateAllServants(EntityUid uid, RatKingComponent component)
     {
         foreach (var servant in component.Servants)
@@ -196,10 +122,4 @@ public abstract class SharedRatKingSystem : EntitySystem
     {
 
     }
-}
-
-[Serializable, NetSerializable]
-public sealed partial class RatKingRummageDoAfterEvent : SimpleDoAfterEvent
-{
-
 }
