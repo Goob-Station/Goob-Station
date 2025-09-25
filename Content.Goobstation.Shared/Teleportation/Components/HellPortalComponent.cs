@@ -17,6 +17,9 @@ public sealed partial class HellPortalComponent : Component
     [ViewVariables]
     public EntityUid ExitPortal;
 
+    [ViewVariables]
+    public ResPath HellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
+
     [DataField]
     public bool PortalEnabled;
 

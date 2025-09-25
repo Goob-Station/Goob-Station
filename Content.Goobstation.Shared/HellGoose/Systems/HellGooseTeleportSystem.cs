@@ -7,6 +7,8 @@ namespace Content.Goobstation.Shared.HellGoose;
 
 public sealed partial class HellGooseTeleportSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -18,35 +20,29 @@ public sealed partial class HellGooseTeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Make sure the user has a transform
-        if (!EntityManager.TryGetComponent<TransformComponent>(args.Performer, out var performerXform))
+        if (!TryComp<TransformComponent>(args.Performer, out var performerXform))
             return;
 
         args.Handled = true;
 
+        TransformComponent? beaconXform = null;
         HellGooseBeaconTeleportComponent? targetBeacon = null;
 
-        // Find the first beacon component
-        var query = EntityQueryEnumerator<HellGooseBeaconTeleportComponent>();
-        while (query.MoveNext(out _, out var beaconComp))
+        // Find the first beacon with a transform
+        var query = EntityQueryEnumerator<HellGooseBeaconTeleportComponent, TransformComponent>();
+        while (query.MoveNext(out var beaconUid, out var beaconComp, out var xform))
         {
-            if (beaconComp != null)
-            {
-                targetBeacon = beaconComp;
-                break;
-            }
+            targetBeacon = beaconComp;
+            beaconXform = xform;
+            break;
         }
 
         // If no beacon found, abort
-        if (targetBeacon == null)
+        if (targetBeacon == null || beaconXform == null)
             return;
 
-        // Get the beacon's transform
-        if (!EntityManager.TryGetComponent<TransformComponent>(targetBeacon.Owner, out var beaconXform))
-            return;
-
-        // Teleport performer using TransformSystem
-        performerXform.Coordinates = beaconXform.Coordinates;
+        // Teleport
+        _sharedTransformSystem.SetCoordinates(args.Performer, beaconXform.Coordinates);
     }
 }
 

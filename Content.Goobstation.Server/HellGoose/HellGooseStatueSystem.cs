@@ -1,5 +1,5 @@
 using Content.Goobstation.Shared.HellGoose.Components;
-using Content.Goobstation.Shared.HellGoose.Events;
+using Content.Goobstation.Shared.HellGoose.Systems;
 using Content.Server.Pointing.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Interaction.Events;
@@ -9,22 +9,14 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Server.HellGoose;
 
 
-public sealed class HellGooseStatueSystem : EntitySystem
+public sealed class HellGooseStatueSystem : HellGooseStatueSharedSystem
 {
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
 
-    public override void Initialize()
+    protected override void PolymorphTheGoose(EntityUid uid)
     {
-        base.Initialize();
-        SubscribeNetworkEvent<PrayAtHellGooseStatueEvent>(OnPrayAtHellGoose);
+        base.PolymorphTheGoose(uid);
+        _polymorphSystem.PolymorphEntity(uid, "HellGooseMorph");
     }
 
-    private void OnPrayAtHellGoose(PrayAtHellGooseStatueEvent ev, EntitySessionEventArgs args)
-    {
-        var user = args.SenderSession?.AttachedEntity;
-        if (user == null)
-            return;
-
-        _polymorphSystem.PolymorphEntity(user.Value, "HellGooseMorph");
-    }
 }

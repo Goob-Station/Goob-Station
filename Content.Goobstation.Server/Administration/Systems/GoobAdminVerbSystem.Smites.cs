@@ -6,6 +6,7 @@
 using System.Threading;
 using Content.Goobstation.Shared.Maps;
 using Content.Goobstation.Shared.MisandryBox.Smites;
+using Content.Goobstation.Shared.HellGoose.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Database;
@@ -51,32 +52,22 @@ public sealed partial class GoobAdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
             Act = () =>
             {
-                var entManager = IoCManager.Resolve<IEntityManager>();
-
-                EntityUid? portal = null;
                 TransformComponent? portalXform = null;
 
-                // Query through all entities with MetaDataComponent + TransformComponent
-                var query = entManager.EntityQueryEnumerator<MetaDataComponent, TransformComponent>();
-                while (query.MoveNext(out var uid, out var meta, out var xform))
+                var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
+                while (query.MoveNext(out var uid, out var exitComp, out var xform))
                 {
-                    if (meta.EntityPrototype?.ID == "PortalHellExit")
-                    {
-                        portal = uid;
-                        portalXform = xform;
-                        break;
-                    }
+                    portalXform = xform;
+                    break;
                 }
 
-                if (portal == null || portalXform == null)
+                if (portalXform == null)
                 {
-                    Logger.Warning("No PortalHellExit entity found, cannot teleport target.");
                     return;
                 }
 
                 // Teleport target
-                var targetXform = entManager.GetComponent<TransformComponent>(args.Target);
-                targetXform.Coordinates = portalXform.Coordinates;
+                EntityManager.System<SharedTransformSystem>().SetCoordinates(args.Target, portalXform.Coordinates);
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", hellName, Loc.GetString("admin-smite-hell-teleport-description"))

@@ -1,11 +1,10 @@
 using Content.Goobstation.Shared.HellGoose.Components;
-using Content.Goobstation.Shared.HellGoose.Events;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.HellGoose.Systems;
 
-public sealed class HellGooseStatueSharedSystem : EntitySystem
+public abstract class HellGooseStatueSharedSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -22,13 +21,13 @@ public sealed class HellGooseStatueSharedSystem : EntitySystem
         {
             Text = Loc.GetString("hell-goose-statue-accept"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/pray.svg.png")),
-            ClientExclusive = true,
             Act = () =>
             {
-                RaiseNetworkEvent(new PrayAtHellGooseStatueEvent());
+                PolymorphTheGoose(args.User);
             }
         };
 
         args.Verbs.Add(verb);
     }
+    protected virtual void PolymorphTheGoose(EntityUid uid) {}
 }

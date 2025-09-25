@@ -32,15 +32,13 @@ public sealed class HellPortalSystem : EntitySystem
         if (query.MoveNext(out var hellMapUid, out var hellMapComp))
         {
             // If hell already has an exit portal, link to it
-            if (hellMapComp.ExitPortal != null && EntityManager.EntityExists(hellMapComp.ExitPortal.Value))
-            {
+            if (hellMapComp.ExitPortal != null && !TerminatingOrDeleted(hellMapComp.ExitPortal.Value))
                 _link.TryLink(uid, hellMapComp.ExitPortal.Value);
-            }
             return;
         }
 
         // Otherwise, load the hell map
-        if (!_mapLoader.TryLoadMap(new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml"),
+        if (!_mapLoader.TryLoadMap(comp.HellMapPath,
                 out var map, out var roots,
                 options: new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true }))
         {
@@ -56,24 +54,12 @@ public sealed class HellPortalSystem : EntitySystem
 
             var pos = new EntityCoordinates(root, 0, 0);
 
-            EnsureComp<PortalComponent>(uid, out var portalComp);
+            var portalComp = EnsureComp<PortalComponent>(uid);
             EnsureComp<LinkedEntityComponent>(uid);
 
             portalComp.CanTeleportToOtherMaps = true;
 
-            if (string.IsNullOrEmpty(comp.ExitPortalPrototype))
-            {
-                Log.Error("HellPortalComponent.ExitPortalPrototype is null or empty");
-                return;
-            }
-
-            // Spawn a receiver portal inside hell
             var exitPortal = Spawn(comp.ExitPortalPrototype, pos);
-            if (exitPortal == default)
-            {
-                Log.Error("Failed to spawn hell exit portal");
-                return;
-            }
 
             EnsureComp<PortalComponent>(exitPortal, out var hellPortalComp);
             EnsureComp<LinkedEntityComponent>(exitPortal);

@@ -62,3 +62,5 @@
   name: PortalHellExit
   suffix: DO NOT MAP
   description: Guess it was a one way trip...
+  components:
+  - type: HellPortalExit
