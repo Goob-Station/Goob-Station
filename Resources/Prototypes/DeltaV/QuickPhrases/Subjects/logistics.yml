@@ -93,6 +93,11 @@
   parent: BaseLogisticsSubjectPhrase
   text: phrase-expedition
 
+- type: quickPhrase
+  id: PlanetsidePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-planetside
+
 # Ores
 
 - type: quickPhrase

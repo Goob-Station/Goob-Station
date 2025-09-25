@@ -25,64 +25,14 @@
   text: phrase-cant
 
 - type: quickPhrase
-  id: ShowMePhrase
-  parent: BaseImperativePhrase
-  text: phrase-show-me
-
-- type: quickPhrase
-  id: HelpPhrase
-  parent: BaseImperativePhrase
-  text: phrase-help
-
-- type: quickPhrase
-  id: AttackPhrase
-  parent: BaseImperativePhrase
-  text: phrase-attack
-
-- type: quickPhrase
-  id: BreakPhrase
-  parent: BaseImperativePhrase
-  text: phrase-break
-
-- type: quickPhrase
-  id: BuildPhrase
-  parent: BaseImperativePhrase
-  text: phrase-build
-
-- type: quickPhrase
-  id: HealPhrase
-  parent: BaseImperativePhrase
-  text: phrase-heal
-
-- type: quickPhrase
-  id: StopPhrase
-  parent: BaseImperativePhrase
-  text: phrase-stop
-
-- type: quickPhrase
   id: GoAwayPhrase
   parent: BaseImperativePhrase
   text: phrase-go-away
 
 - type: quickPhrase
-  id: LeavePhrase
-  parent: BaseImperativePhrase
-  text: phrase-leave
-
-- type: quickPhrase
-  id: StayPhrase
-  parent: BaseImperativePhrase
-  text: phrase-stay
-
-- type: quickPhrase
   id: ComeHerePhrase
   parent: BaseImperativePhrase
   text: phrase-come-here
-
-- type: quickPhrase
-  id: TakeThisPhrase
-  parent: BaseImperativePhrase
-  text: phrase-take-this
 
 - type: quickPhrase
   id: GoToPhrase
@@ -100,26 +50,31 @@
   text: phrase-wait
 
 - type: quickPhrase
-  id: GoPhrase
-  parent: BaseImperativePhrase
-  text: phrase-go
-
-- type: quickPhrase
-  id: RunPhrase
-  parent: BaseImperativePhrase
-  text: phrase-run
-
-- type: quickPhrase
-  id: FixPhrase
-  parent: BaseImperativePhrase
-  text: phrase-fix
-
-- type: quickPhrase
-  id: SwitchPhrase
-  parent: BaseImperativePhrase
-  text: phrase-switch
-
-- type: quickPhrase
   id: WillPhrase
   parent: BaseImperativePhrase
   text: phrase-will
+
+- type: quickPhrase
+  id: ThisPhrase
+  parent: BaseImperativePhrase
+  text: phrase-this
+
+- type: quickPhrase
+  id: TakePhrase
+  parent: BaseImperativePhrase
+  text: phrase-take
+
+- type: quickPhrase
+  id: LeavePhrase
+  parent: BaseImperativePhrase
+  text: phrase-leave
+
+- type: quickPhrase
+  id: StayPhrase
+  parent: BaseImperativePhrase
+  text: phrase-stay
+
+- type: quickPhrase
+  id: StopPhrase
+  parent: BaseImperativePhrase
+  text: phrase-stop

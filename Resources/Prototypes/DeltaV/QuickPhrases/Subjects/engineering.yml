@@ -117,3 +117,23 @@
   id: MagbootsPhrase
   parent: BaseEngineeringSubjectPhrase
   text: phrase-magboots
+
+- type: quickPhrase
+  id: HolofanPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-holofan
+
+- type: quickPhrase
+  id: EngiOnPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-engi-on
+
+- type: quickPhrase
+  id: EngiOffPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-engi-off
+
+- type: quickPhrase
+  id: GasAnalyzerPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-gas-analyzer

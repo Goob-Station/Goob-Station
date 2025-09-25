@@ -188,6 +188,21 @@
   parent: BaseSubjectPhrase
   text: phrase-blood
 
+- type: quickPhrase
+  id: LawPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-law
+
+- type: quickPhrase
+  id: HolopadPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-holopad
+
+- type: quickPhrase
+  id: UpgradePhrase
+  parent: BaseSubjectPhrase
+  text: phrase-upgrade
+
 # Materials
 
 - type: quickPhrase
@@ -245,6 +260,11 @@
   id: GoldPhrase
   parent: BaseMaterialPhrase
   text: phrase-gold
+
+- type: quickPhrase
+  id: GlassPhrase
+  parent: BaseMaterialPhrase
+  text: phrase-glass
 
 - type: quickPhrase
   id: SilverPhrase

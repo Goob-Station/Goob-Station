@@ -64,13 +64,18 @@
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
-  id: HeadOfPersonnelPhrase
-  text: job-name-hop
+  id: CentralCommandOfficialPhrase
+  text: job-name-centcomoff
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
-  id: CentralCommandOfficialPhrase
-  text: job-name-centcomoff
+  id: AdminAssistantPhrase
+  text: job-name-admin-assistant
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: StationAIPhrase 
+  text: job-name-station-ai
 
 # Engineering
 
@@ -118,6 +123,11 @@
 
 - type: quickPhrase
   parent: BaseEpistemicsJobPhrase
+  id: RoboticistPhrase
+  text: job-name-roboticist
+
+- type: quickPhrase
+  parent: BaseEpistemicsJobPhrase
   id: BorgPhrase
   text: job-name-borg
 
@@ -142,6 +152,11 @@
   parent: BaseLogisticsJobPhrase
   id: CourierPhrase
   text: job-name-courier
+
+- type: quickPhrase
+  parent: BaseLogisticsJobPhrase
+  id: CargoAssistantPhrase
+  text: job-name-cargo-assistant
 
 # Justice
 
@@ -191,6 +206,11 @@
   parent: BaseMedicalJobPhrase
   id: MedicalInternPhrase
   text: job-name-intern
+
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: SurgeonPhrase
+  text: job-name-surgeon
 
 # Security
 
@@ -258,6 +278,11 @@
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
+  id: ServiceWorkerPhrase
+  text: job-name-serviceworker
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
   id: ClownPhrase
   text: job-name-clown
 
@@ -265,6 +290,11 @@
   parent: BaseServiceJobPhrase
   id: MimePhrase
   text: job-name-mime
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: HeadOfPersonnelPhrase
+  text: job-name-hop
 
 # Wildcard
 

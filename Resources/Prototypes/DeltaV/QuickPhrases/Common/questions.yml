@@ -53,3 +53,8 @@
   id: ShouldIPhrase
   parent: BaseQuestionPhrase
   text: phrase-should-i
+
+- type: quickPhrase
+  id: WhichPhrase
+  parent: BaseQuestionPhrase
+  text: phrase-which

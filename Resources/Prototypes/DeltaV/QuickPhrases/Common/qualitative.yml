@@ -68,3 +68,18 @@
   id: BadPhrase
   parent: BaseQualitativePhrase
   text: phrase-bad
+
+- type: quickPhrase
+  id: OnPhrase
+  parent: BaseQualitativePhrase
+  text: phrase-on
+  
+- type: quickPhrase
+  id: OffPhrase
+  parent: BaseQualitativePhrase
+  text: phrase-off
+
+- type: quickPhrase
+  id: NotPhrase
+  parent: BaseQualitativePhrase
+  text: phrase-not  

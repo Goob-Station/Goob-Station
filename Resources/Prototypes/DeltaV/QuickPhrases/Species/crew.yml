@@ -63,3 +63,8 @@
   id: SpeciesVoxPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-vox
+  
+- type: quickPhrase
+  id: SpeciesRodentiaPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-rodentia  

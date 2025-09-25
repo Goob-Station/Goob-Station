@@ -131,13 +131,18 @@
 
 - type: quickPhrase
   parent: BaseCommandLocationPhrase
-  id: LocationHopPhrase
-  text: station-beacon-hop
+  id: LocationConferenceRoomPhrase
+  text: station-beacon-conference-room
 
 - type: quickPhrase
   parent: BaseCommandLocationPhrase
-  id: LocationConferenceRoomPhrase
-  text: station-beacon-conference-room
+  id: LocationAICorePhrase
+  text: station-beacon-ai-core
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationAISatPhrase
+  text: station-beacon-ai-sat
 
 # Engineering
 
@@ -432,6 +437,11 @@
   parent: BaseServiceLocationPhrase
   id: LocationTheaterPhrase
   text: station-beacon-theater
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationHopPhrase
+  text: station-beacon-hop
 
 # Civilian
 

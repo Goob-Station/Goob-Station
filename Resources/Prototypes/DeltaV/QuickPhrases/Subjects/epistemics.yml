@@ -66,7 +66,7 @@
 - type: quickPhrase
   id: PsionicsPhrase
   parent: BaseEpistemicsSubjectPhrase
-  text: phrase-psionics
+  text: phrase-psionic
 
 - type: quickPhrase
   id: LotophagolOilPhrase
@@ -87,3 +87,18 @@
   id: CircuitImprinterPhrase
   parent: BaseEpistemicsSubjectPhrase
   text: phrase-circuit-imprinter
+
+- type: quickPhrase
+  id: EpistemicsBluespacePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-bluespace-crystal
+
+- type: quickPhrase
+  id: EpiUpgradePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-upgrade
+
+- type: quickPhrase
+  id: ChassisPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-chassis
