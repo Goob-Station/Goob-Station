@@ -4559,3 +4559,10 @@
   id: 9002
   time: '2025-09-25T19:55:02.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40532
+- author: IProduceWidgets
+  changes:
+  - message: Explosive cord and detonators have been added for precise demolition!
+    type: Add
+  id: 9003
+  time: '2025-09-25T21:33:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/25875
