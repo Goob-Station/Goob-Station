@@ -1,7 +1,6 @@
 using Content.Server.Chat.Systems;
-using Content.Server.VoiceMask;
+using Content.Server.Speech.Components;
 using Content.Shared.DeltaV.AACTablet;
-using Content.Shared.DeltaV.QuickPhrase;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -13,9 +12,8 @@ namespace Content.Server.DeltaV.AACTablet;
 public sealed class AACTabletSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -23,31 +21,28 @@ public sealed class AACTabletSystem : EntitySystem
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
     }
 
-    private void OnSendPhrase(EntityUid uid, AACTabletComponent component, AACTabletSendPhraseMessage message)
+    private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
     {
-        if (component.NextPhrase > Timing.CurTime)
+        if (ent.Comp.NextPhrase > _timing.CurTime)
             return;
 
-        // the AAC tablet uses the name of the person who pressed the tablet button
-        // for quality of life
         var senderName = Identity.Entity(message.Actor, EntityManager);
         var speakerName = Loc.GetString("speech-name-relay",
-            ("speaker", Name(uid)),
+            ("speaker", Name(ent)),
             ("originalName", senderName));
 
-        if (!_prototypeManager.TryIndex<QuickPhrasePrototype>(message.PhraseID, out var phrase))
+        if (!_prototype.TryIndex(message.PhraseId, out var phrase))
             return;
 
-        if (TryComp(uid, out VoiceMaskComponent? mask))
-            mask.VoiceName = speakerName;
+        EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
-        _chat.TrySendInGameICMessage(uid,
-            _loc.GetString(phrase.Text),
+        _chat.TrySendInGameICMessage(ent,
+            Loc.GetString(phrase.Text),
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);
 
-        var curTime = Timing.CurTime;
-        component.NextPhrase = curTime + component.Cooldown;
+        var curTime = _timing.CurTime;
+        ent.Comp.NextPhrase = curTime + ent.Comp.Cooldown;
     }
 }

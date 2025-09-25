@@ -1,6 +1,8 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 namespace Content.Server.DeltaV.AACTablet;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class AACTabletComponent : Component
 {
     // Minimum time between each phrase, to prevent spam
@@ -8,6 +10,6 @@ public sealed partial class AACTabletComponent : Component
     public TimeSpan Cooldown = TimeSpan.FromSeconds(1);
 
     // Time that the next phrase can be sent.
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextPhrase;
 }
