@@ -4573,3 +4573,10 @@
   id: 9004
   time: '2025-09-25T21:53:15.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40160
+- author: SirWarock
+  changes:
+  - message: Rollerbed sprites now don't stack when a patient is buckled to it!
+    type: Fix
+  id: 9005
+  time: '2025-09-25T23:57:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40550
