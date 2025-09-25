@@ -125,6 +125,13 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     {
         // Einstein Engines - Language begin
         var parent = Transform(uid).ParentUid;
+
+        if (parent.IsValid())
+        {
+            var relayEvent = new HeadsetRadioReceiveRelayEvent(args);
+            RaiseLocalEvent(parent, ref relayEvent);
+        }
+
         if (TryComp(parent, out ActorComponent? actor))
         {
             var canUnderstand = _language.CanUnderstand(parent, args.Language.ID);
