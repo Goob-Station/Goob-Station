@@ -1,0 +1,14 @@
+- type: latheRecipePack
+  id: AACTablet
+  recipes:
+  - AACTablet
+
+- type: latheRecipe
+  id: AACTablet
+  result: AACTablet
+  categories:
+  - Tools
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 100

@@ -1,0 +1,434 @@
+- type: quickPhrase
+  parent: [ BaseCivilianPhrase, BaseLocationPhrase ]
+  id: BaseCivilianLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseCommandPhrase, BaseLocationPhrase ]
+  id: BaseCommandLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseEngineeringPhrase, BaseLocationPhrase ]
+  id: BaseEngineeringLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseEpistemicsPhrase, BaseLocationPhrase ]
+  id: BaseEpistemicsLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseJusticePhrase, BaseLocationPhrase ]
+  id: BaseJusticeLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseLogisticsPhrase, BaseLocationPhrase ]
+  id: BaseLogisticsLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseMedicalPhrase, BaseLocationPhrase ]
+  id: BaseMedicalLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseSecurityPhrase, BaseLocationPhrase ]
+  id: BaseSecurityLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: [ BaseServicePhrase, BaseLocationPhrase ]
+  id: BaseServiceLocationPhrase
+  abstract: true
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationCommandPhrase
+  text: station-beacon-command
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationBridgePhrase
+  text: station-beacon-bridge
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationVaultPhrase
+  text: station-beacon-vault
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationCaptainPhrase
+  text: station-beacon-captain
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationHopPhrase
+  text: station-beacon-hop
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationConferenceRoomPhrase
+  text: station-beacon-conference-room
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationEngineeringPhrase
+  text: station-beacon-engineering
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationCePhrase
+  text: station-beacon-ce
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationAmePhrase
+  text: station-beacon-ame
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationSolarsPhrase
+  text: station-beacon-solars
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationGravPhrase
+  text: station-beacon-gravgen
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationPaPhrase
+  text: station-beacon-pa
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationSmesPhrase
+  text: station-beacon-smes
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationTelecomsPhrase
+  text: station-beacon-telecoms
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationAtmosPhrase
+  text: station-beacon-atmos
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationTegPhrase
+  text: station-beacon-teg
+
+- type: quickPhrase
+  parent: BaseEngineeringLocationPhrase
+  id: LocationTechVaultPhrase
+  text: station-beacon-tech-vault
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationEpistemicsPhrase
+  text: station-beacon-epistemics
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationMystagoguePhrase
+  text: station-beacon-mystagogue
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationMantisPhrase
+  text: station-beacon-forensic-mantis
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationChapelPhrase
+  text: station-beacon-chapel
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationRoboticsPhrase
+  text: station-beacon-robotics
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationArtifactPhrase
+  text: station-beacon-artifact-lab
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationAnomalyPhrase
+  text: station-beacon-anomaly-gen
+
+- type: quickPhrase
+  parent: BaseEpistemicsLocationPhrase
+  id: LocationServerPhrase
+  text: station-beacon-research-server
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationCourtroomPhrase
+  text: station-beacon-courtroom
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationLawOfficePhrase
+  text: station-beacon-law
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationProsecutorPhrase
+  text: station-beacon-prosecutor
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationChiefJusticePhrase
+  text: station-beacon-chiefjustice
+
+- type: quickPhrase
+  parent: BaseJusticeLocationPhrase
+  id: LocationClerkPhrase
+  text: station-beacon-clerk
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationLogisticsPhrase
+  text: station-beacon-logistics
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationLoPhrase
+  text: station-beacon-lo
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationCargoBayPhrase
+  text: station-beacon-cargo-bay
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationSalvagePhrase
+  text: station-beacon-salvage
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationMailPhrase
+  text: station-beacon-mailroom
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationATSPhrase
+  text: phrase-location-ats
+
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationShipyardPhrase
+  text: phrase-location-shipyard
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationMedicalPhrase
+  text: station-beacon-medical
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationMedbayPhrase
+  text: station-beacon-medbay
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationChemistryPhrase
+  text: station-beacon-chemistry
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationCryonicsPhrase
+  text: station-beacon-cryonics
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationCmoPhrase
+  text: station-beacon-cmo
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationMorguePhrase
+  text: station-beacon-morgue
+
+- type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationSurgeryPhrase
+  text: station-beacon-surgery
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationSecurityPhrase
+  text: station-beacon-security
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationBrigPhrase
+  text: station-beacon-brig
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationWardenPhrase
+  text: station-beacon-warden
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationHosPhrase
+  text: station-beacon-hos
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationArmoryPhrase
+  text: station-beacon-armory
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationPermaPhrase
+  text: station-beacon-perma-brig
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationDetectivePhrase
+  text: station-beacon-detective
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationSecCheckpointPhrase
+  text: station-beacon-security-checkpoint
+
+- type: quickPhrase
+  parent: BaseSecurityLocationPhrase
+  id: LocationCorpsmanPhrase
+  text: station-beacon-corpsman
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationServicePhrase
+  text: station-beacon-service
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationKitchenPhrase
+  text: station-beacon-kitchen
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationBarPhrase
+  text: station-beacon-bar
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationBotanyPhrase
+  text: station-beacon-botany
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationJanitorPhrase
+  text: station-beacon-janitor
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationJaniOfficePhrase
+  text: station-beacon-janitor-office
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationJaniClosetPhrase
+  text: station-beacon-janitor-closet
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationReporterPhrase
+  text: station-beacon-reporter
+
+- type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationTheaterPhrase
+  text: station-beacon-theater
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationLibraryPhrase
+  text: station-beacon-library
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationParkPhrase
+  text: station-beacon-park
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationBoxingRingPhrase
+  text: phrase-location-boxing-ring
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationToolsPhrase
+  text: station-beacon-tools
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationEscapePodPhrase
+  text: station-beacon-escape-pod
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationCryosleepPhrase
+  text: station-beacon-cryosleep
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationDisposalsPhrase
+  text: station-beacon-disposals
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationDormsPhrase
+  text: station-beacon-dorms
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationEvaPhrase
+  text: station-beacon-eva-storage
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationEvacPhrase
+  text: station-beacon-evac
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationArrivalsPhrase
+  text: station-beacon-arrivals
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationOutpostPhrase
+  text: phrase-location-outpost
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationCamerasPhrase
+  text: station-beacon-camera-servers
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationEscapeShuttlePhrase
+  text: phrase-location-escape-shuttle
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationShuttlePhrase
+  text: phrase-location-shuttle
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationMaintenancePhrase
+  text: phrase-location-maintenance

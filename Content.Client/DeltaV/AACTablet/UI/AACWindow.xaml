@@ -1,0 +1,9 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="AAC Tablet"
+    Resizable="False"
+    SetSize="540 300"
+    MinSize="540 300">
+    <ScrollContainer HScrollEnabled="False" Name="WindowBody">
+    </ScrollContainer>
+</controls:FancyWindow>

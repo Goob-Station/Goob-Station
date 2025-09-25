@@ -1,0 +1,104 @@
+- type: quickPhrase
+  id: BaseJusticeSubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseJusticePhrase ]
+  abstract: true
+
+- type: quickPhrase
+  id: PhraseWitness
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-witness
+
+- type: quickPhrase
+  id: PhraseEvidence
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-evidence
+
+- type: quickPhrase
+  id: PhraseCase
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-case
+
+- type: quickPhrase
+  id: PhraseSue
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-sue
+
+- type: quickPhrase
+  id: PhraseCourtroomTimer
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-courtroom-timer
+
+- type: quickPhrase
+  id: PhraseBailiff
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-bailiff
+
+- type: quickPhrase
+  id: PhraseSentence
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-sentence
+
+- type: quickPhrase
+  id: PhraseDefendant
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-defendant
+
+- type: quickPhrase
+  id: PhrasePlaintiff
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-plaintiff
+
+- type: quickPhrase
+  id: PhraseVictim
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-victim
+
+- type: quickPhrase
+  id: PhraseDefense
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-defense
+
+- type: quickPhrase
+  id: PhraseProsecution
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-prosecution
+
+- type: quickPhrase
+  id: PhraseStatement
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-statement
+
+- type: quickPhrase
+  id: PhraseGavel
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-gavel
+
+- type: quickPhrase
+  id: PhraseCharge
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-charge
+
+- type: quickPhrase
+  id: PhraseGuilty
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-guilty
+
+- type: quickPhrase
+  id: PhraseNotGuilty
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-not-guilty
+
+- type: quickPhrase
+  id: PhraseObjection
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-objection
+
+- type: quickPhrase
+  id: PhraseNeedMoreTime
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-request-time
+
+- type: quickPhrase
+  id: PhraseYourHonor
+  parent: BaseJusticeSubjectPhrase
+  text: phrase-your-honor

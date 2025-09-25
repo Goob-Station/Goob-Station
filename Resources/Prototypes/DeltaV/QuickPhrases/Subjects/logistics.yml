@@ -1,0 +1,156 @@
+- type: quickPhrase
+  id: BaseLogisticsSubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseLogisticsPhrase ]
+  abstract: true
+
+- type: quickPhrase
+  id: BountyPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-bounty
+
+- type: quickPhrase
+  id: CargoShuttlePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-cargo-shuttle
+
+- type: quickPhrase
+  id: CratePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-crate
+
+- type: quickPhrase
+  id: MailPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-mail
+
+- type: quickPhrase
+  id: OrderPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-order
+
+- type: quickPhrase
+  id: OreProcessorPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-ore-processor
+
+- type: quickPhrase
+  id: RequestPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-request
+
+- type: quickPhrase
+  id: SpesosPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-spesos
+
+- type: quickPhrase
+  id: RestockPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-restock
+
+- type: quickPhrase
+  id: FultonPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-fulton
+
+- type: quickPhrase
+  id: JetpackPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-jetpack
+
+- type: quickPhrase
+  id: CrusherPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-crusher
+
+- type: quickPhrase
+  id: PKAPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-pka
+
+- type: quickPhrase
+  id: PickaxePhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-pickaxe
+
+- type: quickPhrase
+  id: DrillPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-drill
+
+- type: quickPhrase
+  id: OreBagPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-ore-bag
+
+- type: quickPhrase
+  id: SalvMagnetPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-salv-magnet
+
+- type: quickPhrase
+  id: ExpeditionPhrase
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-expedition
+
+# Ores
+
+- type: quickPhrase
+  id: PhraseLogisticsIron
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-iron
+
+- type: quickPhrase
+  id: PhraseLogisticsCoal
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-coal
+
+- type: quickPhrase
+  id: PhraseLogisticsQuartz
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-quartz
+
+- type: quickPhrase
+  id: PhraseLogisticsSalt
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-salt
+
+- type: quickPhrase
+  id: PhraseLogisticsGold
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-gold
+
+- type: quickPhrase
+  id: PhraseLogisticsSilver
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-silver
+
+- type: quickPhrase
+  id: PhraseLogisticsPlasma
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-plasma
+
+- type: quickPhrase
+  id: PhraseLogisticsUranium
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-uranium
+
+- type: quickPhrase
+  id: PhraseLogisticsBananium
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-bananium
+
+- type: quickPhrase
+  id: PhraseLogisticsArtifactFragment
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-artifact-fragment
+
+- type: quickPhrase
+  id: PhraseLogisticsBluespaceCrystal
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-bluespace-crystal
+
+- type: quickPhrase
+  id: PhraseLogisticsDiamond
+  parent: BaseLogisticsSubjectPhrase
+  text: phrase-diamond

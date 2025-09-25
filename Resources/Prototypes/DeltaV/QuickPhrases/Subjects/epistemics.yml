@@ -1,0 +1,89 @@
+- type: quickPhrase
+  id: BaseEpistemicsSubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseEpistemicsPhrase ]
+  abstract: true
+
+- type: quickPhrase
+  id: AnomalyPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-anomaly
+
+- type: quickPhrase
+  id: APEPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-ape
+
+- type: quickPhrase
+  id: AnomalyVesselPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-anomaly-vessel
+
+- type: quickPhrase
+  id: ArtifactPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-artifact
+
+- type: quickPhrase
+  id: ArtifactContainerPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-artifact-container
+
+- type: quickPhrase
+  id: RoboticsPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-robotics
+
+- type: quickPhrase
+  id: CircuitBoardPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-circuit-board
+
+- type: quickPhrase
+  id: ResearchPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-research
+
+- type: quickPhrase
+  id: ResearchConsolePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-research-console
+
+- type: quickPhrase
+  id: OraclePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-oracle
+
+- type: quickPhrase
+  id: SophiePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-sophie
+
+- type: quickPhrase
+  id: GlimmerPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-glimmer
+
+- type: quickPhrase
+  id: PsionicsPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-psionics
+
+- type: quickPhrase
+  id: LotophagolOilPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-lotophagol-oil
+
+- type: quickPhrase
+  id: MindbreakPhase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-mindbreak-phase
+
+- type: quickPhrase
+  id: ProtolathePhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-protolathe
+
+- type: quickPhrase
+  id: CircuitImprinterPhrase
+  parent: BaseEpistemicsSubjectPhrase
+  text: phrase-circuit-imprinter
