@@ -278,15 +278,20 @@
         Piercing: 15
         Slash: 15
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+      - Item
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
-      - Food # Goobstation - Allow devouring food items only
+      - Item
       tags:
       - Wall
   - type: Tag
@@ -424,7 +429,7 @@
       components:
       - MobState
       - Door
-      - Food # Goobstation - Allow targeting food items only
+      - Item # Goobstation
       tags:
       - Wall
     event: !type:DevourActionEvent
