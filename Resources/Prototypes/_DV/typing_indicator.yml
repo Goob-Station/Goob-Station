@@ -24,7 +24,7 @@
   offset: 0, 0.2 # 0625
 
 - type: typingIndicator
-  id: Chitinid
+  id: chitinid
   spritePath: /Textures/_DV/Effects/speech.rsi
   typingState: chitinid0
   idleState: chitinid0

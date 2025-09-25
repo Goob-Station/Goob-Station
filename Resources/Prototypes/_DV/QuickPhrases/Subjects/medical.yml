@@ -198,7 +198,7 @@
 - type: quickPhrase
   id: ChemOxanPhrase
   parent: BaseMedicinePhrase
-  text: reagent-name-oxandrolon
+  text: reagent-name-oxandrolone
 
 - type: quickPhrase
   id: ChemStasiziumPhrase
