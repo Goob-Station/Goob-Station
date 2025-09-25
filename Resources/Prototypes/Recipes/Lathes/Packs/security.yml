@@ -103,6 +103,9 @@
 - type: latheRecipePack
   id: SecurityExplosives
   recipes:
+  - CableDetStack1
+  - EmptyDetonator
+  - ExplosivePayload
   - GrenadeBlast
   - GrenadeEMP
   - GrenadeFlash
