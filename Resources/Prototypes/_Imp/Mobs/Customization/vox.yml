@@ -738,7 +738,7 @@
     state: raptor
 
 - type: marking
-  id: VoxTailShort
+  id: VoxTailShort1
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]

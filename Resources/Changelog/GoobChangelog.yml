@@ -15240,3 +15240,198 @@ Entries:
         combat medipen 12->8, advanced medipen 28->20.
   id: 1702
   time: '2025-09-20T13:34:49.0000000+00:00'
+- author: Rouden, Monolith Station
+  changes:
+    - type: Add
+      message: >-
+        Added bluespace drives. They extend FTL range of a shuttle and modify
+        FTL efficiency when installed. You can research them with other shuttle
+        parts.
+    - type: Tweak
+      message: >-
+        All shuttles now can't FTL on to the same map without a bluespace drive.
+        You still can travel between maps without any drives.
+    - type: Tweak
+      message: Default FTL cooldown is now increased, 10 -> 90 seconds.
+    - type: Tweak
+      message: >-
+        Shuttle console UI was reworked and now has more indication and
+        functionality.
+  id: 1703
+  time: '2025-09-20T17:28:20.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Visiting librarians now understand most languages
+    - type: Add
+      message: Visiting chefs now knows cqc, and can speak space italian
+    - type: Add
+      message: Visiting chaplains now have a null rod
+  id: 1704
+  time: '2025-09-20T17:34:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fix borg lawsets
+  id: 1705
+  time: '2025-09-20T17:38:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Heavy multifire nerf, use one gun to aim, use two to mow down crowds
+  id: 1706
+  time: '2025-09-20T17:39:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Wizden desword redundant item
+  id: 1707
+  time: '2025-09-20T17:39:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR and BSO now have default highlights.
+  id: 1708
+  time: '2025-09-20T17:43:41.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added a reaction for synthetic honk reagent.
+  id: 1709
+  time: '2025-09-20T17:44:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed two instances of high energy power cells in salv vendor
+  id: 1710
+  time: '2025-09-20T17:45:51.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Made air alarms less sensitive to lower pressure, danger is at 40kPa
+        instead of 80kPa.
+    - type: Tweak
+      message: Air alarms now ignore Healium since it is safe on its own.
+  id: 1711
+  time: '2025-09-20T17:48:03.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Revolutionaries can now tamper with Flashes via the crafting menu to
+        allow Head Revolutionaries to use them for conversion.
+  id: 1712
+  time: '2025-09-20T18:28:50.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Salvage can no longer be antagonists.
+  id: 1713
+  time: '2025-09-20T18:54:23.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Drones can now be flashed.
+  id: 1714
+  time: '2025-09-20T19:17:29.0000000+00:00'
+- author: Baptr0b0t
+  changes: []
+  id: 1715
+  time: '2025-09-20T20:04:06.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'You can no longer clone Vox and IPCs. '
+  id: 1716
+  time: '2025-09-21T07:16:35.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Pots are no longer items.
+  id: 1717
+  time: '2025-09-21T15:14:14.0000000+00:00'
+- author: troytroy400
+  changes:
+    - type: Add
+      message: 'Three new hairstyles: Classic Bun, Loose Bun and Low Ponytail'
+  id: 1718
+  time: '2025-09-22T05:54:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Xenomorph Rules String for ghostrole raffle has been added
+  id: 1719
+  time: '2025-09-22T05:56:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added alt interact port for the interactor, which makes it simulate alt
+        clicks.
+    - type: Add
+      message: Added anchor, mob and cuff filters for factory machines.
+  id: 1720
+  time: '2025-09-22T06:02:05.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Tweak
+      message: made the M7S "Ventilator" less slop
+  id: 1721
+  time: '2025-09-22T06:02:47.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Changed many midround spawn rates
+    - type: Tweak
+      message: removed chud xenos
+  id: 1722
+  time: '2025-09-22T13:02:14.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Items in the belt slot now render over outerwear
+  id: 1723
+  time: '2025-09-22T13:45:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed some knockdowns/stuns not working.
+  id: 1724
+  time: '2025-09-22T16:47:42.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Tweak
+      message: >-
+        Escape objective description is now clear that you must be on the
+        evacuation shuttle and not in a pod when you arrive at CC.
+  id: 1725
+  time: '2025-09-23T03:30:01.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Ported some Monolith and NF clothing for more options.
+  id: 1726
+  time: '2025-09-23T16:34:12.0000000+00:00'
+- author: Luminal, Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Shadowlings. The shadows have awakened, and their ascendance is
+        soon to follow. Do not enter maints.
+  id: 1727
+  time: '2025-09-23T21:29:36.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        People can be made xeno compatible with a researched xenobiology
+        implant.
+    - type: Add
+      message: Xeno limbs can have tissue sampled for use with xeno organ transplants.
+    - type: Tweak
+      message: >-
+        All xeno organs can be installed into xeno compatible people to get some
+        of their powers.
+  id: 1728
+  time: '2025-09-24T12:13:46.0000000+00:00'

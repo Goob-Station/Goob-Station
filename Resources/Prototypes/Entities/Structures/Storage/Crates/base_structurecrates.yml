@@ -215,3 +215,5 @@
     materialComposition:
       Steel: 125
   - type: RecyclableOnUnlock #Goobstation - Recycle update
+  - type: Paintable
+    group: CrateSecure

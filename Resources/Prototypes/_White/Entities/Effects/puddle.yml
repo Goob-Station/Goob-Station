@@ -21,6 +21,7 @@
     drawdepth: FloorObjects
   - type: Physics
     bodyType: Static
+  - type: Appearance
   - type: Fixtures
     fixtures:
       slipFixture:
