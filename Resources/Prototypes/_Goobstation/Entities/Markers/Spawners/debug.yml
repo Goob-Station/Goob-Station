@@ -437,7 +437,7 @@
       state: full
   - type: ConditionalSpawner
     prototypes:
-    - HumanHereticArmor
+    - MobHumanHereticArmor
 
 - type: entity
   name: Captain Armor Spawner Hardsuit
