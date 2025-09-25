@@ -28,6 +28,7 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Medical;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 
@@ -75,8 +76,8 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
             case "Flesh":
                 if (TryComp<BloodstreamComponent>(target, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(target, 5f, blood);
-                    _blood.SpillAllSolutions(target, blood);
+                    _blood.TryModifyBleedAmount((target, blood), 5f);
+                    _blood.SpillAllSolutions((target, blood));
                 }
                 break;
 
