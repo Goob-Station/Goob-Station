@@ -238,11 +238,15 @@ public sealed class HealingSystem : EntitySystem
         => (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault();
 
 
-    ////////////// GOOBEDIT Start
-    // Target: the target Entity
-    // User: The person trying to heal, can be null.
-    // healing: the healing component
-    // targetedPart: bypasses targeting system to specify a limb. Must be set if user is null.
+    // Goobstation start
+    /// <summary>
+    /// Method <c>IsBodyDamaged</c> returns if a body part can be healed by the healing component. Returns false part is fully healed too.
+    /// </summary>
+    /// <param name="target">the target Entity</param>
+    /// <param name="user">The person trying to heal. (optional)</param>
+    /// <param name="healing">The healing component.</param>
+    /// <param name="targetedPart">bypasses targeting system to specify a limb. Must be set if user is null. (optional)</param>
+    /// <returns> Wether or not the targeted part can be healed. </returns>
     private bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null)
     {
 
@@ -268,7 +272,6 @@ public sealed class HealingSystem : EntitySystem
                 _popupSystem.PopupEntity(Loc.GetString("missing-body-part"), target, user.Value, PopupType.MediumCaution);
             return false;
         }
-        
 
         if (healing.Damage.DamageDict.Keys
             .Any(damageKey => _wounds.GetWoundableSeverityPoint(
@@ -287,7 +290,7 @@ public sealed class HealingSystem : EntitySystem
 
             return true;
         }
-        //////// GOOBEDIT END
+        // Goobstation end
 
         return false;
     }
@@ -330,11 +333,11 @@ public sealed class HealingSystem : EntitySystem
             targetedWoundable = targetedBodyPart.Id;
         }
 
-        // GOOBEDIT START
+        // Goobstation start
         if (!IsBodyDamaged((ent, comp), null, healing, targetedWoundable))                          // Check if there is anything to heal on the initial limb target
             if (TryGetNextDamagedPart(ent, healing, out var limbTemp) && limbTemp is not null)      // If not then get the next limb to heal
                 targetedWoundable = limbTemp.Value;
-        // GOOBEDIT END
+        // Goobstation end
 
         if (targetedWoundable == EntityUid.Invalid)
         {
@@ -456,7 +459,7 @@ public sealed class HealingSystem : EntitySystem
             args.Handled = true;
     }
 
-    // GOOBEDIT START
+    // Goobstation start
     private bool IsAnythingToHeal(EntityUid user, EntityUid target, HealingComponent component)
     {
         if (!TryComp<DamageableComponent>(target, out var targetDamage))
@@ -470,7 +473,7 @@ public sealed class HealingSystem : EntitySystem
                 && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume;
     }
-    // GOOBEDIT END
+    // Goobstation end
 
     private bool TryHeal(EntityUid uid, EntityUid user, EntityUid target, HealingComponent component)
     {
