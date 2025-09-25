@@ -1,0 +1,99 @@
+# BSD - BlueShield Deputy
+# kinda like BSO but worse
+- type: entity
+  id: BlueShieldDeputy
+  parent: MobHuman
+  name: Blueshield deputy
+  suffix: Human
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HairBald # todo: find a new hair for BSD
+  - type: Loadout
+    prototypes: [BlueshieldDeputyGear]
+  - type: RandomMetadata # funny cowboy name
+    nameSegments:
+    - BsdNames
+    - BsdPrefix # who cares
+  - type: ReplacementAccent
+    accent: cowboy
+  - type: MindShield
+  - type: AntagImmune
+
+
+- type: startingGear
+  id: BlueshieldDeputyGear
+  equipment:
+    eyes: ClothingEyesGlassesBSO
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    head: ClothingHeadHatCowboyBlueshield
+    outerClothing: ClothingBlueshieldArmoredCowboyJacket
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+    id: BlueshieldPDA
+    ears: ClothingHeadsetAltCommand
+    pocket1: DrinkEnergyDrinkCan
+    pocket2: TelescopicBaton
+    belt: ClothingBeltHolsterFilledBlueshield
+    back: ClothingBackpackBlueshield
+  storage:
+    back:
+    - ClothingMaskGasSecurity
+    - Flash
+    - BluespaceLifelineImplanter
+    - DefibrillatorCompact # wow personal doctor for NTR
+    - SecHypo
+  inhand:
+    - MedkitCombatFilled
+
+- type: ghostRole
+  id: BlueShieldDeputyGhostRole
+  name: ghost-role-information-bsd-name
+  description: ghost-role-information-bsd-description
+  rules: ghost-role-information-bsd-rules
+  entityPrototype: BlueShieldDeputy
+
+# BSD spawn briefcase
+- type: entity
+  id: BlueShieldDeputySpawnBriefcase
+  name: Blueshield Deputy Teleporter briefcase
+  description: A special device, that opens a bluespace portal that is linked to the nearest NanoTrasen Deputy office, when your local blueshield deputy is ready, he will be teleported to this location.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon_alt
+  - type: Item
+    size: Ginormous
+  - type: GhostRole
+    name: ghost-role-information-bsd-name
+    description: ghost-role-information-bsd-description
+    rules: ghost-role-information-bsd-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 10800 #3h
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 10800 #3h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 10800 #3h
+  - type: GhostRoleMobSpawner
+    prototype: BlueShieldDeputy
+
+# BSD names
+# i dont want to make a bunch o' files for a single reinforcement so gonna shove it in one yaml, i mean, it works
+- type: localizedDataset
+  id: BsdNames
+  values:
+    prefix: bsd-names-dataset-
+    count: 17
+
+- type: localizedDataset
+  id: BsdPrefix
+  values:
+    prefix: bsd-prefix-dataset-
+    count: 16

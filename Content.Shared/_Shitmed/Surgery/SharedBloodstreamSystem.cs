@@ -14,24 +14,23 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using System.Linq;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared.Body.Components;
 
-namespace Content.Shared._Shitmed.Medical.Surgery;
+// ReSharper disable once CheckNamespace
+namespace Content.Shared.Body.Systems;
 
 [UsedImplicitly]
-public abstract class SharedBloodstreamSystem : EntitySystem
+public abstract partial class SharedBloodstreamSystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
-    public override void Initialize()
+    private void InitializeWounds()
     {
         base.Initialize();
 
@@ -41,7 +40,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BleedInflicterComponent, WoundAddedEvent>(OnWoundAdded);
     }
 
-    public override void Update(float frameTime)
+    private void UpdateWounds(float frameTime)
     {
         base.Update(frameTime);
 
@@ -58,7 +57,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 continue;
 
             var totalTime = bleeds.ScalingFinishesAt - bleeds.ScalingStartsAt;
-            var currentTime = bleeds.ScalingFinishesAt - _gameTiming.CurTime;
+            var currentTime = bleeds.ScalingFinishesAt - _timing.CurTime;
 
             if (totalTime <= currentTime || bleeds.ScalingLimit >= bleeds.Scaling)
                 continue;
@@ -281,8 +280,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         component.BleedingAmountRaw = args.Component.WoundSeverityPoint * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
 
         var formula = (float) (args.Component.WoundSeverityPoint / _cfg.GetCVar(SurgeryCVars.BleedsScalingTime) * component.ScalingSpeed);
-        component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
-        component.ScalingStartsAt = _gameTiming.CurTime;
+        component.ScalingFinishesAt = _timing.CurTime + TimeSpan.FromSeconds(formula);
+        component.ScalingStartsAt = _timing.CurTime;
         component.IsBleeding = true;
 
         Dirty(uid, component);
@@ -317,8 +316,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         component.SeverityPenalty += severityPenalty;
 
         var formula = (float) (args.NewSeverity / _cfg.GetCVar(SurgeryCVars.BleedsScalingTime) * component.ScalingSpeed);
-        component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
-        component.ScalingStartsAt = _gameTiming.CurTime;
+        component.ScalingFinishesAt = _timing.CurTime + TimeSpan.FromSeconds(formula);
+        component.ScalingStartsAt = _timing.CurTime;
 
         if (!component.IsBleeding)
         {
@@ -350,8 +349,19 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             return;
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), bodyPart.Body.Value);
-        _popupSystem.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), bodyPart.Body.Value,
-            bodyPart.Body.Value, PopupType.Medium);
+        _popup.PopupPredicted(Loc.GetString("bloodstream-component-wounds-cauterized"),
+            bodyPart.Body.Value,
+            bodyPart.Body.Value,
+            PopupType.Medium);
     }
-    public abstract bool TryModifyBleedAmount(EntityUid uid, float bleedAmount);
+
+    // begin Goobstation: port EE height/width sliders
+    public void SetBloodMaxVolume(Entity<BloodstreamComponent?> ent, FixedPoint2 volume)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        ent.Comp.BloodMaxVolume = volume;
+    }
+    // end Goobstation: port EE height/width sliders
 }

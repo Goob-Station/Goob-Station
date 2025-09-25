@@ -142,6 +142,9 @@
   id: CombatMech
 
 - type: Tag
+  id: CorporateOverride
+
+- type: Tag
   id: ContrabandDetectorCircuitboard
 
 - type: Tag
@@ -590,10 +593,19 @@
   id: VulpEmotes
 
 - type: Tag
+  id: Vial
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
   id: WeaponDisabler
+
+- type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
 
 - type: Tag
   id: WeaponPistolDualetta

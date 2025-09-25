@@ -595,6 +595,7 @@
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
+    - ShuttleBoardsGoob
   - type: MaterialStorage
     whitelist:
       tags:
@@ -884,6 +885,7 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
+    - Genetics
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language

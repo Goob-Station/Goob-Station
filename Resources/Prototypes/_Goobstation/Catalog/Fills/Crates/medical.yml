@@ -7,4 +7,4 @@
   - type: StorageFill
     contents:
       - id: MaterialBiomass
-        amount: 2
+        amount: 1  #it was too op guys

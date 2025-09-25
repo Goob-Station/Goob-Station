@@ -516,9 +516,11 @@
     size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
-      Cloth: 25
+      Plastic: 25
+  - type: StaticPrice
+    price: 5
 
 - type: entity
   parent: ClothingMaskBase
@@ -537,6 +539,9 @@
   - type: IngestionBlocker
   - type: AddAccentClothing
     accent: MumbleAccent
+  - type: EmoteBlocker
+    blocksCategories:
+    - Vocal
   - type: Construction
     graph: Muzzle
     node: muzzle

@@ -14977,3 +14977,461 @@ Entries:
         the new system as normal.
   id: 1668
   time: '2025-09-15T00:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Foam Dart inhand sprite is no longer a whole crossbow
+  id: 1669
+  time: '2025-09-16T04:50:34.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: >-
+        Oni have lost their asphyxiation damage bonus in exchange for increased
+        structural.
+  id: 1670
+  time: '2025-09-16T11:30:09.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Departmental Request Computers to Marathon
+    - type: Add
+      message: Trevor to Marathon
+    - type: Fix
+      message: Cargo shuttle can now dock to Marathon
+    - type: Fix
+      message: Mining shuttle can now dock to Marathon
+  id: 1671
+  time: '2025-09-16T11:38:04.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Bagel mapping
+  id: 1672
+  time: '2025-09-16T16:57:34.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Xenomorph Queen is killable again.
+  id: 1673
+  time: '2025-09-16T18:15:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Jordans are now major contraband. Fake Jordans are now minor contraband.
+  id: 1674
+  time: '2025-09-17T03:05:22.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Added a secret Revolutionary language to speak with your comrades
+        covertly
+  id: 1675
+  time: '2025-09-17T08:28:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: >-
+        Fixed autodocs not being able to install organs/parts (thank the chud
+        that made it so you have to swap hands, they are completely to blame)
+    - type: Fix
+      message: Fixed colliding with downed/crawling/carried players.
+    - type: Fix
+      message: >-
+        Fixed interactors not being usable with anchored objects like walls and
+        girders.
+  id: 1676
+  time: '2025-09-19T12:32:52.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cloned changelings and heretics not being able to do anything.
+  id: 1677
+  time: '2025-09-20T04:58:18.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Scurrets have woundmed now.
+    - type: Fix
+      message: Scurrets no longer have a monkey sprite.
+  id: 1678
+  time: '2025-09-20T06:30:04.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: 'Nuke actually nukes now '
+  id: 1679
+  time: '2025-09-20T06:30:39.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Changed red boxing gloves colour from orange-ish to red.
+  id: 1680
+  time: '2025-09-20T06:32:12.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with the RPD not anchoring crossing pipes.
+  id: 1681
+  time: '2025-09-20T06:33:14.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Fix
+      message: Fixed advanced cybernetics lungs description.
+  id: 1682
+  time: '2025-09-20T06:34:04.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Tweak
+      message: Artifact containers block rads again.
+  id: 1683
+  time: '2025-09-20T06:36:45.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: 'Carp can now ventcrawl. :fish: '
+  id: 1684
+  time: '2025-09-20T06:37:48.0000000+00:00'
+- author: ThanosDeGraf
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Chitinids not being able to puke up their Chitzite. Have fun
+        throwing angry rocks!
+  id: 1685
+  time: '2025-09-20T06:42:11.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Added missing name and description for the Estoc ammo.
+    - type: Fix
+      message: Pistol magazine now show the correct maximum capacity.
+  id: 1686
+  time: '2025-09-20T06:42:59.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Nerfed biomass crate
+  id: 1687
+  time: '2025-09-20T06:43:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: 'Pun-Pun now requires a player to be converted to Revolutionary. '
+  id: 1688
+  time: '2025-09-20T06:48:09.0000000+00:00'
+- author: SomethingUnbearable
+  changes:
+    - type: Add
+      message: New moth variants of most goob station sunglasses
+  id: 1689
+  time: '2025-09-20T06:50:15.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Floor Goblins can now spawn midround.
+    - type: Fix
+      message: Ninja Threats not spawning anything.
+    - type: Add
+      message: Ninja Threats can now spawn Lone Nuclear Operative.
+  id: 1690
+  time: '2025-09-20T06:51:24.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added Mining Shuttle board to QM locker
+    - type: Remove
+      message: Removed Salvage Shuttle board from QM Locker
+  id: 1691
+  time: '2025-09-20T07:03:02.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: All mechs (Except the H.O.N.K) can no longer sprint
+    - type: Tweak
+      message: Doubled the move speed of the Ripley MkII (It's still pretty damn slow)
+    - type: Tweak
+      message: Clarke movespeed increased from 2.5 to 3.5
+  id: 1692
+  time: '2025-09-20T07:03:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR now starts with Administrator sunglasses.
+  id: 1693
+  time: '2025-09-20T07:04:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Fix
+      message: >-
+        Roleplay rule 6 having incorrect referenced precedent - Roleplay and
+        repetition applies to antags.
+  id: 1694
+  time: '2025-09-20T07:04:47.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Camera construction now requires glass.
+  id: 1695
+  time: '2025-09-20T07:11:06.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Sec no longer starts with a 40mm slug
+  id: 1696
+  time: '2025-09-20T07:18:54.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: CMO and Station AI show as the heads of their respective departments
+  id: 1697
+  time: '2025-09-20T07:21:33.0000000+00:00'
+- author: eggywazzy
+  changes:
+    - type: Fix
+      message: Zombies can no longer infect through raised shields.
+  id: 1698
+  time: '2025-09-20T07:30:23.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Tweak
+      message: Lollypops now gets consumed over time if you put them in mouth.
+  id: 1699
+  time: '2025-09-20T07:31:45.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Add
+      message: >-
+        Added Rocket Chairs, which can be crafted by attaching fire
+        extinguishers to office chairs.
+    - type: Add
+      message: >-
+        Office chairs now give you an ability that lets you launch yourself off
+        surfaces.
+    - type: Add
+      message: You can now use fire extinguishers to launch office chairs around.
+  id: 1700
+  time: '2025-09-20T12:46:33.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added new trait "social anxiety" anyone with this trait will have a
+        panic attack when they're hugged by another player.
+    - type: Add
+      message: >-
+        Added new trait "Deaf" anyone with this trait will no longer hear any
+        sounds in game or be able to hear anyone speaking in a language that
+        requires speech, anyone who is deaf is still able to talk but they
+        cannot hear themselves, so I hope you checked your spelling!
+    - type: Fix
+      message: >-
+        Fixed the wheelchair bound trait not actually making you paralyzed from
+        the waist down, if you have the trait you will no longer be able to
+        stand and can only move by crawling or your wheelchair.
+  id: 1701
+  time: '2025-09-20T13:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Medical items in Uplink are now cheaper in TC: Combat medkit 15->10,
+        combat medipen 12->8, advanced medipen 28->20.
+  id: 1702
+  time: '2025-09-20T13:34:49.0000000+00:00'
+- author: Rouden, Monolith Station
+  changes:
+    - type: Add
+      message: >-
+        Added bluespace drives. They extend FTL range of a shuttle and modify
+        FTL efficiency when installed. You can research them with other shuttle
+        parts.
+    - type: Tweak
+      message: >-
+        All shuttles now can't FTL on to the same map without a bluespace drive.
+        You still can travel between maps without any drives.
+    - type: Tweak
+      message: Default FTL cooldown is now increased, 10 -> 90 seconds.
+    - type: Tweak
+      message: >-
+        Shuttle console UI was reworked and now has more indication and
+        functionality.
+  id: 1703
+  time: '2025-09-20T17:28:20.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: Visiting librarians now understand most languages
+    - type: Add
+      message: Visiting chefs now knows cqc, and can speak space italian
+    - type: Add
+      message: Visiting chaplains now have a null rod
+  id: 1704
+  time: '2025-09-20T17:34:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fix borg lawsets
+  id: 1705
+  time: '2025-09-20T17:38:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Heavy multifire nerf, use one gun to aim, use two to mow down crowds
+  id: 1706
+  time: '2025-09-20T17:39:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Wizden desword redundant item
+  id: 1707
+  time: '2025-09-20T17:39:50.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Add
+      message: NTR and BSO now have default highlights.
+  id: 1708
+  time: '2025-09-20T17:43:41.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added a reaction for synthetic honk reagent.
+  id: 1709
+  time: '2025-09-20T17:44:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed two instances of high energy power cells in salv vendor
+  id: 1710
+  time: '2025-09-20T17:45:51.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Made air alarms less sensitive to lower pressure, danger is at 40kPa
+        instead of 80kPa.
+    - type: Tweak
+      message: Air alarms now ignore Healium since it is safe on its own.
+  id: 1711
+  time: '2025-09-20T17:48:03.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Revolutionaries can now tamper with Flashes via the crafting menu to
+        allow Head Revolutionaries to use them for conversion.
+  id: 1712
+  time: '2025-09-20T18:28:50.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Salvage can no longer be antagonists.
+  id: 1713
+  time: '2025-09-20T18:54:23.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Drones can now be flashed.
+  id: 1714
+  time: '2025-09-20T19:17:29.0000000+00:00'
+- author: Baptr0b0t
+  changes: []
+  id: 1715
+  time: '2025-09-20T20:04:06.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'You can no longer clone Vox and IPCs. '
+  id: 1716
+  time: '2025-09-21T07:16:35.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Pots are no longer items.
+  id: 1717
+  time: '2025-09-21T15:14:14.0000000+00:00'
+- author: troytroy400
+  changes:
+    - type: Add
+      message: 'Three new hairstyles: Classic Bun, Loose Bun and Low Ponytail'
+  id: 1718
+  time: '2025-09-22T05:54:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Xenomorph Rules String for ghostrole raffle has been added
+  id: 1719
+  time: '2025-09-22T05:56:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added alt interact port for the interactor, which makes it simulate alt
+        clicks.
+    - type: Add
+      message: Added anchor, mob and cuff filters for factory machines.
+  id: 1720
+  time: '2025-09-22T06:02:05.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Tweak
+      message: made the M7S "Ventilator" less slop
+  id: 1721
+  time: '2025-09-22T06:02:47.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Changed many midround spawn rates
+    - type: Tweak
+      message: removed chud xenos
+  id: 1722
+  time: '2025-09-22T13:02:14.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Items in the belt slot now render over outerwear
+  id: 1723
+  time: '2025-09-22T13:45:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed some knockdowns/stuns not working.
+  id: 1724
+  time: '2025-09-22T16:47:42.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Tweak
+      message: >-
+        Escape objective description is now clear that you must be on the
+        evacuation shuttle and not in a pod when you arrive at CC.
+  id: 1725
+  time: '2025-09-23T03:30:01.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Ported some Monolith and NF clothing for more options.
+  id: 1726
+  time: '2025-09-23T16:34:12.0000000+00:00'
+- author: Luminal, Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Shadowlings. The shadows have awakened, and their ascendance is
+        soon to follow. Do not enter maints.
+  id: 1727
+  time: '2025-09-23T21:29:36.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        People can be made xeno compatible with a researched xenobiology
+        implant.
+    - type: Add
+      message: Xeno limbs can have tissue sampled for use with xeno organ transplants.
+    - type: Tweak
+      message: >-
+        All xeno organs can be installed into xeno compatible people to get some
+        of their powers.
+  id: 1728
+  time: '2025-09-24T12:13:46.0000000+00:00'
