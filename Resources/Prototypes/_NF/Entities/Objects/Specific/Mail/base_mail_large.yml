@@ -12,7 +12,8 @@
   components:
   - type: Item
     size: Large
-    storedRotation: -90
+    shape:
+    - 0,0,1,3
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _NF/Objects/Specific/Mail/mail_large.rsi

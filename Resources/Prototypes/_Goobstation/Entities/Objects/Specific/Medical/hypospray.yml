@@ -70,6 +70,9 @@
         visible: false
   - type: UseDelay
     delay: 45 # up this later if its too low
+  - type: Tag
+    tags:
+      - SecBeltEquip
 
 - type: entity
   name: medical cartridge autoinjector
