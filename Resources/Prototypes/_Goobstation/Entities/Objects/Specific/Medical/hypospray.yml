@@ -149,6 +149,7 @@
   - type: Tag
     tags:
       - AutoinjectorCartridge
+      - SecBeltEquip
 
 - type: entity
   name: adrenaline autoinjector cartridge
