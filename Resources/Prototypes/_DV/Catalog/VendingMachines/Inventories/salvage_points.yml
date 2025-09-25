@@ -119,7 +119,8 @@
   - id: OreBagOfHolding
     cost: 2000
   # TODO: super resonator for 2500
-  # TODO: jump boots for 2500
+  - id: ClothingShoesBootsJump #july 20 added jump boots
+    cost: 2500
   - id: ClothingNeckCloakHelldiver
     cost: 2000
   - id: ClothingShoesBootsMoon
