@@ -1,0 +1,265 @@
+#A file that includes only pests for the hermit game mode
+
+- type: entity
+  id: SlimesSpawnHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 210
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
+
+- type: entity
+  id: SnakeSpawnHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 4
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
+
+- type: entity
+  id: SpiderSpawnHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
+  - type: VentCrittersRule
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
+
+- type: entity
+  id: SpiderClownSpawnHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1.5 # Woe 1.5 be upon ye once more
+    duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 20
+      Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
+  - type: VentCrittersRule
+    playerRatio: 20 # DeltaV: is unrovust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
+
+#Goblins who live in the floor
+- type: entity
+  parent: BaseGameRule
+  id: FloorGoblinMidRoundHermit
+  components:
+  - type: StationEvent
+    weight: 9
+    earliestStart: 15
+    minimumPlayers: 15
+    duration: null
+    maxOccurrences: 2
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 10
+  - type: VentCrittersRule
+    max: 1
+    table:
+      id: MobFloorGoblin
+  - type: Tag
+
+- type: entity
+  id: MouseMigrationHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 5
+    duration: 30 # DeltaV: was 50, used as a delay now
+    chaos: # Goobstation
+      Mess: 10 # there's 15 morbillion mice usually and they're easy to kill
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouseCancer # Goobstation
+        weight: 0.05 # 1/60
+# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
+
+- type: entity
+  id: KingRatMigrationHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 4.5
+    duration: 30 # DeltaV: was 50, used as a delay now
+    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+    chaos: # Goobstation
+      Mess: 10
+      Hostile: 1 # low chance to spawn rat king
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 35
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouseCancer # Goobstation
+        weight: 0.05
+      - id: MobLootbug # Goobstation
+        weight: 0.27
+    specialEntries:
+    - id: SpawnPointGhostRatKing
+      prob: 0.001
+
+- type: entity
+  id: CockroachMigrationHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    duration: 30 # DeltaV: was 50, used as a delay now
+    chaos: # Goobstation
+      Mess: 15
+      Hostile: 2
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobCockroach
+        weight: 0.79
+      - id: MobMothroach
+        weight: 0.21
+      - id: MobSquackroach # Goobstation
+        weight: 0.1
+      - id: MobLootbug # Goobstation
+        weight: 0.3
+
+- type: entity
+  id: SnailMigrationLowPopHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    duration: 30 # DeltaV: was 50, used as a delay now
+    chaos: # Goobstation
+      Friend: -5
+      Mess: 5
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+      - id: MobSnailSpeed
+      - id: MobSnailMoth
+
+- type: entity
+  id: SnailMigrationHermit
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 5
+    duration: 30 # DeltaV: was 50, used as a delay now
+    minimumPlayers: 30
+    chaos: # Goobstation
+      Mess: 5
+      Hostile: 1 # the very low gib snail prob
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+        weight: 0.84
+      - id: MobSnailSpeed
+        weight: 0.08
+      - id: MobSnailMoth
+        weight: 0.08
+      # Goobstation
+      - id: MobSnailInstantDeath
+        weight: 0.0004

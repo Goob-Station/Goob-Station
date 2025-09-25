@@ -259,3 +259,17 @@
   - SubGamemodesRule
   - SecretPlusRampingMid
   - LavalandStormScheduler
+
+# hermit gamemode, internal threat focused gamemode
+- type: gamePreset
+  id: SecretPlusHermit
+  alias:
+    - secretPlusHermit
+    - The hermit
+    - Ingress
+  name: hermitplus-Title
+  description: hermitplus-description
+  showInVote: true
+  rules:
+    - SecretPlusHermit
+    - LavalandStormScheduler
