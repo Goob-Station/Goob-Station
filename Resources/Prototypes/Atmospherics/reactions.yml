@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lambdatiger <11843718+lambdatiger@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -115,6 +116,26 @@
   - 0     # frezon
   effects:
   - !type:N2ODecompositionReaction {}
+
+# <Goobstation>
+- type: gasReaction
+  id: N2OFormation
+  priority: 2
+  minimumTemperature: 200
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0.01  # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # ammonia
+  - 0     # n2o
+  - 0     # frezon
+  - 5     # bz
+  effects:
+  - !type:N2OFormationReaction {}
+# </Goobstation>
 
  # Assmos - /tg/ gases
 - type: gasReaction
