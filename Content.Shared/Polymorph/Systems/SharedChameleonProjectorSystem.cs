@@ -29,6 +29,7 @@ using Content.Shared.Clothing.Components; // Goobstation  - added for morph
 using Content.Shared.Humanoid; // Goobstation  - added for morph
 using Content.Shared.Interaction.Components; // Goobstation  - added for morph
 using Content.Shared.Inventory; // Goobstation - added for morph
+using Content.Shared.Inventory.VirtualItem; // Goobstation - added for morph
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -50,7 +51,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
-
+    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!; // Goobstation
     public override void Initialize()
     {
         base.Initialize();
@@ -258,6 +259,8 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         comp.SourceProto = Prototype(entity)?.ID;
         Dirty(disguise, comp);
 
+        _appearance.CopyData(entity, disguise);
+
         // item disguises can be picked up to be revealed, also makes sure their examine size is correct
         CopyComp<ItemComponent>((disguise, comp));
 
@@ -269,48 +272,24 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         {
             CopyComp<InventoryComponent>((disguise, comp));
 
+
             foreach (var slot in inventory.Slots)
             {
                 if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
                     continue;
 
-                var proto = MetaData(slotEntity.Value).EntityPrototype;
-                if (proto is not null) //proto was a little moody so had to add a check for it
-                    _inventory.SpawnItemInSlot(disguise, slot.Name, proto.ID, true,true);
+                if(!TryComp<ClothingComponent>(slotEntity, out var clothing))
+                    continue; // item dont have clothing aka, nothing visual
+
+                if (!_virtual.TrySpawnVirtualItemInInventory(user, slotEntity.Value, slot.Name, true, out var item))
+                    continue;
+
+                if (!TryCopyComponent(slotEntity.Value, item.Value, ref clothing, out var _))
+                    continue;
+                
             }
-
-            if (TryComp<InventoryComponent>(disguise, out var disguiseInventory))
-            {
-                foreach (var slot in disguiseInventory.Slots)
-                {
-                    if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
-                        continue; // no item in slot
-
-                    if(!TryComp<ClothingComponent>(slotEntity, out var clothing))
-                        continue; // item dont have clothing aka, nothing visual
-
-                    var item = Spawn("VirtualItem", Transform(ent.Owner).Coordinates);
-                    if (!TryCopyComponent(slotEntity.Value, item, ref clothing, out var _))
-                    {
-                        Del(item);// delete if we cant copy the clothings
-                        continue;
-                    }
-
-                    if (_inventory.TryEquip(disguise, item, slot.Name, true, true))
-                    {
-                        Del(item); // delete if it cant be equipted
-                        continue;
-                    }
-
-                    EnsureComp<UnremoveableComponent>(item); // to make sure the item cant be taken away
-                }
-            }
-
         }
-
         //goob end
-
-        _appearance.CopyData(entity, disguise);
     }
 
     /// <summary>

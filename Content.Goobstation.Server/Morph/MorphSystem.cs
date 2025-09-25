@@ -168,7 +168,6 @@ public sealed partial class MorphSystem : EntitySystem
         if (TryComp<ChameleonDisguisedComponent>(uid, out var comp))
             _chamleon.TryReveal((uid,comp));
 
-
     }
 
     private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
@@ -186,7 +185,6 @@ public sealed partial class MorphSystem : EntitySystem
         //remove disguise in case morph dies while in disguise
         if (args.NewMobState is MobState.Dead && TryComp<ChameleonDisguisedComponent>(ent.Owner, out var comp))
             _chamleon.TryReveal((ent.Owner,comp));
-
 
     }
 
