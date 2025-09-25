@@ -47,7 +47,7 @@ public abstract partial class SharedHereticAbilitySystem
         if (args.Key != "Pacified")
             return;
 
-        if (!_status.TryRemoveStatusEffect(ent, "Realignment"))
+        if (!Status.TryRemoveStatusEffect(ent, "Realignment"))
             RemCompDeferred(ent.Owner, ent.Comp);
     }
 
