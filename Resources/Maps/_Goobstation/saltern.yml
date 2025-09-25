@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/25/2025 05:06:40
-  entityCount: 12111
+  time: 09/25/2025 06:26:23
+  entityCount: 12112
 maps:
 - 1
 grids:
@@ -827,7 +827,7 @@ entities:
             2: 57344
           8,5:
             0: 4368
-            3: 17472
+            4: 17472
           8,6:
             2: 34832
           1,9:
@@ -868,10 +868,10 @@ entities:
             0: 53759
           11,2:
             0: 4319
-            4: 49152
+            3: 49152
           11,3:
             0: 61457
-            4: 204
+            3: 204
           11,-1:
             0: 30583
           11,4:
@@ -883,9 +883,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            4: 28672
+            3: 28672
           12,3:
-            4: 119
+            3: 119
             0: 61440
           12,-1:
             0: 29311
@@ -1305,16 +1305,16 @@ entities:
             2: 240
           9,5:
             5: 4368
-            4: 17472
+            3: 17472
           9,6:
             2: 7952
           10,5:
-            4: 4368
+            3: 4368
             6: 17472
           10,6:
             2: 3840
           11,5:
-            4: 21840
+            3: 21840
           11,6:
             2: 3856
           12,5:
@@ -1419,7 +1419,7 @@ entities:
           -8,9:
             2: 34952
           -7,9:
-            2: 1
+            2: 4097
             0: 192
           -8,10:
             2: 34952
@@ -1500,7 +1500,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -1519,7 +1519,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -6120,6 +6120,12 @@ entities:
     components:
     - type: Transform
       pos: 58.5,14.5
+      parent: 2
+  - uid: 12112
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,7.5
       parent: 2
 - proto: AtmosDeviceFanTiny
   entities:
@@ -34664,7 +34670,7 @@ entities:
       pos: 40.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1678.7697
+      secondsUntilStateChange: -1731.0988
       state: Closing
   - uid: 5654
     components:
