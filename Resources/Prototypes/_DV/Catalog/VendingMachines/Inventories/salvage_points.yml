@@ -124,7 +124,8 @@
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
-  - id: ClothingShoesBootsJump #july 20 added jump boots
+    #TODO: super resonator for 2500
+  - id: ClothingShoesBootsJump
     cost: 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
