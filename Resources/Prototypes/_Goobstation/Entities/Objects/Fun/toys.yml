@@ -176,11 +176,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
-
-
+    noRot: true
 
 - type: entity
   parent: BaseBinglePlushie
@@ -189,10 +187,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingleing
-
+    noRot: true
 
 - type: entity
   parent: BaseBinglePlushie
@@ -201,10 +198,9 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
-
+    noRot: true
 
 - type: entity
   parent: BasePlushie
@@ -213,7 +209,7 @@
   description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bongle
 
@@ -224,7 +220,7 @@
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingle_pony
 
@@ -574,6 +570,72 @@
         Blunt: 0
     soundHit:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBoggle
+  name: Boggle plushie
+  description: You can feel money inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_boggle
+  - type: Item
+    heldPrefix: plushieboggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/kaching.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLehmin
+  name: Lehmin plushie
+  description: Smells like chemicals, you feel uneasy holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_lehmin
+  - type: Item
+    heldPrefix: plushielehmin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
 
 - type: entity
   parent: BasePlushie
