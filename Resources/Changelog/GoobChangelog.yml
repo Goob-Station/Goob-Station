@@ -15413,3 +15413,25 @@ Entries:
       message: Ported some Monolith and NF clothing for more options.
   id: 1726
   time: '2025-09-23T16:34:12.0000000+00:00'
+- author: Luminal, Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Shadowlings. The shadows have awakened, and their ascendance is
+        soon to follow. Do not enter maints.
+  id: 1727
+  time: '2025-09-23T21:29:36.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        People can be made xeno compatible with a researched xenobiology
+        implant.
+    - type: Add
+      message: Xeno limbs can have tissue sampled for use with xeno organ transplants.
+    - type: Tweak
+      message: >-
+        All xeno organs can be installed into xeno compatible people to get some
+        of their powers.
+  id: 1728
+  time: '2025-09-24T12:13:46.0000000+00:00'

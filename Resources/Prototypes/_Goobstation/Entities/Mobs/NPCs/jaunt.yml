@@ -5,10 +5,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _Goobstation/Mobs/polymorphs.rsi
-    state: shadow_jaunt
-    loop: false
+    layers:
+    - sprite: _Goobstation/Mobs/polymorphs.rsi
+      state: shadow_jaunt
+      drawdepth: WallMountedItems
+      loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -19,10 +20,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: _Goobstation/Mobs/polymorphs.rsi
-    state: shadow_jaunt_end
-    loop: false
+    layers:
+    - sprite: _Goobstation/Mobs/polymorphs.rsi
+      state: shadow_jaunt_end
+      drawdepth: WallMountedItems
+      loop: false
   - type: TimedDespawn
     lifetime: 1
 

@@ -21,9 +21,9 @@
   - type: Xenomorph
     caste: Larva
   - type: XenomorphLarva
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
+  #- type: ActionGrant # Goobstation - moved to organ
+  #  actions:
+  #  - ActionTransferPlasma
   - type: VentCrawler
   - type: Body
     prototype: XenomorphLarva

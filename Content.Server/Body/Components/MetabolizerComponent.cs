@@ -21,6 +21,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
@@ -49,6 +50,18 @@ namespace Content.Server.Body.Components
         public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
         /// <summary>
+        /// Multiplier applied to <see cref="UpdateInterval"/> for adjusting based on metabolic rate multiplier.
+        /// </summary>
+        [DataField]
+        public float UpdateIntervalMultiplier = 1f;
+
+        /// <summary>
+        /// Adjusted update interval based off of the multiplier value.
+        /// </summary>
+        [ViewVariables]
+        public TimeSpan AdjustedUpdateInterval => UpdateInterval * UpdateIntervalMultiplier;
+
+        /// <summary>
         ///     From which solution will this metabolizer attempt to metabolize chemicals
         /// </summary>
         [DataField("solution")]
@@ -68,14 +81,14 @@ namespace Content.Server.Body.Components
         /// </summary>
         [DataField]
         [Access(typeof(MetabolizerSystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
-        public HashSet<ProtoId<MetabolizerTypePrototype>>? MetabolizerTypes = null;
+        public HashSet<ProtoId<MetabolizerTypePrototype>>? MetabolizerTypes;
 
         /// <summary>
         ///     Should this metabolizer remove chemicals that have no metabolisms defined?
         ///     As a stop-gap, basically.
         /// </summary>
         [DataField]
-        public bool RemoveEmpty = false;
+        public bool RemoveEmpty;
 
         /// <summary>
         ///     How many poisons can this metabolizer process at once?
@@ -89,7 +102,7 @@ namespace Content.Server.Body.Components
         ///     A list of metabolism groups that this metabolizer will act on, in order of precedence.
         /// </summary>
         [DataField("groups")]
-        public List<MetabolismGroupEntry>? MetabolismGroups = default!;
+        public List<MetabolismGroupEntry>? MetabolismGroups;
     }
 
     /// <summary>
@@ -100,7 +113,7 @@ namespace Content.Server.Body.Components
     public sealed partial class MetabolismGroupEntry
     {
         [DataField(required: true)]
-        public ProtoId<MetabolismGroupPrototype> Id = default!;
+        public ProtoId<MetabolismGroupPrototype> Id;
 
         [DataField("rateModifier")]
         public FixedPoint2 MetabolismRateModifier = 1.0;
