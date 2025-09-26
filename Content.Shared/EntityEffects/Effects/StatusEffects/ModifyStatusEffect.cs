@@ -26,6 +26,12 @@ public sealed partial class ModifyStatusEffect : EntityEffect // TODO Goobstatio
     [DataField]
     public float Delay = 0f;
 
+    /// <remarks>
+    /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
+    /// </remarks>
+    [DataField]
+    public bool Refresh = true;
+
     /// <summary>
     /// Should this effect add the status effect, remove time from it, or set its cooldown?
     /// </summary>
@@ -60,8 +66,16 @@ public sealed partial class ModifyStatusEffect : EntityEffect // TODO Goobstatio
     }
 
     /// <inheritdoc />
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString(
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
+        Delay > 0
+        ? Loc.GetString(
+            "reagent-effect-guidebook-status-effect-delay",
+            ("chance", Probability),
+            ("type", Type),
+            ("time", Time),
+            ("key", prototype.Index(EffectProto).Name),
+            ("delay", Delay))
+        : Loc.GetString(
             "reagent-effect-guidebook-status-effect",
             ("chance", Probability),
             ("type", Type),
