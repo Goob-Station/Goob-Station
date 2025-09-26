@@ -2959,6 +2959,10 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: MovementSpeedModifier #Goob sprinting
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.5
+
 
 - type: entity
   parent: MobSpiderBase
@@ -3306,6 +3310,9 @@
     - Fox
     understands:
     - Fox
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.5
 
 - type: entity
   abstract: true
@@ -3608,7 +3615,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
