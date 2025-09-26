@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
@@ -283,7 +286,7 @@
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
   name: Chittin translator
-  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Arachnid!
   components:
   - type: HandheldTranslator
     spoken:
@@ -330,6 +333,7 @@
     - TauCetiBasic
     - Marish
 
+
 - type: entity                      # taken from Floofstation
   id: NewKinPidginTranslator
   parent: [ TranslatorPoweredBase ]
@@ -363,3 +367,60 @@
     requires:
     - TauCetiBasic
     - Schechi
+
+#Borg
+- type: entity
+  id: NTUniversalTranslator
+  parent: [ TranslatorUnpowered ]
+  name: Universal translator
+  description: Translates speech between all NT approved language. For talking to crew!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - NovuNederic
+    understood:
+    - TauCetiBasic
+    - Canilunzt #Vulpkanin
+    - Bubblish #Slime
+    - Nekomimetic #Felinid
+    - Draconic #Reptilian (Sinta'Unathi)
+    - SolCommon #Human, Yowie
+    - RootSpeak #Diona
+    - Moffic #Moth and Chitinid
+    - ValyrianStandard #Harpy
+    - Chittin #Arachnid
+    - SiikMaas #Tajaran
+    - Marish #Shadowkin
+    - Schechi #Resomi
+    - NewKinPidgin #Vox
+    - Mouse #Rodentia
+    - Calcic #Plasmaman
+    - SpaceItalian
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - NovuNederic
+    requires:
+    - RobotTalk
+
+
