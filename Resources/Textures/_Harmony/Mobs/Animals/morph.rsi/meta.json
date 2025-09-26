@@ -1,0 +1,24 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from and modified by Ty-Omaha on TGStation at commit https://github.com/tgstation/tgstation/pull/10143/commits/9f07b06b635fa3397667bcf18d1fd20e835b723b",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "morph",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "morph_dead"
+        }
+    ]
+}

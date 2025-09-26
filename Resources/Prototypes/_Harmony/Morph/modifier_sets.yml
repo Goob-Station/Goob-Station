@@ -1,0 +1,13 @@
+- type: damageModifierSet
+  id: Morph
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
+    Shock: 0.75
+    Cold: 0.75
+    Poison: 0.75
+    Radiation: 0
+    Cellular: 0.75
+    Heat: 1.5
+    Caustic: 0.75
