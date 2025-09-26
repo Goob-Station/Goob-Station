@@ -20,4 +20,4 @@
             - tool: Painting
               doAfter: 2
     - node: spesos
-      entity: SpaceCashCounterfeit50
+      entity: SpaceCashCounterfeit250
