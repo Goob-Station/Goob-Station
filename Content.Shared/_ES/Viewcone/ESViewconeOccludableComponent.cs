@@ -5,6 +5,9 @@ using Robust.Shared.Physics;
 
 namespace Content.Shared._ES.Viewcone;
 
+/// <summary>
+///     Marks an entity as one which should fade away clientside if you have a viewcone and it's out of view
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ESViewconeOccludableComponent : Component, IComponentTreeEntry<ESViewconeOccludableComponent>
 {

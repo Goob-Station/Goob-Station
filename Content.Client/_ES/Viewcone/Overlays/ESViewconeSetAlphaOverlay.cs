@@ -9,12 +9,18 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Client._ES.Viewcone.Overlays;
 
+/// <summary>
+///     Queries the bounds for each viewport for all <see cref="ESViewconeOccludableComponent"/>, then
+///     sets their alpha before entities render in accordance with whether they should be in view or not
+///
+///     This alpha pass only works because of <see cref="ESViewconeResetAlphaOverlay"/>, which resets in a later stage of rendering.
+/// </summary>
 public sealed class ESViewconeSetAlphaOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IInputManager _input = default!;
-    private readonly ESViewconeSystem _cone;
+    private readonly ESViewconeOverlayManagementSystem _cone;
     private readonly ESViewconeOccludableTreeSystem _tree;
     private readonly TransformSystem _xform;
     private readonly SpriteSystem _sprite;
@@ -28,7 +34,7 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        _cone = _ent.EntitySysManager.GetEntitySystem<ESViewconeSystem>();
+        _cone = _ent.EntitySysManager.GetEntitySystem<ESViewconeOverlayManagementSystem>();
         _tree = _ent.EntitySysManager.GetEntitySystem<ESViewconeOccludableTreeSystem>();
         _xform  = _ent.EntitySysManager.GetEntitySystem<TransformSystem>();
         _sprite = _ent.EntitySysManager.GetEntitySystem<SpriteSystem>();

@@ -9,6 +9,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._ES.Viewcone.Overlays;
 
+/// <summary>
+///     Renders the actual "cone" part of the viewcone, no alpha modulation
+/// </summary>
 public sealed class ESViewconeConeOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _ent = default!;

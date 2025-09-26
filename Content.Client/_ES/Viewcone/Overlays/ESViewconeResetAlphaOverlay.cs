@@ -8,10 +8,14 @@ using Robust.Shared.Graphics;
 
 namespace Content.Client._ES.Viewcone.Overlays;
 
+/// <summary>
+///     After <see cref="ESViewconeSetAlphaOverlay"/> has run, resets the alpha of affected entities
+///     back to normal.
+/// </summary>
 public sealed class ESViewconeResetAlphaOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _ent = default!;
-    private readonly ESViewconeSystem _cone;
+    private readonly ESViewconeOverlayManagementSystem _cone;
     private readonly SpriteSystem _sprite;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -20,7 +24,7 @@ public sealed class ESViewconeResetAlphaOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        _cone = _ent.EntitySysManager.GetEntitySystem<ESViewconeSystem>();
+        _cone = _ent.EntitySysManager.GetEntitySystem<ESViewconeOverlayManagementSystem>();
         _sprite = _ent.EntitySysManager.GetEntitySystem<SpriteSystem>();
     }
 

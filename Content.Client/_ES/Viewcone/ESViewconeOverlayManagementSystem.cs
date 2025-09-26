@@ -8,7 +8,10 @@ using Robust.Shared.Player;
 
 namespace Content.Client._ES.Viewcone;
 
-public sealed class ESViewconeSystem : EntitySystem
+/// <summary>
+///     Handles adding and removing the viewcone overlays, as well as ferrying data between them
+/// </summary>
+public sealed class ESViewconeOverlayManagementSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
