@@ -24,10 +24,12 @@ public sealed class ESViewconeResetAlphaOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        foreach (var (ent, baseAlpha) in _cone.CachedOccludables)
+        foreach (var (ent, baseAlpha) in _cone.CachedBaseAlphas)
         {
             _sprite.SetColor(ent!, ent.Comp.Color.WithAlpha(baseAlpha));
         }
+
+        _cone.CachedBaseAlphas.Clear();
     }
 }
 

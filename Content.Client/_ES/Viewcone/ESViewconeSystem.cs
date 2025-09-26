@@ -14,15 +14,17 @@ public sealed class ESViewconeSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     private ESViewconeConeOverlay _coneOverlay = default!;
+    private ESViewconeSetAlphaOverlay _setAlphaOverlay = default!;
+    private ESViewconeResetAlphaOverlay _resetAlphaOverlay = default!;
 
     // slightly balls state management, but
     // done so we don't have to requery within the same frame
-    // this is always cleared at the end of resetting alpha, so
+    // this is always cleared at the end of resetting alpha
     // it is the least thread safe code of all time obviously. but rendering not threaded. so
     // we can abuse the fact that the overlays will always draw sequentially in the order we expect, and
     // one wont start rendering in the middle of rendering another
     [Access(typeof(ESViewconeSetAlphaOverlay), typeof(ESViewconeResetAlphaOverlay))]
-    public List<(Entity<SpriteComponent> ent, float baseAlpha)> CachedOccludables = default!;
+    public List<(Entity<SpriteComponent> ent, float baseAlpha)> CachedBaseAlphas = new(128);
 
     public override void Initialize()
     {
@@ -34,67 +36,46 @@ public sealed class ESViewconeSystem : EntitySystem
         SubscribeLocalEvent<ESViewconeComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<ESViewconeComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
-        SubscribeLocalEvent<ESViewconeComponent, ViewconeUpdateEvent>(OnViewconeUpdate);
-
         _coneOverlay = new();
-        CachedOccludables = new(128);
+        _setAlphaOverlay = new();
+        _resetAlphaOverlay = new();
     }
 
     private void OnPlayerAttached(Entity<ESViewconeComponent> entity, ref LocalPlayerAttachedEvent args)
     {
-        _overlayMan.AddOverlay(_coneOverlay);
+        AddOverlays();
     }
 
     private void OnPlayerDetached(Entity<ESViewconeComponent> entity, ref LocalPlayerDetachedEvent args)
     {
-        _overlayMan.RemoveOverlay(_coneOverlay);
-        ResetOccludedAlpha();
+        RemoveOverlays();
     }
 
     private void OnConeManInit(Entity<ESViewconeComponent> entity, ref ComponentInit args)
     {
         if (_playerManager.LocalSession?.AttachedEntity == entity.Owner)
-            _overlayMan.AddOverlay(_coneOverlay);
+            AddOverlays();
     }
 
     private void OnConeManShutdown(Entity<ESViewconeComponent> entity, ref ComponentShutdown args)
     {
         if (_playerManager.LocalSession?.AttachedEntity == entity.Owner)
         {
-            _overlayMan.RemoveOverlay(_coneOverlay);
-            ResetOccludedAlpha();
+            RemoveOverlays();
         }
     }
 
-    private void ResetOccludedAlpha()
+    private void AddOverlays()
     {
-        var query = AllEntityQuery<ESViewconeOccludableComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (!_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite))
-                continue;
-
-            sprite.Color = sprite.Color.WithAlpha(comp.BaseAlpha);
-        }
+        _overlayMan.AddOverlay(_coneOverlay);
+        _overlayMan.AddOverlay(_setAlphaOverlay);
+        _overlayMan.AddOverlay(_resetAlphaOverlay);
     }
 
-    private void OnViewconeUpdate(Entity<ESViewconeComponent> entity, ref ViewconeUpdateEvent args)
+    private void RemoveOverlays()
     {
-        UpdateViewcone(entity);
-    }
-
-    public void UpdateViewcone(Entity<ESViewconeComponent> entity)
-    {
-
-    }
-}
-
-public sealed class ViewconeUpdateEvent : EntityEventArgs
-{
-    public readonly EntityUid Entity;
-
-    public ViewconeUpdateEvent(EntityUid entity)
-    {
-        Entity = entity;
+        _overlayMan.RemoveOverlay(_coneOverlay);
+        _overlayMan.RemoveOverlay(_setAlphaOverlay);
+        _overlayMan.RemoveOverlay(_resetAlphaOverlay);
     }
 }

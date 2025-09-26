@@ -90,7 +90,7 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
         var radConeAngle = MathHelper.DegreesToRadians(cone.ConeAngle);
         var radConeFeather = MathHelper.DegreesToRadians(cone.ConeFeather);
 
-        _cone.CachedOccludables.Clear();
+        _cone.CachedBaseAlphas.Clear();
         var occludables = _tree.QueryAabb(args.MapId, args.WorldBounds);
         foreach (var entry in occludables)
         {
@@ -101,11 +101,6 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
                 continue;
 
             var entPos = _xform.GetWorldPosition(xform);
-
-            if (!_ent.HasComponent<MapComponent>(xform.ParentUid) && !_ent.HasComponent<MapGridComponent>(xform.ParentUid))
-            {
-                continue;
-            }
 
             if (!comp.OccludeIfAnchored)
             {
@@ -122,7 +117,7 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
             var targetAlpha = Math.Max(1f - angleAlpha, 1f - distAlpha);
 
             // save the results so we can use it in resetalpha overlay
-            _cone.CachedOccludables.Add(((uid, sprite), sprite.Color.A));
+            _cone.CachedBaseAlphas.Add(((uid, sprite), sprite.Color.A));
 
             var alpha = comp.Invert ? 1f - targetAlpha : targetAlpha;
             _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(alpha));
