@@ -4,6 +4,7 @@
   name: shuttle cockpit
   description: You have no clue how to operate this thing!
   components:
+  - type: InteractionOutline
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/160x160/cockpit.rsi
     state: cockpit
@@ -40,6 +41,7 @@
   name: flock reactor
   description: You have no clue how to operate this thing!
   components:
+  - type: InteractionOutline
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Flock/Structures/160x160/reactor.rsi
@@ -107,6 +109,7 @@
     snap:
     - Wallmount
   components:
+  - type: InteractionOutline
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Flock/Structures/96x96/wing.rsi
@@ -120,12 +123,23 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1, -2, 1, 2"
+          bounds: "-0.8, -1.8, 0.8, 2"
         density: 50
         mask:
         - LargeMobMask
         layer:
         - MidImpassable, LowImpassable, BulletImpassable
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: FeatherzoneWing2
@@ -146,6 +160,7 @@
     snap:
     - Wallmount
   components:
+  - type: InteractionOutline
   - type: WallMount
   - type: Sprite
     noRot: true
@@ -159,12 +174,23 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1, -1.5, 1, 1.5"
+          bounds: "-0.2, -1.5, 0.8, 0.5"
         density: 50
         mask:
         - LargeMobMask
         layer:
         - MidImpassable, LowImpassable, BulletImpassable
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: FeatherzoneWingOff2
@@ -178,13 +204,14 @@
 - type: entity
   id: FeatherzoneWingBroken1
   parent: BaseStructure
-  name: broken glass wing
+  name: broken sparking blade
   description: A delapidated wing.
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
   components:
+  - type: InteractionOutline
   - type: WallMount
   - type: Sprite
     noRot: true
@@ -198,12 +225,23 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1, -1, 1, 1"
+          bounds: "-0.8, -0.9, 0.8, 0"
         density: 50
         mask:
         - LargeMobMask
         layer:
         - MidImpassable, LowImpassable, BulletImpassable
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: FeatherzoneWingBroken2
@@ -224,11 +262,23 @@
     soundGroups:
       Brute:
         collection: GlassSmash
+  - type: InteractionOutline
   - type: WallMount
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Flock/Structures/64x32/sign.rsi
     state: featherzone_signoff
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: FeatherzoneSign
@@ -240,6 +290,7 @@
     soundGroups:
       Brute:
         collection: GlassSmash
+  - type: InteractionOutline
   - type: WallMount
   - type: Sprite
     drawdepth: WallMountedItems
@@ -255,3 +306,14 @@
     energy: 1.6
     color: "#0fb79a"
     castShadows: true
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
