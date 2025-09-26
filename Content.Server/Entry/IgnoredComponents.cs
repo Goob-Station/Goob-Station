@@ -65,6 +65,9 @@ namespace Content.Server.Entry
     public static class IgnoredComponents
     {
         public static string[] List => new[] {
+            // ES START
+            "ESInherentLight",
+            // ES END
             "ConstructionGhost",
             "IconSmooth",
             "InteractionOutline",
