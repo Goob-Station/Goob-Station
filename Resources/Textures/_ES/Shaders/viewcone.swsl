@@ -1,0 +1,49 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float Zoom;
+
+uniform highp float ConeAngle; //= 270.0
+uniform highp float ConeFeather; //= 10.0;
+uniform highp float ConeIgnoreRadius; //= 0.5;
+uniform highp float ConeIgnoreFeather; //= 0.1;
+
+uniform highp float ViewAngle;
+
+const highp float grainMult = 0.35;
+const highp float grainBase = 0.6;
+
+const highp float grayscaleFactor = 0.72;
+
+void fragment(){
+    highp vec2 pixelSize = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
+    highp float aspectratio = pixelSize.x / pixelSize.y;
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, Pos);
+
+    highp float mask = 1.0;
+
+    // IgnoreRadius pass
+    highp float radial = zCircleGradient(pixelSize, FRAGCOORD.xy, 1.0, (ConeIgnoreFeather) / 1.0, (ConeIgnoreRadius / pow(ConeIgnoreFeather, 0.85)) / Zoom, 1.0);
+    mask -= radial;
+
+    // Setup for cone pass - this makes a gradient based around the angle to the center of the screen
+    highp vec2 delta = FRAGCOORD.xy - (pixelSize * 0.5);
+    highp float deltaAngle = atan(delta.x, delta.y);
+    deltaAngle += ViewAngle;
+    deltaAngle = mod(deltaAngle, radians(360.0));
+    deltaAngle = abs(radians(180.0) - mod(deltaAngle, radians(360.0)));
+
+    // The pass that actually renders the cone
+    highp float radAngle = radians(ConeAngle);
+    highp float radFeather = radians(ConeFeather) + pow(1.0 - radial, 2.0);
+    deltaAngle = 1.0 - clamp((deltaAngle - (radAngle * 0.5)) + (radFeather * 0.5), 0.0, radFeather) / radFeather;
+    mask += clamp(deltaAngle, 0.0, 1.0);
+
+    mask = 1.0 - clamp(mask, 0.0, 1.0);
+
+    // So grim.. so dark
+    highp float grain = zRandom(FRAGCOORD.xy * sin(TIME * 0.01)).x;
+
+    // Lil bit of grayscale for good measure, too
+    highp float grayscale = zGrayscale(color.rgb) * (grain * grainMult + grainBase);
+
+    COLOR = vec4(mix(color.rgb, vec3(grayscale), mask * grayscaleFactor), color.a);
+}
