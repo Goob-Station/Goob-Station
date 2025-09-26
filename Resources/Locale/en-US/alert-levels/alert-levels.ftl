@@ -55,3 +55,7 @@ alert-level-omicron-instructions = Await further orders.
 alert-level-octarine = Octarine
 alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
+
+alert-level-Zulu = Zulu
+alert-level-Zulu-announcement = Martial law has been declared by command, all members of security may search, arrest and detain any personal, and commandeer any and all possessions, all crewmembers are advised to stay calm and obey any and all of security's instructions.
+alert-level-Zulu-instructions = Crewmembers are required to follow any orders from security personal and heads of staff.
