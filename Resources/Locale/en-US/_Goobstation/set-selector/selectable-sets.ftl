@@ -164,10 +164,16 @@ selectable-set-blueshield-modsuit-description =
 
 # ERT
 
-selectable-set-ert-ballistic-name = ballistics set
+selectable-set-ert-ballistic-name = rifle set
 selectable-set-ert-ballistic-description =
     Reliable, efficient, and compact. The Annies got your back.
     Includes: .30 caliber rifle, the Annie.
+    Spare magazines for it, and an N1984.
+
+selectable-set-ert-ballistic2-name = shotgun set
+selectable-set-ert-ballistic2-description =
+    Fast and effecent, NT's rival to the Bulldog.
+    Includes: mag-fed shotgun, the Antelope.
     Spare magazines for it, and an N1984.
 
 selectable-set-ert-pulse-name = pulse set
