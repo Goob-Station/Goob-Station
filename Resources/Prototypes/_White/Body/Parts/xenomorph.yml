@@ -1,0 +1,117 @@
+- type: entity
+  parent: BasePart
+  id: PartXenomorph
+  abstract: true
+  components:
+  # <Goobstation>
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Xenomorph/parts.rsi
+  - type: Icon
+    sprite: _Shitmed/Mobs/Species/Xenomorph/parts.rsi
+  - type: XenoBodyPart
+  - type: HasTissueSample
+  # </Goobstation>
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 3
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+  - type: Woundable
+    integrity: 750
+    integrityCap: 750
+    thresholds:
+      Minor: 700
+      Moderate: 600
+      Severe: 350
+      Critical: 150
+      Mangled: 0
+
+- type: entity
+  id: ChestXenomorph
+  name: xenomorph chest
+  parent: [PartXenomorph, BaseChest]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: GroinXenomorph
+  name: xenomorph groin
+  parent: [PartXenomorph, BaseGroin]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: HeadXenomorph
+  name: xenomorph head
+  parent: [PartXenomorph, BaseHead]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 5
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+
+- type: entity
+  id: LeftArmXenomorph
+  name: left xenomorph arm
+  parent: [PartXenomorph, BaseLeftArm]
+
+- type: entity
+  id: RightArmXenomorph
+  name: right xenomorph arm
+  parent: [PartXenomorph, BaseRightArm]
+
+- type: entity
+  id: LeftHandXenomorph
+  name: left xenomorph hand
+  parent: [PartXenomorph, BaseLeftHand]
+
+- type: entity
+  id: RightHandXenomorph
+  name: right xenomorph hand
+  parent: [PartXenomorph, BaseRightHand]
+
+- type: entity
+  id: LeftLegXenomorph
+  name: left xenomorph leg
+  parent: [PartXenomorph, BaseLeftLeg]
+
+- type: entity
+  id: RightLegXenomorph
+  name: right xenomorph leg
+  parent: [PartXenomorph, BaseRightLeg]
+
+- type: entity
+  id: LeftFootXenomorph
+  name: left xenomorph foot
+  parent: [PartXenomorph, BaseLeftFoot]
+
+- type: entity
+  id: RightFootXenomorph
+  name: right xenomorph foot
+  parent: [PartXenomorph, BaseRightFoot]

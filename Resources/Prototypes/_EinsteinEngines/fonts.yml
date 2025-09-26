@@ -4,6 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: font # Skeletons
+# Calcic (Skeletons)
+- type: font
   id: LDFComicSans
   path: /Fonts/_EinsteinEngines/LDFComicSans/LDFComicSans-Medium.ttf
+
+- type: font
+  id: LDFComicSansBold
+  path: /Fonts/_EinsteinEngines/LDFComicSans/LDFComicSans-Bold.ttf

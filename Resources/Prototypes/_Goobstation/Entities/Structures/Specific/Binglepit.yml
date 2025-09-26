@@ -45,7 +45,7 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    - sprite: _Goobstation/Mobs/Bingle/bingle_pit.rsi
       state: pit
   - type: Appearance
   - type: InteractionOutline
@@ -72,6 +72,8 @@
   - type: Drain # remove liquids around pit
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.9 #No more suicide bombers inshallah
   - type: PassiveDamage #passive Healing
     damage:
       types:

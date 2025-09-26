@@ -35,7 +35,7 @@
 
 - files: ["pope_entry.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Taken from tgstation."
+  copyright: "Taken from tgstation, converted to mono by @deltanedas (github)"
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/pope_entry.ogg"
 
 - files: ["mutate.ogg"]

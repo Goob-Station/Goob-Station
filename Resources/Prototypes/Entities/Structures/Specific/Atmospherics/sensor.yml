@@ -102,10 +102,12 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
-        BZ: danger # Assmos - /tg/ gases
-        Healium: stationNO # Assmos - /tg/ gases
-        Nitrium: danger # Assmos - /tg/ gases
-        Pluoxium: ignore # Assmos - /tg/ gases
+        # <Goobstation>
+        BZ: danger
+        Healium: ignore # it's harmless unless you also breathe in nitrium, which is danger
+        Nitrium: danger
+        Pluoxium: ignore
+        # </Goobstation>
     - type: Tag
       tags:
         - AirSensor

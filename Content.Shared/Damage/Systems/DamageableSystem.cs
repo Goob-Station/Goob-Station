@@ -660,6 +660,14 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitEnsureAllDamaged:
+                    var damagedParts = parts.Where(part =>
+                        part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();
+
+                    parts.Clear();
+                    parts.AddRange(damagedParts);
+
+                    goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAllOrganic:
                     var organicParts = parts.Where(part =>
                         part.Component.PartComposition == BodyPartComposition.Organic).ToList();
@@ -667,6 +675,14 @@ namespace Content.Shared.Damage
                     parts.Clear();
                     parts.AddRange(organicParts);
 
+                    goto case SplitDamageBehavior.SplitEnsureAll;
+                case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
+                    var compatableParts = parts.Where(part =>
+                        part.Damageable.TotalDamage > FixedPoint2.Zero &&
+                        part.Component.PartComposition == BodyPartComposition.Organic).ToList();
+
+                    parts.Clear();
+                    parts.AddRange(compatableParts);
                     goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAll:
                     foreach (var (type, val) in newDamage.DamageDict)
@@ -942,7 +958,7 @@ namespace Content.Shared.Damage
 
             // Has the damage actually changed?
             DamageSpecifier newDamage = new() { DamageDict = new(state.DamageDict) };
-            var delta = component.Damage - newDamage;
+            var delta = newDamage - component.Damage;
             delta.TrimZeros();
 
             if (delta.Empty)

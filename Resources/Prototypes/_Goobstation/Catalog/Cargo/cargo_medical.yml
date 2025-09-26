@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: BiomassCrate
+  icon:
+    sprite: /Textures/Objects/Misc/monkeycube.rsi
+    state: cube
+  product: CrateBiomass
+  cost: 4000 #top 10 goob nerfs (cargo edition)
+  category: cargoproduct-category-name-medical
+  group: market

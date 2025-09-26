@@ -199,6 +199,7 @@
         amount: 2
       - id: FlashlightLantern
       - id: LightReplacer
+      - id: WireBrush
 
 - type: entity
   id: ClothingBeltMedicalFilled
@@ -231,10 +232,10 @@
       #  amount: 3
       - id: HandheldCrewMonitor
       - id: ParamedHypo
-#      - id: CartridgeSaline - I hate storagefill after size edits. (just fuckin get them from the lathe/vendor bro)
-#      - id: CartridgeBicaridine
-#      - id: CartridgeDermaline
-#      - id: CartridgeAtropine # Goobstation - end
+      - id: CartridgeSaline
+      - id: CartridgeBicaridine
+      - id: CartridgeDermaline
+      - id: CartridgeAtropine # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled

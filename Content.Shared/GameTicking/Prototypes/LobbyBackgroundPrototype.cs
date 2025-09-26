@@ -9,7 +9,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.GameTicking.Prototypes;
@@ -18,7 +17,6 @@ namespace Content.Shared.GameTicking.Prototypes;
 /// Prototype for a lobby background the game can choose.
 /// </summary>
 [Prototype("lobbyBackground")]
-[NetSerializable, Serializable]
 public sealed partial class LobbyBackgroundPrototype : IPrototype
 {
     /// <inheritdoc/>

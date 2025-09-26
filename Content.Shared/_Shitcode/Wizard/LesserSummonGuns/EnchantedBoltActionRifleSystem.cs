@@ -56,18 +56,17 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         var user = args.User;
 
-        if (!TryComp(user, out HandsComponent? hands))
-            return;
+        var oldHand = _hands.GetActiveHand(user);
 
-        var oldHand = hands.ActiveHand;
-
-        if (oldHand == null || oldHand.HeldEntity != uid)
+        if (!TryComp(user, out HandsComponent? hands)
+            || oldHand == null
+            || _hands.GetHeldItem((user, hands), oldHand) != uid)
             return;
 
         if (TryComp(uid, out WieldableComponent? wieldable))
             _wieldable.TryUnwield(uid, wieldable, user, true);
 
-        if (!_hands.TryDrop(user, oldHand, null, false, false, hands))
+        if (!_hands.TryDrop((user, hands), oldHand, null, false, false))
             return;
 
         // This is required so that muzzle flash faces where it should face
@@ -89,16 +88,16 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (comp.Caster != null && comp.Caster != user)
             return;
 
-        Hand? otherHand = null;
+        string? otherHand = null;
 
-        foreach (var hand in _hands.EnumerateHands(user, hands))
+        foreach (var hand in _hands.EnumerateHands((user, hands)))
         {
             if (hand == oldHand)
                 continue;
 
             otherHand = hand;
 
-            if (hand.HeldEntity == null)
+            if (_hands.GetHeldItem((user, hands), hand) == null)
                 break;
         }
 
@@ -108,8 +107,8 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         if (otherHand != null)
         {
-            _hands.SetActiveHand(user, otherHand, hands);
-            if (otherHand.HeldEntity != null)
+            _hands.SetActiveHand((user, hands), otherHand);
+            if (_hands.GetHeldItem((user, hands), otherHand) != null)
                 ResetDelays(gun);
             else
                 pickUpHand = otherHand;
@@ -117,7 +116,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         else
             ResetDelays(gun);
 
-        if (!_hands.TryPickup(user, gun, pickUpHand, false, false, hands))
+        if (!_hands.TryPickup(user, gun, pickUpHand, false, false))
             QueueDel(gun);
 
         var newComp = EnsureComp<EnchantedBoltActionRifleComponent>(gun);
