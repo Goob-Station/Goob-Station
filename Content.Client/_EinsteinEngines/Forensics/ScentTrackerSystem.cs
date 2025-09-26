@@ -23,11 +23,14 @@ public sealed class ScentTrackerSystem : SharedScentTrackerSystem
     {
         base.Update(frameTime);
 
+        // Goobstation - move trycomp, scent = empty outside of the while loop
+        // If the player can't track scents, continuing beyond this point is a waste of processing power.
+        if (!TryComp<ScentTrackerComponent>(_playerManager.LocalEntity, out var scentcomp) || scentcomp.Scent == string.Empty)
+            return;
+
         var query = AllEntityQuery<ForensicsComponent>();
         while (query.MoveNext(out var uid, out var comp))
-            if (TryComp<ScentTrackerComponent>(_playerManager.LocalEntity, out var scentcomp)
-                && scentcomp.Scent != string.Empty
-                && scentcomp.Scent == comp.Scent
+            if (scentcomp.Scent == comp.Scent
                 && _timing.CurTime > comp.TargetTime)
             {
                 comp.TargetTime = _timing.CurTime + TimeSpan.FromSeconds(1.0f);
