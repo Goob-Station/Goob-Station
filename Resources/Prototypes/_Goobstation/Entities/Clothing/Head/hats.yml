@@ -392,3 +392,15 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+
+# Abilities debug head
+- type: entity
+  parent: ClothingHeadHatUshankaBlueshield
+  name: debug hat
+  id: ClothingDEBUGActionGrantHat
+  desciption: DEBUG HAT
+  suffix: DEBUG
+  component:
+  - type: ActionGrant
+    actions: 
+    - ActionRetractableItemArmBlade
