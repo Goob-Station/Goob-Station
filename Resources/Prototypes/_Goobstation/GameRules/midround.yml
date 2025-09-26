@@ -257,7 +257,7 @@
   components:
   - type: StationEvent
     earliestStart: 20
-    weight: 3
+    weight: 1
     minimumPlayers: 30
     maxOccurrences: 1
     startAnnouncement: station-event-unholy-wave
