@@ -22,7 +22,7 @@
     damage:
       types:
         Blunt: 7.5
-    bluntStaminaDamageFactor: 2.5
+#    bluntStaminaDamageFactor: 2.5 #GoobStation edit - plasmaman baton is stupid.
     angle: 100
     soundHit:
       path: /Audio/Weapons/smash.ogg
