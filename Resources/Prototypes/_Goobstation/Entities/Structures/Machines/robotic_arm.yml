@@ -87,7 +87,8 @@
         whitelist:
           components:
           - AutomationFilter
-  - type: RoboticArm
+  - type:
+    MovingPowerDraw: 50 # changing power draw causes APC flickering, which ruins automation
   - type: FilterSlot
   - type: AutomationSlots
     slots:
