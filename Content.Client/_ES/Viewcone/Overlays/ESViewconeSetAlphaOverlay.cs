@@ -69,7 +69,10 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
         var eyeTransform = _ent.GetComponent<TransformComponent>(ent);
         var (eyePos, eyeRot) = _xform.GetWorldPositionRotation(eyeTransform);
 
-        // Thank You Bhijn God (TYBG) for 95% of the rest of this methods code
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !! Thank You Bhijn God (TYBG) for 95% of the rest of this methods code !!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         if (_ent.HasComponent<MouseRotatorComponent>(ent))
         {
             // this.. -should- work for multiviewport? at least, about as well as people will expect
