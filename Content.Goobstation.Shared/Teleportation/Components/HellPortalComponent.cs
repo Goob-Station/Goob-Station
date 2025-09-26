@@ -14,7 +14,7 @@ public sealed partial class HellPortalComponent : Component
     [DataField]
     public EntityUid? HellMap;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid ExitPortal;
 
     [DataField]
