@@ -45,6 +45,11 @@
     - belt
   - type: Item
     size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
+    inhandVisuals: #Goob fixed inhand visuals
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Storage
     maxItemSize: Normal
     grid:
