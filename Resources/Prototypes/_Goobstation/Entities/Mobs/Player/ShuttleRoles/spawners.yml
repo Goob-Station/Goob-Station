@@ -16,3 +16,31 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidVisitorAlien
+
+- type: entity
+  name: syndicate sales operator spawner
+  id: SyndicateSalesOperatorSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner_syndicate
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidSyndicateSalesOperator
+
+- type: entity
+  name: dwarven trader spawner
+  id: DwarvenTraderSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidDwarvenTrader

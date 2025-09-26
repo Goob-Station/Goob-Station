@@ -31,3 +31,79 @@
     chaosScore: -80
   - type: LoadMapRule
     preloadedGrid: AlienTourist
+
+- type: entity
+  id: UnknownShuttleXenoEmergency
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 40
+      Hostile: 40
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -15
+  - type: LoadMapRule
+    preloadedGrid: XenoEmergency
+
+- type: entity
+  id: UnknownShuttleSyndicateStoreLowValue
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 1
+    chaos:
+      Combat: 40
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 50
+  - type: LoadMapRule
+    preloadedGrid: SyndicateStoreLowValue
+
+- type: entity
+  id: UnknownShuttleDwarvenTrader
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 40
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -50
+  - type: LoadMapRule
+    preloadedGrid: DwarvenTrader
+
+- type: entity
+  id: UnknownShuttlePirateFreighter
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 150
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 150
+  - type: LoadMapRule
+    preloadedGrid: PirateFreighter
+
+- type: entity
+  id: UnknownShuttleGraggShop
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos:
+      Combat: 20
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: -100
+  - type: LoadMapRule
+    preloadedGrid: GraggShop
