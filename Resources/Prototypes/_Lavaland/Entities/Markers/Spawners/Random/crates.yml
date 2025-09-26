@@ -41,7 +41,6 @@
     - LavalandCrateNecropolisMinersChalic
     - LavalandCrateNecropolisInvisibilityCloak
     - LavalandCrateNecropolisMementoMori
-    #- LavalandCrateNecropolisHardsuitBerserker # need sprite
-    #- LavalandCrateNecropolisBookofBabel # error whit used sprite
-
+    - LavalandCrateNecropolisHardsuitBerserker # need sprite
+    - LavalandCrateNecropolisBookofBabel # error whit used sprite
     chance: 1

@@ -18,7 +18,8 @@
     component:
     - type: PreventGunUse
     - type: ModifyMeleeDamage
-      modifier: 1.25 # 25% more melee damage
+      modifier: 1.10 # 10% more melee damage
+    - type: BleedingIncreaseMeleeDamage # damage increase if bleededing
 
 - type: entity
   parent: ClothingHeadEVAHelmetBase

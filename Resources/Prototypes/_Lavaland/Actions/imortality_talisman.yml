@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseAction
+  id: ActionGainImortality
+  name: Activate Talsiman
+  description: Activate your Talisman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+      state: imortality_talisman
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ActivateImortalityTalismanActionEvent

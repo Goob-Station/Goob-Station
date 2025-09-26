@@ -68,43 +68,19 @@
     state: memento_mori
 
 - type: entity
-  id: LavalandBookofBabel
-  parent: LibrarianTranslatorImplanter # its just an implaner with a new sprite
-  name: book Of babel
-  description: contains all the knowledge of the world
-  components:
-  - type: Tag
-    tags:
-    - Book
-  - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_base
-      color: "#332d27"
-      map: [ "cover" ]
-    - state: decor_wingette
-      color: "#453f3a"
-      map: [ "decor" ]
-    - state: icon_text
-      map: [ "icon" ]
-    - state: overlay_null
-      map: [ "overlay" ]
-
-- type: entity
   id: LavalandAmuletImortalityTalisman
   parent: ClothingNeckBase
   name: imortality talisman
   description: A dread talisman that can render you completely invulnerable.
   components:
-  # add action preventing damage
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: imortality_talisman
+  - type: ImortalityTalisman
 
 - type: entity
   id: LavalandStaffOfHealing
-  parent: [WeaponStaffHealing, OmnimedTool]
+  parent: [WeaponStaffHealing, OmnimedTool] # works as a healing wand and a surgary tool
   name: Rod of Asclepius
   description: Something about it seems to inspire in you the responsibility and duty to help others.
   components:
@@ -176,8 +152,8 @@
 - type: entity
   id: LavalandCubeRed
   parent: DeviceQuantumSpinInverter
-  name: red cube
-  description: a strange puzzle cube
+  name: warp cube
+  description: a strange cube
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/warp_cube.rsi
@@ -200,7 +176,7 @@
 - type: entity
   id: LavalandCubeBlue
   parent: LavalandCubeRed
-  name: Blue cube
+  name: warp cube
   components:
   - type: GenericVisualizer
     visuals:
@@ -208,4 +184,49 @@
         base:
           True: { state: linked_blue }
 
-
+- type: entity
+  name: Book of Babel
+  parent: BaseItem
+  id: LavalandBookofBabel
+  description: you can't seem to read it
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: vavilon_book
+  - type: TriggerOnUse
+  - type: DeleteOnTrigger
+  - type: SoundOnTrigger
+    sound: /Audio/Effects/smoke.ogg # placeholder sound
+  - type: GrantLanguagesOnTrigger # somone make seperate books of these and give to librarian
+    languages:
+    - Eldritch
+    - Chittin
+    - RootSpeak
+    - ValyrianStandard
+    - Marish
+    - Moffic
+    - Schechi
+    - NewKinPidgin #Ka'rakk
+    - Nekomimetic
+    - Draconic     #Sinta'Unathi
+    - Azaziba
+    - Calcic
+    - Bubblish
+    - SiikMaas
+    - NalRasan
+    - SiikTajr
+    - YaSsa
+    - Delvahii
+    - Canilunzt
+    - Elyran
+    - Freespeak
+    - NovuNederic
+    - SolCommon
+    - TauCetiBasic
+    - Tradeband
+    - Mouse
+    - Sign
+    - Monkey
+    - Kobold
+    - SpaceItalian
+    - Cheval
