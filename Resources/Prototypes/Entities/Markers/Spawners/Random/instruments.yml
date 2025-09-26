@@ -126,7 +126,7 @@
     - !type:GroupSelector
       weight: 0.1
       children:
-      - id: DawInstrument
+      - id: DawInstrumentMachineCircuitboard
     - !type:GroupSelector
       weight: 0.05
       children:
