@@ -11,83 +11,78 @@ namespace Content.Client._ES.Viewcone.Overlays;
 
 public sealed class ESViewconeConeOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    private SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    private readonly SharedTransformSystem _xform;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
+
+    public static ProtoId<ShaderPrototype> ShaderPrototype = "Viewcone";
     private readonly ShaderInstance _viewconeShader;
 
+    private Entity<EyeComponent, TransformComponent>? _eyeEntity;
     private float _coneAngle;
     private float _coneFeather;
     private float _coneIgnoreRadius;
     private float _coneIgnoreFeather;
 
-    private float _viewAngle;
-
     public ESViewconeConeOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _transform = _entityManager.System<SharedTransformSystem>();
-        _viewconeShader = _prototypeManager.Index<ShaderPrototype>("Viewcone").InstanceUnique();
+        _xform = _ent.System<SharedTransformSystem>();
+        _viewconeShader = _proto.Index(ShaderPrototype).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entityManager.TryGetComponent(_playerManager.LocalSession?.AttachedEntity, out ESViewconeComponent? viewComp))
-            return false;
+        _eyeEntity = null;
 
-        _coneAngle = viewComp.ConeAngle;
-        _coneFeather = viewComp.ConeFeather;
-        _coneIgnoreRadius = (viewComp.ConeIgnoreRadius - viewComp.ConeIgnoreFeather) * 50f;
-        _coneIgnoreFeather = Math.Max(viewComp.ConeIgnoreFeather * 200f, 8f);
+        // This is really stupid but there isn't another way to reverse an eye entity from just an IEye afaict
+        // It's not really inefficient though. theres barely any of those fuckin things anyway (? verify that) (maybe this scales with players in view) (shit)
+        var enumerator = _ent.AllEntityQueryEnumerator<EyeComponent, ESViewconeComponent, TransformComponent>();
+        while (enumerator.MoveNext(out var uid, out var eye, out var viewcone, out var xform))
+        {
+            if (args.Viewport.Eye != eye.Eye)
+                continue;
 
-        return true;
+            _coneAngle = viewcone.ConeAngle;
+            _coneFeather = viewcone.ConeFeather;
+            _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 50f;
+            _coneIgnoreFeather = Math.Max(viewcone.ConeIgnoreFeather * 200f, 8f);
+            _eyeEntity = (uid, eye, xform);
+            break;
+        }
+
+        return _eyeEntity != null;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture == null)
+        if (ScreenTexture == null || _eyeEntity == null)
             return;
-
-        var playerEntity = _playerManager.LocalSession?.AttachedEntity;
-
-        if (playerEntity == null)
-            return;
-
 
         var worldHandle = args.WorldHandle;
         var viewport = args.WorldBounds;
 
-        var zoom = 1.0f;
-        var eyeAngle = 0.0f;
-        var playerAngle = (float) _transform.GetWorldRotation(playerEntity.Value).Theta;
-        if (_entityManager.TryGetComponent<EyeComponent>(playerEntity, out var eyeComponent))
-        {
-            zoom = eyeComponent.Zoom.X;
-            eyeAngle = (float) eyeComponent.Rotation.Theta;
-        }
+        var zoom = _eyeEntity.Value.Comp1.Zoom.X;
+        var eyeAngle = (float) _eyeEntity.Value.Comp1.Rotation.Theta;
+        var playerAngle = (float) _xform.GetWorldRotation(_eyeEntity.Value.Comp2).Theta;
 
-
-        if (_entityManager.TryGetComponent<MouseRotatorComponent>(playerEntity, out var mouse))
+        if (_ent.HasComponent<MouseRotatorComponent>(_eyeEntity))
         {
-            var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
+            var mousePos = _eye.PixelToMap(_input.MouseScreenPosition);
             if (mousePos.MapId != MapId.Nullspace)
-                playerAngle = (float) (mousePos.Position - _transform.GetMapCoordinates(playerEntity.Value).Position).ToAngle().Theta + MathHelper.DegreesToRadians(90f);
+                playerAngle = (float) (mousePos.Position - _xform.GetMapCoordinates(_eyeEntity.Value).Position).ToAngle().Theta + MathHelper.DegreesToRadians(90f);
         }
 
-        _viewAngle = playerAngle + eyeAngle;
+        var viewAngle = playerAngle + eyeAngle;
 
         _viewconeShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-
         _viewconeShader.SetParameter("Zoom", zoom);
-
-        _viewconeShader.SetParameter("ViewAngle", _viewAngle);
-
+        _viewconeShader.SetParameter("ViewAngle", viewAngle);
         _viewconeShader.SetParameter("ConeAngle", _coneAngle);
         _viewconeShader.SetParameter("ConeFeather", _coneFeather);
         _viewconeShader.SetParameter("ConeIgnoreRadius", _coneIgnoreRadius);
@@ -96,5 +91,6 @@ public sealed class ESViewconeConeOverlay : Overlay
         worldHandle.UseShader(_viewconeShader);
         worldHandle.DrawRect(viewport, Color.White);
         worldHandle.UseShader(null);
+        _eyeEntity = null;
     }
 }

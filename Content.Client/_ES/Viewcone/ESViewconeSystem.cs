@@ -11,7 +11,6 @@ namespace Content.Client._ES.Viewcone;
 public sealed class ESViewconeSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     private ESViewconeConeOverlay _coneOverlay = default!;
     private ESViewconeSetAlphaOverlay _setAlphaOverlay = default!;

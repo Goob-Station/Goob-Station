@@ -18,6 +18,8 @@ public sealed class ESViewconeResetAlphaOverlay : Overlay
 
     public ESViewconeResetAlphaOverlay()
     {
+        IoCManager.InjectDependencies(this);
+
         _cone = _ent.EntitySysManager.GetEntitySystem<ESViewconeSystem>();
         _sprite = _ent.EntitySysManager.GetEntitySystem<SpriteSystem>();
     }

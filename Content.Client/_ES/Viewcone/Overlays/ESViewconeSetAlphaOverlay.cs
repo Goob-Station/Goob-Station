@@ -36,10 +36,10 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
+        _nextEye = null;
+
         if (args.Viewport.Eye == null)
             return false;
-
-        _nextEye = null;
 
         // This is really stupid but there isn't another way to reverse an eye entity from just an IEye afaict
         // It's not really inefficient though. theres barely any of those fuckin things anyway (? verify that) (maybe this scales with players in view) (shit)
