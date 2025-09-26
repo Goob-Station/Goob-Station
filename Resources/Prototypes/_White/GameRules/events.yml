@@ -27,7 +27,7 @@
     definitions:
     - spawnerPrototype: SpawnPointGhostXenomorph
       min: 2
-      max: 2
+      max: 4
       pickPlayer: false
       briefing:
         text: xenomorph-role-greeting
