@@ -7,7 +7,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._ES.Viewcone;
+namespace Content.Client._ES.Viewcone.Overlays;
 
 public sealed class ESViewconeConeOverlay : Overlay
 {

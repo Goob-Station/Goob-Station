@@ -1,9 +1,12 @@
+using Content.Shared.Wall;
+using Robust.Shared.ComponentTrees;
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics;
 
 namespace Content.Shared._ES.Viewcone;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ESViewconeOccludableComponent : Component
+public sealed partial class ESViewconeOccludableComponent : Component, IComponentTreeEntry<ESViewconeOccludableComponent>
 {
     // TODO remove
     [DataField]
@@ -18,4 +21,9 @@ public sealed partial class ESViewconeOccludableComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Invert = false;
+
+    public EntityUid? TreeUid { get; set; }
+    public DynamicTree<ComponentTreeEntry<ESViewconeOccludableComponent>>? Tree { get; set; }
+    public bool AddToTree => true;
+    public bool TreeUpdateQueued { get; set; }
 }
