@@ -90,9 +90,9 @@
     components:
     - type: Pacified # pick it up you become a pacifist
   - type: BasicEntityAmmoProvider
-    proto: ProjectileHealingBolt
-    capacity: 4 #less then staff of healing
-    count: 4
+    proto: LavalandStaffOfHealingBolt
+    capacity: 6
+    count: 6
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 10 # slower then staff of healing
 

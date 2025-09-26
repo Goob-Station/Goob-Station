@@ -1,0 +1,32 @@
+
+- type: entity
+  id: LavalandStaffOfHealingBolt
+  name: healing bolt
+  description: HEAL!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: -10
+        Brute: -10
+        Toxin: -10
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_yellow
