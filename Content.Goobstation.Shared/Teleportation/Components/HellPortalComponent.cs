@@ -14,10 +14,10 @@ public sealed partial class HellPortalComponent : Component
     [DataField]
     public EntityUid? HellMap;
 
-    [ViewVariables]
+    [DataField]
     public EntityUid ExitPortal;
 
-    [ViewVariables]
+    [DataField]
     public ResPath HellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
 
     [DataField]

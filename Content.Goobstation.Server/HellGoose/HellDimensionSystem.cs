@@ -1,11 +1,9 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// Always-active portal that teleports the user into a custom "hell" map.
-
 using Content.Goobstation.Shared.Teleportation.Components;
 using Content.Goobstation.Shared.Maps;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -18,7 +16,6 @@ public sealed class HellPortalSystem : EntitySystem
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -40,9 +37,9 @@ public sealed class HellPortalSystem : EntitySystem
         // Otherwise, load the hell map
         if (!_mapLoader.TryLoadMap(comp.HellMapPath,
                 out var map, out var roots,
-                options: new Robust.Shared.EntitySerialization.DeserializationOptions { InitializeMaps = true }))
+                options: new DeserializationOptions { InitializeMaps = true }))
         {
-            Log.Error("Failed to load hell map at /Maps/_Goobstation/Nonstations/Hell.yml");
+            Log.Error($"Failed to load hell map at {comp.HellMapPath}");
             QueueDel(map);
             return;
         }

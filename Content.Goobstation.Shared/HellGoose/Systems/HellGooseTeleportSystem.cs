@@ -20,9 +20,6 @@ public sealed partial class HellGooseTeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<TransformComponent>(args.Performer, out var performerXform))
-            return;
-
         args.Handled = true;
 
         TransformComponent? beaconXform = null;
