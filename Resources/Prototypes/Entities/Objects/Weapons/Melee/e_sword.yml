@@ -487,9 +487,9 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 20   #Goob Station rebalance, was originally 12
-            Heat: 20    #Goob Station rebalance, was originally 12
-            Structural: 40 # Goob edit
+          Slash: 20   #Goob Station rebalance, was originally 12
+          Heat: 20    #Goob Station rebalance, was originally 12
+          Structural: 40 # Goob edit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -595,17 +595,6 @@
 #    sprite: Objects/Weapons/Melee/hypereutactic_blade_inhands.rsi
 #  - type: Reflect
 #    reflectProb: 1
-#    spread: 75
-
-# Nukie variant, reduced reflection rate.
-#- type: entity
-#  parent: HyperEutacticBlade
-#  id: HyperEutaticBlade
-#  name: hypereutatic-blade
-#  description: Often mistaken for the Hypereutactic Blade. This mass produced, off-brand, knockoff gets the same job done but with less reflection.
-#  components:
-#  - type: Reflect
-#    reflectProb: 0.75
 #    spread: 75
 
 # Borgs
