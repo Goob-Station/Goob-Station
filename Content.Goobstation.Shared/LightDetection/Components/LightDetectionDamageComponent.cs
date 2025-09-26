@@ -3,6 +3,8 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.LightDetection.Components;
 
@@ -10,7 +12,7 @@ namespace Content.Goobstation.Shared.LightDetection.Components;
 /// Component that indicates a user should take damage or heal damage based on the light detection system
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState(false, true)]
+[AutoGenerateComponentState(false, true), AutoGenerateComponentPause]
 public sealed partial class LightDetectionDamageComponent : Component
 {
     /// <summary>
@@ -23,11 +25,14 @@ public sealed partial class LightDetectionDamageComponent : Component
     /// If this reaches 0, the entity will start taking damage.
     /// If it is max, the entity will heal damage (if specified)
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public float DetectionValue;
 
+    /// <summary>
+    /// How much detection entity regenerate in darkness.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public float DetectionValueFactor = 0.5f;
+    public float DetectionValueRegeneration = 0.5f;
 
     /// <summary>
     /// Indicates whether the user should take damage on light
@@ -56,7 +61,7 @@ public sealed partial class LightDetectionDamageComponent : Component
     {
         DamageDict = new()
         {
-            ["Heat"] = 15,
+            ["Heat"] = 10,
         }
     };
 
@@ -68,15 +73,15 @@ public sealed partial class LightDetectionDamageComponent : Component
     {
         DamageDict = new()
         {
-            ["Blunt"] = -15,
-            ["Slash"] = -15,
-            ["Piercing"] = -15,
-            ["Heat"] = -15,
-            ["Cold"] = -15,
-            ["Shock"] = -15,
-            ["Asphyxiation"] = -15,
-            ["Bloodloss"] = -15,
-            ["Poison"] = -15,
+            ["Blunt"] = -10,
+            ["Slash"] = -10,
+            ["Piercing"] = -10,
+            ["Heat"] = -10,
+            ["Cold"] = -10,
+            ["Shock"] = -10,
+            ["Asphyxiation"] = -10,
+            ["Bloodloss"] = -10,
+            ["Poison"] = -10,
         }
     };
 
@@ -95,21 +100,10 @@ public sealed partial class LightDetectionDamageComponent : Component
     [DataField, AutoNetworkedField]
     public bool ShowAlert = true;
 
-    [DataField]
-    public float Accumulator;
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan NextUpdate;
 
     [DataField]
-    public float UpdateInterval = 1f;
-
-    [DataField]
-    public float DamageInterval = 5f;
-
-    [DataField]
-    public float DamageAccumulator;
-
-    [DataField]
-    public float HealInterval = 3f;
-
-    [DataField]
-    public float HealAccumulator;
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1f);
 }

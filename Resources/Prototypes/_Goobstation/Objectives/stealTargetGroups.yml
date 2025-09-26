@@ -46,6 +46,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: ExecutiveBriefcase
+  name: steal-target-groups-executive-briefcase
+  sprite:
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: ClothingBeltGeminiHoloProjector
   name: steal-target-groups-gemini-projector
   sprite:
