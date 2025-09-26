@@ -305,13 +305,15 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15 # Goobstation
+        maxVol: 20 # goobstation
         reagents:
+        - ReagentId: Dexalin # Goobstation
+          Quantity: 5
         - ReagentId: Epinephrine # Goobstation
           Quantity: 5
-        - ReagentId: Atropine # Goobstation
+        - ReagentId: Ibuprofen # Goobstation
           Quantity: 5
-        - ReagentId: TranexamicAcid # Goobstation
+        - ReagentId: Omnizine # Goobstation
           Quantity: 5
   - type: Tag
     tags:
