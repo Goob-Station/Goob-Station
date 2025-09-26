@@ -110,6 +110,10 @@ public sealed class DevourSystem : EntitySystem
         {
             _bloodstreamSystem.TryAddToChemicals(ent.Owner, ichorInjection);
         }
+        // <Goobstation> voring walls is good for iron intake
+        if (args.Args.Target is {} target && _solution.TryGetSolution(target, "food", out _, out var food))
+            _bloodstreamSystem.TryAddToChemicals(ent.Owner, food);
+        // </Goobstation>
 
         // If the devoured thing meets the stomach whitelist criteria, add it to the stomach
         if (args.Args.Target != null && _whitelistSystem.IsWhitelistPass(ent.Comp.StomachStorageWhitelist, (EntityUid)args.Args.Target))
