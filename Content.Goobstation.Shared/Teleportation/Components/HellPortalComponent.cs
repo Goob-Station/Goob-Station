@@ -14,8 +14,8 @@ public sealed partial class HellPortalComponent : Component
     [DataField]
     public EntityUid? HellMap;
 
-    [ViewVariables]
-    public EntityUid ExitPortal;
+    [DataField]
+    public EntityUid? ExitPortal;
 
     [DataField]
     public ResPath HellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
