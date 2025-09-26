@@ -164,12 +164,6 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
             allConnections.Add(slotId, (part, connections, organs));
         }
 
-
-        /* Goobstation Start
-         * This part is literally not used anywhere and bugs the "connections" list of the prototype by adding the parent of a limb to the list of connections.
-         * Reading the yaml, it is clear to me that "connections" represents a part => childpart relationship, not a parentpart <=> part <=> childpart.
-         * If you look for which part can host a "left leg", you will find both "torso" and "left foot" and now your code can't automatically figure out which part should contain which.
-         * and i'm like.. WHY??? clearly just shitcode.
         foreach (var (slotId, (_, connections, _)) in allConnections)
         {
             if (connections == null)
@@ -183,7 +177,6 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                 allConnections[connection] = other;
             }
         }
-        Goobstation end*/
 
         var slots = new Dictionary<string, BodyPrototypeSlot>();
 
