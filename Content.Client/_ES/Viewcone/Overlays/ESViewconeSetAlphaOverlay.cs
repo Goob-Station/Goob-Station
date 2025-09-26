@@ -102,11 +102,8 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
 
             var entPos = _xform.GetWorldPosition(xform);
 
-            if (!comp.OccludeIfAnchored)
-            {
-                if (xform.Anchored)
-                    continue;
-            }
+            if (comp.OccludeIfAnchored && xform.Anchored)
+                continue;
 
             var dist = entPos - eyePos;
             var distLength = dist.Length();
@@ -119,7 +116,7 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
             // save the results so we can use it in resetalpha overlay
             _cone.CachedBaseAlphas.Add(((uid, sprite), sprite.Color.A));
 
-            var alpha = comp.Invert ? 1f - targetAlpha : targetAlpha;
+            var alpha = comp.Inverted ? 1f - targetAlpha : targetAlpha;
             _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(alpha));
         }
     }

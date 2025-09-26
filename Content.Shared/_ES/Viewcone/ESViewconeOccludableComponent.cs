@@ -20,7 +20,7 @@ public sealed partial class ESViewconeOccludableComponent : Component, IComponen
     ///     i.e. the sprite will be invisible while within view, and visible outside of view
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Invert = false;
+    public bool Inverted = false;
 
     public EntityUid? TreeUid { get; set; }
     public DynamicTree<ComponentTreeEntry<ESViewconeOccludableComponent>>? Tree { get; set; }
