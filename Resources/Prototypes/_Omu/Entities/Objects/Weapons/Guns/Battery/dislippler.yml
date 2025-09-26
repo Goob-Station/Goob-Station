@@ -1,0 +1,59 @@
+- type: entity
+  name: dislippler
+  parent: [WeaponDisablerPractice, BaseSyndicateContraband]
+  id: WeaponDislippler
+  description: Standard-issue security disabler on Honk! Co. stations. Ultimate proof that God has abandoned us.
+  components:
+    - type: Gun
+      fireRate: 3
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    - type: Item
+      size: Small
+      shape:
+        - 0,0,1,0
+        - 1,1,1,1
+    - type: Sprite
+      sprite: _Omu/Objects/Weapons/Guns/Battery/dislippler.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: _Omu/Objects/Weapons/Guns/Battery/dislippler.rsi
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletDislippler
+      fireCost: 100
+    - type: Multishot
+      spreadMultiplier: 1.25
+      spreadAddition: 10
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 50
+
+- type: entity
+  name: dislippler bolt
+  id: BulletDislippler
+  parent: BulletDisabler
+  categories: [HideSpawnMenu]
+  components:
+    - type: Slippery
+    - type: Projectile
+      impactEffect: BulletImpactEffectDisabler
+      damage:
+        types:
+          Ion: 0 # only slip
+      soundHit:
+        collection: WeakHit
+      forceSound: true
+    - type: Sprite
+      sprite: _Omu/Objects/Weapons/Guns/Projectiles/dislippler_laser.rsi
+      layers:
+        - state: dislipplerlaser
+          shader: unshaded
