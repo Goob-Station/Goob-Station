@@ -75,6 +75,12 @@
   result: SignalTimerElectronics
 
 - type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: ScreenTimerElectronics
+  icon: { sprite: Structures/Wallmounts/signalscreen.rsi, state: signalscreen } # Goobstation
+  result: ScreenTimerElectronics
+
+- type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: AirAlarmElectronics
   icon: { sprite: Structures/Wallmounts/air_monitors.rsi, state: alarm0 } # Goobstation
