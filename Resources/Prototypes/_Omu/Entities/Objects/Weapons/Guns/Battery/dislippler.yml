@@ -8,6 +8,7 @@
       fireRate: 3
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+      clumsyProof: true
     - type: Item
       size: Small
       shape:
