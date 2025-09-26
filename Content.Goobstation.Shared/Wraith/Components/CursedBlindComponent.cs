@@ -34,9 +34,10 @@ public sealed partial class CursedBlindComponent : Component
     /// </summary>
     public TimeSpan NextTick = TimeSpan.Zero;
 
+    /*
     /// <summary>
     /// The status icon prototype displayed for revolutionaries
     /// </summary>
     [DataField]
-    public ProtoId<DiseaseIconPrototype> StatusIcon = "BlindCurseIcon";
+    public ProtoId<DiseaseIconPrototype> StatusIcon = "BlindCurseIcon";*/
 }

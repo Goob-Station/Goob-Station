@@ -304,6 +304,7 @@ public sealed partial class SsdIconPrototype : StatusIconPrototype, IInheritingP
     public bool Abstract { get; private set; }
 }
 
+/*
 //Goobstation
 /// <summary>
 /// StatusIcons for diseases.
@@ -319,7 +320,7 @@ public sealed partial class DiseaseIconPrototype : StatusIconPrototype, IInherit
     [NeverPushInheritance]
     [AbstractDataField]
     public bool Abstract { get; private set; }
-}
+}*/
 
 [Serializable, NetSerializable]
 public enum StatusIconLocationPreference : byte

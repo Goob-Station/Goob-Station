@@ -65,13 +65,13 @@ public sealed partial class CursedBlindSystem : EntitySystem
             }
         }
     }
-    private void GetIcon(Entity<CursedBlindComponent> ent, ref GetStatusIconsEvent args)
+    /*private void GetIcon(Entity<CursedBlindComponent> ent, ref GetStatusIconsEvent args)
     {
         var comp = ent.Comp;
 
         if (_prototype.TryIndex(comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
-    }
+    }*/
 
     private void OnCursedBlindGetStateAttempt(EntityUid uid, CursedBlindComponent comp, ref ComponentGetStateAttemptEvent args)
     {
