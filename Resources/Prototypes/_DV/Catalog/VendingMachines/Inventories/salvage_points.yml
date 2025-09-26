@@ -118,14 +118,15 @@
     cost: 2000
   - id: OreBagOfHolding
     cost: 2000
-  # TODO: super resonator for 2500
-  # TODO: jump boots for 2500
   - id: ClothingNeckCloakHelldiver
     cost: 2000
   - id: ClothingShoesBootsMoon
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
+    #TODO:  super resonator for 2500
+  - id: ClothingShoesBootsJump
+    cost: 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
   - id: ShelterCapsuleLuxury

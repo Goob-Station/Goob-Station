@@ -94,9 +94,9 @@
   - type: AntagSpawner
     prototype: MobLesserSlaughterDemon
   - type: StationEvent
-    weight: 5.5
-    earliestStart: 50
-    minimumPlayers: 35
+    weight: 1
+    earliestStart: 45
+    minimumPlayers: 50
     duration: null
     maxOccurrences: 1
     chaos:
