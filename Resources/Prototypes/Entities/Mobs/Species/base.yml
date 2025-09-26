@@ -253,6 +253,7 @@
   save: false
   parent:
   - BaseMob
+  - ESBaseMob # ES START
   - MobDamageable
   - MobPolymorphable
   - MobCombat
