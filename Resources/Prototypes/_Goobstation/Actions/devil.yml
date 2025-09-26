@@ -99,7 +99,7 @@
   parent: BaseAction
   id: ActionDevilGrip
   name: Devils Grip
-  description: What little fraction of your power remains in this realm, channeled into your hands.
+  description: Stun a touched target with your infernal powers.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -109,6 +109,21 @@
       state: devil-grip
   - type: InstantAction
     event: !type:DevilGripEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionSummonGoldenFiddle
+  name: Summon Golden Fiddle
+  description: Summons and binds a golden fiddle to you. Perhaps you could challenge some people to contests?
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: golden-fiddle
+  - type: InstantAction
+    event: !type:SummonGoldenFiddleEvent {}
 
 # Deals
 

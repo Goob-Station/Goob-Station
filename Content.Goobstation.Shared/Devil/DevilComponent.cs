@@ -79,7 +79,7 @@ public sealed partial class DevilComponent : Component
     /// How much damage taken when a true name is spoken. Doubled if spoken by the chaplain.
     /// </summary>
     [DataField]
-    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 15 }}};
+    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new() {{ "Holy", 15 }}};
 
     /// <summary>
     /// Holy action damage multiplier if done by the chaplain. Also effects stums.
@@ -93,16 +93,30 @@ public sealed partial class DevilComponent : Component
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
 
+    /// <summary>
+    /// Entities that you can summon.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? DevilGrip;
+    public EntityUid? DevilGripEntity;
 
-    // abandom all hope, all ye who enter
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? GoldenFiddleEntity;
+
+    /// <summary>
+    /// Constants.
+    /// </summary>
+    /// <remarks>
+    /// abandon all hope, all ye who enter
+    /// </remarks>
 
     [DataField]
     public TimeSpan PossessionDuration = TimeSpan.FromSeconds(30);
 
     [DataField]
     public EntProtoId GripPrototype = "DevilGrip";
+
+    [DataField]
+    public EntProtoId FiddlePrototype = "GoldenFiddleInstrument";
 
     [DataField]
     public EntProtoId ContractPrototype = "PaperDevilContract";
