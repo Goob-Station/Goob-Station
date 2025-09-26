@@ -267,7 +267,7 @@
     - secretPlusHermit
     - The hermit
     - Ingress
-  name: hermitplus-Title
+  name: hermitplus-title
   description: hermitplus-description
   showInVote: true
   rules:
