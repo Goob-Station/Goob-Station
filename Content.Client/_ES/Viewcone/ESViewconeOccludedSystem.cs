@@ -22,26 +22,26 @@ public sealed class ESViewconeOccludedSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ESViewconeOccludedComponent, ComponentStartup>(OnOcclusionStart);
-        SubscribeLocalEvent<ESViewconeOccludedComponent, ComponentShutdown>(OnOcclusionShutdown);
-        SubscribeLocalEvent<ESViewconeOccludedComponent, AnchorStateChangedEvent>(OnOcclusionAnchorUpdate);
+        SubscribeLocalEvent<ESViewconeOccludableComponent, ComponentStartup>(OnOcclusionStart);
+        SubscribeLocalEvent<ESViewconeOccludableComponent, ComponentShutdown>(OnOcclusionShutdown);
+        SubscribeLocalEvent<ESViewconeOccludableComponent, AnchorStateChangedEvent>(OnOcclusionAnchorUpdate);
     }
 
-    private void OnOcclusionStart(Entity<ESViewconeOccludedComponent> entity, ref ComponentStartup args)
+    private void OnOcclusionStart(Entity<ESViewconeOccludableComponent> entity, ref ComponentStartup args)
     {
         if (!_entityManager.TryGetComponent<SpriteComponent>(entity, out var sprite))
             return;
         entity.Comp.BaseAlpha = sprite.Color.A;
     }
 
-    private void OnOcclusionShutdown(Entity<ESViewconeOccludedComponent> entity, ref ComponentShutdown args)
+    private void OnOcclusionShutdown(Entity<ESViewconeOccludableComponent> entity, ref ComponentShutdown args)
     {
         if (!_entityManager.TryGetComponent<SpriteComponent>(entity, out var sprite))
             return;
         sprite.Color = sprite.Color.WithAlpha(entity.Comp.BaseAlpha);
     }
 
-    private void OnOcclusionAnchorUpdate(Entity<ESViewconeOccludedComponent> entity, ref AnchorStateChangedEvent args)
+    private void OnOcclusionAnchorUpdate(Entity<ESViewconeOccludableComponent> entity, ref AnchorStateChangedEvent args)
     {
         if (!_entityManager.TryGetComponent<SpriteComponent>(entity, out var sprite))
             return;
@@ -78,7 +78,7 @@ public sealed class ESViewconeOccludedSystem : EntitySystem
         var radConeAngle = MathHelper.DegreesToRadians(cone.ConeAngle);
         var radConeFeather = MathHelper.DegreesToRadians(cone.ConeFeather);
 
-        var query = AllEntityQuery<ESViewconeOccludedComponent>();
+        var query = AllEntityQuery<ESViewconeOccludableComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (uid == playerEntity)

@@ -1,0 +1,10 @@
+# Base mob components that originate from ES.
+- type: entity
+  id: ESBaseMob
+  abstract: true
+  components:
+  - type: ESInherentLight
+  - type: ESViewcone
+  - type: ESViewconeOccludable
+  - type: MouseRotator
+  - type: NoRotateOnMove

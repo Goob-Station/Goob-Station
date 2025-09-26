@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._ES.Viewcone;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ESViewconeOccludedComponent : Component
+public sealed partial class ESViewconeOccludableComponent : Component
 {
     // TODO remove
     [DataField]

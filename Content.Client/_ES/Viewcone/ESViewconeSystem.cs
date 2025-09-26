@@ -56,7 +56,7 @@ public sealed class ESViewconeSystem : EntitySystem
 
     private void ResetOccludedAlpha()
     {
-        var query = AllEntityQuery<ESViewconeOccludedComponent>();
+        var query = AllEntityQuery<ESViewconeOccludableComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!_entityManager.TryGetComponent<SpriteComponent>(uid, out var sprite))
