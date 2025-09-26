@@ -8,10 +8,6 @@ namespace Content.Shared._ES.Viewcone;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ESViewconeOccludableComponent : Component, IComponentTreeEntry<ESViewconeOccludableComponent>
 {
-    // TODO remove
-    [DataField]
-    public float BaseAlpha = 1.0f;
-
     [DataField, AutoNetworkedField]
     public bool OccludeIfAnchored = false;
 
@@ -22,6 +18,14 @@ public sealed partial class ESViewconeOccludableComponent : Component, IComponen
     [DataField, AutoNetworkedField]
     public bool Inverted = false;
 
+    /// <summary>
+    ///     If this is a temporary entity (like an effect), then this is the originating player (or other source)
+    ///     of this occludable.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? Source = null;
+
+    // Clientside comptree stuff
     public EntityUid? TreeUid { get; set; }
     public DynamicTree<ComponentTreeEntry<ESViewconeOccludableComponent>>? Tree { get; set; }
     public bool AddToTree => true;

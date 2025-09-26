@@ -109,6 +109,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._ES.Viewcone;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -165,6 +166,9 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly StandingStateSystem _standing = default!; // Goobstation - kil mofs
     [Dependency] private   readonly CommonMomentumSteeringSystem _momentumSteering = default!; // Goobstation - momentum steering
     [Dependency] private   readonly CommonMomentumThrustSystem _momentumThrust = default!; // Goobstation - jetpack thrust falloff
+    // ES START
+    [Dependency] private   readonly ESViewconeEffectSystem _viewconeEffect = default!;
+    // ES END
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -186,6 +190,10 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<FixturesComponent> FixturesQuery; // Tile Movement Change
     protected EntityQuery<TileMovementComponent> TileMovementQuery; // Tile Movement Change
     protected EntityQuery<MomentumSteeringComponent> MomentumSteeringQuery; // Goobstation - momentum steering
+
+    // ES START
+    private static readonly EntProtoId ESFootstepViewconeEffect = "ESViewconeEffectFootstep";
+    // ES END
 
     private bool _relativeMovement;
     private float _minDamping;
@@ -526,6 +534,10 @@ public abstract partial class SharedMoverController : VirtualController
                 {
                     _audio.PlayPredicted(sound, uid, uid, audioParams);
                 }
+
+                // ES START
+                _viewconeEffect.SpawnEffect(uid, ESFootstepViewconeEffect, wishDir.ToWorldAngle());
+                // ES END
             }
         }
     }

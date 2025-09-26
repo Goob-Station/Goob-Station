@@ -61,9 +61,6 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
         if (_nextEye == null)
             return;
 
-        // TODO pretty sure this should take into account eye rotation, i forgot to check that shit
-        // maybe it doesnt cuz mouserotator
-
         var (ent, eye, cone) = _nextEye.Value;
 
         var eyeTransform = _ent.GetComponent<TransformComponent>(ent);
@@ -75,7 +72,7 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
 
         if (_ent.HasComponent<MouseRotatorComponent>(ent))
         {
-            // this.. -should- work for multiviewport? at least, about as well as people will expect
+            // this should work for multiviewport. at least, about as well as people will expect
             // this wont run for other eye entities that have viewcones
             // (if any even end up existing.. I probably made all this code viewport agnostic for no reason)
             // (but it'd be nice to have cameras that have viewcones. right. right)
@@ -100,10 +97,13 @@ public sealed class ESViewconeSetAlphaOverlay : Overlay
             if (!_ent.TryGetComponent<SpriteComponent>(uid, out var sprite))
                 continue;
 
-            var entPos = _xform.GetWorldPosition(xform);
-
-            if (comp.OccludeIfAnchored && xform.Anchored)
+            if (comp.Source == ent)
                 continue;
+
+            if (!comp.OccludeIfAnchored && xform.Anchored)
+                continue;
+
+            var entPos = _xform.GetWorldPosition(xform);
 
             var dist = entPos - eyePos;
             var distLength = dist.Length();

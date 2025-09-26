@@ -17,11 +17,20 @@
     drawdepth: Effects
     noRot: true
     color: '#FFFFFF00' # 0 alpha by default, will get overriden by setalpha overlay
+<<<<<<< HEAD
     loop: false
   - type: Transform
     anchored: true
   - type: TimedDespawn
     lifetime: 3.0
+=======
+    # what the fuck? removing looping didnt exist until literally a few hours ago?
+    # and now i have to version engine again?
+    # loop: false
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
 
 - type: entity
   id: ESViewconeEffectFootstep
@@ -29,6 +38,11 @@
   components:
   - type: Sprite
     state: footstep
+<<<<<<< HEAD
+=======
+  - type: TimedDespawn
+    lifetime: 1.4
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
 
 # TODO UNUSED
 - type: entity
@@ -37,6 +51,11 @@
   components:
   - type: Sprite
     state: attack
+<<<<<<< HEAD
+=======
+  - type: TimedDespawn
+    lifetime: 1.4
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
 
 # TODO UNUSED
 - type: entity
@@ -45,6 +64,11 @@
   components:
   - type: Sprite
     state: forcefield
+<<<<<<< HEAD
+=======
+  - type: TimedDespawn
+    lifetime: 0.6
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
 
 # TODO UNUSED
 - type: entity
@@ -53,6 +77,11 @@
   components:
   - type: Sprite
     state: gunfire
+<<<<<<< HEAD
+=======
+  - type: TimedDespawn
+    lifetime: 1.2
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
 
 # TODO UNUSED
 - type: entity
@@ -61,3 +90,8 @@
   components:
   - type: Sprite
     state: talk
+<<<<<<< HEAD
+=======
+  - type: TimedDespawn
+    lifetime: 1.4
+>>>>>>> e356feddcd (viewcone effect support + footsteps)
