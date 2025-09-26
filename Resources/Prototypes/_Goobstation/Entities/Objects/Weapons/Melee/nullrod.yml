@@ -339,6 +339,70 @@
     - AthiestsFedora
 
 - type: entity
+  name: Bulwark
+  parent: BaseNullrod
+  id: Bulwark
+  description: An absolutely enormous two handed shield, very difficult to use if not planted in place.
+  components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Stamina: 200
+    UntrainedUseString: nullrod-bulwark-untrained-usage-popup
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Slash: 5
+        Holy: 10
+    soundHit:
+      collection: MetalThud
+  - type: MeleeThrowOnHit
+    distance: 5
+    speed: 10
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 10
+  - type: Blocking
+    passiveBlockFraction: 0.15
+    activeBlockFraction: 1
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+  - type: Tag
+    tags:
+    - Bulwark
+  - type: DisarmMalus
+    malus: 1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Damageable
+    damageContainer: Shield
+  - type: MultiHandedItem
+
+- type: entity
   name: Honkmother's Maw
   parent: BaseNullrod
   id: HonkmotherMaw
