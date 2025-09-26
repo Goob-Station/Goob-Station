@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-#
+# SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -14,6 +14,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: floor_goblin
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
@@ -22,9 +23,10 @@
           radius: 0.2
         density: 100
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
+        # Regular mob collision, but we'll handle small mob behavior in code
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
