@@ -7,7 +7,10 @@
 // SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -25,10 +28,10 @@ namespace Content.Goobstation.Shared.Bloodtrak;
 public sealed partial class BloodtrakComponent : Component
 {
     /// <summary>
-    /// The duration the tracker will remain on, before shutting off automatically.
+    /// The maximum time the pinpointer will work from given puddle freshness.
     /// </summary>
     [DataField]
-    public TimeSpan TrackingDuration = TimeSpan.FromSeconds(30f);
+    public TimeSpan MaximumTrackingDuration = TimeSpan.FromSeconds(480f);
 
     /// <summary>
     /// The distance defined as being a medium distance away.
@@ -85,7 +88,7 @@ public sealed partial class BloodtrakComponent : Component
     /// How long until the next execution.
     /// </summary>
     [ViewVariables]
-    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30f);
+    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
 
     /// <summary>
     /// When active tracking ends
@@ -101,6 +104,18 @@ public sealed partial class BloodtrakComponent : Component
 
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
+
+    [DataField]
+    public TimeSpan Freshness;
+
+    [ViewVariables]
+    public EntityUid? LastScannedTarget = null;
+
+    [ViewVariables]
+    public List<(string, TimeSpan, EntityUid)> ResultList = new();
+
+    [ViewVariables]
+    public int ResultListOffset = 0;
 
 }
 

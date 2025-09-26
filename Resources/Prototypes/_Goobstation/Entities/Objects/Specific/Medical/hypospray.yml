@@ -24,7 +24,6 @@
   abstract: true
   components:
   - type: Item
-    size: Normal
     sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
@@ -133,7 +132,7 @@
   abstract: true
   components:
   - type: Item
-    size: Small
+    size: Tiny
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
     layers:
@@ -193,7 +192,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contains 4u of bicaridine, 4u of ibuprofen, 1 unit of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -208,18 +207,18 @@
       reagents:
       - ReagentId: Bicaridine
         Quantity: 4
-      - ReagentId: Bozaide
-        Quantity: 3
+      - ReagentId: Ibuprofen
+        Quantity: 4
       - ReagentId: SalicylicAcid
-        Quantity: 2
+        Quantity: 1
       - ReagentId: TranexamicAcid
         Quantity: 1 # Stops 30% of maximum bleeding
-  # Finely tuned mix, heals up to 98 total brute split between 3 types, equivalent of 3.23 brute packs
-
+  #If you have a full dmg spread, it'll heal ~60 dmg , down from previous 96
+  #It will heal 20 dmg if you only have one dmg type and you have more than 25 dmg (see salicylic acid)
 - type: entity
   name: burn autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of kelotane, 3u of dermaline, 2u of oxandrolone and 1u of sigynate, used in a cartridge autoinjector.
+  description: Contains 5u of kelotane, 4u of dermaline 1u of leporazine, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
@@ -233,15 +232,13 @@
       maxVol: 10
       reagents:
       - ReagentId: Kelotane
-        Quantity: 4
+        Quantity: 5
       - ReagentId: Dermaline
-        Quantity: 3
-      - ReagentId: Oxandrolone
-        Quantity: 2
-      - ReagentId: Sigynate
+        Quantity: 4
+      - ReagentId: Leporazine #will minorly help with temperature regulation
         Quantity: 1
-  # Finely tuned mix, heals up to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic, equivalent of 3.25 ointments
-
+#what were they cooking here before, 114 total possible dmg heal was crazyyy
+#~21 dmg healed/dmg type (unless its cold, then its a lil more), doesnt heal caustic all that well
 - type: entity
   name: emergency autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]

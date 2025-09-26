@@ -161,7 +161,7 @@
     - id: Heretic # goob edit
       prob: 0.2
     - id: Devil # Goob
-      prob: 0.1
+      prob: 0.02
 
 - type: entity
   parent: BaseGameRule

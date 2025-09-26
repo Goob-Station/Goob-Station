@@ -142,6 +142,9 @@
   id: CombatMech
 
 - type: Tag
+  id: CorporateOverride
+
+- type: Tag
   id: ContrabandDetectorCircuitboard
 
 - type: Tag
@@ -322,6 +325,9 @@
   id: ItemPickaxe
 
 - type: Tag
+  id: ImprovisedShotgun
+
+- type: Tag
   id: IndustrialMech
 
 - type: Tag
@@ -329,6 +335,9 @@
 
 - type: Tag
   id: Justice
+
+- type: Tag
+  id: Keyring
 
 - type: Tag
   id: Kidneys
@@ -500,6 +509,9 @@
   id: SnapPop
 
 - type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
+
+- type: Tag
   id: SoulTapped
 
 - type: Tag
@@ -572,16 +584,28 @@
   id: UristHand
 
 - type: Tag
+  id: Ushanka
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
   id: VulpEmotes
 
 - type: Tag
+  id: Vial
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
   id: WeaponDisabler
+
+- type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
 
 - type: Tag
   id: WeaponPistolDualetta
@@ -603,6 +627,9 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity
@@ -633,3 +660,6 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: DisposableBattery

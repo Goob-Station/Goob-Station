@@ -202,6 +202,14 @@
     implant: KravMagaImplant
 
 - type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: ClumsyImplanter
+  name: Clumsy Implanter
+  components:
+  - type: Implanter
+    implant: ClumsyImplant
+
+- type: entity
   id: BinaryImplanter
   name: binary decoder implanter
   parent: BaseImplantOnlyImplanterSyndi
@@ -280,3 +288,13 @@
   components:
   - type: Implanter
     implant: AntagImplantSpaceNinja
+
+# Xeno
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: XenoCompatibilityImplanter
+  name: xeno compatibility implanter
+  components:
+  - type: Implanter
+    implant: XenoCompatibilityImplant
