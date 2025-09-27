@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from /tg/station at https://github.com/tgstation/tgstation/pull/67217",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "head-icon"
+    },
+    {
+      "name": "jaw-icon"
+    },
+    {
+      "name": "visor-icon"
+    },
+    {
+      "name": "main-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "jaw-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "visor-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "torso-icon"
+    },
+    {
+      "name": "detail-icon"
+    },
+    {
+      "name": "main-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "detail-equipped-OUTERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

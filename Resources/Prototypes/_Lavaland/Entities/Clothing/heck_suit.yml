@@ -1,0 +1,558 @@
+## heck suit base
+
+- type: entity
+  abstract: true
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
+  id: LavalandEquipmentHeckSuitBase
+  suffix: Lava
+  name: H.E.C.K suit
+  description: The "Hostile Environment Cross-Kinetic Suit" - a suit designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      #color: "#4d4d4d"
+    - state: detail-icon
+      #color: "#808080"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        #color: "#4d4d4d"
+      - state: detail-equipped-OUTERCLOTHING
+        #color: "#808080"
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.45
+        Caustic: 0.45
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetBase
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: FireProtection
+    reduction: 0.4
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: LavalandEquipmentHeckHelmetBase
+  name: H.E.C.K helmet
+  description: The "Hostile Environment Cross-Kinetic Helmet" - a helmet designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      #color: "#4d4d4d"
+    - state: jaw-icon
+      #color: "#808080"
+    - state: visor-icon
+      #color: "#ff3300"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        #color: "#3f3f3f"
+      - state: jaw-equipped-HELMET
+        #color: "#808080"
+      - state: visor-equipped-HELMET
+        #color: "#ff3300"
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.65
+        Heat: 0.5
+        Caustic: 0.5
+  - type: FireProtection
+    reduction: 0.1
+
+## real heck suit
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitBase
+  id: LavalandEquipmentHeckSuit
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#4d4d4d"
+    - state: detail-icon
+      color: "#808080"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#4d4d4d"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#808080"
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.6
+        Heat: 0.3
+        Caustic: 0
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmet
+  - type: FireProtection
+    reduction: 0.9
+  - type: TemperatureProtection # nothing compares to the heat of hell.
+    heatingCoefficient: 0.001
+  ## add stuff like the corpse butchering ability and haunted text later (when bubblegum real or something)
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetBase
+  id: LavalandEquipmentHeckHelmet
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#4d4d4d"
+    - state: jaw-icon
+      color: "#808080"
+    - state: visor-icon
+      color: "#ff3300"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#3f3f3f"
+      - state: jaw-equipped-HELMET
+        color: "#808080"
+      - state: visor-equipped-HELMET
+        color: "#ff3300"
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.6
+        Heat: 0.3
+        Caustic: 0
+  - type: FireProtection
+    reduction: 0.1
+  - type: TemperatureProtection # nothing compares to the heat of hell.
+    heatingCoefficient: 0.001
+
+- type: entity
+  parent: LavalandEquipmentHeckSuit
+  id: LavalandEquipmentHeckSuitSlayer
+  description: Rip and tear.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#00b66f"
+    - state: detail-icon
+      color: "#5c5b5b"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#00b66f"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#757575"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetSlayer
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmet
+  id: LavalandEquipmentHeckHelmetSlayer
+  description: Until it is done.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#00b66f"
+    - state: jaw-icon
+      color: "#5c5b5b"
+    - state: visor-icon
+      color: "#004251"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#00b66f"
+      - state: jaw-equipped-HELMET
+        color: "#757575"
+      - state: visor-equipped-HELMET
+        color: "#002f44"
+
+## fake space temu heck suit
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitBase
+  id: LavalandEquipmentHeckSuitFake
+  name: H.E.C.K suit
+  description: The legendary "Hostile Environment Cross-Kinetic Suit" is now in your hands. Though, this weird small print reads "made in Space China"...
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#9a428e"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#9a428e"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFake
+  - type: PressureArmorChange
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetBase
+  id: LavalandEquipmentHeckHelmetFake
+  name: H.E.C.K helmet
+  description: The legendary "Hostile Environment Cross-Kinetic Helmet" is now in your hands. Though, this weird small print reads "made in Space China"...
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#9a428e"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#9a428e"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
+  - type: PressureArmorChange
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+## red
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitFake
+  id: LavalandEquipmentHeckSuitFakeRed
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#b60307"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#b60307"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFakeRed
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetFake
+  id: LavalandEquipmentHeckHelmetFakeRed
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#b60307"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#b60307"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
+
+## blue
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitFake
+  id: LavalandEquipmentHeckSuitFakeBlue
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#074f8b"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#074f8b"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFakeBlue
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetFake
+  id: LavalandEquipmentHeckHelmetFakeBlue
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#074f8b"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#074f8b"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
+
+## green
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitFake
+  id: LavalandEquipmentHeckSuitFakeGreen
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#00b66f"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#00b66f"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFakeGreen
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetFake
+  id: LavalandEquipmentHeckHelmetFakeGreen
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#00b66f"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#00b66f"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
+
+## brown
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitFake
+  id: LavalandEquipmentHeckSuitFakeBrown
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#423934"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#423934"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFakeBrown
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetFake
+  id: LavalandEquipmentHeckHelmetFakeBrown
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#423934"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#423934"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
+
+## grey
+
+- type: entity
+  parent: LavalandEquipmentHeckSuitFake
+  id: LavalandEquipmentHeckSuitFakeGrey
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: torso-icon
+      color: "#796755"
+    - state: detail-icon
+      color: "#5c5b5b"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: main-equipped-OUTERCLOTHING
+        color: "#796755"
+      - state: detail-equipped-OUTERCLOTHING
+        color: "#5c5b5b"
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentHeckHelmetFakeGrey
+
+- type: entity
+  parent: LavalandEquipmentHeckHelmetFake
+  id: LavalandEquipmentHeckHelmetFakeGrey
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    layers:
+    - state: head-icon
+      color: "#796755"
+    - state: jaw-icon
+      color: "#5c5b5b"
+    - state: visor-icon
+      color: "#328464"
+  - type: Clothing
+    sprite: _Lavaland/Equipment/heck_suit.rsi
+    clothingVisuals:
+      head:
+      - state: main-equipped-HELMET
+        color: "#796755"
+      - state: jaw-equipped-HELMET
+        color: "#5c5b5b"
+      - state: visor-equipped-HELMET
+        color: "#00b66f"
