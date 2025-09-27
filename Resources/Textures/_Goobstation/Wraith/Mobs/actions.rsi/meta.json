@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goobstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "cloak" },
+        { "name": "eatfilth" },
+        { "name": "hook" },
+        { "name": "lash" },
+        { "name": "pounce" },
+        { "name": "rally" },
+        { "name": "ratbite" },
+        { "name": "ratden" },
+        { "name": "ratrush" },
+        { "name": "shuffle" }
+    ]
+}

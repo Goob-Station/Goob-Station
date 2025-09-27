@@ -66,10 +66,10 @@
               path: /Audio/Effects/bone_rattle.ogg
 
 - type: entity
-  id: MobSkeletoncOMMANDER
+  id: MobSkeletonCommander
   parent: [ BaseMob, MobCombat ]
   name: skeleton commander
-  description: A hostile skeleton summoned by a wraith.
+  description: A bulky skeleton here to encourage his friends.
   components:
   - type: HTN
     rootTask:
@@ -83,8 +83,8 @@
     factions:
     - Wraith
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/skeletoncommander.rsi
@@ -93,12 +93,13 @@
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
-    animation: WeaponArcBite
+    animation: WeaponArcSlash
     soundHit:
-      path: /Audio/Effects/bone_rattle.ogg
+      collection: Flesh_Stab
     damage:
       types:
-        Blunt: 24
+        Blunt: 7
+        Slash: 9
   - type: MobState
   - type: Fixtures
     fixtures:
@@ -111,20 +112,23 @@
           - MobMask
         layer:
           - Opaque
-  - type: Damageable
+  - type: Damageable #Reduced blunt and heat damage according to code.
     damageContainer: Inorganic
-    damageModifierSet: Skeleton
+    damageModifierSet: SiliconProtected
   - type: NoSlip
   - type: Pullable
   - type: ZombieImmune
   - type: GhostTakeoverAvailable
+  - type: ActionGrant
+    actions:
+    - ActionRally
   - type: Speech
     speechVerb: Ghost
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 200
+          damage: 90
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -132,3 +136,16 @@
             sound:
               path: /Audio/Effects/bone_rattle.ogg
 
+- type: entity
+  id: MobSkeletonGoonWraith
+  suffix: Wraith
+  parent: MobSkeletonGoon
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobSkeletonCommanderWraith
+  suffix: Wraith
+  parent: MobSkeletonCommander
+  components:
+  - type: WraithMinion

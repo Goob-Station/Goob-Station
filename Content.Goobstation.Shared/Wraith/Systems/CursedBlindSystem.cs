@@ -25,7 +25,7 @@ public sealed partial class CursedBlindSystem : EntitySystem
 
         SubscribeLocalEvent<CursedBlindComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CursedBlindComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<CursedBlindComponent, GetStatusIconsEvent>(GetIcon);
+        //SubscribeLocalEvent<CursedBlindComponent, GetStatusIconsEvent>(GetIcon);
         SubscribeLocalEvent<CursedBlindComponent, ComponentGetStateAttemptEvent>(OnCursedBlindGetStateAttempt);
     }
 
