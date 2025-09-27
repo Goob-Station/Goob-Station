@@ -56,7 +56,7 @@
   - type: StorageFill
     contents:
     - id: LavalandCubeRed
-    - id: LavalandCubeblue
+    - id: LavalandCubeBlue
 
 - type: entity
   id: LavalandCrateNecropolisRodOfAsclepius
@@ -67,14 +67,14 @@
     contents:
     - id: LavalandStaffOfHealing
 
-#- type: entity
-#  id: LavalandCrateNecropolisHardsuitBerserker
-#  parent: LavalandCrateNecropolis
-#  suffix: Berserker Hardsuit
-#  components:
-#  - type: StorageFill
-#    contents:
-#    - id: LavalandHardsuitBerserker
+- type: entity
+  id: LavalandCrateNecropolisHardsuitBerserker
+  parent: LavalandCrateNecropolis
+  suffix: Berserker Hardsuit
+  components:
+  - type: StorageFill
+    contents:
+    - id: LavalandHardsuitBerserker
 
 - type: entity
   id: LavalandCrateNecropolisBookofBabel
@@ -111,3 +111,12 @@
   - type: StorageFill
     contents:
     - id: LavalandInvisibilityCloak
+
+- type: entity
+  id: LavalandCrateNecropolisTalismanImortality
+  parent: LavalandCrateNecropolis
+  suffix: Talisman Imortality
+  components:
+  - type: StorageFill
+    contents:
+    - id: LavalandAmuletImortalityTalisman

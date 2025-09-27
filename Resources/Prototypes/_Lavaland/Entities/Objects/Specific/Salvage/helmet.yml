@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHelmetHardsuitDreadnought
+  id: LavalandHardsuitBerserkerHelmet
+  name: Berserker Helmet
+  description: hat2
+  component:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_helmet.rsi
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_helmet.rsi

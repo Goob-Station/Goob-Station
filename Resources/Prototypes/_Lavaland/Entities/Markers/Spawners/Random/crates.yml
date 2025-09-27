@@ -33,7 +33,7 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-    - LavalandCrateNecropolisCultRobe
+    - LavalandCrateNecropolisCultArmor
     - LavalandCrateNecropolisHeart
     - LavalandCrateNecropolisVampirismCrystal
     - LavalandCrateNecropolisTeleporterCube
@@ -41,6 +41,7 @@
     - LavalandCrateNecropolisMinersChalic
     - LavalandCrateNecropolisInvisibilityCloak
     - LavalandCrateNecropolisMementoMori
-    - LavalandCrateNecropolisHardsuitBerserker # need sprite
-    - LavalandCrateNecropolisBookofBabel # error whit used sprite
+    - LavalandCrateNecropolisTalismanImortality
+    - LavalandCrateNecropolisHardsuitBerserker
+    - LavalandCrateNecropolisBookofBabel
     chance: 1
