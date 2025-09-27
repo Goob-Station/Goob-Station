@@ -72,6 +72,7 @@
       - MidImpassable
       - LowImpassable
   - type: PlasmaCostAction
+    plasmaCost: 50
 
 - type: entity
   id: ActionSpawnXenomorphEgg
@@ -110,12 +111,13 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: WallResin
-      length: 0.5
+      length: 2
       blockedCollisionMask:
       - FullTileMask
       blockedCollisionLayer:
       - WallLayer
   - type: PlasmaCostAction
+    plasmaCost: 50
 
 # TODO: delete it # Goobstation - removed
 #- type: entity
@@ -140,6 +142,30 @@
 #      - GlassLayer
 #  - type: PlasmaCostAction
 
+- type: entity # Goobstation - new action
+  id: ActionSpawnResinDoor
+  parent: BaseAction
+  name: Build a resin door (75)
+  description: Secrete tough malleable resin.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite :  _RMC14/Structures/Xenos/xeno_resin_door.rsi, state: resin }
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: ResinDoor
+      length: 2
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
+  - type: PlasmaCostAction
+    plasmaCost: 75
+    
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
@@ -156,13 +182,14 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
-      length: 0.5
+      length: 2
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:
       - TableLayer
       - BulletImpassable
   - type: PlasmaCostAction
+    plasmaCost: 50
 
 # Tail lash action
 - type: entity
@@ -189,10 +216,13 @@
   components:
   - type: Action
     useDelay: 11
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid }
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
   - type: TargetAction
     interactOnMiss: false
     range: 2
+    targetingIndicator: true
+    checkCanAccess: true
   - type: EntityTargetAction
     event: !type:AcidActionEvent
   - type: PlasmaCostAction

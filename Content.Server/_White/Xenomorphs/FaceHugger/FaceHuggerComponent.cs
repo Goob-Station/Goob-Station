@@ -49,7 +49,40 @@ public sealed partial class FaceHuggerComponent : Component
     public TimeSpan MinInfectTime = TimeSpan.FromSeconds(10);
 
     [DataField]
-    public TimeSpan MinRestTime = TimeSpan.FromSeconds(2); // Goobstation - 10 to 2. Facehuggers shouldn't take that long to recover.
+    public string SleepChem = "AlienSedative";
+
+    [DataField]
+    public float SleepChemAmount = 10f;
+
+    [DataField]
+    public TimeSpan InjectionInterval = TimeSpan.FromSeconds(5); // Goobstation - How often to inject chemicals
+
+    [DataField]
+    public TimeSpan InitialInjectionDelay = TimeSpan.FromSeconds(5); // Delay before the first injection
+
+    [ViewVariables]
+    public TimeSpan NextInjectionTime = TimeSpan.Zero; // Goobstation
+
+    [DataField]
+    public TimeSpan MinRestTime = TimeSpan.FromSeconds(3); // Must be less than MaxRestTime
+
+    [DataField]
+    public TimeSpan AttachAttemptDelay = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public DamageSpecifier MaskBlockDamage = new()
+    {
+        DamageDict = new()
+        {
+            ["Slash"] = 5
+        }
+    };
+
+    [DataField]
+    public SoundSpecifier MaskBlockSound = new SoundCollectionSpecifier("MetalThud");
+
+    [DataField]
+    public float MinChemicalThreshold = 0f; // Minimum amount of the chemical required to prevent additional injections
 
     [ViewVariables]
     public bool Active = true;
