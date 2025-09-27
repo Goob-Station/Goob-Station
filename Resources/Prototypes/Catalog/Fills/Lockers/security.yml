@@ -105,6 +105,7 @@
   table: !type:AllSelector
     children:
     - id: FlashlightSeclite
+    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ClothingBeltSecurityFilled
     - id: Flash
@@ -155,6 +156,7 @@
     children:
     - id: FlashlightSeclite
       prob: 0.8
+    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
@@ -196,21 +198,46 @@
         tableId: FillLockerBrigmedic
 
 - type: entityTable
-  id: FillLockerBrigmedic # heavily good edited
+  id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
+    - id: ClothingEyesGlassesSecurity
+    - id: WeaponTaser
+    - id: WeaponDisabler
+    - id: TrackingImplanter
+      amount: 2
+    # Goob start
     - id: BoxAutoinjectorCartidges
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingHandsGlovesLatex
-    - id: ClothingOuterHardsuitBrigmedic
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ClothingUniformJumpskirtOfLife
-      prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
     - id: BoxSyringe
-    - id: BoxBodyBag # Goob Station
+    - id: BoxBodyBag
+      # Goob end
+    - id: ClothingOuterHardsuitBrigmedic
+    - id: ClothingUniformJumpskirtOfLife
+      prob: 0.1
+
+    #- id: MedkitFilled # Goob
+    #- !type:GroupSelector
+    #  prob: 0.7
+    #  children:
+    #  - id: MedkitCombatFilled
+    #    weight: 1.6
+    #  - id: MedkitAdvancedFilled
+    #  - id: MedkitOxygenFilled
+    #    weight: 0.8
+    #  - id: MedkitBruteFilled
+    #    weight: 0.8
+    #  - id: MedkitToxinFilled
+    #    weight: 0.8
+    #  - id: MedkitBurnFilled
+    #    weight: 1.8
+    #- id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+    #  prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled
