@@ -19,9 +19,22 @@
           [
             0.1,
             0.1,
-            0.2
+            0.1
           ]
         ]
+      },
+      {
+          "name": "memento_mori"
+      },
+      {
+          "name": "imortality_talisman",
+          "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+          ]
       }
   ]
 }

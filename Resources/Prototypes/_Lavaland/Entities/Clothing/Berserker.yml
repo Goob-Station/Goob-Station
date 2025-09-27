@@ -1,0 +1,36 @@
+- type: entity
+  id: LavalandHardsuitBerserker
+  parent: ClothingOuterHardsuitBase
+  name: Berserker Hardsuit
+  description: the berserk dont care from who the blood flows
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: PreventGunUse
+    - type: ModifyMeleeDamage
+      modifier: 1.10 # 10% more melee damage
+    - type: BleedingIncreaseMeleeDamage # damage increase if bleededing
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandHardsuitBerserkerHelmet
+    # ADD ARMOR
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: LavalandHardsuitBerserkerHelmet
+  name: Berserker Helmet
+  description: has the mark of a god of war
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+    state: icon-HELMET
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  # ADD ARMOR
