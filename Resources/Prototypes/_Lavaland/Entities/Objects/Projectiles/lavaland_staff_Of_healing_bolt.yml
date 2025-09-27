@@ -11,12 +11,17 @@
     layers:
     - state: magicm_yellow
       shader: unshaded
+
   - type: Projectile
     damage:
       types:
-        Heat: -10
-        Brute: -10
-        Toxin: -10
+        Slash: -5
+        Piercing: -5
+        Blunt: -5
+
+        Cold: -5
+        Heat: -5
+
   - type: Reflective
     reflective: Magic
   - type: Ammo

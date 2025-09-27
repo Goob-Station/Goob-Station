@@ -19,12 +19,12 @@ public sealed class PreventGunUseSystem : EntitySystem
 
     private void OnGunUse(Entity<PreventGunUseComponent> ent,ref ShotAttemptedEvent arg)
     {
+        arg.Cancel();
+
         if (_timing.CurTime < ent.Comp.LastPopup + ent.Comp.PopupCooldown)
             return;
 
         _popup.PopupEntity("something prevents you from shooting",ent.Owner,ent.Owner);
         ent.Comp.LastPopup = _timing.CurTime;
-
-        arg.Cancel();
     }
 }

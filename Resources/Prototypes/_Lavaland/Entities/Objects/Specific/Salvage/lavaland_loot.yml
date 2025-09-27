@@ -76,7 +76,7 @@
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: imortality_talisman
-  - type: ImortalityTalisman
+  - type: ImortalityTalisman # was not able to fraction this
 
 - type: entity
   id: LavalandStaffOfHealing
@@ -84,8 +84,7 @@
   name: Rod of Asclepius
   description: Something about it seems to inspire in you the responsibility and duty to help others.
   components:
-  - type: Unremoveable # pick this up and you cant drop it
-    deleteOnDrop: false
+  - type: Undropable
   - type: HeldGrantComponent
     components:
     - type: Pacified # pick it up you become a pacifist
@@ -108,10 +107,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 30
+        maxVol: 20
         reagents:
         - ReagentId: MinersSalve
-          Quantity: 30
+          Quantity: 20
   - type: SolutionRegeneration
     solution: drink
     duration: 10
