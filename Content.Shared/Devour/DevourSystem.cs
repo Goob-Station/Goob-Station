@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems; // Goobstation
 using Content.Shared.Devour.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
@@ -23,6 +24,7 @@ public sealed class DevourSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // Goobstation
 
     public override void Initialize()
     {
