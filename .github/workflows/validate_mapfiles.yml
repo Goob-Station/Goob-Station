@@ -23,23 +23,31 @@ concurrency:
 
 jobs:
   yaml-schema-validation:
+    name: YAML map schema validator
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.10]
     steps:
-      - uses: actions/checkout@v4.2.2
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Setup Submodule
+
+      - name: Setup submodules
         run: git submodule update --init
+
       - name: Pull engine updates
         uses: space-wizards/submodule-dependency@v0.1.5
-      - uses: PaulRitter/yaml-schema-validator@v1
+
+      - name: Run YAML schema validator
+        uses: PaulRitter/yaml-schema-validator@v1
         with:
           schema: RobustToolbox/Schemas/mapfile.yml
           path_pattern: .*Resources/Maps/.*
           validators_path: RobustToolbox/Schemas/mapfile_validators.py
           validators_requirements: RobustToolbox/Schemas/mapfile_requirements.txt
+
