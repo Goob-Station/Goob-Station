@@ -9,8 +9,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
@@ -27,6 +27,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._White.Xenomorphs.FaceHugger;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Throwing;
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -59,6 +62,10 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
+        
+        // Throwing behavior
+        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowAttemptEvent>(OnThrowStarting);
+        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
     private void OnCollideEvent(EntityUid uid, FaceHuggerComponent component, StartCollideEvent args)
@@ -351,5 +358,39 @@ public sealed class FaceHuggerSystem : EntitySystem
 
         return false;
     }
+    #endregion
+
+    #region Throwing Behavior
+
+    private void OnThrowStarting(EntityUid uid, ThrowableFacehuggerComponent component, ThrowAttemptEvent args)
+    {
+        // Mark the facehugger as flying
+        component.IsFlying = true;
+    }
+
+    private void OnThrowDoHit(EntityUid uid, ThrowableFacehuggerComponent component, ref ThrowDoHitEvent args)
+    {
+        if (!component.IsFlying)
+            return;
+
+        component.IsFlying = false;
+
+        var target = args.Target;
+
+        // Check if we hit a valid target
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        // Try to attach to the target
+        if (TryComp<FaceHuggerComponent>(uid, out var faceHugger))
+        {
+            // Check if the target has a mask that would block the facehugger
+            if (CheckAndHandleMask(target, out _))
+                return;
+
+            TryEquipFaceHugger(uid, target, faceHugger);
+        }
+    }
+
     #endregion
 }
