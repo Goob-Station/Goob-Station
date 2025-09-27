@@ -7,4 +7,9 @@ namespace Content.Goobstation.Shared.Weapons;
 public sealed partial class PreventGunUseComponent : Component
 {
 
+    [DataField]
+    public TimeSpan LastPopup = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan PopupCooldown = TimeSpan.FromSeconds(3);
 }

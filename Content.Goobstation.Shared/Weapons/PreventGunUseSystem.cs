@@ -1,4 +1,6 @@
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Weapons;
 
@@ -7,6 +9,8 @@ namespace Content.Goobstation.Shared.Weapons;
 /// </summary>
 public sealed class PreventGunUseSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -15,6 +19,12 @@ public sealed class PreventGunUseSystem : EntitySystem
 
     private void OnGunUse(Entity<PreventGunUseComponent> ent,ref ShotAttemptedEvent arg)
     {
+        if (_timing.CurTime < ent.Comp.LastPopup + ent.Comp.PopupCooldown)
+            return;
+
+        _popup.PopupEntity("something prevents you from shooting",ent.Owner,ent.Owner);
+        ent.Comp.LastPopup = _timing.CurTime;
+
         arg.Cancel();
     }
 }
