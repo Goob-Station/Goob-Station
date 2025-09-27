@@ -9,9 +9,7 @@ using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
-using Content.Goobstation.Server.ServerCurrency;
 using Robust.Shared.ContentPack;
-using Robust.Shared.IoC;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Entry;
@@ -60,5 +58,6 @@ public sealed class EntryPoint : GameServer
         base.Dispose(disposing);
 
         _curr.Shutdown(); // Goobstation
+        _voiceManager.Shutdown(); // Goobstation
     }
 }
