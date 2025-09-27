@@ -12,17 +12,13 @@
     sprite: _Lavaland/Equipment/heck_suit.rsi
     layers:
     - state: torso-icon
-      #color: "#4d4d4d"
     - state: detail-icon
-      #color: "#808080"
   - type: Clothing
     sprite: _Lavaland/Equipment/heck_suit.rsi
     clothingVisuals:
       outerClothing:
       - state: main-equipped-OUTERCLOTHING
-        #color: "#4d4d4d"
       - state: detail-equipped-OUTERCLOTHING
-        #color: "#808080"
   - type: Armor
     coverage:
     - Chest
@@ -65,21 +61,15 @@
     sprite: _Lavaland/Equipment/heck_suit.rsi
     layers:
     - state: head-icon
-      #color: "#4d4d4d"
     - state: jaw-icon
-      #color: "#808080"
     - state: visor-icon
-      #color: "#ff3300"
   - type: Clothing
     sprite: _Lavaland/Equipment/heck_suit.rsi
     clothingVisuals:
       head:
       - state: main-equipped-HELMET
-        #color: "#3f3f3f"
       - state: jaw-equipped-HELMET
-        #color: "#808080"
       - state: visor-equipped-HELMET
-        #color: "#ff3300"
   - type: HideLayerClothing
     slots:
     - Hair
