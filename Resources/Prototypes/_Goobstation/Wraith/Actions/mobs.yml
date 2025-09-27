@@ -6,9 +6,42 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
-    useDelay: 60
+    # useDelay: 60
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: rally
   - type: InstantAction
     event: !type:RallyEvent
+
+- type: entity
+  id: ActionTentacleHook
+  name: Tentacle Hook
+  description: ERP action.
+  components:
+  - type: Action
+    # useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: rally
+  - type: TargetAction
+    range: 15
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:TentacleHookEvent
+
+- type: entity
+  id: ActionShuffle
+  name: Shuffle
+  description: Squish yourself down to cancel stuns, squeeze through doors and escape assailants.
+  components:
+  - type: Action
+    # useDelay: 50
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: rally
+  - type: InstantAction
+    event: !type:SpikerShuffleEvent
