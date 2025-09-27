@@ -195,7 +195,7 @@
   - NTRpersonal
   restockTime: 300
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600 # 10 mins
+  restockAfterPurchase: 900 # 15 mins
 
 - type: listing
   id: NTRExecutiveBSDCall
