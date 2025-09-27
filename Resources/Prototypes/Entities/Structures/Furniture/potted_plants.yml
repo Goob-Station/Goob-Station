@@ -148,7 +148,9 @@
         - HighImpassable
   - type: Sprite
     drawdepth: Overdoors
-    offset: "0.0,0.3"
+# ES START
+    #offset: "0.0,0.3"
+# ES END
     sprite: Structures/Furniture/potted_plants.rsi
     noRot: true
   - type: Speech
