@@ -195,5 +195,5 @@
   suffix: Temporary
   components:
   - type: FadingTimedDespawn
-    lifetime: 12
+    lifetime: 60
     fadeOutTime: 3
