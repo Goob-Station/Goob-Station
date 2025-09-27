@@ -36,6 +36,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -193,26 +194,65 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsBlacklistPass(component.Blacklist, target))
             return false;
 
-        // Set the rest time and deactivate
-        var restTime = _random.Next(component.MinRestTime, component.MaxRestTime);
-        component.RestIn = _timing.CurTime + restTime;
-        component.Active = false;
-        Log.Debug($"[FaceHugger] Facehugger deactivated. Will reactivate in {restTime.TotalSeconds:0.##} seconds");
-
         // Check for any blocking masks or equipment
         if (CheckAndHandleMask(target, out var blocker))
         {
+            // If blocked by a breathable mask, deal damage and schedule a retry
+            if (blocker.HasValue && TryComp<BreathToolComponent>(blocker, out _))
+            {
+                // Deal damage to the target
+                _damageable.TryChangeDamage(target, component.MaskBlockDamage);
+
+                // Play the mask block sound
+                _audio.PlayPvs(component.MaskBlockSound, uid);
+
+                // Show popup messages
+                _popup.PopupEntity(
+                    Loc.GetString("xenomorphs-face-hugger-mask-blocked",
+                        ("mask", blocker.Value)),
+                    target, target);
+
+                _popup.PopupEntity(
+                    Loc.GetString("xenomorphs-face-hugger-mask-blocked-other",
+                        ("facehugger", uid),
+                        ("target", target),
+                        ("mask", blocker.Value)),
+                    target, Filter.PvsExcept(target), true);
+
+                // Schedule a retry after the delay
+                component.RestIn = _timing.CurTime + component.AttachAttemptDelay;
+                component.Active = false;
+
+                // Drop the facehugger near you
+                _transform.SetCoordinates(uid, Transform(target).Coordinates.Offset(_random.NextVector2(0.5f)));
+
+                return false;
+            }
+
+            // Original behavior for other blockers
             _audio.PlayPvs(component.SoundOnImpact, uid);
             _damageable.TryChangeDamage(uid, component.DamageOnImpact);
-            _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip", ("equipment", uid), ("equipmentBlocker", blocker!.Value)), uid);
-            _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip-other",
-                ("equipment", uid),
-                ("equipmentBlocker", blocker.Value),
-                ("target", Identity.Entity(target, EntityManager))),
+            _popup.PopupEntity(
+                Loc.GetString("xenomorphs-face-hugger-try-equip",
+                    ("equipment", uid),
+                    ("equipmentBlocker", blocker!.Value)),
+                uid);
+
+            _popup.PopupEntity(
+                Loc.GetString("xenomorphs-face-hugger-try-equip-other",
+                    ("equipment", uid),
+                    ("equipmentBlocker", blocker.Value),
+                    ("target", Identity.Entity(target, EntityManager))),
                 uid, Filter.PvsExcept(target), true);
 
             return false;
         }
+
+        // If we get here, no blockers were found, so proceed with equipping
+        // Set the rest time and deactivate
+        var restTime = _random.Next(component.MinRestTime, component.MaxRestTime);
+        component.RestIn = _timing.CurTime + restTime;
+        component.Active = false;
 
         return _inventory.TryEquip(target, uid, component.Slot, true, true);
     }
@@ -227,10 +267,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (!TryComp<ClothingComponent>(uid, out var clothingComp) || clothingComp.InSlot == null)
         {
             if (!component.Active)
-            {
-                Log.Debug("[FaceHugger] Cannot inject - Facehugger is not active and not equipped");
                 return false;
-            }
             return true;
         }
 
@@ -240,11 +277,8 @@ public sealed class FaceHuggerSystem : EntitySystem
             chemSolution.TryGetReagentQuantity(new ReagentId(component.SleepChem, null), out var quantity) &&
             quantity > FixedPoint2.New(component.MinChemicalThreshold))
         {
-            Log.Debug($"[FaceHugger] {ToPrettyString(target)} already has {quantity}u of {component.SleepChem}");
             return false;
         }
-
-        Log.Debug($"[FaceHugger] Facehugger is equipped in slot {clothingComp.InSlot}, allowing injection");
         return true;
     }
 
@@ -255,7 +289,6 @@ public sealed class FaceHuggerSystem : EntitySystem
     {
         var solution = new Solution();
         solution.AddReagent(component.SleepChem, amount);
-        Log.Debug($"[FaceHugger] Created sleep chemical solution: {solution} with {amount}u of {component.SleepChem}");
         return solution;
     }
 
@@ -284,18 +317,10 @@ public sealed class FaceHuggerSystem : EntitySystem
     public void InjectChemicals(EntityUid uid, FaceHuggerComponent component, EntityUid target)
     {
         if (!CanInject(uid, component, target))
-        {
-            Log.Debug($"[FaceHugger] Injection failed for {ToPrettyString(target)}");
             return;
-        }
-
-        Log.Debug($"[FaceHugger] Attempting to inject {component.SleepChemAmount}u of {component.SleepChem} into {ToPrettyString(target)}");
 
         var sleepChem = CreateSleepChemicalSolution(component, component.SleepChemAmount);
-        if (!TryInjectIntoBloodstream(target, sleepChem, component.SleepChem, component.SleepChemAmount))
-        {
-            Log.Warning($"[FaceHugger] Failed to inject {component.SleepChem} into {ToPrettyString(target)}");
-        }
+        TryInjectIntoBloodstream(target, sleepChem, component.SleepChem, component.SleepChemAmount);
     }
     #endregion
 
