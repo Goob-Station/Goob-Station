@@ -139,6 +139,14 @@
     - Shadowkin
 
 - type: loadoutEffectGroup
+  id: HarnessWearers
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Vox
+    - Plasmaman
+
+- type: loadoutEffectGroup
   id: EffectSpeciesVox
   effects:
   - !type:SpeciesLoadoutEffect
@@ -366,7 +374,7 @@
   id: LoadoutTankHarness
   effects:
   - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
+    proto: HarnessWearers
   equipment:
     outerClothing: ClothingOuterVestTank
 
