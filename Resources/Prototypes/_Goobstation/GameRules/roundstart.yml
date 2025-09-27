@@ -284,7 +284,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 10
+    weight: 1
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
@@ -403,3 +403,88 @@
   - type: Tag
     tags:
     - RoundstartAntag
+
+- type: entity
+  parent: DuoAbductorSpawn
+  id: DuoAbductorRoundstart
+  components:
+  - type: StationEvent
+    earliestStart: 0 # its roundstart chud
+  # I LOVE GOIDA COPY PASTING THE ENTIRE THING
+  # this just has ghost roles removed, pref roles added and players are picked roundstart
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - spawnerPrototype: AbductorScientistSpawner
+      prefRoles: [ AbductorScientistAntag ]
+      fallbackRoles: [ AbductorAgentAntag ]
+      min: 1
+      max: 1
+      pickPlayer: true
+      unequipOldGear: true
+      startingGear: AbductorScientistGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
+        nameFormat: name-format-standard
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      mindRoles:
+      - MindRoleAbductorScientist
+    - spawnerPrototype: AbductorAgentSpawner
+      prefRoles: [ AbductorAgentAntag ]
+      fallbackRoles: [ AbductorScientistAntag ]
+      min: 1
+      max: 1
+      pickPlayer: true
+      unequipOldGear: true
+      startingGear: AbductorAgentGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorAgentPrefix
+          - AbductorNames
+        nameFormat: name-format-standard
+      - type: Tag
+        tags:
+          - Abductor
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: AbductorScientist # Should be removed when we have proper teleportation system
+      mindRoles:
+      - MindRoleAbductorAgent

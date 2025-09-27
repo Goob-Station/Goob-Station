@@ -251,7 +251,7 @@
   parent: BasicCyberneticLungs
   id: UpgradedCyberneticLungs
   name: upgraded cybernetic lungs
-  description: A self-contained respiratory system that eliminates the need to breathe entirely and grants full immunity to atmospheric pressure extremes.
+  description: A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.
   components:
   - type: Sprite
     layers:

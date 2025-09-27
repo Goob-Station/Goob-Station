@@ -170,8 +170,9 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation V
+    missChance: 0.4
     spreadMultiplier: 2
-  # Goobstation edit start
+    spreadAddition: 40
   - type: EmitSoundOnPickup
     sound:
       collection: PistolsPickUp

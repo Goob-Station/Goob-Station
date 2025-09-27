@@ -7,35 +7,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("runeCarving")]
-public sealed partial class RuneCarvingPrototype : IPrototype, ICloneable
+public sealed partial class RuneCarvingPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; }
+    public string ID { get; private set; } = default!;
 
     [DataField(required: true)]
-    public SpriteSpecifier Icon;
+    public SpriteSpecifier Icon = default!;
 
     [DataField(required: true)]
-    public string Desc;
+    public string Desc = default!;
 
     [DataField(required: true)]
     public EntProtoId ProtoId;
-
-    public object Clone()
-    {
-        return new RuneCarvingPrototype
-        {
-            ID = ID,
-            Icon = Icon,
-            Desc = Desc,
-            ProtoId = ProtoId,
-        };
-    }
 }

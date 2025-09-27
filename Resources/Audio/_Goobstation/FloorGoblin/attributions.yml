@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["duende-01.ogg", "duende-02.ogg", "duende-03.ogg", "duende-04.ogg", "duende-05.ogg", "duende-06.ogg", "duende-07.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by Vargskelethor"
+  source: "https://www.twitch.tv/vargskelethor/"
+
+- files: ["laugh.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sound by Dusty_Plant and Evaisa"
+  source: "https://knowyourmeme.com/memes/source-i-made-it-up"

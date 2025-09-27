@@ -1,0 +1,102 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: floor goblin
+  id: MobFloorGoblin
+  parent: SimpleSpaceMobBase
+  description: Lives under the floor boards, steals shoes, bites ankles.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Mobs/FloorGoblin/floor_goblin.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: floor_goblin
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-floor-goblin-name
+    description: ghost-role-information-floor-goblin-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: FloorGoblin
+    speechSounds: Duende
+    allowedEmotes: [Laugh]
+  - type: Vocal
+    sounds:
+      Unsexed: Duende
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks:
+    - FloorGoblin
+    understands:
+    - FloorGoblin
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+    bloodMaxVolume: 40
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: Butcherable
+    spawned: []
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: VentCrawler
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
+  - type: CrawlUnderFloor
+    actionProto: ActionToggleFloorBoardsMode
+  - type: StealShoes
+    actionProto: ActionStealShoes
+  - type: MobPrice
+    price: 100
+  - type: DodgeWideswing
+    staminaRatio: 2
+  - type: Stamina
+    critThreshold: 20
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Puller
+    needsHands: false
+  - type: Stealth # Hijacking this to prevent huds from showing, tell me if you got a better solution.

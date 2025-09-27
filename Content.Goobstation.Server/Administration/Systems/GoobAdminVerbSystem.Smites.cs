@@ -1,11 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
-using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Administration;
@@ -39,24 +37,6 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-smite-thunderstrike-desc"),
         };
         args.Verbs.Add(thunder);
-
-        var spidertext = Loc.GetString("misandrybox-admin-smite-spider");
-        Verb spider = new()
-        {
-            Text = spidertext,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
-            Act = () =>
-            {
-                if (!EntityManager.TryGetComponent<ActorComponent>(args.Target, out var actor))
-                    return;
-
-                var spider = IoCManager.Resolve<ISpiderManager>();
-                spider.AddTemporarySpider(actor.PlayerSession);
-            },
-            Message = Loc.GetString("misandrybox-admin-smite-spider-desc")
-        };
-        args.Verbs.Add(spider);
     }
 
     private bool SmitesAllowed(GetVerbsEvent<Verb> args)

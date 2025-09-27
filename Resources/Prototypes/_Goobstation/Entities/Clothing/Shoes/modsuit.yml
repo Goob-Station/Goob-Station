@@ -36,7 +36,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard hardsuit boots
+  name: standard modsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -66,7 +66,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: soldat hardsuit boots
+  name: soldat modsuit boots
   description: THE IRON BOOTS OF THE LAW.
   categories: [ HideSpawnMenu ]
   components:
@@ -112,7 +112,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark hardsuit boots
+  name: bulwark modsuit boots
   description: I call these my commie stompers.
   categories: [ HideSpawnMenu ]
   components:
@@ -158,7 +158,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater hardsuit boots
+  name: sanitater modsuit boots
   description: Made to get bloody.
   categories: [ HideSpawnMenu ]
   components:
@@ -188,7 +188,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper hardsuit boots
+  name: sapper modsuit boots
   description: Made to get oily.
   categories: [ HideSpawnMenu ]
   components:
@@ -229,7 +229,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus hardsuit boots
+  name: aeolus modsuit boots
   description: Made to get burnt.
   categories: [ HideSpawnMenu ]
   components:
@@ -261,8 +261,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva hardsuit boots
-  description: Wont stop you slipping on your own blood when the holocarp gets to you.
+  name: minerva modsuit boots
+  description: Won't stop you slipping on your own blood when the holocarp gets to you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -291,7 +291,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate hardsuit boots
+  name: magnate modsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
   categories: [ HideSpawnMenu ]
   components:
