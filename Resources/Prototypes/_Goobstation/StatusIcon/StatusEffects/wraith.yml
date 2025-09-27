@@ -1,0 +1,37 @@
+#- type: DiseaseIcon
+#  id: DiseaseIcon
+#  abstract: true
+#  priority: 5
+#  isShaded: true
+
+#- type: DiseaseIcon
+#  parent: DiseaseIcon
+#  id: BlindCurseIcon
+#  locationPreference: Right
+#  icon:
+#    sprite: _Goobstation/Wraith/UI/status.rsi
+#    state: blind_status
+
+#- type: DiseaseIcon
+#  parent: DiseaseIcon
+#  id: WeakCurseIcon
+#  locationPreference: Right
+#  icon:
+#    sprite: _Goobstation/Wraith/UI/status.rsi
+#    state: weak_status
+
+#- type: DiseaseIcon
+#  parent: DiseaseIcon
+#  id: BloodCurseIcon
+#  locationPreference: Right
+#  icon:
+#    sprite: _Goobstation/Wraith/UI/status.rsi
+#    state: blood_status
+
+#- type: DiseaseIcon
+#  parent: DiseaseIcon
+#  id: RotCurseIcon
+#  locationPreference: Right
+#  icon:
+#    sprite: _Goobstation/Wraith/UI/status.rsi
+#    state: rot_status
