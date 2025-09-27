@@ -12,6 +12,8 @@ using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -29,25 +31,49 @@ public sealed partial class RalliedSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RalliedComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RalliedComponent, GetUserMeleeDamageEvent>(OnGetMeleeDamage);
     }
 
     public override void Update(float frameTime)
     {
         var curTime = _timing.CurTime;
 
-        //TO DO: Buff attack and attack speed of mob so long as they have this component.
-
         var query = EntityQueryEnumerator<RalliedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Not time yet
-            if (curTime < comp.NextTick)
-                continue;
+            // Initialize NextTick if needed
+            if (comp.NextTick == default)
+            {
+                comp.NextTick = curTime + comp.RalliedDuration;
+                Dirty(uid, comp);
+            }
 
-            //TO DO: Revert mob values back to original values.
-            _popup.PopupPredicted("The rally effect wears off.", uid, uid);
-            RemComp<RalliedComponent>(uid);
+            foreach (var melee in EntityManager.GetComponents<MeleeWeaponComponent>(uid))
+            {
+                melee.NextAttack /= comp.RalliedAttackSpeed; // Increase attack speed
+            }
+
+            // Check if the effect has expired
+            if (curTime >= comp.NextTick)
+            {
+                _popup.PopupClient("The rally effect wears off.", uid, uid, PopupType.MediumCaution);
+
+                //Restores original attack speed
+                foreach (var melee in EntityManager.GetComponents<MeleeWeaponComponent>(uid))
+                {
+                    melee.NextAttack *= comp.RalliedAttackSpeed;
+                }
+
+                RemComp<RalliedComponent>(uid);
+            }
         }
+    }
+
+    // Modify melee damage on landing the hit, supposedly.
+    private void OnGetMeleeDamage(Entity<RalliedComponent> ent, ref GetUserMeleeDamageEvent args)
+    {
+        var comp = ent.Comp;
+        args.Damage *= comp.RalliedStrength;
     }
 
     private void OnMapInit(Entity<RalliedComponent> ent, ref MapInitEvent args)

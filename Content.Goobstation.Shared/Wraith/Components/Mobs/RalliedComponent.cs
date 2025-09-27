@@ -22,14 +22,4 @@ public sealed partial class RalliedComponent : Component
     /// Attack speed multiplier to rallied mob.
     /// </summary>
     public float RalliedAttackSpeed = 1.5f;
-
-    /// <summary>
-    /// Original strength of the mob that got buffed.
-    /// </summary>
-    public float OriginalStrengthf;
-
-    /// <summary>
-    /// Original attack speed of the mob that got buffed.
-    /// </summary>
-    public float OriginalAttackSpeed;
 }
