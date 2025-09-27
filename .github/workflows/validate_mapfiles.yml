@@ -32,6 +32,10 @@ jobs:
       run: git submodule update --init
     - name: Pull engine updates
       uses: space-wizards/submodule-dependency@v0.1.5
+    - name: Patch PyYAML for CSafeLoader
+      run: |
+        echo "import yaml; yaml.CSafeLoader = getattr(yaml, 'CSafeLoader', yaml.SafeLoader)" > /tmp/patch_yaml.py
+        python3 /tmp/patch_yaml.py
     - uses: PaulRitter/yaml-schema-validator@v1
       with:
         schema: RobustToolbox/Schemas/mapfile.yml
