@@ -29,15 +29,6 @@
   - chat-speech-verb-horse-2
 
 - type: speechSounds
-  id: Chrono
-  saySound:
-    path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
-  askSound:
-    path: /Audio/_Goobstation/Voice/Chrono/dagger.ogg
-  exclaimSound:
-    path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
-
-- type: speechSounds
   id: Lathe
   saySound:
     path: /Audio/Machines/beep.ogg
