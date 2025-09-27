@@ -56,7 +56,7 @@ public sealed class UndropableSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.LastPopup + ent.Comp.PopupCooldown)
             return;
 
-        _popup.PopupEntity("cant drop this items", user,user);
+        _popup.PopupPredicted(Loc.GetString("_goobstation-interaction-misc-drop-prevented"), user,user);
         ent.Comp.LastPopup = _timing.CurTime;
     }
 }

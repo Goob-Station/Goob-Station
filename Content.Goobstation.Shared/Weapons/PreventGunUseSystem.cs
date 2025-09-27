@@ -24,7 +24,7 @@ public sealed class PreventGunUseSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.LastPopup + ent.Comp.PopupCooldown)
             return;
 
-        _popup.PopupEntity("something prevents you from shooting",ent.Owner,ent.Owner);
+        _popup.PopupEntity(Loc.GetString("_goobstation-interaction-misc-gun-use-prevented"),ent.Owner,ent.Owner);
         ent.Comp.LastPopup = _timing.CurTime;
     }
 }

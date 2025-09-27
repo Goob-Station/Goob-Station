@@ -86,7 +86,7 @@ public sealed class ImortalityTalismanSystem : EntitySystem
 
         if (_timing.CurTime < talisman.Cooldown)
         {
-            _popup.PopupPredicted("Talisman is recharging",arg.Performer,arg.Performer);
+            _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-recharging"),arg.Performer,arg.Performer);
             return;
         }
 
@@ -106,7 +106,7 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         ent.Comp.Cooldown = _timing.CurTime + ent.Comp.CooldownDuration;
 
         _speedModifier.RefreshMovementSpeedModifiers(wearer);
-        _popup.PopupPredicted("you feel fantastic",wearer,wearer);
+        _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-activated"),wearer,wearer);
     }
 
     private void EndImortality(Entity<ImortalityTalismanComponent> ent)
@@ -119,7 +119,7 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         ent.Comp.Active = false;
 
         _speedModifier.RefreshMovementSpeedModifiers(wearer);
-        _popup.PopupPredicted("you no Longer feel imortal",wearer,wearer);
+        _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-ended"),wearer,wearer);
     }
 
     private void OnModifierRefresh(Entity<ImortalityTalismanComponent> ent, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
