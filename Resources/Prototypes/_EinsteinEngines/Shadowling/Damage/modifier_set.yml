@@ -22,6 +22,7 @@
     Cold: 0.0
     Cellular: 0.0
     Caustic: 0.0
+    Asphyxiation: 0.0
   ignoreArmorPierceFlags: All
 
 - type: damageModifierSet

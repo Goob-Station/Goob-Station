@@ -168,7 +168,6 @@
   - WeaponPistolCHIMP
   - AnomalySynchronizerCircuitboard
   - AnomalyVesselExperimentalCircuitboard
-  - AntiMindControlDevice
   technologyPrerequisites:
   - BasicAnomalousResearch
   position: -3,0
