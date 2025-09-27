@@ -885,9 +885,7 @@
         - ReagentId: Iron
           Quantity: 33
         - ReagentId: Carbon
-          Quantity: 5
-        - ReagentId: Plasma
-          Quantity: 2
+          Quantity: 7
   # </Goobstation>
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
