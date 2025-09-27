@@ -1,6 +1,7 @@
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
@@ -198,37 +199,22 @@ public sealed class FaceHuggerSystem : EntitySystem
         component.Active = false;
         Log.Debug($"[FaceHugger] Facehugger deactivated. Will reactivate in {restTime.TotalSeconds:0.##} seconds");
 
-        EntityUid? blocker = null;
+        // Check for any blocking masks or equipment
+        if (CheckAndHandleMask(target, out var blocker))
+        {
+            _audio.PlayPvs(component.SoundOnImpact, uid);
+            _damageable.TryChangeDamage(uid, component.DamageOnImpact);
+            _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip", ("equipment", uid), ("equipmentBlocker", blocker!.Value)), uid);
+            _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip-other",
+                ("equipment", uid),
+                ("equipmentBlocker", blocker.Value),
+                ("target", Identity.Entity(target, EntityManager))),
+                uid, Filter.PvsExcept(target), true);
 
-        if (_inventory.TryGetSlotEntity(target, "head", out var headUid)
-            && TryComp<IngestionBlockerComponent>(headUid, out var headBlocker)
-            && headBlocker.Enabled)
-        {
-            blocker = headUid;
-        }
-        else if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
-        {
-            if (TryComp<IngestionBlockerComponent>(maskUid, out var maskBlocker) && maskBlocker.Enabled)
-            {
-                blocker = maskUid;
-            }
-            else
-            {
-                _inventory.TryUnequip(target, component.Slot, true);
-            }
+            return false;
         }
 
-        if (!blocker.HasValue)
-            return _inventory.TryEquip(target, uid, component.Slot, true, true);
-
-        _audio.PlayPvs(component.SoundOnImpact, uid);
-
-        _damageable.TryChangeDamage(uid, component.DamageOnImpact);
-
-        _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip", ("equipment", uid), ("equipmentBlocker", blocker.Value)), uid);
-        _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip-other", ("equipment", uid), ("equipmentBlocker", blocker.Value), ("target", Identity.Entity(target, EntityManager))), uid, Filter.PvsExcept(target), true);
-
-        return false;
+        return _inventory.TryEquip(target, uid, component.Slot, true, true);
     }
 
     #region Injection Code
@@ -310,6 +296,35 @@ public sealed class FaceHuggerSystem : EntitySystem
         {
             Log.Warning($"[FaceHugger] Failed to inject {component.SleepChem} into {ToPrettyString(target)}");
         }
+    }
+    #endregion
+
+    #region Handle Face Masks
+    /// <summary>
+    /// Checks if the target has a breathable mask or any other blocking equipment.
+    /// Returns true if there's a blocker, false otherwise.
+    /// </summary>
+    private bool CheckAndHandleMask(EntityUid target, out EntityUid? blocker)
+    {
+        blocker = null;
+
+        // Check for breathable mask
+        if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
+        {
+            // If the mask is a breath tool (gas mask) and is functional, block the facehugger
+            if (TryComp<BreathToolComponent>(maskUid, out var breathTool) && breathTool.IsFunctional)
+            {
+                blocker = maskUid;
+                return true;
+            }
+            // If it's just a regular mask, remove it
+            else
+            {
+                _inventory.TryUnequip(target, "mask", true);
+            }
+        }
+
+        return false;
     }
     #endregion
 }
