@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Interaction;
 
 /// <summary>
-/// This handles...
+/// This handles items that cant be dropped
 /// </summary>
 public sealed class UndropableSystem : EntitySystem
 {

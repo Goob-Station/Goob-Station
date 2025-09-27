@@ -3,7 +3,7 @@ using Content.Shared.Damage;
 namespace Content.Goobstation.Server.Damage;
 
 /// <summary>
-/// This handles...
+/// This stops damage over a set number
 /// </summary>
 public sealed class PreventDamageSystem : EntitySystem
 {

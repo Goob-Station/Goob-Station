@@ -1,7 +1,7 @@
 namespace Content.Goobstation.Shared.Damage;
 
 /// <summary>
-/// This is used for...
+/// This is used for increasing melee damage depending on bleed amount
 /// </summary>
 [RegisterComponent]
 public sealed partial class BleedingIncreaseMeleeDamageComponent : Component

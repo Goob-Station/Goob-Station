@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
 /// <summary>
-/// This handles...
+/// Thisis used for the immortality talisman item
 /// </summary>
 public sealed class ImortalityTalismanSystem : EntitySystem
 {

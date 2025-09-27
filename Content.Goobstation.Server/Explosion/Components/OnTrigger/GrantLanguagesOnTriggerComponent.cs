@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Explosion.Components.OnTrigger;
 
 /// <summary>
-/// This is used for...
+/// This is used for granting languages on a trigger
 /// </summary>
 [RegisterComponent]
 public sealed partial class GrantLanguagesOnTriggerComponent : Component
