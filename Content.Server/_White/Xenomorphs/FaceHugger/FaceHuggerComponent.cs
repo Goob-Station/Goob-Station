@@ -57,6 +57,9 @@ public sealed partial class FaceHuggerComponent : Component
     [DataField]
     public TimeSpan InjectionInterval = TimeSpan.FromSeconds(5); // Goobstation - How often to inject chemicals
 
+    [DataField]
+    public TimeSpan InitialInjectionDelay = TimeSpan.FromSeconds(5); // Delay before the first injection
+
     [ViewVariables]
     public TimeSpan NextInjectionTime = TimeSpan.Zero; // Goobstation
 

@@ -66,6 +66,7 @@
     sleepChem: Nocturine # ID of the Chemical we want to inject
     sleepChemAmount: 10 # Amount in units (Often no need to use more than 10u for most chems)
     minChemicalThreshold: 8 # Minimum amount of the chemical required to prevent additional injections
+    initialInjectionDelay: 5 # Delay in seconds before the first injection occurs
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0.0

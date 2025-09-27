@@ -132,7 +132,8 @@ public sealed class FaceHuggerSystem : EntitySystem
                 // Initialize NextInjectionTime if it's zero
                 if (faceHugger.NextInjectionTime == TimeSpan.Zero)
                 {
-                    faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
+                    faceHugger.NextInjectionTime = time + faceHugger.InitialInjectionDelay;
+                    Log.Debug($"[FaceHugger] First injection scheduled for {faceHugger.NextInjectionTime} (initial delay: {faceHugger.InitialInjectionDelay.TotalSeconds}s)");
                     continue;
                 }
 
@@ -141,7 +142,7 @@ public sealed class FaceHuggerSystem : EntitySystem
                     // Get the entity that has this item equipped
                     if (_container.TryGetContainingContainer(uid, out var container) && container.Owner != uid)
                     {
-                        Log.Debug($"[FaceHugger] Time for next injection at {time}");
+                        Log.Debug($"[FaceHugger] Time for injection at {time}");
                         InjectChemicals(uid, faceHugger, container.Owner);
                         // Set the next injection time based on the current time plus interval
                         faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
