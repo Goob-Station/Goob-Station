@@ -63,6 +63,8 @@
     damageOnInfect:
       groups:
         Genetic: 100
+    sleepChem: AlienSedative
+    sleepChemAmount: 10
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0.0

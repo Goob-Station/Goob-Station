@@ -49,6 +49,18 @@ public sealed partial class FaceHuggerComponent : Component
     public TimeSpan MinInfectTime = TimeSpan.FromSeconds(10);
 
     [DataField]
+    public string SleepChem = "AlienSedative";
+
+    [DataField]
+    public float SleepChemAmount = 10f;
+
+    [DataField]
+    public TimeSpan InjectionInterval = TimeSpan.FromSeconds(5); // Goobstation - How often to inject chemicals
+
+    [ViewVariables]
+    public TimeSpan NextInjectionTime = TimeSpan.Zero; // Goobstation
+
+    [DataField]
     public TimeSpan MinRestTime = TimeSpan.FromSeconds(2); // Goobstation - 10 to 2. Facehuggers shouldn't take that long to recover.
 
     [ViewVariables]

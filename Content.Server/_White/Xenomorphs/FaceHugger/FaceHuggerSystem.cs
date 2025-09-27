@@ -20,6 +20,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._White.Xenomorphs.Infection;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -27,6 +33,8 @@ public sealed class FaceHuggerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
 
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -47,7 +55,6 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedHandEvent>(OnPickedUp);
         SubscribeLocalEvent<FaceHuggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
-
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
     }
@@ -78,11 +85,11 @@ public sealed class FaceHuggerSystem : EntitySystem
             || _mobState.IsDead(uid)
             || _entityWhitelist.IsBlacklistPass(component.Blacklist, args.Equipee))
             return;
-
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-equip", ("equipment", uid)), uid, args.Equipee);
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-equip-other", ("equipment", uid), ("target", Identity.Entity(args.Equipee, EntityManager))), uid, Filter.PvsExcept(args.Equipee), true);
 
         _stun.TryKnockdown(args.Equipee, component.KnockdownTime, true);
+
         if (component.InfectionPrototype.HasValue)
             EnsureComp<XenomorphPreventSuicideComponent>(args.Equipee); //Prevent suicide for infected
 
@@ -119,8 +126,32 @@ public sealed class FaceHuggerSystem : EntitySystem
                 Infect(uid, faceHugger);
             }
 
+            // Handle continuous chemical injection when equipped
+            if (TryComp<ClothingComponent>(uid, out var clothing) && clothing.InSlot != null)
+            {
+                // Initialize NextInjectionTime if it's zero
+                if (faceHugger.NextInjectionTime == TimeSpan.Zero)
+                {
+                    faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
+                    continue;
+                }
+
+                if (time >= faceHugger.NextInjectionTime)
+                {
+                    // Get the entity that has this item equipped
+                    if (_container.TryGetContainingContainer(uid, out var container) && container.Owner != uid)
+                    {
+                        Log.Debug($"[FaceHugger] Time for next injection at {time}");
+                        InjectChemicals(uid, faceHugger, container.Owner);
+                        // Set the next injection time based on the current time plus interval
+                        faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
+                        Log.Debug($"[FaceHugger] Next injection scheduled for {faceHugger.NextInjectionTime}");
+                    }
+                }
+            }
+
             // Check for nearby entities to latch onto
-            if (faceHugger.Active && (!TryComp<ClothingComponent>(uid, out var clothing) || clothing.InSlot == null))
+            if (faceHugger.Active && clothing?.InSlot == null)
             {
                 foreach (var entity in _entityLookup.GetEntitiesInRange<InventoryComponent>(Transform(uid).Coordinates, 1.5f))
                 {
@@ -160,22 +191,30 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsBlacklistPass(component.Blacklist, target))
             return false;
 
-        component.RestIn = _timing.CurTime + _random.Next(component.MinRestTime, component.MaxRestTime);
+        // Set the rest time and deactivate
+        var restTime = _random.Next(component.MinRestTime, component.MaxRestTime);
+        component.RestIn = _timing.CurTime + restTime;
         component.Active = false;
+        Log.Debug($"[FaceHugger] Facehugger deactivated. Will reactivate in {restTime.TotalSeconds:0.##} seconds");
 
         EntityUid? blocker = null;
 
         if (_inventory.TryGetSlotEntity(target, "head", out var headUid)
             && TryComp<IngestionBlockerComponent>(headUid, out var headBlocker)
             && headBlocker.Enabled)
+        {
             blocker = headUid;
-
-        if (!blocker.HasValue && _inventory.TryGetSlotEntity(target, "mask", out var maskUid))
+        }
+        else if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
         {
             if (TryComp<IngestionBlockerComponent>(maskUid, out var maskBlocker) && maskBlocker.Enabled)
+            {
                 blocker = maskUid;
+            }
             else
+            {
                 _inventory.TryUnequip(target, component.Slot, true);
+            }
         }
 
         if (!blocker.HasValue)
@@ -189,5 +228,85 @@ public sealed class FaceHuggerSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip-other", ("equipment", uid), ("equipmentBlocker", blocker.Value), ("target", Identity.Entity(target, EntityManager))), uid, Filter.PvsExcept(target), true);
 
         return false;
+    }
+
+    /// <summary>
+    /// Checks if the facehugger can inject chemicals into the target
+    /// </summary>
+    public bool CanInject(EntityUid uid, FaceHuggerComponent component, EntityUid target)
+    {
+        // Check if facehugger is properly equipped
+        if (!TryComp<ClothingComponent>(uid, out var clothingComp) || clothingComp.InSlot == null)
+        {
+            if (!component.Active)
+            {
+                Log.Debug("[FaceHugger] Cannot inject - Facehugger is not active and not equipped");
+                return false;
+            }
+            return true;
+        }
+
+        // Check if target already has the sleep chemical
+        if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
+            _solutions.ResolveSolution(target, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution) &&
+            chemSolution.TryGetReagentQuantity(new ReagentId(component.SleepChem, null), out var quantity) &&
+            quantity > FixedPoint2.New(0))
+        {
+            Log.Debug($"[FaceHugger] {ToPrettyString(target)} already has {quantity}u of {component.SleepChem}");
+            return false;
+        }
+
+        Log.Debug($"[FaceHugger] Facehugger is equipped in slot {clothingComp.InSlot}, allowing injection");
+        return true;
+    }
+
+    /// <summary>
+    /// Creates a solution with the sleep chemical
+    /// </summary>
+    public Solution CreateSleepChemicalSolution(FaceHuggerComponent component, float amount)
+    {
+        var solution = new Solution();
+        solution.AddReagent(component.SleepChem, amount);
+        Log.Debug($"[FaceHugger] Created sleep chemical solution: {solution} with {amount}u of {component.SleepChem}");
+        return solution;
+    }
+
+    /// <summary>
+    /// Attempts to inject the solution into the target's bloodstream
+    /// </summary>
+    public bool TryInjectIntoBloodstream(EntityUid target, Solution solution, string chemName, float chemAmount)
+    {
+        if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
+            return false;
+
+        if (!_solutions.TryGetSolution(target, bloodstream.ChemicalSolutionName, out var chemSolution, out _))
+            return false;
+
+        if (!_solutions.TryAddSolution(chemSolution.Value, solution))
+            return false;
+
+        Log.Debug($"[FaceHugger] Successfully injected {chemAmount}u of {chemName} into bloodstream");
+        _reactiveSystem.DoEntityReaction(target, solution, ReactionMethod.Injection);
+        return true;
+    }
+
+    /// <summary>
+    /// Main method to handle chemical injection
+    /// </summary>
+    public void InjectChemicals(EntityUid uid, FaceHuggerComponent component, EntityUid target)
+    {
+        if (!CanInject(uid, component, target))
+        {
+            Log.Debug($"[FaceHugger] Injection conditions not met for {ToPrettyString(target)}");
+            return;
+        }
+
+        Log.Debug($"[FaceHugger] Attempting to inject {component.SleepChemAmount}u of {component.SleepChem} into {ToPrettyString(target)}");
+
+        var sleepChem = CreateSleepChemicalSolution(component, component.SleepChemAmount);
+        if (!TryInjectIntoBloodstream(target, sleepChem, component.SleepChem, component.SleepChemAmount))
+        {
+            Log.Warning($"[FaceHugger] Failed to inject {component.SleepChem} into {ToPrettyString(target)}");
+        }
     }
 }
