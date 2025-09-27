@@ -70,7 +70,7 @@
         spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
@@ -105,7 +105,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           redBalloon:
             min: 1
             max: 1
@@ -143,7 +143,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           blueBalloon:
             min: 1
             max: 1
@@ -181,7 +181,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           greenBalloon:
             min: 1
             max: 1
@@ -219,7 +219,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           yellowBalloon:
             min: 1
             max: 1
@@ -259,7 +259,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           pinkBalloon:
             min: 2
             max: 2
@@ -298,7 +298,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           pinkBalloon:
             min: 2
             max: 2
@@ -338,7 +338,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           whiteBalloon:
             min: 1
             max: 1
@@ -378,7 +378,7 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           blackBalloon:
             min: 2
             max: 2
@@ -416,9 +416,158 @@
          spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
           zebraBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+        
+- type: entity
+  name: ceramic balloon
+  parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  id: ceramicBalloon
+  components:
+  - type: Sprite
+    state: steel
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30        # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 20
+          rainbowBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+        
+- type: entity
+  name: M.O.A.B.
+  parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  id: moabBalloon
+  components:
+  - type: Sprite
+    state: blue
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100     # balloon health, Nerfed asf
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 20
+          ceramicBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: B.F.B.
+  parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  id: bfbBalloon
+  components:
+  - type: Sprite
+    state: red
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      201: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200       # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 20
+          moabBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: Z.O.M.G.
+  parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  id: zomgBalloon
+  components:
+  - type: Sprite
+    state: green
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      500: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400       # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 20
+          bfbBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    
