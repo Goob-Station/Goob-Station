@@ -538,6 +538,8 @@
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
+    - id: CargoRequestSecurityComputerCircuitboard
+    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
