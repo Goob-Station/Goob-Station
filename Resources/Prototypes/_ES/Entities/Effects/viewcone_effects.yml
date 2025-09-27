@@ -1,0 +1,63 @@
+# Effects spawned when certain things happen
+# that only appear to viewcone users when out of vision.
+# TODO these would probably look better as actual animations modulating alpha
+# instead of like. rsi animations
+# also i kinda wanted like, a "sound wave propagatey" sprite to underlay the actual effecta, and i thought tg had those too, but i guess not
+# idk i dont want to sprite i t.
+
+- type: entity
+  id: ESBaseViewconeEffect
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ESViewconeOccludable
+    inverted: true
+  - type: Sprite
+    sprite: _ES/Effects/viewcone_effects.rsi
+    drawdepth: Effects
+    noRot: true
+    color: '#FFFFFF00' # 0 alpha by default, will get overriden by setalpha overlay
+    loop: false
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 3.0
+
+- type: entity
+  id: ESViewconeEffectFootstep
+  parent: ESBaseViewconeEffect
+  components:
+  - type: Sprite
+    state: footstep
+
+# TODO UNUSED
+- type: entity
+  id: ESViewconeEffectAttack
+  parent: ESBaseViewconeEffect
+  components:
+  - type: Sprite
+    state: attack
+
+# TODO UNUSED
+- type: entity
+  id: ESViewconeEffectForcefield
+  parent: ESBaseViewconeEffect
+  components:
+  - type: Sprite
+    state: forcefield
+
+# TODO UNUSED
+- type: entity
+  id: ESViewconeEffectGunfire
+  parent: ESBaseViewconeEffect
+  components:
+  - type: Sprite
+    state: gunfire
+
+# TODO UNUSED
+- type: entity
+  id: ESViewconeEffectTalk
+  parent: ESBaseViewconeEffect
+  components:
+  - type: Sprite
+    state: talk

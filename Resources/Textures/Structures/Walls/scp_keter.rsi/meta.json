@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/ and modified by FoxxoTrystan",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "solid0",
+      "directions": 4
+    },
+    {
+      "name": "keter1",
+      "directions": 4
+    },
+    {
+      "name": "keter2",
+      "directions": 4
+    },
+    {
+      "name": "keter3",
+      "directions": 4
+    },
+    {
+      "name": "keter4",
+      "directions": 4
+    },
+    {
+      "name": "wall_girder"
+    }
+  ]
+}
