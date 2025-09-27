@@ -11,7 +11,7 @@
         { "name": "flip" },
         { "name": "burn" },
         { "name": "open" },
-        { "name": "pda" },
+        { "name": "PDA" },
         { "name": "ectoplasm" },
         { "name": "random" },
         { "name": "smoke" }
