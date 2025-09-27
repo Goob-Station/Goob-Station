@@ -931,6 +931,13 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
+  ## goob - 100% not temu heck suits
+  - HeckSuitFake
+  - HeckSuitFakeRed
+  - HeckSuitFakeGreen
+  - HeckSuitFakeBlue
+  - HeckSuitFakeBrown
+  - HeckSuitFakeGrey
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes

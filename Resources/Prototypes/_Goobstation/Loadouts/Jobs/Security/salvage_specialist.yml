@@ -1,0 +1,56 @@
+- type: loadoutEffectGroup
+  id: SalvageVeteran
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 540000 # 150hr
+
+- type: loadout
+  id: HeckSuitFake
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFake
+
+- type: loadout
+  id: HeckSuitFakeRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFakeRed
+
+- type: loadout
+  id: HeckSuitFakeGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFakeGreen
+
+- type: loadout
+  id: HeckSuitFakeBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFakeBlue
+
+- type: loadout
+  id: HeckSuitFakeBrown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFakeBrown
+
+- type: loadout
+  id: HeckSuitFakeGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SalvageVeteran
+  equipment:
+    outerClothing: LavalandEquipmentHeckSuitFakeGrey
