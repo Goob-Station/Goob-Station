@@ -24,7 +24,7 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 1200 # give them revs some time man
