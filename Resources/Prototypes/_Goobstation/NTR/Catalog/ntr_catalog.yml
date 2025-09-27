@@ -134,7 +134,7 @@
 - type: listing
   id: NTRExecutiveWaterCoolerGold
   name: premium water (?) cooler
-  description: Made from the finest 24-karat gold in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
+  description: Made from the finest 24-karat hardened whiskey in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
   productEntity: SpawnPodWaterCoolerGold
   icon:
     sprite: _Goobstation/Structures/Storage/watercooler.rsi
