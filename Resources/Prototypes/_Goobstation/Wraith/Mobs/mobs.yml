@@ -119,6 +119,7 @@
   - type: Pullable
   - type: ZombieImmune
   - type: GhostTakeoverAvailable
+  - type: Rally
   - type: ActionGrant
     actions:
     - ActionRally

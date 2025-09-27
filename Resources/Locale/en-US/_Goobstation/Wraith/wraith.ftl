@@ -47,3 +47,5 @@ wraith-leave-body = The wraith's possession has coem to an end.
 wraith-banishment = I goida
 
 wraith-action-generic-fail = Not enough WP.
+
+rally-wears-off = The rally effect wears off.

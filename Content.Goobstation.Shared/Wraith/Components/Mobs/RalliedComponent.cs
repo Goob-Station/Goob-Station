@@ -1,6 +1,8 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Goobstation.Shared.Wraith.Components.Mobs;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class RalliedComponent : Component
 {
     /// <summary>
@@ -12,15 +14,18 @@ public sealed partial class RalliedComponent : Component
     /// <summary>
     /// Next tick used for deleting he component.
     /// </summary>
+    [DataField]
     public TimeSpan NextTick = TimeSpan.Zero;
 
     /// <summary>
     /// Damage multiplier to rallied mob.
     /// </summary>
+    [DataField]
     public float RalliedStrength = 1.5f;
 
     /// <summary>
     /// Attack speed multiplier to rallied mob.
     /// </summary>
+    [DataField]
     public float RalliedAttackSpeed = 1.5f;
 }
