@@ -63,6 +63,9 @@ public sealed partial class FaceHuggerComponent : Component
     [DataField]
     public TimeSpan MinRestTime = TimeSpan.FromSeconds(2); // Goobstation - 10 to 2. Facehuggers shouldn't take that long to recover.
 
+    [DataField]
+    public float MinChemicalThreshold = 0f; // Minimum amount of the chemical required to prevent additional injections
+
     [ViewVariables]
     public bool Active = true;
 

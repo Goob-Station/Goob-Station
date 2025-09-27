@@ -230,6 +230,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         return false;
     }
 
+    #region Injection Code
     /// <summary>
     /// Checks if the facehugger can inject chemicals into the target
     /// </summary>
@@ -250,7 +251,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutions.ResolveSolution(target, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution) &&
             chemSolution.TryGetReagentQuantity(new ReagentId(component.SleepChem, null), out var quantity) &&
-            quantity > FixedPoint2.New(0))
+            quantity > FixedPoint2.New(component.MinChemicalThreshold))
         {
             Log.Debug($"[FaceHugger] {ToPrettyString(target)} already has {quantity}u of {component.SleepChem}");
             return false;
@@ -297,7 +298,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     {
         if (!CanInject(uid, component, target))
         {
-            Log.Debug($"[FaceHugger] Injection conditions not met for {ToPrettyString(target)}");
+            Log.Debug($"[FaceHugger] Injection failed for {ToPrettyString(target)}");
             return;
         }
 
@@ -309,4 +310,5 @@ public sealed class FaceHuggerSystem : EntitySystem
             Log.Warning($"[FaceHugger] Failed to inject {component.SleepChem} into {ToPrettyString(target)}");
         }
     }
+    #endregion
 }
