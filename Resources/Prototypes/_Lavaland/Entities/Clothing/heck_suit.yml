@@ -244,7 +244,7 @@
 ## fake space temu heck suit
 
 - type: entity
-  parent: LavalandEquipmentHeckSuitBase
+  parent: [ LavalandEquipmentHeckSuitBase, BaseCargoContraband ]
   id: LavalandEquipmentHeckSuitFake
   name: H.E.C.K suit
   description: The legendary "Hostile Environment Cross-Kinetic Suit" is now in your hands. Though, this weird small print reads "made in Space China"...
