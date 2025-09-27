@@ -4,6 +4,16 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-shadowling-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000 # 15 hours
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 7200 # 2 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 # 5 hours
+  guides: [ Shadowlings ]
 
 - type: antag
   id: Thrall

@@ -16,8 +16,10 @@
     alternateState: Standing
   - type: Damageable
     damageContainer: Biological
+    damageModifierSet: Shadowling
   - type: Inventory
     speciesId: shadowling
+    templateId: shadowling
   - type: Body
     prototype: Shadowling
     requiredLegs: 2

@@ -18,8 +18,8 @@
       - left arm
       - head
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
+        heart: OrganSpaceAnimalHeart # pressure immunity since it's an alien
+        lungs: OrganSpaceAnimalLungs # breathing immunity since it's an alien
     groin:
       part: GroinShadowling
       connections:
