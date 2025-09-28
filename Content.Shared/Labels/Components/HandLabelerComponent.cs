@@ -7,7 +7,7 @@
 
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
+using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -28,8 +28,11 @@ public sealed partial class HandLabelerComponent : Component
     [DataField]
     public EntityWhitelist Whitelist = new();
 
+    /// <summary>
+    /// Goobstation - sound played when applying a label
+    /// </summary>
     [DataField]
-    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/hand_labeler_print.ogg");
+    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Items/hand_labeler_print.ogg");
 }
 
 [Serializable, NetSerializable]
