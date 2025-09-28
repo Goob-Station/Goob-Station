@@ -1,0 +1,58 @@
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: MonkeyTurretDartBase
+  name: dart monkey
+  description: A monkey trained to fire sharp metal darts at any daring balloons.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Passive
+      - Monkey
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
+    noRot: true
+    layers:
+    - state: base
+  - type: BallisticAmmoProvider
+    proto: ProjectileMonkeyDart
+    capacity: 99999 # Can't get it to reload nor infinite, sad.
+    cycleable: false
+  - type: Gun
+    fireRate: 1
+    selectedMode: FullAuto
+    soundGunshot: /Audio/Effects/toss.ogg
+    showexaminetext: false
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/toss.ogg # Can't seem to remove this sound.
+  - type: Damageable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 2
+          Dart:
+            min: 1
+            max: 3
+  - type: InteractionPopup
+    interactDelay: 2.0
+    successChance: 0.8
+    interactSuccessString: petting-success-monkey
+    interactFailureString: petting-failure-monkey
+    interactSuccessSound:
+      path: /Audio/Animals/monkey_scream.ogg
