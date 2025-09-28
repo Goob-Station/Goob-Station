@@ -73,7 +73,7 @@ public sealed class PhotoSystem : EntitySystem
 
     private void OnCameraInteract(Entity<PhotoCameraComponent> ent, ref AfterInteractEvent args)
     {
-        if (!BuildPhoto(args.User, args.ClickLocation, out var source, out var offset))
+        if (!BuildPhoto(args.User, args.ClickLocation, out var onPhoto, out var source, out var offset))
             return;
 
         _flash.FlashArea(args.User, null, 4, TimeSpan.FromSeconds(1f), 1);
@@ -90,6 +90,15 @@ public sealed class PhotoSystem : EntitySystem
         var comp = EnsureComp<PhotoComponent>(photo);
         comp.SourceEntity = source.Value;
         comp.Offset = offset.Value;
+
+        var ev = new PhotographedEvent(photo, onPhoto);
+        RaiseLocalEvent(args.User, ref ev);
+
+        foreach (var item in onPhoto)
+        {
+            var targetEv = new PhotographedTargetEvent(photo, args.User, onPhoto);
+            RaiseLocalEvent(item, ref targetEv);
+        }
     }
 
     private void OnPhotoOpened(Entity<PhotoComponent> ent, ref BoundUIOpenedEvent args)
@@ -128,10 +137,11 @@ public sealed class PhotoSystem : EntitySystem
     /// <param name="source"></param>
     /// <param name="offset"></param>
     /// <returns>Whether photo was successfully created or not</returns>
-    private bool BuildPhoto(EntityUid user, EntityCoordinates clickLocation, [NotNullWhen(true)] out EntityUid? source, [NotNullWhen(true)] out Vector2? offset)
+    private bool BuildPhoto(EntityUid user, EntityCoordinates clickLocation, out List<EntityUid> onPhoto, [NotNullWhen(true)] out EntityUid? source, [NotNullWhen(true)] out Vector2? offset)
     {
         source = null;
         offset = null;
+        onPhoto = new();
 
         if (Transform(user).GridUid is not { Valid: true } grid)
             return false;
@@ -157,7 +167,7 @@ public sealed class PhotoSystem : EntitySystem
             SetupTile((grid, gridComp), (pseudoGrid.Value, pseudoGridComp), tile, diff);
         }
 
-        SetupEntities((pseudoGrid.Value, pseudoGridComp), new(grid, box.Center), diff, user, out source);
+        SetupEntities((pseudoGrid.Value, pseudoGridComp), new(grid, box.Center), diff, user, out onPhoto, out source);
 
         return source.HasValue;
     }
@@ -200,9 +210,10 @@ public sealed class PhotoSystem : EntitySystem
         _tile.ReplaceTile(pseudoTileRef, _proto.Index<ContentTileDefinition>(tileDef.ID));
     }
 
-    private void SetupEntities(Entity<MapGridComponent> pseudoGrid, EntityCoordinates center, Vector2i clickPosition, EntityUid user, out EntityUid? source)
+    private void SetupEntities(Entity<MapGridComponent> pseudoGrid, EntityCoordinates center, Vector2i clickPosition, EntityUid user, out List<EntityUid> entitiesOnPhoto, out EntityUid? source)
     {
         source = null;
+        entitiesOnPhoto = new();
 
         var ents = _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained);
         if (ents.Count > 50)
@@ -212,6 +223,8 @@ public sealed class PhotoSystem : EntitySystem
         {
             if (!TryPrototype(item, out var proto))
                 continue;
+
+            entitiesOnPhoto.Add(item);
 
             var xform = Transform(item);
 
