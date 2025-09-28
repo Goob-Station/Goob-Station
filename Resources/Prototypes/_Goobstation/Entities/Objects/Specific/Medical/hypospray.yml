@@ -70,6 +70,9 @@
         visible: false
   - type: UseDelay
     delay: 45 # up this later if its too low
+  - type: Tag
+    tags:
+      - SecBeltEquip
 
 - type: entity
   name: medical cartridge autoinjector
@@ -146,6 +149,7 @@
   - type: Tag
     tags:
       - AutoinjectorCartridge
+      - SecBeltEquip
 
 - type: entity
   name: adrenaline autoinjector cartridge
@@ -346,12 +350,6 @@
         reagents:
         - ReagentId: Amnestizine
           Quantity: 10
-  - type: Extractable
-    grindableSolutionName: food
-    juiceSolution:
-      reagents:
-      - ReagentId: Amnestizine
-        Quantity: 10
   - type: Food
     delay: 0.2
     forceFeedDelay: 1.5
