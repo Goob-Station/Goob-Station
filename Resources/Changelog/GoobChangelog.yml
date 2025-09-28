@@ -15551,3 +15551,9 @@ Entries:
       message: Added gingerbread mask to Autodrobe.
   id: 1739
   time: '2025-09-28T08:03:12.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Xenomorph Infestation Alert changed to be more forgiving to xenos
+  id: 1740
+  time: '2025-09-28T08:03:34.0000000+00:00'
