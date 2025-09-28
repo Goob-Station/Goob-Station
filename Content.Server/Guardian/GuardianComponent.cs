@@ -62,5 +62,12 @@ namespace Content.Server.Guardian
         [DataField]
         public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/Voice/Human/malescream_guardian.ogg", AudioParams.Default.WithVariation(0.2f));
 
+        /// <summary>
+        /// Whether the guardian is currently being repositioned to prevent infinite move event loops
+        /// </summary>
+        /// Goobstation
+        [ViewVariables(VVAccess.ReadOnly)]
+        public bool IsRepositioning;
+
     }
 }

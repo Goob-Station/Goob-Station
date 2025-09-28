@@ -54,11 +54,9 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -372,7 +370,7 @@ namespace Content.Server.Guardian
         /// </summary>
         private void OnGuardianMove(EntityUid uid, GuardianComponent component, ref MoveEvent args)
         {
-            if (!component.GuardianLoose || component.Host == null)
+            if (!component.GuardianLoose || component.Host == null || component.IsRepositioning) // Goobstation
                 return;
 
             CheckGuardianMove(component.Host.Value, uid, guardianComponent: component);
@@ -398,23 +396,35 @@ namespace Content.Server.Guardian
                 return;
             }
 
-            if (!guardianComponent.GuardianLoose)
+            if (!guardianComponent.GuardianLoose || guardianComponent.IsRepositioning) // Goobstation
                 return;
 
-            // Goobstation - now moves you closer instead of retracting
+            // Goobstation - Handles guardian movement when too far from host.
+            // Instead of retracting, moves the guardian to a position closer to the host.
+            // Uses a 90% distance buffer to prevent rapid toggling of this logic.
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
             {
-                if (hostXform.MapID != guardianXform.MapID)
+                try
                 {
-                    _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
+                    guardianComponent.IsRepositioning = true;
+
+                    if (hostXform.MapID != guardianXform.MapID)
+                    {
+                        _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
+                    }
+                    else
+                    {
+                        // host's position in our parent's coordinates
+                        var hostPos = _transform.WithEntityId(hostXform.Coordinates, guardianXform.ParentUid).Position;
+                        var diff = guardianXform.LocalPosition - hostPos;
+                        var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed * 0.9f; // 90% of max distance to prevent immediate retriggering
+                        _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+                    }
                 }
-                else
+                finally
                 {
-                    // host's position in our parent's coordinates
-                    var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
-                    var diff = guardianXform.LocalPosition - hostPos;
-                    var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
-                    _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+                    // Always ensure the flag is cleared, even if an exception occurs
+                    guardianComponent.IsRepositioning = false;
                 }
             }
         }
