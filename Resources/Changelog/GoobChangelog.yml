@@ -15497,3 +15497,9 @@ Entries:
         inserted into secbelts
   id: 1733
   time: '2025-09-28T07:49:29.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Revolutionary fast draw implanters are now actually fast.
+  id: 1734
+  time: '2025-09-28T07:56:31.0000000+00:00'
