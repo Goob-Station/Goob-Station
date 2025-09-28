@@ -90,7 +90,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
         }
 
         // check if we're allowed to revive
-        var reviveEv = new PreventSelfRevivalEvent(ent);
+        var reviveEv = new BeforeSelfRevivalEvent(ent, "self-revive-fail");
         RaiseLocalEvent(ent, ref reviveEv);
 
         if (reviveEv.Cancelled)

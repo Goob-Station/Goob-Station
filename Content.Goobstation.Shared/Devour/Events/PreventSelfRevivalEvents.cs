@@ -1,8 +1,8 @@
 namespace Content.Goobstation.Shared.Devour.Events;
 
 [ByRefEvent]
-public record struct PreventSelfRevivalEvent(
+public record struct BeforeSelfRevivalEvent(
     EntityUid Target,
-    String PopupText = "self-revive-fail",
+    LocId PopupText,
     bool Handled = false,
     bool Cancelled = false);

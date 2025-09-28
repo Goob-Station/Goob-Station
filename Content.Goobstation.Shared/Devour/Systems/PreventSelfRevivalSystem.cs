@@ -12,10 +12,10 @@ public sealed class PreventSelfRevivalSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PreventSelfRevivalComponent, PreventSelfRevivalEvent>(OnAttemptSelfRevive);
+        SubscribeLocalEvent<PreventSelfRevivalComponent, BeforeSelfRevivalEvent>(OnAttemptSelfRevive);
     }
 
-    private void OnAttemptSelfRevive(Entity<PreventSelfRevivalComponent> ent, ref PreventSelfRevivalEvent args)
+    private void OnAttemptSelfRevive(Entity<PreventSelfRevivalComponent> ent, ref BeforeSelfRevivalEvent args)
     {
         if (args.Handled || args.Cancelled)
             return;

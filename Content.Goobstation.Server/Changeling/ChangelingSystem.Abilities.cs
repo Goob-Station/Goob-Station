@@ -407,7 +407,7 @@ public sealed partial class ChangelingSystem
     private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
     {
         // check if we're allowed to revive
-        var reviveEv = new PreventSelfRevivalEvent(uid);
+        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
         RaiseLocalEvent(uid, ref reviveEv);
 
         if (reviveEv.Cancelled)
