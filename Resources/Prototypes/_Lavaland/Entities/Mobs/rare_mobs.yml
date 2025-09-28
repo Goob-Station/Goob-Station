@@ -1,0 +1,42 @@
+- type: entity
+  id: MobGoliathAncient
+  parent: MobGoliath
+  name: ancient goliath
+  description: An ancient massive beast
+  components:
+  - type: Sprite
+    color: '#FF8888FF'  #red tint
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Piercing: 10
+        Slash: 15
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Dead
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: GoliathCompound
+    blackboard:
+      VisionRadius: !type:Single
+        6
+      AggroVisionRadius: !type:Single
+        10
+      NavSmash: !type:Bool
+        true
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGoliath
+      amount: 3
+    - id: MaterialGoliathHide1
+      amount: 3

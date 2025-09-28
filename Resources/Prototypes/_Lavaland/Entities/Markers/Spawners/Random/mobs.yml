@@ -13,7 +13,7 @@
       - id: MobGoliath
       - id: MobHivelord
     - !type:GroupSelector
-        weight: 35
+        weight: 30
         children:
         - id: MobCarpDungeon
     - !type:GroupSelector
@@ -22,6 +22,11 @@
       - id: MobWatcherIcewing
       - id: MobWatcherLavaland
       #- id: LavalandTendrilLegion
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: MobGoliathAncient
+
 
 - type: entity
   name: lavaland mob spawner
