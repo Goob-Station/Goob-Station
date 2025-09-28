@@ -15569,3 +15569,11 @@ Entries:
       message: Made fake rift spawn more rare
   id: 1742
   time: '2025-09-28T08:05:16.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Goose heaven (also known as human hell).
+    - type: Add
+      message: Added New ghost role hell goose.
+  id: 1743
+  time: '2025-09-28T08:05:43.0000000+00:00'
