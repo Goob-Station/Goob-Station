@@ -9,4 +9,5 @@ public record struct MegafaunaCalculationBaseArgs(
     EntityUid BossEntity,
     IEntityManager EntityManager,
     IPrototypeManager PrototypeMan,
+    ISawmill Logger,
     System.Random Random);

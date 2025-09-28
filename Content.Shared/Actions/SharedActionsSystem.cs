@@ -661,20 +661,21 @@ public abstract class SharedActionsSystem : EntitySystem
     /// Goobstation
     /// Performs an action WITH all condition checks.
     /// </summary>
-    public void TryPerformAction(EntityUid user, RequestPerformActionEvent ev)
+    public bool TryPerformAction(EntityUid user, RequestPerformActionEvent ev)
     {
         if (!_actionsQuery.TryComp(user, out var component))
-            return;
+            return false;
 
         var actionEnt = GetEntity(ev.Action);
         if (GetAction(actionEnt) is not {} action)
-            return;
+            return false;
 
         if (!CanPerformAction((user, component), action, ev))
-            return;
+            return false;
 
         // All checks passed. Perform the action!
         PerformAction((user, component), action);
+        return true;
     }
 
     /// <summary>

@@ -21,10 +21,18 @@ public sealed partial class PerformActionSelector : MegafaunaSelector
         var megafaunaSys = entMan.System<MegafaunaSystem>();
 
         if (!actionSys.TryGetActionById(args.BossEntity, ActionId, out var action))
+        {
+            args.Logger.Debug($"{entMan.ToPrettyString(args.BossEntity)}'s AI failed to get action with ID {ActionId}!");
             return FailDelay;
+        }
 
         var ev = megafaunaSys.GetPerformEvent(args.BossEntity, action.Value.Owner);
-        actionSys.TryPerformAction(args.BossEntity, ev);
+
+        if (!actionSys.TryPerformAction(args.BossEntity, ev))
+        {
+            args.Logger.Debug($"{entMan.ToPrettyString(args.BossEntity)}'s AI failed to perform action {entMan.ToPrettyString(action.Value.Owner)} with ID {ActionId}!");
+            return FailDelay;
+        }
 
         return DelaySelector.Get(args);
     }

@@ -23,13 +23,17 @@
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Aggression;
 
 public sealed class AggressorsSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
@@ -57,19 +61,17 @@ public sealed class AggressorsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var curTime = _timing.CurTime;
+
         // All who are aggressive check their aggressors, and remove them if they are too far away.
         var query = EntityQueryEnumerator<AggressiveComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var aggressive, out var xform))
         {
-            if (aggressive.ForgiveRange == null)
+            if (aggressive.ForgiveRange == null
+                || aggressive.NextUpdate < curTime)
                 continue;
 
-            aggressive.Accumulator += frameTime;
-
-            if (aggressive.Accumulator < aggressive.UpdateFrequency)
-                continue;
-
-            aggressive.Accumulator = 0f;
+            aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
             foreach (var aggressor in aggressive.Aggressors)
             {
@@ -102,7 +104,7 @@ public sealed class AggressorsSystem : EntitySystem
             if (!TryGetEntity(netEntity, out var aggressor))
                 continue;
 
-            AddAggressor(ent, aggressor.Value);
+            AddAggressor(ent, aggressor.Value); // DamageChangedEvent isn't actually predicted, sooo we have to add it like that manually
         }
     }
 
@@ -123,17 +125,16 @@ public sealed class AggressorsSystem : EntitySystem
         => RemoveAllAggressors(ent);
 
     private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref ComponentRemove args)
-        => _bossMusic.EndAllMusic(); // Stop the music if we no longer get attacked by anyone.
+        => _bossMusic.EndAllMusic(); // Stop the music if we are no longer get attacked by anyone.
 
     private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (_mobState.IsDead(ent.Owner))
             CleanAggressions((ent.Owner, ent.Comp));
     }
 
     private void OnAggressorDeleted(Entity<AggressorComponent> ent, ref EntityTerminatingEvent args)
         => CleanAggressions((ent.Owner, ent.Comp));
-
 
     #endregion
 
@@ -171,7 +172,7 @@ public sealed class AggressorsSystem : EntitySystem
             if (!TryComp<AggressorComponent>(aggressor, out var aggressorComp))
                 continue;
 
-            aggressorComp.Aggressives.Remove(ent);
+            aggressorComp.Aggressives.Remove(ent.Owner);
             if (aggressorComp.Aggressives.Count == 0)
                 RemComp(aggressor, aggressorComp);
         }

@@ -1,5 +1,4 @@
 ﻿using Content.Shared._Lavaland.Aggression;
-
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Selectors;
 using Content.Shared.Mobs.Systems;
@@ -15,6 +14,8 @@ public sealed partial class MegafaunaSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private EntityQuery<AggressiveComponent> _aggressiveQuery;
+
+    protected override string SawmillName => "megafauna";
 
     public override void Initialize()
     {
@@ -44,7 +45,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
                 if (time > _timing.CurTime)
                     continue;
 
-                var args = new MegafaunaCalculationBaseArgs(uid, EntityManager, _protoMan, GetRandom());
+                var args = new MegafaunaCalculationBaseArgs(uid, EntityManager, _protoMan, Log, GetRandom());
                 var actionTime = action.Invoke(args);
                 ai.Schedule.Remove(time);
 
@@ -57,8 +58,9 @@ public sealed partial class MegafaunaSystem : EntitySystem
         }
     }
 
+    // TODO replace this with shared random
     private System.Random GetRandom()
     {
-        return new System.Random((int) _timing.CurTick.Value);
+        return new System.Random((int) (_timing.CurTick.Value * 6.7f));
     }
 }
