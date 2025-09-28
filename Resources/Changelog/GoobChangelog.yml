@@ -15475,3 +15475,13 @@ Entries:
         have a chudshift.
   id: 1731
   time: '2025-09-28T07:11:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix replays not working.
+    - type: Fix
+      message: Fix black screen on reconnection.
+    - type: Fix
+      message: Fix PC freeze when quitting the game.
+  id: 1732
+  time: '2025-09-28T07:14:26.0000000+00:00'
