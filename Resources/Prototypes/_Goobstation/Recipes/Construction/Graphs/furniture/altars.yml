@@ -181,7 +181,7 @@
         doAfter: 1
 
   - node: BlueAltarNode
-    entity: AltarNanotrasen
+    entity: AltarConvertFestival
     edges:
     - to: AltarConvertNode
       completed:
