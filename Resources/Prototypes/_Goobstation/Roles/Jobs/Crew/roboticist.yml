@@ -19,9 +19,7 @@
   id: RoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
-  storage:
-    back:
-    - ClothingEyesHudDiagnostic
+    eyes: ClothingEyesHudDiagnostic
 
 - type: chameleonOutfit
   id: RoboticistChameleonOutfit
@@ -36,5 +34,5 @@
     ear: ClothingHeadsetRobotics
     jumpsuit: ClothingUniformJumpsuitRoboticist
     shoes: ClothingShoesColorBlack
-    id: RoboticsPDA
+    id: RoboticistPDA
 
