@@ -15503,3 +15503,25 @@ Entries:
       message: Revolutionary fast draw implanters are now actually fast.
   id: 1734
   time: '2025-09-28T07:56:31.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: >-
+        Plasmamen can no longer roll Ninja, Wizard, Pirate, Devil, Nukie or
+        Ling.
+    - type: Fix
+      message: Captain Envirogloves are now insulated and produce the correct fibers
+    - type: Fix
+      message: Det Envirogloves now use forensic glove sprite, no longer leave fibers
+    - type: Fix
+      message: >-
+        Botanist Envirogloves now have proper protection against heat and
+        caustic
+    - type: Fix
+      message: Clown now spawns with their Envirosuit if they are a plasmaman
+    - type: Remove
+      message: Removes thieves chameleon gloves from thieves roundstart kit
+    - type: Tweak
+      message: Pirates now require 10 hours of overall playtime before selection
+  id: 1735
+  time: '2025-09-28T07:59:41.0000000+00:00'
