@@ -4629,3 +4629,10 @@
   id: 9015
   time: '2025-09-28T03:43:02.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40588
+- author: beck-thompson
+  changes:
+  - message: Labelers can no longer add markup tags to items
+    type: Fix
+  id: 9016
+  time: '2025-09-28T18:33:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40600
