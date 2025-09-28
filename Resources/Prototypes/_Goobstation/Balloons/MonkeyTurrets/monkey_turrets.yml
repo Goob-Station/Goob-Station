@@ -21,7 +21,7 @@
     fireRate: 1
     selectedMode: FullAuto
     soundGunshot: /Audio/Effects/toss.ogg
-    showexaminetext: false
+    showExamineText: false
   - type: HTN
     rootTask:
       task: TurretCompound
