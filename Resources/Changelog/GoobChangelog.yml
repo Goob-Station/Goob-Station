@@ -15557,3 +15557,9 @@ Entries:
       message: Xenomorph Infestation Alert changed to be more forgiving to xenos
   id: 1740
   time: '2025-09-28T08:03:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Nullrod shield form, blue altar
+  id: 1741
+  time: '2025-09-28T08:04:52.0000000+00:00'
