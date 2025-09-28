@@ -15598,3 +15598,11 @@ Entries:
       message: Added construction bag to engineering cyborg construction module.
   id: 1746
   time: '2025-09-28T19:55:23.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported the Dislippler, a clown-only traitor uplink item, from
+        Omustation.
+  id: 1747
+  time: '2025-09-28T20:14:58.0000000+00:00'
