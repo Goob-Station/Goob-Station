@@ -26,6 +26,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
     Random searches are not permitted without express permission by either the Head of Security or Captain. However, searches are still permitted if there is reasonable suspicion of a crime.
 
+    Additional access may not be given out by the Head of Security, with the exception of providing at most one departmental access to the Detective.
+
+    This is the default state of access for Security, and unless specified otherwise all Alert levels follow it.
+
     [bold]Secure Areas:[/bold]
 
     EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
