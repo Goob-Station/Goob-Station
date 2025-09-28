@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseItem
+  id: PhotoCamera
+  name: camera
+  description: An ancient device used to make photos of your drunk friends.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/camera.rsi
+    layers:
+    - state: camera
+  - type: PhotoCamera
+
+- type: entity
+  name: a photo
+  parent: BaseItem
+  id: Photo
+  description: 'A piece of white paper.'
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/camera.rsi
+    layers:
+    - state: photo
+  - type: ActivatableUI
+    key: enum.ImageUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.ImageUiKey.Key:
+        type: PhotoBoundUserInterface
