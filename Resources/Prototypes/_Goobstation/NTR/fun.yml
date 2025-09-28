@@ -13,16 +13,3 @@
         reagents:
         - ReagentId: Whiskey # lmao
           Quantity: 500
-
-- type: entity
-  id: WaterCoolerGoldEmpty
-  parent: WaterCoolerGold
-  suffix: empty
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Whiskey
-          Quantity: 0
-
