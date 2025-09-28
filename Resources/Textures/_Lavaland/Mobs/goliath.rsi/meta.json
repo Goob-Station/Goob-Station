@@ -17,6 +17,10 @@
     },
     {
       "name": "goliath_dead"
+    },
+    {
+        "name": "goliath_layer",
+        "directions": 4
     }
   ]
 }

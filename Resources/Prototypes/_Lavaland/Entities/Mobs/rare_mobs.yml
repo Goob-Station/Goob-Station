@@ -24,7 +24,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Dead
+      400: Dead
   - type: HTN
     constantlyReplan: false
     rootTask:
