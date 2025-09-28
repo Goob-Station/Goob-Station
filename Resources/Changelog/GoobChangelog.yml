@@ -15537,3 +15537,11 @@ Entries:
       message: Chainsaw added to hacked botany vendor
   id: 1737
   time: '2025-09-28T08:01:45.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Remove
+      message: >-
+        removed the 'rogue cold weather poncho' as it was just the security
+        poncho in the clothesvend.
+  id: 1738
+  time: '2025-09-28T08:02:22.0000000+00:00'
