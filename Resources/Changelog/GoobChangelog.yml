@@ -15443,3 +15443,9 @@ Entries:
         cooldowns
   id: 1729
   time: '2025-09-26T04:34:14.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Removed gatfruit mapped by john station's protoges.
+  id: 1730
+  time: '2025-09-28T06:43:21.0000000+00:00'
