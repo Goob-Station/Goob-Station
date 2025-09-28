@@ -280,6 +280,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
             component.RoundEndTextShuttleCall,
             component.RoundEndTextAnnouncement
         );
+        _audioSystem.PlayGlobal(component.XenomorphTakeoverSound, Filter.Broadcast(), true);
 
         component.WinType = WinType.XenoMinor;
         component.WinConditions.Add(WinCondition.XenoTakeoverStation);
