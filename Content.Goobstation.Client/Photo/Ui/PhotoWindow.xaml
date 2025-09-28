@@ -1,0 +1,12 @@
+<goob:PhotoWindow xmlns="https://spacestation14.io"
+    xmlns:goob="clr-namespace:Content.Goobstation.Client.Photo.Ui"
+    MouseFilter="Stop" Resizable="True" MinSize="150 150"
+    SetSize="500 550"> <!-- Provide some reasonable sizes by default. Can be changed by the component -->
+    <BoxContainer Name="ContentsRoot" Orientation="Vertical">
+        <PanelContainer StyleClasses="AngleRect" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="6">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"/>
+        </PanelContainer>
+        <PanelContainer Name="PaperBackground" StyleClasses="PaperDefaultBorder" VerticalExpand="True" HorizontalExpand="True">
+        </PanelContainer>
+    </BoxContainer>
+</goob:PhotoWindow>
