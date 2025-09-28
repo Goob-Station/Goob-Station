@@ -566,13 +566,6 @@
     - sprite: Mobs/Customization/human_hair.rsi
       state: father
 - type: marking
-  id: HumanHairNiko
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: nikooneshot
-- type: marking
   id: HumanHairSargeant
   bodyPart: Hair
   markingCategory: Hair
