@@ -15531,3 +15531,9 @@ Entries:
       message: Removed holy damage from splashing holy water.
   id: 1736
   time: '2025-09-28T08:00:07.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Chainsaw added to hacked botany vendor
+  id: 1737
+  time: '2025-09-28T08:01:45.0000000+00:00'
