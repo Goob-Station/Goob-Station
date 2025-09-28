@@ -15525,3 +15525,9 @@ Entries:
       message: Pirates now require 10 hours of overall playtime before selection
   id: 1735
   time: '2025-09-28T07:59:41.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Remove
+      message: Removed holy damage from splashing holy water.
+  id: 1736
+  time: '2025-09-28T08:00:07.0000000+00:00'
