@@ -48,8 +48,6 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
-  - type: PressureImmunity
-  - type: BreathingImmunity
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
