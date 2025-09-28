@@ -71,7 +71,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-- proto: LavalandHierophantTelepad
+- proto: LavalandHierophantMarker
   entities:
   - uid: 2
     components:
