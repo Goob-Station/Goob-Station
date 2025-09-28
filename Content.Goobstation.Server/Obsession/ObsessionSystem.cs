@@ -28,7 +28,7 @@ public sealed class ObsessionSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
@@ -48,6 +48,7 @@ public sealed class ObsessionSystem : EntitySystem
 
         SubscribeLocalEvent<ObsessionTargetComponent, InteractionSuccessEvent>(OnTargetInteract);
         SubscribeLocalEvent<ObsessionTargetComponent, PhotographedTargetEvent>(OnTargetPhotographed);
+        SubscribeLocalEvent<ObsessionTargetComponent, MobStateChangedEvent>(OnTargetMobStateChanged);
 
         SubscribeLocalEvent<ObsessionTargetPhotoComponent, BoundUIOpenedEvent>(OnPhotoOpen);
         SubscribeLocalEvent<ObsessionTargetPhotoComponent, BoundUIClosedEvent>(OnPhotoClose);
@@ -98,6 +99,21 @@ public sealed class ObsessionSystem : EntitySystem
                 obsessed.Sanity += obsessed.InteractionRecovery[ObsessionInteraction.PhotoLook];
             }
         }
+
+        var removalQuery = EntityQueryEnumerator<TimedObsessionRemovingComponent>();
+        while (removalQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.RemoveTime > _timing.CurTime)
+                continue;
+
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+                continue;
+
+            _popup.PopupEntity(Loc.GetString("popup-obsession-removed"), uid, uid, Content.Shared.Popups.PopupType.MediumCaution);
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
+            _role.MindRemoveRole<ObsessedRoleComponent>(mindId);
+            RemComp<ObsessedComponent>(uid);
+        }
     }
 
     private void OnObsessedMapInit(Entity<ObsessedComponent> ent, ref MapInitEvent args)
@@ -127,6 +143,15 @@ public sealed class ObsessionSystem : EntitySystem
             if (!TryComp<ObsessionTargetComponent>(item, out var comp) || comp.Id != ent.Comp.TargetId)
                 continue;
 
+            ent.Comp.Interactions[ObsessionInteraction.Photo]++;
+            if (_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
+            {
+                var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Photo, ent.Comp.Interactions[ObsessionInteraction.Photo]);
+
+                foreach (var objective in mind.Objectives)
+                    RaiseLocalEvent(objective, ref ev);
+            }
+
             TryRecoverSanity(ent, ObsessionInteraction.Photo);
         }
     }
@@ -138,6 +163,14 @@ public sealed class ObsessionSystem : EntitySystem
 
         if (args.Stage <= args.PrevStage)
             return;
+
+        ent.Comp.Interactions[ObsessionInteraction.Grab]++;
+        if (_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
+        {
+            var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Grab, ent.Comp.Interactions[ObsessionInteraction.Grab]);
+            foreach (var item in mind.Objectives)
+                RaiseLocalEvent(item, ref ev);
+        }
 
         TryRecoverSanity(ent, ObsessionInteraction.Grab);
     }
@@ -158,6 +191,14 @@ public sealed class ObsessionSystem : EntitySystem
         if (!TryComp<ObsessedComponent>(args.User, out var comp) || comp.TargetId != ent.Comp.Id)
             return;
 
+        comp.Interactions[ObsessionInteraction.Touch]++;
+        if (_mind.TryGetMind(args.User, out var mindId, out var mind))
+        {
+            var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Touch, comp.Interactions[ObsessionInteraction.Touch]);
+            foreach (var item in mind.Objectives)
+                RaiseLocalEvent(item, ref ev);
+        }
+
         TryRecoverSanity((args.User, comp), ObsessionInteraction.Touch);
     }
 
@@ -165,6 +206,43 @@ public sealed class ObsessionSystem : EntitySystem
     {
         var comp = EnsureComp<ObsessionTargetPhotoComponent>(args.Photo);
         comp.Ids.Add(ent.Comp.Id);
+    }
+
+    private void OnTargetMobStateChanged(Entity<ObsessionTargetComponent> ent, ref MobStateChangedEvent args)
+    {
+        var died = args.NewMobState == MobState.Dead;
+
+        foreach (var item in EntityManager.AllEntities<ObsessedComponent>())
+        {
+            if (item.Comp.TargetId != ent.Comp.Id)
+                continue;
+
+            if (!died)
+            {
+                RemComp<TimedObsessionRemovingComponent>(item);
+                continue;
+            }
+
+            if (!_mind.TryGetMind(item.Owner, out var mindId, out var mind))
+                continue;
+
+            var ev = new ObsessionTargetDiedEvent(mindId, mind);
+
+            foreach (var objective in mind.Objectives)
+                RaiseLocalEvent(objective, ref ev);
+
+            if (!ev.Handled)
+            {
+                var comp = EnsureComp<TimedObsessionRemovingComponent>(item.Owner);
+                comp.RemoveTime = _timing.CurTime + TimeSpan.FromMinutes(5);
+                continue;
+            }
+
+            _popup.PopupEntity(Loc.GetString("popup-obsession-removed"), item, item, Content.Shared.Popups.PopupType.MediumCaution);
+            _stun.TryParalyze(item, TimeSpan.FromSeconds(2), false);
+            _role.MindRemoveRole<ObsessedRoleComponent>(mindId);
+            RemComp<ObsessedComponent>(item);
+        }
     }
 
     private void OnPhotoOpen(Entity<ObsessionTargetPhotoComponent> ent, ref BoundUIOpenedEvent args)

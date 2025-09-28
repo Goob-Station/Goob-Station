@@ -18,7 +18,6 @@ public sealed class ObsessionObjectivesSystem : EntitySystem
         SubscribeLocalEvent<ObsessionInteractConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
         SubscribeLocalEvent<ObsessionInteractConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
         SubscribeLocalEvent<ObsessionInteractConditionComponent, RefreshObsessionObjectiveStatsEvent>(OnRefresh);
-        SubscribeLocalEvent<ObsessionInteractConditionComponent, ObsessionTargetDiedEvent>(OnInteractTargetDied);
 
         SubscribeLocalEvent<ObsessionKillConditionComponent, ObjectiveAfterAssignEvent>(OnAfterKillAssign);
         SubscribeLocalEvent<ObsessionKillConditionComponent, ObjectiveGetProgressEvent>(OnGetKillProgress);
@@ -57,12 +56,6 @@ public sealed class ObsessionObjectivesSystem : EntitySystem
         }
     }
 
-    private void OnInteractTargetDied(EntityUid uid, ObsessionInteractConditionComponent comp, ref ObsessionTargetDiedEvent args)
-    {
-        if (args.Mind.CurrentEntity.HasValue)
-            comp.LockedState = GetProgress(args.Mind.CurrentEntity.Value, comp);
-    }
-
     private void OnAfterKillAssign(EntityUid uid, ObsessionKillConditionComponent comp, ref ObjectiveAfterAssignEvent args)
     {
         if (TryComp<ObsessedComponent>(args.Mind.CurrentEntity, out var obsessed))
@@ -79,6 +72,8 @@ public sealed class ObsessionObjectivesSystem : EntitySystem
 
     private void OnKillTargetDied(EntityUid uid, ObsessionKillConditionComponent comp, ref ObsessionTargetDiedEvent args)
     {
+        args.Handled = true;
+
         if (args.Mind.CurrentEntity.HasValue)
             comp.Success = true;
     }
