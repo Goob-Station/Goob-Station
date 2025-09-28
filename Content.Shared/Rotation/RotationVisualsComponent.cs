@@ -45,4 +45,8 @@ public enum RotationState
     ///     Laying down
     /// </summary>
     Horizontal,
+    // Goobstation start
+    HorizontalForce,
+    VerticalForce
+    // Goobstation end
 }
