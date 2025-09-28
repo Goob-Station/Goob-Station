@@ -1397,7 +1397,7 @@
   components:
   - type: ProjectileSpread
     proto: BulletLaser
-    count: 5 #65 heat damage if you hit all your shots, but wide spread
+    count: 4 # Goobstation - 5>4 - Shotguns nerf - Too good against all antags and especially against ling and blob
     spread: 30
 
 - type: entity
@@ -1408,8 +1408,8 @@
   components:
   - type: ProjectileSpread
     proto: BulletLaser
-    count: 4 #52 heat damage if you hit all your shots, but narrower spread
-    spread: 10
+    count: 3 # Goobstation - 4>3 - Shotguns nerf - Too good against all antags and especially against ling and blob
+    spread: 5 # Goobstation - 10>5 - Shotguns nerf
 
 - type: entity
   name: disabling laser barrage
@@ -1419,5 +1419,5 @@
   components:
   - type: ProjectileSpread
     proto: BulletDisablerSmg
-    count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
-    spread: 9
+    count: 4 # Goobstation - 3>4 - Shotguns nerf - Little buff to non-lethal mode
+    spread: 10
