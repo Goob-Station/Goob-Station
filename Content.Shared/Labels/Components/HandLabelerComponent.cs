@@ -33,6 +33,12 @@ public sealed partial class HandLabelerComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier PrintSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/hand_labeler_print.ogg");
+
+    /// <summary>
+    /// Goobstation - volume for PrintSound
+    /// </summary>
+    [DataField]
+    public float PrintSoundVolume = -2f;
 }
 
 [Serializable, NetSerializable]
