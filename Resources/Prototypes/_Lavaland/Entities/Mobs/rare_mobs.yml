@@ -4,7 +4,7 @@
   name: ancient goliath
   components:
   - type: Sprite
-    sprite: _lavaland/Mobs/goliath.rsi
+    sprite: _Lavaland/Mobs/goliath.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: goliath
