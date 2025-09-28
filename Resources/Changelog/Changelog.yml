@@ -4615,3 +4615,10 @@
   id: 9013
   time: '2025-09-27T21:21:05.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39087
+- author: SurrealShibe
+  changes:
+  - message: Vulpkanin now audibly gasp.
+    type: Fix
+  id: 9014
+  time: '2025-09-28T03:25:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40579
