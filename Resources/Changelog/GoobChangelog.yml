@@ -15485,3 +15485,15 @@ Entries:
       message: Fix PC freeze when quitting the game.
   id: 1732
   time: '2025-09-28T07:14:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Large Mail Packages can now be inserted into backpacks
+    - type: Tweak
+      message: Baguettes are now a little bit smaller in backpacks
+    - type: Tweak
+      message: >-
+        Distress Signallers, Pepperspray and Security Hyposprays can now be
+        inserted into secbelts
+  id: 1733
+  time: '2025-09-28T07:49:29.0000000+00:00'
