@@ -181,7 +181,7 @@
         doAfter: 1
 
   - node: BlueAltarNode
-    entity: AltarConvertFestival
+    entity: AltarConvertBlue
     edges:
     - to: AltarConvertNode
       completed:
