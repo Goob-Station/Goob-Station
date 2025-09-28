@@ -11,6 +11,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Maps;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Standing;
+using Content.Shared.StatusIcon.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -140,13 +141,10 @@ public sealed class PhotoSystem : EntitySystem
         var tileEnumerator = _map.GetLocalTilesEnumerator(grid, gridComp, box);
         while (tileEnumerator.MoveNext(out var tile))
         {
-            List<EntityUid> copiedEnts = new();
-
-            SetupTile((grid, gridComp), (pseudoGrid.Value, pseudoGridComp), tile, diff, copiedEnts, user, out var setupSource);
-
-            if (setupSource.HasValue)
-                source = setupSource.Value;
+            SetupTile((grid, gridComp), (pseudoGrid.Value, pseudoGridComp), tile, diff);
         }
+
+        SetupEntities((pseudoGrid.Value, pseudoGridComp), new(grid, box.Center), diff, user, out source);
 
         return source.HasValue;
     }
@@ -178,10 +176,8 @@ public sealed class PhotoSystem : EntitySystem
         return source.HasValue;
     }
 
-    private void SetupTile(Entity<MapGridComponent> grid, Entity<MapGridComponent> pseudoGrid, TileRef tileRef, Vector2i clickPosition, List<EntityUid> copied, EntityUid user, out EntityUid? source)
+    private void SetupTile(Entity<MapGridComponent> grid, Entity<MapGridComponent> pseudoGrid, TileRef tileRef, Vector2i clickPosition)
     {
-        source = null;
-
         if (!_map.TryGetTileDef(Comp<MapGridComponent>(grid), tileRef.GridIndices, out var tileDef))
             return;
 
@@ -189,31 +185,25 @@ public sealed class PhotoSystem : EntitySystem
             return;
 
         _tile.ReplaceTile(pseudoTileRef, _proto.Index<ContentTileDefinition>(tileDef.ID));
+    }
 
-        var pos = new EntityCoordinates(grid, tileRef.GridIndices);
+    private void SetupEntities(Entity<MapGridComponent> pseudoGrid, EntityCoordinates center, Vector2i clickPosition, EntityUid user, out EntityUid? source)
+    {
+        source = null;
 
-        SortedSet<EntityUid> ents = new(_lookup.GetEntitiesInRange(_transform.ToMapCoordinates(pos), 0.4f, LookupFlags.Uncontained));
-
-        foreach (var item in ents)
+        foreach (var item in _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained))
         {
-            if (copied.Contains(item))
-                continue;
-
             if (!TryPrototype(item, out var proto))
                 continue;
 
-            copied.Add(item);
-
             var xform = Transform(item);
-
-            if ((_transform.ToMapCoordinates(xform.Coordinates).Position - _transform.ToMapCoordinates(Transform(user).Coordinates).Position).Length() > 3.25f)
-                continue;
 
             var entity = Spawn(proto.ID, new(pseudoGrid.Owner, xform.Coordinates.Position - clickPosition));
             Transform(entity).LocalRotation = xform.LocalRotation;
 
             RemComp<SSDIndicatorComponent>(entity);
             RemComp<DamageableComponent>(entity);
+            RemComp<StatusIconComponent>(entity);
 
             _humanoid.CloneAppearance(item, entity);
             _appearance.CopyData(item, entity);
