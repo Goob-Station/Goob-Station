@@ -40,7 +40,7 @@
         Asphyxiation: 0
   - type: Butcherable
     spawned:
-    - id: FoodMeatFish
+    - id: FoodMeatFishRaw
       amount: 2
   - type: Bloodstream
     bloodMaxVolume: 20

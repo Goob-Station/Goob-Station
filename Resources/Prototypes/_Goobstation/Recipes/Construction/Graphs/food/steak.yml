@@ -38,3 +38,20 @@
 
   - node: bingle steak
     entity: FoodMeatBingleCooked
+
+- type: constructionGraph
+  id: FishSteak
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: fish steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+
+  - node: fish steak
+    entity: FoodMeatFishSteak

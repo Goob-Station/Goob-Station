@@ -157,3 +157,54 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+
+- type: entity
+  name: raw fish fillet
+  parent: FoodMeatFishSteak
+  id: FoodMeatFishRaw
+  description: Some prefer fish raw.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/fish.rsi
+    state: fish1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 7.5
+        - ReagentId: Fat
+          Quantity: 7.5
+  - type: Construction
+    graph: FishSteak
+    node: start
+    defaultTarget: fish steak
+
+- type: entity
+  name: fish steak
+  parent: FoodMeatBase
+  id: FoodMeatFishSteak
+  description: Cooked fish filet.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/fish.rsi
+    state: fish2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: FishSteak
+    node: fish steak
