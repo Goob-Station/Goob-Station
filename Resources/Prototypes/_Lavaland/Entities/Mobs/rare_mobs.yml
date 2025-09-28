@@ -2,10 +2,12 @@
   id: MobGoliathAncient
   parent: MobGoliath
   name: ancient goliath
-  description: An ancient massive beast
   components:
   - type: Sprite
-    color: '#FF8888FF'  #red tint
+    sprite: _lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 2.5
@@ -22,7 +24,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      600: Dead
+      450: Dead
   - type: HTN
     constantlyReplan: false
     rootTask:
