@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Photo;
 using Content.Server.Flash;
@@ -9,6 +10,7 @@ using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Standing;
@@ -202,7 +204,11 @@ public sealed class PhotoSystem : EntitySystem
     {
         source = null;
 
-        foreach (var item in _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained))
+        var ents = _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained);
+        if (ents.Count > 50)
+            ents = ents.Where(x => !TryComp<ItemComponent>(x, out var item) || item.Size != "Tiny").ToHashSet();
+
+        foreach (var item in ents)
         {
             if (!TryPrototype(item, out var proto))
                 continue;
