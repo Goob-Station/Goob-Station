@@ -1073,6 +1073,9 @@ public sealed class PullingSystem : EntitySystem
 
     public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
+        var ev = new GrabStageChangedEvent(puller.Comp.GrabStage, stage, pullable);
+        RaiseLocalEvent(puller, ev);
+
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
 
