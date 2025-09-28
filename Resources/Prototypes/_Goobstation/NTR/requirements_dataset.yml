@@ -1,0 +1,233 @@
+- type: storyTemplate
+  id: ServiceDocumentTemplate
+  locId: ntr-document-service-document-text
+  variables:
+    start: service_starting_dataset
+    text1: service_text1_dataset
+    text2: service_text2_dataset
+    text3: service_text3_dataset
+    text4: service_text4_dataset
+
+- type: storyTemplate
+  id: SecurityDocumentTemplate
+  locId: ntr-document-security-document-text
+  variables:
+    start: security_starting_dataset
+    text1: security_text1_dataset
+    text2: security_text2_dataset
+    text3: security_text3_dataset
+    text4: security_text4_dataset
+
+- type: storyTemplate
+  id: CargoDocumentTemplate
+  locId: ntr-document-cargo-document-text
+  variables:
+    start: cargo_starting_dataset
+    text1: cargo_text1_dataset
+    text2: cargo_text2_dataset
+    text3: cargo_text3_dataset
+
+- type: storyTemplate
+  id: MedicalDocumentTemplate
+  locId: ntr-document-medical-document-text
+  variables:
+    start: medical_starting_dataset
+    text1: medical_text1_dataset
+    text2: medical_text2_dataset
+    text3: medical_text3_dataset
+    text4: medical_text4_dataset
+
+- type: storyTemplate
+  id: EngineeringDocumentTemplate
+  locId: ntr-document-engineering-document-text
+  variables:
+    start: engineering_starting_dataset
+    text1: engineering_text1_dataset
+    text2: engineering_text2_dataset
+    text3: engineering_text3_dataset
+    text4: engineering_text4_dataset
+
+- type: storyTemplate
+  id: ScienceDocumentTemplate
+  locId: ntr-document-science-document-text
+  variables:
+    start: science_starting_dataset
+    text1: science_text1_dataset
+    text2: science_text2_dataset
+    text3: science_text3_dataset
+    text4: science_text4_dataset
+
+- type: localizedDataset
+  id: service_starting_dataset
+  values:
+    prefix: ntr-document-service-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: security_starting_dataset
+  values:
+    prefix: ntr-document-security-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: cargo_starting_dataset
+  values:
+    prefix: ntr-document-cargo-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: medical_starting_dataset
+  values:
+    prefix: ntr-document-medical-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: engineering_starting_dataset
+  values:
+    prefix: ntr-document-engineering-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: science_starting_dataset
+  values:
+    prefix: ntr-document-science-starting-text
+    count: 1
+
+- type: localizedDataset
+  id: service_text1_dataset
+  values:
+    prefix: ntr-document-funny-service1-
+    count: 15
+
+- type: localizedDataset
+  id: service_text2_dataset
+  values:
+    prefix: ntr-document-funny-service2-
+    count: 15
+
+- type: localizedDataset
+  id: service_text3_dataset
+  values:
+    prefix: ntr-document-funny-service3-
+    count: 15
+
+- type: localizedDataset
+  id: service_text4_dataset
+  values:
+    prefix: ntr-document-funny-service4-
+    count: 15
+
+- type: localizedDataset
+  id: security_text1_dataset
+  values:
+    prefix: ntr-document-funny-sec1-
+    count: 15
+
+- type: localizedDataset
+  id: security_text2_dataset
+  values:
+    prefix: ntr-document-funny-sec2-
+    count: 4
+
+- type: localizedDataset
+  id: security_text3_dataset
+  values:
+    prefix: ntr-document-funny-sec3-
+    count: 2
+
+- type: localizedDataset
+  id: security_text4_dataset
+  values:
+    prefix: ntr-document-funny-sec4-
+    count: 8
+
+- type: localizedDataset
+  id: cargo_text1_dataset
+  values:
+    prefix: ntr-document-funny-cargo1-
+    count: 5
+
+- type: localizedDataset
+  id: cargo_text2_dataset
+  values:
+    prefix: ntr-document-funny-cargo2-
+    count: 8
+
+- type: localizedDataset
+  id: cargo_text3_dataset
+  values:
+    prefix: ntr-document-funny-cargo3-
+    count: 9
+
+- type: localizedDataset
+  id: medical_text1_dataset
+  values:
+    prefix: ntr-document-funny-med1-
+    count: 2
+
+
+- type: localizedDataset
+  id: medical_text2_dataset
+  values:
+    prefix: ntr-document-funny-med2-
+    count: 8
+
+- type: localizedDataset
+  id: medical_text3_dataset
+  values:
+    prefix: ntr-document-funny-med3-
+    count: 6
+
+- type: localizedDataset
+  id: medical_text4_dataset
+  values:
+    prefix: ntr-document-funny-med4-
+    count: 10
+
+- type: localizedDataset
+  id: engineering_text1_dataset
+  values:
+    prefix: ntr-document-funny-engi1-
+    count: 5
+
+- type: localizedDataset
+  id: engineering_text2_dataset
+  values:
+    prefix: ntr-document-funny-engi2-
+    count: 10
+
+- type: localizedDataset
+  id: engineering_text3_dataset
+  values:
+    prefix: ntr-document-funny-engi3-
+    count: 9
+
+- type: localizedDataset
+  id: engineering_text4_dataset
+  values:
+    prefix: ntr-document-funny-engi4-
+    count: 10
+
+- type: localizedDataset
+  id: science_text1_dataset
+  values:
+    prefix: ntr-document-funny-sci1-
+    count: 8
+
+- type: localizedDataset
+  id: science_text2_dataset
+  values:
+    prefix: ntr-document-funny-sci2-
+    count: 10
+
+- type: localizedDataset
+  id: science_text3_dataset
+  values:
+    prefix: ntr-document-funny-sci3-
+    count: 16
+
+- type: localizedDataset
+  id: science_text4_dataset
+  values:
+    prefix: ntr-document-funny-sci4-
+    count: 8

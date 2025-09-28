@@ -50,7 +50,7 @@ public sealed class ThrallGuiseSystem : EntitySystem
             {
                 if (TryComp<StealthComponent>(uid, out var stealth))
                 {
-                    if (lightDetection.IsOnLight)
+                    if (lightDetection.OnLight)
                     {
                         _stealth.SetVisibility(uid, 0.5f, stealth);
                     }

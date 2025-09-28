@@ -15435,3 +15435,17 @@ Entries:
         of their powers.
   id: 1728
   time: '2025-09-24T12:13:46.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Arrivals and Mining shuttles now have FTL drives with much quicker
+        cooldowns
+  id: 1729
+  time: '2025-09-26T04:34:14.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Removed gatfruit mapped by john station's protoges.
+  id: 1730
+  time: '2025-09-28T06:43:21.0000000+00:00'
