@@ -1,11 +1,21 @@
 using System.Linq;
 using Content.Goobstation.Server.Photo;
 using Content.Goobstation.Shared.Obsession;
+using Content.Server.Antag;
 using Content.Server.Interaction;
+using Content.Server.Jittering;
+using Content.Server.Mind;
+using Content.Server.Objectives;
+using Content.Server.Popups;
+using Content.Server.Roles;
 using Content.Server.Speech;
+using Content.Server.Stunnable;
+using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.SSDIndicator;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
@@ -20,6 +30,10 @@ public sealed class ObsessionSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly JitteringSystem _jittering = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
 
     private int _lastId = 0;
 
@@ -63,6 +77,9 @@ public sealed class ObsessionSystem : EntitySystem
             }
 
             DoPassiveSanityDamage((uid, comp));
+
+            if (comp.Sanity <= 70 && _random.Prob((comp.MaxSanity - comp.Sanity) / 100f + 0.1f * comp.SanityLossStage))
+                DoRandomEffect((uid, comp));
         }
 
         var photoQuery = EntityQueryEnumerator<ObsessionTargetPhotoComponent>();
@@ -197,6 +214,22 @@ public sealed class ObsessionSystem : EntitySystem
         {
             ent.Comp.SanityLossStage = stage;
             Dirty(ent);
+        }
+    }
+
+    private void DoRandomEffect(Entity<ObsessedComponent> ent)
+    {
+        switch (_random.Next(0, 2))
+        {
+            case 0:
+                _popup.PopupEntity(Loc.GetString($"popup-obsessed-{_random.Next(1, 3)}"), ent, ent, Content.Shared.Popups.PopupType.SmallCaution);
+                break;
+            case 1:
+                _stun.TrySlowdown(ent, TimeSpan.FromSeconds(1.5f), false);
+                break;
+            case 2:
+                _jittering.DoJitter(ent, TimeSpan.FromSeconds(2), true);
+                break;
         }
     }
 }
