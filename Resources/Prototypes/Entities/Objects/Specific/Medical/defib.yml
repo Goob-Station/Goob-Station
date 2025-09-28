@@ -69,7 +69,7 @@
       price: 30
     - type: GuideHelp
       guides:
-      - Medical Doctor
+      - MedicalDoctor
     - type: LanguageSpeaker # Einstein Engines - Language
     - type: LanguageKnowledge # Einstein Engines - Language
       speaks:
