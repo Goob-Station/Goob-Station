@@ -32,7 +32,7 @@ public sealed partial class HandLabelerComponent : Component
     /// Goobstation - sound played when applying a label
     /// </summary>
     [DataField]
-    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Items/hand_labeler_print.ogg");
+    public SoundPathSpecifier PrintSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/hand_labeler_print.ogg");
 }
 
 [Serializable, NetSerializable]
