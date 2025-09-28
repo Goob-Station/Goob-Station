@@ -115,6 +115,8 @@ public sealed class ObsessionSystem : EntitySystem
             Dirty(target.Owner, comp);
         }
 
+        ent.Comp.TargetName = Name(target);
+
         Dirty(ent);
     }
 

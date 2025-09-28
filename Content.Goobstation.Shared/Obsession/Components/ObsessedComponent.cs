@@ -11,6 +11,9 @@ public sealed partial class ObsessedComponent : Component
     public int TargetId = 0;
 
     [ViewVariables(VVAccess.ReadWrite)]
+    public string TargetName = "";
+
+    [ViewVariables(VVAccess.ReadWrite)]
     public int MaxSanity = 100;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -38,6 +41,13 @@ public sealed partial class ObsessedComponent : Component
 
     [AutoNetworkedField]
     public int SanityLossStage = 0;
+
+    public Dictionary<ObsessionInteraction, int> Interactions = new()
+    {
+        { ObsessionInteraction.Touch, 0 },
+        { ObsessionInteraction.Grab, 0 },
+        { ObsessionInteraction.Photo, 0 }
+    };
 
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
