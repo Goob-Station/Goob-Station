@@ -1,4 +1,3 @@
-using System.Numerics;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.LightDetection.Components;
@@ -10,20 +9,16 @@ namespace Content.Goobstation.Shared.LightDetection.Components;
 public sealed partial class LightDetectionComponent : Component
 {
     /// <summary>
-    ///  Indicates whether the used is standing on light, or not.
+    /// Current light level that entity gets from all light sources in radius
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsOnLight;
-
-    [DataField]
-    public float Accumulator;
-
-    [DataField]
-    public float UpdateInterval = 1f;
+    [ViewVariables, AutoNetworkedField]
+    public float CurrentLightLevel;
 
     /// <summary>
-    ///  The last known position of the user of this component
+    /// Minimum light level for entity to be on light
     /// </summary>
     [DataField]
-    public Vector2 LastKnownPosition;
+    public float OnLightLevel = 0.25f;
+
+    public bool OnLight => CurrentLightLevel > OnLightLevel;
 }

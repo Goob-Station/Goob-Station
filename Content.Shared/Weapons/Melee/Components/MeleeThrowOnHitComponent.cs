@@ -21,8 +21,8 @@ namespace Content.Shared.Weapons.Melee.Components;
 /// This is used for a melee weapon that throws whatever gets hit by it in a line
 /// until it hits a wall or a time limit is exhausted.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-// [Access(typeof(MeleeThrowOnHitSystem), typeof(BoomerangSystem))] // Goobstation Edit - No implicit access
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+// [Access(typeof(MeleeThrowOnHitSystem))] // Goobstation Edit - No implicit access
 public sealed partial class MeleeThrowOnHitComponent : Component
 {
     /// <summary>
@@ -60,6 +60,21 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ThrowWhileOnDelay;
+    /// </summary>
+
+    /// Whether the entity can apply knockback this instance of being thrown.
+    /// If true, the entity cannot apply knockback.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool ThrowOnCooldown;
+
+    /// <summary>
+    /// Whether this item has hit anyone while it was thrown.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool HitWhileThrown;
 }
 
 /// <summary>
