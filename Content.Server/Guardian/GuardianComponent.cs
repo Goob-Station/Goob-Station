@@ -11,6 +11,7 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Audio;
+using Robust.Shared.Map; // Goobstation
 
 namespace Content.Server.Guardian
 {
@@ -63,11 +64,10 @@ namespace Content.Server.Guardian
         public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/Voice/Human/malescream_guardian.ogg", AudioParams.Default.WithVariation(0.2f));
 
         /// <summary>
-        /// Whether the guardian is currently being repositioned to prevent infinite move event loops
-        /// </summary>
         /// Goobstation
-        [ViewVariables(VVAccess.ReadOnly)]
-        public bool IsRepositioning;
-
+        /// The guardian's last known position to prevent unnecessary position updates
+        /// </summary>
+        [ViewVariables]
+        public EntityCoordinates? LastPosition;
     }
 }

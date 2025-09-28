@@ -56,7 +56,9 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Player;
+using Robust.Shared.Timing; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -75,7 +77,8 @@ namespace Content.Server.Guardian
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+        [Dependency] private readonly NpcFactionSystem _faction = default!; // GoobStation: Used for guardian-host faction interactions
+        [Dependency] private readonly IGameTiming _timing = default!; // GoobStation: Used for cooldown timing
 
         public override void Initialize()
         {
@@ -105,7 +108,9 @@ namespace Content.Server.Guardian
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
-            if (!TerminatingOrDeleted(uid)) // Goobstation
+            // GoobStation: Safety check to prevent component removal if the entity is being deleted
+            // This avoids potential issues with the entity being in an invalid state during deletion
+            if (!TerminatingOrDeleted(uid))
                 RemCompDeferred<GuardianSharedComponent>(uid);
 
             var host = component.Host;
@@ -273,12 +278,15 @@ namespace Content.Server.Guardian
             // Use map position so it's not inadvertantly parented to the host + if it's in a container it spawns outside I guess.
             var guardian = Spawn(component.GuardianProto, _transform.GetMapCoordinates(args.Args.Target.Value, xform: hostXform));
 
-            // Goobstation start
+            // GoobStation: Start - Custom guardian initialization
+            // Makes the guardian ignore its host's faction to prevent friendly fire
             _faction.IgnoreEntity(guardian, args.Args.Target.Value);
+
+            // Ensure the guardian has a shared component and set up the host reference
             var sharedComp = EnsureComp<GuardianSharedComponent>(guardian);
             sharedComp.Host = args.Args.Target.Value;
             Dirty(guardian, sharedComp);
-            // Goobstation end
+            // GoobStation: End
 
             _container.Insert(guardian, host.GuardianContainer);
             host.HostedGuardian = guardian;
@@ -370,9 +378,15 @@ namespace Content.Server.Guardian
         /// </summary>
         private void OnGuardianMove(EntityUid uid, GuardianComponent component, ref MoveEvent args)
         {
-            if (!component.GuardianLoose || component.Host == null || component.IsRepositioning) // Goobstation
+            // GoobStation: Only process if guardian is loose, has a host, and position actually changed
+            if (!component.GuardianLoose ||
+                component.Host == null ||
+                component.LastPosition == args.NewPosition)
+            {
                 return;
+            }
 
+            component.LastPosition = args.NewPosition;
             CheckGuardianMove(component.Host.Value, uid, guardianComponent: component);
         }
 
@@ -390,42 +404,35 @@ namespace Content.Server.Guardian
             if (TerminatingOrDeleted(guardianUid) || TerminatingOrDeleted(hostUid))
                 return;
 
-            if (!Resolve(hostUid, ref hostComponent, ref hostXform) ||
+            // Goobstation start
+            if (!Resolve(hostUid, ref hostXform) ||
                 !Resolve(guardianUid, ref guardianComponent, ref guardianXform))
             {
                 return;
             }
 
-            if (!guardianComponent.GuardianLoose || guardianComponent.IsRepositioning) // Goobstation
+            if (!guardianComponent.GuardianLoose)
                 return;
 
-            // Goobstation - Handles guardian movement when too far from host.
+            // Handles guardian movement when too far from host.
             // Instead of retracting, moves the guardian to a position closer to the host.
             // Uses a 90% distance buffer to prevent rapid toggling of this logic.
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
             {
-                try
-                {
-                    guardianComponent.IsRepositioning = true;
+                // host's position in our parent's coordinates
+                var hostPos = _transform.WithEntityId(hostXform.Coordinates, guardianXform.ParentUid).Position;
+                var diff = guardianXform.LocalPosition - hostPos;
+                var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed * 0.9f; // 90% of max distance
+                var newPos = hostPos + newDiff;
 
-                    if (hostXform.MapID != guardianXform.MapID)
-                    {
-                        _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
-                    }
-                    else
-                    {
-                        // host's position in our parent's coordinates
-                        var hostPos = _transform.WithEntityId(hostXform.Coordinates, guardianXform.ParentUid).Position;
-                        var diff = guardianXform.LocalPosition - hostPos;
-                        var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed * 0.9f; // 90% of max distance to prevent immediate retriggering
-                        _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
-                    }
-                }
-                finally
+                // Only update if the position has actually changed
+                if (guardianXform.LocalPosition != newPos)
                 {
-                    // Always ensure the flag is cleared, even if an exception occurs
-                    guardianComponent.IsRepositioning = false;
+                    _transform.SetLocalPosition(guardianUid, newPos, guardianXform);
+                    // Update the last known position after moving
+                    guardianComponent.LastPosition = new EntityCoordinates(guardianXform.ParentUid, newPos);
                 }
+                // Goobstation end
             }
         }
 
@@ -441,10 +448,17 @@ namespace Content.Server.Guardian
             _container.Remove(guardian, hostComponent.GuardianContainer);
             DebugTools.Assert(!hostComponent.GuardianContainer.Contains(guardian));
 
+            // Store the current position when releasing the guardian
+            // Goobstation
+            if (TryComp<TransformComponent>(guardian, out var xform))
+            {
+                guardianComponent.LastPosition = xform.Coordinates;
+            }
+
             guardianComponent.GuardianLoose = true;
         }
 
-        private void RetractGuardian(EntityUid host,GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
+        private void RetractGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
         {
             if (!guardianComponent.GuardianLoose)
             {
@@ -455,6 +469,9 @@ namespace Content.Server.Guardian
             _container.Insert(guardian, hostComponent.GuardianContainer);
             DebugTools.Assert(hostComponent.GuardianContainer.Contains(guardian));
             _popupSystem.PopupEntity(Loc.GetString("guardian-entity-recall"), host);
+
+            // Clear the last position when retracting
+            guardianComponent.LastPosition = null; // Goobstation
             guardianComponent.GuardianLoose = false;
         }
     }
