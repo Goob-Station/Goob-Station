@@ -87,7 +87,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
             _labelSystem.Label(target, handLabeler.AssignedLabel);
 
         result = Loc.GetString("hand-labeler-successfully-applied");
-        _audio.PlayPredicted(handLabeler.PrintSound, uid, target, AudioParams.Default.WithVolume(handLabeler.PrintSoundVolume)); // Goobstation
+        _audio.PlayPredicted(handLabeler.PrintSound, uid, target); // Goobstation
     }
 
     private void OnUtilityVerb(EntityUid uid, HandLabelerComponent handLabeler, GetVerbsEvent<UtilityVerb> args)
