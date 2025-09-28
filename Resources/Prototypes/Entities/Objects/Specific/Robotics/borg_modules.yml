@@ -732,6 +732,7 @@
     - FloorTileItemSteelLingering0
     - FloorTileItemWhiteLingering0
     - FloorTileItemDarkLingering0
+    - ConstructionBag
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
