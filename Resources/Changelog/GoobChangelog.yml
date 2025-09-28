@@ -15563,3 +15563,9 @@ Entries:
       message: Nullrod shield form, blue altar
   id: 1741
   time: '2025-09-28T08:04:52.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Made fake rift spawn more rare
+  id: 1742
+  time: '2025-09-28T08:05:16.0000000+00:00'
