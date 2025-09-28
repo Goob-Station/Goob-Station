@@ -30,7 +30,7 @@ public sealed partial class PhotoWindow : BaseWindow
             Position = new MapCoordinates(offset, map),
             DrawFov = true,
             DrawLight = true,
-            Zoom = new(0.2f)
+            Zoom = new(0.3f)
         };
 
         ScalingViewport photoView = new()
