@@ -15449,3 +15449,29 @@ Entries:
       message: Removed gatfruit mapped by john station's protoges.
   id: 1730
   time: '2025-09-28T06:43:21.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed shadowlings being able to wear clothes.
+    - type: Fix
+      message: Fixed shadowlings not appearing through secret+ gamemode.
+    - type: Fix
+      message: >-
+        Fixed shadowling deconversion device not existing in the respective
+        arsenal research tier
+    - type: Fix
+      message: Fixed shadowlings taking damage during ascension
+    - type: Fix
+      message: Fixed nightmares not getting their armblade
+    - type: Fix
+      message: >-
+        You no longer get lynched in space when in Plane Shift as an
+        ascendant/nightmare
+    - type: Tweak
+      message: Shadowling guidebook reworded and now appears in antagonist panel
+    - type: Tweak
+      message: >-
+        Shadowling has time requirements due to how easy it is to die and then
+        have a chudshift.
+  id: 1731
+  time: '2025-09-28T07:11:56.0000000+00:00'
