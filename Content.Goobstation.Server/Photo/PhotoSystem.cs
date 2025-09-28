@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Shared.Photo;
+using Content.Server.Flash;
 using Content.Server.GameTicking.Events;
 using Content.Server.Hands.Systems;
 using Content.Server.Humanoid;
@@ -26,7 +27,7 @@ namespace Content.Goobstation.Server.Photo;
 
 public sealed class PhotoSystem : EntitySystem
 {
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
@@ -42,6 +43,7 @@ public sealed class PhotoSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
 
     private MapId _photoMap;
     private int _photosTaken = 0;
@@ -72,9 +74,18 @@ public sealed class PhotoSystem : EntitySystem
         if (!BuildPhoto(args.User, args.ClickLocation, out var source, out var offset))
             return;
 
-        var photo = Spawn("Photo", Transform(ent).ParentUid.ToCoordinates());
-        var comp = EnsureComp<PhotoComponent>(photo);
+        _flash.FlashArea(args.User, null, 4, TimeSpan.FromSeconds(1f), 1);
 
+        EnsureComp<PointLightComponent>(source.Value);
+
+        _pointLight.SetRadius(source.Value, 4);
+        _pointLight.SetEnergy(source.Value, 1.3f);
+        _pointLight.SetEnabled(source.Value, true);
+
+        var photo = Spawn("Photo", Transform(args.User).Coordinates);
+        _hands.TryPickupAnyHand(args.User, photo, animate: false);
+
+        var comp = EnsureComp<PhotoComponent>(photo);
         comp.SourceEntity = source.Value;
         comp.Offset = offset.Value;
     }
