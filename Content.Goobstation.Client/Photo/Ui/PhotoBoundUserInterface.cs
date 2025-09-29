@@ -20,15 +20,24 @@ public sealed class PhotoBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<PhotoWindow>();
         _window.ScreenshotTaken += () => SendMessage(new UnsubscribePhotoVieverMessage());
+        _window.LabelChanged += args =>
+        {
+            _window.SetLabel(args);
+            SendMessage(new PhotoLabelledMessage() { NewLabel = args });
+        };
     }
 
     protected override void ReceiveMessage(BoundUserInterfaceMessage message)
     {
         base.ReceiveMessage(message);
 
-        if (message is not PhotoUiOpenedMessage cast)
-            return;
+        if (message is PhotoUiOpenedMessage cast)
+        {
+            _window?.Populate(cast.Map, cast.Offset);
+            _window?.SetLabel(cast.Label);
+        }
 
-        _window?.Populate(cast.Map, cast.Offset);
+        if (message is StartLabellingPhotoMessage)
+            _window?.ToggleLabelling();
     }
 }

@@ -102,7 +102,7 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
-    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+    public static readonly ProtoId<TagPrototype> WriteTag = "Write";    // Goobststion edit - made this field public
 
     public override void Initialize()
     {

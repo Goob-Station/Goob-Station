@@ -17,6 +17,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Maps;
+using Content.Shared.Paper;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Standing;
 using Content.Shared.StatusIcon.Components;
@@ -31,6 +32,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using SixLabors.ImageSharp;
 
 namespace Content.Goobstation.Server.Photo;
 
@@ -72,6 +74,8 @@ public sealed class PhotoSystem : EntitySystem
 
         SubscribeLocalEvent<PhotoComponent, BoundUIOpenedEvent>(OnPhotoOpened);
         SubscribeLocalEvent<PhotoComponent, UnsubscribePhotoVieverMessage>(OnPhotoCreated);
+        SubscribeLocalEvent<PhotoComponent, PhotoLabelledMessage>(OnPhotoLabelled);
+        SubscribeLocalEvent<PhotoComponent, InteractUsingEvent>(OnPhotoInteractUsing);
 
         SubscribeLocalEvent<CustomPhotoComponent, MapInitEvent>(OnCustomPhotoInit);
     }
@@ -133,7 +137,7 @@ public sealed class PhotoSystem : EntitySystem
             return;
 
         _viewSubscriber.AddViewSubscriber(ent.Comp.SourceEntity, session);
-        _ui.ServerSendUiMessage(ent.Owner, ImageUiKey.Key, new PhotoUiOpenedMessage() { Map = _photoMap, Offset = ent.Comp.Offset }, args.Actor);
+        _ui.ServerSendUiMessage(ent.Owner, ImageUiKey.Key, new PhotoUiOpenedMessage() { Map = _photoMap, Offset = ent.Comp.Offset, Label = ent.Comp.Label }, args.Actor);
     }
 
     private void OnPhotoCreated(Entity<PhotoComponent> ent, ref UnsubscribePhotoVieverMessage args)
@@ -142,6 +146,20 @@ public sealed class PhotoSystem : EntitySystem
             return;
 
         _viewSubscriber.RemoveViewSubscriber(ent.Comp.SourceEntity, session);
+    }
+
+    private void OnPhotoLabelled(Entity<PhotoComponent> ent, ref PhotoLabelledMessage args)
+    {
+        ent.Comp.Label = args.NewLabel;
+    }
+
+    private void OnPhotoInteractUsing(Entity<PhotoComponent> ent, ref InteractUsingEvent args)
+    {
+        if (_tag.HasTag(args.Used, PaperSystem.WriteTag))
+        {
+            _ui.ServerSendUiMessage(ent.Owner, ImageUiKey.Key, new StartLabellingPhotoMessage());
+            args.Handled = true;
+        }
     }
 
     private void OnCustomPhotoInit(Entity<CustomPhotoComponent> ent, ref MapInitEvent args)

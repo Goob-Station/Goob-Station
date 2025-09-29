@@ -10,4 +10,6 @@ public sealed class PhotoUiOpenedMessage : BoundUserInterfaceMessage
     public MapId Map;
 
     public Vector2 Offset;
+
+    public string Label = "";
 }

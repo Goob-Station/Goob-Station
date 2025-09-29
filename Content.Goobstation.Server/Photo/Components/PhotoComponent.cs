@@ -12,4 +12,6 @@ public sealed partial class PhotoComponent : Component
     public EntityUid SourceEntity;
 
     public Vector2 Offset;
+
+    public string Label = "";
 }
