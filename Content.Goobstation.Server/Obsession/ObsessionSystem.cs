@@ -134,6 +134,9 @@ public sealed class ObsessionSystem : EntitySystem
         ent.Comp.TargetName = Name(target);
 
         Dirty(ent);
+
+        if (_mind.TryGetMind(ent, out var mindId, out var mind))
+            _mind.TryAddObjective(mindId, mind, "ObsessionHugsObjective");
     }
 
     private void OnObsessedPhotograph(Entity<ObsessedComponent> ent, ref PhotographedEvent args)
