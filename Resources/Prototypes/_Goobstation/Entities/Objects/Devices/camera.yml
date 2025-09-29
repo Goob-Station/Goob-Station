@@ -9,6 +9,14 @@
     layers:
     - state: camera
   - type: PhotoCamera
+    photoSound:
+      path: /Audio/_Goobstation/Camera/camera-take-picture.ogg
+    clickSound:
+      path: /Audio/_Goobstation/Camera/camera-click.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+      Steel: 100
 
 - type: entity
   name: a photo
