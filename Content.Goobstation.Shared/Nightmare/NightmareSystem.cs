@@ -28,9 +28,9 @@ public sealed class NightmareSystem : EntitySystem
 
         // Nightmares reflect shots while in the dark
         var nightmare = EntityQueryEnumerator<NightmareComponent, LightDetectionComponent, ReflectComponent>();
-        while (nightmare.MoveNext(out var uid, out _, out var lightDet, out var reflect))
+        while (nightmare.MoveNext(out var uid, out var _, out var lightDet, out var reflect))
         {
-            if (lightDet.IsOnLight && HasComp<PhaseShiftedComponent>(uid))
+            if (lightDet.OnLight && HasComp<PhaseShiftedComponent>(uid))
             {
                 RemComp<PhaseShiftedComponent>(uid);
                 _stunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(3), false);
@@ -38,7 +38,7 @@ public sealed class NightmareSystem : EntitySystem
                     _actionsSystem.SetCooldown(planeShift.ActionEnt, TimeSpan.FromSeconds(3));
             }
 
-            reflect.ReflectProb = lightDet.IsOnLight ? 0f : 1f;
+            reflect.ReflectProb = lightDet.OnLight ? 0f : 1f;
         }
     }
 }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, FlyingMobBase]
   id: BaseMobShadowlingAscendant
   name: shadowling ascendant
   suffix: ""
@@ -15,13 +15,14 @@
       state: shadowling_ascend
   - type: Damageable
     damageContainer: Biological
+    damageModifierSet: ShadowlingAscendant
   - type: MobMover
   - type: InputMover
   - type: InteractionOutline
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
-    weightlessModifier: 1.5
+    baseWeightlessModifier: 1.5
   - type: NoSlip
   - type: Insulated
   - type: Clickable
@@ -31,8 +32,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Critical
-      500: Dead
+      650: Critical
+      700: Dead
   - type: Examiner
   - type: PointLight
     color: "#880808"
@@ -43,6 +44,8 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
+  - type: PressureImmunity
+  - type: BreathingImmunity
   - type: ThermalVision
     color: "#BF40BF"
     activateSound: null

@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -570,6 +573,9 @@
 
 - type: Tag
   id: ToySword
+
+- type: Tag
+  id: MakeshiftShield
 
 - type: Tag
   id: MolotovConstruction
