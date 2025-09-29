@@ -192,40 +192,9 @@
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: vavilon_book
-  - type: TriggerOnUse
-  - type: DeleteOnTrigger
-  - type: SoundOnTrigger
-    sound: /Audio/Effects/smoke.ogg # placeholder sound
-  - type: GrantLanguagesOnTrigger # somone make seperate books of these and give to librarian
+  - type: LanguageLearn
+    deleteAfterUse: true
     languages:
-    - Eldritch
-    - Chittin
-    - RootSpeak
-    - ValyrianStandard
-    - Marish
-    - Moffic
-    - Schechi
-    - NewKinPidgin #Ka'rakk
-    - Nekomimetic
-    - Draconic     #Sinta'Unathi
-    - Azaziba
-    - Calcic
-    - Bubblish
-    - SiikMaas
-    - NalRasan
-    - SiikTajr
-    - YaSsa
-    - Delvahii
-    - Canilunzt
-    - Elyran
-    - Freespeak
-    - NovuNederic
-    - SolCommon
-    - TauCetiBasic
-    - Tradeband
-    - Mouse
-    - Sign
-    - Monkey
-    - Kobold
-    - SpaceItalian
-    - Cheval
+    - Universal
+  - type: StaticPrice
+    price: 5000
