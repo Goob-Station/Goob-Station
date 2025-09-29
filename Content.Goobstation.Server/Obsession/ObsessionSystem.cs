@@ -1,23 +1,19 @@
 using System.Linq;
 using Content.Goobstation.Server.Photo;
 using Content.Goobstation.Shared.Obsession;
-using Content.Server.Antag;
 using Content.Server.Interaction;
 using Content.Server.Jittering;
 using Content.Server.Mind;
-using Content.Server.Objectives;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.Speech;
 using Content.Server.Stunnable;
-using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Movement.Systems;
-using Content.Shared.SSDIndicator;
-using Robust.Server.GameObjects;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -34,6 +30,7 @@ public sealed class ObsessionSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     private int _lastId = 0;
 
@@ -307,6 +304,9 @@ public sealed class ObsessionSystem : EntitySystem
 
     private void DoRandomEffect(Entity<ObsessedComponent> ent)
     {
+        if (ent.Comp.Sanity <= 55)
+            _audio.PlayGlobal(new SoundCollectionSpecifier("ObsessionBass"), ent.Owner);
+
         switch (_random.Next(0, 2))
         {
             case 0:
