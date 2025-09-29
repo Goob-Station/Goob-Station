@@ -2,6 +2,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Photo;
 
+/// <summary>
+/// Component for creating custom photos from exsisting grids
+/// </summary>
 [RegisterComponent]
 public sealed partial class CustomPhotoComponent : Component
 {
