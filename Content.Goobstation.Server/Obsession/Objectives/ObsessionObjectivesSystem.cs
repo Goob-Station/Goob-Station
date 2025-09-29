@@ -31,8 +31,8 @@ public sealed class ObsessionObjectivesSystem : EntitySystem
         if (TryComp<ObsessedComponent>(args.Mind.CurrentEntity, out var obsessed))
         {
             obsessed.Interactions[comp.Interaction] = 0;
-            _meta.SetEntityName(uid, Loc.GetString(comp.Name, ("target", obsessed.TargetName)));
-            _meta.SetEntityDescription(uid, Loc.GetString(comp.Desc, ("target", obsessed.TargetName)));
+            _meta.SetEntityName(uid, Loc.GetString(comp.Name));
+            _meta.SetEntityDescription(uid, Loc.GetString(comp.Desc, ("target", obsessed.TargetName), ("count", comp.Required)));
         }
     }
 
