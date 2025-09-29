@@ -1,6 +1,6 @@
 - type: antag
   id: Obsessed
-  name: obsessed
+  name: Obsessed
   antagonist: true
   setPreference: true
-  objective: "You have an unhealthy feelings towards someone"
+  objective: "You have an unhealthy feelings towards someone."
