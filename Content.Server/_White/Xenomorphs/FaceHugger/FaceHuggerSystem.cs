@@ -1,7 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
@@ -10,7 +9,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
@@ -21,7 +19,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._White.Xenomorphs.Infection;
-using Content.Shared.Body.Components;
+using Content.Shared.Body.Components; // Goobstation start
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -30,6 +28,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._White.Xenomorphs.FaceHugger;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
+using Content.Shared.Atmos.Components; // Goobstation end
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -37,9 +36,9 @@ public sealed class FaceHuggerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!; // Goobstation
+    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!; // Goobstation
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation
 
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -62,8 +61,8 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
-        
-        // Throwing behavior
+
+        // Goobstation - Throwing behavior
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowAttemptEvent>(OnThrowStarting);
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
@@ -136,13 +135,13 @@ public sealed class FaceHuggerSystem : EntitySystem
             }
 
             // Handle continuous chemical injection when equipped
+            // Goobstation
             if (TryComp<ClothingComponent>(uid, out var clothing) && clothing.InSlot != null)
             {
                 // Initialize NextInjectionTime if it's zero
                 if (faceHugger.NextInjectionTime == TimeSpan.Zero)
                 {
                     faceHugger.NextInjectionTime = time + faceHugger.InitialInjectionDelay;
-                    Log.Debug($"[FaceHugger] First injection scheduled for {faceHugger.NextInjectionTime} (initial delay: {faceHugger.InitialInjectionDelay.TotalSeconds}s)");
                     continue;
                 }
 
@@ -151,14 +150,13 @@ public sealed class FaceHuggerSystem : EntitySystem
                     // Get the entity that has this item equipped
                     if (_container.TryGetContainingContainer(uid, out var container) && container.Owner != uid)
                     {
-                        Log.Debug($"[FaceHugger] Time for injection at {time}");
                         InjectChemicals(uid, faceHugger, container.Owner);
                         // Set the next injection time based on the current time plus interval
                         faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
-                        Log.Debug($"[FaceHugger] Next injection scheduled for {faceHugger.NextInjectionTime}");
                     }
                 }
             }
+            // Goobstaion end
 
             // Check for nearby entities to latch onto
             if (faceHugger.Active && clothing?.InSlot == null)
@@ -202,6 +200,7 @@ public sealed class FaceHuggerSystem : EntitySystem
             return false;
 
         // Check for any blocking masks or equipment
+        // Goobstation start
         if (CheckAndHandleMask(target, out var blocker))
         {
             // If blocked by a breathable mask, deal damage and schedule a retry
@@ -262,11 +261,12 @@ public sealed class FaceHuggerSystem : EntitySystem
         component.Active = false;
 
         return _inventory.TryEquip(target, uid, component.Slot, true, true);
-    }
+    } // Gooobstation end
 
     #region Injection Code
     /// <summary>
     /// Checks if the facehugger can inject chemicals into the target
+    /// Goobstation
     /// </summary>
     public bool CanInject(EntityUid uid, FaceHuggerComponent component, EntityUid target)
     {
@@ -335,6 +335,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     /// <summary>
     /// Checks if the target has a breathable mask or any other blocking equipment.
     /// Returns true if there's a blocker, false otherwise.
+    /// Goobstation
     /// </summary>
     private bool CheckAndHandleMask(EntityUid target, out EntityUid? blocker)
     {
@@ -362,32 +363,44 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     #region Throwing Behavior
 
+    /// <summary>
+    /// Handles the start of a facehugger throw.
+    /// Marks the facehugger as being in flight to track its state.
+    /// Goobstation
+    /// </summary>
     private void OnThrowStarting(EntityUid uid, ThrowableFacehuggerComponent component, ThrowAttemptEvent args)
     {
-        // Mark the facehugger as flying
+        // Mark the facehugger as flying to track its airborne state
         component.IsFlying = true;
     }
 
+    /// <summary>
+    /// Handles the facehugger's collision with a target after being thrown.
+    /// Attempts to attach to a valid target if conditions are met.
+    /// </summary>
     private void OnThrowDoHit(EntityUid uid, ThrowableFacehuggerComponent component, ref ThrowDoHitEvent args)
     {
+        // Only process if the facehugger was actually thrown (not just dropped)
         if (!component.IsFlying)
             return;
 
+        // Reset flying state as the throw has completed
         component.IsFlying = false;
 
         var target = args.Target;
 
-        // Check if we hit a valid target
+        // Only proceed if the target is a valid living entity
         if (!HasComp<MobStateComponent>(target))
             return;
 
-        // Try to attach to the target
+        // If this is a valid facehugger entity
         if (TryComp<FaceHuggerComponent>(uid, out var faceHugger))
         {
-            // Check if the target has a mask that would block the facehugger
+            // Check for blocking masks/equipment on the target
             if (CheckAndHandleMask(target, out _))
                 return;
 
+            // Attempt to attach the facehugger to the target's face
             TryEquipFaceHugger(uid, target, faceHugger);
         }
     }

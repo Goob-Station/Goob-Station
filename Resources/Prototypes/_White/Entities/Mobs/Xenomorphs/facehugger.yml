@@ -17,9 +17,8 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: mumble
-  - type: ThrowableFacehugger
-    minThrowForce: 5.0
-
+  - type: ThrowableFacehugger # Goobstation
+    minThrowForce: 5.0 # Goobstation
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph
@@ -66,7 +65,7 @@
     damageOnInfect:
       groups:
         Genetic: 100
-    sleepChem: Nocturine # ID of the Chemical we want to inject
+    sleepChem: Nocturine # ID of the Chemical we want to inject  - Goobstation start
     sleepChemAmount: 10 # Amount in units (Often no need to use more than 10u for most chems)
     minChemicalThreshold: 8 # Minimum amount of the chemical required to prevent additional injections
     initialInjectionDelay: 5 # Delay in seconds before the first injection occurs
@@ -74,7 +73,7 @@
     maskBlockDamage:
       types:
         Slash: 5 # Damage dealt when blocked by a breathable mask
-    MaskBlockSound: MetalThud # Sound collection for when the facehugger hits the mask
+    MaskBlockSound: MetalThud # Sound collection for when the facehugger hits the mask - Goobstation end
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0.0

@@ -24,7 +24,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<XenomorphQueenComponent, PromotionActionEvent>(OnPromotionAction);
         SubscribeLocalEvent<XenomorphQueenComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<XenomorphQueenComponent, ComponentShutdown>(OnShutdown);
@@ -38,9 +38,10 @@ public sealed class XenomorphQueenSystem : EntitySystem
 
     private void OnPromotionAction(EntityUid uid, XenomorphQueenComponent component, PromotionActionEvent args)
     {
+        // Goobstation start
         if (args.Target == EntityUid.Invalid || args.Target == args.Performer)
             return;
-            
+
         // Additional validation in case the target is no longer valid
         if (!HasComp<XenomorphComponent>(args.Target))
         {
@@ -60,7 +61,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("xenomorphs-queen-promotion-didnt-pass-whitelist"), args.Performer);
             return;
         }
-        
+
         // Try direct evolution with optional mind transfer
         var target = args.Target;
         var coordinates = Transform(target).Coordinates;
@@ -71,7 +72,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
             _mind.TransferTo(mindId, newXeno, mind: mind);
 
         // Copy over any important components
-        if (TryComp<XenomorphComponent>(newXeno, out var newXenoComp) && 
+        if (TryComp<XenomorphComponent>(newXeno, out var newXenoComp) &&
             TryComp<XenomorphComponent>(target, out var oldXenoComp))
         {
             newXenoComp.Caste = oldXenoComp.Caste;
@@ -86,7 +87,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
 
         // Get the target's name before deleting the entity
         var targetName = Name(target);
-        
+
         // Clean up the old entity
         Del(target);
 
@@ -94,5 +95,6 @@ public sealed class XenomorphQueenSystem : EntitySystem
         _plasma.ChangePlasmaAmount(uid, -500f); // Deduct 500 plasma for the promotion
         _popup.PopupEntity(Loc.GetString("xenomorphs-queen-promotion-success", ("target", targetName)), uid, uid);
         args.Handled = true;
+        // Goobstation end
     }
 }

@@ -1,12 +1,13 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Goobstation.Maths.FixedPoint; // Goobstation
+
 
 namespace Content.Shared._White.Actions.Events;
 
@@ -85,8 +86,8 @@ public sealed partial class PlaceTileEntityDoAfterEvent : DoAfterEvent
     public SoundSpecifier? Audio;
     public int BlockedCollisionMask;
     public int BlockedCollisionLayer;
-    public FixedPoint2 PlasmaCost;
-    public NetEntity Action;
+    public FixedPoint2 PlasmaCost; // Goobstation
+    public NetEntity Action; // Goobstation
 
     public override DoAfterEvent Clone() => this;
 }

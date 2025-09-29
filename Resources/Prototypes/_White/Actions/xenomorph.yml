@@ -72,7 +72,7 @@
       - MidImpassable
       - LowImpassable
   - type: PlasmaCostAction
-    plasmaCost: 50
+    plasmaCost: 50 # Goobstation
 
 - type: entity
   id: ActionSpawnXenomorphEgg
@@ -111,13 +111,13 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: WallResin
-      length: 2
+      length: 2 # Goobstation
       blockedCollisionMask:
       - FullTileMask
       blockedCollisionLayer:
       - WallLayer
   - type: PlasmaCostAction
-    plasmaCost: 50
+    plasmaCost: 50 # Goobstation
 
 # TODO: delete it # Goobstation - removed
 #- type: entity
@@ -182,14 +182,14 @@
   - type: WorldTargetAction
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
-      length: 2
+      length: 2 # Goobstation
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:
       - TableLayer
       - BulletImpassable
   - type: PlasmaCostAction
-    plasmaCost: 50
+    plasmaCost: 50 # Goobstation
 
 # Tail lash action
 - type: entity
@@ -216,13 +216,13 @@
   components:
   - type: Action
     useDelay: 11
-    itemIconStyle: BigAction
-    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
+    itemIconStyle: BigAction # Goobstation
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
   - type: TargetAction
     interactOnMiss: false
     range: 2
-    targetingIndicator: true
-    checkCanAccess: true
+    targetingIndicator: true # Goobstation
+    checkCanAccess: true # Goobstation
   - type: EntityTargetAction
     event: !type:AcidActionEvent
   - type: PlasmaCostAction
@@ -266,14 +266,14 @@
 - type: entity
   id: ActionXenomorphPromotion
   parent: BaseAction
-  name: Promote to Praetorian (500)
-  description: Directly promote a xenomorph to Praetorian status.
+  name: Promote to Praetorian (500) # Goobstation
+  description: Directly promote a xenomorph to Praetorian status. # Goobstation
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 5
+    useDelay: 5 # Goobstation
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
-  - type: TargetAction
+  - type: TargetAction # Goobstation start
     canTargetSelf: false
     checkCanAccess: true
     checkCanInteract: true
@@ -284,7 +284,7 @@
     whitelist:
       requireAll: true
       components:
-        - XenomorphComponent
+        - XenomorphComponent # Goobstation end
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500

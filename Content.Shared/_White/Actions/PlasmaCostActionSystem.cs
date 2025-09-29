@@ -16,19 +16,19 @@ public sealed class PlasmaCostActionSystem : EntitySystem
     {
         SubscribeLocalEvent<PlasmaCostActionComponent, ActionRelayedEvent<PlasmaAmountChangeEvent>>(OnPlasmaAmountChange);
         SubscribeLocalEvent<PlasmaCostActionComponent, ActionAttemptEvent>(OnActionAttempt); // Goobstation
-        SubscribeLocalEvent<PlasmaCostActionComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
     /// <summary>
     /// Checks if the performer has enough plasma for the action.
     /// Returns true if the action should proceed, false if it should be blocked.
+    /// Goobstation
     /// </summary>
     public bool HasEnoughPlasma(EntityUid performer, FixedPoint2 cost)
     {
         if (cost <= 0)
             return true;
 
-        return TryComp<PlasmaVesselComponent>(performer, out var plasmaVessel) && 
+        return TryComp<PlasmaVesselComponent>(performer, out var plasmaVessel) &&
                plasmaVessel.Plasma >= cost;
     }
 
@@ -46,7 +46,7 @@ public sealed class PlasmaCostActionSystem : EntitySystem
     {
         if (!HasEnoughPlasma(performer, cost))
             return false;
-            
+
         DeductPlasma(performer, cost);
         return true;
     }
@@ -56,17 +56,10 @@ public sealed class PlasmaCostActionSystem : EntitySystem
         _actions.SetEnabled(uid, component.PlasmaCost <= args.Args.Amount);
     }
 
-    // <Goobstation>
     private void OnActionAttempt(Entity<PlasmaCostActionComponent> ent, ref ActionAttemptEvent args)
     {
         if (!_plasma.HasPlasma(args.User, ent.Comp.PlasmaCost))
             args.Cancelled = true;
     }
-    // </Goobstation>
-
-    private void OnActionPerformed(EntityUid uid, PlasmaCostActionComponent component, ActionPerformedEvent args)
-    {
-        // Plasma is now deducted by the calling system for better control
-    }
-
+    // Goobstation end
 }

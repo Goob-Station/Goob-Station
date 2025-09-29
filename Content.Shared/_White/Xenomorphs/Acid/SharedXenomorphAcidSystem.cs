@@ -14,7 +14,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PlasmaCostActionSystem _plasmaCost = default!;
+    [Dependency] private readonly PlasmaCostActionSystem _plasmaCost = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -29,6 +29,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
             return;
 
         // Check if this is a plasma-cost action and get the cost
+        // Goobstart
         TryComp<PlasmaCostActionComponent>(args.Action, out var plasmaCost);
         var plasmaCostValue = plasmaCost?.PlasmaCost ?? FixedPoint2.Zero;
 
@@ -57,6 +58,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
 
         args.Handled = true;
         _popup.PopupEntity(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), uid, uid, type: PopupType.Small);
+        // Goobstation end
 
         if (_net.IsClient)
             return;

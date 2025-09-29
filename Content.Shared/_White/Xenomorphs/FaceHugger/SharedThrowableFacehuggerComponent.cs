@@ -1,8 +1,6 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Content.Shared.Throwing;
 
-namespace Content.Shared._White.Xenomorphs.FaceHugger;
+namespace Content.Shared._White.Xenomorphs.FaceHugger; // Goobstation
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ThrowableFacehuggerComponent : Component

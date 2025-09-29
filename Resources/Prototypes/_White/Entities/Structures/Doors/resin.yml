@@ -90,4 +90,4 @@
     closingSpriteState: closed_unlit
   - type: AccessReader
     access: [["Xenomorph"]]
-    breakOnAccessBreaker: false
+    breakOnAccessBreaker: false # Goobstation

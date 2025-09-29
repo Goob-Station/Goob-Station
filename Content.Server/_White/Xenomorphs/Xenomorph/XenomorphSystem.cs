@@ -29,9 +29,9 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly WoundSystem _wounds = default!; // Goobstation
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!; // Goobstation
+    [Dependency] private readonly BodySystem _body = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -42,6 +42,7 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
 
 public override void Update(float frameTime)
 {
+    // Goobstation start
     base.Update(frameTime);
 
     var time = _timing.CurTime;
@@ -118,6 +119,7 @@ private void ProcessBloodLoss(EntityUid uid, BloodstreamComponent bloodstream)
     bloodloss.DamageDict["Bloodloss"] = -0.2f;  // Heal blood per tick
     _damageable.TryChangeDamage(uid, bloodloss);
 }
+// Goobstation end
 
     private void OnEntitySpoke(EntityUid uid, XenomorphComponent component, EntitySpokeEvent args)
     {
