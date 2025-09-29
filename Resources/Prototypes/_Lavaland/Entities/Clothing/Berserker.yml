@@ -1,6 +1,6 @@
 - type: entity
   id: LavalandHardsuitBerserker
-  parent: [ BaseMajorContraband, ClothingOuterHardsuitSyndie ]
+  parent: [ BaseMajorContraband, ClothingOuterHardsuitSalvage ]
   name: Berserker Hardsuit
   description: the berserk dont care from who the blood flows
   components:
@@ -26,7 +26,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitSyndie
+  parent: ClothingHeadHelmetHardsuitSalvage
   id: LavalandHardsuitBerserkerHelmet
   name: Berserker Helmet
   description: has the mark of a god of war
