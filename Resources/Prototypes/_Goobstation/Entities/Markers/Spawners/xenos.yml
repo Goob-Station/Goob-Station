@@ -1,0 +1,99 @@
+# Gamemode xeno spawners for mapping
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphFaceHugger
+  name: xeno facehugger spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+      state: facehugger
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphFacehugger
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphLarva
+  name: xeno larva spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphLarva
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphDrone
+  name: xeno drone spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphDrone
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphHunter
+  name: xeno hunter spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphHunter
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphPraetorian
+  name: xeno praetorian spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphPraetorian
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphSentinel
+  name: xeno sentinel spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/sentinel.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphSentinel
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphQueen
+  name: xeno queen spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/queen.rsi
+      state: xenomorph
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenomorphQueen
