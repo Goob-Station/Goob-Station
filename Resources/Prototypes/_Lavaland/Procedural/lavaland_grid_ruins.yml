@@ -56,6 +56,12 @@
   priority: 5
 
 - type: lavalandGridRuin
+  id: XenoNest
+  name: lavaland-ruin-xeno-nest
+  path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
+  priority: 5
+
+- type: lavalandGridRuin
   id: Ratvar
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_ratvar.yml
