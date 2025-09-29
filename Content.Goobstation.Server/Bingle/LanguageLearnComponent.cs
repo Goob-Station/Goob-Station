@@ -13,7 +13,7 @@ namespace Content.Goobstation.Shared._Europa.languages;
 /// This is used for learning languages
 /// </summary>
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class LanguageLearnComponent : Component
 {
     /// <summary>
@@ -60,5 +60,5 @@ public sealed partial class LanguageLearnComponent : Component
 /// <summary>
 /// Raised after the doafter is completed when using the item.
 /// </summary>
-[Serializable, NetSerializable]
+[Serializable]
 public sealed partial class LanguageLearnDoAfterEvent : SimpleDoAfterEvent{}
