@@ -1,6 +1,6 @@
 - type: entity
   id: LavalandHardsuitBerserker
-  parent: ClothingOuterHardsuitBase
+  parent: [ BaseMajorContraband, ClothingOuterHardsuitSyndie ]
   name: Berserker Hardsuit
   description: the berserk dont care from who the blood flows
   components:
@@ -20,17 +20,31 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandHardsuitBerserkerHelmet
-    # ADD ARMOR
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHelmetHardsuitSyndie
   id: LavalandHardsuitBerserkerHelmet
   name: Berserker Helmet
   description: has the mark of a god of war
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/berserker_suit.rsi
-    state: icon-HELMET
+    layers:
+    - state: icon-HELMET
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
   - type: Clothing
     sprite: _Lavaland/Equipment/berserker_suit.rsi
-  # ADD ARMOR
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: PointLight
+    color: red
+  - type: Tag
+    tags:
+    - WhitelistChameleon
