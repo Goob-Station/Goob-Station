@@ -262,6 +262,7 @@
       - Abductor
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: PhotoCameraIgnore # Goobstation
 
 - type: entity
   abstract: true

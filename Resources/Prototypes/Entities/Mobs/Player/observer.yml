@@ -230,6 +230,7 @@
         toggleAction: ActionGhostShowRadar
   - type: RadarConsole
     followEntity: true
+  - type: PhotoCameraIgnore
   # </Goobstation>
 
 
