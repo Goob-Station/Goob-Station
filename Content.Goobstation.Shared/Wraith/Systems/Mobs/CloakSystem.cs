@@ -37,7 +37,7 @@ public sealed partial class CloakSystem : EntitySystem
             }
         }
     }
-
+    //TO DO: Cloak should break if the hound leaps.
     public void OnCloak(Entity<CloakComponent> ent, ref CloakEvent args)
     {
         if (args.Handled)

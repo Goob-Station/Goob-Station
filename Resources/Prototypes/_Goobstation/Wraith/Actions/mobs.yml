@@ -18,14 +18,14 @@
 - type: entity
   id: ActionTentacleHook
   name: Tentacle Hook
-  description: ERP action.
+  description: Launch a tentacle at your target and drag it to you
   components:
   - type: Action
     # useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
-      state: rally
+      state: hook
   - type: TargetAction
     range: 15
   - type: EntityTargetAction
@@ -44,7 +44,7 @@
     # useDelay: 50
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
-      state: rally
+      state: shuffle
   - type: InstantAction
     event: !type:SpikerShuffleEvent
 

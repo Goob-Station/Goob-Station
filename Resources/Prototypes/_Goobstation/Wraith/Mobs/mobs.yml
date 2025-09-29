@@ -138,6 +138,79 @@
               path: /Audio/Effects/bone_rattle.ogg
 
 - type: entity
+  name: Tentacle fiend
+  parent: MobCorgiNarsi
+  id: MobVoidSpiker
+  description: Standing still is probably not a good idea.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/void.rsi
+    layers:
+      - state: spiker
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spiker
+      Dead:
+        Base: dead_spiker
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 4 #Very weak damage, but makes target sleep on attack. I'm not sure if our balance fits with Goon's balance, because 4 damage is pathetically weak, but this creature might be only for kidnapping.
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 4
+  - type: TentacleHook
+  - type: SpikerShuffle
+  - type: ActionGrant
+    actions:
+    - ActionTentacleHook
+    - ActionShuffle
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+
+- type: entity
   name: Voidhound
   parent: MobCorgiNarsi
   id: MobVoidHound

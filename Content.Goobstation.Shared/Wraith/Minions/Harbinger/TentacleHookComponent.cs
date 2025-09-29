@@ -15,5 +15,5 @@ public sealed partial class TentacleHookComponent : Component
 
     [DataField]
     public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
+        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wraith/Objects/Line/tentacle.rsi"), "mid_tentacle");
 }
