@@ -138,6 +138,67 @@
               path: /Audio/Effects/bone_rattle.ogg
 
 - type: entity
+  name: Voidhound
+  parent: MobCorgiNarsi
+  id: MobVoidHound
+  description: You probably shouldn't be staring at this thing.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/void.rsi
+    layers:
+      - state: voidHound
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: voidHound
+      Dead:
+        Base: dead_voidHound
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+        Slash: 7
+  - type: Rushdown
+  - type: ActionGrant
+    actions:
+    - ActionRushdown
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Vocal
+    sounds:
+      Male: Cerberus
+      Female: Cerberus
+      Unsexed: Cerberus
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+
+- type: entity
   id: MobSkeletonGoonWraith
   suffix: Wraith
   parent: MobSkeletonGoon
@@ -148,5 +209,12 @@
   id: MobSkeletonCommanderWraith
   suffix: Wraith
   parent: MobSkeletonCommander
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobVoidHoundWraith
+  suffix: Wraith
+  parent: MobVoidHound
   components:
   - type: WraithMinion

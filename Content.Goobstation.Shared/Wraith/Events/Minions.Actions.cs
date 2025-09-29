@@ -12,3 +12,5 @@ public sealed partial class RallyEvent : InstantActionEvent;
 
 public sealed partial class TentacleHookEvent : EntityTargetActionEvent;
 public sealed partial class SpikerShuffleEvent : InstantActionEvent;
+
+public sealed partial class RushdownEvent : InstantActionEvent;

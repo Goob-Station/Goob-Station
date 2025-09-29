@@ -1,3 +1,4 @@
+# Used for Skeleton Commander.
 - type: entity
   id: ActionRally
   name: Rally
@@ -13,6 +14,7 @@
   - type: InstantAction
     event: !type:RallyEvent
 
+# Used for Void Piker.
 - type: entity
   id: ActionTentacleHook
   name: Tentacle Hook
@@ -45,3 +47,24 @@
       state: rally
   - type: InstantAction
     event: !type:SpikerShuffleEvent
+
+# Used for Void Hound.
+
+- type: entity
+  id: ActionRushdown
+  name: Rushdown
+  description: Leap forward and knock down those in your way.
+  components:
+  - type: Action
+    # useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: pounce
+  - type: InstantAction
+    event: !type:RushdownEvent
+
+# Used for Diseased Rat, and its variants.
+
+
+
+# Used for Rot Hulk, and its variant.
