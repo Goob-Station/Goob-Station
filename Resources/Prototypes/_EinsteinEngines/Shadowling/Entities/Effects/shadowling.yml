@@ -134,12 +134,12 @@
     state: null_charge
     netsync: false
     drawdepth: Effects
-  - type: PointLight
-    color: "#FBCEB1"
-    radius: 1.13
-    energy: 70
-  - type: LightFade
-    duration: 0.7
+  #- type: PointLight
+  #  color: "#FBCEB1"
+  #  radius: 1.13
+  #  energy: 70
+  #- type: LightFade
+  #  duration: 0.7
 
 - type: entity
   id: ShadowlingSonicScreechEffect
@@ -155,12 +155,12 @@
     state: sonic_screech
     netsync: false
     drawdepth: Effects
-  - type: PointLight
-    color: "#C70039"
-    radius: 10
-    energy: 8
-  - type: LightFade
-    duration: 0.7
+  #- type: PointLight
+  #  color: "#C70039"
+  #  radius: 10
+  #  energy: 8
+  #- type: LightFade
+  #  duration: 0.7
 
 
 - type: entity
