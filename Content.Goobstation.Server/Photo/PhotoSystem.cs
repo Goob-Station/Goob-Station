@@ -4,10 +4,14 @@ using System.Numerics;
 using Content.Goobstation.Shared.Photo;
 using Content.Server.Flash;
 using Content.Server.GameTicking.Events;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Humanoid;
+using Content.Server.Popups;
+using Content.Server.Spawners.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Eye;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -16,6 +20,8 @@ using Content.Shared.SSDIndicator;
 using Content.Shared.Standing;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Tag;
+using Content.Shared.Timing;
+using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -46,6 +52,10 @@ public sealed class PhotoSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly VisibilitySystem _visibility = default!;
 
     private MapId _photoMap;
     private int _photosTaken = 0;
@@ -73,10 +83,24 @@ public sealed class PhotoSystem : EntitySystem
 
     private void OnCameraInteract(Entity<PhotoCameraComponent> ent, ref AfterInteractEvent args)
     {
+        if (_useDelay.IsDelayed(ent.Owner))
+            return;
+
+        if (ent.Comp.Uses <= 0)
+        {
+            _popup.PopupEntity(Loc.GetString("popup-camera-no-charges"), ent, args.User);
+            _audio.PlayPvs(ent.Comp.ClickSound, ent.Owner);
+            return;
+        }
+
         if (!BuildPhoto(args.User, args.ClickLocation, out var onPhoto, out var source, out var offset))
             return;
 
+        ent.Comp.Uses--;
+
+        _useDelay.SetLength(ent.Owner, TimeSpan.FromSeconds(ent.Comp.UseDelay));
         _flash.FlashArea(args.User, null, 4, TimeSpan.FromSeconds(1f), 1);
+        _audio.PlayPvs(ent.Comp.PhotoSound, ent.Owner);
 
         EnsureComp<PointLightComponent>(source.Value);
 
@@ -215,7 +239,9 @@ public sealed class PhotoSystem : EntitySystem
         source = null;
         entitiesOnPhoto = new();
 
-        var ents = _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained);
+        var ents = _lookup.GetEntitiesInRange(_transform.ToMapCoordinates(center), 3.4f, LookupFlags.Uncontained)
+                          .Where(x => !HasComp<PhotoCameraIgnoreComponent>(x)).ToHashSet();
+
         if (ents.Count > 50)
             ents = ents.Where(x => !TryComp<ItemComponent>(x, out var item) || item.Size != "Tiny").ToHashSet();
 
@@ -231,38 +257,50 @@ public sealed class PhotoSystem : EntitySystem
             var entity = Spawn(proto.ID, new(pseudoGrid.Owner, xform.Coordinates.Position - clickPosition));
             Transform(entity).LocalRotation = xform.LocalRotation;
 
-            RemComp<SSDIndicatorComponent>(entity);
-            RemComp<DamageableComponent>(entity);
-            RemComp<StatusIconComponent>(entity);
-
-            _humanoid.CloneAppearance(item, entity);
-            _appearance.CopyData(item, entity);
-
-            if (_standingState.IsDown(item))
-                _standingState.Down(entity, false, false, true, animate: false);
-
             if (item == user)
                 source = entity;
 
-            foreach (var clothing in GetInventoryEntities(item))
-            {
-                var ent = Spawn(clothing.Value);
-                if (!_inventory.TryEquip(entity, ent, clothing.Key, true, true))
-                    QueueDel(ent);
-            }
+            RemComp<SSDIndicatorComponent>(entity);
+            RemComp<DamageableComponent>(entity);
+            RemComp<StatusIconComponent>(entity);
+            RemComp<GhostTakeoverAvailableComponent>(entity);
+            RemComp<SpawnPointComponent>(entity);
 
-            foreach (var handId in _hands.EnumerateHands(item))
-            {
+            CopyAppearance(item, entity);
 
-                if (!_hands.TryGetHeldItem(item, handId, out var held))
-                    continue;
+            if (HasComp<PhotoRevealComponent>(item))
+                _visibility.SetLayer(entity, (int) VisibilityFlags.Normal);
+        }
+    }
 
-                if (!TryPrototype(held.Value, out var heldProto))
-                    continue;
+    private void CopyAppearance(EntityUid original, EntityUid entity)
+    {
+        _humanoid.CloneAppearance(original, entity);
+        _appearance.CopyData(original, entity);
 
-                var heldEnt = Spawn(heldProto.ID);
-                _hands.TryForcePickup(entity, heldEnt, handId, false, false);
-            }
+        if (_standingState.IsDown(original))
+            _standingState.Down(entity, false, false, true, animate: false);
+
+
+
+        foreach (var clothing in GetInventoryEntities(original))
+        {
+            var ent = Spawn(clothing.Value);
+            if (!_inventory.TryEquip(entity, ent, clothing.Key, true, true))
+                QueueDel(ent);
+        }
+
+        foreach (var handId in _hands.EnumerateHands(original))
+        {
+
+            if (!_hands.TryGetHeldItem(original, handId, out var held))
+                continue;
+
+            if (!TryPrototype(held.Value, out var heldProto))
+                continue;
+
+            var heldEnt = Spawn(heldProto.ID);
+            _hands.TryForcePickup(entity, heldEnt, handId, false, false);
         }
     }
 
