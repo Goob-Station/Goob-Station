@@ -246,3 +246,35 @@
   - type: Tag
     tags:
     - MidroundAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: ObsessionMidround
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 30
+    duration: null
+    occursDuringRoundEnd: false
+    chaos:
+      Death: 50
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 50
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: obsessed-roundend-name
+    definitions:
+    - prefRoles: [ Obsessed ]
+      max: 2
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleObsessed
+  - type: Tag
+    tags:
+      - MidroundAntag
