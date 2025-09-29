@@ -165,7 +165,7 @@
       - BulletImpassable
   - type: PlasmaCostAction
     plasmaCost: 75
-    
+
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
@@ -266,14 +266,25 @@
 - type: entity
   id: ActionXenomorphPromotion
   parent: BaseAction
-  name: Create royal parasite (500)
-  description: Produce a royal parasite to grant one of your children the honor of being your Praetorian.
+  name: Promote to Praetorian (500)
+  description: Directly promote a xenomorph to Praetorian status.
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 0
+    useDelay: 5
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
-  - type: InstantAction
+  - type: TargetAction
+    canTargetSelf: false
+    checkCanAccess: true
+    checkCanInteract: true
+    ignoreClickAttached: true
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      requireAll: true
+      components:
+        - XenomorphComponent
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500
