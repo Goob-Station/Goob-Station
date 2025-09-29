@@ -350,12 +350,6 @@
         reagents:
         - ReagentId: Amnestizine
           Quantity: 10
-  - type: Extractable
-    grindableSolutionName: food
-    juiceSolution:
-      reagents:
-      - ReagentId: Amnestizine
-        Quantity: 10
   - type: Food
     delay: 0.2
     forceFeedDelay: 1.5

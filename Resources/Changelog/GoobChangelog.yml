@@ -15583,3 +15583,26 @@ Entries:
       message: Sheet Meister can use meat now
   id: 1744
   time: '2025-09-28T08:05:50.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: >-
+        Nanotrasen appogises for the recent mixup where station equipped nuclear
+        fission bombs were accidently filled with small explosive hand grenades
+        instead of their proper nuclear payload, this has now been fixed
+  id: 1745
+  time: '2025-09-28T17:04:01.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added construction bag to engineering cyborg construction module.
+  id: 1746
+  time: '2025-09-28T19:55:23.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported the Dislippler, a clown-only traitor uplink item, from
+        Omustation.
+  id: 1747
+  time: '2025-09-28T20:14:58.0000000+00:00'
