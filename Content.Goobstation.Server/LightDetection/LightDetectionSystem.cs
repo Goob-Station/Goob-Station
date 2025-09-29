@@ -7,6 +7,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.LightDetection;
 
@@ -19,17 +20,18 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     protected override string SawmillName => "light_damage";
 
-    public float LookupRange = 10f;
-    public float UpdateFrequency = 1f;
+    public float LookupRange;
+    public float UpdateFrequency;
+    public float MaximumLightLevel;
 
     private HandleLightJob _job;
-
-    private float _accumulator = 1f;
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
 
     public override void Initialize()
     {
@@ -45,15 +47,15 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
 
         Subs.CVar(_cfg, GoobCVars.LightDetectionRange, value => LookupRange = value, true);
         Subs.CVar(_cfg, GoobCVars.LightUpdateFrequency, value => UpdateFrequency = value, true);
+        Subs.CVar(_cfg, GoobCVars.LightMaximumLevel, value => MaximumLightLevel = value, true);
     }
 
     public override void Update(float frameTime)
     {
-        _accumulator -= frameTime;
-        if (_accumulator > 0)
+        if (_nextUpdate < _timing.CurTime)
             return;
 
-        _accumulator = UpdateFrequency;
+        _nextUpdate = _timing.CurTime + TimeSpan.FromSeconds(UpdateFrequency);
         _job.UpdateEnts.Clear();
 
         var query = EntityQueryEnumerator<LightDetectionComponent, TransformComponent>();
@@ -67,9 +69,8 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
 
     private record struct HandleLightJob() : IParallelRobustJob
     {
-        public int BatchSize => 16;
-
-        public readonly List<Entity<LightDetectionComponent, TransformComponent>> UpdateEnts = new();
+        public readonly int BatchSize => 16;
+        public readonly List<Entity<LightDetectionComponent, TransformComponent>> UpdateEnts = [];
 
         public required LightDetectionSystem LightSys;
         public required SharedTransformSystem XformSys;
@@ -82,26 +83,33 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
 
             var worldPos = XformSys.GetWorldPosition(xform);
 
-            // We want to avoid this expensive operation if the user has not moved
-            if ((comp.LastKnownPosition - worldPos).LengthSquared() < 0.01f)
-                return;
+            var totalLightLevel = 0f;
 
-            comp.LastKnownPosition = worldPos;
-            comp.IsOnLight = false;
             var lookup = LookupSys.GetEntitiesInRange<PointLightComponent>(xform.Coordinates, LightSys.LookupRange);
             foreach (var ent in lookup)
             {
                 var (point, pointLight) = ent;
-                var pointXform = LightSys.Transform(point);
 
                 if (!pointLight.Enabled)
                     continue;
 
+                var pointXform = LightSys.Transform(point);
                 var lightPos = XformSys.GetWorldPosition(pointXform);
                 var distance = (lightPos - worldPos).Length();
 
-                if (distance <= 0.01f
-                    || distance > pointLight.Radius)
+                if (distance <= 0.01f)
+                {
+                    totalLightLevel += pointLight.Energy;
+                    continue;
+                }
+
+                if (totalLightLevel >= LightSys.MaximumLightLevel)
+                {
+                    comp.CurrentLightLevel = LightSys.MaximumLightLevel;
+                    return;
+                }
+
+                if (distance > pointLight.Radius)
                     continue;
 
                 var direction = (worldPos - lightPos).Normalized();
@@ -126,9 +134,12 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
                 if (hasBeenBlocked)
                     continue;
 
-                comp.IsOnLight = true;
-                return;
+                // Calculate soft light level
+                var t = distance / pointLight.Radius;
+                totalLightLevel += pointLight.Energy * (1f - t * t);
             }
+
+            comp.CurrentLightLevel = totalLightLevel;
         }
     }
 }
