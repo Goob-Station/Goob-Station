@@ -15606,3 +15606,9 @@ Entries:
         Omustation.
   id: 1747
   time: '2025-09-28T20:14:58.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Topicals now automatically heal limbs one after the other.
+  id: 1748
+  time: '2025-09-29T13:41:02.0000000+00:00'
