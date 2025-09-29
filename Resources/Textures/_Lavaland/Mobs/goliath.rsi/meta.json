@@ -8,18 +8,33 @@
   },
   "states": [
     {
-      "name": "goliath",
-      "directions": 4
+        "name": "goliath",
+        "directions": 4
     },
     {
-      "name": "goliath_preattack",
-      "directions": 4
+        "name": "goliath_preattack",
+        "directions": 4
     },
     {
-      "name": "goliath_dead"
+        "name": "goliath_dead"
     },
     {
         "name": "goliath_layer",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient_preattack",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient_dead"
+    },
+    {
+        "name": "goliath_ancient_layer",
         "directions": 4
     }
   ]

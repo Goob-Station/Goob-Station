@@ -7,7 +7,13 @@
     sprite: _Lavaland/Mobs/goliath.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: goliath
+      state: goliath_ancient
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath_ancient
+      Dead:
+        Base: goliath_ancient_dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 2.5
@@ -21,10 +27,10 @@
       types:
         Piercing: 10
         Slash: 15
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      400: Dead
+  #- type: MobThresholds
+  #  thresholds:
+  #    0: Alive
+  #    400: Dead
   - type: HTN
     constantlyReplan: false
     rootTask:
