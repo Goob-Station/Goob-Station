@@ -214,8 +214,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public void InitializeAugmentedEyesight(EntityUid uid)
     {
-        EnsureComp<FlashImmunityComponent>(uid);
+        var flash =EnsureComp<FlashImmunityComponent>(uid);
         EnsureComp<EyeProtectionComponent>(uid);
+
+        flash.ExamineShow = false;
 
         var thermalVision = _compFactory.GetComponent<Shared.Overlays.ThermalVisionComponent>();
         thermalVision.Color = Color.FromHex("#FB9898");
