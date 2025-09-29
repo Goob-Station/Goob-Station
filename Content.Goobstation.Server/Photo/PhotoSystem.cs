@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Photo;
+using Content.Server.Decals;
 using Content.Server.Flash;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost.Roles.Components;
@@ -56,6 +57,7 @@ public sealed class PhotoSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private readonly DecalSystem _decal = default!;
 
     private MapId _photoMap;
     private int _photosTaken = 0;
@@ -192,6 +194,7 @@ public sealed class PhotoSystem : EntitySystem
         }
 
         SetupEntities((pseudoGrid.Value, pseudoGridComp), new(grid, box.Center), diff, user, out onPhoto, out source);
+        SetupDecals((grid, gridComp), (pseudoGrid.Value, pseudoGridComp), new(grid, box.Center), diff);
 
         return source.HasValue;
     }
@@ -270,6 +273,22 @@ public sealed class PhotoSystem : EntitySystem
 
             if (HasComp<PhotoRevealComponent>(item))
                 _visibility.SetLayer(entity, (int) VisibilityFlags.Normal);
+        }
+    }
+
+    private void SetupDecals(Entity<MapGridComponent> grid, Entity<MapGridComponent> pseudoGrid, EntityCoordinates center, Vector2i clickPosition)
+    {
+        var decals = _decal.GetDecalsInRange(grid.Owner, center.Position, 3.4f);
+        foreach (var decal in decals)
+        {
+            var pos = decal.Decal.Coordinates - clickPosition;
+            _decal.TryAddDecal(decal.Decal, new(pseudoGrid.Owner, pos), out var newDecal);
+
+            _decal.SetDecalPosition(pseudoGrid.Owner, newDecal, new(pseudoGrid.Owner, pos));
+            _decal.SetDecalColor(pseudoGrid.Owner, newDecal, decal.Decal.Color);
+            _decal.SetDecalRotation(pseudoGrid.Owner, newDecal, decal.Decal.Angle);
+            _decal.SetDecalZIndex(pseudoGrid.Owner, newDecal, decal.Decal.ZIndex);
+            _decal.SetDecalCleanable(pseudoGrid.Owner, newDecal, false);
         }
     }
 
