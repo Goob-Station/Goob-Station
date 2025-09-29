@@ -51,6 +51,7 @@
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedChemical
   - BorgModuleAdvancedMining
+  - BorgModuleRCD
 
 - type: latheRecipePack
   id: MechParts

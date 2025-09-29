@@ -77,6 +77,11 @@
   id: BorgModuleLollypop
   result: BorgModuleLollypop
 
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleRCD
+  result: BorgModuleRCD
+
 # AI
 - type: latheRecipe
   id: AiRemoteBrain
@@ -87,3 +92,6 @@
     Glass: 400
     Gold: 400
     Silver: 200
+
+
+

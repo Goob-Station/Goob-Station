@@ -752,7 +752,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: engineering cyborg module
+  name: RCD module # Goob
   components:
   - type: Sprite
     layers:
