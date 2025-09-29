@@ -113,10 +113,10 @@
     - id: LavalandInvisibilityCloak
 
 - type: entity
-  id: LavalandCrateNecropolisTalismanImortality
+  id: LavalandCrateNecropolisTalismanImmortality
   parent: LavalandCrateNecropolis
-  suffix: Talisman Imortality
+  suffix: Talisman Immortality
   components:
   - type: StorageFill
     contents:
-    - id: LavalandAmuletImortalityTalisman
+    - id: LavalandAmuletImmortalityTalisman

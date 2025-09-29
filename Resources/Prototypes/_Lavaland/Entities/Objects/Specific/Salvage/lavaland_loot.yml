@@ -74,15 +74,15 @@
     price: 5000
 
 - type: entity
-  id: LavalandAmuletImortalityTalisman
+  id: LavalandAmuletImmortalityTalisman
   parent: ClothingNeckBase
-  name: imortality talisman
+  name: Immortality talisman
   description: A dread talisman that can render you completely invulnerable.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
-    state: imortality_talisman
-  - type: ImortalityTalisman # was not able to fraction this
+    state: immortality_talisman
+  - type: ImmortalityTalisman # was not able to fraction this
   - type: StaticPrice
     price: 5000
 

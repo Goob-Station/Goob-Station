@@ -11,9 +11,9 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
 /// <summary>
-/// Thisis used for the immortality talisman item
+/// This is used for the immortality talisman item
 /// </summary>
-public sealed class ImortalityTalismanSystem : EntitySystem
+public sealed class ImmortalityTalismanSystem : EntitySystem
 {
     /// <inheritdoc/>
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -26,20 +26,20 @@ public sealed class ImortalityTalismanSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ImortalityTalismanComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<ImortalityTalismanComponent, GotUnequippedEvent>(OnUnequip);
-        SubscribeLocalEvent<ImortalityTalismanComponent, GotEquippedEvent>(OnEquip);
+        SubscribeLocalEvent<ImmortalityTalismanComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ImmortalityTalismanComponent, GotUnequippedEvent>(OnUnequip);
+        SubscribeLocalEvent<ImmortalityTalismanComponent, GotEquippedEvent>(OnEquip);
 
-        SubscribeLocalEvent<ActivateImortalityTalismanActionEvent>(OnActivate);
+        SubscribeLocalEvent<ActivateImmortalityTalismanActionEvent>(OnActivate);
 
-        SubscribeLocalEvent<ImortalityTalismanComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModifierRefresh);
+        SubscribeLocalEvent<ImmortalityTalismanComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModifierRefresh);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var quary = EntityQueryEnumerator<ImortalityTalismanComponent>();
+        var quary = EntityQueryEnumerator<ImmortalityTalismanComponent>();
         while (quary.MoveNext(out var uid,out var talisman))
         {
             if (!talisman.Active)
@@ -51,13 +51,13 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         }
     }
 
-    private void OnShutdown(Entity<ImortalityTalismanComponent> ent, ref ComponentShutdown shutdown)
+    private void OnShutdown(Entity<ImmortalityTalismanComponent> ent, ref ComponentShutdown shutdown)
     {
         if (ent.Comp.Active)
             EndImortality(ent);
     }
 
-    private void OnUnequip(Entity<ImortalityTalismanComponent> ent,ref GotUnequippedEvent arg)
+    private void OnUnequip(Entity<ImmortalityTalismanComponent> ent,ref GotUnequippedEvent arg)
     {
         if(ent.Comp.Active)
             EndImortality(ent);
@@ -65,28 +65,23 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         _actionsSystem.RemoveAction(arg.Equipee, ent.Comp.ActionEntity);
     }
 
-    private void OnEquip(Entity<ImortalityTalismanComponent> ent,ref GotEquippedEvent arg)
+    private void OnEquip(Entity<ImmortalityTalismanComponent> ent,ref GotEquippedEvent arg)
     {
-        ent.Comp.ActionEntity = _actionsSystem.AddAction(arg.Equipee,"ActionGainImortality" );
+        ent.Comp.ActionEntity = _actionsSystem.AddAction(arg.Equipee,"ActionGainImmortality" );
     }
 
-    private void OnActivate(Entity<ImortalityTalismanComponent> ent, ref ActivateImortalityTalismanActionEvent arg)
-    {
-        StartImortality(ent, arg.Performer);
-    }
-
-    private void OnActivate(ref ActivateImortalityTalismanActionEvent arg)
+    private void OnActivate(ref ActivateImmortalityTalismanActionEvent arg)
     {
         if (arg.Handled)
             return;
         if (!_inventory.TryGetSlotEntity(arg.Performer, "neck", out var slotEntity))
             return;
-        if (!TryComp<ImortalityTalismanComponent>(slotEntity, out var talisman))
+        if (!TryComp<ImmortalityTalismanComponent>(slotEntity, out var talisman))
             return;
 
         if (_timing.CurTime < talisman.Cooldown)
         {
-            _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-recharging"),arg.Performer,arg.Performer);
+            _popup.PopupPredicted(Loc.GetString("popup-Immortality-talisman-recharging"),arg.Performer,arg.Performer);
             return;
         }
 
@@ -95,7 +90,7 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         arg.Handled = true;
     }
 
-    private void StartImortality(Entity<ImortalityTalismanComponent> ent, EntityUid wearer)
+    private void StartImortality(Entity<ImmortalityTalismanComponent> ent, EntityUid wearer)
     {
         if(!_netMan.IsClient) // not running this on clientside
             _godmode.EnableGodmode(wearer);
@@ -106,10 +101,10 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         ent.Comp.Cooldown = _timing.CurTime + ent.Comp.CooldownDuration;
 
         _speedModifier.RefreshMovementSpeedModifiers(wearer);
-        _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-activated"),wearer,wearer);
+        _popup.PopupPredicted(Loc.GetString("popup-Immortality-talisman-activated"),wearer,wearer);
     }
 
-    private void EndImortality(Entity<ImortalityTalismanComponent> ent)
+    private void EndImortality(Entity<ImmortalityTalismanComponent> ent)
     {
         if (ent.Comp.EntityGrantedImortality is null)
             return;
@@ -119,10 +114,10 @@ public sealed class ImortalityTalismanSystem : EntitySystem
         ent.Comp.Active = false;
 
         _speedModifier.RefreshMovementSpeedModifiers(wearer);
-        _popup.PopupPredicted(Loc.GetString("popup-Imortality-talisman-ended"),wearer,wearer);
+        _popup.PopupPredicted(Loc.GetString("popup-Immortality-talisman-ended"),wearer,wearer);
     }
 
-    private void OnModifierRefresh(Entity<ImortalityTalismanComponent> ent, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void OnModifierRefresh(Entity<ImmortalityTalismanComponent> ent, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         if (!ent.Comp.Active)
         {

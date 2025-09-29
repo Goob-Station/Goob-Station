@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.Clothing.Components;
 /// This is used for imortality talisman item
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ImortalityTalismanComponent : Component
+public sealed partial class ImmortalityTalismanComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
@@ -30,4 +30,4 @@ public sealed partial class ImortalityTalismanComponent : Component
 }
 
 [ByRefEvent]
-public sealed partial class ActivateImortalityTalismanActionEvent : InstantActionEvent;
+public sealed partial class ActivateImmortalityTalismanActionEvent : InstantActionEvent;
