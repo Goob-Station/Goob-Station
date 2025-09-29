@@ -38,3 +38,11 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Zookeeper ]
+
+- type: entity
+  abstract: true
+  parent: BaseRestrictedContraband
+  id: BaseAssistantContraband # budgets
+  components:
+  - type: Contraband
+    allowedJobs: [ Assistant ]
