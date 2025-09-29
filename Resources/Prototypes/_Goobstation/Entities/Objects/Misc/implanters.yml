@@ -36,7 +36,7 @@
           map: [ "implantOnly" ]
     - type: Implanter
       currentMode: Draw
-      drawTime: 30
+      drawTime: 12.5
 
 - type: entity
   id: RevsFastDrawImplanter
