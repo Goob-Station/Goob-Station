@@ -96,7 +96,7 @@
   description: Dash forward.
   components:
   - type: Action
-    useDelay: 7.5
+    useDelay: 6.5
     icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
