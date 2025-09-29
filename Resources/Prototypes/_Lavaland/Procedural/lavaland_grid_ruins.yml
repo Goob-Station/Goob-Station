@@ -57,7 +57,7 @@
 
 - type: lavalandGridRuin
   id: XenoNest
-  name: lavaland-ruin-xeno-nest
+  name: lavaland-ruin-abductor # its the same as ufo crash site so you never know
   path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
   priority: 5
 
