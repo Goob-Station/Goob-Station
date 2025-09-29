@@ -18,10 +18,10 @@ public sealed class AshOnRemovalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequipt);
+        SubscribeLocalEvent<AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequip);
     }
 
-    private void OnUnequipt(Entity<AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent arg)
+    private void OnUnequip(Entity<AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent arg)
     {
 
         if (!ent.Comp.Enabled)

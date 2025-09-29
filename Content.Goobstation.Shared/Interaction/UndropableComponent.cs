@@ -4,7 +4,7 @@ namespace Content.Goobstation.Shared.Interaction;
 /// This is used for itms that cant be let go
 /// </summary>
 [RegisterComponent]
-public sealed partial class UndropableComponent : Component
+public sealed partial class UndroppableComponent : Component
 {
     [DataField]
     public bool Enabled = true;

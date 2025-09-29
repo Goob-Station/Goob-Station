@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.Interaction;
 /// <summary>
 /// This handles items that cant be dropped
 /// </summary>
-public sealed class UndropableSystem : EntitySystem
+public sealed class UndroppableSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -17,13 +17,13 @@ public sealed class UndropableSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<UndropableComponent, DropItemAttemptEvent>(OnDrop);
-        SubscribeLocalEvent<UndropableComponent, ThrowItemAttemptEvent>(OnTrow);
-        SubscribeLocalEvent<UndropableComponent, ContainerGettingRemovedAttemptEvent>(OnInsert);
+        SubscribeLocalEvent<UndroppableComponent, DropItemAttemptEvent>(OnDrop);
+        SubscribeLocalEvent<UndroppableComponent, ThrowItemAttemptEvent>(OnThrow);
+        SubscribeLocalEvent<UndroppableComponent, ContainerGettingRemovedAttemptEvent>(OnInsert);
 
     }
 
-    private void OnDrop(Entity<UndropableComponent> ent, ref  DropItemAttemptEvent arg)
+    private void OnDrop(Entity<UndroppableComponent> ent, ref  DropItemAttemptEvent arg)
     {
         if (!ent.Comp.Enabled)
             return;
@@ -33,7 +33,7 @@ public sealed class UndropableSystem : EntitySystem
         Popup(ent, arg.User);
     }
 
-    private void OnTrow(Entity<UndropableComponent> ent, ref ThrowItemAttemptEvent arg)
+    private void OnThrow(Entity<UndroppableComponent> ent, ref ThrowItemAttemptEvent arg)
     {
         if (!ent.Comp.Enabled)
             return;
@@ -43,7 +43,7 @@ public sealed class UndropableSystem : EntitySystem
         Popup(ent, arg.User);
     }
 
-    private void OnInsert(Entity<UndropableComponent> ent, ref ContainerGettingRemovedAttemptEvent arg)
+    private void OnInsert(Entity<UndroppableComponent> ent, ref ContainerGettingRemovedAttemptEvent arg)
     {
         if (!ent.Comp.Enabled)
             return;
@@ -51,7 +51,7 @@ public sealed class UndropableSystem : EntitySystem
         arg.Cancel();
     }
 
-    private void Popup(Entity<UndropableComponent> ent, EntityUid user)
+    private void Popup(Entity<UndroppableComponent> ent, EntityUid user)
     {
         if (_timing.CurTime < ent.Comp.LastPopup + ent.Comp.PopupCooldown)
             return;
