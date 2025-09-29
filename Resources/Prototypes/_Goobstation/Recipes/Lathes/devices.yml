@@ -66,3 +66,15 @@
     Glass: 100
     Gold: 50
     Plasma: 100
+
+- type: latheRecipe
+  id: PhotoCamera
+  result: PhotoCamera
+  categories:
+  - Tools
+  completetime: 3
+  materials:
+    Steel: 250
+    Plastic: 250
+    Glass: 100
+    Gold: 50
