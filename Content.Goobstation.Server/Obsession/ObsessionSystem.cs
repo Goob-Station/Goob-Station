@@ -151,7 +151,8 @@ public sealed class ObsessionSystem : EntitySystem
             {
                 var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Photo, ent.Comp.Interactions[ObsessionInteraction.Photo]);
 
-                foreach (var objective in mind.Objectives)
+                List<EntityUid> objectives = new(mind.Objectives);
+                foreach (var objective in objectives)
                     RaiseLocalEvent(objective, ref ev);
             }
 
@@ -171,7 +172,9 @@ public sealed class ObsessionSystem : EntitySystem
         if (_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
         {
             var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Grab, ent.Comp.Interactions[ObsessionInteraction.Grab]);
-            foreach (var item in mind.Objectives)
+
+            List<EntityUid> objectives = new(mind.Objectives);
+            foreach (var item in objectives)
                 RaiseLocalEvent(item, ref ev);
         }
 
@@ -198,7 +201,8 @@ public sealed class ObsessionSystem : EntitySystem
         if (_mind.TryGetMind(args.User, out var mindId, out var mind))
         {
             var ev = new RefreshObsessionObjectiveStatsEvent(mindId, mind, ObsessionInteraction.Touch, comp.Interactions[ObsessionInteraction.Touch]);
-            foreach (var item in mind.Objectives)
+            List<EntityUid> objectives = new(mind.Objectives);
+            foreach (var item in objectives)
                 RaiseLocalEvent(item, ref ev);
         }
 
@@ -231,7 +235,8 @@ public sealed class ObsessionSystem : EntitySystem
 
             var ev = new ObsessionTargetDiedEvent(mindId, mind);
 
-            foreach (var objective in mind.Objectives)
+            List<EntityUid> objectives = new(mind.Objectives);
+            foreach (var objective in objectives)
                 RaiseLocalEvent(objective, ref ev);
 
             if (!ev.Handled)
