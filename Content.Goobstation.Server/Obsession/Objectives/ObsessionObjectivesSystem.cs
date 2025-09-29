@@ -83,6 +83,6 @@ public sealed class ObsessionObjectivesSystem : EntitySystem
         if (!TryComp<ObsessedComponent>(self, out var obsessed))
             return 0f;
 
-        return Math.Clamp(obsessed.Interactions[comp.Interaction] / comp.Required, 0, 1);
+        return Math.Clamp((float) obsessed.Interactions[comp.Interaction] / (float) comp.Required, 0f, 1f);
     }
 }
