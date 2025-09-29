@@ -6,7 +6,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
-using Content.Goobstation.Shared._europa.languages;
+using Content.Goobstation.Shared._Europa.languages;
 
 namespace Content.Goobstation.Server._Europa.Language;
 

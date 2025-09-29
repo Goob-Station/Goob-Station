@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Goobstation.Shared._europa.languages;
+namespace Content.Goobstation.Shared._Europa.languages;
 //
 // License-Identifier: AGPL-3.0-or-later
 //
