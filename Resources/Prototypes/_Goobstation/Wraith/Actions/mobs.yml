@@ -63,6 +63,19 @@
   - type: InstantAction
     event: !type:RushdownEvent
 
+- type: entity
+  id: ActionCloak
+  name: Cloak
+  description: Slip into the void and make yourself hard to discern for a short time.
+  components:
+  - type: Action
+    # useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: cloak
+  - type: InstantAction
+    event: !type:CloakEvent
+
 # Used for Diseased Rat, and its variants.
 
 

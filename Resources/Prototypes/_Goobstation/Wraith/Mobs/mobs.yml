@@ -162,9 +162,11 @@
         Piercing: 8
         Slash: 7
   - type: Rushdown
+  - type: Cloak
   - type: ActionGrant
     actions:
     - ActionRushdown
+    - ActionCloak
   - type: InputMover
   - type: MobMover
   - type: HTN
