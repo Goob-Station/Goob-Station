@@ -6,7 +6,7 @@
   parent: BaseAction
   id: ActionHatch
   name: Hatch
-  description: Engages the hatching progress.
+  description: Engages the hatching progress, there is no going back after this and you will be vulnrable for a while.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -24,7 +24,7 @@
   parent: BaseAction
   id: ActionEnthrall
   name: Enthrall
-  description: Shatters their will, forging a thrall, does not work on mindshielded or silicons.
+  description: Shatters their will, forging a thrall, does not work on mindshielded people or silicons.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -43,7 +43,7 @@
   parent: BaseAction
   id: ActionGlare
   name: Glare
-  description: A dark glare that stuns and slows your target.
+  description: A dark glare that stuns, mutes, and slows a single target.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -63,7 +63,7 @@
   parent: BaseAction
   id: ActionVeil
   name: Veil
-  description: A pulse of darkness that destroys nearby electrical lights.
+  description: A pulse of darkness that destroys electrical lights in a large area.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -78,7 +78,7 @@
 - type: entity
   id: ActionRapidRehatch
   name: Rapid Re-Hatch
-  description: Shed your broken flesh,w and rise whole once more.
+  description: Shed your broken flesh, and rise whole once more.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -94,7 +94,7 @@
   parent: BaseAction
   id: ActionShadowWalk
   name: Shadow Walk
-  description: Step into the void, moving unseen and unhindered.
+  description: Step into the void, becoming invisible and fast for a short time.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -109,7 +109,7 @@
 - type: entity
   id: ActionIcyVeins
   name: Icy Veins
-  description: Send frost through their veins.
+  description: Disarms and freezes nearby creatures in an area around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -187,7 +187,7 @@
   parent: BaseAction
   id: ActionSonicScreech
   name: Sonic Screech
-  description: Release a violent scream that disorients all who hear it.
+  description: Release a violent scream that disorients all who hear it, damages windows.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -223,7 +223,7 @@
   parent: BaseAction
   id: ActionEmpoweredEnthrall
   name: Empowered Enthrall
-  description: Shatters their will, forging a Thrall. Faster and stronger.
+  description: Shatters their will, forging a Thrall, now works on mindshielded people.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -258,7 +258,7 @@
 - type: entity
   id: ActionAscendance
   name: Ascendance
-  description: Forge your ascension egg and walk the path of a god.
+  description: Forge your ascension egg and walk the path of a god, your thralls will need to defend the egg for a long time so be prepared.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
