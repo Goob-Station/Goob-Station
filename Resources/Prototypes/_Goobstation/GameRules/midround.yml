@@ -267,6 +267,10 @@
     agentName: obsessed-roundend-name
     definitions:
     - prefRoles: [ Obsessed ]
+      briefing:
+        text: obsessed-role-greeting
+        color: Crimson
+        sound: "/Audio/_Goobstation/Obsessed/obsessed-intro.ogg"
       max: 2
       playerRatio: 15
       blacklist:
