@@ -42,7 +42,6 @@
     - id: KingRatMigrationHermit
     - id: NinjaSpawnHermit
     - id: ParadoxCloneSpawnHermit
-    #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: TraitorMidroundHermit
     - id: ChangelingMidroundHermit
     - id: HereticMidroundHermit
@@ -84,7 +83,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 8  #kept the same pretty high
-    minimumPlayers: 15
+  - type: GameRule
     chaosScore: 240 # decreased by 60 points
 
 - type: entity

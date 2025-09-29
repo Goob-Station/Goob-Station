@@ -47,7 +47,6 @@
   - type: GameRule
     chaosScore: -90 #increased by 50
 
-
 - type: entity
   parent: UnknownShuttleCargoLost
   id: UnknownShuttleCargoLostHermit

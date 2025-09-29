@@ -275,7 +275,7 @@
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
-    agentName: Devil-roundend-name
+    agentName: devil-roundend-name
     definitions:
     - prefRoles: [ Devil ]
       max: 1

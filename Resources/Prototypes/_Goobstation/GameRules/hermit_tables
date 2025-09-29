@@ -13,7 +13,6 @@
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
 
-
 - type: entityTable
   id: HermitSpaceTrafficControlTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp

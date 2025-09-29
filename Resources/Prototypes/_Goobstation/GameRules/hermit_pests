@@ -1,8 +1,8 @@
 #A file that includes only pests for the hermit game mode
 
 - type: entity
-  id: SlimesSpawnHermit
   parent: SlimesSpawn
+  id: SlimesSpawnHermit
   components:
   - type: StationEvent
     weight: 5 #decreased by 2
@@ -10,8 +10,8 @@
     chaosScore: 210 #increased by 10
 
 - type: entity
-  id: SnakeSpawnHermit
   parent: SnakeSpawn
+  id: SnakeSpawnHermit
   components:
   - type: StationEvent
     weight: 4 #decreased by 2
@@ -20,8 +20,8 @@
 
 
 - type: entity
-  id: SpiderSpawnHermit
   parent: SpiderSpawn
+  id: SpiderSpawnHermit
   components:
   - type: StationEvent
     weight: 5 #decreased by 2
@@ -29,8 +29,8 @@
     chaosScore: 240 #increased by 40
 
 - type: entity
-  id: SpiderClownSpawnHermit
   parent: SpiderClownSpawn
+  id: SpiderClownSpawnHermit
   components:
   - type: StationEvent
     weight: 1.5 # Woe 1.5 be upon ye once more
@@ -49,8 +49,8 @@
     chaosScore: 10 #increased by 10
 
 - type: entity
-  id: MouseMigrationHermit
   parent: MouseMigration
+  id: MouseMigrationHermit
   components:
   - type: StationEvent
     earliestStart: 15
@@ -60,8 +60,8 @@
 
 
 - type: entity
-  id: KingRatMigrationHermit
   parent: KingRatMigration
+  id: KingRatMigrationHermit
   components:
   - type: StationEvent
     weight: 4 #decreased by 2
@@ -70,8 +70,8 @@
 
 
 - type: entity
-  id: CockroachMigrationHermit
   parent: CockroachMigration
+  id: CockroachMigrationHermit
   components:
   - type: StationEvent
     weight: 5 #decreased by One
