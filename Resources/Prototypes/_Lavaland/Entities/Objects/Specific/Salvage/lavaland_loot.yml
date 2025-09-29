@@ -31,7 +31,9 @@
   - type: Item
     size: Small
   - type: CursedHeartGrant
-
+  - type: StaticPrice
+    price: 5000
+    
 - type: entity
   id: LavalandVampirismCrystal
   parent: BasePKAUpgrade
@@ -49,6 +51,8 @@
         Slash: -1.5
         Piercing: -1.5
         Blunt: -1.5
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   id: LavalandAmuletMementoMori
@@ -66,6 +70,8 @@
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: memento_mori
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   id: LavalandAmuletImortalityTalisman
@@ -77,6 +83,8 @@
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: imortality_talisman
   - type: ImortalityTalisman # was not able to fraction this
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   id: LavalandStaffOfHealing
@@ -94,6 +102,8 @@
     count: 6
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 10 # slower then staff of healing
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   id: LavalandMinersChalic
@@ -135,6 +145,8 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: ClothingHeadHatHoodVoidCloak
