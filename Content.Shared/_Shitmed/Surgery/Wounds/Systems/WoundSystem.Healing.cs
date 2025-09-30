@@ -18,7 +18,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared.Body.Part;
 using Content.Goobstation.Maths.FixedPoint;
-using YamlDotNet.Core.Tokens;
 
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -303,11 +302,11 @@ public partial class WoundSystem
 
     public bool TryHealWoundsOnWoundable(EntityUid woundable,
         DamageSpecifier damage,
-        out Dictionary<string, FixedPoint2> healed,
+        out FixedPoint2 healed,
         WoundableComponent? component = null,
         bool ignoreMultipliers = false)
     {
-        healed = [];
+        healed = 0;
         if (!Resolve(woundable, ref component, false))
             return false;
 
@@ -315,12 +314,12 @@ public partial class WoundSystem
         {
             if (TryHealWoundsOnWoundable(woundable, -value, key, out var tempHealed, component, ignoreMultipliers))
             {
-                healed.Add(key, tempHealed);
+                healed += tempHealed;
                 continue;
             }
         }
 
-        return healed.Any();
+        return healed > 0;
     }
 
     public bool TryGetWoundableWithMostDamage(
@@ -432,88 +431,6 @@ public partial class WoundSystem
         RaiseLocalEvent(wound, ref ev1);
 
         return !ev1.Cancelled;
-    }
-
-    /// <summary>
-    /// Method to get all wounds of some entity
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="wounds"></param>
-    /// <returns></returns>
-    public bool TryGetAllOwnerWounds(EntityUid target, [NotNullWhen(true)] out List<Entity<WoundComponent>> wounds)
-    {
-        wounds = [];
-
-        if (!_body.TryGetRootPart(target, out var body))
-            return false;
-
-        wounds = GetAllWounds(body.Value.Owner).ToList();
-
-        return wounds.Any();
-    }
-
-    /// <summary>
-    /// Method to get all wounded parts of entity
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="woundables"></param>
-    /// <returns></returns>
-    public bool TryGetAllOwnerWoundedParts(EntityUid target, [NotNullWhen(true)] out List<Entity<WoundableComponent>> woundables)
-    {
-        woundables = [];
-
-        foreach (var bodyPart in _body.GetBodyChildren(target))
-        {
-            if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundableComp) || !woundableComp.Wounds.ContainedEntities.Any())
-                continue;
-
-            woundables.Add((bodyPart.Id, woundableComp));
-        }
-
-        return woundables.Any();
-    }
-
-    /// <summary>
-    /// Method to heal all wounds on entity by specific healing amount.
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="healing"></param>
-    /// <param name="ignoreBlockers"></param>
-    /// <returns></returns>
-    public bool TryHealWoundsOnOwner(EntityUid target, DamageSpecifier healing, bool ignoreBlockers = false)
-    {
-        var healedWounds = 0;
-
-        if (!TryGetAllOwnerWoundedParts(target, out var woundables) || !TryGetAllOwnerWounds(target, out var wounds))
-            return false;
-
-        DamageSpecifier healingPerPart = new DamageSpecifier(healing);
-        healingPerPart.DamageDict.Clear();
-
-        var woundCountByType = wounds
-            .GroupBy(w => w.Comp.DamageType)
-            .ToDictionary(g => g.Key, g => g.Count());
-
-
-        foreach (var healingType in healing.DamageDict)
-        {
-            var splitAmount = woundCountByType.GetValueOrDefault(healingType.Key, 0);
-
-            // If we don't have wounds with our damage type just set it to heal value
-            var splittedDamage = splitAmount != 0 ? healingType.Value / splitAmount : healingType.Value;
-
-            healingPerPart.DamageDict.Add(healingType.Key, splittedDamage);
-        }
-
-        foreach (var woundable in woundables)
-        {
-            if (!TryHealWoundsOnWoundable(woundable.Owner, healingPerPart, out var healed, woundable.Comp))
-                continue;
-
-            healedWounds++;
-        }
-
-        return healedWounds > 0;
     }
 
     #endregion
