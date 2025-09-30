@@ -10,6 +10,7 @@
       steps:
       - material: Steel
         amount: 1
+        doAfter: 2
   - node: stack
     entity: MaterialHexNutSingle
 
@@ -25,5 +26,6 @@
       steps:
       - material: Steel
         amount: 1
+        doAfter: 2
   - node: stack
     entity: MaterialScrewSingle
