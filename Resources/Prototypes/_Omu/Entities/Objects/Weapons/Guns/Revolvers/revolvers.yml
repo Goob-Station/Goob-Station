@@ -2,7 +2,7 @@
   name: VC-8 "Handshake" Revolver
   parent: BaseWeaponRevolver
   id: VulcanEightRevolver
-  description: A replica of the Legendary Vulcan Eight, This revolver Packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A Celtek stamp identifies it as a Replica.
+  description: A replica of the legendary Vulcan Eight, This revolver packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A CelTek stamp identifies it as a replica.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
@@ -37,10 +37,10 @@
     spread: 2
 
 - type: entity
-  name: R6 "Slammer" Trenchgun
+  name: R6 "Slammer" Trench Gun
   parent: [BaseWeaponRevolver, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponWardenRevolverShotgun
-  description: Designed for clearing corners with a warzone appropriate amount of "die now", the compact R6 Shotgun has become popular as a defensive and breaching option among law enforcement. The monocre "Slammer" has been adopted by NT enforcement, as it Slams enemies, and its presence in the arsenal keeps lawbreakers in the slammer.
+  description: The semi-automatic R6 trench gun, designed for clearing corners with a war zone appropriate amount of 8-gauge-"die now", has become popular as a defensive and breaching option among law enforcement.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
@@ -77,12 +77,16 @@
     spread: 2
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12 # fat pistol whip
 
 - type: entity
   name: T8 "Consistency" Revolver
   parent: BaseWeaponRevolver
   id: SecurityDutyRevolver
-  description: A high end, High capacity revolver for the discerning officer. It's even coated in security red! This revolver trades the throughput of a mk58 for not only style, but also stopping power. Loads .30 rifle.
+  description: A high end, high capacity revolver for the discerning officer. It's even coated in security red! This revolver trades the throughput of a mk58 for not only style, but also stopping power. Loads .30 rifle.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi

@@ -4,13 +4,13 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
     Comes integrated with a AI Operated stim injector.
     Usually reserved for special occasions.
 
-selectable-set-eshotty-r6-name = Energy Shotgun
-selectable-set-eshotty-r6-desc =
-    The classic tool for quickly swapping straight to lethal.
+selectable-set-warden-eshotty-name = Energy Shotgun
+selectable-set-warden-eshotty-description =
+    The classic. A tool that can quickly swap from stun straight to lethal.
 
-selectable-set-warden-r6-name = R6 Trenchgun
-selectable-set-warden-r6-desc =
-    The simpler solution in armory defense.
+selectable-set-warden-r6-name = R6 Trench Gun
+selectable-set-warden-r6-description =
+    The simpler solution in armory defense. The brig is your domain.
 
 selectable-set-hos-belt-name = Qua Nar'Vulna
 selectable-set-hos-belt-description =
