@@ -24,6 +24,7 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
 
         SubscribeLocalEvent<BookBinderComponent, ComponentInit>(OnBinderInit);
         SubscribeLocalEvent<BookBinderComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<BookBinderComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<BookBinderComponent, InteractUsingEvent>(OnBinderInteractUsing);
 
     }
@@ -46,6 +47,11 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
     }
 
     private void OnEntInserted(Entity<BookBinderComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        UpdateBinderUi(ent);
+    }
+
+    private void OnEntRemoved(Entity<BookBinderComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         UpdateBinderUi(ent);
     }
