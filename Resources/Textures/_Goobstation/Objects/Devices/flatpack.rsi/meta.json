@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Created by EmoGarbage404 (github) for SS14, Teg Sprite made by CreatorBot01.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "teg-circulator"
+        },
+        {
+            "name": "teg-middle"
+        }
+    ]
+}

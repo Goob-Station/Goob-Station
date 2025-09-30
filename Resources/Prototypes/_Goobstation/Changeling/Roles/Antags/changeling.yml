@@ -22,5 +22,6 @@
     inverted: true
     species:
     - IPC
+    - Plasmaman
   guides: [ Changelings ]
   medicalRecord: antag-record-disease # Goobstation

@@ -20,6 +20,7 @@
     inverted: true
     species:
     - IPC
+    - Plasmaman
   guides: [ Zombies ]
   medicalRecord: antag-record-disease # Goobstation
 
@@ -34,4 +35,5 @@
     inverted: true
     species:
     - IPC
+    - Plasmaman
   guides: [ Zombies ]

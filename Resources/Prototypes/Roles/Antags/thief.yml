@@ -97,5 +97,5 @@
     back:
     - ThiefBeacon
     - SatchelThief
-    - ClothingHandsChameleonThief
+    # - ClothingHandsChameleonThief - Goobedit, since thieves have intrinsic pickpocketing now we don't need these
     - PinpointerThief # Goob edit

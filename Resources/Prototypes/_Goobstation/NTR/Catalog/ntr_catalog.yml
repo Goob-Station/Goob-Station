@@ -8,7 +8,7 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 5
   categories:
   - NTRstation
   restockTime: 300 # if the station is fucked up in 5 minutes, thats unfortunate lol, 5min tho
@@ -24,7 +24,7 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 1200 # give them revs some time man
@@ -90,7 +90,7 @@
     sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 20 # woundmd ahhhh
+    NTLoyaltyPoint: 10 # woundmd ahhhh
   categories:
   - NTRstation
   restockTime: 300 # 5 min
@@ -122,7 +122,7 @@
     sprite: Structures/Storage/Crates/engicrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 5
+    NTLoyaltyPoint: 3
   categories:
   - NTRstation
   restockTime: 300 # 5 min
@@ -130,6 +130,24 @@
   restockAfterPurchase: 300
 
 # personal
+
+- type: listing
+  id: NTRExecutiveWaterCoolerGold
+  name: premium water (?) cooler
+  description: Made from the finest 24-karat hardened whiskey in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
+  productEntity: SpawnPodWaterCoolerGold
+  icon:
+    sprite: _Goobstation/Structures/Storage/watercooler.rsi
+    state: watercooler-2
+  cost:
+    NTLoyaltyPoint: 6 # 6 points for something like this is fine, just a meme item lol
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: NTRExecutiveInternCall
   name: Call intern squad
@@ -166,18 +184,18 @@
 - type: listing
   id: NTRExecutiveSingleIntern
   name: single Intern Coin
-  description: Summons one basic intern.
+  description: Summons one basic intern. Interns are on your full command, order them to complete tasks instead of you doing it by yourself, or play cards with them.
   productEntity: SpawnPodCoin
   icon:
     sprite: Objects/Misc/coins.rsi
     state: coin_gold
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRpersonal
   restockTime: 300
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600 # 10 mins
+  restockAfterPurchase: 900 # 15 mins
 
 - type: listing
   id: NTRExecutiveBSDCall
@@ -188,7 +206,7 @@
     sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   cost:
-    NTLoyaltyPoint: 50
+    NTLoyaltyPoint: 40
   categories:
   - NTRpersonal
   restockTime: 1800 # 3o min
@@ -253,7 +271,7 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 2
+    NTLoyaltyPoint: 5
   categories:
   - NTRpersonal
   restockTime: 120
