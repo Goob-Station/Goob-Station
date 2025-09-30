@@ -285,3 +285,12 @@
   components:
   - type: SpawnOnDespawn
     prototype: CargoBingleSpawnCoin
+
+- type: entity
+  id: SpawnPodWaterCoolerGold
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodWaterCoolerGold
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: WaterCoolerGold
