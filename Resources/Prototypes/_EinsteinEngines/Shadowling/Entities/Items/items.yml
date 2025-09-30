@@ -1,0 +1,26 @@
+# Anti Thrall Item
+- type: entity
+  parent: BaseItem
+  id: AntiMindControlDevice
+  name: anti-mind control device
+  description: A special device designed for reverting mind control.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
+    state: anti-mind-control
+  - type: Item
+    size: Small
+    sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: AntiMindControlItem
+  - type: GuideHelp
+    guides: [ Shadowlings ]
+
+- type: entity
+  parent: ArmBladeChangeling
+  id: LightEaterArmBlade
+  name: Light Eater
+  description: An arm-blade that can rip through lights and ash them in a moment's notice.
+  components:
+  - type: LightEater

@@ -1,0 +1,36 @@
+- type: entity
+  parent: FoodMeatBase
+  id: XenoTissueSample
+  name: tissue sample
+  description: A chunk of alien flesh, leaking a caustic goop.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Misc/tissue_sample.rsi
+    state: xeno
+  - type: SurgeryTool
+  - type: TissueSample
+  - type: StaticPrice
+    price: 2500 # coroner gameplay
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 20
+  - type: FoodSequenceElement # it's usable as xeno meat in a burger... but what a waste
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: xeno
+    entries:
+      burger:
+        name: food-sequence-content-xeno
+      taco:
+        name: food-sequence-content-xeno
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - acid
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
