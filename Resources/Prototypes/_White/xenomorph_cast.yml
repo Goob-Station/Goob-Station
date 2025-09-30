@@ -21,7 +21,6 @@
 - type: xenomorphCaste
   id: Hivelord
   name: xenomorph-caste-Hivelord
-  maxcount: 2
 
 - type: xenomorphCaste
   id: Praetorian
