@@ -1,7 +1,7 @@
 - type: entity
   id: HeadOfSecurityGunCase
-  name: Head of Security's Duty Case.
-  description: A case, Used to securely store the Head of Securities ranged weapon of choice.
+  name: head of security's duty case
+  description: A case, used to securely store the head of security's ranged weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -9,19 +9,19 @@
     state: icon
   - type: SetSelector
     possibleSets:
+    - HosLawbringerSet
     - HosSmgSet
     - HosRifleSet
     - HosShotgunSet
     - HosSniperSet
-    - HosLawbringerSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponEnergyGunLawbringer
 
 - type: entity
   id: HeadOfSecurityMeleeCase
-  name: Head of Security's Melee Case.
-  description: A case, Used to securely store the Head of Securities melee weapon of choice.
+  name: head of security's melee case
+  description: A case, used to securely store the head of security's melee weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -38,8 +38,8 @@
 
 - type: entity
   id: WardenGunCase
-  name: Warden's Duty Case.
-  description: A case, Used to securely store the Wardens weapon of choice.
+  name: warden's duty case
+  description: A case, used to securely store the warden's weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -55,8 +55,8 @@
 
 - type: entity
   id: OfficerGunCase
-  name: Standard Duty Case.
-  description: A case, Used to securely store your duty weapon of choice.
+  name: standard duty case
+  description: A case, used to securely store your duty weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -71,8 +71,8 @@
 
 - type: entity
   id: CaptainGunCase
-  name: Captain's Weapon Case.
-  description: A case, Used to securely store your duty weapon of choice.
+  name: captain's weapon case
+  description: A case, used to securely store your duty weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

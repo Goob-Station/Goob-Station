@@ -41,7 +41,7 @@
 - type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
-  description: selectable-set-hos-eshotty-description
+  description: selectable-set-warden-eshotty-description
   sprite:
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
     state: icon
