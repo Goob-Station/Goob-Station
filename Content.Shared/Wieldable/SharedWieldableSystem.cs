@@ -96,7 +96,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, 
+        SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand,
             before: [typeof(SharedGunSystem), typeof(BatteryWeaponFireModesSystem), typeof(ItemToggleSystem)]); // Goob - before item toogle for hardlight bow
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);

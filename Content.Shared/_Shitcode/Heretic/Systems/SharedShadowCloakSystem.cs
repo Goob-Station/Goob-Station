@@ -139,7 +139,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         if (ent.Comp.DebuffOnEarlyReveal)
         {
-                            _stun.TryParalyze(uid, TimeSpan.FromSeconds(1), true);
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(1), true);
             var (walk, sprint) = ent.Comp.EarlyRemoveMoveSpeedModifiers;
             _stun.TrySlowdown(ent, ent.Comp.SlowdownTime, true, walk, sprint);
         }

@@ -647,7 +647,7 @@ public partial class PainSystem
 
             if (_timing.CurTime > nerveSys.ReactionUpdateTime)
                 UpdatePainThreshold(nerveSysEnt, nerveSys);
-            
+
             shouldUpdate = true;
         }
 

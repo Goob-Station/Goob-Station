@@ -598,7 +598,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 if (_random.Prob(vomitProb))
                 {
                     _vomit.Vomit(uid);
-                    _stun.KnockdownOrStun(uid, disgust.VomitKnockdownTime, true, status);
+                    _stun.TryParalyze(uid, disgust.VomitKnockdownTime, true, status);
                     disgust.CurrentLevel -= disgust.VomitThreshold;
                 }
             }

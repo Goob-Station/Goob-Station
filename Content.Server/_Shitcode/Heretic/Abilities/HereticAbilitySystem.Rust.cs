@@ -302,8 +302,12 @@ public sealed partial class HereticAbilitySystem
 
         RustObjectsInRadius(mapPos, args.Radius, args.TileRune, args.LookupRange);
 
+        // Use the new TargetedProjectileComponent approach #TODO: FIXME
+        var targetComp = EnsureComp<Content.Shared.Weapons.Ranged.Components.TargetedProjectileComponent>(plume);
+        _gun.SetProjectileTarget(plume, null);
+
         _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
-        _gun.SetTarget(plume, null, out _);
+
     }
 
     private void RustObjectsInRadius(MapCoordinates mapPos, float radius, string tileRune, float lookupRange)
@@ -486,7 +490,7 @@ public sealed partial class HereticAbilitySystem
             if (dir.LengthSquared() < 0.001f)
                 continue;
             _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
-            _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
+            _stun.TryParalyze(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
                 _dmg.TryChangeDamage(entity, args.Damage, targetPart: TargetBodyPart.All);
         }

@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -106,7 +107,8 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -137,7 +139,8 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -183,7 +186,8 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);

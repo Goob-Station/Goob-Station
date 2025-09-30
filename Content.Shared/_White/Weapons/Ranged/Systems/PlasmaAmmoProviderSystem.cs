@@ -1,6 +1,8 @@
 using Content.Shared._White.Weapons.Ranged.Components;
 using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
+using Content.Shared.Weapons.Ranged;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
@@ -30,7 +32,7 @@ public sealed class PlasmaAmmoProviderSystem : EntitySystem
                 return;
 
             var shot = Spawn(component.Proto, args.Coordinates);
-            args.Ammo.Add((shot, null));
+            args.Ammo.Add((shot, EnsureComp<AmmoComponent>(shot)));
         }
     }
 

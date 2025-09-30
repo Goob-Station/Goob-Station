@@ -447,7 +447,7 @@ public sealed partial class ChangelingSystem
             var puller = Comp<PullableComponent>(uid).Puller;
             if (puller != null)
             {
-                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1), true);
+                _stun.TryParalyze(puller.Value, TimeSpan.FromSeconds(1), true);
             }
         }
     }
@@ -761,7 +761,7 @@ public sealed partial class ChangelingSystem
             if (puller != null)
             {
                 _puddle.TrySplashSpillAt(puller.Value, Transform((EntityUid) puller).Coordinates, soln, out _);
-                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1.5), true);
+                _stun.TryParalyze(puller.Value, TimeSpan.FromSeconds(1.5), true);
 
                 if (!TryComp(puller.Value, out StatusEffectsComponent? status))
                     return;

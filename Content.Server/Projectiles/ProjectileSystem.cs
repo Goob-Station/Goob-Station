@@ -73,6 +73,8 @@ using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 
@@ -86,6 +88,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {
@@ -107,7 +110,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (attemptEv.Cancelled)
         {
             SetShooter(uid, component, target);
-            _guns.SetTarget(uid, null, out _); // Goobstation
+            _gun.SetProjectileTarget(uid, EntityUid.Invalid);
             component.IgnoredEntities.Clear(); // Goobstation
             return;
         }

@@ -7,6 +7,7 @@
 
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
@@ -59,7 +60,7 @@ public sealed class ChangelingGunSystem : EntitySystem
             ling.Chemicals -= component.FireCost;
 
             var shot = Spawn(component.Proto, args.Coordinates);
-            args.Ammo.Add((shot, _guns.EnsureShootable(shot)));
+            args.Ammo.Add((shot, EnsureComp<AmmoComponent>(shot)));
         }
 
         Dirty(parent, ling);

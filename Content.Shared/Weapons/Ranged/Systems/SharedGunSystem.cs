@@ -542,7 +542,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ShotsPerBurst,
             comp.FireRate,
             comp.BurstFireRate,
-            comp.ProjectileSpeed
+            comp.ProjectileSpeed,
+            comp.BurstCooldown,
+            null // User parameter
         );
 
         RaiseLocalEvent(gun, ref ev);
@@ -603,6 +605,16 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
+
+    /// <summary>
+    /// Sets the target for a TargetedProjectileComponent. Only accessible to systems with gun access.
+    /// </summary>
+    public void SetProjectileTarget(EntityUid projectileUid, EntityUid? target)
+    {
+        var targeted = EnsureComp<TargetedProjectileComponent>(projectileUid);
+        targeted.Target = target;
+        Dirty(projectileUid, targeted);
+    }
 
     /// <summary>
     /// Used for animated effects on the client.

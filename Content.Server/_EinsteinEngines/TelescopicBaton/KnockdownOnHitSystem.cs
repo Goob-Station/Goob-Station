@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Standing;
 using Content.Server.Standing;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
@@ -56,9 +57,9 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 
             if (_stun.TryKnockdown(target,
                 entity.Comp.Duration,
-                entity.Comp.RefreshDuration,
-                ev.Behavior, // Goob edit
-                statusEffects)) // Goob edit
+                true, // refresh
+                true, // autoStand
+                ev.Behavior != DropHeldItemsBehavior.NoDrop)) // drop items
                 knockedDown.Add(target);
         }
 

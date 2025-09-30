@@ -9,6 +9,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
@@ -262,7 +263,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

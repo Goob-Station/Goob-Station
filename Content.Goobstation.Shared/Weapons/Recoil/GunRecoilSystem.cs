@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -47,6 +48,7 @@ public sealed class GunRecoilSystem : EntitySystem
         _stun.TryKnockdown(args.User,
             TimeSpan.FromSeconds(knockdownTime),
             ent.Comp.RefreshKnockdown,
-            ent.Comp.Behavior);
+            true,
+            ent.Comp.Behavior != DropHeldItemsBehavior.NoDrop);
     }
 }

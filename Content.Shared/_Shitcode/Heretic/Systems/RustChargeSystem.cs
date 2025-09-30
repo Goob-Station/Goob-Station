@@ -110,7 +110,7 @@ public sealed class RustChargeSystem : EntitySystem
         // Damage mobs
         if (HasComp<MobStateComponent>(other))
         {
-                            _stun.TryParalyze(uid, TimeSpan.FromSeconds(3), true);
+            _stun.TryParalyze(other, TimeSpan.FromSeconds(3), true);
 
             _damageable.TryChangeDamage(other,
                 ent.Comp.Damage,

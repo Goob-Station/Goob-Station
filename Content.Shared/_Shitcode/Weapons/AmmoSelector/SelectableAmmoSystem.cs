@@ -149,7 +149,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
                 return true;
             var oldFireCost = projectileBattery.FireCost;
             projectileBattery.FireCost = proto.FireCost;
-            var fireCostDiff =  proto.FireCost / oldFireCost;
+            var fireCostDiff = proto.FireCost / oldFireCost;
             projectileBattery.Shots = (int) Math.Round(projectileBattery.Shots / fireCostDiff);
             projectileBattery.Capacity = (int) Math.Round(projectileBattery.Capacity / fireCostDiff);
             Dirty(uid, projectileBattery);
