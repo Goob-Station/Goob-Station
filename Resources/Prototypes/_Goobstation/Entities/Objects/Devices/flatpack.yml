@@ -149,3 +149,33 @@
   components:
   - type: Flatpack
     entity: ComputerCargoOrdersSecurity
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegCirculatorFlatpack
+  name: circulator flatpack
+  description: A flatpack used for constructing a circulator for thermo-electric generator.
+  components:
+  - type: Flatpack
+    entity: TegCirculator
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/flatpack.rsi
+    layers:
+    - state: teg-circulator
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegMiddleFlatpack
+  name: thermo-electric generator flatpack
+  description: A flatpack used for constructing a thermo-electric generator.
+  components:
+  - type: Flatpack
+    entity: TegCenter
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/flatpack.rsi
+    layers:
+    - state: teg-middle
+  - type: StaticPrice
+    price: 500
