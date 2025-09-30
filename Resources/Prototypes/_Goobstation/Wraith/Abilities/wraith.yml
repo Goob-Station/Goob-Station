@@ -51,17 +51,14 @@
     stunDuration: 5
   - type: SummonVoidCreature
     availableSummons:
-    - id: MobSkeletonCommanderWraith
-      name: "Skeleton Commander"
-    - id: MobVoidHoundWraith
-      name: "Void Hound"
-    - id: MobVoidSpikerWraith
-      name: "Void Spiker"
-  - type: Evolve
-    availableEvolutions:
-    - prototype: MobWraithHarbinger
-    - prototype: MobWraithPlague
-    - prototype: MobWraithTrickster
+    - prototype: MobSkeletonCommanderWraith
+    - prototype: MobVoidHoundWraith
+    - prototype: MobVoidSpikerWraith
+  #- type: Evolve This breaks the SummonVoidCreature action
+  #  availableEvolutions:
+  #  - prototype: MobWraithHarbinger
+  #  - prototype: MobWraithPlague
+  #  - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
     - ActionHaunt

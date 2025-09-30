@@ -286,6 +286,13 @@
   parent: MobSkeletonCommander
   components:
   - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.8
 
 - type: entity
   id: MobVoidSpikerWraith
@@ -293,6 +300,13 @@
   parent: MobVoidSpiker
   components:
   - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.8
 
 - type: entity
   id: MobVoidHoundWraith
@@ -300,3 +314,10 @@
   parent: MobVoidHound
   components:
   - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.8
