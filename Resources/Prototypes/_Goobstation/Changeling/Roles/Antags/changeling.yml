@@ -23,3 +23,4 @@
     species:
     - IPC
   guides: [ Changelings ]
+  medicalRecord: antag-record-disease # Goobstation

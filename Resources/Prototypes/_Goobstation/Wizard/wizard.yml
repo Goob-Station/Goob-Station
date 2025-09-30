@@ -37,6 +37,7 @@
   - !type:OverallPlaytimeRequirement
     time: 126000 # 35h
   guides: [ Wizard ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: Apprentice

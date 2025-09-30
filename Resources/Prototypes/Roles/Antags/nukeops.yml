@@ -106,6 +106,7 @@
     department: Security
     time: 36000 # 10h Goobstation
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: NukeopsMedic
@@ -123,6 +124,7 @@
     role: JobChemist
     time: 18000 # 5h Goobstation
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: NukeopsCommander
@@ -141,6 +143,7 @@
     time: 18000 # 5h Goobstation
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink

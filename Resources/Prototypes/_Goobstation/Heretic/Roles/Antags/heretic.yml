@@ -19,3 +19,4 @@
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
   guides: [ Heretics ]
+  criminalRecord: antag-record-cultist # Goobstation
