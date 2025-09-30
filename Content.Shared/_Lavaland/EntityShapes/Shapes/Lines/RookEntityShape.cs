@@ -12,6 +12,6 @@ public sealed partial class RookEntityShape : EntityShape
 {
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        return ShapeHelperMethods.MakeCross(Offset, Size, StepSize).ToList();
+        return ShapeHelpers.MakeCross(Offset, Size, StepSize).ToList();
     }
 }

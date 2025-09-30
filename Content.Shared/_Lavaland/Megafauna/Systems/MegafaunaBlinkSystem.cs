@@ -58,7 +58,8 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
 
     private void OnBlinkAction(Entity<MegafaunaBlinkComponent> ent, ref MegafaunaBlinkActionEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || !args.Target.IsValid(EntityManager))
             return;
 
         var comp = ent.Comp;

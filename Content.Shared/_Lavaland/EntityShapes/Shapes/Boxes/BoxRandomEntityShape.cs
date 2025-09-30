@@ -25,10 +25,10 @@ public sealed partial class BoxRandomEntityShape : EntityShape
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
         if (FilledChance != null)
-            return ShapeHelperMethods.MakeBoxChanceRandom(Offset, Size, rand, FilledChance.Value, StepSize).ToList();
+            return ShapeHelpers.MakeBoxChanceRandom(Offset, Size, rand, FilledChance.Value, StepSize).ToList();
         if (RemoveAmount != null)
-            return ShapeHelperMethods.MakeBoxCountRandom(Offset, Size, rand, RemoveAmount.Value, StepSize).ToList();
+            return ShapeHelpers.MakeBoxCountRandom(Offset, Size, rand, RemoveAmount.Value, StepSize).ToList();
 
-        return ShapeHelperMethods.MakeBoxFilled(Offset, Size, StepSize).ToList();
+        return ShapeHelpers.MakeBoxFilled(Offset, Size, StepSize).ToList();
     }
 }

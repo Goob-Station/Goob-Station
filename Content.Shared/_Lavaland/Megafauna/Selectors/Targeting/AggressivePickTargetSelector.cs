@@ -20,26 +20,38 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     /// <summary>
     /// Sets the EntityUid field in <see cref="MegafaunaAiTargetingComponent"/> if true.
     /// </summary>
+    /// <remarks>
+    /// Only exists because for some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// </remarks>
     [DataField]
     public bool SetTarget = true;
 
     /// <summary>
     /// Sets the EntityCoordinates field in <see cref="MegafaunaAiTargetingComponent"/> if true.
     /// </summary>
+    /// <remarks>
+    /// Only exists because for some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// </remarks>
     [DataField]
-    public bool SetCoordinates;
+    public bool SetCoordinates = true;
 
     /// <summary>
     /// If true, will clear all previous target values before assigning new ones.
     /// </summary>
+    /// <remarks>
+    /// Only exists because for some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// </remarks>
     [DataField]
-    public bool ClearAll = true;
+    public bool ClearData = true;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var system = args.EntityManager.System<MegafaunaSystem>();
 
-        if (!system.TryPickTargetAggressive(args, TargetConditions, SetTarget, SetCoordinates, ClearAll))
+        if (!system.TryPickTargetAggressive(args, TargetConditions, SetTarget, SetCoordinates, ClearData))
             return FailDelay;
 
         return DelaySelector.Get(args);

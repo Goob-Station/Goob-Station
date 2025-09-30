@@ -6,14 +6,10 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public sealed class MegafaunaGodmodeSystem : EntitySystem
 {
-
-    private EntityQuery<MegafaunaAiComponent> _megafaunaQuery;
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MegafaunaGodmodeComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
-        _megafaunaQuery = GetEntityQuery<MegafaunaAiComponent>();
     }
 
     private void OnBeforeDamageChanged(Entity<MegafaunaGodmodeComponent> ent, ref BeforeDamageChangedEvent args)

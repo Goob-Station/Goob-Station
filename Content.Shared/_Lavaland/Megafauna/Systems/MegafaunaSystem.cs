@@ -12,6 +12,8 @@ public sealed partial class MegafaunaSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private EntityQuery<AggressiveComponent> _aggressiveQuery;
 

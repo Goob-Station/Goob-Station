@@ -12,6 +12,6 @@ public sealed partial class BishopEntityShape : EntityShape
 {
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        return ShapeHelperMethods.MakeCrossDiagonal(Offset, Size, StepSize).ToList();
+        return ShapeHelpers.MakeCrossDiagonal(Offset, Size, StepSize).ToList();
     }
 }

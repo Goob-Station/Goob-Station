@@ -15,6 +15,6 @@ public sealed partial class LineEntityShape : EntityShape
 
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        return ShapeHelperMethods.MakeLine(Offset, Size, Direction).ToList();
+        return ShapeHelpers.MakeLine(Offset, Size, Direction).ToList();
     }
 }

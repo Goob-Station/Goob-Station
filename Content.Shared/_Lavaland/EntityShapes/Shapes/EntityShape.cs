@@ -25,23 +25,25 @@ public abstract partial class EntityShape
     [DataField("group")]
     public string? OverrideGroup;
 
+    // All "DefaultX" are values that are specified in prototypes
+
     [DataField("offset")]
-    public Vector2 DefaultOffset;
+    public Vector2? DefaultOffset;
 
     [DataField("size")]
-    public int DefaultSize;
+    public int? DefaultSize;
 
     [DataField("step")]
-    public int DefaultStepSize = 1;
+    public float? DefaultStepSize;
 
     [ViewVariables]
-    public Vector2 Offset;
+    public Vector2 Offset = Vector2.Zero;
 
     [ViewVariables]
-    public int Size;
+    public int Size = 1;
 
     [ViewVariables]
-    public int StepSize;
+    public float StepSize = 1;
 
     /// <summary>
     /// Calculates this shape and also lets you customize some parameters of shape's generation.
@@ -51,11 +53,15 @@ public abstract partial class EntityShape
         IPrototypeManager proto,
         Vector2? center = null,
         int? size = null,
-        int? stepSize = null)
+        float? stepSize = null)
     {
-        Offset = DefaultOffset + (center ?? Vector2.Zero);
-        Size = size ?? DefaultSize;
-        StepSize = stepSize ?? DefaultStepSize;
+        // We take values by these priorities:
+        // 1. YAML DataFields
+        // 2. Arguments passed from the parent
+        // 3. Default value.
+        Offset = DefaultOffset ?? center ?? Offset;
+        Size = DefaultSize ?? size ?? Size;
+        StepSize = DefaultStepSize  ?? stepSize ?? StepSize;
         return GetShapeImplementation(rand, proto);
     }
 

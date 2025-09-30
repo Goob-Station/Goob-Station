@@ -15,7 +15,7 @@ namespace Content.Shared._Lavaland.EntityShapes;
 /// Allows to reuse already written methods for generating shapes, so making new
 /// EntityShape classes becomes much easier.
 /// </summary>
-public static class ShapeHelperMethods
+public static class ShapeHelpers
 {
     /// <summary>
     /// Draws a simple line in a specified direction, adding Step vector Range
@@ -36,13 +36,13 @@ public static class ShapeHelperMethods
         }
     }
 
-    public static IEnumerable<Vector2> MakeBox(Vector2 center, int range, bool hollow, int stepSize = 1)
+    public static IEnumerable<Vector2> MakeBox(Vector2 center, int range, bool hollow, float stepSize = 1)
     {
         return hollow ? MakeBoxHollow(center, range, stepSize) : MakeBoxFilled(center, range, stepSize);
     }
 
 
-    public static IEnumerable<Vector2> MakeBoxFilled(Vector2 center, int range, int stepSize = 1)
+    public static IEnumerable<Vector2> MakeBoxFilled(Vector2 center, int range, float stepSize = 1)
     {
         if (range <= 0)
             yield break;
@@ -59,19 +59,19 @@ public static class ShapeHelperMethods
 
         // Use float arithmetic to get a true centered start.
         // (range - 1) / 2f centers the integer grid around the center.
-        float half = (range - 1) / 2f;
+        var half = (range - 1) / 2f;
         var startPoint = center - new Vector2(half, half);
 
-        for (int y = 0; y < range; y += stepSize)
+        for (var y = 0f; y < range; y += stepSize)
         {
-            for (int x = 0; x < range; x += stepSize)
+            for (var x = 0f; x < range; x += stepSize)
             {
                 yield return startPoint + new Vector2(x, y);
             }
         }
     }
 
-    public static IEnumerable<Vector2> MakeBoxHollow(Vector2 center, int range, int stepSize = 1)
+    public static IEnumerable<Vector2> MakeBoxHollow(Vector2 center, int range, float stepSize = 1)
     {
         if (range <= 0)
             yield break;
@@ -82,42 +82,42 @@ public static class ShapeHelperMethods
             yield break;
         }
 
-        var halfRange = range / 2;
+        var halfRange = range / 2f;
         var bottomLeft = center - new Vector2(halfRange, halfRange);
         var topLeft = center - new Vector2(halfRange, -halfRange);
         var topRight = center - new Vector2(-halfRange, -halfRange);
         var bottomRight = center - new Vector2(-halfRange, halfRange);
 
         // Left side
-        for (int i = 0; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range - 1; i += stepSize)
         {
             yield return bottomLeft + Vector2.UnitY * i;
         }
         // Top side
-        for (int i = 0; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range - 1; i += stepSize)
         {
             yield return topLeft + Vector2.UnitX * i;
         }
         // Right side
-        for (int i = 0; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range - 1; i += stepSize)
         {
             yield return topRight + -Vector2.UnitY * i;
         }
         // Bottom side
-        for (int i = 0; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range - 1; i += stepSize)
         {
             yield return bottomRight + -Vector2.UnitX * i;
         }
     }
 
-    public static IEnumerable<Vector2> MakeCross(Vector2 center, int range, int stepSize = 1)
+    public static IEnumerable<Vector2> MakeCross(Vector2 center, int range, float stepSize = 1)
     {
         yield return center;
 
         if (range <= 0)
             yield break;
 
-        for (int i = 1; i < range; i += stepSize)
+        for (var i = 1f; i < range; i += stepSize)
         {
             yield return center with { X = center.X + i };
             yield return center with { Y = center.Y + i };
@@ -126,14 +126,14 @@ public static class ShapeHelperMethods
         }
     }
 
-    public static IEnumerable<Vector2> MakeCrossDiagonal(Vector2 center, int range, int stepSize = 1)
+    public static IEnumerable<Vector2> MakeCrossDiagonal(Vector2 center, int range, float stepSize = 1)
     {
         yield return center;
 
         if (range <= 0)
             yield break;
 
-        for (var i = 1; i < range; i += stepSize)
+        for (var i = 1f; i < range; i += stepSize)
         {
             yield return new Vector2(center.X + i, center.Y + i);
             yield return new Vector2(center.X + i, center.Y - i);
@@ -150,9 +150,9 @@ public static class ShapeHelperMethods
         int range,
         System.Random random,
         float filledSquareChance = 0.3f,
-        int stepSize = 1)
+        float stepSize = 1)
     {
-        var refs = MakeBoxFilled(center, range).ToList();
+        var refs = MakeBoxFilled(center, range, stepSize).ToList();
         var refsTemp = new List<Vector2>(refs);
         foreach (var tile in refsTemp)
         {
@@ -171,7 +171,7 @@ public static class ShapeHelperMethods
         int range,
         System.Random random,
         int removeAmount = 0,
-        int stepSize = 1)
+        float stepSize = 1)
     {
         var refs = MakeBoxFilled(center, range, stepSize).ToList();
         for (int i = 0; i < removeAmount; i++)

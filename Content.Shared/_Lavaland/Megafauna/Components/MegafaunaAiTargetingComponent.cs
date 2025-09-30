@@ -13,5 +13,5 @@ public sealed partial class MegafaunaAiTargetingComponent : Component
     public EntityUid? TargetEntity;
 
     [ViewVariables, AutoNetworkedField]
-    public EntityCoordinates? TargetCoordinate;
+    public EntityCoordinates? TargetCoordinates;
 }

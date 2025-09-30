@@ -3,7 +3,7 @@
 namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
 /// <summary>
-/// Works like NestedEntityShape, but also has serialization,
+/// Works like NestedMegafaunaSelector, but also has serialization,
 /// so you can just type id: in prototypes and it will work.
 /// </summary>
 public sealed partial class ProtoIdMegafaunaSelector : MegafaunaSelector

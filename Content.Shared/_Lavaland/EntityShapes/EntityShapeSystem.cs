@@ -23,7 +23,7 @@ public sealed class EntityShapeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
-        SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
+        //SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
 
         SubscribeLocalEvent<AngerShapeSpawnerComponent, SpawnedByActionEvent>(OnActionSpawned);
 
@@ -36,19 +36,20 @@ public sealed class EntityShapeSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<ShapeSpawnerCounterComponent>();
         while (query.MoveNext(out var uid, out var counterComp))
         {
-            if (counterComp.NextSpawn < _timing.CurTime)
+            if (counterComp.NextSpawn > curTime)
                 continue;
 
             if (counterComp.Counter == counterComp.MaxCounter)
             {
-                QueueDel(uid);
+                PredictedQueueDel(uid);
                 continue;
             }
-            
-            counterComp.NextSpawn = _timing.CurTime + counterComp.SpawnPeriod;
+
+            counterComp.NextSpawn = curTime + counterComp.SpawnPeriod;
 
             counterComp.Counter++;
 
@@ -68,13 +69,16 @@ public sealed class EntityShapeSystem : EntitySystem
     {
         spawned = new List<EntityUid>();
 
-        // Sadly we still don't have shared random.
+        // Sadly we still don't have proper shared random.
         // It also crashes the spawn menu.
         if (_net.IsClient)
             return;
 
-        var center = coords.Position;
-        var result = shape.GetShape(GetRandom(), _protoMan, center);
+        var result = shape.GetShape(GetRandom(), _protoMan);
+        for (int i = 0; i < result.Count; i++)
+        {
+            result[i] += coords.Position;
+        }
 
         foreach (var pos in result)
         {
@@ -87,8 +91,8 @@ public sealed class EntityShapeSystem : EntitySystem
     private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
         => SpawnEntityShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
 
-    private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
-        => ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod;
+    //private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
+        //=> ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod;
 
     private void OnActionSpawned(Entity<AngerShapeSpawnerComponent> ent, ref SpawnedByActionEvent args)
     {

@@ -11,6 +11,6 @@ public sealed partial class BoxEntityShape : EntityShape
 
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        return ShapeHelperMethods.MakeBox(Offset, Size, Hollow, StepSize).ToList();
+        return ShapeHelpers.MakeBox(Offset, Size, Hollow, StepSize).ToList();
     }
 }

@@ -25,6 +25,6 @@ public sealed partial class GroupEntityShape : EntityShape
             return Enumerable.Empty<Vector2>().ToList();
 
         var pick = SharedRandomExtensions.Pick(children, rand);
-        return pick.GetShape(rand, proto);
+        return pick.GetShape(rand, proto, Offset, Size, StepSize);
     }
 }

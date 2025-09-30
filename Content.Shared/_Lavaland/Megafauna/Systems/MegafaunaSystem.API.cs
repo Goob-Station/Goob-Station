@@ -1,7 +1,12 @@
-﻿using Content.Shared._Lavaland.Megafauna.Components;
+﻿using System.Linq;
+using System.Numerics;
+using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Actions;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Random;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -34,7 +39,7 @@ public sealed partial class MegafaunaSystem
         var targetingComp = CompOrNull<MegafaunaAiTargetingComponent>(boss);
         var netAction = GetNetEntity(action);
         var netTarget = GetNetEntity(targetingComp?.TargetEntity);
-        var netCoords = GetNetCoordinates(targetingComp?.TargetCoordinate);
+        var netCoords = GetNetCoordinates(targetingComp?.TargetCoordinates);
 
         return new RequestPerformActionEvent(netAction, netTarget, netCoords);
     }
@@ -45,9 +50,9 @@ public sealed partial class MegafaunaSystem
     public bool TryPickTargetAggressive(
         MegafaunaCalculationBaseArgs args,
         List<MegafaunaTargetCondition> conditions,
-        bool setTarget,
-        bool setCoordinates,
-        bool clearAll)
+        bool setTarget = true,
+        bool setCoordinates = true,
+        bool clearData = true)
     {
         if (!_aggressiveQuery.TryComp(args.BossEntity, out var aggressiveComp))
             return false;
@@ -83,10 +88,61 @@ public sealed partial class MegafaunaSystem
         if (picked == null)
             return false;
 
-        var targetComp = EnsureComp<MegafaunaAiTargetingComponent>(args.BossEntity);
-        targetComp.TargetEntity = picked.Value;
-        targetComp.TargetCoordinate = Transform(picked.Value).Coordinates;
-
+        SetTargetingData(
+            args.BossEntity,
+            setTarget ? picked : null,
+            setCoordinates ? Transform(picked.Value).Coordinates : null,
+            clearData);
         return true;
+    }
+
+    public bool TryPickRandomPosition(MegafaunaCalculationBaseArgs args, float radius = 4f, bool alignTile = false)
+    {
+        MapCoordinates? newMapCoords = null;
+        var uid = args.BossEntity;
+        var mapId = Transform(uid).MapID;
+
+        var grid = _xform.GetGrid(uid);
+        if (grid == null)
+            return false;
+
+        for (var i = 0; i < 20; i++)
+        {
+            var randomVector = new Vector2(args.Random.NextFloat(-4, 4), args.Random.NextFloat(-4, 4));
+            var position = _xform.GetWorldPosition(uid) + randomVector;
+            var checkBox = Box2.CenteredAround(position, new Vector2i(2, 2));
+
+            var ents = _map.GetAnchoredEntities(grid.Value, Comp<MapGridComponent>(grid.Value), checkBox);
+            if (ents.Any())
+                continue;
+
+            newMapCoords = new MapCoordinates(position, mapId);
+            break;
+        }
+
+        if (newMapCoords == null)
+            return false;
+
+        var coords = _xform.ToCoordinates(newMapCoords.Value);
+        coords = _xform.WithEntityId(coords, grid.Value);
+        SetTargetingData(
+            args.BossEntity,
+            null,
+            coords);
+        return true;
+    }
+
+    private void SetTargetingData(
+        EntityUid bossEntity,
+        EntityUid? uid = null,
+        EntityCoordinates? coords = null,
+        bool clearData = true)
+    {
+        var targetComp = EnsureComp<MegafaunaAiTargetingComponent>(bossEntity);
+
+        if (uid != null || clearData)
+            targetComp.TargetEntity = uid;
+        if (coords != null || clearData)
+            targetComp.TargetCoordinates = coords;
     }
 }
