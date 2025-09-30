@@ -41,6 +41,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
     private void OnCreateBookMessage(Entity<BookBinderComponent> ent, ref CreateBookMessage args)
     {
         Container.EmptyContainer(ent.Comp.PaperContainer, true);
+        _audio.PlayPvs(ent.Comp.BookCreatedSound, ent.Owner);
         UpdateBinderUi(ent);
 
         var book = Spawn("TestCustomBook", Transform(ent.Owner).Coordinates);
@@ -104,6 +105,8 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
                 continue;
 
             SaveBook((comp.Book.Value, bookComp));
+            comp.IsScanning = false;
+            comp.ScanEndTime = TimeSpan.Zero;
             comp.NextScan = _timing.CurTime + TimeSpan.FromMinutes(15);
         }
     }
