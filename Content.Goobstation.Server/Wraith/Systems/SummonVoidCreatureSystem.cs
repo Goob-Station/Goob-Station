@@ -53,9 +53,6 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
 
         var summoned = Spawn(proto, coordinates);
 
-        // Copy components from summoner if desired (optional)
-        EntityManager.CopyComponents(uid, summoned);
-
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
     }
 }
