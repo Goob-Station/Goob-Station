@@ -49,8 +49,8 @@
   - type: Transform 
     anchored: false
   - type: Anchorable # Initially set to unanchored so individuals can position it and then anchor it to avoid turrets moving.
-  - type: StaticPrice
-    price: 750 # 50% of the purchase price
+  - type: MobPrice
+    price: 400 # MobPrice and in-game price don't really match up, so the actual sell price is higher.
   - type: InteractionPopup
     interactDelay: 2.0
     successChance: 0.9
