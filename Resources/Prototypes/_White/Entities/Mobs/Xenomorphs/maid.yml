@@ -13,7 +13,7 @@
     - map: [ "pocket2" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
-      sprite: _RMC/Objects/Misc/handcuffs.rsi
+      sprite: _White/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph
       visible: false
   - type: Xenomorph

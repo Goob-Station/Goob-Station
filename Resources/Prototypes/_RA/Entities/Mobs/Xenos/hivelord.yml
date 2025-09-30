@@ -12,13 +12,8 @@
       state: xenomorph
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-      color: "#ffffff"
-      sprite: _White/Objects/Misc/handcuffs.rsi
-      state: body-overlay-xenomorph
-      visible: false
   - type: Xenomorph
-    caste: Drone
+    caste: Hivelord
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
@@ -31,7 +26,6 @@
     - ActionSpawnWallThickResin
     - ActionSpawnThickResinMembrane
     - ActionSpawnThickResinDoor
-  - type: Cuffable
   - type: Body
   - type: Fixtures
     fixtures:
