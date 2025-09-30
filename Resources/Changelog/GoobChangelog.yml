@@ -15656,3 +15656,19 @@ Entries:
       message: Added teg crate for cargo purchasing. Atmosian and engineer rejoice.
   id: 1752
   time: '2025-09-30T19:45:43.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Floor Goblins are now able to crawl under doors only when crawling under
+        the floor.
+    - type: Fix
+      message: Floor Goblins being targeted by medibots under the floor.
+    - type: Fix
+      message: Floor Goblins can steal shoes from dead or critted targets
+    - type: Fix
+      message: Medibots being able to target people in stealth.
+    - type: Tweak
+      message: Floor Goblin collisions when not crawling.
+  id: 1753
+  time: '2025-09-30T19:46:44.0000000+00:00'
