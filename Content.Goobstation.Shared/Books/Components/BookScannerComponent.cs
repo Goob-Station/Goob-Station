@@ -24,3 +24,9 @@ public enum BookScannerUiKey : byte
 {
     Key
 }
+
+[Serializable, NetSerializable]
+public enum BookScannerVisuals : byte
+{
+    Scanning
+}

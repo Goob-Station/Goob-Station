@@ -12,10 +12,18 @@ public sealed partial class BookBinderComponent : Component
     public SoundSpecifier? BookCreatedSound;
 
     public Container PaperContainer = default!;
+
+    public TimeSpan InsertingEnd = TimeSpan.Zero;
 }
 
 [Serializable, NetSerializable]
 public enum BookBinderUiKey : byte
 {
     Key
+}
+
+[Serializable, NetSerializable]
+public enum BookBinderVisuals : byte
+{
+    Inserting
 }

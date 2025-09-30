@@ -13,7 +13,9 @@ public sealed partial class BookPrinterComponent : Component
     [DataField]
     public bool AllowDeleting = false;
 
-    [DataField]
+    public BookData? PrintingBook;
+    public bool IsPrinting = false;
+    public TimeSpan PrintEnd = TimeSpan.Zero;
     public TimeSpan NextPrint = TimeSpan.Zero;
 }
 
@@ -21,4 +23,10 @@ public sealed partial class BookPrinterComponent : Component
 public enum BookPrinterUiKey : byte
 {
     Key
+}
+
+[Serializable, NetSerializable]
+public enum BookPrinterVisuals : byte
+{
+    Printing
 }

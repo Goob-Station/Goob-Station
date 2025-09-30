@@ -12,7 +12,7 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
 {
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -48,6 +48,8 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
 
     private void OnEntInserted(Entity<BookBinderComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        Appearance.SetData(ent.Owner, BookBinderVisuals.Inserting, true);
+        ent.Comp.InsertingEnd = _timing.CurTime + TimeSpan.FromSeconds(1);
         UpdateBinderUi(ent);
     }
 
@@ -67,7 +69,7 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
     protected void RegenerateBook(Entity<CustomBookComponent> ent)
     {
         if (ent.Comp.Binding != null)
-            _appearance.SetData(ent, CustomBookVisuals.Visuals, ent.Comp.Binding);
+            Appearance.SetData(ent, CustomBookVisuals.Visuals, ent.Comp.Binding);
 
         UI.SetUiState(ent.Owner, CustomBookUiKey.Key, new CustomBookUiState(ent.Comp.Pages));
     }
@@ -85,5 +87,20 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
         }
 
         UI.SetUiState(ent.Owner, BookBinderUiKey.Key, new BookBinderUiState(pages));
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<BookBinderComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.InsertingEnd != TimeSpan.Zero && comp.InsertingEnd < _timing.CurTime)
+            {
+                comp.InsertingEnd = TimeSpan.Zero;
+                Appearance.SetData(uid, BookBinderVisuals.Inserting, false);
+            }
+        }
     }
 }

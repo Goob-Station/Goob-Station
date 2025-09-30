@@ -7,6 +7,7 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
 using Content.Shared.Placeable;
+using Content.Shared.Power;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Shared.Audio;
@@ -21,7 +22,6 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
 {
     [Dependency] private readonly AmbientSoundSystem _ambient = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IChatManager _chat = default!;
@@ -34,18 +34,26 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BookBinderComponent, MapInitEvent>(OnBinderInit);
         SubscribeLocalEvent<BookBinderComponent, CreateBookMessage>(OnCreateBookMessage);
         SubscribeLocalEvent<BookBinderComponent, EjectBinderPageMessage>(OnEjectBinderPage);
 
         SubscribeLocalEvent<BookScannerComponent, ItemPlacedEvent>(OnBookPlaced);
         SubscribeLocalEvent<BookScannerComponent, ItemRemovedEvent>(OnBookRemoved);
         SubscribeLocalEvent<BookScannerComponent, StartBookScanMessage>(OnStartScan);
+        SubscribeLocalEvent<BookScannerComponent, PowerChangedEvent>(OnScannerPowerChanged);
 
         SubscribeLocalEvent<BookPrinterComponent, MapInitEvent>(OnPrinterInit);
         SubscribeLocalEvent<BookPrinterComponent, PrintBookMessage>(OnPrinterPrint);
+        SubscribeLocalEvent<BookPrinterComponent, PowerChangedEvent>(OnPrinterPowerChanged);
 
         SubscribeNetworkEvent<ApproveBookMessage>(OnBookApprove);
         SubscribeNetworkEvent<DeclineBookMessage>(OnBookDecline);
+    }
+
+    private void OnBinderInit(Entity<BookBinderComponent> ent, ref MapInitEvent args)
+    {
+        Appearance.SetData(ent.Owner, BookBinderVisuals.Inserting, false);
     }
 
     private void OnCreateBookMessage(Entity<BookBinderComponent> ent, ref CreateBookMessage args)
@@ -79,6 +87,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             return;
 
         _ambient.SetAmbience(ent.Owner, false);
+        Appearance.SetData(ent.Owner, BookScannerVisuals.Scanning, false);
         ent.Comp.IsScanning = false;
         ent.Comp.Book = args.OtherEntity;
         UpdateScannerUi(ent);
@@ -90,6 +99,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             return;
 
         _ambient.SetAmbience(ent.Owner, false);
+        Appearance.SetData(ent.Owner, BookScannerVisuals.Scanning, false);
         ent.Comp.IsScanning = false;
         ent.Comp.Book = null;
         UpdateScannerUi(ent);
@@ -101,32 +111,48 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             return;
 
         _ambient.SetAmbience(ent.Owner, true);
+        Appearance.SetData(ent.Owner, BookScannerVisuals.Scanning, true);
         ent.Comp.ScanEndTime = _timing.CurTime + TimeSpan.FromSeconds(15);
         ent.Comp.IsScanning = true;
         UpdateScannerUi(ent);
     }
 
+    private void OnScannerPowerChanged(Entity<BookScannerComponent> ent, ref PowerChangedEvent args)
+    {
+        if (!ent.Comp.Book.HasValue || args.Powered)
+            return;
+
+        _ambient.SetAmbience(ent.Owner, false);
+        Appearance.SetData(ent.Owner, BookScannerVisuals.Scanning, false);
+        ent.Comp.IsScanning = false;
+        UpdateScannerUi(ent);
+    }
+
     private void OnPrinterInit(Entity<BookPrinterComponent> ent, ref MapInitEvent args)
     {
+        Appearance.SetData(ent.Owner, BookPrinterVisuals.Printing, false);
         UpdatePrinterUi(ent);
     }
 
     private void OnPrinterPrint(Entity<BookPrinterComponent> ent, ref PrintBookMessage args)
     {
-        ent.Comp.NextPrint = _timing.CurTime + TimeSpan.FromMinutes(2);
-        _audio.PlayPvs(ent.Comp.PrintSound, ent.Owner);
+        _ambient.SetAmbience(ent.Owner, true);
+        Appearance.SetData(ent.Owner, BookPrinterVisuals.Printing, false);
+        ent.Comp.PrintingBook = args.Book;
+        ent.Comp.PrintEnd = _timing.CurTime + TimeSpan.FromSeconds(3);
+        ent.Comp.IsPrinting = true;
+    }
 
-        var book = Spawn("TestCustomBook", Transform(ent.Owner).Coordinates);
-        var comp = EnsureComp<CustomBookComponent>(book);
+    private void OnPrinterPowerChanged(Entity<BookPrinterComponent> ent, ref PowerChangedEvent args)
+    {
+        if (ent.Comp.PrintingBook != null || args.Powered)
+            return;
 
-        comp.Author = args.Book.Author;
-        comp.Genre = args.Book.Genre;
-        comp.Title = args.Book.Title;
-        comp.Pages = new(args.Book.Pages);
-        comp.Binding = args.Book.Binding;
-        comp.Desc = args.Book.Desc;
-
-        RegenerateBook((book, comp));
+        _ambient.SetAmbience(ent.Owner, false);
+        Appearance.SetData(ent.Owner, BookPrinterVisuals.Printing, false);
+        ent.Comp.IsPrinting = false;
+        ent.Comp.PrintingBook = null;
+        ent.Comp.PrintEnd = TimeSpan.Zero;
     }
 
     private async void OnBookApprove(ApproveBookMessage args)
@@ -162,7 +188,39 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             comp.ScanEndTime = TimeSpan.Zero;
             comp.NextScan = _timing.CurTime + TimeSpan.FromMinutes(15);
             _ambient.SetAmbience(uid, false);
+            Appearance.SetData(uid, BookScannerVisuals.Scanning, false);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg"), uid, AudioParams.Default.WithVolume(-4f));
             UpdateScannerUi((uid, comp));
+        }
+
+        var printerQuery = EntityQueryEnumerator<BookPrinterComponent>();
+        while (printerQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.PrintingBook == null || !comp.IsPrinting)
+                continue;
+
+            if (comp.PrintEnd > _timing.CurTime)
+                continue;
+
+            comp.NextPrint = _timing.CurTime + TimeSpan.FromMinutes(2);
+            comp.IsPrinting = false;
+
+            _ambient.SetAmbience(uid, false);
+            Appearance.SetData(uid, BookPrinterVisuals.Printing, false);
+
+            var book = Spawn("TestCustomBook", Transform(uid).Coordinates);
+            var bookComp = EnsureComp<CustomBookComponent>(book);
+
+            bookComp.Author = comp.PrintingBook.Author;
+            bookComp.Genre = comp.PrintingBook.Genre;
+            bookComp.Title = comp.PrintingBook.Title;
+            bookComp.Pages = new(comp.PrintingBook.Pages);
+            bookComp.Binding = comp.PrintingBook.Binding;
+            bookComp.Desc = comp.PrintingBook.Desc;
+
+            RegenerateBook((book, bookComp));
+
+            comp.PrintingBook = null;
         }
     }
 
