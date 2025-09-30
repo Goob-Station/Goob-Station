@@ -3,6 +3,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Paper;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -14,6 +15,7 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -48,7 +50,8 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
 
     private void OnEntInserted(Entity<BookBinderComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        Appearance.SetData(ent.Owner, BookBinderVisuals.Inserting, true);
+        if (_net.IsServer)
+            Appearance.SetData(ent.Owner, BookBinderVisuals.Inserting, true);
         ent.Comp.InsertingEnd = _timing.CurTime + TimeSpan.FromSeconds(1);
         UpdateBinderUi(ent);
     }
