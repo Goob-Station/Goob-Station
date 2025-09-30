@@ -425,4 +425,30 @@
       - Food
     event: !type:DefileEvent
 
+- type: entity
+  id: ActionSummonPlagueRat
+  name: Summon Plague rat
+  description: Attempt to breach the veil between worlds to allow a plague rat to enter this realm.
+  components:
+  - type: Action
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_rats
+  - type: InstantAction
+    event: !type:SummonPlagueRatEvent
+
+- type: entity
+  id: ActionSummonRotHulk
+  name: Summon Rot Hulk
+  description: Assimilate the filth in an area and create an unstable servant.
+  components:
+  - type: Action
+    useDelay: 90
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_goo
+  - type: InstantAction
+    event: !type:SummonRotHulkEvent
+
 # Trickster Actions

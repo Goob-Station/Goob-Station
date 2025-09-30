@@ -20,6 +20,7 @@ public sealed partial class DefileSystem : EntitySystem
         SubscribeLocalEvent<DefileComponent, DefileEvent>(OnDefile);
     }
 
+    //TO DO: Allow wraith to pick which solution to inject. Give more solution options. Increase solution amount of each solution if you do this.
     public void OnDefile(Entity<DefileComponent> ent, ref DefileEvent args)
     {
         var uid = ent.Owner;

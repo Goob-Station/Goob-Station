@@ -274,6 +274,159 @@
     - TauCetiBasic
 
 - type: entity
+  id: MobPlagueRatSmall
+  suffix: Wraith
+  parent: [ BaseMob, MobCombat ]
+  name: plague rat
+  description: A diseased looking rat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+      - state: smallRat
+  - type: NpcFactionMember
+    factions:
+      - Wraith
+  - type: WraithMinion
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - SmallMobMask
+        layer:
+          - SmallMobLayer
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 3
+        Blunt: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin # Change this to rat spit once that disease effect gets coded.
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 4
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+  - type: Damageable 
+    damageContainer: Biological 
+    damageModifierSet: Diona # Weak to heat
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Items/snap.ogg
+
+- type: entity
+  id: MobPlagueRatMedium
+  suffix: Wraith
+  parent: MobPlagueRatSmall
+  name: plague-ridden rat
+  description: A wretched, disgusting rat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+      - state: mediumRat
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 4
+        Blunt: 4
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Items/snap.ogg
+
+- type: entity
+  id: MobPlagueRatLarge
+  suffix: Wraith
+  parent: MobPlagueRatSmall
+  name: Bloated rat mass
+  description: A horrible mass of puss and warts, that once used to look like a rat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+      - state: giantRat
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 10
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Items/snap.ogg
+
+
+- type: entity
   id: MobSkeletonGoonWraith
   suffix: Wraith
   parent: MobSkeletonGoon

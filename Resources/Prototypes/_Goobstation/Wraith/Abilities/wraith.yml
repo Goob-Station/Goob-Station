@@ -46,6 +46,7 @@
       Ash: 2
       Vomit: 2
       Toxin: 2
+  - type: SummonPlagueRat
   - type: WraithCommand
     blacklist:
       components:
@@ -87,6 +88,7 @@
     - ActionCurseRot
     - ActionCurseDeath
     - ActionDefile
+    - ActionSummonPlagueRat
   # - Haunt
   # - ActionGrant
   # actions:
