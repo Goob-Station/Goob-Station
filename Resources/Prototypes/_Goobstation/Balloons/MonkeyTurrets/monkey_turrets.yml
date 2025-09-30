@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWeaponBallisticTurret, SimpleSpaceMobBase ] # Using SimpleSpaceMobBase since there is no current way to give them space immunity.
+  parent: [ SimpleSpaceMobBase, BaseWeaponBallisticTurret ] # Using SimpleSpaceMobBase since there is no current way to give them space immunity.
   id: MonkeyTurretDartBase
   name: dart monkey
   description: A monkey trained to fire sharp metal darts at any daring balloons. This monkey can be anchored in place, just don't ask how...
@@ -49,6 +49,8 @@
   - type: Transform 
     anchored: false
   - type: Anchorable # Initially set to unanchored so individuals can position it and then anchor it to avoid turrets moving.
+  - type: StaticPrice
+    price: 750 # 50% of the purchase price
   - type: InteractionPopup
     interactDelay: 2.0
     successChance: 0.9

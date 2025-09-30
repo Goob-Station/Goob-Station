@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Base sprite created by Krispy-Lime based on the dart monkey from Bloons Tower Defence 5, with the in-hand dart taken from TheShuEd's dart sprites. Dart monkey cube is adapted from the balloon package from Arraydeess14.",
+    "copyright": "Sprites created by Krispy-Lime. Dart sprites taken from TheShuEd's dart sprites. Monkey sprites taken based on https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b (edited by Alekshhh). icon is modified from Arraydeess14",
     "states": [
         {
             "name": "base",
