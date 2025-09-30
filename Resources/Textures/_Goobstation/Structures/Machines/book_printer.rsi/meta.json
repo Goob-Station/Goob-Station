@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Goonstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "printer0"
+    },
+    {
+      "name": "printer-p"
+    },
+    {
+      "name": "printer-printing",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1.6
+        ]
+      ]
+    }
+  ]
+}

@@ -6,24 +6,31 @@
   components:
   - type: Physics
     bodyType: Static
+  - type: WiresPanel
   - type: Transform
     anchored: true
     noRot: true
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/silo.rsi
+    sprite: _Goobstation/Structures/Machines/book_binder.rsi
     layers:
-    - state: ore_silo
-    - state: inserting
-      visible: false
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: binder
+      map: ["main"]
   - type: Appearance
   - type: BookBinder
+    bookCreatedSound:
+      path: /Audio/Machines/high_tech_confirm.ogg
   - type: ActivatableUI
     key: enum.BookBinderUiKey.Key
   - type: UserInterface
     interfaces:
       enum.BookBinderUiKey.Key:
         type: BookBinderBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.BookBinderVisuals.Inserting:
+        main:
+          True: { state: binder1 }
+          False: { state: binder }
 
 - type: entity
   id: BookScanner
@@ -37,12 +44,10 @@
     anchored: true
     noRot: true
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/silo.rsi
+    sprite: _Goobstation/Structures/Machines/book_scanner.rsi
     layers:
-    - state: ore_silo
-    - state: inserting
-      visible: false
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: bigscanner
+      map: ["main"]
   - type: Appearance
   - type: BookScanner
   - type: ItemPlacer
@@ -79,6 +84,12 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: GenericVisualizer
+    visuals:
+      enum.BookScannerVisuals.Scanning:
+        main:
+          True: { state: bigscanner1 }
+          False: { state: bigscanner }
 
 - type: entity
   id: BookPrinter
@@ -92,17 +103,26 @@
     anchored: true
     noRot: true
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/silo.rsi
+    sprite: _Goobstation/Structures/Machines/book_printer.rsi
     layers:
-    - state: ore_silo
-    - state: inserting
-      visible: false
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: printer-p
+    - state: printer-printing
+      map: ["printing"]
   - type: Appearance
   - type: BookPrinter
+  - type: AmbientSound
+    enabled: false
+    sound:
+      path: /Audio/Machines/uniformprinter.ogg
   - type: ActivatableUI
     key: enum.BookPrinterUiKey.Key
   - type: UserInterface
     interfaces:
       enum.BookPrinterUiKey.Key:
         type: BookPrinterBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.BookPrinterVisuals.Printing:
+        printing:
+          True: { visible: true }
+          False: { visible: false }
