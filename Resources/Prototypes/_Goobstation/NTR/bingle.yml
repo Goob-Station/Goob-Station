@@ -6,6 +6,12 @@
   parent: SimpleMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
   components:
   - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-cargo-bingle-name
+    description: ghost-role-cargo-bingle-desc
+    rules: ghost-role-information-familiar-rules
+    raffle:
+      settings: default
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/cargo-bingle.rsi
@@ -32,9 +38,6 @@
   - type: Bloodstream
     bloodMaxVolume: 100
     bloodReagent: Nitrogen
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Bingle
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
