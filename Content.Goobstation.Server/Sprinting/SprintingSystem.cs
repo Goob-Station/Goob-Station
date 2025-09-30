@@ -6,6 +6,7 @@
 
 using Content.Goobstation.Shared.Sprinting;
 using Content.Server.Stunnable;
+using Content.Shared.CombatMode;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Server.Sprinting;
@@ -19,6 +20,7 @@ public sealed class SprintingSystem : SharedSprintingSystem
     {
         base.Initialize();
         SubscribeLocalEvent<SprinterComponent, StartCollideEvent>(OnCollide);
+        SubscribeLocalEvent<SprinterComponent, DisarmedEvent>(OnDisarm);
     }
 
     private void OnCollide(EntityUid uid, SprinterComponent sprinter, ref StartCollideEvent args)
@@ -38,7 +40,17 @@ public sealed class SprintingSystem : SharedSprintingSystem
             return;
         }
 
-        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnCollision, false);
-        _stunSystem.TryKnockdown(otherUid, otherSprinter.KnockdownDurationOnCollision, false);
+        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false);
+        _stunSystem.TryKnockdown(otherUid, otherSprinter.KnockdownDurationOnInterrupt, false);
+    }
+
+    private void OnDisarm(EntityUid uid, SprinterComponent sprinter, ref DisarmedEvent args)
+    {
+        if (!sprinter.IsSprinting)
+        {
+            return;
+        }
+
+        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false);
     }
 }

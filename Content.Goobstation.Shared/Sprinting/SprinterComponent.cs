@@ -127,7 +127,7 @@ public sealed partial class SprinterComponent : Component
     ///     For how long does entity get knocked down on collision with another sprinting entity?
     /// </summary>
     [DataField]
-    public TimeSpan KnockdownDurationOnCollision = TimeSpan.FromSeconds(2f);
+    public TimeSpan KnockdownDurationOnInterrupt = TimeSpan.FromSeconds(2f);
 }
 
 [Serializable, NetSerializable]
