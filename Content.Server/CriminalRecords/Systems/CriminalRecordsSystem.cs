@@ -204,23 +204,19 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     // Goobstation start
     private void RandomizeCrimeHistory(CriminalRecord record, HumanoidCharacterProfile profile)
     {
-        List<string> records = new();
+        Dictionary<string, bool> records = new();
 
         foreach (var item in _proto.EnumeratePrototypes<AntagPrototype>().Where(x => x.SetPreference && x.CriminalRecord != null))
         {
-            if (!profile.AntagPreferences.Contains(item.ID))
+            if (records.ContainsKey(item.CriminalRecord!))
                 continue;
 
-            if (records.Contains(item.CriminalRecord!))
-                continue;
-
-            if (_random.Prob(item.RecordsProb))
-                records.Add(item.CriminalRecord!);
+            records.Add(item.CriminalRecord!, _random.Prob(profile.AntagPreferences.Contains(item.ID) ? item.RecordsProb : item.FakeRecordsProb));
         }
 
-        foreach (var item in records)
+        foreach (var item in records.Where(x => x.Value))
         {
-            record.History.Add(new CrimeHistory(TimeSpan.Zero, item, null));
+            record.History.Add(new CrimeHistory(TimeSpan.Zero, item.Key, null));
         }
     }
     // Goobstation end

@@ -199,20 +199,19 @@ public sealed class MedicalRecordsSystem : EntitySystem
 
     private void RandomizeHistory(MedicalRecord record, HumanoidCharacterProfile profile)
     {
-        List<string> records = new();
+        Dictionary<string, bool> records = new();
 
         foreach (var item in _proto.EnumeratePrototypes<AntagPrototype>().Where(x => x.SetPreference && x.MedicalRecord != null))
         {
-            if (records.Contains(item.MedicalRecord!))
+            if (records.ContainsKey(item.MedicalRecord!))
                 continue;
 
-            if (_random.Prob(profile.AntagPreferences.Contains(item.ID) ? item.RecordsProb : item.FakeRecordsProb))
-                records.Add(item.MedicalRecord!);
+            records.Add(item.MedicalRecord!, _random.Prob(profile.AntagPreferences.Contains(item.ID) ? item.RecordsProb : item.FakeRecordsProb));
         }
 
-        foreach (var item in records)
+        foreach (var item in records.Where(x => x.Value))
         {
-            record.History.Add(new MedicalHistory(null, item, null));
+            record.History.Add(new MedicalHistory(null, item.Key, null));
         }
     }
 }
