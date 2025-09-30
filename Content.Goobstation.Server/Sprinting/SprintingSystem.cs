@@ -20,7 +20,6 @@ public sealed class SprintingSystem : SharedSprintingSystem
     {
         base.Initialize();
         SubscribeLocalEvent<SprinterComponent, StartCollideEvent>(OnCollide);
-        SubscribeLocalEvent<SprinterComponent, DisarmedEvent>(OnDisarm);
     }
 
     private void OnCollide(EntityUid uid, SprinterComponent sprinter, ref StartCollideEvent args)
@@ -42,15 +41,5 @@ public sealed class SprintingSystem : SharedSprintingSystem
 
         _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false);
         _stunSystem.TryKnockdown(otherUid, otherSprinter.KnockdownDurationOnInterrupt, false);
-    }
-
-    private void OnDisarm(EntityUid uid, SprinterComponent sprinter, ref DisarmedEvent args)
-    {
-        if (!sprinter.IsSprinting)
-        {
-            return;
-        }
-
-        _stunSystem.TryKnockdown(uid, sprinter.KnockdownDurationOnInterrupt, false);
     }
 }

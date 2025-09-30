@@ -128,6 +128,12 @@ public sealed partial class SprinterComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan KnockdownDurationOnInterrupt = TimeSpan.FromSeconds(2f);
+
+    /// <summary>
+    ///     How much extra stamina damage entity takes for being broken out of sprint with a shove?
+    /// </summary>
+    [DataField]
+    public float StaminaPenaltyOnShove = 25f;
 }
 
 [Serializable, NetSerializable]
