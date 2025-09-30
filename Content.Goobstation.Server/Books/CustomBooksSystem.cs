@@ -52,6 +52,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         comp.Title = args.Title;
         comp.Pages = new(args.Pages);
         comp.Binding = args.Binding;
+        comp.Desc = args.Description;
 
         RegenerateBook((book, comp));
     }
@@ -70,15 +71,18 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         _ambient.SetAmbience(ent.Owner, false);
         ent.Comp.IsScanning = false;
         ent.Comp.Book = args.OtherEntity;
-        UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState(comp.Author, comp.Genre, comp.Title, ent.Comp.NextScan <= _timing.CurTime));
+        UpdateScannerUi(ent);
     }
 
     private void OnBookRemoved(Entity<BookScannerComponent> ent, ref ItemRemovedEvent args)
     {
+        if (args.OtherEntity != ent.Comp.Book)
+            return;
+
         _ambient.SetAmbience(ent.Owner, false);
         ent.Comp.IsScanning = false;
         ent.Comp.Book = null;
-        UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState("", "", "", ent.Comp.NextScan <= _timing.CurTime));
+        UpdateScannerUi(ent);
     }
 
     private void OnStartScan(Entity<BookScannerComponent> ent, ref StartBookScanMessage args)
@@ -89,6 +93,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         _ambient.SetAmbience(ent.Owner, true);
         ent.Comp.ScanEndTime = _timing.CurTime + TimeSpan.FromSeconds(15);
         ent.Comp.IsScanning = true;
+        UpdateScannerUi(ent);
     }
 
     public override void Update(float frameTime)
@@ -108,6 +113,8 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             comp.IsScanning = false;
             comp.ScanEndTime = TimeSpan.Zero;
             comp.NextScan = _timing.CurTime + TimeSpan.FromMinutes(15);
+            _ambient.SetAmbience(uid, false);
+            UpdateScannerUi((uid, comp));
         }
     }
 
@@ -118,5 +125,10 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
 
         _chat.SendAdminAnnouncement(Loc.GetString("pending-book-chat-notify", ("title", ent.Comp.Title)));
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg"), Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
+    }
+
+    private void UpdateScannerUi(Entity<BookScannerComponent> ent)
+    {
+        UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState("", "", "", "", ent.Comp.IsScanning || ent.Comp.NextScan > _timing.CurTime));
     }
 }
