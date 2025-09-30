@@ -62,13 +62,13 @@ public sealed partial class SecretPlusComponent : Component
     public float MaxStartingChaos;
 
     /// <summary>
-    ///   How much to change chaos per second per player in control of a hmanoid.
+    ///   How much to change chaos per second per player in control of a humanoid.
     /// </summary>
     [DataField]
     public float LivingChaosChange;
 
     /// <summary>
-    ///   How much to change chaos per second per player in coltr of a ghost which can return to a body.
+    ///   How much to change chaos per second per player in control of a ghost which can return to a body.
     /// </summary>
     [DataField]
     public float DeadChaosChange;
