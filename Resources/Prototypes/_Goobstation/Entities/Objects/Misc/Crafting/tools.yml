@@ -1,0 +1,22 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseWoodenHandle
+  name: wooden handle
+  description: A normal wooden handle that can be used in crafting.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
+    state: icon
+  - type: Construction
+    node: handle
+
+- type: entity
+  parent: BaseWoodenHandle
+  id: WoodenHandleHammer
+  name: hammer handle
+  components:
+  - type: Construction
+    graph: Hammer
+
+# if you revive metal bat / forged knife add handles for them

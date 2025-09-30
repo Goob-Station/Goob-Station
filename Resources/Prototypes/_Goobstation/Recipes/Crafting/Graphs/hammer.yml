@@ -10,6 +10,7 @@
         amount: 2
         doAfter: 5
   - node: handle
+    entity: WoodenHandleHammer
     edges:
     - to: hammer
       steps:
