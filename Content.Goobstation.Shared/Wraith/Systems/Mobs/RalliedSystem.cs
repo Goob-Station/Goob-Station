@@ -17,7 +17,6 @@ public sealed partial class RalliedSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RalliedComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<RalliedComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RalliedComponent, GetUserMeleeDamageEvent>(OnGetMeleeDamage);
     }
 
@@ -36,19 +35,9 @@ public sealed partial class RalliedSystem : EntitySystem
     }
     private void OnMapInit(Entity<RalliedComponent> ent, ref MapInitEvent args)
     {
-        // Schedule deletion
-        ent.Comp.NextTick = _timing.CurTime + ent.Comp.RalliedDuration;
         //TO DO: Increase attack speed.
+        //TO DO: Add a popup that doesn't spam itself infinitely for no reason (On update), or one that doesn't instantly get called on Init even though it is in a shutdown event (OnShUtdown).
         Dirty(ent);
-    }
-    private void OnShutdown(Entity<RalliedComponent> ent, ref ComponentShutdown args)
-    {
-        //TO DO: Restore original attack speed.
-        _popup.PopupPredicted(
-            Loc.GetString("rally-wears-off"),
-            ent,
-            ent,
-            PopupType.MediumCaution);
     }
 
     private void OnGetMeleeDamage(Entity<RalliedComponent> ent, ref GetUserMeleeDamageEvent args)

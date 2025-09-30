@@ -22,6 +22,7 @@ public sealed partial class RallySystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -45,11 +46,13 @@ public sealed partial class RallySystem : EntitySystem
 
         foreach (var minionUid in nearbyEntities)
         {
-            //TO DO: Check if they have the component already.
             var rallied = EnsureComp<RalliedComponent>(minionUid);
+
+            // Sets the expiration timer
+            rallied.NextTick = _timing.CurTime + rallied.RalliedDuration;
+
             _popup.PopupPredicted(Loc.GetString("You wave the flag, rallying the troops!"), uid, uid);
             _popup.PopupPredicted(Loc.GetString("You feel inspired!"), minionUid, uid);
-
         }
         args.Handled = true;
     }
