@@ -15612,3 +15612,9 @@ Entries:
       message: Topicals now automatically heal limbs one after the other.
   id: 1748
   time: '2025-09-29T13:41:02.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Hand-thrown items now have inertia.
+  id: 1749
+  time: '2025-09-30T03:22:51.0000000+00:00'
