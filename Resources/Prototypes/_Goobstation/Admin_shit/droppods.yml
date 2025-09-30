@@ -2,7 +2,7 @@
   parent: BaseItem
   id: DropPodspawner
   name: drop pod
-  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the bag. To drop living beings, give them the item component, place them in the bag, then remove the component.
+  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/DropPod/item.rsi
@@ -14,10 +14,19 @@
     - 0,0,20,20
     maxItemSize: Ginormous
   - type: Ghost
+  - type: DragInsertContainer
+    containerId: clowncar_container
+    entryDelay: 0
+    useVerbs: false
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
+      clowncar_container: !type:Container
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    deleteContentsOnBreak: false
+    capacity: 999
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -27,7 +36,7 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: OnUseTimerTrigger
-    delay: 0.1
+    delay: 0.9
   - type: Destructible
     thresholds:
     - trigger:
