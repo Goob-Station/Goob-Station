@@ -194,8 +194,7 @@ public abstract partial class SharedMartialArtsSystem
         _grabThrowing.Throw(target,
             ent,
             dir.Normalized() * args.ThrowRange * power,
-            proto.ThrownSpeed,
-            behavior: proto.DropHeldItemsBehavior);
+            proto.ThrownSpeed);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }

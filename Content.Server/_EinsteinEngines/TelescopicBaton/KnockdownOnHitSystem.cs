@@ -7,7 +7,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Standing;
-using Content.Server.Standing;
+using Content.Shared.Standing;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Mobs.Systems;
@@ -20,7 +20,7 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly LayingDownSystem _laying = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
@@ -47,7 +47,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
+                if (_standing.Down(target)) // Goobstation
                     knockedDown.Add(target);
                 continue;
             }

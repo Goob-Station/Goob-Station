@@ -5,7 +5,6 @@
 
 using System.Linq;
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._White.Standing;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.CombatMode;
@@ -27,7 +26,6 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
