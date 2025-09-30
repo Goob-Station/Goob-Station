@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/larva.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: xenomorph
@@ -73,6 +73,7 @@
     - prototype: MobXenomorphDrone
     - prototype: MobXenomorphSentinel
     - prototype: MobXenomorphHunter
+    - prototype: MobXenomorphHivelord
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

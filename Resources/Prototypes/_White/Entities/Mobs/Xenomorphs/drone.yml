@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/drone.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: xenomorph
@@ -23,7 +23,7 @@
     actions:
     - ActionTransferPlasma
     - ActionSpawnWallResin
-#    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinMembrane # Goobstation - removed
     - ActionSpawnResinDoor # Goobstation - xeno doors
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
