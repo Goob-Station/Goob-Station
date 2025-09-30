@@ -14,7 +14,6 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -53,13 +52,6 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         var coordinates = _transform.GetMoverCoordinates(uid);
 
         var summoned = Spawn(proto, coordinates);
-
-        // Optionally transfer mind if this is a controllable summon
-        if (_mind.TryGetMind(uid, out var mindUid, out var mind))
-        {
-            _mind.TransferTo(mindUid, summoned, mind);
-            _mind.UnVisit(mindUid, mind);
-        }
 
         // Copy components from summoner if desired (optional)
         EntityManager.CopyComponents(uid, summoned);

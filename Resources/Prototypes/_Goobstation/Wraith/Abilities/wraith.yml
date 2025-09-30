@@ -75,7 +75,7 @@
     - ActionPossessObject
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
-    - ActionSummonVoidCreatures
+    - ActionSummonVoidCreature
     - ActionMakeRevenant
     - ActionCurseBlindness
     - ActionCurseWeakness

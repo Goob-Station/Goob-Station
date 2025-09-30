@@ -266,7 +266,7 @@
     event: !type:SummonPortalEvent
 
 - type: entity
-  id: ActionSummonVoidCreatures
+  id: ActionSummonVoidCreature
   name: Summon void creatures
   description: Randomly picks between one of three powerful void entities to summon.
   components:
