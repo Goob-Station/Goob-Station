@@ -12,3 +12,6 @@ book-binder-menu-author-name-placeholder = Author name
 book-binder-menu-desc-placeholder = Book description
 book-binder-menu-create-button = Create book
 
+book-printer-menu-title = Book printer
+book-printer-menu-delete-button = Delete
+book-printer-menu-print-button = Print

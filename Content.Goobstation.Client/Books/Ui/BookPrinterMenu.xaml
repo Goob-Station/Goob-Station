@@ -3,7 +3,7 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    Title="{Loc 'book-binder-menu-title'}"
+    Title="{Loc 'book-printer-menu-title'}"
     SetSize="940 550">
     <BoxContainer
         HorizontalExpand="True"
