@@ -1,0 +1,134 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'book-binder-menu-title'}"
+    SetSize="940 600">
+    <BoxContainer
+        HorizontalExpand="True"
+        Orientation="Horizontal"
+        VerticalExpand="True">
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Vertical"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True">
+            <BoxContainer
+                Margin="0,4"
+                HorizontalExpand="True"
+                Orientation="Horizontal"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True">
+                <TextureRect
+                    Name="PaperTexture"
+                    Margin="4,0"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="1" />
+                <Label
+                    Name="PaperCountLabel"
+                    Margin="4,0"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="4" />
+            </BoxContainer>
+            <PanelContainer
+                Margin="4"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="7"
+                VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat
+                        BackgroundColor="#12151aFF"
+                        BorderColor="#273c54FF"
+                        BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <ScrollContainer
+                    Margin="4"
+                    HScrollEnabled="False"
+                    HorizontalExpand="True"
+                    VerticalExpand="True">
+                    <BoxContainer
+                        Name="PagesContainer"
+                        HorizontalExpand="True"
+                        Orientation="Vertical"
+                        VerticalExpand="True" />
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <customControls:VSeparator Margin="2"/>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Vertical"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True">
+            <BoxContainer
+                Margin="0,4"
+                HorizontalExpand="True"
+                Orientation="Horizontal"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True">
+                <Label
+                    Margin="4,0"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="4"
+                    Text="{Loc 'book-binder-menu-about-author-text'}" />
+            </BoxContainer>
+            <Button
+                Name="SelectBook"
+                StyleClasses="ButtonSquare"
+                Text="{Loc 'book-binder-menu-select-book-button'}"
+                SizeFlagsStretchRatio="1"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Margin="4"/>
+            <LineEdit
+                Name="TitleEdit"
+                Margin="4"
+                HorizontalExpand="True"
+                PlaceHolder="{Loc 'book-binder-menu-title-placeholder'}"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True" />
+            <LineEdit
+                Name="GenreEdit"
+                Margin="4"
+                HorizontalExpand="True"
+                PlaceHolder="{Loc 'book-binder-menu-genre-placeholder'}"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True" />
+            <LineEdit
+                Name="AuthorNameEdit"
+                Margin="4"
+                HorizontalExpand="True"
+                PlaceHolder="{Loc 'book-binder-menu-author-name-placeholder'}"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True" />
+            <TextEdit
+                Name="DescEdit"
+                Margin="4"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="5"
+                VerticalExpand="True" />
+            <BoxContainer
+                SizeFlagsStretchRatio="1"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Margin="0 4">
+                <Button
+                    Name="DeclineBook"
+                    Text="{Loc 'book-binder-menu-decline-button'}"
+                    SizeFlagsStretchRatio="1"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    Visible="False"
+                    Margin="4 0"/>
+                <Button
+                    Name="CreateBook"
+                    Text="{Loc 'book-binder-menu-create-button'}"
+                    SizeFlagsStretchRatio="1"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    Margin="4 0"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
