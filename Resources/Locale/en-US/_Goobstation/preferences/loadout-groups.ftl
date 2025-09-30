@@ -35,13 +35,13 @@ loadout-group-nct-shoes = Nanotrasen Career Trainer shoes
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
-loadout-group-robotocist-head = Robotocist head
-loadout-group-robotocist-jumpsuit = Robotocist jumpsuit
-loadout-group-robotocist-backpack = Robotocist backpack
-loadout-group-robotocist-outerclothing = Robotocist outer clothing
-loadout-group-robotocist-gloves = Robotocist gloves
-loadout-group-robotocist-shoes = Robotocist shoes
-loadout-group-robotocist-id = Robotocist ID
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-backpack = Roboticist backpack
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-id = Roboticist ID
 
 loadout-group-security-neck = Security neck
 
