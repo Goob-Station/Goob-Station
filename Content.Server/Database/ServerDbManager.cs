@@ -446,6 +446,14 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Goobstation
+
+        Task<bool> DeleteBookPrinterEntryAsync(int bookId);
+        Task<List<BookEntry>> GetBookPrinterEntriesAsync();
+        Task UploadBookPrinterEntryAsync(BookEntry bookEntry);
+
+        #endregion
+
         #region IPintel
 
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
@@ -1237,6 +1245,26 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetRandomShoutout());
         }
 
+        #endregion
+
+        #region Goobstation
+        public Task<List<BookEntry>> GetBookPrinterEntriesAsync()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetBookPrinterEntries());
+        }
+
+        public Task<bool> DeleteBookPrinterEntryAsync(int bookId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteBookPrinterEntryAsync(bookId));
+        }
+
+        public Task UploadBookPrinterEntryAsync(BookEntry bookEntry)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.UploadBookPrinterEntry(bookEntry));
+        }
         #endregion
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
