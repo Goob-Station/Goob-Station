@@ -218,8 +218,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 5
+            max: 10
           yellowBalloon:
             min: 1
             max: 1
@@ -258,8 +258,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           pinkBalloon:
             min: 2
             max: 2
@@ -297,8 +297,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           pinkBalloon:
             min: 2
             max: 2
@@ -337,8 +337,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           whiteBalloon:
             min: 1
             max: 1
@@ -377,8 +377,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           blackBalloon:
             min: 2
             max: 2
@@ -415,8 +415,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           zebraBalloon:
             min: 2
             max: 2
@@ -424,13 +424,13 @@
         acts: [ "Destruction" ]
         
 - type: entity
-  name: ceramic balloon
+  name: carp balloon
   parent: BaseBalloon
-  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  description: Is it a combination of balloon and carp DNA? Or a balloon in a carp suit? Nobody knows.
   id: ceramicBalloon
   components:
   - type: Sprite
-    state: steel
+    state: carp
   - type: MobState # To get mobs to attack:
   - type: MobThresholds
     thresholds:
@@ -452,8 +452,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           rainbowBalloon:
             min: 2
             max: 2
@@ -461,13 +461,17 @@
         acts: [ "Destruction" ]
         
 - type: entity
-  name: M.O.A.B.
+  name: dragon zepplin
   parent: BaseBalloon
-  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  description: Tier 1 Moab Class Balloon. Summons four carp balloons on death.
   id: moabBalloon
   components:
   - type: Sprite
-    state: blue
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: dragon
+    noRot: false
+  - type: Transform
+  - type: Rotatable
   - type: MobState # To get mobs to attack:
   - type: MobThresholds
     thresholds:
@@ -489,8 +493,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           ceramicBalloon:
             min: 4
             max: 4
@@ -498,13 +502,15 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: B.F.B.
+  name: B.R.B.
   parent: BaseBalloon
-  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  description: Tier 2 Moab Class Balloon. Stands for Blood Red Balloon.
   id: bfbBalloon
   components:
   - type: Sprite
-    state: red
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: brb
+    noRot: false
   - type: MobState # To get mobs to attack:
   - type: MobThresholds
     thresholds:
@@ -526,8 +532,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           moabBalloon:
             min: 4
             max: 4
@@ -535,13 +541,15 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: Z.O.M.G.
+  name: Z.O.M.B.
   parent: BaseBalloon
-  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  description: Tier 3 Moab Class Balloon. Stands for Zoh Oh Mbee Balloon. The Acronym department was underfunded.
   id: zomgBalloon
   components:
   - type: Sprite
-    state: green
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: zomb
+    noRot: false
   - type: MobState # To get mobs to attack:
   - type: MobThresholds
     thresholds:
@@ -563,8 +571,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 1
+            max: 3
           bfbBalloon:
             min: 4
             max: 4
