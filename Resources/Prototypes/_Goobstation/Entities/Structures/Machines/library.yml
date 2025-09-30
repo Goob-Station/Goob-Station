@@ -136,3 +136,12 @@
         - TabletopMachineMask
         layer:
         - TabletopMachineLayer
+
+- type: entity
+  id: AdminBookPrinter
+  parent: [ BaseMachinePowered ]
+  name: admin book printer
+  description: Just a printer. This one allows you to delete books from server.
+  components:
+  - type: BookPrinter
+    allowDeleting: true
