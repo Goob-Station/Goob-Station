@@ -39,6 +39,13 @@
   - type: CurseOfBlood
   - type: CurseOfRot
   - type: CurseOfDeath
+  - type: Defile
+    reagents:
+      BuzzochloricBees: 2
+      Bleach: 2
+      Ash: 2
+      Vomit: 2
+      Toxin: 2
   - type: WraithCommand
     blacklist:
       components:
@@ -79,6 +86,7 @@
     - ActionCurseBlood
     - ActionCurseRot
     - ActionCurseDeath
+    - ActionDefile
   # - Haunt
   # - ActionGrant
   # actions:

@@ -77,3 +77,6 @@ public sealed partial class RotCurseEvent : EntityTargetActionEvent
 public sealed partial class DeathCurseEvent : EntityTargetActionEvent
 {
 }
+public sealed partial class DefileEvent : EntityTargetActionEvent
+{
+}

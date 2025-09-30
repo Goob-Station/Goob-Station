@@ -400,5 +400,29 @@
       - CurseRot
       - CursedBlood
     event: !type:DeathCurseEvent
+    
+- type: entity
+  id: ActionDefile
+  name: Defile
+  description: Manifest some horrible poison inside a food item or a container.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 50
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: wraith_poison
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      requireAll: false
+      components:
+      - Drink
+      - Food
+    event: !type:DefileEvent
 
 # Trickster Actions
