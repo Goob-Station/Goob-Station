@@ -103,7 +103,11 @@ public sealed partial class CrimeHistoryWindow : FancyWindow
         {
             var time = entry.AddTime;
             var line = $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00} - {entry.Crime}";
-            History.AddItem(line);
+            // Goobstation start
+            if (time == TimeSpan.Zero)
+                line = $"{Loc.GetString("criminal-history-time-unknown")} - {entry.Crime}";
+            // Goobstation end
+                History.AddItem(line);
         }
 
         // deselect if something goes wrong
