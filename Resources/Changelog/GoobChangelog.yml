@@ -15626,3 +15626,27 @@ Entries:
         able to revive while devoured by a dragon or slaughter demon.
   id: 1750
   time: '2025-09-30T07:23:24.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added gold water cooler with whiskey to NTR's store!
+    - type: Tweak
+      message: NTR's EVA bundle price 15LP => 5 LP
+    - type: Tweak
+      message: NTR's mindshield bundle 25LP => 15LP
+    - type: Tweak
+      message: NTR's med supplies 20LP => 10LP
+    - type: Tweak
+      message: NTR's small tools crate 5LP => 3LP
+    - type: Tweak
+      message: >-
+        Single intern coin 15LP => 10LP, also a reminder that you can order them
+        to do tasks for you.
+    - type: Tweak
+      message: BSD call price 50LP => 40LP
+    - type: Tweak
+      message: CC glasses price 2LP => 5LP
+    - type: Tweak
+      message: All contraband cosmetic items are now worth less NTR loyalty points.
+  id: 1751
+  time: '2025-09-30T07:24:23.0000000+00:00'
