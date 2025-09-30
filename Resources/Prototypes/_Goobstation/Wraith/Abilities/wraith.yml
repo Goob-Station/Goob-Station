@@ -54,11 +54,11 @@
     - prototype: MobSkeletonCommanderWraith
     - prototype: MobVoidHoundWraith
     - prototype: MobVoidSpikerWraith
-  #- type: Evolve This breaks the SummonVoidCreature action
-  #  availableEvolutions:
-  #  - prototype: MobWraithHarbinger
-  #  - prototype: MobWraithPlague
-  #  - prototype: MobWraithTrickster
+  - type: Evolve
+    availableEvolutions:
+    - prototype: MobWraithHarbinger
+    - prototype: MobWraithPlague
+    - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
     - ActionHaunt

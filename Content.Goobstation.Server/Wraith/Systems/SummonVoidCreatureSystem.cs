@@ -37,6 +37,12 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // Temporarily remove Evolve component if it exists
+        if (HasComp<EvolveComponent>(ent.Owner))
+        {
+            RemComp<EvolveComponent>(ent.Owner);
+        }
+
         _ui.TryToggleUi(ent.Owner, RadialSelectorUiKey.Key, ent.Owner);
         _ui.SetUiState(ent.Owner, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(ent.Comp.AvailableSummons));
 
@@ -54,5 +60,11 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         var summoned = Spawn(proto, coordinates);
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
+
+        // Re-add the Evolve component
+        if (!HasComp<EvolveComponent>(ent.Owner))
+        {
+            AddComp<EvolveComponent>(ent.Owner);
+        }
     }
 }
