@@ -14,23 +14,10 @@
             Orientation="Vertical"
             SizeFlagsStretchRatio="1"
             VerticalExpand="True">
-            <BoxContainer
-                Margin="0,4"
-                HorizontalExpand="True"
-                Orientation="Horizontal"
-                SizeFlagsStretchRatio="1"
-                VerticalExpand="True">
-                <TextureRect
-                    Name="PaperTexture"
-                    Margin="4,0"
-                    HorizontalExpand="True"
-                    SizeFlagsStretchRatio="1" />
-                <Label
-                    Name="PaperCountLabel"
-                    Margin="4,0"
-                    HorizontalExpand="True"
-                    SizeFlagsStretchRatio="4" />
-            </BoxContainer>
+            <Label
+                Name="PaperCountLabel"
+                Margin="8 4"
+                HorizontalExpand="True" />
             <PanelContainer
                 Margin="4"
                 HorizontalExpand="True"
