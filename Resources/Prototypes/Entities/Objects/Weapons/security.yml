@@ -338,6 +338,9 @@
       guides:
       - Security
       - Antagonists
+    - type: Tag
+      tags:
+      - Flash
 
 - type: entity
   name: flash

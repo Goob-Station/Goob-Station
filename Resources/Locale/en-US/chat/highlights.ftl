@@ -1,3 +1,9 @@
+#Goob start
+#Central Command
+highlights-nanotrasen-representative = Nanotrasen Representative, Central Command, "NTR", "NT", "CC", Bridge, Command
+highlights-blueshield-officer = Blueshield Officer, Central Command, "BSO", "CC", Bridge, Command
+#Goob end
+
 # Command
 highlights-captain = Captain, "Cap", Bridge, Command
 highlights-head-of-personnel = Head Of Personnel, "HoP", Service, Bridge, Command

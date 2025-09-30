@@ -146,6 +146,26 @@
     ClothingEyesGlassesCheapSunglasses: 3
     ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
     ClothingShoesSandals: 1 # Goobstation
+    ClothingOuterCoatBomberPunkRed: 3 # NF
+    ClothingOuterCoatJacketLeather: 3 # NF
+    ClothingOuterCoatJacketBiker: 3 # NF
+    ClothingOuterCoatJacketJamrock: 3 # NF
+    ClothingOuterCoatBomberAerostatic: 3 # NF
+    ClothingOuterCoatJacketLettermanBlue: 3 # NF
+    ClothingOuterCoatJacketLettermanBrown: 3 # NF
+    ClothingOuterCoatJacketLettermanRed: 3 # NF
+    ClothingOuterCoatJacketLettermanMagenta: 3 # NF
+    ClothingOuterCoatBomberPinkSleeves: 3 # NF
+    ClothingNeckCloakCOG: 3 # Monolith
+    ClothingShoesClothwrap: 3 # NF
+    ClothingNeckPonchoBlack: 3 # Monolith
+    ClothingNeckPonchoArctic: 3 # Monolith
+    ClothingNeckPonchoSyndicate: 3 # Monolith
+    ClothingNeckPonchoSmallPink: 3 # Monolith
+    ClothingNeckPonchoSmallRed: 3 # Monolith
+    ClothingNeckPonchoSmallPurple: 3 # Monolith
+    ClothingNeckPonchoSmallBlack: 3 # Monolith
+    ClothingNeckPonchoSmallWhite: 3 # Monolith
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2

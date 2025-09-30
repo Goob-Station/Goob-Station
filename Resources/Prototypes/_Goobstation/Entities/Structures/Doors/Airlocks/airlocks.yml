@@ -14,6 +14,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi
   - type: PaintableAirlock
+    group: Standard
     department: Civilian
   - type: Wires
     layoutId: AirlockService
@@ -26,6 +27,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi
   - type: PaintableAirlock
+    group: Glass
     department: Civilian
   - type: Wires
     layoutId: AirlockService

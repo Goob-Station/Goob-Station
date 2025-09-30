@@ -260,6 +260,8 @@
       - Normal
       - CosmicCultMonument # DeltaV - Cosmic Cult
       - Abductor
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   abstract: true
