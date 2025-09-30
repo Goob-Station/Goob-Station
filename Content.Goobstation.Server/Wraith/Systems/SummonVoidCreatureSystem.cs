@@ -37,7 +37,7 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Temporarily remove Evolve component if it exists
+        //  remove Evolve component if it exists, since it breaks Summon void creature. The wraith should not have the Evolve component anyway. This is just to prevent any potential edge cass issues.
         if (HasComp<EvolveComponent>(ent.Owner))
         {
             RemComp<EvolveComponent>(ent.Owner);
@@ -60,11 +60,5 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         var summoned = Spawn(proto, coordinates);
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
-
-        // Re-add the Evolve component
-        if (!HasComp<EvolveComponent>(ent.Owner))
-        {
-            AddComp<EvolveComponent>(ent.Owner);
-        }
     }
 }
