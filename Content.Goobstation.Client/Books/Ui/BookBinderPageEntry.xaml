@@ -2,19 +2,17 @@
          Margin="5">
     <PanelContainer StyleClasses="PdaBorderRect">
         <BoxContainer Orientation="Vertical">
-            <ScrollContainer HScrollEnabled="False" SetHeight="500" HorizontalExpand="True">
-                <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                    <Button Name="EjectButton"
-                        SetHeight="30"
-                        HorizontalExpand="True"
-                        Text="Eject"
-                        Margin="4 0 4 16"
-                        Access="Public"/>
-                    <TextEdit Name="TextEdit"
-                        HorizontalExpand="True"
-                        SetHeight="250"/>
-                </BoxContainer>
-            </ScrollContainer>
+            <Button Name="EjectButton"
+                VerticalAlignment="Top"
+                SetHeight="30"
+                HorizontalExpand="True"
+                Text="Eject"
+                Margin="4 0 4 16"
+                Access="Public"/>
+            <TextEdit Name="TextEdit"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Access="Public"/>
         </BoxContainer>
     </PanelContainer>
 </Control>

@@ -12,7 +12,7 @@ public sealed partial class BookBinderPageEntry : Control
 {
     public string Text = "";
 
-    public BookBinderPageEntry(string text, int order, int count)
+    public BookBinderPageEntry(string text)
     {
         RobustXamlLoader.Load(this);
         TextEdit.TextRope = new Rope.Leaf(text);

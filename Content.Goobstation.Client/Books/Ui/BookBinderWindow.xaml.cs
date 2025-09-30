@@ -52,7 +52,7 @@ public sealed partial class BookBinderWindow : FancyWindow
 
         for (var i = 0; i < count; i++)
         {
-            var entry = new BookBinderPageEntry(pages.ElementAt(i).Value, i + 1, count)
+            var entry = new BookBinderPageEntry(pages.ElementAt(i).Value)
             {
                 HorizontalExpand = true,
                 SetHeight = 340
@@ -61,30 +61,6 @@ public sealed partial class BookBinderWindow : FancyWindow
             PagesContainer.AddChild(entry);
         }
 
-        UpdateCreateButton();
-    }
-
-    public void PopulateAdmin(string title, string genre, string author, string desc, List<string> pages)
-    {
-        var count = pages.Count;
-
-        for (var i = 0; i < count; i++)
-        {
-            var entry = new BookBinderPageEntry(pages[i], i + 1, count)
-            {
-                HorizontalExpand = true,
-                SetHeight = 340
-            };
-
-            PagesContainer.AddChild(entry);
-
-            entry.EjectButton.Visible = false;
-        }
-
-        AuthorNameEdit.SetText(author);
-        TitleEdit.SetText(title);
-        GenreEdit.SetText(genre);
-        DescEdit.TextRope = new Rope.Leaf(desc);
         UpdateCreateButton();
     }
 
