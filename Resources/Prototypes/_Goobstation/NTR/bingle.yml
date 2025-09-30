@@ -32,6 +32,9 @@
   - type: Bloodstream
     bloodMaxVolume: 100
     bloodReagent: Nitrogen
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
