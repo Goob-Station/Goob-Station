@@ -1,0 +1,31 @@
+- type: entity
+  id: BookBinder
+  parent: [ BaseMachinePowered ]
+  name: book binder
+  description: e
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/silo.rsi
+    layers:
+    - state: ore_silo
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+  - type: Appearance
+  - type: MaterialStorage
+    ignoreColor: true
+    whitelist:
+      tags:
+      - Paper
+  - type: BookBinder
+  - type: ActivatableUI
+    key: enum.BookBinderUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BookBinderUiKey.Key:
+        type: BookBinderBoundUserInterface
