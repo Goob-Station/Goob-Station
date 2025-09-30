@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseMobXenomorphAdult
+  id: BaseMobXenomorphHivelord
+  name: xenomorph hivelord
+  description: An elite specimen designed to expand the Hive, his very presence instills growth in the hive.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/hivelord.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: xenomorph
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: _White/Objects/Misc/handcuffs.rsi
+      state: body-overlay-xenomorph
+      visible: false
+  - type: Xenomorph
+    caste: Drone
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnWallResin
+    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
+    - ActionSpawnResinNest
+    - ActionSpawnResinWeedNode
+    - ActionSpawnhiveResinWeedNode
+    - ActionSpawnWallThickResin
+    - ActionSpawnThickResinMembrane
+    - ActionSpawnThickResinDoor
+  - type: Cuffable
+  - type: Body
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.8
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      360: Critical
+      375: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      225: 0.9
+      270: 0.7
+      315: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+
+- type: entity
+  parent: BaseMobXenomorphHivelord
+  id: MobXenomorphHivelord
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-praetorian-name
+    description: ghost-role-information-xenomorph-praetorian-description
+    rules: ghost-role-information-rules-default-xeno
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: [BaseMobXenomorphDungeon, BaseMobXenomorphHivelord]
+  id: MobXenomorphHivelordDungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      225: 0.7
+      270: 0.6
+      315: 0.5

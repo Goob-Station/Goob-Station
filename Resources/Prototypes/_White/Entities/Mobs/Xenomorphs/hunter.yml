@@ -6,19 +6,19 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/hunter.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: xenomorph
     - map: [ "enum.JumpLayers.Jumping" ]
-      sprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
+      sprite: _RMC14/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
       state: xenomorph_jump
       visible: false
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
-      sprite: _White/Objects/Misc/handcuffs.rsi
+      sprite: _RMC14/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph
       visible: false
   - type: GenericVisualizer

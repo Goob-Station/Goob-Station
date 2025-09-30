@@ -19,6 +19,11 @@
   name: xenomorph-caste-maid
 
 - type: xenomorphCaste
+  id: Hivelord
+  name: xenomorph-caste-Hivelord
+  maxcount: 2
+
+- type: xenomorphCaste
   id: Praetorian
   name: xenomorph-caste-praetorian
   needCasteDeath: Queen

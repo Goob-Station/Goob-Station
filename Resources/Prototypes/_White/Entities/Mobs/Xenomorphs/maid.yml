@@ -5,7 +5,7 @@
   description: I mean, I guess it is kinda cute?
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/maid.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: xenomorph
@@ -13,7 +13,7 @@
     - map: [ "pocket2" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
-      sprite: _White/Objects/Misc/handcuffs.rsi
+      sprite: _RMC/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph
       visible: false
   - type: Xenomorph
