@@ -31,8 +31,8 @@
     size: Small
     heldPrefix: hex
   - type: Construction
-    graph: HexNutDoubleGraph
-    node: HexNutStack
+    graph: HexNutDouble
+    node: stack
   - type: Appearance
   - type: StaticPrice
     price: 0
@@ -80,8 +80,8 @@
     size: Small
     heldPrefix: screw
   - type: Construction
-    graph: HexNutDoubleGraph
-    node: HexNutStack
+    graph: ScrewDouble
+    node: stack
   - type: Appearance
   - type: StaticPrice
     price: 0
