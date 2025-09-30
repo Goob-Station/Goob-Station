@@ -91,9 +91,9 @@
     deactivateSound: null
   - type: FlashImmunity
   - type: Access
-#  - type: IdCard
-  - type: PresetIdCard # holy shit this is horrible
-    job: CargoTechnician
+    tags:
+    - Maintenance
+    - Cargo
   - type: Puller
     needsHands: false
 
