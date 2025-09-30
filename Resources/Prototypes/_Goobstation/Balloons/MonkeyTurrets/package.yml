@@ -2,7 +2,7 @@
   parent: BaseItem
   id: DartMonkeyCube
   name: dart monkey cube
-  description: A compressed cube, that when used, produces a stationary monkey that shoots darts at balloons. Remember, once placed down, it cannot be picked back up.
+  description: A compressed cube, that when used, produces a stationary monkey that shoots darts at balloons.
   components: 
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi

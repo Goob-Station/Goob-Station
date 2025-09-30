@@ -71,7 +71,7 @@
   id: FunDartMonkey
   icon:
     sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
-    state: base
+    state: icon
   product: CrateDartMonkey
   cost: 1500
   category: cargoproduct-category-name-fun
