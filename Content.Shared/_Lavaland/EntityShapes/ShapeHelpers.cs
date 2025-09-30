@@ -89,22 +89,22 @@ public static class ShapeHelpers
         var bottomRight = center - new Vector2(-halfRange, halfRange);
 
         // Left side
-        for (var i = 0f; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range; i += stepSize)
         {
             yield return bottomLeft + Vector2.UnitY * i;
         }
         // Top side
-        for (var i = 0f; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range; i += stepSize)
         {
             yield return topLeft + Vector2.UnitX * i;
         }
         // Right side
-        for (var i = 0f; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range; i += stepSize)
         {
             yield return topRight + -Vector2.UnitY * i;
         }
         // Bottom side
-        for (var i = 0f; i < range - 1; i += stepSize)
+        for (var i = 0f; i < range; i += stepSize)
         {
             yield return bottomRight + -Vector2.UnitX * i;
         }
