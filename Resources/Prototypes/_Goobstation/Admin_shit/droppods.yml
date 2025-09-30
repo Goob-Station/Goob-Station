@@ -29,27 +29,31 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 800
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          SpawnSupplyEmpty:
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTrigger
+        damage: 1100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: OnUseTimerTrigger
-    delay: 3
-    beepInterval: 0.46
-    beepSound:
-      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
-      params:
-        volume: -5
-  - type: SpawnOnTrigger
-    proto: SpawnSupplyEmpty
+    delay: 1
+  ##- type: TriggerOnActivate replace with then when done
   - type: TwoStageTrigger
-    triggerDelay: 0.1
+    triggerDelay: 1
     components:
       - type: DamageOverTime
         damage:
           types:
-            Slash: 100
-        interval: 1.0
+            Slash: 50
+        interval: 0.5
         ignoreResistances: true
       - type: AnchorOnTrigger
 
