@@ -1,6 +1,6 @@
 using Content.Goobstation.Common.MartialArts;
 
-namespace Content.Shared.Movement.Pulling.Events;
+namespace Content.Goobstation.Common.Grab;
 
 public sealed class GrabStageChangedEvent : EntityEventArgs
 {
