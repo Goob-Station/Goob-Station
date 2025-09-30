@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseItem
+  id: DropPodspawner
+  name: incoming drop pod
+  description: You might want to move
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/backpack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    grid:
+    - 0,0,20,20
+    maxItemSize: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: OnUseTimerTrigger
+    delay: 3
+    beepInterval: 0.46
+    beepSound:
+      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+      params:
+        volume: -5
+  - type: SpawnOnTrigger
+    proto: SpawnSupplyEmpty
+  - type: TwoStageTrigger
+    triggerDelay: 0.1
+    components:
+      - type: DamageOverTime
+        damage:
+          types:
+            Slash: 100
+        interval: 1.0
+        ignoreResistances: true
+      - type: AnchorOnTrigger
+
