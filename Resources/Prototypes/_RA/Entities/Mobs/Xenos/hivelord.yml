@@ -27,6 +27,7 @@
     - ActionSpawnThickResinMembrane
     - ActionSpawnThickResinDoor
   - type: Body
+    prototype: XenomorphHivelord
   - type: Fixtures
     fixtures:
       fix1:
