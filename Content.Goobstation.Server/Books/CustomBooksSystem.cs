@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Books;
 using Content.Server.Administration.Managers;
 using Content.Server.Audio;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
@@ -12,6 +13,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Books;
 
@@ -38,6 +40,12 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         SubscribeLocalEvent<BookScannerComponent, ItemPlacedEvent>(OnBookPlaced);
         SubscribeLocalEvent<BookScannerComponent, ItemRemovedEvent>(OnBookRemoved);
         SubscribeLocalEvent<BookScannerComponent, StartBookScanMessage>(OnStartScan);
+
+        SubscribeLocalEvent<BookPrinterComponent, MapInitEvent>(OnPrinterInit);
+        SubscribeLocalEvent<BookPrinterComponent, PrintBookMessage>(OnPrinterPrint);
+
+        SubscribeNetworkEvent<ApproveBookMessage>(OnBookApprove);
+        SubscribeNetworkEvent<DeclineBookMessage>(OnBookDecline);
     }
 
     private void OnCreateBookMessage(Entity<BookBinderComponent> ent, ref CreateBookMessage args)
@@ -96,6 +104,44 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         ent.Comp.ScanEndTime = _timing.CurTime + TimeSpan.FromSeconds(15);
         ent.Comp.IsScanning = true;
         UpdateScannerUi(ent);
+    }
+
+    private void OnPrinterInit(Entity<BookPrinterComponent> ent, ref MapInitEvent args)
+    {
+        UpdatePrinterUi(ent);
+    }
+
+    private void OnPrinterPrint(Entity<BookPrinterComponent> ent, ref PrintBookMessage args)
+    {
+        ent.Comp.NextPrint = _timing.CurTime + TimeSpan.FromMinutes(2);
+        _audio.PlayPvs(ent.Comp.PrintSound, ent.Owner);
+
+        var book = Spawn("TestCustomBook", Transform(ent.Owner).Coordinates);
+        var comp = EnsureComp<CustomBookComponent>(book);
+
+        comp.Author = args.Book.Author;
+        comp.Genre = args.Book.Genre;
+        comp.Title = args.Book.Title;
+        comp.Pages = new(args.Book.Pages);
+        comp.Binding = args.Book.Binding;
+        comp.Desc = args.Book.Desc;
+
+        RegenerateBook((book, comp));
+    }
+
+    private async void OnBookApprove(ApproveBookMessage args)
+    {
+        if (!_pendingBooks.TryGetValue(args.Book, out var book))
+            return;
+
+        SaveBookToDb(args.Book, book);
+    }
+
+    private void OnBookDecline(DeclineBookMessage args)
+    {
+        _pendingBooks.Remove(args.Book);
+        var ev = new PopulatePendingBooksMenuMessage(_pendingBooks);
+        RaiseNetworkEvent(ev, Filter.Empty().AddWhere(x => _adminManager.IsAdmin(x)));
     }
 
     public override void Update(float frameTime)
