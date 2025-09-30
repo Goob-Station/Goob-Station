@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+# Head
+
+# Snout
+
+# Eyes
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: TailGila
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Reptilian ]
+  sprites:
+  - sprite: _RAE/Mobs/Customization/Reptilian/tail.rsi
+    state: tail_gila_primary
+  - sprite: _RAE/Mobs/Customization/Reptilian/tail.rsi
+    state: tail_gila_secondary
+
+# RArmExtension

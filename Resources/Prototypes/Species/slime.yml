@@ -47,6 +47,7 @@
     RLeg: MobSlimeRLeg
     LFoot: MobSlimeLFoot
     RFoot: MobSlimeRFoot
+    Tail: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobSlimeMarkingLimits
@@ -92,6 +93,9 @@
       required: false
     LeftHand:
       points: 2
+      required: false
+    Tail:
+      points: 1
       required: false
 
 - type: humanoidBaseSprite
