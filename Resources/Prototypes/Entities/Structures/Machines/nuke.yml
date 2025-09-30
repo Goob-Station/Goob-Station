@@ -115,7 +115,7 @@
     explosionType: Default
     maxIntensity: 100
     intensitySlope: 5
-    totalIntensity: 800000 # Goobedit bandaid fix for some reason values higher than 1000000 just stop working
+    totalIntensity: 5000000
     diskSlot:
       name: nuke-slot-component-slot-name-disk
       insertSound:

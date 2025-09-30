@@ -15583,3 +15583,70 @@ Entries:
       message: Sheet Meister can use meat now
   id: 1744
   time: '2025-09-28T08:05:50.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: >-
+        Nanotrasen appogises for the recent mixup where station equipped nuclear
+        fission bombs were accidently filled with small explosive hand grenades
+        instead of their proper nuclear payload, this has now been fixed
+  id: 1745
+  time: '2025-09-28T17:04:01.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added construction bag to engineering cyborg construction module.
+  id: 1746
+  time: '2025-09-28T19:55:23.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported the Dislippler, a clown-only traitor uplink item, from
+        Omustation.
+  id: 1747
+  time: '2025-09-28T20:14:58.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Topicals now automatically heal limbs one after the other.
+  id: 1748
+  time: '2025-09-29T13:41:02.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Hand-thrown items now have inertia.
+  id: 1749
+  time: '2025-09-30T03:22:51.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings and people with Cheat Death (e.g devils) will no longer be
+        able to revive while devoured by a dragon or slaughter demon.
+  id: 1750
+  time: '2025-09-30T07:23:24.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added gold water cooler with whiskey to NTR's store!
+    - type: Tweak
+      message: NTR's EVA bundle price 15LP => 5 LP
+    - type: Tweak
+      message: NTR's mindshield bundle 25LP => 15LP
+    - type: Tweak
+      message: NTR's med supplies 20LP => 10LP
+    - type: Tweak
+      message: NTR's small tools crate 5LP => 3LP
+    - type: Tweak
+      message: >-
+        Single intern coin 15LP => 10LP, also a reminder that you can order them
+        to do tasks for you.
+    - type: Tweak
+      message: BSD call price 50LP => 40LP
+    - type: Tweak
+      message: CC glasses price 2LP => 5LP
+    - type: Tweak
+      message: All contraband cosmetic items are now worth less NTR loyalty points.
+  id: 1751
+  time: '2025-09-30T07:24:23.0000000+00:00'

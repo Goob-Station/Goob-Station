@@ -244,6 +244,8 @@
   - type: Item  # Goob edit
     size: Large
     storedRotation: 45
+  - type: ScannableForPoints # goob edit
+    points: 2
 
 - type: entity
   name: Hristov
