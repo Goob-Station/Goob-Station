@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -140,6 +143,9 @@
 
 - type: Tag
   id: CombatMech
+
+- type: Tag
+  id: CorporateOverride
 
 - type: Tag
   id: ContrabandDetectorCircuitboard
@@ -569,6 +575,9 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
   id: MolotovConstruction
 
 - type: Tag
@@ -588,6 +597,9 @@
 
 - type: Tag
   id: VulpEmotes
+
+- type: Tag
+  id: Vial
 
 - type: Tag
   id: WaterTank
