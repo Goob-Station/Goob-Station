@@ -288,6 +288,13 @@
   - type: WraithMinion
 
 - type: entity
+  id: MobVoidSpikerWraith
+  suffix: Wraith
+  parent: MobVoidSpiker
+  components:
+  - type: WraithMinion
+
+- type: entity
   id: MobVoidHoundWraith
   suffix: Wraith
   parent: MobVoidHound
