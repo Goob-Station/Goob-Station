@@ -1,0 +1,36 @@
+book-binding-part-cover_base = Base cover
+cover_old = Old cover
+cover_strong = Strong cover
+
+book-binding-part-decor_bottom = Bottom decor
+book-binding-part-decor_diagonal = Diagonal decor
+book-binding-part-decor_middle = Middle decor
+book-binding-part-decor_spine = Spine decor
+book-binding-part-decor_vertical_middle = Mid vertical decor
+book-binding-part-decor_wingette_circle = Wignette 1
+book-binding-part-decor_wingette = Wignette 2
+
+book-binding-part-icon_apple = Apple
+book-binding-part-icon_atmos = Atmos
+book-binding-part-icon_aurora = Aurora
+book-binding-part-icon_banana = Banana
+book-binding-part-icon_bar = Bar
+book-binding-part-icon_biohazard = Biohazard
+book-binding-part-icon_borg = Borg
+book-binding-part-icon_briefcase = Briefcase
+book-binding-part-icon_bucket = Bucket
+book-binding-part-icon_cabbage = Cabbage
+book-binding-part-icon_chemical = Chemical
+book-binding-part-icon_corner = Corner
+book-binding-part-icon_diamond = Diamond
+book-binding-part-icon_dna = DNA
+book-binding-part-icon_eye = Eye
+book-binding-part-icon_fish = Fish
+book-binding-part-icon_glow = Glow
+book-binding-part-icon_hacking = Hacking
+book-binding-part-icon_ian = Ian
+book-binding-part-icon_law = Law
+book-binding-part-icon_lightning = Lightning
+book-binding-part-icon_magic_fireball = Fireball
+book-binding-part-icon_magic_forcewall = Forcewall
+book-binding-part-icon_magic = Magic
