@@ -41,6 +41,7 @@ public sealed partial class SummonVoidCreatureSystem : EntitySystem
         if (HasComp<EvolveComponent>(ent.Owner))
         {
             RemComp<EvolveComponent>(ent.Owner);
+            Logger.Error($"[SummonVoidCreatureSystem] EvolveComponent removed from entity {ent.Owner}. Wraith should not have this component at this stage.");
         }
 
         _ui.TryToggleUi(ent.Owner, RadialSelectorUiKey.Key, ent.Owner);
