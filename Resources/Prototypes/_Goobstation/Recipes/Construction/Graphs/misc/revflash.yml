@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: RevFlash
-  start: start
   graph:
     - node: start
       edges:

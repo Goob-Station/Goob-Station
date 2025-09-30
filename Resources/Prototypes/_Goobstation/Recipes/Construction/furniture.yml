@@ -7,7 +7,6 @@
 - type: construction
   id: WallTorch
   graph: WallTorchGraph
-  startNode: start
   targetNode: wallTorch
   category: construction-category-furniture
   objectType: Structure

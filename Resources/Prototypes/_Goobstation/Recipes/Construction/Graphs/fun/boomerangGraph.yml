@@ -5,7 +5,6 @@
 
 - type: constructionGraph
   id: boomerangGraph
-  start: start
   graph:
     - node: start
       edges:

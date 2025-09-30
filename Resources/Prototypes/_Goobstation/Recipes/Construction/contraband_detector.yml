@@ -14,5 +14,4 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  startNode: start
   targetNode: detector
