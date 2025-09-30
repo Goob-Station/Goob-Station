@@ -149,7 +149,7 @@
   description: Secrete tough malleable resin.
   components:
   - type: Action
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: BigAction
     icon: { sprite :  _RMC14/Structures/Xenos/xeno_resin_door.rsi, state: resin }
   - type: TargetAction
@@ -207,7 +207,7 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-    # Acid action
+# Acid action
 - type: entity
   id: ActionAcid
   parent: BaseAction
