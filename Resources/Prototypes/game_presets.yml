@@ -146,6 +146,7 @@
     - BasicRoundstartVariation
     - Changeling # Goobstation - changeling playtest
     - LavalandStormScheduler # Lavaland Change
+    - Shadowling # Einstein Engines - Shadowlings
 
 - type: gamePreset
   id: Extended
