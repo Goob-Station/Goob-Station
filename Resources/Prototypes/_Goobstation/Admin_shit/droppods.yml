@@ -13,8 +13,8 @@
     grid:
     - 0,0,20,20
     maxItemSize: Ginormous
-  - type: Ghost
-    timeOfDeath: 3
+  - type: Visibility
+    layer: 2 #ghost layer
   - type: DragInsertContainer
     containerId: clowncar_container
     entryDelay: 0
