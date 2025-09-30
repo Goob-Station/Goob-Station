@@ -29,7 +29,6 @@
   - type: PossessObject
   - type: SummonPortal
   - type: RaiseSkeleton
-  - type: SummonVoidCreature
   - type: MakeRevenant
     revenantDamageOvertime:
       groups:
@@ -50,6 +49,14 @@
     maxObjects: 8
     searchRange: 3
     stunDuration: 5
+  - type: SummonVoidCreature
+    availableSummons:
+    - id: MobSkeletonCommanderWraith
+      name: "Skeleton Commander"
+    - id: MobVoidHoundWraith
+      name: "Void Hound"
+    - id: MobVoidSpikerWraith
+      name: "Void Spiker"
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger

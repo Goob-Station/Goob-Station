@@ -22,6 +22,8 @@
   components:
   - type: Action
     # useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
