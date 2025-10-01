@@ -1,5 +1,5 @@
 - type: entity
-  parent: IDCardStandard
+  parent: [ IDCardStandard, BaseMinorContraband ]
   id: IDCardTide
   name: tide ID card
   description: Makeshift t-ID-e card, made from god knows what.
