@@ -328,6 +328,18 @@
   - type: Insulated
   - type: Unremoveable
 
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ClothingHandsGlovesMercenary
+  name: Mercenary gloves
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/mercgloves.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/mercgloves.rsi
+  - type: Fiber
+    fiberColor: fibers-black
 
 # Knuckle Dusters
 

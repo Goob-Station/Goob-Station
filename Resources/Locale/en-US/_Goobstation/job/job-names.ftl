@@ -37,6 +37,7 @@ job-name-governmentman = The G-Man
 
 job-name-conquest = Conquest
 job-name-mercenarycaptain = Mercenary Captain
+job-name-mercenary = Mercenary
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 

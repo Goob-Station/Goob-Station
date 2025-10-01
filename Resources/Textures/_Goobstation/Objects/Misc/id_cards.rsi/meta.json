@@ -6,26 +6,29 @@
     "x": 32,
     "y": 32
   },
-  "states": [
-	{
-      "name": "future"
-    },
-	{
-      "name": "idhelldiver"
-    },
-	{
-      "name": "idchrono"
-    },
-	{
-      "name": "idhighcommand"
-    },
-	{
-      "name": "chemist-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "chemist-inhand-right",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "future"
+        },
+        {
+            "name": "idhelldiver"
+        },
+        {
+            "name": "idchrono"
+        },
+        {
+            "name": "idhighcommand"
+        },
+        {
+            "name": "mercenary"
+        },
+        {
+            "name": "chemist-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "chemist-inhand-right",
+            "directions": 4
+        }
+    ]
 }

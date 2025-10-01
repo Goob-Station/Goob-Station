@@ -1228,6 +1228,9 @@
   id: NukeOpsUplink
 
 - type: Tag
+  id: MRE
+
+- type: Tag
   id: Ointment
 
 - type: Tag

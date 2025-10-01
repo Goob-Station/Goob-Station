@@ -392,3 +392,25 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadMercenaryBeret
+  name: Mercenary beret
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/beret_mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/beret_mercenary.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadMercenaryCap
+  name: Mercenary cap
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/merccap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/merccap.rsi

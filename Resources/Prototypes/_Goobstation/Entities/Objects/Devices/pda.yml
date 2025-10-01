@@ -281,3 +281,35 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: MercenaryPDA
+  name: mercenary PDA
+  description: A rugged PDA built for hired guns.
+  components:
+  - type: Pda
+    id: MercenaryIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-mercenary
+  - type: PdaBorderColor
+    borderColor: "#3a3a3a"
+    accentVColor: "#b50000"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-mercenary
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-mercenary
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge

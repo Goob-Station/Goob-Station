@@ -291,3 +291,18 @@
     job: SyndicateHighCommander
   - type: Emag
     emagType: Access
+
+# Mercenary
+
+- type: entity
+  parent: SalvageIDCard
+  id: MercenaryIDCard
+  name: Mercenary ID card
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mercenary
+  - type: IdCard
+    jobTitle: job-name-mercenary
+    jobIcon: JobIconMercenary

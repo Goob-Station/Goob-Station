@@ -7,37 +7,40 @@
         "y": 8
     },
     "states": [
-	{
-	  "name": "Future",
-	  "delays": [
-	  [
-		  0.2,
-		  0.2,
-		  0.2,
-		  0.2
-	  ]
-	  ]
-	},
-    {
-      "name": "nanotrasenrepresentative"
-    },
-    {
-      "name": "blueshield"
-    },
-	{
-      "name": "lambda"
-    },
-	{
-      "name": "trainer"
-    },
-    {
-        "name": "Mindcontrolled"
-    },
-    {
-        "name": "Ghoul"
-    },
-    {
-        "name": "HereticMaster"
-    }
+        {
+            "name": "Future",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "nanotrasenrepresentative"
+        },
+        {
+            "name": "blueshield"
+        },
+        {
+            "name": "lambda"
+        },
+        {
+            "name": "trainer"
+        },
+        {
+            "name": "Mindcontrolled"
+        },
+        {
+            "name": "Ghoul"
+        },
+        {
+            "name": "idmercenary"
+        },
+        {
+            "name": "HereticMaster"
+        }
     ]
 }

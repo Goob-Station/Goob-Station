@@ -238,3 +238,14 @@
     toggleAction: PulseThermalVision
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesMercenaryHeavy
+  name: Mercenary glasses
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mercglasses.rsi

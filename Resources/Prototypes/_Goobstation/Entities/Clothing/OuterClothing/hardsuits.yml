@@ -305,3 +305,17 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
+
+- type: entity
+  parent: ClothingOuterVoidsuitSecurity
+  id: ClothingOuterVoidsuitMercenary
+  name: Mercenary hardsuit
+  description: Template
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitMercenary

@@ -242,3 +242,15 @@
         Caustic: 0.5
   - type: FlashImmunity
   - type: FlashSoundSuppression
+
+- type: entity
+  parent: ClothingHeadHelmetVoidsuitSecurity
+  id: ClothingHeadHelmetVoidsuitMercenary
+  name: mercenary hardsuit helmet
+  description: Template
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Voidsuits/Mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Voidsuits/Mercenary.rsi

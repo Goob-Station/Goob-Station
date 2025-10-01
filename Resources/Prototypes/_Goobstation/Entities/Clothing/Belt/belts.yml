@@ -265,3 +265,42 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltMercenary
+  name: Mercenary Belt
+  description: Template.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/mercenary.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      - EnergySpeedloader
+      - MilitaryPowerCell
+      - HandGrenade
+      - MRE
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+      - ScatteringGrenade
