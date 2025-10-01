@@ -143,7 +143,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Server.PowerCell;
-using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Content.Goobstation.Common.Weapons.Ranged; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -382,6 +383,15 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             FiredProjectiles = shotProjectiles,
         });
+
+        // Goobstation start
+        if (user.HasValue)
+            RaiseLocalEvent(user.Value, new AmmoShotUserEvent()
+            {
+                Gun = gunUid,
+                FiredProjectiles = shotProjectiles,
+            });
+        // Goobstation end
 
         void CreateAndFireProjectiles(EntityUid ammoEnt, AmmoComponent ammoComp)
         {
