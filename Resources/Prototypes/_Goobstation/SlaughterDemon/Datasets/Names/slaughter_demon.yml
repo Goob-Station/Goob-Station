@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: NamesSlaughter
+  values:
+    prefix: names-demon-dataset-
+    count: 30
+
+- type: localizedDataset
+  id: NamesSlaughterTitle
+  values:
+    prefix: names-demon-title-dataset-
+    count: 42
+
+- type: localizedDataset
+  id: NamesLaughterTitle
+  values:
+    prefix: names-laughter-demon-title-dataset-
+    count: 22

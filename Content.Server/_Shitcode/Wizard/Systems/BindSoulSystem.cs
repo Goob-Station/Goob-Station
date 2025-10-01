@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Administration.Commands;
+using Content.Server.Clothing.Systems;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -29,6 +29,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly OutfitSystem _outfit = default!;
 
     public override void Resurrect(EntityUid mind,
         EntityUid phylactery,
@@ -45,7 +46,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         RemCompDeferred<TransferMindOnGibComponent>(ent);
         EnsureComp<WizardComponent>(ent);
 
-        SetOutfitCommand.SetOutfit(ent, LichGear, false, EntityManager); // Goobstation
+        _outfit.SetOutfit(ent, LichGear);
 
         if (soulBound.Name != string.Empty)
             Meta.SetEntityName(ent, soulBound.Name);

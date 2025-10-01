@@ -96,3 +96,9 @@ spellbook-hammer-mjollnir-description = Wield the power of THUNDER in your hands
 
 spellbook-hammer-singularity-name = Singularity Hammer
 spellbook-hammer-singularity-description = Ever wonder what it'd be like to be the singularity? Swing this hammer to draw in your surroundings, even works if you miss!
+
+spellbook-crate-of-enchanting-name = Crate of Enchanting
+spellbook-crate-of-enchanting-description =
+    A crate of stolen anomaly cores, summoned by arcane power.
+    Used for enchanting your gear to be even more powerful!
+    The selection is random and may be effectively useless. No refunds!

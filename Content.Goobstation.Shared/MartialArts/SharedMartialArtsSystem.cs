@@ -5,8 +5,10 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -54,6 +56,7 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee;
@@ -78,7 +81,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrowing = default!;
@@ -114,6 +118,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeCapoeira();
         InitializeDragon();
         InitializeNinjutsu();
+        InitializeHellRip();
         InitializeCanPerformCombo();
         InitializeWerewolf();
 
@@ -141,6 +146,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
+            if (comp.CurrentTarget != null && TerminatingOrDeleted(comp.CurrentTarget.Value))
+                comp.CurrentTarget = null;
+
             if (_timing.CurTime < comp.ResetTime
                 || comp.LastAttacks.Count == 0
                 && comp.ConsecutiveGnashes == 0)

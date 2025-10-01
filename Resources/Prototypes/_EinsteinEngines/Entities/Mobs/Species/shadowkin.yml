@@ -137,7 +137,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.85, 0.85
+    # scale: 0.85, 0.85 # Goobstation: port EE height/width sliders
     layers:
       - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Groin"]
@@ -149,10 +149,10 @@
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
       - map: ["enum.HumanoidVisualLayers.LLeg"]
-#      shader: StencilClear
-#      sprite: Mobs/Species/Human/parts.rsi
-#      state: l_leg
-        shader: StencilMask
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
+      - shader: StencilMask
       - map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
         state: full
@@ -236,7 +236,7 @@
       netsync: false
       noRot: true
       drawdepth: Mobs
-      scale: 0.85, 0.85 # Small
+      # scale: 0.85, 0.85 # Small # Goobstation: port EE height/width sliders
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
         - map: ["enum.HumanoidVisualLayers.Groin"]
@@ -248,9 +248,9 @@
         - map: ["enum.HumanoidVisualLayers.LArm"]
         - map: ["enum.HumanoidVisualLayers.RLeg"]
         - map: ["enum.HumanoidVisualLayers.LLeg"]
-#     - shader: StencilClear
-#      sprite: Mobs/Species/Human/parts.rsi
-#      state: l_leg
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          state: l_leg
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.StencilMask"]
           sprite: Mobs/Customization/masking_helpers.rsi

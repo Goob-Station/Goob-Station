@@ -248,6 +248,10 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
@@ -439,6 +443,10 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]

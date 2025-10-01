@@ -19,4 +19,4 @@ flavor-base-alienblood = alien
 flavor-base-old = old
 flavor-base-robust = robust
 flavor-complex-unicorntears = like unicorn tears
-
+flavor-base-chuddy = chuddy

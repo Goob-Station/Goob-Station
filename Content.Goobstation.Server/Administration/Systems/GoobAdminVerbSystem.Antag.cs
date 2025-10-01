@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -13,6 +14,7 @@ using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Goobstation.Server.Werewolf.GameTicking.Rules;
+using Content.Goobstation.Server.Shadowling.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -97,6 +99,23 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-werewolf"),
         };
         args.Verbs.Add(werewolfAntag);
+      
+        // Einstein Engines - Shadowlings
+        Verb shadowling = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-shadowling"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(
+                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
+                "engage_hatch"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-shadowling"),
+        };
+        args.Verbs.Add(shadowling);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
