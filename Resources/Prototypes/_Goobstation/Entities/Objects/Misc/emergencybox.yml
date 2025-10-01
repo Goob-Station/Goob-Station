@@ -159,6 +159,18 @@
         whitelist:
           tags:
           - EmergencyNitrogenTank
+      battery:
+        whitelist:
+          tags:
+          - DisposableBattery
+      welder:
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        whitelist:
+          tags:
+          - CableCoil
 
 
 - type: entity
@@ -694,3 +706,50 @@
       - SpaceMedipen
   - type: Label
     currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsSilicon
+  name: silicon survival box
+  description: It's a box with basic tools for self-repair inside.
+  components:
+  - type: ContainerContainer
+    containers:
+      battery: !type:ContainerSlot
+      flare: !type:ContainerSlot
+      welder: !type:ContainerSlot
+      cable: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      battery:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - DisposableBattery
+      flare:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - Flare
+      welder:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - CableCoil
+  - type: ContainerFill
+    containers:
+      battery:
+      - BatteryDisposable
+      flare:
+      - Flare
+      welder:
+      - WelderMini
+      cable:
+      - CableApcStack10
+  - type: Sprite
+    state: box_silicon

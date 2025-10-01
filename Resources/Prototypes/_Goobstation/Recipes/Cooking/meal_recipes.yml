@@ -24,3 +24,19 @@
   solids:
     FoodCheese: 1
     FoodBadRecipe: 1 # Ideally would like it to be Plastic, but gets transformed to FoodBadRecipe anyways.
+
+- type: microwaveMealRecipe
+  id: RecipeFriedVoxL
+  name: 'fried "chicken" recipe'
+  result: FoodMeatVoxFried
+  time: 10
+  solids:
+    LeftLegVox: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFriedVoxR
+  name: 'fried "chicken" recipe'
+  result: FoodMeatVoxFried
+  time: 10
+  solids:
+    RightLegVox: 1

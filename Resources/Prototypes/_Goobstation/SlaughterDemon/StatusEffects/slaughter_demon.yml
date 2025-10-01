@@ -1,0 +1,7 @@
+- type: statusEffect
+  id: DemonsBlood
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: DemonsKiss
+  alwaysAllowed: true

@@ -14,6 +14,12 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SurgeryToolComponent : Component
 {
+    /// <summary>
+    /// Ignores the ItemToggle activated check when using this item in a surgery.
+    /// Useful for things like augments whose ItemToggle is unrelated to use in surgery.
+    /// </summary>
+    [DataField]
+    public bool IgnoreToggle;
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier? StartSound;
@@ -27,4 +33,4 @@ public sealed partial class SurgeryToolComponent : Component
 ///     If this is cancelled the step can't be completed.
 /// </summary>
 [ByRefEvent]
-public record struct SurgeryToolUsedEvent(EntityUid User, EntityUid Target, bool Cancelled = false);
+public record struct SurgeryToolUsedEvent(EntityUid User, EntityUid Target, bool IgnoreToggle = false, bool Cancelled = false);

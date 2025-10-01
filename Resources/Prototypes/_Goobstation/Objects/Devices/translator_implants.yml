@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TaserTheFox <TaserTheFox@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,8 +20,10 @@
       - ValyrianStandard
       - Marish
       - Moffic
+      - Schechi
+      - NewKinPidgin #Ka'rakk
       - Nekomimetic
-      - Draconic
+      - Draconic     #Sinta'Unathi
       - Azaziba
       - Calcic
       - Bubblish
@@ -49,8 +52,10 @@
       - ValyrianStandard
       - Marish
       - Moffic
+      - Schechi
+      - NewKinPidgin #Ka'rakk
       - Nekomimetic
-      - Draconic
+      - Draconic     #Sinta'Unathi
       - Azaziba
       - Calcic
       - Bubblish
@@ -72,6 +77,7 @@
       - Kobold
       - SpaceItalian
       - Cheval
+
 
 - type: entity
   parent: BaseSubdermalImplant

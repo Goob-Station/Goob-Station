@@ -6,11 +6,10 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    noRot: true
     sprite: _Goobstation/Flock/Structures/160x160/cockpit.rsi
     state: cockpit
     drawdepth: Walls
-    size: Ginormous
+    noRot: true
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -48,7 +47,6 @@
     sprite: _Goobstation/Flock/Structures/160x160/reactor.rsi
     state: reactor_off
     drawdepth: Walls
-    size: Ginormous
   - type: Physics
     bodyType: Static
   - type: Fixtures

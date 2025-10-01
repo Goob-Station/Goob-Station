@@ -37,16 +37,15 @@
 - type: entity
   parent: BaseAction
   id: ActionDrivingWithStyle
-  name: Driving with style
-  description: Show everyone how you drive
+  name: JukeBox
+  description: Drive with music
   components:
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
-      state: clowncar
-    useDelay: 60
+      sprite: Structures/Machines/jukebox.rsi
+      state: "on"
+    useDelay: 1
   - type: InstantAction
     event: !type:DrivingWithStyleActionEvent
-
 

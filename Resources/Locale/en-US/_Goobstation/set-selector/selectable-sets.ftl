@@ -95,7 +95,7 @@ selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
     Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
     Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    a blood-red voidsuit and some basic nuclear operative gear.
+    a blood-red hardsuit and some basic nuclear operative gear.
 
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
@@ -107,7 +107,7 @@ selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
     Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
-    (half of which are holo), a carp voidsuit and a syndicate encryption key.
+    (half of which are holo), a carp hardsuit and a syndicate encryption key.
 
 selectable-set-syndicate-sus-name = Suspicion Bundle
 selectable-set-syndicate-sus-description =
@@ -154,13 +154,13 @@ selectable-set-blueshield-syringe-description =
 
 # Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
+selectable-set-blueshield-hardsuit-light-name = blueshield hardsuit
 selectable-set-blueshield-hardsuit-light-description =
-    An armoured voidsuit, allowing for more speed at the cost of protection.
+    An armoured hardsuit, allowing for more speed at the cost of protection.
 
-selectable-set-blueshield-modsuit-name = blueshield hardsuit
+selectable-set-blueshield-modsuit-name = blueshield modsuit
 selectable-set-blueshield-modsuit-description =
-    A custom hardsuit, allowing for more customisation, at the cost of requiring power.
+    A custom modular hardsuit, allowing for more customisation, at the cost of requiring power.
 
 # ERT
 
@@ -179,67 +179,67 @@ selectable-set-ert-pulse-description =
 
 # Voidsuit selectors
 
-selectable-set-paramedic-voidsuit-name = Paramedic voidsuit
+selectable-set-paramedic-voidsuit-name = Paramedic hardsuit
 selectable-set-paramedic-voidsuit-desc =
-    A light voidsuit with minimal protection
+    A light hardsuit with minimal protection
     but a fast movement speed.
 
-selectable-set-paramedic-modsuit-name = Sanitater hardsuit
+selectable-set-paramedic-modsuit-name = Sanitater modsuit
 selectable-set-paramedic-modsuit-desc =
     A modular hardsuit with heavier plates
     to shrug off a bullet or two, hopefully.
 
-selectable-set-security-voidsuit-name = Security voidsuit
+selectable-set-security-voidsuit-name = Security hardsuit
 selectable-set-security-voidsuit-desc =
-    A light voidsuit with an in-built plate carrier to provide
+    A light hardsuit with an in-built plate carrier to provide
     moderate protection while remaining mobile for low intensity kinetic ops.
 
-selectable-set-security-modsuit-name = Security 'soldat' hardsuit
+selectable-set-security-modsuit-name = Security 'soldat' modsuit
 selectable-set-security-modsuit-desc =
     A modular hardsuit with ceramic inserts to provide more protection
-    than the voidsuit counterpart, but with less mobility.
+    than the hardsuit counterpart, but with less mobility.
 
-selectable-set-headofsecurity-voidsuit-name = Head of security's voidsuit
+selectable-set-headofsecurity-voidsuit-name = Head of security's hardsuit
 selectable-set-headofsecurity-voidsuit-desc =
-    A light voidsuit with material cut from non-vital areas to slightly increase
+    A light hardsuit with material cut from non-vital areas to slightly increase
     the armour value of the vital organs and increase mobility
-    compared to the standard security voidsuit.
+    compared to the standard security hardsuit.
 
-selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
+selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' modsuit
 selectable-set-headofsecurity-modsuit-desc =
     A modular hardsuit with expensive plastitanium armour for the head of security's use.
-    Comes equipped with an AI operated on-board intravenous stim injector
+    Comes equipped with an AI operated on-board intravenous stim injector.
 
-selectable-set-engineering-voidsuit-name = Engineering voidsuit
+selectable-set-engineering-voidsuit-name = Engineering hardsuit
 selectable-set-engineering-voidsuit-desc =
-    A light voidsuit for low-intensity repairs around the station
+    A light hardsuit for low-intensity repairs around the station.
 
-selectable-set-engineering-modsuit-name = Engineering 'sapper' hardsuit
+selectable-set-engineering-modsuit-name = Engineering 'sapper' modsuit
 selectable-set-engineering-modsuit-desc =
     A modular hardsuit with increased blast plating and the large vulnerable visor
     replaced with external cameras to better protect against explosions
     and other external threats.
 
-selectable-set-captain-voidsuit-name = Captain's parade voidsuit
+selectable-set-captain-voidsuit-name = Captain's parade hardsuit
 selectable-set-captain-voidsuit-desc =
-    Captain's light voidsuit made custom fitted for formal occasions, lightly
+    Captain's light hardsuit made custom fitted for formal occasions, lightly
     armored to protect during a calm shift, all while still retaining
     common spacewalking capabilities.
 
-selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
+selectable-set-captain-modsuit-name = Captain's 'Magnate' modsuit
 selectable-set-captain-modsuit-desc =
     A modular hardsuit perfectly shined, adorned, and armored for the best of
     the best, fitted with custom plating, cooling fluid, and diamonds to
     make even the toughest of times leading seem like nothing to you.
 
 
-selectable-set-research-director-voidsuit-name = RD's voidsuit
+selectable-set-research-director-voidsuit-name = RD's hardsuit
 selectable-set-research-director-voidsuit-desc =
-    The Research Director's light voidsuit fitted for experiments, lightly
+    The Research Director's light hardsuit fitted for experiments, lightly
     armored to protect from assistants breaking in, all while still retaining
     common spacewalking capabilities.
 
-selectable-set-research-director-modsuit-name = RD's 'Minerva' hardsuit
+selectable-set-research-director-modsuit-name = RD's 'Minerva' modsuit
 selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,

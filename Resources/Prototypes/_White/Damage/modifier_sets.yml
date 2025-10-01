@@ -1,0 +1,28 @@
+- type: damageModifierSet
+  id: Xenomorph
+  coefficients:
+    Blunt: 0.80
+    Slash: 0.80
+    Piercing: 0.80
+    Cold: 0
+    Heat: 1.2
+    Poison: 0
+
+- type: damageModifierSet
+  id: XenomorphDungeon
+  coefficients:
+    Blunt: 1
+    Slash: 1
+    Piercing: 1
+    Cold: 0
+    Heat: 1.5
+    Poison: 0
+
+- type: damageModifierSet
+  id: Resin
+  coefficients:
+    Blunt: 0.3
+    Slash: 0.5
+    Piercing: 0.8
+    Heat: 1.5
+    Shock: 0

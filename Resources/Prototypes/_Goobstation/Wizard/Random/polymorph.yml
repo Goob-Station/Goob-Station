@@ -19,18 +19,6 @@
     PaperDoor: 1
     BananiumDoor: 1
 
-- type: weightedRandom
-  id: WabbajackGroups
-  weights:
-    WabbajackMonkey: 1
-    # WabbajackCluwne: 1
-    WabbajackRobot: 1
-    WabbajackSlime: 1
-    WabbajackXeno: 1
-    WabbajackSpecies: 1
-    WabbajackAnimal: 1
-    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
-
 - type: weightedRandomEntity
   id: WabbajackMonkey
   weights:
@@ -70,18 +58,6 @@
     MobAdultSlimesBlueAngry: 1
     MobAdultSlimesGreenAngry: 1
     MobAdultSlimesYellowAngry: 1
-
-- type: weightedRandomEntity
-  id: WabbajackXeno
-  weights:
-    MobXeno: 10
-    MobXenoDrone: 8
-    MobXenoRunner: 8
-    MobXenoPraetorian: 5
-    MobXenoRavager: 4
-    MobXenoRouny: 2
-    MobXenoSpitter: 2
-    MobXenoQueen: 1
 
 - type: weightedRandomEntity
   id: WabbajackSpecies
@@ -199,3 +175,14 @@
   id: WabbajackSpecial
   weights:
     MobBinglePrime: 1
+
+- type: weightedRandom
+  id: WabbajackGroups
+  weights:
+    WabbajackMonkey: 1
+    # WabbajackCluwne: 1
+    WabbajackRobot: 1
+    WabbajackSlime: 1
+    WabbajackSpecies: 1
+    WabbajackAnimal: 1
+    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
