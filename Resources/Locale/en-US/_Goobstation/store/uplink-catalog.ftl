@@ -279,6 +279,9 @@ uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
+uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
+uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
