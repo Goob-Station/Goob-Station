@@ -23,6 +23,9 @@
             "name": "mercenary"
         },
         {
+            "name": "idmercenary"
+        },
+        {
             "name": "chemist-inhand-left",
             "directions": 4
         },
