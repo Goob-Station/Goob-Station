@@ -19,6 +19,10 @@
   - type: BookBinder
     bookCreatedSound:
       path: /Audio/Machines/high_tech_confirm.ogg
+  - type: ContainerContainer
+    containers:
+      binder_paper: !type:Container
+        showEnts: false
   - type: ActivatableUI
     key: enum.BookBinderUiKey.Key
   - type: UserInterface
