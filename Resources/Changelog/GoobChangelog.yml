@@ -15682,3 +15682,11 @@ Entries:
       message: Shadowkin blood now can activate Blood nodes on artifacts
   id: 1754
   time: '2025-09-30T19:58:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Admins can now drop pod any item with the new drop pod item. It also
+        works for entities like players or dragons.
+  id: 1755
+  time: '2025-10-01T08:43:24.0000000+00:00'
