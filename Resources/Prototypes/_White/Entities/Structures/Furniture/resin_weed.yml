@@ -1,0 +1,96 @@
+- type: entity
+  parent: BaseStructure
+  id: ResinWeed
+  name: resin floor
+  description: A thick resin surface covers the floor.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: FloorTiles
+    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites
+    layers:
+    - state: weed0
+  - type: Icon
+    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites
+    state: weed0
+  - type: IconSmooth # Goobstation new sprites
+    key: cm_xeno_weeds
+    base: weed_dir
+    mode: CardinalFlags
+#  - type: SmoothEdge # goobstation new sprites
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - SlipLayer
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        hard: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 18
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 18
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepResin
+  - type: PlasmaGainModifier
+  - type: ItemPlacer
+    maxEntities: 5
+    whitelist:
+      requireAll: true
+      components:
+      - PlasmaVessel
+      - Xenomorph
+  - type: Tag
+    tags: [ Carpet ]
+
+- type: entity
+  parent: ResinWeed
+  id: ResinWeedNode
+  name: glowing resin
+  description: Blue bioluminescence shines from beneath the surface.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites
+    drawdepth: FloorTiles
+    layers:
+    - state: weed0
+    - state: constructionnode
+  - type: Icon
+    sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites
+    state: weed0
+  - type: AreaSpawner
+    spawnPrototype: ResinWeed
+  - type: PointLight
+    radius: 2.5
+    energy: 2
+    color: "#00CED1"

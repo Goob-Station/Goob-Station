@@ -1,0 +1,323 @@
+- type: entity
+  abstract: true
+  parent: BaseAugment
+  id: BaseArmAugment
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+  - type: Item
+    size: Huge
+  - type: Organ
+    slotId: armImplant
+  - type: AugmentArm
+
+# Tools
+
+- type: entity
+  parent: BaseAugmentAction
+  id: ActionAugmentOpenToolsPanel
+  name: Open tools panel
+  description: Access the tools implanted within you
+  components:
+  - type: Action
+    icon: { sprite: Clothing/Belt/utility.rsi, state: icon }
+    iconOn: Interface/Default/blocked.png
+
+- type: entity
+  abstract: true
+  parent: BaseArmAugment
+  id: BaseAugmentToolPanel
+  components:
+  - type: Sprite
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,9,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ItemToggle
+    activated: true # needs to be activated for installation
+    onUse: false
+    onActivate: false
+  - type: AugmentPowerDraw
+    draw: 6 # used while an item is equipped
+  - type: AugmentToolPanel
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.AugmentToolPanelUiKey.Key:
+        type: AugmentToolPanelMenuBoundUserInterface
+        interactionRange: 0
+  - type: AugmentActivatableUI
+    key: enum.AugmentToolPanelUiKey.Key
+  - type: AugmentAction
+    action: ActionAugmentOpenToolsPanel
+  - type: Construction
+    graph: AugmentToolsPanel
+
+# Arm augment electronics
+
+- type: entity
+  abstract: true
+  parent: BaseElectronics
+  id: BaseAugmentElectronics
+  components:
+  - type: Sprite
+    state: mainboard
+  - type: Item
+    storedRotation: 0
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+      Steel: 100
+    chemicalComposition:
+      Silicon: 20
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentUtilityPanelElectronics
+  name: utility tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds utility tools.
+  components:
+  - type: Tag
+    tags: [ AugmentUtilityToolElectronics ]
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentBotanyPanelElectronics
+  name: botany tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds botanical tools.
+  components:
+  - type: Tag
+    tags: [ AugmentBotanyToolElectronics ]
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentSurgeryPanelElectronics
+  name: surgery tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds surgical tools.
+  components:
+  - type: Tag
+    tags: [ AugmentSurgeryToolElectronics ]
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentPaperworkPanelElectronics
+  name: paperwork tools panel electronics
+  description: An electronics board that programs a tool panel to hold a specific type of item. This one holds paperwork tools.
+  components:
+  - type: Tag
+    tags: [ AugmentPaperworkToolElectronics ]
+
+- type: entity
+  parent: BaseAugmentElectronics
+  id: AugmentStrengthElectronics
+  name: strength augment electronics
+  description: An electronics board that controls a strength augment.
+  components:
+  - type: Tag
+    tags: [ AugmentStrengthElectronics ]
+
+# Arm augment casings
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseIncompleteAugmentToolPanel
+  description: Can be implanted into a body to provide access to specific tools. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+  - type: Item
+    size: Huge
+  - type: Construction
+    graph: AugmentToolsPanel
+
+- type: entity
+  parent: BaseIncompleteAugmentToolPanel
+  id: AugmentToolPanelCasing
+  name: tools panel augment casing
+  components:
+  - type: Sprite
+    state: base
+  - type: Construction
+    node: casing
+  - type: Tag
+    tags: [ AugmentToolPanelCasing ]
+
+- type: entity
+  parent: BaseIncompleteAugmentToolPanel
+  id: AugmentToolPanelCables
+  name: tools panel augment casing with cables
+  components:
+  - type: Sprite
+    state: base_cables
+  - type: Construction
+    node: cables
+
+- type: entity
+  parent: BaseAugmentToolPanel
+  id: AugmentToolsPanel
+  name: utility tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold basic tools.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Storage
+    whitelist:
+      tags:
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - GeigerCounter
+      - Powerdrill
+      - JawsOfLife
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      components:
+      - StationMap
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
+  - type: Construction
+    node: "utility tools panel"
+
+- type: entity
+  parent: BaseAugmentToolPanel
+  id: AugmentBotanyPanel
+  name: botanical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold botanical tools.
+  components:
+  - type: Sprite
+    state: botany
+  - type: Storage
+    whitelist:
+      tags:
+      - PlantSampleTaker
+      - BotanyShovel
+      - BotanyHoe
+      - BotanyHatchet
+      - Dropper
+      components:
+      - HandLabeler
+  - type: Construction
+    node: "botany tools panel"
+
+- type: entity
+  parent: BaseAugmentToolPanel
+  id: AugmentPaperworkPanel
+  name: paperwork tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold paperwork tools.
+  components:
+  - type: Sprite
+    state: paperwork
+  - type: Storage
+    whitelist:
+      tags:
+      - Folder
+      components:
+      - HandLabeler
+      - Stamp
+      - TapeRecorder
+  - type: Construction
+    node: "paperwork tools panel"
+
+- type: entity
+  parent: BaseAugmentToolPanel
+  id: AugmentSurgicalPanel
+  name: surgical tools panel augment
+  description: A panel that can be augmented into a patient's arm to provide them access to its contents. This one can hold surgical tools.
+  components:
+  - type: Sprite
+    state: surgical
+  - type: Storage
+    whitelist:
+      requireAll: true
+      tags:
+      - SurgeryTool
+      components:
+      - SurgeryTool
+  - type: Construction
+    node: "surgery tools panel"
+
+# Strength
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseIncompleteAugmentStrength
+  description: Can be implanted into a body to increase physical strength. This one is incomplete.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Augments/arm.rsi
+  - type: Item
+    size: Huge
+  - type: Construction
+    graph: AugmentStrength
+
+- type: entity
+  parent: BaseIncompleteAugmentStrength
+  id: AugmentStrengthCasing
+  name: strength augment casing
+  components:
+  - type: Sprite
+    state: base
+  - type: Construction
+    node: casing
+  - type: Tag
+    tags: [ AugmentStrengthCasing ]
+
+- type: entity
+  parent: BaseIncompleteAugmentStrength
+  id: AugmentStrengthCables
+  name: strength augment casing with cables
+  components:
+  - type: Sprite
+    state: base_cables
+  - type: Construction
+    node: cables
+
+- type: entity
+  parent: BaseAugmentAction
+  id: ActionAugmentToggleStrength
+  name: Toggle strength augment
+  description: Increases your melee damage by 25%, consumes 30W while active.
+  components:
+  - type: Action
+    icon: Interface/Default/blocked.png
+    iconOn: { sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi, state: icon }
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseArmAugment
+  id: AugmentStrength
+  name: strength augment
+  description: Can be implanted into a body to increase physical strength.
+  components:
+  - type: Sprite
+    state: strength
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+  - type: AugmentStrength
+  - type: AugmentPowerDraw
+    draw: 30
+  - type: AugmentAction
+    action: ActionAugmentToggleStrength
+  - type: Construction
+    graph: AugmentStrength
+    node: augment

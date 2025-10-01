@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: janitor's key ring
+  id: KeyRingJanitor
+  parent: [BaseItem, BaseJanitorContraband]
+  description: A janitor's best friend; their trusty old key ring. You can never quite remember which key goes where.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Appearance
+  - type: Keyring
+    unlockAttemptDuration: 12
+    maxPossibleAccesses: 3
+    possibleAccesses:
+    - Medical
+    - Research
+    - Chapel
+    - Engineering
+    - Cargo
+    - Kitchen
+    - Service
+  - type: Tag
+    tags:
+    - Keyring

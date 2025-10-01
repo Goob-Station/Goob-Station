@@ -13,13 +13,8 @@ using JetBrains.Annotations;
 
 namespace Content.Server._DV.Cargo.Systems;
 
-public sealed partial class LogisticStatsSystem : SharedCargoSystem
+public sealed class LogisticStatsSystem : EntitySystem
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     [PublicAPI]
     public void AddOpenedMailEarnings(EntityUid uid, StationLogisticStatsComponent component, int earnedMoney)
     {

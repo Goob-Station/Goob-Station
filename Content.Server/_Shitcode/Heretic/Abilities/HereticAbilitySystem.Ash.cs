@@ -35,12 +35,13 @@ public sealed partial class HereticAbilitySystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
 
-    private void SubscribeAsh()
+    protected override void SubscribeAsh()
     {
+        base.SubscribeAsh();
+
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
         SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
 
-        SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
         SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
         SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
@@ -53,11 +54,13 @@ public sealed partial class HereticAbilitySystem
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
     private bool TryDoJaunt(EntityUid ent)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
@@ -68,43 +71,19 @@ public sealed partial class HereticAbilitySystem
         return true;
     }
 
-    private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        var ignoredTargets = new List<EntityUid>();
-
-        // all ghouls are immune to heretic shittery
-        foreach (var e in EntityQuery<GhoulComponent>())
-            ignoredTargets.Add(e.Owner);
-
-        // all heretics with the same path are also immune
-        foreach (var e in EntityQuery<HereticComponent>())
-            if (e.CurrentPath == ent.Comp.CurrentPath)
-                ignoredTargets.Add(e.Owner);
-
-        if (!_splitball.Spawn(ent, ignoredTargets))
-            return;
-
-        if (ent.Comp is { Ascended: true, CurrentPath: "Ash" }) // will only work on ash path
-            _flammable.AdjustFireStacks(ent, 20f, ignite: true);
-
-        args.Handled = true;
-    }
     private void OnNWRebirth(Entity<HereticComponent> ent, ref EventHereticNightwatcherRebirth args)
     {
         if (!TryUseAbility(ent, args))
             return;
 
         var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
-        var lookup = _lookup.GetEntitiesInRange(ent, power);
+        var lookup = Lookup.GetEntitiesInRange(ent, power);
         var healAmount = -10f - power;
 
         foreach (var look in lookup)
         {
             if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+                || HasComp<GhoulComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
@@ -135,6 +114,7 @@ public sealed partial class HereticAbilitySystem
 
         args.Handled = true;
     }
+
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)
     {
         if (!TryUseAbility(ent, args))
@@ -147,6 +127,7 @@ public sealed partial class HereticAbilitySystem
 
         args.Handled = true;
     }
+
     private void OnCascade(Entity<HereticComponent> ent, ref EventHereticCascade args)
     {
         if (!TryUseAbility(ent, args) || !Transform(ent).GridUid.HasValue)

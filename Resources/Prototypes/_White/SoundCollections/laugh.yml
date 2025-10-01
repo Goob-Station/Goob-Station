@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: XenomorphLaugh
+  files:
+  - /Audio/_White/Voice/Xenomorph/laugh1.ogg
+  - /Audio/_White/Voice/Xenomorph/laugh2.ogg
+  - /Audio/_White/Voice/Xenomorph/laugh3.ogg

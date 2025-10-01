@@ -72,21 +72,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     #region public api
 
-    public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
-    {
-        if (language == PsychomanticPrototype || language == UniversalPrototype || TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) && uni.Enabled)
-            return true;
-
-        return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
-    }
-
-    public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
-    {
-        if (!Resolve(ent, ref ent.Comp, logMissing: false))
-            return false;
-
-        return ent.Comp.SpokenLanguages.Contains(language);
-    }
+    //public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
+    //public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
 
     /// <summary>
     ///     Returns the current language of the given entity, assumes Universal if it's not a language speaker.

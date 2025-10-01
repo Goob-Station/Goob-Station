@@ -34,6 +34,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly TelefragSystem _telefrag = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -100,7 +101,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
 
     private bool TryCheckWall(EntityCoordinates coords)
     {
-        if (!coords.TryGetTileRef(out var tile)
+        if (!_turf.TryGetTileRef(coords, out var tile)
             || !TryComp<MapGridComponent>(tile.Value.GridUid, out var mapGridComponent))
             return false;
 

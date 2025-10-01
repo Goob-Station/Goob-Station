@@ -94,6 +94,7 @@
       - SmokeImplant
       # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
       - BinaryImplant
+      - ChameleonControllerImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
@@ -300,8 +301,7 @@
 
 - type: entity
   id: ChameleonControllerImplanter
-  name: chameleon controller implant
-  suffix: chameleon controller
+  name: chameleon controller implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter

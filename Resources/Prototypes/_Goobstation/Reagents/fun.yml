@@ -83,6 +83,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 9
+      - !type:AdjustReagent
+        reagent: Carpolin
+        amount: -10
+        conditions:
+        - !type:ReagentThreshold
+          min: 9 # keep it the same as above
       - !type:PopupMessage
         type: Local
         messages: [ "reagent-popup-carpolin" ]

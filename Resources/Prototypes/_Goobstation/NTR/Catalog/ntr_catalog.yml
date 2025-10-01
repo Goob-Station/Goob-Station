@@ -1,0 +1,560 @@
+# station
+- type: listing
+  id: NTRExecutiveCrateEVA
+  name: EVA crate
+  description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
+  productEntity: SpawnPodEvaKit
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 5
+  categories:
+  - NTRstation
+  restockTime: 300 # if the station is fucked up in 5 minutes, thats unfortunate lol, 5min tho
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
+
+- type: listing
+  id: NTRExecutiveMindshield
+  name: Mindshield crate
+  description: A crate containing 3 mindshield implants. Corporate advises you to buy them in cargo anyway.
+  productEntity: SpawnPodMindshield
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRstation
+  restockTime: 1200 # give them revs some time man
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
+
+# Some things that are limited are limited for a good reason, keeping it for the yamlwarriors
+
+#- type: listing
+#  id: NTRExecutiveSecHardsuit
+#  name: Security hardsuits crate
+#  description: A crate containing 1 security hardsuit. Please use them wisely.
+#  productEntity: SpawnPodSecHardsuit
+#  icon:
+#    sprite: Structures/Storage/Crates/sec_gear.rsi
+#    state: icon
+#  cost:
+#    NTLoyaltyPoint: 10
+#  categories:
+#  - NTRstation
+#  restockTime: 600
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 300
+
+- type: listing
+  id: NTRExecutiveSpesosSmall
+  name: ntr-executive-spesos-small-name
+  description: ntr-executive-spesos-small-desc
+  productEntity: SpawnPodSpesos
+  icon:
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRstation
+  restockTime: 900 # 15 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900
+
+- type: listing
+  id: NTRExecutiveResearchDisksSmall
+  name: ntr-executive-disk-small-name
+  description: ntr-executive-disk-small-desc
+  productEntity: SpawnPodDisks
+  icon:
+    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
+
+- type: listing
+  id: NTRExecutiveEmergencyMed
+  name: ntr-executive-emergency-meds-name
+  description: ntr-executive-emergency-meds-desc
+  productEntity: SpawnPodEmergencyMed
+  icon:
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 10 # woundmd ahhhh
+  categories:
+  - NTRstation
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 #15min
+
+- type: listing
+  id: NTRExecutiveDisablers
+  name: ntr-executive-disablers-name
+  description: ntr-executive-disablers-desc
+  productEntity: SpawnPodDisablers
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 min
+
+- type: listing
+  id: NTRExecutiveToolsSmall
+  name: ntr-executive-tools-small-name
+  description: ntr-executive-tools-small-desc
+  productEntity: SpawnPodTools
+  icon:
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 3
+  categories:
+  - NTRstation
+  restockTime: 300 # 5 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300
+
+# personal
+
+- type: listing
+  id: NTRExecutiveWaterCoolerGold
+  name: premium water (?) cooler
+  description: Made from the finest 24-karat hardened whiskey in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
+  productEntity: SpawnPodWaterCoolerGold
+  icon:
+    sprite: _Goobstation/Structures/Storage/watercooler.rsi
+    state: watercooler-2
+  cost:
+    NTLoyaltyPoint: 6 # 6 points for something like this is fine, just a meme item lol
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveInternCall
+  name: Call intern squad
+  description: Calls in a lead intern with special summoning coins, that are calling more interns.
+  productEntity: SpawnPodInterns
+  icon:
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon_alt
+  cost:
+    NTLoyaltyPoint: 50
+  categories:
+  - NTRpersonal
+  restockTime: 600 # 10 mins
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
+
+- type: listing
+  id: NTRExecutiveDagger
+  name: Phoron dagger
+  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
+  productEntity: SpawnPodDagger
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
+  categories:
+  - NTRpersonal
+  restockTime: 900 # 15 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1200 # 20 min
+
+- type: listing
+  id: NTRExecutiveSingleIntern
+  name: single Intern Coin
+  description: Summons one basic intern. Interns are on your full command, order them to complete tasks instead of you doing it by yourself, or play cards with them.
+  productEntity: SpawnPodCoin
+  icon:
+    sprite: Objects/Misc/coins.rsi
+    state: coin_gold
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRpersonal
+  restockTime: 300
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 mins
+
+- type: listing
+  id: NTRExecutiveBSDCall
+  name: ntr-executive-bsd-name
+  description: ntr-executive-bsd-desc
+  productEntity: SpawnPodBsd
+  icon:
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon_alt
+  cost:
+    NTLoyaltyPoint: 40
+  categories:
+  - NTRpersonal
+  restockTime: 1800 # 3o min
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
+
+#- type: listing
+#  id: NTRExecutiveHardsuit
+#  name: ntr-executive-hardsuit-name
+#  description: ntr-executive-hardsuit-desc
+#  productEntity: SpawnPodHardsuit
+#  icon:
+#    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+#    state: icon
+#  cost:
+#    NTLoyaltyPoint: 35
+#  categories:
+#  - NTRpersonal
+#  restockTime: 600 # 10 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
+
+- type: listing
+  id: NTRExecutiveCigar
+  name: ntr-executive-cigar-name
+  description: ntr-executive-cigar-desc
+  productEntity: SpawnPodGoldCase
+  icon:
+    sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
+    state: closed
+  cost:
+    NTLoyaltyPoint: 2 # lol
+  categories:
+  - NTRpersonal
+  restockTime: 60 # why not
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300 # 5 mins, NTs running low on them rn, be patient.
+
+- type: listing
+  id: NTRExecutiveWhiskey
+  name: ntr-executive-whiskey-name
+  description: ntr-executive-whiskey-desc
+  productEntity: SpawnPodWhiskey
+  icon:
+    sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 1 # lol
+  categories:
+  - NTRpersonal
+  restockTime: 240 # 4 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 mins so that NTR couldnt die from alcohol poisoning cuz im sure they will
+
+- type: listing
+  id: NTRExecutiveGlasses
+  name: ntr-executive-glasses-name
+  description: ntr-executive-glasses-desc
+  productEntity: SpawnPodCentCommGlasses
+  icon:
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 5
+  categories:
+  - NTRpersonal
+  restockTime: 120
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1200 # 20min
+
+- type: listing
+  id: NTRExecutiveSavalin
+  name: ntr-executive-savaliniaharunianisimious-name # :troll:
+  description: ntr-executive-savaliniaharunianisimious-desc
+  productEntity: SpawnPodSvalinn
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRpersonal
+  restockTime: 300 # 5 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
+
+- type: listing
+  id: NTRExecutiveDeckard
+  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
+  description: ntr-executive-1984-desc
+  productEntity: SpawnPodDeckard
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    state: base
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRpersonal
+  restockTime: 600 # 10 mins
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30mins, the reason above.
+
+- type: listing
+  id: NTRExecutiveCombatKit
+  name: ntr-executive-combatmed-name
+  description: ntr-executive-combatmed-desc
+  productEntity: SpawnPodMedkit
+  icon:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRpersonal
+  restockTime: 300
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30mins, you shouldnt spam this
+
+# Machine boards
+
+- type: listing
+  id: NTRExecutiveFlatpack
+  name: task console flatpack # technically a flatpack but who cares lol
+  description: A normal flatpack containing a spare task console.
+  productEntity: SpawnPodTaskFlatpack
+  icon:
+    sprite: Objects/Devices/flatpack.rsi
+    state: base
+  cost:
+    NTLoyaltyPoint: 0
+  categories:
+  - NTRBoards
+  restockTime: 300
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1200
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2 # come on man, skill issue if you lost 3 consoles
+
+- type: listing
+  id: NTRExecutiveTelecom
+  name: ntr-executive-telecom-name
+  description: ntr-executive-telecom-desc
+  productEntity: SpawnPodTelecom
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 5
+  categories:
+  - NTRBoards
+  restockTime: 900 #15min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 2700 #45 min, you really think someone would need more servers?
+
+- type: listing
+  id: NTRExecutiveFat
+  name: ntr-executive-fat-name
+  description: ntr-executive-fat-desc
+  productEntity: SpawnPodFat
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: service
+  cost:
+    NTLoyaltyPoint: 5 # lol
+  categories:
+  - NTRBoards
+  restockTime: 300 #5min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 # 30min
+
+- type: listing
+  id: NTRExecutiveGravity
+  name: ntr-executive-grav-name
+  description: ntr-executive-grav-desc
+  productEntity: SpawnPodGrav
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: engineering
+  cost:
+    NTLoyaltyPoint: 20
+  categories:
+  - NTRBoards
+  restockTime: 900 # 15min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30min
+
+- type: listing
+  id: NTRExecutiveCargoTeleporter
+  name: ntr-executive-teleporter-name
+  description: ntr-executive-teleporter-desc
+  productEntity: SpawnPodTeleporter
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+  cost:
+    NTLoyaltyPoint: 30 # 30 min cd does its job
+  categories:
+  - NTRBoards
+  restockTime: 1800 #30min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveHolopad
+  name: ntr-executive-holopad-name
+  description: ntr-executive-holopad-desc
+  productEntity: SpawnPodHolopad
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  categories:
+  - NTRBoards
+  cost:
+    NTLoyaltyPoint: 5
+  restockTime: 600 #10min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300 #5 min
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5 # 10 holopads should be enough
+
+- type: listing
+  id: NTRExecutiveCrewMonitoring
+  name: ntr-executive-monitoring-name
+  description: ntr-executive-monitoring-desc
+  productEntity: SpawnPodMonitoring
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_medical
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRBoards
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveRndServer
+  name: ntr-executive-rnd-name
+  description: ntr-executive-rnd-desc
+  productEntity: SpawnPodRnd
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: science
+  cost:
+    NTLoyaltyPoint: 100
+  categories:
+  - NTRBoards
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # yeh more than 1 server is too much already, we dont want ntr to buy this one if the old one wasnt stolen or smth
+
+- type: listing
+  id: NTRExecutiveComms
+  name: ntr-executive-comms-name
+  description: ntr-executive-comms-desc
+  productEntity: SpawnPodComms
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_command
+  cost:
+    NTLoyaltyPoint: 65 #pheenty: 65
+  categories:
+  - NTRBoards
+  restockTime: 2400 # 40min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveCargoSell # todo: delete when upstream hits, making these unbreakable
+  name: ntr-executive-cargosell-name
+  description: ntr-executive-cargosell-desc
+  productEntity: SpawnPodCargo
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+  cost:
+    NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
+  restockTime: 1500 # 25min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 min
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: NTRExecutiveCargoShuttle
+  name: ntr-executive-cargoshuttle-name
+  description: ntr-executive-cargoshuttle-desc
+  productEntity: SpawnPodCargoShuttle
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
+  cost:
+    NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
+  restockTime: 1800 # 30min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: NTRExecutiveShuttle
+  name: ntr-executive-shuttle-name
+  description: ntr-executive-shuttle-desc
+  productEntity: SpawnPodShuttle
+  icon:
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 30
+  categories:
+  - NTRBoards
+  restockTime: 1200 # 20min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# evil (debug)
+# todo: add more debug stuff / and possibly make this open if emagged or something, but it was never intended for it tho.
+- type: listing
+  id: NTRExecutiveDebugCodes
+  name: Nuclear codes
+  description: Stand ready for my arrival, worm.
+  productEntity: BoxFolderNuclearCodes
+  cost:
+    NTLoyaltyPoint: 250
+  categories:
+  - NTREvil
+  restockTime: 2700 # 45 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
