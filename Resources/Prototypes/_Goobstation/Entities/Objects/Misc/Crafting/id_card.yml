@@ -9,6 +9,9 @@
     state: icon
   - type: IdCard
     jobTitle: job-name-tider
+    # no job icon so you are valid to AI...
+  - type: Access
+    tags: [ Maintenance ] # same as regular assistant id
   - type: Construction
     graph: MakeshiftIDCard
     node: final
