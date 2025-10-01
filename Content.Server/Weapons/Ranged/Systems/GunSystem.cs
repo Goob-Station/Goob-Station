@@ -205,6 +205,18 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapAngle = mapDirection.ToAngle();
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
+        // Goobstation start
+        var angleEv = new GetRecoilModifiersEvent()
+        {
+            Gun = gunUid,
+            User = user ?? gunUid
+        };
+        if (user != null)
+            RaiseLocalEvent(user.Value, angleEv);
+        RaiseLocalEvent(gunUid, angleEv);
+        angle *= angleEv.Modifier;
+        // Goobstation end
+
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
