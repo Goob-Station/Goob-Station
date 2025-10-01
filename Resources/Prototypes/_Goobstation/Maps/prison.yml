@@ -1,5 +1,5 @@
 - type: gameMap
-  id: Prison
+  id: PrisonStation
   mapName: 'Prison'
   mapPath: /Maps/_Goobstation/prison.yml
   minPlayers: 60
@@ -8,7 +8,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Prison {1}'
+          mapNameTemplate: '{0} Prison Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'Goobstation'
