@@ -119,6 +119,7 @@
     Formaldehyde: 1
     Water: 1
 
+- type: reaction
   id: Honk
   impact: Medium
   minTemp: 420
