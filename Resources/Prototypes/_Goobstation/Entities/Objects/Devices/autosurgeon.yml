@@ -136,9 +136,7 @@
     entries:
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Right
-      componentsToPart:
-      - type: SmartLinkArm
+      newPartProto: SmartlinkRightHand
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Left
-      componentsToPart:
-      - type: SmartLinkArm
+      newPartProto: SmartlinkLeftHand
