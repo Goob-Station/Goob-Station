@@ -4651,3 +4651,10 @@
   id: 9018
   time: '2025-09-30T21:55:10.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40618
+- author: leahcat
+  changes:
+  - message: moved desoxyephedrine from ambrosia plants to glasstle.
+    type: Tweak
+  id: 9019
+  time: '2025-10-01T04:05:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40638
