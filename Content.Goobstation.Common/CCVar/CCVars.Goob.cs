@@ -549,6 +549,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> LightUpdateFrequency =
         CVarDef.Create("light.detection_update_frequency", 1f, CVar.SERVER);
 
+    /// <summary>
+    /// Maximum light level for light detection system to check.
+    /// </summary>
+    public static readonly CVarDef<float> LightMaximumLevel =
+        CVarDef.Create("light.maximum_light_level", 10f, CVar.SERVER);
+
 
     #endregion
 

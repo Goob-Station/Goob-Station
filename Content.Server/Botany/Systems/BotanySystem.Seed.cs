@@ -38,6 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.NTR.Scan; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
@@ -196,7 +197,8 @@ public sealed partial class BotanySystem : EntitySystem
             var entity = Spawn(product, position);
             _randomHelper.RandomOffset(entity, 0.25f);
             products.Add(entity);
-
+            if (TryComp<ScannableForPointsComponent>(entity, out var scannable)) // Goobstation
+                scannable.Points = 0; // Goobstation, to prevent ntr duping points with botanists
             var produce = EnsureComp<ProduceComponent>(entity);
 
             produce.Seed = proto;

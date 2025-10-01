@@ -1,11 +1,13 @@
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
+using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -26,6 +28,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -133,6 +136,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
                 EnsureComp<SlowedDownComponent>(uid);
                 _appearance.AddMarking(uid, "AbominationTorso");
                 _appearance.AddMarking(uid, "AbominationHorns");
+
+                // take another hardcoded variable
+                _damageable.SetDamageModifierSetId(uid, "ShadowlingAbomination");
                 break;
             }
         }
@@ -160,6 +166,18 @@ public abstract class SharedShadowlingSystem : EntitySystem
         if (HasComp<ThrallComponent>(target))
         {
             _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-already-thrall"), uid, uid, PopupType.SmallCaution);
+            return false;
+        }
+
+        if (!TryComp<MindControllableComponent>(target, out var mindControllable) || mindControllable.ControlledBySomeone)
+        {
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-cant-be-controlled"), uid, uid, PopupType.SmallCaution);
+            return false;
+        }
+
+        if (!TryComp<MindContainerComponent>(target, out var mind) || !mind.HasMind)
+        {
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-no-mind"), uid, uid, PopupType.SmallCaution);
             return false;
         }
 
