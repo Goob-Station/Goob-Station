@@ -76,6 +76,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Shared.Cuffs.Components;
+using Content.Server.Cuffs;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -116,6 +117,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly CuffableSystem _cuffable = default!;
 
     private ISawmill _sawmill = default!;
     private TimeSpan _t3RevealDelay = default!;
@@ -406,7 +408,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (query.MoveNext(out var ent, out var comp, out var mob)) // goob edit
         {
 
-            if (TryComp<CuffableComponent>(ent, out var cuffComp) && cuffComp.CuffedHandCount > 0) // goob edit
+            if (TryComp<CuffableComponent>(ent, out var cuffComp) && _cuffable.IsCuffed((ent, cuffComp))) // goob edit
                 continue; // dont count restrained cultists as counting towards objectives.
 
             if (!mob.Running
