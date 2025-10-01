@@ -6,7 +6,6 @@
 
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
-using Content.Shared.CCVar;
 using Content.Shared.Flash.Components;
 using Robust.Shared.Configuration;
 
