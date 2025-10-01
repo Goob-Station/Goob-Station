@@ -308,10 +308,10 @@
         visible: false
         shader: unshaded
     - type: Flash
-      meleeDuration: 7.0
+      meleeDuration: 7.0 # Goobstation Start - Total Flash Death
       aoeFlashDuration: 6.0
-      meleeStunDuration: 2.5
-      slowTo: 1.5
+      meleeStunDuration: 2.5 
+      slowTo: 1.5 # Goobstation End - Total Flash Death
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
