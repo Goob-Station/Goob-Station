@@ -613,7 +613,7 @@ public sealed class RCDSystem : EntitySystem
             if (_doorSystem.IsBolted(target.Value))
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-no-access"), uid, user);
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-is-bolted"), uid, user);
 
                 return false;
             }
