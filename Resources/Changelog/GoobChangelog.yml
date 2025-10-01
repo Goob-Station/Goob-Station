@@ -15696,3 +15696,9 @@ Entries:
       message: Origin and Saltern finally got some of the new stuff.
   id: 1756
   time: '2025-10-01T12:56:16.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: CC glasses now cant doxx lings and antags.
+  id: 1757
+  time: '2025-10-01T17:16:03.0000000+00:00'
