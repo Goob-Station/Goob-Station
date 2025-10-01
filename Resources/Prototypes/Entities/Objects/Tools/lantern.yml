@@ -124,7 +124,7 @@
       radius: 5
       energy: 10
     - type: Flash
-      aoeFlashDuration: 10.0
+      aoeFlashDuration: 10.0 # Goobstation - Total Flash Death
       flashOnMelee: false
       flashOnUse: false
     - type: LimitedCharges
