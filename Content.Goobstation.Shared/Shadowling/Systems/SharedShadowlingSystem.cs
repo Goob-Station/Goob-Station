@@ -223,12 +223,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
         EntityManager.AddComponents(target, comps);
 
         if (TryComp<ShadowlingComponent>(uid, out var sling))
-        {
             sling.Thralls.Add(target);
-
-            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
-                _lightDamage.AddResistance((uid, lightDet), sling.LightResistanceModifier);
-        }
 
         _audio.PlayPredicted(
             new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"),
