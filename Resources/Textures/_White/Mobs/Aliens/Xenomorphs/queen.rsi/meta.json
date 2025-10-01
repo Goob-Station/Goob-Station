@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation on: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alienqueen.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "xenomorph",
+      "directions": 4
+    },
+    {
+      "name": "xenomorph_sleep"
+    },
+    {
+      "name": "xenomorph_unconscious"
+    },
+    {
+      "name": "xenomorph_dead"
+    }
+  ]
+}

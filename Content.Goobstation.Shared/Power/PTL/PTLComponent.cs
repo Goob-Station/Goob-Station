@@ -20,8 +20,8 @@ public sealed partial class PTLComponent : Component
 
     [DataField, AutoNetworkedField] public double SpesosHeld = 0f;
 
-    [DataField] public double MinShootPower = 1e6; // 1 MJ
-    [DataField] public double MaxEnergyPerShot = 1e8; // 100 MJ, Used to limit evil effects, but not coded so doesn't do anything
+    [DataField] public double MinShootPower = 1e6f; // 1 MJ
+    [DataField] public double MaxEnergyPerShot = 5e6; // 5 MJ
 
     [DataField, AutoNetworkedField] public float ShootDelay = 10f;
     [DataField, AutoNetworkedField] public float ShootDelayIncrement = 5f;

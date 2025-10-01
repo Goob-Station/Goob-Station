@@ -51,7 +51,7 @@
     requiredCultists: 3
     activationDamage:
       types:
-        Asphyxiation: 30
+        Asphyxiation: 10
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -67,10 +67,10 @@
     drawdepth: Puddles
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    requiredCultists: 2
+    requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 30
+        Asphyxiation: 10
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -94,7 +94,7 @@
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 20
+        Asphyxiation: 10
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -117,10 +117,10 @@
       components:
       - Sharp
   - type: CosmicGlyph
-    requiredCultists: 2
+    requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 20
+        Asphyxiation: 10
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -143,10 +143,10 @@
       - ClothingSpeedModifier
       - PressureProtection
   - type: CosmicGlyph
-    requiredCultists: 2
+    requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 30
+        Asphyxiation: 10
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 

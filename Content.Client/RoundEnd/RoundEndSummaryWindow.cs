@@ -51,6 +51,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
+using Content.Goobstation.Common.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
@@ -82,6 +83,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            roundEndTabs.AddChild(MakeStationReportTab()); //goob
 
             Contents.AddChild(roundEndTabs);
 
@@ -216,6 +218,38 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
+        private BoxContainer MakeStationReportTab() //Goob edit start
+        {
+            //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
+            var stationReportSystem = _entityManager.System<Content.Goobstation.Common.StationReport.StationReportSystem>();
+            string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
+            var stationReportTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
+            };
+            var StationReportContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10),
+                HScrollEnabled = false,
+            };
+            var StationReportContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+            var StationReportLabel = new RichTextLabel();
+            var StationReportmessage = new FormattedMessage();
+            StationReportmessage.AddMarkupOrThrow(stationReportText);
+            StationReportLabel.SetMessage(StationReportmessage);
+            StationReportContainer.AddChild(StationReportLabel);
+
+
+            StationReportContainerScrollbox.AddChild(StationReportContainer);
+            stationReportTab.AddChild(StationReportContainerScrollbox);
+            return stationReportTab;
+        }
+        //Goob edit end
     }
 
 }

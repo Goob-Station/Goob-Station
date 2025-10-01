@@ -17,9 +17,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterBotanist
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
   equipment:
     head: ClothingHeadHatBeretSeniorBotanist
 

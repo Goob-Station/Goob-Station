@@ -80,8 +80,8 @@
   - type: MovementSpeedModifier
     baseAcceleration: 8
     baseFriction: 0.2 # wheels dont stop instantly
-    baseSprintSpeed: 6
-    baseWalkSpeed: 4.5 # default walking speed
+    baseSprintSpeed: 8.5
+    baseWalkSpeed: 4.5 # default walking speed 
   - type: ItemSlots
     slots:
       key_slot:

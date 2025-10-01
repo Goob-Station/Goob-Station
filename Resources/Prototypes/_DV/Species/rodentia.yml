@@ -29,7 +29,7 @@
   naming: LastFirst
   # begin Goobstation: port EE height/width sliders
   sizeRatio: 1.1 # i don't know WHY, but disproportionate rodentia always look weird.
-  minHeight: 0.75
+  minHeight: 0.8
   defaultHeight: 0.80
   maxHeight: 1.15
   minWidth: 0.80

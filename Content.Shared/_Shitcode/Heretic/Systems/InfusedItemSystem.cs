@@ -59,9 +59,7 @@ public sealed class InfusedItemSystem : EntitySystem
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 
-        if (TryComp<HandsComponent>(target, out var hands))
-            _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
-
+        _hands.TryDrop(target, Transform(target).Coordinates);
         SpendInfusionCharges(ent);
     }
 

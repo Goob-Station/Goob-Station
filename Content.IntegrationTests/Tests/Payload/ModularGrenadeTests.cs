@@ -21,7 +21,7 @@ namespace Content.IntegrationTests.Tests.Payload;
 public sealed class ModularGrenadeTests : InteractionTest
 {
     public const string Trigger = "TimerTrigger";
-    public const string Payload = "ExplosivePayload";
+    public const string Payload = "ShrapnelPayload";
 
     /// <summary>
     /// Test that a modular grenade can be fully crafted and detonated.

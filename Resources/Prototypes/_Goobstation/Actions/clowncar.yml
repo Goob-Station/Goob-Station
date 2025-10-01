@@ -33,3 +33,19 @@
     useDelay: 30
   - type: InstantAction
     event: !type:QuietBackThereActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionDrivingWithStyle
+  name: JukeBox
+  description: Drive with music
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Structures/Machines/jukebox.rsi
+      state: "on"
+    useDelay: 1
+  - type: InstantAction
+    event: !type:DrivingWithStyleActionEvent
+
