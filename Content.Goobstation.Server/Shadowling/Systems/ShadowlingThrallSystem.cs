@@ -61,7 +61,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)
     {
         if (HasComp<ShadowlingComponent>(args.Examiner)
-            && component.Converter != args.Examiner)
+            && component.Converter == args.Examiner)
             args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-examined")}[/color]"); // Indicates that it is your Thrall
 
         var ev = new IsEyesCoveredCheckEvent();
@@ -70,6 +70,6 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         if (ev.IsEyesProtected)
             return;
 
-        args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-other-examined", ("target", Identity.Entity(uid, EntityManager)))}[/color]");
+        args.PushMarkup($"[color=pink]{Loc.GetString("shadowling-thrall-other-examined", ("target", Identity.Entity(uid, EntityManager)))}[/color]");
     }
 }

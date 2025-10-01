@@ -22,7 +22,7 @@
     - Ascendance
   - type: LightDetection
   - type: LightDetectionDamage
-    resistanceModifier: 0.5
+    # resistanceModifier: Todo: find why it doesn't work correctly
 
 - type: entity
   id: ShadowlingAbilitiesObtainable
