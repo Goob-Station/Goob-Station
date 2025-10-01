@@ -332,7 +332,7 @@
   parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsGlovesMercenary
   name: Mercenary gloves
-  description: Template
+  description: Not insulated, but they sure look cool.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/mercgloves.rsi

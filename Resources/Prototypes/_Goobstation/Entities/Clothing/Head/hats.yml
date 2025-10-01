@@ -397,7 +397,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadMercenaryBeret
   name: Mercenary beret
-  description: Template
+  description: A beret commonly worn by private military contractors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/beret_mercenary.rsi
@@ -408,7 +408,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadMercenaryCap
   name: Mercenary cap
-  description: Template
+  description: A cap commonly worn by private military contractors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/merccap.rsi

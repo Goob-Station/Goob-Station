@@ -270,7 +270,7 @@
   parent: ClothingBeltSecurity
   id: ClothingBeltMercenary
   name: Mercenary Belt
-  description: Template.
+  description: A belt commonly worn by private military contractors. Can carry MRE flasks and bricks.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/mercenary.rsi

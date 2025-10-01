@@ -310,7 +310,7 @@
   parent: ClothingOuterVoidsuitSecurity
   id: ClothingOuterVoidsuitMercenary
   name: Mercenary hardsuit
-  description: Template
+  description: A voidsuit commonly worn by private military contractors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi

@@ -247,7 +247,7 @@
   parent: ClothingHeadHelmetVoidsuitSecurity
   id: ClothingHeadHelmetVoidsuitMercenary
   name: mercenary hardsuit helmet
-  description: Template
+  description: A voidsuit helmet commonly worn by private military contractors.
   components:
   - type: BreathMask
   - type: Sprite

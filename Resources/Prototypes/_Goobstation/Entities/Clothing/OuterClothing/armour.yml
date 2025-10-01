@@ -414,7 +414,7 @@
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorMercenaryArmor
   name: Mercenary armor
-  description: Template
+  description: Just about durable enough to get the job done.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/merc_armor.rsi
