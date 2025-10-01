@@ -33,6 +33,7 @@ rcd-component-deconstruct-target-not-on-whitelist-message = You can't deconstruc
 rcd-component-nothing-to-deconstruct-message = There's nothing to deconstruct!
 rcd-component-tile-obstructed-message = You can't deconstruct tiles when there's something on top of them!
 rcd-component-deconstruct-target-no-access = You don't have access to deconstruct that!
+rcd-component-deconstruct-target-is-bolted = Mechanism's bolts prevent deconstruction!
 
 # Construction
 rcd-component-no-valid-grid = You're too far into open space to build here!
