@@ -40,6 +40,7 @@ guide-entry-sop-epsilonalert = Epsilon Alert
 guide-entry-sop-gammaalert = Gamma Alert
 guide-entry-sop-violetalert = Violet Alert
 guide-entry-sop-omicronalert = Omicron Alert
+guide-entry-sop-zulualert = Zulu Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
 guide-entry-sop-evacuation = Early Evacuation

@@ -55,3 +55,7 @@ alert-level-omicron-instructions = Await further orders.
 alert-level-octarine = Octarine
 alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
+
+alert-level-zulu = Zulu
+alert-level-zulu-announcement = Any contract that Nanotrasen once held with this stations captain should now be considered terminated, security is to arrest the former captain and await further instructions, failure to do this will result in a code Epsilon, any personal found trying to prevent the arrest of the captain is to be arrested. The fire rises...
+alert-level-zulu-instructions = Crewmembers are required to follow any orders from security personal and heads of staff, security is required to arrest the former captain.

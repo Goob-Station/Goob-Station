@@ -138,6 +138,22 @@ The [color=#db7093]Gamma Alert[/color] is rare and often only used in extreme ca
 
 The [color=#cc74fc]Violet Alert[/color] is set for viral outbreaks when a zombie infection or other disease occurs.
 
+<Table Columns="1">
+  <ColorBox Color="#6a089eff">
+    <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      [bold][color=#ffffff][head=1]Zulu Alert[/head][/color][/bold]
+    </Box>
+  </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Attention! Station alert level is now zulu! Any contract that Nanotrasen once held with this stations captain should now be considered terminated, security is to arrest the former captain and await further instructions, failure to do this will result in a code Epsilon, any personal found trying to prevent the arrest of the captain is to be arrested. The fire rises...
+    </Box>
+  </ColorBox>
+</Table>
+
+The [color=#6a089eff]Zulu Alert[/color] is set for when the stations captains contract is terminated by Central Command for lack of leadership or otherwise but the ordered demotion has been refused or failed.
+
+
 These alerts can be found in entries listed below:
 - [textlink="Green Alert" link="GreenAlert SOP"]
 - [textlink="Blue Alert" link="BlueAlert SOP"]
@@ -147,5 +163,6 @@ These alerts can be found in entries listed below:
 - [textlink="Epsilon Alert" link="EpsilonAlert SOP"]
 - [textlink="Gamma Alert" link="GammaAlert SOP"]
 - [textlink="Violet Alert" link="VioletAlert SOP"]
+- [textlink="Zulu Alert" link="ZuluAlert SOP"]
 
 </Document>

@@ -174,3 +174,11 @@
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    zulu: # Goobstation
+      announcement: alert-level-zulu-announcement
+      selectable: false
+      sound: /Audio/Misc/Zulu.ogg
+      color: Purple
+      emergencyLightColor: Purple
+      forceEnableEmergencyLights: true
+      shuttleTime: 600

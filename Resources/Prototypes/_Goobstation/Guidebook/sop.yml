@@ -37,6 +37,7 @@
   - GammaAlert SOP
   - VioletAlert SOP
   - OmicronAlert SOP
+  - ZuluAlert SOP
 
 # Emergencies Main Directory
 - type: guideEntry
@@ -208,6 +209,11 @@
   id: OmicronAlert SOP
   name: guide-entry-sop-omicronalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/OmicronAlertSOP.xml"
+
+- type: guideEntry
+  id: ZuluAlert SOP
+  name: guide-entry-sop-zulualert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/ZuluAlertSOP.xml"
 
 # Basic SOP Entries
 - type: guideEntry
