@@ -316,6 +316,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetVoidsuitMercenary
