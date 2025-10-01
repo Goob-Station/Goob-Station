@@ -166,7 +166,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [Dependency] private readonly ExplosionSystem _explosion = null!; // Goobstation
+    [Dependency] private readonly ExplosionSystem _explosion = default!; // Goobstation
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
