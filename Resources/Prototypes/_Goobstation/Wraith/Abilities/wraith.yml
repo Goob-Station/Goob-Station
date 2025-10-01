@@ -47,6 +47,7 @@
       Vomit: 2
       Toxin: 2
   - type: SummonPlagueRat
+  - type: SummonRotHulk
   - type: WraithCommand
     blacklist:
       components:
@@ -89,6 +90,7 @@
     - ActionCurseDeath
     - ActionDefile
     - ActionSummonPlagueRat
+    - ActionSummonRotHulk
   # - Haunt
   # - ActionGrant
   # actions:

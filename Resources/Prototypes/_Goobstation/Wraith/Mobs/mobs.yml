@@ -71,6 +71,13 @@
   name: skeleton commander
   description: A bulky skeleton here to encourage his friends.
   components:
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -143,6 +150,13 @@
   id: MobVoidSpiker
   description: Standing still is probably not a good idea.
   components:
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/void.rsi
@@ -216,6 +230,13 @@
   id: MobVoidHound
   description: You probably shouldn't be staring at this thing.
   components:
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/void.rsi
@@ -280,6 +301,13 @@
   name: plague rat
   description: A diseased looking rat.
   components:
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/rat.rsi
@@ -425,6 +453,115 @@
             sound:
               path: /Audio/Items/snap.ogg
 
+- type: entity
+  id: MobRotHulk
+  suffix: Wraith
+  parent: [ BaseMob, MobCombat ]
+  name: Bloated abomination
+  description: A rotting, walking mass of flesh.
+  components:
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rothulk.rsi
+    layers:
+      - state: rot_hulk
+  - type: NpcFactionMember
+    factions:
+      - Wraith
+  - type: WraithMinion
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcFist
+    soundHit:
+      collection: Flesh_Tear
+    damage:
+      groups:
+        Brute: 10
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+  - type: Damageable 
+    damageContainer: Biological 
+    damageModifierSet: Diona # Weak to heat
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib2.ogg
+
+- type: entity
+  id: MobRotHulkBuff
+  suffix: Wraith
+  parent: MobRotHulk
+  name: Huge plague-ridden goliath
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rothulk.rsi
+    layers:
+      - state: rot_hulkbuff
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 10
+        Blunt: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+  - type: Damageable 
+    damageContainer: Biological 
+    damageModifierSet: Moth # Not as weak to heat, but still vulnerable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 160
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib2.ogg
+
 
 - type: entity
   id: MobSkeletonGoonWraith
@@ -441,10 +578,10 @@
   - type: WraithMinion
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      collection: Wraith_Raise
       params:
           volume: -5
-          maxDistance: 20
+          maxDistance: 10
           variation: 0.8
 
 - type: entity
@@ -455,10 +592,10 @@
   - type: WraithMinion
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      collection: Wraith_Raise
       params:
           volume: -5
-          maxDistance: 20
+          maxDistance: 10
           variation: 0.8
 
 - type: entity
@@ -469,8 +606,8 @@
   - type: WraithMinion
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      collection: Wraith_Raise
       params:
           volume: -5
-          maxDistance: 20
+          maxDistance: 10
           variation: 0.8
