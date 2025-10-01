@@ -525,6 +525,7 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    - ConstructionBagOfHolding
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
@@ -885,6 +886,7 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
+    - Genetics
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language

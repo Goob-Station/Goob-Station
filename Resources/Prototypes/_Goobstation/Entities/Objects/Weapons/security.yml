@@ -60,9 +60,9 @@
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
-    shader: unshaded
     layers:
     - state: energy_ball
+      shader: unshaded
     scale: 0.5, 0.5
   - type: ScaleData
     scale: 0.5, 0.5
@@ -173,3 +173,4 @@
     - Spray
     - PepperSpray
     - Trash
+    - SecBeltEquip
