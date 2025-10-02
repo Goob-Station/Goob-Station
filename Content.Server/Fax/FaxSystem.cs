@@ -462,7 +462,7 @@ public sealed class FaxSystem : EntitySystem
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
         else if (component.PaperSlot.Item != null && TryComp<FaxableObjectComponent>(component.PaperSlot.Item, out var faxcomp) && !faxcomp.Copyable) // goobstation
-            _explosion.QueueExplosion(uid, "Default", 20, 3, 3.4f, 1f, 0, false, uid);
+            _explosion.QueueExplosion(uid, "Default", 20, 65, 3.4f, 1f, 0, false, uid);
         else
             Copy(uid, component, args);
     }
@@ -482,7 +482,7 @@ public sealed class FaxSystem : EntitySystem
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
         else if (component.PaperSlot.Item != null && TryComp<FaxableObjectComponent>(component.PaperSlot.Item, out var faxcomp) && !faxcomp.Copyable) // goobstation
-            _explosion.QueueExplosion(uid, "Default", 20, 3, 3.4f, 1f, 0, false, uid);
+            _explosion.QueueExplosion(uid, "Default", 20, 65, 3.4f, 1f, 0, false, uid);
         else
             Send(uid, component, args);
     }
