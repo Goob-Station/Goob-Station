@@ -13,7 +13,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-1,-1,1,1"
         density: 1000
         mask:
         - LargeMobMask
@@ -48,7 +48,7 @@
     startingCharge: 1000
   - type: Gun
     projectileSpeed: 10
-    fireRate: 0.2
+    fireRate: 0.3
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -72,6 +72,10 @@
     thresholds:
       0: Alive
       2500: Dead
+  - type: Butcherable
+    spawned:
+    - id: FireballSpellbook
+      amount: 1
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Hierophant

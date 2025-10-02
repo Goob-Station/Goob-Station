@@ -13,7 +13,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-1,-2,1,1"
         density: 1000
         mask:
         - LargeMobMask
@@ -41,8 +41,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    projectileSpeed: 8
-    fireRate: 1.5
+    projectileSpeed: 20
+    fireRate: 0.8
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -70,11 +70,15 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Hierophant
+  - type: Advertise
+    pack: ColossusWords
+    minimumWait: 15
+    maximumWait: 40
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: BossImpactFootstep
+      path: /Audio/_Lavaland/Effects/meteorimpact.ogg
       params:
-        volume: 1
+        volume: 5
   - type: TileMovement
   - type: BossMusic
     soundId: Colossus
@@ -83,6 +87,6 @@
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: Megafauna
-    loot: LavalandHierophantClub
+    loot: LavalandCrateNecropolisCultArmor
   - type: DamageSquareImmunity
     isImmune: true

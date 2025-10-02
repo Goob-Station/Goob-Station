@@ -1,9 +1,15 @@
 - type: entity
   name: Legion
   id: LavalandBossMegaLegion
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: LavalandMobBase
   description: One of many.
   components:
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Lavaland/Mobs/legion_spawn.ogg
+      params:
+          volume: 5
+          maxDistance: 30
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
@@ -24,7 +30,7 @@
     - SimpleHostile
   - type: HTN
     rootTask:
-      task: SimpleRangedHostileCompound
+      task: SimpleHostileCompound
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/96x96.rsi
@@ -63,6 +69,6 @@
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
   - type: Megafauna
-    loot: LavalandHierophantClub
+    loot: LavalandCrateNecropolisCultArmor
   - type: DamageSquareImmunity
     isImmune: true

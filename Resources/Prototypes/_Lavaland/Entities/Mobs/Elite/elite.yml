@@ -59,13 +59,13 @@
     damageModifierSet: Hierophant
   - type: TileMovement
   - type: BossMusic
-    soundId: MiniBoss
+    soundId: Miniboss
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 8 # times more dangerous than a crew-member
   - type: Megafauna
-    loot: LavalandHierophantClub
+    loot: LavalandCrateNecropolisCultArmor
 
 - type: entity
   name: Legionnaire
@@ -107,7 +107,7 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 3
   - type: BossMusic
-    soundId: MiniBoss
+    soundId: Miniboss
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: MobThresholds
@@ -253,7 +253,7 @@
       0: Alive
       1000: Dead
   - type: BossMusic
-    soundId: MiniBoss
+    soundId: Miniboss
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: Damageable
@@ -300,7 +300,7 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 3
   - type: BossMusic
-    soundId: MiniBoss
+    soundId: Miniboss
   - type: Aggressive # also required component for aggro checking
     forgiveRange: 20.0
   - type: MobThresholds

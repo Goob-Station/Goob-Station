@@ -13,7 +13,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-1,-2,1,1"
         density: 1000
         mask:
         - LargeMobMask
@@ -48,8 +48,8 @@
     - CannotSuicide
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -70,6 +70,6 @@
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
   - type: Megafauna
-    loot: LavalandHierophantClub
+    loot: LavalandCrateNecropolisCultArmor
   - type: DamageSquareImmunity
     isImmune: true
