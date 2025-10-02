@@ -15710,3 +15710,9 @@ Entries:
         overall
   id: 1758
   time: '2025-10-02T05:48:59.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: 'BSD, intern squad, phoron dagger and deckard from NTR uplink. '
+  id: 1759
+  time: '2025-10-02T07:14:20.0000000+00:00'
