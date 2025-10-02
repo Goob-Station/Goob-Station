@@ -22,3 +22,7 @@
   id: InternWelcome5
   sound: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/welcome_5.ogg
   announcer: Intern
+
+- type: roundAnnouncement
+  id: EnjoyYS
+  sound: /Audio/_CorvaxGoob/Announcements/enjoyyourstay.ogg

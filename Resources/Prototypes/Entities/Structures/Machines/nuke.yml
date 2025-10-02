@@ -126,7 +126,7 @@
         components:
         - NukeDisk
     alertLevelOnActivate: delta
-    alertLevelOnDeactivate: green
+    alertLevelOnDeactivate: red # CorvaxGoob-Announcements
     alertLevelOnOverride: omicron # Goobstation
   - type: InteractionOutline
   - type: ActivatableUI

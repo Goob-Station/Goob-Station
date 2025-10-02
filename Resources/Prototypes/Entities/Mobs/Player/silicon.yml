@@ -195,6 +195,7 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
+    sound: /Audio/_CorvaxGoob/Announcements/aiannounce.ogg # CorvaxGoob-Announcements
   - type: ShowJobIcons
   - type: ShowHealthIcons #Goobstation
   - type: ShowHealthBars #Goobstation
