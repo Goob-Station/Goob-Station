@@ -76,20 +76,6 @@
     },
     {
       "name": "eyes-idk"
-    },
-    {
-      "name": "heart-berserker-off"
-    },
-    {
-      "name": "heart-berserker-on",
-      "delays": [
-        [
-          0.4,
-          0.2,
-          0.4,
-          0.2
-        ]
-      ]
     }
   ]
 }
