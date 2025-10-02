@@ -4697,3 +4697,11 @@
   id: 9025
   time: '2025-10-02T09:02:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39567
+- author: kosticia
+  changes:
+  - message: Anomalies with inconsistent particles no longer shuffle right before
+      collision with particle.
+    type: Fix
+  id: 9026
+  time: '2025-10-02T20:11:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40624
