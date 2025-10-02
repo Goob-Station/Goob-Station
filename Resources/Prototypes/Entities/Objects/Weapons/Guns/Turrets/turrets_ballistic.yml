@@ -33,13 +33,13 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 250 # Goobstation
+        damage: 350 # Goobstation
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
-    fireRate: 2
+    fireRate: 5
     selectedMode: FullAuto
     availableModes:
     - FullAuto

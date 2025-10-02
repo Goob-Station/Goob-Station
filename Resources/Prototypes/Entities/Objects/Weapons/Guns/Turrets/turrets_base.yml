@@ -73,7 +73,7 @@
       task: TurretCompound
     blackboard:
       RotateSpeed: !type:Single
-        3.141
+        9 #Goob change
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
   - type: MouseRotator

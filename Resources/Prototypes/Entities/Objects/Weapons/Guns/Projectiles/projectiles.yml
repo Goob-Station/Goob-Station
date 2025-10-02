@@ -1291,7 +1291,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
+        Heat: 20 #Goob 4 hits to kill > 5 hits
 
 - type: entity
   name : disabler bolt
