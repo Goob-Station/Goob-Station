@@ -541,6 +541,10 @@
     tags:
     - RawMaterial
     - Diamond
+  - type: Enchanter # Goobstation
+    maxLevel: 3 # Non-inert cores can roll max level
+    enchants:
+    - EnchantFortune
 
 - type: entity
   parent: MaterialDiamond
