@@ -7,12 +7,12 @@ namespace Content.Shared._Lavaland.EntityShapes.Components;
 /// <summary>
 /// Spawns an entity shape on MapInit.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ShapeSpawnerComponent : Component
 {
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public EntityShape Shape;
 
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public EntProtoId Spawn;
 }
