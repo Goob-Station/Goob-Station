@@ -139,7 +139,7 @@ namespace Content.Server.Medical
 
         private void AddAlternativeVerbs(EntityUid uid, MedicalScannerComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanAccess || !args.CanInteract)
+            if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
                 return;
 
             // Eject verb
