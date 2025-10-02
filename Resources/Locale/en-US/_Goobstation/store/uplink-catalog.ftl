@@ -285,6 +285,9 @@ uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlin
 uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
 uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
+uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
+uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
