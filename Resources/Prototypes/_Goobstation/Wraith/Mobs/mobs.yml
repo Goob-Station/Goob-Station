@@ -301,6 +301,15 @@
   name: plague rat
   description: A diseased looking rat.
   components:
+  - type: DiseasedRat
+  - type: EatFilth
+  - type: RatBite
+    reagents:
+      Toxin: 8 # Swap for rat spit once virology is added
+  - type: ActionGrant
+    actions:
+    - ActionEatFilth
+    - ActionRatBite
   - type: EmitSoundOnSpawn
     sound:
       collection: Wraith_Raise

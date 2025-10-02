@@ -80,6 +80,74 @@
 
 # Used for Diseased Rat, and its variants.
 
+- type: entity
+  id: ActionEatFilth
+  name: Eat filth
+  description: Eat some filth, healing you a little bit and slowly growing.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Heretic/eatfood.ogg #Why is this generic eating sound stored in the heretic folder?
+      useDelay: 2
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: eatfilth
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      tags:
+      - Trash
+    canTargetSelf: false
+    event: !type:EatFilthEvent
 
+- type: entity
+  id: ActionRatBite
+  name: Bite
+  description: Bite a living creature, doing a little damage and injecting them with some rat poison.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+      useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratbite
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:RatBiteEvent
+
+- type: entity
+  id: ActionRatDen
+  name: Spawn rat den
+  description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
+  components:
+  - type: Action
+    # useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratden
+  - type: InstantAction
+    event: !type:SpawnRatDenEvent
+
+- type: entity
+  id: ActionRatSlam
+  name: Slam
+  description: Slam into something. Emits a powerful shockwave on collision.
+  components:
+  - type: Action
+    # useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratslam
+  - type: InstantAction
+    event: !type:RatSlamEvent
 
 # Used for Rot Hulk, and its variant.
