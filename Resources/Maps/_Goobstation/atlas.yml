@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/30/2025 13:08:21
-  entityCount: 9166
+  time: 10/02/2025 16:55:26
+  entityCount: 9176
 maps:
 - 1
 grids:
@@ -3059,12 +3059,18 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -4444,7 +4450,7 @@ entities:
       pos: 4.5,19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6901.681
+      secondsUntilStateChange: -6977.905
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -41241,6 +41247,16 @@ entities:
       parent: 2
 - proto: LockerSecurityFilled
   entities:
+  - uid: 6338
+    components:
+    - type: Transform
+      pos: 1.5,18.5
+      parent: 2
+  - uid: 6359
+    components:
+    - type: Transform
+      pos: 0.5,18.5
+      parent: 2
   - uid: 7597
     components:
     - type: Transform
@@ -48761,6 +48777,50 @@ entities:
     - type: Transform
       pos: -23.5,-19.5
       parent: 2
+- proto: SpawnPointSecurityCadet
+  entities:
+  - uid: 6659
+    components:
+    - type: Transform
+      pos: -1.5,17.5
+      parent: 2
+  - uid: 6660
+    components:
+    - type: Transform
+      pos: -1.5,16.5
+      parent: 2
+  - uid: 6661
+    components:
+    - type: Transform
+      pos: 2.5,17.5
+      parent: 2
+  - uid: 6662
+    components:
+    - type: Transform
+      pos: 2.5,16.5
+      parent: 2
+- proto: SpawnPointSecurityOfficer
+  entities:
+  - uid: 6663
+    components:
+    - type: Transform
+      pos: -0.5,17.5
+      parent: 2
+  - uid: 6745
+    components:
+    - type: Transform
+      pos: -0.5,16.5
+      parent: 2
+  - uid: 6746
+    components:
+    - type: Transform
+      pos: 0.5,16.5
+      parent: 2
+  - uid: 6747
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 7455
@@ -51632,17 +51692,17 @@ entities:
       parent: 2
 - proto: VendingMachineSec
   entities:
-  - uid: 7618
+  - uid: 6748
     components:
     - type: Transform
-      pos: 1.5,18.5
+      pos: 5.5,18.5
       parent: 2
 - proto: VendingMachineSecDrobe
   entities:
-  - uid: 7602
+  - uid: 6749
     components:
     - type: Transform
-      pos: 0.5,18.5
+      pos: 7.5,13.5
       parent: 2
 - proto: VendingMachineSeeds
   entities:
