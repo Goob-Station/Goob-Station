@@ -17,6 +17,7 @@ public sealed class SmartLinkSystem : EntitySystem
 
         SubscribeLocalEvent<SmartLinkArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SmartLinkArmComponent, BodyPartAddedEvent>(OnAttach);
+        SubscribeLocalEvent<SmartLinkArmComponent, BodyPartRemovedEvent>(OnRemove);
 
         SubscribeLocalEvent<SmartLinkComponent, AmmoShotUserEvent>(OnShot);
     }
@@ -24,6 +25,8 @@ public sealed class SmartLinkSystem : EntitySystem
     private void OnInit(Entity<SmartLinkArmComponent> ent, ref ComponentInit args) => UpdateComp(ent);
 
     private void OnAttach(Entity<SmartLinkArmComponent> ent, ref BodyPartAddedEvent args) => UpdateComp(ent);
+
+    private void OnRemove(Entity<SmartLinkArmComponent> ent, ref BodyPartRemovedEvent args) => UpdateComp(ent);
 
     private void UpdateComp(Entity<SmartLinkArmComponent> ent)
     {

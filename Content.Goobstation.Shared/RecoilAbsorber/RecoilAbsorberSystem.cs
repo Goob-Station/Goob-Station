@@ -15,6 +15,7 @@ public sealed class RecoilAbsorberSystem : EntitySystem
 
         SubscribeLocalEvent<RecoilAbsorberArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartAddedEvent>(OnAttach);
+        SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartRemovedEvent>(OnRemove);
 
         SubscribeLocalEvent<RecoilAbsorberComponent, GetRecoilModifiersEvent>(OnShot);
     }
@@ -22,6 +23,8 @@ public sealed class RecoilAbsorberSystem : EntitySystem
     private void OnInit(Entity<RecoilAbsorberArmComponent> ent, ref ComponentInit args) => UpdateComp(ent);
 
     private void OnAttach(Entity<RecoilAbsorberArmComponent> ent, ref BodyPartAddedEvent args) => UpdateComp(ent);
+
+    private void OnRemove(Entity<RecoilAbsorberArmComponent> ent, ref BodyPartRemovedEvent args) => UpdateComp(ent);
 
     private void UpdateComp(Entity<RecoilAbsorberArmComponent> ent)
     {
