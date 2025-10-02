@@ -172,3 +172,13 @@
       targetBodyPartSymmetry: Left
       componentsToPart:
       - type: RecoilAbsorberArm
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonBerserker
+  name: syndicate autosurgeon (berserker heart)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: heart
+    newPartProto: SyndicateBerserkerHeart

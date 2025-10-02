@@ -268,3 +268,33 @@
     onAdd:
     - type: StaminaRegeneration
       regenerationRate: -3.0
+
+- type: entity
+  parent: BasicCyberneticHeart
+  id: SyndicateBerserkerHeart
+  name: berserker heart
+  description: A next-gen combat circulatory core that allows the user to enter a berserk state, greatly increasing their speed and reflexes for a short time at the cost of endurance and some pain resistance. Highly illegal.
+  components:
+  - type: Sprite
+    state: heart-berserker-on
+  - type: Organ
+    intCap: 32
+    integrity: 32
+    integrityThresholds:
+      Normal: 32
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart
+  - type: OrganActions
+    actions:
+    - ActionActivateBerserkerImplant
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Medicine
+      rateModifier: 2.25
+    - id: Poison
+      rateModifier: 0.35
+    - id: Narcotic
+      rateModifier: 0.6
