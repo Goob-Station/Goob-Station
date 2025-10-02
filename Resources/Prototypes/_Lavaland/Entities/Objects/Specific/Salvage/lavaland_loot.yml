@@ -33,7 +33,7 @@
   - type: CursedHeartGrant
   - type: StaticPrice
     price: 5000
-    
+
 - type: entity
   id: LavalandVampirismCrystal
   parent: BasePKAUpgrade
@@ -208,5 +208,20 @@
     deleteAfterUse: true
     languages:
     - Universal
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  id: LavalandLifeforceTalisman
+  parent: ClothingNeckBase
+  name: Lifeforce talisman
+  description:
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: ChangeThreshold
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+    state: life_force
   - type: StaticPrice
     price: 5000

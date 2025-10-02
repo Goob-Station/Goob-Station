@@ -120,3 +120,12 @@
   - type: StorageFill
     contents:
     - id: LavalandAmuletImmortalityTalisman
+
+- type: entity
+  id: LavalandCrateNecropolisTalismanLifeforce
+  parent: LavalandCrateNecropolis
+  suffix: Life Force
+  components:
+  - type: StorageFill
+    contents:
+    - id:  LavalandLifeforceTalisman
