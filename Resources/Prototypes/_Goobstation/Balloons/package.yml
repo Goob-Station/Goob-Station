@@ -141,14 +141,14 @@
       
 - type: entity
   id: PremiumCrateBalloonPackage
-  parent: CratePlastic
+  parent: CratePirate
   name: premium balloon warrior's package
   description: Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!
   components:
   - type: StorageFill
     contents:
     - id: PremiumBoxBalloonPackage
-      amount: 2
+      amount: 1
     - id: ClothingOuterSuitMonkey
       amount: 1
     - id: boomerang
@@ -156,9 +156,6 @@
     - id: MonkeyCube
       prob: 0.7
     - id: ClothingOuterSuitMonkey   # Extra
-      amount: 1
-      prob: 0.4
-    - id: BoxDarts
       amount: 1
       prob: 0.4
     - id: MonkeyCube
