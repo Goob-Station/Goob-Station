@@ -87,10 +87,10 @@
         - MobLayer
   - type: NpcFactionMember
     factions:
-    - SimpleRangedHostile
+    - SimpleHostile
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: SimpleRangedHostileCompound
   - type: Sprite
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Mobs/32x32.rsi

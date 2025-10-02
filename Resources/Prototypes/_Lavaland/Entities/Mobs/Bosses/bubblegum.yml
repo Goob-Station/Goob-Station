@@ -65,6 +65,8 @@
   - type: TileMovement
   - type: BossMusic
     soundId: Bubblegum
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
   - type: Megafauna

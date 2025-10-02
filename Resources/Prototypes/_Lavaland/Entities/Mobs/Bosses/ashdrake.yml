@@ -1,5 +1,5 @@
 - type: entity
-  name: Ash Drake
+  name: ash drake
   id: LavalandBossAshDrake
   parent: LavalandMobBase
   description: Guardian of the Necropolis.
@@ -78,6 +78,8 @@
   - type: TileMovement
   - type: BossMusic
     soundId: AshDrake
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
   - type: DamageSquareImmunity

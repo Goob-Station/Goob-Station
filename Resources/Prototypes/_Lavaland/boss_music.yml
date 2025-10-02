@@ -35,7 +35,7 @@
   fadeOutTime: 8
   positionOnEnd: 0
   sound:
-    path: /Audio/_Lavaland/Mobs/Bosses/Parabellum.ogg
+    path: /Audio/_Lavaland/Music/Parabellum.ogg
 
 - type: bossMusic
   id: Bubblegum
@@ -44,7 +44,7 @@
   fadeOutTime: 8
   positionOnEnd: 0
   sound:
-    path: /Audio/_Lavaland/Mobs/Bosses/bubblegum.ogg
+    path: /Audio/_Lavaland/Music/bubblegum.ogg
 
 - type: bossMusic
   id: AshDrake
@@ -53,7 +53,7 @@
   fadeOutTime: 8
   positionOnEnd: 0
   sound:
-    path: /Audio/_Lavaland/Mobs/Bosses/tearofveil.ogg
+    path: /Audio/_Lavaland/Music/tearofveil.ogg
 
 - type: bossMusic
   id: Miniboss
@@ -62,4 +62,4 @@
   fadeOutTime: 8
   positionOnEnd: 0
   sound:
-    path: /Audio/_Lavaland/Mobs/Bosses/miniboss_fight.ogg
+    path: /Audio/_Lavaland/Music/miniboss_fight.ogg

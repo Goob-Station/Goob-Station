@@ -59,7 +59,9 @@
     damageModifierSet: Hierophant
   - type: TileMovement
   - type: BossMusic
-    soundId: Miniboss
+    soundId: MiniBoss
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: CombatPower # Goobstation
     factor: 8 # times more dangerous than a crew-member
   - type: Megafauna
@@ -104,6 +106,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
+  - type: BossMusic
+    soundId: MiniBoss
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -246,6 +252,10 @@
     thresholds:
       0: Alive
       1000: Dead
+  - type: BossMusic
+    soundId: MiniBoss
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Hierophant
@@ -289,6 +299,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
+  - type: BossMusic
+    soundId: MiniBoss
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: MobThresholds
     thresholds:
       0: Alive

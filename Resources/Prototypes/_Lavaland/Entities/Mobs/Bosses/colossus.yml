@@ -80,6 +80,8 @@
     soundId: Colossus
   - type: CombatPower # Goobstation
     factor: 25 # times more dangerous than a crew-member
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
   - type: Megafauna
     loot: LavalandHierophantClub
   - type: DamageSquareImmunity

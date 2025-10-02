@@ -1,7 +1,7 @@
 - files: ["bdm_boss.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
-  source: "https://github.com/tgstation/tgstation/blob/master"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/music/boss/bdm_boss.ogg"
 
 - files: ["bubblegum.ogg"]
   license: "CC-BY-SA-3.0"
