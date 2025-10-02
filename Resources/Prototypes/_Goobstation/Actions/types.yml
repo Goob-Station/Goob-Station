@@ -276,7 +276,7 @@
   - type: Action
     checkCanInteract: false
     useDelay: 40
-    icon: { sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi, state: heart-berserker-off }
+    icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
