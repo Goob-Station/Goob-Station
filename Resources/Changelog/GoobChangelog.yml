@@ -15650,3 +15650,63 @@ Entries:
       message: All contraband cosmetic items are now worth less NTR loyalty points.
   id: 1751
   time: '2025-09-30T07:24:23.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: Added teg crate for cargo purchasing. Atmosian and engineer rejoice.
+  id: 1752
+  time: '2025-09-30T19:45:43.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Floor Goblins are now able to crawl under doors only when crawling under
+        the floor.
+    - type: Fix
+      message: Floor Goblins being targeted by medibots under the floor.
+    - type: Fix
+      message: Floor Goblins can steal shoes from dead or critted targets
+    - type: Fix
+      message: Medibots being able to target people in stealth.
+    - type: Tweak
+      message: Floor Goblin collisions when not crawling.
+  id: 1753
+  time: '2025-09-30T19:46:44.0000000+00:00'
+- author: RocketBoss360
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin blood now renders like other blood types (blood, spider blood,
+        slime) when in puddles 
+    - type: Fix
+      message: Shadowkin blood now can activate Blood nodes on artifacts
+  id: 1754
+  time: '2025-09-30T19:58:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Admins can now drop pod any item with the new drop pod item. It also
+        works for entities like players or dragons.
+  id: 1755
+  time: '2025-10-01T08:43:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Tweak
+      message: Origin and Saltern finally got some of the new stuff.
+  id: 1756
+  time: '2025-10-01T12:56:16.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: CC glasses now cant doxx lings and antags.
+  id: 1757
+  time: '2025-10-01T17:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Headrev time requirements made into 10 hours command instead of 10 hours
+        overall
+  id: 1758
+  time: '2025-10-02T05:48:59.0000000+00:00'
