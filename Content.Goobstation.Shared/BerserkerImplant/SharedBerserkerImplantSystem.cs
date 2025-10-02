@@ -106,7 +106,6 @@ public abstract class SharedBerserkerImplantSystem : EntitySystem
 
     private void OnShotAttempted(Entity<BerserkerImplantActiveComponent> ent, ref ShotAttemptedEvent args)
     {
-        Popup.PopupPredictedCursor(Loc.GetString("popup-berserker-implant-ranged-block"), ent.Owner);
         args.Cancel();
     }
 }

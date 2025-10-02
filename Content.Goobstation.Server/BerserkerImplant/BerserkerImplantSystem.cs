@@ -17,7 +17,6 @@ public sealed class BerserkerImplantSystem : SharedBerserkerImplantSystem
     private void OnShutdown(Entity<BerserkerImplantActiveComponent> ent, ref ComponentRemove args)
     {
         _damageable.TryChangeDamage(ent.Owner, ent.Comp.DelayedDamage, true);
-        Popup.PopupEntity(Loc.GetString("berserker-implant-deactivated"), ent, ent);
         RemComp<TrailComponent>(ent);
     }
 
