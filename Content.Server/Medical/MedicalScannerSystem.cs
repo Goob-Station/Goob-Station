@@ -286,4 +286,4 @@ namespace Content.Server.Medical
             UpdateAppearance(uid, scannerComponent);
         }
     }
-}
+} 
