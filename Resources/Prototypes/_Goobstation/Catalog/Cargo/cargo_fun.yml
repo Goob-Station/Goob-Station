@@ -53,7 +53,7 @@
     sprite: _Goobstation/Objects/Fun/balloons.rsi
     state: red
   product: CrateBalloonPackage
-  cost: 1000
+  cost: 1500
   category: cargoproduct-category-name-fun
   group: market
  
@@ -63,7 +63,7 @@
     sprite: _Goobstation/Objects/Fun/balloons.rsi
     state: carp
   product: PremiumCrateBalloonPackage
-  cost: 5000
+  cost: 7500
   category: cargoproduct-category-name-fun
   group: market
 

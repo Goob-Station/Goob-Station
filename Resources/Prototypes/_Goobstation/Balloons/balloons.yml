@@ -104,8 +104,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 5
+            max: 10
           redBalloon:
             min: 1
             max: 1
@@ -142,8 +142,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 5
+            max: 10
           blueBalloon:
             min: 1
             max: 1
@@ -180,8 +180,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 20
+            min: 5
+            max: 10
           greenBalloon:
             min: 1
             max: 1
@@ -441,7 +441,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30        # balloon health
+        damage: 10        # balloon health
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -482,7 +482,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100     # balloon health, Nerfed asf
+        damage: 50     # balloon health, Nerfed asf
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -521,7 +521,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200       # balloon health
+        damage: 75       # balloon health
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -560,7 +560,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400       # balloon health
+        damage: 100       # balloon health
       behaviors:
       - !type:PlaySoundBehavior
         sound:

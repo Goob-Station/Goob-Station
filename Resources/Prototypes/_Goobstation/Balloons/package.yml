@@ -18,8 +18,10 @@
     items:
     - id: redBalloon
       orGroup: BalloonRandom
+      prob: 0.33 # Lower tier rarer
     - id: blueBalloon
       orGroup: BalloonRandom
+      prob: 0.4
     - id: greenBalloon
       orGroup: BalloonRandom
     - id: yellowBalloon
@@ -55,7 +57,7 @@
   components: 
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
-    state: icon
+    state: gold
   - type: Item
     size: Tiny
   - type: SpawnItemsOnUse
@@ -78,7 +80,7 @@
       prob: 0.4
     - id: moabBalloon
       orGroup: BalloonRandom
-      prob: 0.20
+      prob: 0.15
     - id: bfbBalloon
       orGroup: BalloonRandom
       prob: 0.10
@@ -128,16 +130,11 @@
       amount: 2
     - id: ClothingOuterSuitMonkey
       amount: 1
-    - id: BoxDarts
+    - id: Dart
       amount: 1
     - id: MonkeyCube
       prob: 0.7
-    - id: ClothingOuterSuitMonkey   # Extra
-      amount: 1
-      prob: 0.4
-    - id: BoxDarts
-      amount: 1
-      prob: 0.4
+    # Extra
     - id: MonkeyCube
       prob: 0.4
       
