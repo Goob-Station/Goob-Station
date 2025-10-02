@@ -1009,7 +1009,7 @@
   id: UplinkAutosurgeonBerserkerHeart
   name: uplink-autosurgeon-berserker-heart-name
   description: uplink-autosurgeon-berserker-heart-desc
-  icon: { sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi, state: heart-berserker-off }
+  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
   productEntity: AutosurgeonBerserker
   cost:
     Telecrystal: 66
@@ -1020,7 +1020,7 @@
   id: UplinkAutosurgeonJumpstarter
   name: uplink-autosurgeon-jumpstarter-heart-name
   description: uplink-autosurgeon-jumpstarter-heart-desc
-  icon: { sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi, state: heart-berserker-off }
+  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
   productEntity: AutosurgeonJumpstarter
   cost:
     Telecrystal: 60
