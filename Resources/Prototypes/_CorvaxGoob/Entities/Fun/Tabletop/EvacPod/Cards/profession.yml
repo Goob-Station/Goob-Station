@@ -1,0 +1,635 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodProfession
+  name: EvacPod deck box (Profession)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_profession_box
+    - state: EvacPod_profession_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodProfession
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodProfession
+  name: deck of EvacPod cards (Profession)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_profession_full
+  - type: CardStack
+    content:
+    - CardEvacPodProfessionAgent
+    - CardEvacPodProfessionArchaeologist
+    - CardEvacPodProfessionAutoMechanic
+    - CardEvacPodProfessionBiologist
+    - CardEvacPodProfessionBuilder
+    - CardEvacPodProfessionChef
+    - CardEvacPodProfessionChemist
+    - CardEvacPodProfessionCoach
+    - CardEvacPodProfessionDental
+    - CardEvacPodProfessionDesigner
+    - CardEvacPodProfessionDetective
+    - CardEvacPodProfessionEcologist
+    - CardEvacPodProfessionElectric
+    - CardEvacPodProfessionEthnographer
+    - CardEvacPodProfessionFarmer
+    - CardEvacPodProfessionFirefighter
+    - CardEvacPodProfessionGuide
+    - CardEvacPodProfessionHacker
+    - CardEvacPodProfessionHandyman
+    - CardEvacPodProfessionHistorian
+    - CardEvacPodProfessionHomeopathist
+    - CardEvacPodProfessionHousewife
+    - CardEvacPodProfessionJournalist
+    - CardEvacPodProfessionJudge
+    - CardEvacPodProfessionLawyer
+    - CardEvacPodProfessionMarketer
+    - CardEvacPodProfessionMilitary
+    - CardEvacPodProfessionModel
+    - CardEvacPodProfessionNurse
+    - CardEvacPodProfessionPaparazzi
+    - CardEvacPodProfessionPhilosopher
+    - CardEvacPodProfessionPhysicist
+    - CardEvacPodProfessionPilotEngineer
+    - CardEvacPodProfessionPoacher
+    - CardEvacPodProfessionPolice
+    - CardEvacPodProfessionProgrammer
+    - CardEvacPodProfessionPsychic
+    - CardEvacPodProfessionPsychologist
+    - CardEvacPodProfessionQuack
+    - CardEvacPodProfessionRoboticist
+    - CardEvacPodProfessionSeller
+    - CardEvacPodProfessionSexologist
+    - CardEvacPodProfessionSurgeon
+    - CardEvacPodProfessionTattoo
+    - CardEvacPodProfessionThief
+    - CardEvacPodProfessionTranslator
+    - CardEvacPodProfessionVideoEngineer
+    - CardEvacPodProfessionVirologist
+    - CardEvacPodProfessionWoodman
+    - CardEvacPodProfessionWriter
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionAgent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_agent
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_agent
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionArchaeologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_archaeologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_archaeologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionAutoMechanic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_autoMechanic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_autoMechanic
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionBiologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_biologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_biologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionBuilder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_builder
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_builder
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionChef
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_chef
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_chef
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionChemist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_chemist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_chemist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionCoach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_coach
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_coach
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionDental
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_dental
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_dental
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionDesigner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_designer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_designer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionDetective
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_detective
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_detective
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionEcologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_ecologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_ecologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionElectric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_electric
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_electric
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionEthnographer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_ethnographer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_ethnographer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionFarmer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_farmer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_farmer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionFirefighter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_firefighter
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_firefighter
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionGuide
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_guide
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_guide
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionHacker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_hacker
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_hacker
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionHandyman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_handyman
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_handyman
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionHistorian
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_historian
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_historian
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionHomeopathist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_homeopathist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_homeopathist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionHousewife
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_housewife
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_housewife
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionJournalist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_journalist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_journalist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionJudge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_judge
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_judge
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionLawyer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_lawyer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_lawyer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionMarketer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_marketer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_marketer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionMilitary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_military
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_military
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionModel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_model
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_model
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionNurse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_nurse
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_nurse
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPaparazzi
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_paparazzi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_paparazzi
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPhilosopher
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_philosopher
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_philosopher
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPhysicist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_physicist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_physicist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPilotEngineer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_pilotEngineer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_pilotEngineer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPoacher
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_poacher
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_poacher
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPolice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_police
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_police
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionProgrammer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_programmer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_programmer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPsychic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_psychic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_psychic
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionPsychologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_psychologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_psychologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionQuack
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_quack
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_quack
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionRoboticist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_roboticist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_roboticist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionSeller
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_seller
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_seller
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionSexologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_sexologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_sexologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionSurgeon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_surgeon
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_surgeon
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionTattoo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_tattoo
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_tattoo
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionThief
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_thief
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_thief
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionTranslator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_translator
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_translator
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionVideoEngineer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_videoEngineer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_videoEngineer
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionVirologist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_virologist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_virologist
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionWoodman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_woodman
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_woodman
+
+- type: entity
+  parent: BaseCardEvacPodProfession
+  id: CardEvacPodProfessionWriter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_profession_writer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_profession_writer

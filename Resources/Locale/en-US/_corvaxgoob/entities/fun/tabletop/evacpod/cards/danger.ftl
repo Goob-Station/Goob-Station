@@ -1,0 +1,10 @@
+card-ep_danger_flood = danger. The shuttle’s atmospheric system has broken down, causing the gas balance in the district to fail. You need to recalibrate the shuttle’s computer control system or come up with some kind of engineering solution to pump out the excess gases
+card-ep_danger_AI = danger. The shuttle’s AI has malfunctioned and is blocking life support. You need to prove to the soulless computer that there are breathing living humans in the bunker. The test is based on verifying the unique trait that separates humans from robots — creativity. You must pass it
+card-ep_danger_chill = danger. You’re lucky, nothing happened
+card-ep_danger_asteroid = danger. A small cluster of asteroids threatens to puncture your shuttle and damage the life support systems. Emergency work is needed to reinforce weak spots — airlocks and ventilation. Or you could stop the cluster with some kind of magic
+card-ep_danger_mouse = danger. Mice have gotten into your food supplies and are causing irreparable damage. Characters capable of exterminating rodents or additional food supplies will be helpful
+card-ep_danger_kitchen = danger. An explosion in the kitchen and storage compartments. Characters capable of scavenging ruins or growing food with hydroponics skills will be helpful
+card-ep_danger_carps = danger. Some creatures are breaking into the airlock, something must be done immediately. Characters with combat skills, hunting, setting up alarms and surveillance, or stockpiles of weapons and electronics will be helpful
+card-ep_danger_psi = danger. Some kind of radiation is likely amplifying stress and causing panic. Characters and/or equipment that can relieve stress will be needed
+card-ep_danger_ghosts = danger. Paranormal phenomena may disrupt the shuttle’s life support system. Characters capable of convincing the ghosts (or whatever they are) to leave the shuttle or banish them will be helpful
+card-ep_danger_virus = danger. An outbreak of a deadly virus that develops only under stress. Medical skills and/or equipment, as well as any methods of stress control, will be useful

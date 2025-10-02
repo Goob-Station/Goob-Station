@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "book_stationsagents taken from goonstation at commit https://github.com/goonstation/goonstation/commit/666034ca1da626e832c66980d7c28c5b8de72640 and edited by github:lapatison; book_busido is taken from tgstation at commit https://github.com/tgstation/tgstation/commit/856e0a784abd19d20618aa36b26b73d471adf613 and respited by github:lapatison; other books sprited by Crazzy_pingvin for Corvax, splitted on USSPbook by RetTerror.",
+  "copyright": "book_stationsagents taken from goonstation at commit https://github.com/goonstation/goonstation/commit/666034ca1da626e832c66980d7c28c5b8de72640 and edited by github:lapatison; book_busido is taken from tgstation at commit https://github.com/tgstation/tgstation/commit/856e0a784abd19d20618aa36b26b73d471adf613 and respited by github:lapatison; other books sprited by Crazzy_pingvin for Corvax, splitted on USSPbook by RetTerror, book_EvacPod_StandartRules by Ko4erga.",
   "size": {
     "x": 32,
     "y": 32
@@ -108,6 +108,9 @@
     },
     {
       "name": "book_icon"
+    },
+    {
+      "name": "book_EvacPod_StandartRules"
     }
   ]
 }

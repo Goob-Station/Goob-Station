@@ -1,0 +1,155 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodDanger
+  name: EvacPod deck box (Danger)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_danger_box
+    - state: EvacPod_danger_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodDanger
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodDanger
+  name: deck of EvacPod cards (Danger)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_danger_full
+  - type: CardStack
+    content:
+    - CardEvacPodDangerFlood
+    - CardEvacPodDangerAI
+    - CardEvacPodDangerChill
+    - CardEvacPodDangerAsteroid
+    - CardEvacPodDangerMouse
+    - CardEvacPodDangerKitchen
+    - CardEvacPodDangerCarps
+    - CardEvacPodDangerPsi
+    - CardEvacPodDangerGhosts
+    - CardEvacPodDangerVirus
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerFlood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_flood
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerAI
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_AI
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerChill
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_chill
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_asteroid
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerMouse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_mouse
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerKitchen
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_kitchen
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerCarps
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_carps
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerPsi
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_psi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerGhosts
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_ghosts
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger
+
+- type: entity
+  parent: BaseCardEvacPodDanger
+  id: CardEvacPodDangerVirus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_danger_virus
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_danger

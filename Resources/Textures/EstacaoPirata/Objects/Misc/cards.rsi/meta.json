@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob.",
+  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob, ep_ and other EvacPod by Ko4erga (discord)",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -609,6 +609,825 @@
     },
         {
         "name": "nanotrasen_box_open"
+    },
+    {
+      "name": "EvacPod_profession_box"
+    },
+    {
+      "name": "EvacPod_profession_box_open"
+    },
+    {
+      "name": "deck_ep_profession_full"
+    },
+    {
+      "name": "singlecard_down_ep_profession"
+    },
+    {
+      "name": "ep_profession_agent"
+    },
+    {
+      "name": "ep_profession_archaeologist"
+    },
+    {
+      "name": "ep_profession_autoMechanic"
+    },
+    {
+      "name": "ep_profession_biologist"
+    },
+    {
+      "name": "ep_profession_builder"
+    },
+    {
+      "name": "ep_profession_chef"
+    },
+    {
+      "name": "ep_profession_chemist"
+    },
+    {
+      "name": "ep_profession_coach"
+    },
+    {
+      "name": "ep_profession_dental"
+    },
+    {
+      "name": "ep_profession_designer"
+    },
+    {
+      "name": "ep_profession_detective"
+    },
+    {
+      "name": "ep_profession_ecologist"
+    },
+    {
+      "name": "ep_profession_electric"
+    },
+    {
+      "name": "ep_profession_ethnographer"
+    },
+    {
+      "name": "ep_profession_farmer"
+    },
+    {
+      "name": "ep_profession_firefighter"
+    },
+    {
+      "name": "ep_profession_guide"
+    },
+    {
+      "name": "ep_profession_hacker"
+    },
+    {
+      "name": "ep_profession_handyman"
+    },
+    {
+      "name": "ep_profession_historian"
+    },
+    {
+      "name": "ep_profession_homeopathist"
+    },
+    {
+      "name": "ep_profession_housewife"
+    },
+    {
+      "name": "ep_profession_journalist"
+    },
+    {
+      "name": "ep_profession_judge"
+    },
+    {
+      "name": "ep_profession_lawyer"
+    },
+    {
+      "name": "ep_profession_marketer"
+    },
+    {
+      "name": "ep_profession_military"
+    },
+    {
+      "name": "ep_profession_model"
+    },
+    {
+      "name": "ep_profession_nurse"
+    },
+    {
+      "name": "ep_profession_paparazzi"
+    },
+    {
+      "name": "ep_profession_philosopher"
+    },
+    {
+      "name": "ep_profession_physicist"
+    },
+    {
+      "name": "ep_profession_pilotEngineer"
+    },
+    {
+      "name": "ep_profession_poacher"
+    },
+    {
+      "name": "ep_profession_police"
+    },
+    {
+      "name": "ep_profession_programmer"
+    },
+    {
+      "name": "ep_profession_psychic"
+    },
+    {
+      "name": "ep_profession_psychologist"
+    },
+    {
+      "name": "ep_profession_quack"
+    },
+    {
+      "name": "ep_profession_roboticist"
+    },
+    {
+      "name": "ep_profession_seller"
+    },
+    {
+      "name": "ep_profession_sexologist"
+    },
+    {
+      "name": "ep_profession_surgeon"
+    },
+    {
+      "name": "ep_profession_tattoo"
+    },
+    {
+      "name": "ep_profession_thief"
+    },
+    {
+      "name": "ep_profession_translator"
+    },
+    {
+      "name": "ep_profession_videoEngineer"
+    },
+    {
+      "name": "ep_profession_virologist"
+    },
+    {
+      "name": "ep_profession_woodman"
+    },
+    {
+      "name": "ep_profession_writer"
+    },
+    {
+      "name": "EvacPod_biology_box"
+    },
+    {
+      "name": "EvacPod_biology_box_open"
+    },
+    {
+      "name": "deck_ep_biology_full"
+    },
+    {
+      "name": "singlecard_down_ep_biology"
+    },
+    {
+      "name": "ep_biology_m_18"
+    },
+    {
+      "name": "ep_biology_m_23"
+    },
+    {
+      "name": "ep_biology_m_24_bi"
+    },
+    {
+      "name": "ep_biology_m_26"
+    },
+    {
+      "name": "ep_biology_m_27_gay"
+    },
+    {
+      "name": "ep_biology_m_29"
+    },
+    {
+      "name": "ep_biology_m_30"
+    },
+    {
+      "name": "ep_biology_m_32_gay"
+    },
+    {
+      "name": "ep_biology_m_33"
+    },
+    {
+      "name": "ep_biology_m_35"
+    },
+    {
+      "name": "ep_biology_m_39"
+    },
+    {
+      "name": "ep_biology_m_42_gay"
+    },
+    {
+      "name": "ep_biology_m_75"
+    },
+    {
+      "name": "ep_biology_m_99"
+    },
+    {
+      "name": "ep_biology_neko"
+    },
+    {
+      "name": "ep_biology_robo"
+    },
+    {
+      "name": "ep_biology_w_18"
+    },
+    {
+      "name": "ep_biology_w_19_gay"
+    },
+    {
+      "name": "ep_biology_w_21"
+    },
+    {
+      "name": "ep_biology_w_22_bi"
+    },
+    {
+      "name": "ep_biology_w_24"
+    },
+    {
+      "name": "ep_biology_w_25_gay"
+    },
+    {
+      "name": "ep_biology_w_27"
+    },
+    {
+      "name": "ep_biology_w_30"
+    },
+    {
+      "name": "ep_biology_w_31"
+    },
+    {
+      "name": "ep_biology_w_33_gay"
+    },
+    {
+      "name": "ep_biology_w_34"
+    },
+    {
+      "name": "ep_biology_w_36"
+    },
+    {
+      "name": "ep_biology_w_65"
+    },
+    {
+      "name": "ep_biology_w_99"
+    },
+    {
+      "name": "EvacPod_health_box"
+    },
+    {
+      "name": "EvacPod_health_box_open"
+    },
+    {
+      "name": "deck_ep_health_full"
+    },
+    {
+      "name": "singlecard_down_ep_health"
+    },
+    {
+      "name": "ep_health_healthy"
+    },
+    {
+      "name": "ep_health_alcoholism"
+    },
+    {
+      "name": "ep_health_blind"
+    },
+    {
+      "name": "ep_health_coffeeAddiction"
+    },
+    {
+      "name": "ep_health_deaf"
+    },
+    {
+      "name": "ep_health_depression"
+    },
+    {
+      "name": "ep_health_diarrhea"
+    },
+    {
+      "name": "ep_health_drugAddiction"
+    },
+    {
+      "name": "ep_health_dwarf"
+    },
+    {
+      "name": "ep_health_gamingAddiction"
+    },
+    {
+      "name": "ep_health_giga"
+    },
+    {
+      "name": "ep_health_hairiness"
+    },
+    {
+      "name": "ep_health_hallucinations"
+    },
+    {
+      "name": "ep_health_horny"
+    },
+    {
+      "name": "ep_health_impotence"
+    },
+    {
+      "name": "ep_health_infertility"
+    },
+    {
+      "name": "ep_health_kleptomania"
+    },
+    {
+      "name": "ep_health_lossOfSmell"
+    },
+    {
+      "name": "ep_health_migraine"
+    },
+    {
+      "name": "ep_health_noHand"
+    },
+    {
+      "name": "ep_health_noLeg"
+    },
+    {
+      "name": "ep_health_persecution"
+    },
+    {
+      "name": "ep_health_sclerosis"
+    },
+    {
+      "name": "ep_health_somnambulism"
+    },
+    {
+      "name": "ep_health_split"
+    },
+    {
+      "name": "ep_health_stutterer"
+    },
+    {
+      "name": "ep_health_suicidal"
+    },
+    {
+      "name": "ep_health_tail"
+    },
+    {
+      "name": "ep_health_tremor"
+    },
+    {
+      "name": "ep_health_unknown"
+    },
+    {
+      "name": "EvacPod_hobby_box"
+    },
+    {
+      "name": "EvacPod_hobby_box_open"
+    },
+    {
+      "name": "deck_ep_hobby_full"
+    },
+    {
+      "name": "singlecard_down_ep_hobby"
+    },
+    {
+      "name": "ep_hobby_ahelp"
+    },
+    {
+      "name": "ep_hobby_meleeWeapon"
+    },
+    {
+      "name": "ep_hobby_blackMagic"
+    },
+    {
+      "name": "ep_hobby_flood"
+    },
+    {
+      "name": "ep_hobby_mashrooms"
+    },
+    {
+      "name": "ep_hobby_martialArts"
+    },
+    {
+      "name": "ep_hobby_cottagers"
+    },
+    {
+      "name": "ep_hobby_voyeurisme"
+    },
+    {
+      "name": "ep_hobby_alchemist"
+    },
+    {
+      "name": "ep_hobby_hydroponic"
+    },
+    {
+      "name": "ep_hobby_healthyLifestyle"
+    },
+    {
+      "name": "ep_hobby_films"
+    },
+    {
+      "name": "ep_hobby_computerGames"
+    },
+    {
+      "name": "ep_hobby_netWorking"
+    },
+    {
+      "name": "ep_hobby_radio"
+    },
+    {
+      "name": "ep_hobby_tabletop"
+    },
+    {
+      "name": "ep_hobby_meditation"
+    },
+    {
+      "name": "ep_hobby_localHistory"
+    },
+    {
+      "name": "ep_hobby_massage"
+    },
+    {
+      "name": "ep_hobby_parkour"
+    },
+    {
+      "name": "ep_hobby_altMedicine"
+    },
+    {
+      "name": "ep_hobby_huntingAndFishing"
+    },
+    {
+      "name": "ep_hobby_swingerParty"
+    },
+    {
+      "name": "ep_hobby_pyrotechnics"
+    },
+    {
+      "name": "ep_hobby_HTHtalks"
+    },
+    {
+      "name": "ep_hobby_contemporaryArt"
+    },
+    {
+      "name": "ep_hobby_brewing"
+    },
+    {
+      "name": "ep_hobby_robotech"
+    },
+    {
+      "name": "ep_hobby_sportsDancing"
+    },
+    {
+      "name": "ep_hobby_striptease"
+    },
+    {
+      "name": "EvacPod_baggage_box"
+    },
+    {
+      "name": "EvacPod_baggage_box_open"
+    },
+    {
+      "name": "deck_ep_baggage_full"
+    },
+    {
+      "name": "singlecard_down_ep_baggage"
+    },
+    {
+      "name": "ep_baggage_3golds"
+    },
+    {
+      "name": "ep_baggage_beartrap"
+    },
+    {
+      "name": "ep_baggage_bookAzimov"
+    },
+    {
+      "name": "ep_baggage_bookMashroom"
+    },
+    {
+      "name": "ep_baggage_bow"
+    },
+    {
+      "name": "ep_baggage_carpentryTools"
+    },
+    {
+      "name": "ep_baggage_compas"
+    },
+    {
+      "name": "ep_baggage_defib"
+    },
+    {
+      "name": "ep_baggage_doll"
+    },
+    {
+      "name": "ep_baggage_electric"
+    },
+    {
+      "name": "ep_baggage_generator"
+    },
+    {
+      "name": "ep_baggage_grain"
+    },
+    {
+      "name": "ep_baggage_guitar"
+    },
+    {
+      "name": "ep_baggage_incubator"
+    },
+    {
+      "name": "ep_baggage_knifes"
+    },
+    {
+      "name": "ep_baggage_laptop"
+    },
+    {
+      "name": "ep_baggage_medicine"
+    },
+    {
+      "name": "ep_baggage_paramedic"
+    },
+    {
+      "name": "ep_baggage_picklock"
+    },
+    {
+      "name": "ep_baggage_pistol"
+    },
+    {
+      "name": "ep_baggage_pnv"
+    },
+    {
+      "name": "ep_baggage_potato"
+    },
+    {
+      "name": "ep_baggage_saplings"
+    },
+    {
+      "name": "ep_baggage_sniperRifle"
+    },
+    {
+      "name": "ep_baggage_sonicScrewdriver"
+    },
+    {
+      "name": "ep_baggage_specos"
+    },
+    {
+      "name": "ep_baggage_spiritTabletop"
+    },
+    {
+      "name": "ep_baggage_tabletop"
+    },
+    {
+      "name": "ep_baggage_tinfoil"
+    },
+    {
+      "name": "ep_baggage_voodoo"
+    },
+    {
+      "name": "EvacPod_fact_box"
+    },
+    {
+      "name": "EvacPod_fact_box_open"
+    },
+    {
+      "name": "deck_ep_fact_full"
+    },
+    {
+      "name": "singlecard_down_ep_fact"
+    },
+    {
+      "name": "ep_fact_40cats"
+    },
+    {
+      "name": "ep_fact_1984"
+    },
+    {
+      "name": "ep_fact_alcohol"
+    },
+    {
+      "name": "ep_fact_animalLang"
+    },
+    {
+      "name": "ep_fact_breathing"
+    },
+    {
+      "name": "ep_fact_builder"
+    },
+    {
+      "name": "ep_fact_drugDealer"
+    },
+    {
+      "name": "ep_fact_dsntRefuse"
+    },
+    {
+      "name": "ep_fact_expelled"
+    },
+    {
+      "name": "ep_fact_fearMan"
+    },
+    {
+      "name": "ep_fact_fearWash"
+    },
+    {
+      "name": "ep_fact_fearWoman"
+    },
+    {
+      "name": "ep_fact_ghost"
+    },
+    {
+      "name": "ep_fact_goodClown"
+    },
+    {
+      "name": "ep_fact_gossip"
+    },
+    {
+      "name": "ep_fact_hacker"
+    },
+    {
+      "name": "ep_fact_hotbed"
+    },
+    {
+      "name": "ep_fact_hypnoSmile"
+    },
+    {
+      "name": "ep_fact_hysteric"
+    },
+    {
+      "name": "ep_fact_illiterate"
+    },
+    {
+      "name": "ep_fact_IT"
+    },
+    {
+      "name": "ep_fact_kidney"
+    },
+    {
+      "name": "ep_fact_know5lang"
+    },
+    {
+      "name": "ep_fact_knowNT"
+    },
+    {
+      "name": "ep_fact_liar"
+    },
+    {
+      "name": "ep_fact_maniac"
+    },
+    {
+      "name": "ep_fact_morse"
+    },
+    {
+      "name": "ep_fact_nerd"
+    },
+    {
+      "name": "ep_fact_nobel"
+    },
+    {
+      "name": "ep_fact_noPassCasino"
+    },
+    {
+      "name": "ep_fact_olymp"
+    },
+    {
+      "name": "ep_fact_pee"
+    },
+    {
+      "name": "ep_fact_pervert"
+    },
+    {
+      "name": "ep_fact_psycho"
+    },
+    {
+      "name": "ep_fact_psychoCourse"
+    },
+    {
+      "name": "ep_fact_PTSD"
+    },
+    {
+      "name": "ep_fact_seeGods"
+    },
+    {
+      "name": "ep_fact_shitTalk"
+    },
+    {
+      "name": "ep_fact_slut"
+    },
+    {
+      "name": "ep_fact_survivor"
+    },
+    {
+      "name": "ep_fact_tramp"
+    },
+    {
+      "name": "ep_fact_vibeman"
+    },
+    {
+      "name": "ep_fact_whiner"
+    },
+    {
+      "name": "ep_fact_wood"
+    },
+    {
+      "name": "EvacPod_catastrophe_box"
+    },
+    {
+      "name": "EvacPod_catastrophe_box_open"
+    },
+    {
+      "name": "deck_ep_catastrophe_full"
+    },
+    {
+      "name": "singlecard_down_ep_catastrophe"
+    },
+    {
+      "name": "ep_catastrophe_aesthetic"
+    },
+    {
+      "name": "ep_catastrophe_ahelp"
+    },
+    {
+      "name": "ep_catastrophe_ai"
+    },
+    {
+      "name": "ep_catastrophe_atmos"
+    },
+    {
+      "name": "ep_catastrophe_borg"
+    },
+    {
+      "name": "ep_catastrophe_cat"
+    },
+    {
+      "name": "ep_catastrophe_dino"
+    },
+    {
+      "name": "ep_catastrophe_ghost"
+    },
+    {
+      "name": "ep_catastrophe_mutant"
+    },
+    {
+      "name": "ep_catastrophe_narsi"
+    },
+    {
+      "name": "ep_catastrophe_news"
+    },
+    {
+      "name": "ep_catastrophe_pandemic"
+    },
+    {
+      "name": "ep_catastrophe_stars"
+    },
+    {
+      "name": "ep_catastrophe_suicidal"
+    },
+    {
+      "name": "ep_catastrophe_war"
+    },
+    {
+      "name": "ep_catastrophe_zombie"
+    },
+    {
+      "name": "EvacPod_danger_box"
+    },
+    {
+      "name": "EvacPod_danger_box_open"
+    },
+    {
+      "name": "deck_ep_danger_full"
+    },
+    {
+      "name": "singlecard_down_ep_danger"
+    },
+    {
+      "name": "ep_danger"
+    },
+    {
+      "name": "EvacPod_special_box"
+    },
+    {
+      "name": "EvacPod_special_box_open"
+    },
+    {
+      "name": "deck_ep_special_full"
+    },
+    {
+      "name": "singlecard_down_ep_special"
+    },
+    {
+      "name": "ep_special"
+    },
+    {
+      "name": "EvacPod_shuttle_box"
+    },
+    {
+      "name": "EvacPod_shuttle_box_open"
+    },
+    {
+      "name": "deck_ep_shuttle_full"
+    },
+    {
+      "name": "singlecard_down_ep_shuttle"
+    },
+    {
+      "name": "ep_shuttle"
     }
   ]
 }

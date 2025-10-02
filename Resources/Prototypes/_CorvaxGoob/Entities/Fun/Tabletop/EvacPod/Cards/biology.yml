@@ -1,0 +1,396 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodBiology
+  name: EvacPod deck box (Biology)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_biology_box
+    - state: EvacPod_biology_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodBiology
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodBiology
+  name: deck of EvacPod cards (Biology)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_biology_full
+  - type: CardStack
+    content:
+    - CardEvacPodProfessionAgent
+    - CardEvacPodBiologyM18
+    - CardEvacPodBiologyM23
+    - CardEvacPodBiologyM24Bi
+    - CardEvacPodBiologyM26
+    - CardEvacPodBiologyM27Gay
+    - CardEvacPodBiologyM29
+    - CardEvacPodBiologyM30
+    - CardEvacPodBiologyM32Gay
+    - CardEvacPodBiologyM33
+    - CardEvacPodBiologyM35
+    - CardEvacPodBiologyM39
+    - CardEvacPodBiologyM42Gay
+    - CardEvacPodBiologyM75
+    - CardEvacPodBiologyM99
+    - CardEvacPodBiologyNeko
+    - CardEvacPodBiologyRobo
+    - CardEvacPodBiologyW18
+    - CardEvacPodBiologyW19Gay
+    - CardEvacPodBiologyW21
+    - CardEvacPodBiologyW22Bi
+    - CardEvacPodBiologyW24
+    - CardEvacPodBiologyW25Gay
+    - CardEvacPodBiologyW27
+    - CardEvacPodBiologyW30
+    - CardEvacPodBiologyW31
+    - CardEvacPodBiologyW33Gay
+    - CardEvacPodBiologyW34
+    - CardEvacPodBiologyW36
+    - CardEvacPodBiologyW65
+    - CardEvacPodBiologyW99
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM18
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_18
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_18
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM23
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_23
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_23
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM24Bi
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_24_bi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_24_bi
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM26
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_26
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_26
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM27Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_27_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_27_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM29
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_29
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_29
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM30
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_30
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_30
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM32Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_32_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_32_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM33
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_33
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_33
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM35
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_35
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_35
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM39
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_39
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_39
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM42Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_42_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_42_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM75
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_75
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_75
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyM99
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_m_99
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_m_99
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyNeko
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_neko
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_neko
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyRobo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_robo
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_robo
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW18
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_18
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_18
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW19Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_19_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_19_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW21
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_21
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_21
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW22Bi
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_22_bi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_22_bi
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW24
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_24
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_24
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW25Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_25_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_25_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW27
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_27
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_27
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW30
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_30
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_30
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW31
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_31
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_31
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW33Gay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_33_gay
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_33_gay
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW34
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_34
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_34
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW36
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_36
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_36
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW65
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_65
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_65
+
+- type: entity
+  parent: BaseCardEvacPodBiology
+  id: CardEvacPodBiologyW99
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_biology_w_99
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_biology_w_99

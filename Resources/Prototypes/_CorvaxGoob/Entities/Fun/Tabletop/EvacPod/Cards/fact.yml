@@ -1,0 +1,563 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodFact
+  name: EvacPod deck box (Fact)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_fact_box
+    - state: EvacPod_fact_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodFact
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodFact
+  name: deck of EvacPod cards (Fact)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_fact_full
+  - type: CardStack
+    content:
+    - CardEvacPodFact40cats
+    - CardEvacPodFact1984
+    - CardEvacPodFactAlcohol
+    - CardEvacPodFactAnimalLang
+    - CardEvacPodFactBreathing
+    - CardEvacPodFactBuilder
+    - CardEvacPodFactDrugDealer
+    - CardEvacPodFactDsntRefuse
+    - CardEvacPodFactExpelled
+    - CardEvacPodFactFearMan
+    - CardEvacPodFactFearWash
+    - CardEvacPodFactFearWoman
+    - CardEvacPodFactGhost
+    - CardEvacPodFactGoodClown
+    - CardEvacPodFactGossip
+    - CardEvacPodFactHacker
+    - CardEvacPodFactHotbed
+    - CardEvacPodFactHypnoSmile
+    - CardEvacPodFactHysteric
+    - CardEvacPodFactIlliterate
+    - CardEvacPodFactIT
+    - CardEvacPodFactKidney
+    - CardEvacPodFactKnow5lang
+    - CardEvacPodFactKnowNT
+    - CardEvacPodFactLiar
+    - CardEvacPodFactManiac
+    - CardEvacPodFactMorse
+    - CardEvacPodFactNerd
+    - CardEvacPodFactNobel
+    - CardEvacPodFactNoPassCasino
+    - CardEvacPodFactOlymp
+    - CardEvacPodFactPee
+    - CardEvacPodFactPervert
+    - CardEvacPodFactPsycho
+    - CardEvacPodFactPsychoCourse
+    - CardEvacPodFactPTSD
+    - CardEvacPodFactSeeGods
+    - CardEvacPodFactShitTalk
+    - CardEvacPodFactSlut
+    - CardEvacPodFactSurvivor
+    - CardEvacPodFactTramp
+    - CardEvacPodFactVibeman
+    - CardEvacPodFactWhiner
+    - CardEvacPodFactWood
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFact40cats
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_40cats
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_40cats
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFact1984
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_1984
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_1984
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactAlcohol
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_alcohol
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_alcohol
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactAnimalLang
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_animalLang
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_animalLang
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactBreathing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_breathing
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_breathing
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactBuilder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_builder
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_builder
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactDrugDealer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_drugDealer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_drugDealer
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactDsntRefuse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_dsntRefuse
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_dsntRefuse
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactExpelled
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_expelled
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_expelled
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactFearMan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_fearMan
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_fearMan
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactFearWash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_fearWash
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_fearWash
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactFearWoman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_fearWoman
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_fearWoman
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactGhost
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_ghost
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_ghost
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactGoodClown
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_goodClown
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_goodClown
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactGossip
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_gossip
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_gossip
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactHacker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_hacker
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_hacker
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactHotbed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_hotbed
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_hotbed
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactHypnoSmile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_hypnoSmile
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_hypnoSmile
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactHysteric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_hysteric
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_hysteric
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactIlliterate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_illiterate
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_illiterate
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactIT
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_IT
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_IT
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactKidney
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_kidney
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_kidney
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactKnow5lang
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_know5lang
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_know5lang
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactKnowNT
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_knowNT
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_knowNT
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactLiar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_liar
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_liar
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactManiac
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_maniac
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_maniac
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactMorse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_morse
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_morse
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactNerd
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_nerd
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_nerd
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactNobel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_nobel
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_nobel
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactNoPassCasino
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_noPassCasino
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_noPassCasino
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactOlymp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_olymp
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_olymp
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactPee
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_pee
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_pee
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactPervert
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_pervert
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_pervert
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactPsycho
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_psycho
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_psycho
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactPsychoCourse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_psychoCourse
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_psychoCourse
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactPTSD
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_PTSD
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_PTSD
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactSeeGods
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_seeGods
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_seeGods
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactShitTalk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_shitTalk
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_shitTalk
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactSlut
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_slut
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_slut
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactSurvivor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_survivor
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_survivor
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactTramp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_tramp
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_tramp
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactVibeman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_vibeman
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_vibeman
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactWhiner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_whiner
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_whiner
+
+- type: entity
+  parent: BaseCardEvacPodFact
+  id: CardEvacPodFactWood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_fact_wood
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_fact_wood

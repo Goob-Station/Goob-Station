@@ -394,6 +394,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: BoxPlaysetEvacPod # Corvax-Goob-EvacPod
       - id: CarcBoxClassic # CorvaxGoob Spacessonne
       - id: ChessBoard
       - id: BackgammonBoard

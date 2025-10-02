@@ -1,0 +1,395 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodHealth
+  name: EvacPod deck box (Health)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_health_box
+    - state: EvacPod_health_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodHealth
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodHealth
+  name: deck of EvacPod cards (Health)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_health_full
+  - type: CardStack
+    content:
+    - CardEvacPodHealthHealthy
+    - CardEvacPodHealthAlcoholism
+    - CardEvacPodHealthBlind
+    - CardEvacPodHealthCoffeeAddiction
+    - CardEvacPodHealthDeaf
+    - CardEvacPodHealthDepression
+    - CardEvacPodHealthDiarrhea
+    - CardEvacPodHealthDrugAddiction
+    - CardEvacPodHealthDwarf
+    - CardEvacPodHealthGamingAddiction
+    - CardEvacPodHealthGiga
+    - CardEvacPodHealthHairiness
+    - CardEvacPodHealthHallucinations
+    - CardEvacPodHealthHorny
+    - CardEvacPodHealthImpotence
+    - CardEvacPodHealthInfertility
+    - CardEvacPodHealthKleptomania
+    - CardEvacPodHealthLossOfSmell
+    - CardEvacPodHealthMigraine
+    - CardEvacPodHealthNoHand
+    - CardEvacPodHealthNoLeg
+    - CardEvacPodHealthPersecution
+    - CardEvacPodHealthSclerosis
+    - CardEvacPodHealthSomnambulism
+    - CardEvacPodHealthSplit
+    - CardEvacPodHealthStutterer
+    - CardEvacPodHealthSuicidal
+    - CardEvacPodHealthTail
+    - CardEvacPodHealthTremor
+    - CardEvacPodHealthUnknown
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthHealthy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_healthy
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_healthy
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthAlcoholism
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_alcoholism
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_alcoholism
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthBlind
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_blind
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_blind
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthCoffeeAddiction
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_coffeeAddiction
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_coffeeAddiction
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthDeaf
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_deaf
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_deaf
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthDepression
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_depression
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_depression
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthDiarrhea
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_diarrhea
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_diarrhea
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthDrugAddiction
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_drugAddiction
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_drugAddiction
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthDwarf
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_dwarf
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_dwarf
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthGamingAddiction
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_gamingAddiction
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_gamingAddiction
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthGiga
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_giga
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_giga
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthHairiness
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_hairiness
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_hairiness
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthHallucinations
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_hallucinations
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_hallucinations
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthHorny
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_horny
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_horny
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthImpotence
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_impotence
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_impotence
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthInfertility
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_infertility
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_infertility
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthKleptomania
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_kleptomania
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_kleptomania
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthLossOfSmell
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_lossOfSmell
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_lossOfSmell
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthMigraine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_migraine
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_migraine
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthNoHand
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_noHand
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_noHand
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthNoLeg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_noLeg
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_noLeg
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthPersecution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_persecution
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_persecution
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthSclerosis
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_sclerosis
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_sclerosis
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthSomnambulism
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_somnambulism
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_somnambulism
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthSplit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_split
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_split
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthStutterer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_stutterer
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_stutterer
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthSuicidal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_suicidal
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_suicidal
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthTail
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_tail
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_tail
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthTremor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_tremor
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_tremor
+
+- type: entity
+  parent: BaseCardEvacPodHealth
+  id: CardEvacPodHealthUnknown
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_health_unknown
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_health_unknown

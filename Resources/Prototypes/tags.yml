@@ -785,6 +785,9 @@
 - type: Tag
   id: Enzyme
 
+- type: Tag # Corvax-Goob-EvacPod
+  id: EvacPod
+
 - type: Tag
   id: ExplosivePassable
 

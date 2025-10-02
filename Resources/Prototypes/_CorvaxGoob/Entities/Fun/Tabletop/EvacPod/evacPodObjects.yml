@@ -1,0 +1,123 @@
+- type: entity
+  id: EvacPodCarpet
+  name: EvacPod carpet
+  description: Foldable carpet for playing EvacPod.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/carpet.rsi
+    state: icon-off
+    drawdepth: FloorTiles
+  - type: Item
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/carpet.rsi
+    storedRotation: -90
+    size: Tiny
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon-off }
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Effects/drop.ogg
+      params:
+        volume: 0
+        maxDistance: 3
+    soundDeactivate:
+      path: /Audio/Effects/drop.ogg
+      params:
+        volume: -2
+        maxDistance: 3
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: UseDelay
+    delay: 1
+  - type: Animateable
+  - type: Clickable
+  - type: MovedByPressure
+  - type: Pullable
+  - type: CollisionWake
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3 
+        friction: 0.2
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GenericPickup
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GenericDrop
+      params:
+        volume: -7
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/drop.ogg
+      params:
+        volume: 2
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: BoxPlaysetEvacPod
+  name: EvacPod playset box
+  description: A box with a playset for playing EvacPod.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/playsetBox.rsi
+    layers:
+    - state: playset_box
+    - state: playset_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: MultiHandedItem
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+      - 0,0,15,1
+      - 0,3,0,4
+      - 2,3,5,4
+      - 7,3,15,4
+    whitelist:
+      tags:
+        - EvacPod
+  - type: StorageFill
+    contents:
+      - id: CardBoxEvacPodCatastrophe
+        amount: 1
+      - id: CardBoxEvacPodProfession
+        amount: 1
+      - id: CardBoxEvacPodBiology
+        amount: 1
+      - id: CardBoxEvacPodHealth
+        amount: 1
+      - id: CardBoxEvacPodShuttle
+        amount: 1
+      - id: CardBoxEvacPodDanger
+        amount: 1
+      - id: CardBoxEvacPodSpecial
+        amount: 1
+      - id: CardBoxEvacPodHobby
+        amount: 1
+      - id: CardBoxEvacPodBaggage
+        amount: 1
+      - id: CardBoxEvacPodFact
+        amount: 1
+      - id: BookEvacPodStandartRules
+        amount: 1
+      - id: EvacPodCarpet
+        amount: 18

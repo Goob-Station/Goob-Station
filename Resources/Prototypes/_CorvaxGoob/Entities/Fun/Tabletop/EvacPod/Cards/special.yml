@@ -1,0 +1,383 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodSpecial
+  name: EvacPod deck box (Special)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_special_box
+    - state: EvacPod_special_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodSpecial
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodSpecial
+  name: deck of EvacPod cards (Special)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_special_full
+  - type: CardStack
+    content:
+    - CardEvacPodSpecialTakeIt
+    - CardEvacPodSpecialFriend
+    - CardEvacPodSpecialLights
+    - CardEvacPodSpecialLoud
+    - CardEvacPodSpecialBaggage
+    - CardEvacPodSpecialBiology
+    - CardEvacPodSpecialProtectLeft
+    - CardEvacPodSpecialSabotage
+    - CardEvacPodSpecialDiscredit
+    - CardEvacPodSpecialHobby
+    - CardEvacPodSpecialHealth
+    - CardEvacPodSpecialFact
+    - CardEvacPodSpecialProtectBrave
+    - CardEvacPodSpecialProtectRigth
+    - CardEvacPodSpecialProtectYoung
+    - CardEvacPodSpecialSwapBaggage
+    - CardEvacPodSpecialSwapBiology
+    - CardEvacPodSpecialTakeBaggage
+    - CardEvacPodSpecialProtectOld
+    - CardEvacPodSpecialCompro
+    - CardEvacPodSpecialSwapHobby
+    - CardEvacPodSpecialSwapHealth
+    - CardEvacPodSpecialSwapFact
+    - CardEvacPodSpecialPirates
+    - CardEvacPodSpecialBadPills
+    - CardEvacPodSpecialQuestion
+    - CardEvacPodSpecialGoodPills
+    - CardEvacPodSpecialPlanB
+    - CardEvacPodSpecialFake
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialTakeIt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_takeIt
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialFriend
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_friend
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialLights
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_lights
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialLoud
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_loud
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialBaggage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_baggage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialBiology
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_biology
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialProtectLeft
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_protectLeft
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSabotage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_sabotage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialDiscredit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_discredit
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialHobby
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_hobby
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialHealth
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_health
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialFact
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_fact
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialProtectBrave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_protectBrave
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialProtectRigth
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_protectRigth
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialProtectYoung
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_protectYoung
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSwapBaggage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_swapBaggage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSwapBiology
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_swapBiology
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialTakeBaggage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_takeBaggage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialProtectOld
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_protectOld
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialCompro
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_compro
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSwapHobby
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_swapHobby
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSwapHealth
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_swapHealth
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialSwapFact
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_swapFact
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialPirates
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_pirates
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialBadPills
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_badPills
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialQuestion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_question
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialGoodPills
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_goodPills
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialPlanB
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_planB
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special
+
+- type: entity
+  parent: BaseCardEvacPodSpecial
+  id: CardEvacPodSpecialFake
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_special_fake
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_special

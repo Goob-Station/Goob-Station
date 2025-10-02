@@ -1,0 +1,395 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodHobby
+  name: EvacPod deck box (Hobby)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_hobby_box
+    - state: EvacPod_hobby_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodHobby
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodHobby
+  name: deck of EvacPod cards (Hobby)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_hobby_full
+  - type: CardStack
+    content:
+    - CardEvacPodHobbyAhelp
+    - CardEvacPodHobbyMeleeWeapon
+    - CardEvacPodHobbyBlackMagic
+    - CardEvacPodHobbyFlood
+    - CardEvacPodHobbyMashrooms
+    - CardEvacPodHobbyMartialArts
+    - CardEvacPodHobbyCottagers
+    - CardEvacPodHobbyVoyeurisme
+    - CardEvacPodHobbyAlchemist
+    - CardEvacPodHobbyHydroponic
+    - CardEvacPodHobbyHealthyLifestyle
+    - CardEvacPodHobbyFilms
+    - CardEvacPodHobbyComputerGames
+    - CardEvacPodHobbyNetWorking
+    - CardEvacPodHobbyRadio
+    - CardEvacPodHobbyTabletop
+    - CardEvacPodHobbyMeditation
+    - CardEvacPodHobbyLocalHistory
+    - CardEvacPodHobbyMassage
+    - CardEvacPodHobbyParkour
+    - CardEvacPodHobbyAltMedicine
+    - CardEvacPodHobbyHuntingAndFishing
+    - CardEvacPodHobbySwingerParty
+    - CardEvacPodHobbyPyrotechnics
+    - CardEvacPodHobbyHTHtalks
+    - CardEvacPodHobbyContemporaryArt
+    - CardEvacPodHobbyBrewing
+    - CardEvacPodHobbyRobotech
+    - CardEvacPodHobbySportsDancing
+    - CardEvacPodHobbyStriptease
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyAhelp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_ahelp
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_ahelp
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyMeleeWeapon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_meleeWeapon
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_meleeWeapon
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyBlackMagic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_blackMagic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_blackMagic
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyFlood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_flood
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_flood
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyMashrooms
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_mashrooms
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_mashrooms
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyMartialArts
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_martialArts
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_martialArts
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyCottagers
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_cottagers
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_cottagers
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyVoyeurisme
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_voyeurisme
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_voyeurisme
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyAlchemist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_alchemist
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_alchemist
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyHydroponic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_hydroponic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_hydroponic
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyHealthyLifestyle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_healthyLifestyle
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_healthyLifestyle
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyFilms
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_films
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_films
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyComputerGames
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_computerGames
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_computerGames
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyNetWorking
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_netWorking
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_netWorking
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyRadio
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_radio
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_radio
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyTabletop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_tabletop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_tabletop
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyMeditation
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_meditation
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_meditation
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyLocalHistory
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_localHistory
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_localHistory
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyMassage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_massage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_massage
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyParkour
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_parkour
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_parkour
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyAltMedicine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_altMedicine
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_altMedicine
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyHuntingAndFishing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_huntingAndFishing
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_huntingAndFishing
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbySwingerParty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_swingerParty
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_swingerParty
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyPyrotechnics
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_pyrotechnics
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_pyrotechnics
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyHTHtalks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_HTHtalks
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_HTHtalks
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyContemporaryArt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_contemporaryArt
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_contemporaryArt
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyBrewing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_brewing
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_brewing
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyRobotech
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_robotech
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_robotech
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbySportsDancing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_sportsDancing
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_sportsDancing
+
+- type: entity
+  parent: BaseCardEvacPodHobby
+  id: CardEvacPodHobbyStriptease
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_hobby_striptease
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_hobby_striptease

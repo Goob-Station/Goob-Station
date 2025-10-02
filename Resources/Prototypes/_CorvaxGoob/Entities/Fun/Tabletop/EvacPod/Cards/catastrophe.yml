@@ -1,0 +1,227 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodCatastrophe
+  name: EvacPod deck box (Catastrophe)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_catastrophe_box
+    - state: EvacPod_catastrophe_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodCatastrophe
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodCatastrophe
+  name: deck of EvacPod cards (Catastrophe)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_catastrophe_full
+  - type: CardStack
+    content:
+    - CardEvacPodCatastropheAesthetic
+    - CardEvacPodCatastropheAhelp
+    - CardEvacPodCatastropheAI
+    - CardEvacPodCatastropheAtmos
+    - CardEvacPodCatastropheBorg
+    - CardEvacPodCatastropheCat
+    - CardEvacPodCatastropheDino
+    - CardEvacPodCatastropheGhost
+    - CardEvacPodCatastropheMutant
+    - CardEvacPodCatastropheNarsi
+    - CardEvacPodCatastropheNews
+    - CardEvacPodCatastrophePandemic
+    - CardEvacPodCatastropheStars
+    - CardEvacPodCatastropheSuicidal
+    - CardEvacPodCatastropheWar
+    - CardEvacPodCatastropheZombie
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheAesthetic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_aesthetic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_aesthetic
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheAhelp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_ahelp
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_ahelp
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheAI
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_ai
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_ai
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheAtmos
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_atmos
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_atmos
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheBorg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_borg
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_borg
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheCat
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_cat
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_cat
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheDino
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_dino
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_dino
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheGhost
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_ghost
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_ghost
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheMutant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_mutant
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_mutant
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheNarsi
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_narsi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_narsi
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheNews
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_news
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_news
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastrophePandemic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_pandemic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_pandemic
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheStars
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_stars
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_stars
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheSuicidal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_suicidal
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_suicidal
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheWar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_war
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_war
+
+- type: entity
+  parent: BaseCardEvacPodCatastrophe
+  id: CardEvacPodCatastropheZombie
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_catastrophe_zombie
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_catastrophe_zombie

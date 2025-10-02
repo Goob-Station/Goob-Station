@@ -1,0 +1,395 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodBaggage
+  name: EvacPod deck box (Baggage)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_baggage_box
+    - state: EvacPod_baggage_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodBaggage
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodBaggage
+  name: deck of EvacPod cards (Baggage)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_baggage_full
+  - type: CardStack
+    content:
+    - CardEvacPodBaggage3golds
+    - CardEvacPodBaggageBeartrap
+    - CardEvacPodBaggageBookAzimov
+    - CardEvacPodBaggageBookMashroom
+    - CardEvacPodBaggageBow
+    - CardEvacPodBaggageCarpentryTools
+    - CardEvacPodBaggageCompas
+    - CardEvacPodBaggageDefib
+    - CardEvacPodBaggageDoll
+    - CardEvacPodBaggageElectric
+    - CardEvacPodBaggageGenerator
+    - CardEvacPodBaggageGrain
+    - CardEvacPodBaggageGuitar
+    - CardEvacPodBaggageIncubator
+    - CardEvacPodBaggageKnifes
+    - CardEvacPodBaggageLaptop
+    - CardEvacPodBaggageMedicine
+    - CardEvacPodBaggageParamedic
+    - CardEvacPodBaggagePicklock
+    - CardEvacPodBaggagePistol
+    - CardEvacPodBaggagePNV
+    - CardEvacPodBaggagePotato
+    - CardEvacPodBaggageSaplings
+    - CardEvacPodBaggageSniperRifle
+    - CardEvacPodBaggageSonicScrewdriver
+    - CardEvacPodBaggageSpecos
+    - CardEvacPodBaggageSpiritTabletop
+    - CardEvacPodBaggageTabletop
+    - CardEvacPodBaggageTinfoil
+    - CardEvacPodBaggageVoodoo
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggage3golds
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_3golds
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_3golds
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageBeartrap
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_beartrap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_beartrap
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageBookAzimov
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_bookAzimov
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_bookAzimov
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageBookMashroom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_bookMashroom
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_bookMashroom
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageBow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_bow
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_bow
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageCarpentryTools
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_carpentryTools
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_carpentryTools
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageCompas
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_compas
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_compas
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageDefib
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_defib
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_defib
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageDoll
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_doll
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_doll
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageElectric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_electric
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_electric
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageGenerator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_generator
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_generator
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageGrain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_grain
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_grain
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageGuitar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_guitar
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_guitar
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageIncubator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_incubator
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_incubator
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageKnifes
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_knifes
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_knifes
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageLaptop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_laptop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_laptop
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageMedicine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_medicine
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_medicine
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageParamedic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_paramedic
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_paramedic
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggagePicklock
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_picklock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_picklock
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggagePistol
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_pistol
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_pistol
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggagePNV
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_pnv
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_pnv
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggagePotato
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_potato
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_potato
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageSaplings
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_saplings
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_saplings
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageSniperRifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_sniperRifle
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_sniperRifle
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageSonicScrewdriver
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_sonicScrewdriver
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_sonicScrewdriver
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageSpecos
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_specos
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_specos
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageSpiritTabletop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_spiritTabletop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_spiritTabletop
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageTabletop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_tabletop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_tabletop
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageTinfoil
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_tinfoil
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_tinfoil
+
+- type: entity
+  parent: BaseCardEvacPodBaggage
+  id: CardEvacPodBaggageVoodoo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_baggage_voodoo
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_baggage_voodoo

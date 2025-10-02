@@ -1,0 +1,139 @@
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodProfession
+  name: profession card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_profession
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodBiology
+  name: biology card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_biology
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodHealth
+  name: health card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_health
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodHobby
+  name: hobby card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_hobby
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodBaggage
+  name: baggage card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_baggage
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodFact
+  name: fact card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_fact
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodSpecial
+  name: special card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_special
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodCatastrophe
+  name: catastrophe card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_catastrophe
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodDanger
+  name: danger card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_danger
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardBase
+  id: BaseCardEvacPodShuttle
+  name: shuttle card
+  abstract: true
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_ep_shuttle
+  - type: Tag
+    tags:
+    - EvacPod

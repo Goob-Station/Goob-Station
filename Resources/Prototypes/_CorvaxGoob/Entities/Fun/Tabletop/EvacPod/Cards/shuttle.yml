@@ -1,0 +1,359 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxEvacPodShuttle
+  name: EvacPod deck box (Shuttle)
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: EvacPod_shuttle_box
+    - state: EvacPod_shuttle_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckEvacPodShuttle
+      amount: 1
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckEvacPodShuttle
+  name: deck of EvacPod cards (Shuttle)
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_ep_shuttle_full
+  - type: CardStack
+    content:
+    - CardEvacPodShuttleVideo
+    - CardEvacPodShuttleR2D2
+    - CardEvacPodShuttleMedkit
+    - CardEvacPodShuttleAltar
+    - CardEvacPodShuttlePizza
+    - CardEvacPodShuttleReserve
+    - CardEvacPodShuttleSpeech
+    - CardEvacPodShuttle10years
+    - CardEvacPodShuttleHypno
+    - CardEvacPodShuttleJournal
+    - CardEvacPodShuttleMicrowave
+    - CardEvacPodShuttleWorkshop
+    - CardEvacPodShuttleCoffee
+    - CardEvacPodShuttleRats
+    - CardEvacPodShuttleBookFood
+    - CardEvacPodShuttleLamps
+    - CardEvacPodShuttleMedLab
+    - CardEvacPodShuttleMedia
+    - CardEvacPodShuttleGarbage
+    - CardEvacPodShuttleField
+    - CardEvacPodShuttleRadio
+    - CardEvacPodShuttle45deg
+    - CardEvacPodShuttleNecro
+    - CardEvacPodShuttleBorg
+    - CardEvacPodShuttleTableTop
+    - CardEvacPodShuttleManual
+    - CardEvacPodShuttleChemLab
+  - type: Tag
+    tags:
+    - EvacPod
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleVideo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_video
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleR2D2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_r2d2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleMedkit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_medkit
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleAltar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_altar
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttlePizza
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_pizza
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleReserve
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_reserve
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleSpeech
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_speech
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttle10years
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_10years
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleHypno
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_hypno
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleJournal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_journal
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleMicrowave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_microwave
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleWorkshop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_workshop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleCoffee
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_coffee
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleRats
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_rats
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleBookFood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_bookFood
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleLamps
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_lamps
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleMedLab
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_medLab
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleMedia
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_media
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleGarbage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_garbage
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleField
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_field
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleRadio
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_radio
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttle45deg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_45deg
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleNecro
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_necro
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleBorg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_borg
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleTableTop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_tableTop
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleManual
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_manual
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
+
+- type: entity
+  parent: BaseCardEvacPodShuttle
+  id: CardEvacPodShuttleChemLab
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Card
+    name: card-ep_shuttle_chemLab
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: ep_shuttle
