@@ -4,6 +4,7 @@
   id: HierophantClubShapeExpandingBox
   name: hierophant attack box expanding spawner
   suffix: Hierophant club
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
     state: red
@@ -22,6 +23,7 @@
   id: HierophantClubShapeRandomCross
   name: hierophant attack cross sequence spawner
   suffix: Hierophant club
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
     state: red

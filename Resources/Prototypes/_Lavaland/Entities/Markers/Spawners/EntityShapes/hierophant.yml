@@ -3,7 +3,7 @@
   parent: MarkerBase
   id: BaseHierophantShape
   name: hierophant attack spawner
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   abstract: true
   components:
   - type: Sprite
@@ -16,6 +16,7 @@
   parent: BaseHierophantShape
   id: HierophantShapeCrossBishop
   name: hierophant attack cross bishop spawner
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
     shape: !type:NestedEntityShape
@@ -26,6 +27,7 @@
   parent: BaseHierophantShape
   id: HierophantShapeCrossRook
   name: hierophant attack cross rook spawner
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
     shape: !type:NestedEntityShape
@@ -36,6 +38,7 @@
   parent: BaseHierophantShape
   id: HierophantShapeCrossQueen
   name: hierophant attack cross queen spawner
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
     shape: !type:NestedEntityShape
@@ -47,6 +50,7 @@
   parent: BaseHierophantShape
   id: HierophantShapeBlink
   name: hierophant attack blink spawner
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
     shape: !type:NestedEntityShape
@@ -59,6 +63,7 @@
   id: HierophantShapeBoxExpanding
   name: hierophant attack box expanding spawner
   suffix: Anger
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
     state: red
@@ -79,6 +84,7 @@
   id: HierophantShapeCrossSequence
   name: hierophant attack cross sequence spawner
   suffix: Anger
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
     state: red
