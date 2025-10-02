@@ -11,10 +11,10 @@ namespace Content.Shared._Lavaland.EntityShapes.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ExpandingShapeSpawnerComponent : Component
 {
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public EntityShape Shape;
 
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public EntProtoId Spawn;
 
     [DataField, AutoNetworkedField]
