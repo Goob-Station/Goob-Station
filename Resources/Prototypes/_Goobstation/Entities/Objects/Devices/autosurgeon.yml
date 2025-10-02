@@ -150,3 +150,25 @@
       componentsToPart:
       - type: SmartLinkArm
 
+- type: entity
+  parent: BaseAutosurgeonSyndicateMultiple
+  id: AutosurgeonRecoilAbsorber
+  name: syndicate autosurgeon (recoil absorbing arms)
+  components:
+  - type: AutoSurgeonMultiple
+    entries:
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      newPartProto: RecoilAbsorberRightHand
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      newPartProto: RecoilAbsorberLeftHand
+
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      componentsToPart:
+      - type: RecoilAbsorberArm
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      componentsToPart:
+      - type: RecoilAbsorberArm
