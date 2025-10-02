@@ -148,38 +148,38 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: NTRExecutiveInternCall
-  name: Call intern squad
-  description: Calls in a lead intern with special summoning coins, that are calling more interns.
-  productEntity: SpawnPodInterns
-  icon:
-    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
-    state: icon_alt
-  cost:
-    NTLoyaltyPoint: 50
-  categories:
-  - NTRpersonal
-  restockTime: 600 # 10 mins
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
+# - type: listing
+#  id: NTRExecutiveInternCall
+#  name: Call intern squad
+#  description: Calls in a lead intern with special summoning coins, that are calling more interns.
+#  productEntity: SpawnPodInterns
+#  icon:
+#    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+#    state: icon_alt
+#  cost:
+#    NTLoyaltyPoint: 50
+#  categories:
+#  - NTRpersonal
+#  restockTime: 600 # 10 mins
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
 
-- type: listing
-  id: NTRExecutiveDagger
-  name: Phoron dagger
-  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
-  productEntity: SpawnPodDagger
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
-    state: icon
-  cost:
-    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
-  categories:
-  - NTRpersonal
-  restockTime: 900 # 15 min
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1200 # 20 min
+#- type: listing
+#  id: NTRExecutiveDagger
+#  name: Phoron dagger
+#  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
+#  productEntity: SpawnPodDagger
+#  icon:
+#    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
+#    state: icon
+#  cost:
+#    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
+#  categories:
+#  - NTRpersonal
+#  restockTime: 900 # 15 min
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 1200 # 20 min
 
 - type: listing
   id: NTRExecutiveSingleIntern
@@ -197,22 +197,22 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 900 # 15 mins
 
-- type: listing
-  id: NTRExecutiveBSDCall
-  name: ntr-executive-bsd-name
-  description: ntr-executive-bsd-desc
-  productEntity: SpawnPodBsd
-  icon:
-    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
-    state: icon_alt
-  cost:
-    NTLoyaltyPoint: 40
-  categories:
-  - NTRpersonal
-  restockTime: 1800 # 3o min
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
+#- type: listing
+#  id: NTRExecutiveBSDCall
+#  name: ntr-executive-bsd-name
+#  description: ntr-executive-bsd-desc
+#  productEntity: SpawnPodBsd
+#  icon:
+#    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+#    state: icon_alt
+#  cost:
+#    NTLoyaltyPoint: 40
+#  categories:
+#  - NTRpersonal
+#  restockTime: 1800 # 3o min
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
 
 #- type: listing
 #  id: NTRExecutiveHardsuit
@@ -294,21 +294,21 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 600 # 10 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
 
-- type: listing
-  id: NTRExecutiveDeckard
-  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
-  description: ntr-executive-1984-desc
-  productEntity: SpawnPodDeckard
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
-    state: base
-  cost:
-    NTLoyaltyPoint: 15
-  categories:
-  - NTRpersonal
-  restockTime: 600 # 10 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1800 #30mins, the reason above.
+# - type: listing
+#  id: NTRExecutiveDeckard
+#  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
+#  description: ntr-executive-1984-desc
+#  productEntity: SpawnPodDeckard
+#  icon:
+#    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+#    state: base
+#  cost:
+#    NTLoyaltyPoint: 15
+#  categories:
+#  - NTRpersonal
+#  restockTime: 600 # 10 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 1800 #30mins, the reason above.
 
 - type: listing
   id: NTRExecutiveCombatKit
