@@ -13,7 +13,6 @@ using Content.Shared.Labels.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
@@ -83,11 +82,14 @@ public abstract class SharedHandLabelerSystem : EntitySystem
             result = Loc.GetString("hand-labeler-successfully-removed");
             return;
         }
+
+        // Goobstation
         if (_netManager.IsServer)
+        {
             _labelSystem.Label(target, handLabeler.AssignedLabel);
+        }
 
         result = Loc.GetString("hand-labeler-successfully-applied");
-        _audio.PlayPredicted(handLabeler.PrintSound, uid, target); // Goobstation
     }
 
     private void OnUtilityVerb(EntityUid uid, HandLabelerComponent handLabeler, GetVerbsEvent<UtilityVerb> args)
@@ -120,6 +122,13 @@ public abstract class SharedHandLabelerSystem : EntitySystem
     private void Labeling(EntityUid uid, EntityUid target, EntityUid User, HandLabelerComponent handLabeler)
     {
         AddLabelTo(uid, handLabeler, target, out var result);
+
+        // Goobstation
+        if (_netManager.IsServer)
+        {
+            _audio.PlayPvs(handLabeler.PrintSound, uid, handLabeler.PrintSound.Params);
+        }
+
         if (result == null)
             return;
 

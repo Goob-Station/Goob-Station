@@ -34,7 +34,7 @@ public sealed partial class HandLabelerComponent : Component
     [DataField]
     public SoundPathSpecifier PrintSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/hand_labeler_print.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-2f)
+        Params = AudioParams.Default.WithVolume(10f)
     };
 }
 
