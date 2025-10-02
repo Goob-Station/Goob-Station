@@ -202,6 +202,11 @@ public sealed class SwapTeleporterSystem : EntitySystem
         if (IsPaused(entity1) || IsPaused(entity2))
             return false;
 
+        // Goobstation - Prevent warping into CC with surgery on mice
+        if (entity1.Comp.MapID != entity2.Comp.MapID)
+            return false;
+        // Goobstation End
+
         return true;
     }
 
