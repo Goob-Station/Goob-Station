@@ -1006,7 +1006,7 @@
   - UplinkImplants
 
 - type: listing
-  id: UplinkAutosurgeonBerserkerHeard
+  id: UplinkAutosurgeonBerserkerHeart
   name: uplink-autosurgeon-berserker-heart-name
   description: uplink-autosurgeon-berserker-heart-desc
   icon: { sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi, state: heart-berserker-off }
@@ -1015,6 +1015,22 @@
     Telecrystal: 66
   categories:
   - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonJumpstarter
+  name: uplink-autosurgeon-jumpstarter-heart-name
+  description: uplink-autosurgeon-jumpstarter-heart-desc
+  icon: { sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi, state: heart-berserker-off }
+  productEntity: AutosurgeonJumpstarter
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
 
 # Deception
 

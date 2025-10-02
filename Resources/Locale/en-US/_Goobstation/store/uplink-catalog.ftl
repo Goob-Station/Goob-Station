@@ -288,6 +288,9 @@ uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include r
 uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
 uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
+uplink-autosurgeon-jumpstarter-heart-name = Jumpstarter Heart Autosurgeon
+uplink-autosurgeon-jumpstarter-heart-desc = Replaces the user's heart with a jumpstarter implant, that injects enough omnizine to get up once you got critical damage. Has a 3 minutes cooldown. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
