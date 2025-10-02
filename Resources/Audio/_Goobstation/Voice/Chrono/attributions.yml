@@ -5,14 +5,14 @@
 - files: ["contact.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Recorded by Richard Blosnki"
-  source: "RichardBlonski"
+  source: "https://github.com/RichardBlonski"
 
 - files: ["dagger.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Recorded by Richard Blosnki"
-  source: "RichardBlonski"
+  source: "https://github.com/RichardBlonski"
 
 - files: ["flaredown.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Recorded by Richard Blosnki"
-  source: "RichardBlonski"
+  source: "https://github.com/RichardBlonski"
