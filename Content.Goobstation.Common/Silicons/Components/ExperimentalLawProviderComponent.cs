@@ -15,7 +15,7 @@ public sealed partial class ExperimentalLawProviderComponent : Component
     [DataField] public string RandomLawsets = "IonStormLawsets";
 
     // Numbers are equivalent to 83 points per second, so it's like running a dangerous anomaly for 2 minutes.
-    [DataField] public float RewardTime = 120.0f;
+    [DataField] public float RewardTime = 300.0f; //from 120
 
-    [DataField] public int RewardPoints = 100000; //830 Points per second
+    [DataField] public int RewardPoints = 100000; //830 Points per second, used to be 83
 }
