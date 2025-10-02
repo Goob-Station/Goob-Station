@@ -80,13 +80,13 @@
       prob: 0.4
     - id: moabBalloon
       orGroup: BalloonRandom
-      prob: 0.15
+      prob: 0.10
     - id: bfbBalloon
       orGroup: BalloonRandom
-      prob: 0.10
+      prob: 0.05
     - id: zomgBalloon
       orGroup: BalloonRandom
-      prob: 0.05
+      prob: 0.01
     sound:
       path: /Audio/Effects/unwrap.ogg
    
