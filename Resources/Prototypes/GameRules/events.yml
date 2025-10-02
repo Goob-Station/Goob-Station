@@ -937,13 +937,13 @@
   id: IonStorm
   components:
   - type: StationEvent
-    weight: 8
+    weight: 3 #goob 8>3
     reoccurrenceDelay: 20
     duration: 1
     chaos: # Goobstation
-      Hostile: 10
-      Friend: 20
-      Mess: 30
+      Hostile: 50
+      Friend: 100
+      Mess: 150
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
