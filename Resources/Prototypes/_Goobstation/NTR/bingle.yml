@@ -3,7 +3,7 @@
   id: MobBingleCargo
   name: cargo bingle
   description: Poor lad, after his pit was destroyed, he was captured and forced to work 9 to 5 just to see his bingle family. You can see his tears.
-  parent: SimpleMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
+  parent: SimpleSpaceMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
