@@ -1,11 +1,10 @@
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Goobstation.Shared._Europa.languages;
+namespace Content.Goobstation.Shared._Europa;
 //
 // License-Identifier: AGPL-3.0-or-later
 //
@@ -60,5 +59,5 @@ public sealed partial class LanguageLearnComponent : Component
 /// <summary>
 /// Raised after the doafter is completed when using the item.
 /// </summary>
-[Serializable]
+[Serializable, NetSerializable]
 public sealed partial class LanguageLearnDoAfterEvent : SimpleDoAfterEvent{}
