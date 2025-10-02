@@ -208,7 +208,7 @@
       sprite: /Textures/_Goobstation/Effects/portal.rsi
       state: portal-hell
   - type: TargetAction
-    range: 2
+    range: 1
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
