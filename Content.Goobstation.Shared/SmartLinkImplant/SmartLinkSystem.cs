@@ -4,12 +4,14 @@ using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SmartLinkImplant;
 
 public sealed class SmartLinkSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -56,10 +58,25 @@ public sealed class SmartLinkSystem : EntitySystem
 
         foreach (var projectile in args.FiredProjectiles)
         {
-            var homing = EnsureComp<HomingProjectileComponent>(projectile);
-
+            var homing = EnsureComp<DelayedHomingProjectileComponent>(projectile);
+            homing.HomingStart = _timing.CurTime + TimeSpan.FromSeconds(0.35f);
             homing.Target = gun.Target.Value;
             Dirty(projectile, homing);
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var query = EntityQueryEnumerator<DelayedHomingProjectileComponent>();
+        while (query.MoveNext(out var ent, out var comp))
+        {
+            if (_timing.CurTime < comp.HomingStart)
+                continue;
+
+            var homing = EnsureComp<DelayedHomingProjectileComponent>(ent);
+            homing.Target = comp.Target;
+            RemCompDeferred<DelayedHomingProjectileComponent>(ent);
         }
     }
 }
