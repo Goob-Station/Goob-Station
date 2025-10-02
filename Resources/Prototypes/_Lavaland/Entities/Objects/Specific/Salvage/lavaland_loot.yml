@@ -215,7 +215,7 @@
   id: LavalandLifeforceTalisman
   parent: ClothingNeckBase
   name: Lifeforce talisman
-  description:
+  description: feels like its brimming whit life
   components:
   - type: ClothingGrantComponent
     component:
