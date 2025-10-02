@@ -38,18 +38,6 @@
     - CombatKnife
 
 - type: loadout
-  id: SecurityMeleePolyBaton
-  storage:
-    back:
-    - PolymerBaton
-
-- type: loadout
-  id: SecurityMeleeSpear
-  storage:
-    back:
-    - SpearTelescopic
-
-- type: loadout
   id: SecurityOfficerEnvirosuit
   equipment:
     jumpsuit: ClothingUniformEnvirosuitSec
