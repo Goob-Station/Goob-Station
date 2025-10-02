@@ -214,22 +214,6 @@
 #  - !type:ListingLimitedStockCondition
 #    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
 
-#- type: listing
-#  id: NTRExecutiveHardsuit
-#  name: ntr-executive-hardsuit-name
-#  description: ntr-executive-hardsuit-desc
-#  productEntity: SpawnPodHardsuit
-#  icon:
-#    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
-#    state: icon
-#  cost:
-#    NTLoyaltyPoint: 35
-#  categories:
-#  - NTRpersonal
-#  restockTime: 600 # 10 mins
-#  resetRestockOnPurchase: true
-#  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
-
 - type: listing
   id: NTRExecutiveCigar
   name: ntr-executive-cigar-name
@@ -325,6 +309,22 @@
   restockTime: 300
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 #30mins, you shouldnt spam this
+
+- type: listing
+  id: NTRExecutiveHardsuit
+  name: ntr-executive-hardsuit-name
+  description: ntr-executive-hardsuit-desc
+  productEntity: SpawnPodHardsuit
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 100
+  categories:
+  - NTRpersonal
+  restockTime: 1200 # 20 mins
+  resetRestockOnPurchase: false
+  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
 
 # Machine boards
 
