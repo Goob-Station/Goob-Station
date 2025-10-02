@@ -182,3 +182,13 @@
     targetBodyPart: Chest
     targetOrgan: heart
     newPartProto: SyndicateBerserkerHeart
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonJumpstarter
+  name: syndicate autosurgeon (jumpstarter heart)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: heart
+    newPartProto: SyndicateJumpstarterHeart

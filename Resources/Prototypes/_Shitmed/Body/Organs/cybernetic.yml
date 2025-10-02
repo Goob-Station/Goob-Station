@@ -298,3 +298,34 @@
       rateModifier: 0.35
     - id: Narcotic
       rateModifier: 0.6
+
+- type: entity
+  parent: BasicCyberneticHeart
+  id: SyndicateJumpstarterHeart
+  name: jumpstarter heart
+  description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
+  components:
+  - type: Sprite
+    state: heart-berserker-on
+  - type: Organ
+    intCap: 32
+    integrity: 32
+    integrityThresholds:
+      Normal: 32
+      Damaged: 9
+      Destroyed: 0
+    onAdd:
+    - type: InjectOnMobState
+      reagents:
+        Omnizine: 75
+    slotId: heart
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Medicine
+      rateModifier: 2.25
+    - id: Poison
+      rateModifier: 0.35
+    - id: Narcotic
+      rateModifier: 0.6
