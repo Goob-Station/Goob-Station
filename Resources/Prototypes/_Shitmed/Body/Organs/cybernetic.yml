@@ -318,6 +318,8 @@
     - type: InjectOnMobState
       reagents:
         Omnizine: 75
+        TranexamicAcid: 5
+        DexalinPlus: 15
     slotId: heart
   - type: Metabolizer
     maxPoisonsProcessable: 2
