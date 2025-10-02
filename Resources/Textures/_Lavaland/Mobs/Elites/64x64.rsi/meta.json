@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation 13.",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "broodmother",
+            "directions": 4
+        },
+        {
+            "name": "eggsac"
+        },
+        {
+            "name": "herald"
+        },
+        {
+            "name": "herald_ghost"
+        },
+        {
+            "name": "herald_mirror"
+        },
+        {
+            "name": "herald_enraged",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "herald_dying",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    9999
+                ]
+            ]
+        }
+    ]
+}

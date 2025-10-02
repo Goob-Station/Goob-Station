@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation 13.",
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "legionnaire",
+            "directions": 4
+        },
+        {
+            "name": "legionnaire_headless",
+            "directions": 4
+        },
+        {
+            "name": "legionnaire_head",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pandora",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "legionnaire_dead"
+        },
+        {
+            "name": "pandora_dead"
+        }
+    ]
+}

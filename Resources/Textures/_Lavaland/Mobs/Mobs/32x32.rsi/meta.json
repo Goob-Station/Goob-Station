@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation 13.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "legion",
+            "directions": 4
+        },
+        {
+            "name": "legion_monkey",
+            "directions": 4
+        },
+        {
+            "name": "legion_turret",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "mega_legion",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "ash_whelp",
+            "directions": 4
+        },
+        {
+            "name": "ash_whelp_dead"
+        },
+        {
+            "name": "brimdemon",
+            "directions": 4
+        },
+        {
+            "name": "brimdemon_dead"
+        },
+        {
+            "name": "brimdemon_firing",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        }
+    ]
+}

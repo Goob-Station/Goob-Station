@@ -1,0 +1,299 @@
+- type: entity
+  name: Elite
+  id: LavalandEliteBase
+  abstract: true
+  parent: LavalandMobBase
+  description: An elite monster, found in one of the strange tumors on lavaland.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Elites/32x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legionnaire
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 10
+          Blunt: 10
+          Structural: 50
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: TileMovement
+  - type: BossMusic
+    soundId: Miniboss
+  - type: CombatPower # Goobstation
+    factor: 8 # times more dangerous than a crew-member
+  - type: Megafauna
+    loot: LavalandHierophantClub
+
+- type: entity
+  name: Legionnaire
+  id: LavalandEliteLegionnaire
+  parent: LavalandEliteBase
+  description: A towering skeleton, embodying the terrifying power of Legion.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Elites/32x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legionnaire
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: legionnaire
+      Dead:
+        Base: legionnaire_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 25
+          Blunt: 10
+          Structural: 50
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+
+- type: entity
+  id: LavalandElitePandora #Just a hierophant resprite, all of these are templates anyway.
+  name: Pandora
+  description: A large magic box with similar power and design to the Hierophant. Once it opens, it's not easy to close it.
+  components:
+  # Basic stuff
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  # Actual boss from here
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Elites/32x64.rsi
+    state: pandora
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pandora
+      Dead:
+        Base: pandora_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 1.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: NoSlip
+  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
+  - type: DamageSquareImmunity
+    isImmune: true
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
+  - type: BossMusic
+    soundId: Hierophant
+  - type: Fauna
+
+- type: entity
+  name: Herald
+  id: LavalandEliteHerald
+  parent: LavalandEliteBase
+  description: A monstrous beast which fires deadly projectiles at threats and prey.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Elites/64x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: herald
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: herald
+      Dead:
+        Base: herald_dying
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletKinetic
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 8
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 10
+          Blunt: 10
+          Structural: 50
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+
+- type: entity
+  name: Broodmother
+  id: LavalandEliteGoliathBroodmother
+  parent: LavalandEliteBase
+  description: An example of sexual dimorphism, this female goliath looks much different than the males of her species.  She is, however, just as dangerous, if not more.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Elites/64x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: broodmother
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: broodmother
+      Dead:
+        Base: egg_sac
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    animation: WeaponArcBite
+    damage:
+        types:
+          Slash: 15
+          Blunt: 15
+          Structural: 50
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+
