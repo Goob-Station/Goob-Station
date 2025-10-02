@@ -140,3 +140,13 @@
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Left
       newPartProto: SmartlinkLeftHand
+
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      componentsToPart:
+      - type: SmartLinkArm
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      componentsToPart:
+      - type: SmartLinkArm
+
