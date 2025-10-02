@@ -4705,3 +4705,14 @@
   id: 9026
   time: '2025-10-02T20:11:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40624
+- author: archee1
+  changes:
+  - message: Material doors now have destruction sounds and will drop a portion of
+      their construction materials when destroyed.
+    type: Add
+  - message: Material doors now have reduced health, resistances, construction time,
+      and construction costs
+    type: Tweak
+  id: 9027
+  time: '2025-10-02T22:47:11.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36597
