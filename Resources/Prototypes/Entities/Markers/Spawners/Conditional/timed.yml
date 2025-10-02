@@ -33,26 +33,6 @@
       maximumEntitiesSpawned: 5
 
 - type: entity
-  name: Xeno AI Timed Spawner
-  id: XenoAITimedSpawner
-  parent: MarkerBase
-  components:
-    - type: Sprite
-      layers:
-      - state: blue
-      - sprite: Mobs/Aliens/Xenos/burrower.rsi
-        state: crit
-      - state: ai
-    - type: Timer
-    - type: TimedSpawner
-      prototypes:
-      - MobXeno
-      chance: 0.85
-      intervalSeconds: 30
-      minimumEntitiesSpawned: 2
-      maximumEntitiesSpawned: 4
-
-- type: entity
   name: Mouse Timed Spawner
   id: MouseTimedSpawner
   parent: MarkerBase

@@ -1,0 +1,62 @@
+# MISC
+
+- type: entity
+  parent: ClothingMaskBase
+  id: FaceHuggerToys
+  name: xenomorph facehugger
+  description: A toy often used to play pranks on other crew members by putting it in their beds. It takes a bit to recharge after latching onto something.
+  suffix: Toys
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: facehugger
+  - type: Clothing
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    slots: [mask]
+  - type: IngestionBlocker
+  - type: Blindfold
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: mumble
+  - type: FaceHugger
+    blacklist:
+      components:
+      - Ghost
+    knockdownTime: 0
+    infectionPrototype: null
+    damageOnImpact:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    hidden: true
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: Physics
+    bodyType: Dynamic
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        layer:
+        - SlipLayer
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 10
+        mask:
+        - ItemMask
+  - type: Tag
+    tags:
+    - XenomorphItem

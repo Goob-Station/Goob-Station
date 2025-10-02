@@ -9,6 +9,7 @@
   isVisibleLanguage: true
   speech:
     fontId: LDFComicSans
+    boldFontId: LDFComicSansBold
     color: "#e3dac9"
   obfuscation:
     !type:SyllableObfuscation

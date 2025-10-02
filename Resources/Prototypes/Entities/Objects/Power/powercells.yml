@@ -126,8 +126,21 @@
     node: potatobattery
   - type: PowerSupplier # goob start - potato power!
     supplyRate: 30
+    supplyRampRate: 500
     supplyRampTolerance: 500
     voltage: Apc
+    enabled: true
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: output
+    sprite: Structures/Power/power.rsi
+    state: generator
   - type: Anchorable # goob end
 
 - type: entity

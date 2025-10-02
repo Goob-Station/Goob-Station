@@ -11,4 +11,4 @@ namespace Content.Goobstation.Common.DelayedDeath;
 ///     (E.G, they die to it.)
 /// </summary>
 [ByRefEvent]
-public record struct DelayedDeathEvent(EntityUid User, bool Cancelled = false);
+public record struct DelayedDeathEvent(EntityUid User, bool Cancelled = false, bool PreventRevive = true);

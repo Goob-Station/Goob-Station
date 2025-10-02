@@ -46,6 +46,7 @@
     species: Rodentia
   - type: Hunger
     baseDecayRate: 0.0467 # 33% faster than usual
+  - type: Thirst # // Goob Station //
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory
     speciesId: rodentia

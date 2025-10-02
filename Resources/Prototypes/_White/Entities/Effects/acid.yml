@@ -1,0 +1,11 @@
+- type: entity
+  id: XenomorphAcid
+  name: corrosive acid
+  description: Burbling corrosive stuff. I wouldn't want to touch it.
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi # TODO: move it
+    state: acid
+  - type: AmbientSound
+    sound: /Audio/Items/welder.ogg
+    volume: 1

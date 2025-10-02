@@ -1,0 +1,84 @@
+# Health Alert
+- type: alert
+  id: XenomorphHealth
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health0
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health1
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health2
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health3
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health4
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_alive.rsi
+    state: health5
+  name: alerts-health-name
+  description: alerts-health-desc
+  minSeverity: 0
+  maxSeverity: 5
+
+- type: alert
+  id: XenomorphCrit
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_critical.rsi
+    state: critical
+  name: alerts-crit-name
+  description: alerts-crit-desc
+
+- type: alert
+  id: XenomorphDead
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/xenomorph_dead.rsi
+    state: dead
+  name: alerts-dead-name
+  description: alerts-dead-desc
+
+# Plasma Alert
+- type: alert
+  id: Plasma
+  category: Counter
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: plasma_display
+  alertViewEntity: AlertPlasmaSpriteView
+  name: alerts-plasma-name
+  description: alerts-plasma-desc
+
+- type: entity
+  id: AlertPlasmaSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.PlasmaVisualLayers.Digit1" ]
+    - map: [ "enum.PlasmaVisualLayers.Digit2" ]
+      offset: 0.175, 0
+    - map: [ "enum.PlasmaVisualLayers.Digit3" ]
+      offset: 0.35, 0
+
+# Queen Finder Alert
+- type: alert
+  id: QueenFinder
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/queen_finder.rsi
+    state: queen_finder
+  alertViewEntity: AlertQueenFinderSpriteView
+  name: alerts-queen-finder-name
+  description: alerts-queen-finder-desc
+
+- type: entity
+  id: AlertQueenFinderSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Interface/Alerts/queen_finder.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.PinpointerLayers.Screen" ]

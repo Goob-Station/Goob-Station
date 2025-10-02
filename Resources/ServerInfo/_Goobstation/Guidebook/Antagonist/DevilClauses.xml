@@ -14,6 +14,13 @@
   - Cuts all damage the contractee takes in half.
   - Increases holy damage taken.
 
+  ## Avarice
+  <Box>
+    [color=#999999][italic]-30 Weight[/italic][/color]
+  </Box>
+
+  - Allows the contractee to devour things whole, just like a dragon.
+
   ## Fear of Death
   <Box>
     [color=#999999][italic]-25 Weight[/italic][/color]
@@ -43,19 +50,19 @@
 
   - Grants the contractee a pair of sick fucking jays, signed by Micheal Jordan himself.
 
-  ## Chance
-  <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
-  </Box>
-
-  - Grants the contractee a completely random clause. Want to try your luck?
-
   ## Fear of Fire
   <Box>
     [color=#999999][italic]-20 Weight[/italic][/color]
   </Box>
 
   - Makes the contractee immune to fire, and immune to being lit on fire.
+
+  ## Chance
+  <Box>
+    [color=#999999][italic]-15 Weight[/italic][/color]
+  </Box>
+
+  - Grants the contractee a completely random clause. Want to try your luck?
 
   ## Fear of Light
   <Box>
@@ -85,6 +92,13 @@
   </Box>
 
   - Disables the contractees need to breathe.
+
+  ## Fear of Clowns
+  <Box>
+    [color=#999999][italic]-10 Weight[/italic][/color]
+  </Box>
+
+  - Disables the contractees ability to slip.
 
   ## Fear of Crushing
   <Box>
@@ -128,6 +142,20 @@
 
   - Permanently mutes the contractee.
 
+  ## A hand
+  <Box>
+    [color=#999999][italic]20 Weight[/italic][/color]
+  </Box>
+
+  - Immediately severs one of the contractees hands.
+
+  ## A leg
+  <Box>
+    [color=#999999][italic]20 Weight[/italic][/color]
+  </Box>
+
+  - Immediately severs one of the contractees legs.
+
   ## Soul Ownership
   <Box>
     [color=#999999][italic]25 Weight[/italic][/color]
@@ -135,13 +163,6 @@
 
   - Transfers ownership of a soul to the contractor.
   - Default on every contract.
-
-  ## Humanity
-  <Box>
-    [color=#999999][italic]25 Weight[/italic][/color]
-  </Box>
-
-  - Turns the contractee into a frog.
 
   ## Strength
   <Box>
@@ -157,26 +178,20 @@
 
   - Makes the contractee clumsy and messes up their speech.
 
-  ## A hand
-  <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
-  </Box>
-
-  - Immediately severs one of the contractees hands.
-
-  ## A leg
-  <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
-  </Box>
-
-  - Immediately severs one of the contractees legs.
-
   ## Awake
   <Box>
-    [color=#999999][italic]40 Weight[/italic][/color]
+    [color=#999999][italic]35 Weight[/italic][/color]
   </Box>
 
   - Turns the target narcoleptic.
+
+  ## An organ
+  <Box>
+    [color=#999999][italic]30 Weight[/italic][/color]
+  </Box>
+
+  - Dumps one of the contractees organs on the ground.
+  - This is most likely the heart.
 
   ## Legs
   <Box>
@@ -184,14 +199,6 @@
   </Box>
 
   - Permanently paralyzes both of the contractees legs.
-
-  ## An organ
-  <Box>
-    [color=#999999][italic]45 Weight[/italic][/color]
-  </Box>
-
-  - Dumps one of the contractees organs on the ground.
-  - This is most likely the heart.
 
   ## Sight
   <Box>
@@ -206,6 +213,14 @@
   </Box>
 
   - Permanently pacifies the contractee.
+
+  ## Humanity
+  <Box>
+    [color=#999999][italic]80 Weight[/italic][/color]
+  </Box>
+
+  - Turns the contractee into a frog.
+  - This is permanent.
 
   ## Time
   <Box>

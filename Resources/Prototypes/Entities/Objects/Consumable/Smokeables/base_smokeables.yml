@@ -59,10 +59,10 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 20
+        maxVol: 25
         reagents:
           - ReagentId: Nicotine
-            Quantity: 10
+            Quantity: 15
 
 - type: entity
   parent: BaseSmokable

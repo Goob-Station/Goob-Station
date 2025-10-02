@@ -18,3 +18,13 @@
   id: gondola
   fullReplacements:
   - accent-words-gondola-1
+
+
+- type: accent
+  id: horse
+  fullReplacements:
+  - accent-words-horsemob-1
+  - accent-words-horsemob-2
+  - accent-words-horsemob-3
+  - accent-words-horsemob-4
+  - accent-words-horsemob-5

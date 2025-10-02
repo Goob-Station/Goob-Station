@@ -65,15 +65,15 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
             if (TryComp<HandsComponent>(args.Actor, out var handsComponent))
             {
-                foreach (var hand in _hands.EnumerateHands(args.Actor, handsComponent))
+                foreach (var hand in _hands.EnumerateHands((args.Actor, handsComponent)))
                 {
-                    if (hand.HeldEntity == null)
+                    if (!_hands.TryGetHeldItem((args.Actor, handsComponent), hand, out var held))
                         continue;
 
-                    if (HasComp<UnremoveableComponent>(hand.HeldEntity))
+                    if (HasComp<UnremoveableComponent>(held))
                         continue;
 
-                    _hands.DoDrop(args.Actor, hand, true, handsComponent);
+                    _hands.DoDrop((args.Actor, handsComponent), hand);
                 }
 
                 if (_virtualItem.TrySpawnVirtualItemInHand(ent.Owner, args.Actor, out var virtItem1))

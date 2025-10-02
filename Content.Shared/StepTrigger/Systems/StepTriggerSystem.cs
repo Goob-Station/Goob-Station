@@ -47,6 +47,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
         SubscribeLocalEvent<StepTriggerComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<StepTriggerComponent, EndCollideEvent>(OnEndCollide);
+        SubscribeLocalEvent<StepTriggerCleanupComponent, EntityTerminatingEvent>(OnTerminating); // Goobstation - Fix
 #if DEBUG
         SubscribeLocalEvent<StepTriggerComponent, ComponentStartup>(OnStartup);
     }
@@ -196,6 +197,8 @@ public sealed class StepTriggerSystem : EntitySystem
 
         if (component.Colliding.Add(otherUid))
         {
+            var cleanup = EnsureComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
+            cleanup.StepTrigger = uid;
             Dirty(uid, component);
         }
     }
@@ -208,6 +211,7 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         component.CurrentlySteppedOn.Remove(otherUid);
+        RemComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
         Dirty(uid, component);
 
         if (component.StepOn)
@@ -282,6 +286,16 @@ public sealed class StepTriggerSystem : EntitySystem
         component.IgnoreWeightless = ignore;
         Dirty(uid, component);
     }
+
+    private void OnTerminating(EntityUid uid, StepTriggerCleanupComponent component, ref EntityTerminatingEvent args) // Goobstation - Fix
+    {
+        if (!TryComp<StepTriggerComponent>(component.StepTrigger, out var step))
+            return;
+
+        if (step.Colliding.Remove(uid) || step.CurrentlySteppedOn.Remove(uid))
+            Dirty(component.StepTrigger, step);
+    }
+
 }
 
 [ByRefEvent]

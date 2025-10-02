@@ -8,7 +8,6 @@
 
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Silicons.Laws;
 
@@ -68,7 +67,7 @@ public sealed partial class SiliconLawset
 /// This is a prototype for a <see cref="SiliconLawPrototype"/> list.
 /// Cannot be used directly since it is a list of prototype ids rather than List<Siliconlaw>.
 /// </summary>
-[Prototype, Serializable, NetSerializable]
+[Prototype]
 public sealed partial class SiliconLawsetPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -78,8 +77,8 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     /// <summary>
     /// List of law prototype ids in this lawset.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<SiliconLawPrototype>))]
-    public List<string> Laws = new();
+    [DataField(required: true)]
+    public List<ProtoId<SiliconLawPrototype>> Laws = new();
 
     /// <summary>
     /// What entity the lawset considers as a figure of authority.

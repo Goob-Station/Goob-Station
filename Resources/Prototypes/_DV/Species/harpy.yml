@@ -27,7 +27,7 @@
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
   # begin Goobstation: port EE height/width sliders
-  minHeight: 0.75
+  minHeight: 0.80
   defaultHeight: 0.80
   maxHeight: 1.0
   minWidth: 0.80

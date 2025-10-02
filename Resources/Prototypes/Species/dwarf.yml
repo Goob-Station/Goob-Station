@@ -18,10 +18,10 @@
   skinColoration: HumanToned
   # begin Goobstation: port EE height/width sliders
   sizeRatio: 1.3
-  minHeight: 0.7
+  minHeight: 0.75
   defaultHeight: 0.8
   maxHeight: 0.9
   minWidth: 0.9
   defaultWidth: 1
-  maxWidth: 1.1
+  maxWidth: 1.3
   # end Goobstation: port EE height/width sliders
