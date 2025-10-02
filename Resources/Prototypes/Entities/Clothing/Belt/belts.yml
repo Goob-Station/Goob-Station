@@ -184,6 +184,7 @@
         - GPS
         - WeldingMask
         - RemoteSignaller
+        - UtilityKnife
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
@@ -288,6 +289,7 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - UtilityKnife
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation

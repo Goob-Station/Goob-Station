@@ -12,7 +12,8 @@
   recipes:
   - AppraisalTool
   - Pickaxe
-  - ConstructionBag #putting it here for less pack spam
+  - UtilityKnife
+  - ConstructionBag # Goob #putting it here for less pack spam
 
 - type: latheRecipePack
   id: CargoBoardsStatic
