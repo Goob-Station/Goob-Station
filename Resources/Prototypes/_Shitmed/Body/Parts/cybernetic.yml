@@ -263,6 +263,8 @@
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
+  - type: BodyPartAppearance
+    color: White
   - type: SmartLinkArm
 
 - type: entity
@@ -275,6 +277,8 @@
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
+  - type: BodyPartAppearance
+    color: White
   - type: SmartLinkArm
 
 - type: entity
@@ -287,7 +291,9 @@
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
-  - type: SmartLinkArm
+  - type: BodyPartAppearance
+    color: White
+  - type: RecoilAbsorberArm
 
 - type: entity
   id: RecoilAbsorberRightHand
@@ -299,4 +305,6 @@
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
-  - type: SmartLinkArm
+  - type: BodyPartAppearance
+    color: White
+  - type: RecoilAbsorberArm
