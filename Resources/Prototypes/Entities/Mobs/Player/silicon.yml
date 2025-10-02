@@ -306,7 +306,7 @@
 # Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
+  name: AI core
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
@@ -467,7 +467,7 @@
 - type: entity
   parent: BaseStructure
   id: PlayerStationAiAssembly
-  name: AI Core Assembly
+  name: AI core assembly
   description: An unfinished computer core for housing an artifical intelligence.
   components:
   - type: Anchorable
