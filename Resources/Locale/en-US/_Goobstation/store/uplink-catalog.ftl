@@ -282,6 +282,9 @@ uplink-davids-jacket-desc = A jacket for those particularly interested in improv
 uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
 uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
+uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
+uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet

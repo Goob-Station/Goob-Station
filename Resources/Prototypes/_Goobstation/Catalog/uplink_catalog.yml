@@ -994,6 +994,17 @@
   categories:
   - UplinkImplants
 
+- type: listing
+  id: UplinkAutosurgeonRecoilAbsorber
+  name: uplink-autosurgeon-recoil-absorbing-name
+  description: uplink-autosurgeon-recoil-absorbing-desc
+  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: AutosurgeonRecoilAbsorber
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkImplants
+
 # Deception
 
 - type: listing
