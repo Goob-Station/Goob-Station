@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Jittering;
@@ -45,7 +46,20 @@ public abstract class SharedBerserkerImplantSystem : EntitySystem
 
         var uid = args.Performer;
         berserker = EnsureComp<BerserkerImplantActiveComponent>(uid);
-        berserker.EndTime = Timing.CurTime + TimeSpan.FromSeconds(90);
+        berserker.EndTime = Timing.CurTime + TimeSpan.FromSeconds(berserker.Duration);
+        if (!HasComp<TrailComponent>(uid))
+        {
+            var trail = AddComp<TrailComponent>(uid);
+            trail.RenderedEntity = uid;
+            trail.LerpTime = 0.1f;
+            trail.LerpDelay = TimeSpan.FromSeconds(2);
+            trail.Lifetime = 3;
+            trail.Frequency = 0.07f;
+            trail.AlphaLerpAmount = 0.2f;
+            trail.MaxParticleAmount = 25;
+            trail.Color = new(255, 47, 0, 180);
+        }
+
         _jitter.DoJitter(uid, TimeSpan.FromSeconds(3), true);
     }
 

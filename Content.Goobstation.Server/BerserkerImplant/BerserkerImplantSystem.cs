@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.BerserkerImplant;
+using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Damage;
 
 namespace Content.Goobstation.Server.BerserkerImplant;
@@ -15,15 +16,9 @@ public sealed class BerserkerImplantSystem : SharedBerserkerImplantSystem
 
     private void OnShutdown(Entity<BerserkerImplantActiveComponent> ent, ref ComponentRemove args)
     {
-        if (ent.Comp.DelayedDamage.GetTotal() <= 0)
-            return;
-
-        if (TryComp<DamageableComponent>(ent, out var damageable))
-        {
-            _damageable.TryChangeDamage(ent.Owner, ent.Comp.DelayedDamage, true);
-        }
-
+        _damageable.TryChangeDamage(ent.Owner, ent.Comp.DelayedDamage, true);
         Popup.PopupEntity(Loc.GetString("berserker-implant-deactivated"), ent, ent);
+        RemComp<TrailComponent>(ent);
     }
 
     public override void Update(float frameTime)
