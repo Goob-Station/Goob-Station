@@ -39,7 +39,7 @@
         acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
-    fireRate: 5
+    fireRate: 5 # was 2
     selectedMode: FullAuto
     availableModes:
     - FullAuto

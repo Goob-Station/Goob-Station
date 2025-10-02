@@ -73,7 +73,7 @@
       task: TurretCompound
     blackboard:
       RotateSpeed: !type:Single
-        9 #Goob change
+        9 #Goob change, was Pi
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
   - type: MouseRotator
