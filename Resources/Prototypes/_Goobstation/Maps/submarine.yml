@@ -11,7 +11,7 @@
   id: Submarine
   mapName: 'Submarine'
   mapPath: /Maps/_Goobstation/submarine.yml
-  minPlayers: 60
+  minPlayers: 70
   stations:
     Submarine:
       stationProto: StandardNanotrasenStation

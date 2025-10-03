@@ -32,7 +32,7 @@
   id: OriginHighPop
   mapName: 'Origin'
   mapPath: /Maps/_Goobstation/origin.yml
-  minPlayers: 85
+  minPlayers: 70
   stations:
     Origin:
       stationProto: StandardNanotrasenStation
