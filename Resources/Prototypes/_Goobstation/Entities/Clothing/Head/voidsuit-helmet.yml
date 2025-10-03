@@ -244,10 +244,12 @@
   - type: FlashSoundSuppression
 
 # Nanorep catalog Hardsuit
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitExperimentalNanorep
-  name: nanorep hardsuit helmet
+  name: "NTX5-Mirrorduss helmet"
+  description: A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
@@ -287,3 +289,5 @@
         Heat: 0.7
         Radiation: 0.9
         Caustic: 0.9
+  - type: FireProtection
+    reduction: 0.4

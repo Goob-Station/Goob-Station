@@ -313,8 +313,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitExperimentalNanorep
-  name: "'Galene' experimental hardsuit"
-  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+  name: "NTX5-Mirrorduss"
+  description: A crude, reinforced exosuit of dark composite plating, its surface etched with faint Bluespace circuitry that pulses with a dim, shifting glow.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
@@ -344,11 +344,13 @@
     sprintModifier: 1
     walkModifier: 1
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitExperimentalNanorep
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
     damageCoefficient: 0.9
+  - type: FireProtection
+    reduction: 0.4
