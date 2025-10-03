@@ -11,6 +11,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Tag;
 
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
@@ -23,6 +24,9 @@ public sealed class EnchantingSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> WhitelistCheckSkipTag = "EnchantSkipWhitelistCheck";
 
     private EntityQuery<EnchantComponent> _query;
     private EntityQuery<EnchantedComponent> _enchantedQuery;
@@ -106,6 +110,16 @@ public sealed class EnchantingSystem : EntitySystem
     /// </summary>
     public bool CanEnchant(Entity<EnchantedComponent?> item, EntProtoId<EnchantComponent> id)
     {
+        if (GetEnchantData(id) is { } data)
+            return GetEnchantName(id) is { } name && CanEnchant(item, data, name);
+
+        // invalid enchant id passed
+        Log.Error($"Tried to enchant {ToPrettyString(item)} with invalid enchant {id}");
+        return false;
+    }
+
+    public bool CanEnchant(Entity<EnchantedComponent?> item, EnchantComponent data, string name)
+    {
         // no giving yourself unbreaking, only hamlet
         if (!_itemQuery.HasComp(item))
             return false;
@@ -114,15 +128,9 @@ public sealed class EnchantingSystem : EntitySystem
         if (_stackQuery.HasComp(item))
             return false;
 
-        // invalid enchant id passed
-        if (GetEnchantData(id) is not {} data)
-        {
-            Log.Error($"Tried to enchant {ToPrettyString(item)} with invalid enchant {id}");
-            return false;
-        }
-
         // item needs to be whitelisted
-        if (!_whitelist.CheckBoth(item, blacklist: data.Blacklist, whitelist: data.Whitelist))
+        if (!_tag.HasTag(item, WhitelistCheckSkipTag) &&
+            !_whitelist.CheckBoth(item, blacklist: data.Blacklist, whitelist: data.Whitelist))
             return false;
 
         // if the item isn't enchanted it's good to go
@@ -138,7 +146,7 @@ public sealed class EnchantingSystem : EntitySystem
         }
 
         // enchant is at max level
-        if (FindEnchant(comp, id) is {} enchant)
+        if (FindEnchant(comp, name) is {} enchant)
             return !enchant.Comp.IsMaxed;
 
         // item can't be enchanted further
@@ -151,13 +159,23 @@ public sealed class EnchantingSystem : EntitySystem
     /// </summary>
     public Entity<EnchantComponent>? FindEnchant(EnchantedComponent comp, EntProtoId<EnchantComponent> id)
     {
-        // bad prototype
-        if (_proto.Index(id).Name is not {} name)
-        {
-            Log.Error($"Enchant prototype {id} has no name set!");
-            return null;
-        }
+        if (GetEnchantName(id) is { } name)
+            return FindEnchant(comp, name);
 
+        return null;
+    }
+
+    public string? GetEnchantName(EntProtoId<EnchantComponent> id)
+    {
+        if (_proto.Index(id).Name is { } name)
+            return name;
+
+        Log.Error($"Enchant prototype {id} has no name set!");
+        return null;
+    }
+
+    public Entity<EnchantComponent>? FindEnchant(EnchantedComponent comp, string name)
+    {
         foreach (var enchant in comp.Enchants)
         {
             if (Name(enchant) == name)
@@ -171,9 +189,9 @@ public sealed class EnchantingSystem : EntitySystem
     /// <summary>
     /// Set the enchanting tier of an item, adding Enchanting if it doesn't have it.
     /// </summary>
-    public void SetTier(EntityUid item, int tier)
+    public void SetTier(Entity<EnchantedComponent?> item, int tier)
     {
-        var comp = EnsureComp<EnchantedComponent>(item);
+        var comp = Resolve(item, ref item.Comp, false) ? item.Comp : EnsureComp<EnchantedComponent>(item);
         if (comp.Tier == tier)
             return;
 
@@ -199,7 +217,7 @@ public sealed class EnchantingSystem : EntitySystem
     /// Add or upgrade an enchant with a specific level.
     /// If an enchant would get over max level it gets clamped, wasting the excess.
     /// </summary>
-    public bool Enchant(EntityUid item, EntProtoId<EnchantComponent> id, int level = 1)
+    public bool Enchant(EntityUid item, EntProtoId<EnchantComponent> id, int level = 1, bool fake = false)
     {
         if (!CanEnchant(item, id))
             return false;
@@ -207,15 +225,7 @@ public sealed class EnchantingSystem : EntitySystem
         // first check if there is already an existing enchant to upgrade
         var added = !EnsureComp<EnchantedComponent>(item, out var comp);
         if (FindEnchant(comp, id) is {} enchant)
-        {
-            var oldLevel = enchant.Comp.Level;
-            enchant.Comp.Level = Math.Min(enchant.Comp.Level + level, enchant.Comp.MaxLevel);
-            Dirty(enchant);
-
-            var upgrade = new EnchantUpgradedEvent(enchant.Comp, item, oldLevel);
-            RaiseLocalEvent(enchant, ref upgrade);
-            return true;
-        }
+            return TryUpgradeEnchant(enchant, item, level, fake);
 
         // spawn a new one
         if (!TrySpawnInContainer(id, item, comp.ContainerId, out var spawned))
@@ -227,7 +237,7 @@ public sealed class EnchantingSystem : EntitySystem
             return false;
         }
 
-        AddEnchant(spawned.Value, item, level);
+        AddEnchant(spawned.Value, item, level, fake);
         return true;
     }
 
@@ -282,14 +292,41 @@ public sealed class EnchantingSystem : EntitySystem
 
     #endregion
 
-    private void AddEnchant(EntityUid uid, EntityUid item, int level)
+    public bool TryUpgradeEnchant(Entity<EnchantComponent> enchant, EntityUid item, int levelIncrease, bool fake)
     {
-        var comp = _query.Comp(uid);
-        comp.Enchanted = item;
-        comp.Level = Math.Min(level, comp.MaxLevel);
-        Dirty(uid, comp);
+        var oldLevel = enchant.Comp.Level;
+        var oldFake = enchant.Comp.Fake;
+        enchant.Comp.Level = Math.Min(enchant.Comp.Level + levelIncrease, enchant.Comp.MaxLevel);
+        enchant.Comp.Fake &= fake;
 
-        var ev = new EnchantAddedEvent(comp, item);
+        if (enchant.Comp.Fake == oldFake && enchant.Comp.Level == oldLevel)
+            return false;
+
+        Dirty(enchant);
+
+        // This surely won't break anything
+        if (enchant.Comp.Fake)
+            return true;
+
+        var upgrade = new EnchantUpgradedEvent(enchant.Comp, item, oldLevel);
+        RaiseLocalEvent(enchant, ref upgrade);
+        return true;
+    }
+
+    public void AddEnchant(Entity<EnchantComponent?> uid, EntityUid item, int level, bool fake)
+    {
+        if (!Resolve(uid, ref uid.Comp))
+            return;
+
+        uid.Comp.Enchanted = item;
+        uid.Comp.Level = Math.Min(level, uid.Comp.MaxLevel);
+        uid.Comp.Fake = fake;
+        Dirty(uid);
+
+        if (fake)
+            return;
+
+        var ev = new EnchantAddedEvent(uid.Comp, item);
         RaiseLocalEvent(uid, ref ev);
     }
 }

@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -13,9 +14,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
@@ -31,15 +34,18 @@ public sealed class EnchanterSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private List<EntProtoId<EnchantComponent>> _pool = new();
     private EntityQuery<CanEnchantComponent> _userQuery;
+    private EntityQuery<EnchantComponent> _query;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _userQuery = GetEntityQuery<CanEnchantComponent>();
+        _query = GetEntityQuery<EnchantComponent>();
 
         SubscribeLocalEvent<EnchanterComponent, ExaminedEvent>(OnExamined);
 
@@ -76,11 +82,6 @@ public sealed class EnchanterSystem : EntitySystem
 
         // need an enchanter on the altar as well as the target
         var user = args.User;
-        if (_enchanting.FindEnchanter(item) is not {} enchanter)
-        {
-            _popup.PopupClient(Loc.GetString("enchanting-tool-no-enchanter"), user, user);
-            return;
-        }
 
         if (_userQuery.HasComp(user) == false)
         {
@@ -88,7 +89,14 @@ public sealed class EnchanterSystem : EntitySystem
             return;
         }
 
-        TryEnchant(enchanter, item, user);
+        if (_enchanting.FindEnchanter(item) is { } enchanter)
+            TryEnchant(enchanter, item, user);
+        else if (_enchanting.FindEnchantedItems(item)
+                     .FirstOrNull(x =>
+                         x.Owner != item && x.Comp.Enchants.Any(e => _query.CompOrNull(e)?.Fake is true)) is { } source)
+            TransferEnchantments(source, item, user);
+        else
+            _popup.PopupClient(Loc.GetString("enchanting-tool-no-enchanter"), user, user);
     }
 
     private void GetPossibleEnchants(Entity<EnchanterComponent> ent, EntityUid item)
@@ -99,6 +107,99 @@ public sealed class EnchanterSystem : EntitySystem
             if (_enchanting.CanEnchant(item, id))
                 _pool.Add(id);
         }
+    }
+
+    /// <summary>
+    /// Transfers fake enchantments on one item into real enchantments on other item
+    /// </summary>
+    public bool TransferEnchantments(Entity<EnchantedComponent> source, EntityUid item, EntityUid user)
+    {
+        var list = source.Comp.Enchants.Where(x => _query.Comp(x).Fake).ToList();
+
+        if (list.Count == 0)
+        {
+            _popup.PopupClient(Loc.GetString("enchanter-cant-enchant"), item, user);
+            return false;
+        }
+
+        if (_net.IsClient)
+            return true;
+
+        _random.Shuffle(list);
+
+        var added = !EnsureComp<EnchantedComponent>(item, out var comp);
+        var oldTier = comp.Tier;
+        var newTier = Math.Max(oldTier, source.Comp.TierOnTransferSuccess);
+        _enchanting.SetTier((item, comp), newTier);
+        var success = false;
+        var enchantsToDelete = new List<EntityUid>();
+
+        foreach (var uid in list)
+        {
+            var enchant = _query.Comp(uid);
+
+            if (!enchant.Fake)
+                continue;
+
+            if (!_enchanting.CanEnchant((item, comp), enchant, Name(uid)))
+            {
+                enchantsToDelete.Add(uid);
+                continue;
+            }
+
+            if (_enchanting.FindEnchant(comp, Name(uid)) is { } existing)
+            {
+                if (_enchanting.TryUpgradeEnchant(existing, item, enchant.Level, false))
+                    success = true;
+
+                enchantsToDelete.Add(uid);
+                continue;
+            }
+
+            if (!_container.Insert(uid, comp.Container, force: true))
+            {
+                enchantsToDelete.Add(uid);
+                continue;
+            }
+
+            _enchanting.AddEnchant((uid, enchant), item, enchant.Level, false);
+            success = true;
+        }
+
+        var realTier = comp.Enchants.Count;
+        if (realTier < newTier)
+            _enchanting.SetTier((item, comp), Math.Max(oldTier, realTier));
+
+        if (success)
+        {
+            foreach (var e in enchantsToDelete)
+            {
+                Del(e);
+            }
+
+            _audio.PlayPvs(source.Comp.Sound, item);
+            _popup.PopupEntity(Loc.GetString("enchanter-enchanted", ("item", item)), item, PopupType.Large);
+
+            _adminLogger.Add(LogType.EntityDelete,
+                LogImpact.Low,
+                $"{ToPrettyString(user):player} enchanted {ToPrettyString(item):item} using {ToPrettyString(source):enchanter}");
+
+            if (source.Comp.Enchants.Any(Exists))
+                return true;
+
+            if (source.Comp.DeleteOnEnchantTransfer)
+                QueueDel(source.Owner);
+            else
+                RemCompDeferred(source.Owner, source.Comp);
+
+            return true;
+        }
+
+        if (added)
+            RemComp<EnchantedComponent>(item);
+
+        _popup.PopupEntity(Loc.GetString("enchanter-cant-enchant"), item, user);
+        return false;
     }
 
     /// <summary>

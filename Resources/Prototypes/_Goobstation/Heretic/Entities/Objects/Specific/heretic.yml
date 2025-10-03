@@ -42,10 +42,10 @@
     - type: HereticMagicItem
     - type: EldritchInfluenceDrainer
     - type: TransmutationRuneScriber
+    - type: EnchantingTool
   - type: ItemToggleSize
     activatedSize: Normal
   - type: ToggleAnimation
-  - type: EnchantingTool
   - type: Tag
     tags:
     - HereticItem

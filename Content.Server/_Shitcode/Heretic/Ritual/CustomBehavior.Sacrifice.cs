@@ -13,6 +13,7 @@
 
 using System.Linq;
 using Content.Server._Goobstation.Objectives.Components;
+using Content.Server._Shitcode.Heretic.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
@@ -55,6 +56,8 @@ namespace Content.Server.Heretic.Ritual;
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
+    protected EnchantedBookSystem _books = default!;
+    protected SharedTransformSystem _xform = default!;
     protected BodySystem _body = default!;
     protected EntityLookupSystem _lookup = default!;
     [Dependency] protected IPrototypeManager _proto = default!;
@@ -65,6 +68,8 @@ namespace Content.Server.Heretic.Ritual;
     {
         _mind = args.EntityManager.System<SharedMindSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
+        _books = args.EntityManager.System<EnchantedBookSystem>();
+        _xform = args.EntityManager.System<SharedTransformSystem>();
         _body = args.EntityManager.System<BodySystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _proto = IoCManager.Resolve<IPrototypeManager>();
@@ -116,22 +121,31 @@ namespace Content.Server.Heretic.Ritual;
             return;
         }
 
+        var pos = _xform.GetMapCoordinates(args.Platform);
+
         for (var i = 0; i < Max && i < uids.Count; i++)
         {
-            if (!args.EntityManager.EntityExists(uids[i]))
+            var victim = uids[i];
+
+            if (!args.EntityManager.EntityExists(victim))
                 continue;
 
-            var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
-            var isHeretic = args.EntityManager.HasComponent<HereticComponent>(uids[i]);
-            var knowledgeGain = isHeretic || heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
+            var (isCommand, isSec) = IsCommandOrSec(victim, args.EntityManager);
+            var isHeretic = args.EntityManager.HasComponent<HereticComponent>(victim);
+            var knowledgeGain = isHeretic || heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(victim))
                 ? isCommand || isSec || isHeretic ? 3f : 2f
                 : 0f;
 
+            var name = args.EntityManager.GetComponent<MetaDataComponent>(victim).EntityName;
+
             // YES!!! GIB!!!
-            _body.GibBody(uids[i], contents: GibContentsOption.Gib);
+            var gibs = _body.GibBody(victim, contents: GibContentsOption.Gib);
 
             if (knowledgeGain > 0)
+            {
                 _heretic.UpdateKnowledge(args.Performer, heretic, knowledgeGain);
+                _books.BookEm(gibs, name, pos, isSec, isCommand, isHeretic);
+            }
 
             // update objectives
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))

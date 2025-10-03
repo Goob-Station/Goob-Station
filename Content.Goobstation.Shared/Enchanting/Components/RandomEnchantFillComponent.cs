@@ -1,9 +1,5 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Shared.Enchanting.Systems;
+using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Enchanting.Components;
@@ -12,17 +8,30 @@ namespace Content.Goobstation.Shared.Enchanting.Components;
 /// Gives an entity enchants by default.
 /// </summary>
 [RegisterComponent, Access(typeof(EnchantFillSystem))]
-public sealed partial class EnchantFillComponent : Component
+public sealed partial class RandomEnchantFillComponent : Component
 {
     /// <summary>
-    /// Dictionary of enchant ids and the level to assign.
+    /// Dictionary of enchant ids and their data.
     /// </summary>
     [DataField(required: true)]
-    public Dictionary<EntProtoId<EnchantComponent>, int> Enchants = new();
+    public Dictionary<EntProtoId<EnchantComponent>, RandomEnchantData> Enchants = new();
+
+    [DataField]
+    public MinMax MinMaxTier = new(1, 1);
 
     /// <summary>
     /// Whether this will apply real enchantments or fake ones (used for enchanted books)
     /// </summary>
     [DataField]
     public bool Fake;
+}
+
+[DataDefinition]
+public sealed partial class RandomEnchantData
+{
+    [DataField]
+    public MinMax MinMaxLevel = new(1, 1);
+
+    [DataField]
+    public float Weight = 1;
 }
