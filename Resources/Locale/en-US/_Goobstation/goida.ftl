@@ -1,1 +1,1 @@
-goida-1 = ГОЙДА
+goida-1 = GOIDA

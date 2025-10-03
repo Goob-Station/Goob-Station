@@ -24,4 +24,4 @@ chat-emote-msg-jump = прыгает!
 chat-emote-msg-tweak = начинает дёргаться!
 chat-emote-msg-flex = демонстрирует мышцы.
 chat-emote-msg-gulp = глотает.
-chat-emote-msg-surprised = looks surprised.
+chat-emote-msg-surprised = выглядит удивлённым.
