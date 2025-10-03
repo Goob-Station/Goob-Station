@@ -56,7 +56,7 @@
     mobEntries:
     - prototype: MobNanites
       cost: 3
-    - prototype: MobGiantSpider
+    - prototype: MobGiantSpiderAngry
       cost: 4
     - prototype: MobSpookyGhost1
       cost: 5

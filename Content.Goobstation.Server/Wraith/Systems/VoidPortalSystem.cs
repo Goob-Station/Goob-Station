@@ -1,98 +1,93 @@
 using Content.Goobstation.Shared.Wraith.Components;
-using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared.Examine;
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System;
 using System.Linq;
+using Content.Goobstation.Shared.Wraith.Systems;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Goobstation.Server.Wraith.Systems;
 
-public sealed partial class VoidPortalSystem : EntitySystem
+public sealed class VoidPortalSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SummonPortalSystem _summonPortal = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoidPortalComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<VoidPortalComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<VoidPortalComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (!_net.IsServer)
-            return;
-
         var query = EntityQueryEnumerator<VoidPortalComponent>();
         while (query.MoveNext(out var uid, out var portal))
         {
-            UpdatePortal(uid, portal, frameTime);
+            if (_timing.CurTime < portal.Accumulator)
+                continue;
+
+            UpdatePortal((uid, portal));
         }
     }
 
-    private void OnExamined(EntityUid uid, VoidPortalComponent? portal, ExaminedEvent args)
+    private void OnMapInit(Entity<VoidPortalComponent> ent, ref MapInitEvent args)
     {
-        // Only show info to wraith
-        if (!HasComp<WraithComponent>(args.Examiner))
-            return;
+        ent.Comp.CurrentPower = ent.Comp.ExtraPower; // start with X points
+        TrySpawn(ent);
 
-        if (portal == null)
-            return;
-
-        // Display current portal power
-        args.PushMarkup($"[color=mediumpurple]{Loc.GetString("void-portal-current-power", ("points", portal.CurrentPower))}[/color]");
-        // Display current wave number
-        args.PushMarkup($"[color=mediumpurple]{Loc.GetString("void-portal-current-wave", ("wave", portal.WavesCompleted))}[/color]");
+        ent.Comp.Accumulator = _timing.CurTime + ent.Comp.SpawnInterval;
     }
 
-    private void UpdatePortal(EntityUid uid, VoidPortalComponent portal, float frameTime)
+    private void UpdatePortal(Entity<VoidPortalComponent> ent)
     {
-        portal.accumulator += TimeSpan.FromSeconds(frameTime);
+        var portal = ent.Comp;
 
-        if (portal.accumulator >= portal.SpawnInterval)
-        {
-            portal.accumulator -= portal.SpawnInterval;
+        ent.Comp.Accumulator = _timing.CurTime + ent.Comp.SpawnInterval;
 
-            // --- Wave Power Growth ---
-            // Each wave, portal gains PowerGainPerTick + (ExtraPower * number of waves so far).
-            // This makes later waves stronger.
-            var gained = portal.PowerGainPerTick + (portal.ExtraPower * portal.WavesCompleted);
-            portal.CurrentPower += gained;
+        // --- Wave Power Growth ---
+        // Each wave, portal gains PowerGainPerTick + (ExtraPower * number of waves so far).
+        // This makes later waves stronger.
+        var gained = portal.PowerGainPerTick + (portal.ExtraPower * portal.WavesCompleted);
+        portal.CurrentPower = Math.Min(portal.CurrentPower + gained, portal.MaxPower);
 
-            // Increment wave counter for next tick
-            portal.WavesCompleted++;
+        // Increment wave counter for next tick
+        portal.WavesCompleted++;
 
-            // Can only hold up to 30 points, so enforce it here.
-            if (portal.MaxPower > 0)
-                portal.CurrentPower = Math.Min(portal.CurrentPower, portal.MaxPower);
-
-            // Spawn mobs until CurrentPower cannot afford any entry
-            TrySpawn(uid, portal);
-        }
+        TrySpawn(ent);
     }
 
-    private void TrySpawn(EntityUid uid, VoidPortalComponent portal)
+    private void OnComponentShutdown(Entity<VoidPortalComponent> ent, ref ComponentShutdown args)
     {
+        if (ent.Comp.PortalOwner == null)
+            return;
+
+        _summonPortal.PortalDestroyed(ent.Comp.PortalOwner.Value);
+    }
+
+    /// <summary>
+    /// Spawns mobs until current power cannot afford anymore
+    /// </summary>
+    /// <param name="ent"></param> The void portal
+    private void TrySpawn(Entity<VoidPortalComponent> ent)
+    {
+        var portal = ent.Comp;
+        var mobs = portal.MobEntries.OrderByDescending(e => e.Cost).ToList();
+
         // Basically picks mobs to spawn at random until it does not have enough points to spawn any more mobs.
-        while (true)
+        while (portal.CurrentPower > 0)
         {
-            var valid = portal.MobEntries
-                .Where(e => e.Cost <= portal.CurrentPower)
-                .ToList();
-
+            var valid = mobs.Where(e => e.Cost <= portal.CurrentPower).ToList();
             if (valid.Count == 0)
                 break;
 
             var chosen = _random.Pick(valid);
 
             portal.CurrentPower -= chosen.Cost;
-            Spawn(chosen.Prototype, Transform(uid).Coordinates);
+            Spawn(chosen.Prototype, Transform(ent.Owner).Coordinates);
         }
     }
 }

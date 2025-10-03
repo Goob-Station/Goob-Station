@@ -1,17 +1,24 @@
 - type: entity
   id: MobSkeletonGoon
-  parent: [ BaseMob, MobCombat ]
+  parent: [ BaseMob, MobCombat]
   name: malicious skeleton
   description: A hostile skeleton summoned by a wraith.
   components:
   - type: HTN
     rootTask:
-      task: SimpleRangedHostileCompound
+      task: XenomorphCompound
     blackboard:
       NavClimb: !type:Bool
         true
       NavSmash: !type:Bool
         true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
   - type: NpcFactionMember
     factions:
     - Wraith
@@ -50,7 +57,6 @@
   - type: NoSlip
   - type: Pullable
   - type: ZombieImmune
-  - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: Ghost
   - type: Destructible
@@ -64,6 +70,10 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/bone_rattle.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
 
 - type: entity
   id: MobSkeletonCommander
@@ -368,8 +378,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
-  - type: Damageable 
-    damageContainer: Biological 
+  - type: Damageable
+    damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
   - type: Destructible
     thresholds:
@@ -517,8 +527,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6
-  - type: Damageable 
-    damageContainer: Biological 
+  - type: Damageable
+    damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
   - type: Destructible
     thresholds:
@@ -556,8 +566,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6
-  - type: Damageable 
-    damageContainer: Biological 
+  - type: Damageable
+    damageContainer: Biological
     damageModifierSet: Moth # Not as weak to heat, but still vulnerable
   - type: Destructible
     thresholds:

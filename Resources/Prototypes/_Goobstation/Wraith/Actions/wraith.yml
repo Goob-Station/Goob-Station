@@ -247,9 +247,14 @@
       sprite: _Goobstation/Wraith/actions.rsi
       state: skeleton
   - type: TargetAction
+    range: 15
     deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
+    whitelist:
+      components:
+      - EntityStorage
+      - HumanoidAppearance
     event: !type:RaiseSkeletonEvent
 
 - type: entity
@@ -400,7 +405,7 @@
       - CurseRot
       - CursedBlood
     event: !type:DeathCurseEvent
-    
+
 - type: entity
   id: ActionDefile
   name: Defile

@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Map.Components;
 using Content.Shared.Physics;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
@@ -11,7 +12,7 @@ public sealed partial class SummonPortalSystem : EntitySystem
 
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()
     {
@@ -22,39 +23,46 @@ public sealed partial class SummonPortalSystem : EntitySystem
 
     public void OnSummonPortal(Entity<SummonPortalComponent> ent, ref SummonPortalEvent args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-
-        if (args.Handled)
-            return;
-
-        if (_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
+        if (_physics.GetEntitiesIntersectingBody(ent.Owner, (int) CollisionGroup.Impassable).Count > 0)
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-in-solid"), uid, uid, PopupType.MediumCaution);
+            _popup.PopupPredicted(Loc.GetString("wraith-in-solid"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             return;
         }
 
-        //TO DO: Add logic for asking if the player wants to move the portal's location, rather than just denying a new portal.
-        if (comp.CurrentActivePortals >= comp.PortalLimit)
+        if (ent.Comp.CurrentActivePortals >= ent.Comp.PortalLimit)
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-portal-limit"), uid, uid, PopupType.LargeCaution);
+            _popup.PopupPredicted(Loc.GetString("wraith-portal-limit"), ent.Owner, ent.Owner, PopupType.LargeCaution);
             return;
         }
 
-        var xform = Transform(uid);
-
+        var xform = Transform(ent.Owner);
         // Portal can only be summoned while on grid
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        if (!HasComp<MapGridComponent>(xform.GridUid))
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-portal-anchor"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("wraith-portal-anchor"), ent.Owner, ent.Owner);
             return;
         }
 
-        _popup.PopupPredicted(Loc.GetString("wraith-portal-success"), uid, uid, PopupType.Large);
-        var voidUid = PredictedSpawnAtPosition(comp.VoidPortal, xform.Coordinates);
-        comp.CurrentActivePortals++;
-        args.Handled = true;
+        if (_netManager.IsServer)
+        {
+            var portal = Spawn(ent.Comp.VoidPortal, xform.Coordinates);
+            _popup.PopupEntity(Loc.GetString("wraith-portal-success"), ent.Owner, ent.Owner, PopupType.Large);
 
-        //TO DO: Add logic for if the portal gets destroyed. (Though honestly that might end up just being handled through the portal component itself)
+            if (TryComp<VoidPortalComponent>(portal, out var voidPortal))
+                voidPortal.PortalOwner = ent.Owner;
+        }
+
+        ent.Comp.CurrentActivePortals++;
+        Dirty(ent);
+
+        args.Handled = true;
+    }
+
+    public void PortalDestroyed(Entity<SummonPortalComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        ent.Comp.CurrentActivePortals--;
     }
 }

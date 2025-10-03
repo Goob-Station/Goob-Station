@@ -13,13 +13,13 @@ public sealed partial class VoidPortalComponent : Component
     public TimeSpan SpawnInterval = TimeSpan.FromSeconds(30);
 
     [DataField]
-    public TimeSpan accumulator = TimeSpan.Zero;
+    public TimeSpan Accumulator = TimeSpan.Zero;
 
     /// <summary>
     /// Current power points available for spawning.
     /// </summary>
     [DataField]
-    public int CurrentPower = 0;
+    public int CurrentPower;
 
     /// <summary>
     /// Maximum amount of points the portal can have at any one time.
@@ -44,7 +44,7 @@ public sealed partial class VoidPortalComponent : Component
     /// Number of completed spawn waves. Used to scale power growth.
     /// </summary>
     [DataField]
-    public int WavesCompleted = 0;
+    public int WavesCompleted;
 
     /// <summary>
     /// Weighted list of mobs and their point cost.
@@ -52,6 +52,9 @@ public sealed partial class VoidPortalComponent : Component
     /// </summary>
     [DataField]
     public List<MobSpawnEntry> MobEntries = new();
+
+    [DataField]
+    public EntityUid? PortalOwner;
 }
 
 /// <summary>
@@ -61,7 +64,7 @@ public sealed partial class VoidPortalComponent : Component
 public sealed partial class MobSpawnEntry
 {
     [DataField(required: true)]
-    public EntProtoId Prototype = default!;
+    public EntProtoId Prototype;
 
     [DataField(required: true)]
     public int Cost;

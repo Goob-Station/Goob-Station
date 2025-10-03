@@ -6,9 +6,9 @@ using Content.Shared._White.RadialSelector;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Goobstation.Server.Wraith.Systems;
 
-public sealed partial class SummonVoidCreatureSystem : EntitySystem
+public sealed class SummonVoidCreatureSystem : EntitySystem
 {
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
