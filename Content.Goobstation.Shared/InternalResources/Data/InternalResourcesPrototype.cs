@@ -22,7 +22,7 @@ public sealed class InternalResourcesPrototype : IPrototype
     /// Alert prototype for inner resources visualising
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype>? AlertPrototype;
+    public ProtoId<AlertPrototype> AlertPrototype = "ChangelingChemicals";
 
     /// <summary>
     /// Base resources regeneration rate per update time
@@ -40,5 +40,5 @@ public sealed class InternalResourcesPrototype : IPrototype
     /// Base amount of resources when these internal resources is added to entity
     /// </summary>
     [DataField]
-    public float StartingAmount = 100f;
+    public float BaseStartingAmount = 100f;
 }
