@@ -257,6 +257,12 @@ public abstract partial class InteractionTest
     /// <param name="enableToggleable">Whether or not to automatically enable any toggleable items</param>
     protected async Task<NetEntity> PlaceInHands(EntitySpecifier entity, bool enableToggleable = true)
     {
+        if (Hands == null)
+        {
+            Assert.Fail("No HandsComponent");
+            return default;
+        }
+
         if (Hands.ActiveHandId == null)
         {
             Assert.Fail("No active hand");
@@ -297,6 +303,12 @@ public abstract partial class InteractionTest
     protected async Task Pickup(NetEntity? entity = null, bool deleteHeld = true)
     {
         entity ??= Target;
+
+        if (Hands == null)
+        {
+            Assert.Fail("No HandsComponent");
+            return;
+        }
 
         if (Hands.ActiveHandId == null)
         {
@@ -948,7 +960,7 @@ public abstract partial class InteractionTest
     /// List of currently active DoAfters on the player.
     /// </summary>
     protected IEnumerable<Shared.DoAfter.DoAfter> ActiveDoAfters
-        => DoAfters.DoAfters.Values.Where(x => !x.Cancelled && !x.Completed);
+        => DoAfters?.DoAfters.Values.Where(x => !x.Cancelled && !x.Completed) ?? [];
 
     #region Component
 
