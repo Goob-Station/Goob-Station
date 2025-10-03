@@ -338,6 +338,10 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+    - !type:AutomatedPorts
+      sinks:
+      - LathePrint
+  - type: LatheAutomation # Goobstation
   - type: SpamEmitSound # Goobstation - random lathe sounds
     minInterval: 300
     maxInterval: 900
