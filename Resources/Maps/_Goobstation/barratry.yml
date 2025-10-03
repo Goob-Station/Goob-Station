@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/17/2025 11:09:12
-  entityCount: 15868
+  time: 09/04/2025 15:19:09
+  entityCount: 15860
 maps:
 - 1
 grids:
@@ -11954,14 +11954,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 11159
-      - 9143
       - 14236
-      - 14235
-      - 14233
-      - 9131
-      - 14298
-      - 14295
       - 9142
       - 9145
       - 8983
@@ -50871,7 +50864,7 @@ entities:
       pos: -2.5,38.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6120.206
+      secondsUntilStateChange: -6873.3047
       state: Closing
   - uid: 6681
     components:
@@ -52240,6 +52233,15 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: FloorTileItemSteel
+  entities:
+  - uid: 9131
+    components:
+    - type: Transform
+      pos: -29.654913,55.528603
+      parent: 2
+    - type: Stack
+      count: 5
 - proto: FloraTree
   entities:
   - uid: 6929
@@ -53456,12 +53458,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -50.5,53.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 5576
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -57.5,55.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7102
     components:
     - type: Transform
@@ -54723,12 +54729,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -47.5,6.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7265
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -51.5,6.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7266
     components:
     - type: Transform
@@ -54805,6 +54815,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -50.5,4.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 7276
     components:
     - type: Transform
@@ -54988,18 +55000,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -53.5,53.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 7306
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -51.5,55.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7309
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -54.5,55.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7314
     components:
     - type: Transform
@@ -55051,6 +55069,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,20.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 7321
     components:
     - type: Transform
@@ -55983,6 +56003,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,19.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 7450
     components:
     - type: Transform
@@ -65385,12 +65407,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -57.5,58.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 10346
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,53.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeTJunction
   entities:
   - uid: 8672
@@ -67460,6 +67486,8 @@ entities:
     - type: Transform
       pos: -50.5,88.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       deviceLists:
       - 7301
@@ -68683,6 +68711,8 @@ entities:
     - type: Transform
       pos: -52.5,88.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: DeviceNetwork
       deviceLists:
       - 7301
@@ -75337,14 +75367,6 @@ entities:
     - type: Transform
       pos: -20.428497,57.597878
       parent: 2
-- proto: Intellicard
-  entities:
-  - uid: 10186
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -31.52358,60.507286
-      parent: 2
 - proto: IntercomAll
   entities:
   - uid: 10187
@@ -75891,11 +75913,6 @@ entities:
     components:
     - type: Transform
       pos: -38.453552,58.41694
-      parent: 2
-  - uid: 15684
-    components:
-    - type: Transform
-      pos: -7.4931664,50.42958
       parent: 2
 - proto: LandMineKick
   entities:
@@ -106941,75 +106958,10 @@ entities:
       parent: 2
 - proto: WeaponEnergyTurretAI
   entities:
-  - uid: 9131
-    components:
-    - type: Transform
-      pos: -21.5,39.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 9143
-    components:
-    - type: Transform
-      pos: -13.5,63.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 11159
-    components:
-    - type: Transform
-      pos: -19.5,63.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14233
-    components:
-    - type: Transform
-      pos: -20.5,47.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14235
-    components:
-    - type: Transform
-      pos: -9.5,60.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
   - uid: 14236
     components:
     - type: Transform
       pos: -22.5,56.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14295
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,47.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 14247
-      - 7301
-  - uid: 14298
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,55.5
       parent: 2
     - type: DeviceNetwork
       deviceLists:
@@ -107025,14 +106977,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 11159
-      - 9143
       - 14236
-      - 14235
-      - 14233
-      - 9131
-      - 14298
-      - 14295
 - proto: WeaponEnergyTurretAIMachineCircuitboard
   entities:
   - uid: 14299

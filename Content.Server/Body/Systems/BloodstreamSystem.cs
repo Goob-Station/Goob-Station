@@ -109,6 +109,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
@@ -752,7 +753,10 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         var dnaData = new DnaData();
 
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
+        {
             dnaData.DNA = donorComp.DNA;
+            dnaData.Freshness = _gameTiming.CurTime; // Goobstation
+        }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 

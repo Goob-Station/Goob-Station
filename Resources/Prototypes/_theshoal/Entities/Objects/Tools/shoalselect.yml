@@ -1,0 +1,100 @@
+- type: entity
+  id: Weaponselectshoal
+  name: primary weapon telescroll
+  description: the lines between technology and magic blur somehow even further. either deranged incantations or a lone shoal operator waiting for their call to send inventory over bluespace. maybe both.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityCargoContraband] # Goobstation edit
+  components:
+    - type: Sprite
+      sprite: _theshoal/Objects/Telescrolls/telescroll_primary.rsi
+      state: icon
+    # Goobstation - SetSelector rework - start
+    #  - type: ThiefUndeterminedBackpack
+    #    possibleSets:
+    #    # TODO Thief pinpointer needed
+    #    - ChemistrySet
+    #    - ToolsSet
+    #    - ChameleonSet # TODO Chameleon stump PR needed
+    #    - SyndieSet
+    #    - SleeperSet
+    #    - CommunicatorSet
+    #    - SmugglerSet
+    #  - type: ActivatableUI
+    #    key: enum.ThiefBackpackUIKey.Key
+    #  - type: UserInterface
+    #    interfaces:
+    #      enum.ThiefBackpackUIKey.Key:
+    #        type: ThiefBackpackBoundUserInterface
+    - type: SetSelector
+      possibleSets:
+        - ShoalSpikeSet
+        - ShoalCruelSet
+        - ShoalAssaultSet
+      maxSelectedSets: 1
+# Goobstation - SetSelector rework - end
+
+- type: entity
+  id: Meleeselectshoal
+  name: melee weapon telescroll
+  description: the lines between technology and magic blur somehow even further. either deranged incantations or a lone shoal operator waiting for their call to send inventory over bluespace. maybe both.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityCargoContraband] # Goobstation edit
+  components:
+    - type: Sprite
+      sprite: _theshoal/Objects/Telescrolls/telescroll_melee.rsi
+      state: icon
+    # Goobstation - SetSelector rework - start
+    #  - type: ThiefUndeterminedBackpack
+    #    possibleSets:
+    #    # TODO Thief pinpointer needed
+    #    - ChemistrySet
+    #    - ToolsSet
+    #    - ChameleonSet # TODO Chameleon stump PR needed
+    #    - SyndieSet
+    #    - SleeperSet
+    #    - CommunicatorSet
+    #    - SmugglerSet
+    #  - type: ActivatableUI
+    #    key: enum.ThiefBackpackUIKey.Key
+    #  - type: UserInterface
+    #    interfaces:
+    #      enum.ThiefBackpackUIKey.Key:
+    #        type: ThiefBackpackBoundUserInterface
+    - type: SetSelector
+      possibleSets:
+        - ShoalclaymoreSet
+        - ShoalMaceSet
+        - ShoalchainswordSet
+      maxSelectedSets: 1
+# Goobstation - SetSelector rework - end
+
+- type: entity
+  id: hardsuitselectshoal
+  name: hard-suit telescroll
+  description: the lines between technology and magic blur somehow even further. either deranged incantations or a lone shoal operator waiting for their call to send inventory over bluespace. maybe both.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityCargoContraband] # Goobstation edit
+  components:
+    - type: Sprite
+      sprite: _theshoal/Objects/Telescrolls/telescroll_hardsuit.rsi
+      state: icon
+    # Goobstation - SetSelector rework - start
+    #  - type: ThiefUndeterminedBackpack
+    #    possibleSets:
+    #    # TODO Thief pinpointer needed
+    #    - ChemistrySet
+    #    - ToolsSet
+    #    - ChameleonSet # TODO Chameleon stump PR needed
+    #    - SyndieSet
+    #    - SleeperSet
+    #    - CommunicatorSet
+    #    - SmugglerSet
+    #  - type: ActivatableUI
+    #    key: enum.ThiefBackpackUIKey.Key
+    #  - type: UserInterface
+    #    interfaces:
+    #      enum.ThiefBackpackUIKey.Key:
+    #        type: ThiefBackpackBoundUserInterface
+    - type: SetSelector
+      possibleSets:
+        - ShoalQuilsuitSet
+        - ShoalBattlemk2suitSet
+      maxSelectedSets: 1
+# Goobstation - SetSelector rework - end

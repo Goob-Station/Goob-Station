@@ -1,0 +1,15 @@
+
+- type: entity
+  id: MagazineCaselessRifleg11
+  name: magazine (9.5mm HP) # Goob edit
+  parent: BaseMagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifle
+    capacity: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/10x24.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false

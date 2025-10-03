@@ -174,13 +174,9 @@
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
-    - id: XenoVents # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
-    - id: AncientXenoVentsEasy # Goobstation
-    - id: AncientXenoVentsMedium # Goobstation
-    - id: AncientXenoVentsHard # Goobstation
-    - id: AncientXenoVentsRogue # Goobstation
     - id: MalignRiftSpawn # DeltaV
+    - id: FloorGoblinSpawn # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -191,7 +187,7 @@
     - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
-    - id: RevenantSpawn
+    #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
@@ -357,9 +353,9 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 2
     earliestStart: 45
-    reoccurrenceDelay: 20
+    maxOccurrences: 1
     minimumPlayers: 1
     duration: null
     chaos: # Goobstation
@@ -396,10 +392,10 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3
     duration: null
-    earliestStart: 10
-    reoccurrenceDelay: 20
+    earliestStart: 30
+    maxOccurrences: 1
     minimumPlayers: 1
     chaos: # Goobstation
       Hostile: 20
@@ -696,8 +692,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 30
-    minimumPlayers: 1
+    earliestStart: 20
+    minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -722,9 +718,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30
+    earliestStart: 20
     minimumPlayers: 1
-    weight: 5
+    weight: 7
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -748,8 +744,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 30
-    minimumPlayers: 1
+    earliestStart: 20
+    minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
@@ -839,9 +835,9 @@
     minimumPlayers: 1
     duration: 1
     chaos: # Goobstation
-      Hostile: 60
-      Medical: 75
-      Death: 100
+      Hostile: 200
+      Medical: 200
+      Death: 200
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -1041,24 +1037,3 @@
       min: 1
       max: 1
       pickPlayer: false
-
-- type: entity
-  id: AncientRogueKingSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 8
-    duration: 10
-    minimumPlayers: 45
-    chaos: # Goobstation
-      Hostile: 100
-      Friend: 20
-      Combat: 100
-      Death: 100
-      Medical: 100
-    eventType: HostilesSpawn
-  - type: GameRule
-    chaosScore: 400
-  - type: RandomSpawnRule
-    prototype: CMMobXenoRogueKingSentient

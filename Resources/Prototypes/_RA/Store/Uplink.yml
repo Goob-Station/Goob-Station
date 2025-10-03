@@ -1,0 +1,158 @@
+- type: entity
+  name: Company Credit
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: CompanyCredit
+  suffix: 100 TC
+  description: It seems to be pulsing with promise of riches!
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/Merc_chits.rsi
+    state: chits
+  - type: Item
+    sprite: _RA/Objects/Misc/Merc_chits.rsi
+    size: Tiny
+  - type: Stack
+    count: 100
+    stackType: CompanyCredit
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1000
+  - type: Currency
+    price:
+      CompanyCredit: 1
+  # Goobstation
+  - type: Tag
+    tags:
+    - CompanyCredit
+
+- type: entity
+  parent: CompanyCredit
+  id: CompanyCredit1
+  suffix: 1 TC
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: CompanyCredit
+  id: CompanyCredit5
+  suffix: 5 TC
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: CompanyCredit
+  id: CompanyCredit10
+  suffix: 10 TC
+  components:
+  - type: Stack
+    count: 10
+
+# Uplinks
+- type: entity
+  parent: [BaseItem, StoreMercUplink, BaseSyndicateContraband]
+  id: BaseUplinkRadioMerc
+  name: Mercenary Uplink
+  description: Suspiciously looking old radio...
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/Merc_uplink.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: _RA/Objects/Misc/Merc_uplink.rsi
+    heldPrefix: radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      CompanyCredit: 0
+
+# goobstation - duke nukies
+- type: entity
+  parent: BaseUplinkRadioMerc
+  id: BaseUplinkRadioMerc50TC
+  suffix: 50 TC
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 50
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  id: BaseUplinkRadioMerc50TCNukeOps
+  suffix: 50 TC, NukeOps reinforcement
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 50
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsReinforcementUplink
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadioMerc100TC
+  suffix: 100 TC
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 100
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadioMerc125TC
+  suffix: 125 TC
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 125
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadioMerc200TC
+  suffix: 200 TC
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 200
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadioMerc350TC
+  suffix: 350 TC, LoneOps
+  components:
+  - type: Store
+    balance:
+      CompanyCredit: 350
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsCommanderUplink
+
+- type: entity
+  parent: BaseUplinkRadioMerc
+  id: BaseUplinkRadioMercDebug
+  suffix: DEBUG
+  components:
+  - type: Store
+    balance:
+      # Goobstation - Telecrystal rework
+      CompanyCredit: 999999

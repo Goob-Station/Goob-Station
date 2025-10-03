@@ -107,6 +107,7 @@
     tags:
     - SuitEVA
     - MonkeyWearable
+    - CorgiWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty
 
@@ -151,6 +152,7 @@
   - type: Tag
     tags:
     - SuitEVA
+    - CorgiWearable
     - MonkeyWearable
     - WhitelistChameleon
     - Softsuit # OuterSlotClothingPenalty
@@ -197,8 +199,8 @@
 - type: entity
   parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterHardsuitVoidParamed
-  name: paramedic voidsuit # Goob edit
-  description: A voidsuit made for paramedics. # Goob edit
+  name: paramedic hardsuit # Goob edit - it has high pressure protection and resistances, call it a hardsuit
+  description: A hardsuit made for paramedics. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi

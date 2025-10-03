@@ -1,0 +1,85 @@
+- type: antag
+  id: Merc
+  name: job-name-mercevil-operative
+  antagonist: true
+  setPreference: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  objective: ghost-role-information-mercevil-rules
+  guides: [ NuclearOperatives ]
+
+- type: antag
+  id: MercMedic
+  name: job-name-mercevil-corpsman
+  antagonist: true
+  setPreference: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  objective: ghost-role-information-mercevil-rules
+  guides: [ NuclearOperatives ]
+
+- type: antag
+  id: MercCommander
+  name: job-name-mercevil-ftl
+  antagonist: true
+  setPreference: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  objective: ghost-role-information-mercevil-rules
+
+- type: startingGear
+  id: MercGearFullNoUplink
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEvilUnderArmor
+    back: ClothingBackpackDuffelSinder
+    mask: ClothingMaskGasEvilMerc
+    ears: ClothingHeadsetAltFreelancer
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ClothingBeltMilitaryWebbing
+  storage:
+    back:
+    - WeaponPistolViper
+
+#Nuclear Operative Gear
+- type: startingGear
+  id: MercGearFull
+  parent: MercGearFullNoUplink
+  equipment:
+    pocket2: BaseUplinkRadioMerc200TC # Goobstation - Telecrystal rework
+    id: MercOperativeId
+
+#Nuclear Operative Commander Gear
+- type: startingGear
+  id: MercCaptainGearFull
+  parent: MercGearFullNoUplink
+  equipment:
+    neck: SyndicateWhistle
+    pocket2: BaseUplinkRadioMerc350TC # goobstation - im rich :fire::fire:
+    id: MercCommanderId
+  inhand:
+  - NukeOpsDeclarationOfWar
+
+#Nuclear Operative Medic Gear
+- type: startingGear
+  id: MercCorpsmanFull
+  parent: MercGearFullNoUplink
+  equipment:
+    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
+    id: MercCorpsmanId
+    belt: ClothingBeltChemBagSyndiFilled # Goobstation
+    pocket2: BaseUplinkRadioMerc200TC
+    pocket1: HandheldHealthAnalyzer
+  storage:
+    back:
+    - SyndiHypo
+    #- SawAdvanced # Shitmed
+    #- Cautery # Shitmed
+    - CombatKnife
+    - WeaponPistolViper
+    #- HandheldHealthAnalyzer # Goobstation
+    - CombatMedipen
+    - MedkitCombatFilled # Goobstation

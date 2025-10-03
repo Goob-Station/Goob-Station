@@ -594,12 +594,20 @@
         prob: 0.05
 
 - type: entity
-  id: CrateFunDiscoBeachBall
-  parent: CrateGenericSteel
-  name: disco beach ball crate
-  description: A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+  name: hydrated scurret
+  description: Wait, what?
+  id: CrateFunScurret
+  parent: CratePlastic
   components:
   - type: StorageFill
     contents:
-    - id: DiscoBeachBall
-      amount: 1
+    - id: MobEmotionalSupportScurret # How? Why?
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkTequilaBottleFull # ...that explains it.
+    - id: DrinkShotGlass
+      amount: 2
+    - id: Spear # self defence
+    - id: ClothingHeadHatHardhatYellow
+    - id: ClothingNeckMantleQM
+    - id: ClothingHeadsetCargo

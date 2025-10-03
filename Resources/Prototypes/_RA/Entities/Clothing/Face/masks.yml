@@ -1,0 +1,74 @@
+- type: entity
+  parent: [ClothingMaskGas, BaseSyndicateContraband]
+  id: ClothingMaskGasEvilMerc
+  name: Sinder Industries gas mask
+  description: A close-fitting tactical mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Mask/homeguardgasmask.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Mask/homeguardgasmask.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag  # Goobstation - For survial boxes
+    tags:
+    - WhitelistChameleon
+    - SyndicateBreathMask
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
+
+- type: entity
+  parent: [ClothingMaskGas, BaseSyndicateContraband]
+  id: ClothingMaskGasMercReb
+  name: Industrial Rebreather
+  description: A close-fitting tactical Rebreather that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Mask/mandatesoldiermask.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Mask/mandatesoldiermask.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag  # Goobstation - For survial boxes
+    tags:
+    - WhitelistChameleon
+    - SyndicateBreathMask
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # some time of air?
+      volume: 0.66
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen

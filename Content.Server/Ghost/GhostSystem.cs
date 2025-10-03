@@ -119,6 +119,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
+using Content.Shared._White.Xenomorphs.Infection;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -617,9 +618,9 @@ namespace Content.Server.Ghost
             if (playerEntity != null && viaCommand)
             {
                 if (forced)
-                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
+                    _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
                 else
-                    _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+                    _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
             }
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
@@ -673,36 +674,39 @@ namespace Content.Server.Ghost
                 {
                     canReturn = true;
 
-                    FixedPoint2 dealtDamage = 200;
-
-                    if (TryComp<DamageableComponent>(playerEntity, out var damageable)
-                        && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                    if (!HasComp<XenomorphPreventSuicideComponent>(playerEntity.Value))
                     {
-                        var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
-                        dealtDamage = playerDeadThreshold - damageable.TotalDamage;
+                        FixedPoint2 dealtDamage = 200;
+
+                        if (TryComp<DamageableComponent>(playerEntity, out var damageable)
+                            && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                        {
+                            var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
+                            dealtDamage = playerDeadThreshold - damageable.TotalDamage;
+                        }
+
+                        // Shitmed Change Start
+                        var damageType = HasComp<SiliconComponent>(playerEntity)
+                            ? "Ion"
+                            : "Asphyxiation";
+                        DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
+
+                        if (TryComp<BodyComponent>(playerEntity, out var body)
+                            && body.BodyType == BodyType.Complex
+                            && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
+                            _damageable.TryChangeDamage(playerEntity,
+                                damage,
+                                true,
+                                targetPart: _bodySystem.GetTargetBodyPart(root));
+                        else
+                            _damageable.TryChangeDamage(playerEntity, damage, true);
+                        // Shitmed Change End
                     }
-
-                    // Shitmed Change Start
-                    var damageType = HasComp<SiliconComponent>(playerEntity)
-                        ? "Ion"
-                        : "Asphyxiation";
-                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
-
-                    if (TryComp<BodyComponent>(playerEntity, out var body)
-                        && body.BodyType == BodyType.Complex
-                        && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
-                        _damageable.TryChangeDamage(playerEntity,
-                            damage,
-                            true,
-                            targetPart: _bodySystem.GetTargetBodyPart(root));
-                    else
-                        _damageable.TryChangeDamage(playerEntity, damage, true);
-                    // Shitmed Change End
                 }
             }
 
             if (playerEntity != null)
-                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+                _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 

@@ -10,12 +10,12 @@
   abstract: true
   components:
   - type: Xenomorph
-    weedHeal:
+    weedHeal: # Goobstation - nerfed healing
       groups:
-        Burn: -5
-        Toxin: -5
+        Burn: -2
+        Toxin: -3
         Airloss: -10
-        Brute: -5
+        Brute: -3
   - type: Pinpointer
     whitelist:
       components:
@@ -128,16 +128,25 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     understands:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - Hissing
     - Draconic
+  - type: CollectiveMind # Goobstation
+    defaultChannel: Xenomorphivemind
+    channels:
+    - Xenomorphivemind
   - type: SSDIndicator
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: Access # Goobstation - xeno doors
+    enabled: true
+    groups:
+    - XenomorphAccess
+
 
 - type: entity
   parent: [BaseMobXenomorph, StripableInventoryBase]
@@ -152,6 +161,7 @@
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands
+  - type: ShowHealthIcons
   - type: Puller
     needsHands: false
   - type: IdExaminable
@@ -176,6 +186,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: XenomorphShoveTracker
 
 - type: entity
   id: BaseMobXenomorphDungeon

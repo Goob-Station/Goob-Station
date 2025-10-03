@@ -235,3 +235,11 @@
     severity: GrandTheft
     allowedDepartments: [ Command ]
     allowedJobs: [ Warden ] # Goob - energy shotgun
+
+- type: entity
+  id: BaseHonkraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Honkraband
+    allowedJobs: [ Clown ]

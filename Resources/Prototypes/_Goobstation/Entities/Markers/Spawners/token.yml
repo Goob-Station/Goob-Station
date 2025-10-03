@@ -109,8 +109,9 @@
     rules: ghost-role-information-laughter-demon-rules
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostAncientRogueKing
   id: AncientRogueKingToken
-  parent: CMMobXenoRogueKingSentient
   components:
   - type: GhostRole
     name: ghost-role-information-ancient-rogue-king-name-token

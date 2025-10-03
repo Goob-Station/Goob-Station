@@ -22,7 +22,7 @@ comp-light-replacer-insert-broken-light = You can't insert broken lights!
 # Shown when player refill light from light box
 comp-light-replacer-refill-from-storage = You refill {THE($light-replacer)}.
 
-### Examine 
+### Examine
 
 comp-light-replacer-no-lights = It's empty.
 comp-light-replacer-has-lights = It contains the following:

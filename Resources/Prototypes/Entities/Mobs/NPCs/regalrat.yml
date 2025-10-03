@@ -430,14 +430,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Critical
-      30: Dead
+      15: Dead #goob
+  - type: Bloodstream
+    bloodMaxVolume: 10 #goob (he is very small)
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 60
+        !type:DamageTrigger
+        damage: 15
       behaviors:
       - !type:GibBehavior
         recursive: false

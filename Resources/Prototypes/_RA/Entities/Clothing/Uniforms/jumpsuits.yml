@@ -1,0 +1,87 @@
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilTrauma
+  name: Corpsman Uniform
+  description: Uniform for Mercenary Corpsmen that perfer the finest of materials from Nanotrasen for tactical operations in deep space.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/trauma.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/trauma.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilCBURN
+  name: Biohazardous Containment Uniform
+  description: Uniform made by Nanotrasen for Mercenaries that are operating in deep space biohazardous enviroments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilDigitalBlue
+  name: Awfully Blue Uniform
+  description: A uniform misprint made by Nanotrasen's Orphan Charity Foundation.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/combat-suits/Digital/digital_blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/combat-suits/Digital/digital_blue.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilDigitalRed
+  name: Digital Red Uniform
+  description: A uniform often seen on Gorlex's lower ranking Mercenaries.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/combat-suits/Digital/digital_red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/combat-suits/Digital/digital_red.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilBlackmarket
+  name: Cheap Uniform
+  description: A Cheap uniform often seen on many Mercenaries with no boundaries.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/tactical.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/tactical.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilBlackmarket2
+  name: Cheap Uniform
+  description: A Cheap uniform often seen on many Mercenaries with no boundaries.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/tactical_cargo.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/tactical_cargo.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilBlackmarket3
+  name: Warm Uniform
+  description: A Warm uniform often seen on many Mercenaries with no boundaries.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/warm.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/warm.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitEvilUnderArmor
+  name: Black Skin Suit
+  description: A Black skin suit designed for use in Cryogenic Rest & for long term Hardsuit use.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Uniform/mandatecombat.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Uniform/mandatecombat.rsi

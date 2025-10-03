@@ -203,20 +203,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
-                return;
-            foreach (var hand in handsComp.Hands.Values)
+            foreach (var item in _hands.EnumerateHeld(ent.Owner))
             {
-                if (hand.HeldEntity == null)
-                    continue;
-                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
-                    QueueDel(hand.HeldEntity);
+                if (HasComp<MansusGraspComponent>(item ))
+                    QueueDel(item );
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
             if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
@@ -388,7 +384,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        // updated: get upstream'ed you clanker
+        _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 
     private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)

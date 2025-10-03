@@ -15,11 +15,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenarySergeant
 
+- type: loadout #shoal
+  id: MercenaryShoalJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckShoalMercenary
+
 # Back
 - type: loadout
   id: MercenaryBackpack
   equipment:
     back: ClothingBackpackMerc
+
+- type: loadout
+  id: MercenaryLeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
 
 - type: loadout
   id: MercenarySatchel
@@ -46,3 +59,24 @@
   id: MercenaryBoots
   equipment:
     shoes: ClothingShoesBootsMerc
+#locker
+- type: loadout #shoal
+  id: LoadoutToolsShoalmerclockertele
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    pocket1: ShoalmercLockerTeleporter
+# PDA
+- type: loadout
+  id: MercPDA
+  equipment:
+    id: MercenaryPDA
+
+- type: loadout
+  id: ShoalMercPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    id: ShoalMercPDA

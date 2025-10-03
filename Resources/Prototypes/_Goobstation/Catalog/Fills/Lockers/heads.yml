@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Androidonator <33227516+Androidonator@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,6 +62,7 @@
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: BlueshieldUndeterminedHardsuit
+    - id: FlashlightSeclite
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

@@ -81,12 +81,6 @@ xenoarch-trigger-tip-throw = Being thrown
 xenoarch-trigger-tip-death = Death
 xenoarch-trigger-tip-magnet = Magnetic waves
 
-## Goob stuff
-xenoarch-trigger-tip-bz = BZ
-xenoarch-trigger-tip-nitrium = Nitrium
-xenoarch-trigger-tip-healium = Healium
-xenoarch-trigger-tip-pluoxium = Pluoxium
-
 ### Description hints
 xenoarch-trigger-examine-wrenching = There's a loose bit spinning around.
 xenoarch-trigger-examine-prying = There's a panel coming up from the surface.

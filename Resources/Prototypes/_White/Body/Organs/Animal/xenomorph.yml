@@ -92,6 +92,7 @@
       damagePerSecond:
         types:
           Caustic: 20
+          Heat: 20 # Goobstation
 
 - type: entity
   parent: BaseXenomorphOrgan

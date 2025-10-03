@@ -942,6 +942,8 @@
   id: SurgeryRemoveArmAugment
   name: Remove Arm Augment
   components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
   - type: SurgeryPartCondition
     part: Arm
   - type: SurgeryOrganCondition

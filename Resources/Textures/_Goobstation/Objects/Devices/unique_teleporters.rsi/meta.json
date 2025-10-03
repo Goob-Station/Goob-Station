@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288254493020131368",
+  "copyright": "Made by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288254493020131368 shoal sprite by jack-thedragon95 for red astra (had to put it here so the engine doesnt shit itself)",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,9 @@
     },
     {
       "name": "bso"
+    },
+	{
+      "name": "shoal"
     }
   ]
 }

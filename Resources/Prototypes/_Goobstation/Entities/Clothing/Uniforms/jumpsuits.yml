@@ -281,3 +281,69 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSSummer
+  name: head of security's summer shirt
+  description: The head of security's custom-commissioned summer outfit, for when chasing tiders gets hot.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hos.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitRDSummer
+  name: research director's summer shirt
+  description: The research director's custom-commissioned summer outfit, for when those fire anomalies are making you sweat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_rd.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_rd.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitQMSummer
+  name: quartermaster's summer shirt
+  description: The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitCaptainSummer
+  name: captain's summer shirt
+  description: The captain's custom-commissioned summer outfit, for when you've been in the green for a while.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_captain.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPSummer
+  name: head of personnel's summer shirt
+  description: The head of personnel's custom-commissioned summer outfit, for when you want to comfortably do paperwork.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hop.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hop.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitCESummer
+  name: chief engineer's summer shirt
+  description: The chief engineer's custom-commissioned summer outfit, for when you just want to lay down and look at the tesla.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi

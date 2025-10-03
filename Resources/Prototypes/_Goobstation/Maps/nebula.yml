@@ -2,7 +2,7 @@
   id: Nebula
   mapName: 'Nebula'
   mapPath: /Maps/_Goobstation/nebula.yml
-  minPlayers: 0
+  minPlayers: 10
   maxPlayers: 85
   stations:
     Nebula:

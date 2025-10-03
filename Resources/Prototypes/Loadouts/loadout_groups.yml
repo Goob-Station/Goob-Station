@@ -143,6 +143,7 @@
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
@@ -313,6 +314,7 @@
   - CaptainFormalSuit
   - CaptainFormalSkirt
   - CaptainJumpsuitMilitary # goob
+  - CaptainSummerShirt # also goob
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -346,6 +348,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HoPBeret
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -354,6 +357,7 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPJumpsuitMilitary # goob
+  - HoPSummerShirt # goob
 
 - type: loadoutGroup
   id: HoPNeck
@@ -601,6 +605,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -853,6 +858,7 @@
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
   - QuartermasterMJ # goob
+  - QMSummerShirt # goob
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -959,6 +965,7 @@
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
+  - CESummerShirt # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1120,6 +1127,7 @@
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
   - ResearchDirectorMJ # goob
+  - RDSummerShirt # goob
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1237,6 +1245,7 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HoSSummerShirt # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1705,6 +1714,7 @@
   loadouts:
   - MercenaryJumpsuit
   - MercenarySergeantJumpsuit
+  - MercenaryShoalJumpsuit
 
 - type: loadoutGroup
   id: MercenaryBackpackGroup
@@ -1714,6 +1724,7 @@
   loadouts:
   - MercenaryBackpack
   - MercenarySatchel
+  - MercenaryLeatherSatchel
   - MercenaryDuffel
 
 - type: loadoutGroup
@@ -1751,6 +1762,21 @@
   loadouts:
   - MercenaryRig
   - MercenaryHolster
+
+- type: loadoutGroup
+  id: MercenaryLockerteleporter
+  name: loadout-group-mercenary-teleporter
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutToolsShoalmerclockertele
+
+- type: loadoutGroup
+  id: MercenaryPDA
+  name: loadout-group-mercenary-pda
+  loadouts:
+  - MercPDA
+  - ShoalMercPDA
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMerc

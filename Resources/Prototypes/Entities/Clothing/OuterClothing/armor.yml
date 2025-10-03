@@ -156,10 +156,10 @@
 
 #Basic armor vest for inheritance
 - type: entity
+  abstract: true
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterArmorBase
   name: armor vest
-  abstract: true
   description: A standard Type I armored vest that provides decent protection against most types of damage.
   components:
   - type: Sprite
@@ -193,6 +193,11 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
+  components:
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -341,6 +346,8 @@
         Caustic: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.35
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.4 # Goob edit
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -397,8 +404,6 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.4
   - type: Item
     size: Normal
 
@@ -579,6 +584,10 @@
     damageCoefficient: 0.6
   - type: StaticPrice # Goob
     price: 1000
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity # This is from upstream, so it goes in wizden code.
   parent: [ClothingOuterArmorCaptainCarapace, BaseCentcommContraband]

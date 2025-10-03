@@ -1,0 +1,33 @@
+#Mercenary Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitQuill # stats are of luxury mining hardsuit
+  name: quill battle carapace
+  description: A shockingly simple hardsuit for shoal quills designed to be easily taken on and off in need of mobility or protection.
+  components:
+  - type: Sprite
+    sprite: _theshoal/Clothing/OuterClothing/Hardsuits/quillsuit.rsi
+  - type: Clothing
+    sprite: _theshoal/Clothing/OuterClothing/Hardsuits/quillsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6 # Removed 10%
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.75
+        Radiation: 0.6
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes: 
+     head: ClothingHeadHelmetHardsuitQuill
+

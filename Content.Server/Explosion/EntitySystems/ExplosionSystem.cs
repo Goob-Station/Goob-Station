@@ -308,7 +308,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             user);
 
         if (explosive.DeleteAfterExplosion ?? delete)
-            EntityManager.QueueDeleteEntity(uid);
+            QueueDel(uid);
     }
 
     /// <summary>
@@ -447,10 +447,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             return;
         }
 
-        var boom = new QueuedExplosion()
+        var boom = new QueuedExplosion(type)
         {
             Epicenter = epicenter,
-            Proto = type,
             TotalIntensity = totalIntensity,
             Slope = slope,
             MaxTileIntensity = maxTileIntensity,

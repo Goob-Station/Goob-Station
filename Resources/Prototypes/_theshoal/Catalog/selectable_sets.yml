@@ -1,0 +1,87 @@
+- type: selectableSet #rifles
+  id: ShoalSpikeSet
+  name: spike thrower
+  description: A formally living shoal "firearm" remade using stolen PKA tech.
+  sprite:
+    sprite: _theshoal/Objects/Weapons/Guns/Battery/Spikethrower.rsi
+    state: base
+  content:
+  - WeaponSpikethrower
+
+- type: selectableSet
+  id: ShoalCruelSet
+  name: HG-Cruel
+  description: A gnarly rifle that uses 10x24 caseless. Comes with two spare mags.
+  sprite:
+    sprite: _theshoal/Objects/Weapons/Guns/SMGs/hgcruel.rsi
+    state: icon
+  content:
+  - WeaponRifleCruel
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
+
+- type: selectableSet
+  id: ShoalAssaultSet
+  name: SL-Assaulter
+  description: A vulger smg chambered in 35. Comes with two spare mags.
+  sprite:
+    sprite: _theshoal/Objects/Weapons/Guns/SMGs/sl-assaulter.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunAssaulter
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+
+#Melee
+- type: selectableSet
+  id: ShoalclaymoreSet
+  name: Claymore
+  description: A massive claymore forged in ancient times.
+  sprite:
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    state: icon
+  content:
+  - Claymore
+
+- type: selectableSet
+  id: ShoalMaceSet
+  name: Mace
+  description: A solid mace made for enforcers.
+  sprite:
+    sprite: _theshoal/Objects/Weapons/Melee/mace.rsi
+    state: icon
+  content:
+  - Shoalmace
+
+- type: selectableSet
+  id: ShoalchainswordSet
+  name: Chainsword
+  description: Its in the name.
+  sprite:
+    sprite: _theshoal/Objects/Weapons/Melee/chainsword.rsi
+    state: icon
+  content:
+  - Shoalchainsword
+
+#side arm
+
+#hardsuits
+- type: selectableSet
+  id: ShoalQuilsuitSet
+  name: Quill battle carapace
+  description: A shockingly simple hardsuit for shoal quills.
+  sprite:
+    sprite: _theshoal/Clothing/Head/Hardsuits/quillsuit.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitQuill
+
+- type: selectableSet
+  id: ShoalBattlemk2suitSet
+  name: Battle carapace MKII
+  description: an ancient modsuit. contains a shockingly ethically sourced core.
+  sprite:
+    sprite: _theshoal/Clothing/Back/Modsuits/battlemk2.rsi
+    state: control
+  content:
+  - ClothingModsuitShoalPowerCell

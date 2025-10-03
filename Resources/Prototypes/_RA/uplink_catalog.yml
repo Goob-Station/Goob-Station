@@ -1,0 +1,847 @@
+# Nanotrasen
+- type: listing
+  id: UplinkLecter
+  name: uplink-Lecter-Evil-name
+  description: uplink-Lecter-Evil-desc
+  productEntity: WeaponRifleLecterEvil
+  cost:
+    CompanyCredit: 40
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkAnnie
+  name: uplink-Annie-Evil-name
+  description: uplink-Annie-Evil-desc
+  productEntity: WeaponRifleAnnieEvil
+  cost:
+    CompanyCredit: 50
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkXLR
+  name: uplink-XLR-Evil-name
+  description: uplink-XLR-Evil-desc
+  productEntity: WeaponRifleXLREvil
+  cost:
+    CompanyCredit: 75
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkDrozd
+  name: uplink-Drozd-Evil-name
+  description: uplink-Drozd-Evil-desc
+  productEntity: WeaponSubMachineGunDrozdEvil
+  cost:
+    CompanyCredit: 25
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkNagel
+  name: uplink-Nagel-Evil-name
+  description: uplink-Nagel-Evil-desc
+  productEntity: WeaponLightMachineGunNagel
+  cost:
+    CompanyCredit: 110
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkERTLead
+  name: uplink-ERT-Lead-name
+  description: uplink-ERT-Lead-desc
+  productEntity: ClothingOuterHardsuitEvilERTLeader
+  cost:
+    CompanyCredit: 55
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkERTSec
+  name: uplink-ERT-Sec-name
+  description: uplink-ERT-Sec-desc
+  productEntity: ClothingOuterHardsuitEvilERTSecurity
+  cost:
+    CompanyCredit: 55
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkERTMed
+  name: uplink-ERT-Med-name
+  description: uplink-ERT-Med-desc
+  productEntity: ClothingOuterHardsuitEvilERTMedical
+  cost:
+    CompanyCredit: 55
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkERTEng
+  name: uplink-ERT-Eng-name
+  description: uplink-ERT-Eng-desc
+  productEntity: ClothingOuterHardsuitEvilERTEngineer
+  cost:
+    CompanyCredit: 55
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkCBURN
+  name: uplink-ERT-CBRN-name
+  description: uplink-ERT-CBRN-desc
+  productEntity: ClothingOuterHardsuitEvilCBURN
+  cost:
+    CompanyCredit: 60
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkERTMag
+  name: uplink-ERT-Magboot-name
+  description: uplink-ERT-Magboot-desc
+  productEntity: ClothingShoesBootsMagEmergencyResponseTeam
+  cost:
+    CompanyCredit: 20
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkMOPPG
+  name: uplink-ERT-MOPPGloves-name
+  description: uplink-ERT-MOPPGloves-desc
+  productEntity: ClothingHandsGlovesEvilMOPP
+  cost:
+    CompanyCredit: 10
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkCorpsmanU
+  name: uplink-ERT-CorpsmanUniform-name
+  description: uplink-ERT-CorpsmanUniform-desc
+  productEntity: ClothingUniformJumpsuitEvilTrauma
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: UplinkMOPPU
+  name: uplink-ERT-MOPPUniform-name
+  description: uplink-ERT-MOPPUniform-desc
+  productEntity: ClothingUniformJumpsuitEvilCBURN
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkNanotrasen
+
+- type: listing
+  id: Uplinkmisprint
+  name: uplink-ERT-Misprint-name
+  description: uplink-ERT-Misprint-desc
+  productEntity: ClothingUniformJumpsuitEvilDigitalBlue
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkNanotrasen
+
+# Cybersun
+
+- type: listing
+  id: UplinkC25R
+  name: uplink-c25r-name
+  description: uplink-c25r-desc
+  productEntity: WeaponSubMachineGunC25r
+  cost:
+    CompanyCredit: 30
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkPistolViper2
+  name: uplink-pistol-viper-name
+  description: uplink-pistol-viper-desc
+  productEntity: WeaponPistolViper
+  cost:
+    CompanyCredit: 13 # goob - this +1 mag = 15 TC
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkRevolverPython2
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
+  cost:
+    CompanyCredit: 20
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkPistolCobra2
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: WeaponPistolCobra
+  cost:
+    CompanyCredit: 17
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkThrowingKnivesKit2
+  name: uplink-knives-kit-name
+  description: uplink-knives-kit-desc
+  productEntity: ThrowingKnivesKit
+  cost:
+    CompanyCredit: 20 # goob - Pretty weak, but resusable ranged crit potential shouldn't be less.
+  categories:
+    - UplinkCybersun
+
+- type: listing
+  id: UplinkBulldog2 #goob
+  name: uplink-buldog-name #goob
+  description: uplink-buldog-desc #goob
+  productEntity: WeaponShotgunBulldog
+  cost:
+    CompanyCredit: 60 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkL6Saw2 #goob
+  name: uplink-l6-saw-name #goob
+  description: uplink-l6-saw-desc #goob
+  productEntity: WeaponLightMachineGunL6
+  cost:
+    CompanyCredit: 100 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkWSPR2
+  name: uplink-WSPR-name
+  description: uplink-WSPR-desc
+  productEntity: WeaponRifleWSPR
+  cost:
+    CompanyCredit: 65 # fire
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkWeaponRifleBurner2
+  name: uplink-weapon-burner-name
+  description: uplink-weapon-burner-desc
+  productEntity: WeaponRifleBurner
+  cost:
+    CompanyCredit: 100 # don't kill me piras
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkPistolAnaconda2
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  productEntity: WeaponPistolAnaconda
+  cost:
+    CompanyCredit: 38 # This + esword = 75 TC
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkWeaponM7S2
+  name: uplink-m7s-name
+  description: uplink-m7s-desc
+  productEntity: WeaponSubMachineGunM7S
+  cost:
+    CompanyCredit: 60
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkWeaponCombatShotgun2
+  name: uplink-combat-shotgun-name
+  description: uplink-combat-shotgun-desc
+  productEntity: WeaponShotgunCombat
+  cost:
+    CompanyCredit: 50
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkWeaponHE1SG82
+  name: uplink-he1sg8-bundle-name
+  description: uplink-he1sg8-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
+  cost:
+    CompanyCredit: 130
+  categories:
+    - UplinkCybersun
+
+- type: listing
+  id: UplinkEshield2
+  name: uplink-eshield-name
+  description: uplink-eshield-desc
+  productEntity: EnergyShield
+  cost:
+    CompanyCredit: 15 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkSyndicateJawsOfLife2
+  name: uplink-syndicate-jaws-of-life-name
+  description: uplink-syndicate-jaws-of-life-desc
+  productEntity: SyndicateJawsOfLife
+  cost:
+    CompanyCredit: 10 # goob
+  categories:
+  - UplinkCybersun
+
+
+- type: listing
+  id: UplinkDuffelSurgery2
+  name: uplink-duffel-surgery-name
+  description: uplink-duffel-surgery-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  cost:
+    CompanyCredit: 20 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkClothingShoesBootsMagSyndie2
+  name: uplink-clothing-shoes-boots-mag-syndie-name
+  description: uplink-clothing-shoes-boots-mag-syndie-desc
+  productEntity: ClothingShoesBootsMagSyndie
+  cost:
+    CompanyCredit: 20 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkCSIH1
+  name: uplink-hardsuit-CSISec-name
+  description: uplink-hardsuit-CSISec-desc
+  productEntity: ClothingOuterHardsuitCybersunSec
+  cost:
+    CompanyCredit: 25
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkCSIH2
+  name: uplink-hardsuit-CSIMedic-name
+  description: uplink-hardsuit-CSIMedic-desc
+  productEntity: ClothingOuterHardsuitCybersunMedic
+  cost:
+    CompanyCredit: 30
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkCSIH3
+  name: uplink-hardsuit-CSIOp-name
+  description: uplink-hardsuit-CSIOp-desc
+  productEntity: ClothingOuterHardsuitCybersunLead
+  cost:
+    CompanyCredit: 35
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: UplinkHardsuitSyndie2
+  name: uplink-hardsuit-syndie-name
+  description: uplink-hardsuit-syndie-desc
+  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  cost:
+    CompanyCredit: 50 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkHardsuitSyndieElite2
+  name: uplink-hardsuit-syndieelite-name
+  description: uplink-hardsuit-syndieelite-desc
+  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  cost:
+    CompanyCredit: 75 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkClothingOuterHardsuitJuggernaut2
+  name: uplink-clothing-outer-hardsuit-juggernaut-name
+  description: uplink-clothing-outer-hardsuit-juggernaut-desc
+  productEntity: CrateCybersunJuggernautBundle
+  cost:
+    CompanyCredit: 80 # goob
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkClothingDreadnought2
+  name: uplink-hardsuit-cybersun-dreadnought-name
+  description: uplink-hardsuit-cybersun-dreadnought-desc
+  productEntity: CrateSyndicateDreadnought
+  cost:
+    Telecrystal: 200
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkAutosurgeonRightMantisBlade2
+  name: uplink-autosurgeon-right-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  productEntity: AutosurgeonRightMantisBlade
+  cost:
+    CompanyCredit: 17
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkAutosurgeonLeftMantisBlade2
+  name: uplink-autosurgeon-left-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  productEntity: AutosurgeonLeftMantisBlade
+  cost:
+    CompanyCredit: 17
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: UplinkAutosurgeonSandevistan2
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  productEntity: AutosurgeonSandevistan
+  cost:
+    CompanyCredit: 66 # The urge to make it 65...
+  categories:
+  - UplinkCybersun
+
+- type: listing
+  id: Uplinkuniform1
+  name: uplink-D1-Uniform-name
+  description: uplink-D1-Uniform-desc
+  productEntity: ClothingUniformJumpsuitEvilDigitalRed
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: Uplinkuniform2
+  name: uplink-D2-Uniform-name
+  description: uplink-D2-Uniform-desc
+  productEntity: ClothingUniformJumpsuitEvilBlackmarket
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: Uplinkuniform3
+  name: uplink-D3-Uniform-name
+  description: uplink-D3-Uniform-desc
+  productEntity: ClothingUniformJumpsuitEvilBlackmarket2
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkCybersun
+
+- type: listing
+  id: Uplinkuniform4
+  name: uplink-D4-Uniform-name
+  description: uplink-D4-Uniform-desc
+  productEntity: ClothingUniformJumpsuitEvilBlackmarket3
+  cost:
+    CompanyCredit: 0
+  categories:
+    -  UplinkCybersun
+
+# Ammo
+
+- type: listing
+  id: UplinkMagazineShotgun2
+  name: uplink-shotgun-magazine-name
+  description: uplink-shotgun-magazine-desc
+  productEntity: MagazineShotgun
+  cost:
+    CompanyCredit: 5
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkMagazineShotgunSlug2
+  name: uplink-shotgun-magazine-slug-name
+  description: uplink-shotgun-magazine-slug-desc
+  productEntity: MagazineShotgunSlug
+  cost:
+    CompanyCredit: 4 # So little total damage
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkMagazineLightRifleBox2
+  name: uplink-l6-box-name
+  description: uplink-l6-box-desc
+  productEntity: MagazineLightRifleBox
+  cost:
+    CompanyCredit: 20
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkMagazineM7S2
+  name: uplink-m7s-mag-name
+  description: uplink-m7s-mag-desc
+  productEntity: MagazineLowCaliberM7S
+  cost:
+    CompanyCredit: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkMagazineHighCaliber2
+  name: uplink-high-caliber-magazine-name
+  description: uplink-high-caliber-magazine-desc
+  productEntity: MagazineHighCaliber
+  cost:
+    CompanyCredit: 8
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkMagazineHighCaliberExplosive2
+  name: uplink-high-caliber-explosive-magazine-name
+  description: uplink-high-caliber-explosive-magazine-desc
+  productEntity: MagazineHighCaliberExplosive
+  cost:
+    CompanyCredit: 12
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkPistol9mmMagazine2
+  name: uplink-pistol-magazine-name
+  description: uplink-pistol-magazine-desc
+  productEntity: MagazinePistol
+  cost:
+    CompanyCredit: 2 # goob - Ammo should be cheap.
+  categories:
+  - UplinkAmmoMercs
+
+- type: listing
+  id: UplinkCaselessRifleMag2
+  name: uplink-rifle-caseless-mag-name
+  description: uplink-rifle-caseless-mag-desc
+  productEntity: MagazineCaselessRifle
+  cost:
+    CompanyCredit: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
+  categories:
+  - UplinkAmmoMercs
+
+# For the C20R
+- type: listing
+  id: UplinkMagazinePistolSubMachineGun2
+  name: uplink-pistol-magazine-c20r-name
+  description: uplink-pistol-magazine-c20r-desc
+  productEntity: MagazinePistolSubMachineGun
+  cost:
+    CompanyCredit: 5 # goob - Ammo should be cheap. 96 dmg per TC.
+  categories:
+  - UplinkAmmoMercs
+
+# For the Cobra
+- type: listing
+  id: UplinkMagazinePistolCaselessRifle2
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  productEntity: MagazinePistolCaselessRifle
+  cost:
+    CompanyCredit: 3 # goob
+  categories:
+  - UplinkAmmoMercs
+
+# For the Python
+- type: listing
+  id: UplinkSpeedLoaderMagnumAP2
+  name: uplink-speedloader-magnum-name
+  description: uplink-speedloader-magnu-desc
+  productEntity: SpeedLoaderMagnumAP
+  cost:
+    CompanyCredit: 3 # goob - AP, but only 6 bullets in speedloader
+  categories:
+  - UplinkAmmoMercs
+
+# For the Estoc
+- type: listing
+  id: UplinkEstocAmmo2
+  name: uplink-20-magazine-name
+  description: uplink-20-magazine-desc
+  productEntity: MagazineRifle
+  cost:
+    CompanyCredit: 5 # goob - on par with c20
+  categories:
+  - UplinkAmmoMercs # why do I suffer like this 573 lines of code and still not done.
+
+# Utilities
+
+- type: listing
+  id: UplinkDisposableTurret2
+  name: uplink-disposable-turret-name
+  description: uplink-disposable-turret-desc
+  productEntity: ToolboxElectricalTurretFilled
+  cost:
+    CompanyCredit: 30 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkAdvancedCombatMedipen2
+  name: uplink-advanced-combat-medipen-name
+  description: uplink-advanced-combat-medipen-desc
+  productEntity: AdvancedCombatMedipen
+  cost:
+    CompanyCredit: 28
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkSyringePistol2
+  name: uplink-syringe-pistol-name
+  description: uplink-syringe-pistol-desc
+  productEntity: SyringePistol
+  cost:
+    CompanyCredit: 15
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCombatMedkitPills2
+  name: uplink-combat-medkit-pills-name
+  description: uplink-combat-medkit-pills-desc
+  productEntity: MedkitCombatBlueFilled
+  cost:
+    CompanyCredit: 25
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCombatMedkitIPC2
+  name: uplink-combat-medkit-ipc-name
+  description: uplink-combat-medkit-ipc-desc
+  productEntity: MedkitCombatPurpleFilled
+  cost:
+    CompanyCredit: 10
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCombatMedkit2
+  name: uplink-combat-medkit-name
+  description: uplink-combat-medkit-desc
+  productEntity: MedkitCombatFilled
+  cost:
+    CompanyCredit: 15 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkStimpack2
+  name: uplink-stimpack-name
+  description: uplink-stimpack-desc
+  productEntity: Stimpack
+  cost:
+    CompanyCredit: 10 # goob - 1 TC per 3 seconds.
+  categories:
+  - UplinkMercUtilities
+
+
+- type: listing
+  id: UplinkStimkit2
+  name: uplink-stimkit-name
+  description: uplink-stimkit-desc
+  productEntity: StimkitFilled
+  cost:
+    CompanyCredit: 40 # goob
+  categories:
+  - UplinkMercUtilities
+
+
+- type: listing
+  id: UplinkCigarettes2
+  name: uplink-cigarettes-name
+  description: uplink-cigarettes-desc
+  productEntity: CigPackSyndicate
+  cost:
+    CompanyCredit: 5 # goob
+  categories:
+  - UplinkMercUtilities
+
+
+- type: listing
+  id: UplinkMedsBundle2
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost:
+    CompanyCredit: 100 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkRadioJammer2
+  name: uplink-radio-jammer-name
+  description: uplink-radio-jammer-desc
+  productEntity: RadioJammer
+  cost:
+    CompanyCredit: 20 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkToolbox2
+  name: uplink-toolbox-name
+  description: uplink-toolbox-desc
+  productEntity: ToolboxSyndicateFilled
+  cost:
+    CompanyCredit: 10 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCameraBug2
+  name: uplink-cameraBug-name
+  description: uplink-cameraBug-desc
+  productEntity: CameraBug
+  cost:
+    CompanyCredit: 12 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkZombieBundle2
+  name: uplink-zombie-bundle-name
+  description: uplink-zombie-bundle-desc
+  productEntity: ClothingBackpackDuffelZombieBundle
+  cost:
+    CompanyCredit: 200 # goob
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: Uplinkrebreather
+  name: uplink-D1-Mask-name
+  description: uplink-D1-Mask-desc
+  productEntity: ClothingMaskGasMercReb
+  cost:
+    CompanyCredit: 10
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCQCManual2
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    CompanyCredit: 60
+  categories:
+  - UplinkMercUtilities
+
+- type: listing
+  id: UplinkCapoeiraManual2
+  name: uplink-capoeira-name
+  description: uplink-capoeira-desc
+  productEntity: CapoeiraManual
+  cost:
+    CompanyCredit: 35
+  categories:
+  - UplinkMercUtilities
+
+# Explosives
+
+- type: listing
+  id: UplinkSarinGasGrenade2
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    CompanyCredit: 10
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkSmokeGrenadeNukeops2
+  name: uplink-smoke-grenade-name
+  description: uplink-smoke-grenade-desc
+  productEntity: SmokeGrenade
+  cost:
+    CompanyCredit: 2
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkC4Nukeops2
+  name: uplink-c4-name
+  description: uplink-c4-desc
+  productEntity: C4
+  cost:
+    CompanyCredit: 4
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkC4BundleNukeops2
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    CompanyCredit: 26
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkEmpGrenadeNukeops2
+  name: uplink-emp-grenade-name
+  description: uplink-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost:
+    CompanyCredit: 2
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkClusterGrenadeNukeops2
+  name: uplink-cluster-grenade-name
+  description: uplink-cluster-grenade-desc
+  productEntity: ClusterGrenade
+  cost:
+    CompanyCredit: 11
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkGrenadeShrapnelNukeops2
+  name: uplink-shrapnel-grenade-name
+  description: uplink-shrapnel-grenade-desc
+  productEntity: GrenadeShrapnel
+  cost:
+    CompanyCredit: 4
+  categories:
+  - UplinkMercExplosives
+
+- type: listing
+  id: UplinkGrenadeIncendiaryNukeops2
+  name: uplink-incendiary-grenade-name
+  description: uplink-incendiary-grenade-desc
+  productEntity: GrenadeIncendiary
+  cost:
+    CompanyCredit: 4
+  categories:
+  - UplinkMercExplosives
+# WHY IS UPLINK CODE SO ASS!!!!!!!!

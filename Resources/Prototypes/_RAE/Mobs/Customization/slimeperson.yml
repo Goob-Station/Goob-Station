@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025 Briddragon <230283337+Briddragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+# Head
+
+# Snout
+
+# Eyes
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: GummyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ SlimePerson ]
+  sprites:
+  - sprite: _RAE/Mobs/Customization/SlimePerson/tail_64x32.rsi
+    state: tail_gummy
+
+- type: marking
+  id: GummyTailBones
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ SlimePerson ]
+  sprites:
+  - sprite: _RAE/Mobs/Customization/SlimePerson/tail_64x32.rsi
+    state: gummy_tail_bones
+
+# RArmExtension

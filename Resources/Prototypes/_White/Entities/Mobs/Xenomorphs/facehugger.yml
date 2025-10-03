@@ -5,12 +5,12 @@
   description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/facehugger.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: facehugger
   - type: Clothing
-    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/facehugger.rsi
     slots: [mask]
   - type: IngestionBlocker
   - type: Blindfold
@@ -57,12 +57,16 @@
       - XenomorphLarvaVictim
       - Silicon
       - Ghost
+      - XenomorphEgg
     damageOnImpact:
       types:
         Blunt: 15
     damageOnInfect:
       groups:
         Genetic: 100
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0.0
   - type: NameIdentifier
     group: GenericNumber
   - type: NpcFactionMember
@@ -95,3 +99,10 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+      step:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        layer:
+        - LowImpassable
+        hard: false

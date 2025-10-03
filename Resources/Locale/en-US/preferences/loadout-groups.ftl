@@ -236,5 +236,7 @@ loadout-group-mercenary-shoes = Mercenary shoes
 loadout-group-mercenary-head = Mercenary headwear
 loadout-group-mercenary-outerclothing = Mercenary outer clothes
 loadout-group-mercenary-belt = Mercenary belt
+loadout-group-mercenary-teleporter = Mercenary Locker teleporter
+loadout-group-mercenary-pda = Mercenary PDA
 
 loadout-group-keycard = Keycards

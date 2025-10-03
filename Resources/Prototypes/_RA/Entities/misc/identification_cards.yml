@@ -9,3 +9,84 @@
     - state: idpassenger
   - type: PresetIdCard
     job: Passenger
+
+- type: entity
+  parent: IDCardStandard
+  id: MercOperativeId
+  name: Sinder Industries ID Tag
+  description: All Sinder Industries Mercenaries are supplied with an Identification Card attached to a Lanyard so they may receive profits & be identified with ease.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/MercIds/MercOperative
+    state: icon
+  - type: Clothing
+    sprite: _RA/Objects/Misc/MercIds/MercOperative
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
+  - type: Item
+    heldPrefix:
+    sprite: _RA/Objects/Misc/MercIds/MercOperative
+  - type: IdCard
+    jobTitle: job-name-mercevil-operative
+    jobIcon: JobIconMerc
+  - type: Access
+    tags:
+    - Maintenance
+    - SyndicateAgent
+    - NuclearOperative
+
+- type: entity
+  parent: IDCardStandard
+  id: MercCommanderId
+  name: Sinder Industries ID Tag
+  description: All Sinder Industries Mercenaries are supplied with an Identification Card attached to a Lanyard so they may receive profits & be identified with ease.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/MercIds/MercCommander
+    state: icon
+  - type: Clothing
+    sprite: _RA/Objects/Misc/MercIds/MercCommander
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
+  - type: Item
+    heldPrefix:
+    sprite: _RA/Objects/Misc/MercIds/MercCommander
+  - type: IdCard
+    jobTitle: job-name-mercevil-ftl
+    jobIcon: JobIconMercCommander
+  - type: Access
+    tags:
+    - Maintenance
+    - SyndicateAgent
+    - NuclearOperative
+
+- type: entity
+  parent: IDCardStandard
+  id: MercCorpsmanId
+  name: Sinder Industries ID Tag
+  description: All Sinder Industries Mercenaries are supplied with an Identification Card attached to a Lanyard so they may receive profits & be identified with ease.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/MercIds/MercCorpsman
+    state: icon
+  - type: Clothing
+    sprite: _RA/Objects/Misc/MercIds/MercCorpsman
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
+  - type: Item
+    heldPrefix:
+    sprite: _RA/Objects/Misc/MercIds/MercCorpsman
+  - type: IdCard
+    jobTitle: job-name-mercevil-corpsman
+    jobIcon: JobIconMercCorpsman
+  - type: Access
+    tags:
+    - Maintenance
+    - SyndicateAgent
+    - NuclearOperative

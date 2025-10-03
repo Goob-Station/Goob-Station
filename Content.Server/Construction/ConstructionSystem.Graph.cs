@@ -347,7 +347,7 @@ namespace Content.Server.Construction
             var newUid = EntityManager.CreateEntityUninitialized(newEntity, transform.Coordinates);
 
             // Construction transferring.
-            var newConstruction = EntityManager.EnsureComponent<ConstructionComponent>(newUid);
+            var newConstruction = EnsureComp<ConstructionComponent>(newUid);
 
             // Transfer all construction-owned containers.
             newConstruction.Containers.UnionWith(construction.Containers);
@@ -394,7 +394,7 @@ namespace Content.Server.Construction
             if (containerManager != null)
             {
                 // Ensure the new entity has a container manager. Also for resolve goodness.
-                var newContainerManager = EntityManager.EnsureComponent<ContainerManagerComponent>(newUid);
+                var newContainerManager = EnsureComp<ContainerManagerComponent>(newUid);
 
                 // Transfer all construction-owned containers from the old entity to the new one.
                 foreach (var container in construction.Containers)
@@ -421,10 +421,7 @@ namespace Content.Server.Construction
             // WD EDIT START
             if (userUid != null && IsTransformParentOf(userUid.Value, transform) && TryComp(userUid, out HandsComponent? hands))
             {
-                var hand = hands.Hands.Values.FirstOrDefault(h => h.HeldEntity == uid);
-                if (hand != null)
-                    _handsSystem.TryDrop(userUid.Value, hand, handsComp: hands);
-
+                _handsSystem.TryDrop((userUid.Value, hands), uid);
                 _handsSystem.PickupOrDrop(userUid, newUid, handsComp: hands);
             }
             // WD EDIT END

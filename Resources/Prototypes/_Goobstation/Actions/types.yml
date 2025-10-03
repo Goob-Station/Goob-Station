@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -157,3 +158,74 @@
     priority: -8
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.StationMapUiKey.Key }
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleFloorBoardsMode
+  name: Enter or Exit Floor
+  description: Crawl under the floor boards.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: Structures/Piping/Atmospherics/vent.rsi
+      state: vent_off
+  - type: InstantAction
+    event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStealShoes
+  name: Steal Shoes
+  description: A tasty snack it will be!
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Clothing/Shoes/Boots/jackboots.rsi
+      state: icon
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Inventory
+    canTargetSelf: false
+    event: !type:StealShoesEvent {}
+
+- type: entity
+  id: ActionVehicleWallPush
+  name: Wall Launch
+  description: Launch yourself off the nearest surface, tiders count as surfaces.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: office-dark
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:VehicleWallPushActionEvent
+
+- type: entity
+  id: ActionRocketChairBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Objects/Misc/fire_extinguisher.rsi
+      state: fire_extinguisher_closed
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:RocketChairBoostActionEvent

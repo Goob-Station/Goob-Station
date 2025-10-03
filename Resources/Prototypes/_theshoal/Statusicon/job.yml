@@ -1,0 +1,15 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconshoalmerc
+  icon:
+    sprite: /Textures/_theshoal/Interface/Misc/job_icons.rsi
+    state: shoalmerc
+  jobName: job-name-shoal-merc
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconshoalharuspex
+  icon:
+    sprite: /Textures/_theshoal/Interface/Misc/job_icons.rsi
+    state: shoalharuspex
+  jobName: job-name-haruspex

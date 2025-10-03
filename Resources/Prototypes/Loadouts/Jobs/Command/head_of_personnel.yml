@@ -120,6 +120,10 @@
   equipment:
     head: ClothingHeadHatHopcap
 
+- type: loadout
+  id: HoPBeret
+  equipment:
+    head: ClothingHeadHatBeretHop
 
 # Neck
 - type: loadout

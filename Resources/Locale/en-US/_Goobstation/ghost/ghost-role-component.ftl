@@ -101,6 +101,10 @@ ghost-role-information-ancient-rogue-king-description = The lone king, with only
 
 ghost-role-information-ancient-rogue-king-rules = You bow to no one. Kill anything that stands in your way.
 
+ghost-role-information-rules-default-xeno = You are a [color={role-type-team-antagonist-color}][bold]Xenomorph[/bold][/color].
+                                            Your objective is to protect your Queen and expand your Hive.
+                                            Achieve this by bringing your Queen crewmembers to infest.
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!

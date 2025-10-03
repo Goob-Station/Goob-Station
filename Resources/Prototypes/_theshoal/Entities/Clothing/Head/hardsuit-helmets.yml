@@ -1,0 +1,40 @@
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitQuill
+  categories: [ HideSpawnMenu ]
+  name: quill battle carapace helmet
+  description: Lightly armored hardsuit helmet for mercenary needs.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _theshoal/Clothing/Head/Hardsuits/quillsuit.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET-vox
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET-vox
+  - type: PointLight
+    color: "#ff3838"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

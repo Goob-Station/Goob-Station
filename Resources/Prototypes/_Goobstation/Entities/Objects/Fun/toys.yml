@@ -577,6 +577,72 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieBoggle
+  name: Boggle plushie
+  description: You can feel money inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_boggle
+  - type: Item
+    heldPrefix: plushieboggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/kaching.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLehmin
+  name: Lehmin plushie
+  description: Smells like chemicals, you feel uneasy holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_lehmin
+  - type: Item
+    heldPrefix: plushielehmin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieMnwaar
   name: Mnwaar plush
   description: "A plushie of a small, deep gray, semi-heterochromic Shadowkin wearing the outfit of a Chief Medical Officer.\nThe tag reads: \"Mnwaar: Medical's Muted Manager!™ Now with magnetically attaching Hypospray!\""
@@ -620,3 +686,86 @@
     flavors:
       - bluecuracao
       - fiber
+
+- type: entity
+  parent: BaseItem
+  id: DiscoBeachBall
+  name: disco beach ball
+  description: A disco beach ball turns any beach trip into Studio 54.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+    state: icon
+    color: "#FFFFFF"
+  - type: PointLight
+    radius: 8
+    energy: 6
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RgbLightController
+    cycleRate: 0.3
+  - type: RotatingLight
+    speed: 70
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: MultiHandedItem
+  - type: Item
+    size: Large
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+          ShardCrystalGreen:
+            min: 1
+            max: 1
+          ShardCrystalBlue:
+            min: 1
+            max: 1
+          ShardCrystalRed:
+            min: 1
+            max: 1
+
+- type: entity
+  name: The Throngler
+  parent: ToyHammer
+  id: ThronglerToy
+  suffix: Toy
+  description: Why would you make this?
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/Throngler2.rsi
+      state: icon
+    - type: StaminaDamageOnHit
+      damage: 0.8
+    - type: MeleeWeapon
+      animationRotation: -45 # WWDP
+      wideAnimationRotation: -135
+      attackRate: .1
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/Effects/explosion_small1.ogg
+      soundNoDamage:
+        path: /Audio/Effects/explosion_small1.ogg
+    - type: Item
+      size: Ginormous
+      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
+    - type: DisarmMalus
+      malus: 0

@@ -47,7 +47,7 @@
   parent: [BaseCorporateObjective, BaseLivingObjective]
   id: CorporateEscapeShuttleObjective
   name: Escape to centcomm alive and unrestrained.
-  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs.
+  description: One of our undercover agents will debrief you when you arrive on the evacuation shuttle. Don't show up in cuffs.
   components:
   - type: Objective
     difficulty: 1

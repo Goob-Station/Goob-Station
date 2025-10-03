@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Map;
-
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
 /// <summary>
@@ -24,9 +22,3 @@ public record struct BloodCrawlExitEvent(bool Cancelled = false);
 /// </summary>
 [ByRefEvent]
 public record struct BloodCrawlEnterEvent(bool Cancelled = false);
-
-/// <summary>
-/// Triggers once an entity devours another entity
-/// </summary>
-[ByRefEvent]
-public record struct SlaughterDevourEvent(EntityUid pullingEnt, EntityCoordinates PreviousCoordinates);

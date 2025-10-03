@@ -19,7 +19,6 @@
   id: MercenaryGear
   equipment:
     ears: ClothingHeadsetAltMercenary 
-    id: MercenaryPDA
   storage:
     back:
     - SecHypo # Goobstation
