@@ -15736,3 +15736,11 @@ Entries:
       message: Being able to escape from the hell map using a portal
   id: 1760
   time: '2025-10-02T13:47:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer copy nor fax corporate documents (the NTRs task
+        documents).
+  id: 1761
+  time: '2025-10-03T01:21:56.0000000+00:00'
