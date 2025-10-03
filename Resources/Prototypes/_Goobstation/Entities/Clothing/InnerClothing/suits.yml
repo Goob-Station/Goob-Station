@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingSuitCapo
-  name: The Capos attire
+  name: Capos attire
   description: While you may not be the top predator with this outfit on, your certainty able to catch prey with ease
   components:
   - type: Sprite

@@ -331,7 +331,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesCapo
-  name: the Capos gloves
+  name: Capos gloves
   description: One of such status shouldn't get dirt on them, these gloves will ensure that is the case.
   components:
   - type: Sprite

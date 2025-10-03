@@ -396,8 +396,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCapo
-  name: the Capos hat
-  description: very stylish.
+  name: Capos rim
+  description: pride, its always a sin, but at least your making it look right.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/capo.rsi

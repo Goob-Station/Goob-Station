@@ -291,7 +291,7 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesCapo
-  name: the Capos shoes
+  name: Capos shoes
   description: Use these to step those who are beneath you in the pecking order.
   components:
   - type: Sprite

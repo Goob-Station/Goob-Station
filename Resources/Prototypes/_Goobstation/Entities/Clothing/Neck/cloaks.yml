@@ -67,7 +67,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakCapo
-  name: the Capos cloak
+  name: Capos cloak
   description: To lead, one must ensure their status is shown with splendor, this cloak does the trick.
   components:
   - type: Sprite
