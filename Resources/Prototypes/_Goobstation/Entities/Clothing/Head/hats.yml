@@ -392,3 +392,17 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapo
+  name: the Capos hat
+  description: very stylish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair

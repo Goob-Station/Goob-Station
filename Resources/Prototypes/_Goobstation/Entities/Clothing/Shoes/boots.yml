@@ -287,3 +287,14 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesCapo
+  name: the Capos shoes
+  description: Use these to step those who are beneath you in the pecking order.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/capo.rsi

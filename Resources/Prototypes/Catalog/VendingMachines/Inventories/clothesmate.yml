@@ -106,6 +106,7 @@
     ClothingUniformJumpsuitCasualRed: 2
     ClothingUniformJumpskirtCasualRed: 2
     ClothingUniformJumpsuitCasualGreen: 2
+    ClothingSuitCapo: 3 # Goobstation
     ClothingUniformJumpskirtCasualGreen: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
     ClothingShoesColorBlack: 8
@@ -117,6 +118,7 @@
     ClothingShoesColorOrange: 2
     ClothingShoesColorRed: 2
     ClothingShoesColorPurple: 2
+    ClothingShoesCapo: 3 # Goobstation
     ClothingHeadHatGreysoft: 8
     ClothingHeadHatMimesoft: 3
     ClothingHeadHatBluesoft: 2
@@ -131,6 +133,7 @@
     ClothingHeadFishCap: 2
     ClothingHeadRastaHat: 2
     ClothingHeadPropellerHat: 2
+    ClothingHeadHatCapo: 2 # Goobstation
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
     ClothingHandsGlovesColorBlack: 4
@@ -143,6 +146,7 @@
     ClothingHandsGlovesColorGreen: 2
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
+    ClothingHandsGlovesCapo: 3 # Goobstation
     ClothingEyesGlassesCheapSunglasses: 3
     ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
     ClothingShoesSandals: 1 # Goobstation
@@ -157,6 +161,7 @@
     ClothingOuterCoatJacketLettermanMagenta: 3 # NF
     ClothingOuterCoatBomberPinkSleeves: 3 # NF
     ClothingNeckCloakCOG: 3 # Monolith
+    ClothingNeckCloakCapo: 3 # Goobstation
     ClothingShoesClothwrap: 3 # NF
     ClothingNeckPonchoBlack: 3 # Monolith
     ClothingNeckPonchoArctic: 3 # Monolith
