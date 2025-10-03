@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -27,13 +28,17 @@ public sealed partial class InternalResourcesData
     [DataField]
     public float RegenerationRate = 1f;
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<InternalResourcesPrototype>))]
-    public string? InternalResourcesType;
+    /// <summary>
+    /// Prototype with visual information of internal resources
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<InternalResourcesPrototype> InternalResourcesType;
 
-    public InternalResourcesData(float maxAmount, float regenerationRate, float startingAmount)
+    public InternalResourcesData(float maxAmount, float regenerationRate, float startingAmount, string protoId)
     {
         CurrentAmount = startingAmount;
         MaxAmount = maxAmount;
         RegenerationRate = regenerationRate;
+        InternalResourcesType = protoId;
     }
 }
