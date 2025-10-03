@@ -15716,3 +15716,57 @@ Entries:
       message: 'BSD, intern squad, phoron dagger and deckard from NTR uplink. '
   id: 1759
   time: '2025-10-02T07:14:20.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        People who have no soul and die will now be brought into goose hell!
+        (This is still a round removal)
+    - type: Tweak
+      message: >-
+        Hell geese can now only make hell portals 1 tile away from them, down
+        from 2
+    - type: Tweak
+      message: >-
+        Hell geese are now immune to heat and radiation and resistant to shock
+        and bloodloss but weak to holy
+    - type: Tweak
+      message: Hell geese are now a more common midround
+    - type: Fix
+      message: Being able to escape from the hell map using a portal
+  id: 1760
+  time: '2025-10-02T13:47:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer copy nor fax corporate documents (the NTRs task
+        documents).
+  id: 1761
+  time: '2025-10-03T01:21:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed xenos never spawning.
+  id: 1762
+  time: '2025-10-03T01:23:40.0000000+00:00'
+- author: ivan4ik
+  changes:
+    - type: Add
+      message: >-
+        midround antag called Walker, is omniantag who can steal power from
+        syndicate, changeling, heretic, wizard and more. Antag start weak but
+        can grow very strong if crew not stop him.
+  id: 1763
+  time: '2025-10-03T01:50:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: All implanters now have generic names to prevent metagaming.
+    - type: Tweak
+      message: >-
+        All implanters now auto-label themself with containing implant's name.
+        Label disappear after implanting and appears against after implant
+        drawing.
+  id: 1764
+  time: '2025-10-03T13:34:58.0000000+00:00'
