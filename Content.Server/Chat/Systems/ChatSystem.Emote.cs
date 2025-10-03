@@ -35,6 +35,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Goobstation.Common.Chat;
 
 namespace Content.Server.Chat.Systems;
 
@@ -201,6 +202,14 @@ public partial class ChatSystem
         param.Pitch += ev.Pitch;
         // Goobstation/MisandryBox
 
+        // Goobstation schizophreny start
+        var overrideEv = new OverrideEmoteSoundEvent(sound, param);
+        RaiseLocalEvent(uid, ref overrideEv);
+
+        if (overrideEv.Cancelled)
+            return true;
+        // Goobstation schizophreny end
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }
@@ -210,7 +219,7 @@ public partial class ChatSystem
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
     /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
-    private bool TryEmoteChatInput(EntityUid uid, string textInput)
+    public bool TryEmoteChatInput(EntityUid uid, string textInput)  // goobstation made public
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))

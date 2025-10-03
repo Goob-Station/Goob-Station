@@ -369,6 +369,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
+        // Goobstation start
+        var beforeEv = new BeforeChatMessageSentEvent(message, (byte) desiredType);
+        RaiseLocalEvent(source, ref beforeEv);
+        if (beforeEv.Cancelled)
+            return;
+        // Goobstation end
+
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
