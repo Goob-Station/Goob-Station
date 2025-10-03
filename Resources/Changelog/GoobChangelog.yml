@@ -15606,3 +15606,147 @@ Entries:
         Omustation.
   id: 1747
   time: '2025-09-28T20:14:58.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Topicals now automatically heal limbs one after the other.
+  id: 1748
+  time: '2025-09-29T13:41:02.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Hand-thrown items now have inertia.
+  id: 1749
+  time: '2025-09-30T03:22:51.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings and people with Cheat Death (e.g devils) will no longer be
+        able to revive while devoured by a dragon or slaughter demon.
+  id: 1750
+  time: '2025-09-30T07:23:24.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added gold water cooler with whiskey to NTR's store!
+    - type: Tweak
+      message: NTR's EVA bundle price 15LP => 5 LP
+    - type: Tweak
+      message: NTR's mindshield bundle 25LP => 15LP
+    - type: Tweak
+      message: NTR's med supplies 20LP => 10LP
+    - type: Tweak
+      message: NTR's small tools crate 5LP => 3LP
+    - type: Tweak
+      message: >-
+        Single intern coin 15LP => 10LP, also a reminder that you can order them
+        to do tasks for you.
+    - type: Tweak
+      message: BSD call price 50LP => 40LP
+    - type: Tweak
+      message: CC glasses price 2LP => 5LP
+    - type: Tweak
+      message: All contraband cosmetic items are now worth less NTR loyalty points.
+  id: 1751
+  time: '2025-09-30T07:24:23.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: Added teg crate for cargo purchasing. Atmosian and engineer rejoice.
+  id: 1752
+  time: '2025-09-30T19:45:43.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Floor Goblins are now able to crawl under doors only when crawling under
+        the floor.
+    - type: Fix
+      message: Floor Goblins being targeted by medibots under the floor.
+    - type: Fix
+      message: Floor Goblins can steal shoes from dead or critted targets
+    - type: Fix
+      message: Medibots being able to target people in stealth.
+    - type: Tweak
+      message: Floor Goblin collisions when not crawling.
+  id: 1753
+  time: '2025-09-30T19:46:44.0000000+00:00'
+- author: RocketBoss360
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin blood now renders like other blood types (blood, spider blood,
+        slime) when in puddles 
+    - type: Fix
+      message: Shadowkin blood now can activate Blood nodes on artifacts
+  id: 1754
+  time: '2025-09-30T19:58:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Admins can now drop pod any item with the new drop pod item. It also
+        works for entities like players or dragons.
+  id: 1755
+  time: '2025-10-01T08:43:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Tweak
+      message: Origin and Saltern finally got some of the new stuff.
+  id: 1756
+  time: '2025-10-01T12:56:16.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: CC glasses now cant doxx lings and antags.
+  id: 1757
+  time: '2025-10-01T17:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Headrev time requirements made into 10 hours command instead of 10 hours
+        overall
+  id: 1758
+  time: '2025-10-02T05:48:59.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: 'BSD, intern squad, phoron dagger and deckard from NTR uplink. '
+  id: 1759
+  time: '2025-10-02T07:14:20.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        People who have no soul and die will now be brought into goose hell!
+        (This is still a round removal)
+    - type: Tweak
+      message: >-
+        Hell geese can now only make hell portals 1 tile away from them, down
+        from 2
+    - type: Tweak
+      message: >-
+        Hell geese are now immune to heat and radiation and resistant to shock
+        and bloodloss but weak to holy
+    - type: Tweak
+      message: Hell geese are now a more common midround
+    - type: Fix
+      message: Being able to escape from the hell map using a portal
+  id: 1760
+  time: '2025-10-02T13:47:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer copy nor fax corporate documents (the NTRs task
+        documents).
+  id: 1761
+  time: '2025-10-03T01:21:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed xenos never spawning.
+  id: 1762
+  time: '2025-10-03T01:23:40.0000000+00:00'

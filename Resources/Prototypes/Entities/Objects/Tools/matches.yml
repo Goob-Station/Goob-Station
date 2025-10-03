@@ -202,3 +202,5 @@
     color: green
   - type: Matchstick
     duration: 30
+  - type: ScannableForPoints # goob edit
+    points: 1
