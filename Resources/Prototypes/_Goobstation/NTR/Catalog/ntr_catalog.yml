@@ -311,12 +311,12 @@
   restockAfterPurchase: 1800 #30mins, you shouldnt spam this
 
 - type: listing
-  id: NTRExecutiveHardsuit
-  name: ntr-executive-hardsuit-name
-  description: ntr-executive-hardsuit-desc
-  productEntity: SpawnPodHardsuit
+  id: NTRExperimentalHardsuit
+  name: ntr-experimental-hardsuit-name
+  description: ntr-experimental-hardsuit-desc
+  productEntity: SpawnPodHardsuitExperimental
   icon:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 100

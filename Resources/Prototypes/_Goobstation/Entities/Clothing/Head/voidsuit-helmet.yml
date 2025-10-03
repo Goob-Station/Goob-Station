@@ -246,15 +246,27 @@
 # Nanorep catalog Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
-  id: ClothingHeadHelmetHardsuitNanorep
+  id: ClothingHeadHelmetHardsuitExperimentalNanorep
   name: nanorep hardsuit helmet
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      head-resomi:
+      - state: equipped-head-resomi
   - type: PointLight
-    color: green
+    color: white
+    radius: 7
+    energy: 5
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -269,8 +281,8 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.85
+        Slash: 0.85
         Piercing: 0.7
         Heat: 0.7
         Radiation: 0.9

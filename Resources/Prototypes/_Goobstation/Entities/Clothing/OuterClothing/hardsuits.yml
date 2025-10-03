@@ -312,14 +312,14 @@
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
-  id: ClothingOuterHardsuitNanorep
+  id: ClothingOuterHardsuitExperimentalNanorep
   name: "'Galene' experimental hardsuit"
   description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -346,7 +346,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitNanorep
+      head: ClothingHeadHelmetHardsuitExperimentalNanorep
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1

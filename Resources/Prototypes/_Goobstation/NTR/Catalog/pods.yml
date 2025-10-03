@@ -89,13 +89,13 @@
     prototype: BlueShieldDeputySpawnBriefcase
 
 - type: entity
-  id: SpawnPodHardsuit
+  id: SpawnPodHardsuitExperimental
   categories: [ HideSpawnMenu ]
   name: SpawnSupplyHardsuit
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
-    prototype: ClothingOuterHardsuitNanorep
+    prototype: ClothingOuterHardsuitExperimentalNanorep
 
 - type: entity
   id: SpawnPodGoldCase
