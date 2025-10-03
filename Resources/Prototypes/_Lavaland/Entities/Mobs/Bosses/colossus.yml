@@ -32,7 +32,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: colossus
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletKinetic
+    proto: BulletKineticShuttle
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -42,7 +42,7 @@
     startingCharge: 1000
   - type: Gun
     projectileSpeed: 20
-    fireRate: 0.8
+    fireRate: 0.65
     useKey: false
     selectedMode: SemiAuto
     availableModes:

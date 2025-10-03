@@ -214,7 +214,7 @@
       Dead:
         Base: herald_dying
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletKinetic
+    proto: BulletKineticShuttle
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -223,8 +223,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    projectileSpeed: 8
-    fireRate: 1
+    projectileSpeed: 20
+    fireRate: 0.9
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -252,6 +252,7 @@
     thresholds:
       0: Alive
       1000: Dead
+  - type: TileMovement
   - type: BossMusic
     soundId: Miniboss
   - type: Aggressive # also required component for aggro checking

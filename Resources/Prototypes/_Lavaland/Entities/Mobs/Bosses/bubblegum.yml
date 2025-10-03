@@ -46,6 +46,7 @@
   - type: Tag
     tags:
     - CannotSuicide
+    - FootstepSound
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
@@ -61,7 +62,7 @@
     footstepSoundCollection:
       collection: BossImpactFootstep
       params:
-        volume: 1
+        volume: -5
   - type: TileMovement
   - type: BossMusic
     soundId: Bubblegum
