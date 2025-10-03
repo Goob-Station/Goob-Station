@@ -1,7 +1,7 @@
 card-ep_health_healthy = здоровье Идеально здоров
 card-ep_health_alcoholism = здоровье Алкоголизм
 card-ep_health_blind = здоровье Слепой
-card-ep_health_coffeeAddiction = здоровье 
+card-ep_health_coffeeAddiction = здоровье Зависимость от кофе
 card-ep_health_deaf = здоровье Глухой
 card-ep_health_depression = здоровье Депрессия
 card-ep_health_diarrhea = здоровье Понос

@@ -58,7 +58,7 @@ selectable-set-syndicate-hitman-description =
     боевой медкит, стильный вид и ключ шифрования синдиката.
 selectable-set-syndicate-implants-name = Набор киберпсихоза
 selectable-set-syndicate-implants-description =
-    Несколько имплантов, чтобы у тебя был выбор, когда тебя inevitably арестуют.
+    Несколько имплантов, чтобы у тебя был выбор когда арестуют.
     Включает: набор голопаразитов, EMP, скрамблер, фридом,
     дым, крав мага и радиочастотные импланты синдиката.
 selectable-set-syndicate-hacker-name = Набор хакера
@@ -79,11 +79,11 @@ selectable-set-syndicate-grenadier-description =
     Включает: ключ шифрования синдиката, взрывозащитный костюм,
     пояс гранатометчика, взрывозащитный рюкзак
     и столько гранат, что уснёшь, читая.
-selectable-set-syndicate-fluclear-name = Набор ядерного агента
+selectable-set-syndicate-fluclear-name = Набор ядерного оперативника
 selectable-set-syndicate-fluclear-description =
-    Провозгласи свою верность Синдикату с этим набором, получи этот чертов диск!
+    Провозгласи свою верность Синдикату с этим набором, и получи этот чертов диск!
     Включает: C-20R ПП, 3 запасных магазина, энергетический щит, реактивный ранец,
-    и базовое ядерное снаряжение (включая хардсьют).
+    и базовое снаряжение ядерных оперативников (включая скафандр).
 selectable-set-syndicate-friendship-name = Набор дружбы
 selectable-set-syndicate-friendship-description =
     Дружба — это магия! Найди себе друзей с этим набором!
@@ -93,16 +93,16 @@ selectable-set-syndicate-carp-name = Набор карпа
 selectable-set-syndicate-carp-description =
     Грр! Рррр! Грр... Грроу?! КОВАБУНГА!
     Включает: Спящего карпа, 10 дегидрированных карпов и ключ шифрования синдиката.
-selectable-set-syndicate-sus-name = Suspicion Bundle
+selectable-set-syndicate-sus-name = Набор предателя
 selectable-set-syndicate-sus-description =
-    When the traitor is sus. The traitor is you, of course.
-    Contains: an advanced contortionist jumpsuit, betrayal knife, miniature
-    energy crossbow, stealth suit, and a syndicate encryption key.
-selectable-set-syndicate-builder-name = Builder Bundle
+    Предатель среди нас, и этот предатель — вы!
+    Содержит: продвинутый комбинезон контурциониста, нож Предателя, компактный
+    энергетический арбалет, стелс костюм и ключ шифрования Синдиката.
+selectable-set-syndicate-builder-name = Набор строителя
 selectable-set-syndicate-builder-description =
-    It is funnier to pull down than to build. But it is not as effective.
-    Contains: 2 disposable ballistic turrets, a telecrystal miner flatpack,
-    some tools and materials to get you started, and a syndicate encryption key.
+    Разрушать веселее, чем строить. Но не так эффективно.
+    Содержит: 2 одноразовые баллистические турели, упакованный телекристальный майнер,
+    немного инструментов и материалов для начала, а также ключ шифрования Синдиката.
 
 # Blueshield
 
@@ -136,12 +136,12 @@ selectable-set-blueshield-syringe-description =
     Идеально для лечения союзников или отравления врагов.
     Включает: боевой шприц и несколько флаконов с лекарствами.
 
-# Блющит-хардсьюты
+# Синий щит скафандры
 
 selectable-set-blueshield-hardsuit-light-name = бронированный боевой костюм
 selectable-set-blueshield-hardsuit-light-description = Бронированный боевой костюм, дающий больше скорости за счет меньшей защиты.
-selectable-set-blueshield-modsuit-name = хардсьют Синего Щита
-selectable-set-blueshield-modsuit-description = Кастомный хардсьют с возможностью настройки, требующий питания.
+selectable-set-blueshield-modsuit-name = MOD Синего Щита
+selectable-set-blueshield-modsuit-description = MOD требующий питания.
 
 # ERT
 
