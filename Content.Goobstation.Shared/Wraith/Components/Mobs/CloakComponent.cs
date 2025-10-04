@@ -3,6 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.Wraith.Components.Mobs;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class CloakComponent : Component
 {
     /// <summary>
@@ -14,12 +15,12 @@ public sealed partial class CloakComponent : Component
     /// <summary>
     /// If true, cloak is currently active and ticking down.
     /// </summary>
-    [DataField]
-    public bool IsActive = false;
+    [DataField, AutoNetworkedField]
+    public bool IsActive;
 
     /// <summary>
     /// The timestamp when the cloak effect should end.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan EndTime;
 }

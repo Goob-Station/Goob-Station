@@ -1,8 +1,11 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components.Mobs;
+
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class RushdownComponent : Component
 {
     /// <summary>
@@ -20,8 +23,8 @@ public sealed partial class RushdownComponent : Component
     /// <summary>
     /// Whether this entity is mid-leap or not. Used to prevent collisions being accidentally triggered outside of the leap.
     /// </summary>
-    [DataField]
-    public bool IsLeaping = false;
+    [DataField, AutoNetworkedField]
+    public bool IsLeaping;
 
     /// <summary>
     /// The duration of the stun on whoever gets hit by the jump action. Gets applied to the hound itself if they miss.
@@ -39,5 +42,5 @@ public sealed partial class RushdownComponent : Component
     /// Status effect to make you stunned.
     /// </summary>
     [DataField]
-    public string Stunned = "Stun";
+    public EntProtoId Stunned = "Stun";
 }
