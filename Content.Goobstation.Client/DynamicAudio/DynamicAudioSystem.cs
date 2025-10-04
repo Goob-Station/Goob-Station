@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.DynamicAudio;
 
-public sealed class DynamicAudioSystem : EntitySystem
+public sealed class DynamicAudioSystem : SharedDynamicAudioSystem
 {
     [Dependency] private readonly SharedDynamicAudioSystem _dynamicAudio = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
