@@ -1,52 +1,23 @@
-using System.Linq;
-using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Chat;
 using Content.Goobstation.Common.Pointing;
 using Content.Goobstation.Shared.Shizophrenia;
-using Content.Server.Actions;
-using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.Speech;
-using Content.Shared.Actions;
 using Content.Shared.Chat;
-using Content.Shared.Eye;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Speech;
 using Content.Shared.StepTrigger.Components;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
-using Robust.Server.GameStates;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Shizophrenia;
 
-public sealed class SchizophreniaSystem : EntitySystem
+public sealed partial class SchizophreniaSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly VisibilitySystem _visibility = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly SpeechSoundSystem _speech = default!;
-
-    private int _nextIdx = 1;
-
-    public override void Initialize()
+    private void InitializeHallucinations()
     {
-        base.Initialize();
-        UpdatesBefore.Add(typeof(ActionsSystem));
-
-        SubscribeLocalEvent<SchizophreniaComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<SchizophreniaComponent, PlayerDetachedEvent>(OnPlayerDetached);
-
         SubscribeLocalEvent<HallucinationComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<HallucinationComponent, PlayerDetachedEvent>(OnPlayerDetached);
 
@@ -66,18 +37,6 @@ public sealed class SchizophreniaSystem : EntitySystem
     }
 
     #region Pvs overrides
-    private void OnPlayerAttached(Entity<SchizophreniaComponent> ent, ref PlayerAttachedEvent args)
-    {
-        foreach (var item in ent.Comp.Hallucinations)
-            _pvsOverride.AddForceSend(item, args.Player);
-    }
-
-    private void OnPlayerDetached(Entity<SchizophreniaComponent> ent, ref PlayerDetachedEvent args)
-    {
-        foreach (var item in ent.Comp.Hallucinations)
-            _pvsOverride.RemoveForceSend(item, args.Player);
-    }
-
     private void OnPlayerAttached(Entity<HallucinationComponent> ent, ref PlayerAttachedEvent args)
     {
         if (!TryComp<SchizophreniaComponent>(ent.Comp.Ent, out var schizophrenia))
@@ -246,68 +205,5 @@ public sealed class SchizophreniaSystem : EntitySystem
 
     private void OnInteractionAttempt(Entity<HallucinationComponent> ent, ref InteractionAttemptEvent args)
         => args.Cancelled = true;
-    #endregion
-
-    #region Public
-    public EntityUid AddHallucination(EntityUid uid, string protoId, SchizophreniaComponent? comp = null)
-    {
-        comp = EnsureComp<SchizophreniaComponent>(uid);
-        var ent = Spawn(protoId, Transform(uid).Coordinates);
-
-        _visibility.SetLayer(ent, (ushort) VisibilityFlags.Hallucination, true);
-        if (_player.TryGetSessionByEntity(uid, out var session))
-            _pvsOverride.AddForceSend(ent, session);
-
-        comp.Hallucinations.Add(ent);
-
-        var hallucination = new HallucinationComponent()
-        {
-            Ent = uid
-        };
-        AddComp(ent, hallucination);
-
-        if (comp.Idx <= 0)
-        {
-            comp.Idx = _nextIdx;
-            _nextIdx++;
-        }
-
-        hallucination.Idx = comp.Idx;
-        hallucination.Ent = uid;
-
-        Dirty(uid, comp);
-        Dirty(ent, hallucination);
-        return ent;
-    }
-
-    public void AddAsHallucination(EntityUid uid, EntityUid toAdd, bool dirty = true)
-    {
-        var comp = EnsureComp<SchizophreniaComponent>(uid);
-        _visibility.SetLayer(toAdd, (ushort) VisibilityFlags.Hallucination, true);
-        if (_player.TryGetSessionByEntity(uid, out var session))
-            _pvsOverride.AddForceSend(toAdd, session);
-
-        var hallucination = new HallucinationComponent()
-        {
-            Ent = uid
-        };
-        AddComp(toAdd, hallucination);
-
-        comp.Hallucinations.Add(toAdd);
-
-        if (comp.Idx <= 0)
-        {
-            comp.Idx = _nextIdx;
-            _nextIdx++;
-        }
-
-        hallucination.Idx = comp.Idx;
-
-        if (dirty)
-        {
-            Dirty(uid, comp);
-            Dirty(toAdd, hallucination);
-        }
-    }
     #endregion
 }
