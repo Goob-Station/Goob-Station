@@ -295,6 +295,7 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("flash-protection"));
+        if (ent.Comp.ExamineShow) //Goobstation - dont always show this
+            args.PushMarkup(Loc.GetString("flash-protection"));
     }
 }
