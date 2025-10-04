@@ -1,7 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -87,6 +90,34 @@
       amount: 1
   products:
     Tirizene: 2
+
+- type: reaction
+  id: NitricAcid
+  impact: Medium
+  minTemp: 357
+  reactants:
+    Saltpeter:
+      amount: 2
+    SulfuricAcid:
+      amount: 1
+  products:
+    NitricAcid: 2
+    PotassiumSulfate: 1
+
+- type: reaction
+  id: Formaldehyde
+  minTemp: 357
+  reactants:
+    Methanol:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Silver:
+      amount: 1
+      catalyst: true
+  products:
+    Formaldehyde: 1
+    Water: 1
 
 - type: reaction
   id: Honk

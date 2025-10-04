@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,3 +18,59 @@
       amount: 1
   products:
     BlackPowder: 3
+
+- type: reaction
+  id: Methanol
+  reactants:
+    Methane:
+      amount: 1
+    Water:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Methanol: 3
+
+- type: reaction
+  id: Hexamine
+  reactants:
+    Formaldehyde:
+      amount: 3
+    Ammonia:
+      amount: 2
+  products:
+    Hexamine: 5
+
+- type: reaction
+  id: Cyclonite
+  reactants:
+    Hexamine:
+      amount: 1
+    NitricAcid:
+      amount: 1
+  products:
+    Cyclonite: 2
+
+- type: reaction
+  id: AmmoniumNitrateFuelOil
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+    WeldingFuel:
+      amount: 1
+  products:
+    AmmoniumNitrateFuelOil: 2
+
+- type: reaction
+  id: Octogen
+  reactants:
+    NitricAcid:
+      amount: 1
+    Vinegar:
+      amount: 1
+    AceticAnhydride:
+      amount: 1
+    Hexamine:
+      amount: 1
+  products:
+    Octogen: 4
