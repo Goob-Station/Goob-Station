@@ -135,8 +135,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath ||
+                HasComp<GhoulComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))

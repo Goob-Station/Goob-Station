@@ -27,6 +27,8 @@ using System.Threading.Tasks;
 using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Temperature.Components;
 using Content.Goobstation.Shared.Atmos.Components;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -76,43 +78,40 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
-        var lookup = Lookup.GetEntitiesInRange(ent, power);
-        var healAmount = -10f - power;
+        if (ent.Comp is not { Ascended: true, CurrentPath: "Ash" })
+            _flammable.Extinguish(ent);
+
+        var lookup = GetNearbyPeople(ent, args.Range);
+        var toHeal = 0f;
 
         foreach (var look in lookup)
         {
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-                || HasComp<GhoulComponent>(look))
+            if (!TryComp<FlammableComponent>(look, out var flam) || !flam.OnFire ||
+                !TryComp<MobStateComponent>(look, out var mobstate) || mobstate.CurrentState == MobState.Dead)
                 continue;
 
-            if (TryComp<FlammableComponent>(look, out var flam))
-            {
-                if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
-                {
-                    // heals everything by base + power for each burning target
-                    _stam.TryTakeStamina(ent, healAmount);
-                    var dmgdict = dmgc.Damage.DamageDict;
-                    DamageSpecifier healSpecifier = new();
+            if (mobstate.CurrentState == MobState.Critical)
+                _mobstate.ChangeMobState(look, MobState.Dead, mobstate);
 
-                    foreach (var key in dmgdict.Keys)
-                    {
-                        healSpecifier.DamageDict[key] = -dmgdict[key] < healAmount ? healAmount : -dmgdict[key];
-                    }
+            toHeal += args.HealAmount;
 
-                    _dmg.TryChangeDamage(ent, healSpecifier, true, false, dmgc);
-                }
-
-                if (flam.OnFire)
-                    _flammable.AdjustFireStacks(look, power, flam, true);
-
-                if (TryComp<MobStateComponent>(look, out var mobstat))
-                    if (mobstat.CurrentState == MobState.Critical)
-                        _mobstate.ChangeMobState(look, MobState.Dead, mobstat);
-            }
+            _flammable.AdjustFireStacks(look, args.FireStacks, flam, true);
+            _dmg.TryChangeDamage(look, args.Damage, true, targetPart: TargetBodyPart.All);
         }
 
         args.Handled = true;
+
+        if (toHeal >= 0)
+            return;
+
+        // heals everything by base + power for each burning target
+        _stam.TryTakeStamina(ent, toHeal);
+        _dmg.TryChangeDamage(ent,
+            args.ToHeal * toHeal,
+            true,
+            false,
+            targetPart: TargetBodyPart.All,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll);
     }
 
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)

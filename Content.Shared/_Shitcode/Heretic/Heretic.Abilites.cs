@@ -123,7 +123,47 @@ public sealed partial class EventHereticVolcanoBlast : InstantActionEvent
     public float Radius = 5;
 }
 
-public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
+public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent
+{
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict =
+        {
+            { "Heat", 20 },
+        },
+    };
+
+    [DataField]
+    public float FireStacks = 3f;
+
+    [DataField]
+    public float HealAmount = -10f;
+
+    [DataField]
+    public DamageSpecifier ToHeal = new()
+    {
+        DamageDict =
+        {
+            {"Blunt", 1},
+            {"Slash", 1},
+            {"Piercing", 1},
+            {"Heat", 1},
+            {"Cold", 1},
+            {"Shock", 1},
+            {"Asphyxiation", 1},
+            {"Bloodloss", 1},
+            {"Caustic", 1},
+            {"Poison", 1},
+            {"Radiation", 1},
+            {"Cellular", 1},
+            {"Holy", 1},
+        },
+    };
+}
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
 

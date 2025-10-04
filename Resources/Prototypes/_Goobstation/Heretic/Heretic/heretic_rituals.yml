@@ -116,7 +116,9 @@
     state: icon
   requiredTags:
     Mask: 1
-    Candle: 4
+    Flare: 1
+    Lighter: 1
+    Ash: 1
     Stunbaton: 1
   output:
     ClothingMaskMadHeretic: 1

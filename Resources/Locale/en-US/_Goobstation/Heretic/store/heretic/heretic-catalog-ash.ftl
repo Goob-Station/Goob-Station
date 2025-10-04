@@ -66,7 +66,8 @@ knowledge-path-ash-s6-desc =
 
     Allows you to transmute any mask, four candles, a stun baton, and a liver to create a Mask of Madness.
     The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity.
-    Once worn you are unable to take it off by yourself...
+    It can also be forced onto a heathen, to make them unable to take it off...
+    Additionally, the mask grants you protection from fires and high temperature when worn.
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
