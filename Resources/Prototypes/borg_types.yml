@@ -70,7 +70,7 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleConstruction
-  - BorgModuleRCD
+  # - BorgModuleRCD - roundstart mass producable recharging RCD is bad, make sci unlock it
   - BorgModuleCable
 
   lawset: Engineer # DeltaV: Custom lawset
