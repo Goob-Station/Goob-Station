@@ -90,10 +90,10 @@
     state: weed0
   - type: AreaSpawner
     spawnPrototype: ResinWeed
-#  - type: PointLight
-#    radius: 2.5
-#    energy: 2
-#    color: "#00CED1"
+  - type: PointLight
+    radius: 2.5
+    energy: 2
+    color: "#00CED1"
 
 - type: entity
   parent: BaseStructure
@@ -185,11 +185,11 @@
   - type: Icon
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites
     state: weed0
-    drawdepth: FloorTiles
-    color: "#a1a1a1"
-    layers:
-    - state: weed0
-    - state: constructionnode
+#    drawdepth: FloorTiles
+#    color: "#a1a1a1"
+#    layers:
+#    - state: weed0
+#    - state: constructionnode
   - type: AreaSpawner
     spawnPrototype: ResinthickWeed
   - type: PointLight
