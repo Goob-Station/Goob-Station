@@ -1,0 +1,6 @@
+- type: construction
+  id: MakeshiftIDCard
+  graph: MakeshiftIDCard
+  category: construction-category-misc
+  targetNode: final
+  objectType: Item
