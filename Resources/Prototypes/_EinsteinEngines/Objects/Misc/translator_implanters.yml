@@ -40,7 +40,7 @@
 - type: entity
   id: NekomimeticTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  suffix: Nekomimetic
+  suffix: Gruntish # goob change
   components:
   - type: Implanter
     implant: NekomimeticTranslatorImplant

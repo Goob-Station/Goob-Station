@@ -1,57 +1,57 @@
-# Spoken by Felinids.
-# Jargon language of Japanese tidbits and memes.
-# TODO: Replace this with a much better language.
+# Spoken by Felinids. (was changed in goob to serve as a tied language bewtween oni and yowie)
+# Jargon language of Japanese tidbits and memes. (more grunts on goob)
+# TODO: Replace this with a much better language. (Im triying)
 - type: language
   id: Nekomimetic
   isVisibleLanguage: true
   speech:
-    color: "#df57aaee"
+    color: "#721f1f"
     # fontId: Manga #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 3 # May be too long even, we'll see.
     replacement:
-    - neko
-    - nyan
+    - drugo #was Neko
+    - cuntu #was nyan
     - mimi
     - moe
     - mofu
     - fuwa
-    - kyaa
-    - kawaii
+    - brugna #was Kyaa
+    - ugna #was Kawaii
     - poka
     - munya
     - puni
     - munyu
-    - ufufu
+    - Rescunt #was ufufu
     - icha
     - doki
     - kyun
     - kusu
-    - nya
-    - nyaa
-    - desu
+    - fuckin' #was nya
+    - oath #was Nyaa
+    - kilatu #was Desu
     - kis
     - ama
     - chuu
     - baka
-    - hewo
+    - Gormo #was hewo
     - boop
-    - gato
+    - trashin #was Gato
     - kit
     - sune
     - yori
     - sou
-    - baka
-    - chan
+    - Ough #was baka
+    - ye' #Was chan
     - san
     - kun
     - mahou
     - yatta
     - suki
-    - usagi
-    - domo
+    - usagh #was usagi
+    - fent #Was domo
     - ori
     - uwa
     - zaazaa

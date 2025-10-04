@@ -2,7 +2,9 @@ chat-language-Universal-name = Universal
 chat-language-Psychomantic-name = Psychomantic
 chat-language-Bubblish-name = Bubblish
 chat-language-RootSpeak-name = Rootspeak
-chat-language-Nekomimetic-name = Neko
+#Nekomimetic changed in goob
+
+chat-language-Nekomimetic-name = Gruntish
 chat-language-Draconic-name = Sinta'Unathi
 chat-language-Azaziba-name = Sinta'Azaziba
 chat-language-SolCommon-name = Sol Common
