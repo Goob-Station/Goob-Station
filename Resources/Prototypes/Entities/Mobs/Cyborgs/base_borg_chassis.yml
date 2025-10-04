@@ -430,6 +430,7 @@
     - CanPilot
     - Unimplantable
     - SiliconMob
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from borgs.
     - SiliconEmotes
   - type: Emoting
   - type: GuideHelp
