@@ -8,3 +8,24 @@
     sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingSuitCapoSyndi
+  name: the Capos attire
+  description: While you may not be the top predator with this outfit on, your certainty able to catch prey with ease
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 1.5
+        Caustic: 0.1

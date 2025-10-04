@@ -293,6 +293,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
+uplink-clothing-capo-outfit-name = The Capos Attire
+uplink-clothing-capo-outfit-desc = A collection of clothes tailoried out of the highest quality fibres, wearing the entire outfit gives special abilities.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves

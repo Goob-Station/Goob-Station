@@ -406,3 +406,28 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: [ClothingHeadBase, BaseSyndicateContraband]
+  id: ClothingHeadHatCapoSyndi
+  name: the Capos rim
+  description: pride, its always a sin, but at least your making it look right.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Heat: 0.75
+        Radiation: 0.25
+        Caustic: 0.25

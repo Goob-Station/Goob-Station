@@ -74,3 +74,14 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/capo.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Cloaks/capo.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseSyndicateContraband]
+  id: ClothingNeckCloakCapoSyndi
+  name: the Capos cloak
+  description: To lead, one must ensure their status is shown with splendor, this cloak does the trick.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/capo.rsi

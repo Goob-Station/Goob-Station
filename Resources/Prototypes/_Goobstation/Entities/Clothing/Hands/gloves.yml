@@ -341,6 +341,20 @@
   - type: Fiber
     fiberColor: fibers-red
 
+- type: entity
+  parent: [ClothingHandsBase, BaseSyndicateContraband]
+  id: ClothingHandsGlovesCapoSyndi
+  name: the Capos gloves
+  description: One of such status shouldn't get dirt on them, these gloves will ensure that is the case.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/capo.rsi
+  - type: Fiber
+    fiberColor: fibers-red
+  - type: Insulated
+
 
 # Knuckle Dusters
 

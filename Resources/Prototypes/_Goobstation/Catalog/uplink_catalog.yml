@@ -590,6 +590,17 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingCaposOutfitSyndi
+  name: uplink-clothing-capo-outfit-name
+  description: uplink-clothing-capo-outfit-desc
+  icon: { sprite: _Goobstation/Clothing/Head/Hats/capo.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledCaposOutfit
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkReverseBearTrap
   name: uplink-reverse-bear-trap-name
   description: uplink-reverse-bear-trap-desc
