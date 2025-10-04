@@ -2563,11 +2563,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 6979
-      - 7811
       - 2706
-      - 7483
-      - 2708
       - 9179
   - uid: 9220
     components:
@@ -39590,19 +39586,6 @@ entities:
       - 9220
     - type: AtmosPipeLayers
       pipeLayer: Secondary
-  - uid: 2708
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -34.5,33.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9180
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
   - uid: 5499
     components:
     - type: Transform
@@ -40998,19 +40981,6 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 6979
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -31.5,33.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9180
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
   - uid: 7170
     components:
     - type: Transform
@@ -41037,30 +41007,6 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 7483
-    components:
-    - type: Transform
-      pos: -34.5,35.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9180
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
-  - uid: 7811
-    components:
-    - type: Transform
-      pos: -31.5,35.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 9180
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
 - proto: GasVolumePump
   entities:
   - uid: 2142
