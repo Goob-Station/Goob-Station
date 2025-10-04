@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from paradise station at https://github.com/ParadiseSS13/Paradise/commit/32c038371503007a471d6f999e1f95c9af56b6c9, sec_e and sec_l are edited versions of ec_e_r",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sec",
+      "directions": 4
+    },
+    {
+      "name": "sec_e",
+      "directions": 4
+    },
+    {
+      "name": "sec_e_r",
+      "directions": 4
+    },
+    {
+      "name": "sec_l",
+      "directions": 4
+    }
+  ]
+}
