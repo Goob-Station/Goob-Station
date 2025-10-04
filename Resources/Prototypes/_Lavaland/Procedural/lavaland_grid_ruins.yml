@@ -249,3 +249,11 @@
   name: lavaland-ruin-temple
   path: /Maps/Lavaland/temple.yml
   priority: 30
+
+#Goobstation ruins? Idk.
+
+- type: lavalandGridRuin
+  id: FlockLarge
+  name: lavaland-ruin-flock-large
+  path: /Maps/_Lavaland/Lavaland/flock_ruins_large.yml
+  priority: 31
