@@ -21,7 +21,6 @@
     - Belt
     - suitStorage
   - type: PneumaticCannon #Goob Edit Start
-    toolModifyPower: ""
     throwItems: true
   - type: Item
     size: Large
