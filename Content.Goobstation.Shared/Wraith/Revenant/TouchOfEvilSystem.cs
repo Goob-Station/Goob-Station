@@ -2,79 +2,41 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared._White.Grab;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
 public sealed class TouchOfEvilSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GrabThrownSystem _throw = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<TouchOfEvilComponent, TouchOfEvilEvent>(OnTouchOfEvil);
+        SubscribeLocalEvent<TouchOfEvilComponent, MeleeHitEvent>(OnMeleeHit);
 
-        SubscribeLocalEvent<ActiveTouchOfEvilComponent, MeleeHitEvent>(OnMeleeHit);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var eqe = EntityQueryEnumerator<TouchOfEvilComponent>();
-        while (eqe.MoveNext(out var uid, out var comp))
-        {
-            if (!comp.Active)
-                continue;
-
-            if (_timing.CurTime < comp.NextUpdate)
-                continue;
-
-            // revert to original damage
-            if (!TryComp<MeleeWeaponComponent>(uid, out var melee)
-                || comp.OriginalDamage == null)
-                continue;
-
-            melee.Damage = comp.OriginalDamage;
-
-            comp.Active = false;
-            comp.OriginalDamage = null;
-            Dirty(uid, comp);
-
-            RemCompDeferred<ActiveTouchOfEvilComponent>(uid);
-        }
+        SubscribeLocalEvent<ActiveTouchOfEvilComponent, StatusEffectRemovedEvent>(StatusRemoved);
+        SubscribeLocalEvent<ActiveTouchOfEvilComponent, StatusEffectAppliedEvent>(StatusApplied);
     }
 
     private void OnTouchOfEvil(Entity<TouchOfEvilComponent> ent, ref TouchOfEvilEvent args)
     {
-        // dont activate if already active
-        if (ent.Comp.Active
-            || !TryComp<MeleeWeaponComponent>(ent.Owner, out var melee))
-            return;
-
-        var comp = EnsureComp<ActiveTouchOfEvilComponent>(ent.Owner);
-        comp.ThrowSpeed = ent.Comp.ThrowSpeed;
-        Dirty(ent.Owner, comp);
-
-        ent.Comp.Active = true;
-        ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.BuffDuration;
-        ent.Comp.OriginalDamage = melee.Damage;
-        Dirty(ent);
-
-        melee.Damage *= ent.Comp.DamageBuff;
+        _statusEffects.TryAddStatusEffect(ent.Owner, ent.Comp.TouchOfEvilEffect, out _, ent.Comp.BuffDuration);
 
         args.Handled = true;
     }
 
-    private void OnMeleeHit(Entity<ActiveTouchOfEvilComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<TouchOfEvilComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.HitEntities.Any())
+        if (!args.HitEntities.Any()
+            || !ent.Comp.Active)
             return;
 
         foreach (var entity in args.HitEntities)
@@ -84,6 +46,37 @@ public sealed class TouchOfEvilSystem : EntitySystem
                 GetThrowDirection(ent.Owner, entity),
                 ent.Comp.ThrowSpeed);
         }
+    }
+
+    private void StatusApplied(Entity<ActiveTouchOfEvilComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        if (!TryComp<TouchOfEvilComponent>(args.Target, out var touch)
+            || !TryComp<MeleeWeaponComponent>(args.Target, out var melee))
+            return;
+
+        touch.OriginalDamage = melee.Damage;
+        touch.Active = true;
+        ent.Comp.ThrowSpeed = touch.ThrowSpeed;
+        Dirty(args.Target, touch);
+
+        melee.Damage *= touch.DamageBuff;
+        Dirty(args.Target, melee);
+    }
+
+    private void StatusRemoved(Entity<ActiveTouchOfEvilComponent> ent, ref StatusEffectRemovedEvent args)
+    {
+        if (!TryComp<TouchOfEvilComponent>(args.Target, out var touch)
+            || !TryComp<MeleeWeaponComponent>(args.Target, out var melee)
+            || touch.OriginalDamage == null)
+            return;
+
+        melee.Damage = touch.OriginalDamage;
+        Dirty(args.Target, melee);
+
+        touch.Active = false;
+        touch.OriginalDamage = null;
+
+        Dirty(args.Target, touch);
     }
 
     private Vector2 GetThrowDirection(EntityUid user, EntityUid target)

@@ -1,0 +1,9 @@
+# Revenant Touch of Evil
+# Results -> Increased damage buff + Punches throw people across X amount of distance
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectTouchOfEvil
+  name: touch of evil
+  components:
+  - type: ActiveTouchOfEvil
