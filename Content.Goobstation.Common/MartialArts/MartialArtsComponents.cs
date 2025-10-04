@@ -60,5 +60,6 @@ public enum MartialArtsForms
     Capoeira,
     KungFuDragon,
     Ninjutsu,
+    Werewolf,
     HellRip,
 }
