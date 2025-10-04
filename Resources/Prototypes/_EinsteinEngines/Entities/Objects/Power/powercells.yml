@@ -1,0 +1,40 @@
+- type: entity
+  parent: BasePowerCell
+  id: PowerCellMicrortg
+  name: micro radioisotope thermoelectric generator
+  description: A rechargeable prototype micro-rtg cell. Has lower capacity but slowly recharges by itself. Doesn't have enough radiation shielding.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Power/power_cells.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: micrortg
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 690
+    startingCharge: 690
+  - type: RadiationSource
+    intensity: 0.075 # Changed from original 0.15. Should give about 0.1 rads per second when on the ground and 0.15 when picked up.
+    slope: 0.03
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 7 # takes 1 minute and 30 seconds to charge itself back to full
+
+- type: entity
+  parent: PowerCellMicrortg
+  id: PowerCellMicrortgPrinted
+  suffix: Empty
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: micrortg
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    startingCharge: 0

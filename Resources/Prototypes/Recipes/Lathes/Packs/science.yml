@@ -68,6 +68,7 @@
   - PowerCellMicroreactor
   - PowerCellHigh
   - PowerCellHyper
+  - PowerCellMicrortg # Einstein Engine Port (by Goobstation)
 
 - type: latheRecipePack
   id: ScienceWeapons

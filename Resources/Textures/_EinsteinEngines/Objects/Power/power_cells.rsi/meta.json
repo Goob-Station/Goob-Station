@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Ported from https://github.com/Simple-Station/Einstein-Engines/pull/1744 by Krispy-Lime. Sprites based on https://github.com/vgstation-coders/vgstation13/commit/1dbcf389b0ec6b2c51b002df5fef8dd1519f8068 with micro-rtg edited by Timfa",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "micrortg"
+        },
+        {
+            "name": "o1"
+        },
+        {
+            "name": "o2"
+        }
+    ]
+}

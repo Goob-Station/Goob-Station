@@ -125,6 +125,7 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
+  - PowerCellMicrortg # Einstein Engine Port for micro-RTGs (Goobstation change)
   # Goobstation R&D Console rework start
   position: 1,-6
   technologyPrerequisites:
