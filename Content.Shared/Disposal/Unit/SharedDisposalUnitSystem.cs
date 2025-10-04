@@ -262,7 +262,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Hands == null || args.Using == null)
             return;
 
-        if (!ActionBlockerSystem.CanDrop(args.User))
+        if (!ActionBlockerSystem.CanDrop(args.User, args.Using.Value)) // goobstation - drop check for item
             return;
 
         if (!CanInsert(uid, component, args.Using.Value))
