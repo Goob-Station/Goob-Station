@@ -122,6 +122,18 @@ public sealed partial class SprinterComponent : Component
             { "Blunt", 10 },
         }
     };
+
+    /// <summary>
+    ///     For how long does entity get knocked down on collision with another sprinting entity?
+    /// </summary>
+    [DataField]
+    public TimeSpan KnockdownDurationOnInterrupt = TimeSpan.FromSeconds(2f);
+
+    /// <summary>
+    ///     How much extra stamina damage entity takes for being broken out of sprint with a shove?
+    /// </summary>
+    [DataField]
+    public float StaminaPenaltyOnShove = 25f;
 }
 
 [Serializable, NetSerializable]
