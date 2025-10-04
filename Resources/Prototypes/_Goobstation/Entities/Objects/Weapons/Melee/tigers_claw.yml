@@ -1,0 +1,35 @@
+- type: entity
+  parent: [BaseSword, BaseSyndicateContraband]
+  id: TigersClawSword
+  name: the tigers claw
+  description: A semi-cheap knockoff of the real deal, uses ammo to propel the user forward to deal third degree burns and lacerations, rumors are that wearing a capos outfit addionally marks weak opponents as "prey" making them less likely to escape you, the predator.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw_inhand.rsi
+  - type: Sharp
+  - type: DisarmMalus
+    malus: 0.6
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: Wieldable
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    attackRate: 1.6
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 30
+        Heat: 4.5
+        Structural: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .7
+    spread: 90
+  
