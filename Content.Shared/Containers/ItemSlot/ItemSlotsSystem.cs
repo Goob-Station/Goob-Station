@@ -320,6 +320,7 @@ namespace Content.Shared.Containers.ItemSlots
                 if (CanInsert(uid, args.Used, args.User, slot, slot.Swap))
                 {
                     slots.Add(slot);
+                    break; //Goobstation: If an item has multiple ItemSlots, stick with the highest priority and stop looking.
                 }
                 else
                 {
