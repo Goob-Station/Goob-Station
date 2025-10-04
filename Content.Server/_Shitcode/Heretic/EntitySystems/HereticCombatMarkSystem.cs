@@ -13,7 +13,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Systems;
-using Content.Server.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
@@ -23,9 +22,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Humanoid;
-using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Medical;
+using Content.Server.Stunnable;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
@@ -47,6 +46,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
 
     public override bool ApplyMarkEffect(EntityUid target, HereticCombatMarkComponent mark, string? path, EntityUid user)
     {
@@ -95,6 +95,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
             case "Rust":
                 _vomit.Vomit(target);
+                _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(20), true);
                 break;
 
             case "Void":

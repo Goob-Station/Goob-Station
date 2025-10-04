@@ -76,11 +76,11 @@
     stage: 2
 
 - type: listing
-  id: HereticSidePath3IceSpear
-  name: knowledge-path-side-s3-ice-spear-name
-  description: knowledge-path-side-s3-ice-spear-desc
-  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
-  productHereticKnowledge: MysteriesOfCreation
+  id: HereticSidePath3Shark
+  name: knowledge-path-side-s3-shark-name
+  description: knowledge-path-side-s3-shark-desc
+  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: fire_shark_icon }
+  productHereticKnowledge: ScorchingShark
   cost:
     KnowledgePoint: 1
   categories:

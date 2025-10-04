@@ -7,16 +7,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Clothing.Components;
+using Content.Shared.Atmos;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Temperature;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Clothing;
 
-public sealed partial class MadnessMaskSystem : EntitySystem
+public sealed class MadnessMaskSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
@@ -24,35 +30,89 @@ public sealed partial class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MadnessMaskComponent, BeingUnequippedAttemptEvent>(OnUnequip);
+        SubscribeLocalEvent<MadnessMaskComponent, InventoryRelayedEvent<GetFireProtectionEvent>>(OnGetProtection);
+        SubscribeLocalEvent<MadnessMaskComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(
+            OnTemperatureChangeAttempt);
+    }
+
+    private void OnUnequip(Entity<MadnessMaskComponent> ent, ref BeingUnequippedAttemptEvent args)
+    {
+        if (IsHereticOrGhoul(args.Unequipee))
+            return;
+
+        if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnTemperatureChangeAttempt(Entity<MadnessMaskComponent> ent,
+        ref InventoryRelayedEvent<ModifyChangedTemperatureEvent> args)
+    {
+        if (!IsHereticOrGhoul(args.Args.Target))
+            return;
+
+        if (args.Args.TemperatureDelta > 0)
+            args.Args.TemperatureDelta = 0;
+    }
+
+    private void OnGetProtection(Entity<MadnessMaskComponent> ent,
+        ref InventoryRelayedEvent<GetFireProtectionEvent> args)
+    {
+        if (!IsHereticOrGhoul(args.Args.Target))
+            return;
+
+        args.Args.Reduce(1f);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var mask in EntityQuery<Shared.Clothing.Components.MadnessMaskComponent>())
+        var query = EntityQueryEnumerator<MadnessMaskComponent, ClothingComponent>();
+        while (query.MoveNext(out var uid, out var mask, out var clothing))
         {
+            if (clothing.InSlot == null)
+                continue;
+
             mask.UpdateAccumulator += frameTime;
+
             if (mask.UpdateAccumulator < mask.UpdateTimer)
                 continue;
 
             mask.UpdateAccumulator = 0;
 
-            var lookup = _lookup.GetEntitiesInRange(mask.Owner, 5f);
+            var lookup = _lookup.GetEntitiesInRange(uid, 5f);
             foreach (var look in lookup)
             {
                 // heathens exclusive
-                if (HasComp<HereticComponent>(look)
-                || HasComp<GhoulComponent>(look))
+                if (IsHereticOrGhoul(look))
                     continue;
 
                 if (HasComp<StaminaComponent>(look) && _random.Prob(.4f))
-                    _stamina.TakeStaminaDamage(look, 10f, visual: false, immediate: false);
+                    _stamina.TakeOvertimeStaminaDamage(look, 10f);
 
                 if (_random.Prob(.4f))
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
                 if (_random.Prob(.25f))
-                    _statusEffect.TryAddStatusEffectDuration(look, "StatusEffectSeeingRainbow", out _, TimeSpan.FromSeconds(10f));
+                {
+                    _statusEffect.TryAddStatusEffectDuration(look,
+                        "StatusEffectSeeingRainbow",
+                        out _,
+                        TimeSpan.FromSeconds(10f));
+                }
             }
         }
+    }
+
+    private bool IsHereticOrGhoul(EntityUid uid)
+    {
+        return HasComp<HereticComponent>(uid) || HasComp<GhoulComponent>(uid);
     }
 }

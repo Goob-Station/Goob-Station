@@ -162,6 +162,7 @@
   - type: Tag
     tags:
     - Sheet
+    - SheetPlasma
 
 - type: entity
   parent: SheetPlasma

@@ -25,4 +25,11 @@ public sealed partial class EdgeSpreaderPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool PreventSpreadOnSpaced = true;
+
+    /// <summary>
+    /// Goobstation
+    /// If true, blocked tiles (such as walls) will be ignored
+    /// </summary>
+    [DataField]
+    public bool IgnoreBlockedTiles;
 }

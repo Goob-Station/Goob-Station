@@ -16,7 +16,7 @@
   components:
   - type: Action
     checkCanInteract: true
-    useDelay: 3
+    useDelay: 5
     itemIconStyle: NoItem
     sound:
       path: /Audio/_Goobstation/Heretic/ice_shovel.ogg
