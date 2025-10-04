@@ -15770,3 +15770,9 @@ Entries:
         drawing.
   id: 1764
   time: '2025-10-03T13:34:58.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Devil contracts now are worth 0 points for the NTR.
+  id: 1765
+  time: '2025-10-04T15:39:58.0000000+00:00'
