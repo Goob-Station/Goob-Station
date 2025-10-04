@@ -1,0 +1,127 @@
+- type: entity
+  id: KitchenElectricRange
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: electric range
+  description: A functional range with a range of functions.
+  components:
+  - type: Microwave
+    capacity: 10
+    canMicrowaveIdsSafely: false # TODO: actually burn IDs
+    explosionChance: 0 # it's a goddamn oven
+    lightningChance: 0 # it's a goddamn oven
+    startCookingSound: /Audio/_NF/Effects/egg-timer.ogg
+    foodDoneSound: /Audio/Machines/ding.ogg
+    loopingSound: /Audio/_NF/Effects/silence.ogg
+    validRecipeTypes: Oven
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: "off_no_door" }
+          Broken: { state: "off_no_door" } # don't care, can't break
+          Cooking: { state: "off_no_door" }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { state: "unlit" }
+          Broken: { state: "unlit" } # don't care, can't break
+          Cooking: { state: "cooking_unlit" }
+      enum.PowerDeviceVisuals.Powered:
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: range_low }
+          Medium: { visible: true, state: range_medium }
+          High: { visible: true, state: range_high }
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.Key
+  - type: DeviceLinkSink
+    ports:
+    - On
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.Key:
+        type: MicrowaveBoundUserInterface
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1: # The body of the oven
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,-0.25,0.30,0.45"
+        density: 600
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      fix2: # The range
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,0.15,0.30,0.45"
+        mask:
+        - TabletopMachineMask
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        hard: false
+  - type: Sprite
+    sprite: _NF/Structures/Machines/oven.rsi
+    snapCardinals: true
+    layers:
+    - state: off_no_door
+      map: ["enum.MicrowaveVisualizerLayers.Base"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
+    - state: oven_door
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      state: range_low
+      shader: unshaded
+      visible: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: ApcPowerReceiver
+    powerLoad: 1000 # Assume the range is off.
+  - type: Machine
+    board: ElectricRangeMachineCircuitboard
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: microwave_entity_container
+      maxItems: 10 # have to manually keep it in sync with capacity on Microwave at the top
+  - type: ContainerContainer
+    containers:
+      microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - microwave_entity_container
+  - type: GuideHelp
+    guides:
+    - Chef
+  - type: EntityHeater
+    passivePower: 1000 # Base oven power.
+  - type: PlaceableSurface
+  - type: ItemPlacer
+    maxEntities: 2
+    whitelist:
+      components:
+      - Temperature

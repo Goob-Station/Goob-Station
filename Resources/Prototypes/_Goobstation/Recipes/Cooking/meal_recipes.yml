@@ -15,6 +15,9 @@
     Paper: 1
   reagents:
     Sugar: 5
+  recipeType: # Frontier
+  - Oven # Frontier
+
 
 - type: microwaveMealRecipe
   id: RecipeFreedomCheeseBlock

@@ -1,0 +1,16 @@
+- type: entity
+  id: ElectricRangeMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: electric range machine board
+  description: A machine printed circuit board for an electric range.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: KitchenElectricRange
+      requirements:
+        Capacitor: 3
+      stackRequirements:
+        Steel: 5
+        Glass: 2
+        Cable: 4
