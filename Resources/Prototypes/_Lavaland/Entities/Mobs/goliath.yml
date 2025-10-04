@@ -1,7 +1,25 @@
 - type: entity
-  id: MobGoliathAncient
+  id: MobLavalandGoliath
+  parent: MobGoliath
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/goliath.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goliath
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goliath
+      Dead:
+        Base: goliath_dead
+
+- type: entity
+  id: MobLavalandGoliathAncient
   parent: MobGoliath
   name: ancient goliath
+  suffix: Lavaland
   components:
   - type: Sprite
     sprite: _Lavaland/Mobs/goliath.rsi
