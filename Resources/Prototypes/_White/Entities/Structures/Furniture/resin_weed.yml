@@ -90,10 +90,10 @@
     state: weed0
   - type: AreaSpawner
     spawnPrototype: ResinWeed
-  - type: PointLight
-    radius: 2.5
-    energy: 2
-    color: "#00CED1"
+#  - type: PointLight
+#    radius: 2.5
+#    energy: 2
+#    color: "#00CED1"
 
 - type: entity
   parent: BaseStructure
