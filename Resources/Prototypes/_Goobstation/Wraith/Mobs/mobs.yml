@@ -38,7 +38,7 @@
       path: /Audio/Effects/bone_rattle.ogg
     damage:
       types:
-        Blunt: 14
+        Blunt: 10
   - type: MobState
   - type: Fixtures
     fixtures:
@@ -74,6 +74,509 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+
+- type: entity
+  id: MobCrunched
+  parent: [ BaseMob, MobCombat ]
+  name: transposed scientist
+  description: A fellow who seems to have been shunted between dimensions. Not a good state to be in.
+  components:
+  - type: Advertise
+    pack: CrunchedSpeech
+    minimumWait: 10
+    maximumWait: 45
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/humanoid.rsi
+    layers:
+      - state: crunched
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcFist
+    soundHit:
+      collection: Flesh_Tear
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: NoSlip
+  - type: Pullable
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib2.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  id: MobShade
+  parent: [ BaseMob, MobCombat ]
+  name: darkness
+  description: Oh god.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/humanoid.rsi
+    layers:
+      - state: shade
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: HeavyArmorSyndi # Massive daamge reduction, but very low health.
+  - type: NoSlip
+  - type: Pullable
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 20
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/_Goobstation/Wraith/ghostrespawn.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  name: mechanical monstrosity
+  id: MobMonstrosityHead
+  parent: [ BaseMob, MobCombat ]
+  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
+    layers:
+      - state: crawler
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: crawler
+      Dead:
+        Base: crawler_dead
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 10
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: MobMonstrosityBody
+  parent: [ BaseMob, MobCombat ]
+  name: mechanical monstrosity
+  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
+    layers:
+      - state: monstrosity
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: NoSlip
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib1.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  name: lion
+  id: MobLion
+  parent: [ BaseMob, MobCombat ]
+  description: Oh christ.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/lion.rsi
+    layers:
+      - state: lion
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lion
+      Dead:
+        Base: lion_dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 15
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: MobAncientRepairBot
+  parent: [ BaseMob, MobCombat ]
+  name: strange robot
+  description: It looks like some sort of floating repair bot or something?
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - state: ancient_repairbot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Piercing: 10
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HeavyArmorSyndi
+  - type: NoSlip
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 20
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: MobAncientGuardBot
+  parent: MobAncientRepairBot
+  name: strange robot
+  description: A Security Robot, something seems a bit off.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - state: ancient_guardbot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Piercing: 15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+
+- type: entity
+  id: MobAncientRobot1
+  parent: MobAncientRepairBot
+  name: ???
+  description: What the hell is that?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robotM
+    noMovementLayers:
+      movement:
+        state: ancient_robot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 15
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - FootstepSound
+
+- type: entity
+  id: MobAncientRobot2
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot2
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robot2M
+    noMovementLayers:
+      movement:
+        state: ancient_robot2
+
+- type: entity
+  id: MobAncientRobot3
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot3
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robot3M
+    noMovementLayers:
+      movement:
+        state: ancient_robot3
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+
+- type: entity
+  id: MobAncientLegs
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_legs
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_legsM
+    noMovementLayers:
+      movement:
+        state: ancient_legs
+
+
+
+# ----- Void summons -----
 
 - type: entity
   id: MobSkeletonCommander
@@ -432,7 +935,7 @@
   suffix: Wraith
   parent: MobPlagueRatSmall
   name: Bloated rat mass
-  description: A horrible mass of puss and warts, that once used to look like a rat.
+  description: A horrible mass of pus and warts, that once used to look like a rat.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -581,6 +1084,7 @@
             sound:
               path: /Audio/Effects/gib2.ogg
 
+# Wraith variants
 
 - type: entity
   id: MobSkeletonGoonWraith
@@ -588,6 +1092,128 @@
   parent: MobSkeletonGoon
   components:
   - type: WraithMinion
+
+- type: entity
+  id: MobCrunchedWraith
+  suffix: Wraith
+  parent: MobCrunched
+  components:
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+
+- type: entity
+  id: MobShadeWraith
+  suffix: Wraith
+  parent: MobShade
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobMonstrosityHeadWraith
+  suffix: Wraith
+  parent: MobMonstrosityHead
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobMonstrosityBodyWraith
+  suffix: Wraith
+  parent: MobMonstrosityBody
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobLionWraith
+  suffix: Wraith
+  parent: MobLion
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientRepairBotWraith
+  suffix: Wraith
+  parent: MobAncientRepairBot
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientGuardBotWraith
+  suffix: Wraith
+  parent: MobAncientGuardBot
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientRobot1Wraith
+  suffix: Wraith
+  parent: MobAncientRobot1
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientRobot2Wraith
+  suffix: Wraith
+  parent: MobAncientRobot2
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientRobot3Wraith
+  suffix: Wraith
+  parent: MobAncientRobot3
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobAncientLegsWraith
+  suffix: Wraith
+  parent: MobAncientLegs
+  components:
+  - type: WraithMinion
+
+- type: entity
+  id: MobBearGoonWraith
+  suffix: Wraith
+  parent: MobBearGoon
+  components:
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+
+- type: entity
+  id: MobBrullbarWraith
+  suffix: Wraith
+  parent: MobBrullbar
+  components:
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+
+- type: entity
+  id: MobBGunbotWraith
+  suffix: Wraith
+  parent: GunBot
+  components:
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+
+- type: entity
+  id: MobNukebotWraith
+  suffix: Wraith
+  parent: NukeBot
+  components:
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+
+# Void summons
 
 - type: entity
   id: MobSkeletonCommanderWraith

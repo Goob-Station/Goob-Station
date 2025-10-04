@@ -54,19 +54,35 @@
     color: "#ebb02b"
   - type: VoidPortal #You could do custom portal spawners by changing the values through here, for future reference. Refer to VoidPortalComponent.
     mobEntries:
-    - prototype: MobNanites
+    - prototype: MobSkeletonGoonWraith
       cost: 3
-    - prototype: MobGiantSpiderAngry
+    - prototype: MobCrunchedWraith
       cost: 4
-    - prototype: MobSpookyGhost1
+    - prototype: MobShadeWraith
+      cost: 4
+    - prototype: MobMonstrosityHeadWraith
+      cost: 4
+    - prototype: MobMonstrosityBodyWraith
+      cost: 4
+    - prototype: MobLionWraith
       cost: 5
-    - prototype: MobSkeletonGoon
+    - prototype: MobAncientRepairBotWraith
+      cost: 6
+    - prototype: MobAncientGuardBotWraith
       cost: 8
-    - prototype: MobBearGoon
+    - prototype: MobAncientRobot1Wraith
+      cost: 7
+    - prototype: MobAncientRobot2Wraith
+      cost: 7
+    - prototype: MobAncientRobot3Wraith
+      cost: 7
+    - prototype: MobAncientLegsWraith
+      cost: 7
+    - prototype: MobBearGoonWraith
       cost: 10
-    - prototype: MobBrullbar
+    - prototype: MobBrullbarWraith
       cost: 15
-    - prototype: GunBot
+    - prototype: MobBGunbotWraith
       cost: 15
-    - prototype: NukeBot
-      cost: 20
+    - prototype: MobNukebotWraith
+      cost: 15
