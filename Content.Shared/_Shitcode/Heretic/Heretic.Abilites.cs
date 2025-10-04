@@ -133,8 +133,58 @@ public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent {
 // void (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
-public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
-public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
+public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public DamageSpecifier Damage = new ()
+    {
+        DamageDict =
+        {
+            {"Cold", 40},
+        },
+    };
+
+    [DataField]
+    public float Radius = 1.5f;
+
+    [DataField]
+    public EntProtoId InEffect = "EffectVoidBlinkIn";
+
+    [DataField]
+    public EntProtoId OutEffect = "EffectVoidBlOutkOut";
+}
+
+public sealed partial class HereticVoidPullEvent : InstantActionEvent
+{
+    [DataField]
+    public DamageSpecifier Damage = new ()
+    {
+        DamageDict =
+        {
+            {"Cold", 30},
+        },
+    };
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(0.5);
+
+    [DataField]
+    public TimeSpan KnockDownTime = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public float Radius = 7f;
+
+    [DataField]
+    public float StunRadius = 4f;
+
+    [DataField]
+    public float DamageRadius = 1.5f;
+
+    [DataField]
+    public EntProtoId InEffect = "EffectVoidBlinkIn";
+}
+
 public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done only via void's ascension
 
 // blade (+ upgrades)

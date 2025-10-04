@@ -293,12 +293,19 @@
   path: Void
   stage: 4
 
+#- type: hereticKnowledge
+#  id: VoidBlast
+#  path: Void
+#  stage: 5
+#  actionPrototypes:
+#  - ActionHereticVoidBlast
+
 - type: hereticKnowledge
-  id: VoidBlast
+  id: MysteriesOfCreation
   path: Void
   stage: 5
   actionPrototypes:
-  - ActionHereticVoidBlast
+  - ActionHereticIceSpear
 
 - type: hereticKnowledge
   id: VoidPhase
@@ -435,13 +442,6 @@
   stage: 3
   ritualPrototypes:
   - VoidCloak
-
-- type: hereticKnowledge
-  id: MysteriesOfCreation
-  sideKnowledge: true
-  stage: 3
-  actionPrototypes:
-  - ActionHereticIceSpear
 
 ## stage 6
 - type: hereticKnowledge

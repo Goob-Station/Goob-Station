@@ -76,6 +76,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
+using Content.Shared.Examine;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -121,6 +122,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
