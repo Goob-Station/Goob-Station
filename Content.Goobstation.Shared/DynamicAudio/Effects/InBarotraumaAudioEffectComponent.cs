@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.DynamicAudio.Effects;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class InBarotraumaAudioEffectComponent : Component
 {
 
