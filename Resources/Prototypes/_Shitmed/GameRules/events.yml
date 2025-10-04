@@ -66,7 +66,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 7200 #2 hours
@@ -166,7 +166,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 10800 #3 hours
