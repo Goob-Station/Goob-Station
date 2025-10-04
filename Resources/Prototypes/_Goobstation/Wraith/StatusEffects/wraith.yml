@@ -16,3 +16,12 @@
   name: rally
   components:
   - type: Rallied
+
+# Spiker - Shuffle
+# Results -> Makes it a small mob and removes all stuns
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectShuffle
+  name: shuffle
+  components:
+  - type: SpikerShuffleEffect

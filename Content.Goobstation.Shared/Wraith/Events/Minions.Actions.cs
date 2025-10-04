@@ -14,6 +14,7 @@ public sealed partial class RallyEvent : InstantActionEvent;
 // Void spiker actions
 public sealed partial class TentacleHookEvent : EntityTargetActionEvent;
 public sealed partial class SpikerShuffleEvent : InstantActionEvent;
+public sealed partial class SpikerLashEvent : EntityTargetActionEvent;
 
 // Void hound actions
 public sealed partial class RushdownEvent : InstantActionEvent;

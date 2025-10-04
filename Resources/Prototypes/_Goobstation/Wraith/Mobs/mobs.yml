@@ -702,11 +702,21 @@
     solution: melee
     transferAmount: 4
   - type: TentacleHook
+  - type: SpikerLash
   - type: SpikerShuffle
+    statusEffectsToRemove:
+    - Stun
+    - KnockedDown
+    - Electrocution
+    - SlowedDown
+    - Stutter
+    - Drowsiness
+    - TemporaryBlindness
   - type: ActionGrant
     actions:
     - ActionTentacleHook
     - ActionShuffle
+    - ActionLash
   - type: InputMover
   - type: MobMover
   - type: HTN

@@ -50,6 +50,23 @@
   - type: InstantAction
     event: !type:SpikerShuffleEvent
 
+- type: entity
+  id: ActionLash
+  name: Lash
+  description: Go into a bloody frenzy on a target and rip them to shreds.
+  components:
+  - type: Action
+    # useDelay: 50
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: shuffle # lash
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:SpikerLashEvent
+
 # Used for Void Hound.
 
 - type: entity

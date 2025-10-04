@@ -9,6 +9,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Stunnable;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
@@ -22,6 +23,7 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     private const string TentacleJoint = "grappling";
     /// <inheritdoc/>
@@ -82,7 +84,12 @@ public sealed class TentacleHookSystem : EntitySystem
     private void OnTentacleHit(Entity<TentacleHookProjectileComponent> ent, ref ProjectileHitEvent args)
     {
         if (!HasComp<BodyComponent>(args.Target))
+        {
+            PredictedDel(ent.Owner);
             return;
+        }
+
+        _stun.TrySlowdown(args.Target, ent.Comp.DurationSlow, false, 0.3f, 0.3f);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
         tentacle.ThrowTowards = args.Shooter;
