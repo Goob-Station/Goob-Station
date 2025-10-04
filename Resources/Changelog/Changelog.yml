@@ -4729,3 +4729,12 @@
   id: 9030
   time: '2025-10-03T23:35:01.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40224
+- author: K-Dynamic
+  changes:
+  - message: Adds smart equip function to pocket 1, pocket 2, and suit storage slots.
+      Default binds are Shift+F and Shift+G for first and second pocket, Shift+H for
+      suit storage.
+    type: Add
+  id: 9031
+  time: '2025-10-04T01:44:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37975
