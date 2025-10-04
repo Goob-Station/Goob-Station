@@ -17,7 +17,7 @@
     maxCharge: 690
     startingCharge: 690
   - type: RadiationSource
-    intensity: 0.075 # Changed from original 0.15. Should give about 0.1 rads per second when on the ground and 0.15 when picked up.
+    intensity: 0.075 # Changed from original 0.15 (Goobstation change). Should give about 0.1 rads per second when on the ground and 0.15 when picked up.
     slope: 0.03
   - type: BatterySelfRecharger
     autoRecharge: true
