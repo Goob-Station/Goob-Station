@@ -1,0 +1,11 @@
+- type: factionIcon
+  id: ShizophrenicIcon
+  priority: 11
+  visibleToOwner: false
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Hallucination
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/shizophrenic_icon.rsi
+    state: icon
