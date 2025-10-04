@@ -24,12 +24,12 @@ public sealed class SharedDynamicAudioSystem : EntitySystem
     private Dictionary<ProtoId<AudioPresetPrototype>, EntityUid> _presets = new();
     private Dictionary<int, string> _areaPresets = new Dictionary<int, string> // sort it or will be broken
     {
-        { 10, "Underwater" },
-        { 20, "Bathroom" },
-        { 35, "SpaceStationSmallRoom" },
-        { 60, "SpaceStationMediumRoom" },
-        { 75, "SpaceStationLargeRoom" },
-        { 100, "SpaceStationHall" }
+        { 10, "PaddedCell" },
+        { 50, "Generic" }, // no echo / normal
+        { 65, "SpaceStationSmallRoom" },
+        { 80, "SpaceStationMediumRoom" },
+        { 100, "SpaceStationLargeRoom" },
+        { 200, "SpaceStationHall" }
     };
 
     private string _defaultPreset = "LivingRoom";

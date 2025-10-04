@@ -19,7 +19,7 @@
   modulationTime: 1.1800
   modulationDepth: 0.9480
   airAbsorptionGainHf: 0.9900
-  hfReference: 3500.0000
+  hfReference: 500.0000
   lfReference: 250.0000
   roomRolloffFactor: 0.0000
   decayHfLimit: 0
