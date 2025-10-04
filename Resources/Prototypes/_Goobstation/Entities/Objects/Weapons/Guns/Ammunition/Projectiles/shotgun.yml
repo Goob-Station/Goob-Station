@@ -25,7 +25,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
+        Piercing: 12 # Goobstation - Bro, basic shotgun pellet had 10 damage with 6 shots. (60 damage total). This shit had 15 damage with 6 shots (90 damage total). Who the hell gave +30 damage to BSO gun?? 
 
 - type: entity
   id: HighCaliberPelletShotgunSpread
@@ -34,8 +34,8 @@
   components:
   - type: ProjectileSpread
     proto: HighCaliberPelletShotgun
-    count: 6
-    spread: 15
+    count: 5 # Goobstation - 6>5 - Shotguns nerf
+    spread: 45 # Goobstation - 15>45 - Shotguns nerf
 
 # Incendiary
 
@@ -63,8 +63,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunIncendiary
-      count: 6
-      spread: 15
+      count: 5 # Goobstation - 6>5 - Shotguns nerf
+      spread: 45 # Goobstation - 15>45 - Shotguns nerf
 
 # Practice
 
@@ -89,8 +89,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunPractice
-      count: 8
-      spread: 15
+      count: 5 # Goobstation - 6>5 - It's practice to show people how gun shoot. Who the hell gave it 8 bullets per shot?
+      spread: 45
 
 # Depleted Uranium
 
@@ -106,8 +106,8 @@
     - type: Projectile
       damage:
         types:
-          Radiation: 8
-          Piercing: 8
+          Radiation: 6
+          Piercing: 6
 
 - type: entity
   id: HighCaliberPelletShotgunUraniumSpread
@@ -116,8 +116,8 @@
   components:
     - type: ProjectileSpread
       proto: HighCaliberPelletShotgunUranium
-      count: 6
-      spread: 6
+      count: 5
+      spread: 45
 
 ## Slugs
 
@@ -158,6 +158,8 @@
     sprintSpeed: 0.6
     walkSpeed: 0.6
     staminaDamage: 10
+  - type: TimedDespawn # Timed despawn here to prevent ensnaring removal in 10 seconds.
+    lifetime: 30
 
 - type: entity
   id: BulletSlugEMP
@@ -183,7 +185,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 12
+        Piercing: 10
         Ion: 20
 
 - type: entity
@@ -299,7 +301,7 @@
   components:
   - type: ProjectileSpread
     proto: BulletPelletHeavyHighExplosive
-    count: 6
+    count: 5
     spread: 45
 
 - type: entity
