@@ -15,7 +15,7 @@ namespace Content.Server.Emoting.Components;
 ///     Component required for entities to be able to do body emotions (clap, flip, etc).
 /// </summary>
 [RegisterComponent]
-[Access(typeof(BodyEmotesSystem))]
+//[Access(typeof(BodyEmotesSystem))]    // Goobstation commented
 public sealed partial class BodyEmotesComponent : Component
 {
     /// <summary>
