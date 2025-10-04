@@ -25,6 +25,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Clothing.Components; // Goobstation  - added for morph
+using Content.Shared.Humanoid; // Goobstation  - added for morph
+using Content.Shared.Interaction.Components; // Goobstation  - added for morph
+using Content.Shared.Inventory; // Goobstation - added for morph
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -45,6 +49,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -90,7 +95,17 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        // Goobstation - Start
+        if (ent.Comp.RemoveActions)
+            _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        else
+        {
+            if (!TryComp<ChameleonProjectorComponent>(ent.Comp.Projector, out var comp))
+                return;
+
+            _actions.RemoveAction(comp.AnchorActionEntity);
+            _actions.RemoveAction(comp.NoRotActionEntity);
+        }//Goobstation - End
     }
 
     #endregion
@@ -245,6 +260,55 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
         // item disguises can be picked up to be revealed, also makes sure their examine size is correct
         CopyComp<ItemComponent>((disguise, comp));
+
+        // Goobstation - start added for morph
+        if (HasComp<HumanoidAppearanceComponent>(entity))
+            CopyComp<HumanoidAppearanceComponent>((disguise, comp));
+
+        if (TryComp<InventoryComponent>(entity, out var inventory))
+        {
+            CopyComp<InventoryComponent>((disguise, comp));
+
+            foreach (var slot in inventory.Slots)
+            {
+                if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
+                    continue;
+
+                var proto = MetaData(slotEntity.Value).EntityPrototype;
+                if (proto is not null) //proto was a little moody so had to add a check for it
+                    _inventory.SpawnItemInSlot(disguise, slot.Name, proto.ID, true,true);
+            }
+
+            if (TryComp<InventoryComponent>(disguise, out var disguiseInventory))
+            {
+                foreach (var slot in disguiseInventory.Slots)
+                {
+                    if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
+                        continue; // no item in slot
+
+                    if(!TryComp<ClothingComponent>(slotEntity, out var clothing))
+                        continue; // item dont have clothing aka, nothing visual
+
+                    var item = Spawn("VirtualItem", Transform(ent.Owner).Coordinates);
+                    if (!TryCopyComponent(slotEntity.Value, item, ref clothing, out var _))
+                    {
+                        Del(item);// delete if we cant copy the clothings
+                        continue;
+                    }
+
+                    if (_inventory.TryEquip(disguise, item, slot.Name, true, true))
+                    {
+                        Del(item); // delete if it cant be equipted
+                        continue;
+                    }
+
+                    EnsureComp<UnremoveableComponent>(item); // to make sure the item cant be taken away
+                }
+            }
+
+        }
+
+        //goob end
 
         _appearance.CopyData(entity, disguise);
     }
