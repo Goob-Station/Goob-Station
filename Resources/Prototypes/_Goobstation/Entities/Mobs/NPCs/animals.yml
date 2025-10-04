@@ -820,3 +820,79 @@
       280: 0.6
       260: 0.4
 
+#Not a ghostrole, he just spams some messages
+- type: entity
+  name: gragg
+  id: MobGragg
+  parent: SimpleSpaceMobBase
+  description: HELLO. WANT BUY TASTY ROCKS. TRADE?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Animals/gragg.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gragg_sit
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0
+    baseSprintSpeed : 0
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexArachnid
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Chitinid
+    speechSounds: Lizard
+  - type: Advertise
+    pack: GraggAds
+    minimumWait: 25
+    maximumWait: 60
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gragg_sit
+      Dead:
+        Base: gragg_full
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: AnomalyCoreRock
+      amount: 1
+  - type: StaticPrice
+    price: 5000
+  - type: Fauna # Lavaland Change

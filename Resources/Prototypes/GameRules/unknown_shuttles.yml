@@ -46,6 +46,9 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: UnknownShuttleSyndieEvacPod
+    - id: UnknownShuttleSyndicateStoreLowValue # Goobstation
+    - id: UnknownShuttleDwarvenTrader # Goobstation
+    - id: UnknownShuttleGraggShop # Goobstation
 
 - type: entityTable
   id: UnknownShuttlesHostileTable
@@ -54,6 +57,8 @@
     - id: LoneOpsSpawn
     #- id: UnknownShuttleManOWar # Goob - Nuke the man-o-war
     - id: UnknownShuttleInstigator
+    - id: UnknownShuttleXenoEmergency # Goobstation
+    - id: UnknownShuttlePirateFreighter # Goobstation
 
 # Shuttle Game Rules
 
