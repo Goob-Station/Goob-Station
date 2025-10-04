@@ -210,6 +210,9 @@ public sealed partial class EventHereticEntropicPlume : InstantActionEvent
     public float LookupRange = 0.1f;
 
     [DataField]
+    public int RustStrength = 7; // Toxic blade level
+
+    [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
@@ -223,6 +226,9 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 
     [DataField]
     public float LookupRange = 0.1f;
+
+    [DataField]
+    public int RustStrength = 4; // Mark of rust level
 
     [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";

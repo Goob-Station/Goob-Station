@@ -159,7 +159,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     {
                         DamageDict =
                         {
-                            { "Poison", 5f },
+                            { "Poison", 8f },
                         },
                     };
                     break;

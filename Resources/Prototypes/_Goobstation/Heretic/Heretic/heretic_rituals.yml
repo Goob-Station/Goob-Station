@@ -395,7 +395,6 @@
   requiredTags:
     Steel: 10
     CableCoil: 15
-    ImprovisedShotgun: 1
   output:
     MobGhoulRustWalker: 1
 
