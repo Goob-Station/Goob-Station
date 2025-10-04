@@ -495,16 +495,20 @@
     forceSound: true
 
 - type: entity
-  parent: RedMediumSplitLaser
+  parent: RifleBulletEnergyGunLethal
   id: BulletMediumImmolator
   name: Medium Immolator Bolt
   categories: [ HideSpawnMenu ]
   components:
   - type: IgniteOnCollide
     fireStacks: 1.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
 
 - type: entity
-  parent: RedMediumSplitLaser
+  parent: RifleBulletEnergyGunLethal
   id: BulletHeavyImmolator
   name: Heavy Immolator Bolt
   categories: [ HideSpawnMenu ]
@@ -517,7 +521,7 @@
         Heat: 45
 
 - type: entity
-  parent: RedMediumSplitLaser
+  parent: RifleBulletEnergyGunLethal
   id: BulletLightImmolator
   name: Light Immolator Bolt
   categories: [ HideSpawnMenu ]
@@ -530,7 +534,7 @@
         Heat: 8
 
 - type: entity
-  parent: RedMediumSplitLaser
+  parent: RifleBulletEnergyGunLethal
   id: BulletLightImmolatorSpread
   name: immolator barrage
   categories: [ HideSpawnMenu ]

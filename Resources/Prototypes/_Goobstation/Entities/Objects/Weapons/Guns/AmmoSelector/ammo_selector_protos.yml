@@ -65,6 +65,47 @@
   protoId: BulletEnergyGunIon
   fireCost: 100
 
+- type: selectableAmmo
+  id: BulletLightImmolatorSpread
+  desc: Light immolator spread.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: heavylaser-narrow
+  protoId: BulletLightImmolatorSpread
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletHeavyImmolator
+  desc: Heavy immolator bolt.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: red
+  protoId: BulletHeavyImmolator
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletMediumImmolator
+  desc: Medium immolator bolt.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: red
+  protoId: BulletMediumImmolator
+  fireCost: 100
+
+- type: selectableAmmo
+  id: RifleBulletEnergyGunLethal
+  desc: Lethal laser bolt.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: red
+  protoId: RifleBulletEnergyGunLethal
+  fireCost: 100
+
+
+
 # Lawbringer Projectiles
 
 - type: selectableAmmo

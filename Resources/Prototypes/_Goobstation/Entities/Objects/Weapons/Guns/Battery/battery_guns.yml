@@ -497,7 +497,7 @@
     startingCharge: 800
 
 - type: entity
-  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponImmolator
   name: immolator cannon
   description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
@@ -525,7 +525,7 @@
   - type: GunRequiresWield
 
 - type: entity
-  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponImmolatorMulti
   name: multi lens immolator cannon
   description: A large laser cannon, similar to the Immolator Laser, with toggleable firemodes. It is frequently used by military-like forces through Nanotrasen.
@@ -547,12 +547,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletHeavyImmolator
     fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletHeavyImmolator
-      fireCost: 100
-    - proto: BulletLightImmolatorSpread
-      fireCost: 100
   - type: AmmoSelector
     prototypes:
       - BulletHeavyImmolator
@@ -568,8 +562,54 @@
     activated: true
     onActivate: false
     onUse: false
-    wieldToggle: false
+    wieldToggle: true
   - type: Battery
     maxCharge: 800
     startingCharge: 800
   - type: GunRequiresWield
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseSecurityContraband, BaseGunWieldable ]
+  id: WeaponEnergyGunAdvanced
+  name: advanced energy gun
+  description: A self-recharging laser weapon powered by a miniaturized uranium reactor. The firing mode can be toggled between disable and lethal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energygunadvanced.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunLethal
+    fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+      - RifleBulletEnergyGunLethal
+      - BulletDisabler
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: true
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
