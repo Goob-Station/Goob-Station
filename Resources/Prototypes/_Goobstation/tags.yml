@@ -196,6 +196,9 @@
   id: EmergencyPlasmaTank
 
 - type: Tag
+  id: EnchantSkipWhitelistCheck
+
+- type: Tag
   id: EnergySpeedloader
 
 - type: Tag
