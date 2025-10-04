@@ -13,6 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
@@ -140,7 +141,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -178,7 +179,7 @@ public partial class SharedMartialArtsSystem
             || pullable.GrabStage != GrabStage.Suffocate)
             _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);

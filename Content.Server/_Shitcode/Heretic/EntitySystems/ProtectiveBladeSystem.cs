@@ -298,7 +298,6 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
         var proj = Spawn(BladeProjecilePrototype, Transform(origin).Coordinates);
         _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin);
-        _gun.SetTarget(proj, tgt.Value, out _);
 
         var ev = new ProtectiveBladeUsedEvent() { Used = pblade.Value };
         RaiseLocalEvent(origin, ev);

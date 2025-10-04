@@ -128,6 +128,7 @@ namespace Content.Shared.Input
     [KeyFunctions]
     public static class ContentKeyFunctions
     {
+        public static readonly BoundKeyFunction ToggleKnockdown = "ToggleKnockdown";
         public static readonly BoundKeyFunction Sprint = "Sprint";
         public static readonly BoundKeyFunction UseItemInHand = "ActivateItemInHand";
         public static readonly BoundKeyFunction AltUseItemInHand = "AltActivateItemInHand";

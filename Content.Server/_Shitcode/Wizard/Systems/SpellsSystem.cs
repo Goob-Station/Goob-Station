@@ -60,6 +60,7 @@ using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -446,7 +447,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
             }
 
             spellCard.Target = ev.Entity;
-            _gun.SetTarget(newUid, ev.Entity, out var targeted, false);
+            var targeted = EnsureComp<TargetedProjectileComponent>(newUid);
+            _gun.SetProjectileTarget(newUid, ev.Entity);
             Entity<SpellCardComponent, PhysicsComponent, TargetedProjectileComponent> ent = (newUid, spellCard, physics,
                 targeted);
             Dirty(ent);

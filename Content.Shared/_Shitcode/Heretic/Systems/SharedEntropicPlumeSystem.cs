@@ -179,7 +179,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 var coords = Transform(target).Coordinates;
 
                 if (gunComp != null)
-                    _gun.AttemptShoot(uid, gun, gunComp, coords, target);
+                    _gun.AttemptShoot(uid, gun, gunComp, coords);
                 else if (meleeComp != null)
                     _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
             }

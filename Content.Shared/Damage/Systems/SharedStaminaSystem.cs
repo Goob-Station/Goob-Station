@@ -329,7 +329,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     /// <summary>
     /// Tries to take stamina damage without raising the entity over the crit threshold.
     /// </summary>
-    public bool TryTakeStamina(EntityUid uid, float value, StaminaComponent? component = null, EntityUid? source = null, EntityUid? with = null)
+    public bool TryTakeStamina(EntityUid uid, float value, StaminaComponent? component = null, EntityUid? source = null, EntityUid? with = null, bool visual = false)
     {
         // Something that has no Stamina component automatically passes stamina checks
         if (!Resolve(uid, ref component, false))
@@ -337,10 +337,10 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         var oldStam = component.StaminaDamage;
 
-        if (oldStam + value > component.CritThreshold || component.Critical)
+        if (oldStam + value >= component.CritThreshold || component.Critical)
             return false;
 
-        TakeStaminaDamage(uid, value, component, source, with, visual: false);
+        TakeStaminaDamage(uid, value, component, source, with, visual: visual);
         return true;
     }
 
@@ -609,7 +609,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 closest = thres.Key;
         }
 
-        StunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest], visual: visual);
+        StunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest]);
     }
 
     [Serializable, NetSerializable]
