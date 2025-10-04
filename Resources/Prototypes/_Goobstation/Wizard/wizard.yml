@@ -41,6 +41,7 @@
     species:
     - Plasmaman
   guides: [ Wizard ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: Apprentice
