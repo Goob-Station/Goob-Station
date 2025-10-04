@@ -18,7 +18,7 @@ using Robust.Shared.Timing;
 namespace Content.Client.Chat.TypingIndicator;
 
 // Client-side typing system tracks user input in chat box
-public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
+public sealed partial class TypingIndicatorSystem : SharedTypingIndicatorSystem // DeltaV - Made partial
 {
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -34,6 +34,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         base.Initialize();
 
         Subs.CVar(_cfg, CCVars.ChatShowTypingIndicator, OnShowTypingChanged);
+        InitializeAlternateTyping(); // DeltaV
     }
 
     public void ClientChangedChatText()
