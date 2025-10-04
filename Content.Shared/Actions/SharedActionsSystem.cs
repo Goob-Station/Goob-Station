@@ -136,6 +136,7 @@ namespace Content.Shared.Actions;
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Popups;
+using Content.Goobstation.Common.Actions;
 
 public abstract class SharedActionsSystem : EntitySystem
 {
@@ -802,6 +803,11 @@ public abstract class SharedActionsSystem : EntitySystem
         performer.Comp.Actions.Add(ent);
         Dirty(performer, performer.Comp);
         ActionAdded((performer, performer.Comp), (ent, ent.Comp));
+
+        // Goobstation start
+        var ev = new ActionAddedDirectEvent(ent);
+        RaiseLocalEvent(performer.Owner, ref ev);
+        // Goobstation end
         return true;
     }
 

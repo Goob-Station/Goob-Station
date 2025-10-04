@@ -38,18 +38,21 @@ public sealed partial class InventoryComponent : Component
     public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
 
     [DataField]
+    [AutoNetworkedField]    // Goobstation edit - better inventory cloning
     public Dictionary<string, DisplacementData> Displacements = new();
 
     /// <summary>
     /// Alternate displacement maps, which if available, will be selected for the player of the appropriate gender.
     /// </summary>
     [DataField]
+    [AutoNetworkedField]    // Goobstation edit - better inventory cloning
     public Dictionary<string, DisplacementData> FemaleDisplacements = new();
 
     /// <summary>
     /// Alternate displacement maps, which if available, will be selected for the player of the appropriate gender.
     /// </summary>
     [DataField]
+    [AutoNetworkedField]    // Goobstation edit - better inventory cloning
     public Dictionary<string, DisplacementData> MaleDisplacements = new();
 }
 

@@ -1,0 +1,136 @@
+- type: entity
+  name: basic
+  id: BaseHallucination
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementAlwaysTouching
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 0
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: Speech
+    speechVerb: LargeMob
+  - type: StandingState
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: LagCompensation
+  - type: MobMover
+  - type: Actions
+  - type: Alerts
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: CameraRecoil
+  - type: MindContainer
+  - type: AnimatedEmotes
+  - type: LanguageSpeaker
+    currentLanguage: TauCetiBasic
+    understoodLanguages: [TauCetiBasic]
+    spokenLanguages: [TauCetiBasic]
+  - type: SpecialAnimationViewer
+  - type: Penetratable
+    penetrateDamage: 0
+    damagePenalty: 00
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.5
+  - type: NoSlip
+
+- type: entity
+  name: basic
+  id: BaseHallucinationHumanoid
+  parent: BaseHallucination
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ]
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.Wings" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: Inventory
+  - type: InventorySlots
+  - type: Vocal
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: HumanoidAppearance
+    species: Human
+  - type: HallucinationRemoveInventoryComponents
+    components:
+    - type: Actions
+    - type: ItemActionGrant
+      actions: []
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0
+    - type: Gun
+    - type: Pda
+    - type: ActionsProvider
+    - type: UnpoweredFlashlight
+    - type: Ringer
+    - type: RingerUplink
