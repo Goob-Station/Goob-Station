@@ -91,6 +91,7 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared.Random;
+using Content.Shared.DisplacementMap;
 
 namespace Content.Shared.Inventory;
 
@@ -306,6 +307,23 @@ public partial class InventorySystem : EntitySystem
         Dirty(ent);
     }
 
+    // Goobstation edit start
+
+    /// <summary>
+    /// Sets the displacement maps for an inventory component.
+    /// </summary>
+    public void SetDisplacements(Entity<InventoryComponent> ent,
+                                Dictionary<string, DisplacementData> displacements,
+                                Dictionary<string, DisplacementData> femaleDisplacements,
+                                Dictionary<string, DisplacementData> maleDisplacements)
+    {
+        ent.Comp.Displacements = displacements;
+        ent.Comp.FemaleDisplacements = femaleDisplacements;
+        ent.Comp.MaleDisplacements = maleDisplacements;
+        Dirty(ent);
+    }
+    // Goobstation edit end
+
     /// <summary>
     /// Enumerator for iterating over an inventory's slot containers. Also has methods that skip empty containers.
     /// It should be safe to add or remove items while enumerating.
@@ -318,12 +336,12 @@ public partial class InventorySystem : EntitySystem
         private int _nextIdx = 0;
         public static InventorySlotEnumerator Empty = new(Array.Empty<SlotDefinition>(), Array.Empty<ContainerSlot>());
 
-        public InventorySlotEnumerator(InventoryComponent inventory,  SlotFlags flags = SlotFlags.All)
+        public InventorySlotEnumerator(InventoryComponent inventory, SlotFlags flags = SlotFlags.All)
             : this(inventory.Slots, inventory.Containers, flags)
         {
         }
 
-        public InventorySlotEnumerator(SlotDefinition[] slots, ContainerSlot[] containers,  SlotFlags flags = SlotFlags.All)
+        public InventorySlotEnumerator(SlotDefinition[] slots, ContainerSlot[] containers, SlotFlags flags = SlotFlags.All)
         {
             DebugTools.Assert(flags != SlotFlags.NONE);
             DebugTools.AssertEqual(slots.Length, containers.Length);
