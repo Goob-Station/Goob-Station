@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["contact.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Recorded by Richard Blosnki"
+  source: "https://github.com/RichardBlonski"
+
+- files: ["dagger.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Recorded by Richard Blosnki"
+  source: "https://github.com/RichardBlonski"
+
+- files: ["flaredown.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Recorded by Richard Blosnki"
+  source: "https://github.com/RichardBlonski"
