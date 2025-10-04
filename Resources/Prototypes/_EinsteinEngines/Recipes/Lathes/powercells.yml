@@ -1,7 +1,8 @@
 - type: latheRecipe
   id: PowerCellMicrortg
   result: PowerCellMicrortgPrinted
-  category: Parts
+  categories:
+  - Parts
   completetime: 10
   materials:
     Steel: 400
