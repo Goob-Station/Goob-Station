@@ -495,3 +495,81 @@
   - type: Battery
     maxCharge: 800
     startingCharge: 800
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: WeaponImmolator
+  name: immolator cannon
+  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/immolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMediumImmolator
+    fireCost: 100
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: GunRequiresWield
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseGunWieldable ]
+  id: WeaponImmolatorMulti
+  name: multi lens immolator cannon
+  description: A large laser cannon, similar to the Immolator Laser, with toggleable firemodes. It is frequently used by military-like forces through Nanotrasen.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/multi_lens_immolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletHeavyImmolator
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletHeavyImmolator
+      fireCost: 100
+    - proto: BulletLightImmolatorSpread
+      fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+      - BulletHeavyImmolator
+      - BulletLightImmolatorSpread
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: GunRequiresWield
