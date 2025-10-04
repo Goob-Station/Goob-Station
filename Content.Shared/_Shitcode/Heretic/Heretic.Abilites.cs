@@ -152,7 +152,7 @@ public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
     public EntProtoId InEffect = "EffectVoidBlinkIn";
 
     [DataField]
-    public EntProtoId OutEffect = "EffectVoidBlOutkOut";
+    public EntProtoId OutEffect = "EffectVoidBlinkOut";
 }
 
 public sealed partial class HereticVoidPullEvent : InstantActionEvent

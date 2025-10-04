@@ -43,7 +43,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
     sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/Eldritch/voidblink.ogg
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
   - type: TargetAction
     checkCanAccess: false
     range: 9
@@ -63,12 +63,13 @@
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
+    predicted: false
     checkCanInteract: false
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
     sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/Eldritch/voidblink.ogg
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
   - type: InstantAction
     event: !type:HereticVoidPullEvent
   - type: HereticAction

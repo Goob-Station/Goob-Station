@@ -18,6 +18,7 @@ using System.Text;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared.Atmos.Rotting;
+using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
@@ -49,6 +50,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -65,6 +67,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     private void OnAfterInteract(Entity<HereticBladeComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Target == ent || ent.Comp.Path != "Void" || !TryComp(args.User, out HereticComponent? heretic) ||
+            !TryComp(args.User, out CombatModeComponent? combat) ||
             heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(args.Target) ||
             !TryComp(ent, out MeleeWeaponComponent? melee) ||
             melee.NextAttack + TimeSpan.FromSeconds(0.5) > _timing.CurTime)
@@ -81,7 +84,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         var dir = targetCoords - coords;
         var len = dir.Length();
-        if (len <= 0f)
+        if (len is <= 0f or >= 16f)
             return;
 
         var normalized = new Vector2(dir.X / len, dir.Y / len);
@@ -96,7 +99,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, args.User);
         _xform.SetWorldPosition(args.User, newPos);
-        _melee.AttemptLightAttack(args.User, ent.Owner, melee, args.Target.Value);
+        var combatMode = _combat.IsInCombatMode(args.User, combat);
+        _combat.SetInCombatMode(args.User, true, combat);
+        if (!_melee.AttemptLightAttack(args.User, ent.Owner, melee, args.Target.Value))
+            melee.NextAttack += TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, args.User, melee));
+        _combat.SetInCombatMode(args.User, combatMode, combat);
         _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, args.User);
         args.Handled = true;
     }

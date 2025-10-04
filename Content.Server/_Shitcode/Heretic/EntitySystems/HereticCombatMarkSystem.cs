@@ -95,7 +95,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
             case "Rust":
                 _vomit.Vomit(target);
-                _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(20), true)
+                _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(20), true);
                 break;
 
             case "Void":
