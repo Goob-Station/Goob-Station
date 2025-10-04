@@ -622,6 +622,7 @@ namespace Content.Client.Construction.UI
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
         {
             ToggleMenu();
+            _constructionView.SearchBar.GrabKeyboardFocus(); // Goobstation
         }
 
         public void ToggleMenu()
