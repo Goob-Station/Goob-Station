@@ -175,18 +175,16 @@ namespace Content.Client.RoundEnd
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true,
                 };
-                /* This causes so much lag holy fuck
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(32, 32),
+                        VerticalExpand = true,
+                    });
                 }
-                */
                 if (playerInfo.PlayerICName != null)
                 {
                     if (playerInfo.Observer)
