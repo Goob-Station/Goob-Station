@@ -34,7 +34,7 @@
     - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      clothingVisuals:
         back:
           - state: equipped-BACKPACK-sealed
 
@@ -48,7 +48,7 @@
     - type: Sprite
       sprite: _RA/Clothing/NanoTrasen/Modsuits/warden-modsuit.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      clothingVisuals:
         gloves:
           - state: equipped-HAND-sealed
           - state: equipped-HAND-sealed-unshaded
@@ -76,7 +76,7 @@
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
-      visualLayers:
+      clothingVisuals:
         head:
           - state: equipped-HEAD-sealed
           - state: equipped-HEAD-sealed-unshaded
@@ -104,7 +104,7 @@
           Radiation: 0.25
           Caustic: 0.4
     - type: SealableClothingVisuals
-      visualLayers:
+      clothingVisuals:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaResistance
@@ -128,7 +128,7 @@
       walkModifier: 0.95
       sprintModifier: 0.95
     - type: SealableClothingVisuals
-      visualLayers:
+      clothingVisuals:
         shoes:
           - state: equipped-FEET-sealed
 

@@ -29,7 +29,6 @@
       Critical: XenomorphCrit
       Dead: XenomorphDead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: facehugger

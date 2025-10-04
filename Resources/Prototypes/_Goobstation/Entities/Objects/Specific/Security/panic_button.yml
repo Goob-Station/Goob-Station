@@ -11,3 +11,6 @@
     radioChannel: "Security"
   - type: UseDelay
     delay: 45
+  - type: Tag
+    tags:
+      - SecBeltEquip
