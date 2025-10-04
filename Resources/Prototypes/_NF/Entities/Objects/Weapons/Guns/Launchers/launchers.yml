@@ -5,9 +5,9 @@
 
 - type: entity
   name: mail RPDS
-  parent: [BaseCargoContraband, WeaponLauncherChinaLake]
+  parent: [BaseCargoContraband, WeaponImprovisedPneumaticCannonAdmeme] #Goobstation: Admeme then modified so we do not need gastanks to operate it.
   id: WeaponMailLake
-  description: Rap(b?)id Parcel Delivery System
+  description: Rap(b?)id Parcel Delivery System. Last-In-First-Out Logic.
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Launchers/mail.rsi
@@ -16,14 +16,24 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Launchers/mail.rsi
-    quickEquip: false
     slots:
     - Back
     - Belt
     - suitStorage
-  - type: BallisticAmmoProvider
-    proto: null
+  - type: PneumaticCannon #Goob Edit Start
+    toolModifyPower: ""
+    throwItems: true
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
     whitelist:
       tags:
         - MailCapsule
-    capacity: 4
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto #Goob Edit End

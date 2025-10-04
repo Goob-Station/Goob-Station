@@ -37,7 +37,7 @@
           components:
           - Mail
           - Paper
-          - HyperlinkBook
+          #- HyperlinkBook # Goobstation
         insertOnInteract: true
         priority: 3
       food_slot:
@@ -98,7 +98,7 @@
           components:
           - Mail
           - Paper
-          - HyperlinkBook
+          #- HyperlinkBook # Goobstation
     sprite: _NF/Objects/Misc/mail_capsule.rsi
   - type: Dumpable
   - type: Damageable
@@ -124,7 +124,7 @@
   - type: DamageOnLand
     damage:
       types:
-        Blunt: 9.5
+        Blunt: 4.5 # Goobstation
 
 - type: entity
   name: mail capsule box
