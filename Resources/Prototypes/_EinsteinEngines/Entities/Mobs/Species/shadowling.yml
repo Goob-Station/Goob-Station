@@ -35,8 +35,7 @@
     animation: WeaponArcShadowClaw
     damage:
       types:
-        Slash: 4
-        Piercing: 1
+        Heat: 10
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -50,6 +49,8 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
+  - type: PressureImmunity
+  - type: Insulated
   - type: NightVision
     color: "#BF40BF"
     activateSound: null
