@@ -436,6 +436,7 @@
     - GrenadeTriggersStatic
     - TapeRecorderStatic
     - MiscSignallersStatic
+    - PhotoCameraStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityWeaponsStatic
