@@ -491,6 +491,16 @@
   categories:
     -  UplinkWeaponry
 
+- type: listing
+  id: UplinkWeaponTigersClawSword
+  name: uplink-tigers-claw-name
+  description: uplink-tigers-claw-desc
+  productEntity: TigersClawSword
+  cost:
+    Telecrystal: 60
+  categories:
+    -  UplinkWeaponry
+
 # Wearables
 
 - type: listing
