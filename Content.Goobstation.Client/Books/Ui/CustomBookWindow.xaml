@@ -1,0 +1,28 @@
+<paper:CustomBookWindow xmlns="https://spacestation14.io"
+    xmlns:paper="clr-namespace:Content.Goobstation.Client.Books.Ui"
+    MouseFilter="Stop"
+    Resizable="False"
+    SetSize="510 660">
+    <BoxContainer Name="ContentsRoot" Orientation="Vertical">
+        <PanelContainer StyleClasses="AngleRect" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="6">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"/>
+        </PanelContainer>
+        <PanelContainer Name="LeftPaperBackground" StyleClasses="PaperDefaultBorder" VerticalExpand="True" HorizontalExpand="True">
+            <ScrollContainer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" Margin="6 12">
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" MaxWidth="600">
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Stretch">
+                        <Control VerticalAlignment="Top"/>
+                        <RichTextLabel StyleClasses="PaperWrittenText" Name="MainLabel" VerticalAlignment="Top" />
+                    </BoxContainer>
+                </PanelContainer>
+            </ScrollContainer>
+            <RichTextLabel StyleClasses="PaperWrittenText" Name="PageLabel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="6"/>
+        </PanelContainer>
+        <!-- Bottom buttons for editing -->
+        <BoxContainer Name="EditButtons" Orientation="Horizontal" HorizontalExpand="True" SetHeight="35" Margin="6">
+            <Button Name="PrevButton" Text="Previus" HorizontalExpand="True" HorizontalAlignment="Left" SizeFlagsStretchRatio="1"/>
+            <Control Name="TextAlignmentPadding" HorizontalExpand="True" SizeFlagsStretchRatio="2"/>
+            <Button Name="NextButton" Text="Next" HorizontalExpand="True" HorizontalAlignment="Right" SizeFlagsStretchRatio="1"/>
+        </BoxContainer>
+    </BoxContainer>
+</paper:CustomBookWindow>
