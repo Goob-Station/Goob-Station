@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/drone.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: xenomorph
@@ -19,13 +19,14 @@
       visible: false
   - type: Xenomorph
     caste: Drone
-  #- type: ActionGrant # Goobstation - moved to orgnas
-  #  actions:
-  #  - ActionTransferPlasma
-  #  - ActionSpawnWallResin
-  #  - ActionSpawnResinMembrane # no membrane its for chuds
-  #  - ActionSpawnResinNest
-  #  - ActionSpawnResinWeedNode
+  - type: ActionGrant
+    actions:
+    - ActionTransferPlasma
+    - ActionSpawnWallResin
+    - ActionSpawnResinMembrane # Goobstation - removed
+    - ActionSpawnResinDoor # Goobstation - xeno doors
+    - ActionSpawnResinNest
+    - ActionSpawnResinWeedNode
   - type: VentCrawler
   - type: Cuffable
   - type: Body

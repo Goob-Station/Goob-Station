@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/praetorian.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: xenomorph
-      offset: 0, 0.6
+      offset: 0, 0
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
   - type: Xenomorph
@@ -37,7 +37,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.4
+          radius: 0.7
         density: 1000
         mask:
         - MobMask

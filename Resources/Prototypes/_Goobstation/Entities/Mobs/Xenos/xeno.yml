@@ -41,7 +41,7 @@
   - type: ComplexInteraction
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/drone.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/drone2.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: drone
@@ -169,7 +169,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/burrower.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/burrower.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: burrower
@@ -202,7 +202,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/warrior.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/warrior.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: warrior
@@ -243,7 +243,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/crusher.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/crusher.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crusher
@@ -284,7 +284,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/ravager.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/ravager.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ravager
@@ -324,7 +324,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/king.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/hivelord2.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: king
@@ -381,7 +381,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/queen.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/queen2.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: queen
@@ -457,7 +457,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Xenos/king.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/hivelord2.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: rogue

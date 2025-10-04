@@ -10,6 +10,7 @@
   - type: AddComponentsImplant
     componentsToAdd:
       - type: BibleUser
+      - type: CanEnchant
 
 - type: entity
   parent: BaseSubdermalImplant
