@@ -95,7 +95,7 @@
     prototype: MobLesserSlaughterDemon
   - type: StationEvent
     weight: 1
-    earliestStart: 45
+    earliestStart: 30
     minimumPlayers: 50
     duration: null
     maxOccurrences: 1
