@@ -106,6 +106,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
+using Content.Goobstation.Common.Medical;
 
 namespace Content.Shared.Body.Systems;
 
@@ -307,6 +308,10 @@ public partial class SharedBodySystem
                     RecursiveBodyUpdate((containedUid, childPart), bodyUid);
             }
         }
+
+        // Goobstation
+        if (bodyUid != null)
+            RaiseLocalEvent(bodyUid.Value, new RecursiveBodyUpdateEvent());
     }
 
     protected virtual void AddPart(
