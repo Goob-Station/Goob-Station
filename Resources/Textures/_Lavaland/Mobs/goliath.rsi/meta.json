@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/mob/simple/lavaland/lavaland_monsters_wide.dmi",
+  "size": {
+    "x": 54,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "goliath",
+        "directions": 4
+    },
+    {
+        "name": "goliath_preattack",
+        "directions": 4
+    },
+    {
+        "name": "goliath_dead"
+    },
+    {
+        "name": "goliath_layer",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient_preattack",
+        "directions": 4
+    },
+    {
+        "name": "goliath_ancient_dead"
+    },
+    {
+        "name": "goliath_ancient_layer",
+        "directions": 4
+    }
+  ]
+}
