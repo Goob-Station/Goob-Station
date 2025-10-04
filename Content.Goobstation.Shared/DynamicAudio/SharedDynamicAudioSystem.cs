@@ -25,11 +25,11 @@ public sealed class SharedDynamicAudioSystem : EntitySystem
     private Dictionary<int, string> _areaPresets = new Dictionary<int, string> // sort it or will be broken
     {
         { 10, "Underwater" },
-        { 30, "Bathroom" },
-        { 70, "SpaceStationSmallRoom" },
-        { 120, "SpaceStationMediumRoom" },
-        { 150, "SpaceStationLargeRoom" },
-        { 200, "SpaceStationHall" }
+        { 20, "Bathroom" },
+        { 35, "SpaceStationSmallRoom" },
+        { 60, "SpaceStationMediumRoom" },
+        { 75, "SpaceStationLargeRoom" },
+        { 100, "SpaceStationHall" }
     };
 
     private string _defaultPreset = "LivingRoom";
