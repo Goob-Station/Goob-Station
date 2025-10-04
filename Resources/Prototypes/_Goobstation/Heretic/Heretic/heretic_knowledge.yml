@@ -443,6 +443,13 @@
   ritualPrototypes:
   - VoidCloak
 
+- type: hereticKnowledge
+  id: ScorchingShark
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ScorchingShark
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual

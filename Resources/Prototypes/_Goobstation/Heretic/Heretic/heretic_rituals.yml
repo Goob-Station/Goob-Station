@@ -382,6 +382,20 @@
   output:
     ClothingOuterArmorCloakVoid: 1
 
+- type: hereticRitual
+  id: ScorchingShark
+  locName: knowledge-path-side-s3-shark-name
+  locDesc: knowledge-path-side-s3-shark-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: fire_shark_icon
+  requiredTags:
+    Ash: 1
+    Liver: 1
+    SheetPlasma: 1
+  output:
+    MobGhoulFireShark: 1
+
 ## stage 6
 
 - type: hereticRitual
