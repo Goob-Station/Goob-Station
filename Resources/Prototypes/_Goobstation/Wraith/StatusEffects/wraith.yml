@@ -1,4 +1,4 @@
-# Revenant Touch of Evil
+# Revenant - Touch of Evil
 # Results -> Increased damage buff + Punches throw people across X amount of distance
 
 - type: entity
@@ -7,3 +7,12 @@
   name: touch of evil
   components:
   - type: ActiveTouchOfEvil
+
+# Skeleton Commander - Rally
+# Results -> Buffs attack damage and attack speed
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectRally
+  name: rally
+  components:
+  - type: Rallied

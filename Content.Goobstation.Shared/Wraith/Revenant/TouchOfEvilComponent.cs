@@ -18,7 +18,7 @@ public sealed partial class TouchOfEvilComponent : Component
     /// <summary>
     ///  The original damage the entity had
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public DamageSpecifier? OriginalDamage;
 
     /// <summary>

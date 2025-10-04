@@ -640,6 +640,9 @@
   - type: ZombieImmune
   - type: GhostTakeoverAvailable
   - type: Rally
+    whitelist:
+      components:
+      - WraithMinion
   - type: ActionGrant
     actions:
     - ActionRally

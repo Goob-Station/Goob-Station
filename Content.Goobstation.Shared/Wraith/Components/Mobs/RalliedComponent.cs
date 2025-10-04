@@ -1,22 +1,12 @@
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.Components.Mobs;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class RalliedComponent : Component
 {
-    /// <summary>
-    /// How long the buff lasts before self-deleting.
-    /// </summary>
-    [DataField]
-    public TimeSpan RalliedDuration = TimeSpan.FromSeconds(25);
-
-    /// <summary>
-    /// Next tick used for deleting he component.
-    /// </summary>
-    [DataField]
-    public TimeSpan NextTick = TimeSpan.Zero;
-
     /// <summary>
     /// Damage multiplier to rallied mob.
     /// </summary>
@@ -28,4 +18,10 @@ public sealed partial class RalliedComponent : Component
     /// </summary>
     [DataField]
     public float RalliedAttackSpeed = 1.5f;
+
+    [DataField, AutoNetworkedField]
+    public DamageSpecifier? OriginalDamage;
+
+    [DataField, AutoNetworkedField]
+    public float OriginalSpeed;
 }

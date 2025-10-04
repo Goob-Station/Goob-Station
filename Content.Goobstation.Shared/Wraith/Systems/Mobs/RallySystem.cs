@@ -1,60 +1,70 @@
-using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Goobstation.Shared.Wraith.WraithPoints;
-using Content.Shared.Flash.Components;
-using Content.Shared.Humanoid;
-using Content.Shared.Interaction;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Revenant.Components;
-using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using System.Linq;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
-public sealed partial class RallySystem : EntitySystem
+public sealed class RallySystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RallyComponent, RallyEvent>(OnRally);
+
+        SubscribeLocalEvent<RalliedComponent, StatusEffectAppliedEvent>(OnEffectApplied);
+        SubscribeLocalEvent<RalliedComponent, StatusEffectRemovedEvent>(OnEffectRemoved);
     }
 
     private void OnRally(Entity<RallyComponent> ent, ref RallyEvent args)
     {
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-
-        if (args.Handled)
-            return;
-
         // Get all entities in range of the rally
-        var nearbyEntities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.RallyRange);
+        var nearbyEntities = _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.RallyRange);
 
-        // Filter to only WraithMinions
-        nearbyEntities.RemoveWhere(e => !HasComp<WraithMinionComponent>(e));
-
-        foreach (var minionUid in nearbyEntities)
+        foreach (var affected in nearbyEntities)
         {
-            var rallied = EnsureComp<RalliedComponent>(minionUid);
+            if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, affected))
+                continue;
 
-            // Sets the expiration timer
-            rallied.NextTick = _timing.CurTime + rallied.RalliedDuration;
+            _status.TryAddStatusEffect(affected, ent.Comp.StatusEffectRally, out _, ent.Comp.Duration);
 
-            _popup.PopupPredicted(Loc.GetString("You wave the flag, rallying the troops!"), uid, uid);
-            _popup.PopupPredicted(Loc.GetString("You feel inspired!"), minionUid, uid);
+            _popup.PopupClient(Loc.GetString("You wave the flag, rallying the troops!"), ent.Owner, ent.Owner); // TODO: ADD LOCSTRING
+            _popup.PopupClient(Loc.GetString("You feel inspired!"), affected, affected); // TODO: ADD LOCSTRING
         }
+
         args.Handled = true;
     }
 
+    private void OnEffectApplied(Entity<RalliedComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        if (!TryComp<MeleeWeaponComponent>(args.Target, out var melee))
+            return;
+
+        // save original damage
+        ent.Comp.OriginalDamage = melee.Damage;
+        ent.Comp.OriginalSpeed = melee.AttackRate;
+        Dirty(ent);
+
+        // apply buffs
+        melee.Damage *= ent.Comp.RalliedStrength;
+        melee.AttackRate *= ent.Comp.RalliedAttackSpeed;
+        Dirty(args.Target, melee);
+    }
+
+    private void OnEffectRemoved(Entity<RalliedComponent> ent, ref StatusEffectRemovedEvent args)
+    {
+        if (!TryComp<MeleeWeaponComponent>(args.Target, out var melee)
+            || ent.Comp.OriginalDamage == null)
+            return;
+
+        melee.Damage = ent.Comp.OriginalDamage;
+        melee.AttackRate = ent.Comp.OriginalSpeed;
+        Dirty(args.Target, melee);
+    }
 }
