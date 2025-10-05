@@ -11,3 +11,92 @@
   categories: [ DoNotMap ]
   description: Dont ask where does it come from.
   parent: ClothingHeadBase
+
+# marlen
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: Marlen
+  name: marlen
+  description: A stylish intricate souvenir made from tough hyper-woven durathread by "NanoFashion". Looks expensive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon
+  - type: DisarmMalus
+    malus: 0.5
+  - type: UseDelay
+    delay: 5
+  - type: Item
+    heldPrefix: off
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    shape:
+    - 0,0,2,0
+    storedRotation: 45
+  - type: Sharp
+  - type: MeleeWeapon
+    animationRotation: 225
+    wideAnimationRotation: -135
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 18
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ItemSwitch
+    state: off
+    states:
+      off: !type:ItemSwitchState
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          state: icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          shape:
+          - 0,0,2,0
+          storedRotation: 45
+        - type: Sharp
+        - type: MeleeWeapon
+          animationRotation: 225
+          wideAnimationRotation: -135
+          attackRate: 0.8
+          damage:
+            types:
+              Slash: 18
+          soundHit:
+            path: /Audio/Weapons/bladeslice.ogg
+        soundStateActivate:
+          path: /Audio/_Goobstation/Misc/umbrella.ogg
+      on: !type:ItemSwitchState
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          state: icon-on
+        components:
+        - type: HeldSpeedModifier
+          walkModifier: 0.5
+          sprintModifier: 0.5
+        - type: MeleeWeapon
+          mustBeEquippedToUse: true # This thing shouldn't be able to attack at all but setting attackRate to 0 breaks stuff
+          damage:
+            types:
+              Blunt: 30
+          soundHit:
+            collection: TrayHit
+        - type: MeleeThrowOnHit
+          throwWhileOnDelay: true
+          distance: 3
+        - type: KnockdownOnHit
+        - type: MultiHandedItem
+        - type: StaminaDamageOnHit
+          damage: 75
+        - type: Item
+          size: Ginormous
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          heldPrefix: on
+          storedRotation: -45
+        - type: CounterattackWeapon
+          setItemSwitch: off
+        soundStateActivate:
+          path: /Audio/_Goobstation/Misc/umbrella.ogg
+

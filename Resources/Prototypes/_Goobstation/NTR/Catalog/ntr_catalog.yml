@@ -308,6 +308,22 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 #30mins, you shouldnt spam this
 
+- type: listing
+  id: NTRExecutiveMarlen
+  name: Marlen
+  description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
+  productEntity: SpawnPodMarlen
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon-on
+  cost:
+    NTLoyaltyPoint: 8
+  categories:
+  - NTRpersonal
+  restockTime: 400
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30min
+
 # Machine boards
 
 - type: listing
