@@ -1,17 +1,15 @@
-using Content.Client._CorvaxGoob.DynamicAudio;
-using Content.Shared._CorvaxGoob;
-using Content.Shared._CorvaxGoob.CCCVars;
-using Content.Shared._CorvaxGoob.DynamicAudio;
-using Content.Shared._CorvaxGoob.TTS;
 using Content.Shared.Chat;
+using Content.Shared._CorvaxGoob.CCCVars;
+using Content.Shared._CorvaxGoob.TTS;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._CorvaxGoob;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._CorvaxGoob.TTS;
 
@@ -25,7 +23,6 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedDynamicAudioSystem _dynamicAudio = default!;
 
     private ISawmill _sawmill = default!;
     private static MemoryContentRoot _contentRoot = new();
@@ -95,10 +92,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (ev.SourceUid != null)
         {
             var sourceUid = GetEntity(ev.SourceUid.Value);
-            var audio = _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
-
-            if (audio.HasValue)
-                _dynamicAudio.ApplyAudioEffect(audio.Value, sourceUid); // applies environment effects to audio
+            _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
         }
         else
         {

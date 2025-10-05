@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Content.Server._CorvaxGoob.DynamicSound;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Chat.Systems;
 using Content.Server.Communications;
@@ -27,7 +26,6 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _rng = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly LanguageSystem _lang = default!;
-    [Dependency] private readonly DynamicAudioSystem _dynamicSound = default!;
 
     private readonly List<string> _sampleText =
         new()
@@ -118,9 +116,6 @@ public sealed partial class TTSSystem : EntitySystem
     {
         var originalSoundData = await GenerateTTS(message, speaker);
         var obfuscatedSoundData = await GenerateTTS(obfMessage, speaker);
-
-        if (TryComp<TTSComponent>(uid, out var tts))
-            _dynamicSound.DoDynamicTTSChecks((uid, tts)); // checks sound environment and applies effects if it's required
 
         foreach (var pvsSession in Filter.Pvs(uid).Recipients)
         {

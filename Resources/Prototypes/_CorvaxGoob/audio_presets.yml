@@ -23,29 +23,3 @@
   lfReference: 458.2000
   roomRolloffFactor: 0.0000
   decayHfLimit: 1
-
-- type: audioPreset
-  id: InSpace
-  density: 0.3645
-  diffusion: 1.0000
-  gain: 0.3162
-  gainHf: 1.00000
-  gainLf: 1.0000
-  decayTime: 2.0000
-  decayHfRatio: 0.1000
-  decayLfRatio: 1.0000
-  reflectionsGain: 0.1000
-  reflectionsDelay: 0.0070
-  reflectionsPan: 0,0,0
-  lateReverbGain: 9.0795
-  lateReverbDelay: 0.0110
-  lateReverbPan: 0,0,0
-  echoTime: 0.2500
-  echoDepth: 0.0000
-  modulationTime: 1.1800
-  modulationDepth: 0.9480
-  airAbsorptionGainHf: 0.9900
-  hfReference: 500.0000
-  lfReference: 250.0000
-  roomRolloffFactor: 0.0000
-  decayHfLimit: 0
