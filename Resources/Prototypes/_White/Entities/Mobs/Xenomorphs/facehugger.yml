@@ -71,9 +71,10 @@
     initialInjectionDelay: 5 # Delay in seconds before the first injection occurs
     attachAttemptDelay: 5 # Delay in seconds between attach attempts when blocked by a mask
     maskBlockDamage:
-      types:
+      damage:
         Slash: 5 # Damage dealt when blocked by a breathable mask
-    MaskBlockSound: MetalThud # Sound collection for when the facehugger hits the mask - Goobstation end
+    maskBlockSound:
+      collection: MetalThud # Sound collection for when the facehugger hits the mask - Goobstation end
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0.0

@@ -207,26 +207,26 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-# Acid action
-- type: entity
-  id: ActionAcid
-  parent: BaseAction
-  name: Corrosive acid (200)
-  description: Drench an object in acid, destroying it over time.
-  components:
-  - type: Action
-    useDelay: 11
-    itemIconStyle: BigAction # Goobstation
-    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
-  - type: TargetAction
-    interactOnMiss: false
-    range: 2
-    targetingIndicator: true # Goobstation
-    checkCanAccess: true # Goobstation
-  - type: EntityTargetAction
-    event: !type:AcidActionEvent
-  - type: PlasmaCostAction
-    plasmaCost: 200
+# Acid action - Goob Commented out until future fix
+#- type: entity
+#  id: ActionAcid
+#  parent: BaseAction
+#  name: Corrosive acid (200)
+#  description: Drench an object in acid, destroying it over time.
+#  components:
+#  - type: Action
+#    useDelay: 11
+#    itemIconStyle: BigAction # Goobstation
+#    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
+#  - type: TargetAction
+#    interactOnMiss: false
+#    range: 2
+#    targetingIndicator: true # Goobstation
+#    checkCanAccess: true # Goobstation
+#  - type: EntityTargetAction
+#    event: !type:AcidActionEvent
+#  - type: PlasmaCostAction
+#    plasmaCost: 200
 
 # Jump action
 - type: entity
@@ -274,10 +274,7 @@
     useDelay: 5 # Goobstation
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
   - type: TargetAction # Goobstation start
-    canTargetSelf: false
     checkCanAccess: true
-    checkCanInteract: true
-    ignoreClickAttached: true
     range: 2
   - type: EntityTargetAction
     canTargetSelf: false
