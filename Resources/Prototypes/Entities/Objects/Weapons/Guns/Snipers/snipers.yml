@@ -167,7 +167,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         startingItem: MagazineAntiMateriel
         insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
@@ -177,7 +177,7 @@
           - MagazineAntiMateriel
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
-        name: Chamber
+        # name: Chamber # CorvaxGoob-Loc-in-UI
         startingItem: CartridgeAntiMateriel
         priority: 1
         whitelist:

@@ -99,7 +99,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         startingItem: MagazinePistolSubMachineGun
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
@@ -109,7 +109,7 @@
             - MagazinePistolSubMachineGun
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
-        name: Chamber
+        # name: Chamber # CorvaxGoob-Loc-in-UI
         startingItem: CartridgePistol
         priority: 1
         whitelist:
@@ -247,7 +247,7 @@
     - type: ItemSlots
       slots:
         gun_magazine:
-          name: Magazine
+          # name: Magazine # CorvaxGoob-Loc-in-UI
           startingItem: MagazinePistolSubMachineGun
           insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
@@ -257,7 +257,7 @@
               - MagazinePistolSubMachineGun
           whitelistFailPopup: gun-magazine-whitelist-fail
         gun_chamber:
-          name: Chamber
+          # name: Chamber # CorvaxGoob-Loc-in-UI
           startingItem: CartridgePistol
           priority: 1
           whitelist:
@@ -313,7 +313,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         startingItem: MagazinePistolSubMachineGunTopMounted
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
@@ -323,7 +323,7 @@
             - MagazinePistolSubMachineGunTopMounted
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
-        name: Chamber
+        # name: Chamber # CorvaxGoob-Loc-in-UI
         startingItem: CartridgePistol
         priority: 1
         whitelist:

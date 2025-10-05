@@ -28,7 +28,7 @@
   - type: ItemSlots
     slots:
       gun_chamber:
-        name: Chamber
+        # name: Chamber # CorvaxGoob-Loc-in-UI
         priority: 1
         whitelist:
           tags:

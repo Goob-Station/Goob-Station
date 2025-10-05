@@ -51,7 +51,7 @@
   - type: ItemSlots
     slots:
       item:
-        name: Cartridge
+        # name: Cartridge # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - AutoinjectorCartridge
@@ -117,7 +117,7 @@
   - type: ItemSlots
     slots:
       item:
-        name: Cartridge
+        # name: Cartridge # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - AutoinjectorCartridge

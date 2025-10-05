@@ -46,7 +46,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         startingItem: MagazineShotgun
         priority: 2
         whitelist:
@@ -56,7 +56,7 @@
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
       gun_chamber:
-        name: Chamber
+        # name: Chamber # CorvaxGoob-Loc-in-UI
         startingItem: ShellShotgun
         priority: 1
         whitelist:
@@ -150,7 +150,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         startingItem: MagazineShotgunHeavy
         priority: 2
         whitelist:

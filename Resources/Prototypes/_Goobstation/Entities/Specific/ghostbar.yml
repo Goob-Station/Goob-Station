@@ -54,7 +54,7 @@
   - type: ItemSlots
     slots:
       miner_slot:
-        name: Plastic
+        # name: Plastic # CorvaxGoob-Loc-in-UI
         insertSound:
           path: /Audio/Effects/falling.ogg
         ejectSound:

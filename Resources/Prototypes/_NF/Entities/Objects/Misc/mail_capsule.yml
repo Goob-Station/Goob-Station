@@ -27,7 +27,7 @@
       mail_slot:
         insertVerbText: Put in Mail
         ejectVerbText: Take out Mail
-        name: Mail
+        # name: Mail # CorvaxGoob-Loc-in-UI
         startingItem: null
         whitelist:
           tags:

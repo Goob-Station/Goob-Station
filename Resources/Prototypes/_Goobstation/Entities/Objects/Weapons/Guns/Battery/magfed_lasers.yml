@@ -27,7 +27,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - MilitaryPowerCellSMG
@@ -86,7 +86,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - MilitaryPowerCellSniper
@@ -153,7 +153,7 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - MilitaryPowerCellRevolver

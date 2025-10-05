@@ -157,12 +157,12 @@
   - type: ItemSlots
     slots:
       item:
-        name: casul
+        # name: casul # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - WeaponPistolCasul
       item2:
-        name: jackal
+        # name: jackal # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - WeaponPistolJackal

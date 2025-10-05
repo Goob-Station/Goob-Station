@@ -356,7 +356,7 @@
   - type: ItemSlots
     slots:
       disk_slot:
-        name: Disk
+        # name: Disk # CorvaxGoob-Loc-in-UI
         insertSound:
           path: /Audio/Machines/terminal_insert_disc.ogg
         ejectSound:

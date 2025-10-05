@@ -141,7 +141,7 @@
   - type: ItemSlots
     slots:
       nozzle_slot:
-        name: FirefighterNozzle
+        # name: FirefighterNozzle # CorvaxGoob-Loc-in-UI
         startingItem: FirefighterNozzle
         whitelist:
           tags:

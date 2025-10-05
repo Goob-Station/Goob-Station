@@ -133,12 +133,12 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Magazine
+        # name: Magazine # CorvaxGoob-Loc-in-UI
         whitelist:
           tags:
           - MilitaryPowerCellLMG
       item:
-        name: LMG
+        # name: LMG # CorvaxGoob-Loc-in-UI
         priority: 2
         startingItem: WeaponLaserLMG
         whitelist:

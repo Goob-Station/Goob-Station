@@ -97,7 +97,7 @@
   - type: ItemSlots
     slots:
       item:
-        name: CaneBlade
+        # name: CaneBlade # CorvaxGoob-Loc-in-UI
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
         whitelist:
