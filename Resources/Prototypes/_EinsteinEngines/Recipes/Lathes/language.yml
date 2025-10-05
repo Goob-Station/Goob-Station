@@ -173,89 +173,89 @@
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: BasicGalaticCommonTranslatorImplanter
-  subname: basic common translator implant
+  subname: lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname
   result: BasicGalaticCommonTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: AdvancedGalaticCommonTranslatorImplanter
-  subname: advanced common translator implant
+  subname: lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname
   result: AdvancedGalaticCommonTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: BubblishTranslatorImplanter
-  subname: bubblish translator implant
+  subname: lathe-recipe-BubblishTranslatorImplanter-subname
   result: BubblishTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: NekomimeticTranslatorImplanter
-  subname: nekomimetic translator implant
+  subname: lathe-recipe-NekomimeticTranslatorImplanter-subname
   result: NekomimeticTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: DraconicTranslatorImplanter
-  subname: draconic translator implant
+  subname: lathe-recipe-DraconicTranslatorImplanter-subname
   result: DraconicTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: CanilunztTranslatorImplanter
-  subname: canilunzt translator implant
+  subname: lathe-recipe-CanilunztTranslatorImplanter-subname
   result: CanilunztTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SolCommonTranslatorImplanter
-  subname: sol-common translator implant
+  subname: lathe-recipe-SolCommonTranslatorImplanter-subname
   result: SolCommonTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: RootSpeakTranslatorImplanter
-  subname: root-speak translator implant
+  subname: lathe-recipe-RootSpeakTranslatorImplanter-subname
   result: RootSpeakTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: MofficTranslatorImplanter
-  subname: moffic translator implant
+  subname: lathe-recipe-MofficTranslatorImplanter-subname
   result: MofficTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: ValyrianStandardTranslatorImplanter
-  subname: valyrian standard translator implant
+  subname: lathe-recipe-ValyrianStandardTranslatorImplanter-subname
   result: ValyrianStandardTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: ChittinTranslatorImplanter
-  subname: chittin translator implant
+  subname: lathe-recipe-ChittinTranslatorImplanter-subname
   result: ChittinTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SiikMaasTranslatorImplanter
-  subname: siik'maas translator implant
+  subname: lathe-recipe-SiikMaasTranslatorImplanter-subname
   result: SiikMaasTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: MarishTranslatorImplanter
-  subname: marish translator implant
+  subname: lathe-recipe-MarishTranslatorImplanter-subname
   result: MarishTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SchechiTranslatorImplanter
-  subname: schechi translator implant
+  subname: lathe-recipe-SchechiTranslatorImplanter-subname
   result: SchechiTranslatorImplanter
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: NewKinPidginTranslatorImplanter
-  subname: ka'rakk translator implant
+  subname: lathe-recipe-NewKinPidginTranslatorImplanter-subname
   result: NewKinPidginTranslatorImplanter

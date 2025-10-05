@@ -1,5 +1,5 @@
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: ChevalTranslatorImplanter
-  subname: cheval translator implant
+  subname: lathe-recipe-ChevalTranslatorImplanter-subname
   result: ChevalTranslatorImplanter
