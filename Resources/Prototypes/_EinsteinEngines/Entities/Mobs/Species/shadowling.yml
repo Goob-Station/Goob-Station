@@ -68,6 +68,9 @@
   - type: ShadowlingShadowWalk
   - type: ShadowlingVeil
   - type: Shadowling
+  - type: LightDetection
+    onLightLevel: 0.25
+  - type: LightDetectionDamage
 
 - type: entity
   parent: BaseSpeciesDummy

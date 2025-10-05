@@ -72,6 +72,8 @@
     icon:
       sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
       state: veil
+    checkCanInteract: false
+    checkConsciousness: false
   - type: InstantAction
     event: !type:VeilEvent { }
 
