@@ -81,8 +81,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             if (hereticComp.CurrentPath == "Cosmos")
             {
                 var cosmosMark = EnsureComp<HereticCosmicMarkComponent>(target);
-                cosmosMark.CosmicDiamondUid = Spawn(cosmosMark.CosmicDiamond,
-                    Transform(target).Coordinates.SnapToGrid(EntityManager, _mapMan));
+                cosmosMark.CosmicDiamondUid = Spawn(cosmosMark.CosmicDiamond, Transform(target).Coordinates);
                 _transform.AttachToGridOrMap(cosmosMark.CosmicDiamondUid.Value);
             }
         }

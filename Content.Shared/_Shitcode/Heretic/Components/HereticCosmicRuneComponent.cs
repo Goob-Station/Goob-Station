@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class HereticCosmicRuneComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -18,4 +18,10 @@ public sealed partial class HereticCosmicRuneComponent : Component
 
     [DataField]
     public EntProtoId Effect = "HereticRuneCosmosLight";
+
+    [DataField, AutoPausedField, AutoNetworkedField]
+    public TimeSpan NextUse = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(1);
 }

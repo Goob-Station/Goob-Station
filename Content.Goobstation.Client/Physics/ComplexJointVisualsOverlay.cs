@@ -32,7 +32,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
 
     public ComplexJointVisualsOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing)
     {
-        ZIndex = 4;
+        ZIndex = 5;
 
         _entManager = entManager;
 

@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Goobstation.Common.Physics;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
@@ -118,13 +117,6 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (HasComp<HereticCosmicRuneComponent>(target))
-        {
-            EnsureComp<FadingTimedDespawnComponent>(target).Lifetime = 0f;
-            args.Handled = true;
-            return;
-        }
-
         if (!HasComp<MobStateComponent>(target))
             return;
 
@@ -168,7 +160,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
         InvokeSpell(ent, args.User);
     }
 
-    protected virtual void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user)
+    public virtual void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user, bool deleteSpell = true)
     {
         _audio.PlayPredicted(ent.Comp.Sound, user, user);
     }

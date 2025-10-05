@@ -6,6 +6,8 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Spawners;
@@ -21,7 +23,8 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public static readonly EntProtoId StarMarkStatusEffect = "StatusEffectStarMark";
 
@@ -78,6 +81,9 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
             _status.TrySetStatusEffectDuration(entity, StarMarkStatusEffect, ent.Comp.StarMarkDuration);
         }
+
+        if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
+            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
 
         SpawnCosmicFields(coords, 1);
     }

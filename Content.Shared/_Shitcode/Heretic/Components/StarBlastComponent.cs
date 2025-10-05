@@ -22,4 +22,7 @@ public sealed partial class StarBlastComponent : Component
 
     [DataField]
     public TimeSpan CosmicFieldPeriod = TimeSpan.FromSeconds(0.25f);
+
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(4);
 }

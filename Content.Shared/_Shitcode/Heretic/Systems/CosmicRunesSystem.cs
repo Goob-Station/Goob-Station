@@ -1,19 +1,26 @@
 using System.Linq;
+using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Bible;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
 public sealed class CosmicRunesSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
+    [Dependency] private readonly SharedStarTouchSystem _starTouch = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -26,6 +33,31 @@ public sealed class CosmicRunesSystem : EntitySystem
 
         SubscribeLocalEvent<HereticCosmicRuneComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticCosmicRuneComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<HereticCosmicRuneComponent, AfterInteractUsingEvent>(OnInteractUsing);
+    }
+
+    private void OnInteractUsing(Entity<HereticCosmicRuneComponent> ent, ref AfterInteractUsingEvent args)
+    {
+        if (HasComp<FadingTimedDespawnComponent>(ent))
+            return;
+
+        if (TryComp(args.Used, out StarTouchComponent? starTouch))
+        {
+            _starTouch.InvokeSpell((args.Used, starTouch), args.User, false);
+            EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
+            args.Handled = true;
+            return;
+        }
+
+        if (!TryComp(args.Used, out BibleComponent? bible) ||
+            !HasComp<BibleUserComponent>(args.User) || !TryComp(args.Used, out UseDelayComponent? useDelay) ||
+            _useDelay.IsDelayed((args.Used, useDelay)))
+            return;
+
+        _useDelay.TryResetDelay(args.Used, false, useDelay);
+        _audio.PlayPredicted(bible.HealSoundPath, Transform(ent).Coordinates, args.User);
+        EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
+        args.Handled = true;
     }
 
     private void OnActivate(Entity<HereticCosmicRuneComponent> ent, ref ActivateInWorldEvent args)
@@ -42,11 +74,17 @@ public sealed class CosmicRunesSystem : EntitySystem
 
     private bool Teleport(Entity<HereticCosmicRuneComponent> ent, EntityUid user)
     {
+        var time = _timing.CurTime;
+
+        if (time < ent.Comp.NextUse)
+            return false;
+
         if (HasComp<FadingTimedDespawnComponent>(ent))
             return false;
 
         if (!Exists(ent.Comp.LinkedRune) || !TryComp(ent.Comp.LinkedRune.Value, out TransformComponent? xform) ||
-            !xform.Coordinates.IsValid(EntityManager) || HasComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value))
+            !xform.Coordinates.IsValid(EntityManager) ||
+            HasComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value))
         {
             if (_net.IsServer) // Client can have rune deleted due to PVS but can exist on server
                 _popup.PopupEntity(Loc.GetString("heretic-cosmic-rune-fail-unlinked"), user, user);
@@ -63,6 +101,14 @@ public sealed class CosmicRunesSystem : EntitySystem
         {
             _popup.PopupPredicted(Loc.GetString("heretic-cosmic-rune-fail-range"), user, user);
             return false;
+        }
+
+        ent.Comp.NextUse = time + ent.Comp.Delay;
+        DirtyField(ent.Owner, ent.Comp, nameof(HereticCosmicRuneComponent.NextUse));
+        if (TryComp(ent.Comp.LinkedRune.Value, out HereticCosmicRuneComponent? rune2))
+        {
+            rune2.NextUse = time + rune2.Delay;
+            DirtyField(ent.Comp.LinkedRune.Value, rune2, nameof(HereticCosmicRuneComponent.NextUse));
         }
 
         if (_net.IsServer)

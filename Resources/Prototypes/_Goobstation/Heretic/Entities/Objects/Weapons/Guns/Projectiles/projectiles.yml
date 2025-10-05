@@ -69,6 +69,4 @@
         mask:
         - Impassable
         - BulletImpassable
-  - type: StunOnCollide
-    knockdownAmount: 4
   - type: StarBlast
