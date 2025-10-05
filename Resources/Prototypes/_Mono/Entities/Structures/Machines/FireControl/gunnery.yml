@@ -133,6 +133,20 @@
     activePower: 5000
     chargeRate: 0.008 # ~2 minutes
 
+- type: entity
+  id: GunneryServerdebug
+  parent: [GunneryServerBase]
+  name: Station Gunnery Control Server
+  components:
+  - type: FireControlServer
+    processingPower: 9999
+  - type: ApcPowerReceiver
+    powerLoad: 1250
+  - type: PowerCharge
+    idlePower: 100
+    activePower: 1250
+    chargeRate: 0.025 # 40 seconds
+
 # Monolith : Gunnery Computer
 - type: entity
   parent: BaseComputerAiAccess
