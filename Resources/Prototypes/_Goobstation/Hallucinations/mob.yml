@@ -1,0 +1,15 @@
+- type: hallucinationsPack
+  id: CyberPsychoMobs
+  data: !type:MobHallucinations
+    delay:
+      min: 60
+      max: 180
+    entities:
+    - HallucinationSpiderAngry
+    - HallucinationSpiderClownAngry
+    spawnCount:
+      min: 1
+      max: 3
+    range:
+      min: 3
+      max: 6
