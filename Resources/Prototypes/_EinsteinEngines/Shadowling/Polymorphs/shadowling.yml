@@ -25,20 +25,6 @@
     componentsToTransfer:
     - component: Shadowling
       mirror: true
-    - component: ShadowlingVeil
-      mirror: true
-    - component: ShadowlingIcyVeins
-      mirror: true
-    - component: ShadowlingDestroyEngines
-      mirror: true
-    - component: ShadowlingBlindnessSmoke
-      mirror: true
-    - component: ShadowlingNullCharge
-      mirror: true
-    - component: ShadowlingSonicScreech
-      mirror: true
-    - component: ShadowlingBlackRecuperation
-      mirror: true
 
 # used for lesser
 - type: polymorph
