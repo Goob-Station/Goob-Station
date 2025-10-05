@@ -8,7 +8,7 @@
 
 - type: entity
   id: MindcontrolImplanter
-  suffix: Mind Control
+  name: mind control implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
