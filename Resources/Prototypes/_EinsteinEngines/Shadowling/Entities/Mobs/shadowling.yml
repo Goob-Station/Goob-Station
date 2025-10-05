@@ -1,13 +1,17 @@
 - type: entity
-  parent: [SimpleSpaceMobBase, FlyingMobBase]
+  parent: [SimpleSpaceMobBase,FlyingMobBase]
   id: BaseMobShadowlingAscendant
   name: shadowling ascendant
   suffix: ""
+  categories: [HideSpawnMenu]
   description: A shadowling ascendant. If you're seeing this, you're probably dead.
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: FluorosulfuricAcid
+    bleedReductionAmount: 30
+  - type: TypingIndicator
+    proto: alien
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/shadowling_ascend.rsi
     layers:
@@ -23,8 +27,8 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
-  - type: NoSlip
   - type: Insulated
+  - type: StepTriggerImmune
   - type: Clickable
   - type: Physics
     bodyType: KinematicController
@@ -51,6 +55,18 @@
     activateSound: null
     deactivateSound: null
   - type: CombatMode
+  - type: PassiveDamage
+    allowedStates:
+      - Alive
+      - Critical
+    damage:
+      types:
+        Heat: -20
+      groups:
+        Brute: -20
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.5
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -60,9 +76,27 @@
         Slash: 20
         Piercing: 30
         Caustic: 10
+        Structural: 250
   - type: DamageStateVisuals
     states:
       Alive:
         Base: shadowling_ascend
       Dead:
         Base: asc_dead
+  - type: NameIdentifier
+    identifier: 1
+
+- type: entity
+  parent: [BaseMobShadowlingAscendant]
+  id: BaseMobShadowlingAscendantAdminSpawn
+  name: shadowling ascendant
+  suffix: ""
+  description: A shadowling ascendant. If you're seeing this, you're probably dead.
+  components:
+  - type: ShadowlingVeil
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlackRecuperation

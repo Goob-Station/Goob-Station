@@ -15736,3 +15736,115 @@ Entries:
       message: Being able to escape from the hell map using a portal
   id: 1760
   time: '2025-10-02T13:47:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer copy nor fax corporate documents (the NTRs task
+        documents).
+  id: 1761
+  time: '2025-10-03T01:21:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed xenos never spawning.
+  id: 1762
+  time: '2025-10-03T01:23:40.0000000+00:00'
+- author: ivan4ik
+  changes:
+    - type: Add
+      message: >-
+        midround antag called Walker, is omniantag who can steal power from
+        syndicate, changeling, heretic, wizard and more. Antag start weak but
+        can grow very strong if crew not stop him.
+  id: 1763
+  time: '2025-10-03T01:50:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: All implanters now have generic names to prevent metagaming.
+    - type: Tweak
+      message: >-
+        All implanters now auto-label themself with containing implant's name.
+        Label disappear after implanting and appears against after implant
+        drawing.
+  id: 1764
+  time: '2025-10-03T13:34:58.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Devil contracts now are worth 0 points for the NTR.
+  id: 1765
+  time: '2025-10-04T15:39:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Shadowling glass shard weakness
+    - type: Fix
+      message: Shadowling unable to punch lights
+    - type: Fix
+      message: Shadowling ability descriptions
+    - type: Fix
+      message: Shadowling mobs and ascended mobs missing abilities
+    - type: Fix
+      message: Shadowling ascendant abilities having absurdly long cooldowns
+    - type: Fix
+      message: >-
+        Shadowling pain crit caused by lights no longer prevents them from
+        casting veil
+    - type: Fix
+      message: Species Name Shadow bug
+    - type: Fix
+      message: Ascendant no longer complete pushover for what it is supposed to be
+    - type: Fix
+      message: Ascendant bloodloss actually stops so they dont stutter like a geek
+    - type: Fix
+      message: Ascendant heals over time (alot)
+    - type: Tweak
+      message: 'Shadowling Glare stun time 7s > 5s '
+    - type: Tweak
+      message: Shadowling Enthrall time 5s >4s
+    - type: Tweak
+      message: Shadowling Glare mute 2s > 5s
+    - type: Tweak
+      message: >-
+        Shadowling Glareslow 2s > 7s (this and mute were not working before,
+        they should work now)
+    - type: Tweak
+      message: Shadowling Veil range 6 > 9
+    - type: Tweak
+      message: Shadowling Veil cooldown 60 > 30
+    - type: Tweak
+      message: Shadowling and shadow punch now does heat damage + slightly more damage
+  id: 1766
+  time: '2025-10-05T07:52:08.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed shadowlings taking insane damage in light due to a bug
+    - type: Fix
+      message: >-
+        Fixed shadowling's light immunity global sound playing multiple times
+        and causing your ears to bleed
+    - type: Tweak
+      message: >-
+        Lesser Shadowlings have a worse version of Glare. They are more useful
+        now.
+    - type: Tweak
+      message: 'Shadowling APC ability got its doafter timer reduced greatly '
+    - type: Tweak
+      message: >-
+        Shadowling Veil improved to support more light types. You can take out
+        flares now, but not torches.
+    - type: Tweak
+      message: >-
+        Thralls can now be identified by examining them, unless they are wearing
+        a protective mask
+    - type: Tweak
+      message: >-
+        Epileptic people will no longer get a cardiac arrest during a Shadowling
+        enthrallment
+    - type: Tweak
+      message: Updated red alert SOP for shadowlings. Read it again.
+  id: 1767
+  time: '2025-10-05T07:56:28.0000000+00:00'
