@@ -232,7 +232,13 @@
   - type: ChameleonDisguise
     removeActions: false
   - type: MorphDisguise
-
+  - type: Inventory
+  - type: InventorySlots
+  - type: ContainerContainer
+  - type: Appearance
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
 
 # guidebook dummy
 

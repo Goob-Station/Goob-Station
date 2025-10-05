@@ -21,7 +21,7 @@ using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Server.Morph;
 
-public sealed partial class MorphSystem : EntitySystem
+public sealed partial class MorphSystem : SharedMorphSystem
 {
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -40,12 +40,12 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<MorphComponent, ReplicateDoAfterEvent>(OnMorphReplicateDoAfter);
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
+        //SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
         SubscribeLocalEvent<MorphComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName);
         SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
-        SubscribeLocalEvent<MorphComponent, AttemptMeleeEvent>(OnAtack);
+       // SubscribeLocalEvent<MorphComponent, AttemptMeleeEvent>(OnAtack);
         SubscribeLocalEvent<MorphComponent, DamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<MorphComponent, MobStateChangedEvent>(OnDeath);
     }
@@ -170,7 +170,7 @@ public sealed partial class MorphSystem : EntitySystem
 
     }
 
-    private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
+    /*private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
     {
         //abort attack if morphed
         if (HasComp<ChameleonDisguisedComponent>(uid))
@@ -178,7 +178,7 @@ public sealed partial class MorphSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("morph-attack-failure"),uid,uid);
             args.Cancelled = true;
         }
-    }
+    }*/
 
     private void OnDeath(Entity<MorphComponent> ent,ref  MobStateChangedEvent args)
     {
