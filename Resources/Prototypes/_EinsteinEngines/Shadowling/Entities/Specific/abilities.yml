@@ -80,7 +80,7 @@
   - type: LesserShadowling
   - type: ShadowlingShadowWalk
   - type: ShadowlingGlare
-    maxGlareStunTime: 6
+    maxGlareStunTime: 4
   - type: LightDetection
   - type: LightDetectionDamage
     maxDetection: 10
