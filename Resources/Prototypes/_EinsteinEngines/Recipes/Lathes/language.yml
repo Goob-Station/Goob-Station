@@ -159,7 +159,7 @@
 
 # Implanters
 - type: latheRecipe
-  abstact: true
+  abstract: true
   id: BaseTranslatorImplanter
   name: translator implanter
   completetime: 2
