@@ -164,7 +164,7 @@
   - type: CanHostGuardian
   - type: Repairable #Goob edit
     fuelCost: 5
-    DoAfterDelay: 3
+    doAfterDelay: 3
     damage:
       types:
         Blunt: -10
