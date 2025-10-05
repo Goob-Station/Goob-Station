@@ -40,7 +40,6 @@
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeMagnum
   - type: CartridgeAmmo
     proto: BulletMagnum

@@ -622,7 +622,7 @@
   description: It fires large meteors.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
+    whitelist: # Redundant
       tags:
         - CartridgeRocket
     proto: MeteorMedium
@@ -635,7 +635,7 @@
   description: It fires slow immovable rods.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
+    whitelist: # Redundant
       tags:
         - CartridgeRocket
     proto: ImmovableRodSlow
