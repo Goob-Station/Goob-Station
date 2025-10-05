@@ -40,6 +40,12 @@ public sealed partial class ShadowlingGlareComponent : Component
     [DataField]
     public float MaxGlareStunTime = 6f;
 
+    [DataField]
+    public float SlowTime = 7f;
+
+    [DataField]
+    public float MuteTime = 6f;
+
     // <summary>
     // Regarding time delay before activation
     // </summary>

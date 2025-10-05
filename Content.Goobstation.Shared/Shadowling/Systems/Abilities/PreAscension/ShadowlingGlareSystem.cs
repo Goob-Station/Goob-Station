@@ -101,8 +101,8 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         // Glare mutes and slows down the target no matter what.
         if (TryComp<StatusEffectsComponent>(target, out var statComp))
         {
-            _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.GlareStunTime), true);
-            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.GlareStunTime), true, 0.5f, 0.5f, statComp);
+            _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
+            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), true, 0.5f, 0.5f, statComp);
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);
