@@ -184,7 +184,7 @@
     lightRadius: 15
 
 - type: entity
-  parent: [ClothingEyesHudOmni, BaseCentcommContraband]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseCentcommContraband]
   id: ClothingEyesGlassesCentCommNoThermal
   suffix: No thermals, DO NOT MAP
   name: central command shades
@@ -202,6 +202,12 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHungerIcons
+  - type: ShowThirstIcons
 
 - type: entity
   parent: [ClothingEyesBase, ShowHealthRelatedIcons, BaseCentcommContraband, ClothingEyesGlassesSunglasses]
