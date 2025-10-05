@@ -161,7 +161,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseTranslatorImplanter
-  name: translator implanter
+  name: lathe-recipe-BaseTranslatorImplanter-name
   completetime: 2
   materials:
     Steel: 500

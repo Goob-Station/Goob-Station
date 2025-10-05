@@ -1,3 +1,5 @@
+lathe-recipe-BaseTranslatorImplanter-name = translator implanter
+
 lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname = basic common translator implant
 lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname = advanced common translator implant
 lathe-recipe-BubblishTranslatorImplanter-subname = bubblish translator implant
