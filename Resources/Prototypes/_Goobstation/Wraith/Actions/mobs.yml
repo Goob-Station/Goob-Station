@@ -60,7 +60,7 @@
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
-      state: shuffle # lash
+      state: lash
   - type: TargetAction
     range: 2
   - type: EntityTargetAction

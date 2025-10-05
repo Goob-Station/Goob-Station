@@ -189,7 +189,7 @@
             Slash: 20
       - type: NpcFactionMember
         factions:
-        - SimpleHostile
+        - Wraith
       - type: NoSlip
       - type: MovementSpeedModifier
         baseWalkSpeed: 5
