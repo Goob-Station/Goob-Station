@@ -1,0 +1,16 @@
+- type: soundCollection
+  id: Hardclaw
+  files:
+  - /Audio/_Goobstation/Raptors/Footsteps/hardclaw1.ogg
+  - /Audio/_Goobstation/Raptors/Footsteps/hardclaw2.ogg
+  - /Audio/_Goobstation/Raptors/Footsteps/hardclaw3.ogg
+  - /Audio/_Goobstation/Raptors/Footsteps/hardclaw4.ogg
+
+- type: soundCollection
+  id: RaptorIdle
+  files:
+  - /Audio/_Goobstation/Raptors/Idle/raptor_1.ogg
+  - /Audio/_Goobstation/Raptors/Idle/raptor_2.ogg
+  - /Audio/_Goobstation/Raptors/Idle/raptor_3.ogg
+  - /Audio/_Goobstation/Raptors/Idle/raptor_4.ogg
+  - /Audio/_Goobstation/Raptors/Idle/raptor_5.ogg

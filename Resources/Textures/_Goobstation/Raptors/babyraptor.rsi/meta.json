@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites taken from TGstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "baby_black_dead"
+        },
+        {
+            "name": "baby_blue_dead"
+        },
+        {
+            "name": "baby_green_dead"
+        },
+        {
+            "name": "baby_purple_dead"
+        },
+        {
+            "name": "baby_red_dead"
+        },
+        {
+            "name": "baby_white_dead"
+        },
+        {
+            "name": "baby_yellow_dead"
+        },
+        {
+            "name": "baby_black",
+            "directions": 4
+        },
+        {
+            "name": "baby_blue",
+            "directions": 4
+        },
+        {
+            "name": "baby_green",
+            "directions": 4
+        },
+        {
+            "name": "baby_purple",
+            "directions": 4
+        },
+        {
+            "name": "baby_red",
+            "directions": 4
+        },
+        {
+            "name": "baby_white",
+            "directions": 4
+        },
+        {
+            "name": "baby_yellow",
+            "directions": 4
+        }
+    ]
+}
