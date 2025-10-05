@@ -252,9 +252,8 @@ public sealed class HealingSystem : EntitySystem
     /// <param name="healing">The healing component.</param>
     /// <param name="targetedPart">bypasses targeting system to specify a limb. Must be set if user is null. (optional)</param>
     /// <returns> Wether or not the targeted part can be healed. </returns>
-    private bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null)
+    public bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null)
     {
-
         if (user is null && targetedPart is null) // no limb can be targeted at all
             return false;
 
@@ -304,7 +303,7 @@ public sealed class HealingSystem : EntitySystem
     ///     This function tries to return the first limb that has one of the damage type we are trying to heal
     ///     Returns true or false if next damaged part exists.
     /// </summary>
-    private bool TryGetNextDamagedPart(EntityUid ent, HealingComponent healing, out EntityUid? part)
+    public bool TryGetNextDamagedPart(EntityUid ent, HealingComponent healing, out EntityUid? part)
     {
         part = null;
         if (!TryComp<BodyComponent>(ent, out var body))
@@ -431,8 +430,7 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal:damage} damage");
         }
 
-        if (_net.IsServer) // Goobedit
-            _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
+        _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f)); // Good edit
 
         // Logic to determine whether or not to repeat the healing action
         args.Repeat = IsAnythingToHeal(args.User, ent, (args.Used.Value, healing)); // GOOBEDIT
