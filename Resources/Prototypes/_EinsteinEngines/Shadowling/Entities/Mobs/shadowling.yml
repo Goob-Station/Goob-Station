@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SimpleSpaceMobBase]
+  parent: [SimpleSpaceMobBase,FlyingMobBase]
   id: BaseMobShadowlingAscendant
   name: shadowling ascendant
   suffix: ""
@@ -83,10 +83,6 @@
         Base: shadowling_ascend
       Dead:
         Base: asc_dead
-    bodyStatus: InAir
-  - type: NoSlip
-  - type: MovementAlwaysTouching
-  - type: CanMoveInAir
   - type: NameIdentifier
     identifier: 1
 
