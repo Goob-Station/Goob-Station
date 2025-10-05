@@ -159,166 +159,103 @@
 
 # Implanters
 - type: latheRecipe
+  abstact: true
+  id: BaseTranslatorImplanter
+  name: translator implanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: BasicGalaticCommonTranslatorImplanter
+  subname: basic common translator implant
   result: BasicGalaticCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: AdvancedGalaticCommonTranslatorImplanter
+  subname: advanced common translator implant
   result: AdvancedGalaticCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: BubblishTranslatorImplanter
+  subname: bubblish translator implant
   result: BubblishTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: NekomimeticTranslatorImplanter
+  subname: nekomimetic translator implant
   result: NekomimeticTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: DraconicTranslatorImplanter
+  subname: draconic translator implant
   result: DraconicTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: CanilunztTranslatorImplanter
+  subname: canilunzt translator implant
   result: CanilunztTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: SolCommonTranslatorImplanter
+  subname: sol-common translator implant
   result: SolCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: RootSpeakTranslatorImplanter
+  subname: root-speak translator implant
   result: RootSpeakTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: MofficTranslatorImplanter
+  subname: moffic translator implant
   result: MofficTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: ValyrianStandardTranslatorImplanter
+  subname: valyrian standard translator implant
   result: ValyrianStandardTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: ChittinTranslatorImplanter
+  subname: chittin translator implant
   result: ChittinTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: SiikMaasTranslatorImplanter
+  subname: siik'maas translator implant
   result: SiikMaasTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: MarishTranslatorImplanter
+  subname: marish translator implant
   result: MarishTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: SchechiTranslatorImplanter
+  subname: schechi translator implant
   result: SchechiTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
 
 - type: latheRecipe
+  parent: BaseTranslatorImplanter
   id: NewKinPidginTranslatorImplanter
+  subname: ka'rakk translator implant
   result: NewKinPidginTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
