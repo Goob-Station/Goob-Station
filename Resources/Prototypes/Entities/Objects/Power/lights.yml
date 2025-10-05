@@ -401,6 +401,10 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalBlue
+  - type: Tag
+    tags:
+    - Trash
+    - LightTubeCrystalBlue
 
 - type: entity
   parent: BaseLightTubeCrystal
@@ -479,6 +483,10 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalRed
+  - type: Tag
+    tags:
+    - Trash
+    - LightTubeCrystalRed
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -494,7 +502,10 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalGreen
-
+  - type: Tag
+    tags:
+    - Trash
+    - LightTubeCrystalGreen
 
 - type: entity
   parent: BaseLightbulb

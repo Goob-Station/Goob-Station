@@ -1,0 +1,242 @@
+- type: entity
+  id: PoweredFloorTileLight
+  name: floor tile light
+  description: Tile. It glows. That is all.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
+  - type: Clickable
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: PointLight
+    radius: 1.5
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTube
+    changeLightRadius: false
+    bulb: Tube
+    ejectBulbDelay: 5
+    unarmedHitShock: 0
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      empty: off
+      off: off
+      on: glow
+      broken: off
+      burned: off
+  - type: Construction
+    graph: LightFixture
+    node: floorLight
+  - type: Sprite
+    drawdepth: BelowFloor
+    sprite: _CorvaxGoob/Structures/Lighting/dancefloor.rsi
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: off
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 190
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+- type: entity
+  id: EmptyPoweredFloorTileLight
+  parent: PoweredFloorTileLight
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+
+- type: entity
+  id: AlwaysPoweredFloorTileLight
+  parent: PoweredFloorTileLight
+  suffix: Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: PoweredFloorTileLightCyan
+  parent: PoweredFloorTileLight
+  suffix: Cyan
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalCyan
+
+- type: entity
+  id: PoweredFloorTileLightYellow
+  parent: PoweredFloorTileLight
+  suffix: Yellow
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalYellow
+
+- type: entity
+  id: PoweredFloorTileLightGreen
+  parent: PoweredFloorTileLight
+  suffix: Green
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalGreen
+
+- type: entity
+  id: PoweredFloorTileLightRed
+  parent: PoweredFloorTileLight
+  suffix: Red
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalRed
+
+- type: entity
+  id: PoweredFloorTileLightOrange
+  parent: PoweredFloorTileLight
+  suffix: Orange
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalOrange
+
+- type: entity
+  id: PoweredFloorTileLightPink
+  parent: PoweredFloorTileLight
+  suffix: Pink
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalPink
+
+- type: entity
+  id: PoweredFloorTileLightBlue
+  parent: PoweredFloorTileLight
+  suffix: Blue
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalBlue
+
+- type: entity
+  id: PoweredFloorTileLightRGB
+  parent: PoweredFloorTileLight
+  suffix: RGB
+  components:
+  - type: RgbLightController
+    cycleRate: 1
+
+- type: entity
+  id: EmptyPoweredFloorTileLightRGB
+  parent: PoweredFloorTileLightRGB
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+
+# Always powered
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightCyan
+  parent: PoweredFloorTileLightCyan
+  suffix: Cyan, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightYellow
+  parent: PoweredFloorTileLightYellow
+  suffix: Yellow, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightGreen
+  parent: PoweredFloorTileLightGreen
+  suffix: Green, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightRed
+  parent: PoweredFloorTileLightRed
+  suffix: Red, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightOrange
+  parent: PoweredFloorTileLightOrange
+  suffix: Orange, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightPink
+  parent: PoweredFloorTileLightPink
+  suffix: Pink, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightBlue
+  parent: PoweredFloorTileLightBlue
+  suffix: Blue, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  id: AlwaysPoweredFloorTileLightRGB
+  parent: PoweredFloorTileLightRGB
+  suffix: RGB, Always powered
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false

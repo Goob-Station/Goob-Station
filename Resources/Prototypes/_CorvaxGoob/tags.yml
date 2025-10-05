@@ -1,6 +1,6 @@
 - type: Tag
   id: CarcTile # Spacessonne
-  
+
 - type: Tag
   id: Skills
 
@@ -39,3 +39,12 @@
 
 - type: Tag
   id: DroneShuttleLinkable
+
+- type: Tag
+  id: LightTubeCrystalRed
+
+- type: Tag
+  id: LightTubeCrystalGreen
+
+- type: Tag
+  id: LightTubeCrystalBlue

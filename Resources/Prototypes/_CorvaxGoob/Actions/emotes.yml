@@ -1,0 +1,65 @@
+- type: emote
+  id: DanceFromTheFloor
+  name: chat-emote-name-dance-the-from-floor
+  chatMessages: ["chat-emote-msg-dance-from-the-floor"]
+  chatTriggers:
+  - dance from the floor
+  - dances from the floor.
+  - dances from the floor!
+  - танцует от пола
+  - танцует от пола.
+  - танцует от пола!
+  targetEvents:
+  - !type:PlayAnimationTargetEvent
+    animationID: EmoteDanceFromTheFloor
+  - !type:ApplyStatusEffectTargetEvent
+    key: SlowedDown
+    componentType: SlowedDown
+    time: 5
+
+- type: emote
+  id: SpinningOnHead
+  name: chat-emote-name-spinning-on-head
+  chatMessages: ["chat-emote-msg-spinning-on-head"]
+  chatTriggers:
+  - spinning on their head
+  - spinning on their head.
+  - spinning on their head!
+  - крутится на голове
+  - крутится на голове.
+  - крутится на голове!
+  targetEvents:
+  - !type:PlayAnimationTargetEvent
+    animationID: EmoteSpinningOnHead
+  - !type:ApplyStatusEffectTargetEvent
+    key: SlowedDown
+    componentType: SlowedDown
+    time: 6.5
+
+- type: emote
+  id: Dance
+  name: chat-emote-name-danc
+  chatMessages: ["chat-emote-msg-dance-1", "chat-emote-msg-dance-2", "chat-emote-msg-dance-3"]
+  chatTriggers:
+  - dancing
+  - dancing.
+  - dancing!
+  - dances
+  - dances.
+  - dances!
+  - танцует
+  - танцует.
+  - танцует!
+  - пускается в пляс
+  - пускается в пляс.
+  - пускается в пляс!
+  - отжигает
+  - отжигает.
+  - отжигает!
+  targetEvents:
+  - !type:PlayAnimationTargetEvent
+    animationID: EmoteDance
+  - !type:ApplyStatusEffectTargetEvent
+    key: SlowedDown
+    componentType: SlowedDown
+    time: 6

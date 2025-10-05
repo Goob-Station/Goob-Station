@@ -12,7 +12,7 @@ public sealed class QuantumTelepadSystem : EntitySystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
 
-    private static readonly Animation TelepadBeamAnimation = new()
+    private static readonly Robust.Client.Animations.Animation TelepadBeamAnimation = new()
     {
         Length = TimeSpan.FromSeconds(0.5),
         AnimationTracks =

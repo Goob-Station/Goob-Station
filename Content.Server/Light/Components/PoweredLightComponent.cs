@@ -170,6 +170,14 @@ namespace Content.Server.Light.Components
         [DataField("ghostBlinkingCooldown")]
         public TimeSpan GhostBlinkingCooldown = TimeSpan.FromSeconds(60);
 
+        // CorvaxGoob-FloorTileLight-Start
+        [DataField("changeLightRadius")]
+        public bool ChangeLightRadius = true;
+
+        [DataField("changeLightEnergy")]
+        public bool ChangeLightEnergy = true;
+        // CorvaxGoob-FloorTileLight-End
+
         [ViewVariables]
         public ContainerSlot LightBulbContainer = default!;
         [ViewVariables]
