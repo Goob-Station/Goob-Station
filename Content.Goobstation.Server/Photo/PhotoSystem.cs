@@ -105,6 +105,7 @@ public sealed class PhotoSystem : EntitySystem
         ent.Comp.Uses--;
 
         _useDelay.SetLength(ent.Owner, TimeSpan.FromSeconds(ent.Comp.UseDelay));
+        _useDelay.TryResetDelay(ent.Owner, false);
         _flash.FlashArea(args.User, null, 4, TimeSpan.FromSeconds(1f), 1);
         _audio.PlayPvs(ent.Comp.PhotoSound, ent.Owner);
 
