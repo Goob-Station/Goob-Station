@@ -179,8 +179,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 3
+        Piercing: 3 # Goobstation
+        Heat: 3 # Goobstation
   - type: IgnitionSource
     ignited: true
 

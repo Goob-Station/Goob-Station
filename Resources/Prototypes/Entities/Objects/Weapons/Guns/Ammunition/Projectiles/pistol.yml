@@ -58,8 +58,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 2
-        Heat: 2
+        Piercing: 2 # Goobstation
+        Heat: 2 # Goobstation
 
 - type: entity
   id: BulletPistolUranium

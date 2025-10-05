@@ -63,7 +63,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 4 # Goobstation?
+        Piercing: 4 # Goobstation?
         Heat: 4  # Goobstation?
 
 - type: entity
