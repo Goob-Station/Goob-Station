@@ -252,7 +252,7 @@ public sealed class HealingSystem : EntitySystem
     /// <param name="healing">The healing component.</param>
     /// <param name="targetedPart">bypasses targeting system to specify a limb. Must be set if user is null. (optional)</param>
     /// <returns> Wether or not the targeted part can be healed. </returns>
-    public bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null)
+    public bool IsBodyDamaged(Entity<BodyComponent> target, EntityUid? user, HealingComponent healing, EntityUid? targetedPart = null) // Goob edit: private => public, used in RepairableSystems.cs
     {
         if (user is null && targetedPart is null) // no limb can be targeted at all
             return false;
@@ -303,7 +303,7 @@ public sealed class HealingSystem : EntitySystem
     ///     This function tries to return the first limb that has one of the damage type we are trying to heal
     ///     Returns true or false if next damaged part exists.
     /// </summary>
-    public bool TryGetNextDamagedPart(EntityUid ent, HealingComponent healing, out EntityUid? part)
+    public bool TryGetNextDamagedPart(EntityUid ent, HealingComponent healing, out EntityUid? part) // Goob edit: private => public, used in RepairableSystems.cs
     {
         part = null;
         if (!TryComp<BodyComponent>(ent, out var body))
