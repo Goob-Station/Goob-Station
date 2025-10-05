@@ -12,3 +12,8 @@
   id: Enchant
   kind: source
   path: "/Textures/_Goobstation/Shaders/enchant.swsl"
+
+- type: shader
+  id: AdvancedStatic
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/seeing_static.swsl"
