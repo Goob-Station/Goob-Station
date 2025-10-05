@@ -56,12 +56,12 @@ public sealed partial class CyberSanitySystem : EntitySystem
         if (comp.NextEffect > _timing.CurTime)
             return;
 
-        if (comp.Sanity > comp.Effects.Keys.Max())
+        if (comp.Sanity > comp.EffectThresholds.Keys.Max())
             return;
 
         comp.NextEffect = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(7f, 40f));
 
-        var effects = comp.Effects.Where(x => x.Key >= comp.Sanity).SelectMany(x => x.Value).ToList();
+        var effects = comp.EffectThresholds.Where(x => x.Key >= comp.Sanity).SelectMany(x => x.Value).ToList();
 
         if (effects.Count <= 0)
             return;

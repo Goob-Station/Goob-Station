@@ -28,7 +28,7 @@ public sealed partial class CyberSanityComponent : Component
     /// Effect thresholds applied when reaching certain sanity levels
     /// </summary>
     [DataField]
-    public Dictionary<int, List<EntityEffect>> Effects = new();
+    public Dictionary<int, List<EntityEffect>> EffectThresholds = new();
 
     /// <summary>
     /// Component thresholds applied when reaching certain sanity levels
