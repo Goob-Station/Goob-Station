@@ -121,6 +121,16 @@ public sealed partial class RepairableSystem : EntitySystem
         if (!TryComp<DamageableComponent>(ent.Owner, out var damageable) || damageable.TotalDamage == 0)
             return;
 
+        // If there is nothign to heal on a body, dont try it.
+        if (TryComp<BodyComponent>(ent.Owner, out var bodyComp) && ent.Comp.Damage != null) // Goob Edit Start
+        {
+            HealingComponent repairHealing = new HealingComponent();
+            repairHealing.Damage = ent.Comp.Damage;
+            repairHealing.BloodlossModifier = -100;
+            if (!_healingSystem.TryGetNextDamagedPart(ent.Owner, repairHealing, out var _))
+                return;
+        } // Goob Edit End
+
         float delay = ent.Comp.DoAfterDelay;
 
         // Add a penalty to how long it takes if the user is repairing itself
