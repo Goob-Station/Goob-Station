@@ -59,10 +59,6 @@
     searchRange: 3
     stunDuration: 5
   - type: SummonVoidCreature
-    availableSummons:
-    - prototype: MobSkeletonCommanderWraith
-    - prototype: MobVoidHoundWraith
-    - prototype: MobVoidSpikerWraith
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger

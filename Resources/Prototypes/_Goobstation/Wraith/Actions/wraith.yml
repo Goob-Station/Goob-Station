@@ -273,7 +273,7 @@
 - type: entity
   id: ActionSummonVoidCreature
   name: Summon void creatures
-  description: Randomly picks between one of three powerful void entities to summon.
+  description: Activates a ghost-role at your current location. People can choose their void creature once they enter it.
   components:
   - type: Action
     useDelay: 150

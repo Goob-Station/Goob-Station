@@ -1,0 +1,20 @@
+# Dummy Entity for ghost roles to choose a void creature
+- type: entity
+  id: SummonVoidGhost
+  name: How?
+  components:
+  - type: Polymorphable
+  - type: GhostRole
+  - type: GhostTakeoverAvailable
+  - type: ActionGrant
+    actions:
+    - ActionChooseVoidCreature
+  - type: ChooseVoidCreature
+    availableSummons:
+    - prototype: MobSkeletonCommanderWraith
+    - prototype: MobVoidSpikerWraith
+    - prototype: MobVoidHoundWraith
+  - type: UserInterface # allows them to use radial selector
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI

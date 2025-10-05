@@ -168,3 +168,17 @@
     event: !type:RatSlamEvent
 
 # Used for Rot Hulk, and its variant.
+
+
+# Used for summon void creature ghost entity
+- type: entity
+  id: ActionChooseVoidCreature
+  name: Choose your fighter
+  description: Choose one of the three void creatures to spawn in.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_creature
+  - type: InstantAction
+    event: !type:ChooseVoidCreatureEvent
