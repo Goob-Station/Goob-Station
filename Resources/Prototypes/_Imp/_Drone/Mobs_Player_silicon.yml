@@ -185,7 +185,8 @@
     thresholds:
       0: Alive
       60: Dead
-  - type: Flash
+  # Goobstation
+  #- type: Flash
   - type: NoSlip
   - type: StatusEffects
     allowed:
