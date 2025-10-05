@@ -15818,3 +15818,33 @@ Entries:
       message: Shadowling and shadow punch now does heat damage + slightly more damage
   id: 1766
   time: '2025-10-05T07:52:08.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed shadowlings taking insane damage in light due to a bug
+    - type: Fix
+      message: >-
+        Fixed shadowling's light immunity global sound playing multiple times
+        and causing your ears to bleed
+    - type: Tweak
+      message: >-
+        Lesser Shadowlings have a worse version of Glare. They are more useful
+        now.
+    - type: Tweak
+      message: 'Shadowling APC ability got its doafter timer reduced greatly '
+    - type: Tweak
+      message: >-
+        Shadowling Veil improved to support more light types. You can take out
+        flares now, but not torches.
+    - type: Tweak
+      message: >-
+        Thralls can now be identified by examining them, unless they are wearing
+        a protective mask
+    - type: Tweak
+      message: >-
+        Epileptic people will no longer get a cardiac arrest during a Shadowling
+        enthrallment
+    - type: Tweak
+      message: Updated red alert SOP for shadowlings. Read it again.
+  id: 1767
+  time: '2025-10-05T07:56:28.0000000+00:00'
