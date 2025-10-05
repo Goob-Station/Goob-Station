@@ -3,6 +3,7 @@
   name: Urist McSling
   parent: BaseMobSpeciesOrganic
   id: BaseMobShadowling
+  categories: [HideSpawnMenu]
   abstract: true
   components:
   - type: Absorbable # idk why
