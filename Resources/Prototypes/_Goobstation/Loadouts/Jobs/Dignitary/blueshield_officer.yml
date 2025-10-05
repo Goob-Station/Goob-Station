@@ -50,6 +50,12 @@
 
 
 - type: loadout
+  id: BlueshieldOfficerBSOCatEars
+  equipment:
+    head: ClothingHeadHatBSOCatEar
+
+
+- type: loadout
   id: BlueshieldOfficerEnvirohelm
   equipment:
     head: ClothingHeadEnvirohelmBlueshield
@@ -75,6 +81,12 @@
   id: BlueshieldOfficerInnerBlueshieldShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldMaid
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueshieldOfficerMaid
 
 
 - type: loadout
