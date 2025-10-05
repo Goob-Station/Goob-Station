@@ -260,14 +260,15 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 14
+        Piercing: 10
+        Heat: 4
   - type: PointLight
     enabled: true
     color: "#ff4300"
     radius: 2.0
     energy: 7.0
   - type: IgniteOnCollide
-    fireStacks: 0.5
+    fireStacks: 0.5 # Goob
 
 - type: entity
   id: BaseBulletAP
