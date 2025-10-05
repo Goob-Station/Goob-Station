@@ -1,0 +1,13 @@
+- type: entity
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/corgi-ears.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/corgi-ears.rsi
+  - type: Tag
+    tags: [ ] # ignore WhitelistChameleon tag
+  id: ClothingHeadHatCorgiEars
+  name: corgi ears
+  categories: [ DoNotMap ]
+  description: Dont ask where does it come from.
+  parent: ClothingHeadBase
