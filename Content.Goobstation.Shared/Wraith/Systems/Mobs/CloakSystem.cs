@@ -1,12 +1,11 @@
-using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
-public sealed partial class CloakSystem : EntitySystem
+namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
+public sealed class CloakSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -14,6 +13,7 @@ public sealed partial class CloakSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<CloakComponent, RushdownEvent>(OnRushdown);
         SubscribeLocalEvent<CloakComponent, CloakEvent>(OnCloak);
     }
 
@@ -29,29 +29,35 @@ public sealed partial class CloakSystem : EntitySystem
 
             if (_timing.CurTime >= comp.EndTime)
             {
-                if (TryComp<StealthComponent>(uid, out var stealth))
-                    _stealth.SetVisibility(uid, 1f, stealth);
+                RemCompDeferred<StealthComponent>(uid);
 
-                RemComp<StealthComponent>(uid);
                 comp.IsActive = false;
+                Dirty(uid, comp);
             }
         }
     }
-    //TO DO: Cloak should break if the hound leaps.
-    public void OnCloak(Entity<CloakComponent> ent, ref CloakEvent args)
+
+    private void OnCloak(Entity<CloakComponent> ent, ref CloakEvent args)
     {
-        if (args.Handled)
-            return;
+        var stealth = EnsureComp<StealthComponent>(ent.Owner);
+        _stealth.SetVisibility(ent.Owner, 0.3f, stealth);
 
-        var uid = ent.Owner;
-        var comp = ent.Comp;
-
-        var stealth = EnsureComp<StealthComponent>(uid);
-        _stealth.SetVisibility(uid, 0.3f, stealth);
-
-        comp.IsActive = true;
-        comp.EndTime = _timing.CurTime + comp.CloakDuration;
+        ent.Comp.IsActive = true;
+        ent.Comp.EndTime = _timing.CurTime + ent.Comp.CloakDuration;
+        Dirty(ent);
 
         args.Handled = true;
+    }
+
+    private void OnRushdown(Entity<CloakComponent> ent, ref RushdownEvent args)
+    {
+        // break cloak on rushdown
+        if (!ent.Comp.IsActive)
+            return;
+
+        RemComp<StealthComponent>(ent.Owner);
+
+        ent.Comp.IsActive = false;
+        Dirty(ent);
     }
 }

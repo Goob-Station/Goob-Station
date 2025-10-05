@@ -59,7 +59,6 @@
       sprite: _Goobstation/Wraith/actions.rsi
       state: evil_touch
   - type: InstantAction
-    canTargetSelf: false
     event: !type:TouchOfEvilEvent
 
 - type: entity

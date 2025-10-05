@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
@@ -11,13 +12,13 @@ public sealed partial class TouchOfEvilComponent : Component
     /// <summary>
     ///  The damage buff the entity gets
     /// </summary>
-    [DataField(required: true)]
-    public float DamageBuff;
+    [DataField]
+    public float DamageBuff = 2.5f;
 
     /// <summary>
     ///  The original damage the entity had
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public DamageSpecifier? OriginalDamage;
 
     /// <summary>
@@ -26,7 +27,7 @@ public sealed partial class TouchOfEvilComponent : Component
     [DataField]
     public float ThrowSpeed = 30f;
 
-    [DataField]
+    [ViewVariables, AutoNetworkedField]
     public bool Active;
 
     [DataField]
@@ -34,4 +35,7 @@ public sealed partial class TouchOfEvilComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
+
+    [ViewVariables]
+    public EntProtoId TouchOfEvilEffect = "StatusEffectTouchOfEvil";
 }
