@@ -8,6 +8,7 @@
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: FluorosulfuricAcid
+    bleedReductionAmount: 30
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/shadowling_ascend.rsi
     layers:
@@ -54,6 +55,7 @@
   - type: PassiveDamage
     allowedStates:
       - Alive
+      - Critical
     damage:
       types:
         Heat: -20
