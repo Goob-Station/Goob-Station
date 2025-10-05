@@ -183,9 +183,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     private void OnSetupPointer(Entity<HallucinationComponent> ent, ref SetupPointingArrowEvent args)
     {
         if (_player.TryGetSessionByEntity(ent.Owner, out var hallucinationSession))
-        {
             _pvsOverride.AddForceSend(args.Arrow, hallucinationSession);
-        }
 
         AddAsHallucination(ent.Comp.Ent, args.Arrow, false);
     }

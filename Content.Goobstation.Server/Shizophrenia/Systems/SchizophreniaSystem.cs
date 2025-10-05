@@ -6,6 +6,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -23,6 +24,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private readonly SpeechSoundSystem _speech = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private int _nextIdx = 1;
 
@@ -47,6 +49,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
             comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(0.5f);
 
+            // Handle remove timers
             foreach (var item in new Dictionary<string, TimeSpan>(comp.Removes))
             {
                 if (item.Value <= _timing.CurTime)
@@ -56,12 +59,14 @@ public sealed partial class SchizophreniaSystem : EntitySystem
                 }
             }
 
+            // If there is no hallucinations, remove component
             if (comp.Hallucinations.Count <= 0)
             {
                 RemComp(uid, comp);
                 continue;
             }
 
+            // Hallucinate
             foreach (var item in comp.Hallucinations)
                 item.Value.TryPerform(uid, EntityManager, _random, _timing.CurTime);
         }
