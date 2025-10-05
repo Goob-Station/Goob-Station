@@ -31,6 +31,7 @@
     whitelist:
       components:
       - CardDeck
+      - Paper
   - type: OpenTriggeredStorageFill
     contents:
     - id: CardDeckBase
@@ -66,8 +67,8 @@
     interfaces:
       enum.CardUiKey.Key:
         type: CardHandMenuBoundUserInterface
-  # - type: ActivatableUI # Frontier
-  #   key: enum.CardUiKey.Key # Frontier
+  - type: ActivatableUI # Frontier
+    key: enum.CardUiKey.Key # Frontier
 
 - type: entity
   parent: CardStackBase

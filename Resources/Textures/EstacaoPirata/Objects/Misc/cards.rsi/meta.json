@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob, ep_ and other EvacPod by Ko4erga (discord)",
+  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob, ep_ and other EvacPod by Ko4erga (discord). Kotahi Card, decks, taken from TG Station; hands box made by JrInventor05(github)",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -607,8 +607,206 @@
     {
         "name": "nanotrasen_box"
     },
-        {
+    {
         "name": "nanotrasen_box_open"
+    },
+    {
+      "name": "kotahi_hand1"
+    },
+    {
+      "name": "kotahi_hand2"
+    },
+    {
+      "name": "kotahi_hand3"
+    },
+    {
+      "name": "kotahi_hand4"
+    },
+    {
+      "name": "kotahi_hand5"
+    },
+    {
+      "name": "deck_kotahi_full"
+    },
+    {
+      "name": "deck_kotahi_half"
+    },
+    {
+      "name": "deck_kotahi_low"
+    },
+    {
+      "name": "deck_kotahi_empty"
+    },
+    {
+      "name": "singlecard_down_kotahi"
+    },
+    {
+      "name": "sc_Red_0_kotahi"
+    },
+    {
+      "name": "sc_Red_1_kotahi"
+    },
+    {
+      "name": "sc_Red_2_kotahi"
+    },
+    {
+      "name": "sc_Red_3_kotahi"
+    },
+    {
+      "name": "sc_Red_4_kotahi"
+    },
+    {
+      "name": "sc_Red_5_kotahi"
+    },
+    {
+      "name": "sc_Red_6_kotahi"
+    },
+    {
+      "name": "sc_Red_7_kotahi"
+    },
+    {
+      "name": "sc_Red_8_kotahi"
+    },
+    {
+      "name": "sc_Red_9_kotahi"
+    },
+    {
+      "name": "sc_Red_skip_kotahi"
+    },
+    {
+      "name": "sc_Red_draw_2_kotahi"
+    },
+    {
+      "name": "sc_Red_reverse_kotahi"
+    },
+    {
+      "name": "sc_Yellow_0_kotahi"
+    },
+    {
+      "name": "sc_Yellow_1_kotahi"
+    },
+    {
+      "name": "sc_Yellow_2_kotahi"
+    },
+    {
+      "name": "sc_Yellow_3_kotahi"
+    },
+    {
+      "name": "sc_Yellow_4_kotahi"
+    },
+    {
+      "name": "sc_Yellow_5_kotahi"
+    },
+    {
+      "name": "sc_Yellow_6_kotahi"
+    },
+    {
+      "name": "sc_Yellow_7_kotahi"
+    },
+    {
+      "name": "sc_Yellow_8_kotahi"
+    },
+    {
+      "name": "sc_Yellow_9_kotahi"
+    },
+    {
+      "name": "sc_Yellow_skip_kotahi"
+    },
+    {
+      "name": "sc_Yellow_draw_2_kotahi"
+    },
+    {
+      "name": "sc_Yellow_reverse_kotahi"
+    },
+    {
+      "name": "sc_Green_0_kotahi"
+    },
+    {
+      "name": "sc_Green_1_kotahi"
+    },
+    {
+      "name": "sc_Green_2_kotahi"
+    },
+    {
+      "name": "sc_Green_3_kotahi"
+    },
+    {
+      "name": "sc_Green_4_kotahi"
+    },
+    {
+      "name": "sc_Green_5_kotahi"
+    },
+    {
+      "name": "sc_Green_6_kotahi"
+    },
+    {
+      "name": "sc_Green_7_kotahi"
+    },
+    {
+      "name": "sc_Green_8_kotahi"
+    },
+    {
+      "name": "sc_Green_9_kotahi"
+    },
+    {
+      "name": "sc_Green_skip_kotahi"
+    },
+    {
+      "name": "sc_Green_draw_2_kotahi"
+    },
+    {
+      "name": "sc_Green_reverse_kotahi"
+    },
+    {
+      "name": "sc_Blue_0_kotahi"
+    },
+    {
+      "name": "sc_Blue_1_kotahi"
+    },
+    {
+      "name": "sc_Blue_2_kotahi"
+    },
+    {
+      "name": "sc_Blue_3_kotahi"
+    },
+    {
+      "name": "sc_Blue_4_kotahi"
+    },
+    {
+      "name": "sc_Blue_5_kotahi"
+    },
+    {
+      "name": "sc_Blue_6_kotahi"
+    },
+    {
+      "name": "sc_Blue_7_kotahi"
+    },
+    {
+      "name": "sc_Blue_8_kotahi"
+    },
+    {
+      "name": "sc_Blue_9_kotahi"
+    },
+    {
+      "name": "sc_Blue_skip_kotahi"
+    },
+    {
+      "name": "sc_Blue_draw_2_kotahi"
+    },
+    {
+      "name": "sc_Blue_reverse_kotahi"
+    },
+    {
+      "name": "sc_Wildcard_kotahi"
+    },
+    {
+      "name": "sc_Draw_4_kotahi"
+    },
+    {
+      "name": "kotahi_box"
+    },
+    {
+      "name": "kotahi_box_open"
     },
     {
       "name": "EvacPod_profession_box"

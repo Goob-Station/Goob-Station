@@ -33,6 +33,7 @@
     CardBoxBlack: 3 # GoobStation
     CarcBoxClassic: 1 # CorvaxGoob Spacessonne
     BoxPlaysetEvacPod: 1 # Corvax-Goob-EvacPod
+    CardBoxKotahi: 3 # CorvaxGoob-kotahi
   contrabandInventory:
     Basketball: 1
     FoodSnackBoritos: 3

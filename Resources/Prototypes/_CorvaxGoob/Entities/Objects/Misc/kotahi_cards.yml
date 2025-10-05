@@ -1,0 +1,773 @@
+- type: entity
+  parent: BookBase
+  id: BookKotahiRules
+  name: "Kotahi rulebook"
+  description: "Just read it before play."
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Kotahi/rulebook.rsi
+    layers:
+    - state: classic
+  - type: Paper
+    content: book-text-kotahi-rules
+
+- type: entity
+  parent: CardBase
+  id: CardBaseKotahi
+  name: card
+  components:
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_kotahi
+
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxKotahi
+  name: kotahi deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: kotahi_box
+    - state: kotahi_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckKotahi
+      amount: 1
+    - id: BookKotahiRules
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckKotahi
+  name: deck of card
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_kotahi_full
+  - type: CardStack
+    content:
+    # MARK: Blue
+    - CardBlueSc0Kotahi
+    - CardBlueSc1Kotahi
+    - CardBlueSc1Kotahi
+    - CardBlueSc2Kotahi
+    - CardBlueSc2Kotahi
+    - CardBlueSc3Kotahi
+    - CardBlueSc3Kotahi
+    - CardBlueSc4Kotahi
+    - CardBlueSc4Kotahi
+    - CardBlueSc5Kotahi
+    - CardBlueSc5Kotahi
+    - CardBlueSc6Kotahi
+    - CardBlueSc6Kotahi
+    - CardBlueSc7Kotahi
+    - CardBlueSc7Kotahi
+    - CardBlueSc8Kotahi
+    - CardBlueSc8Kotahi
+    - CardBlueSc9Kotahi
+    - CardBlueSc9Kotahi
+    - CardBlueScDraw2Kotahi
+    - CardBlueScDraw2Kotahi
+    - CardBlueScReverseKotahi
+    - CardBlueScReverseKotahi
+    - CardBlueScSkipKotahi
+    - CardBlueScSkipKotahi
+    # MARK: Green
+    - CardGreenSc0Kotahi
+    - CardGreenSc1Kotahi
+    - CardGreenSc1Kotahi
+    - CardGreenSc2Kotahi
+    - CardGreenSc2Kotahi
+    - CardGreenSc3Kotahi
+    - CardGreenSc3Kotahi
+    - CardGreenSc4Kotahi
+    - CardGreenSc4Kotahi
+    - CardGreenSc5Kotahi
+    - CardGreenSc5Kotahi
+    - CardGreenSc6Kotahi
+    - CardGreenSc6Kotahi
+    - CardGreenSc7Kotahi
+    - CardGreenSc7Kotahi
+    - CardGreenSc8Kotahi
+    - CardGreenSc8Kotahi
+    - CardGreenSc9Kotahi
+    - CardGreenSc9Kotahi
+    - CardGreenScDraw2Kotahi
+    - CardGreenScDraw2Kotahi
+    - CardGreenScReverseKotahi
+    - CardGreenScReverseKotahi
+    - CardGreenScSkipKotahi
+    - CardGreenScSkipKotahi
+    # MARK: Red
+    - CardRedSc0Kotahi
+    - CardRedSc1Kotahi
+    - CardRedSc1Kotahi
+    - CardRedSc2Kotahi
+    - CardRedSc2Kotahi
+    - CardRedSc3Kotahi
+    - CardRedSc3Kotahi
+    - CardRedSc4Kotahi
+    - CardRedSc4Kotahi
+    - CardRedSc5Kotahi
+    - CardRedSc5Kotahi
+    - CardRedSc6Kotahi
+    - CardRedSc6Kotahi
+    - CardRedSc7Kotahi
+    - CardRedSc7Kotahi
+    - CardRedSc8Kotahi
+    - CardRedSc8Kotahi
+    - CardRedSc9Kotahi
+    - CardRedSc9Kotahi
+    - CardRedScDraw2Kotahi
+    - CardRedScDraw2Kotahi
+    - CardRedScReverseKotahi
+    - CardRedScReverseKotahi
+    - CardRedScSkipKotahi
+    - CardRedScSkipKotahi
+    # MARK: Yellow
+    - CardYellowSc0Kotahi
+    - CardYellowSc1Kotahi
+    - CardYellowSc1Kotahi
+    - CardYellowSc2Kotahi
+    - CardYellowSc2Kotahi
+    - CardYellowSc3Kotahi
+    - CardYellowSc3Kotahi
+    - CardYellowSc4Kotahi
+    - CardYellowSc4Kotahi
+    - CardYellowSc5Kotahi
+    - CardYellowSc5Kotahi
+    - CardYellowSc6Kotahi
+    - CardYellowSc6Kotahi
+    - CardYellowSc7Kotahi
+    - CardYellowSc7Kotahi
+    - CardYellowSc8Kotahi
+    - CardYellowSc8Kotahi
+    - CardYellowSc9Kotahi
+    - CardYellowSc9Kotahi
+    - CardYellowScDraw2Kotahi
+    - CardYellowScDraw2Kotahi
+    - CardYellowScReverseKotahi
+    - CardYellowScReverseKotahi
+    - CardYellowScSkipKotahi
+    - CardYellowScSkipKotahi
+    # MARK: Black
+    - CardBlackScDraw4Kotahi
+    - CardBlackScDraw4Kotahi
+    - CardBlackScDraw4Kotahi
+    - CardBlackScDraw4Kotahi
+    - CardBlackScWildcardKotahi
+    - CardBlackScWildcardKotahi
+    - CardBlackScWildcardKotahi
+    - CardBlackScWildcardKotahi
+
+# region Kotahi Cards
+
+# MARK: Blue card
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc0Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-0-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_0_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc1Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-1-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_1_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc2Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc3Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-3-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_3_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc4Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-4-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_4_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc5Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-5-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_5_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc6Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-6-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_6_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc7Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-7-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_7_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc8Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-8-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_8_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSc9Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-9-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_9_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueScDraw2Kotahi
+  components:
+  - type: Card
+    name: card-blue-sc-draw2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_draw_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueScReverseKotahi
+  components:
+  - type: Card
+    name: card-blue-sc-reverse-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_reverse_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlueScSkipKotahi
+  components:
+  - type: Card
+    name: card-blue-sc-skip-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Blue_skip_kotahi
+
+# MARK: Green card
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc0Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-0-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_0_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc1Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-1-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_1_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc2Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc3Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-3-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_3_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc4Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-4-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_4_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc5Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-5-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_5_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc6Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-6-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_6_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc7Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-7-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_7_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc8Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-8-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_8_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSc9Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-9-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_9_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenScDraw2Kotahi
+  components:
+  - type: Card
+    name: card-green-sc-draw2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_draw_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenScReverseKotahi
+  components:
+  - type: Card
+    name: card-green-sc-reverse-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_reverse_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardGreenScSkipKotahi
+  components:
+  - type: Card
+    name: card-green-sc-skip-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Green_skip_kotahi
+
+# MARK: Red card
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc0Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-0-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_0_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc1Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-1-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_1_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc2Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc3Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-3-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_3_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc4Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-4-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_4_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc5Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-5-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_5_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc6Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-6-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_6_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc7Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-7-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_7_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc8Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-8-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_8_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedSc9Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-9-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_9_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedScDraw2Kotahi
+  components:
+  - type: Card
+    name: card-red-sc-draw2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_draw_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedScReverseKotahi
+  components:
+  - type: Card
+    name: card-red-sc-reverse-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_reverse_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardRedScSkipKotahi
+  components:
+  - type: Card
+    name: card-red-sc-skip-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Red_skip_kotahi
+
+# MARK: Yellow card
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc0Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-0-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_0_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc1Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-1-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_1_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc2Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc3Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-3-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_3_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc4Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-4-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_4_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc5Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-5-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_5_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc6Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-6-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_6_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc7Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-7-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_7_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc8Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-8-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_8_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSc9Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-9-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_9_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowScDraw2Kotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-draw2-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_draw_2_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowScReverseKotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-reverse-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_reverse_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardYellowScSkipKotahi
+  components:
+  - type: Card
+    name: card-yellow-sc-skip-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Yellow_skip_kotahi
+
+# MARK: Black card
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlackScDraw4Kotahi
+  components:
+  - type: Card
+    name: card-black-sc-draw4-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Draw_4_kotahi
+
+- type: entity
+  parent: CardBaseKotahi
+  categories: [ HideSpawnMenu ]
+  id: CardBlackScWildcardKotahi
+  components:
+  - type: Card
+    name: card-black-sc-wildcard-kotahi
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Wildcard_kotahi
+
+# endregion Kotahi Cards
