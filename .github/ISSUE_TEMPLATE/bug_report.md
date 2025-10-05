@@ -4,35 +4,47 @@ about: Create a report to help us improve
 title: ''
 labels: ''
 assignees: ''
+---
+
+## 📋 Description
+Explain what the bug is and what you expected to happen instead.  
+> Example: When using the fire extinguisher in zero-G, it doesn’t push the player backwards like it should.
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 🔁 Steps to Reproduce
+List the steps that consistently cause the issue.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Spawn as X role  
+2. Do Y action  
+3. See Z happen  
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+---
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## 💥 Expected Behavior
+Describe what you expected to happen.  
+> Example: The extinguisher should propel me backwards in zero-G.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+---
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+## 🧠 Actual Behavior
+Describe what actually happens.  
+> Example: Nothing happens, and I just float in place.
 
-**Additional context**
+---
+
+## 📸 Screenshots / Videos
+Attach any screenshots, clips, or logs that help show the problem.
+
+---
+
+## 🗺️ Additional Details
+Any other info that might help, like:
+- Map / Round ID (if known)  
+- Game mode  
+
+---
+
+## 🧩 Notes
+Anything else that might help contributors reproduce or understand the issue.
 Add any other context about the problem here.
