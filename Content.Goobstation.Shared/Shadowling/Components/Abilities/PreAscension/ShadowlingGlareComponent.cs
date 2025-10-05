@@ -53,12 +53,6 @@ public sealed partial class ShadowlingGlareComponent : Component
     public float MinGlareDelay = 0.1f;
 
     [DataField]
-    public float MuteTime = 8f; //no callouts
-
-    [DataField]
-    public float SlowTime = 2f;
-
-    [DataField]
     public EntityUid GlareTarget;
 
     [DataField]
