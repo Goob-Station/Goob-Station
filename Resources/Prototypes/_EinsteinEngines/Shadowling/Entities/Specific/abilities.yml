@@ -22,7 +22,7 @@
     - Ascendance
   - type: LightDetection
   - type: LightDetectionDamage
-    resistanceModifier: 0.5
+    # resistanceModifier: Todo: find why it doesn't work correctly
 
 - type: entity
   id: ShadowlingAbilitiesObtainable
@@ -79,6 +79,9 @@
   components:
   - type: LesserShadowling
   - type: ShadowlingShadowWalk
+  - type: ShadowlingGlare
+    maxGlareStunTime: 4
+    muteTime: 2
   - type: LightDetection
   - type: LightDetectionDamage
     maxDetection: 10
