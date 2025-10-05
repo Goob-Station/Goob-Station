@@ -93,6 +93,7 @@
     until: 24600
     disarmMalus: true
   access:
+  - Assistant # Goobstation
   - Maintenance
 
 - type: startingGear

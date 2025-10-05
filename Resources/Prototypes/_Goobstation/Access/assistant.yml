@@ -1,0 +1,4 @@
+# Only given to assistants, no other job even captain
+- type: accessLevel
+  id: Assistant
+  name: id-card-access-level-assistant

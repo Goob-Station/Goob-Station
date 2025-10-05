@@ -54,6 +54,7 @@ public sealed partial class IdCardConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
+        "Assistant", // Goobstation
         "Armory",
         "Atmospherics",
         "Bar",
