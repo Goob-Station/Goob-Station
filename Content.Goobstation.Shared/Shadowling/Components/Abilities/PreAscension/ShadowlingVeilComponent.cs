@@ -19,5 +19,5 @@ public sealed partial class ShadowlingVeilComponent : Component
     /// Indicates the range radius which the ability will search for, once used.
     /// </summary>
     [DataField]
-    public float Range = 6f;
+    public float Range = 9f;
 }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SimpleSpaceMobBase, FlyingMobBase]
+  parent: [SimpleSpaceMobBase]
   id: BaseMobShadowlingAscendant
   name: shadowling ascendant
   suffix: ""
@@ -23,8 +23,8 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
-  - type: NoSlip
   - type: Insulated
+  - type: StepTriggerImmune
   - type: Clickable
   - type: Physics
     bodyType: KinematicController
@@ -51,6 +51,17 @@
     activateSound: null
     deactivateSound: null
   - type: CombatMode
+  - type: PassiveDamage
+    allowedStates:
+      - Alive
+    damage:
+      types:
+        Heat: -20
+      groups:
+        Brute: -20
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.5
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -60,9 +71,28 @@
         Slash: 20
         Piercing: 30
         Caustic: 10
+        Structural: 250
   - type: DamageStateVisuals
     states:
       Alive:
         Base: shadowling_ascend
       Dead:
         Base: asc_dead
+    bodyStatus: InAir
+  - type: NoSlip
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: NameIdentifier
+    identifier: 1
+  - type: ShadowlingVeil
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlackRecuperation
+  - type: ShadowlingAnnihilate
+  - type: ShadowlingHypnosis
+  - type: ShadowlingPlaneShift
+  - type: ShadowlingLightningStorm
+  - type: ShadowlingAscendantBroadcast

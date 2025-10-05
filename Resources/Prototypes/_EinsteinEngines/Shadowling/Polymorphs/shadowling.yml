@@ -25,6 +25,7 @@
     componentsToTransfer:
     - component: Shadowling
       mirror: true
+    - component:
 
 # used for lesser
 - type: polymorph
