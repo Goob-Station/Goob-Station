@@ -1,0 +1,35 @@
+- type: entity
+  id: BaseCyberSanityMob
+  components:
+  - type: CyberSanity
+
+    effectThresholds:
+      700:
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+      500:
+      - !type:Drunk
+        boozePower: 40
+        slurSpeech: false
+      - !type:Jitter
+      - !type:Electrocute
+        electrocuteDamageScale: 1
+      200:
+      - !type:Emote
+        emote: Scream
+      - !type:AttackRandomPerson
+
+    eventThresholdsMore:
+      350:
+      - !type:RemoveHallucinationsEvent
+        id: CyberPsychoAppearance
+      - !type:RemoveHallucinationsEvent
+        id: CyberPsychoMobs
+
+    eventThresholdsLess:
+      350:
+      - !type:AddHallucinationsEvent
+        id: CyberPsychoAppearance
+      - !type:AddHallucinationsEvent
+        id: CyberPsychoMobs

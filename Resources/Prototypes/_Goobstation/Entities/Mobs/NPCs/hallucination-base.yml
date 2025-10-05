@@ -19,8 +19,7 @@
   - type: MovementAlwaysTouching
   - type: CombatMode
   - type: MeleeWeapon
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    soundHit: null
     angle: 0
     animation: WeaponArcClaw
     damage:
