@@ -375,7 +375,7 @@
     - DoorBumpOpener
 
 - type: entity
-  id: MobAncientRepairBot
+  id: MobAncientRepairBot # This mob is supposed to be a drone that auto-repairs stuff, but out of scope, and olny for adventure zones anyway.
   parent: [ BaseMob, MobCombat ]
   name: strange robot
   description: It looks like some sort of floating repair bot or something?
@@ -418,16 +418,32 @@
           - MobMask
         layer:
           - MobLayer
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      collection: Repairbot
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.05
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: HeavyArmorSyndi
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 3
+    softness: 5
+    autoRot: true
+    castShadows: false
   - type: NoSlip
   - type: Pullable
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 20
+          damage: 30
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -462,7 +478,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 40
+          damage: 50
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -472,10 +488,22 @@
 
 - type: entity
   id: MobAncientRobot1
-  parent: MobAncientRepairBot
+  parent: [ BaseMob, MobCombat ]
   name: ???
   description: What the hell is that?
   components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/ancient.rsi
@@ -501,6 +529,9 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HeavyArmorSyndi
   - type: Destructible
     thresholds:
       - trigger:
@@ -512,6 +543,14 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
+  - type: TileMovement
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 3
+    softness: 5
+    autoRot: true
+    castShadows: false
   - type: Tag
     tags:
       - DoorBumpOpener
@@ -573,7 +612,6 @@
     noMovementLayers:
       movement:
         state: ancient_legs
-
 
 
 # ----- Void summons -----

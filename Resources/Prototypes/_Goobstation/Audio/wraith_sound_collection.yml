@@ -30,3 +30,17 @@
   - /Audio/_Goobstation/Wraith/wraithwhisper2.ogg
   - /Audio/_Goobstation/Wraith/wraithwhisper3.ogg
   - /Audio/_Goobstation/Wraith/wraithwhisper4.ogg
+
+- type: soundCollection
+  id: Repairbot
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/cantanymore.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/brick.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/entropy.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/fixit.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/fixtouch.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/passionproject.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/patchingholes.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/pay.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/strings.ogg
+
