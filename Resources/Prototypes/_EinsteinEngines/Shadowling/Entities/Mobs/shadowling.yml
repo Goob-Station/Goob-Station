@@ -86,15 +86,3 @@
   - type: CanMoveInAir
   - type: NameIdentifier
     identifier: 1
-  - type: ShadowlingVeil
-  - type: ShadowlingIcyVeins
-  - type: ShadowlingDestroyEngines
-  - type: ShadowlingBlindnessSmoke
-  - type: ShadowlingNullCharge
-  - type: ShadowlingSonicScreech
-  - type: ShadowlingBlackRecuperation
-  - type: ShadowlingAnnihilate
-  - type: ShadowlingHypnosis
-  - type: ShadowlingPlaneShift
-  - type: ShadowlingLightningStorm
-  - type: ShadowlingAscendantBroadcast

@@ -21,7 +21,7 @@
     speciesId: shadowling
     templateId: shadowling
   - type: Insulated
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: Body
     prototype: Shadowling
     requiredLegs: 2
@@ -59,15 +59,6 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
-  - type: ShadowlingCollectiveMind
-  - type: ShadowlingDestroyEngines
-  - type: ShadowlingEnthrall
-  - type: ShadowlingGlare
-  - type: ShadowlingIcyVeins
-  - type: ShadowlingRapidRehatch
-  - type: ShadowlingShadowWalk
-  - type: ShadowlingVeil
-  - type: Shadowling
   - type: LightDetection
     onLightLevel: 0.25
   - type: LightDetectionDamage
