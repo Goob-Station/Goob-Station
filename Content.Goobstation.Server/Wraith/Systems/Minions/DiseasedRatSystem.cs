@@ -32,6 +32,6 @@ public sealed class DiseasedRatSystem : EntitySystem
         // Copy over remaining components
         EntityManager.CopyComponents(uid, newForm);
 
-        Del(uid);
+        QueueDel(uid);
     }
 }

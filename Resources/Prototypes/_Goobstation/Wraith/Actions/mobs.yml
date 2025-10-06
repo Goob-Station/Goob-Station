@@ -163,12 +163,9 @@
     # useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
-      state: ratslam
+      state: ratrush
   - type: InstantAction
-    event: !type:RatSlamEvent
-
-# Used for Rot Hulk, and its variant.
-
+    event: !type:RushdownEvent
 
 # Used for summon void creature ghost entity
 - type: entity

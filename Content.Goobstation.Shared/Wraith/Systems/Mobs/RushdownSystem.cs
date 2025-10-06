@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
@@ -10,13 +11,18 @@ using Robust.Shared.Physics.Events;
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
 public sealed class RushdownSystem : EntitySystem
 {
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
     public override void Initialize()
     {
         base.Initialize();
+
+        _statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
 
         SubscribeLocalEvent<RushdownComponent, RushdownEvent>(OnRushdown);
         SubscribeLocalEvent<RushdownComponent, StartCollideEvent>(OnCollide);
@@ -49,6 +55,29 @@ public sealed class RushdownSystem : EntitySystem
     {
         ent.Comp.IsLeaping = false;
         Dirty(ent);
+
+        // --- AoE stun section ---
+        var xform = Transform(ent);
+        var position = xform.Coordinates;
+
+        // define how far the stun AOE reaches
+        var range = ent.Comp.LandShockwaveRange;
+
+        // find nearby entities
+        var nearby = _lookup.GetEntitiesInRange(ent.Owner, range);
+
+        foreach (var target in nearby)
+        {
+            if (target == ent.Owner) // skip self
+                continue;
+
+            // only affect things that can be stunned
+            if (!_statusEffectsQuery.TryComp(target, out var status))
+                continue;
+
+            _stun.KnockdownOrStun(target, ent.Comp.CollideKnockdown, true, status);
+            _audio.PlayPredicted(ent.Comp.ShockwaveSound, ent.Owner, null); //This might be playing twice for some reason. Should be fine though.
+        }
     }
 
     private void OnStopThrow(Entity<RushdownComponent> ent, ref StopThrowEvent args)

@@ -1023,6 +1023,10 @@
   name: Bloated rat mass
   description: A horrible mass of pus and warts, that once used to look like a rat.
   components:
+  - type: Rushdown #TO DO: Change the jump sound, or don't. Werewolf sound isn't perfect but works.
+  - type: ActionGrant
+    actions:
+    - ActionRatSlam
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/rat.rsi
@@ -1068,6 +1072,25 @@
   name: Bloated abomination
   description: A rotting, walking mass of flesh.
   components:
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      collection: GoonZGroan
+      params:
+        volume: 3
+        maxDistance: 12
+        variation: 0.05
+  - type: TriggerOnMobstateChange
+    mobState:
+      - Dead
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    solution:
+      reagents:
+        - ReagentId: Toxin
+          Quantity: 25
   - type: EmitSoundOnSpawn
     sound:
       collection: Wraith_Raise
@@ -1137,6 +1160,16 @@
   parent: MobRotHulk
   name: Huge plague-ridden goliath
   components:
+  - type: TriggerOnMobstateChange
+    mobState:
+      - Dead
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 40
+    solution:
+      reagents:
+        - ReagentId: Toxin
+          Quantity: 50
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/rothulk.rsi

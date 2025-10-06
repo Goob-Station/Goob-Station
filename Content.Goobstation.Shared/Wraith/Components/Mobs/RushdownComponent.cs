@@ -33,6 +33,12 @@ public sealed partial class RushdownComponent : Component
     public TimeSpan CollideKnockdown = TimeSpan.FromSeconds(2);
 
     /// <summary>
+    /// The range of the AOE stun on landing the leap.
+    /// </summary>
+    [DataField]
+    public float LandShockwaveRange = 2.5f;
+
+    /// <summary>
     /// This gets played whenever the jump action is used.
     /// </summary>
     [DataField]
@@ -43,4 +49,7 @@ public sealed partial class RushdownComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId Stunned = "Stun";
+
+    [DataField]
+    public SoundSpecifier? ShockwaveSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_footstep_charge2.ogg");
 }

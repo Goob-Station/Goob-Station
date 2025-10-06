@@ -11,6 +11,7 @@ public sealed partial class EatFilthSystem : EntitySystem
 
         SubscribeLocalEvent<EatFilthComponent, EatFilthEvent>(OnEat);
     }
+
     public void OnEat(Entity<EatFilthComponent> ent, ref EatFilthEvent args)
     {
         var uid = ent.Owner;

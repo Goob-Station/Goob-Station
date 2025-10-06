@@ -50,3 +50,11 @@
   - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_1.ogg
   - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_2.ogg
   - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_3.ogg
+
+- type: soundCollection
+  id: GoonZGroan
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan3.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan4.ogg
