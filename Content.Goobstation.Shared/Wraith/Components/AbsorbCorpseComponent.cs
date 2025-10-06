@@ -1,4 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -29,6 +31,37 @@ public sealed partial class AbsorbCorpseComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 WpPassiveAdd = 0.4;
+
+    /// <summary>
+    /// If the target has this much of X chem in their body, it hurts the wraith.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 FormaldehydeThreshhold = 25;
+
+    /// <summary>
+    /// Removes all the formaldehyde from their system.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ChemToRemove = 999;
+
+    /// <summary>
+    /// Multiplies the WP added by X if the corpse was rotting.
+    /// </summary>
+    [DataField]
+    public int RottenBonusMultiplier = 2;
+
+    /// <summary>
+    ///  Damage to deal to the wraith.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict = new Dictionary<string, FixedPoint2>()
+        {
+            { "Blunt", 25},
+            { "Slash",  25},
+        }
+    };
 
     /// <summary>
     /// Sounds to be played whwn wraith absorbs someone.

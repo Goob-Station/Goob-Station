@@ -117,14 +117,14 @@ wraith-whisper-receive = A netherworldly voice whispers into your ears... [messa
 
 wraith-absorb-living = The living consciousness controlling this body shields it from being absorbed.
 wraith-absorb-too-decomposed = That corpse is already too decomposed.
-wraith-absorb-tainted = This vessel is tainted with an... unpleasant substance... It is now removed...But you are wounded
-wraith-absorb-rotbonus = { CAPITALIZE(SUBJECT($target)) } is extremely rotten and bloated. It satisfies us greatly
-wraith-absorb-explosion1 = A mysterious force rips { CAPITALIZE(SUBJECT($target)) }'s body apart!
-wraith-absorb-explosion2 = { CAPITALIZE(SUBJECT($target)) }'s corpse suddenly explodes in a cloud of miasma and guts!
-wraith-absorb-draw1 = You draw the essence of death out of { CAPITALIZE(SUBJECT($target)) }'s corpse!
-wraith-absorb-draw2 = You drain the last scraps of life out of { CAPITALIZE(SUBJECT($target)) }'s corpse!
-wraith-absorb-smoke1 = Black smoke rises from { CAPITALIZE(SUBJECT($target)) }'s corpse! Freaky!
-wraith-absorb-smoke2 = { CAPITALIZE(SUBJECT($target)) }'s corpse suddenly rots to nothing but bone in moments!
+wraith-absorb-tainted = This vessel is tainted with an... unpleasant substance... It is now removed...But you are wounded.
+wraith-absorb-rotbonus = This corpse is extremely rotten and bloated. It satisfies us greatly.
+wraith-absorb-explosion1 = A mysterious force rips the corpse's body apart!
+wraith-absorb-explosion2 = The corpse suddenly explodes in a cloud of miasma and guts!
+wraith-absorb-draw1 = You draw the essence of death out of the corpse!
+wraith-absorb-draw2 = You drain the last scraps of life out of the corpse!
+wraith-absorb-smoke1 = Black smoke rises from the corpse! Freaky!
+wraith-absorb-smoke2 = The corpse suddenly rots to nothing but bone in moments!
 wraith-absorb-fresh = This body is too fresh. It needs to be poisoned or rotten before we consume it.
 
 # --------- Harbinger ----------
