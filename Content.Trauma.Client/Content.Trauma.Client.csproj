@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
+		<TargetFramework>$(TargetFramework)</TargetFramework>
+		<LangVersion>12</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<OutputPath>../bin/Content.Client/</OutputPath>
+		<OutputType Condition="'$(FullRelease)' != 'True'">Exe</OutputType>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<Nullable>enable</Nullable>
+		<Configurations>Debug;Release;Tools;DebugOpt</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../Content.Goobstation.Client/Content.Goobstation.Client.csproj" />
+		<ProjectReference Include="../Content.Trauma.Shared/Content.Trauma.Shared.csproj" />
+		<ProjectReference Include="../RobustToolbox/Robust.Client/Robust.Client.csproj" />
+		<ProjectReference Include="../RobustToolbox/Robust.Shared/Robust.Shared.csproj" />
+	</ItemGroup>
+
+	<Import Project="../RobustToolbox/MSBuild/Robust.Properties.targets" />
+	<Import Project="../RobustToolbox/MSBuild/XamlIL.targets" />
+</Project>

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
+		<TargetFramework>$(TargetFramework)</TargetFramework>
+		<LangVersion>12</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<OutputPath>../bin/Content.Server/</OutputPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<OutputType Condition="'$(FullRelease)' != 'True'">Exe</OutputType>
+		<NoWarn>1998</NoWarn>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<Nullable>enable</Nullable>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../Content.Trauma.Shared/Content.Trauma.Shared.csproj" />
+		<ProjectReference Include="../Content.Goobstation.Server/Content.Goobstation.Server.csproj" />
+		<ProjectReference Include="../Content.Server/Content.Server.csproj" />
+		<ProjectReference Include="../RobustToolbox/Robust.Shared/Robust.Shared.csproj" />
+	</ItemGroup>
+
+	<Import Project="../RobustToolbox/MSBuild/Robust.Properties.targets" />
+</Project>
