@@ -5,7 +5,9 @@ using Content.Goobstation.Shared.Shadowling.Systems;
 using Content.Server.Objectives.Systems;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
@@ -88,6 +90,7 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
             _entityStorage.Insert(uid, egg, eggStorage);
         }
 
-        // It should be noted that Shadowling shouldn't be able to take damage during this process.
+        EnsureComp<BreathingImmunityComponent>(uid); // vox and plasmamen dont take poison damage from losing air tankk
+        EnsureComp<GodmodeComponent>(uid); // It should be noted that Shadowling shouldn't be able to take damage during this process.
     }
 }
