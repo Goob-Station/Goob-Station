@@ -28,7 +28,7 @@ public sealed partial class HauntSystem : EntitySystem
 
         SubscribeLocalEvent<HauntComponent, HauntEvent>(OnHaunt);
     }
-
+    //TO DO: Add action to stop corporeal form.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

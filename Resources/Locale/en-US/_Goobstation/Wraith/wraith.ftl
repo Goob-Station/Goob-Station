@@ -60,8 +60,6 @@ wraith-rally-inspired = You feel inspired!
 
 # ----------- Unused or to be used. Lore accurate pop-ups. ------------
 
-wraith-spook-desc = Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to mark your current tile as the origin of these events, then activate it by using this ability again.
-
 wraith-spook-lightflip = You flip some light switches near the designated location!!
 wraith-spook-burnout = You cause a few lights to burn out near the designated location!.
 wraith-spook-smoke = Smoke rises in the designated location.
@@ -78,7 +76,6 @@ wraith-pda-skeleton = there's a skeleton inside of you
 wraith-pda-bloodshed = DEHUMANIZE YOURSELF AND FACE TO BLOODSHED
 wraith-pda-icarus = ICARUS HAS FOUND YOU!!!!! RUN WHILE YOU CAN!!!!!!!!!!!
 
-wraith-evolve-desc = Choose a form to evolve into once you have absorbed at least 3 souls
 wraith-evolve-desc-disaster = Choose a form to evolve into using the power of the void
 wraith-evolve-notenoughsouls = You didn't absorb enough souls. You need to absorb at least {remaining} more!
 wraith-evolve-notenoughpoints = You do not have enough points to cast this. You need at least {points} points.
@@ -89,8 +86,8 @@ wraith-evolve-trickster = You use some of your energy to evolve into a trickster
 wraith-possess-corporeal = You cannot force your consciousness into a body while corporeal.
 wraith-possess-holy = You feel rebuffed by a holy force!
 wraith-possess-invalid = You cannot possess this!
-wraith-possess-success1 = You extend your will into [target].
-wraith-possess-success2 = You force [target] to do your bidding.
+wraith-possess-success1 = You extend your will into { CAPITALIZE(SUBJECT($target)) }.
+wraith-possess-success2 = You force { CAPITALIZE(SUBJECT($target)) } to do your bidding.
 wraith-possess-slipping = You feel your control of this vessel slipping away!
 wraith-possess-lost = Your control is wrested away! The item is no longer yours.
 
@@ -98,51 +95,36 @@ wraith-haunt-fade = You fade back into the shadows.
 wraith-haunt-show = You show yourself.
 wraith-haunt-insidewraith = You can't become corporeal while inside another wraith! How would that even work?!
 
-wraith-decay-protected = Some mysterious force protects [target] from your influence.
-wraith-decay-human1 = You sap [target]'s energy.
-wraith-decay-human2 = You suck the breath out of [target].
+wraith-decay-protected = Some mysterious force protects { CAPITALIZE(SUBJECT($target)) } from your influence.
+wraith-decay-human1 = You sap { CAPITALIZE(SUBJECT($target)) }'s energy.
+wraith-decay-human2 = You suck the breath out of { CAPITALIZE(SUBJECT($target)) }.
 wraith-decay-human-alert = You feel really tired all of a sudden!
-wraith-decay-object1 = You alter the energy of [target].
-wraith-decay-object2 = You fail to alter the energy of the [target].
-wraith-decay-object-invalid = You cannot seem to alter the energy of [target].
+wraith-decay-object1 = You alter the energy of { CAPITALIZE(SUBJECT($target)) }.
+wraith-decay-object2 = You fail to alter the energy of the { CAPITALIZE(SUBJECT($target)) }.
+wraith-decay-object-invalid = You cannot seem to alter the energy of { CAPITALIZE(SUBJECT($target)) }.
 wraith-decay-nothing = There is nothing to decay here!
 
-wraith-command-protected = Some mysterious force protects [target] from your influence.
+wraith-command-protected = Some mysterious force protects { CAPITALIZE(SUBJECT($target)) } from your influence.
 wraith-command-stunned = A ghostly force compels you to be still on your feet.
 
 wraith-animate-invalid = That is not a valid target for animation!
 wraith-animate-nothing = There is no object here to animate!
 
-wraith-absorb-desc = Steal life essence from a corpse. You cannot use this on a skeleton!
-wraith-absorb-living = The living consciousness controlling this body shields it from being absorbed.
-wraith-absorb-too-decomposed = That corpse is already too decomposed.
-wraith-absorb-tainted = This vessel is tainted with an... unpleasant substance... It is now removed...But you are wounded
-wraith-absorb-rotbonus = [target] is extremely rotten and bloated. It satisfies us greatly
-wraith-absorb-explosion1 = A mysterious force rips [target]'s body apart!
-wraith-absorb-explosion2 = [target]'s corpse suddenly explodes in a cloud of miasma and guts!
-wraith-absorb-draw1 = You draw the essence of death out of [target]'s corpse!
-wraith-absorb-draw2 = You drain the last scraps of life out of [target]'s corpse!
-wraith-absorb-smoke1 = Black smoke rises from [target]'s corpse! Freaky!
-wraith-absorb-smoke2 = [target]'s corpse suddenly rots to nothing but bone in moments!
-wraith-absorb-fresh = This body is too fresh. It needs to be poisoned or rotten before we consume it.
-
-wraith-whisper-desc = Send an ethereal message to a living being.
 wraith-whisper-invalid = It would be futile to attempt to force your voice to the consciousness of that.
 wraith-whisper-dead = They can hear you just fine without the use of your abilities.
-wraith-whisper-send = You whisper to [target]: [message]
+wraith-whisper-send = You whisper to { CAPITALIZE(SUBJECT($target)) }: [message]
 wraith-whisper-receive = A netherworldly voice whispers into your ears... [message]
 
-wraith-absorb-desc = Steal life essence from a corpse. You cannot use this on a skeleton!
 wraith-absorb-living = The living consciousness controlling this body shields it from being absorbed.
 wraith-absorb-too-decomposed = That corpse is already too decomposed.
 wraith-absorb-tainted = This vessel is tainted with an... unpleasant substance... It is now removed...But you are wounded
-wraith-absorb-rotbonus = [target] is extremely rotten and bloated. It satisfies us greatly
-wraith-absorb-explosion1 = A mysterious force rips [target]'s body apart!
-wraith-absorb-explosion2 = [target]'s corpse suddenly explodes in a cloud of miasma and guts!
-wraith-absorb-draw1 = You draw the essence of death out of [target]'s corpse!
-wraith-absorb-draw2 = You drain the last scraps of life out of [target]'s corpse!
-wraith-absorb-smoke1 = Black smoke rises from [target]'s corpse! Freaky!
-wraith-absorb-smoke2 = [target]'s corpse suddenly rots to nothing but bone in moments!
+wraith-absorb-rotbonus = { CAPITALIZE(SUBJECT($target)) } is extremely rotten and bloated. It satisfies us greatly
+wraith-absorb-explosion1 = A mysterious force rips { CAPITALIZE(SUBJECT($target)) }'s body apart!
+wraith-absorb-explosion2 = { CAPITALIZE(SUBJECT($target)) }'s corpse suddenly explodes in a cloud of miasma and guts!
+wraith-absorb-draw1 = You draw the essence of death out of { CAPITALIZE(SUBJECT($target)) }'s corpse!
+wraith-absorb-draw2 = You drain the last scraps of life out of { CAPITALIZE(SUBJECT($target)) }'s corpse!
+wraith-absorb-smoke1 = Black smoke rises from { CAPITALIZE(SUBJECT($target)) }'s corpse! Freaky!
+wraith-absorb-smoke2 = { CAPITALIZE(SUBJECT($target)) }'s corpse suddenly rots to nothing but bone in moments!
 wraith-absorb-fresh = This body is too fresh. It needs to be poisoned or rotten before we consume it.
 
 # --------- Harbinger ----------
@@ -203,10 +185,10 @@ wraith-plaguerat-max = This [station_or_ship()] is already a rat den, you cannot
 wraith-plaguerat-no-response = No spirits responded. The portal closes.
 wraith-plaguerat-try-again = Couldn't set up plague rat; no ghosts responded. Trying again in 3 minutes.
 
-wraith-poison-target-invalid = You can't poison [target], only food items, drinks and glass containers.
+wraith-poison-target-invalid = You can't poison { CAPITALIZE(SUBJECT($target)) }, only food items, drinks and glass containers.
 wraith-poison-self = Why would you want to poison yourself?
-wraith-poison-success = You successfully poisoned [target].
-wraith-poison-fail = You failed to poison [target].
+wraith-poison-success = You successfully poisoned { CAPITALIZE(SUBJECT($target)) }.
+wraith-poison-fail = You failed to poison { CAPITALIZE(SUBJECT($target)) }.
 
 wraith-rot-hulk-desc = Assimilate the filth in an area and create an unstable servant.
 wraith-rot-hulk-too-clean = This place is much too clean to summon a rot hulk.

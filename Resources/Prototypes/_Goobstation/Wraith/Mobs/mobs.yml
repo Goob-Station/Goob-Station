@@ -683,7 +683,7 @@
     sprite: _Goobstation/Wraith/Mobs/skeletoncommander.rsi
     layers:
       - state: skeleton_commander
-  - type: MeleeWeapon
+  - type: MeleeWeapon #TO DO: Increase attack range of this fella. Parity and what not.
     altDisarm: false
     angle: 0
     animation: WeaponArcSlash

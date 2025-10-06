@@ -72,6 +72,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Target == null)
             return;
 
+        //TO DO: Rotting or bloated corpses give way more WP
         EnsureComp<RottingComponent>(args.Target.Value);
         PredictedSpawnAtPosition(ent.Comp.SmokeProto, Transform(args.Target.Value).Coordinates);
 
@@ -100,7 +101,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         // if user is dead do nothing
         if (!_mobState.IsDead(args.Target))
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-fail-target-alive"), args.User, args.User);
+            _popup.PopupPredicted(Loc.GetString("wraith-absorb-living"), args.User, args.User);
             args.Cancelled = true;
             return;
         }

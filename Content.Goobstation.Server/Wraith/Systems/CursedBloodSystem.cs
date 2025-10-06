@@ -48,7 +48,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString("You cough up some blood. Something is wrong..."), uid, uid);
                 _chatSystem.TrySendInGameICMessage(uid, "coughs", InGameICChatType.Emote, false);
-                //TO DO: Make them puke a litle bit of blood
+                //Make them puke a litle bit of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
                     _blood.TryModifyBloodLevel((uid, blood), comp.BleedAmount);
@@ -62,7 +62,7 @@ public sealed partial class CursedBloodSystem : EntitySystem
             if (curTime >= comp.NextTickBigPuke)
             {
                 _popup.PopupEntity(Loc.GetString("Blood splatters all over the floor! Nasty!"), uid);
-                //TO DO: Make them puke a lot of blood
+                //Make them puke a lot of blood
                 if (TryComp<BloodstreamComponent>(uid, out var blood))
                 {
                     if (_solutionContainer.TryGetSolution(uid, blood.BloodSolutionName, out var solution))
