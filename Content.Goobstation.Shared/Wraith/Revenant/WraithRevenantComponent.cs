@@ -13,12 +13,6 @@ public sealed partial class WraithRevenantComponent : Component
     [ViewVariables]
     public EntProtoId RevenantAbilities = "RevenantAbilities";
 
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier DamageOvertime;
-
-    [DataField, AutoNetworkedField]
-    public List<MobState> AllowedStates = new();
-
     [ViewVariables, AutoNetworkedField]
     public DamageSpecifier? OldDamageSpecifier;
 

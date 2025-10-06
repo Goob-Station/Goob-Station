@@ -30,9 +30,9 @@
   - type: SummonPortal
   - type: RaiseSkeleton
   - type: MakeRevenant
-    revenantDamageOvertime:
-      groups:
-        Brute: 5
+    passiveRevenantDamage:
+      types:
+        Caustic: 1
   - type: SpookMark
   - type: CurseOfBlindness
   - type: CurseOfWeakness

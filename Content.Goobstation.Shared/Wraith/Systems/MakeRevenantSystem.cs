@@ -1,26 +1,16 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Body.Systems;
-using Content.Shared.Humanoid;
 using Content.Shared.Mind;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
-public sealed partial class MakeRevenentSystem : EntitySystem
+public sealed class MakeRevenentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedRottingSystem _rotting = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly WraithPossessedSystem _wraithPossessed = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -30,16 +20,26 @@ public sealed partial class MakeRevenentSystem : EntitySystem
 
     //TO DO: Add action for wraith to leave body.
     //TO DO: Add way for wraith to return to wraith body if killed while inside body.
-    public void OnMakeRevenant(Entity<MakeRevenantComponent> ent, ref MakeRevenantEvent args)
+    private void OnMakeRevenant(Entity<MakeRevenantComponent> ent, ref MakeRevenantEvent args)
     {
         if (!_mind.TryGetMind(ent.Owner, out var mindId, out _))
             return;
 
-        //TO DO: Heal the body. This shit don't fucking work.
+        if (!HasComp<WraithAbsorbableComponent>(args.Target)
+            || !TryComp<PerishableComponent>(args.Target, out var perishComp)
+            || perishComp.Stage != 1) // should have been an enum... anyways: 1 means its a fresh corpse
+            return;
+
+        if (_netManager.IsClient)
+            return;
+
         var rej = new RejuvenateEvent();
         RaiseLocalEvent(args.Target, rej);
 
         var possessed = EnsureComp<WraithPossessedComponent>(args.Target);
+        possessed.RevenantDamageOvertime = ent.Comp.PassiveRevenantDamage;
+        Dirty(args.Target, possessed);
+
         _wraithPossessed.StartPossession((args.Target, possessed), ent.Owner, mindId, true);
 
         // THE REV TODO LIST:

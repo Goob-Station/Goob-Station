@@ -56,8 +56,6 @@ public sealed class DefileSystem : EntitySystem
         ent.Comp.ReagentSelectedAmount = amount;
         Dirty(ent);
 
-        _popup.PopupPredicted($"Selected reagent: {args.SelectedItem.Id}", ent.Owner, ent.Owner);
-
         _ui.CloseUi(ent.Owner, ListViewSelectorUiKey.Key);
     }
 

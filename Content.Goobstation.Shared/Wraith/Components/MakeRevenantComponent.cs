@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -13,9 +14,6 @@ public sealed partial class MakeRevenantComponent : Component
     [DataField]
     public SoundSpecifier? PossessEndSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithleaveobject.ogg");
 
-    /// <summary>
-    /// How long the Haunted component lasts until it deletes itself.
-    /// </summary>
     [DataField]
-    public TimeSpan PossessTimer = TimeSpan.FromSeconds(60);
+    public DamageSpecifier PassiveRevenantDamage = new();
 }

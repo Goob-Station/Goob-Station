@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -41,8 +42,14 @@ public sealed partial class WraithPossessedComponent : Component
     [DataField, AutoNetworkedField]
     public bool CancelEarly;
 
-    [DataField]
-    public DamageSpecifier RevenantDamageOvertime;
+    [DataField, AutoNetworkedField]
+    public DamageSpecifier RevenantDamageOvertime = new()
+    {
+        DamageDict = new Dictionary<string, FixedPoint2>
+        {
+            {"Caustic", 8}
+        }
+    };
 }
 
 /// <summary>

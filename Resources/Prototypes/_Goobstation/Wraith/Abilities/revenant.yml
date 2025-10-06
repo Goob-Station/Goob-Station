@@ -25,16 +25,15 @@
       - Body
       - Food
       - EntityStorage
-    maxObjects: 20
-    searchRange: 8
-    stunDuration: 8
+    maxObjects: 30  # why not
+    searchRange: 14 # why not
+    stunDuration: 8 # why not
   - type: WraithPoints
     startingWraithPoints: 50
   - type: PassiveWraithPoints
     wpGeneration: 15 # generate points 5x than a normal wraith
   - type: ActionGrant
     actions:
-    - ActionCommand
     - ActionRevenantPush
     - ActionMassCommand
     - ActionShockwave
@@ -42,7 +41,7 @@
     - ActionCrush
   - type: TriggerOnMobstateChange # smoke on death
     mobState:
-      - Dead
+      - Crit
   - type: SmokeOnTrigger
     duration: 4
     spreadAmount: 50

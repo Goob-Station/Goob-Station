@@ -20,7 +20,7 @@ public sealed class WraithPossessedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedRottingSystem _rotting = default!;
+    [Dependency] private readonly WraithRevenantSystem _wraithRevenant = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -42,7 +42,7 @@ public sealed class WraithPossessedSystem : EntitySystem
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
 
-            if (comp.PossessorMind == null || comp.CancelEarly || comp.Possessor == null)
+            if (comp.PossessorMind == null || !comp.CancelEarly || comp.Possessor == null)
                 continue;
 
             // Transfer user back into their original body
@@ -82,11 +82,6 @@ public sealed class WraithPossessedSystem : EntitySystem
 
         if (makeRev)
         {
-            if (!HasComp<WraithAbsorbableComponent>(ent.Owner)
-                || !TryComp<PerishableComponent>(ent.Owner, out var perishComp)
-                || perishComp.Stage != 1) // should have been an enum... anyways: 1 means its a fresh corpse
-                return;
-
             _mind.TransferTo(possessorMind, ent.Owner);
             var rev = EnsureComp<WraithRevenantComponent>(ent.Owner);
             // HELP HELP HELP HELP HELP HELP HELPH ELP HELP HELPHELHPLELHEPL PHLELPHE HELHLEHPELHPELHPELHPELHPELHLEPHLE
@@ -94,9 +89,7 @@ public sealed class WraithPossessedSystem : EntitySystem
             var alive = new List<MobState>();
             alive.Add(MobState.Alive);
 
-            rev.AllowedStates = alive;
-            rev.DamageOvertime = ent.Comp.RevenantDamageOvertime;
-            Dirty(ent.Owner, rev);
+            _wraithRevenant.SetPassiveDamageValues((ent.Owner, rev), ent.Comp.RevenantDamageOvertime, alive);
 
             return;
         }
@@ -147,7 +140,7 @@ public sealed class WraithPossessedSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<WraithPossessedComponent> ent, ref MobStateChangedEvent args)
     {
-        // early return on death
+        // early return on death/crit
         if (args.NewMobState == MobState.Alive
             || ent.Comp.PossessorMind == null
             || ent.Comp.Possessor == null)
