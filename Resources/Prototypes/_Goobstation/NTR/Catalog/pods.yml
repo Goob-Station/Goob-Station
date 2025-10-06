@@ -285,3 +285,12 @@
   components:
   - type: SpawnOnDespawn
     prototype: Marlen
+
+- type: entity
+  id: SpawnPodNTRCigs
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRCigs
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: VendingMachineCigsDeluxe
