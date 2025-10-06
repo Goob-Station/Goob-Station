@@ -15,7 +15,6 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
 
@@ -57,6 +56,7 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
             || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind))
             return;
 
+        // TODO: Playtest this to make sure it works
         var coordinates = _transform.GetMoverCoordinates(ent.Owner);
         var newForm = Spawn(proto, coordinates);
 

@@ -104,8 +104,10 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
-      enum.RadialSelectorUiKey.Key:
+      enum.RadialSelectorUiKey.Key: # WWDP
         type: TrackedRadialSelectorMenuBUI
+      enum.ListViewSelectorUiKey.Key: # WWDP
+        type: ListViewSelectorBUI
 
 
 - type: entity

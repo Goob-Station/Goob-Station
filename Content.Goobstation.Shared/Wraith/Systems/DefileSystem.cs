@@ -1,55 +1,82 @@
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared._White.ListViewSelector;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Emag.Systems;
-using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
-public sealed partial class DefileSystem : EntitySystem
+public sealed class DefileSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DefileComponent, DefileEvent>(OnDefile);
+        SubscribeLocalEvent<DefileComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DefileComponent, ListViewItemSelectedMessage>(OnDefileSelected);
     }
 
-    //TO DO: Allow wraith to pick which solution to inject. Give more solution options. Increase solution amount of each solution if you do this.
-    // Comment: Leave this for part 2. I'm not doing another dropdown menu...
-    public void OnDefile(Entity<DefileComponent> ent, ref DefileEvent args)
+    private void OnMapInit(Entity<DefileComponent> ent, ref MapInitEvent args)
     {
-        var uid = ent.Owner;
-        var target = args.Target;
-        var comp = ent.Comp;
+        foreach (var reagent in ent.Comp.Reagents)
+        {
+            var reagentEntry = new ListViewSelectorEntry(reagent.Key.ToString(), reagent.Key.ToString());
+            ent.Comp.ReagentsEntryList.Add(reagentEntry);
+        }
+        Dirty(ent);
+    }
 
-        if (args.Handled)
+    private void OnDefile(Entity<DefileComponent> ent, ref DefileEvent args)
+    {
+        if (args.Target == ent.Owner)
+        {
+            _ui.SetUiState(ent.Owner, ListViewSelectorUiKey.Key, new ListViewSelectorState(ent.Comp.ReagentsEntryList));
+            _ui.TryToggleUi(ent.Owner, ListViewSelectorUiKey.Key, args.Performer);
+        }
+        else
+        {
+            if (!TryInjectReagents(args.Target, ent))
+                return;
+
+            _popup.PopupPredicted(Loc.GetString("wraith-defile"), ent.Owner, ent.Owner);
+            args.Handled = true;
+        }
+    }
+
+    private void OnDefileSelected(Entity<DefileComponent> ent, ref ListViewItemSelectedMessage args)
+    {
+        if (!ent.Comp.Reagents.TryGetValue(args.SelectedItem.Id, out var amount))
             return;
 
-        // inject here
-        if (TryInjectReagents(target, comp.Reagents))
-        {
-            _popup.PopupPredicted(Loc.GetString("wraith-defile"), ent.Owner, ent.Owner);
-        }
+        ent.Comp.ReagentSelected = args.SelectedItem.Id;
+        ent.Comp.ReagentSelectedAmount = amount;
+        Dirty(ent);
 
-        args.Handled = true;
+        _popup.PopupPredicted($"Selected reagent: {args.SelectedItem.Id}", ent.Owner, ent.Owner);
+
+        _ui.CloseUi(ent.Owner, ListViewSelectorUiKey.Key);
     }
-    private bool TryInjectReagents(EntityUid target, Dictionary<string, FixedPoint2> reagents)
+
+
+    #region Helper
+    private bool TryInjectReagents(EntityUid target, Entity<DefileComponent> ent)
     {
+        if (!ent.Comp.ReagentSelected.HasValue)
+            return false;
+
         var solution = new Solution();
-        foreach (var reagent in reagents)
-            solution.AddReagent(reagent.Key, reagent.Value);
+        solution.AddReagent(ent.Comp.ReagentSelected, ent.Comp.ReagentSelectedAmount);
 
         if (!_solution.TryGetSolution(target, "drink", out var targetSolution) &&
             !_solution.TryGetSolution(target, "food", out targetSolution))
             return false;
 
-        var solComp = Comp<SolutionComponent>(targetSolution.Value);
+        if (!TryComp<SolutionComponent>(targetSolution.Value, out var solComp))
+            return false;
 
         // Ensure capacity is large enough before injecting
         var needed = solComp.Solution.Volume + solution.Volume;
@@ -61,4 +88,5 @@ public sealed partial class DefileSystem : EntitySystem
 
         return _solution.TryAddSolution(targetSolution.Value, solution);
     }
+    #endregion
 }

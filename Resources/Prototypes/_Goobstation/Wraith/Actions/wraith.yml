@@ -422,12 +422,6 @@
   - type: TargetAction
     deselectOnMiss: true
   - type: EntityTargetAction
-    canTargetSelf: false
-    whitelist:
-      requireAll: false
-      components:
-      - Drink
-      - Food
     event: !type:DefileEvent
 
 - type: entity
