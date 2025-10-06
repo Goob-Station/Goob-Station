@@ -154,6 +154,19 @@
   name: darkness
   description: Oh god.
   components:
+  - type: Advertise
+    pack: Shade
+    minimumWait: 10
+    maximumWait: 45
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      collection: CreepyWhisper
+      params:
+        volume: 3
+        maxDistance: 12
+        variation: 0.01
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -221,6 +234,15 @@
   parent: [ BaseMob, MobCombat ]
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      path: /Audio/_Goobstation/Wraith/Mobs/mechmonstrositylaugh.ogg
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.01
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
@@ -268,6 +290,15 @@
   name: mechanical monstrosity
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      path: /Audio/_Goobstation/Wraith/Mobs/mechmonstrositylaugh.ogg
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.01
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -380,6 +411,10 @@
   name: strange robot
   description: It looks like some sort of floating repair bot or something?
   components:
+  - type: Advertise
+    pack: Repairbot
+    minimumWait: 15
+    maximumWait: 45
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -419,8 +454,8 @@
         layer:
           - MobLayer
   - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 45
+    minInterval: 10
+    maxInterval: 30
     sound:
       collection: Repairbot
       params:
