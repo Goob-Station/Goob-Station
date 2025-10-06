@@ -263,7 +263,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 1.3 #Burn them
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
