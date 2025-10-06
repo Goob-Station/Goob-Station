@@ -1,15 +1,23 @@
+using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Projectiles;
-using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -23,18 +31,24 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStaminaSystem _stam = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public static readonly EntProtoId StarMarkStatusEffect = "StatusEffectStarMark";
+    public static readonly EntProtoId CosmicField = "WallFieldCosmic";
+
+    private const float CosmosPassiveStaminaHealInterval = 1f;
+    private float _accumulator;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CosmicFieldComponent, PreventCollideEvent>(OnPreventColliede);
-
-        SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
+        SubscribeLocalEvent<CosmicFieldComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<CosmicFieldComponent, StartCollideEvent>(OnStartCollide);
 
         SubscribeLocalEvent<StarMarkStatusEffectComponent, StatusEffectAppliedEvent>(OnApply);
         SubscribeLocalEvent<StarMarkStatusEffectComponent, StatusEffectRemovedEvent>(OnRemove);
@@ -42,12 +56,18 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
     private void OnRemove(Entity<StarMarkStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         if (!TerminatingOrDeleted(args.Target) && TryComp(args.Target, out StarMarkComponent? mark))
             RemCompDeferred(args.Target, mark);
     }
 
     private void OnApply(Entity<StarMarkStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         EnsureComp<StarMarkComponent>(args.Target);
     }
 
@@ -65,25 +85,53 @@ public abstract class SharedStarMarkSystem : EntitySystem
                 continue;
 
             trail.NextCosmicFieldTime = _timing.CurTime + trail.CosmicFieldPeriod;
-            SpawnCosmicField(xform.Coordinates, 5f);
+            SpawnCosmicField(xform.Coordinates, trail.Strength, trail.CosmicFieldLifetime);
+        }
+
+        _accumulator += frameTime;
+
+        if (_accumulator < CosmosPassiveStaminaHealInterval)
+            return;
+
+        _accumulator = 0f;
+
+        var cosmicFieldQuery = GetEntityQuery<CosmicFieldComponent>();
+
+        var query2 = EntityQueryEnumerator<CosmosPassiveComponent, SpeedModifiedByContactComponent, StaminaComponent, PhysicsComponent>();
+        while (query2.MoveNext(out var uid, out var passive, out _, out var stam, out var phys))
+        {
+            if (!_physics.GetContactingEntities(uid, phys).Any(cosmicFieldQuery.HasComp))
+                continue;
+
+            _stam.TryTakeStamina(uid, passive.StaminaHeal, stam);
         }
     }
 
-    private void OnHit(Entity<StarBlastComponent> ent, ref ProjectileHitEvent args)
+    private void OnStartCollide(Entity<CosmicFieldComponent> ent, ref StartCollideEvent args)
     {
-        var coords = Transform(ent).Coordinates;
-        ApplyStarMarkInRange(coords, ent.Comp.StarMarkRadius);
+        if (args.OurFixture.Hard || ent.Comp.Strength < 7)
+            return;
 
-        if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
-            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
+        var other = args.OtherEntity;
 
-        SpawnCosmicFieldLine(coords, DirectionFlag.North, -1, 1, 0);
-        SpawnCosmicFieldLine(coords, DirectionFlag.East, -1, 1, 1);
+        if (!TryComp(other, out ActiveTimerTriggerComponent? trigger))
+            return;
+
+        // Defuse bombs
+        RemComp(other, trigger);
+
+        if (_net.IsClient)
+            return;
+
+        _audio.PlayPvs(ent.Comp.BombDefuseSound, other);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.BombDefusePopup, ("bomb", other)), other, PopupType.SmallCaution);
     }
 
-    private void OnPreventColliede(Entity<CosmicFieldComponent> ent, ref PreventCollideEvent args)
+    private void OnPreventCollide(Entity<CosmicFieldComponent> ent, ref PreventCollideEvent args)
     {
-        if (!HasComp<StarMarkComponent>(args.OtherEntity))
+        if (args.OurFixture.Hard && (!HasComp<StarMarkComponent>(args.OtherEntity) ||
+            TryComp(args.OtherEntity, out PullableComponent? pullable) &&
+            TryComp(pullable.Puller, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos"))
             args.Cancelled = true;
     }
 
@@ -92,6 +140,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
         int start,
         int end,
         int centerSkipRadius,
+        int strength,
         float lifetime = 30f)
     {
         if (start > end)
@@ -105,11 +154,11 @@ public abstract class SharedStarMarkSystem : EntitySystem
             if (centerSkipRadius > 0 && Math.Abs(i) < centerSkipRadius)
                 continue;
 
-            SpawnCosmicField(coords.Offset(new Vector2i(x * i, y * i)), lifetime);
+            SpawnCosmicField(coords.Offset(new Vector2i(x * i, y * i)), strength, lifetime);
         }
     }
 
-    public void SpawnCosmicFields(EntityCoordinates coords, int range, float lifetime = 30f)
+    public void SpawnCosmicFields(EntityCoordinates coords, int range, int strength, float lifetime = 30f)
     {
         if (range < 0)
             return;
@@ -118,12 +167,12 @@ public abstract class SharedStarMarkSystem : EntitySystem
         {
             for (var x = -range; x <= range; x++)
             {
-                SpawnCosmicField(coords.Offset(new Vector2i(x, y)), lifetime);
+                SpawnCosmicField(coords.Offset(new Vector2i(x, y)), strength, lifetime);
             }
         }
     }
 
-    public void SpawnCosmicField(EntityCoordinates coords, float lifetime = 30f)
+    public void SpawnCosmicField(EntityCoordinates coords, int strength, float lifetime = 30f)
     {
         if (_net.IsClient)
             return;
@@ -133,8 +182,11 @@ public abstract class SharedStarMarkSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange<CosmicFieldComponent>(spawnCoords, 0.1f, LookupFlags.Static);
         if (lookup.Count > 0)
         {
-            foreach (var lookEnt in lookup)
+            foreach (var (lookEnt, comp) in lookup)
             {
+                if (comp.Strength < strength)
+                    InitializeCosmicField((lookEnt, comp), strength);
+
                 if (TryComp(lookEnt, out TimedDespawnComponent? despawn) && despawn.Lifetime < lifetime)
                     despawn.Lifetime = lifetime;
             }
@@ -142,26 +194,48 @@ public abstract class SharedStarMarkSystem : EntitySystem
             return;
         }
 
-        var field = Spawn("WallFieldCosmic", spawnCoords);
-        _transform.AttachToGridOrMap(field);
-        EnsureComp<TimedDespawnComponent>(field).Lifetime = lifetime;
+        var ent = Spawn(CosmicField, spawnCoords);
+        _transform.AttachToGridOrMap(ent);
+
+        var field = EnsureComp<CosmicFieldComponent>(ent);
+        InitializeCosmicField((ent, field), strength);
+
+        EnsureComp<TimedDespawnComponent>(ent).Lifetime = lifetime;
     }
 
-    public void ApplyStarMarkInRange(EntityCoordinates coords, float range)
+    public void ApplyStarMarkInRange(EntityCoordinates coords, EntityUid? user, float range)
     {
         var ents = _lookup.GetEntitiesInRange<MobStateComponent>(coords, range, LookupFlags.Dynamic);
         foreach (var entity in ents)
         {
-            TryApplyStarMark(entity, null);
+            TryApplyStarMark(entity!, user);
         }
     }
 
-    public bool TryApplyStarMark(EntityUid entity, EntityUid? user)
+    public bool TryApplyStarMark(Entity<MobStateComponent?> entity, EntityUid? user, bool ignoreGhouls = false)
     {
-        if (entity == user || TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" ||
-            user != null && TryComp(entity, out GhoulComponent? ghoul) && ghoul.BoundHeretic == user.Value)
+        if (entity == user || !Resolve(entity, ref entity.Comp, false) ||
+            TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" ||
+            !ignoreGhouls && user != null && TryComp(entity, out GhoulComponent? ghoul) &&
+            ghoul.BoundHeretic == user.Value)
             return false;
 
-        return _status.TryUpdateStatusEffectDuration(entity, StarMarkStatusEffect, TimeSpan.FromSeconds(30));
+        var ev = new BeforeCastTouchSpellEvent(entity, false);
+        RaiseLocalEvent(entity, ev, true);
+
+        return !ev.Cancelled &&
+               _status.TryUpdateStatusEffectDuration(entity, StarMarkStatusEffect, TimeSpan.FromSeconds(30));
+    }
+
+    protected virtual void InitializeCosmicField(Entity<CosmicFieldComponent> field, int strength)
+    {
+        field.Comp.Strength = strength;
+        Dirty(field);
+
+        if (strength < 10 || !TryComp(field, out VelocityModifierContactsComponent? modifier))
+            return;
+
+        modifier.IsActive = true;
+        Dirty(field.Owner, modifier);
     }
 }

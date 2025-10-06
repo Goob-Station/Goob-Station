@@ -65,9 +65,13 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
         SubscribeLocalEvent<HereticCosmicMarkComponent, ComponentRemove>(OnCosmicRemove);
     }
 
-    public override bool ApplyMarkEffect(EntityUid target, HereticCombatMarkComponent mark, string? path, EntityUid user)
+    public override bool ApplyMarkEffect(EntityUid target,
+        HereticCombatMarkComponent mark,
+        string? path,
+        EntityUid user,
+        HereticComponent heretic)
     {
-        if (!base.ApplyMarkEffect(target, mark, path, user))
+        if (!base.ApplyMarkEffect(target, mark, path, user, heretic))
             return false;
 
         switch (path)
@@ -123,7 +127,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     break;
 
                 var targetCoords = Transform(target).Coordinates;
-                _starMark.SpawnCosmicField(targetCoords);
+                _starMark.SpawnCosmicField(targetCoords, heretic.PathStage);
 
                 if (Exists(cosmicMark.CosmicDiamondUid))
                 {

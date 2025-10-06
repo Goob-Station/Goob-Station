@@ -1,10 +1,13 @@
 using System.Linq;
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Coordinates;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
@@ -26,6 +29,7 @@ public sealed class CosmicRunesSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     public override void Initialize()
     {
@@ -43,8 +47,10 @@ public sealed class CosmicRunesSystem : EntitySystem
 
         if (TryComp(args.Used, out StarTouchComponent? starTouch))
         {
-            _starTouch.InvokeSpell((args.Used, starTouch), args.User, false);
+            _starTouch.InvokeSpell((args.Used, starTouch), args.User);
             EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
+            if (Exists(ent.Comp.LinkedRune))
+                EnsureComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value).Lifetime = 0f;
             args.Handled = true;
             return;
         }
@@ -123,12 +129,28 @@ public sealed class CosmicRunesSystem : EntitySystem
             .Where(HasComp<StarMarkComponent>)
             .ToHashSet();
         toTeleport.Add(user);
+        EntityUid? pulling = null;
+        var grabStage = GrabStage.No;
+        PullerComponent? puller = null;
+        var isUserCosmosHeretic = TryComp(user, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos";
+        if (isUserCosmosHeretic && TryComp(user, out puller) && puller.Pulling != null)
+        {
+            pulling = puller.Pulling.Value;
+            grabStage = puller.GrabStage;
+            toTeleport.Add(pulling.Value);
+        }
 
         foreach (var entity in toTeleport)
         {
             _pulling.StopAllPulls(entity);
             _transform.SetCoordinates(entity, xform.Coordinates);
         }
+
+        if (!isUserCosmosHeretic)
+            _starMark.TryApplyStarMark(user, null, true);
+
+        if (pulling != null)
+            _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage);
 
         return true;
     }

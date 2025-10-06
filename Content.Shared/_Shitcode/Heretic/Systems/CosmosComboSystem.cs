@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
@@ -47,7 +48,7 @@ public sealed class CosmosComboSystem : EntitySystem
     }
 
     // Hell
-    public void ComboProgress(EntityUid uid, IReadOnlyList<EntityUid> hitEntities)
+    public void ComboProgress(Entity<HereticComponent> uid, IReadOnlyList<EntityUid> hitEntities)
     {
         if (_net.IsClient)
             return;
@@ -64,10 +65,7 @@ public sealed class CosmosComboSystem : EntitySystem
             hitMobs.Add(ent);
         }
 
-        if (hitMobs.Count == 0)
-            return;
-
-        if (hitMobs.Contains(uid))
+        if (hitMobs.Count == 0 || hitMobs.Contains(uid))
         {
             RemCompDeferred<CosmosComboComponent>(uid);
             return;
@@ -134,6 +132,6 @@ public sealed class CosmosComboSystem : EntitySystem
         combo.ComboTimer = combo.ComboDuration;
 
         if (combo.ComboCounter >= 3)
-            EnsureComp<CosmicTrailComponent>(uid);
+            EnsureComp<CosmicTrailComponent>(uid).Strength = uid.Comp.PathStage;
     }
 }

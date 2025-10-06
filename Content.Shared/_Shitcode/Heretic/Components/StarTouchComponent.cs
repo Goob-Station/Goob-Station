@@ -14,7 +14,7 @@ public sealed partial class StarTouchComponent : Component
     public TimeSpan Cooldown = TimeSpan.FromSeconds(15);
 
     [DataField]
-    public TimeSpan SleepTime = TimeSpan.FromSeconds(4);
+    public TimeSpan DrowsinessTime = TimeSpan.FromSeconds(8);
 
     [DataField]
     public LocId Speech = "heretic-speech-star-touch";
@@ -26,5 +26,8 @@ public sealed partial class StarTouchComponent : Component
     public SpriteSpecifier BeamSprite = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Heretic/Effects/effects.rsi"), "cosmic_beam");
 
     [DataField]
-    public TimeSpan Duration = TimeSpan.FromSeconds(60);
+    public TimeSpan Duration = TimeSpan.FromSeconds(8);
+
+    [DataField]
+    public float CosmicFieldLifetime = 30f;
 }

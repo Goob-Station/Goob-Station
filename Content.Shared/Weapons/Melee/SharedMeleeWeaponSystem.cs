@@ -121,7 +121,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Weapons; // Goobstation - Martial Arts
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
@@ -660,12 +661,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
+        // Goobstation start
+        var rangeEv = new GetLightAttackRangeEvent(target, user, component.Range);
+        RaiseLocalEvent(meleeUid, ref rangeEv);
+        // Goobstation end
+
         // For consistency with wide attacks stuff needs damageable.
         if (Deleted(target) ||
             !HasComp<DamageableComponent>(target) ||
             !TryComp(target, out TransformComponent? targetXform) ||
             // Not in LOS.
-            !InRange(user, target.Value, component.Range, session))
+            !InRange(user, target.Value, rangeEv.Range, session)) // Goob edit
         {
             // Leave IsHit set to true, because the only time it's set to false
             // is when a melee weapon is examined. Misses are inferred from an
@@ -686,7 +692,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null, GetCoordinates(ev.Coordinates)); // Goob edit
             RaiseLocalEvent(meleeUid, missEvent, true); // Goob station - broadcast
             _meleeSound.PlaySwingSound(user, meleeUid, component);
-            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), rangeEv.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
         }
 
@@ -712,7 +718,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             target.Value
         };
 
-        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), component.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), rangeEv.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
         Interaction.DoContactInteraction(user, weapon);
 

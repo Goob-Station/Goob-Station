@@ -11,14 +11,11 @@ public sealed class StarTouchSystem : SharedStarTouchSystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
-    public override void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user, bool deleteSpell = true)
+    public override void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user)
     {
-        base.InvokeSpell(ent, user, deleteSpell);
+        base.InvokeSpell(ent, user);
 
         _chat.TrySendInGameICMessage(user, Loc.GetString(ent.Comp.Speech), InGameICChatType.Speak, false);
-
-        if (!deleteSpell)
-            return;
 
         if (Exists(ent.Comp.StarTouchAction))
             _actions.SetCooldown(ent.Comp.StarTouchAction.Value, ent.Comp.Cooldown);

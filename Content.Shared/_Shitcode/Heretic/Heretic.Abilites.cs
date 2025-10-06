@@ -241,7 +241,7 @@ public sealed partial class EventHereticStarTouch : InstantActionEvent
     public EntProtoId StarTouch = "TouchSpellStar";
 }
 
-public sealed partial class EventHereticStarBlast : EntityWorldTargetActionEvent
+public sealed partial class EventHereticStarBlast : InstantWorldTargetActionEvent
 {
     [DataField]
     public EntProtoId Projectile = "ProjectileStarBall";
@@ -258,6 +258,9 @@ public sealed partial class EventHereticCosmicExpansion : InstantActionEvent
     [DataField]
     public float Range = 7f;
 }
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class EventHereticCosmosPassive : EntityEventArgs;
 
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
@@ -304,3 +307,7 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
 #endregion
+
+public abstract partial class InstantWorldTargetActionEvent : WorldTargetActionEvent
+{
+}

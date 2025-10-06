@@ -1,4 +1,3 @@
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
@@ -10,17 +9,11 @@ public sealed partial class StarTouchedComponent : Component
     public float TickInterval = 0.2f;
 
     [DataField]
-    public float Range = 10f;
+    public float Range = 8f;
+
+    [DataField]
+    public bool ApplyEffects;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float Accumulator;
-
-    [DataField]
-    public DamageSpecifier Damage = new()
-    {
-        DamageDict =
-        {
-            { "Heat", 3f },
-        },
-    };
 }

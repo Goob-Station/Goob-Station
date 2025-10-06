@@ -15,8 +15,11 @@
 
 using System.Linq;
 using System.Text;
+using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -51,6 +54,40 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
+    }
+
+    private void OnGetRange(Entity<HereticBladeComponent> ent, ref GetLightAttackRangeEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (!TryComp(args.User, out HereticComponent? heretic))
+            return;
+
+        if (ent.Comp.Path != heretic.CurrentPath)
+            return;
+
+        if (heretic.CurrentPath != "Cosmos")
+            return;
+
+        if (heretic.PathStage >= 7 && HasComp<StarMarkComponent>(args.Target.Value))
+        {
+            if (heretic.Ascended)
+            {
+                args.Range = Math.Max(args.Range, 3.5f);
+                return;
+            }
+
+            args.Range = Math.Max(args.Range, 2.5f);
+        }
+
+        var netEnt = GetNetEntity(args.User);
+        var id = SharedStarTouchSystem.StarTouchBeamDataId;
+
+        if (TryComp(args.Target.Value, out ComplexJointVisualsComponent? joint) &&
+            joint.Data.Any(kvp => kvp.Key == netEnt && kvp.Value.Id == id))
+            args.Range = Math.Max(args.Range, 3.5f);
     }
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
@@ -188,7 +225,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     if (hitEnts.Count == 0)
                         break;
 
-                    _combo.ComboProgress(args.User, hitEnts);
+                    _combo.ComboProgress((args.User, hereticComp), hitEnts);
 
                     foreach (var uid in hitEnts)
                     {
@@ -213,7 +250,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 continue;
 
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
-                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User);
+                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User, hereticComp);
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit, args);

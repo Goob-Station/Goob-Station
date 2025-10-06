@@ -3,12 +3,16 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
@@ -37,6 +41,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -52,6 +60,28 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
     }
+
+    protected List<Entity<MobStateComponent>> GetNearbyPeople(Entity<HereticComponent> ent, float range, EntityCoordinates? coords = null)
+    {
+        var list = new List<Entity<MobStateComponent>>();
+        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
+
+        foreach (var look in lookup)
+        {
+            // ignore heretics with the same path*, affect everyone else
+            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
+            || HasComp<GhoulComponent>(look))
+                continue;
+
+            if (!HasComp<StatusEffectsComponent>(look))
+                continue;
+
+            list.Add(look);
+        }
+
+        return list;
+    }
+
 
     private void OnShadowCloak(Entity<HereticComponent> ent, ref EventHereticShadowCloak args)
     {
@@ -111,15 +141,12 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return false;
     }
 
-    protected void ShootProjectileSpell(EntityUid performer,
+    protected EntityUid ShootProjectileSpell(EntityUid performer,
         EntityCoordinates coords,
         EntProtoId toSpawn,
         float speed,
         EntityUid? target)
     {
-        if (_net.IsClient)
-            return;
-
         var xform = Transform(performer);
         var fromCoords = xform.Coordinates;
         var toCoords = coords;
@@ -131,13 +158,15 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         var userVelocity = _physics.GetMapLinearVelocity(spawnCoords);
 
-        var projectile = Spawn(toSpawn, spawnCoords);
+        var projectile = PredictedSpawnAtPosition(toSpawn, spawnCoords);
         var direction = _transform.ToMapCoordinates(toCoords).Position -
                         _transform.ToMapCoordinates(spawnCoords).Position;
         _gun.ShootProjectile(projectile, direction, userVelocity, performer, performer, speed);
 
         if (target != null)
             _gun.SetTarget(projectile, target.Value, out _);
+
+        return projectile;
     }
 
     protected virtual void SpeakAbility(EntityUid ent, HereticActionComponent args) { }

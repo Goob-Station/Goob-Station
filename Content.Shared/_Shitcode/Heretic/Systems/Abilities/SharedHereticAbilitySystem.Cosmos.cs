@@ -1,8 +1,12 @@
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Projectiles;
+using Content.Shared.StatusEffect;
+using Robust.Shared.Map;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
@@ -14,6 +18,14 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticStarTouch>(OnStarTouch);
         SubscribeLocalEvent<HereticComponent, EventHereticStarBlast>(OnStarBlast);
         SubscribeLocalEvent<HereticComponent, EventHereticCosmicExpansion>(OnExpansion);
+        SubscribeLocalEvent<HereticComponent, EventHereticCosmosPassive>(OnPassive);
+
+        SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
+    }
+
+    private void OnPassive(Entity<HereticComponent> ent, ref EventHereticCosmosPassive args)
+    {
+        EnsureComp<CosmosPassiveComponent>(ent);
     }
 
     private void OnExpansion(Entity<HereticComponent> ent, ref EventHereticCosmicExpansion args)
@@ -24,23 +36,55 @@ public abstract partial class SharedHereticAbilitySystem
         args.Handled = true;
 
         var coords = Transform(ent).Coordinates;
+        var strength = ent.Comp.PathStage;
 
-        _starMark.ApplyStarMarkInRange(coords, args.Range);
-        _starMark.SpawnCosmicFields(coords, 1);
+        _starMark.ApplyStarMarkInRange(coords, ent, args.Range);
+        _starMark.SpawnCosmicFields(coords, 2, strength);
 
-        if (_net.IsServer)
-            Spawn(args.Effect, coords);
+        PredictedSpawnAtPosition(args.Effect, coords);
 
-        if (!ent.Comp.Ascended)
+        if (!ent.Comp.Ascended || ent.Comp.CurrentPath != "Cosmos")
             return;
 
-        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -3, 3, 2);
-        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -3, 3, 2);
+        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -4, 4, 3, strength);
+        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -4, 4, 3, strength);
     }
 
     private void OnStarBlast(Entity<HereticComponent> ent, ref EventHereticStarBlast args)
     {
-        if (args.Coords?.IsValid(EntityManager) is not true)
+        if (!TryComp(args.Action, out StarBlastActionComponent? starBlast))
+            return;
+
+        if (Exists(starBlast.Projectile))
+        {
+            _actions.SetIfBiggerCooldown(args.Action!, starBlast.Cooldown);
+
+            var newCoords = Transform(starBlast.Projectile).Coordinates;
+            var oldCoords = Transform(ent).Coordinates;
+
+            PredictedSpawnAtPosition(starBlast.Effect, oldCoords);
+            _audio.PlayPredicted(starBlast.Sound, oldCoords, args.Performer);
+            PullVictims(ent, oldCoords);
+            _pulling.StopAllPulls(ent);
+            _transform.SetCoordinates(ent, newCoords);
+            PredictedSpawnAtPosition(starBlast.Effect, newCoords);
+            _audio.PlayPredicted(starBlast.Sound, newCoords, args.Performer);
+            PullVictims(ent, newCoords);
+
+            PredictedQueueDel(starBlast.Projectile);
+
+            starBlast.Projectile = EntityUid.Invalid;
+            Dirty(args.Action, starBlast);
+
+            // Don't do args.Handled = true because it resets cooldown
+
+            if (_net.IsServer)
+                RaiseNetworkEvent(new StopTargetingEvent(), args.Performer);
+
+            return;
+        }
+
+        if (!args.Target.IsValid(EntityManager))
             return;
 
         if (!TryUseAbility(ent, args))
@@ -48,7 +92,32 @@ public abstract partial class SharedHereticAbilitySystem
 
         args.Handled = true;
 
-        ShootProjectileSpell(args.Performer, args.Coords.Value, args.Projectile, args.ProjectileSpeed, args.Entity);
+        starBlast.Projectile = ShootProjectileSpell(args.Performer,
+            args.Target,
+            args.Projectile,
+            args.ProjectileSpeed,
+            args.Entity);
+        EnsureComp<CosmicTrailComponent>(starBlast.Projectile).Strength = ent.Comp.PathStage;
+        Dirty(args.Action, starBlast);
+    }
+
+    private void OnHit(Entity<StarBlastComponent> ent, ref ProjectileHitEvent args)
+    {
+        var coords = Transform(ent).Coordinates;
+        _starMark.ApplyStarMarkInRange(coords, args.Shooter, ent.Comp.StarMarkRadius);
+
+        if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
+            _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
+    }
+
+    private void PullVictims(Entity<HereticComponent> heretic, EntityCoordinates coords)
+    {
+        foreach (var mob in GetNearbyPeople(heretic, 2f, coords))
+        {
+            if (_starMark.TryApplyStarMark(mob!, heretic))
+                _throw.TryThrow(mob, coords);
+        }
+        _starMark.SpawnCosmicFields(coords, 1, heretic.Comp.PathStage);
     }
 
     private void OnStarTouch(Entity<HereticComponent> ent, ref EventHereticStarTouch args)
@@ -66,7 +135,7 @@ public abstract partial class SharedHereticAbilitySystem
 
         var hadStarTouch = false;
 
-        foreach (var held in _hands.EnumerateHeld(ent, hands))
+        foreach (var held in _hands.EnumerateHeld((ent, hands)))
         {
             if (!HasComp<StarTouchComponent>(held))
                 continue;
@@ -75,7 +144,7 @@ public abstract partial class SharedHereticAbilitySystem
             QueueDel(held);
         }
 
-        if (hadStarTouch || !_hands.TryGetEmptyHand(ent, out var emptyHand, hands))
+        if (hadStarTouch || !_hands.TryGetEmptyHand((ent, hands), out var emptyHand))
             return;
 
         var touch = Spawn(args.StarTouch, Transform(ent).Coordinates);

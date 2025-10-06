@@ -75,7 +75,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Server.Examine;
 using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
@@ -134,30 +133,9 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly StutteringSystem _stutter = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
-
-    private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
-    {
-        var list = new List<EntityUid>();
-        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
-
-        foreach (var look in lookup)
-        {
-            // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
-                continue;
-
-            if (!HasComp<StatusEffectsComponent>(look))
-                continue;
-
-            list.Add(look);
-        }
-        return list;
-    }
 
     public override void Initialize()
     {

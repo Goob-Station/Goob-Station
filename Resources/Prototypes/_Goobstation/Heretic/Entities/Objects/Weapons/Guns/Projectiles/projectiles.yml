@@ -47,18 +47,22 @@
     layers:
     - state: star_ball
       shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
   - type: Reflective
-    reflective: Magic
+    reflective: None
   - type: Projectile
     impactEffect: EffectCosmicExplosion
     damage:
       types:
-        Heat: 20
+        Heat: 0
     soundHit:
       path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
     forceSound: true
   - type: TimedDespawn
-    lifetime: 50
+    lifetime: 15
   - type: Fixtures
     fixtures:
       projectile:
@@ -66,8 +70,7 @@
           !type:PhysShapeCircle
           radius: 0.4
         hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
   - type: StarBlast
   - type: CosmicTrail
+  - type: TileFrictionModifier
+    modifier: 0

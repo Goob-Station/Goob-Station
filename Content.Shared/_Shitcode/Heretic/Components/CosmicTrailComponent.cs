@@ -11,6 +11,9 @@ public sealed partial class CosmicTrailComponent : Component
     [DataField]
     public float CosmicFieldLifetime = 5f;
 
+    [DataField]
+    public int Strength;
+
     [DataField, AutoPausedField]
     public TimeSpan NextCosmicFieldTime = TimeSpan.Zero;
 

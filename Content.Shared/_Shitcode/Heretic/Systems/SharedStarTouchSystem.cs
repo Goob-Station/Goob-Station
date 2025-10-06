@@ -1,15 +1,14 @@
 using System.Linq;
 using Content.Goobstation.Common.Physics;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage;
-using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Magic;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -20,14 +19,15 @@ public abstract class SharedStarTouchSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMagicSystem _magic = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
+    public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";
     public static readonly EntProtoId StarTouchBeamDataId = "startouch";
 
     public override void Initialize()
@@ -42,12 +42,78 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
     private void OnRemove(Entity<StarTouchedStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        if (!TerminatingOrDeleted(args.Target) && TryComp(args.Target, out StarTouchedComponent? touch))
-            RemCompDeferred(args.Target, touch);
+        if (_timing.ApplyingState || !_timing.IsFirstTimePredicted)
+            return;
+
+        var target = args.Target;
+
+        if (TerminatingOrDeleted(target))
+            return;
+
+        RemCompDeferred<StarTouchedComponent>(target);
+        RemCompDeferred<CosmicTrailComponent>(target);
+
+        if (!TryComp(ent, out StatusEffectComponent? status) || status.EndEffectTime == null ||
+            status.EndEffectTime > _timing.CurTime)
+            return;
+
+        if (!TryComp(target, out ComplexJointVisualsComponent? joint) || joint.Data.Count == 0)
+            return;
+
+        EntityUid? heretic = null;
+        List<NetEntity> toRemove = new();
+        foreach (var (netEnt, data) in joint.Data)
+        {
+            if (data.Id != StarTouchBeamDataId)
+                continue;
+
+            toRemove.Add(netEnt);
+
+            if (!TryGetEntity(netEnt, out var entity) || TerminatingOrDeleted(entity))
+                continue;
+
+            heretic = entity;
+        }
+
+        if (toRemove.Count == joint.Data.Count)
+            RemCompDeferred(target, joint);
+        else if (toRemove.Count != 0)
+        {
+            foreach (var netEnt in toRemove)
+            {
+                joint.Data.Remove(netEnt);
+            }
+
+            Dirty(target, joint);
+        }
+
+        if (heretic == null)
+            return;
+
+        _pulling.StopAllPulls(target);
+
+        var targetXform = Transform(target);
+        var newCoords = Transform(heretic.Value).Coordinates;
+        PredictedSpawnAtPosition(ent.Comp.CosmicCloud, targetXform.Coordinates);
+        _transform.SetCoordinates((target, targetXform, MetaData(target)), newCoords);
+        PredictedSpawnAtPosition(ent.Comp.CosmicCloud, newCoords);
+
+        // Applying status effects next tick, otherwise status effects system shits itself
+        Timer.Spawn(0,
+            () =>
+            {
+                _status.TryUpdateStatusEffectDuration(target,
+                    SleepingSystem.StatusEffectForcedSleeping,
+                    ent.Comp.SleepTime);
+                _starMark.TryApplyStarMark(target, heretic.Value);
+            });
     }
 
     private void OnApply(Entity<StarTouchedStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         EnsureComp<StarTouchedComponent>(args.Target);
     }
 
@@ -58,8 +124,8 @@ public abstract class SharedStarTouchSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var query = EntityQueryEnumerator<StarTouchedComponent, DamageableComponent>();
-        while (query.MoveNext(out var uid, out var touch, out var dmg))
+        var query = EntityQueryEnumerator<StarTouchedComponent>();
+        while (query.MoveNext(out var uid, out var touch))
         {
             touch.Accumulator += frameTime;
 
@@ -69,12 +135,6 @@ public abstract class SharedStarTouchSystem : EntitySystem
             touch.Accumulator = 0f;
 
             UpdateBeams((uid, touch));
-
-            _damageable.TryChangeDamage(uid,
-                touch.Damage,
-                damageable: dmg,
-                targetPart: TargetBodyPart.Chest,
-                canMiss: false);
         }
     }
 
@@ -88,7 +148,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
         foreach (var (netEnt, _) in ent.Comp2.Data.Where(x => x.Value.Id == StarTouchBeamDataId).ToList())
         {
             if (!TryGetEntity(netEnt, out var target) || TerminatingOrDeleted(target) ||
-                !_examine.InRangeUnOccluded(target.Value, ent.Owner, ent.Comp1.Range))
+                !_transform.InRange(target.Value, ent.Owner, ent.Comp1.Range))
             {
                 ent.Comp2.Data.Remove(netEnt);
                 continue;
@@ -117,7 +177,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (!HasComp<MobStateComponent>(target))
+        if (!TryComp(target, out MobStateComponent? mobState))
             return;
 
         args.Handled = true;
@@ -139,29 +199,35 @@ public abstract class SharedStarTouchSystem : EntitySystem
         var xform = Transform(args.User);
         _starMark.SpawnCosmicFieldLine(xform.Coordinates,
             Angle.FromDegrees(90f).RotateDir(xform.LocalRotation.GetDir()).AsFlag(),
-            -1,
-            1,
-            1);
+            -range,
+            range,
+            0,
+            hereticComp.PathStage);
 
-        if (HasComp<StarMarkComponent>(target))
+        if (!HasComp<StarMarkComponent>(target))
         {
-            if (_status.TryUpdateStatusEffectDuration(target, SleepingSystem.StatusEffectForcedSleeping, comp.SleepTime))
-                _status.TryRemoveStatusEffect(target, SharedStarMarkSystem.StarMarkStatusEffect);
+            _starMark.TryApplyStarMark((target, mobState), args.User);
+            InvokeSpell(ent, args.User);
+            return;
         }
-        else
-            _starMark.TryApplyStarMark(target, args.User);
 
-        if (_status.TryUpdateStatusEffectDuration(target, StarTouchStatusEffect, ent.Comp.Duration))
+        _status.TryRemoveStatusEffect(target, SharedStarMarkSystem.StarMarkStatusEffect);
+        _status.TryUpdateStatusEffectDuration(target, DrowsinessStatusEffect, comp.DrowsinessTime);
+
+        if (_status.TryUpdateStatusEffectDuration(target, StarTouchStatusEffect, comp.Duration))
         {
             var beam = EnsureComp<ComplexJointVisualsComponent>(target);
-            beam.Data[GetNetEntity(args.User)] = new ComplexJointVisualsData(StarTouchBeamDataId, ent.Comp.BeamSprite);
+            beam.Data[GetNetEntity(args.User)] = new ComplexJointVisualsData(StarTouchBeamDataId, comp.BeamSprite);
             Dirty(target, beam);
+            var trail = EnsureComp<CosmicTrailComponent>(target);
+            trail.CosmicFieldLifetime = comp.CosmicFieldLifetime;
+            trail.Strength = hereticComp.PathStage;
         }
 
         InvokeSpell(ent, args.User);
     }
 
-    public virtual void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user, bool deleteSpell = true)
+    public virtual void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user)
     {
         _audio.PlayPredicted(ent.Comp.Sound, user, user);
     }

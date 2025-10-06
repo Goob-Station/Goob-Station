@@ -425,6 +425,7 @@
   id: MarkOfCosmos
   path: Cosmos
   stage: 4
+  event: !type:EventHereticCosmosPassive
 
 - type: hereticKnowledge
   id: StarTouch

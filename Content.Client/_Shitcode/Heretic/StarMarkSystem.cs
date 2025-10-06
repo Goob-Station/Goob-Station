@@ -6,6 +6,8 @@ namespace Content.Client._Shitcode.Heretic;
 
 public sealed class StarMarkSystem : SharedStarMarkSystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -21,10 +23,10 @@ public sealed class StarMarkSystem : SharedStarMarkSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (!sprite.LayerMapTryGet(StarMarkKey.Key, out var layer))
+        if (!_sprite.LayerMapTryGet((uid, sprite), StarMarkKey.Key, out var layer, false))
             return;
 
-        sprite.RemoveLayer(layer);
+        _sprite.RemoveLayer((uid, sprite), layer);
     }
 
     private void OnStartup(Entity<StarMarkComponent> ent, ref ComponentStartup args)
@@ -34,11 +36,11 @@ public sealed class StarMarkSystem : SharedStarMarkSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (sprite.LayerMapTryGet(StarMarkKey.Key, out _))
+        if (_sprite.LayerMapTryGet((uid, sprite), StarMarkKey.Key, out _, false))
             return;
 
-        var layer = sprite.AddLayer(comp.Sprite);
+        var layer = _sprite.AddLayer((uid, sprite), comp.Sprite);
         sprite.LayerSetShader(layer, "unshaded");
-        sprite.LayerMapSet(StarMarkKey.Key, layer);
+        _sprite.LayerMapSet((uid, sprite), StarMarkKey.Key, layer);
     }
 }

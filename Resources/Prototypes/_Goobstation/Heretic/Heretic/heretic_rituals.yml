@@ -352,6 +352,7 @@
       Void: ClothingOuterArmorHereticVoid
       Flesh: ClothingOuterArmorHereticFlesh
       Blade: ClothingOuterArmorHereticBlade
+      Cosmos: ClothingOuterArmorHereticCosmos
       Rust: ClothingOuterArmorHeretic
 
 - type: hereticRitual
