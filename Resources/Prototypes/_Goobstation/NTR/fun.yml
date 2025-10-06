@@ -40,7 +40,7 @@
     attackRate: 0.8
     damage:
       types:
-        Slash: 18
+        Slash: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: ItemSwitch
@@ -63,7 +63,7 @@
           attackRate: 0.8
           damage:
             types:
-              Slash: 18
+              Slash: 15 # worse than the betty because its not supposed to be deadly
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
         soundStateActivate:
@@ -74,8 +74,8 @@
           state: icon-on
         components:
         - type: HeldSpeedModifier
-          walkModifier: 0.5
-          sprintModifier: 0.5
+          walkModifier: 0.65
+          sprintModifier: 0.65
         - type: MeleeWeapon
           mustBeEquippedToUse: true # This thing shouldn't be able to attack at all but setting attackRate to 0 breaks stuff
           damage:
@@ -85,7 +85,7 @@
             collection: TrayHit
         - type: MeleeThrowOnHit
           throwWhileOnDelay: true
-          distance: 3
+          distance: 5
         - type: KnockdownOnHit
         - type: MultiHandedItem
         - type: StaminaDamageOnHit

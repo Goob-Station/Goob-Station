@@ -5,7 +5,7 @@
   description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
   productEntity: SpawnPodEvaKit
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
+    sprite: Clothing/OuterClothing/Suits/eva.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 15
@@ -21,8 +21,8 @@
   description: A crate containing 3 mindshield implants. Corporate advises you to buy them in cargo anyway.
   productEntity: SpawnPodMindshield
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
-    state: icon
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
   cost:
     NTLoyaltyPoint: 25
   categories:
@@ -55,8 +55,8 @@
   description: ntr-executive-spesos-small-desc
   productEntity: SpawnPodSpesos
   icon:
-    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
-    state: icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash
   cost:
     NTLoyaltyPoint: 15
   categories:
@@ -71,7 +71,7 @@
   description: ntr-executive-disk-small-desc
   productEntity: SpawnPodDisks
   icon:
-    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+    sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 10
@@ -87,8 +87,8 @@
   description: ntr-executive-emergency-meds-desc
   productEntity: SpawnPodEmergencyMed
   icon:
-    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
-    state: icon
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: firstaid
   cost:
     NTLoyaltyPoint: 20 # woundmd ahhhh
   categories:
@@ -103,8 +103,8 @@
   description: ntr-executive-disablers-desc
   productEntity: SpawnPodDisablers
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
-    state: icon
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    state: base
   cost:
     NTLoyaltyPoint: 10
   categories:
@@ -119,7 +119,7 @@
   description: ntr-executive-tools-small-desc
   productEntity: SpawnPodTools
   icon:
-    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    sprite: Objects/Tools/crowbar.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 5
@@ -320,7 +320,7 @@
     NTLoyaltyPoint: 8
   categories:
   - NTRpersonal
-  restockTime: 400
+  restockTime: 60 # idk
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 #30min
 
