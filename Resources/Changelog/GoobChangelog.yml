@@ -15435,3 +15435,436 @@ Entries:
         of their powers.
   id: 1728
   time: '2025-09-24T12:13:46.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Arrivals and Mining shuttles now have FTL drives with much quicker
+        cooldowns
+  id: 1729
+  time: '2025-09-26T04:34:14.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Removed gatfruit mapped by john station's protoges.
+  id: 1730
+  time: '2025-09-28T06:43:21.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed shadowlings being able to wear clothes.
+    - type: Fix
+      message: Fixed shadowlings not appearing through secret+ gamemode.
+    - type: Fix
+      message: >-
+        Fixed shadowling deconversion device not existing in the respective
+        arsenal research tier
+    - type: Fix
+      message: Fixed shadowlings taking damage during ascension
+    - type: Fix
+      message: Fixed nightmares not getting their armblade
+    - type: Fix
+      message: >-
+        You no longer get lynched in space when in Plane Shift as an
+        ascendant/nightmare
+    - type: Tweak
+      message: Shadowling guidebook reworded and now appears in antagonist panel
+    - type: Tweak
+      message: >-
+        Shadowling has time requirements due to how easy it is to die and then
+        have a chudshift.
+  id: 1731
+  time: '2025-09-28T07:11:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix replays not working.
+    - type: Fix
+      message: Fix black screen on reconnection.
+    - type: Fix
+      message: Fix PC freeze when quitting the game.
+  id: 1732
+  time: '2025-09-28T07:14:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Large Mail Packages can now be inserted into backpacks
+    - type: Tweak
+      message: Baguettes are now a little bit smaller in backpacks
+    - type: Tweak
+      message: >-
+        Distress Signallers, Pepperspray and Security Hyposprays can now be
+        inserted into secbelts
+  id: 1733
+  time: '2025-09-28T07:49:29.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Revolutionary fast draw implanters are now actually fast.
+  id: 1734
+  time: '2025-09-28T07:56:31.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: >-
+        Plasmamen can no longer roll Ninja, Wizard, Pirate, Devil, Nukie or
+        Ling.
+    - type: Fix
+      message: Captain Envirogloves are now insulated and produce the correct fibers
+    - type: Fix
+      message: Det Envirogloves now use forensic glove sprite, no longer leave fibers
+    - type: Fix
+      message: >-
+        Botanist Envirogloves now have proper protection against heat and
+        caustic
+    - type: Fix
+      message: Clown now spawns with their Envirosuit if they are a plasmaman
+    - type: Remove
+      message: Removes thieves chameleon gloves from thieves roundstart kit
+    - type: Tweak
+      message: Pirates now require 10 hours of overall playtime before selection
+  id: 1735
+  time: '2025-09-28T07:59:41.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Remove
+      message: Removed holy damage from splashing holy water.
+  id: 1736
+  time: '2025-09-28T08:00:07.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Chainsaw added to hacked botany vendor
+  id: 1737
+  time: '2025-09-28T08:01:45.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Remove
+      message: >-
+        removed the 'rogue cold weather poncho' as it was just the security
+        poncho in the clothesvend.
+  id: 1738
+  time: '2025-09-28T08:02:22.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added gingerbread mask to Autodrobe.
+  id: 1739
+  time: '2025-09-28T08:03:12.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Xenomorph Infestation Alert changed to be more forgiving to xenos
+  id: 1740
+  time: '2025-09-28T08:03:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Nullrod shield form, blue altar
+  id: 1741
+  time: '2025-09-28T08:04:52.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Made fake rift spawn more rare
+  id: 1742
+  time: '2025-09-28T08:05:16.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Goose heaven (also known as human hell).
+    - type: Add
+      message: Added New ghost role hell goose.
+  id: 1743
+  time: '2025-09-28T08:05:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Sheet Meister can use meat now
+  id: 1744
+  time: '2025-09-28T08:05:50.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: >-
+        Nanotrasen appogises for the recent mixup where station equipped nuclear
+        fission bombs were accidently filled with small explosive hand grenades
+        instead of their proper nuclear payload, this has now been fixed
+  id: 1745
+  time: '2025-09-28T17:04:01.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added construction bag to engineering cyborg construction module.
+  id: 1746
+  time: '2025-09-28T19:55:23.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported the Dislippler, a clown-only traitor uplink item, from
+        Omustation.
+  id: 1747
+  time: '2025-09-28T20:14:58.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Topicals now automatically heal limbs one after the other.
+  id: 1748
+  time: '2025-09-29T13:41:02.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Hand-thrown items now have inertia.
+  id: 1749
+  time: '2025-09-30T03:22:51.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings and people with Cheat Death (e.g devils) will no longer be
+        able to revive while devoured by a dragon or slaughter demon.
+  id: 1750
+  time: '2025-09-30T07:23:24.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added gold water cooler with whiskey to NTR's store!
+    - type: Tweak
+      message: NTR's EVA bundle price 15LP => 5 LP
+    - type: Tweak
+      message: NTR's mindshield bundle 25LP => 15LP
+    - type: Tweak
+      message: NTR's med supplies 20LP => 10LP
+    - type: Tweak
+      message: NTR's small tools crate 5LP => 3LP
+    - type: Tweak
+      message: >-
+        Single intern coin 15LP => 10LP, also a reminder that you can order them
+        to do tasks for you.
+    - type: Tweak
+      message: BSD call price 50LP => 40LP
+    - type: Tweak
+      message: CC glasses price 2LP => 5LP
+    - type: Tweak
+      message: All contraband cosmetic items are now worth less NTR loyalty points.
+  id: 1751
+  time: '2025-09-30T07:24:23.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: Added teg crate for cargo purchasing. Atmosian and engineer rejoice.
+  id: 1752
+  time: '2025-09-30T19:45:43.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Floor Goblins are now able to crawl under doors only when crawling under
+        the floor.
+    - type: Fix
+      message: Floor Goblins being targeted by medibots under the floor.
+    - type: Fix
+      message: Floor Goblins can steal shoes from dead or critted targets
+    - type: Fix
+      message: Medibots being able to target people in stealth.
+    - type: Tweak
+      message: Floor Goblin collisions when not crawling.
+  id: 1753
+  time: '2025-09-30T19:46:44.0000000+00:00'
+- author: RocketBoss360
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin blood now renders like other blood types (blood, spider blood,
+        slime) when in puddles 
+    - type: Fix
+      message: Shadowkin blood now can activate Blood nodes on artifacts
+  id: 1754
+  time: '2025-09-30T19:58:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Admins can now drop pod any item with the new drop pod item. It also
+        works for entities like players or dragons.
+  id: 1755
+  time: '2025-10-01T08:43:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Tweak
+      message: Origin and Saltern finally got some of the new stuff.
+  id: 1756
+  time: '2025-10-01T12:56:16.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: CC glasses now cant doxx lings and antags.
+  id: 1757
+  time: '2025-10-01T17:16:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Headrev time requirements made into 10 hours command instead of 10 hours
+        overall
+  id: 1758
+  time: '2025-10-02T05:48:59.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: 'BSD, intern squad, phoron dagger and deckard from NTR uplink. '
+  id: 1759
+  time: '2025-10-02T07:14:20.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        People who have no soul and die will now be brought into goose hell!
+        (This is still a round removal)
+    - type: Tweak
+      message: >-
+        Hell geese can now only make hell portals 1 tile away from them, down
+        from 2
+    - type: Tweak
+      message: >-
+        Hell geese are now immune to heat and radiation and resistant to shock
+        and bloodloss but weak to holy
+    - type: Tweak
+      message: Hell geese are now a more common midround
+    - type: Fix
+      message: Being able to escape from the hell map using a portal
+  id: 1760
+  time: '2025-10-02T13:47:49.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer copy nor fax corporate documents (the NTRs task
+        documents).
+  id: 1761
+  time: '2025-10-03T01:21:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed xenos never spawning.
+  id: 1762
+  time: '2025-10-03T01:23:40.0000000+00:00'
+- author: ivan4ik
+  changes:
+    - type: Add
+      message: >-
+        midround antag called Walker, is omniantag who can steal power from
+        syndicate, changeling, heretic, wizard and more. Antag start weak but
+        can grow very strong if crew not stop him.
+  id: 1763
+  time: '2025-10-03T01:50:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: All implanters now have generic names to prevent metagaming.
+    - type: Tweak
+      message: >-
+        All implanters now auto-label themself with containing implant's name.
+        Label disappear after implanting and appears against after implant
+        drawing.
+  id: 1764
+  time: '2025-10-03T13:34:58.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: Devil contracts now are worth 0 points for the NTR.
+  id: 1765
+  time: '2025-10-04T15:39:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Shadowling glass shard weakness
+    - type: Fix
+      message: Shadowling unable to punch lights
+    - type: Fix
+      message: Shadowling ability descriptions
+    - type: Fix
+      message: Shadowling mobs and ascended mobs missing abilities
+    - type: Fix
+      message: Shadowling ascendant abilities having absurdly long cooldowns
+    - type: Fix
+      message: >-
+        Shadowling pain crit caused by lights no longer prevents them from
+        casting veil
+    - type: Fix
+      message: Species Name Shadow bug
+    - type: Fix
+      message: Ascendant no longer complete pushover for what it is supposed to be
+    - type: Fix
+      message: Ascendant bloodloss actually stops so they dont stutter like a geek
+    - type: Fix
+      message: Ascendant heals over time (alot)
+    - type: Tweak
+      message: 'Shadowling Glare stun time 7s > 5s '
+    - type: Tweak
+      message: Shadowling Enthrall time 5s >4s
+    - type: Tweak
+      message: Shadowling Glare mute 2s > 5s
+    - type: Tweak
+      message: >-
+        Shadowling Glareslow 2s > 7s (this and mute were not working before,
+        they should work now)
+    - type: Tweak
+      message: Shadowling Veil range 6 > 9
+    - type: Tweak
+      message: Shadowling Veil cooldown 60 > 30
+    - type: Tweak
+      message: Shadowling and shadow punch now does heat damage + slightly more damage
+  id: 1766
+  time: '2025-10-05T07:52:08.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed shadowlings taking insane damage in light due to a bug
+    - type: Fix
+      message: >-
+        Fixed shadowling's light immunity global sound playing multiple times
+        and causing your ears to bleed
+    - type: Tweak
+      message: >-
+        Lesser Shadowlings have a worse version of Glare. They are more useful
+        now.
+    - type: Tweak
+      message: 'Shadowling APC ability got its doafter timer reduced greatly '
+    - type: Tweak
+      message: >-
+        Shadowling Veil improved to support more light types. You can take out
+        flares now, but not torches.
+    - type: Tweak
+      message: >-
+        Thralls can now be identified by examining them, unless they are wearing
+        a protective mask
+    - type: Tweak
+      message: >-
+        Epileptic people will no longer get a cardiac arrest during a Shadowling
+        enthrallment
+    - type: Tweak
+      message: Updated red alert SOP for shadowlings. Read it again.
+  id: 1767
+  time: '2025-10-05T07:56:28.0000000+00:00'
+- author: JohnJohn, yonsim
+  changes:
+    - type: Tweak
+      message: >-
+        Updated facehugger sprite to be a modified version of rmc'd parasite
+        (lamar and the toy remain unchanged)
+    - type: Tweak
+      message: Updated larva to be the sprite from CMSS13
+  id: 1768
+  time: '2025-10-05T17:39:16.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nutriment and vitamins now heal slight amounts of damage off, aswell as
+        healing bloodloss.
+    - type: Tweak
+      message: Protein heals more brute damage and more bloodloss.
+  id: 1769
+  time: '2025-10-05T23:25:25.0000000+00:00'

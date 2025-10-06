@@ -105,6 +105,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -122,6 +126,10 @@
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -139,7 +147,11 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
-  # should be changed to nukie playtime when thats tracked (wyci)
+# should be changed to nukie playtime when thats tracked (wyci)
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: startingGear
