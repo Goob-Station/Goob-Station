@@ -14,7 +14,7 @@
   - type: DisarmMalus
     malus: 0.6
   - type: Execution
-    doAfterDuration: 4.0
+    doAfterDuration: 3.0
   - type: Scalpel # Shitmed
     speed: 0.75
   - type: Wieldable
@@ -24,11 +24,17 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 30
-        Heat: 4.5
-        Structural: 10
+        Slash: 15
+        Heat: 2.25
+        Structural: 5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 15
+        heat: 2.25
+        Structural: 5
   - type: Reflect
     reflectProb: .7
     spread: 90
