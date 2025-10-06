@@ -7,6 +7,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
 public sealed class RushdownSystem : EntitySystem
@@ -87,7 +88,8 @@ public sealed class RushdownSystem : EntitySystem
     }
     private void OnRushdown(Entity<RushdownComponent> ent, ref RushdownEvent args)
     {
-        // TODO: Add popups
+        _popup.PopupPredicted(Loc.GetString("voidhound-pounce-broadcast", ("user", ent.Owner)), ent.Owner, ent.Owner);
+
         ent.Comp.IsLeaping = true;
         Dirty(ent);
 

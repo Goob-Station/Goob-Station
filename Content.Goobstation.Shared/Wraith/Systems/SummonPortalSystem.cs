@@ -21,6 +21,12 @@ public sealed partial class SummonPortalSystem : EntitySystem
         SubscribeLocalEvent<SummonPortalComponent, SummonPortalEvent>(OnSummonPortal);
     }
 
+    //TO DO: Where do I even start? This system needs a full rework. The wraith is supposed to summon a ritual circle which ocasionally spawns portals that fizzle out once the creature is summoned.
+    //The portal is supposed to have a max cap of roughly 5 summoned critters at any given time
+    //The portal's creatures are all supposed to have their own unique skills, which the AI is supposed to be capable of using.
+    //The wraith is supposed to be able to pick if they want to spawn only one type of mob, or if it should spawn any of them at random (Blame the wiki for lying to us about how this works)
+    //When trying to summon a second portal, the wraith is supposed to get a pop up window asking if they want to delete the old portal, as they cannot have two portals at once.
+    //All of this will only be done in Wraith part 2, fuck you.
     public void OnSummonPortal(Entity<SummonPortalComponent> ent, ref SummonPortalEvent args)
     {
         if (_physics.GetEntitiesIntersectingBody(ent.Owner, (int) CollisionGroup.Impassable).Count > 0)

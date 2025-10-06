@@ -34,7 +34,7 @@ public sealed partial class HauntedSystem : EntitySystem
         {
             var remaining = ent.Comp.DeletionTime - _timing.CurTime;
             args.PushMarkup($"[color=mediumpurple]{Loc.GetString("wraith-already-haunted", ("target", ent.Owner))}[/color]");
-            args.PushMarkup($"Expires in: {remaining.Minutes}m {remaining.Seconds}s"); // todo: add proper locstring chud
+            args.PushMarkup(Loc.GetString("wraith-haunted-expiration",("minutes", remaining.Minutes),("seconds", remaining.Seconds)));
         }
     }
     private void OnMapInit(Entity<HauntedComponent> ent, ref MapInitEvent args)

@@ -35,6 +35,8 @@ public sealed class WraithCommandSystem : EntitySystem
         SubscribeLocalEvent<WraithCommandComponent, WraithCommandEvent>(OnCommand);
     }
 
+    //TO DO: Would be nice if the objects temporarily floated upwards before floating towards the target.
+    //Just cosmetic, so leaving for part 2.
     private void OnCommand(Entity<WraithCommandComponent> ent, ref WraithCommandEvent args)
     {
         _stun.TryStun(args.Target, ent.Comp.StunDuration, false);

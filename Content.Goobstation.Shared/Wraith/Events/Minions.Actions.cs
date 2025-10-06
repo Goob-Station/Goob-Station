@@ -11,6 +11,8 @@ namespace Content.Goobstation.Shared.Wraith.Events;
 // Skeleton commander actions
 public sealed partial class RallyEvent : InstantActionEvent;
 
+public sealed partial class SummonLesserSkeletonEvent : InstantActionEvent;
+
 // Void spiker actions
 public sealed partial class TentacleHookEvent : EntityTargetActionEvent;
 public sealed partial class SpikerShuffleEvent : InstantActionEvent;

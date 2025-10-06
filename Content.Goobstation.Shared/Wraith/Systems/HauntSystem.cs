@@ -1,14 +1,10 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
-using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Revenant.Components;
-using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -98,6 +94,7 @@ public sealed partial class HauntSystem : EntitySystem
             _audioSystem.PlayGlobal(ent.Comp.HauntSound, witnessFilter, true);
 
         //TO DO: Increase WP regeneration for a limited period of time and gain WP based on how many people were witnesses.
+        // Comment: In SS13, the skill constantly checks for witnesses rather than having one witness event. So WP regenaration should be in update.
 
         ent.Comp.Active = true;
         ent.Comp.NextHauntWpRegenUpdate = _timing.CurTime + ent.Comp.HauntWpRegenDuration;

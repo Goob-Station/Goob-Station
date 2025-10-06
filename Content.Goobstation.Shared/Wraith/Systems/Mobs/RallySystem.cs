@@ -34,8 +34,8 @@ public sealed class RallySystem : EntitySystem
 
             _status.TryAddStatusEffect(affected, ent.Comp.StatusEffectRally, out _, ent.Comp.Duration);
 
-            _popup.PopupClient(Loc.GetString("You wave the flag, rallying the troops!"), ent.Owner, ent.Owner); // TODO: ADD LOCSTRING
-            _popup.PopupClient(Loc.GetString("You feel inspired!"), affected, affected); // TODO: ADD LOCSTRING
+            _popup.PopupClient(Loc.GetString("wraith-rally-start"), ent.Owner, ent.Owner);
+            _popup.PopupClient(Loc.GetString("wraith-rally-inspired"), affected, affected);
         }
 
         args.Handled = true;
@@ -43,6 +43,8 @@ public sealed class RallySystem : EntitySystem
 
     private void OnEffectApplied(Entity<RalliedComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        //TO DO: Also increase attack speed.
+
         if (!TryComp<MeleeWeaponComponent>(args.Target, out var melee))
             return;
 

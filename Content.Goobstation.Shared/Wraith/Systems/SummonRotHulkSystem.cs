@@ -49,6 +49,8 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
             return;
         }
 
+        //TO DO: Would be cool if the trash slowly was dragged into a center point and only then spawn the rot hulk in the middle of that, rather than just deleting. For parity's sake and all.
+        //Leaving this for part 2, it's just cosmetic.
         if (_net.IsServer) //Only server can delete networked entities.
         {
             foreach (var trash in nearbyTrash)

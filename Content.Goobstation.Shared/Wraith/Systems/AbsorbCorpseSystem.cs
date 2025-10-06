@@ -42,7 +42,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             return;
         }
 
-        // TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde
+        // TO DO: Add an extra check to verify if the target has at least 25u of formaldehyde (Formaldehyde does not exist.)
         var doAfter = new DoAfterArgs(
             EntityManager,
             ent.Owner,
@@ -65,7 +65,6 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("wraith-absorb-start", ("target", args.Target)), ent.Owner, ent.Owner, PopupType.Medium);
         args.Handled = true; // todo: do it through cooldown action component every time its handled (check wraith actions folder)
-        //TO DO: Make the wraith corporial during the do after.
     }
 
     private void OnAbsorbCorpseDoAfter(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseDoAfter args)
@@ -109,6 +108,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (_rotting.IsRotten(args.Target))
         {
             // todo: rotting popup here
+            // Comment: Do we really need a pop-up? 
             args.Cancelled = true;
             return;
         }

@@ -24,7 +24,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
         SubscribeLocalEvent<CursedWeakComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CursedWeakComponent, MapInitEvent>(OnMapInit);
     }
-
+    //TO DO: Lessen their stamina regeneration.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

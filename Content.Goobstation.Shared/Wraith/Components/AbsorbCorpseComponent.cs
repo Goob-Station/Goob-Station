@@ -10,10 +10,10 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 public sealed partial class AbsorbCorpseComponent : Component
 {
     /// <summary>
-    /// The amount of time the doafter takes for the Wraith to absorb a corpse.
+    /// The amount of time the doafter takes for the Wraith to absorb a corpse. Original system doesn't use a do after but I'm too lazy to rework it.
     /// </summary>
     [DataField]
-    public TimeSpan AbsorbDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan AbsorbDuration = TimeSpan.FromSeconds(0.1);
 
     /// <summary>
     /// The amount of corpses that have already been absorbed

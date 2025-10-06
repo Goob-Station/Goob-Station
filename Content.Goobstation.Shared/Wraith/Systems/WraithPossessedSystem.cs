@@ -111,6 +111,7 @@ public sealed class WraithPossessedSystem : EntitySystem
         }
     }
 
+    //TO DO: Revenant should get some sort of aura, cosmetic only. Leave for part 2.
     public void SetPossessorAndMind(
         Entity<WraithPossessedComponent> ent,
         EntityUid possessor,

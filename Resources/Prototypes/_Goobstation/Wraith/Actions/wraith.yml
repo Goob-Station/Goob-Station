@@ -8,10 +8,10 @@
 - type: entity
   id: ActionHaunt
   name: Haunt
-  description: Temporarily become corporeal to scare people and/or gloat. This ability will remain active until used again, with the second use returning you to your incorporeal state. Every witness present gives you an increased rate of WP regeneration.
+  description: Become corporeal for 30 seconds. During this time, you gain additional wraith points, depending on the amount of humans in your vicinity. Use this ability again while corporeal to fade back into the aether.
   components:
   - type: Action
-    useDelay: 60
+    useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: haunt
@@ -22,12 +22,12 @@
   id: ActionWhisper
   parent: DemonicWhisperAction
   name: Whisper
-  description: Send a spooky ghost message to somebody, which they hear as "A netherworld voice whispers in your ear..." This, alongside Blood Writing, is your only way to communicate with the living.
+  description: Send an ethereal message to a living being.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/wraithwhisper2.ogg
-    useDelay: 5
+    useDelay: 2
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: whisper
@@ -35,7 +35,7 @@
 - type: entity
   id: ActionBloodWriting
   name: Blood Writing
-  description: Draws a single letter or pictogram of your choice on tile, complete with fancy animation. At least, that's what it will do. Right now, it just gives you a crayon. #We are absolutely going to rework this :clueless:
+  description: Write a spooky character on the ground.
   components:
   - type: Action
     useDelay: 5
@@ -48,7 +48,7 @@
 - type: entity
   id: ActionAbsorbCorpse
   name: Absorb corpse
-  description: Rots a corpse with a cloud of black smoke and boosts WP regeneration. Cooldown lessens with each use but resets on banishment. Can be stopped by formaldehyde.
+  description: Steal life essence from a corpse. You cannot use this on a skeleton!
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -72,7 +72,7 @@
 - type: entity
   id: ActionSpook
   name: Spook
-  description: The first use Marks an area, and the second use lets you choose a spooky thing to do to that area.
+  description: Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to mark your current tile as the origin of these events, then activate it by using this ability again.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -90,7 +90,7 @@
 - type: entity
   id: ActionDecay
   name: Decay
-  description: When used on living entities, it drains a significant amount of stamina. When used on inanimate objects, it EMAGs them, if possible.
+  description: Cause a human to lose stamina, or an object to malfunction.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -112,7 +112,7 @@
 - type: entity
   id: ActionCommand
   name: Command
-  description: Hurls a few nearby loose objects at the chosen target.
+  description: Command a few objects to hurl themselves at the target location.
   components:
   - type: Action
     useDelay: 20
@@ -130,7 +130,7 @@
   id: ActionAnimateObject
   parent: ActionAnimateSpell
   name: Animate object
-  description: Causes an object to come to life and try to murder anything and everything nearby.
+  description: Animate an inanimate object to attack nearby humans.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -143,7 +143,7 @@
 - type: entity
   id: ActionPossessObject
   name: Possess object
-  description: Puts your consciousness inside an object for a limited time, letting you fly it around and use it to murder people. While powerful, you are now corporeal, and can be killed in this form.
+  description: Possess and control an everyday object. Freakout level high.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -222,7 +222,7 @@
 - type: entity
   id: ActionEvolve
   name: Evolve
-  description: With three corpses absorbed, your power has grown. Allows you to pick a path to evolve into.
+  description: Choose a form to evolve into once you have absorbed at least 3 souls.
   components:
   - type: Action
     useDelay: 0
@@ -236,7 +236,7 @@
 - type: entity
   id: ActionRaiseSkeleton
   name: Raise skeleton
-  description: Commands the skeleton inside a corpse to detonate out and free its brothers still trapped in the living. By murdering them. Best used in combination with Absorb Corpse, because only completely decomposed cadavers can be raised as skeletons. This ability can also be used on closets, spawning one skeleton per closet.
+  description: Raise a skeletonized dead body or fill a locker with an indurable skeletal servant.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -273,7 +273,7 @@
 - type: entity
   id: ActionSummonVoidCreature
   name: Summon void creatures
-  description: Activates a ghost-role at your current location. People can choose their void creature once they enter it.
+  description: Attempt to breach the veil between worlds to allow a lesser void creature to enter this realm.
   components:
   - type: Action
     useDelay: 150
@@ -286,7 +286,7 @@
 - type: entity
   id: ActionMakeRevenant
   name: Make revenant
-  description: Allows you to possess a corpse and empower it as a Revenant, so you can murder people with their co-workers. Must be used on a relatively fresh corpse.
+  description: Take control of an intact corpse as a powerful Revenant! You will not be able to absorb this corpse later. As a revenant, you gain increased point generation, but your revenant abilities cost much more points than normal.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -307,7 +307,7 @@
 - type: entity
   id: ActionCurseBlindness
   name: Curse of blindness
-  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  description: Curse the living with blindness.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -326,7 +326,7 @@
 - type: entity
   id: ActionCurseWeakness
   name: Curse of weakness
-  description: Causes regular slowdowns in movement of the afflicted being, as well as drowsiness. #TO DO: Add reduced stamina regeneration
+  description: Curse the living with weakness and lower stamina regeneration.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -345,7 +345,7 @@
 - type: entity
   id: ActionCurseBlood
   name: Curse of blood
-  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  description: Curse the living with a plague of blood.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -364,7 +364,7 @@
 - type: entity
   id: ActionCurseRot
   name: Curse of rot
-  description: When inflicted with this curse, the affected will experience gradual eye damage over time in small increments of 1. Eventually fully blinds them if not cured.
+  description: Curse the living with a netherworldly plague.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -383,7 +383,7 @@
 - type: entity
   id: ActionCurseDeath
   name: Curse of death
-  description: The final, brutal curse that can be placed on a being once all four prior curses have been placed on them. Once afflicted, the target begins to shake and be ripped apart. The curse completes once the target gibs, releasing a large amount of miasma. Counts as a consume, increasing point generation.
+  description: Reap a fully cursed being's soul!
   components:
   - type: Action
     sound: !type:SoundPathSpecifier

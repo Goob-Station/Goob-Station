@@ -21,6 +21,7 @@ public sealed partial class DefileSystem : EntitySystem
     }
 
     //TO DO: Allow wraith to pick which solution to inject. Give more solution options. Increase solution amount of each solution if you do this.
+    // Comment: Leave this for part 2. I'm not doing another dropdown menu...
     public void OnDefile(Entity<DefileComponent> ent, ref DefileEvent args)
     {
         var uid = ent.Owner;

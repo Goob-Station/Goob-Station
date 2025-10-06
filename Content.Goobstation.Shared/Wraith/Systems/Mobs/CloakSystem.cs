@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Timing;
@@ -9,6 +10,7 @@ public sealed class CloakSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -51,7 +53,7 @@ public sealed class CloakSystem : EntitySystem
 
     private void OnRushdown(Entity<CloakComponent> ent, ref RushdownEvent args)
     {
-        // break cloak on rushdown
+        _popup.PopupPredicted(Loc.GetString("voidhound-pounce-broadcast", ("user", ent.Owner)), ent.Owner, ent.Owner);
         if (!ent.Comp.IsActive)
             return;
 

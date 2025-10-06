@@ -712,6 +712,7 @@
   - type: Pullable
   - type: ZombieImmune
   - type: GhostTakeoverAvailable
+  - type: SummonLesserSkeleton
   - type: Rally
     whitelist:
       components:
@@ -719,6 +720,7 @@
   - type: ActionGrant
     actions:
     - ActionRally
+    - ActionSummonLesserSkeleton
   - type: Speech
     speechVerb: Ghost
   - type: Destructible

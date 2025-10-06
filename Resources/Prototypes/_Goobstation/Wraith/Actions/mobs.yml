@@ -14,6 +14,21 @@
   - type: InstantAction
     event: !type:RallyEvent
 
+- type: entity
+  id: ActionSummonLesserSkeleton
+  name: Summon lesser skeleton
+  description: Materialize a skeleton from the void to help you.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
+    # useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: skeleton
+  - type: InstantAction
+    event: !type:SummonLesserSkeletonEvent
+
 # Used for Void Piker.
 - type: entity
   id: ActionTentacleHook

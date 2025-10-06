@@ -42,6 +42,6 @@ public sealed class WraithSystem : EntitySystem
 
         _wraithPoints.ResetEverything((ent.Owner, wp), passiveWp);
 
-        // reset absorb corpse cd
+        //TO DO: reset absorb corpse cd
     }
 }
