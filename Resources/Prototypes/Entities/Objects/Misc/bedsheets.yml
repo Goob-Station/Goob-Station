@@ -409,6 +409,8 @@
     state: sheetsyndie
   - type: Clothing
     sprite: Clothing/Neck/Bedsheets/syndie.rsi
+  - type: ScannableForPoints # goob edit
+    points: 1
 
 - type: entity
   id: BedsheetUSA

@@ -294,3 +294,13 @@
   components:
   - type: SpawnOnDespawn
     prototype: VendingMachineCigsDeluxe
+
+- type: entity
+  id: SpawnPodWaterCoolerGold
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodWaterCoolerGold
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: WaterCoolerGold
+

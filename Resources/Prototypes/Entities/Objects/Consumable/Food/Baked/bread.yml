@@ -807,7 +807,7 @@
     quickEquip: false
   - type: Item
     shape:
-    - 0,0,0,3
+    - 0,0,0,2 # Goobedit
     storedRotation: -45
     inhandVisuals:
       left:

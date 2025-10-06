@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: CommandTrackingImplant
-  name: Command tracking implant
+  name: command tracking implant
   description: This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
   categories: [ HideSpawnMenu ]
   components:
