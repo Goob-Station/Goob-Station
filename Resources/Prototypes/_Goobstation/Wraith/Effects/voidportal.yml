@@ -29,6 +29,9 @@
     range: 12
     sound:
       path: /Audio/_Goobstation/Ambience/horror_crowd_ambience.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: ManifestedSpirit
   - type: Destructible
     thresholds:
       - trigger:

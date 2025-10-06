@@ -27,7 +27,7 @@ public sealed partial class EatFilthEvent : EntityTargetActionEvent;
 
 public sealed partial class RatBiteEvent : EntityTargetActionEvent;
 
-public sealed partial class SpawnRatDenEvent : InstantActionEvent;
+public sealed partial class SummonRatDenEvent : InstantActionEvent;
 
 public sealed partial class RatSlamEvent : InstantActionEvent;
 
