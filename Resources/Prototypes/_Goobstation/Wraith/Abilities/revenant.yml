@@ -3,6 +3,10 @@
   name: Revenant Abilities
   category: [ HideSpawnMenu ]
   components:
+  - type: Aura
+    auraFarm: 0.4
+    distortion: 0.02 # change the values to smth good cuz idk what works
+    auraColor: "#030300"
   - type: RevenantCrush
     abilityDuration: 5
     initialDamage:
@@ -41,7 +45,7 @@
     - ActionCrush
   - type: TriggerOnMobstateChange # smoke on death
     mobState:
-      - Crit
+      - Critical
   - type: SmokeOnTrigger
     duration: 4
     spreadAmount: 50
