@@ -215,7 +215,8 @@ public sealed class FaceHuggerSystem : EntitySystem
                 // Show popup messages
                 _popup.PopupEntity(
                     Loc.GetString("xenomorphs-face-hugger-mask-blocked",
-                        ("mask", blocker.Value)),
+                        ("mask", blocker.Value),
+                        ("facehugger", uid)),
                     target, target);
 
                 _popup.PopupEntity(
