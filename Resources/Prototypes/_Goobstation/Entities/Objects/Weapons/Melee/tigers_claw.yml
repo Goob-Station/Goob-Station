@@ -33,9 +33,9 @@
     damage:
       types:
         Slash: 15
-        heat: 2.25
+        Heat: 2.25
         Structural: 5
   - type: Reflect
-    reflectProb: .7
+    reflectProb: 0
     spread: 90
-  
+  - type: TigersClaw
