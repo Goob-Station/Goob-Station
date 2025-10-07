@@ -4796,3 +4796,11 @@
   id: 9041
   time: '2025-10-07T10:18:50.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40601
+- author: Lordbrandon12
+  changes:
+  - message: Fixed issue allowing space heater temperature to be set above the allowed
+      limit.
+    type: Fix
+  id: 9042
+  time: '2025-10-07T12:53:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40453
