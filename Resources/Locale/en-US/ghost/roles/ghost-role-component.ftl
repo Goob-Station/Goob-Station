@@ -80,6 +80,9 @@ ghost-role-information-mouse-name = Mouse
 # Goobstation
 ghost-role-information-mouse-description = A hungry and mischievous mouse. Use +p to talk to other mice.
 
+ghost-role-information-cancer-mouse-name = Cancer Mouse
+ghost-role-information-cancer-mouse-description = An irradiated mouse, spread your affliction and seek food.
+
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 
