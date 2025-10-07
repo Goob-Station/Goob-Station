@@ -15868,3 +15868,9 @@ Entries:
       message: Protein heals more brute damage and more bloodloss.
   id: 1769
   time: '2025-10-05T23:25:25.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed same names of translator implanters.
+  id: 1770
+  time: '2025-10-07T15:09:59.0000000+00:00'
