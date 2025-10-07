@@ -15874,3 +15874,9 @@ Entries:
       message: Fixed same names of translator implanters.
   id: 1770
   time: '2025-10-07T15:09:59.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: Microwaves no longer trap items inside them.
+  id: 1771
+  time: '2025-10-07T15:33:34.0000000+00:00'
