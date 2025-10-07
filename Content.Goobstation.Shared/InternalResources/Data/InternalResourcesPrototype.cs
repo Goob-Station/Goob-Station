@@ -16,29 +16,29 @@ public sealed class InternalResourcesPrototype : IPrototype
     public LocId Name;
 
     [DataField]
-    public LocId Description;
+    public LocId? Description;
 
     /// <summary>
     /// Alert prototype for inner resources visualising
     /// </summary>
-    [DataField]
+    [DataField("alert")]
     public ProtoId<AlertPrototype> AlertPrototype = "ChangelingChemicals";
 
     /// <summary>
     /// Base resources regeneration rate per update time
     /// </summary>
-    [DataField]
+    [DataField("regenerationRate")]
     public float BaseRegenerationRate = 1f;
 
     /// <summary>
     /// Base resources maximum amount
     /// </summary>
-    [DataField]
+    [DataField("maxAmount")]
     public float BaseMaxAmount = 100f;
 
     /// <summary>
     /// Base amount of resources when these internal resources is added to entity
     /// </summary>
-    [DataField]
+    [DataField("startingAmount")]
     public float BaseStartingAmount = 100f;
 }
