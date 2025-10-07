@@ -106,12 +106,7 @@ public sealed partial class HereticAbilitySystem
 
         // heals everything by base + power for each burning target
         _stam.TryTakeStamina(ent, toHeal);
-        _dmg.TryChangeDamage(ent,
-            args.ToHeal * toHeal,
-            true,
-            false,
-            targetPart: TargetBodyPart.All,
-            splitDamage: SplitDamageBehavior.SplitEnsureAll);
+        IHateWoundMed(ent.Owner, args.ToHeal * toHeal, toHeal, toHeal);
     }
 
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)

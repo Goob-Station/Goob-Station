@@ -15,7 +15,10 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class LeechingWalkComponent : Component
 {
     [DataField]
-    public float AscensuionMultiplier = 3f;
+    public float AscensionMultiplier = 3f;
+
+    [DataField]
+    public FixedPoint2 BoneHeal = -5;
 
     [DataField]
     public DamageSpecifier ToHeal = new()

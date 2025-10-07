@@ -66,7 +66,7 @@ knowledge-path-void-s6-desc =
     They disappear, and I am left in the blizzard.
 
     Grants you Void Phase, a long range targeted teleport spell.
-    Additionally causes damage to heathens around your original and target destination..
+    Additionally causes damage to heathens around your original and target destination.
 
 knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =

@@ -30,7 +30,6 @@ using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Store.Systems;
-using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -66,7 +65,6 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
@@ -407,6 +405,22 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 rust.RustStrength);
         }
 
+        var rustBringerQuery = EntityQueryEnumerator<RustbringerComponent, TransformComponent>();
+        while (rustBringerQuery.MoveNext(out var rustBringer, out var xform))
+        {
+            rustBringer.Accumulator += frameTime;
+
+            if (rustBringer.Accumulator < rustBringer.Delay)
+                continue;
+
+            rustBringer.Accumulator = 0f;
+
+            if (!IsTileRust(xform.Coordinates, out _))
+                continue;
+
+            Spawn(rustBringer.Effect, xform.Coordinates);
+        }
+
         _accumulator += frameTime;
 
         if (_accumulator < LeechingWalkUpdateInterval)
@@ -433,7 +447,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             if (rustbringerQuery.HasComp(uid))
             {
-                multiplier = leech.AscensuionMultiplier;
+                multiplier = leech.AscensionMultiplier;
 
                 if (resiratorQuery.TryComp(uid, out var respirator))
                     _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
@@ -441,16 +455,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
+            var toHeal = leech.ToHeal * multiplier;
+            var boneHeal = leech.BoneHeal * multiplier;
+            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
+
             if (damageableQuery.TryComp(uid, out var damageable))
             {
-                _dmg.TryChangeDamage(uid,
-                    leech.ToHeal * multiplier,
-                    true,
-                    false,
-                    damageable,
-                    null,
-                    targetPart: TargetBodyPart.All,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
