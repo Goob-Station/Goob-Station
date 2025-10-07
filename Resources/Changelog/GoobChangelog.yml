@@ -15880,3 +15880,9 @@ Entries:
       message: Microwaves no longer trap items inside them.
   id: 1771
   time: '2025-10-07T15:33:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Lootbug can now properly eat things
+  id: 1772
+  time: '2025-10-07T15:35:17.0000000+00:00'
