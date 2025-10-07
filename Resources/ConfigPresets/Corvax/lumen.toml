@@ -1,0 +1,25 @@
+[game]
+hostname = "🛰️ CorvaxGoob — 🌕 Люмен 🪐 [MRP+] [TTS]"
+desc = "Corvax — первый русскоязычный проект в Space Station 14!\n• 💋 На этом сервере используется измененная сборка Goob Station.\n   Больше контента, возможностей и взаимодействия!\n• 🔴 Повышенные требования к RP.\n• 🔊 Имеется интеграция TTS (Text-To-Speech)."
+maxplayers = 180
+soft_max_players = 80
+map_rotation = true
+
+[server]
+lobby_name = "️🛰️ CorvaxGoob — 🌕 Люмен 🪐 [MRP+] [TTS]"
+
+[game.panic_bunker]
+enabled = true
+show_reason = true
+min_account_age = 0
+min_overall_minutes = 0
+deny_vpn = true
+enable_without_admins = true
+disable_with_admins = true
+
+[rules]
+time = 30.0
+
+[hub]
+advertise = true
+tags = "lang:ru,rp:med,region:eu_e,tts"
