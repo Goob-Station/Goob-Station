@@ -4812,3 +4812,13 @@
   id: 9043
   time: '2025-10-07T14:12:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40115
+- author: BoskiYourk, spanky_spanky
+  changes:
+  - message: The Head of Security now has an energy magnum, a self-charging multi-mode
+      laser revolver, in their locker instead of the energy shotgun.
+    type: Add
+  - message: The Warden now has the energy shotgun in their locker round-start.
+    type: Tweak
+  id: 9044
+  time: '2025-10-07T16:05:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40615
