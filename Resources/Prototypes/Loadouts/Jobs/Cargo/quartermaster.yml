@@ -83,7 +83,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobQuartermaster
-      time: 72000 #20 hrs
+      time: 20h
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup

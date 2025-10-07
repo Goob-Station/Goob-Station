@@ -141,25 +141,20 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 18000 #5 hr
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 5h # Goobstation
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 3600 #1 hrs
+      time: 1h # knowing how to use the tools is important
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 10h # Goobstation
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
+      time: 10h
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
       - Felinid
-  #  - !type:StyleRequirement
-  #    styles:
-  #    - HumanHairFloorlengthBedhead
-  #    - HumanHairClassicFloorlengthBedhead
-  #    - HumanHairFloorlengthBraid
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
