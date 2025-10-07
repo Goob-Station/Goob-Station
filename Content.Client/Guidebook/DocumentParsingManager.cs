@@ -85,7 +85,6 @@ using Robust.Client.UserInterface;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
-using Robust.Shared.Sandboxing;
 using Robust.Shared.Utility;
 using static Pidgin.Parser;
 
@@ -99,7 +98,7 @@ public sealed partial class DocumentParsingManager
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IReflectionManager _reflectionManager = default!;
     [Dependency] private readonly IResourceManager _resourceManager = default!;
-    [Dependency] private readonly ISandboxHelper _sandboxHelper = default!;
+    [Dependency] private readonly IDynamicTypeFactory _dynamicTypeFactory = default!;
 
     private readonly Dictionary<string, Parser<char, Control>> _tagControlParsers = new();
     private Parser<char, Control> _controlParser = default!;
@@ -121,7 +120,7 @@ public sealed partial class DocumentParsingManager
 
         foreach (var typ in _reflectionManager.GetAllChildren<IDocumentTag>())
         {
-            _tagControlParsers.Add(typ.Name, CreateTagControlParser(typ.Name, typ, _sandboxHelper));
+            _tagControlParsers.Add(typ.Name, CreateTagControlParser(typ.Name, typ, _dynamicTypeFactory));
         }
 
         ControlParser = whitespaceAndCommentParser.Then(_controlParser.Many());
@@ -165,14 +164,14 @@ public sealed partial class DocumentParsingManager
         return true;
     }
 
-    private Parser<char, Control> CreateTagControlParser(string tagId, Type tagType, ISandboxHelper sandbox)
+    private Parser<char, Control> CreateTagControlParser(string tagId, Type tagType, IDynamicTypeFactory typeFactory)
     {
         return Map(
                 (args, controls) =>
                 {
                     try
                     {
-                        var tag = (IDocumentTag) sandbox.CreateInstance(tagType);
+                        var tag = (IDocumentTag) typeFactory.CreateInstance(tagType);
                         if (!tag.TryParseTag(args, out var control))
                         {
                             _sawmill.Error($"Failed to parse {tagId} args");

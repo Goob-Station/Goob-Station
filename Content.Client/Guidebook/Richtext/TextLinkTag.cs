@@ -16,6 +16,13 @@ namespace Content.Client.Guidebook.RichText;
 [UsedImplicitly]
 public sealed class TextLinkTag : IMarkupTagHandler
 {
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill Sawmill => _sawmill ??= _logManager.GetSawmill(Name);
+    private ISawmill? _sawmill;
+
+    public static Color LinkColor => Color.CornflowerBlue;
+
     public string Name => "textlink";
 
     /// <inheritdoc/>
@@ -51,6 +58,8 @@ public sealed class TextLinkTag : IMarkupTagHandler
 
         if (control == null)
             return;
+
+        // Goobstation take ours here we need reagent guidebook changes here.
 
         var current = control;
         while (current != null)
