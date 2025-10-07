@@ -69,8 +69,10 @@ namespace Content.Client.Construction.UI
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-        private readonly SpriteSystem _spriteSystem;
+        [Dependency] private readonly ILogManager _logManager = default!;
 
+        private readonly ISawmill _sawmill = default!;
+        private readonly SpriteSystem _spriteSystem;
         private readonly IConstructionMenuView _constructionView;
         private readonly EntityWhitelistSystem _whitelistSystem;
         private readonly IConfigurationManager _cfg; // Goobstation
@@ -127,6 +129,8 @@ namespace Content.Client.Construction.UI
         {
             // This is a lot easier than a factory
             IoCManager.InjectDependencies(this);
+            _sawmill = _logManager.GetSawmill("construction.menu");
+
             _constructionView = new ConstructionMenu();
             _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
             _spriteSystem = _entManager.System<SpriteSystem>();
@@ -332,7 +336,7 @@ namespace Content.Client.Construction.UI
 
                 if (!_constructionSystem!.TryGetRecipePrototype(recipe.ID, out var targetProtoId))
                 {
-                    Logger.Error("Cannot find the target prototype in the recipe cache with the id \"{0}\" of {1}.",
+                    _sawmill.Error("Cannot find the target prototype in the recipe cache with the id \"{0}\" of {1}.",
                         recipe.ID,
                         nameof(ConstructionPrototype));
                     continue;

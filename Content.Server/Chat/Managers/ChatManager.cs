@@ -198,6 +198,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Runtime.InteropServices;
 using Content.Server._RMC14.LinkAccount; // RMC - Patreon
 
 namespace Content.Server.Chat.Managers;
@@ -217,7 +220,7 @@ internal sealed partial class ChatManager : IChatManager
 
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IServerNetManager _netManager = default!;
-    //[Dependency] private readonly IMoMMILink _mommiLink = default!;
+    //[Dependency] private readonly IMoMMILink _mommiLink = default!; // Goobstation?
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
@@ -226,6 +229,8 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    //[Dependency] private readonly DiscordChatLink _discordLink = default!; // Goobstation?
+    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
 
     /// <summary>
@@ -236,6 +241,7 @@ internal sealed partial class ChatManager : IChatManager
     private bool _oocEnabled = true;
     private bool _adminOocEnabled = true;
 
+    private ISawmill _sawmill = default!;
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
     public void Initialize()
@@ -245,6 +251,8 @@ internal sealed partial class ChatManager : IChatManager
 
         _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+
+        _sawmill = _logManager.GetSawmill("SERVER");
 
         RegisterRateLimits();
     }
@@ -293,7 +301,7 @@ internal sealed partial class ChatManager : IChatManager
     {
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", FormattedMessage.EscapeText(message)));
         ChatMessageToAll(ChatChannel.Server, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride);
-        Logger.InfoS("SERVER", message);
+        _sawmill.Info(message);
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Server announcement: {message}");
     }
