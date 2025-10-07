@@ -4857,3 +4857,11 @@
   id: 9048
   time: '2025-10-07T23:14:11.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40569
+- author: Hitlinemoss
+  changes:
+  - message: Bartenders with a significant amount of playtime can now select a golden
+      shaker in the loadout menu.
+    type: Add
+  id: 9049
+  time: '2025-10-07T23:37:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40762
