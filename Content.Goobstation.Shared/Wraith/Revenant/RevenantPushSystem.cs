@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared._White.Grab;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
@@ -10,6 +11,7 @@ public sealed class RevenantPushSystem : EntitySystem
 {
     [Dependency] private readonly GrabThrownSystem _grab = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -25,6 +27,7 @@ public sealed class RevenantPushSystem : EntitySystem
         var direction = targetPos - entPos;
 
         _grab.Throw(args.Target, ent.Owner, direction, ent.Comp.ThrowSpeed, ent.Comp.DamageWhenThrown);
+        _audio.PlayPredicted(ent.Comp.RevPushSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }

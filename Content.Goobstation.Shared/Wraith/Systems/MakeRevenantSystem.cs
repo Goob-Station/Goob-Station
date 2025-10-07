@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Mind;
 using Content.Shared.Rejuvenate;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
@@ -11,6 +12,7 @@ public sealed class MakeRevenentSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly WraithPossessedSystem _wraithPossessed = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -40,6 +42,7 @@ public sealed class MakeRevenentSystem : EntitySystem
         possessed.RevenantDamageOvertime = ent.Comp.PassiveRevenantDamage;
         Dirty(args.Target, possessed);
 
+        _audio.PlayPredicted(ent.Comp.PossessSound, args.Target, args.Target);
         _wraithPossessed.StartPossession((args.Target, possessed), ent.Owner, mindId, true);
 
         // THE REV TODO LIST:

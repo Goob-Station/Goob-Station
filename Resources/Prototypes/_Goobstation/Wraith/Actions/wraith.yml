@@ -289,8 +289,6 @@
   description: Take control of an intact corpse as a powerful Revenant! You will not be able to absorb this corpse later. As a revenant, you gain increased point generation, but your revenant abilities cost much more points than normal.
   components:
   - type: Action
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wraith/reventer.ogg
     useDelay: 60
     itemIconStyle: BigAction
     icon:

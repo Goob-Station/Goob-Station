@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Damage;
 using Content.Shared.Maps;
@@ -7,11 +5,14 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
@@ -26,6 +27,7 @@ public sealed class RevenantShockwaveSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
     /// <inheritdoc/>
@@ -59,11 +61,13 @@ public sealed class RevenantShockwaveSystem : EntitySystem
                 continue;
 
             _stun.KnockdownOrStun(entity, ent.Comp.KnockdownDuration, true, statusEffect);
+            _audio.PlayPredicted(ent.Comp.ShockSound, ent.Owner, ent.Owner);
         }
 
         // args.Handled = true;
     }
 
+    //TO DO: Add some sort of effect that telegraphs the use of the shockwave.
     private void PryAnyTiles(Entity<RevenantShockwaveComponent> ent)
     {
         if (_net.IsClient)

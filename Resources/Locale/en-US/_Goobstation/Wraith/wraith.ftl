@@ -60,6 +60,8 @@ wraith-rally-inspired = You feel inspired!
 
 # ----------- Unused or to be used. Lore accurate pop-ups. ------------
 
+bible-cleansed-curse = { $target } screams as some black smoke exits their body.
+
 wraith-spook-lightflip = You flip some light switches near the designated location!!
 wraith-spook-burnout = You cause a few lights to burn out near the designated location!.
 wraith-spook-smoke = Smoke rises in the designated location.
@@ -283,3 +285,14 @@ wraith-possession-victim = You have assumed control of this body! You don't have
 wraith-possession-target = You're a prisoner in your own body! You're powerless to move or act until the possession fades...
 wraith-possession-weakening = Your control on this body is weakening! You will soon be kicked out of it.
 wraith-possession-headache = The presence has left your body and you are thrust back into it, immediately assaulted with a ringing headache.
+
+# -------- Revenant --------
+
+revenant-crush-chaplain = Some mysterious force shields them from your influence.
+revenant-crush-start = The revenant reaches out towards you, making a crushing motion.
+revenant-crush-others = Their body gives in to the telekinetic grip!
+revenant-crush-you = You are completely crushed.
+
+revenant-crush-crack1 = You feel like you're about to be crushed!
+revenant-crush-crack2 = You feel like you're about to be destroyed!
+revenant-crush-crack3 = You feel like you're about to be vaporized!

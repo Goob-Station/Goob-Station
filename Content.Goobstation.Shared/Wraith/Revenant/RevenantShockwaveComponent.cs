@@ -1,5 +1,6 @@
 using Content.Shared.Damage;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -8,6 +9,9 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RevenantShockwaveComponent : Component
 {
+    [DataField]
+    public SoundSpecifier? ShockSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/revshock.ogg");
+
     /// <summary>
     ///  Search range of shockwave
     /// </summary>

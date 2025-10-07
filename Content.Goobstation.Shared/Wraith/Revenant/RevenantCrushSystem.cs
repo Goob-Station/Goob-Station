@@ -1,9 +1,12 @@
+using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Gibbing.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -21,6 +24,8 @@ public sealed class RevenantCrushSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -35,7 +40,13 @@ public sealed class RevenantCrushSystem : EntitySystem
         if (ent.Comp.InitialDamage == null)
             return;
 
-        // TODO: popup here
+        // TO DO: popup here. Free hand required, cannot cast from inside a storage, and must target a human.
+
+        if (HasComp<ChaplainImmuneActionComponent>(args.Target))
+        {
+            _popup.PopupPredicted(Loc.GetString("revenant-crush-chaplain"), ent.Owner, args.Performer);
+            return;
+        }
 
         var doAftersArgs = new DoAfterArgs(
             EntityManager,
@@ -52,21 +63,27 @@ public sealed class RevenantCrushSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAftersArgs);
+        _audio.PlayPredicted(ent.Comp.CrushSound, args.Target, args.Target);
 
         _stunSystem.KnockdownOrStun(args.Target, ent.Comp.KnockdownDuration, true);
         _damageableSystem.TryChangeDamage(args.Target, ent.Comp.InitialDamage, true);
+        _popup.PopupPredicted(Loc.GetString("revenant-crush-start"), ent.Owner, args.Performer);
 
         args.Handled = true;
     }
 
+    // TO DO: Make it so there's a 25% each second that it plays Flesh_Tear1.ogg and picks one of these three pop-ups revenant-crush-crack1, 2 or 3.
+    //TO DO: Deal damage to their chest every second. Theoretically 5 damage, but who knows. Doesn't have to be the chest if you don't wanna deal with that.
     private void OnRevenantCrushDoAfter(Entity<RevenantCrushComponent> ent, ref RevenantCrushDoAfterEvent args)
     {
-        if (args.Cancelled || args.Target == null)
+        var target = args.Target;
+
+        if (args.Cancelled || target == null)
             return;
 
-        // TODO: popup here
+        _popup.PopupPredicted(Loc.GetString("revenant-crush-you"), target.Value, target.Value); // TO DO: Fix this. This pop-up is showing to UID even though it clearly says target as the value. FUck me
         if (_netManager.IsServer) // this shit mispredicts, requires upstream prediction fix
-            _body.GibBody(args.Target.Value, splatModifier: 5f);
+            _body.GibBody(target.Value, splatModifier: 5f);
 
         args.Handled = true;
     }

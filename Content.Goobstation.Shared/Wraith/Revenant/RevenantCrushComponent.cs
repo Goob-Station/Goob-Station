@@ -1,7 +1,8 @@
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
@@ -9,6 +10,9 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RevenantCrushComponent : Component
 {
+    [DataField]
+    public SoundSpecifier? CrushSound = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/revtouch.ogg");
+
     /// <summary>
     ///  The duration of the doafter
     /// </summary>

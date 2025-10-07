@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
@@ -6,6 +7,9 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RevenantPushComponent : Component
 {
+    [DataField]
+    public SoundSpecifier? RevPushSound = new SoundCollectionSpecifier("Rev_Push");
+
     /// <summary>
     /// Throw speed
     /// </summary>
