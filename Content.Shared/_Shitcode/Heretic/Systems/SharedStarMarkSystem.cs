@@ -130,8 +130,10 @@ public abstract class SharedStarMarkSystem : EntitySystem
     private void OnPreventCollide(Entity<CosmicFieldComponent> ent, ref PreventCollideEvent args)
     {
         if (args.OurFixture.Hard && (!HasComp<StarMarkComponent>(args.OtherEntity) ||
-            TryComp(args.OtherEntity, out PullableComponent? pullable) &&
-            TryComp(pullable.Puller, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos"))
+                                     TryComp(args.OtherEntity, out PullableComponent? pullable) &&
+                                     (HasComp<StarGazerComponent>(args.OtherEntity) ||
+                                      TryComp(pullable.Puller, out HereticComponent? heretic) &&
+                                      heretic.CurrentPath == "Cosmos")))
             args.Cancelled = true;
     }
 

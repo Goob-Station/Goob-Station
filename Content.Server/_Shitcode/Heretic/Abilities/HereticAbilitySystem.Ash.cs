@@ -24,9 +24,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
-using Content.Goobstation.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Abilities;
 

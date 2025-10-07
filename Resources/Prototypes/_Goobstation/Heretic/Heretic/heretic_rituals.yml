@@ -322,6 +322,21 @@
     Knife: 1
     SheetGlass: 1
 
+- type: hereticRitual
+  id: AscensionCosmos
+  locName: knowledge-path-cosmos-s9-name
+  locDesc: knowledge-path-cosmos-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: stargazer
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualCosmosAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: CreatorsGift
+  outputEvent: !type:EventHereticAscension
+
 ### side knowledge
 - type: hereticRitual
   id: RitualOfKnowledge

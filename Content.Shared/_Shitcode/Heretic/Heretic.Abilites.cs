@@ -306,6 +306,7 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionCosmosEvent : EntityEventArgs { }
 #endregion
 
 public abstract partial class InstantWorldTargetActionEvent : WorldTargetActionEvent

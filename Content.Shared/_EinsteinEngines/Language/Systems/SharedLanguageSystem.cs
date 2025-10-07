@@ -88,6 +88,10 @@ public abstract class SharedLanguageSystem : EntitySystem
 
     public virtual bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
     {
+        if (TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) &&
+            uni is { Enabled: true, SpeaksAllLanguages: true })
+            return true;
+
         if (!Resolve(ent, ref ent.Comp, logMissing: false))
             return false;
 

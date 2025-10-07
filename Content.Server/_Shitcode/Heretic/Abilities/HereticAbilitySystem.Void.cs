@@ -13,13 +13,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -27,7 +24,8 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
-using System.Linq;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -102,7 +100,7 @@ public sealed partial class HereticAbilitySystem
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        foreach (var pookie in GetNearbyPeople(ent, power, ent.Comp.CurrentPath))
             _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
 
         _transform.SetCoordinates(ent, args.Target);
@@ -110,7 +108,7 @@ public sealed partial class HereticAbilitySystem
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        foreach (var pookie in GetNearbyPeople(ent, power, ent.Comp.CurrentPath))
         {
             _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
             if (condition) _voidcurse.DoCurse(pookie);
@@ -133,9 +131,11 @@ public sealed partial class HereticAbilitySystem
             rangeMult *= 2f;
         }
 
-        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult);
-        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult);
-        var farPriority = GetNearbyPeople(ent, 5f * rangeMult);
+        var path = ent.Comp.CurrentPath;
+
+        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult, path);
+        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult, path);
+        var farPriority = GetNearbyPeople(ent, 5f * rangeMult, path);
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Cold", power);

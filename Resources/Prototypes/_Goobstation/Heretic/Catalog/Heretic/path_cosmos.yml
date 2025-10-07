@@ -148,3 +148,22 @@
     stage: 7
     whitelist:
     - Cosmos
+
+- type: listing
+  id: HereticCosmosPath9
+  name: knowledge-path-cosmos-s9-name
+  description: knowledge-path-cosmos-s9-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: stargazer }
+  productHereticKnowledge: AscensionCosmos
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Cosmos

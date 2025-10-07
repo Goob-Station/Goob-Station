@@ -1,0 +1,109 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - FlyingMobBase
+  id: MobStarGazer
+  name: star gazer
+  description: A creature that has been tasked to watch over the stars.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/star_gazer.rsi
+    layers:
+    - state: star_gazer
+      offset: 0, 1
+  - type: ActionsProvider
+    actions:
+    - ActionHereticCosmicExpansion
+    - ActionHereticStarBlast
+  - type: MeleeWeapon
+    range: 4
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 20
+        Piercing: 20
+        Structural: 400
+      armorPenetration: 0.2
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementIgnoreGravity
+  - type: Speech
+  - type: TypingIndicator
+  - type: NoSlip
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghostrole-stargazer-name
+    description: ghostrole-stargazer-desc
+    rules: ghostrole-ghoul-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+    channels:
+    - MansusLink
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: Insulated
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 4.5
+  - type: FlashImmunity
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: Targeting
+  - type: Eye
+    drawFov: false
+  - type: ContentEye
+    maxZoom: 1.5, 1.5
+    targetZoom: 1.5, 1.5
+  - type: UniversalLanguageSpeaker
+    speaksAllLanguages: true
+  - type: CosmicTrail
+    strength: 10
+  - type: PointLight
+    color: "#dcaa5b"
+    radius: 5
+    softness: 1
+  - type: Puller
+    needsHands: false
+  - type: StarGazer
+  - type: WarpPoint
+    follow: true
+    location: star gazer
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false

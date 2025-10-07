@@ -45,6 +45,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -61,7 +62,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
     }
 
-    protected List<Entity<MobStateComponent>> GetNearbyPeople(Entity<HereticComponent> ent, float range, EntityCoordinates? coords = null)
+    protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
+        float range,
+        string? path,
+        EntityCoordinates? coords = null)
     {
         var list = new List<Entity<MobStateComponent>>();
         var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
@@ -69,8 +73,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == path || HasComp<GhoulComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))

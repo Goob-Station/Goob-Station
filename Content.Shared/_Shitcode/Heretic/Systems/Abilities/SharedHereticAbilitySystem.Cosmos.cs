@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
@@ -16,11 +18,44 @@ public abstract partial class SharedHereticAbilitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticCosmicRune>(OnCosmicRune);
         SubscribeLocalEvent<HereticComponent, EventHereticStarTouch>(OnStarTouch);
-        SubscribeLocalEvent<HereticComponent, EventHereticStarBlast>(OnStarBlast);
-        SubscribeLocalEvent<HereticComponent, EventHereticCosmicExpansion>(OnExpansion);
+        SubscribeLocalEvent<HereticComponent, EventHereticStarBlast>(OnHereticStarBlast);
+        SubscribeLocalEvent<HereticComponent, EventHereticCosmicExpansion>(OnHereticExpansion);
         SubscribeLocalEvent<HereticComponent, EventHereticCosmosPassive>(OnPassive);
+        SubscribeLocalEvent<HereticComponent, HereticAscensionCosmosEvent>(OnAscension);
+
+        SubscribeLocalEvent<StarGazerComponent, EventHereticStarBlast>(OnStarGazerStarBlast);
+        SubscribeLocalEvent<StarGazerComponent, EventHereticCosmicExpansion>(OnStarGazerExpansion);
 
         SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
+    }
+
+    protected virtual void OnAscension(Entity<HereticComponent> ent, ref HereticAscensionCosmosEvent args)
+    {
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
+
+        _eye.SetDrawFov(ent, false);
+    }
+
+    private void OnStarGazerExpansion(Entity<StarGazerComponent> ent, ref EventHereticCosmicExpansion args)
+    {
+        OnExpansion(ent, ref args, 10, true);
+    }
+
+    private void OnStarGazerStarBlast(Entity<StarGazerComponent> ent, ref EventHereticStarBlast args)
+    {
+        OnStarBlast(ent, ref args, 10);
+    }
+
+    private void OnHereticExpansion(Entity<HereticComponent> ent, ref EventHereticCosmicExpansion args)
+    {
+        OnExpansion(ent, ref args, ent.Comp.PathStage, ent.Comp is { Ascended: true, CurrentPath: "Cosmos" });
+    }
+
+    private void OnHereticStarBlast(Entity<HereticComponent> ent, ref EventHereticStarBlast args)
+    {
+        OnStarBlast(ent, ref args, ent.Comp.PathStage);
     }
 
     private void OnPassive(Entity<HereticComponent> ent, ref EventHereticCosmosPassive args)
@@ -28,7 +63,7 @@ public abstract partial class SharedHereticAbilitySystem
         EnsureComp<CosmosPassiveComponent>(ent);
     }
 
-    private void OnExpansion(Entity<HereticComponent> ent, ref EventHereticCosmicExpansion args)
+    private void OnExpansion(EntityUid ent, ref EventHereticCosmicExpansion args, int strength, bool ascended)
     {
         if (!TryUseAbility(ent, args))
             return;
@@ -36,21 +71,20 @@ public abstract partial class SharedHereticAbilitySystem
         args.Handled = true;
 
         var coords = Transform(ent).Coordinates;
-        var strength = ent.Comp.PathStage;
 
         _starMark.ApplyStarMarkInRange(coords, ent, args.Range);
         _starMark.SpawnCosmicFields(coords, 2, strength);
 
         PredictedSpawnAtPosition(args.Effect, coords);
 
-        if (!ent.Comp.Ascended || ent.Comp.CurrentPath != "Cosmos")
+        if (!ascended)
             return;
 
         _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -4, 4, 3, strength);
         _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -4, 4, 3, strength);
     }
 
-    private void OnStarBlast(Entity<HereticComponent> ent, ref EventHereticStarBlast args)
+    private void OnStarBlast(EntityUid ent, ref EventHereticStarBlast args, int strength)
     {
         if (!TryComp(args.Action, out StarBlastActionComponent? starBlast))
             return;
@@ -64,12 +98,12 @@ public abstract partial class SharedHereticAbilitySystem
 
             PredictedSpawnAtPosition(starBlast.Effect, oldCoords);
             _audio.PlayPredicted(starBlast.Sound, oldCoords, args.Performer);
-            PullVictims(ent, oldCoords);
+            PullVictims(ent, oldCoords, strength);
             _pulling.StopAllPulls(ent);
             _transform.SetCoordinates(ent, newCoords);
             PredictedSpawnAtPosition(starBlast.Effect, newCoords);
             _audio.PlayPredicted(starBlast.Sound, newCoords, args.Performer);
-            PullVictims(ent, newCoords);
+            PullVictims(ent, newCoords, strength);
 
             PredictedQueueDel(starBlast.Projectile);
 
@@ -97,7 +131,7 @@ public abstract partial class SharedHereticAbilitySystem
             args.Projectile,
             args.ProjectileSpeed,
             args.Entity);
-        EnsureComp<CosmicTrailComponent>(starBlast.Projectile).Strength = ent.Comp.PathStage;
+        EnsureComp<CosmicTrailComponent>(starBlast.Projectile).Strength = strength;
         Dirty(args.Action, starBlast);
     }
 
@@ -110,14 +144,14 @@ public abstract partial class SharedHereticAbilitySystem
             _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
     }
 
-    private void PullVictims(Entity<HereticComponent> heretic, EntityCoordinates coords)
+    private void PullVictims(EntityUid user, EntityCoordinates coords, int strength)
     {
-        foreach (var mob in GetNearbyPeople(heretic, 2f, coords))
+        foreach (var mob in GetNearbyPeople(user, 2f, "Cosmos", coords))
         {
-            if (_starMark.TryApplyStarMark(mob!, heretic))
+            if (_starMark.TryApplyStarMark(mob!, user))
                 _throw.TryThrow(mob, coords);
         }
-        _starMark.SpawnCosmicFields(coords, 1, heretic.Comp.PathStage);
+        _starMark.SpawnCosmicFields(coords, 1, strength);
     }
 
     private void OnStarTouch(Entity<HereticComponent> ent, ref EventHereticStarTouch args)

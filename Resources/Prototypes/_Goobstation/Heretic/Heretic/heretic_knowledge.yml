@@ -455,6 +455,19 @@
   actionPrototypes:
   - ActionHereticCosmicExpansion
 
+- type: hereticKnowledge
+  id: AscensionCosmos
+  stage: 9
+  path: Cosmos
+  ritualPrototypes:
+  - AscensionCosmos
+
+- type: hereticKnowledge
+  id: CreatorsGift
+  stage: 10
+  path: Cosmos
+  event: !type:HereticAscensionCosmosEvent
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
