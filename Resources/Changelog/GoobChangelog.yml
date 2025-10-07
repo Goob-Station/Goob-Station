@@ -15858,3 +15858,13 @@ Entries:
       message: Updated larva to be the sprite from CMSS13
   id: 1768
   time: '2025-10-05T17:39:16.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nutriment and vitamins now heal slight amounts of damage off, aswell as
+        healing bloodloss.
+    - type: Tweak
+      message: Protein heals more brute damage and more bloodloss.
+  id: 1769
+  time: '2025-10-05T23:25:25.0000000+00:00'
