@@ -614,6 +614,20 @@
   - ChaplainNeck
 
 - type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-chaplain-bible
+  minLimit: 1
+  loadouts:
+  - Bible
+  - BibleNanoTrasen
+  - BibleDruid
+  - BibleSatanic
+  - BibleTanakh
+  - BibleHonk
+  - BibleRatvar
+  - BibleNarsie
+
+- type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
   minLimit: 0
