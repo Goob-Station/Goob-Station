@@ -331,20 +331,37 @@
   - type: StealCondition
     stealGroup: HandTeleporter
 
-## warden
+## hos
 
 - type: entity
   parent: BaseTraitorStealObjective
-  id: EnergyShotgunStealObjective
+  id: EnergyMagnumStealObjective
+  components:
+  - type: Objective
+    # HoS will have this on them a lot of the time so..
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponEnergyMagnum
+    owner: job-name-hos
+
+# Goob Start warden todo move this.
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: EnergyMagnumStealObjective
   components:
   - type: Objective
     # Warden will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: Warden # Goob edit
+    job: Warden
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
-    owner: job-name-warden # Goob edit
+    owner: job-name-warden
+
+# Goob edit end
 
 ## ce
 
