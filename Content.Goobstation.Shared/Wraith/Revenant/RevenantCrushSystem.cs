@@ -62,12 +62,12 @@ public sealed class RevenantCrushSystem : EntitySystem
             DistanceThreshold = 15f,
         };
 
+        _popup.PopupPredicted(Loc.GetString("revenant-crush-start"), ent.Owner, args.Performer);
         _doAfter.TryStartDoAfter(doAftersArgs);
         _audio.PlayPredicted(ent.Comp.CrushSound, args.Target, args.Target);
 
         _stunSystem.KnockdownOrStun(args.Target, ent.Comp.KnockdownDuration, true);
         _damageableSystem.TryChangeDamage(args.Target, ent.Comp.InitialDamage, true);
-        _popup.PopupPredicted(Loc.GetString("revenant-crush-start"), ent.Owner, args.Performer);
 
         args.Handled = true;
     }

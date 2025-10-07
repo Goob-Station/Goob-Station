@@ -17,7 +17,7 @@ public sealed partial class RevenantCrushComponent : Component
     ///  The duration of the doafter
     /// </summary>
     [DataField(required: true)]
-    public TimeSpan AbilityDuration;
+    public TimeSpan AbilityDuration = TimeSpan.FromSeconds(8);
 
     /// <summary>
     ///  How much damage to deal to the entity before the doafter starts
