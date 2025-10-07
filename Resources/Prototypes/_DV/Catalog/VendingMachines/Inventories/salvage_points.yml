@@ -137,5 +137,7 @@
     cost: 4000 #Mostly for flexing
   - id: CrateCargoClarkeAssembly
     cost: 12500 #TODO: Make modules real
+  - id: ClothingHeadHatCatEars #only for the most experianced of miners
+    cost: 25000 #troll 
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff
