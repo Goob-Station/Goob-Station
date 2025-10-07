@@ -32,7 +32,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     {
         foreach (var type in entity.Comp.CurrentInternalResources)
         {
-            if (type.InternalResourcesType != args.Alert.ID)
+            if (_protoMan.Index(type.InternalResourcesType).AlertPrototype != args.Alert.ID)
                 continue;
 
             args.CurrentValue = type.CurrentAmount;
@@ -56,7 +56,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// <summary>
     /// Updates amount of given resources by float amount with given protoId
     /// </summary>
-    public bool TryUpdateResourcesAmount(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component)
+    public bool TryUpdateResourcesAmount(EntityUid uid, string protoId, float amount, InternalResourcesComponent? component = null)
     {
         if (!Resolve(uid, ref component) || amount == 0)
             return false;
@@ -70,7 +70,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// <summary>
     /// Updates amount of given resources by float amount with given internal resources data
     /// </summary>
-    public bool TryUpdateResourcesAmount(EntityUid uid, InternalResourcesData data, float amount, InternalResourcesComponent? component)
+    public bool TryUpdateResourcesAmount(EntityUid uid, InternalResourcesData data, float amount, InternalResourcesComponent? component = null)
     {
         if (!Resolve(uid, ref component) || amount == 0)
             return false;
@@ -138,6 +138,16 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
         UpdateAppearance((uid, resourcesComp), proto.ID);
 
         return false;
+    }
+
+    /// <summary>
+    /// Check if user has internal resources type
+    /// </summary>
+    public bool TryGetResourceType(EntityUid uid, ProtoId<InternalResourcesPrototype> type, [NotNullWhen(true)] out InternalResourcesData? data, InternalResourcesComponent? component = null)
+    {
+        data = null;
+
+        return Resolve(uid, ref component) && component.HasResourceData(type, out data);
     }
 
     /// <summary>
