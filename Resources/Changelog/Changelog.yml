@@ -4822,3 +4822,10 @@
   id: 9044
   time: '2025-10-07T16:05:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40615
+- author: FungiFellow
+  changes:
+  - message: Cancer Mice now have unique ghost role entries.
+    type: Tweak
+  id: 9045
+  time: '2025-10-07T16:33:42.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40102
