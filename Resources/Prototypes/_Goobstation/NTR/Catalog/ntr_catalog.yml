@@ -333,13 +333,30 @@
     sprite: _Goobstation/Structures/Machines/cigvend.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRpersonal
   restockTime: 0
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: NTRExecutiveSoap
+  name: centcomm soap
+  description: An expensive soap made with our finest... who am i kidding its just a soap covered in lube with a print.
+  productEntity: SpawnPodNTRSoap
+  icon:
+    sprite: _Goobstation/Objects/Fun/soap.rsi
+    state: soap_cc
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
 
 # Machine boards
 
