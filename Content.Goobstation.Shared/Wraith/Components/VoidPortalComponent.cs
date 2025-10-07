@@ -55,6 +55,36 @@ public sealed partial class VoidPortalComponent : Component
 
     [DataField]
     public EntityUid? PortalOwner;
+
+    /// <summary>
+    /// Range to look for mobs near portal to count towards max cap.
+    /// </summary>
+    [DataField]
+    public int SearchRange = 20;
+
+    /// <summary>
+    /// Range to spawn in portal.
+    /// </summary>
+    [DataField]
+    public int OffsetForSpawn = 4;
+
+    /// <summary>
+    /// The prototype ID for the empty portal that does nothing, only spawned if the max cap has been reached.
+    /// </summary>
+    [DataField]
+    public EntProtoId EmptyPortal = "VoidPortalEmpty";
+
+    /// <summary>
+    /// How many entities summoned by the portal can exist ay any given time.
+    /// </summary>
+    [DataField]
+    public int MaxEntitiesAlive = 10;
+
+    /// <summary>
+    /// The range of the WP regeneration boost for the wraith, so long as it stays near the portal.
+    /// </summary>
+    [DataField]
+    public float PortalRange = 10f;
 }
 
 /// <summary>

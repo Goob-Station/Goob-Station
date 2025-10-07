@@ -262,8 +262,11 @@
   name: Summon void portal
   description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
   components:
+  - type: ConfirmableAction
+    popup: wraith-portal-already
+    primeTime: 10 
   - type: Action
-    useDelay: 150
+    useDelay: 180
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: open_portal

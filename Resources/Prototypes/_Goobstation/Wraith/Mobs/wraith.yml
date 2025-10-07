@@ -150,11 +150,11 @@
     softness: 1
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
+  #- type: AmbientSound
+  #  range: 10
+  #  volume: -15
+  #  sound:
+  #    path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
 
 - type: entity
   id: MobWraithTrickster

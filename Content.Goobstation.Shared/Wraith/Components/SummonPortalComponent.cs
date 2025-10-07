@@ -14,21 +14,21 @@ public sealed partial class SummonPortalComponent : Component
     public int CurrentActivePortals;
 
     /// <summary>
+    /// The currently active portal spawned by this entity, if any.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? CurrentPortal;
+
+    /// <summary>
     /// How many portals the wraith is allowed to have.
     /// </summary>
     [DataField]
     public int PortalLimit = 1;
 
     /// <summary>
-    /// The range of the WP regeneration boost for the wraith, so long as it stays near the portal.
-    /// </summary>
-    [DataField]
-    public float PortalRange = 10f;
-
-
-    /// <summary>
     /// The prototype ID for the void portal.
     /// </summary>
     [DataField]
-    public EntProtoId VoidPortal = "VoidPortal";
+    public EntProtoId RitualCircle = "RitualCircle4";
+
 }

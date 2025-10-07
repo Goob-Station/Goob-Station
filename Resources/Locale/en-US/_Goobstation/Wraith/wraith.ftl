@@ -12,11 +12,6 @@ wraith-decay-fail = This cannot be decayed...
 
 wraith-defile = It has been done...
 
-wraith-portal-anchor = The portal requires a stable surface to spawn.
-wraith-portal-fail-corporeal = I must be in corporeal form to summon this!
-wraith-portal-success = The veil has been breached. Arise, creatures of the void!
-wraith-portal-limit = We haven't implemented the logic for switching portal locations yet.
-
 wraith-in-solid = I cannot interact with the corporeal realm from within a solid object.
 
 wraith-salt-reveal = Salt reveal debug
@@ -138,9 +133,9 @@ wraith-raise-no-corpse = There are no skeletonized corpses here to raise!
 
 wraith-portal-blocked = There is something in the way!
 wraith-portal-not-manifested = Your connection to the physical plane is too weak. You must be manifested to do this.
-wraith-portal-already = You already have a portal. Do you want to destroy the old one?
-wraith-portal-gathering = You gather your energy and open a portal
-wraith-portal-cannot-open = We cannot open a portal here
+wraith-portal-already = If you already have a portal, this will destroy the old one. Are you sure?
+wraith-portal-gathering = You gather your energy and open a portal.
+wraith-portal-cannot-open = We cannot open a portal here.
 
 wraith-harbinger-cannot-use = You cannot use this here!
 wraith-harbinger-blocked = There is something in the way!

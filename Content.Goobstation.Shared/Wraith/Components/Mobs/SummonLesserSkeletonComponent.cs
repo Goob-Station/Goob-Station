@@ -7,5 +7,5 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 public sealed partial class SummonLesserSkeletonComponent : Component
 {
     [DataField]
-    public EntProtoId SkeletonProto = "MobSkeletonGoonWraith";
+    public EntProtoId SkeletonProto = "MobSkeletonGoonLesser";
 }

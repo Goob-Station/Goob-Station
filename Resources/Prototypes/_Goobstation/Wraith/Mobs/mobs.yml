@@ -50,7 +50,7 @@
         mask:
           - MobMask
         layer:
-          - Opaque
+          - MobLayer
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Skeleton
@@ -809,10 +809,6 @@
     attributes:
       gender: male
       proper: true
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - VimPilot
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -1288,11 +1284,19 @@
 # Wraith variants
 
 - type: entity
+  id: MobSkeletonGoonLesser
+  suffix: Lesser
+  parent: MobSkeletonGoon
+  components:
+  - type: WraithMinion
+
+- type: entity
   id: MobSkeletonGoonWraith
   suffix: Wraith
   parent: MobSkeletonGoon
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobCrunchedWraith
@@ -1303,6 +1307,7 @@
   - type: NpcFactionMember
     factions:
     - Wraith
+  - type: VoidSummoned
 
 - type: entity
   id: MobShadeWraith
@@ -1310,6 +1315,7 @@
   parent: MobShade
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobMonstrosityHeadWraith
@@ -1317,6 +1323,7 @@
   parent: MobMonstrosityHead
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobMonstrosityBodyWraith
@@ -1324,6 +1331,7 @@
   parent: MobMonstrosityBody
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobLionWraith
@@ -1331,6 +1339,7 @@
   parent: MobLion
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientRepairBotWraith
@@ -1338,6 +1347,7 @@
   parent: MobAncientRepairBot
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientGuardBotWraith
@@ -1345,6 +1355,7 @@
   parent: MobAncientGuardBot
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientRobot1Wraith
@@ -1352,6 +1363,7 @@
   parent: MobAncientRobot1
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientRobot2Wraith
@@ -1359,6 +1371,7 @@
   parent: MobAncientRobot2
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientRobot3Wraith
@@ -1366,6 +1379,7 @@
   parent: MobAncientRobot3
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobAncientLegsWraith
@@ -1373,6 +1387,7 @@
   parent: MobAncientLegs
   components:
   - type: WraithMinion
+  - type: VoidSummoned
 
 - type: entity
   id: MobBearGoonWraith
@@ -1383,6 +1398,7 @@
   - type: NpcFactionMember
     factions:
     - Wraith
+  - type: VoidSummoned
 
 - type: entity
   id: MobBrullbarWraith
@@ -1393,6 +1409,7 @@
   - type: NpcFactionMember
     factions:
     - Wraith
+  - type: VoidSummoned
 
 - type: entity
   id: MobBGunbotWraith
@@ -1403,6 +1420,23 @@
   - type: NpcFactionMember
     factions:
     - Wraith
+  - type: VoidSummoned
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 1
 
 - type: entity
   id: MobNukebotWraith
@@ -1413,6 +1447,23 @@
   - type: NpcFactionMember
     factions:
     - Wraith
+  - type: VoidSummoned
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 1
 
 # Void summons
 

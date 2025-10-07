@@ -1,8 +1,12 @@
 using Content.Goobstation.Shared.Wraith.Components;
+using Content.Goobstation.Shared.Wraith.Components.Mobs;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Goobstation.Shared.Wraith.Systems;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
@@ -10,14 +14,14 @@ public sealed class VoidPortalSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SummonPortalSystem _summonPortal = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<VoidPortalComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<VoidPortalComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     public override void Update(float frameTime)
@@ -30,64 +34,74 @@ public sealed class VoidPortalSystem : EntitySystem
             if (_timing.CurTime < portal.Accumulator)
                 continue;
 
-            UpdatePortal((uid, portal));
+            UpdatePortal(uid, portal);
         }
     }
 
     private void OnMapInit(Entity<VoidPortalComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.CurrentPower = ent.Comp.ExtraPower; // start with X points
-        TrySpawn(ent);
+        ent.Comp.CurrentPower = ent.Comp.ExtraPower; // start with initial power
+        TrySpawn(ent.Owner, ent);
 
         ent.Comp.Accumulator = _timing.CurTime + ent.Comp.SpawnInterval;
     }
 
-    private void UpdatePortal(Entity<VoidPortalComponent> ent)
+    private void UpdatePortal(EntityUid uid, VoidPortalComponent portal)
     {
-        var portal = ent.Comp;
-
-        ent.Comp.Accumulator = _timing.CurTime + ent.Comp.SpawnInterval;
+        portal.Accumulator = _timing.CurTime + portal.SpawnInterval;
 
         // --- Wave Power Growth ---
-        // Each wave, portal gains PowerGainPerTick + (ExtraPower * number of waves so far).
-        // This makes later waves stronger.
         var gained = portal.PowerGainPerTick + (portal.ExtraPower * portal.WavesCompleted);
         portal.CurrentPower = Math.Min(portal.CurrentPower + gained, portal.MaxPower);
 
-        // Increment wave counter for next tick
         portal.WavesCompleted++;
 
-        TrySpawn(ent);
+        TrySpawn(uid, portal);
     }
 
-    private void OnComponentShutdown(Entity<VoidPortalComponent> ent, ref ComponentShutdown args)
+    private void TrySpawn(EntityUid uid, VoidPortalComponent portal)
     {
-        if (ent.Comp.PortalOwner == null)
-            return;
+        var transform = Transform(uid);
+        var grid = transform.GridUid;
+        var center = transform.Coordinates;
 
-        _summonPortal.PortalDestroyed(ent.Comp.PortalOwner.Value);
-    }
+        // Determine spawn coordinates with offset
+        var spawnCoords = grid != null
+            ? new EntityCoordinates(
+                grid.Value,
+                center.X + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1),
+                center.Y + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1)
+              )
+            : center;
 
-    /// <summary>
-    /// Spawns mobs until current power cannot afford anymore
-    /// </summary>
-    /// <param name="ent"></param> The void portal
-    private void TrySpawn(Entity<VoidPortalComponent> ent)
-    {
-        var portal = ent.Comp;
-        var mobs = portal.MobEntries.OrderByDescending(e => e.Cost).ToList();
+        // Count alive summoned mobs nearby
+        var nearbyEntities = _lookup.GetEntitiesInRange(spawnCoords, portal.SearchRange);
+        nearbyEntities.RemoveWhere(e => !HasComp<VoidSummonedComponent>(e));
+        int aliveSummonedCount = nearbyEntities.Count(e => !_mobState.IsDead(e));
 
-        // Basically picks mobs to spawn at random until it does not have enough points to spawn any more mobs.
-        while (portal.CurrentPower > 0)
+        // Decide what to spawn
+        EntProtoId protoToSpawn;
+
+        if (aliveSummonedCount >= portal.MaxEntitiesAlive || portal.MobEntries.Count == 0)
         {
-            var valid = mobs.Where(e => e.Cost <= portal.CurrentPower).ToList();
-            if (valid.Count == 0)
-                break;
-
-            var chosen = _random.Pick(valid);
-
-            portal.CurrentPower -= chosen.Cost;
-            Spawn(chosen.Prototype, Transform(ent.Owner).Coordinates);
+            protoToSpawn = portal.EmptyPortal;
         }
+        else
+        {
+            // Pick a random entry weighted by cost/power availability
+            var affordable = portal.MobEntries.Where(e => e.Cost <= portal.CurrentPower).ToList();
+            if (affordable.Count == 0)
+            {
+                protoToSpawn = portal.EmptyPortal;
+            }
+            else
+            {
+                var entry = _random.Pick(affordable);
+                protoToSpawn = entry.Prototype;
+                portal.CurrentPower -= entry.Cost;
+            }
+        }
+
+        Spawn(protoToSpawn, spawnCoords);
     }
 }
