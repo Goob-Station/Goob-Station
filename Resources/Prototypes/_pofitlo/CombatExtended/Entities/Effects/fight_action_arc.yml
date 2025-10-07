@@ -1,5 +1,5 @@
 - type: entity
-  id: FightActionArcTailAttack
+  id: FightActionArcMainTailAttack
   parent: WeaponArcStatic
   categories: [ HideSpawnMenu ]
   components:
@@ -7,6 +7,19 @@
       fadeOut: false
     - type: Sprite
       sprite: _pofitlo/CombatExtended/Effects/arcs.rsi
-      state: tail
+      state: tail_main
     - type: TimedDespawn
-      lifetime: 2
+      lifetime: 3
+      
+- type: entity
+  id: FightActionArcAltTailAttack
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: _pofitlo/CombatExtended/Effects/arcs.rsi
+      state: tail_alt
+    - type: TimedDespawn
+      lifetime: 3

@@ -8,15 +8,26 @@
     "copyright": "made by pofitlo",
     "states": [
         {
-      "name": "tail",
+      "name": "tail_main",
       "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    }
+            [
+              0.1,
+              0.1,
+              0.1,
+              0.1
+            ]
+          ]
+        },
+        {
+      "name": "tail_alt",
+      "delays": [
+            [
+              0.1,
+              0.1,
+              0.1,
+              0.1
+            ]
+          ]
+        }
   ]
 }

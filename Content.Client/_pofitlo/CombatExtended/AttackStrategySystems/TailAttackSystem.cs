@@ -24,9 +24,7 @@ public sealed class TailAttackSystem : SharedTailAttackSystem
     public override void DoLunge(EntityUid user, EntityUid weapon, Vector2 localPos, string? animation, Angle spriteRotation, bool flippedAnimation, bool predicted = true)
     {
         if (!TryComp(user, out FightActionComponent? fightActionComponent) && fightActionComponent == null)
-        {
             return;
-        }
 
         _combatAnimation.DoCombatStrategyAnimation(
             user,
@@ -37,24 +35,5 @@ public sealed class TailAttackSystem : SharedTailAttackSystem
             flippedAnimation,
             fightActionComponent,
             predicted);
-    }
-
-    public void DoTailAttackWithPrototype(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, Angle spriteRotation, bool flippedAnimation)
-    {
-        var tempFightAction = new FightActionComponent
-        {
-            Strategy = AttackStrategy.TailAttack,
-            CombatAnimationPrototype = "TailAttackAnimation"
-        };
-        _combatAnimation.DoCombatStrategyAnimation(
-            user,
-            weapon,
-            localPos,
-            "WeaponArcSlash",
-            spriteRotation,
-            flippedAnimation,
-            tempFightAction,
-            true
-        );
     }
 }

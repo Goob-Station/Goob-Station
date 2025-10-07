@@ -28,5 +28,12 @@ public sealed partial class FightActionComponent : Component
     public ProtoId<CombatAnimationPrototype>? CombatAnimationPrototype = "PunchAnimation";
 
     [DataField, AutoNetworkedField]
+    public ProtoId<FightActionMeleeParametersPrototype>? FightActionMeleeParametersPrototype = "PunchMeleeParameters";
+
+    [DataField, AutoNetworkedField]
     public Dictionary<string, object> AnimationSettings = new();
+
+    [DataField, AutoNetworkedField]
+    public bool HasHigherPriorityThanWeapons = false;
+
 }

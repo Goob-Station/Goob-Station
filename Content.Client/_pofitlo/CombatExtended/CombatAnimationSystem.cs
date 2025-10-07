@@ -69,11 +69,11 @@ public sealed class CombatStrategyAnimationSystem : EntitySystem
         var xform = Transform(animationUid);
         TrackUserComponent track;
 
-        CombatAnimationPrototype? animPrototype = null;
-        if (fightActionComponent.CombatAnimationPrototype != null)
-        {
-            _prototypeManager.TryIndex(fightActionComponent.CombatAnimationPrototype, out animPrototype);
-        }
+        if (fightActionComponent.CombatAnimationPrototype == null)
+            return;
+
+        if (!_prototypeManager.TryIndex(fightActionComponent.CombatAnimationPrototype, out CombatAnimationPrototype? animPrototype) && animPrototype == null)
+            return;
 
         switch (fightActionComponent.Strategy)
         {
@@ -119,54 +119,33 @@ public sealed class CombatStrategyAnimationSystem : EntitySystem
         };
     }
 
-    private Animation GetSlashAnimation(SpriteComponent sprite, Angle spriteRotation, CombatAnimationPrototype? animPrototype = null)
+    private Animation GetSlashAnimation(SpriteComponent sprite, Angle spriteRotation, CombatAnimationPrototype animPrototype)
     {
-        var length = animPrototype?.AnimationDuration ?? 0.15f;
-        //var slashAngle = animPrototype?.Angle ?? 60f;
-        var startRotation = sprite.Rotation + Angle.FromDegrees(animPrototype?.AngleStart ?? 0f);
-        var endRotation = startRotation + Angle.FromDegrees(animPrototype?.AngleEnd ?? 60f);
-        var startRotationOffset = startRotation.RotateVec(new Vector2(0f, 0.5f));
-        var endRotationOffset = endRotation.RotateVec(new Vector2(0f, .5f));
-        spriteRotation = Angle.FromDegrees(135f);
+        var startRotation = sprite.Rotation + Angle.FromDegrees(animPrototype.AngleStart);
+        var endRotation = startRotation + Angle.FromDegrees(animPrototype.AngleEnd);
+        spriteRotation = Angle.FromDegrees(135f); // TODO вынести в логику
         startRotation += spriteRotation;
-        endRotation += spriteRotation;
-
-        var middleRotation = startRotation + Angle.FromDegrees(((animPrototype?.AngleEnd ?? 60f) + (animPrototype?.AngleStart ?? 0f)) * 0.5f);
-        var middleRotationOffset = middleRotation.RotateVec(new Vector2(0f, 0.8f));
-        var tLRotation = startRotation + Angle.FromDegrees(((animPrototype?.AngleEnd ?? 60f) + (animPrototype?.AngleStart ?? 0f)) * 0.25f);
-        var tLRotationOffset = middleRotation.RotateVec(new Vector2(0f, 0.65f));
-        var tHRotation = startRotation + Angle.FromDegrees(((animPrototype?.AngleEnd ?? 60f) + (animPrototype?.AngleStart ?? 0f)) * 0.75f);
-        var tHRotationOffset = middleRotation.RotateVec(new Vector2(0f, 0.65f));
-
+        endRotation += spriteRotation; // TODO вынести либо в функции, либо избавиться
         return new Animation
         {
-            Length = TimeSpan.FromSeconds(length),
+            Length = TimeSpan.FromSeconds(animPrototype.AnimationDuration),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty()
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Rotation),
-                    InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(startRotation, 0f),
-                        new AnimationTrackProperty.KeyFrame(endRotation, length)
+                        new AnimationTrackProperty.KeyFrame(endRotation, animPrototype.AnimationDuration)
                     }
                 }, //TODO вынести в говорящие функции
                 new AnimationTrackComponentProperty()
                 {
                     ComponentType = typeof(SpriteComponent),
                     Property = nameof(SpriteComponent.Offset),
-                    InterpolationMode = AnimationInterpolationMode.Linear,
-                    KeyFrames =
-                    {
-                        new AnimationTrackProperty.KeyFrame(startRotationOffset, 0f),
-                        //new AnimationTrackProperty.KeyFrame(tLRotationOffset, length * 0.25f),
-                        new AnimationTrackProperty.KeyFrame(middleRotationOffset, length * 0.5f),
-                        //new AnimationTrackProperty.KeyFrame(tHRotationOffset, length * 0.75f),
-                        new AnimationTrackProperty.KeyFrame(endRotationOffset, length)
-                    }
+                    KeyFrames = GetArcKeyFrames(sprite.Rotation, animPrototype, 10, 0.5f)
                 }
             }
         };
@@ -191,5 +170,31 @@ public sealed class CombatStrategyAnimationSystem : EntitySystem
                 }
             }
         };
+    }
+
+    private List<AnimationTrackProperty.KeyFrame> GetArcKeyFrames(Angle startAngle, CombatAnimationPrototype animPrototype, int countOfPoint, float offsetRad)
+    {
+        var length = animPrototype.AnimationDuration;
+        List<AnimationTrackProperty.KeyFrame> frames = [];
+
+        var startRotation = startAngle + Angle.FromDegrees(animPrototype.AngleStart);
+        var startRotationOffset = startRotation.RotateVec(new Vector2(0f, offsetRad));
+
+        frames.Add(new AnimationTrackProperty.KeyFrame(startRotationOffset, 0f));
+
+        float timeSection = 1f / (countOfPoint - 1);
+
+        float absSumOfAngles = Math.Abs(animPrototype.AngleEnd) + Math.Abs(animPrototype.AngleStart);
+        float angleStep = absSumOfAngles / countOfPoint;
+
+        for (float i = 1; i < countOfPoint; i++)
+        {
+            float stepMultiple = i / (countOfPoint - 1);
+            var rotation = startAngle + Angle.FromDegrees(animPrototype.AngleStart + angleStep * i);
+            var rotationOffset = rotation.RotateVec(new Vector2(0f, 0.5f));
+            frames.Add(new AnimationTrackProperty.KeyFrame(rotationOffset, length / countOfPoint));
+        }
+
+        return frames;
     }
 }

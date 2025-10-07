@@ -26,6 +26,8 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
+    public event Action<FightActionComponent>? StrategyChange;
+
     private FightActionComponent? _fightActionComponent;
     private FightActionControl? FightActionControl => UIManager.GetActiveUIWidgetOrNull<FightActionControl>();
     private SpriteSystem? SpriteSystem => _entitySystem.GetEntitySystem<SpriteSystem>();
@@ -106,18 +108,25 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     //    }
     //}
 
-    public void SetFightAction(AttackStrategy fightAction, SpriteSpecifier icon, ProtoId<CombatAnimationPrototype> proto)
+    //AttackStrategy fightAction, SpriteSpecifier icon, ProtoId<CombatAnimationPrototype> proto
+
+    public void SetFightAction(FightActionPrototype fightActionPrototype)
     {
         if (_playerManager.LocalEntity is not { } user
             || _entManager.GetComponent<FightActionComponent>(user) is not { } fightActionComp
             || FightActionControl == null)
             return;
 
-        fightActionComp.CombatAnimationPrototype = proto; // TODO вынести в говорящие функции
+        ProtoId<CombatAnimationPrototype> animationProto = fightActionPrototype.AnimationPrototype;
+        ProtoId<FightActionMeleeParametersPrototype> meleeParametersProto = fightActionPrototype.MeleeParametersPrototype;
+        AttackStrategy fightAction = fightActionPrototype.SetAttackStrategy;
+        SpriteSpecifier icon = fightActionPrototype.Icon;
+        bool hasHigherPriorityThanWeapons = fightActionPrototype.HasHigherPriorityThanWeapons; // TODO вынести в говорящие функции
+
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {
-            var msg = new FightActionChangeEvent(player, fightAction);
+            var msg = new FightActionChangeEvent(player, fightAction, hasHigherPriorityThanWeapons, meleeParametersProto, animationProto);
             _net.SendSystemNetworkMessage(msg);
         }
 
@@ -136,14 +145,24 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
             _fightActionMenu.RefreshUI();
 
             position -= _fightActionMenu.MinSize / 2;
+            _fightActionMenu.OnClose += CloseMenu;
             _fightActionMenu.Open(position);
             //_menu.OpenCentered();
         }
         else
         {
-            _fightActionMenu.Dispose();
-            _fightActionMenu = null;
+            CloseMenu();
         }
+    }
+
+    public void CloseMenu()
+    {
+        if (_fightActionMenu == null)
+            return;
+
+        _fightActionMenu.OnClose -= CloseMenu;
+        _fightActionMenu.Dispose(); // TODO избавиться от дизпоза
+        _fightActionMenu = null;
     }
 
 }

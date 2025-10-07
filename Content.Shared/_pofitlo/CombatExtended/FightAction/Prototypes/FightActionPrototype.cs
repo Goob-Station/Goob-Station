@@ -30,15 +30,22 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
 
     [DataField] public ProtoId<CombatAnimationPrototype> AnimationPrototype = "PunchAnimation";
 
+    [DataField] public ProtoId<FightActionMeleeParametersPrototype> MeleeParametersPrototype = "PunchMeleeParameters";
+
+    [DataField] public bool HasHigherPriorityThanWeapons = false;
+
     public object Clone()
     {
-        return new FightActionPrototype()
+        return new FightActionPrototype() // TODO сдлать что-то с тем, что оно ругается
         {
             ID = ID,
             LocName = LocName,
             LocDesc = LocDesc,
             Icon = Icon,
-            SetAttackStrategy = SetAttackStrategy
+            SetAttackStrategy = SetAttackStrategy,
+            AnimationPrototype = AnimationPrototype,
+            MeleeParametersPrototype = MeleeParametersPrototype,
+            HasHigherPriorityThanWeapons = HasHigherPriorityThanWeapons
         };
     }
 }

@@ -7,6 +7,8 @@
     state: icon
   setAttackStrategy: Punch
   animationPrototype: PunchAnimation
+  meleeParametersPrototype: PunchMeleeParameters
+  hasHigherPriorityThanWeapons: false
 
 - type: fightAction
   id: TailAttack
@@ -16,4 +18,7 @@
     sprite: _pofitlo/CombatExtended/FightAction/tail_attack.rsi
     state: icon
   setAttackStrategy: TailAttack
-  animationPrototype: TailAttackAnimation
+  mainAnimationPrototype: TailMainAttackAnimation
+  altAnimationPrototype: TailAltAttackAnimation
+  meleeParametersPrototype: tailAttackMeleeParameters
+  hasHigherPriorityThanWeapons: true

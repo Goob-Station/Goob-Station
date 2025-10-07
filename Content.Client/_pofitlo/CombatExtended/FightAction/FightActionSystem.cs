@@ -10,7 +10,7 @@ using Robust.Client.UserInterface;
 
 
 namespace Content.Client._pofitlo.CombatExtended.FightAction;
-public sealed class FightActionSystem : EntitySystem
+public sealed class FightActionSystem : SharedFightActionSystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
