@@ -294,7 +294,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 30
+        maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Chlorine
             Quantity: 5
