@@ -42,6 +42,7 @@ public sealed partial class HTNSystem : EntitySystem // Goob - Partials
         base.Initialize();
         SubscribeLocalEvent<HTNComponent, MobStateChangedEvent>(_npc.OnMobStateChange);
         SubscribeLocalEvent<HTNComponent, MapInitEvent>(_npc.OnNPCMapInit);
+        SubscribeLocalEvent<HTNComponent, ComponentStartup>(_npc.OnNPCStartup);
         SubscribeLocalEvent<HTNComponent, PlayerAttachedEvent>(_npc.OnPlayerNPCAttach);
         SubscribeLocalEvent<HTNComponent, PlayerDetachedEvent>(_npc.OnPlayerNPCDetach);
         SubscribeLocalEvent<HTNComponent, ComponentShutdown>(OnHTNShutdown);
