@@ -55,6 +55,33 @@ public sealed partial class GoobBibleSystem : EntitySystem
             multiplier = devil.BibleUserDamageMultiplier;
         }
 
+        // --- Curse removal logic ---
+        if (HasComp<CursedWeakComponent>(target)
+            || HasComp<CursedBloodComponent>(target)
+            || HasComp<CursedBlindComponent>(target)
+            || HasComp<CursedRotComponent>(target)
+            || HasComp<CursedDeathComponent>(target))
+        {
+            if (HasComp<CursedWeakComponent>(target))
+                RemCompDeferred<CursedWeakComponent>(target);
+
+            if (HasComp<CursedBloodComponent>(target))
+                RemCompDeferred<CursedBloodComponent>(target);
+
+            if (HasComp<CursedBlindComponent>(target))
+                RemCompDeferred<CursedBlindComponent>(target);
+
+            if (HasComp<CursedRotComponent>(target))
+                RemCompDeferred<CursedRotComponent>(target);
+
+            if (HasComp<CursedDeathComponent>(target))
+                RemCompDeferred<CursedDeathComponent>(target);
+
+            _popupSystem.PopupEntity(Loc.GetString("bible-cleansed-curse", ("target", target)), target, PopupType.LargeCaution);
+            //TO DO: Add smoke here. I was gonna do it but when I look inside the BibleComponent and saw it empty, I was scared.
+            // TO DO: Make them scream.
+        }
+
         if (!_mobStateSystem.IsIncapacitated(target))
         {
             var popup = Loc.GetString("weaktoholy-component-bible-sizzle", ("target", target), ("item", bible));
@@ -63,33 +90,6 @@ public sealed partial class GoobBibleSystem : EntitySystem
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible, targetPart: TargetBodyPart.All, ignoreBlockers: true);
             _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);
             _delay.TryResetDelay((bible, useDelay));
-
-            // --- Curse removal logic ---
-            if (HasComp<CursedWeakComponent>(target)
-                || HasComp<CursedBloodComponent>(target)
-                || HasComp<CursedBlindComponent>(target)
-                || HasComp<CursedRotComponent>(target)
-                || HasComp<CursedDeathComponent>(target))
-            {
-                if (HasComp<CursedWeakComponent>(target))
-                    RemCompDeferred<CursedWeakComponent>(target);
-
-                if (HasComp<CursedBloodComponent>(target))
-                    RemCompDeferred<CursedBloodComponent>(target);
-
-                if (HasComp<CursedBlindComponent>(target))
-                    RemCompDeferred<CursedBlindComponent>(target);
-
-                if (HasComp<CursedRotComponent>(target))
-                    RemCompDeferred<CursedRotComponent>(target);
-
-                if (HasComp<CursedDeathComponent>(target))
-                    RemCompDeferred<CursedDeathComponent>(target);
-
-                _popupSystem.PopupEntity(Loc.GetString("bible-cleansed-curse", ("target", target)), target, PopupType.LargeCaution); //TO DO: Add smoke here. I was gonna do it but when I look inside the BibleComponent and saw it empty, I was scared.
-                // TO DO: Make them scream.
-
-            }
         }
         else if (isDevil && HasComp<BibleUserComponent>(performer))
         {
