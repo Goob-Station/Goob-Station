@@ -33,3 +33,7 @@
         id: CyberPsychoAppearance
       - !type:AddHallucinationsEvent
         id: CyberPsychoMobs
+
+    componentThresholds:
+      200:
+      - type: LowCyberSanityEffect
