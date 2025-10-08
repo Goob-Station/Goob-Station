@@ -15898,3 +15898,11 @@ Entries:
       message: Arachnid specific clothing sprites now display correctly.
   id: 1774
   time: '2025-10-08T17:17:44.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Fix
+      message: >-
+        WoundMed - Phantom Pain from nerve damage should now heal alongside
+        other pain medications.
+  id: 1775
+  time: '2025-10-08T17:18:51.0000000+00:00'
