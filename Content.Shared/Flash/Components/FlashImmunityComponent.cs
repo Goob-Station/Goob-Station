@@ -15,9 +15,4 @@ public sealed partial class FlashImmunityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
-
-    //Goobstation -start
-    [DataField]
-    public bool ExamineShow = true;
-    //Goobstation send
 }

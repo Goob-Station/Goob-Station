@@ -37,6 +37,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Goobstation.Common.Flash;
+using Content.Shared.Mobs.Components; // Goobstation
 
 namespace Content.Shared.Flash;
 
@@ -295,7 +296,9 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.ExamineShow) //Goobstation - dont always show this
-            args.PushMarkup(Loc.GetString("flash-protection"));
+        if (HasComp<MobStateComponent>(args.Examined)) // Goobstation - dont add exmained value to mobs whit flash protection
+            return;
+
+        args.PushMarkup(Loc.GetString("flash-protection"));
     }
 }
