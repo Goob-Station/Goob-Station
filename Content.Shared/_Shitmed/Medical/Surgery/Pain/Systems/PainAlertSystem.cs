@@ -3,10 +3,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Alert;
-using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 
@@ -67,13 +67,16 @@ public sealed class PainAlertSystem : EntitySystem
             totalPain = (float)FixedPoint2.Clamp(painLevel, 0, 100);
         }
 
-        // Calculate severity (0-5) based on pain level
-        var severity = (short)Math.Floor(totalPain / 20f);
-        severity = Math.Clamp(severity, (short)0, (short)5);
-
-        // Show or update the alert
-        if (totalPain > 0)
+        // Show or update the alert only if pain > 1
+        if (totalPain > 1f)
         {
+            // Calculate severity (0-3) based on pain level
+            // 0: >1-25% pain
+            // 1: >25-50% pain
+            // 2: >50-75% pain
+            // 3: >75-100% pain
+            var severity = (short)Math.Floor((totalPain - 1f) / 25f);
+            severity = Math.Clamp(severity, (short)0, (short)3);
             _alerts.ShowAlert(uid, PainAlert, severity: severity);
         }
         else
