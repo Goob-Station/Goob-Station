@@ -159,7 +159,7 @@
   - category: Breathing # Vox gang not calling this oxygen
   - category: Pressure
   - alertType: Bleed
-  - alertType: Pain # Goobstation - Woundmed Pain Indicator
+  - category: Pain # Goobstation - Woundmed Pain Indicator
   - category: Temperature
   - category: Hunger
   - category: Thirst

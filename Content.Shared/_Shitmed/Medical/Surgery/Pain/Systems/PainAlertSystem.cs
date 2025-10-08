@@ -10,7 +10,8 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using System.Linq;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -21,8 +22,9 @@ public sealed class PainAlertSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
-    private const string PainAlert = "Pain";
+    private static readonly string[] PainAlerts = { "Pain0", "Pain1", "Pain2", "Pain3" };
 
     public override void Initialize()
     {
@@ -30,12 +32,19 @@ public sealed class PainAlertSystem : EntitySystem
         SubscribeLocalEvent<NerveComponent, ComponentInit>(OnNerveSystemMapInit);
         SubscribeLocalEvent<NerveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<NerveComponent, DamageExamineEvent>(OnExamine);
+
     }
 
     private void OnNerveSystemMapInit(EntityUid uid, NerveComponent component, ComponentInit args)
     {
-        // Ensure the alert is cleared when the component initializes
-        _alerts.ClearAlert(uid, _prototypeManager.Index<AlertPrototype>(PainAlert));
+        // Clear all pain alerts when the component initializes
+        foreach (var alertId in PainAlerts)
+        {
+            if (_prototypeManager.TryIndex<AlertPrototype>(alertId, out var alert))
+            {
+                _alerts.ClearAlert(uid, alert);
+            }
+        }
     }
 
     private void OnDamageChanged(EntityUid uid, NerveComponent nerve, ref DamageChangedEvent args)
@@ -53,113 +62,87 @@ public sealed class PainAlertSystem : EntitySystem
         UpdatePainAlert(uid, nerve);
     }
 
-    private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
+private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
+{
+    if (!Resolve(uid, ref nerve, false) || !TryComp<WoundableComponent>(uid, out var woundable))
     {
-        if (!Resolve(uid, ref nerve, false) || !TryComp<WoundableComponent>(uid, out var woundable))
-        {
-            Logger.Debug($"[PainAlert] Missing required components for entity {uid}");
-            return;
-        }
+        Logger.Debug($"[PainAlert] Missing required components for entity {uid}");
+        return;
+    }
 
-        // Log the current state of the components
-        if (nerve == null || woundable == null)
-        {
-            Logger.Error($"[PainAlert] NerveComponent or WoundableComponent is null for entity {uid}");
-            return;
-        }
+    // Find the parent mob that should have the AlertsComponent
+    EntityUid? mobUid = null;
+    if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body is { } bodyUid)
+    {
+        mobUid = bodyUid;
+        Logger.Debug($"[PainAlert] Found parent mob {mobUid} for body part {uid}");
+    }
+    else
+    {
+        mobUid = uid;
+    }
 
-        Logger.Debug($"[PainAlert] Updating pain alert for entity {uid}");
-        Logger.Debug($"[PainAlert] NerveComponent found: {nerve != null}, WoundableComponent found: {woundable != null}");
+    if (mobUid == null || !HasComp<AlertsComponent>(mobUid.Value))
+    {
+        Logger.Error($"[PainAlert] Could not find parent mob with AlertsComponent for entity {uid}");
+        return;
+    }
 
-        // Find the parent mob that should have the AlertsComponent
-        EntityUid? mobUid = null;
-        if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body is { } bodyUid)
-        {
-            // This is a body part, get the parent mob
-            mobUid = bodyUid;
-            Logger.Debug($"[PainAlert] Found parent mob {mobUid} for body part {uid}");
-        }
-        else
-        {
-            // This might already be the mob
-            mobUid = uid;
-        }
+    // Check if the mob is in a critical state
+    bool isCritical = false;
+    if (TryComp<MobStateComponent>(mobUid, out var mobState))
+    {
+        isCritical = _mobState.IsCritical(mobUid.Value, mobState);
+    }
 
-        // Ensure we have a valid mob UID and it has AlertsComponent
-        if (mobUid == null || !HasComp<AlertsComponent>(mobUid.Value))
-        {
-            Logger.Error($"[PainAlert] Could not find parent mob with AlertsComponent for entity {uid}");
-            return;
-        }
+    float totalPain = 0f;
 
-        // Calculate total pain based on woundable integrity and pain feels
-        float totalPain = 0f;
+    if (nerve.PainFeels > 0 && woundable.WoundableIntegrity < woundable.IntegrityCap)
+    {
+        var normalizedIntegrity = woundable.WoundableIntegrity / woundable.IntegrityCap;
+        var painLevel = (FixedPoint2.New(1) - normalizedIntegrity) * 100 * nerve.PainFeels;
+        totalPain = (float)FixedPoint2.Clamp(painLevel, 0, 100);
+        Logger.Debug($"[PainAlert] Calculated pain: {totalPain} (from painLevel: {painLevel}, integrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap})");
+    }
+    else
+    {
+        Logger.Debug($"[PainAlert] No pain calculated - PainFeels: {nerve.PainFeels}, WoundableIntegrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap}");
+    }
 
-        // Log initial values
-        if (woundable == null)
-        {
-            Logger.Error($"[PainAlert] WoundableComponent is null for entity {uid}");
-            return;
-        }
+    // Always show alert if in critical state, otherwise follow normal pain rules
+    if (isCritical || totalPain > 1f)
+    {
+        var alertIndex = isCritical
+            ? 3  // Max severity in critical state
+            : (int)Math.Clamp(Math.Floor((totalPain - 1f) / 25f), 0, 3);
 
-        // Get pain from woundable integrity and pain feels
-        if (nerve == null)
+        // Clear all other pain alerts first
+        foreach (var alertId in PainAlerts)
         {
-            Logger.Error($"[PainAlert] NerveComponent is null for entity {uid}");
-            return;
-        }
-
-        if (nerve.PainFeels > 0 && woundable.WoundableIntegrity < woundable.IntegrityCap)
-        {
-            // Calculate pain based on woundable integrity (lower integrity = more pain)
-            // Normalize the integrity to a 0-1 range based on IntegrityCap
-            var normalizedIntegrity = woundable.WoundableIntegrity / woundable.IntegrityCap;
-            var painLevel = (FixedPoint2.New(1) - normalizedIntegrity) * 100 * nerve.PainFeels;
-            totalPain = (float)FixedPoint2.Clamp(painLevel, 0, 100);
-            Logger.Debug($"[PainAlert] Calculated pain: {totalPain} (from painLevel: {painLevel}, integrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap})");
-        }
-        else
-        {
-            Logger.Debug($"[PainAlert] No pain calculated - PainFeels: {nerve.PainFeels}, WoundableIntegrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap}");
-        }
-
-        // Show or update the alert only if pain > 1
-        if (totalPain > 1f)
-        {
-            // Calculate severity (0-3) based on pain level
-            // 0: >1-25% pain
-            // 1: >25-50% pain
-            // 2: >50-75% pain
-            // 3: >75-100% pain
-            var severity = (short)Math.Floor((totalPain - 1f) / 25f);
-            severity = Math.Clamp(severity, (short)0, (short)3);
-
-            Logger.Debug($"[PainAlert] Showing alert with severity {severity} for pain {totalPain} on mob {mobUid}");
-            
-            // Verify the alert prototype exists
-            if (!_prototypeManager.HasIndex<AlertPrototype>(PainAlert))
+            if (_prototypeManager.TryIndex<AlertPrototype>(alertId, out var alert))
             {
-                Logger.Error($"[PainAlert] Alert prototype {PainAlert} not found in prototype manager!");
-                return;
+                _alerts.ClearAlert(mobUid.Value, alert);
             }
-            
-            // Try to get the alert prototype
-            if (!_prototypeManager.TryIndex<AlertPrototype>(PainAlert, out var alertProto))
-            {
-                Logger.Error($"[PainAlert] Failed to get alert prototype {PainAlert}");
-                return;
-            }
-            
-            Logger.Debug($"[PainAlert] Found alert prototype: {alertProto.ID}, ClientHandled: {alertProto.ClientHandled}");
-            
-            // Show the alert
-            _alerts.ShowAlert(mobUid.Value, PainAlert, severity: severity);
-            Logger.Debug($"[PainAlert] Alert shown for {mobUid}");
         }
-        else
+
+        // Show the appropriate pain alert
+        if (_prototypeManager.TryIndex<AlertPrototype>(PainAlerts[alertIndex], out _))
         {
-            Logger.Debug($"[PainAlert] Clearing alert - pain level {totalPain} is <= 1");
-            _alerts.ClearAlert(mobUid.Value, _prototypeManager.Index<AlertPrototype>(PainAlert));
+            _alerts.ShowAlert(mobUid.Value, PainAlerts[alertIndex]);
+            Logger.Debug($"[PainAlert] Showing alert {PainAlerts[alertIndex]} for pain {totalPain} on mob {mobUid} (Critical: {isCritical})");
         }
     }
+    else
+    {
+        // Clear all pain alerts
+        foreach (var alertId in PainAlerts)
+        {
+            if (_prototypeManager.TryIndex<AlertPrototype>(alertId, out var alert))
+            {
+                _alerts.ClearAlert(mobUid.Value, alert);
+            }
+        }
+        Logger.Debug($"[PainAlert] Clearing all pain alerts - pain level {totalPain} is <= 1 and not critical");
+    }
+}
 }
