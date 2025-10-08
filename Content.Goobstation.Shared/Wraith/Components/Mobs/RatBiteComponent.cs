@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -11,5 +12,5 @@ public sealed partial class RatBiteComponent : Component
     /// Key: Reagent ID, Value: Quantity to inject.
     /// </summary>
     [DataField(required: true)]
-    public Dictionary<string, FixedPoint2> Reagents = new();
+    public Dictionary<EntProtoId, FixedPoint2> Reagents = new();
 }

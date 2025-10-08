@@ -5,6 +5,7 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -32,7 +33,7 @@ public sealed partial class RatBiteSystem : EntitySystem
 
         args.Handled = true;
     }
-    private bool TryInjectReagents(EntityUid target, Dictionary<string, FixedPoint2> reagents)
+    private bool TryInjectReagents(EntityUid target, Dictionary<EntProtoId, FixedPoint2> reagents)
     {
         // Build up a solution from the bite's reagents.
         var solution = new Solution();

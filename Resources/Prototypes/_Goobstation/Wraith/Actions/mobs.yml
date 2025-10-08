@@ -26,8 +26,14 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: skeleton
-  - type: InstantAction
-    event: !type:SummonLesserSkeletonEvent
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobSkeletonGoonLesser
+        amount: 1
+      offset: 0, 1
 
 # Used for Void Piker.
 - type: entity
