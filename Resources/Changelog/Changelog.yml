@@ -4921,3 +4921,10 @@
   id: 9056
   time: '2025-10-08T15:49:21.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39920
+- author: SlamBamActionman
+  changes:
+  - message: Disablers, temperature guns and tasers can now hit holo mobs.
+    type: Fix
+  id: 9057
+  time: '2025-10-08T21:59:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40782
