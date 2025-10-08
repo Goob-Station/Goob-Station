@@ -15848,3 +15848,47 @@ Entries:
       message: Updated red alert SOP for shadowlings. Read it again.
   id: 1767
   time: '2025-10-05T07:56:28.0000000+00:00'
+- author: JohnJohn, yonsim
+  changes:
+    - type: Tweak
+      message: >-
+        Updated facehugger sprite to be a modified version of rmc'd parasite
+        (lamar and the toy remain unchanged)
+    - type: Tweak
+      message: Updated larva to be the sprite from CMSS13
+  id: 1768
+  time: '2025-10-05T17:39:16.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Nutriment and vitamins now heal slight amounts of damage off, aswell as
+        healing bloodloss.
+    - type: Tweak
+      message: Protein heals more brute damage and more bloodloss.
+  id: 1769
+  time: '2025-10-05T23:25:25.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed same names of translator implanters.
+  id: 1770
+  time: '2025-10-07T15:09:59.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: Microwaves no longer trap items inside them.
+  id: 1771
+  time: '2025-10-07T15:33:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Lootbug can now properly eat things
+  id: 1772
+  time: '2025-10-07T15:35:17.0000000+00:00'
+- author: CyberSamson
+  changes:
+    - type: Fix
+      message: Drones will no longer flash themselves when turning on their flashlight.
+  id: 1773
+  time: '2025-10-08T04:43:29.0000000+00:00'
