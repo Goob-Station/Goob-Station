@@ -4,7 +4,7 @@
   - MobDamageable
   - MobPolymorphable
   - MobCombat
-  - MobBloodstream
+  - XenomorphBloodstream # Goob, uses custom bloodstream so we can disable bleeding for the time being.
   - MobFlammable
   id: BaseMobXenomorph
   abstract: true
