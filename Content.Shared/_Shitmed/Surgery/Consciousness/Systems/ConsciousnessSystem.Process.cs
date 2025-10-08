@@ -76,11 +76,19 @@ public partial class ConsciousnessSystem
 
     private void OnRejuvenate(EntityUid uid, ConsciousnessComponent component, RejuvenateEvent args)
     {
-        foreach (var painModifier in component.NerveSystem.Comp.Modifiers)
-            _pain.TryRemovePainModifier(component.NerveSystem.Owner, painModifier.Key.Item1, painModifier.Key.Item2, component.NerveSystem.Comp);
+        if (component.NerveSystem != default)
+        {
+            foreach (var painModifier in component.NerveSystem.Comp.Modifiers)
+                _pain.TryRemovePainModifier(component.NerveSystem.Owner,
+                    painModifier.Key.Item1,
+                    painModifier.Key.Item2,
+                    component.NerveSystem.Comp);
 
-        foreach (var painMultiplier in component.NerveSystem.Comp.Multipliers)
-            _pain.TryRemovePainMultiplier(component.NerveSystem.Owner, painMultiplier.Key, component.NerveSystem.Comp);
+            foreach (var painMultiplier in component.NerveSystem.Comp.Multipliers)
+                _pain.TryRemovePainMultiplier(component.NerveSystem.Owner,
+                    painMultiplier.Key,
+                    component.NerveSystem.Comp);
+        }
 
         foreach (var multiplier in
                  component.Multipliers.Where(multiplier => multiplier.Value.Type == ConsciousnessModType.Pain))

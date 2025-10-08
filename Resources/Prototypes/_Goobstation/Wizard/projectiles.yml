@@ -607,7 +607,7 @@
         Quantity: 25
   - type: Trail
     lerpTime: 0.05
-    frequency: 0.05
+    frequency: 0.02
     lifetime: 5
     alphaLerpAmount: 0
     color: "#28005B"

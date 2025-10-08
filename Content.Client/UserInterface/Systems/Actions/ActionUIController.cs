@@ -1019,7 +1019,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (SelectingTargetFor.HasValue || _mark == null)
+        if (_mark == null)
             return;
 
         if (EntityManager.HasComponent<SwapSpellComponent>(SelectingTargetFor))

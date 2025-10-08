@@ -62,6 +62,9 @@
     maxBleedAmount: 0
   - type: Respirator
     suffocationThreshold: -5
+  - type: StepTriggerImmune
+  - type: Sprinter
+    staminaDrainRate: 8
 
 - type: entity
   name: monkey

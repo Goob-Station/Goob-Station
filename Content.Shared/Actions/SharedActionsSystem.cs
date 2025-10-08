@@ -784,7 +784,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if (GetAction(action) is not {} ent)
             return false;
 
-        DebugTools.Assert(ent.Comp.Container == null ||
+        DebugTools.Assert(ent.Comp.Container == null || _net.IsClient && action?.Comp?.ClientExclusive is false || // Goob edit
                           (TryComp(ent.Comp.Container, out ActionsContainerComponent? containerComp)
                            && containerComp.Container.Contains(ent)));
 

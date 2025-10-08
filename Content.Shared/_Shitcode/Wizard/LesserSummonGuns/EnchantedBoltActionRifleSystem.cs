@@ -9,6 +9,7 @@ using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -97,8 +98,8 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
             otherHand = hand;
 
-            if (_hands.GetHeldItem((user, hands), hand) == null)
-                break;
+            if (IsHandValid((user, hands), hand))
+                return;
         }
 
         var gun = Spawn(comp.Proto, _transform.GetMapCoordinates(user));
@@ -108,7 +109,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (otherHand != null)
         {
             _hands.SetActiveHand((user, hands), otherHand);
-            if (_hands.GetHeldItem((user, hands), otherHand) != null)
+            if (!IsHandValid((user, hands), otherHand))
                 ResetDelays(gun);
             else
                 pickUpHand = otherHand;
@@ -116,7 +117,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         else
             ResetDelays(gun);
 
-        if (!_hands.TryPickup(user, gun, pickUpHand, false, false))
+        if (!_hands.TryPickup(user, gun, pickUpHand, false))
             QueueDel(gun);
 
         var newComp = EnsureComp<EnchantedBoltActionRifleComponent>(gun);
@@ -127,6 +128,13 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (TryComp(gun, out WieldableComponent? newWieldable))
             _wieldable.TryWield(gun, newWieldable, user, false);
     }
+
+        private bool IsHandValid(Entity<HandsComponent> ent, string hand)
+        {
+            return _hands.GetHeldItem(ent!, hand) is not { } item ||
+                   TryComp(item, out VirtualItemComponent? virtualItem) &&
+                   HasComp<EnchantedBoltActionRifleComponent>(virtualItem.BlockingEntity);
+        }
 
     private void ResetDelays(EntityUid uid)
     {

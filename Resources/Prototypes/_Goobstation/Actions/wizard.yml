@@ -787,7 +787,7 @@
   - type: Action
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 60
+    useDelay: 50
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/bee.ogg
@@ -954,6 +954,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: swap
   - type: TargetAction
+    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction

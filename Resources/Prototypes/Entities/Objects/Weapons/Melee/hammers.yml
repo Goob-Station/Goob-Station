@@ -49,9 +49,9 @@
     sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
     layers:
     - state: icon
-  - type: UseDelay
-    delay: 5 # Goobstation
-  - type: UseDelayOnMeleeHit
+  # - type: UseDelay
+  #   delay: 5 # Goobstation
+  # - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     distance: 10 # Goobstation
     stunTime: 3
@@ -69,8 +69,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 15 # GoobStation Edit
+        Blunt: 20 # GoobStation Edit
+        Structural: 35 # GoobStation Edit
   - type: DamageOtherOnHit
     damage:
       types:
@@ -101,9 +101,9 @@
       components:
       - MobMover
       - Item
-  - type: UseDelay
-    delay: 5
-  - type: UseDelayOnMeleeHit
+  # - type: UseDelay
+  #   delay: 5
+  # - type: UseDelayOnMeleeHit
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -117,7 +117,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 15
-        Structural: 15
+        Blunt: 20 # Goob edit
+        Structural: 35 # Goob edit
   - type: Item
     size: Ginormous

@@ -74,6 +74,9 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Actions.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Construction.Components;
+using Content.Shared.Item;
+using Content.Shared.Tag;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -97,6 +100,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -331,7 +335,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
         EnsureComp<WizardComponent>(newEntity);
         if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
+
         EnsureComp<PhylacteryComponent>(item);
+        _item.SetSize(item, ev.PhylacterySize);
+        RemCompDeferred<TagComponent>(item);
+        RemCompDeferred<AnchorableComponent>(item);
+
         var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
         soulBound.Name = name;
         soulBound.Item = item;
@@ -385,6 +394,14 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.LoadActions)
             RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
 
+        if (TryComp(ev.Action.Owner, out SpeakOnActionComponent? speak))
+        {
+            DelayedSpeech(speak.Sentence == null ? null : Loc.GetString(speak.Sentence.Value),
+                newEnt.Value,
+                ev.Performer,
+                school);
+        }
+
         return true;
     }
     private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
@@ -404,12 +421,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.ShootSpellCards(ev, proto);
 
-        MapCoordinates targetMap;
-
-        targetMap = TransformSystem.ToMapCoordinates(ev.Target);
-
-        if (TryComp(ev.Entity, out TransformComponent? xform))
-            targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
+        var targetMap = TryComp(ev.Entity, out TransformComponent? xform)
+            ? TransformSystem.GetMapCoordinates(ev.Entity.Value, xform)
+            : TransformSystem.ToMapCoordinates(ev.Target);
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
@@ -607,7 +621,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         if (speakerUid != casterUid)
         {
-            var postfixEv = new GetMessagePostfixEvent();
+            var postfixEv = new GetMessageColorOverrideEvent();
             RaiseLocalEvent(casterUid, postfixEv);
             postfix = postfixEv.Postfix;
         }
