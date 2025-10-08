@@ -43,3 +43,18 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: WardenHelperChameleonOutfit
+  job: WardenHelper
+  equipment:
+    head: ClothingHeadHatWardenHelper
+    eyes: ClothingEyesGlassesSecurity
+    mask: ClothingMaskGasSecurity
+    ears: ClothingHeadsetSecurity
+    outerClothing: ClothingOuterCoatWarden
+    gloves: ClothingHandsGlovesCombat
+    jumpsuit: ClothingUniformJumpsuitWarden
+    id: WardenHelperPDA
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack
