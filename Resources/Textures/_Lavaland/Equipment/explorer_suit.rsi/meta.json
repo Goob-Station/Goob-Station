@@ -62,6 +62,22 @@
     },
     {
       "name": "reinforced3-icon_head"
+    },
+	{
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "reinforced1-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "reinforced2-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "reinforced3-equipped-OUTERCLOTHING-vox",
+      "directions": 4
     }
   ]
 }
