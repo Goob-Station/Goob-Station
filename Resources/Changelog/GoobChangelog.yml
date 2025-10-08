@@ -15906,3 +15906,27 @@ Entries:
         other pain medications.
   id: 1775
   time: '2025-10-08T17:18:51.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Mask of madness gives fire immunity to heretic, recipe changed.
+    - type: Tweak
+      message: Ice spear is now void path exclusive, replaces void blast.
+    - type: Add
+      message: >-
+        Seeking blade void path upgrade can teleport to people and hit them
+        instantly when clicking on them outside combat mode.
+    - type: Fix
+      message: Fixed void phase teleporting through walls.
+    - type: Fix
+      message: Fix volcano blast having no CD.
+    - type: Remove
+      message: Rust sickness removed, rust path buffed to compensate.
+    - type: Add
+      message: 'New heretic side knowledge: scorching shark'
+    - type: Tweak
+      message: Void cloak protects against low temperature when visible.
+    - type: Remove
+      message: Improvised shotgun removed from rust walker recipe.
+  id: 1776
+  time: '2025-10-08T17:21:31.0000000+00:00'
