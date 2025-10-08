@@ -4,6 +4,16 @@
   name: the tigers claw
   description: A semi-cheap knockoff of the real deal, uses ammo to propel the user forward to deal third degree burns and lacerations, rumors are that wearing a capos outfit addionally marks weak opponents as "prey" making them less likely to escape you, the predator.
   components:
+  - type: ItemToggle
+    onUse: false
+    predictable: false
+    TurnOnOnWielded: true
+    TurnOffOnUnwielded: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Misc/capofullseteffect.ogg
+      params:
+        volume: -4
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw.rsi
     state: icon

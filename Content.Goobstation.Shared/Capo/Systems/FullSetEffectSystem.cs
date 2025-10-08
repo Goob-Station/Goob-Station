@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Capo.Components;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Inventory;
 using Content.Shared.Body.Systems;
 using Content.Shared.Inventory.Events;
@@ -20,6 +21,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly Dictionary<EntityUid, int> _capoPieceCounts = new();
 
@@ -67,7 +69,11 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
 
     private void AddFullSetEffect(EntityUid player)
     {
-        _movementSpeedModifierSystem.ChangeBaseSpeed(player, 25, 25, 25);
+
+        _movementSpeedModifierSystem.ChangeBaseSpeed(player, 10, 10, 20);
+        var thermal = _entityManager.AddComponent<ThermalVisionComponent>(player);
+        thermal.LightRadius = 15;
+        thermal.Color = Color.FromHex("#ffffff");
         foreach (var held in _hands.EnumerateHeld(player))
         {
             if (TryComp<TigersClawComponent>(held, out _) && TryComp<ReflectComponent>(held, out var reflect))
@@ -80,6 +86,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
 
     private void RemoveFullSetEffect(EntityUid player)
     {
+        _entityManager.RemoveComponent<ThermalVisionComponent>(player);
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(player);
         _bodySystem.UpdateMovementSpeed(player);
 
