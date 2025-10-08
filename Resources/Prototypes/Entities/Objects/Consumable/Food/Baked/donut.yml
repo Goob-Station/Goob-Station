@@ -471,7 +471,7 @@
 - type: entity
   name: scurret jelly-donut
   parent: FoodDonutBase
-  id: FoodDonutJellyScurret
+  id: FoodDonutJellyScurret # Goobstation
   description: No holes in this donut in case a suspicious looking pole shows up.
   components:
   - type: Sprite

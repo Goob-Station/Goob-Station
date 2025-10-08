@@ -657,7 +657,7 @@
     - id: FoodDonutJellySweetpea
       amount: 2
       orGroup: Food
-    - id: FoodDonutJellyScurret
+    - id: FoodDonutJellyScurret #Goobstation
       amount: 2
       orGroup: Food
     - id: FoodFrozenSandwich # ah yes, baked goods
