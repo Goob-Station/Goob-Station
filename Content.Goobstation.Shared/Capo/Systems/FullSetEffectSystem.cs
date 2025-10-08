@@ -70,7 +70,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
     private void AddFullSetEffect(EntityUid player)
     {
 
-        _movementSpeedModifierSystem.ChangeBaseSpeed(player, 10, 10, 20);
+        _movementSpeedModifierSystem.ChangeBaseSpeed(player, 5, 5, 20);
         var thermal = _entityManager.AddComponent<ThermalVisionComponent>(player);
         thermal.LightRadius = 15;
         thermal.Color = Color.FromHex("#ffffff");

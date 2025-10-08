@@ -411,7 +411,7 @@
   parent: [ClothingHeadBase, BaseSyndicateContraband]
   id: ClothingHeadHatCapoSyndi
   name: the Capos rim
-  description: pride, its always a sin, but at least your making it look right.
+  description: Pride, its always a sin, but at least your making it look right.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
