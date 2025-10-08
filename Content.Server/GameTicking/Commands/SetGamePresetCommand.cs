@@ -18,7 +18,6 @@ using Content.Server.GameTicking.Presets;
 using Content.Shared.Administration;
 using Linguini.Shared.Util;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Commands
 {
@@ -26,7 +25,6 @@ namespace Content.Server.GameTicking.Commands
     public sealed class SetGamePresetCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entity = default!;
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
 
         public string Command => "setgamepreset";
         public string Description => Loc.GetString("set-game-preset-command-description", ("command", Command));
