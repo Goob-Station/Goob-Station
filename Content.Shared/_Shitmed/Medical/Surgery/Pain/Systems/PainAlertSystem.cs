@@ -66,7 +66,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
 {
     if (!Resolve(uid, ref nerve, false) || !TryComp<WoundableComponent>(uid, out var woundable))
     {
-        Logger.Debug($"[PainAlert] Missing required components for entity {uid}");
         return;
     }
 
@@ -75,7 +74,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
     if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body is { } bodyUid)
     {
         mobUid = bodyUid;
-        Logger.Debug($"[PainAlert] Found parent mob {mobUid} for body part {uid}");
     }
     else
     {
@@ -84,7 +82,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
 
     if (mobUid == null || !HasComp<AlertsComponent>(mobUid.Value))
     {
-        Logger.Error($"[PainAlert] Could not find parent mob with AlertsComponent for entity {uid}");
         return;
     }
 
@@ -102,11 +99,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
         var normalizedIntegrity = woundable.WoundableIntegrity / woundable.IntegrityCap;
         var painLevel = (FixedPoint2.New(1) - normalizedIntegrity) * 100 * nerve.PainFeels;
         totalPain = (float)FixedPoint2.Clamp(painLevel, 0, 100);
-        Logger.Debug($"[PainAlert] Calculated pain: {totalPain} (from painLevel: {painLevel}, integrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap})");
-    }
-    else
-    {
-        Logger.Debug($"[PainAlert] No pain calculated - PainFeels: {nerve.PainFeels}, WoundableIntegrity: {woundable.WoundableIntegrity}/{woundable.IntegrityCap}");
     }
 
     // Always show alert if in critical state, otherwise follow normal pain rules
@@ -129,7 +121,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
         if (_prototypeManager.TryIndex<AlertPrototype>(PainAlerts[alertIndex], out _))
         {
             _alerts.ShowAlert(mobUid.Value, PainAlerts[alertIndex]);
-            Logger.Debug($"[PainAlert] Showing alert {PainAlerts[alertIndex]} for pain {totalPain} on mob {mobUid} (Critical: {isCritical})");
         }
     }
     else
@@ -142,7 +133,6 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
                 _alerts.ClearAlert(mobUid.Value, alert);
             }
         }
-        Logger.Debug($"[PainAlert] Clearing all pain alerts - pain level {totalPain} is <= 1 and not critical");
     }
 }
 }
