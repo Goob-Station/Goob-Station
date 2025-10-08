@@ -15938,3 +15938,21 @@ Entries:
         revived and won't trigger recall evac shuttle.
   id: 1777
   time: '2025-10-08T17:39:50.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: >-
+        IPC Can now be healed correctly and limbs are auto targeted using a
+        welder.
+    - type: Tweak
+      message: >-
+        IPC welding now removes bleeding. Despite IPC not even having blood to
+        bleed.
+    - type: Tweak
+      message: >-
+        Halved IPC healing value thanks to welding 20 -> 10 (10 piercing + 10
+        brute + 10 Slash)
+    - type: Add
+      message: Alien heart can now  make you Repairable with a welder, just like IPC
+  id: 1778
+  time: '2025-10-08T17:40:28.0000000+00:00'
