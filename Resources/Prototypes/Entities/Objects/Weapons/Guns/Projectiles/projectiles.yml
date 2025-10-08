@@ -329,6 +329,7 @@
           bounds: "-0.15,-0.45,0.15,0.15"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -407,7 +408,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -446,7 +449,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -528,6 +533,7 @@
           bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -1307,7 +1313,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
