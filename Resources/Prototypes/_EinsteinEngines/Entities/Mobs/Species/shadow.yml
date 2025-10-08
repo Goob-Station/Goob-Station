@@ -31,8 +31,7 @@
     animation: WeaponArcShadowClaw
     damage:
       types:
-        Slash: 4
-        Piercing: 1
+        Heat: 10
   - type: PassiveDamage
     allowedStates:
     - Alive
