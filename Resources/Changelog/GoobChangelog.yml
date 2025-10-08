@@ -15892,3 +15892,41 @@ Entries:
       message: Drones will no longer flash themselves when turning on their flashlight.
   id: 1773
   time: '2025-10-08T04:43:29.0000000+00:00'
+- author: gonz0
+  changes:
+    - type: Fix
+      message: Arachnid specific clothing sprites now display correctly.
+  id: 1774
+  time: '2025-10-08T17:17:44.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Fix
+      message: >-
+        WoundMed - Phantom Pain from nerve damage should now heal alongside
+        other pain medications.
+  id: 1775
+  time: '2025-10-08T17:18:51.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Mask of madness gives fire immunity to heretic, recipe changed.
+    - type: Tweak
+      message: Ice spear is now void path exclusive, replaces void blast.
+    - type: Add
+      message: >-
+        Seeking blade void path upgrade can teleport to people and hit them
+        instantly when clicking on them outside combat mode.
+    - type: Fix
+      message: Fixed void phase teleporting through walls.
+    - type: Fix
+      message: Fix volcano blast having no CD.
+    - type: Remove
+      message: Rust sickness removed, rust path buffed to compensate.
+    - type: Add
+      message: 'New heretic side knowledge: scorching shark'
+    - type: Tweak
+      message: Void cloak protects against low temperature when visible.
+    - type: Remove
+      message: Improvised shotgun removed from rust walker recipe.
+  id: 1776
+  time: '2025-10-08T17:21:31.0000000+00:00'
