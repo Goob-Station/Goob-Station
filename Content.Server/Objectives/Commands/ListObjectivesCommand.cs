@@ -28,7 +28,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Objectives.Commands
 {
-    [AdminCommand(AdminFlags.Logs)]
+    [AdminCommand(AdminFlags.Admin)] // CorvaxGoob-AdminListObjectives
     public sealed class ListObjectivesCommand : LocalizedCommands
     {
         [Dependency] private readonly IEntityManager _entities = default!;
