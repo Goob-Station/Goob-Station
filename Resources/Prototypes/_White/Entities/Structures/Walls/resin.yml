@@ -24,7 +24,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 120
+        damage: 100 # Goobstation - nerfed health
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -34,7 +34,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 80
+        damage: 50 # Goobstation - nerfed health
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true

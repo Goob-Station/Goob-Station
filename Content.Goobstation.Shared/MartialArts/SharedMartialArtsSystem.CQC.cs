@@ -204,7 +204,7 @@ public partial class SharedMartialArtsSystem
         if (downed)
         {
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
-                _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
+                _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent, applyResistances: true);
         }
@@ -248,11 +248,11 @@ public partial class SharedMartialArtsSystem
             return;
         if(!_hands.TryDrop(target, activeItem.Value))
             return;
-        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
             return;
         if(!_hands.TryPickup(ent, activeItem.Value, emptyHand))
             return;
-        _hands.SetActiveHand(ent, emptyHand);
+        _hands.SetActiveHand(ent.Owner, emptyHand);
     }
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)

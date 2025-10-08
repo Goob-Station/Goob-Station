@@ -9,7 +9,7 @@ SPDX-License-Identifier: MIT
 <Document>
 ## Сканер аномалий
 
-Сканер аномалий используется для сбора различной информации об аномалиях. Найти такой можно в шкафчиках научного отдела.
+The Anomaly Scanner is used to gather various information on anomalies. They can be found inside the lockers in the science department.
 
 <Box>
 <GuideEntityEmbed Entity="AnomalyScanner"/>

@@ -120,7 +120,6 @@
   equipment:
     head: ClothingHeadHatHopcap
 
-
 # Neck
 - type: loadout
   id: HoPCloak

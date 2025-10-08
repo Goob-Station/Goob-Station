@@ -57,6 +57,17 @@
     range: 4
 
 - type: entity
+  id: CrateFunDiscoBeachBall
+  parent: CrateGenericSteel
+  name: disco beach ball crate
+  description: A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+  components:
+  - type: StorageFill
+    contents:
+    - id: DiscoBeachBall
+      amount: 1
+
+- type: entity
   id: CrateWizardAnomCore
   name: Crate of Enchanting
   description: A box containing stolen anomaly cores, used for enchanting.

@@ -111,14 +111,17 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Clinux <160202097+cohanna@users.noreply.github.com>
+
+
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
+
 # SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cohanna <conornhanna@gmail.com>
+
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -770,6 +773,19 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaint
+  heatCapacity: 10000
+  tileRipResistance: 250
+
+- type: tile
+  id: FloorTechMaintDark
+  name: tiles-techmaint-floor-dark
+  sprite: /Textures/Tiles/tech_maint_dark.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemTechmaintDark
   heatCapacity: 10000
   tileRipResistance: 250
 
@@ -2323,4 +2339,95 @@
   itemDrop: FloorTileItemWoodLarge
   heatCapacity: 10000
   tileRipResistance: 100
-  
+
+- type: tile
+  id: FloorWhiteMarble
+  name: tiles-white-marble
+  sprite: /Textures/Tiles/white_marble.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  friction: 0.8
+  itemDrop: FloorTileItemWhiteMarble
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorDarkMarble
+  name: tiles-dark-marble
+  sprite: /Textures/Tiles/dark_marble.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  friction: 0.8
+  itemDrop: FloorTileItemDarkMarble
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorPlasmaMarble
+  name: tiles-plasma-marble
+  sprite: /Textures/Tiles/plasmarble.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  friction: 0.8
+  itemDrop: FloorTileItemPlasmaMarble
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorUraniumMarble
+  name: tiles-uranium-marble
+  sprite: /Textures/Tiles/uranium_marble.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  friction: 0.8
+  itemDrop: FloorTileItemUraniumMarble
+  heatCapacity: 10000

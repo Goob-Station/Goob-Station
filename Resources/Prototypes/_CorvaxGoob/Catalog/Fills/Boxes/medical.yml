@@ -8,13 +8,14 @@
     contents:
       - id: BodyBagBluespaceFolded
         amount: 4
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
   - type: Sprite
     layers:
       - state: box
       - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag
 
 - type: entity
   parent: BoxCardboard
@@ -26,13 +27,14 @@
     contents:
       - id: BodyBagNanoTrasenFolded
         amount: 4
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
   - type: Sprite
     layers:
       - state: box
       - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag
 
 - type: entity
   parent: BoxCardboard
@@ -44,13 +46,14 @@
     contents:
       - id: BodyBagPrisonerFolded
         amount: 4
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
   - type: Sprite
     layers:
       - state: box
       - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag
 
 - type: entity
   parent: BoxCardboard
@@ -62,13 +65,14 @@
     contents:
       - id: BodyBagRadiationFolded
         amount: 4
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
   - type: Sprite
     layers:
       - state: box
       - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag
 
 - type: entity
   parent: BoxCardboard
@@ -80,10 +84,11 @@
     contents:
       - id: BodyBagSyndicateFolded
         amount: 4
+  - type: Storage
+    whitelist:
+      tags:
+        - BodyBag
   - type: Sprite
     layers:
       - state: box_of_doom
       - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag

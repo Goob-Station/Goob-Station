@@ -20,6 +20,10 @@
   - !type:RoleTimeRequirement
     role: JobLibrarian # CorvaxGoob; :S_trollface:
     time: 36000 # 10 Hour CorvaxGoob: from 1 hour to 10
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
 
 - type: startingGear
   id: DevilStartingGear

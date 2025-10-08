@@ -5,7 +5,7 @@
 
 - type: entity
   parent:
-    - SimpleMobBase
+    - SimpleSpaceMobBase
     - MobPolymorphable
   id: BaseMobSlaughterDemon
   name: slaughter demon
@@ -78,6 +78,10 @@
   - type: SlaughterDemon # main component
     speedModWalk: 2.5
     speedModRun: 2.5
+    bloodCrawlSounds:
+      collection: bloodCrawl
+      params:
+        volume: 2
   - type: SlaughterDevour # allows the demon to devour
     toHeal: # Healing done when eating someone
       groups:
@@ -114,6 +118,7 @@
   - type: Targeting
   - type: Speech
     speechVerb: SlaughterDemon
+    speechSounds: SlaughterDemon
   - type: TypingIndicator
     proto: guardian
   - type: Gibbable
@@ -150,6 +155,22 @@
   - type: WeakToHoly
     alwaysTakeHoly: true
   - type: Hands
+  - type: PressureImmunity
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/demon_dies.ogg
+  - type: Vocal
+    sounds:
+      Male: SlaughterDemon
+      Female: SlaughterDemon
+      Unsexed: SlaughterDemon
+  - type: ZombieImmune
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      200: 1
 
 # laughter demon
 - type: entity
@@ -169,7 +190,6 @@
     feastSound: /Audio/_Goobstation/Misc/scary_horn2.ogg
   - type: SlaughterDemon
     isLaughter: true
-    deathSound: /Audio/Effects/sadtrombone.ogg
   - type: Speech
     speechVerb: Cluwne
   - type: MeleeWeapon
@@ -194,6 +214,9 @@
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/sadtrombone.ogg
 
 # midround roll
 - type: entity

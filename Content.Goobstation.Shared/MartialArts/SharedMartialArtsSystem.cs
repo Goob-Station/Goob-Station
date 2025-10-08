@@ -55,6 +55,7 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -78,7 +79,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrowing = default!;

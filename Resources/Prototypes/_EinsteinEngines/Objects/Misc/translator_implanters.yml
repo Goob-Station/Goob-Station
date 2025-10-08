@@ -9,13 +9,13 @@
   id: BaseTranslatorImplanter
   abstract: true
   parent: BaseImplantOnlyImplanter
-  name: basic translator implanter
+  name: translator implanter
 
 # Gives ability to understand TauCetiBasic.
 - type: entity
   id: BasicGalaticCommonTranslatorImplanter
   parent: BaseTranslatorImplanter
-  name: basic common translator implanter
+  suffix: Basic Common
   components:
   - type: Implanter
     implant: BasicTauCetiBasicTranslatorImplant
@@ -24,7 +24,7 @@
 - type: entity
   id: AdvancedGalaticCommonTranslatorImplanter
   parent: BaseTranslatorImplanter
-  name: advanced common translator implanter
+  suffix: Advanced Common
   components:
   - type: Implanter
     implant: TauCetiBasicTranslatorImplant
@@ -32,7 +32,7 @@
 - type: entity
   id: BubblishTranslatorImplanter
   parent: BaseTranslatorImplanter
-  name: bubblish translator implant
+  suffix: Bubblish
   components:
   - type: Implanter
     implant: BubblishTranslatorImplant
@@ -40,7 +40,7 @@
 - type: entity
   id: NekomimeticTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: nekomimetic translator implant
+  suffix: Nekomimetic
   components:
   - type: Implanter
     implant: NekomimeticTranslatorImplant
@@ -48,7 +48,7 @@
 - type: entity
   id: DraconicTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: unathi translator implant
+  suffix: Draconic
   components:
   - type: Implanter
     implant: DraconicTranslatorImplant
@@ -56,7 +56,7 @@
 - type: entity
   id: CanilunztTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: canilunzt translator implant
+  suffix: Canilunzt
   components:
   - type: Implanter
     implant: CanilunztTranslatorImplant
@@ -64,7 +64,7 @@
 - type: entity
   id: SolCommonTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: sol-common translator implant
+  suffix: Sol-Common
   components:
   - type: Implanter
     implant: SolCommonTranslatorImplant
@@ -72,7 +72,7 @@
 - type: entity
   id: NovuNedericTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: novu-nederic translator implant
+  suffix: Novu-Nederic
   components:
   - type: Implanter
     implant: NovuNedericTranslatorImplant
@@ -80,7 +80,7 @@
 - type: entity
   id: RootSpeakTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: root-speak translator implant
+  suffix: Root-Speak
   components:
   - type: Implanter
     implant: RootSpeakTranslatorImplant
@@ -88,7 +88,7 @@
 - type: entity
   id: MofficTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: moffic translator implant
+  suffix: Moffic
   components:
   - type: Implanter
     implant: MofficTranslatorImplant
@@ -96,7 +96,7 @@
 - type: entity
   id: ValyrianStandardTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: valyrian standard translator implant
+  suffix: Valyrian Standard
   components:
   - type: Implanter
     implant: ValyrianStandardTranslatorImplant
@@ -104,7 +104,7 @@
 - type: entity
   id: AzazibaTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: azaziba translator implant
+  suffix: Azaziba
   components:
   - type: Implanter
     implant: AzazibaTranslatorImplant
@@ -112,7 +112,7 @@
 - type: entity
   id: ChittinTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: chittin translator implant
+  suffix: Chittin
   components:
   - type: Implanter
     implant: ChittinTranslatorImplant
@@ -120,7 +120,7 @@
 - type: entity
   id: SiikMaasTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: siik'maas translator implant
+  suffix: Siik'Maas
   components:
   - type: Implanter
     implant: SiikMaasTranslatorImplant
@@ -128,7 +128,7 @@
 - type: entity
   id: MarishTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: marish translator implant
+  suffix: Marish
   components:
   - type: Implanter
     implant: MarishTranslatorImplant
@@ -136,7 +136,7 @@
 - type: entity
   id: SchechiTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: schechi translator implant
+  suffix: Schechi
   components:
   - type: Implanter
     implant: SchechiTranslatorImplant
@@ -144,7 +144,7 @@
 - type: entity
   id: NewKinPidginTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: ka'rakk translator implant
+  suffix: Ka'Rakk
   components:
   - type: Implanter
     implant: NewKinPidginTranslatorImplant
