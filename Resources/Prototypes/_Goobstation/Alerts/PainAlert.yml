@@ -7,10 +7,15 @@
 
 - type: alert
   id: Pain
-  category: Health
   icons:
-  - sprite: /Resources/Textures/_Goobstation/Interface/Alerts/pain.rsi
+  - sprite: /Textures/_Goobstation/Interface/Alerts/pain.rsi
     state: pain0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/pain.rsi
+    state: pain1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/pain.rsi
+    state: pain2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/pain.rsi
+    state: pain3
   name: Pain
   description: "The amount of pain you're currently experiencing."
   minSeverity: 0
