@@ -195,4 +195,4 @@ cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$
 
 # Goobstation
 
-cult-alert-recall-shuttle = High concentrations of Λ-CDM of unknown origin detected aboard the station. All anomalous presences must be purged before evacuation can be authorized.
+cult-alert-recall-shuttle = High concentrations of Λ-CDM of unknown origin detected aboard the station. All anomalous presences must be purged or restrained before evacuation can be authorized.
