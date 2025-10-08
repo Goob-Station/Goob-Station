@@ -4887,3 +4887,11 @@
   id: 9052
   time: '2025-10-08T13:58:37.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40772
+- author: UpAndLeaves
+  changes:
+  - message: Zombie infections now take approximately three minutes longer to bring
+      a fully healed person to critical condition.
+    type: Tweak
+  id: 9053
+  time: '2025-10-08T14:11:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37445
