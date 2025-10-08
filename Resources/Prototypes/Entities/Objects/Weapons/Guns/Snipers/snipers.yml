@@ -212,14 +212,9 @@
     inHandsMaxFillLevels: 1
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
-  - type: Item  # Goob edit start
-    size: Large
-    storedRotation: 45
   - type: Gun
     fireRate: 1.2
     requiresSkill: false # CorvaxGoob-Skills
-  - type: AltFireMelee
-    attackType: Heavy
   - type: MeleeWeapon
     wideAnimationRotation: -135
     animationRotation: -135 # WWDP

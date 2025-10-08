@@ -241,9 +241,9 @@ public sealed class HypospraySystem : EntitySystem
         RaiseLocalEvent(entity, ref afterinjectev);
 
         // same LogType as syringes...
-        _adminLogger.Add(LogType.ForceFeed, $"{ToPrettyString(user):user} injected {ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {ToPrettyString(uid):using}");
+        _adminLogger.Add(LogType.ForceFeed, $"{ToPrettyString(user):user} injected {ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {ToPrettyString(entity):using}");
 
-        return true;
+        return;
     }
 
     private void TryDoInjectDoAfter(Entity<HyposprayComponent> entity, ref HyposprayTryInjectDoAfterEvent args)

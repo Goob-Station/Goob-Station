@@ -244,7 +244,6 @@
   - type: IconSmooth # CorvaxGoob-Resprites
     key: walls
     mode: NoSprite
-    department: Civilian
   - type: Paintable
     group: AirlockStandard
   - type: StaticPrice

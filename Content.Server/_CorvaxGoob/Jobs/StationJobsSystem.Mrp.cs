@@ -6,7 +6,6 @@ namespace Content.Server.Station.Systems;
 
 public sealed partial class StationJobsSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     /// <summary>
     ///     Applies MRP visibility rules to the station job list.
@@ -23,7 +22,7 @@ public sealed partial class StationJobsSystem
 
         foreach (var jobId in jobs.JobList.Keys.ToList())
         {
-            if (!_prototypes.TryIndex(jobId, out var proto))
+            if (!_prototypeManager.TryIndex(jobId, out var proto))
                 continue;
 
             if (proto.Mrp is null)

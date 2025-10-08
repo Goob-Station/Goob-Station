@@ -120,8 +120,8 @@ namespace Content.Client.Lobby
         /* CorvaxGoob-Coins-start
         [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - server currency
         [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
-       [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation - credits
         CorvaxGoob-Coins-end */
+        [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation - credits
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
 
         private ISawmill _sawmill = default!; // Goobstation
