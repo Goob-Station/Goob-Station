@@ -15930,3 +15930,11 @@ Entries:
       message: Improvised shotgun removed from rust walker recipe.
   id: 1776
   time: '2025-10-08T17:21:31.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: >-
+        Restrained (cuffed) cultists don't count towards objectives and can be
+        revived and won't trigger recall evac shuttle.
+  id: 1777
+  time: '2025-10-08T17:39:50.0000000+00:00'
