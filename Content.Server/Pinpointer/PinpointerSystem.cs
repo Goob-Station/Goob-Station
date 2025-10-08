@@ -261,7 +261,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
             return;
 
         var target = GetNearestTarget((uid, pinpointer)); // Goob edit
-        if (target == null || !EntityManager.EntityExists(target.Value))
+        if (target == null || !Exists(target.Value))
         {
             SetDistance(uid, Distance.Unknown, pinpointer);
             LocateTarget(uid, pinpointer); // WD EDIT

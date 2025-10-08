@@ -77,8 +77,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     private ISharedSponsorsManager? _sponsors;
     [Dependency] private readonly SharedIdentitySystem _identity = default!;
 
-    [ValidatePrototypeId<SpeciesPrototype>]
-    public const string DefaultSpecies = "Human";
     // CorvaxGoob-TTS-Start
     public const string DefaultVoice = "Garithos";
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
@@ -88,6 +86,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         {Sex.Unsexed, "Myron"},
     };
     // CorvaxGoob-TTS-End
+    public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
 
     public override void Initialize()
     {

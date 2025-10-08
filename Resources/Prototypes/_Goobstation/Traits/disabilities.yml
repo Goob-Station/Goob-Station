@@ -19,6 +19,7 @@
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
     - type: LegsStartParalyzed
+    - type: LegsParalyzed
 
 # Corvax Goob-start
 #- type: trait
@@ -42,3 +43,22 @@
   components:
     - type: MovementImpaired
       impairedSpeedMultiplier: 0.6
+
+- type: trait
+  id: SocialAnxietyTrait
+  name: trait-social-anxiety-name
+  description: trait-social-anxiety-disc
+  category: Disabilities
+  components:
+    - type: SocialAnxiety
+
+- type: trait
+  id: DeafTrait
+  name: trait-deaf-name
+  description: trait-deaf-disc
+  category: Disabilities
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+    - type: Deaf

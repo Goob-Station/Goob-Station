@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -140,6 +143,9 @@
 
 - type: Tag
   id: CombatMech
+
+- type: Tag
+  id: CorporateOverride
 
 - type: Tag
   id: ContrabandDetectorCircuitboard
@@ -320,6 +326,9 @@
 
 - type: Tag
   id: ItemPickaxe
+
+- type: Tag
+  id: ImprovisedShotgun
 
 - type: Tag
   id: IndustrialMech
@@ -503,6 +512,9 @@
   id: SnapPop
 
 - type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
+
+- type: Tag
   id: SoulTapped
 
 - type: Tag
@@ -563,6 +575,9 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
   id: MolotovConstruction
 
 - type: Tag
@@ -584,10 +599,19 @@
   id: VulpEmotes
 
 - type: Tag
+  id: Vial
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
   id: WeaponDisabler
+
+- type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
 
 - type: Tag
   id: WeaponPistolDualetta
@@ -609,6 +633,9 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity

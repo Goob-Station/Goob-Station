@@ -159,19 +159,19 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
-    - id: SalvageJobBoardComputerCircuitboard
     - id: CigPackGreen
-      prob: 0.50
+      prob: 0.75
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
-    - id: SalvageShuttleConsoleCircuitboard
+    - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
+    - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -195,8 +195,8 @@
     - id: ClothingHeadsetAltCommand
     #- id: ClothingOuterArmorCaptainCarapace Corvax-Goob-CaptainDrobe
     - id: CommsComputerCircuitboard
-    - id: DoorRemoteCommand
     #- id: MedalCase Corvax-Goob-CaptainDrobe
+    - id: DoorRemoteCustom
     - id: NukeDisk
     - id: PinpointerNuclear
     - id: PlushieNuke
@@ -407,6 +407,7 @@
     - id: RapidSyringeGun
     - id: BoxSyringePax
     - id: ClothingBeltMilitaryWebbingCMOFilled
+    - id: ClothingBackpackDuffelSurgeryFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
     # Goobstation End

@@ -553,7 +553,7 @@ VehicleSecwayStealObjective: null
 #VehicleKeyJanicart: null Goobstation - Re-add vehicles
 #VehicleKeySecway: null Goobstation - Re-add vehicles
 #VehicleKeyATV: null Goobstation - Re-add vehicles
-VehicleKeySkeleton: null 
+VehicleKeySkeleton: null
 #VehicleKeySyndicateSegway: null Goobstation - Re-add vehicles
 #VehicleKeySkeletonMotorcycle: null Corvax Goobstation - Re-add vehicles
 #VehicleSecway: null Goobstation - Re-add vehicles
@@ -1090,3 +1090,6 @@ BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
 # CorvaxGoob : LRP Bullshit
 FishBoyFisher: null
 ImmovableRodSkibidi: null
+
+# 2025-06-21
+ClothingNeckHeadphones: ClothingMultipleHeadphones

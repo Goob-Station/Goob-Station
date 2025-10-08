@@ -174,7 +174,7 @@
   - PlushieLizard
   - PlushieSpaceLizard
   - PersonalAI # Goobstation
-  - GoldPersonalAI # Goobstation
+  - GoldenPersonalAI # Goobstation
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -329,6 +329,7 @@
   - CaptainJumpsuitTurtleneck
   - CaptainJumpskirtTurtleneck
   # CorvaxGoob-Loadouts-End
+  - CaptainSummerShirt # also goob
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -374,6 +375,7 @@
   - HoPJumpsuitTurtleneck
   - HoPJumpskirtTurtleneck
   # CorvaxGoob-Loadouts-End
+  - HoPSummerShirt # goob
 
 - type: loadoutGroup
   id: HoPNeck
@@ -867,6 +869,7 @@
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
   - QuartermasterMJ # goob
+  - QMSummerShirt # goob
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -973,6 +976,7 @@
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
+  - CESummerShirt # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1137,6 +1141,7 @@
   - ResearchDirectorJumpsuitClassical
   - ResearchDirectorJumpskirtClassical
   # CorvaxGoob-Loadouts-End
+  - RDSummerShirt # goob
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1258,6 +1263,7 @@
   - HeadofSecurityJumpsuitBlack
   - HeadofSecurityJumpskirtBlack
   # CorvaxGoob-Loadouts-End
+  - HoSSummerShirt # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck

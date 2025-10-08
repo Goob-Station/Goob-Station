@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Document>
 # Воры
-  
+
   <Box>
     [color=#999999][italic]"Йоинк! Я возьму это! И это! О, не возражаешь, если я прихвачу?"[/italic][/color]
   </Box>
@@ -50,22 +50,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="SatchelThief"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="StorageImplanter" Caption="анатомия"/>
-    <GuideEntityEmbed Entity="C4" Caption="взломщик"/>
-    <GuideEntityEmbed Entity="ChameleonProjector" Caption="хамелеон"/>
-    <GuideEntityEmbed Entity="EncryptionKeyStationMaster" Caption="коммуникатор"/>
+    <GuideEntityEmbed Entity="Implanter" Caption="Anatomy"/>
+    <GuideEntityEmbed Entity="C4" Caption="Breacher"/>
+    <GuideEntityEmbed Entity="ChameleonProjector" Caption="Chameleon"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio" Caption="Communicator"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="NitrousOxideTank" Caption="снотворное"/>
-    <GuideEntityEmbed Entity="Emag" Caption="контрабанда"/>
-    <GuideEntityEmbed Entity="Telecrystal" Caption="синдикат"/>
+    <GuideEntityEmbed Entity="NitrousOxideTank" Caption="Sleeper"/>
+    <GuideEntityEmbed Entity="Fulton" Caption="Smuggler"/>
+    <GuideEntityEmbed Entity="Telecrystal" Caption="Syndie"/>
   </Box>
 
   [bold]Примечание:[/bold] Набор "хамелеон" теперь включает в себя рюкзак и дополнительную пару перчаток-хамелеонов. Будьте осторожны: эти перчатки не являются воровскими и их может быть трудно отличить от настоящих!
 
   ## Центральный элемент коллекции
   Ваша клептомания приведёт вас в разные места. В один день вам захочется украсть несколько фигурок. В другой день — промышленный аппарат.
-  
+
   Неважно. Все они станут частью вашей коллекции в кратчайшие сроки.
 
   Вы можете украсть предметы, [bold]имея их при себе[/bold], когда доберётесь до Центпрального Командования. Если это не удастся, вы можете украсть более крупные предметы, [bold]оставив их рядом с вашим маяком.[/bold]
@@ -73,12 +73,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Некоторые из более [italic]одушевлённых[/italic] целей могут не сотрудничать с вами. Убедитесь, что они живы и находятся с вами или вашим маяком по окончании смены.
 
   Вещи, которые вы можете пожелать, включают, но не ограничиваются:
-  
+
   <Box>
-   <GuideEntityEmbed Entity="ToyFigurineGreytider" Caption="фигурки"/>
-   <GuideEntityEmbed Entity="PassengerIDCard" Caption="ID карты"/>
-   <GuideEntityEmbed Entity="ChemDispenser" Caption="структуры"/>
-   <GuideEntityEmbed Entity="MobCorgiIan" Caption="животные/питомцы"/>
+    <GuideEntityEmbed Entity="ToyFigurineGreytider" Caption="Figurines"/>
+    <GuideEntityEmbed Entity="PassengerIDCard" Caption="ID cards"/>
+    <GuideEntityEmbed Entity="ChemDispenser" Caption="Structures"/>
+    <GuideEntityEmbed Entity="MobCorgiIan" Caption="Animals/Pets"/>
   </Box>
 
 </Document>

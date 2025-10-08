@@ -71,6 +71,7 @@ using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
+using Content.Goobstation.Shared.Devour.Events;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -405,6 +406,13 @@ public sealed partial class ChangelingSystem
     }
     private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
     {
+        // check if we're allowed to revive
+        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
+        RaiseLocalEvent(uid, ref reviveEv);
+
+        if (reviveEv.Cancelled)
+            return;
+
         if (!comp.IsInStasis)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
@@ -641,10 +649,7 @@ public sealed partial class ChangelingSystem
         if (TryComp<HandsComponent>(target, out var handComp)
             && handsValid)
         {
-            var weaponCount = handComp.Hands.Values.Count(
-                hand => hand.HeldEntity != null
-                && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value));
-
+            var weaponCount = _hands.EnumerateHeld((target, handComp)).Count(HasComp<ChangelingFakeWeaponComponent>);
             handsValid = (weaponCount <= 1);
         }
 
@@ -705,7 +710,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody(uid);
+        Body.GibBody(uid);
     }
 
     #endregion
