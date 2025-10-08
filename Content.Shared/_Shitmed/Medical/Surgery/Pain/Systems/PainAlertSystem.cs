@@ -5,9 +5,10 @@
 using Content.Shared.Alert;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -17,17 +18,16 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 public sealed class PainAlertSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private const string PainAlert = "Pain";
-    private const float UpdateRate = 10f; // Update every 10 seconds
-    private float _accumulatedTime;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<NerveComponent, ComponentInit>(OnNerveSystemMapInit);
+        SubscribeLocalEvent<NerveComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<NerveComponent, DamageExamineEvent>(OnExamine);
     }
 
     private void OnNerveSystemMapInit(EntityUid uid, NerveComponent component, ComponentInit args)
@@ -36,24 +36,19 @@ public sealed class PainAlertSystem : EntitySystem
         _alerts.ClearAlert(uid, _prototypeManager.Index<AlertPrototype>(PainAlert));
     }
 
-    public override void Update(float frameTime)
+    private void OnDamageChanged(EntityUid uid, NerveComponent nerve, ref DamageChangedEvent args)
     {
-        base.Update(frameTime);
-
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        _accumulatedTime += frameTime;
-        if (_accumulatedTime < UpdateRate)
-            return;
-
-        _accumulatedTime -= UpdateRate;
-
-        var query = EntityQueryEnumerator<NerveComponent>();
-        while (query.MoveNext(out var uid, out var nerve))
+        // Only update if pain damage changed
+        if (args.DamageDelta?.GetTotal() > 0 || args.DamageIncreased)
         {
             UpdatePainAlert(uid, nerve);
         }
+    }
+
+    private void OnExamine(EntityUid uid, NerveComponent nerve, ref DamageExamineEvent args)
+    {
+        // Update pain alert when examining damage
+        UpdatePainAlert(uid, nerve);
     }
 
     private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
