@@ -427,9 +427,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
-        // Goob Edit: So that stamina regenerating effects don't cause jittering
         if (visual
-            && 0 <= ent.Comp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit
+            && 0 <= ent.Comp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit // Goob edit 2 - So stamina regenerating effects doesn't cause jittering
         {
             _jitter.DoJitter(ent, cCFactor * cCTime, true);
             _stutter.DoStutter(ent, cCFactor * cCTime, true);
