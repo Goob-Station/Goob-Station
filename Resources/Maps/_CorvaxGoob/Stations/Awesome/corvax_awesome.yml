@@ -128347,20 +128347,6 @@ entities:
     - type: Transform
       pos: 18.5,70.5
       parent: 2
-- proto: SpawnMobXenoBurrower
-  entities:
-  - uid: 16252
-    components:
-    - type: Transform
-      pos: 27.5,41.5
-      parent: 2
-- proto: SpawnMobXenoDrone
-  entities:
-  - uid: 16671
-    components:
-    - type: Transform
-      pos: 25.5,42.5
-      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 12418
