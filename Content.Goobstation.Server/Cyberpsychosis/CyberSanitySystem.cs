@@ -2,12 +2,16 @@ using System.Linq;
 using Content.Goobstation.Common.Medical;
 using Content.Goobstation.Server.Shizophrenia;
 using Content.Server.Actions;
+using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Inventory;
+using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Random;
@@ -18,13 +22,17 @@ namespace Content.Goobstation.Server.Cyberpsychosis;
 public sealed partial class CyberSanitySystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SchizophreniaSystem _shizophrenia = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
 
     public override void Initialize()
@@ -33,6 +41,7 @@ public sealed partial class CyberSanitySystem : EntitySystem
         UpdatesBefore.Add(typeof(ActionsSystem));
 
         InitializeGain();
+        InitializeHallucination();
 
         SubscribeLocalEvent<CyberSanityComponent, MapInitEvent>(OnMapInit);
     }
