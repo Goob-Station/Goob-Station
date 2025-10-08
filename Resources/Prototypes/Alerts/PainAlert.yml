@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Pain alert that shows the current pain level of the player
+# Combines both normal pain and trauma pain into a single severity score
+
+- type: alert
+  id: Pain
+  name: Pain
+  description: The amount of pain you're currently experiencing.
+  category: Health
+  icon:
+    path: /Textures/Interface/Alerts/pain.rsi
+    state: pain0
+  iconStateMin: pain0
+  iconStateMax: pain3
+  maxSeverity: 3
+  supportsSeverity: true
