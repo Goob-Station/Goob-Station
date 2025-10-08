@@ -196,7 +196,11 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (ent.Comp.SpawnOnDeathPrototype != null)
+            Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
+        _body.GibBody(ent);
     }
 }
