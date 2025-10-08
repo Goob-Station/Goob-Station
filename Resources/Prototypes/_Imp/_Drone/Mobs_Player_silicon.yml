@@ -185,7 +185,7 @@
     thresholds:
       0: Alive
       60: Dead
-  - type: Flash
+  #- type: Flash # Goobstation - Remove drone flashing.
   - type: NoSlip
   - type: StatusEffects
     allowed:
