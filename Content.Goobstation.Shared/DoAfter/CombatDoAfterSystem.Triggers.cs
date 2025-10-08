@@ -11,11 +11,13 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Standing;
 
 namespace Content.Goobstation.Shared.DoAfter;
 
 public sealed partial class CombatDoAfterSystem
 {
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     private void InitializeTriggers()
     {
         SubscribeLocalEvent<CombatDoAfterComponent, MeleeHitEvent>(OnHit);
@@ -35,7 +37,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
     {
-        _layingDown.TryLieDown(args.Target);
+        _standing.Down(args.Target);
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 

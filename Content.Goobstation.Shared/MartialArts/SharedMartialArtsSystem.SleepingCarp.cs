@@ -16,6 +16,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -157,7 +158,7 @@ public partial class SharedMartialArtsSystem
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
         }
         else
         {

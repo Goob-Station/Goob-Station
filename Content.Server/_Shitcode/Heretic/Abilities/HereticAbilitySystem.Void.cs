@@ -103,7 +103,7 @@ public sealed partial class HereticAbilitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, power))
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
+            _stun.TryParalyze(pookie, TimeSpan.FromSeconds(power), true);
 
         _transform.SetCoordinates(ent, args.Target);
 
@@ -112,7 +112,7 @@ public sealed partial class HereticAbilitySystem
 
         foreach (var pookie in GetNearbyPeople(ent, power))
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
+            _stun.TryParalyze(pookie, TimeSpan.FromSeconds(power), true);
             if (condition) _voidcurse.DoCurse(pookie);
         }
 

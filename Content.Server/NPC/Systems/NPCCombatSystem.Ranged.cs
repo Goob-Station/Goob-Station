@@ -241,7 +241,8 @@ public sealed partial class NPCCombatSystem
                 return;
             }
 
-            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates, comp.Target);
+            gun.ShootCoordinates = targetCordinates;
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
 
             break;
 

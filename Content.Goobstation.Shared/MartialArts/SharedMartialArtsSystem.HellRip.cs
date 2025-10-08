@@ -16,6 +16,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Damage;
@@ -115,7 +116,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropHeldItemsBehavior != DropHeldItemsBehavior.NoDrop);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 

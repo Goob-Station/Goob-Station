@@ -7,7 +7,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Body.Systems;
-using Content.Shared._White.Standing;
+using Content.Shared._White;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Events;

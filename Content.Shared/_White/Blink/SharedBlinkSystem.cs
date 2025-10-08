@@ -7,7 +7,7 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Shared._White.Standing;
+using Content.Shared._White;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
 using Content.Shared.Popups;

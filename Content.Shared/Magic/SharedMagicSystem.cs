@@ -511,9 +511,6 @@ public abstract class SharedMagicSystem : EntitySystem
         var direction = _transform.ToMapCoordinates(ev.Target).Position -
                         fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
-
-        if (ev.Entity != null) // Goobstation
-            _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
     }
     // End Projectile Spells
     #endregion
@@ -804,8 +801,8 @@ public abstract class SharedMagicSystem : EntitySystem
         _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
         _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
-        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
-        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
+        _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true); // Goob edit
+        _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
 
         // Goobstation start
         return;

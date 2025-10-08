@@ -83,9 +83,9 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if ((setSound || setFireRate) && TryComp(ent, out GunComponent? gun))
         {
             if (setSound)
-                _gun.SetSoundGunshot(gun, index.SoundGunshot);
+                gun.SoundGunshot = index.SoundGunshot;
             if (setFireRate)
-                _gun.SetFireRate(gun, index.FireRate);
+                gun.FireRate = index.FireRate;
 
             _gun.RefreshModifiers((ent.Owner, gun));
         }
@@ -149,7 +149,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
                 return true;
             var oldFireCost = projectileBattery.FireCost;
             projectileBattery.FireCost = proto.FireCost;
-            var fireCostDiff =  proto.FireCost / oldFireCost;
+            var fireCostDiff = proto.FireCost / oldFireCost;
             projectileBattery.Shots = (int) Math.Round(projectileBattery.Shots / fireCostDiff);
             projectileBattery.Capacity = (int) Math.Round(projectileBattery.Capacity / fireCostDiff);
             Dirty(uid, projectileBattery);
