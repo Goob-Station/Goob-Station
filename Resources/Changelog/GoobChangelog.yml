@@ -15892,3 +15892,9 @@ Entries:
       message: Drones will no longer flash themselves when turning on their flashlight.
   id: 1773
   time: '2025-10-08T04:43:29.0000000+00:00'
+- author: gonz0
+  changes:
+    - type: Fix
+      message: Arachnid specific clothing sprites now display correctly.
+  id: 1774
+  time: '2025-10-08T17:17:44.0000000+00:00'
