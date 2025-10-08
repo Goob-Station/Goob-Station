@@ -64,3 +64,19 @@
   position: 1,-2
   technologyPrerequisites:
   - PowerGeneration
+
+
+- type: technology
+  id: BluespaceConstructionStorage
+  name: research-technology-bluespace-construction-storage
+  icon:
+    sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 5000
+  recipeUnlocks:
+  - ConstructionBagOfHolding
+  technologyPrerequisites:
+  - AdvancedToolsTechnology
+  position: 3, -5

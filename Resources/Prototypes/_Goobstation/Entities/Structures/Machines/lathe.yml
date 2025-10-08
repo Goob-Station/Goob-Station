@@ -58,6 +58,7 @@
     - NailgunStatic
     - NailsStatic
     dynamicPacks:
+    - ConstructionBagOfHolding
     - AdvancedTools
     - AtmosTools
     - EngineeringWeapons
@@ -137,6 +138,7 @@
     - ShuttleBoardsGoob
     - BluespaceTheory
     - ScienceClothing
+    - ConstructionBagOfHolding
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
@@ -217,6 +219,7 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
+    - Genetics
     # Einstein Engines Packs
     - Translators
     - TranslatorImplanters
