@@ -113,7 +113,7 @@
 - type: entity
   id: MobWraithPlague
   parent: MobWraith
-  name: Plague Wraith
+  name: Plaguebringer
   description: Template
   components:
   - type: Sprite
@@ -136,7 +136,7 @@
 - type: entity
   id: MobWraithHarbinger
   parent: MobWraith
-  name: Harbinger Wraith
+  name: Harbinger of the Void
   description: Template
   components:
   - type: Sprite
@@ -150,16 +150,16 @@
     softness: 1
     autoRot: true
     castShadows: false
-  #- type: AmbientSound
-  #  range: 10
-  #  volume: -15
-  #  sound:
-  #    path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
 
 - type: entity
   id: MobWraithTrickster
   parent: MobWraith
-  name: Trickster Wraith
+  name: Trickster
   description: Template
   components:
   - type: Sprite

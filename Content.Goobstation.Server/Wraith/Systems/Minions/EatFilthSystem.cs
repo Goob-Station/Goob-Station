@@ -5,6 +5,7 @@ namespace Content.Goobstation.Server.Wraith.Systems;
 public sealed partial class EatFilthSystem : EntitySystem
 {
     [Dependency] private readonly DiseasedRatSystem _diseasedRat = default!;
+    private readonly List<(EntityUid, string)> _pendingEvolutions = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -32,18 +33,34 @@ public sealed partial class EatFilthSystem : EntitySystem
 
         args.Handled = true;
     }
-
     private void CheckEvolution(EntityUid uid, DiseasedRatComponent comp)
     {
-        if (comp.FilthConsumed >= comp.GiantFilthThreshold)
+        if (HasComp<MediumRatComponent>(uid))
         {
-            _diseasedRat.Evolve(uid, "MobPlagueRatGiant");
-            RemCompDeferred<DiseasedRatComponent>(uid);
+            // Medium -> Giant
+            if (comp.FilthConsumed >= comp.GiantFilthThreshold)
+            {
+                _pendingEvolutions.Add((uid, "MobPlagueRatGiant"));
+                RemCompDeferred<DiseasedRatComponent>(uid); //Remove the component since we don't need to handle evolving any longer. Let's hope it doesn't break the eat filth action :clueless:
+            }
         }
-        else if (comp.FilthConsumed >= comp.MediumFilthThreshold)
+        else
         {
-            _diseasedRat.Evolve(uid, "MobPlagueRatMedium");
+            // Small -> Medium
+            if (comp.FilthConsumed >= comp.MediumFilthThreshold)
+                _pendingEvolutions.Add((uid, "MobPlagueRatMedium"));
         }
+    }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        foreach (var (uid, proto) in _pendingEvolutions)
+        {
+            _diseasedRat.Evolve(uid, proto);
+        }
+
+        _pendingEvolutions.Clear();
     }
 
 }

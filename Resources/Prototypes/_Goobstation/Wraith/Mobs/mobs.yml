@@ -283,6 +283,10 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: TileMovement
 
 - type: entity
   id: MobMonstrosityBody
@@ -357,6 +361,10 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: TileMovement
 
 - type: entity
   name: lion
@@ -898,14 +906,14 @@
   name: plague rat
   description: A diseased looking rat.
   components:
-  #- type: DiseasedRat
-  #- type: EatFilth
+  - type: DiseasedRat
+  - type: EatFilth
   - type: RatBite
     reagents:
       Toxin: 8 # Swap for rat spit once virology is added
   - type: ActionGrant
     actions:
-  # - ActionEatFilth
+    - ActionEatFilth
     - ActionRatBite
   - type: EmitSoundOnSpawn
     sound:
@@ -987,6 +995,7 @@
   name: plague-ridden rat
   description: A wretched, disgusting rat.
   components:
+  - type: MediumRat
   - type: SummonRatDen
   - type: ActionGrant
     actions:

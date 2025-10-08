@@ -41,11 +41,11 @@
   - type: CurseOfDeath
   - type: Defile
     reagents:
-      BuzzochloricBees: 5
-      Bleach: 2
-      Ash: 3
-      Vomit: 4
-      Toxin: 1
+      BuzzochloricBees: 10
+      Bleach: 10
+      Ash: 10
+      Vomit: 10
+      Toxin: 10
   - type: SummonPlagueRat
   - type: SummonRotHulk
   - type: WraithCommand

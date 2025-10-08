@@ -7,7 +7,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
-    # useDelay: 60
+      useDelay: 60
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: rally
@@ -22,7 +22,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
-    # useDelay: 30
+      useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: skeleton
@@ -36,7 +36,7 @@
   description: Launch a tentacle at your target and drag it to you
   components:
   - type: Action
-    # useDelay: 30
+    useDelay: 30
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
     itemIconStyle: BigAction
@@ -58,7 +58,7 @@
   description: Squish yourself down to cancel stuns, squeeze through doors and escape assailants.
   components:
   - type: Action
-    # useDelay: 50
+    useDelay: 50
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: shuffle
@@ -71,7 +71,7 @@
   description: Go into a bloody frenzy on a target and rip them to shreds.
   components:
   - type: Action
-    # useDelay: 50
+    useDelay: 50
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
@@ -90,7 +90,7 @@
   description: Leap forward and knock down those in your way.
   components:
   - type: Action
-    # useDelay: 40
+    useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: pounce
@@ -103,7 +103,7 @@
   description: Slip into the void and make yourself hard to discern for a short time.
   components:
   - type: Action
-    # useDelay: 40
+    useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: cloak
@@ -162,7 +162,7 @@
   description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
   components:
   - type: Action
-    # useDelay: 40
+    useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: ratden
@@ -175,7 +175,7 @@
   description: Slam into something. Emits a powerful shockwave on collision.
   components:
   - type: Action
-    # useDelay: 40
+    useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: ratrush
