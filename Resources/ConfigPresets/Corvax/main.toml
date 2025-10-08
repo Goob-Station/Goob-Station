@@ -4,7 +4,7 @@ desc = "Corvax — первый русскоязычный проект в Space
 maxplayers = 180
 soft_max_players = 100
 map_rotation = true
-peaceful_end = false
+# peaceful_end = false
 
 [server]
 rules_file = "CorvaxLRPRuleset"
