@@ -10,9 +10,13 @@ public sealed partial class BookPrinterComponent : Component
     [DataField]
     public SoundSpecifier? PrintSound;
 
+    /// <summary>
+    /// Whether book deleting is allowed
+    /// </summary>
     [DataField]
     public bool AllowDeleting = false;
 
+    // printing data down
     public BookData? PrintingBook;
     public bool IsPrinting = false;
     public TimeSpan PrintEnd = TimeSpan.Zero;

@@ -9,12 +9,21 @@ public sealed partial class BookBindingLayerPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
+    /// <summary>
+    /// Main RSI path for layer
+    /// </summary>
     [DataField(required: true)]
     public ResPath RsiPath = new();
 
+    /// <summary>
+    /// Allowed selectable states
+    /// </summary>
     [DataField(required: true)]
     public List<string> AllowedStates = new();
 
+    /// <summary>
+    /// Target layer map
+    /// </summary>
     [DataField(required: true)]
     public string Layer = "";
 

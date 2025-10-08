@@ -11,8 +11,14 @@ public sealed partial class BookBinderComponent : Component
     [DataField]
     public SoundSpecifier? BookCreatedSound;
 
+    /// <summary>
+    /// Container where all paper is contained
+    /// </summary>
     public Container PaperContainer = default!;
 
+    /// <summary>
+    /// for animation purposes
+    /// </summary>
     public TimeSpan InsertingEnd = TimeSpan.Zero;
 }
 

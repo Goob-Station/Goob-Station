@@ -69,6 +69,10 @@ public abstract partial class SharedCustomBooksSystem : EntitySystem
         Container.Insert(args.Used, ent.Comp.PaperContainer);
     }
 
+    /// <summary>
+    /// Applies appearance and UI state based on comp data
+    /// </summary>
+    /// <param name="ent">Book</param>
     protected void RegenerateBook(Entity<CustomBookComponent> ent)
     {
         if (ent.Comp.Binding != null)

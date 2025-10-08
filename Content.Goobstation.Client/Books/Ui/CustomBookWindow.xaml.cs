@@ -22,6 +22,7 @@ public sealed partial class CustomBookWindow : BaseWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
+        // Should actually be in xaml but eh
         LeftPaperBackground.PanelOverride = new StyleBoxTexture
         {
             Texture = _resCache.GetResource<TextureResource>("/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"),
@@ -60,10 +61,7 @@ public sealed partial class CustomBookWindow : BaseWindow
     }
 
     /// <summary>
-    ///     BaseWindow interface. Allow users to drag UI around by grabbing
-    ///     anywhere on the page (like FancyWindow) but try to calculate
-    ///     reasonable dragging bounds because this UI can have round corners,
-    ///     and it can be hard to judge where to click to resize.
+    /// Allow dragging but not resizing(buggy)
     /// </summary>
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
     {

@@ -5,6 +5,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Books.Ui;
 
+/// <summary>
+/// Stores page text with a little visuals created in xaml
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class BookBinderPageEntry : Control
 {

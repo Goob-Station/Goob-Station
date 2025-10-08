@@ -24,7 +24,7 @@
 - type: entity
   name: book
   parent: BaseItem
-  id: TestCustomBook
+  id: CustomBookTemplate
   description: A hardcover book.
   components:
    # Goobstation edit start

@@ -8,8 +8,6 @@ namespace Content.Goobstation.Client.Books.Ui;
 [UsedImplicitly]
 public sealed class BookScannerBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     [ViewVariables]
     private BookScannerWindow? _menu;
 

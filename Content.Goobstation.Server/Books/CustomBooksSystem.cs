@@ -62,7 +62,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         _audio.PlayPvs(ent.Comp.BookCreatedSound, ent.Owner);
         UpdateBinderUi(ent);
 
-        var book = Spawn("TestCustomBook", Transform(ent.Owner).Coordinates);
+        var book = Spawn("CustomBookTemplate", Transform(ent.Owner).Coordinates);
         var comp = EnsureComp<CustomBookComponent>(book);
 
         comp.Author = args.AuthorName;
@@ -155,7 +155,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         ent.Comp.PrintEnd = TimeSpan.Zero;
     }
 
-    private async void OnBookApprove(ApproveBookMessage args)
+    private void OnBookApprove(ApproveBookMessage args)
     {
         if (!_pendingBooks.TryGetValue(args.Book, out var book))
             return;
@@ -183,7 +183,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             if (comp.ScanEndTime > _timing.CurTime)
                 continue;
 
-            SaveBook((comp.Book.Value, bookComp));
+            AddPendingBook((comp.Book.Value, bookComp));
             comp.IsScanning = false;
             comp.ScanEndTime = TimeSpan.Zero;
             comp.NextScan = _timing.CurTime + TimeSpan.FromMinutes(15);
@@ -208,7 +208,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
             _ambient.SetAmbience(uid, false);
             Appearance.SetData(uid, BookPrinterVisuals.Printing, false);
 
-            var book = Spawn("TestCustomBook", Transform(uid).Coordinates);
+            var book = Spawn("CustomBookTemplate", Transform(uid).Coordinates);
             var bookComp = EnsureComp<CustomBookComponent>(book);
 
             bookComp.Author = comp.PrintingBook.Author;
@@ -224,7 +224,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
         }
     }
 
-    private void SaveBook(Entity<CustomBookComponent> ent)
+    private void AddPendingBook(Entity<CustomBookComponent> ent)
     {
         if (ent.Comp.Binding == null)
             return;

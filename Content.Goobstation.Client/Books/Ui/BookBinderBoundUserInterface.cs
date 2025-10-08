@@ -1,15 +1,12 @@
 using Content.Goobstation.Shared.Books;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Books.Ui;
 
 [UsedImplicitly]
 public sealed class BookBinderBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     [ViewVariables]
     private BookBinderWindow? _menu;
 
@@ -31,8 +28,13 @@ public sealed class BookBinderBoundUserInterface : BoundUserInterface
         {
             SendMessage(new CreateBookMessage(title, genre, author, pages, desc, binding));
         };
+
+        _menu.EjectPressed += args => SendMessage(new EjectBinderPageMessage(args));
+
         _menu.CustomizeBookPressed += args =>
         {
+            // Ensure mini menu with binding layers customization
+
             if (_customMenu != null)
                 return;
 

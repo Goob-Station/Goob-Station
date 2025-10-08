@@ -1,11 +1,5 @@
-using System.Linq;
 using Content.Goobstation.Server.Books;
-using Content.Server.GameTicking;
 using Content.Shared.Administration;
-using Content.Shared.Ghost;
-using Content.Shared.Mind;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 
@@ -15,7 +9,6 @@ namespace Content.Server.Administration.Commands;
 public sealed class PendingBooksCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public override string Command => "pending_books";
     public override string Help => "Show the list of pending books awaiting approval";

@@ -2,6 +2,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Books;
 
+/// <summary>
+/// Opens pending books list
+/// </summary>
 [Serializable, NetSerializable]
 public sealed class OpenPendingBooksListMessage : EntityEventArgs
 {

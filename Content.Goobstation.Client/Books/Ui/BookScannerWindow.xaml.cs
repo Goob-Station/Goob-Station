@@ -20,24 +20,20 @@ public sealed partial class BookScannerWindow : FancyWindow
     public void Populate(string author, string genre, string title, string desc, bool cooldown)
     {
         StartScanningButton.Disabled = cooldown || author == "" || genre == "" || title == "";
-        if (author != "")
+
+        if (author != "" && genre != "" && title != "" && desc != "")
+        {
             AuthorNameLabel.SetMarkup($"[font=Default size=18]Book author: {author}[/font]");
-        else
-            AuthorNameLabel.SetMessage(Loc.GetString("book-scanner-no-author"));
-
-        if (genre != "")
             GenreLabel.SetMarkup($"[font=Default size=18]Book genre: {genre}[/font]");
-        else
-            GenreLabel.SetMessage(Loc.GetString("book-scanner-no-genre"));
-
-        if (title != "")
             TitleLabel.SetMarkup($"[font=Default size=18]Book title: {title}[/font]");
-        else
-            TitleLabel.SetMessage(Loc.GetString("book-scanner-no-title"));
-
-        if (desc != "")
             DescLabel.SetMarkup($"[font=Default size=18]{desc}[/font]");
+        }
         else
+        {
+            AuthorNameLabel.SetMessage(Loc.GetString("book-scanner-no-author"));
+            GenreLabel.SetMessage(Loc.GetString("book-scanner-no-genre"));
+            TitleLabel.SetMessage(Loc.GetString("book-scanner-no-title"));
             DescLabel.SetMessage(Loc.GetString("book-scanner-no-desc"));
+        }
     }
 }

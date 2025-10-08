@@ -1,15 +1,12 @@
 using Content.Goobstation.Shared.Books;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Books.Ui;
 
 [UsedImplicitly]
 public sealed class CustomBookBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     [ViewVariables]
     private CustomBookWindow? _menu;
 

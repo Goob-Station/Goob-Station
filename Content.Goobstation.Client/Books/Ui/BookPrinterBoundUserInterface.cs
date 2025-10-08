@@ -1,15 +1,12 @@
 using Content.Goobstation.Shared.Books;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Books.Ui;
 
 [UsedImplicitly]
 public sealed class BookPrinterBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
     [ViewVariables]
     private BookPrinterMenu? _menu;
 
@@ -29,6 +26,7 @@ public sealed class BookPrinterBoundUserInterface : BoundUserInterface
                 SendMessage(new PrintBookMessage(_menu.SelectedBook));
         };
 
+        // Should not be accessed by players and i dont want to make ANOTHER ui
         _menu.DeleteBook += () =>
         {
             if (_menu.Selected != -1)
