@@ -4914,3 +4914,10 @@
   id: 9055
   time: '2025-10-08T15:23:02.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37920
+- author: Hitlinemoss
+  changes:
+  - message: Folders and clipboards are now available in the Trinkets loadout tab.
+    type: Add
+  id: 9056
+  time: '2025-10-08T15:49:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39920
