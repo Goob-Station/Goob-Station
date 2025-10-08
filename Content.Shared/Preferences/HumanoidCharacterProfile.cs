@@ -68,6 +68,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Medical.SuitSensor;
 
 namespace Content.Shared.Preferences
 {
@@ -114,6 +115,11 @@ namespace Content.Shared.Preferences
 
         [DataField]
         public string Name { get; set; } = "John Doe";
+
+        //MIT
+        [DataField]
+        public SuitSensorMode DefaultSuitSensorMode { get; set; } = SuitSensorMode.SensorCords;
+        //End MIT
 
         /// <summary>
         /// Detailed text that can appear for the character if <see cref="CCVars.FlavorText"/> is enabled.
@@ -197,6 +203,7 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
+            SuitSensorMode defaultSuitSensorMode, //MIT
             Dictionary<string, RoleLoadout> loadouts)
 
         {
@@ -215,6 +222,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            DefaultSuitSensorMode = SuitSensorMode.SensorCords; //MIT; TODO: Make this actually settable
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -247,6 +255,7 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
+                other.DefaultSuitSensorMode, //MIT
                 new Dictionary<string, RoleLoadout>(other.Loadouts))
         {
         }
