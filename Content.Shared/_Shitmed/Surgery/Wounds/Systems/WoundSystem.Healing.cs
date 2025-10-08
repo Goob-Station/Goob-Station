@@ -1,28 +1,64 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.CPUJob.JobQueues;
-using Robust.Shared.CPUJob.JobQueues.Queues;
-using Robust.Shared.Timing;
-using Robust.Shared.Threading;
+using Content.Shared._Shitmed.Medical.Surgery.Pain;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared.Body.Part;
+using Content.Goobstation.Maths.FixedPoint;
+using YamlDotNet.Core.Tokens;
+
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
+/// <summary>
+/// This class is responsible for managing wound healing in the shared game code.
+/// It contains methods for updating the pain state after wounds are healed,
+/// and for halting all bleeding on a given entity.
+/// </summary>
 public partial class WoundSystem
 {
+    [Dependency] private readonly PainSystem _pain = default!;
+
+    // Updates pain state after wounds are healed and starts pain decay
+    /// <param name="woundable">The entity on which to update the pain state</param>
+    private void UpdatePainAfterHealing(EntityUid woundable)
+    {
+        // Check if the entity has a BodyPartComponent and if it is part of a body.
+        if (!TryComp<BodyPartComponent>(woundable, out var bodyPart) || !bodyPart.Body.HasValue)
+            return;
+
+        // Get the body entity.
+        var body = bodyPart.Body.Value;
+
+        // Check if the body has a NerveSystemComponent.
+        if (!TryComp<NerveSystemComponent>(body, out var nerveSystem))
+            return;
+
+        // Start pain decay if there's still pain after healing
+        if (nerveSystem.Pain > FixedPoint2.Zero)
+        {
+            // Calculate decay duration based on current pain level - 12 seconds per pain point
+            // 50 pain * 12 seconds per pain point = 600 seconds = 10 minutes
+            var decayDuration = TimeSpan.FromSeconds(nerveSystem.Pain.Float() * 12);
+
+            // Start the pain decay process
+            _pain.StartPainDecay(body, nerveSystem.Pain, decayDuration, nerveSystem);
+        }
+    }
+
     #region Public API
 
     public bool TryHaltAllBleeding(EntityUid woundable, WoundableComponent? component = null, bool force = false)
@@ -171,6 +207,12 @@ public partial class WoundSystem
 
         UpdateWoundableIntegrity(woundable, component);
         CheckWoundableSeverityThresholds(woundable, component);
+
+        // Update pain state after healing wounds if any wounds were healed
+        if (woundsToHeal.Count > 0)
+        {
+            UpdatePainAfterHealing(woundable);
+        }
     }
 
     public bool TryHealWoundsOnWoundable(EntityUid woundable,
@@ -261,11 +303,11 @@ public partial class WoundSystem
 
     public bool TryHealWoundsOnWoundable(EntityUid woundable,
         DamageSpecifier damage,
-        out FixedPoint2 healed,
+        out Dictionary<string, FixedPoint2> healed,
         WoundableComponent? component = null,
         bool ignoreMultipliers = false)
     {
-        healed = 0;
+        healed = [];
         if (!Resolve(woundable, ref component, false))
             return false;
 
@@ -273,12 +315,12 @@ public partial class WoundSystem
         {
             if (TryHealWoundsOnWoundable(woundable, -value, key, out var tempHealed, component, ignoreMultipliers))
             {
-                healed += tempHealed;
+                healed.Add(key, tempHealed);
                 continue;
             }
         }
 
-        return healed > 0;
+        return healed.Any();
     }
 
     public bool TryGetWoundableWithMostDamage(
@@ -325,9 +367,9 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
+                .Any(wound => wound.Comp.DamageGroup == damageGroup);
 
-        return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
+        return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup == damageGroup);
     }
 
     public FixedPoint2 ApplyHealingRateMultipliers(EntityUid wound,
@@ -390,6 +432,88 @@ public partial class WoundSystem
         RaiseLocalEvent(wound, ref ev1);
 
         return !ev1.Cancelled;
+    }
+
+    /// <summary>
+    /// Method to get all wounds of some entity
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="wounds"></param>
+    /// <returns></returns>
+    public bool TryGetAllOwnerWounds(EntityUid target, [NotNullWhen(true)] out List<Entity<WoundComponent>> wounds)
+    {
+        wounds = [];
+
+        if (!_body.TryGetRootPart(target, out var body))
+            return false;
+
+        wounds = GetAllWounds(body.Value.Owner).ToList();
+
+        return wounds.Any();
+    }
+
+    /// <summary>
+    /// Method to get all wounded parts of entity
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="woundables"></param>
+    /// <returns></returns>
+    public bool TryGetAllOwnerWoundedParts(EntityUid target, [NotNullWhen(true)] out List<Entity<WoundableComponent>> woundables)
+    {
+        woundables = [];
+
+        foreach (var bodyPart in _body.GetBodyChildren(target))
+        {
+            if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundableComp) || !woundableComp.Wounds.ContainedEntities.Any())
+                continue;
+
+            woundables.Add((bodyPart.Id, woundableComp));
+        }
+
+        return woundables.Any();
+    }
+
+    /// <summary>
+    /// Method to heal all wounds on entity by specific healing amount.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="healing"></param>
+    /// <param name="ignoreBlockers"></param>
+    /// <returns></returns>
+    public bool TryHealWoundsOnOwner(EntityUid target, DamageSpecifier healing, bool ignoreBlockers = false)
+    {
+        var healedWounds = 0;
+
+        if (!TryGetAllOwnerWoundedParts(target, out var woundables) || !TryGetAllOwnerWounds(target, out var wounds))
+            return false;
+
+        DamageSpecifier healingPerPart = new DamageSpecifier(healing);
+        healingPerPart.DamageDict.Clear();
+
+        var woundCountByType = wounds
+            .GroupBy(w => w.Comp.DamageType)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+
+        foreach (var healingType in healing.DamageDict)
+        {
+            var splitAmount = woundCountByType.GetValueOrDefault(healingType.Key, 0);
+
+            // If we don't have wounds with our damage type just set it to heal value
+            var splittedDamage = splitAmount != 0 ? healingType.Value / splitAmount : healingType.Value;
+
+            healingPerPart.DamageDict.Add(healingType.Key, splittedDamage);
+        }
+
+        foreach (var woundable in woundables)
+        {
+            if (!TryHealWoundsOnWoundable(woundable.Owner, healingPerPart, out var healed, woundable.Comp))
+                continue;
+
+            healedWounds++;
+        }
+
+        return healedWounds > 0;
     }
 
     #endregion

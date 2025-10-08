@@ -163,6 +163,14 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+    hands:
+      hand_right:
+        location: Right
+      hand_left:
+        location: Left
+    sortedHands:
+    - hand_right
+    - hand_left
   - type: ComplexInteraction
   - type: Puller
     needsHands: false
@@ -265,6 +273,8 @@
     baseSprintSpeed: 30
     baseWalkSpeed: 12
   # Corvax-Goob-end
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   abstract: true

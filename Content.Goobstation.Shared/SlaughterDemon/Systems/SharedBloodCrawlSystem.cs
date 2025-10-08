@@ -5,6 +5,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SlaughterDemon.Systems;
@@ -22,6 +23,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<ActionsComponent> _actionQuery;
     private EntityQuery<PuddleComponent> _puddleQuery;
@@ -48,14 +50,15 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
     private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
     {
-        if (!IsStandingOnBlood(uid))
+        if (!IsStandingOnBlood((uid, component)))
         {
-            _popup.PopupEntity(Loc.GetString("slaughter-blood-jaunt-fail"), uid);
+            _popup.PopupPredicted(Loc.GetString("slaughter-blood-jaunt-fail"), uid, uid);
             _actions.SetCooldown(args.Action.Owner, component.ActionCooldown);
             return;
         }
 
         component.IsCrawling = !component.IsCrawling;
+        Dirty(uid, component);
 
         if (!CheckAlreadyCrawling((uid, component)))
             return;
@@ -66,7 +69,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         if (evAttempt.Cancelled)
             return;
 
-        _audio.PlayPvs(component.EnterJauntSound, Transform(uid).Coordinates);
+        _audio.PlayPredicted(component.EnterJauntSound, Transform(uid).Coordinates, uid);
 
         PolymorphDemon(uid, component.Jaunt);
 
@@ -78,11 +81,8 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
     /// <summary>
     /// Detects if an entity is standing on blood, or not.
     /// </summary>
-    public bool IsStandingOnBlood(Entity<BloodCrawlComponent?> ent)
+    public bool IsStandingOnBlood(Entity<BloodCrawlComponent> ent)
     {
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return false;
-
         var ents = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange);
         foreach (var entity in ents)
         {

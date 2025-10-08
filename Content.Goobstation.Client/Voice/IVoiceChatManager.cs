@@ -10,7 +10,7 @@
 /// <summary>
 /// Interface for the voice chat manager.
 /// </summary>
-public interface IVoiceChatManager : IDisposable
+public interface IVoiceChatManager
 {
     /// <summary>
     /// Adds a packet of PCM audio data to the playback queue for a specific entity.
@@ -36,5 +36,7 @@ public interface IVoiceChatManager : IDisposable
 
     void Initalize();
     void Update();
+
+    void Shutdown();
 }
 */

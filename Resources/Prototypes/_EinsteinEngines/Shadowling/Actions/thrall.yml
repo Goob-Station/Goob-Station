@@ -1,0 +1,17 @@
+# Basic
+
+- type: entity
+  parent: BaseAction
+  id: ActionGuise
+  name: Guise
+  description: Become invisible in the darkness.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 120
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: shadow_walk
+  - type: InstantAction
+    event: !type:GuiseEvent { }

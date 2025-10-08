@@ -9,6 +9,9 @@
   description: You can't figure out what that is.
   parent: [ Incorporeal, BaseMob ]
   components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/flesh_core.rsi
+    state: core
   - type: MovementSpeedModifier
     baseSprintSpeed: 12
     baseWalkSpeed: 8
@@ -36,3 +39,6 @@
   - type: ActionGrant
     actions:
     - DemonicWhisperAction
+  - type: Muted # 古布空间站 - ARMOK 1984
+  - type: IsDeadIC
+    dead: false

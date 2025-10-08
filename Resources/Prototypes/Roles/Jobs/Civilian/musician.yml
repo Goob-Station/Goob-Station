@@ -89,6 +89,6 @@
   equipment:
     head: ClothingHeadHatTophat
     mask: ClothingMaskBreath
-    neck: ClothingNeckHeadphones
+    neck: ClothingMultipleHeadphones
     outerClothing: ClothingOuterWinterMusician
     gloves: ClothingHandsGlovesColorBlack

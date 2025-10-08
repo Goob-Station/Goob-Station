@@ -95,11 +95,14 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: TypingIndicator # Goob
+  # <Goobstation>
+  - type: FlashVulnerable
+  - type: TypingIndicator
     proto: robot
-  - type: Speech # Goob
+  - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  # </Goobstation>
 
 - type: entity
   name: drone
@@ -182,13 +185,14 @@
     thresholds:
       0: Alive
       60: Dead
-  - type: Flash
+  #- type: Flash # Goobstation - Remove drone flashing.
   - type: NoSlip
   - type: StatusEffects
     allowed:
     - Stun
     - KnockedDown
     - SlowedDown
+    - Flashed # Goobstation - counter to shitter drones
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7

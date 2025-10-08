@@ -80,3 +80,19 @@
   position: -5,0 # CorvaxGoob-MutableLaws
   technologyPrerequisites:
   - AdvancedRobotics # CorvaxGoob-MutableLaws
+  - AdvancedAnomalyResearch
+
+- type: technology
+  id: XenoBiology # :trollface:
+  name: research-technology-xeno-biology
+  icon:
+    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    state: xenomorph
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - XenoCompatibilityImplanter
+  position: -5,0
+  technologyPrerequisites:
+  - ExperimentalScience
