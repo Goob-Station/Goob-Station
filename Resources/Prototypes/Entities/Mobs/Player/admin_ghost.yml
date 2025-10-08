@@ -283,6 +283,11 @@
   name: Solar Control Interface
   description: View a Solar Control Interface.
   components:
+    # Corvax-Goob-Resprite-start
+  - type: Action
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: solar }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: solar }
+    # Corvax-Goob-Resprite-end
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.SolarControlConsoleUiKey.Key }
 
@@ -293,8 +298,10 @@
   description: View a Communications Interface.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
-    iconOn: Interface/Actions/actions_ai.rsi/comms_console.png
+    # Corvax-Goob-Resprite-start
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: comms_console }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: comms_console }
+    # Corvax-Goob-Resprite-end
     keywords: [ "AI", "console", "interface" ]
     priority: -4
   - type: InstantAction
@@ -307,8 +314,10 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    # Corvax-Goob-Resprite-start
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: mass_scanner }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: mass_scanner }
+    # Corvax-Goob-Resprite-end
     keywords: [ "AI", "console", "interface" ]
     priority: -6
   - type: InstantAction
@@ -320,6 +329,11 @@
   name: Cargo Ordering Interface
   description: View a Cargo Ordering Interface.
   components:
+    # Corvax-Goob-Resprite-start
+  - type: Action
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: cargo }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: cargo }
+    # Corvax-Goob-Resprite-end
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.CargoConsoleUiKey.Orders }
 
@@ -330,8 +344,10 @@
   description: View a Crew Monitoring Interface.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
-    iconOn: Interface/Actions/actions_ai.rsi/crew_monitor.png
+    # Corvax-Goob-Resprite-start
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: crew_monitor }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: crew_monitor }
+    # Corvax-Goob-Resprite-end
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction
@@ -344,8 +360,10 @@
   description: View a Station Records Interface.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
-    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
+    # Corvax-Goob-Resprite-start
+    icon: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: station_records }
+    iconOn: { sprite: _CorvaxGoob/Interface/adminactions.rsi, state: station_records }
+    # Corvax-Goob-Resprite-end
     keywords: [ "AI", "console", "interface" ]
     priority: -7
   - type: InstantAction
