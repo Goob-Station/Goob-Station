@@ -3,7 +3,22 @@
   name: rat den
   description: A pile of garbage vaguely ressembling a nest.
   components:
-  - type: RatDen
+  - type: DamageNearby
+    whitelist:
+      components:
+      - WraithMinion
+    damage:
+      groups:
+        Brute: -10
+        Burn: -10
+        Airloss: -10
+        Toxin: -10
+        Genetic: -10
+  - type: TimedSpawner
+    prototypes:
+    - MobMadRat
+    intervalSeconds: 30
+    maximumEntitiesSpawned: 2
   - type: Transform
     anchored: True
   - type: InteractionOutline

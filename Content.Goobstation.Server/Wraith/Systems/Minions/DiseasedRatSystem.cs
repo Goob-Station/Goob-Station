@@ -1,37 +1,37 @@
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
-using Content.Server.Mind;
-using Robust.Server.GameObjects;
+using Content.Goobstation.Shared.Wraith.Minions.Plaguebinger;
+using Content.Server.Polymorph.Systems;
+using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Wraith.Systems;
+namespace Content.Goobstation.Server.Wraith.Systems.Minions;
 
-/// <summary>
-/// This handles the system for the diseased rat evolving into its bigger stages.
-/// </summary>
-public sealed class DiseasedRatSystem : EntitySystem
+public sealed class DiseasedRatSystem : SharedDiseasedRatSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
-    public void Evolve(EntityUid uid, string newProto)
+    protected override void Evolve(EntityUid uid, ProtoId<DiseasedRatFormUnlockPrototype> newProto)
     {
-        if (!_proto.TryIndex(newProto, out _))
+        base.Evolve(uid, newProto);
+
+        if (!_proto.TryIndex(newProto, out var index)
+            || index.Entity == null
+            || index.TransferComponents == null)
             return;
 
-        if (!_mind.TryGetMind(uid, out var mindUid, out var mind))
-            return;
+        var poly = new PolymorphConfiguration
+        {
+            Entity = index.Entity,
+            TransferName = true,
+            TransferDamage = true,
+            Forced = true,
+            RevertOnCrit = false,
+            RevertOnDeath = false,
+            ComponentsToTransfer = index.TransferComponents,
+            AllowRepeatedMorphs = true,
+        };
 
-        var coords = _transformSystem.GetMoverCoordinates(uid);
-        var newForm = Spawn(newProto, coords);
-
-        // Transfer player control if it had one
-        _mind.TransferTo(mindUid, newForm, mind: mind);
-        _mind.UnVisit(mindUid, mind);
-
-        // Copy over remaining components
-        EntityManager.CopyComponents(uid, newForm);
-
-        QueueDel(uid);
+        _polymorph.PolymorphEntity(uid, poly);
     }
 }

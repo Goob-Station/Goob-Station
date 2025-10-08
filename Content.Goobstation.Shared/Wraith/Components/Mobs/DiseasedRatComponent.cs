@@ -1,25 +1,29 @@
+using Content.Shared.Polymorph;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components.Mobs;
 
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class DiseasedRatComponent : Component
 {
-    /// <summary>
-    /// Used to keep track of how much trash the rat has eaten.
-    /// </summary>
-    [DataField]
-    public int FilthConsumed;
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<DiseasedRatFormUnlockPrototype>> DiseasedRatForms = new();
+}
 
-    /// <summary>
-    /// Once the FilthConsumed reaches this number, the young rat will evolve.
-    /// </summary>
-    [DataField]
-    public int MediumFilthThreshold = 4;
+[Prototype]
+public sealed class DiseasedRatFormUnlockPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; } = default!;
 
-    /// <summary>
-    /// Once the FilthConsumed reaches this number, the medium rat will evolve.
-    /// </summary>
     [DataField]
-    public int GiantFilthThreshold = 8;
+    public int FilthRequired;
+
+    [DataField(serverOnly: true)]
+    public EntProtoId? Entity;
+
+    [DataField(serverOnly: true)]
+    public HashSet<ComponentTransferData>? TransferComponents = new();
 }

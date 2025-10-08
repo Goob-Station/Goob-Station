@@ -166,8 +166,14 @@
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: ratden
-  - type: InstantAction
-    event: !type:SummonRatDenEvent
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: RatDen
+        amount: 1
+      offset: 0, 1
 
 - type: entity
   id: ActionRatSlam
