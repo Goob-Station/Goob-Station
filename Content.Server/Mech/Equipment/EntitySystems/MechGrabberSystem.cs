@@ -218,7 +218,8 @@ public sealed class MechGrabberSystem : EntitySystem
 
         if (TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static ||
             HasComp<WallMountComponent>(target) ||
-            HasComp<MobStateComponent>(target))
+            HasComp<MobStateComponent>(target) ||
+            HasComp<MechComponent>(target)) // Goobstation, mechs cant pick up mechs
         {
             return;
         }
