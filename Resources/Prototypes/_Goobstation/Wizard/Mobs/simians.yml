@@ -63,6 +63,7 @@
   - type: Respirator
     suffocationThreshold: -5
   - type: StepTriggerImmune
+  - type: NoSlip
   - type: Sprinter
     staminaDrainRate: 8
   - type: Puller
