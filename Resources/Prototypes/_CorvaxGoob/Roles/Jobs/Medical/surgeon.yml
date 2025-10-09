@@ -35,3 +35,18 @@
     id: SurgeonPDA
     mask: ClothingMaskSterile
     gloves: ClothingHandsGlovesNitrile
+
+- type: chameleonOutfit
+  id: SurgeonChameleonOutfit
+  job: Surgeon
+  equipment:
+    head: ClothingHeadHatBeretMedic
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskBreath
+    ears: ClothingHeadsetMedical
+    outerClothing: ClothingOuterCoatLab
+    gloves: ClothingHandsGlovesNitrile
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    id: SurgeonPDA
+    back: ClothingBackpackMedical
+    shoes: ClothingShoesColorWhite

@@ -45,3 +45,20 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: PilotChameleonOutfit
+  job: Pilot
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+    eyes: ClothingEyesGlassesSecurity
+    mask: ClothingMaskGasSecurity
+    neck: Dinkystar
+    gloves: ClothingHandsGlovesColorBlack
+    ears: ClothingHeadsetSecurity
+    outerClothing: ClothingOuterArmorBasic
+    jumpsuit: ClothingUniformSecurityTrooper
+    id: PilotPDA
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack

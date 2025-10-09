@@ -33,6 +33,8 @@
           SheetSteel:
             min: 5
             max: 5
+  - type: StaticPrice
+    price: 120
 
 - type: entity
   parent: PrisonToiletEmpty

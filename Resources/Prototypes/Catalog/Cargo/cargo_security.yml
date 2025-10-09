@@ -81,7 +81,7 @@
     sprite: Clothing/Head/Hoods/Bio/security.rsi
     state: icon
   product: CrateSecurityBiosuit
-  cost: 1100 # goob - cargo order arbitrage
+  cost: 1105 # goob - cargo order arbitrage // CorvaxGoob-test-fix //1100
   category: cargoproduct-category-name-security
   group: market
 
