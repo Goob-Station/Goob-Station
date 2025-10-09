@@ -208,7 +208,8 @@ public abstract class SharedLatheSystem : EntitySystem
     public string GetRecipeName(LatheRecipePrototype proto)
     {
         if (!string.IsNullOrWhiteSpace(proto.Name))
-            return Loc.GetString(proto.Name);
+            return Loc.GetString(proto.Name) + (string.IsNullOrEmpty(proto.SubName) ? string.Empty : " (" + Loc.GetString(proto.SubName) + ")"); // Goobstation - Recipes subnames
+
 
         if (proto.Result is {} result)
         {
