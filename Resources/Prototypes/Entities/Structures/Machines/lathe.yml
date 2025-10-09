@@ -446,6 +446,7 @@
     emagStaticPacks:
     - SecurityWeaponsStatic
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
     # Goobstation
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticGoob
@@ -790,10 +791,11 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
+  - type: EmagLatheRecipes
     emagStaticPacks:
-    - SyndicateAmmoLightStatic
-    - SyndicateAmmoHeavyStatic
+    - SyndicateAmmoStatic
+    - SyndicateAmmoLightStatic # Goobstation
+    - SyndicateAmmoHeavyStatic # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -827,12 +829,12 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
-    - type: EmagLatheRecipes # Goobstation Packs
+      - SecurityAmmoStaticGoob # Gooob
+    - type: EmagLatheRecipes
       emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
+      - SyndicateAmmoStatic
+      - SyndicateAmmoLightStatic # Goobstation Packs
+      - SyndicateAmmoHeavyStatic # Goobstation Packs
     - type: MaterialStorage
       whitelist:
         tags:
