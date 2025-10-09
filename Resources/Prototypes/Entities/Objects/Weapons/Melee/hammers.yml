@@ -44,6 +44,7 @@
   components:
   - type: Wieldable
     useDelayOnWield: false # GoobStation Edit
+  - type: MeleeRequiresWield # Goobstation
   - type: LandAtCursor
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
@@ -57,6 +58,7 @@
     stunTime: 3
     activateOnThrown: true
   - type: MeleeWeapon
+    attackRate: 0.75 # Goobstation
     wideAnimationRotation: -135
     damage:
       types:
@@ -107,6 +109,7 @@
   #   delay: 5
   # - type: UseDelayOnMeleeHit
   - type: MeleeWeapon
+    attackRate: 0.75 # Goobstation
     wideAnimationRotation: -135
     damage:
       types:
@@ -119,7 +122,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 20 # Goob edit
+        Blunt: 25 # Goob edit
         Structural: 35 # Goob edit
   - type: Item
     size: Ginormous

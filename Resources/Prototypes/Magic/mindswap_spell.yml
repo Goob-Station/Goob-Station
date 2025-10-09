@@ -21,7 +21,6 @@
   - type: EntityTargetAction
     # Goob edit start
     canTargetSelf: false
-    interactOnMiss: false
     whitelist:
       requireAll: true
       components:

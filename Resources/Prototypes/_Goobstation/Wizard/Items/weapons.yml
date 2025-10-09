@@ -86,6 +86,9 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: AmmoCounter
   - type: EnchantedBoltActionRifle
+  - type: Wieldable
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: supermatter halberd
