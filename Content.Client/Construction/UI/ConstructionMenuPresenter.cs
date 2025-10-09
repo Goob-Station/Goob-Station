@@ -164,7 +164,7 @@ namespace Content.Client.Construction.UI
 
             // Goobstation EDIT START
             _autoFocusSearch = _cfg.GetCVar(GoobCVars.AutoFocusSearchOnBuildMenu);
-            _cfg.OnValueChanged(GoobCVars.AutoFocusSearchOnBuildMenu, UpdateAutoFocus, false); // eplicitly false to underline the above comment
+            _cfg.OnValueChanged(GoobCVars.AutoFocusSearchOnBuildMenu, UpdateAutoFocus, false);
             // Goobstation EDIT END
         }
 
