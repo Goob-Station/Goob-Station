@@ -59,6 +59,12 @@
   spritePath: _Goobstation/Mobs/Silicon/Miner/squat.rsi
   dummyPrototype: BorgChassisMiningSquat
 
+- type: borgSubtype
+  parentBorgType: mining
+  id: mining_niko
+  spritePath: _RA/Mobs/Silicon/Miner/niko.rsi
+  dummyPrototype: BorgChassisMiningniko
+
 # Engineer subtypes
 - type: borgSubtype
   parentBorgType: engineering
@@ -101,6 +107,18 @@
   id: engineer_rover
   spritePath: _Goobstation/Mobs/Silicon/Engineering/rover.rsi
   dummyPrototype: BorgChassisEngineerRover
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: engineer_niko
+  spritePath: _RA/Mobs/Silicon/Engineering/niko.rsi
+  dummyPrototype: BorgChassisEngineerniko
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: engineer_nikoa
+  spritePath: _RA/Mobs/Silicon/Engineering/nikoA.rsi
+  dummyPrototype: BorgChassisEngineernikoa
 
 # Janitor subtypes
 - type: borgSubtype
@@ -150,6 +168,12 @@
   id: janitor_rover
   spritePath: _Goobstation/Mobs/Silicon/Janitor/rover.rsi
   dummyPrototype: BorgChassisJanitorRover
+
+- type: borgSubtype
+  parentBorgType: janitor
+  id: janitor_niko
+  spritePath: _RA/Mobs/Silicon/Janitor/niko.rsi
+  dummyPrototype: BorgChassisJanitorniko
 
 # Medical subtypes
 - type: borgSubtype
@@ -206,6 +230,18 @@
   spritePath: _Goobstation/Mobs/Silicon/Medical/rover.rsi
   dummyPrototype: BorgChassisMedicalRover
 
+- type: borgSubtype
+  parentBorgType: medical
+  id: medical_niko
+  spritePath: _RA/Mobs/Silicon/Medical/niko.rsi
+  dummyPrototype: BorgChassisMedicalniko
+
+- type: borgSubtype
+  parentBorgType: medical
+  id: medical_nikoa
+  spritePath: _RA/Mobs/Silicon/Medical/nikoA.rsi
+  dummyPrototype: BorgChassisMedicalnikoa
+
 # Service subtypes
 - type: borgSubtype
   parentBorgType: service
@@ -260,3 +296,9 @@
   id: service_rover
   spritePath: _Goobstation/Mobs/Silicon/Service/rover.rsi
   dummyPrototype: BorgChassisServiceRover
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_niko
+  spritePath: _RA/Mobs/Silicon/Service/niko.rsi
+  dummyPrototype: BorgChassisServiceniko

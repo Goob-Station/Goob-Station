@@ -188,6 +188,15 @@
   - type: BorgSwitchableSubtype
     borgSubtype: mining_noble
 
+- type: entity
+  id: BorgChassisMiningniko
+  parent: BorgChassisMining
+  name: niko mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_niko
+
 # Engineer
 - type: entity
   id: BorgChassisEngineerBasic
@@ -242,6 +251,24 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: engineer_rover
+
+- type: entity
+  id: BorgChassisEngineerniko
+  parent: BorgChassisEngineer
+  name: niko engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_niko
+
+- type: entity
+  id: BorgChassisEngineernikoa
+  parent: BorgChassisEngineer
+  name: advanced niko engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_nikoa
 
 # Janitor
 - type: entity
@@ -306,6 +333,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: janitor_rover
+
+- type: entity
+  id: BorgChassisJanitorniko
+  parent: BorgChassisJanitor
+  name: niko janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_niko
 
 # Medical
 - type: entity
@@ -380,6 +416,24 @@
   - type: BorgSwitchableSubtype
     borgSubtype: medical_rover
 
+- type: entity
+  id: BorgChassisMedicalniko
+  parent: BorgChassisMedical
+  name: niko medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_niko
+
+- type: entity
+  id: BorgChassisMedicalnikoa
+  parent: BorgChassisMedical
+  name: advanced niko medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_nikoa
+
 # Service
 - type: entity
   id: BorgChassisServiceStandart
@@ -452,3 +506,12 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_rover
+
+- type: entity
+  id: BorgChassisServiceniko
+  parent: BorgChassisService
+  name: niko service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_niko
