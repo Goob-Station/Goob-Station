@@ -84,11 +84,13 @@
       - suitStorage
     clothingVisuals:
       back:
-      - state: equipped-BACKPACK
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
       suitstorage:
-      - state: equipped-BACKPACK
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
   - type: StaticPrice
-    price: 30000
+    price: 50000
 
 - type: entity
   parent: BaseAction

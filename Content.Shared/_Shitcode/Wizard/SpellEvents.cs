@@ -85,7 +85,7 @@ public sealed partial class MagicMissileEvent : InstantActionEvent
     public float Range = 7f;
 
     [DataField]
-    public float ProjectileSpeed = 6.5f;
+    public float ProjectileSpeed = 6f;
 }
 
 public sealed partial class DisableTechEvent : InstantActionEvent

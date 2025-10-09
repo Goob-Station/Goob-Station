@@ -80,6 +80,8 @@
     size: Ginormous
   - type: Boomerang # Goobstation
     maxHops: 20
+  - type: StaticPrice
+    price: 50000
 
 - type: entity
   id: SingularityHammer
@@ -121,3 +123,5 @@
         Structural: 35 # Goob edit
   - type: Item
     size: Ginormous
+  - type: StaticPrice
+    price: 30000

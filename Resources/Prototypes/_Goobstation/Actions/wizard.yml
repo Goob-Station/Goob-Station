@@ -476,6 +476,7 @@
   components:
   - type: Action
     raiseOnUser: true
+    checkCanInteract: false
     useDelay: 8
     itemIconStyle: BigAction
     sound:
@@ -515,6 +516,7 @@
   components:
   - type: Action
     raiseOnUser: true
+    checkCanInteract: false
     useDelay: 0.5 # SpellCardsEvent handles use delay
     itemIconStyle: BigAction
     sound:
@@ -534,6 +536,7 @@
     canTargetSelf: false
   - type: WorldTargetAction
     event: !type:SpellCardsEvent
+      minMaxLinearDamping: 15, 20
   - type: SpeakOnAction
     sentence: action-speech-spell-spell-cards
   - type: Magic
@@ -959,9 +962,7 @@
     range: 15
   - type: EntityTargetAction
     whitelist:
-      requireAll: true
       components:
-      - Transform
       - MobState
     canTargetSelf: true # Required for secondary target deselecting
     event: !type:SwapSpellEvent

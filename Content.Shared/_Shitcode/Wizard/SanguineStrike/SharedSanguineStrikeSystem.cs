@@ -121,6 +121,18 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
                         painMultiplier.Key,
                         consciousness.NerveSystem.Comp);
                 }
+
+
+                foreach (var nerve in consciousness.NerveSystem.Comp.Nerves)
+                {
+                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    {
+                        _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
+                            painFeelsModifier.Key.Item2,
+                            nerve.Key,
+                            nerve.Value);
+                    }
+                }
             }
 
             foreach (var multiplier in
@@ -133,15 +145,6 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
                      consciousness.Modifiers.Where(modifier => modifier.Value.Type == ConsciousnessModType.Pain))
             {
                 _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, consciousness);
-            }
-
-            foreach (var nerve in consciousness.NerveSystem.Comp.Nerves)
-            foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-            {
-                _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
-                    painFeelsModifier.Key.Item2,
-                    nerve.Key,
-                    nerve.Value);
             }
         }
 

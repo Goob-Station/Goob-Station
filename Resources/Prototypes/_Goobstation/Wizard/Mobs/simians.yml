@@ -65,6 +65,8 @@
   - type: StepTriggerImmune
   - type: Sprinter
     staminaDrainRate: 8
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: monkey

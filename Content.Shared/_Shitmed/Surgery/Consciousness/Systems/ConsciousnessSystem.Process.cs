@@ -88,6 +88,10 @@ public partial class ConsciousnessSystem
                 _pain.TryRemovePainMultiplier(component.NerveSystem.Owner,
                     painMultiplier.Key,
                     component.NerveSystem.Comp);
+
+            foreach (var nerve in component.NerveSystem.Comp.Nerves)
+                foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1, painFeelsModifier.Key.Item2, nerve.Key, nerve.Value);
         }
 
         foreach (var multiplier in
@@ -97,10 +101,6 @@ public partial class ConsciousnessSystem
         foreach (var modifier in
                  component.Modifiers.Where(modifier => modifier.Value.Type == ConsciousnessModType.Pain))
             RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, component);
-
-        foreach (var nerve in component.NerveSystem.Comp.Nerves)
-            foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-                _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1, painFeelsModifier.Key.Item2, nerve.Key, nerve.Value);
 
         CheckRequiredParts(uid, component);
         ForceConscious(uid, TimeSpan.FromSeconds(1f), component);

@@ -31,6 +31,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     public override void Initialize()
     {
@@ -57,11 +58,12 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         var user = args.User;
 
-        var oldHand = _hands.GetActiveHand(user);
+        if (!TryComp(user, out HandsComponent? hands))
+            return;
 
-        if (!TryComp(user, out HandsComponent? hands)
-            || oldHand == null
-            || _hands.GetHeldItem((user, hands), oldHand) != uid)
+        var oldHand = _hands.GetActiveHand((user, hands));
+
+        if (oldHand == null || _hands.GetHeldItem((user, hands), oldHand) != uid)
             return;
 
         if (TryComp(uid, out WieldableComponent? wieldable))
@@ -99,7 +101,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
             otherHand = hand;
 
             if (IsHandValid((user, hands), hand))
-                return;
+                break;
         }
 
         var gun = Spawn(comp.Proto, _transform.GetMapCoordinates(user));
@@ -117,7 +119,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         else
             ResetDelays(gun);
 
-        if (!_hands.TryPickup(user, gun, pickUpHand, false))
+        if (!_hands.TryPickup(user, gun, pickUpHand, false, false, false, hands))
             QueueDel(gun);
 
         var newComp = EnsureComp<EnchantedBoltActionRifleComponent>(gun);
@@ -129,12 +131,10 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
             _wieldable.TryWield(gun, newWieldable, user, false);
     }
 
-        private bool IsHandValid(Entity<HandsComponent> ent, string hand)
-        {
-            return _hands.GetHeldItem(ent!, hand) is not { } item ||
-                   TryComp(item, out VirtualItemComponent? virtualItem) &&
-                   HasComp<EnchantedBoltActionRifleComponent>(virtualItem.BlockingEntity);
-        }
+    private bool IsHandValid(Entity<HandsComponent> ent, string hand)
+    {
+        return _hands.GetHeldItem(ent!, hand) == null;
+    }
 
     private void ResetDelays(EntityUid uid)
     {

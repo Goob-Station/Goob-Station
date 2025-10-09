@@ -837,7 +837,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         void MarkItem(EntityUid obj)
         {
             summons.Entity = obj;
-            PopupLoc(ev.Performer, Loc.GetString("instant-summons-obj-marked", ("obj", obj)));
+            PopupLoc(ev.Performer, Loc.GetString("instant-summons-item-marked", ("item", obj)));
             Dirty(ev.Action, summons);
         }
 
@@ -1128,7 +1128,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (packet == null)
             return;
 
-        Audio.PlayPredicted(ev.Sound, packet.Value, ev.Performer);
+        if (_net.IsServer)
+            Audio.PlayPvs(ev.Sound, packet.Value);
 
         ev.Handled = true;
     }

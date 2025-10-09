@@ -56,13 +56,11 @@ public sealed class SupermatterHalberdSystem : EntitySystem
             LogImpact.Extreme,
             $"{ToPrettyString(args.User):user} ashed {ToPrettyString(args.Target.Value):target} using {ToPrettyString(uid):used}");
 
-        var xform = Transform(args.Target.Value);
+        var coords = Transform(args.Target.Value).Coordinates;
         _audio.PlayPredicted(comp.ExecuteSound, uid, args.User);
-        var (pos, rot) = _transform.GetWorldPositionRotation(xform);
-        var coords = new MapCoordinates(pos, xform.MapID);
         PredictedDel(args.Target);
-        Spawn(comp.AshProto, coords, rotation: rot);
-        Spawn(comp.ExecuteEffect, coords);
+        PredictedSpawnAtPosition(comp.AshProto, coords);
+        PredictedSpawnAtPosition(comp.ExecuteEffect, coords);
     }
 
     private void OnAfterInteract(Entity<SupermatterHalberdComponent> ent, ref AfterInteractEvent args)

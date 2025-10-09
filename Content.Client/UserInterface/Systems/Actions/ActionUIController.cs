@@ -400,18 +400,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem.GetAction(actionId) is not { } action)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out TargetActionComponent? targetComp))
+        if (!EntityManager.TryGetComponent(actionId, out TargetActionComponent? targetComp))
             return false;
 
         // Is the action currently valid?
-        if (!action.Comp.Enabled || action.Comp.Cooldown.HasValue && action.Comp.Cooldown.Value.End > _timing.CurTime)
+        if (!_actionsSystem.ValidAction(action))
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
             return !targetComp.InteractOnMiss;
         }
 
-        if (!EntityManager.TryGetComponent(user, out EntityTargetActionComponent? entityTarget))
+        if (!EntityManager.TryGetComponent(actionId, out EntityTargetActionComponent? entityTarget))
             return false;
 
         if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
