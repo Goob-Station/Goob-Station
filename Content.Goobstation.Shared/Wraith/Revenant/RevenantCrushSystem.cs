@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Wraith.Components;
+using Content.Goobstation.Shared.Wraith.Curses;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -42,7 +43,7 @@ public sealed class RevenantCrushSystem : EntitySystem
 
         // TO DO: popup here. Free hand required, cannot cast from inside a storage, and must target a human.
 
-        if (HasComp<ChaplainImmuneActionComponent>(args.Target))
+        if (HasComp<CurseImmuneComponent>(args.Target))
         {
             _popup.PopupPredicted(Loc.GetString("revenant-crush-chaplain"), ent.Owner, args.Performer);
             return;

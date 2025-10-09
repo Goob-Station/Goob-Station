@@ -1,6 +1,6 @@
-using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CursedBlindComponent : Component
@@ -15,7 +15,7 @@ public sealed partial class CursedBlindComponent : Component
     /// How many stacks of blindness the curse has applied.
     /// </summary>
     [DataField]
-    public int BlindnessStacks = 0;
+    public int BlindnessStacks;
 
     /// <summary>
     /// Maximum stacks before target is considered fully blinded.

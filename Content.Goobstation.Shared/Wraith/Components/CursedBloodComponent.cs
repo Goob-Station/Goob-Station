@@ -1,5 +1,7 @@
 using Robust.Shared.GameStates;
 
+namespace Content.Goobstation.Shared.Wraith.Components;
+
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CursedBloodComponent : Component
 {
@@ -18,11 +20,13 @@ public sealed partial class CursedBloodComponent : Component
     /// <summary>
     /// Next time at which they will puke blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickPuke = TimeSpan.Zero;
 
     /// <summary>
     /// Next time at which they will puke a lot of blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickBigPuke = TimeSpan.Zero;
 
     [DataField]

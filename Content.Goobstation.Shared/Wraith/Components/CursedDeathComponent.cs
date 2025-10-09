@@ -3,6 +3,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
+namespace Content.Goobstation.Shared.Wraith.Components;
+
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CursedDeathComponent : Component
 {
@@ -80,26 +82,31 @@ public sealed partial class CursedDeathComponent : Component
     /// <summary>
     /// Next time at which they will puke blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickGore = TimeSpan.Zero;
 
     /// <summary>
     /// Next time at which they will puke a lot of blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickDamage = TimeSpan.Zero;
 
     /// <summary>
     /// Next time at which they will puke a lot of blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickStun = TimeSpan.Zero;
 
     /// <summary>
     /// Next time at which they will puke a lot of blood.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickStaminaDamage = TimeSpan.Zero;
 
     /// <summary>
     /// Next time at which they will gib.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickGib = TimeSpan.Zero;
 
     [DataField]
@@ -120,6 +127,7 @@ public sealed partial class CursedDeathComponent : Component
     /// <summary>
     /// Next time at which they will see a message.
     /// </summary>
+    [DataField]
     public TimeSpan NextTickPopup = TimeSpan.Zero;
 
     [DataField]

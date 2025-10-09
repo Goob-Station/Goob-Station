@@ -264,7 +264,7 @@
   components:
   - type: ConfirmableAction
     popup: wraith-portal-already
-    primeTime: 10 
+    primeTime: 10
   - type: Action
     useDelay: 180
     icon:
@@ -321,8 +321,13 @@
   - type: TargetAction
     deselectOnMiss: true
   - type: EntityTargetAction
+    blacklist: # todo: pending rework
+      components:
+      - CursedBlind
     canTargetSelf: false
-    event: !type:BlindCurseEvent
+    event: !type:ApplyCurseActionEvent
+      curse:
+      - type: CursedBlind  # todo: pending rework into entityeffects
 
 - type: entity
   id: ActionCurseWeakness
