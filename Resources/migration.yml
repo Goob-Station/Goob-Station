@@ -134,6 +134,7 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 korczoczek <16525015+korczoczek@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # This is a basic dictionary that maps old entity prototype ids to new ids. This only works for entity prototypes, and
@@ -1053,3 +1054,6 @@ BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
 
 # 2025-06-21
 ClothingNeckHeadphones: ClothingMultipleHeadphones
+
+# 2025-10-09
+FoodDonutJellySlugcat: FoodDonutJellyScurret
