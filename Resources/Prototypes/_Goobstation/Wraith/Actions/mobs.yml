@@ -20,6 +20,7 @@
   description: Materialize a skeleton from the void to help you.
   components:
   - type: Action
+    itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
       useDelay: 30
@@ -126,7 +127,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Heretic/eatfood.ogg #Why is this generic eating sound stored in the heretic folder?
-      useDelay: 2
+    useDelay: 2
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
@@ -134,9 +135,6 @@
   - type: TargetAction
     deselectOnMiss: true
   - type: EntityTargetAction
-    whitelist:
-      tags:
-      - Trash
     canTargetSelf: false
     event: !type:EatFilthEvent
 
@@ -168,6 +166,7 @@
   description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
   components:
   - type: Action
+    itemIconStyle: BigAction
     useDelay: 40
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi

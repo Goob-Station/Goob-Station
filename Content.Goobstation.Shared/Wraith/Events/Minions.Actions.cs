@@ -1,37 +1,43 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Wraith.Events;
 
-// Here belong all action events for the wraith minions.
+/* Here belong all action events for the wraith minions. */
 
-// Skeleton commander actions
+#region Skeleton Commander
+
 public sealed partial class RallyEvent : InstantActionEvent;
 
-public sealed partial class SummonLesserSkeletonEvent : InstantActionEvent;
+#endregion
 
-// Void spiker actions
+#region Void Spiker
 public sealed partial class TentacleHookEvent : EntityTargetActionEvent;
+
 public sealed partial class SpikerShuffleEvent : InstantActionEvent;
+
 public sealed partial class SpikerLashEvent : EntityTargetActionEvent;
 
-// Void hound actions
+#endregion
+
+#region Void Hound
 public sealed partial class RushdownEvent : InstantActionEvent;
 
 public sealed partial class CloakEvent : InstantActionEvent;
 
-// Plague rat actions
+#endregion
 
+#region Plague Rat
 public sealed partial class EatFilthEvent : EntityTargetActionEvent;
 
 public sealed partial class RatBiteEvent : EntityTargetActionEvent;
 
-public sealed partial class SummonRatDenEvent : InstantActionEvent;
-
 public sealed partial class RatSlamEvent : InstantActionEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class EatFilthDoAfterEvent : SimpleDoAfterEvent;
+#endregion
 
 #region Other
 public sealed partial class ChooseVoidCreatureEvent : InstantActionEvent;

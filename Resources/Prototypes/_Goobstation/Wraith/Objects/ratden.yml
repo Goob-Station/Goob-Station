@@ -9,11 +9,11 @@
       - WraithMinion
     damage:
       groups:
-        Brute: -10
-        Burn: -10
-        Airloss: -10
-        Toxin: -10
-        Genetic: -10
+        Brute: -3
+        Burn: -3
+        Airloss: -3
+        Toxin: -3
+        Genetic: -3
   - type: TimedSpawner
     prototypes:
     - MobMadRat

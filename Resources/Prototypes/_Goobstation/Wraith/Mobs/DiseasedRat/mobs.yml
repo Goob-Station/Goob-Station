@@ -10,6 +10,22 @@
     - MediumDiseasedRat
     - GiantDiseasedRat
   - type: EatFilth
+    eatDuration: 9
+    allowedReagents:
+    - Blood
+    - AmmoniaBlood
+    - InsectBlood
+    - CopperBlood
+    - ZombieBlood
+    - AlienBlood
+    - BlackBlood
+    - BloodChangeling
+    - Vomit
+    allowedEntities: # todo: add fungus
+      tags:
+      - Trash
+      components:
+      - Puddle
   - type: RatBite
     reagents:
       Toxin: 8 # Swap for rat spit once virology is added
@@ -78,17 +94,16 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
-  - type: Destructible
+  - type: MobThresholds
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Items/snap.ogg
+      0: Alive
+      50: Dead
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/snap.ogg
 
 - type: entity
   id: MobPlagueRatMedium
@@ -115,17 +130,10 @@
       types:
         Slash: 4
         Blunt: 4
-  - type: Destructible
+  - type: MobThresholds
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 80
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Items/snap.ogg
+      0: Alive
+      80: Dead
 
 - type: entity
   id: MobPlagueRatLarge
@@ -164,14 +172,7 @@
       types:
         Slash: 10
         Blunt: 5
-  - type: Destructible
+  - type: MobThresholds
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Items/snap.ogg
+      0: Alive
+      100: Dead
