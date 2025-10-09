@@ -36,18 +36,12 @@ public sealed class SpellCardSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SpellCardComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<SpellCardComponent, TileFrictionEvent>(OnGetFriction);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
         _homingQuery = GetEntityQuery<HomingProjectileComponent>();
         _trailQuery = GetEntityQuery<TrailComponent>();
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
         _frozenQuery = GetEntityQuery<FrozenComponent>();
-    }
-
-    private void OnGetFriction(Entity<SpellCardComponent> ent, ref TileFrictionEvent args)
-    {
-
     }
 
     private void OnStartup(Entity<SpellCardComponent> ent, ref ComponentStartup args)
