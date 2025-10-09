@@ -4943,3 +4943,10 @@
   id: 9060
   time: '2025-10-09T13:32:34.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40797
+- author: Princess-Cheeseballs
+  changes:
+  - message: Dying while asleep shouldn't permanently blind you anymore.
+    type: Fix
+  id: 9061
+  time: '2025-10-09T13:46:20.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40366
