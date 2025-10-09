@@ -38,7 +38,7 @@ public sealed partial class RepairableSystem : EntitySystem
     /// Method <c>ApplyRepairs</c> Applies repair according to "RepairableComponent" present on entity. Returns false if fail or nothing else to repair.
     /// </summary>
     /// <param name="target">the target Entity</param>
-    /// <param name="user">The person trying to heal. (optional)</param>
+    /// <param name="user">The entity trying to repair</param>
     /// <returns> Wether or not there is something else to repair. If fails, returns false too </returns>
     public bool ApplyRepairs(Entity<RepairableComponent> ent, EntityUid user)
     {
