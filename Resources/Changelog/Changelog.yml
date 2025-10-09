@@ -4950,3 +4950,10 @@
   id: 9061
   time: '2025-10-09T13:46:20.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40366
+- author: kontakt
+  changes:
+  - message: Bulldog magazines are now only accessible through emagged fabricators.
+    type: Tweak
+  id: 9062
+  time: '2025-10-09T14:00:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40790
