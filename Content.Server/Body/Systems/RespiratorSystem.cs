@@ -87,6 +87,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
+using Content.Server.EntityEffects;
+using Content.Shared.Body.Systems;
 using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Chemistry.EntitySystems;
