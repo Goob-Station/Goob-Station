@@ -11,29 +11,16 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Movement;
-using Content.Goobstation.Common.Religion;
-using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Atmos;
-using Content.Shared.Damage.Components;
 using Content.Shared.Flash;
 using Content.Shared.Heretic;
-using Content.Shared.Inventory;
 using Content.Shared.Maps;
-using Content.Shared.Mech.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Rejuvenate;
 using Content.Shared.Tiles;
-using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -45,9 +32,6 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-
-    [Dependency] private readonly InventorySystem _inventory = default!;
-
     public static readonly Dictionary<EntProtoId, EntProtoId> Transformations = new()
     {
         { "WallSolid", "WallSolidRust" },
@@ -71,74 +55,6 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
-
-        SubscribeLocalEvent<MechComponent, MoverControllerCantMoveEvent>(OnMechCantMove);
-        SubscribeLocalEvent<MechComponent, MoverControllerGetTileEvent>(OnMechGetTile);
-        SubscribeLocalEvent<MobStateComponent, MoverControllerCantMoveEvent>(OnCantMove);
-        SubscribeLocalEvent<MobStateComponent, MoverControllerGetTileEvent>(OnGetTile);
-
-        SubscribeLocalEvent<DisgustComponent, RejuvenateEvent>(OnRejuvenate);
-    }
-
-    private void OnRejuvenate(Entity<DisgustComponent> ent, ref RejuvenateEvent args)
-    {
-        RemCompDeferred(ent.Owner, ent.Comp);
-    }
-
-    private void OnMechGetTile(Entity<MechComponent> ent, ref MoverControllerGetTileEvent args)
-    {
-        if (args.Tile is not { ID: RustTile })
-            return;
-
-        EnsureComp<DisgustComponent>(ent);
-    }
-
-    private void OnMechCantMove(Entity<MechComponent> ent, ref MoverControllerCantMoveEvent args)
-    {
-        if (IsTileRust(Transform(ent).Coordinates, out _))
-            EnsureComp<DisgustComponent>(ent);
-    }
-
-    private void OnGetTile(Entity<MobStateComponent> ent, ref MoverControllerGetTileEvent args)
-    {
-        if (ent.Comp.CurrentState == MobState.Dead)
-            return;
-
-        if (args.Tile is not { ID: RustTile })
-            return;
-
-        if (HasComp<HereticComponent>(ent)
-            || HasComp<GhoulComponent>(ent)
-            || HasComp<GodmodeComponent>(ent))
-            return;
-
-        //Ideally this should use DivineInterventionSystem -
-        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
-            .Any(item => HasComp<DivineInterventionComponent>(item)))
-            return;
-
-        EnsureComp<DisgustComponent>(ent);
-    }
-
-    private void OnCantMove(Entity<MobStateComponent> ent, ref MoverControllerCantMoveEvent args)
-    {
-        if (ent.Comp.CurrentState == MobState.Dead)
-            return;
-
-        if (HasComp<HereticComponent>(ent)
-            || HasComp<GhoulComponent>(ent)
-            || HasComp<GodmodeComponent>(ent))
-            return;
-
-        //Ideally this should use DivineInterventionSystem -
-        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
-            .Any(item => HasComp<DivineInterventionComponent>(item)))
-            return;
-
-        if (IsTileRust(Transform(ent).Coordinates, out _))
-            EnsureComp<DisgustComponent>(ent);
     }
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
@@ -151,9 +67,9 @@ public sealed partial class HereticAbilitySystem
 
     private void OnSpread(Entity<RustSpreaderComponent> ent, ref SpreadNeighborsEvent args)
     {
-        var (uid, comp) = ent;
+        var (uid, _) = ent;
 
-        if (args.Neighbors.Count >= 4)
+        if (args.NeighborFreeTiles.Count == 0)
         {
             RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
             return;
@@ -167,71 +83,11 @@ public sealed partial class HereticAbilitySystem
             return;
         }
 
-        var xformQuery = GetEntityQuery<TransformComponent>();
+        _random.Shuffle(args.NeighborFreeTiles);
 
-        var xform = xformQuery.Comp(uid);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return;
-
-        var tile = _map.TileIndicesFor(xform.GridUid.Value, grid, xform.Coordinates);
-
-        var ourEnts = _map.GetAnchoredEntitiesEnumerator(xform.GridUid.Value, grid, tile);
-        var spreaderQuery = GetEntityQuery<EdgeSpreaderComponent>();
-        var dockQuery = GetEntityQuery<DockingComponent>();
-
-        var neighborTiles = new ValueList<(EntityUid entity, MapGridComponent grid, Vector2i Indices)>();
-
-        while (ourEnts.MoveNext(out var entity))
+        foreach (var (gridComp, tile) in args.NeighborFreeTiles)
         {
-            if (dockQuery.TryGetComponent(entity, out var dock) &&
-                dock.Docked &&
-                xformQuery.TryGetComponent(dock.DockedWith, out var dockedXform) &&
-                TryComp<MapGridComponent>(dockedXform.GridUid, out var dockedGrid))
-            {
-                neighborTiles.Add((dockedXform.GridUid.Value, dockedGrid,
-                    _map.CoordinatesToTile(dockedXform.GridUid.Value, dockedGrid, dockedXform.Coordinates)));
-            }
-        }
-
-        for (var i = 0; i < 4; i++)
-        {
-            var atmosDir = (AtmosDirection) (1 << i);
-            var neighborPos = tile.Offset(atmosDir);
-
-            if (!_map.TryGetTileRef(xform.GridUid.Value, grid, neighborPos, out var tileRef) || tileRef.Tile.IsEmpty)
-                continue;
-
-            neighborTiles.Add((xform.GridUid.Value, grid, neighborPos));
-        }
-
-        for (var i = neighborTiles.Count - 1; i >= 0; i--)
-        {
-            var (gridUid, gridComp, indices) = neighborTiles[i];
-            foreach (var entity in _map.GetAnchoredEntities(gridUid, gridComp, indices))
-            {
-                if (!spreaderQuery.TryGetComponent(entity, out var spreader))
-                    continue;
-
-                if (spreader.Id != comp.SpreaderProto)
-                    continue;
-
-                neighborTiles.RemoveAt(i);
-                break;
-            }
-        }
-
-        if (neighborTiles.Count == 0)
-        {
-            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
-            return;
-        }
-
-        _random.Shuffle(neighborTiles);
-
-        foreach (var (gridUid, gridComp, indices) in neighborTiles)
-        {
-            Spawn(prototype, _map.GridTileToLocal(gridUid, gridComp, indices));
+            Spawn(prototype, _map.GridTileToLocal(tile.GridUid, gridComp, tile.GridIndices));
             args.Updates--;
             if (args.Updates <= 0)
                 return;
@@ -300,13 +156,17 @@ public sealed partial class HereticAbilitySystem
 
         var plume = Spawn(args.Proto, mapPos);
 
-        RustObjectsInRadius(mapPos, args.Radius, args.TileRune, args.LookupRange);
+        RustObjectsInRadius(mapPos, args.Radius, args.TileRune, args.LookupRange, args.RustStrength);
 
         _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
         _gun.SetTarget(plume, null, out _);
     }
 
-    private void RustObjectsInRadius(MapCoordinates mapPos, float radius, string tileRune, float lookupRange)
+    private void RustObjectsInRadius(MapCoordinates mapPos,
+        float radius,
+        string tileRune,
+        float lookupRange,
+        int rustStrength)
     {
         var circle = new Circle(mapPos.Position, radius);
         var grids = new List<Entity<MapGridComponent>>();
@@ -327,7 +187,7 @@ public sealed partial class HereticAbilitySystem
 
             foreach (var toRust in Lookup.GetEntitiesInRange(coords, lookupRange, LookupFlags.Static))
             {
-                TryMakeRustWall(toRust);
+                TryMakeRustWall(toRust, null, rustStrength);
             }
         }
     }
@@ -377,19 +237,22 @@ public sealed partial class HereticAbilitySystem
 
             foreach (var toRust in Lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
             {
-                TryMakeRustWall(toRust);
+                TryMakeRustWall(toRust, null, args.RustStrength);
             }
         }
     }
 
-    public bool CanSurfaceBeRusted(EntityUid target, Entity<HereticComponent>? ent)
+    public bool CanSurfaceBeRusted(EntityUid target, Entity<HereticComponent>? ent, out int surfaceStrength)
     {
+        surfaceStrength = 0;
+
         if (!TryComp(target, out RustRequiresPathStageComponent? requiresPathStage))
             return true;
 
         var stage = ent == null ? 10 : ent.Value.Comp.PathStage;
+        surfaceStrength = requiresPathStage.PathStage;
 
-        if (requiresPathStage.PathStage <= stage)
+        if (surfaceStrength <= stage)
             return true;
 
         if (ent != null)
@@ -412,10 +275,18 @@ public sealed partial class HereticAbilitySystem
         Spawn(tileRune, new EntityCoordinates(gridUid, tileRef.GridIndices));
     }
 
-    public bool TryMakeRustWall(EntityUid target, Entity<HereticComponent>? ent = null)
+    public bool TryMakeRustWall(EntityUid target, Entity<HereticComponent>? ent = null, int? rustStrengthOverride = null)
     {
+        var canRust = CanSurfaceBeRusted(target, ent, out var surfaceStrength);
+
         if (HasComp<RustedWallComponent>(target))
-            return false;
+        {
+            if (surfaceStrength > (rustStrengthOverride ?? ent?.Comp.PathStage ?? -1))
+                return false;
+
+            Del(target);
+            return true;
+        }
 
         var proto = Prototype(target);
 
@@ -424,7 +295,7 @@ public sealed partial class HereticAbilitySystem
         // Check transformations (walls into rusted walls)
         if (proto != null && Transformations.TryGetValue(proto.ID, out var transformation))
         {
-            if (!CanSurfaceBeRusted(targetEntity, ent))
+            if (!canRust)
                 return false;
 
             var xform = Transform(target);
@@ -439,7 +310,7 @@ public sealed partial class HereticAbilitySystem
         if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))
             return false;
 
-        if (targetEntity == target && !CanSurfaceBeRusted(targetEntity, ent))
+        if (targetEntity == target && !canRust)
             return false;
 
         EnsureComp<RustedWallComponent>(targetEntity);
