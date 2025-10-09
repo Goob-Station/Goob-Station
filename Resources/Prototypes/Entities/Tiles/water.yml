@@ -40,12 +40,15 @@
         reagents:
         - ReagentId: Water
           Quantity: 9999999
-  #- type: SolutionRegeneration Goobstation - laggy as shit
-  #  solution: tank
-  #  generated:
-  #    reagents:
-  #    - ReagentId: Water
-  #      Quantity: 100
+#CorvaxGoob-errorfix-start ахуенное решение было избежать - обработки, но наплодить столько же ошибок
+  - type: SolutionRegeneration
+    duration: 99999
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 100
+#CorvaxGoob-errorfix-end
   - type: DrainableSolution
     solution: pool
   - type: SpeedModifierContacts
