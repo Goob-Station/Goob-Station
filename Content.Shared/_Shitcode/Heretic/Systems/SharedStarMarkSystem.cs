@@ -197,7 +197,9 @@ public abstract class SharedStarMarkSystem : EntitySystem
         }
 
         var ent = Spawn(CosmicField, spawnCoords);
-        _transform.AttachToGridOrMap(ent);
+        var xform = Transform(ent);
+        _transform.AttachToGridOrMap(ent, xform);
+        _transform.AnchorEntity((ent, xform));
 
         var field = EnsureComp<CosmicFieldComponent>(ent);
         InitializeCosmicField((ent, field), strength);

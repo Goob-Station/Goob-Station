@@ -14,7 +14,4 @@ public sealed partial class UniversalLanguageSpeakerComponent : Component
 {
     [DataField]
     public bool Enabled = true;
-
-    [DataField]
-    public bool SpeaksAllLanguages;
 }

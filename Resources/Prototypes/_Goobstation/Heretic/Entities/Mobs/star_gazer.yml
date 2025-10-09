@@ -88,8 +88,12 @@
   - type: ContentEye
     maxZoom: 1.5, 1.5
     targetZoom: 1.5, 1.5
+  - type: LanguageKnowledge
+    speaks: []
+    understands: []
   - type: UniversalLanguageSpeaker
-    speaksAllLanguages: true
+  - type: TowerOfBabel
+  - type: LanguageSpeaker
   - type: CosmicTrail
     strength: 10
   - type: PointLight

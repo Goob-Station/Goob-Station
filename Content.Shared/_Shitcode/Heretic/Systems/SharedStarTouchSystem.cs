@@ -42,7 +42,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
     private void OnRemove(Entity<StarTouchedStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        if (_timing.ApplyingState || !_timing.IsFirstTimePredicted)
+        if (_timing.ApplyingState)
             return;
 
         var target = args.Target;
@@ -53,11 +53,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
         RemCompDeferred<StarTouchedComponent>(target);
         RemCompDeferred<CosmicTrailComponent>(target);
 
-        if (!TryComp(ent, out StatusEffectComponent? status) || status.EndEffectTime == null ||
-            status.EndEffectTime > _timing.CurTime)
-            return;
-
-        if (!TryComp(target, out ComplexJointVisualsComponent? joint) || joint.Data.Count == 0)
+        if (!TryComp(target, out ComplexJointVisualsComponent? joint))
             return;
 
         EntityUid? heretic = null;
@@ -87,7 +83,8 @@ public abstract class SharedStarTouchSystem : EntitySystem
             Dirty(target, joint);
         }
 
-        if (heretic == null)
+        if (heretic == null || !TryComp(ent, out StatusEffectComponent? status) || status.EndEffectTime == null ||
+            status.EndEffectTime > _timing.CurTime)
             return;
 
         _pulling.StopAllPulls(target);

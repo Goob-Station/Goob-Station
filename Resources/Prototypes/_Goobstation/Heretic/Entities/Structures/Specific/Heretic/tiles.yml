@@ -183,8 +183,6 @@
   name: cosmic field
   description: A field that cannot be passed by people marked with a cosmic star.
   components:
-  - type: Transform
-    anchored: true
   - type: TimedDespawn
     lifetime: 30
   - type: Tag

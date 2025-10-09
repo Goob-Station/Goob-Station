@@ -90,6 +90,8 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 {
                     new("Wizard", mirror: true),
                     new ("Apprentice", mirror: true),
+                    new ("UniversalLanguageSpeaker", mirror: true),
+                    new ("TowerOfBabel", mirror: true),
                     new ("NpcFactionMember"),
                 },
             };
