@@ -31,6 +31,9 @@ public sealed partial class GhoulComponent : Component
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
 
+    [DataField]
+    public EntProtoId? SpawnOnDeathPrototype;
+
     /// <summary>
     ///     Whether ghoul should be given a bloody blade
     /// </summary>
