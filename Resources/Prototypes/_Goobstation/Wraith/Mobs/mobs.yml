@@ -416,7 +416,7 @@
 - type: entity
   id: MobAncientRepairBot # This mob is supposed to be a drone that auto-repairs stuff, but out of scope, and olny for adventure zones anyway.
   parent: [ BaseMob, MobCombat ]
-  name: strange robot
+  name: strange robot  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
   description: It looks like some sort of floating repair bot or something?
   components:
   - type: Advertise
@@ -720,7 +720,6 @@
   - type: Pullable
   - type: ZombieImmune
   - type: GhostTakeoverAvailable
-  - type: SummonLesserSkeleton
   - type: Rally
     whitelist:
       components:
@@ -735,7 +734,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 90
+          damage: 150 # Not parity, but the health system in Goonstation works completely differently so :shrug:
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -812,7 +811,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      120: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
   - type: Grammar
     attributes:
       gender: male
@@ -878,7 +877,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      150: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
   - type: Grammar
     attributes:
       gender: male
@@ -1104,7 +1103,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 160
+          damage: 200 # Not parity, but the health system in Goonstation works completely differently so :shrug:
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
