@@ -18,6 +18,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.Eye.Blinding.Systems
 {
@@ -44,6 +45,9 @@ namespace Content.Shared.Eye.Blinding.Systems
 
         private void OnGetProtection(EntityUid uid, EyeProtectionComponent component, GetEyeProtectionEvent args)
         {
+            if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
+                return;
+
             args.Protection += component.ProtectionTime;
         }
 
