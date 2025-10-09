@@ -165,14 +165,15 @@
   sprite: /Textures/_Goobstation/Heretic/tiles.rsi/plating_rust.png
   baseTurf: Plating
   isSubfloor: true
-  deconstructTools: [ Welding ]
-  deconstructTimeMultiplier: 2.5 # 5 seconds
+  deconstructTools: [ Prying ] # This used to be welding but it was annoying to weld plating instead of rust accidentally and space the area
+  deconstructTimeMultiplier: 5
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   heatCapacity: 10000
 
 - type: edgeSpreader
   id: Rust
-  updatesPerSecond: 16
+  updatesPerSecond: 8
   preventSpreadOnSpaced: false
+  ignoreBlockedTiles: true

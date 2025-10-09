@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseAction
+  id: ActionDebug
+  name: DEBUG
+  description: DEBUG
+  components:
+  - type: Action
+    useDelay: 1
+    icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  - type: InstantAction
+    event: !type:ScreamActionEvent
+  - type: InternalResourcesAction
+    resourceProto: DebugInteralResources
+    useAmount: 25
