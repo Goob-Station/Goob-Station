@@ -311,8 +311,7 @@ namespace Content.Server.Lathe
                     var prototype = _proto.Index(resultProto);
                     if (comp.OutputToStorage && prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
                     {
-                        if(_materialStorage.CanChangeMaterialAmount(uid, composition.MaterialComposition))
-                            _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
+                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
                     }
                     else
                     {
