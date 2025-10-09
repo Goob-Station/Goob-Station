@@ -16,14 +16,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Body.Components;
+namespace Content.Shared.Body.Components;
 
-[RegisterComponent, Access(typeof(LungSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(LungSystem))]
 public sealed partial class LungComponent : Component
 {
     [DataField]
