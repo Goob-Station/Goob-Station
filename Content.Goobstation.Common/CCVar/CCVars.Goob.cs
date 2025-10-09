@@ -578,5 +578,11 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> UseDynamicHostname =
         CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Maximum count of moles in tile for barotrauma sound effect.
+    /// </summary>
+    public static readonly CVarDef<float> SoundBarotraumaMoles =
+        CVarDef.Create("sound.barotraumamoles", 10f, CVar.SERVERONLY);
+
     #endregion
 }
