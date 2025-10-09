@@ -108,7 +108,7 @@ namespace Content.Shared.Crayon
             State = state;
             Charges = charges;
             Capacity = capacity;
-            Infinite = infinite;
+            Infinite = infinite; // Goobstation
         }
     }
 

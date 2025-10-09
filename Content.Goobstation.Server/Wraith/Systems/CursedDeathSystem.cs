@@ -60,38 +60,26 @@ public sealed partial class CursedDeathSystem : EntitySystem
                switch (comp.NextLine)
                 {
                     case 1:
-                        {
-                            _popup.PopupEntity(Loc.GetString("The air feels heavier..."), uid, uid);
-                            _audio.PlayEntity(comp.CurseSound1, uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-1"), uid, uid);
+                        _audio.PlayEntity(comp.CurseSound1, uid, uid);
+                        break;
                     case 2:
-                        {
-                            _popup.PopupEntity(Loc.GetString("Shadows cling to the corners of your vision."), uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-2"), uid, uid);
+                        break;
                     case 3:
-                        {
-                            _popup.PopupEntity(Loc.GetString("You feel a smile where no face should be."), uid, uid);
-                            _audio.PlayEntity(comp.CurseSound2, uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-3"), uid, uid);
+                        _audio.PlayEntity(comp.CurseSound2, uid, uid);
+                        break;
                     case 4:
-                        {
-                            _popup.PopupEntity(Loc.GetString("A thought that isn’t yours whispers: 'Give in…"), uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-4"), uid, uid);
+                        break;
                     case 5:
-                        {
-                            _popup.PopupEntity(Loc.GetString("A faint whisper curls around your thoughts: 'Not long now...'"), uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-5"), uid, uid);
+                        break;
                     case 6:
-                        {
-                            _popup.PopupEntity(Loc.GetString("The end is nigh."), uid, uid, PopupType.LargeCaution);
-                            _audio.PlayEntity(comp.CurseSound3, uid, uid);
-                            break;
-                        }
+                        _popup.PopupEntity(Loc.GetString("curse-death-6"), uid, uid, PopupType.LargeCaution);
+                        _audio.PlayEntity(comp.CurseSound3, uid, uid);
+                        break;
                 }
 
                 comp.NextLine++;

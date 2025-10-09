@@ -64,7 +64,7 @@ public sealed partial class SummonPortalSystem : EntitySystem
         ent.Comp.CurrentActivePortals = 1;
         Dirty(ent);
 
-        _popup.PopupEntity("You gather your energy and open a portal.", ent.Owner, ent.Owner, PopupType.Large); // This has an FTL but wasn't working, I'm adding the string here for demonstration purposes. TO DO: Fix this later
+        _popup.PopupEntity("wraith-portal-gathering", ent.Owner, ent.Owner, PopupType.Small);
 
         args.Handled = true;
     }

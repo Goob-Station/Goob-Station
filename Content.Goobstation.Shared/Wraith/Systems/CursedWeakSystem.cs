@@ -38,9 +38,7 @@ public sealed partial class CursedWeakSystem : EntitySystem
             if (curTime >= comp.NextTickStamina)
             {
                 if (comp.StaminaDamageAmount < comp.StaminaDamageMax)
-                {
                     comp.StaminaDamageAmount += comp.StaminaDamageIncrease;
-                }
 
                 _popup.PopupClient(Loc.GetString("Your body feels heavy..."), uid, uid);
                 _stamina.TakeOvertimeStaminaDamage(uid, comp.StaminaDamageAmount);
@@ -66,11 +64,8 @@ public sealed partial class CursedWeakSystem : EntitySystem
     private void OnExamined(Entity<CursedWeakComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<WraithComponent>(args.Examiner))
-        {
             //Tells the wraith that the target is cursed.
-            args.PushMarkup(
-                $"[color=yellow]{Loc.GetString("wraith-cursed-weak", ("target", ent.Owner))}[/color]");
-        }
+            args.PushMarkup($"[color=yellow]{Loc.GetString("wraith-cursed-weak", ("target", ent.Owner))}[/color]");
     }
 
     private void OnMapInit(Entity<CursedWeakComponent> ent, ref MapInitEvent args)

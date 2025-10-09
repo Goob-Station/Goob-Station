@@ -90,7 +90,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        if (!component.Infinite)
+        if (!component.Infinite) // Goobstation
         {
             // Decrease "Ammo"
             component.Charges--;

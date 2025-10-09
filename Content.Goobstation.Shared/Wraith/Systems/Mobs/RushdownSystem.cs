@@ -41,13 +41,9 @@ public sealed class RushdownSystem : EntitySystem
             return;
 
         if ((HasComp<MobStateComponent>(args.OtherEntity)))
-        {
             _stun.TryKnockdown(args.OtherEntity, comp.CollideKnockdown, true);
-        }
         else
-        {
             _stun.TryKnockdown(uid, comp.CollideKnockdown, false);
-        }
 
         comp.IsLeaping = false;
         Dirty(ent);
@@ -57,7 +53,6 @@ public sealed class RushdownSystem : EntitySystem
         ent.Comp.IsLeaping = false;
         Dirty(ent);
 
-        // --- AoE stun section ---
         var xform = Transform(ent);
         var position = xform.Coordinates;
 

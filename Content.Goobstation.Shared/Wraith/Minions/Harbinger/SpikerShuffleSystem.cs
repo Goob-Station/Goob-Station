@@ -38,7 +38,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
 
     private void OnApplied(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        _popup.PopupClient("You are shuffled", args.Target, args.Target, PopupType.Medium);
+        _popup.PopupClient("You are shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)
         {
@@ -51,7 +51,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
 
     private void OnRemoved(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        _popup.PopupClient("You are not shuffled", args.Target, args.Target, PopupType.Medium);
+        _popup.PopupClient("You are not shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)
         {

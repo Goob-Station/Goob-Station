@@ -85,11 +85,8 @@ public sealed partial class CursedBlindSystem : EntitySystem
     private void OnExamined(Entity<CursedBlindComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<WraithComponent>(args.Examiner))
-        {
             //Tells the wraith that the target is cursed
-            args.PushMarkup(
-                $"[color=gray]{Loc.GetString("wraith-cursed-blind", ("target", ent.Owner))}[/color]");
-        }
+            args.PushMarkup($"[color=gray]{Loc.GetString("wraith-cursed-blind", ("target", ent.Owner))}[/color]");
     }
 
     private void OnMapInit(Entity<CursedBlindComponent> ent, ref MapInitEvent args)

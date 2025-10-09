@@ -82,11 +82,8 @@ public sealed partial class CursedBloodSystem : EntitySystem
     private void OnExamined(Entity<CursedBloodComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<WraithComponent>(args.Examiner))
-        {
             //Tells the wraith that the target is cursed, and if the curse has fully bloomed or not.
-            args.PushMarkup(
-                $"[color=darkred]{Loc.GetString("wraith-cursed-blood", ("target", ent.Owner))}[/color]");
-        }
+            args.PushMarkup($"[color=darkred]{Loc.GetString("wraith-cursed-blood", ("target", ent.Owner))}[/color]");
     }
     private void OnMapInit(Entity<CursedBloodComponent> ent, ref MapInitEvent args)
     {

@@ -45,8 +45,6 @@ public sealed partial class CursedRotSystem : EntitySystem
             // Cough Timer
             if (curTime >= comp.NextTickCough)
             {
-                _popup.PopupEntity(Loc.GetString("You feel sick..."), uid, uid);
-
                 _chatSystem.TrySendInGameICMessage(uid, "coughs", InGameICChatType.Emote, false);
 
                 // Schedule next tick
@@ -67,11 +65,8 @@ public sealed partial class CursedRotSystem : EntitySystem
     private void OnExamined(Entity<CursedRotComponent> ent, ref ExaminedEvent args)
     {
         if (HasComp<WraithComponent>(args.Examiner))
-        {
             //Tells the wraith that the target is cursed.
-            args.PushMarkup(
-                $"[color=darkgreen]{Loc.GetString("wraith-cursed-rot", ("target", ent.Owner))}[/color]");
-        }
+            args.PushMarkup($"[color=darkgreen]{Loc.GetString("wraith-cursed-rot", ("target", ent.Owner))}[/color]");
     }
     private void OnIngestAttempt(Entity<CursedRotComponent> ent, ref IngestionAttemptEvent args)
     {
@@ -83,7 +78,7 @@ public sealed partial class CursedRotSystem : EntitySystem
         // Prevent eating
         args.Cancel();
 
-        _popup.PopupEntity("You feel too sick to eat...", uid, uid);
+        _popup.PopupEntity("curse-rot-cant-eat", uid, uid);
     }
     private void OnMapInit(Entity<CursedRotComponent> ent, ref MapInitEvent args)
     {

@@ -36,7 +36,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         component.SelectedState = state.State;
         component.Charges = state.Charges;
         component.Capacity = state.Capacity;
-        component.Infinite = state.Infinite;
+        component.Infinite = state.Infinite; // Goobstation
 
         component.UIUpdateNeeded = true;
     }
@@ -70,7 +70,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
                 ("state",_parent.SelectedState),
                 ("charges", _parent.Charges),
                 ("capacity",_parent.Capacity),
-                ("infinite", _parent.Infinite)));
+                ("infinite", _parent.Infinite))); // Goobstation
         }
     }
 }

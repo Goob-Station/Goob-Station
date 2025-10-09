@@ -14,15 +14,12 @@ public sealed partial class CursedDeathComponent : Component
     {
         DamageDict = new()
         {
-            { "Blunt", 1},
-            { "Slash", 1 },
-            { "Piercing", 1 },
-            { "Heat", 1},
-            { "Shock", 1},
-            { "Cold", 1},
-            { "Poison", 1},
-            { "Radiation", 1},
-            { "Asphyxiation", 1 }
+            { "Blunt", 2},
+            { "Slash", 2 },
+            { "Piercing", 2 },
+            { "Heat", 2},
+            { "Cold", 2},
+            { "Asphyxiation", 2 }
         }
     };
 

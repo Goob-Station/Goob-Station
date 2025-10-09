@@ -224,7 +224,6 @@ public sealed class SpookActionSystem : EntitySystem
         if (TryComp<PassiveWraithPointsComponent>(ent.Owner, out var passiveWraithPoints))
             chargeToRemove *= (float)passiveWraithPoints.WpGeneration;
 
-        // bro did a spelling mistake
         var looup = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange).ToList();
         _random.Shuffle(looup);
 
