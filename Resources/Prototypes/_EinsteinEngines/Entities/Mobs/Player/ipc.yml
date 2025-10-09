@@ -162,7 +162,15 @@
   #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
-  - type: WeldingHealable
+  - type: Repairable #Goob edit
+    fuelCost: 5
+    doAfterDelay: 3
+    selfRepairPenalty: 2.0
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
   - type: DamagedSiliconAccent
   - type: Uncloneable
   - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when

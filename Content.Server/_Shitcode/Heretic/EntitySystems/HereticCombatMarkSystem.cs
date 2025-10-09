@@ -22,7 +22,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Humanoid;
-using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Medical;
@@ -116,6 +115,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
             case "Rust":
                 _vomit.Vomit(target);
+                _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(20), true);
                 break;
 
             case "Void":

@@ -116,7 +116,9 @@
     state: icon
   requiredTags:
     Mask: 1
-    Candle: 4
+    Flare: 1
+    Lighter: 1
+    Ash: 1
     Stunbaton: 1
   output:
     ClothingMaskMadHeretic: 1
@@ -411,6 +413,20 @@
   output:
     ClothingOuterArmorCloakVoid: 1
 
+- type: hereticRitual
+  id: ScorchingShark
+  locName: knowledge-path-side-s3-shark-name
+  locDesc: knowledge-path-side-s3-shark-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: fire_shark_icon
+  requiredTags:
+    Ash: 1
+    Liver: 1
+    SheetPlasma: 1
+  output:
+    MobGhoulFireShark: 1
+
 ## stage 6
 
 - type: hereticRitual
@@ -426,7 +442,6 @@
   requiredTags:
     Steel: 10
     CableCoil: 15
-    ImprovisedShotgun: 1
   output:
     MobGhoulRustWalker: 1
 

@@ -91,6 +91,38 @@
       - HideContextMenu
 
 - type: entity
+  id: EffectVoidBlinkIn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects96x96.rsi
+        state: void_blink_in
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectVoidBlinkOut
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects96x96.rsi
+        state: void_blink_out
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
   id: ShadowCloakEntity
   save: false
   name: a shadow?

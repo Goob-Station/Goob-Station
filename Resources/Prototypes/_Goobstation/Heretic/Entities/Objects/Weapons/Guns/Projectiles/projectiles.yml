@@ -26,6 +26,7 @@
   - type: TimedDespawn
     lifetime: 2.5
   - type: RustObjectsInRadius
+    rustStrength: -1
     rustRadius: 0.8
   - type: Trail
     lerpTime: 0.05
