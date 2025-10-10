@@ -16208,3 +16208,11 @@ Entries:
       message: Damaged hullplating is no longer strangely slippery.
   id: 1809
   time: '2025-10-10T17:37:55.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: RCD now respects door access and bolts on deconstuction.
+    - type: Fix
+      message: Fixed RCD in-tile wall light stacking.
+  id: 1810
+  time: '2025-10-10T17:38:30.0000000+00:00'
