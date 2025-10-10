@@ -14,11 +14,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
+using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -34,6 +38,7 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, DamageExamineEvent>(OnBatteryDamageExamine);
 
         // Projectile
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ComponentGetState>(OnBatteryGetState);
@@ -41,6 +46,7 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, DamageExamineEvent>(OnBatteryDamageExamine);
     }
 
     private void OnBatteryHandleState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentHandleState args)
@@ -77,6 +83,51 @@ public abstract partial class SharedGunSystem
     {
         if (component.Examinable) // goob edit
             args.PushMarkup(Loc.GetString("gun-battery-examine", ("color", AmmoExamineColor), ("count", component.Shots)));
+    }
+
+    private void OnBatteryDamageExamine<T>(Entity<T> entity, ref DamageExamineEvent args) where T : BatteryAmmoProviderComponent
+    {
+        var damageSpec = GetDamage(entity.Comp);
+
+        if (damageSpec == null)
+            return;
+
+        var damageType = entity.Comp switch
+        {
+            HitscanBatteryAmmoProviderComponent => Loc.GetString("damage-hitscan"),
+            ProjectileBatteryAmmoProviderComponent => Loc.GetString("damage-projectile"),
+            _ => throw new ArgumentOutOfRangeException(),
+        };
+
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+    }
+
+    private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
+    {
+        if (component is ProjectileBatteryAmmoProviderComponent battery)
+        {
+            if (ProtoManager.Index<EntityPrototype>(battery.Prototype)
+                .Components
+                .TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
+            {
+                var p = (ProjectileComponent)projectile.Component;
+
+                if (!p.Damage.Empty)
+                {
+                    return p.Damage * Damageable.UniversalProjectileDamageModifier;
+                }
+            }
+
+            return null;
+        }
+
+        if (component is HitscanBatteryAmmoProviderComponent hitscan)
+        {
+            var dmg = ProtoManager.Index<HitscanPrototype>(hitscan.Prototype).Damage;
+            return dmg == null ? dmg : dmg * Damageable.UniversalHitscanDamageModifier;
+        }
+
+        return null;
     }
 
     private void OnBatteryTakeAmmo(EntityUid uid, BatteryAmmoProviderComponent component, TakeAmmoEvent args)

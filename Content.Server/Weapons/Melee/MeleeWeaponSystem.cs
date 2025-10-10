@@ -42,8 +42,6 @@
 
 using Content.Server.Chat.Systems;
 using Content.Server.Movement.Systems;
-using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Melee;
@@ -59,37 +57,14 @@ namespace Content.Server.Weapons.Melee;
 public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
-        SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
-    }
-
-
-    private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
-    {
-        if (component.Hidden)
-            return;
-
-        var damageSpec = GetDamage(uid, args.User, component);
-
-        if (damageSpec.Empty)
-            return;
-
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
-
-        // Goobstation - partial armor penetration
-        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(damageSpec.ArmorPenetration * 100);
-        if (ap == 0)
-            return;
-
-        var abs = Math.Abs(ap);
-        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,
