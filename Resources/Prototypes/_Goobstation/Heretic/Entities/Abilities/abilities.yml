@@ -218,6 +218,24 @@
       - HideContextMenu
 
 - type: entity
+  id: EffectCosmicSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    fadeOutTime: 0.5
+    lifetime: 0
+  - type: RandomRotation
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cosmic_slash
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
   id: EffectGazerOrb
   categories: [ HideSpawnMenu ]
   components:

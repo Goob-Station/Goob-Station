@@ -23,13 +23,13 @@
       path: /Audio/Weapons/bladeslice.ogg
     altDisarm: false
     angle: 0
-    animation: WeaponArcClaw
+    animation: EffectCosmicSlash
     attackRate: 1.5
     damage:
       types:
-        Slash: 20
-        Piercing: 20
-        Structural: 400
+        Slash: 10
+        Piercing: 10
+        Structural: 100
       armorPenetration: 0.5
   - type: Physics
     bodyType: KinematicController
@@ -75,8 +75,8 @@
     bounds: -0.5,-0.5,0.5,0.5
   - type: Insulated
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 4.5
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: FlashImmunity
   - type: HTN
     rootTask:
@@ -115,3 +115,5 @@
     drawOverlay: false
   - type: SupermatterImmune
   - type: EventHorizonIgnore
+  - type: SpacetimeSpellbladeEnchantmentComponent # It's not a spellblade, trust
+    effect: EffectCosmicSlash
