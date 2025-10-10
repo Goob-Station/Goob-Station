@@ -64,7 +64,7 @@ public sealed class OreBagSystem : EntitySystem
 
     private void OnDrag(Entity<OreBagComponent> ent, ref DragDropDraggedEvent args)
     {
-        if (!TryComp<StorageComponent>(ent.Owner, out var storage))
+        if (!TryComp<StorageComponent>(ent.Owner, out var storage) || args.Handled)
             return;
 
         var validEntities = new List<EntityUid>();
@@ -75,6 +75,8 @@ public sealed class OreBagSystem : EntitySystem
 
         foreach (var entity in validEntities)
             _materialStorage.TryInsertMaterialEntity(args.User, entity, args.Target);
+
+        args.Handled = true;
     }
 
     private void OnDragAttempt(Entity<OreBagComponent> ent, ref CanDropDraggedEvent args)
