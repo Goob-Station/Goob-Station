@@ -268,7 +268,7 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             TryComp<StorageComponent>(args.Used, out var storage);
 
-            if (!CanGib && storage == null)
+            if (!CanGib(reclaimer, args.Used) && storage == null)
                 return;
 
             if (!TryComp<PhysicsComponent>(args.Used, out var physics))
@@ -348,7 +348,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             var component = ent.Comp;
             component.ProcessingTimer = 0;
 
-            if (CanGib)
+            if (CanGib(ent, toProcess))
                 AddToStartingProcess(toProcess, ent, physics);
 
             if (TryComp<StorageComponent>(toProcess, out var storage))
@@ -357,7 +357,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                 {
                     if (CanGib(ent, item) && TryComp<PhysicsComponent>(item, out var itemPhysics))
                         AddToStartingProcess(item, ent, itemPhysics);
-                    else if (CanGib) // If the container itself is being processed, drop non-processable contents
+                    else if (CanGib(ent, toProcess)) // If the container itself is being processed, drop non-processable contents
                         _transform.DropNextTo(item, ent.Owner);
                 }
             }
