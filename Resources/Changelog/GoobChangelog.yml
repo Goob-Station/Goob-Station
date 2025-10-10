@@ -16000,3 +16000,9 @@ Entries:
       message: Fixed plamamens Envirosuit helmet lamps
   id: 1781
   time: '2025-10-10T05:48:15.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Fixed Plasmamen damage modifers now work '
+  id: 1782
+  time: '2025-10-10T05:48:31.0000000+00:00'
