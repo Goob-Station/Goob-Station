@@ -84,7 +84,7 @@ job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
 job-name-cluwne = Cluwne
 
-# event-resctricted jobs
+# event-restricted jobs
 job-name-security-clown = Security Clown
 job-name-command-maid = Command Maid
 job-name-party-maker = Party Maker
