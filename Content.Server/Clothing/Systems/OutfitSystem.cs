@@ -30,7 +30,7 @@ public sealed class OutfitSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storageSystem = default!; // Goobstation
     [Dependency] private readonly InternalEncryptionKeySpawner _encryptionSystem = default!; // Goobstation
 
-    public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool doSpecial = false, bool unremovable = false)
+    public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool unremovable = false)
     {
         if (!EntityManager.TryGetComponent(target, out InventoryComponent? inventoryComponent))
             return false;
