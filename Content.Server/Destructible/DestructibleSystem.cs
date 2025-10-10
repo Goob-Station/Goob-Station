@@ -91,6 +91,9 @@ namespace Content.Server.Destructible
                 {
                     RaiseLocalEvent(uid, new DamageThresholdReached(component, threshold), true);
 
+                    var beforeEvent = new BeforeBodyDestructionEvent();  //Stores the body damages inside of the entity MindComponent
+                    RaiseLocalEvent(uid, ref beforeEvent);
+
                     var logImpact = LogImpact.Low;
                     // Convert behaviors into string for logs
                     var triggeredBehaviors = string.Join(", ", threshold.Behaviors.Select(b =>
