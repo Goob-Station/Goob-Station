@@ -16168,3 +16168,9 @@ Entries:
         destructible.
   id: 1803
   time: '2025-10-10T06:22:08.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Tweak
+      message: changed name of "slugcat" jelly-donuts to "scurret" jelly-donuts
+  id: 1804
+  time: '2025-10-10T06:22:46.0000000+00:00'
