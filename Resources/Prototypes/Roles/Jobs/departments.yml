@@ -133,6 +133,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - FloraInspector # event-restricted
 
 - type: department
   id: CentralCommand
@@ -228,6 +229,7 @@
   - Detective
   - Warden
   - Brigmedic # Goob
+  - SecurityClown # Goob
 
 - type: department
   id: Science
