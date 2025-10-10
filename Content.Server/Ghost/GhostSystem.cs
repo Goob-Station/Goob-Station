@@ -109,6 +109,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
 using Content.Shared.Ghost.GhostSpriteStateSelection;
+using Content.Server.GhostTypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -591,6 +592,11 @@ namespace Content.Server.Ghost
             {
                 var spriteEvent = new GhostSpriteEvent(mind.Comp.CurrentEntity.Value);
                 RaiseLocalEvent(ghost, spriteEvent);
+            }
+
+            if (TryComp<GhostSpriteStateComponent>(ghost, out var state))
+            {
+                _ghostState.SetGhostSprite(ghost, mind.Comp, state);  //Assings the ghost a sprite according to the damage taken
             }
 
             // Try setting the ghost entity name to either the character name or the player name.
