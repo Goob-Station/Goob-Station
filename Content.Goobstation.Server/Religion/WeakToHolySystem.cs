@@ -25,6 +25,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Timing; // Shitmed Change
 using Content.Shared._Shitmed.Damage; // Shitmed Change
+
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -139,6 +140,9 @@ public sealed class WeakToHolySystem : EntitySystem
         var query = EntityQueryEnumerator<WeakToHolyComponent, BodyComponent>();
         while (query.MoveNext(out var uid, out var weakToHoly, out var body))
         {
+            if (weakToHoly.NextPassiveHealTick > _timing.CurTime)
+                return;
+
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 return;
 
@@ -148,14 +152,12 @@ public sealed class WeakToHolySystem : EntitySystem
                 return;
 
             // Rune healing.
-            if (weakToHoly.NextSpecialHealTick <= _timing.CurTime && weakToHoly.IsColliding)
-            {
+            if (weakToHoly.IsColliding)
                 _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
-                weakToHoly.NextSpecialHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
-            }
 
             // Passive healing.
             _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
+
             weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }
