@@ -15988,3 +15988,105 @@ Entries:
       message: '**Removed Corrosive Acid Ability** until it can be properly fixed.'
   id: 1779
   time: '2025-10-08T18:37:02.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: changling no longer reveal if flash imune
+  id: 1780
+  time: '2025-10-10T05:47:55.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed plamamens Envirosuit helmet lamps
+  id: 1781
+  time: '2025-10-10T05:48:15.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Fixed Plasmamen damage modifers now work '
+  id: 1782
+  time: '2025-10-10T05:48:31.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Heretics void blast  now stoped by nullrod (no longer in use) '
+    - type: Fix
+      message: Heretics Ice Spear now stoped by nullrod
+  id: 1783
+  time: '2025-10-10T05:49:50.0000000+00:00'
+- author: Fishbait ,
+  changes:
+    - type: Fix
+      message: Rakings servants have no longer spawn organs when gibbed
+  id: 1784
+  time: '2025-10-10T05:50:37.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Having upgraded cybernetic lungs no longer causes you to jitter like a
+        grinder
+  id: 1785
+  time: '2025-10-10T05:53:15.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed like half of wizard spells/items not working.
+    - type: Tweak
+      message: >-
+        Buffed lightning bolt, thrown lightning, barnyard curse, summon bees,
+        mjollnir, singulo hammer, sm halberd, magic missile.
+    - type: Tweak
+      message: You can now summon maximum of 3 demons of each type as wizard.
+    - type: Tweak
+      message: Nerfed bind soul.
+  id: 1786
+  time: '2025-10-10T05:54:33.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: Two instances of blood appearing in the health analyzer.
+    - type: Fix
+      message: Blood freshness mechanic not working.
+    - type: Add
+      message: Blood drawn with a syringe from a body is actually fresh.
+  id: 1787
+  time: '2025-10-10T05:55:39.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Fixed Nullrod reflect description.
+  id: 1788
+  time: '2025-10-10T05:57:54.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Moths can no longer eat bomb suit helmets.
+  id: 1789
+  time: '2025-10-10T05:58:42.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Holy damage now disapates over time.
+  id: 1790
+  time: '2025-10-10T05:59:24.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: chaplains devine shoulder holster is now a null rod
+  id: 1791
+  time: '2025-10-10T06:00:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: >-
+        The Ore Processor and its variant now output materials directly to the
+        silo, instead of lagging the entire server with 10,000 steel.
+  id: 1792
+  time: '2025-10-10T06:03:33.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: Weldbot properly heal IPCs now.
+  id: 1793
+  time: '2025-10-10T06:04:39.0000000+00:00'

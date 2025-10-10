@@ -562,7 +562,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         var dnaData = new DnaData();
 
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
+        {
             dnaData.DNA = donorComp.DNA;
+            dnaData.Freshness = _timing.CurTime; // Goobstation
+        }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 
