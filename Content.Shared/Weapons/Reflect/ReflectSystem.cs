@@ -103,6 +103,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
+using Content.Shared.Mobs.Components; // goobstation - reflect examine change
 
 namespace Content.Shared.Weapons.Reflect;
 
@@ -313,7 +314,7 @@ public sealed class ReflectSystem : EntitySystem
     #region Examine
     private void OnExamine(Entity<ReflectComponent> ent, ref ExaminedEvent args)
     {
-        if (!ent.Comp.Examinable) return; // Goobstation
+        if (HasComp<MobStateComponent>(args.Examined)) return; // Goobstation
         // This isn't examine verb or something just because it looks too much bad.
         // Trust me, universal verb for the potential weapons, armor and walls looks awful.
         var value = MathF.Round(ent.Comp.ReflectProb * 100, 1);

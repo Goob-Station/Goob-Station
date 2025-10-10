@@ -88,7 +88,6 @@ public partial class SharedMartialArtsSystem
                     return;
                 _faction.AddFaction(args.User, "Dragon");
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
-                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
                 Dirty(args.User, userReflect);
