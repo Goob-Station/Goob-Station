@@ -141,15 +141,16 @@ public sealed class WeakToHolySystem : EntitySystem
         while (query.MoveNext(out var uid, out var weakToHoly, out var body))
         {
             if (weakToHoly.NextPassiveHealTick > _timing.CurTime)
-                return;
+                continue;
+            weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
 
             if (!TryComp<DamageableComponent>(uid, out var damageable))
-                return;
+                continue;
 
             if (TerminatingOrDeleted(uid)
                 || !_body.TryGetRootPart(uid, out var rootPart, body: body)
                 || !damageable.Damage.DamageDict.TryGetValue("Holy", out _))
-                return;
+                continue;
 
             // Rune healing.
             if (weakToHoly.IsColliding)
@@ -157,8 +158,6 @@ public sealed class WeakToHolySystem : EntitySystem
 
             // Passive healing.
             _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
-
-            weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }
 
