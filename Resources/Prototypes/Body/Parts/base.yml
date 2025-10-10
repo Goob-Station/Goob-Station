@@ -40,7 +40,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
   - type: Gibbable
-  - type: MindRememberBody
+  - type: StoreDamageTakenOnMind
   - type: ContainerContainer
     containers:
       bodypart: !type:Container
