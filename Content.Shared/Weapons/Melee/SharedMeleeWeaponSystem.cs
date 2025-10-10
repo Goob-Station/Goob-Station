@@ -133,6 +133,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -200,6 +201,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly ThrowingSystem _throwing = default!;
     [Dependency] private   readonly INetConfigurationManager _config = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
 
     //Goob - Shove
@@ -244,6 +246,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
         SubscribeLocalEvent<MeleeWeaponComponent, ShotAttemptedEvent>(OnMeleeShotAttempted);
         SubscribeLocalEvent<MeleeWeaponComponent, GunShotEvent>(OnMeleeShot);
+        SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetMeleeDamageEvent>(OnGetBonusMeleeDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetHeavyDamageModifierEvent>(OnGetBonusHeavyDamageModifier);
         SubscribeLocalEvent<BonusMeleeAttackRateComponent, GetMeleeAttackRateEvent>(OnGetBonusMeleeAttackRate);
@@ -260,8 +263,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
 
 #if DEBUG
-        SubscribeLocalEvent<MeleeWeaponComponent,
-                            MapInitEvent>                   (OnMapInit);
+        SubscribeLocalEvent<MeleeWeaponComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnMapInit(EntityUid uid, MeleeWeaponComponent component, MapInitEvent args)
@@ -289,6 +291,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
     }
 
+    private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
+    {
+        if (component.Hidden)
+            return;
+
+        var damageSpec = GetDamage(uid, args.User, component);
+
+        if (damageSpec.Empty)
+            return;
+
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+    }
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
         var attackRate = GetAttackRate(uid, args.User, component);
