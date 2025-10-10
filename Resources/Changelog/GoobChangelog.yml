@@ -16014,3 +16014,9 @@ Entries:
       message: Heretics Ice Spear now stoped by nullrod
   id: 1783
   time: '2025-10-10T05:49:50.0000000+00:00'
+- author: Fishbait ,
+  changes:
+    - type: Fix
+      message: Rakings servants have no longer spawn organs when gibbed
+  id: 1784
+  time: '2025-10-10T05:50:37.0000000+00:00'
