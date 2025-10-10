@@ -16152,3 +16152,9 @@ Entries:
       message: Fixed Shadowling glare not muting target
   id: 1801
   time: '2025-10-10T06:17:22.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Now you won't able to check people wanted status without hud
+  id: 1802
+  time: '2025-10-10T06:20:43.0000000+00:00'
