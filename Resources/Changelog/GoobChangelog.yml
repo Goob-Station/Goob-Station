@@ -16098,3 +16098,11 @@ Entries:
         bleed out.
   id: 1794
   time: '2025-10-10T06:09:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: >-
+        NV and IR goggles give flash vulnrability while worn, nukie versions do
+        not.
+  id: 1795
+  time: '2025-10-10T06:10:05.0000000+00:00'
