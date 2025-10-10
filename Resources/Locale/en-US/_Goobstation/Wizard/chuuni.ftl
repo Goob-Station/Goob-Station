@@ -23,9 +23,3 @@ chuuni-invocation-necromancy = I am the Lord of the Dead, the Master of Bones, t
 chuuni-invocation-forbidden = I renounce the laws of this world and embrace the chaos of the old gods! Let the forbidden power flow through me and destroy everything in its path!
 chuuni-invocation-sanguine = I cover my eye with an eyepatch to seal my true power, but now I will unleash it upon you. I feast on the life force of my prey and grow stronger with every drop!
 chuuni-invocation-chuuni = By the decree of the dark lord, I invoke the curse of the chuuni. Let all my spells be tainted by the power of delusion. O, Reality! Bend to my will!
-
-chat-manager-entity-say-wrap-message-chuuni = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/font]
-chat-manager-entity-say-bold-wrap-message-chuuni = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent][color=hotpink][bold]{$message}[/bold][/color][/BubbleContent]"[/font]
-
-chat-manager-entity-whisper-wrap-message-chuuni = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/italic][/font]
-chat-manager-entity-whisper-unknown-wrap-message-chuuni = [font size=11][italic][BubbleHeader]Someone[/BubbleHeader] whispers: "[BubbleContent][color=hotpink]{$message}[/color][/BubbleContent]"[/italic][/font]
