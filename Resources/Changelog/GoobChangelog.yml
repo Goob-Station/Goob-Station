@@ -15994,3 +15994,9 @@ Entries:
       message: changling no longer reveal if flash imune
   id: 1780
   time: '2025-10-10T05:47:55.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed plamamens Envirosuit helmet lamps
+  id: 1781
+  time: '2025-10-10T05:48:15.0000000+00:00'
