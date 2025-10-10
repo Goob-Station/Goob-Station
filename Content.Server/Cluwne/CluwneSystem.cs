@@ -102,7 +102,13 @@ public sealed class CluwneSystem : EntitySystem
 
         var transformMessage = Loc.GetString(ent.Comp.TransformMessage, ("target", ent.Owner));
 
-        _outfitSystem.SetOutfit(uid, "CluwneGear");
+        _popupSystem.PopupEntity(transformMessage, ent.Owner, PopupType.LargeCaution);
+        _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
+
+        _nameMod.RefreshNameModifiers(ent.Owner);
+
+
+        _outfitSystem.SetOutfit(ent.Owner, ent.Comp.OutfitId, unremovable: true);
     }
 
     /// <summary>
