@@ -16190,3 +16190,9 @@ Entries:
         bodies from medical scanners.
   id: 1806
   time: '2025-10-10T17:12:07.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Scurrets are now clumsy.
+  id: 1807
+  time: '2025-10-10T17:13:04.0000000+00:00'
