@@ -16202,3 +16202,9 @@ Entries:
       message: Added Time requirements to Blob and Centcomm Interns
   id: 1808
   time: '2025-10-10T17:37:10.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Damaged hullplating is no longer strangely slippery.
+  id: 1809
+  time: '2025-10-10T17:37:55.0000000+00:00'
