@@ -16042,3 +16042,13 @@ Entries:
       message: Nerfed bind soul.
   id: 1786
   time: '2025-10-10T05:54:33.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: Two instances of blood appearing in the health analyzer.
+    - type: Fix
+      message: Blood freshness mechanic not working.
+    - type: Add
+      message: Blood drawn with a syringe from a body is actually fresh.
+  id: 1787
+  time: '2025-10-10T05:55:39.0000000+00:00'
