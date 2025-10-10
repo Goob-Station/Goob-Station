@@ -133,7 +133,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
-  - FloraInspector # event-restricted
+  - PartyMaker # event-restricted
 
 - type: department
   id: CentralCommand
@@ -189,6 +189,7 @@
   - ERTEngineer
   - DeathSquad
   - HecuOperative
+  - CommandMaid # Goobstation
   primary: false
   weight: 100
 
