@@ -173,6 +173,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
