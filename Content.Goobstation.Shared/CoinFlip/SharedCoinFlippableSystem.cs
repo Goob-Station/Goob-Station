@@ -2,10 +2,11 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
+using Content.Shared.Dice;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.CoinFlippable;
+namespace Content.Goobstation.Shared.CoinFlip;
 
 public abstract class SharedCoinFlippableSystem : EntitySystem
 {

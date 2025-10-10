@@ -1,14 +1,20 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.CoinFlippable;
+namespace Content.Goobstation.Shared.CoinFlip;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedCoinFlippableSystem))]
 [AutoGenerateComponentState(true)]
 public sealed partial class CoinFlippableComponent : Component
 {
     [DataField]
-    public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/_Goobstation/Misc/coinflip.ogg"); // Best SFX we got
+    public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/_Goobstation/Misc/coinflip.ogg")
+    {
+        Params = new AudioParams
+        {
+            Variation = 0.15f
+        }
+    };
 
     /// <summary>
     ///     Is there an associated side sprite for it to, rarely, land on? Assume no unless otherwise set.
