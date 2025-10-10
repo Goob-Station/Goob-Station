@@ -45,7 +45,7 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
 
         if (nearbyTrash.Count < comp.MinTrash)
         {
-            _popup.PopupPredicted("This place is much too clean to summon a rot hulk.", uid, uid);
+            _popup.PopupEntity(Loc.GetString("wraith-rot-hulk-rise"), ent.Owner, ent.Owner);
             return;
         }
 
@@ -57,12 +57,24 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
                 QueueDel(trash);
         }
 
-        var proto = nearbyTrash.Count >= comp.BuffThreshold
+        // Choose which prototype to spawn
+        var isBuff = nearbyTrash.Count >= comp.BuffThreshold;
+        var proto = isBuff
             ? comp.BuffRotHulkProto
             : comp.RotHulkProto;
 
         var hulk = PredictedSpawnAtPosition(proto, xform.Coordinates);
-        _popup.PopupPredicted("The filth coalesces into a grotesque servant!", uid, uid);
+
+        // Choose the correct FTL line
+        var popupKey = isBuff
+            ? "wraith-rot-hulk-strong-emerge"
+            : "wraith-rot-hulk-emerge";
+
+        // Show the localized message, substituting the spawned entity name
+        _popup.PopupEntity(
+            Loc.GetString(popupKey, ("E", hulk)),
+            hulk,
+            ent.Owner);
 
         args.Handled = true;
     }

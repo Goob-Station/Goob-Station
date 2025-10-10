@@ -42,7 +42,7 @@ public sealed class DefileSystem : EntitySystem
             if (!TryInjectReagents(args.Target, ent))
                 return;
 
-            _popup.PopupPredicted(Loc.GetString("wraith-defile"), ent.Owner, ent.Owner);
+            _popup.PopupPredicted(Loc.GetString("wraith-poison-success", ("target", ent.Owner)), ent.Owner, ent.Owner);
             args.Handled = true;
         }
     }

@@ -6,10 +6,6 @@ wraith-absorb-fail-start = Something is preventing me from starting my feast.
 wraith-absorb-start = The feast begins. I shall have its soul, soon enough.
 wraith-absorb-success = I have absorbed their soul, and with it, I grow stronger.
 
-wraith-decay = The rot begins...
-wraith-decay-emagged = Their components sizzle and crackle as your rot alters their functionality.
-wraith-decay-fail = This cannot be decayed...
-
 wraith-defile = It has been done...
 
 wraith-in-solid = I cannot interact with the corporeal realm from within a solid object.
@@ -197,7 +193,6 @@ wraith-poison-self = Why would you want to poison yourself?
 wraith-poison-success = You successfully poisoned { CAPITALIZE(SUBJECT($target)) }.
 wraith-poison-fail = You failed to poison { CAPITALIZE(SUBJECT($target)) }.
 
-wraith-rot-hulk-desc = Assimilate the filth in an area and create an unstable servant.
 wraith-rot-hulk-too-clean = This place is much too clean to summon a rot hulk.
 wraith-rot-hulk-rise = All the filth and grime around begins to writhe and move!
 wraith-rot-hulk-abomination = The filth accumulates into a living bloated abomination

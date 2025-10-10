@@ -24,6 +24,7 @@ public sealed partial class PossessObjectSystem : EntitySystem
 
     //TO DO: Make the wraith return to their body if they get killed as a possessed object.
     //TO DO: Clean action bar for wraith, add an action for them to stop the possession. Revert this once it's over.
+    //TO DO: Prevent the use of the action while corporeal.
     private void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
     {
         if (!_mind.TryGetMind(args.Performer, out var mindId, out _))
