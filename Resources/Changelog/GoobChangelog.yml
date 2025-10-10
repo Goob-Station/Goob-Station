@@ -16174,3 +16174,11 @@ Entries:
       message: changed name of "slugcat" jelly-donuts to "scurret" jelly-donuts
   id: 1804
   time: '2025-10-10T06:22:46.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Tweak
+      message: >-
+        The Chief Engineer and Atmospheric Technicians can now control
+        maintenance doors with their remotes.
+  id: 1805
+  time: '2025-10-10T17:10:08.0000000+00:00'
