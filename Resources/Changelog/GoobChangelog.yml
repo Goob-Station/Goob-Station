@@ -16020,3 +16020,11 @@ Entries:
       message: Rakings servants have no longer spawn organs when gibbed
   id: 1784
   time: '2025-10-10T05:50:37.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Having upgraded cybernetic lungs no longer causes you to jitter like a
+        grinder
+  id: 1785
+  time: '2025-10-10T05:53:15.0000000+00:00'
