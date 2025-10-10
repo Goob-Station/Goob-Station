@@ -49,7 +49,7 @@
           components:
           - Food
         insertOnInteract: true
-        priority: 2
+        priority: 1 # Goob Edit - Spesos are both food and money, so check for money first
       cash_slot:
         insertVerbText: Put in Cash
         ejectVerbText: Take out Cash
@@ -57,9 +57,9 @@
         startingItem: null
         whitelist:
           components:
-          - Currency
+          - Cash # Goob Edit - Turns out, spesos don't have a CurrencyComp
         insertOnInteract: true
-        priority: 1
+        priority: 2 # Goob Edit - Spesos are both food and money, so check for money first
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
