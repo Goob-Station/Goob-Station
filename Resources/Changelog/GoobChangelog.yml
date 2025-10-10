@@ -16112,3 +16112,9 @@ Entries:
       message: Added a space cleaner dispenser to Fland's janitor room
   id: 1796
   time: '2025-10-10T06:10:46.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Remove
+      message: Disabled the Woundmed **wound visuals** system.
+  id: 1797
+  time: '2025-10-10T06:12:26.0000000+00:00'
