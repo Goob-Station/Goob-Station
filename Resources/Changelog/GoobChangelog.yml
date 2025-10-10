@@ -16182,3 +16182,11 @@ Entries:
         maintenance doors with their remotes.
   id: 1805
   time: '2025-10-10T17:10:08.0000000+00:00'
+- author: CyberSamson
+  changes:
+    - type: Fix
+      message: >-
+        Lootbugs, mice, zombies, and other simple creatures can no longer eject
+        bodies from medical scanners.
+  id: 1806
+  time: '2025-10-10T17:12:07.0000000+00:00'
