@@ -7,20 +7,13 @@
 - type: species
   id: Abductor
   name: species-name-abductor
-  roundStart: true # CorvaxGoob-Species : from false
+  roundStart: false
   prototype: MobAbductor
   sprites: MobAbductorSprites
-  markingLimits: MobAbductorMarkingLimits # CorvaxGoob-Species : from MobHumanMarkingLimits
+  markingLimits: MobHumanMarkingLimits
   dollPrototype: MobAbductorDummy
-  skinColoration: Hues # CorvaxGoob-Species : from HumanToned
+  skinColoration: HumanToned
   defaultSkinTone: "#BFC2C7"
-  # CorvaxGoob-Species-Start
-  sexes:
-  - Unsexed
-  maleFirstNames: AbductorNames
-  femaleFirstNames: AbductorNames
-  lastNames: AbductorLastNames
-  # CorvaxGoob-Species-End
 
 - type: speciesBaseSprites
   id: MobAbductorSprites
@@ -43,8 +36,8 @@
 - type: humanoidBaseSprite
   id: MobAbductorEyes
   baseSprite:
-    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi # CorvaxGoob-Species
-    state: eyes # CorvaxGoob-Species
+    sprite: Mobs/Customization/eyes.rsi
+    state: no_eyes
 
 - type: humanoidBaseSprite
   id: MobAbductorHeadFemale

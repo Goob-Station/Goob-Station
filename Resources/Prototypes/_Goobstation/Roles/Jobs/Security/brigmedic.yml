@@ -15,10 +15,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10 hrs
-  - !type:SpeciesRequirement # CorvaxGoob-Species
-    inverted: true
-    species:
-    - Abductor
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos

@@ -61,7 +61,6 @@
   - NewKinPidginTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
-  - XeeplianTranslator # CorvaxGoob
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation

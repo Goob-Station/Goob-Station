@@ -145,10 +145,6 @@
       inverted: true
       species:
       - Felinid
-    - !type:SpeciesRequirement # CorvaxGoob-Species
-      inverted: true
-      species:
-      - Abductor
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
