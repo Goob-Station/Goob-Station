@@ -108,7 +108,6 @@ using Content.Shared.Eye;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
-using Content.Shared.Ghost.GhostSpriteStateSelection;
 using Content.Server.GhostTypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -584,13 +583,6 @@ namespace Content.Server.Ghost
 
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
-
-            // Raise an event to assign a sprite state according to the damage taken
-            if (mind.Comp.CurrentEntity != null)
-            {
-                var spriteEvent = new GhostSpriteEvent(mind.Comp.CurrentEntity.Value);
-                RaiseLocalEvent(ghost, spriteEvent);
-            }
 
             if (TryComp<GhostSpriteStateComponent>(ghost, out var state))
             {
