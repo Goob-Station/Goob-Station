@@ -664,3 +664,36 @@
     - id: BasicDecalDirtMonospaceVariationPass
       prob: 0.50
       orGroup: monospaceDecals
+
+# Goob edit start
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleTraitor
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: SubgamemodeTraitor
+
+- type: entity
+  parent: Thief
+  id: OopsAllThieves
+  components:
+  - type: GameRule
+    minPlayers: 50
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 22 # Good luck security
+      playerRatio: 7
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Pacified
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
+  # Goob edit end
