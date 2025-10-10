@@ -18,7 +18,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <!-- Station name -->
         <controls:StripeBack>
             <PanelContainer>
-                <Label Name="StationName" Text="Unknown station" StyleClasses="LabelBig" Align="Center"/>
+                <Label Name="StationName" Text="{Loc 'station-map-unknown-station'}" StyleClasses="LabelBig" Align="Center"/>
             </PanelContainer>
         </controls:StripeBack>
 
