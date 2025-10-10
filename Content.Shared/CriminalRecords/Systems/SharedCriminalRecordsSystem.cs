@@ -57,6 +57,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             SecurityStatus.Perma => "SecurityIconPerma",
             SecurityStatus.Search => "SecurityIconSearch",
             SecurityStatus.Dangerous => "SecurityIconDangerous",
+            SecurityStatus.Eliminated => "SecurityIconEliminated", // Goobstation
             _ => record.StatusIcon
         };
 

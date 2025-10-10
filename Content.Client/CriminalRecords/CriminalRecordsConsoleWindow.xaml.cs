@@ -404,6 +404,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Search => "hud_search",
             SecurityStatus.Perma => "hud_perma",
             SecurityStatus.Dangerous => "hud_dangerous",
+            SecurityStatus.Eliminated => "hud_eliminated", // Goobstation
             _ => "SecurityIconNone"
         };
     }
