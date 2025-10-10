@@ -16240,3 +16240,15 @@ Entries:
       message: Increased the moth dash's cooldown
   id: 1813
   time: '2025-10-10T17:48:08.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Energycrit
+    - type: Add
+      message: IPCs can drink power from batteries.
+    - type: Tweak
+      message: IPCs are no longer round removed when they run out of power in maints.
+    - type: Tweak
+      message: IPCs now have a permanent high capacity battery.
+  id: 1814
+  time: '2025-10-10T17:51:06.0000000+00:00'
