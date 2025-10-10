@@ -603,6 +603,9 @@
 
 - type: Tag
   id: Vial
+  
+- type: Tag
+  id: WallLight
 
 - type: Tag
   id: WaterTank
