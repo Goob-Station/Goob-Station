@@ -16118,3 +16118,9 @@ Entries:
       message: Disabled the Woundmed **wound visuals** system.
   id: 1797
   time: '2025-10-10T06:12:26.0000000+00:00'
+- author: LuciferEOS, Freeman
+  changes:
+    - type: Tweak
+      message: Changed the nukies elite hardsuit icon.
+  id: 1798
+  time: '2025-10-10T06:12:46.0000000+00:00'
