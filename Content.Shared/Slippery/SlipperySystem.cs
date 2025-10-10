@@ -151,16 +151,9 @@ public sealed class SlipperySystem : EntitySystem
         if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SlipData.SuperSlippery)
             return;
 
-        var attemptEv = new SlipAttemptEvent(uid);
-        RaiseLocalEvent(other, attemptEv);
-        if (attemptEv.SlowOverSlippery)
-            _speedModifier.AddModifiedEntity(other);
-
-        if (attemptEv.NoSlip)
-            return;
-
         if (!force)
         {
+            var attemptEv = new SlipAttemptEvent(uid);
             RaiseLocalEvent(other, attemptEv);
             if (attemptEv.SlowOverSlippery)
                 _speedModifier.AddModifiedEntity(other);
