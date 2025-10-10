@@ -16226,3 +16226,11 @@ Entries:
         some extra stamina.
   id: 1811
   time: '2025-10-10T17:45:28.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Raised abductor time requirement so chuds maybe learn to use the return
+        to ship action.
+  id: 1812
+  time: '2025-10-10T17:46:17.0000000+00:00'
