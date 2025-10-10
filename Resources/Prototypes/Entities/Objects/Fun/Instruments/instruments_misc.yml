@@ -239,3 +239,13 @@
     - neck
   - type: ActivatableUI
     inHandsOnly: false
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Common
+    toggleOnInteract: false
+    enabled: true
+  - type: RadioSpeaker
+    channels:
+    - Common
+    toggleOnInteract: false
+    enabled: true
