@@ -3,8 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._EinsteinEngines.Power.Components;
+using Content.Shared.Whitelist; // Goobstation - Energycrit
 
+namespace Content.Shared._EinsteinEngines.Power.Components;
+
+// Goobstation - Moved from EE server to EE shared
 [RegisterComponent]
 public sealed partial class BatteryDrinkerComponent : Component
 {
@@ -33,4 +36,16 @@ public sealed partial class BatteryDrinkerComponent : Component
     /// </summary>
     [DataField]
     public float DrinkAllMultiplier = 2.5f;
+
+    // Goobstation - Energycrit: BatteryDrinker blacklist.
+    /// <summary>
+    ///     Blacklist for battery containers that can not be drank from.
+    /// </summary>
+    /// <remarks>
+    ///     This should not be used to disable drinking from a type of power cell, as it is not checked for entities
+    ///     inside a power cell slot. If you want to ban drinking from a power cell, remove BatteryDrinkerSourceComponent
+    ///     from it.
+    /// </remarks>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }
