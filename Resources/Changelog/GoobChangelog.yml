@@ -16158,3 +16158,13 @@ Entries:
       message: Now you won't able to check people wanted status without hud
   id: 1802
   time: '2025-10-10T06:20:43.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added a new Lavaland ruin centered around combat and exploration.
+    - type: Fix
+      message: >-
+        Fixed collision issues with Flock structures, and made them
+        destructible.
+  id: 1803
+  time: '2025-10-10T06:22:08.0000000+00:00'
