@@ -16196,3 +16196,9 @@ Entries:
       message: Scurrets are now clumsy.
   id: 1807
   time: '2025-10-10T17:13:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Time requirements to Blob and Centcomm Interns
+  id: 1808
+  time: '2025-10-10T17:37:10.0000000+00:00'
