@@ -1,7 +1,7 @@
-using Content.Shared.CoinFlippable;
+using Content.Goobstation.Shared.CoinFlip;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.CoinFlippable;
+namespace Content.Goobstation.Client.CoinFlip;
 
 public sealed class CoinFlippableSystem : SharedCoinFlippableSystem
 {

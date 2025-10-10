@@ -12,7 +12,6 @@
   - type: Item
     size: Tiny
   - type: PhysicalComposition
-  - type: UseDelay
     materialComposition:
       Steel: 4
       Diamond: 1
