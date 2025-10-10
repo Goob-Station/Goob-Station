@@ -971,9 +971,7 @@ namespace Content.Shared.Damage
         /// <summary>
         /// Returns a string list containing the type/s of the highest damage value
         /// </summary>
-        /// <param name="component"></param>
-        /// <returns></returns>
-        public List<string> GetHighestDamageTypes(DamageableComponent component)
+        public List<string> GetHighestDamageTypes(Dictionary<string, FixedPoint2> damagePerGroup, DamageSpecifier damage)
         {
             var highestType = new List<string>();
             var highestValue = FixedPoint2.Zero;
