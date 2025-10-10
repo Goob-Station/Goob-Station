@@ -214,6 +214,9 @@
     - Shock
     - Cold
     - Caustic
+    - Asphyxiation
+    - Radiation
+  - type: MindRememberBody
   - type: DamageOnHighSpeedImpact
     damage:
       types:
