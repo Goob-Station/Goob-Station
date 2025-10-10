@@ -16258,3 +16258,9 @@ Entries:
       message: Added  Ancient Goliath  to lavaland
   id: 1815
   time: '2025-10-10T17:53:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Walls are now a good source of iron for a balanced diet.
+  id: 1816
+  time: '2025-10-10T20:43:59.0000000+00:00'
