@@ -139,6 +139,8 @@
   - type: Multishot
     missChance: 0
     spreadAddition: 10
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: plasma rifle
