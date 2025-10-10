@@ -353,9 +353,10 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 2
+    weight: 2 # Goobstation - was 3
     earliestStart: 45
-    maxOccurrences: 1
+    #recorruenceDelay: 20 # Goobstation - no longer needed
+    maxOccurrences: 1 # Goobstation
     minimumPlayers: 50
     duration: null
     chaos: # Goobstation
@@ -392,10 +393,11 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 3 # Goobstation - was 6
     duration: null
-    earliestStart: 30
-    maxOccurrences: 1
+    earliestStart: 30 # Goobstation - was 45
+    #reoccurrenceDelay: 20 # Goobstation - no longer needed
+    maxOccurrences: 1 # Goobstation
     minimumPlayers: 30
     chaos: # Goobstation
       Hostile: 20
@@ -695,7 +697,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 7
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -721,7 +723,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 7
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -747,7 +749,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 7
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -770,7 +772,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
-    weight: 3 # DeltaV - was 1.5
+    weight: 3 # Goobstation - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -789,7 +791,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 60
+    earliestStart: 60 # Goobstation - was 90 (impossible on goob)
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -832,8 +834,8 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 2.5
-    minimumPlayers: 50
+    weight: 2.5 # Goobstation - was 5.5
+    minimumPlayers: 50 # Goobstation - was 20
     duration: 1
     chaos: # Goobstation
       Hostile: 200

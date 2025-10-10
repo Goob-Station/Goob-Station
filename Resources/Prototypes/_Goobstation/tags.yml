@@ -503,6 +503,9 @@
   id: ShadowCloakAction
 
 - type: Tag
+  id: SheetPlasma
+
+- type: Tag
   id: ShowWizardIcons
 
 - type: Tag
