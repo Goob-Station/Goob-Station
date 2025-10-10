@@ -1,0 +1,14 @@
+- type: loadoutEffectGroup
+  id: EffectSpeciesAbductor
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Abductor
+
+- type: loadout
+  id: LoadoutSpeciesAbductorTranslator
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesAbductor
+  inhand:
+    - XeeplianTranslator

@@ -1,0 +1,23 @@
+- type: entity
+  id: EmptyXeeplianTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Xeeplian translator
+  suffix: Empty
+  description: Translates speech between Xeeplian and TauCetiBasic Common.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Xeeplian
+    understood:
+    - TauCetiBasic
+    - Xeeplian
+    requires:
+    - TauCetiBasic
+    - Xeeplian
+
+- type: entity
+  id: XeeplianTranslator
+  parent: [ PowerCellSlotHighItem, EmptyXeeplianTranslator ]
+  name: Xeeplian translator
+  description: Translates speech between Xeeplian and TauCetiBasic Common.

@@ -43,6 +43,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - Abductor # CorvaxGoob-Species
   - type: CollectiveMind
     defaultChannel: Abductormind
     channels:

@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-species-name-abductor = пришелец
+species-name-abductor = Серый
 abductors-weapon-restricted-1 = Ты нажимаешь кнопку, но ничего не происходит.
 abductors-weapon-restricted-2 = Похоже, ты взял лезвие.
 abductors-weapon-restricted-3 = Ты гладишь палку, но ничего не происходит.
