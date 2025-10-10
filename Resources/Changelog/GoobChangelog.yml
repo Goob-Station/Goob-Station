@@ -15988,3 +15988,9 @@ Entries:
       message: '**Removed Corrosive Acid Ability** until it can be properly fixed.'
   id: 1779
   time: '2025-10-08T18:37:02.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: changling no longer reveal if flash imune
+  id: 1780
+  time: '2025-10-10T05:47:55.0000000+00:00'
