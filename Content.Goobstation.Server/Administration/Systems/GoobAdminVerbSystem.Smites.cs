@@ -7,6 +7,9 @@ using System.Threading;
 using Content.Goobstation.Shared.Maps;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Goobstation.Shared.HellGoose.Components;
+using Content.Goobstation.Shared.Maps;
+using Content.Goobstation.Server.HellGoose;
+using Content.Shared.Teleportation.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Database;
@@ -24,6 +27,8 @@ namespace Content.Goobstation.Server.Administration.Systems;
 
 public sealed partial class GoobAdminVerbSystem
 {
+    [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {
         if (!SmitesAllowed(args))
@@ -52,22 +57,60 @@ public sealed partial class GoobAdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
             Act = () =>
             {
+                ResPath hellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
+                EntProtoId exitPortalPrototype = "PortalHellExit";
                 TransformComponent? portalXform = null;
-
-                var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
-                while (query.MoveNext(out var uid, out var exitComp, out var xform))
+                HellPortalExitComponent? targetportal = null;
+                TryTeleportToHell(false);
+                void TryTeleportToHell(bool retry = false)
                 {
-                    portalXform = xform;
-                    break;
-                }
+                    var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
+                    while (query.MoveNext(out var hellexitportalcomp, out var xform))
+                    {
+                        targetportal = hellexitportalcomp;
+                        portalXform = xform;
+                        break;
+                    }
 
-                if (portalXform == null)
-                {
-                    return;
-                }
+                    if (targetportal == null || portalXform == null)
+                    {
+                        if (!_mapLoader.TryLoadMap(hellMapPath,
+                            out var map, out var roots,
+                            options: new DeserializationOptions { InitializeMaps = true }))
+                        {
+                            Log.Error($"Failed to load hell map at {hellMapPath}");
+                            QueueDel(map);
+                            return;
+                        }
 
-                // Teleport target
-                EntityManager.System<SharedTransformSystem>().SetCoordinates(args.Target, portalXform.Coordinates);
+                        foreach (var root in roots)
+                        {
+                            if (!HasComp<HellMapComponent>(root))
+                                continue;
+
+                            var pos = new EntityCoordinates(root, 0, 0);
+
+                            var exitPortal = Spawn(exitPortalPrototype, pos);
+
+                            EnsureComp<PortalComponent>(exitPortal, out var hellPortalComp);
+
+                            var newHellMapComp = EnsureComp<HellMapComponent>(root);
+                            newHellMapComp.ExitPortal = exitPortal;
+
+                            break;
+                        }
+                        if (!retry)
+                        {
+                            TryTeleportToHell(true);
+                            return;
+                        }
+                    }
+                    if (portalXform == null)
+                    {
+                        return;
+                    }
+                    _sharedTransformSystem.SetCoordinates(args.Target, portalXform.Coordinates);
+                }
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", hellName, Loc.GetString("admin-smite-hell-teleport-description"))
