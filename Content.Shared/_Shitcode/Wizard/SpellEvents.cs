@@ -16,6 +16,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Item;
 using Content.Shared.Magic;
 using Content.Shared.Physics;
 using Content.Shared.Polymorph;
@@ -84,7 +85,7 @@ public sealed partial class MagicMissileEvent : InstantActionEvent
     public float Range = 7f;
 
     [DataField]
-    public float ProjectileSpeed = 4.5f;
+    public float ProjectileSpeed = 6f;
 }
 
 public sealed partial class DisableTechEvent : InstantActionEvent
@@ -194,6 +195,9 @@ public sealed partial class BindSoulEvent : InstantActionEvent
         {"head", "ClothingHeadHatBlackwizardReal"},
         {"outerClothing", "ClothingOuterWizardBlackReal"},
     };
+
+    [DataField]
+    public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }
 
 public sealed partial class PolymorphSpellEvent : InstantActionEvent
@@ -250,7 +254,7 @@ public sealed partial class TeslaBlastEvent : InstantActionEvent
 public sealed partial class LightningBoltEvent : EntityTargetActionEvent
 {
     [DataField]
-    public float Damage = 40f;
+    public float Damage = 50f;
 
     [DataField]
     public EntProtoId Proto = "ChargedLightning";
