@@ -66,23 +66,29 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: true
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        locked: true
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: BatterySlotRequiresLock
-    itemSlot: cell_slot
+  # Goobstation Start - Energycrit
+  # - type: PowerCellSlot
+  #   cellSlotId: cell_slot
+  #   fitsInCharger: true
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       locked: true
+  #       name: power-cell-slot-component-slot-name-default
+  #       startingItem: PowerCellMedium
+  # - type: BatterySlotRequiresLock
+  #   itemSlot: cell_slot
+  - type: Battery # Power cell slot replaced with high capacity battery
+    maxCharge: 1080
+    startingCharge: 1080
+  # Goobstation End - Energycrit
   - type: EncryptionHolderRequiresLock
-  - type: SiliconEmitSoundOnDrained
-    sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
-    minInterval: 8
-    maxInterval: 12
-    popUp: "silicon-power-low"
+  # Goobstation - Energycrit
+  #- type: SiliconEmitSoundOnDrained
+  #  sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
+  #  minInterval: 8
+  #  maxInterval: 12
+  #  popUp: "silicon-power-low"
   - type: Lock
     locked: true
     lockOnClick: false
@@ -144,8 +150,11 @@
       3: 1
       2: 0.80
       1: 0.45
-      0: 0.00
+      0: 0.40 # Goobstation - Energycrit
   - type: BatteryDrinker
+    blacklist: # Goobstation - Energycrit
+      tags:
+      - IPCDrinkBlacklist
   - type: EncryptionKeyHolder
     keySlots: 4
     examineWhileLocked: false
@@ -183,7 +192,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other ipcs.
 - type: entity
   save: false
   name: Urist McPositronic
