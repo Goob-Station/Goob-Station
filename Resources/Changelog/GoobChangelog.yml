@@ -16140,3 +16140,15 @@ Entries:
         increased from 25 to 30.
   id: 1800
   time: '2025-10-10T06:16:28.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Shadowling glare stun has a max of 6 instead of 5
+    - type: Tweak
+      message: Shadowling mute time up to 6 from 5
+    - type: Tweak
+      message: Shadowling enthrall takes 4 seconds, down from 5
+    - type: Fix
+      message: Fixed Shadowling glare not muting target
+  id: 1801
+  time: '2025-10-10T06:17:22.0000000+00:00'
