@@ -19,6 +19,7 @@ namespace Content.Shared.Security;
 /// Search - the person needs to be searched
 /// Perma - the person has been sentenced to permanent imprisonment
 /// Dangerous - the person is highly dangerous and may resist arrest
+/// Eliminated - the person has been eliminated and should not be healed
 /// </summary>
 public enum SecurityStatus : byte
 {
@@ -30,5 +31,6 @@ public enum SecurityStatus : byte
     Discharged,
     Search,
     Perma,
-    Dangerous
+    Dangerous,
+    Eliminated
 }

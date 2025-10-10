@@ -188,6 +188,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (_, SecurityStatus.Search) => "search",
             // person is very dangerous
             (_, SecurityStatus.Dangerous) => "dangerous",
+            // person is deceased/DNR
+            (_, SecurityStatus.Eliminated) => "eliminated", // Goobstation
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // going from wanted to none, must have been a mistake
@@ -202,6 +204,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (SecurityStatus.Search, SecurityStatus.None) => "not-search",
             // person is no longer dangerous
             (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
+            // person is no longer deceased/DNR
+            (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated", // Goobstation
             // this is impossible
             _ => "not-wanted"
         };
