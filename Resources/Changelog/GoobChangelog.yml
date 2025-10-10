@@ -16064,3 +16064,9 @@ Entries:
       message: Moths can no longer eat bomb suit helmets.
   id: 1789
   time: '2025-10-10T05:58:42.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Holy damage now disapates over time.
+  id: 1790
+  time: '2025-10-10T05:59:24.0000000+00:00'
