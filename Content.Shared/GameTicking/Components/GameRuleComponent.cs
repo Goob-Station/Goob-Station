@@ -55,7 +55,11 @@ public sealed partial class GameRuleComponent : Component
 
     // Goobstation
     /// <summary>
-    ///  Used by SecretPlus to rate which event should be fired.
+    ///   Used by SecretPlus to weight this event in addition to StationEventComponent's weight.
+    ///   In GameRuleComponent to be usable for roundstart events.
+    ///   See SecretPlus documentation for more information.
+    ///   If the event is fired, chaos will be adjusted by this value.
+    ///   Should not be null if this is fireable by SecretPlus, unless we have AntagSelectionComponent. There's an integration test for this, though.
     /// </summary>
     [DataField]
     public float? ChaosScore = null;

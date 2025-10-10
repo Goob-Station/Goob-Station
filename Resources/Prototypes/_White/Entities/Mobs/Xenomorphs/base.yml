@@ -92,6 +92,7 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
+    bleedReductionAmount: 5  #goob
   - type: MeleeWeapon
     altDisarm: true
     angle: 0
