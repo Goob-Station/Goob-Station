@@ -142,7 +142,6 @@ JobMusician = Musician
 JobParamedic = Paramedic
 JobPassenger = Assistant
 JobPartyMaker = Party Maker
-JobPassenger = Passenger
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter
