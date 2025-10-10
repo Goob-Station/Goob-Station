@@ -16090,3 +16090,11 @@ Entries:
       message: Weldbot properly heal IPCs now.
   id: 1793
   time: '2025-10-10T06:04:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: >-
+        Dragons, blobbernaughts, heretic ascention, demons, and xenos no longer
+        bleed out.
+  id: 1794
+  time: '2025-10-10T06:09:08.0000000+00:00'
