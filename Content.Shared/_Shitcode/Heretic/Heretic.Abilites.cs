@@ -75,6 +75,20 @@ public sealed partial class HereticActionComponent : Component
     }
 }
 
+[Serializable, NetSerializable]
+public sealed partial class StarGazeDoAfterEvent : DoAfterEvent
+{
+    public StarGazeDoAfterEvent(NetEntity orbEffect)
+    {
+        OrbEffect = orbEffect;
+    }
+
+    [DataField]
+    public NetEntity OrbEffect = NetEntity.Invalid;
+
+    public override DoAfterEvent Clone() => this;
+}
+
 #endregion
 
 #region Abilities
@@ -355,6 +369,18 @@ public sealed partial class EventHereticCosmicExpansion : InstantActionEvent
     public float Range = 7f;
 }
 
+public sealed partial class StarGazeEvent : InstantActionEvent // Giga lazor
+{
+    [DataField]
+    public TimeSpan DoAfterDelay = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public EntProtoId OrbEffect = "EffectGazerOrb";
+
+    [DataField]
+    public SoundSpecifier BeamStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/stargazer/beam_open.ogg");
+}
+
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class EventHereticCosmosPassive : EntityEventArgs;
 
@@ -407,4 +433,12 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 
 public abstract partial class InstantWorldTargetActionEvent : WorldTargetActionEvent
 {
+}
+
+[Serializable, NetSerializable]
+public sealed class LaserBeamEndpointPositionEvent(NetEntity uid, MapCoordinates coords) : EntityEventArgs
+{
+    public NetEntity Uid = uid;
+
+    public MapCoordinates Coordinates = coords;
 }

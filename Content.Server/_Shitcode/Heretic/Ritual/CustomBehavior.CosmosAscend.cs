@@ -44,7 +44,10 @@ public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior
     {
         base.Finalize(args);
 
-        args.EntityManager.Spawn(StarGazer,
+        var starGazer = args.EntityManager.Spawn(StarGazer,
             args.EntityManager.System<TransformSystem>().GetMapCoordinates(args.Platform));
+        var comp = args.EntityManager.EnsureComponent<StarGazerComponent>(starGazer);
+        comp.Summoner = args.Performer;
+        args.EntityManager.Dirty(starGazer, comp);
     }
 }

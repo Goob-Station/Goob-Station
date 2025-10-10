@@ -51,6 +51,10 @@ heretic-livingheart-onstation = It's {$state}, {$direction}!
 heretic-livingheart-unknown = It's... not in this plain of reality.
 heretic-livingheart-faraway = It's {$state}, extremely far away!
 
+## star gaze
+heretic-stargaze-obliterate-other = You see {$uid} engulfed in the scorching wrath of the cosmos. For a moment, you see their silhouette flail in agony before fading to mere atoms.
+heretic-stargaze-obliterate-user = THE POWER OF THE COSMOS ITSELF POURS OUT OVER YOUR FORM. WAVES OF HEAT LATCH ONTO YOUR BODY, PULLING IT APART AT THE SEAMS. YOUR TOTAL ANNIHILATION TAKES ONLY A MOMENT BEFORE YOU ARE REDUCED BACK TO WHAT YOU ALWAYS WERE. MOTES OF MERE DUST...
+
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 
@@ -77,6 +81,7 @@ heretic-speech-cosmic-rune = ST'R R'N'!
 heretic-speech-star-touch = ST'R 'N'RG'!!
 heretic-speech-star-blast = R'T'T' ST'R!!
 heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
+heretic-speech-stargaze = SH''P D' W''P
 
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!

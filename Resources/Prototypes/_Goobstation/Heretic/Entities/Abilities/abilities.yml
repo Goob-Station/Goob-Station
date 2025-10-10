@@ -216,3 +216,20 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: EffectGazerOrb
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+      state: gazer_beam_charge
+  - type: Tag
+    tags:
+      - HideContextMenu

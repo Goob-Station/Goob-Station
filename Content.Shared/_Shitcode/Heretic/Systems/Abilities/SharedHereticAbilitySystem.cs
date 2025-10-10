@@ -126,7 +126,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
-    protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
+    public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled)
             return false;

@@ -82,3 +82,21 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-cosmic-expansion
+
+- type: entity
+  id: ActionStarGaze
+  name: Star Gaze
+  description: Generates a massive death beam that eradicates everything in it's path. Has it's own gravitational pull, sucking in new victims.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: gazer_beam_charge
+  - type: InstantAction
+    event: !type:StarGazeEvent
+  - type: HereticAction
+    messageLoc: heretic-speech-stargaze

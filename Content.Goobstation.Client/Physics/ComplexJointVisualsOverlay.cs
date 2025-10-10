@@ -51,7 +51,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var query = _entManager.EntityQueryEnumerator<ComplexJointVisualsComponent, TransformComponent>();
         handle.UseShader(_unshadedShader);
-        var curTime = _timing.RealTime;
+        var curTime = _timing.CurTime;
         while (query.MoveNext(out var uid, out var beam, out var xform))
         {
             var coords = _transform.GetMapCoordinates(uid, xform);
@@ -69,8 +69,13 @@ public sealed class ComplexJointVisualsOverlay : Overlay
 
                 var dir = targetCoords.Position - coords.Position;
                 var length = dir.Length();
-                var texture = _sprite.GetFrame(data.Sprite, curTime);
-                var textureSize = texture.Size;
+
+                var time = curTime - (data.CreationTime ?? TimeSpan.Zero);
+                if (time < TimeSpan.Zero)
+                    time = TimeSpan.Zero;
+
+                var texture = _sprite.GetFrame(data.Sprite, time);
+                var textureSize = (Vector2) texture.Size;
                 var realY = textureSize.Y / EyeManager.PixelsPerMeter;
                 var realX = textureSize.X / EyeManager.PixelsPerMeter;
                 var segments = (int) MathF.Ceiling(length / realY);
@@ -80,21 +85,83 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 var ratio = length / (segments * realY);
                 var angle = dir.ToWorldAngle();
                 var normalized = dir.Normalized();
-                var dir2 = new Vector2(normalized.X * realX / 2f, normalized.Y * realY / 2f);
-                var pos = new Vector2(-realX / 2f, -realY / 2f) + dir2;
                 var modifiedY = realY * ratio;
+                var size = new Vector2(realX, modifiedY);
+                var extraSize = Vector2.Zero;
 
                 handle.SetTransform(Matrix3Helpers.CreateTranslation(coords.Position));
                 for (var i = 0; i < segments; i++)
                 {
-                    var quad = Box2.FromDimensions(pos + normalized * modifiedY * i, new Vector2(realX, modifiedY));
+                    var tex = texture;
+                    Vector2 bottomLeft;
+                    Vector2 drawSize;
+                    if (i == 0 && data.StartSprite is { } start)
+                    {
+                        tex = _sprite.GetFrame(start, time);
+                        (extraSize, drawSize, bottomLeft) = GetData(tex,
+                            size,
+                            extraSize,
+                            realX,
+                            realY,
+                            i,
+                            normalized);
+                    }
+                    else if (i == segments - 1 && data.EndSprite is { } end)
+                    {
+                        tex = _sprite.GetFrame(end, time);
+                        (extraSize, drawSize, bottomLeft) = GetData(tex,
+                            size,
+                            extraSize,
+                            realX,
+                            realY,
+                            i,
+                            normalized);
+                    }
+                    else
+                    {
+                        (extraSize, drawSize, bottomLeft) = GetData(null,
+                            size,
+                            extraSize,
+                            realX,
+                            realY,
+                            i,
+                            normalized);
+                    }
+
+                    var quad = Box2.FromDimensions(bottomLeft, drawSize);
                     var quadRotated = new Box2Rotated(quad, angle + Angle.FromDegrees(180), quad.Center);
-                    handle.DrawTextureRect(texture, quadRotated, data.Color);
+                    handle.DrawTextureRect(tex, quadRotated, data.Color);
                 }
             }
         }
 
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private (Vector2 extraSize, Vector2 drawSize, Vector2 bottomLeft) GetData(Texture? tex,
+        Vector2 size,
+        Vector2 extraSize,
+        float realX,
+        float realY,
+        int i,
+        Vector2 normalized)
+    {
+        var x = realX;
+        var y = realY;
+        var newSize = size;
+
+        if (tex != null)
+        {
+            var s = (Vector2) tex.Size;
+            x = s.X / EyeManager.PixelsPerMeter;
+            y = s.Y / EyeManager.PixelsPerMeter;
+            newSize *= new Vector2(x / realX, y / realY);
+        }
+
+        var dir2 = new Vector2(normalized.X * x / 2f, normalized.Y * y / 2f);
+        var pos = new Vector2(-x / 2f, -y / 2f) + dir2;
+        var bottomLeft = pos + normalized * newSize.Y * i + normalized * extraSize;
+        return (extraSize + newSize - size, newSize, bottomLeft);
     }
 }
