@@ -16076,3 +16076,11 @@ Entries:
       message: chaplains devine shoulder holster is now a null rod
   id: 1791
   time: '2025-10-10T06:00:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: >-
+        The Ore Processor and its variant now output materials directly to the
+        silo, instead of lagging the entire server with 10,000 steel.
+  id: 1792
+  time: '2025-10-10T06:03:33.0000000+00:00'
