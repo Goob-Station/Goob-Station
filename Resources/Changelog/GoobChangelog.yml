@@ -16130,3 +16130,13 @@ Entries:
       message: Updated all vial capacity to match the default vial's 30 units
   id: 1799
   time: '2025-10-10T06:13:26.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Sharkminnow Tooth damage reduced from 15 to 12 slash.
+    - type: Tweak
+      message: >-
+        Sharkminnow Spear damage increased from 18 to 20 piercing, throw damage
+        increased from 25 to 30.
+  id: 1800
+  time: '2025-10-10T06:16:28.0000000+00:00'
