@@ -16028,3 +16028,17 @@ Entries:
         grinder
   id: 1785
   time: '2025-10-10T05:53:15.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed like half of wizard spells/items not working.
+    - type: Tweak
+      message: >-
+        Buffed lightning bolt, thrown lightning, barnyard curse, summon bees,
+        mjollnir, singulo hammer, sm halberd, magic missile.
+    - type: Tweak
+      message: You can now summon maximum of 3 demons of each type as wizard.
+    - type: Tweak
+      message: Nerfed bind soul.
+  id: 1786
+  time: '2025-10-10T05:54:33.0000000+00:00'
