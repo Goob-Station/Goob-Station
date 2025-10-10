@@ -16006,3 +16006,11 @@ Entries:
       message: 'Fixed Plasmamen damage modifers now work '
   id: 1782
   time: '2025-10-10T05:48:31.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Heretics void blast  now stoped by nullrod (no longer in use) '
+    - type: Fix
+      message: Heretics Ice Spear now stoped by nullrod
+  id: 1783
+  time: '2025-10-10T05:49:50.0000000+00:00'
