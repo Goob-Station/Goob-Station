@@ -194,10 +194,11 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
 
         foreach (var result in rayCastResults)
         {
-            if (genQuery.HasComponent(result.HitEntity))
-                closestResult = result;
+            if (!genQuery.HasComponent(result.HitEntity))
+                continue;
 
-            // break; // Goobstation - still trigger with stuff inside the field
+            closestResult = result;
+            break;
         }
 
         if (closestResult == null)
