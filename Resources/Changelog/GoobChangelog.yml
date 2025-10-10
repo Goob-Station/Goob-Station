@@ -16070,3 +16070,9 @@ Entries:
       message: Holy damage now disapates over time.
   id: 1790
   time: '2025-10-10T05:59:24.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: chaplains devine shoulder holster is now a null rod
+  id: 1791
+  time: '2025-10-10T06:00:06.0000000+00:00'
