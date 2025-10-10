@@ -15,8 +15,10 @@
 
 using System.Threading;
 using Content.Server.Power.Components;
+using Content.Server.Station.Components; // Goobedit
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
+using Content.Server.GameTicking; // Goobedit
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
@@ -31,6 +33,7 @@ namespace Content.Server.StationEvents.Events
     public sealed class PowerGridCheckRule : StationEventSystem<PowerGridCheckRuleComponent>
     {
         [Dependency] private readonly ApcSystem _apcSystem = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
 
         protected override void Started(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
         {
@@ -42,9 +45,9 @@ namespace Content.Server.StationEvents.Events
             component.AffectedStation = chosenStation.Value;
 
             var query = AllEntityQuery<ApcComponent, TransformComponent>();
-            while (query.MoveNext(out var apcUid ,out var apc, out var transform))
+            while (query.MoveNext(out var apcUid, out var apc, out var transform))
             {
-                if (apc.MainBreakerEnabled && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == chosenStation)
+                if (apc.MainBreakerEnabled && ApcCanBeAffected((uid, component), (apcUid, apc)))
                     component.Powered.Add(apcUid);
             }
 
@@ -64,7 +67,7 @@ namespace Content.Server.StationEvents.Events
 
                 if (TryComp(entity, out ApcComponent? apcComponent))
                 {
-                    if(!apcComponent.MainBreakerEnabled)
+                    if (!apcComponent.MainBreakerEnabled)
                         _apcSystem.ApcToggleBreaker(entity, apcComponent);
                 }
             }
@@ -106,6 +109,41 @@ namespace Content.Server.StationEvents.Events
                 }
                 component.Unpowered.Add(selected);
             }
+        }
+        public bool ApcCanBeAffected(Entity<PowerGridCheckRuleComponent> ent, Entity<ApcComponent> apc, TransformComponent? apcXform = null)
+        {
+            if (!_gameTicker.IsGameRuleActive(ent.Owner))
+                return false;
+
+            if (!Resolve(apc.Owner, ref apcXform))
+                return false;
+
+            if (!HasComp<BecomesStationComponent>(apcXform.GridUid))
+                return false;
+
+            return CompOrNull<StationMemberComponent>(apcXform.GridUid)?.Station == ent.Comp.AffectedStation;
+        }
+
+        public bool ContainsUnpoweredApc(Entity<PowerGridCheckRuleComponent> ent, Entity<ApcComponent> apc)
+        {
+            if (!ApcCanBeAffected(ent, apc))
+                return false;
+
+            return ent.Comp.Unpowered.Contains(apc.Owner);
+        }
+
+        public bool TryAddUnpoweredApc(Entity<PowerGridCheckRuleComponent> ent, Entity<ApcComponent> apc)
+        {
+            if (!ApcCanBeAffected(ent, apc))
+                return false;
+
+            if (ent.Comp.Powered.Contains(apc.Owner) ||
+                ent.Comp.Unpowered.Contains(apc.Owner))
+                return false;
+
+            ent.Comp.Unpowered.Add(apc.Owner);
+
+            return true;
         }
     }
 }
