@@ -37,7 +37,7 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
 
     private void OnDoAfter(Entity<CriminalRecordsHackerComponent> ent, ref CriminalRecordsHackDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target)) // goobstation check power
+        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target.Value)) // goobstation check power
             return;
 
         if (_station.GetOwningStation(ent) is not {} station)

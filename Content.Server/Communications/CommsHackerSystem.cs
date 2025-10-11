@@ -72,7 +72,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     /// </summary>
     private void OnDoAfter(EntityUid uid, CommsHackerComponent comp, TerrorDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target)) // Goobsstation - is powered
+        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target.Value)) // Goobsstation - is powered
             return;
 
         var threats = _proto.Index<WeightedRandomPrototype>(comp.Threats);
