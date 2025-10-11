@@ -100,3 +100,37 @@
     event: !type:StarGazeEvent
   - type: HereticAction
     messageLoc: heretic-speech-stargaze
+
+- type: entity
+  id: ActionResetStarGazerConsciousness
+  name: Reset Star Gazer Consciousness
+  description: Replaces the mind of your summon with that of a different ghost.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: stargazer
+  - type: InstantAction
+    event: !type:ResetStarGazerConsciousnessEvent
+  - type: ConfirmableAction
+    popup: heretic-stargazer-reset-consciousness
+
+- type: entity
+  id: ActionStarGazerSeekMaster
+  name: Seek Master
+  description: Teleports you to your master.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: stargazer
+  - type: InstantAction
+    event: !type:StarGazerSeekMasterEvent

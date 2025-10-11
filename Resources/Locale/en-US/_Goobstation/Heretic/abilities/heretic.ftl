@@ -51,9 +51,14 @@ heretic-livingheart-onstation = It's {$state}, {$direction}!
 heretic-livingheart-unknown = It's... not in this plain of reality.
 heretic-livingheart-faraway = It's {$state}, extremely far away!
 
-## star gaze
+## star gazer
 heretic-stargaze-obliterate-other = You see {$uid} engulfed in the scorching wrath of the cosmos. For a moment, you see their silhouette flail in agony before fading to mere atoms.
 heretic-stargaze-obliterate-user = THE POWER OF THE COSMOS ITSELF POURS OUT OVER YOUR FORM. WAVES OF HEAT LATCH ONTO YOUR BODY, PULLING IT APART AT THE SEAMS. YOUR TOTAL ANNIHILATION TAKES ONLY A MOMENT BEFORE YOU ARE REDUCED BACK TO WHAT YOU ALWAYS WERE. MOTES OF MERE DUST...
+
+heretic-stargazer-reset-consciousness = THIS ACTION WILL IRREVERSIBLY CHANGE YOUR STAR GAZER MIND! Use it again to confirm.
+heretic-stargazer-consciousness-reset-fail = Your request to shift star gazer personality appears to have been denied... Looks like you're stuck with it for now.
+heretic-stargazer-consciousness-reset-target = Your summoner reset you, and your body was taken over by a ghost. Looks like they weren't happy with your performance.
+heretic-stargazer-consciousness-reset-user = The mind of star gazer has twisted itself to suit you better.
 
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!

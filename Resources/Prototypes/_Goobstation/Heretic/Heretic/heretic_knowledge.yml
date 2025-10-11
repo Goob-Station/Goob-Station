@@ -474,6 +474,8 @@
   stage: 10
   path: Cosmos
   event: !type:HereticAscensionCosmosEvent
+  actionPrototypes:
+  - ActionResetStarGazerConsciousness
 
 ### side paths
 - type: hereticKnowledge

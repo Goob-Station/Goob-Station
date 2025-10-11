@@ -20,6 +20,7 @@ knowledge-path-cosmos-s3-desc =
     Grants you Cosmic Runes, a spell that creates two runes linked with each other for easy teleportation.
     Only the entity activating the rune will get transported, and it can be used by anyone without a star mark.
     However, people with a star mark will get transported along with another person using the rune.
+    Heathens, who try to teleport using the runes, will be star marked on arrival.
 
 knowledge-path-cosmos-s4-name = Mark of Cosmos
 knowledge-path-cosmos-s4-desc =
@@ -36,6 +37,7 @@ knowledge-path-cosmos-s5-desc =
 
     Grants you Star Touch, a spell which places a star mark upon your target and creates a cosmic field at your feet and to the turfs next to you.
     Targets which already have a star mark will be connected to you with a cosmic ray, giving them a cosmic trail and allowing you to hit them at range using your cosmic blade.
+    Tethered victims cannot teleport by any means.
     If the tether remains unbroken for 8 seconds, they will be put to sleep, star marked and teleported to you.
 
 knowledge-path-cosmos-s6-name = Star Blast
