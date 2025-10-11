@@ -1,0 +1,114 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitDebug
+  name: Lone Operative Suit Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearBaseSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitEliteDebug
+  name: Lone Operative Suit Elite Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearEliteSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitJuggDebug
+  name: Lone Operative Suit Juggernaut Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearJuggSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitCommanderDebug
+  name: Lone Operative Suit Commander Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearCommanderSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitStealthDebug
+  name: Lone Operative Suit Stealth Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearStealthSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitMedicDebug
+  name: Lone Operative Suit Medic Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearMedicSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitDreadDebug
+  name: Lone Operative Suit Dread Debug
+  components:
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearDreadSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
