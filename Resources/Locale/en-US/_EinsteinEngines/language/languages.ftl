@@ -10,8 +10,9 @@ language-Bubblish-description = The language of Slimes. Being a mixture of bubbl
 language-RootSpeak-name = Rootspeak
 language-RootSpeak-description = The strange whistling-style language spoken by the Diona.
 
-language-Nekomimetic-name = Nekomimetic
-language-Nekomimetic-description = To the casual observer, this language is an incomprehensible mess of broken Japanese. To the Felinids and Oni, it's somehow comprehensible.
+#goob changes
+language-Nekomimetic-name = Gruntish
+language-Nekomimetic-description = To the casual observer, this language is an incomprehensible mess of broken Japanese and grunting sounds and swares, to the Oni And Yowie its semi sensable.
 
 language-Draconic-name = Sinta'Unathi
 language-Draconic-description =
