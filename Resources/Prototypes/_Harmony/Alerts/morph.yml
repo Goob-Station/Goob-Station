@@ -1,0 +1,27 @@
+﻿- type: alert
+  id: Biomass
+  category: Internals # Morphs dont need to see internals, no reason not to have this replace it
+  icons:
+  - sprite: /Textures/_Harmony/Interface/Alerts/biomass_counter.rsi
+    state: biomass0
+  alertViewEntity: AlertMorphSpriteView
+  name: alerts-morph-essence-name
+  description: alerts-morph-essence-desc
+
+- type: entity
+  id: AlertMorphSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GenericCounterAlert
+    centerGlyph: false
+    hideLeadingZeroes: false
+  - type: Sprite
+    sprite: /Textures/_Harmony/Interface/Alerts/biomass_counter.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "100" ]
+      offset: 0.1, 0.2
+    - map: [ "10" ]
+      offset: 0.3, 0.2
+    - map: [ "1" ]
+      offset: 0.5, 0.2
