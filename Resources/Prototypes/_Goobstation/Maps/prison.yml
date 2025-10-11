@@ -4,7 +4,7 @@
   mapPath: /Maps/_Goobstation/prison.yml
   minPlayers: 60
   stations:
-    Fland:
+    Prison:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
