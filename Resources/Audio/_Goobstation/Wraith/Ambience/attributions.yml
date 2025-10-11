@@ -1,0 +1,14 @@
+- files: ["Void_Calls.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Void_Hisses.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["Void_Wail.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"

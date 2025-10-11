@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: CrunchedSpeech
+  values:
+    prefix: crunched-
+    count: 18
+
+- type: localizedDataset
+  id: Repairbot
+  values:
+    prefix: repairbot-
+    count: 8
+
+- type: localizedDataset
+  id: Shade
+  values:
+    prefix: shade-
+    count: 4

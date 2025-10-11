@@ -1,0 +1,127 @@
+- type: curse
+  id: CurseWeakness
+  name: Curse of Enfeeblement
+  statusIcon: CurseWeaknessIcon
+  update: 90 # how often this curse updates in seconds. 1.5 minutes
+  effects:
+    0.5:
+    - !type:PopupMessage
+      type: Local
+      messages: [ "curse-weakness-slow" ]
+    - !type:MovespeedModifier
+      walkSpeedModifier: 0.5
+      sprintSpeedModifier : 0.5
+      statusLifetime: 8
+    0.3:
+    - !type:PopupMessage
+      type: Local
+      messages: ["curse-weakness-pale-1", "curse-weakness-pale-2", "curse-weakness-pale-3"]
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    0.4:
+    - !type:PopupMessage
+      type: Local
+      messages: ["curse-weakness-drowsy-1", "curse-weakness-drowsy-2"]
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDrowsiness
+      time: 15
+      type: Add
+      refresh: false
+
+- type: curse
+  id: CurseBlood
+  name: Curse of Blood
+  statusIcon: CurseBloodIcon
+  update: 150 #2.5 minutes
+  effects:
+    0.5:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBloodSmall
+    0.3:
+    - !type:PopupMessage
+      type: Pvs
+      visualType: MediumCaution
+      messages: ["curse-blood-1"]
+    - !type:ModifyBloodLevel
+      amount: -40
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBlood
+
+- type: curse
+  id: CurseBlindness
+  name: Curse of Blindness
+  statusIcon: CurseBlindnessIcon
+  update: 130 #2.1 minutes
+  effects:
+    0.8:
+    - !type:ChemHealEyeDamage
+      amount: 2
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ "curse-blindness-1", "curse-blindness-2", "curse-blindness-3" ]
+
+- type: curse
+  id: CurseRot
+  name: Curse of Rot
+  components:
+  - type: UnableToEat
+  statusIcon: CurseRotIcon
+  update: 70 #1.1 minutes
+  effects:
+    0.6:
+    - !type:ChemVomit
+      hungerAmount: -5
+    0.3:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    0.4:
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+
+- type: curse
+  id: CurseDeath
+  name: Curse of Death
+  update: 20 #seconds
+  components:
+  - type: CurseDeath
+    damage:
+      groups:
+        Brute: 5
+  effects:
+    0.6:
+    - !type:Paralyze
+      paralyzeTime: 2.5
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ "curse-death-1" ]
+    0.4:
+    - !type:Jitter
+      time: 5
+    - !type:TakeStaminaDamage
+      amount: 50
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ "curse-death-2" ]
+    0.2:
+    - !type:Emote
+      emote: Screams
+      showInChat: true
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBloodSmall
+    - !type:HealthChange
+      damage:
+        groups:
+          Brute: 15
+    - !type:PopupMessage
+      type: Pvs
+      visualType: LargeCaution
+      messages: [ "curse-death-3" ]

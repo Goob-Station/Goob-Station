@@ -1,0 +1,88 @@
+# This is where all the wraith abilities are stored at.
+# Abilities are structured in a way that each action corresponds in its own component, and its own system.
+
+# For example,
+#  - type: entity
+#  id: MyAbilities
+#  name: A name
+#  category: [ HideSpawnMenu ]
+#  components:
+#  - AbilityOne -> Allows us to perform ActionOne
+#  - AbilityTwo -> Allows us to perform ActionTwo
+#  - ActionGrant -> Grants us the actions
+#    actions:
+#    - ActionOne
+#    - ActionTwo
+
+# This gets added to the entity either through MapInit or through an event
+
+- type: entity
+  id: WraithAbilities
+  name: Wraith Abilities
+  category: [ HideSpawnMenu ]
+  components:
+  - type: Haunt
+  - type: BloodWriting
+  - type: Decay
+  - type: AbsorbCorpse
+  - type: DemonicWhisper
+  - type: PossessObject
+  - type: SummonPortal
+  - type: RaiseSkeleton
+  - type: MakeRevenant
+    passiveRevenantDamage:
+      types:
+        Caustic: 1
+  - type: SpookMark
+  - type: Defile
+    reagents:
+      BuzzochloricBees: 10
+      Bleach: 10
+      Ash: 10
+      Vomit: 10
+      Toxin: 10
+  - type: SummonPlagueRat
+  - type: SummonRotHulk
+  - type: WraithCommand
+    blacklist:
+      components:
+      - MobState
+      - Body
+      - Food
+      - EntityStorage
+    maxObjects: 8
+    searchRange: 3
+    stunDuration: 5
+  - type: SummonVoidCreature
+  - type: Evolve
+    availableEvolutions:
+    - prototype: MobWraithHarbinger
+    - prototype: MobWraithPlague
+    - prototype: MobWraithTrickster
+  - type: ActionGrant
+    actions:
+    - ActionHaunt
+    - ActionWhisper
+    - ActionBloodWriting
+    - ActionAbsorbCorpse
+    - ActionSpook
+    - ActionDecay
+    - ActionCommand
+    - ActionAnimateObject
+    - ActionPossessObject
+    - ActionRaiseSkeleton
+    - ActionSummonVoidPortal
+    - ActionSummonVoidCreature
+    - ActionMakeRevenant
+    - ActionCurseBlindness
+    - ActionCurseWeakness
+    - ActionCurseBlood
+    - ActionCurseRot
+    - ActionCurseDeath
+    - ActionDefile
+    - ActionSummonPlagueRat
+    - ActionSummonRotHulk
+  # - Haunt
+  # - ActionGrant
+  # actions:
+  #   HauntAction
