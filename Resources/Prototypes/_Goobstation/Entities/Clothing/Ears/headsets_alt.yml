@@ -16,6 +16,20 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  abstract: true
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltLoudspeaker
+  components:
+  - type: Loudspeaker
+    canToggle: true
+    affectRadio: true
+
+- type: entity
+  parent: [ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker]
+  id: ClothingHeadsetAltSyndicateCommander
+  name: blood-red commander over-ear headset
+
+- type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetChronolegioneer
   name: futuristic over-ear headset

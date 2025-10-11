@@ -629,6 +629,7 @@
   - type: StorageFill #Goobstation - clowncar
     contents:
     - id: VehicleClowncarTrainee
+    - id: ClownMegaphone # goob - loudspeakers
 
 # Mime
 - type: entity

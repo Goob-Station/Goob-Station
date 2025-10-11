@@ -55,6 +55,15 @@
   exclaimSound:
     path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
 
+- type: speechSounds
+  id: Loudspeaker
+  saySound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  askSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+
 - type: speechVerb
   id: Hiss
   name: chat-speech-verb-name-hiss
