@@ -2,7 +2,7 @@
   id: CurseWeakness
   name: Curse of Enfeeblement
   statusIcon: CurseWeaknessIcon
-  update: 10 # how often this curse updates in seconds
+  update: 90 # how often this curse updates in seconds. 1.5 minutes
   effects:
     0.5:
     - !type:PopupMessage
@@ -33,7 +33,7 @@
   id: CurseBlood
   name: Curse of Blood
   statusIcon: CurseBloodIcon
-  update: 6
+  update: 150 #2.5 minutes
   effects:
     0.5:
     - !type:Emote
@@ -47,7 +47,7 @@
       visualType: MediumCaution
       messages: ["curse-blood-1"]
     - !type:ModifyBloodLevel
-      amount: -20
+      amount: -40
     - !type:CreateEntityReactionEffect
       entity: PuddleBlood
 
@@ -55,11 +55,11 @@
   id: CurseBlindness
   name: Curse of Blindness
   statusIcon: CurseBlindnessIcon
-  update: 6
+  update: 130 #2.1 minutes
   effects:
     0.8:
     - !type:ChemHealEyeDamage
-      amount: 1
+      amount: 2
     - !type:PopupMessage
       type: Local
       visualType: MediumCaution
@@ -71,7 +71,7 @@
   components:
   - type: UnableToEat
   statusIcon: CurseRotIcon
-  update: 6
+  update: 70 #1.1 minutes
   effects:
     0.6:
     - !type:ChemVomit
@@ -88,12 +88,12 @@
 - type: curse
   id: CurseDeath
   name: Curse of Death
-  update: 10
+  update: 20 #seconds
   components:
   - type: CurseDeath
     damage:
       groups:
-        Brute: -5
+        Brute: 5
   effects:
     0.6:
     - !type:Paralyze
@@ -120,7 +120,7 @@
     - !type:HealthChange
       damage:
         groups:
-          Brute: -15
+          Brute: 15
     - !type:PopupMessage
       type: Pvs
       visualType: LargeCaution

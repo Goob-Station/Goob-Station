@@ -52,6 +52,12 @@ public sealed class CurseDeathSystem : EntitySystem
         RemCompDeferred<CurseHolderComponent>(ent.Owner);
     }
 
-    private void OnCurseEffectApplied(Entity<CurseDeathComponent> ent, ref CurseEffectAppliedEvent args) =>
-        _damageableSystem.TryChangeDamage(ent.Owner, ent.Comp.Damage, targetPart: TargetBodyPart.All); // always apply damage with curse of death
+    private void OnCurseEffectApplied(Entity<CurseDeathComponent> ent, ref CurseEffectAppliedEvent args)
+    {
+        if (args.Curse != ent.Comp.Curse)
+            return;
+        
+        // always apply damage with curse of death
+        _damageableSystem.TryChangeDamage(ent.Owner, ent.Comp.Damage, targetPart: TargetBodyPart.All);
+    }
 }

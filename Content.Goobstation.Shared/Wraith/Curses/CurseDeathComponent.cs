@@ -26,4 +26,7 @@ public sealed partial class CurseDeathComponent : Component
 
     [DataField]
     public FixedPoint2 WpGeneration = 2;
+
+    [DataField]
+    public ProtoId<CursePrototype> Curse = "CurseDeath";
 }

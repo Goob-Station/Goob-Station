@@ -52,4 +52,4 @@ public record struct CurseAppliedEvent(ProtoId<CursePrototype> Curse, EntityUid?
 /// Raised on the target once a curse effect is applied to them
 /// </summary>
 [ByRefEvent]
-public record struct CurseEffectAppliedEvent;
+public record struct CurseEffectAppliedEvent(ProtoId<CursePrototype> Curse);

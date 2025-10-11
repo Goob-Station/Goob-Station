@@ -38,7 +38,7 @@ public abstract class SharedCurseHolderSystem : EntitySystem
                 if (_timing.CurTime < curseHolder.CurseUpdate[curse])
                     continue;
 
-                var ev = new CurseEffectAppliedEvent();
+                var ev = new CurseEffectAppliedEvent(curse);
                 RaiseLocalEvent(uid, ref ev);
 
                 DoCurseEffects(curse, uid, curseHolder);
