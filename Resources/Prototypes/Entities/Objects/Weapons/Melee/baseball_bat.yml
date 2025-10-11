@@ -77,7 +77,7 @@
     speed: 5
   - type: Item
     size: Large # Goob edit
-    storedRotation: 45 # Goob
+    storedRotation: 90 # Goob
   - type: Tool
     qualities:
     - Rolling
