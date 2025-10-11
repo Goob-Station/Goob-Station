@@ -493,3 +493,21 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  id: ProjectileMonkeyDart
+  name: monkey-thrown dart
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 1
+    angle: 315
+  - type: Sprite
+    sprite: Objects/Fun/Darts/dart_red.rsi
+    layers:
+    - state: icon
+  - type: Ammo
+    muzzleFlash: null
