@@ -118,6 +118,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
@@ -136,6 +137,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
@@ -144,6 +146,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
+using Robust.Server.GameObjects; // Goobstation
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -157,13 +160,17 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation
 
     private const float DamagePitchVariation = 0.05f;
+    private float _crawlHitzoneSize; // Goobstation
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
+        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
     private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
@@ -209,6 +216,8 @@ public sealed partial class GunSystem : SharedGunSystem
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
 
+        var toMapBeforeRecoil = toMap; // Goobstation
+
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
@@ -223,7 +232,7 @@ public sealed partial class GunSystem : SharedGunSystem
             // pneumatic cannon doesn't shoot bullets it just throws them, ignore ammo handling
             if (throwItems && ent != null)
             {
-                ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
+                ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil);
                 shotProjectiles.Add(ent.Value); // Goobstation
                 continue;
             }
@@ -297,7 +306,8 @@ public sealed partial class GunSystem : SharedGunSystem
                                 foreach (var collide in rayCastResults)
                                 {
                                     if (collide.HitEntity != gun.Target &&
-                                        CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true)
+                                        CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true &&
+                                        (_transform.GetMapCoordinates(collide.HitEntity).Position - toMapBeforeRecoil).Length() > _crawlHitzoneSize)
                                     {
                                         continue;
                                     }
@@ -393,7 +403,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
                     mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
-                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user);
+                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil);
                 shotProjectiles.Add(ammoEnt);
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
@@ -404,13 +414,13 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         FiredProjectile = newuid
                     });
-                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
+                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil);
                     shotProjectiles.Add(newuid);
                 }
             }
             else
             {
-                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user);
+                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil);
                 shotProjectiles.Add(ammoEnt);
             }
 
@@ -419,7 +429,7 @@ public sealed partial class GunSystem : SharedGunSystem
         }
     }
 
-    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
+    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user, Vector2? targetCoordinates = null)
     {
         if (gun.Target is { } target && !TerminatingOrDeleted(target))
         {
@@ -437,7 +447,7 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
-        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified);
+        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified, targetCoordinates);
     }
 
     /// <summary>
