@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseItem
+  id: RaptorDexScanner
+  name: raptor Dex
+  description: A device used to analyze lavaland raptors!
+  components:
+  - type: Sprite
+    sprite: Textures/_Goobstation/Raptors/raptorobjects.rsi
+    state: raptor_dex
+  - type: Item
+    storedRotation: -90
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 25
+      Glass: 200
