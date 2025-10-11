@@ -1,0 +1,69 @@
+- type: entity
+  parent: [ ConstructibleMachine, BaseMachinePowered ]
+  id: PlumbingPump
+  name: liquid pump
+  description: An electric pump that can transfer liquids between machines that have an automation upgrade installed.
+  components:
+  # Visuals
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
+    layers:
+    - state: icon
+    - state: active
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  # Construction
+  - type: Machine
+    board: PlumbingPumpCircuitboard
+  # Pump
+  - type: PlumbingPump
+  - type: PlumbingFilter
+  - type: ExclusiveInputSlot
+    port: PlumbingInput
+  - type: ExclusiveOutputSlot
+    port: PlumbingOutput
+  - type: SolutionTransfer # verb so you can throttle its speed
+    transferAmount: 50 # max speed is 50u/s
+    maxTransferAmount: 50
+    canReceive: false
+    canSend: false
+    canChangeTransferAmount: true
+  # Linking
+  - type: DeviceLinkSink
+    ports:
+    - PlumbingInput
+    - Toggle
+    - On
+    - Off
+  - type: DeviceLinkSource
+    ports:
+    - PlumbingOutput
+    - Powered
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 5
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 2000 # constant power usage when switched on
+  - type: PowerSwitch
+  - type: SignalPowerSwitch
+  # UI
+  - type: ActivatableUI
+    key: enum.PlumbingFilterUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.PlumbingFilterUiKey.Key:
+        type: PlumbingFilterBUI
+  # Guide
+  - type: GuideHelp
+    guides:
+    - Plumbing
