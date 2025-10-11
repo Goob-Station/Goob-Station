@@ -27,25 +27,25 @@ public sealed class CursedActionSystem : EntitySystem
         SubscribeLocalEvent<CurseImmuneComponent, AttemptCurseEvent>(OnAttemptCurseImmune);
     }
 
-    private void OnApplyCurseAction(ref ApplyCurseActionEvent args)
+    private void OnApplyCurseAction(ApplyCurseActionEvent args)
     {
-        if (args.Curse == null)
-            return;
-
         var attemptEv = new AttemptCurseEvent();
         RaiseLocalEvent(args.Target, ref attemptEv);
 
         if (attemptEv.Cancelled)
             return;
 
-        // Add the curse
-        EntityManager.AddComponents(args.Target, args.Curse, false);
+        // Add the curseHolder component and the new curse on the target
+        EnsureComp<CurseHolderComponent>(args.Target);
+
+        var curseApply = new CurseAppliedEvent(args.Curse);
+        RaiseLocalEvent(args.Target, ref curseApply);
 
         // play curse sound if it exists
         if (args.CurseSound != null && _netManager.IsServer)
             _audio.PlayEntity(args.CurseSound, args.Target, args.Target);
 
-        // Reset timers on all curses
+        // Reset timers on all curses for the user
         if (!TryComp<ActionsComponent>(args.Performer, out var actions))
             return;
 

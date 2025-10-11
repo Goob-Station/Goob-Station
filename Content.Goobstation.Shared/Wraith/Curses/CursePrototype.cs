@@ -1,0 +1,40 @@
+using Content.Shared.EntityEffects;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Wraith.Curses;
+
+[Prototype]
+public sealed class CursePrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; } = default!;
+
+    [DataField]
+    public string Name { get; } = string.Empty;
+
+    /// <summary>
+    /// Whether to repeat the EntityEffects or not.
+    /// </summary>
+    [DataField]
+    public bool Repeat = true;
+
+    /// <summary>
+    /// A dictionary that holds the random value that determines which list of entity effects will happen on the user.
+    /// For example -> There's a 0.5 chance to roll a PopupEntityEffect and a VomitPopupEntityEffect together
+    /// The (internal) probability of all EntityEffects should be 1.0 (when defined)
+    /// </summary>
+    [DataField(required: true)]
+    public Dictionary<float, List<EntityEffect>> Effects = new();
+
+    /// <summary>
+    /// Components added to the entity when this curse gets added
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ComponentRegistry? Components = new();
+
+    /// <summary>
+    /// How often to update the curse in seconds
+    /// </summary>
+    [DataField(required: true)]
+    public float Update;
+}

@@ -34,11 +34,6 @@
       types:
         Caustic: 1
   - type: SpookMark
-  - type: CurseOfBlindness
-  - type: CurseOfWeakness
-  - type: CurseOfBlood
-  - type: CurseOfRot
-  - type: CurseOfDeath
   - type: Defile
     reagents:
       BuzzochloricBees: 10

@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;

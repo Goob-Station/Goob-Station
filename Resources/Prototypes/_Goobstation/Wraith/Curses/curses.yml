@@ -1,0 +1,29 @@
+- type: curse
+  id: CurseWeakness
+  name: Curse of Enfeeblement
+  update: 10 # how often this curse updates in seconds
+  effects:
+    0.5:
+    - !type:PopupMessage
+      type: Local
+      messages: [ "curse-weakness-slow" ]
+    - !type:MovespeedModifier
+      walkSpeedModifier: 0.5
+      sprintSpeedModifier : 0.5
+      statusLifetime: 8
+    0.3:
+    - !type:PopupMessage
+      type: Local
+      messages: ["curse-weakness-pale-1", "curse-weakness-pale-2", "curse-weakness-pale-3"]
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    0.4:
+    - !type:PopupMessage
+      type: Local
+      messages: ["curse-weakness-drowsy-1", "curse-weakness-drowsy-2"]
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDrowsiness
+      time: 15
+      type: Add
+      refresh: false

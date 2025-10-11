@@ -303,11 +303,29 @@
     canTargetSelf: false
     event: !type:MakeRevenantEvent
 
-# Plaguebringer Actions
+# Plaguebinger Actions
+
+- type: entity
+  id: BaseCurseAction
+  parent: BaseAction
+  components:
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      requireAll: true
+      components:
+      - StatusEffects
+      - Body
+    canTargetSelf: false
+    event: !type:ApplyCurseActionEvent
+  - type: CurseAction # refreshes all curses when a curse is used
+
 
 - type: entity
   id: ActionCurseBlindness
   name: Curse of blindness
+  parent: BaseCurseAction
   description: Curse the living with blindness.
   components:
   - type: Action
@@ -318,21 +336,14 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: blind_curse
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    blacklist: # todo: pending rework
-      components:
-      - CursedBlind
-    canTargetSelf: false
-    event: !type:ApplyCurseActionEvent
-      curse:
-      - type: CursedBlind  # todo: pending rework into entityeffects
+  #- type: EntityTargetAction
+  #  event: !type:ApplyCurseActionEvent
 
 - type: entity
   id: ActionCurseWeakness
   name: Curse of weakness
-  description: Curse the living with weakness and lower stamina regeneration.
+  parent: BaseCurseAction
+  description: Curse the living with weakness. Applies slowdown and makes the target feel dizzy.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -342,15 +353,15 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: weak_curse
-  - type: TargetAction
-    deselectOnMiss: true
   - type: EntityTargetAction
-    canTargetSelf: false
-    event: !type:WeakCurseEvent
+    event: !type:ApplyCurseActionEvent
+      curse: CurseWeakness
+      # todo: sound for target
 
 - type: entity
   id: ActionCurseBlood
   name: Curse of blood
+  parent: BaseCurseAction
   description: Curse the living with a plague of blood.
   components:
   - type: Action
@@ -361,15 +372,13 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: blood_curse
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    canTargetSelf: false
-    event: !type:BloodCurseEvent
+  #- type: EntityTargetAction
+  # event: !type:ApplyCurseActionEvent
 
 - type: entity
   id: ActionCurseRot
   name: Curse of rot
+  parent: BaseCurseAction
   description: Curse the living with a netherworldly plague.
   components:
   - type: Action
@@ -380,15 +389,13 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: rot_curse
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    canTargetSelf: false
-    event: !type:RotCurseEvent
+  #- type: EntityTargetAction
+  # event: !type:ApplyCurseActionEvent
 
 - type: entity
   id: ActionCurseDeath
   name: Curse of death
+  parent: BaseCurseAction
   description: Reap a fully cursed being's soul!
   components:
   - type: Action
@@ -399,18 +406,8 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: death_curse
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    canTargetSelf: false
-    whitelist:
-      requireAll: true
-      components:
-      - CursedBlind
-      - CursedWeak
-      - CurseRot
-      - CursedBlood
-    event: !type:DeathCurseEvent
+    #- type: EntityTargetAction
+    # event: !type:ApplyCurseActionEvent
 
 - type: entity
   id: ActionDefile
