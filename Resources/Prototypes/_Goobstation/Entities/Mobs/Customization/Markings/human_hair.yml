@@ -331,3 +331,11 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: longtwintails
+
+- type: marking
+  id: HumanHairNiko
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: nikooneshot
