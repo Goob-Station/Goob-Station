@@ -5055,3 +5055,10 @@ Entries:
   id: 9075
   time: '2025-10-11T21:32:59.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40838
+- author: Hitlinemoss
+  changes:
+  - message: Autolathes can now print durathread.
+    type: Add
+  id: 9076
+  time: '2025-10-11T21:46:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40837
