@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.HellGoose.Components;
 using Content.Goobstation.Shared.Maps;
+using Content.Goobstation.Server.HellGoose;
 using Content.Server._Shitmed.StatusEffects;
 using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
@@ -38,6 +39,8 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly ScrambleDnaEffectSystem _scramble = default!;
     [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly HellPortalSystem _hellPortalsystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -166,53 +169,11 @@ public sealed partial class CondemnedSystem : EntitySystem
         switch (comp)
         {
             case { CondemnedBehavior: CondemnedBehavior.Delete }:
-                var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
-                while (query.MoveNext(out var hellexitportalcomp, out var xform))
+                var portalCoords = _hellPortalsystem.TryLoadHell(false);
+                if (portalCoords != null)
                 {
-                    targetportal = hellexitportalcomp;
-                    portalXform = xform;
-                    break;
+                    _sharedTransformSystem.SetCoordinates(uid, portalCoords.Value);
                 }
-
-                if (targetportal == null || portalXform == null)
-                {
-                    if (!_mapLoader.TryLoadMap(comp.HellMapPath,
-                        out var map, out var roots,
-                        options: new DeserializationOptions { InitializeMaps = true }))
-                    {
-                        Log.Error($"Failed to load hell map at {comp.HellMapPath}");
-                        QueueDel(map);
-                        return;
-                    }
-
-                    foreach (var root in roots)
-                    {
-                        if (!HasComp<HellMapComponent>(root))
-                            continue;
-
-                        var pos = new EntityCoordinates(root, 0, 0);
-
-                        var exitPortal = Spawn(comp.ExitPortalPrototype, pos);
-
-                        EnsureComp<PortalComponent>(exitPortal, out var hellPortalComp);
-
-                        var newHellMapComp = EnsureComp<HellMapComponent>(root);
-                        newHellMapComp.ExitPortal = exitPortal;
-
-                        break;
-                    }
-                    if (!retry)
-                    {
-                        DoCondemnedBehavior(uid, scramble, comp, true);
-                        return;
-                    }
-                }
-                if (portalXform == null)
-                {
-                    return;
-                }
-                // Teleport
-                _sharedTransformSystem.SetCoordinates(uid, portalXform.Coordinates);
                 break;
             case { CondemnedBehavior: CondemnedBehavior.Banish }:
                 if (scramble)
