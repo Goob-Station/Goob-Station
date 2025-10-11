@@ -20,6 +20,9 @@
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorBlack
+  storage:
+    back:
+    - SuperSynthesizerInstrument
 
 - type: chameleonOutfit
   id: PartyMakerChameleonOutfit
