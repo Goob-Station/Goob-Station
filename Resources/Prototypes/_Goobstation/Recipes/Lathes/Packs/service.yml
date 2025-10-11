@@ -22,3 +22,8 @@
   recipes:
   - CassetteTape
   - TapeRecorder
+
+- type: latheRecipePack
+  id: PhotoCameraStatic
+  recipes:
+  - PhotoCamera

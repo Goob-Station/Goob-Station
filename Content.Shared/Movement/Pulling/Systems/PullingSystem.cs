@@ -151,6 +151,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random; // Goobstation
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Goobstation.Common.Grab;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -1073,6 +1074,9 @@ public sealed class PullingSystem : EntitySystem
 
     public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
+        var ev = new GrabStageChangedEvent(puller.Comp.GrabStage, stage, pullable);
+        RaiseLocalEvent(puller, ev);
+
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
 

@@ -43,6 +43,14 @@ public sealed class RotationVisualizerSystem : SharedRotationVisualsSystem
             case RotationState.Horizontal:
                 AnimateSpriteRotation(uid, args.Sprite, component.HorizontalRotation, component.AnimationTime);
                 break;
+            // Goobstation start
+            case RotationState.HorizontalForce:
+                args.Sprite.Rotation = component.HorizontalRotation;
+                break;
+            case RotationState.VerticalForce:
+                args.Sprite.Rotation = component.VerticalRotation;
+                break;
+            // Goobstation end
         }
     }
 
