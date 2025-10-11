@@ -318,6 +318,102 @@
             - PowerCell
 
 - type: entity
+  parent: [Clothing, ContentsExplosionResistanceBase]
+  id: ClothingModsuitChiefEngineer
+  name: archon hardsuit control unit
+  description: An advanced version of Nakamura Engineering's classic suit. Created specially to interact with supermatter and work in harshest conditions possible.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/chief_engineer.rsi
+    layers:
+    - state: control
+    - state: control-sealed
+      visible: false
+      shader: unshaded
+      map: [ "sealed" ]
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      toggleable-clothing: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ToggleableClothing
+    requiredSlot: back
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: true
+    clothingPrototypes: 
+        head: ClothingModsuitHelmetChiefEngineer
+        gloves: ClothingModsuitGauntletsChiefEngineer
+        outerClothing: ClothingModsuitChestplateChiefEngineer
+        shoes: ClothingModsuitBootsChiefEngineer
+  - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+            - PowerCell
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: PowerCellDraw
+    drawRate: 1 # Sealed draw rate
+    useRate: 5 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: DoAfter
+  - type: SealableClothingControl
+  - type: SealableClothingRequiresPower
+  - type: SealableClothingVisuals
+    visualLayers:
+      back:
+      - state: equipped-BACKPACK-sealed
+        shader: unshaded
+  - type: FireProtection
+    reduction: 0.001
+  - type: StealTarget
+    stealGroup: ClothingShoesBootsMagAdv 
+
+
+- type: entity
+  parent: ClothingModsuitChiefEngineer
+  id: ClothingModsuitChiefEngineerPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+
+- type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
   name: RD's minerva modsuit control unit
