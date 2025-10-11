@@ -20,6 +20,10 @@
 		{
 			"name": "equipped-FEET-sealed",
 			"directions": 4
+		},
+		{
+			"name": "equipped-FEET-vox",
+			"directions": 4
 		}
   ]
 }

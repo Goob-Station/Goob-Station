@@ -84,6 +84,8 @@
         - state: equipped-HEAD
         head-resomi:
         - state: equipped-HEAD-resomi
+        head-vox:
+        - state: equipped-HEAD-vox
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: PressureProtection
@@ -117,7 +119,9 @@
           shader: unshaded
         head-resomi:
         - state: equipped-HEAD-sealed-resomi
-
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplatePraetorian
