@@ -62,9 +62,6 @@
     canCollide: false
   - type: Sprite
     state: platform_broken
-  - type: Construction
-    graph: CMPlatformBaseDestructible
-    node: platformBroken
 
 - type: entity
   parent: CMPlatformBaseDestructible
@@ -225,9 +222,6 @@
   components:
   - type: Sprite
     state: kutjevo_platform_broken
-  - type: Construction
-    graph: RMCPlatformKutjevoDestructible
-    node: platformBroken
 
 - type: entity
   parent: RMCPlatformCornerSmall
