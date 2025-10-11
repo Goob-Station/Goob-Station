@@ -5011,3 +5011,11 @@
   id: 9069
   time: '2025-10-11T00:33:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39984
+- author: qwerltaz
+  changes:
+  - message: The ID card computer now has buttons to grant or revoke all access from
+      the target ID card.
+    type: Add
+  id: 9070
+  time: '2025-10-11T00:52:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39375
