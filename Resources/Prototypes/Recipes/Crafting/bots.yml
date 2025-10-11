@@ -66,3 +66,11 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+
+- type: construction
+  id: hugbot
+  graph: HugBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
