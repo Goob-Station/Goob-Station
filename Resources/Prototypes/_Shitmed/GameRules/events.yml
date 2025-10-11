@@ -25,7 +25,7 @@
     reoccurrenceDelay: 45
     weight: 4 # Goobstation - 7.5 -> 4
     minimumPlayers: 10
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 75
       Medical: 75
@@ -125,7 +125,7 @@
     reoccurrenceDelay: 45
     weight: 4 # Goobstation - 7.5 -> 4
     minimumPlayers: 20
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 150
       Medical: 150
