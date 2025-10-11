@@ -30,3 +30,13 @@
     ears: ClothingHeadsetCommandService
     belt: ClothingBeltJanitorFilled
     shoes: ClothingShoesGaloshes
+
+- type: chameleonOutfit
+  id: CommandMaidChameleonOutfit
+  job: CommandMaid
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+    id: CommandMaidPDA
+    gloves: ClothingHandsGlovesJanitor
+    ears: ClothingHeadsetCommandService
+    shoes: ClothingShoesGaloshes
