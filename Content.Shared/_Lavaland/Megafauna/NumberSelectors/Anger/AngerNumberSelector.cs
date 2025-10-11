@@ -21,7 +21,7 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
     public override float Get(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
-        var uid = args.BossEntity;
+        var uid = args.Entity;
         var angerSystem = entMan.System<AngerSystem>();
         return angerSystem.GetAngerScale(uid, Range.X, Range.Y, Inverse);
     }

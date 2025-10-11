@@ -18,24 +18,30 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public List<MegafaunaTargetCondition> TargetConditions = new();
 
     /// <summary>
-    /// Sets the EntityUid field in <see cref="MegafaunaAiTargetingComponent"/> if true.
+    /// Key to save the aggressor EntityUid to in the dictionary
+    /// inside <see cref="MegafaunaAiTargetingComponent"/>.
     /// </summary>
     /// <remarks>
-    /// Only exists because for some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// For some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions.
+    /// So if your action is not EntityTarget and WorldTarget at the same time,
+    /// probably you want to set this or the other key to null.
     /// </remarks>
     [DataField]
-    public bool SetTarget = true;
+    public string? EntityKey = "aggressor";
 
     /// <summary>
-    /// Sets the EntityCoordinates field in <see cref="MegafaunaAiTargetingComponent"/> if true.
+    /// Key to save the resulting coordinates of an aggressor to in the dictionary
+    /// inside <see cref="MegafaunaAiTargetingComponent"/>.
     /// </summary>
     /// <remarks>
-    /// Only exists because for some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// For some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions.
+    /// So if your action is not EntityTarget and WorldTarget at the same time,
+    /// probably you want to set this or the other key to null.
     /// </remarks>
     [DataField]
-    public bool SetCoordinates = true;
+    public string? CoordsKey = "aggressor";
 
     /// <summary>
     /// If true, will clear all previous target values before assigning new ones.
@@ -51,7 +57,7 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     {
         var system = args.EntityManager.System<MegafaunaSystem>();
 
-        if (!system.TryPickTargetAggressive(args, TargetConditions, SetTarget, SetCoordinates, ClearData))
+        if (!system.TryPickTargetAggressive(args, TargetConditions, EntityKey, CoordsKey, ClearData))
             return FailDelay;
 
         return DelaySelector.Get(args);

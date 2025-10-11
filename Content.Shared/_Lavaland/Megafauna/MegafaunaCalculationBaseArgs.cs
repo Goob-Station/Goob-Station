@@ -6,7 +6,7 @@ namespace Content.Shared._Lavaland.Megafauna;
 /// Arguments that are used for Megafauna Actions and Conditions.
 /// </summary>
 public record struct MegafaunaCalculationBaseArgs(
-    EntityUid BossEntity,
+    EntityUid Entity,
     IEntityManager EntityManager,
     IPrototypeManager PrototypeMan,
     ISawmill Logger,

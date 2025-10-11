@@ -25,7 +25,7 @@ public sealed partial class RangeMegafaunaCondition : MegafaunaTargetCondition
         var entMan = args.EntityManager;
         var transformSys = entMan.System<SharedTransformSystem>();
 
-        var bossPos = transformSys.GetMapCoordinates(args.BossEntity);
+        var bossPos = transformSys.GetMapCoordinates(args.Entity);
         var targetPos = transformSys.GetMapCoordinates(target);
 
         if (bossPos.MapId != targetPos.MapId)

@@ -20,7 +20,7 @@ public sealed partial class PhaseMegafaunaCondition : MegafaunaCondition
     public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.BossEntity, out MobPhasesComponent? phasesComp))
+        if (!entMan.TryGetComponent(args.Entity, out MobPhasesComponent? phasesComp))
             return false;
 
         return RequiredPhases.Contains(phasesComp.CurrentPhase);

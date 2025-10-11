@@ -4,17 +4,17 @@ namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
 public sealed partial class RandomPickCoordinatesSelector : MegafaunaSelector
 {
-    [DataField]
-    public float PickRadius = 5f;
+    [DataField(required: true)]
+    public string CoordsKey;
 
-    [DataField]
-    public bool AlignTile;
+    [DataField(required: true)]
+    public float Radius;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var system = args.EntityManager.System<MegafaunaSystem>();
 
-        if (!system.TryPickRandomPosition(args,PickRadius, AlignTile))
+        if (!system.TryPickRandomPosition(args, CoordsKey, Radius))
             return FailDelay;
 
         return DelaySelector.Get(args);
