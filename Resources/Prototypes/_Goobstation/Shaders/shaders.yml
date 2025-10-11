@@ -12,3 +12,8 @@
   id: Enchant
   kind: source
   path: "/Textures/_Goobstation/Shaders/enchant.swsl"
+
+- type: shader
+  id: ColorTint
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/color_tint.swsl"

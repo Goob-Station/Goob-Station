@@ -1,0 +1,56 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp vec3 tint_color; // RGB color between 0 and 1
+uniform lowp float tint_amount; // Number between 0 and 1
+
+// Function to convert RGB to HSV.
+highp vec3 rgb2hsv(highp vec3 c)
+{
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    highp float d = q.x - min(q.w, q.y);
+    /* float e = 1.0e-10; */
+    highp float e = 0.0000000001;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+// Function to convert HSV to RGB.
+highp vec3 hsv2rgb(highp vec3 c)
+{
+    highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+void fragment() {
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
+
+    // Convert color to HSV.
+    highp vec3 hsvTint = rgb2hsv(tint_color);
+    highp vec3 hsvColor = rgb2hsv(color.rgb);
+
+    // Set the original hue to the tint hue as long as it's not greyscale.
+    if (hsvTint.y > 0.05 && hsvTint.z != 0.0)
+    {
+        hsvColor.x = hsvTint.x;
+    }
+    // Modify saturation based on tint color saturation,
+    // Halving it if it's higher and capping it at the original.
+    hsvColor.y = (hsvColor.y < hsvTint.y) ?
+        mix(hsvColor.y, hsvTint.y, 0.75) : mix(hsvColor.y, hsvTint.y, 0.35);
+
+    // Modify value based on tint color value, but only if it's darker.
+    hsvColor.z = (mix(hsvColor.z, hsvTint.z, 0.85) <= hsvColor.z) ?
+        mix(hsvColor.z, hsvTint.z, 0.85) : hsvColor.z;
+
+    // Convert back to RGB.
+    highp vec3 rgbColorMod = hsv2rgb(hsvColor);
+
+    // Mix the final RGB product with the original color to the intensity of the tint.
+    color.rgb = mix(color.rgb, rgbColorMod, tint_amount);
+
+    COLOR = color;
+}

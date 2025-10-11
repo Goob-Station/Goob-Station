@@ -279,6 +279,18 @@ uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
+uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
+uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
+uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
+uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-jumpstarter-heart-name = Jumpstarter Heart Autosurgeon
+uplink-autosurgeon-jumpstarter-heart-desc = Replaces the user's heart with a jumpstarter implant, that injects enough omnizine to get up once you got critical damage. Has a 3 minutes cooldown. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet

@@ -20,7 +20,7 @@ public sealed partial class BodyPartAppearanceComponent : Component
     /// <summary>
     ///     HumanoidVisualLayer type for this body part.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("visLayers"), AutoNetworkedField] // Goobstation - added visLayers
     public HumanoidVisualLayers Type { get; set; }
 
     /// <summary>
