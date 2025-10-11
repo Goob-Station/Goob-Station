@@ -567,8 +567,8 @@ ActionVehicleHorn: null
 #CrateFunSyndicateSegway: null Goobstation - Re-add vehicles
 MobTaxiBot: null
 # MobSupplyBot: null
-SpawnVehicleMotobike: null
-SpawnVehicleATV: null
+#SpawnVehicleMotobike: null Corvax Goobstation - Re-add vehicles
+#SpawnVehicleATV: null Corvax Goobstation - Re-add vehicles
 #SpawnVehicleSecway: null Goobstation - Re-add vehicles
 #SpawnVehicleJanicart: null Goobstation - Re-add vehicles
 #VehicleJanicart: null Goobstation - Re-add vehicles

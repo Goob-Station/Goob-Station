@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/09/2025 13:51:51
-  entityCount: 16561
+  time: 10/10/2025 08:21:40
+  entityCount: 16560
 maps:
 - 126
 grids:
@@ -45080,9 +45080,6 @@ entities:
     - type: Transform
       pos: 59.5,39.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -84102.48
-      state: Closing
 - proto: CurtainsWhite
   entities:
   - uid: 12834
@@ -51123,9 +51120,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 26.5,37.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -131396.27
-      state: Closing
   - uid: 9362
     components:
     - type: Transform
@@ -77740,6 +77734,9 @@ entities:
         16046:
         - - MaterialSilo
           - MaterialSiloUtilizer
+        6779:
+        - - MaterialSilo
+          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 2898
@@ -78329,6 +78326,8 @@ entities:
     - type: Transform
       pos: 6.5,29.5
       parent: 2
+    - type: SiloUtilizer
+      silo: 6631
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -90246,7 +90245,7 @@ entities:
       parent: 2
 - proto: SpawnVehicleATV
   entities:
-  - uid: 6975
+  - uid: 69750
     components:
     - type: Transform
       pos: 12.5,24.5
