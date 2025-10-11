@@ -21,4 +21,7 @@ public sealed partial class CurseHolderComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public Dictionary<ProtoId<CursePrototype>, TimeSpan> CurseUpdate = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public List<ProtoId<CurseStatusIconPrototype>> CurseStatusIcons = new();
 }

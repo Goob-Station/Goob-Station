@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Curses;
 
-public sealed class CurseHolderSystem : EntitySystem
+public abstract class SharedCurseHolderSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -63,9 +63,13 @@ public sealed class CurseHolderSystem : EntitySystem
             return;
 
         ent.Comp.ActiveCurses.Add(args.Curse);
-
-        // setup the timers
         ent.Comp.CurseUpdate.Add(args.Curse, _timing.CurTime + TimeSpan.FromSeconds(curseIndex.Update));
+        Dirty(ent);
+
+        if (curseIndex.StatusIcon == null)
+            return;
+
+        ent.Comp.CurseStatusIcons.Add(curseIndex.StatusIcon.Value);
         Dirty(ent);
     }
 

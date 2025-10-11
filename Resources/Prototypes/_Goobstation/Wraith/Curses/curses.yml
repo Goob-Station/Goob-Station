@@ -1,6 +1,7 @@
 - type: curse
   id: CurseWeakness
   name: Curse of Enfeeblement
+  statusIcon: CurseWeaknessIcon
   update: 10 # how often this curse updates in seconds
   effects:
     0.5:

@@ -1,0 +1,17 @@
+- type: curseStatusIcon
+  id: BaseCurseStatusIcon
+  abstract: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Wraith
+  priority: 3
+  locationPreference: Right
+  offset: 50
+
+- type: curseStatusIcon
+  parent: BaseCurseStatusIcon
+  id: CurseWeaknessIcon
+  icon:
+    sprite: /Textures/_Goobstation/Wraith/UI/status.rsi
+    state: weak_status
