@@ -18,6 +18,8 @@
     base: weed_dir
     mode: CardinalFlags
 #  - type: SmoothEdge # goobstation new sprites
+  - type: PlacementReplacement # Goobstation
+    key: floors
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resin
