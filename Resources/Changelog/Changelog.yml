@@ -5048,3 +5048,10 @@ Entries:
   id: 9074
   time: '2025-10-11T18:01:49.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39508
+- author: ScarKy0
+  changes:
+  - message: Mice, cockroaches and other small mobs can no longer unwrap parcels.
+    type: Fix
+  id: 9075
+  time: '2025-10-11T21:32:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40838
