@@ -1,0 +1,457 @@
+## All these are taken from the TG wiki
+
+# Generic Powergaming
+
+- type: mutation
+  id: AdrenalineRush
+  instability: 25
+
+- type: mutation
+  id: ColdAdaptation
+  instability: 25
+  conflicts:
+  - ThermalAdaptation
+  - PressureAdaptation
+
+- type: mutation
+  id: HeatAdaptation
+  instability: 25
+  conflicts:
+  - ThermalAdaptation
+  - PressureAdaptation
+
+- type: mutation
+  id: ThermalAdaptation
+  instability: 35
+  requires:
+  - ColdAdaptation
+  - HeatAdaptation
+  conflicts:
+  - PressureAdaptation
+  removes:
+  - ColdAdaptation
+  - HeatAdaptation
+
+- type: mutation
+  id: PressureAdaptation
+  instability: 25
+  conflicts: # cant combine temp and pressure at all
+  - ColdAdaptation
+  - HeatAdaptation
+  - ThermalAdaptation
+
+# Quirky
+
+- type: mutation
+  id: Antenna
+  instability: 10
+
+- type: mutation
+  id: MindReader
+  instability: 10
+  requires:
+  - Antenna
+  - Paranoia
+  # no punished god sect
+  removes:
+  - Antenna
+  # keep your paranoia :)
+
+- type: mutation
+  id: Autotomy
+  instability: 10
+
+# Free stability
+
+- type: mutation
+  id: Epilepsy
+  instability: -30
+
+- type: mutation
+  id: Cough # joe biden
+  instability: -30
+
+- type: mutation
+  id: Paranoia
+  instability: -30
+
+# Height
+
+- type: mutation
+  id: Dwarfism
+  instability: 10
+  conflicts:
+  - Acromegaly
+  - Gigantism
+
+- type: mutation
+  id: Acromegaly
+  instability: -30
+  conflicts:
+  - Dwarfism
+
+- type: mutation
+  id: Gigantism
+  instability: 0
+  conflicts:
+  - Dwarfism
+
+# Disabilities
+
+- type: mutation
+  id: Clumsiness
+  instability: -40
+  addedComponents:
+  - type: Clumsy
+    gunShootFailDamage:
+      types: # literally just copied semi random values a chud picked
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+
+- type: mutation
+  id: Tourettes
+  instability: 0
+
+- type: mutation
+  id: Deafness
+  instability: -40
+  addedComponents:
+  - type: Deaf
+    permanent: true
+
+- type: mutation
+  id: Monkified
+  instability: -40
+  # TODO: polymorph shitcode
+
+# Powergaming
+
+- type: mutation
+  id: Glowy
+  instability: 5
+  conflicts:
+  - AntiGlow
+
+- type: mutation
+  id: AntiGlow
+  instability: 10
+  requires:
+  - Glowy
+  - VoidMagnet
+  conflicts:
+  - Glowy
+
+- type: mutation
+  id: Strength
+  instability: 5
+
+- type: mutation
+  id: Stimmed
+  instability: 5
+
+- type: mutation
+  id: Insulated # tider holy grail
+  instability: 25
+
+# Dangerous though potentially useful
+
+- type: mutation
+  id: FierySweat
+  instability: 0
+  conflicts:
+  - HeatAdaptation
+  # wiki does not say it's exclusive with thermal adaptation, so... :)
+  # TODO: randomly ignite with chance proportional to instability
+  # TODO: decrease fire damage
+
+- type: mutation
+  id: SpatialInstability
+  instability: -30
+  # TODO: add random anom thing
+  addedComponents:
+  - type: ChaoticJump # technically anom infection can add this too but idgaf
+    jumpMinInterval: 15 # these are also the exact values anoms use
+    jumpMaxInterval: 25
+    rangeMin: 1
+    rangeMax: 4
+    effect: PuddleSparkle # TODO: copy shit from tg
+
+- type: mutation
+  id: AcidicFlesh
+  instability: -40
+  # TODO: randomly splash the user with acid
+
+- type: mutation
+  id: Spastic
+  instability: -30
+
+- type: mutation
+  id: TwoLeftFeet
+  instability: -30
+
+- type: mutation
+  id: InternalMartyrdom
+  instability: -40
+  requires:
+  - Strong
+  - Stimmed
+
+- type: mutation
+  id: HARS
+  instability: -40
+  # TODO:
+  # 1. remove brain
+  # 2. delete head
+  # 3. add brain slot to chest
+  # 4. insert brain into chest brain slot
+
+# Peak of powergaming technology
+
+- type: mutation
+  id: HypermetabolicBlood
+  instability: 10
+
+- type: mutation
+  id: RockEater
+  instability: 10
+  conflicts:
+  - RockAbsorber # can't stack them, one-way conflict to allow upgrading
+
+- type: mutation
+  id: RockAbsorber
+  instability: 35
+  requires:
+  - RockEater
+  - Stoner
+  removes:
+  - RockEater
+
+- type: mutation
+  id: Inexorable
+  instability: 25
+
+- type: mutation
+  id: Chameleon
+  instability: 35 # FREE
+
+- type: mutation
+  id: Geladikinesis
+  instability: 10 # what the fuck does this mean
+
+- type: mutation
+  id: Cryokinesis
+  instability: 25
+
+- type: mutation
+  id: Farsight
+  instability: 10 # pvs troll??
+
+- type: mutation
+  id: FireBreath
+  instability: 25
+  requires:
+  - Reptilian
+
+- type: mutation
+  id: Cindikinesis
+  instability: 10
+  requires:
+  - Geladikinesis
+  - FierySweat
+
+- type: mutation
+  id: Pyrokinesis
+  instability: 25
+  requires:
+  - Cryokinesis
+  - FierySweat
+
+- type: mutation
+  id: Hulk # the big one
+  instability: 35
+  requires:
+  - Radioactive
+  - Strength
+  conflicts:
+  - Ork
+  # GIGA todo
+
+- type: mutation
+  parent: Hulk
+  id: Ork
+  requires:
+  - Hulk
+  - Clumsy
+  conflicts: []
+  removes:
+  - Hulk
+  # TODO: change skin colour to brown and add Ork language
+
+- type: mutation
+  id: DogNose
+  instability: 25
+
+# no Biotech Compatibility as there are no skillchips
+
+- type: mutation
+  id: Clever
+  instability: 25
+
+- type: mutation
+  id: Radioactivity
+  instability: -40
+  removes:
+  - Glowy # so it has a consistent glow that you cant easily troll, you have to apply glowy AFTER
+
+- type: mutation
+  id: Telekinesis
+  instability: 35
+
+- type: mutation
+  id: ElasticArms
+  instability: 35
+
+# Vision stuff
+
+- type: mutation
+  id: NearSightedness
+  instability: -30
+  # no free -70 chuddha
+  conflicts:
+  - Blindness
+
+- type: mutation
+  id: Blindness
+  instability: -40
+  removes:
+  - NearSightedness
+
+- type: mutation
+  id: ThermalVision
+  instability: 35
+  # no conflict with blindness because thats some professor X shit
+
+# Speech related
+
+- type: mutation
+  id: Illiterate
+  instability: -40
+
+- type: mutation
+  id: Nervousness
+  instability: 0
+  conflicts:
+  - Mute
+
+- type: mutation
+  id: Wacky
+  instability: 0
+  conflicts:
+  - Mute
+
+- type: mutation
+  id: HeckaciousLarincks
+  instability: 0
+  requires:
+  - Wacky
+  - Stoner
+  conflicts:
+  - Mute
+  removes:
+  - Wacky
+
+- type: mutation
+  id: Mute
+  instability: -40
+  removes:
+  - Unintelligible # no free -70
+
+- type: mutation
+  id: Unintelligible
+  instability: -30
+  conflicts:
+  - Mute
+
+- type: mutation
+  id: Swedish
+  instability: 0
+
+- type: mutation
+  id: Chav
+  instability: 0
+
+- type: mutation
+  id: Elvis
+  instability: 0
+
+- type: mutation
+  id: Stoner
+  instability: 0
+
+- type: mutation
+  id: Medieval
+  instability: 0
+
+- type: mutation
+  id: PigLatin
+  instability: 0
+
+- type: mutation
+  id: Telepathy
+  instability: 10
+
+- type: mutation
+  id: TongueSpike
+  instability: 5
+  conflicts:
+  - ChemSpike
+
+- type: mutation
+  id: ChemSpike
+  instability: 10
+  requires:
+  - TongueSpike
+  - Stimmed
+  removes:
+  - TongueSpike
+
+- type: mutation
+  id: ShockTouch
+  instability: 25
+  requires:
+  - Insulated # does tg remove this?
+  - Radioactive
+
+- type: mutation
+  id: MendingTouch
+  instability: 35
+
+- type: mutation
+  id: VoidMagnet
+  instability: 25
+
+- type: mutation
+  id: WebbingProduction
+  instability: 25
+  addedComponents:
+  - type: Sericulture # taken from Arachnid
+    productionLength: 2
+    entityProduced: MaterialWebSilk1
+    hungerCost: 4
+  # TODO: add SpiderCraft tag
+  - type: IgnoreSpiderWeb
+
+# Admeme
+
+- type: mutation
+  id: LaserEyes
+  instability: 0
+  obtainable: false
+
+- type: mutation
+  id: UnstableDna
+  instability: -40
+  obtainable: false
+  # TODO
