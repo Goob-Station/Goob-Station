@@ -27,9 +27,18 @@ public sealed class EnchantVisualsSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EnchantedComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<EnchantedComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<EnchantedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
         SubscribeLocalEvent<EnchantedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+    }
+
+    private void OnShutdown(Entity<EnchantedComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent) || !TryComp<SpriteComponent>(ent, out var sprite))
+            return;
+
+        sprite.PostShader = null;
     }
 
     private void OnHandleState(Entity<EnchantedComponent> ent, ref AfterAutoHandleStateEvent args)

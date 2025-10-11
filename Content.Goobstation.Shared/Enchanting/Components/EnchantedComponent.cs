@@ -4,8 +4,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Enchanting.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Enchanting.Components;
 
@@ -34,6 +36,24 @@ public sealed partial class EnchantedComponent : Component
     /// </summary>
     [DataField]
     public string ContainerId = "_goob_enchants";
+
+    /// <summary>
+    /// Whether this item will be deleted on fake enchant transferring
+    /// </summary>
+    [DataField]
+    public bool DeleteOnEnchantTransfer;
+
+    /// <summary>
+    /// Upon transferring enchants to another item, the tier of this item will be set to at least this value
+    /// </summary>
+    [DataField]
+    public int TierOnTransferSuccess = 1;
+
+    /// <summary>
+    /// Sound played when transferring fake enchants to another item.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/repulse.ogg");
 
     /// <summary>
     /// The container that stores enchant entities.
