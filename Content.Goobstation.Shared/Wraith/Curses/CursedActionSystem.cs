@@ -16,6 +16,8 @@ public sealed class CursedActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+
+    private const int MaxCursesBeforeFinal = 4;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -36,9 +38,15 @@ public sealed class CursedActionSystem : EntitySystem
             return;
 
         // Add the curseHolder component and the new curse on the target
-        EnsureComp<CurseHolderComponent>(args.Target);
+        var curseHolder = EnsureComp<CurseHolderComponent>(args.Target);
 
-        var curseApply = new CurseAppliedEvent(args.Curse);
+        if (args.RequireAllCurses)
+        {
+            if (curseHolder.ActiveCurses.Count < MaxCursesBeforeFinal)
+                return; // popup here
+        }
+
+        var curseApply = new CurseAppliedEvent(args.Curse, args.Performer);
         RaiseLocalEvent(args.Target, ref curseApply);
 
         // play curse sound if it exists
@@ -56,6 +64,8 @@ public sealed class CursedActionSystem : EntitySystem
 
             _actions.StartUseDelay(action);
         }
+
+        args.Handled = true;
     }
 
     #region Cancel Events

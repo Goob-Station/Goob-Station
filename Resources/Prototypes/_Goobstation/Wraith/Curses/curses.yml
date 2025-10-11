@@ -28,3 +28,100 @@
       time: 15
       type: Add
       refresh: false
+
+- type: curse
+  id: CurseBlood
+  name: Curse of Blood
+  statusIcon: CurseBloodIcon
+  update: 6
+  effects:
+    0.5:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBloodSmall
+    0.3:
+    - !type:PopupMessage
+      type: Pvs
+      visualType: MediumCaution
+      messages: ["curse-blood-1"]
+    - !type:ModifyBloodLevel
+      amount: -20
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBlood
+
+- type: curse
+  id: CurseBlindness
+  name: Curse of Blindness
+  statusIcon: CurseBlindnessIcon
+  update: 6
+  effects:
+    0.8:
+    - !type:ChemHealEyeDamage
+      amount: 1
+    - !type:PopupMessage
+      type: Local
+      visualType: MediumCaution
+      messages: [ "curse-blindness-1", "curse-blindness-2", "curse-blindness-3" ]
+
+- type: curse
+  id: CurseRot
+  name: Curse of Rot
+  components:
+  - type: UnableToEat
+  statusIcon: CurseRotIcon
+  update: 6
+  effects:
+    0.6:
+    - !type:ChemVomit
+      hungerAmount: -5
+    0.3:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+    0.4:
+    - !type:Emote
+      emote: Gasp
+      showInChat: true
+
+- type: curse
+  id: CurseDeath
+  name: Curse of Death
+  update: 10
+  components:
+  - type: CurseDeath
+    damage:
+      groups:
+        Brute: -5
+  effects:
+    0.6:
+    - !type:Paralyze
+      paralyzeTime: 2.5
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ "curse-death-1" ]
+    0.4:
+    - !type:Jitter
+      time: 5
+    - !type:TakeStaminaDamage
+      amount: 50
+    - !type:PopupMessage
+      type: Local
+      visualType: LargeCaution
+      messages: [ "curse-death-2" ]
+    0.2:
+    - !type:Emote
+      emote: Screams
+      showInChat: true
+    - !type:CreateEntityReactionEffect
+      entity: PuddleBloodSmall
+    - !type:HealthChange
+      damage:
+        groups:
+          Brute: -15
+    - !type:PopupMessage
+      type: Pvs
+      visualType: LargeCaution
+      messages: [ "curse-death-3" ]

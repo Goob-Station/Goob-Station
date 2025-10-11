@@ -27,6 +27,12 @@ public sealed partial class ApplyCurseActionEvent : EntityTargetActionEvent
     /// </summary>
     [DataField]
     public SoundSpecifier? CurseSound;
+
+    /// <summary>
+    /// Whether this curse requires all curses in order to activate
+    /// </summary>
+    [DataField]
+    public bool RequireAllCurses;
 };
 
 /// <summary>
@@ -40,4 +46,10 @@ public record struct AttemptCurseEvent(bool Cancelled = false);
 /// Raised to the target once a curse is applied to them
 /// </summary>
 [ByRefEvent]
-public record struct CurseAppliedEvent(ProtoId<CursePrototype> Curse);
+public record struct CurseAppliedEvent(ProtoId<CursePrototype> Curse, EntityUid? Curser);
+
+/// <summary>
+/// Raised on the target once a curse effect is applied to them
+/// </summary>
+[ByRefEvent]
+public record struct CurseEffectAppliedEvent;

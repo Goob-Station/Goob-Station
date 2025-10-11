@@ -24,4 +24,10 @@ public sealed partial class CurseHolderComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public List<ProtoId<CurseStatusIconPrototype>> CurseStatusIcons = new();
+
+    /// <summary>
+    /// The entity that cursed us
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Curser;
 }

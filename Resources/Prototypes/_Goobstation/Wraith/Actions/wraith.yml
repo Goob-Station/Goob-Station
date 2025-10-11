@@ -336,8 +336,9 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: blind_curse
-  #- type: EntityTargetAction
-  #  event: !type:ApplyCurseActionEvent
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseBlindness
 
 - type: entity
   id: ActionCurseWeakness
@@ -372,8 +373,9 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: blood_curse
-  #- type: EntityTargetAction
-  # event: !type:ApplyCurseActionEvent
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseBlood
 
 - type: entity
   id: ActionCurseRot
@@ -389,8 +391,9 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: rot_curse
-  #- type: EntityTargetAction
-  # event: !type:ApplyCurseActionEvent
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseRot
 
 - type: entity
   id: ActionCurseDeath
@@ -406,13 +409,15 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: death_curse
-    #- type: EntityTargetAction
-    # event: !type:ApplyCurseActionEvent
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseDeath
+      requireAllCurses: true
 
 - type: entity
   id: ActionDefile
   name: Defile
-  description: Manifest some horrible poison inside a food item or a container.
+  description: Manifest some horrible poison inside a food item or a container. Use on self first to choose chemical.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier

@@ -15,17 +15,11 @@ public sealed class CursePrototype : IPrototype
     public string Name { get; } = string.Empty;
 
     /// <summary>
-    /// Whether to repeat the EntityEffects or not.
-    /// </summary>
-    [DataField]
-    public bool Repeat = true;
-
-    /// <summary>
     /// A dictionary that holds the random value that determines which list of entity effects will happen on the user.
     /// For example -> There's a 0.5 chance to roll a PopupEntityEffect and a VomitPopupEntityEffect together
     /// The (internal) probability of all EntityEffects should be 1.0 (when defined)
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true, serverOnly: true)]
     public Dictionary<float, List<EntityEffect>> Effects = new();
 
     /// <summary>

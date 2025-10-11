@@ -31,14 +31,6 @@ wraith-cursed-blood = Their blood is tainted by our curse.
 wraith-cursed-rot = They are rotting from our curse.
 wraith-cursed-death = Their soul will be OURS.
 
-curse-death-1 = The air feels heavier...
-curse-death-2 = Shadows cling to the corners of your vision.
-curse-death-3 = You feel a smile where no face should be.
-curse-death-4 = A thought that isn’t yours whispers: 'Give in…'
-curse-death-5 = A faint whisper curls around your thoughts: 'Not long now...'
-curse-death-6 = The end is nigh.
-
-
 wraith-not-enough-curses = All four curses must be applied before we can inflict them with death.
 
 target-curse-blind-worsen = It is becoming hard to see...

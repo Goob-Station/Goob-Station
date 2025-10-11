@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Network;
@@ -19,7 +20,6 @@ public abstract class SharedCurseHolderSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CurseHolderComponent, ComponentShutdown>(OnShutdown);
-
         SubscribeLocalEvent<CurseHolderComponent, CurseAppliedEvent>(OnApplied);
     }
 
@@ -37,6 +37,9 @@ public abstract class SharedCurseHolderSystem : EntitySystem
             {
                 if (_timing.CurTime < curseHolder.CurseUpdate[curse])
                     continue;
+
+                var ev = new CurseEffectAppliedEvent();
+                RaiseLocalEvent(uid, ref ev);
 
                 DoCurseEffects(curse, uid, curseHolder);
             }
@@ -58,9 +61,15 @@ public abstract class SharedCurseHolderSystem : EntitySystem
 
     private void OnApplied(Entity<CurseHolderComponent> ent, ref CurseAppliedEvent args)
     {
+        if (ent.Comp.Curser == null)
+            ent.Comp.Curser = args.Curser;
+
         if (ent.Comp.ActiveCurses.Contains(args.Curse)
             || !_proto.TryIndex(args.Curse, out var curseIndex))
-            return;
+            return; // fail popup here
+
+        if (curseIndex.Components != null)
+            EntityManager.AddComponents(ent.Owner, curseIndex.Components);
 
         ent.Comp.ActiveCurses.Add(args.Curse);
         ent.Comp.CurseUpdate.Add(args.Curse, _timing.CurTime + TimeSpan.FromSeconds(curseIndex.Update));
