@@ -16270,3 +16270,9 @@ Entries:
       message: Fixed interactor filters not working
   id: 1817
   time: '2025-10-11T19:36:50.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed Rodentia accent
+  id: 1818
+  time: '2025-10-11T19:37:58.0000000+00:00'
