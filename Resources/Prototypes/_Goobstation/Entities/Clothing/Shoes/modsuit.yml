@@ -62,7 +62,6 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity

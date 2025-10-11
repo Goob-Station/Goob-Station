@@ -116,6 +116,18 @@
     },
     {
       "name": "boots"
+    },
+	{
+      "name": "equipped-HEAD-sealed-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HEAD-sealed-unshaded-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HEAD-vox",
+      "directions": 4
     }
   ]
 }
