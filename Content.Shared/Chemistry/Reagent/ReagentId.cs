@@ -101,7 +101,16 @@ public partial struct ReagentId : IEquatable<ReagentId>
     public ReagentId(string prototype, List<ReagentData>? data)
     {
         Prototype = prototype;
-        Data = data ?? new();
+        // Goobstation start - fix shallow cloning of solution
+        Data = new();
+        if (data != null)
+        {
+            foreach (var reagentData in data)
+            {
+                Data.Add(reagentData.Clone());
+            }
+        }
+        // Goobstation end
     }
 
     public ReagentId()
