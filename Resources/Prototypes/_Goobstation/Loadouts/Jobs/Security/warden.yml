@@ -1,3 +1,13 @@
+
+- type: loadoutEffectGroup
+  id: SeniorWarden #masterwarden doesn't exist, but it'd be 20 hours, not this slop
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobWarden
+      time: 187200 #Same as BSO mantle mostly for shits and giggles. Warden is Harrowing.
+
 - type: loadout
   id: WardenEnvirosuit
   equipment:
@@ -15,3 +25,11 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: WardenCoatBlue
+  equipment:
+    outerClothing: ClothingOuterCoatWardenBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorWarden

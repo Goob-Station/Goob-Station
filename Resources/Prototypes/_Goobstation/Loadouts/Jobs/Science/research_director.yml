@@ -29,3 +29,11 @@
   id: RDSummerShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitRDSummer
+
+- type: loadout
+  id: ResearchDirectorLabCoatPurple
+  equipment:
+    outerClothing: ClothingOuterCoatRDPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterRD
