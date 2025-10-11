@@ -77,7 +77,7 @@
     # - Binary # Goobstation - replaced with collective mind
   - type: BorgSwitchableSubtype # Goobstation
     # - Binary # Goobstation - replaced with collective mind
-  - type: MiningPoints # goobstation borgs can claim mining points
+  - type: MiningPoints # Goobstation - borgs can claim mining points
 
 
 - type: entity
