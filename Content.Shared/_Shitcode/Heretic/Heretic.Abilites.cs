@@ -381,6 +381,10 @@ public sealed partial class StarGazeEvent : InstantActionEvent // Giga lazor
     public SoundSpecifier BeamStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/stargazer/beam_open.ogg");
 }
 
+public sealed partial class ResetStarGazerConsciousnessEvent : InstantActionEvent;
+
+public sealed partial class StarGazerSeekMasterEvent : InstantActionEvent;
+
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class EventHereticCosmosPassive : EntityEventArgs;
 

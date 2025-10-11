@@ -27,6 +27,7 @@ using Robust.Shared.Physics.Components;
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Temperature.Components;
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Interaction;
 
 namespace Content.Server.Heretic.Abilities;
@@ -94,6 +95,11 @@ public sealed partial class HereticAbilitySystem
 
     private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
     {
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(ent, ref ev);
+        if (ev.Cancelled)
+            return;
+
         if (!TryUseAbility(ent, args))
             return;
 

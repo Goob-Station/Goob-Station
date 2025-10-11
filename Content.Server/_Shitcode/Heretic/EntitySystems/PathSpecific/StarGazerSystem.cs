@@ -2,20 +2,30 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Physics;
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost.Roles;
+using Content.Server.Ghost.Roles.Components;
+using Content.Server.Mind;
 using Content.Server.Popups;
+using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Heretic;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Server.Audio;
 using Robust.Server.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
@@ -31,6 +41,9 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
@@ -40,6 +53,100 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
 
         SubscribeLocalEvent<LaserBeamEndpointComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<LaserBeamEndpointComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<CosmosPassiveComponent, ResetStarGazerConsciousnessEvent>(OnReset);
+        SubscribeLocalEvent<CosmosPassiveComponent, ComponentShutdown>(OnPassiveShutdown);
+        SubscribeLocalEvent<CosmosPassiveComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        SubscribeLocalEvent<StarGazerComponent, StarGazerSeekMasterEvent>(OnSeekMaster);
+        SubscribeLocalEvent<StarGazerComponent, TakeGhostRoleEvent>(OnTakeGhostRole,
+            after: [typeof(GhostRoleSystem)]);
+    }
+
+    private void OnSeekMaster(Entity<StarGazerComponent> ent, ref StarGazerSeekMasterEvent args)
+    {
+        if (!Exists(ent.Comp.Summoner))
+            return;
+
+        args.Handled = true;
+
+        TeleportStarGazer(ent, ent.Comp.Summoner);
+    }
+
+    private void TeleportStarGazer(Entity<StarGazerComponent> ent, EntityUid target)
+    {
+        var xform = Transform(ent);
+
+        _audio.PlayPvs(ent.Comp.TeleportSound, xform.Coordinates);
+        Spawn(ent.Comp.TeleportEffect, xform.Coordinates);
+        _pulling.StopAllPulls(ent);
+        Xform.SetMapCoordinates((ent.Owner, xform), Xform.GetMapCoordinates(ent.Comp.Summoner));
+        Spawn(ent.Comp.TeleportEffect, xform.Coordinates);
+        _audio.PlayPvs(ent.Comp.TeleportSound, xform.Coordinates);
+    }
+
+    private void OnMobStateChanged(Entity<CosmosPassiveComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+        {
+            if (!Exists(ent.Comp.StarGazer) || TerminatingOrDeleted(ent.Comp.StarGazer.Value))
+                return;
+
+            KillStarGazer(ent.Comp.StarGazer.Value);
+            return;
+        }
+
+        if (args.NewMobState != MobState.Alive)
+            return;
+
+        var starGazer = ResolveStarGazer((ent.Owner, null, ent.Comp), out _);
+        if (starGazer == null)
+            return;
+
+        RemCompDeferred<FadingTimedDespawnComponent>(starGazer.Value);
+    }
+
+    private void OnPassiveShutdown(Entity<CosmosPassiveComponent> ent, ref ComponentShutdown args)
+    {
+        if (!Exists(ent.Comp.StarGazer) || TerminatingOrDeleted(ent.Comp.StarGazer.Value))
+            return;
+
+        KillStarGazer(ent.Comp.StarGazer.Value);
+    }
+
+    private void KillStarGazer(EntityUid starGazer)
+    {
+        EnsureComp<FadingTimedDespawnComponent>(starGazer).FadeOutTime = 5f;
+    }
+
+    private void OnTakeGhostRole(Entity<StarGazerComponent> ent, ref TakeGhostRoleEvent args)
+    {
+        if (!args.TookRole || !TryComp(ent, out ActorComponent? actor))
+            return;
+
+        _popup.PopupCoordinates(Loc.GetString("heretic-stargazer-consciousness-reset-target"),
+            Transform(ent).Coordinates,
+            actor.PlayerSession,
+            PopupType.LargeCaution);
+
+        _popup.PopupEntity(Loc.GetString("heretic-stargazer-consciousness-reset-user"),
+            ent.Comp.Summoner,
+            ent.Comp.Summoner,
+            PopupType.Large);
+    }
+
+    private void OnReset(Entity<CosmosPassiveComponent> ent, ref ResetStarGazerConsciousnessEvent args)
+    {
+        args.Handled = true;
+
+        var starGazer = ResolveStarGazer(ent.Owner, out var spawned);
+        if (starGazer == null || spawned)
+            return;
+
+        EnsureComp<GhostTakeoverAvailableComponent>(starGazer.Value);
+        var role = EnsureComp<GhostRoleComponent>(starGazer.Value);
+        _ghostRole.SetTaken(role, false);
+        _ghostRole.RegisterGhostRole((starGazer.Value, role));
     }
 
     public override void Update(float frameTime)
@@ -49,10 +156,45 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         var jointQuery = GetEntityQuery<ComplexJointVisualsComponent>();
         var mobStateQuery = GetEntityQuery<MobStateComponent>();
+        var starGazeQuery = GetEntityQuery<StarGazeComponent>();
+        var ghostRoleQuery = GetEntityQuery<GhostRoleComponent>();
 
-        var query = EntityQueryEnumerator<StarGazeComponent, StarGazerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var starGaze, out var starGazer, out var xform))
+        var query = EntityQueryEnumerator<StarGazerComponent, MindContainerComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var starGazer, out var mindContainer, out var xform))
         {
+            if (mindContainer.HasMind && ghostRoleQuery.TryComp(uid, out var ghostRole) && ghostRole.Taken == false)
+            {
+                starGazer.GhostRoleAccumulator += frameTime;
+
+                if (starGazer.GhostRoleAccumulator > starGazer.GhostRoleTimer)
+                {
+                    starGazer.GhostRoleAccumulator = 0f;
+                    EnsureComp<GhostTakeoverAvailableComponent>(uid);
+                    _ghostRole.SetTaken(ghostRole, true);
+                    _ghostRole.RegisterGhostRole((uid, ghostRole));
+                    _popup.PopupEntity(Loc.GetString("heretic-stargazer-consciousness-reset-fail"),
+                        starGazer.Summoner,
+                        starGazer.Summoner,
+                        PopupType.Large);
+                }
+            }
+            else
+                starGazer.GhostRoleAccumulator = 0f;
+
+            starGazer.ResetDistanceAccumulator += frameTime;
+
+            if (starGazer.ResetDistanceAccumulator > starGazer.ResetDistanceTimer)
+            {
+                starGazer.ResetDistanceAccumulator = 0f;
+
+                if (Exists(starGazer.Summoner) &&
+                    !Xform.InRange((uid, xform), starGazer.Summoner, starGazer.MaxDistance)
+                TeleportStarGazer((uid, starGazer), starGazer.Summoner);
+            }
+
+            if (!starGazeQuery.TryComp(uid, out var starGaze))
+                continue;
+
             if (!starGaze.StartedBlasting)
                 continue;
 
@@ -67,47 +209,52 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
 
             var time = starGaze.TimeSinceBeamCreation;
 
-            var jointData = joint.Data.Where(x => x.Value.Id == JointId).ToDictionary();
-
             if (time > starGaze.Duration)
             {
-                ClearJoints();
+                ClearJoints(uid, joint);
                 QueueDel(starGaze.Endpoint);
                 RemCompDeferred(uid, starGaze);
                 continue;
             }
 
             var stage = GetBeamStage(time);
+            Dictionary<NetEntity, ComplexJointVisualsData>? jointData = null;
 
-            foreach (var data in jointData.Values)
+            if (stage != starGaze.LastStage)
             {
-                if (data.Id != JointId)
-                    continue;
+                starGaze.LastStage = stage;
 
-                var startSprite = starGaze.Start2;
-                var beamSprite = starGaze.Beam2;
-                var endSprite = starGaze.End2;
-                switch (stage)
+                jointData = GetJointData(joint);
+                foreach (var data in jointData.Values)
                 {
-                    case 1:
-                        startSprite = starGaze.Start1;
-                        beamSprite = starGaze.Beam1;
-                        endSprite = starGaze.End1;
-                        break;
-                    case 3:
-                        startSprite = starGaze.Start3;
-                        beamSprite = starGaze.Beam3;
-                        endSprite = starGaze.End3;
-                        break;
+                    if (data.Id != JointId)
+                        continue;
+
+                    var startSprite = starGaze.Start2;
+                    var beamSprite = starGaze.Beam2;
+                    var endSprite = starGaze.End2;
+                    switch (stage)
+                    {
+                        case 1:
+                            startSprite = starGaze.Start1;
+                            beamSprite = starGaze.Beam1;
+                            endSprite = starGaze.End1;
+                            break;
+                        case 3:
+                            startSprite = starGaze.Start3;
+                            beamSprite = starGaze.Beam3;
+                            endSprite = starGaze.End3;
+                            break;
+                    }
+
+                    if (data.StartSprite == startSprite)
+                        continue;
+
+                    data.StartSprite = startSprite;
+                    data.Sprite = beamSprite;
+                    data.EndSprite = endSprite;
+                    Dirty(uid, joint);
                 }
-
-                if (data.StartSprite == startSprite)
-                    continue;
-
-                data.StartSprite = startSprite;
-                data.Sprite = beamSprite;
-                data.EndSprite = endSprite;
-                Dirty(uid, joint);
             }
 
             starGaze.Accumulator += frameTime;
@@ -120,7 +267,7 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
             var exists = Exists(starGaze.Endpoint);
             if (!exists || starGaze.CursorPosition == null)
             {
-                ClearJoints();
+                ClearJoints(uid, joint, jointData);
 
                 if (exists)
                     QueueDel(starGaze.Endpoint!.Value);
@@ -208,6 +355,7 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                 _dmg.TryChangeDamage(noob,
                     starGaze.Damage,
                     origin: uid,
+                    targetPart: TargetBodyPart.All,
                     splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
                 if (_random.Prob(starGaze.ScreamProb))
@@ -273,19 +421,26 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                     doSpin: false,
                     playSound: false);
             }
+        }
+    }
 
-            continue;
+    private static Dictionary<NetEntity, ComplexJointVisualsData> GetJointData(ComplexJointVisualsComponent joint)
+    {
+        return joint.Data.Where(x => x.Value.Id == JointId).ToDictionary();
+    }
 
-            void ClearJoints()
-            {
-                if (joint.Data.Count >= jointData.Count)
-                    RemCompDeferred(uid, joint);
-                else
-                {
-                    joint.Data = joint.Data.ExceptBy(jointData.Keys, kvp => kvp.Key).ToDictionary();
-                    Dirty(uid, joint);
-                }
-            }
+    private void ClearJoints(EntityUid uid,
+        ComplexJointVisualsComponent joint,
+        Dictionary<NetEntity, ComplexJointVisualsData>? jointData = null)
+    {
+        jointData ??= GetJointData(joint);
+
+        if (joint.Data.Count >= jointData.Count)
+            RemCompDeferred(uid, joint);
+        else
+        {
+            joint.Data = joint.Data.ExceptBy(jointData.Keys, kvp => kvp.Key).ToDictionary();
+            Dirty(uid, joint);
         }
     }
 
@@ -337,6 +492,11 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
         return false; // Doesn't fall in any of the above cases
     }
 
+    private static int GetBeamStage(float time)
+    {
+        return time < 0.8f ? 1 : time > 9.7f ? 3 : 2;
+    }
+
     private void OnShutdown(Entity<LaserBeamEndpointComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.PvsOverride)
@@ -361,10 +521,5 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
         base.OnStarGazeShutdown(ent, ref args);
 
         _pvs.RemoveGlobalOverride(ent);
-    }
-
-    private int GetBeamStage(float time)
-    {
-        return time < 0.7f ? 1 : time > 9.8f ? 3 : 2;
     }
 }

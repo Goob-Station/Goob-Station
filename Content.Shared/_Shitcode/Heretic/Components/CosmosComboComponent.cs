@@ -24,7 +24,7 @@ public sealed partial class CosmosComboComponent : Component
     public float ComboTimer = 3f;
 
     [DataField]
-    public int ComboCounter = 0;
+    public int ComboCounter;
 
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/cosmic_energy.ogg");

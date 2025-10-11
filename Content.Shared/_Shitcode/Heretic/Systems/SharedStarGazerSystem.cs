@@ -131,7 +131,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
             EnsureComp<TimedDespawnComponent>(endpoint).Lifetime = comp.LaserDuration;
             var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
             beam.Data[GetNetEntity(endpoint)] =
-            new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime);
+                new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime);
 
             comp.BeamSoundEnt = _audio.PlayEntity(ent.Comp.BeamSound,
                     Filter.Empty().AddInMap(comp.CursorPosition.Value.MapId, EntityManager),
@@ -139,6 +139,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
                     true)
                 ?.Entity;
         }
+
         comp.StartedBlasting = true;
         Dirty(ent);
     }
@@ -171,5 +172,40 @@ public abstract class SharedStarGazerSystem : EntitySystem
         _audio.PlayPredicted(args.BeamStartSound, ent, ent);
 
         args.Handled = true;
+    }
+
+    public Entity<StarGazerComponent>? ResolveStarGazer(Entity<HereticComponent?, CosmosPassiveComponent?> summoner,
+        out bool spawned,
+        bool checkAscend = true,
+        EntityCoordinates? spawnCoords = null)
+    {
+        spawned = false;
+
+        if (!Resolve(summoner, ref summoner.Comp1, ref summoner.Comp2, false) ||
+            summoner.Comp1.CurrentPath != "Cosmos" || checkAscend && !summoner.Comp1.Ascended)
+            return null;
+
+        StarGazerComponent? comp;
+        if (!Exists(summoner.Comp2.StarGazer))
+        {
+            var starGazer =
+                PredictedSpawnAtPosition(summoner.Comp2.StarGazerId, spawnCoords ?? Transform(summoner).Coordinates);
+            Xform.AttachToGridOrMap(starGazer);
+            comp = EnsureComp<StarGazerComponent>(starGazer);
+            comp.Summoner = summoner;
+            summoner.Comp2.StarGazer = starGazer;
+            Dirty(summoner, summoner.Comp2);
+            Dirty(starGazer, comp);
+            spawned = true;
+            return (starGazer, comp);
+        }
+
+        if (EnsureComp<StarGazerComponent>(summoner.Comp2.StarGazer.Value, out comp) && comp.Summoner == summoner.Owner)
+            return (summoner.Comp2.StarGazer.Value, comp);
+
+        comp.Summoner = summoner;
+        Dirty(summoner.Comp2.StarGazer.Value, comp);
+
+        return (summoner.Comp2.StarGazer.Value, comp);
     }
 }

@@ -6,18 +6,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
-using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior
 {
-    [DataField]
-    public EntProtoId StarGazer = "MobStarGazer";
-
     public override bool Execute(RitualData args, out string? outstr)
     {
         if (!base.Execute(args, out outstr))
@@ -44,10 +40,10 @@ public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior
     {
         base.Finalize(args);
 
-        var starGazer = args.EntityManager.Spawn(StarGazer,
-            args.EntityManager.System<TransformSystem>().GetMapCoordinates(args.Platform));
-        var comp = args.EntityManager.EnsureComponent<StarGazerComponent>(starGazer);
-        comp.Summoner = args.Performer;
-        args.EntityManager.Dirty(starGazer, comp);
+        args.EntityManager.System<StarGazerSystem>()
+            .ResolveStarGazer(args.Performer,
+                out _,
+                false,
+                args.EntityManager.GetComponent<TransformComponent>(args.Platform).Coordinates);
     }
 }

@@ -872,6 +872,11 @@ public sealed class GhostRoleSystem : EntitySystem
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
     }
+
+    public void SetTaken(GhostRoleComponent role, bool taken) // Goobstation
+    {
+        role.Taken = taken;
+    }
 }
 
 [AnyCommand]

@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -12,7 +11,6 @@ namespace Content.Goobstation.Common.Physics;
 
 /// <summary>
 /// Works like JointVisualsComponent, but supports multiple targets and more customization.
-/// Sometimes it works not good enough though, so use this only when necessary.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ComplexJointVisualsComponent : Component

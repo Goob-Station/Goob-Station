@@ -15,6 +15,9 @@ public sealed partial class StarGazeComponent : Component
     public Vector2 Slowdown = new(0.1f, 0.1f);
 
     [DataField]
+    public int LastStage = -1;
+
+    [DataField]
     public float ScreamProb = 0.05f;
 
     [DataField]

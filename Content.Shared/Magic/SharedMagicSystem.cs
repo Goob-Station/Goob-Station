@@ -91,6 +91,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
@@ -547,6 +548,13 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
             return;
+
+        // Goobstation start
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.Performer, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
 
         var transform = Transform(args.Performer);
 

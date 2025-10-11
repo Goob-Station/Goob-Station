@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
@@ -108,6 +109,11 @@ public sealed class CosmicRunesSystem : EntitySystem
             _popup.PopupPredicted(Loc.GetString("heretic-cosmic-rune-fail-range"), user, user);
             return false;
         }
+
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(user, ref ev);
+        if (ev.Cancelled)
+            return false;
 
         ent.Comp.NextUse = time + ent.Comp.Delay;
         DirtyField(ent.Owner, ent.Comp, nameof(HereticCosmicRuneComponent.NextUse));

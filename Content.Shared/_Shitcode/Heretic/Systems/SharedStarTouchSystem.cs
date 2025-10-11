@@ -1,9 +1,11 @@
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Magic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -25,6 +27,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedStarGazerSystem _starGazer = default!;
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
     public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";
@@ -35,9 +38,22 @@ public abstract class SharedStarTouchSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<StarTouchComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<StarTouchComponent, UseInHandEvent>(OnUseInHand);
 
         SubscribeLocalEvent<StarTouchedStatusEffectComponent, StatusEffectAppliedEvent>(OnApply);
         SubscribeLocalEvent<StarTouchedStatusEffectComponent, StatusEffectRemovedEvent>(OnRemove);
+    }
+
+    private void OnUseInHand(Entity<StarTouchComponent> ent, ref UseInHandEvent args)
+    {
+        InvokeSpell(ent, args.User);
+
+        var starGazer = _starGazer.ResolveStarGazer(args.User, out var spawned);
+        if (starGazer == null || spawned)
+            return;
+
+        _pulling.StopAllPulls(args.User);
+        _transform.SetMapCoordinates(args.User, _transform.GetMapCoordinates(starGazer.Value.Owner));
     }
 
     private void OnRemove(Entity<StarTouchedStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
@@ -50,6 +66,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
         if (TerminatingOrDeleted(target))
             return;
 
+        RemCompDeferred<BlockTeleportComponent>(target);
         RemCompDeferred<StarTouchedComponent>(target);
         RemCompDeferred<CosmicTrailComponent>(target);
 
@@ -213,6 +230,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
         if (_status.TryUpdateStatusEffectDuration(target, StarTouchStatusEffect, comp.Duration))
         {
+            EnsureComp<BlockTeleportComponent>(target);
             var beam = EnsureComp<ComplexJointVisualsComponent>(target);
             beam.Data[GetNetEntity(args.User)] = new ComplexJointVisualsData(StarTouchBeamDataId, comp.BeamSprite);
             Dirty(target, beam);

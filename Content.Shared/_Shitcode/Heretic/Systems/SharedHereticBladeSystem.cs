@@ -16,6 +16,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -106,6 +107,13 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     // Void seeking blade
     private void OnAfterInteract(Entity<HereticBladeComponent> ent, ref AfterInteractEvent args)
     {
+        // Goobstation start
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.User, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
+
         if (args.Target == ent || ent.Comp.Path != "Void" || !TryComp(args.User, out HereticComponent? heretic) ||
             !TryComp(args.User, out CombatModeComponent? combat) ||
             heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(args.Target) ||
@@ -191,6 +199,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             return;
 
         if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
+            return;
+
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.User, ref ev);
+        if (ev.Cancelled)
             return;
 
         RandomTeleport(args.User, ent, rtp);

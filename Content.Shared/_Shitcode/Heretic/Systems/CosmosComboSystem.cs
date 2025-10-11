@@ -82,8 +82,16 @@ public sealed class CosmosComboSystem : EntitySystem
 
         if (hitMobs.All(x => combo.HitEntities.ContainsKey(x)))
         {
-            RemCompDeferred<CosmosComboComponent>(uid);
+            RemCompDeferred(uid, combo);
             return;
+        }
+
+        if (uid.Comp.Ascended)
+        {
+            combo.ComboIncreaseTime = 3f;
+            combo.MaxComboDuration = 30f;
+            combo.ComboDuration = 10f;
+            combo.ComboTimer = 10f;
         }
 
         if (hitAliveMobs)
