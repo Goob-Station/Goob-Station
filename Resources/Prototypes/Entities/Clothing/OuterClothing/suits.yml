@@ -330,6 +330,7 @@
     - type: Stealth
       maxVisibility: 0.2 # Goob edit
       hadOutline: true
+      thermalsImmune: true # Goobstation
   - type: PowerCellDraw
     drawRate: 3.6 # 100 seconds on the default cell # Goob edit
   - type: ToggleCellDraw
