@@ -208,6 +208,9 @@
     notificationPrefix: prayer-chat-notify-honkmother
     verb: prayer-verbs-call
     verbImage: null
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Common
 
    #Goobstation
 - type: entity
