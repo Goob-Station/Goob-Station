@@ -1,53 +1,47 @@
 - type: entity
-  parent: BaseTree
-  id: FloraAshtree
-  name: ash tree
+  name: dusty bush
+  id: AshBush
+  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/ashtree.rsi
-    offset: 0,0.5
+    sprite: _Lavaland/Objects/Decoration/Flora/bush.rsi
     layers:
-    - state: ashtree01
+    - state: bush1
       map: ["random"]
   - type: RandomSprite
     available:
     - random:
-        ashtree01: ""
-        ashtree02: ""
-        ashtree03: ""
-        ashtree04: ""
-        ashtree05: ""
+        bush1: ""
+        bush2: ""
+        bush3: ""
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.3,0.25,0.3"
-        density: 1000
-        layer:
-        - WallLayer
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 25
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/tree_fell.ogg
-          params:
-            volume: 5
-            variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Log:
-            min: 2
-            max: 5
