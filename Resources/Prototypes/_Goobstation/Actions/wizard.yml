@@ -1054,7 +1054,7 @@
   - type: Action
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 3
+    useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/summon_magic.ogg
