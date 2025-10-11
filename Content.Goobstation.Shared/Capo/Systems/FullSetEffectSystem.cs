@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Capo.Components;
 using Content.Goobstation.Shared.Overlays;
+using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared.Inventory;
 using Content.Shared.Body.Systems;
 using Content.Shared.Inventory.Events;
@@ -107,6 +108,10 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
             reflect.ReflectProb = 0f;
             Dirty(ent, reflect);
         }
+        if (TryComp<MeleeDashComponent>(ent, out var dash))
+        {
+            _entityManager.RemoveComponent<MeleeDashComponent>(ent);
+        }
     }
 
     private void OnWield(Entity<TigersClawComponent> ent, ref ItemWieldedEvent args)
@@ -114,6 +119,11 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         var user = args.User;
         if (user == EntityUid.Invalid)
             return;
+
+        if (!TryComp<MeleeDashComponent>(ent, out var dash))
+        {
+            _entityManager.AddComponent<MeleeDashComponent>(ent);
+        }
 
         if (_capoPieceCounts.TryGetValue(user, out var count) && count >= 5)
         {
