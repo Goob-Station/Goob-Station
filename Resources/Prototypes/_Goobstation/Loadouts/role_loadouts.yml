@@ -91,6 +91,7 @@
 - type: roleLoadout
   id: JobNanotrasenRepresentative
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeJumpsuit
@@ -112,6 +113,7 @@
 - type: roleLoadout
   id: JobBlueshieldOfficer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - BlueshieldOfficerHead
   - BlueshieldOfficerJumpsuit
   - BlueshieldOfficerBackpack
@@ -132,6 +134,7 @@
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - NanotrasenTrainerHead
   - NanotrasenTrainerJumpsuit
@@ -159,6 +162,7 @@
 - type: roleLoadout
   id: JobBrigmedic
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - BrigmedicHead
   #- MedicalMask
   - BrigmedicMask # CorvaxGoob-Brigmedic-Loadout : Replaced from MedicalMask

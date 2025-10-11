@@ -481,7 +481,7 @@
   loadouts:
   - DetectiveGloves
 
-# Warden
+# Warden & Warden Helper
 
 - type: loadoutGroup
   id: WardenEnvirohelm

@@ -119,6 +119,7 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -138,6 +139,7 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -169,6 +171,7 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -190,6 +193,7 @@
 - type: roleLoadout
   id: JobBartender
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -208,6 +212,7 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -224,6 +229,7 @@
 - type: roleLoadout
   id: JobChef
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -243,6 +249,7 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
@@ -259,6 +266,7 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
@@ -276,6 +284,7 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -296,6 +305,7 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
@@ -316,6 +326,7 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -335,6 +346,7 @@
   id: JobClown
   canCustomizeName: true
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -354,6 +366,7 @@
   id: JobMime
   canCustomizeName: true
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -374,6 +387,7 @@
 - type: roleLoadout
   id: JobMusician
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -393,6 +407,7 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -413,6 +428,7 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -432,6 +448,7 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
@@ -451,6 +468,7 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -470,6 +488,7 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
@@ -485,6 +504,7 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -504,6 +524,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - AtmosphericTechnicianHead # Goobstation
   - AtmosphericTechnicianJumpsuit
@@ -523,6 +544,7 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -544,6 +566,7 @@
 - type: roleLoadout
   id: JobScientist
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -566,6 +589,7 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -583,6 +607,7 @@
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -605,6 +630,7 @@
 - type: roleLoadout
   id: JobWarden
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -626,6 +652,7 @@
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -648,6 +675,7 @@
 - type: roleLoadout
   id: JobDetective
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -668,6 +696,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
@@ -686,6 +715,7 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
@@ -708,6 +738,7 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
@@ -730,6 +761,7 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
@@ -746,6 +778,7 @@
 - type: roleLoadout
   id: JobChemist
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ChemistHead # Goobstation
   - MedicalMask
@@ -766,6 +799,7 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask
@@ -788,6 +822,7 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - ZookeeperHead
   - ZookeeperJumpsuit
   - GroupTankHarness
@@ -805,6 +840,7 @@
 - type: roleLoadout
   id: JobReporter
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
@@ -822,6 +858,7 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
@@ -838,6 +875,7 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
+  - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
