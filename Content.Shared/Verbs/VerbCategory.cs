@@ -16,11 +16,15 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 RadsammyT <radsammyt@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -118,5 +122,7 @@ namespace Content.Shared.Verbs
         
         // Shitmed - Starlight Abductors
         public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
+        // Einstein Engines - Interaction Verbs
+        public static readonly VerbCategory Interaction = new("verb-categories-interaction", null);
     }
 }

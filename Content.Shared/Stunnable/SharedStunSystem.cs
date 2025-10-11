@@ -24,6 +24,7 @@
 // SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -52,6 +53,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RadsammyT <radsammyt@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -473,6 +475,11 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
+        // EE Interaction Verbs Begin
+        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
+        //return; // port note: no.
+        // End
+
         if (args.Handled || knocked.HelpTimer > 0f)
             return;
 
