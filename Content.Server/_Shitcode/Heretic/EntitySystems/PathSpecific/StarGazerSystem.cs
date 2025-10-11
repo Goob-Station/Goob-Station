@@ -6,8 +6,9 @@ using Content.Server.Popups;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Damage;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
-using Content.Shared.IdentityManagement;
+using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -15,7 +16,6 @@ using Content.Shared.Throwing;
 using Robust.Server.Audio;
 using Robust.Server.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
@@ -32,6 +32,7 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {
@@ -183,12 +184,16 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                 if (_mobState.IsIncapacitated(noob, mobState))
                 {
                     var coords = xformQuery.Comp(noob).Coordinates;
+                    _admin.Add(LogType.Gib,
+                        LogImpact.Medium,
+                        $"{ToPrettyString(uid):user} ashed {ToPrettyString(noob):target} using star gazer laser beam");
+                    /* Annoying popup spam
                     _popup.PopupCoordinates(Loc.GetString("heretic-stargaze-obliterate-other",
                             ("uid", Identity.Entity(noob, EntityManager))),
                         coords,
                         Filter.PvsExcept(noob),
                         true,
-                        PopupType.LargeCaution);
+                        PopupType.LargeCaution);*/
                     _popup.PopupCoordinates(Loc.GetString("heretic-stargaze-obliterate-user"),
                         coords,
                         noob,

@@ -197,6 +197,15 @@ public abstract partial class SharedHereticAbilitySystem
         if (!TryComp(args.Action, out HereticCosmicRuneActionComponent? runeAction))
             return;
 
+        var coords = Transform(ent).Coordinates.SnapToGrid(EntityManager, _mapMan);
+
+        // No placing runes on top of runes
+        if (Lookup.GetEntitiesInRange<HereticCosmicRuneComponent>(coords, 0.4f).Count > 0)
+        {
+            Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-occupied"), args.Performer);
+            return;
+        }
+
         if (!TryUseAbility(ent, args))
             return;
 
@@ -208,7 +217,6 @@ public abstract partial class SharedHereticAbilitySystem
         var firstRuneResolved = Exists(runeAction.FirstRune);
         var secondRuneResolved = Exists(runeAction.SecondRune);
 
-        var coords = Transform(ent).Coordinates.SnapToGrid(EntityManager, _mapMan);
         if (firstRuneResolved && secondRuneResolved)
         {
             EnsureComp<FadingTimedDespawnComponent>(runeAction.FirstRune!.Value).Lifetime = 0f;

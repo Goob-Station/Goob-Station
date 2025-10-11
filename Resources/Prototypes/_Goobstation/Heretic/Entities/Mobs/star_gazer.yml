@@ -23,8 +23,9 @@
       path: /Audio/Weapons/bladeslice.ogg
     altDisarm: false
     angle: 0
-    animation: EffectCosmicSlash
+    animation: WeaponArcHereticCosmic
     attackRate: 1.5
+    canWideSwing: false
     damage:
       types:
         Slash: 10
@@ -115,5 +116,5 @@
     drawOverlay: false
   - type: SupermatterImmune
   - type: EventHorizonIgnore
-  - type: SpacetimeSpellbladeEnchantmentComponent # It's not a spellblade, trust
+  - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
     effect: EffectCosmicSlash

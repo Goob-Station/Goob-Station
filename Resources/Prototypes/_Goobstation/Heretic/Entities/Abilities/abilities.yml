@@ -165,6 +165,9 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: FadingTimedDespawn
+    fadeOutTime: 3
+    lifetime: 15
 
 - type: entity
   id: EffectCosmicCloud
@@ -234,6 +237,20 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: WeaponArcHereticCosmic
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: RandomRotation
+  - type: Sprite
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cosmic_slash
 
 - type: entity
   id: EffectGazerOrb

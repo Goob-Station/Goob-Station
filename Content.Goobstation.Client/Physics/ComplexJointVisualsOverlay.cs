@@ -15,6 +15,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Physics;
 
@@ -67,8 +68,12 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 if (targetCoords.MapId != coords.MapId)
                     continue;
 
-                var dir = targetCoords.Position - coords.Position;
+                var ourPos = coords.Position;
+
+                var dir = targetCoords.Position - ourPos;
                 var length = dir.Length();
+                if (length <= 0.01f)
+                    continue;
 
                 var time = curTime - (data.CreationTime ?? TimeSpan.Zero);
                 if (time < TimeSpan.Zero)
@@ -78,59 +83,48 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 var textureSize = (Vector2) texture.Size;
                 var realY = textureSize.Y / EyeManager.PixelsPerMeter;
                 var realX = textureSize.X / EyeManager.PixelsPerMeter;
+
                 var segments = (int) MathF.Ceiling(length / realY);
-                if (segments <= 0)
+
+                if (segments == 0)
                     continue;
 
-                var ratio = length / (segments * realY);
-                var angle = dir.ToWorldAngle();
-                var normalized = dir.Normalized();
+                var trueLength = segments * realY;
+                if (GetStartOrEndRealY(data.StartSprite) is { } realStartY)
+                    trueLength += realStartY - realY;
+                if ((data.StartSprite == null || segments > 1) &&
+                    GetStartOrEndRealY(data.EndSprite) is { } realEndY)
+                    trueLength += realEndY - realY;
+
+                if (trueLength <= 0.01f)
+                    continue;
+
+                var avg = trueLength / segments;
+                segments = (int) MathF.Ceiling(trueLength / avg);
+
+                var ratio = length / trueLength;
+                var normalized = dir / length;
+                var angle = normalized.ToWorldAngle() + Angle.FromDegrees(180);
                 var modifiedY = realY * ratio;
                 var size = new Vector2(realX, modifiedY);
-                var extraSize = Vector2.Zero;
+                var extraLen = 0f;
 
-                handle.SetTransform(Matrix3Helpers.CreateTranslation(coords.Position));
+                handle.SetTransform(Matrix3Helpers.CreateTranslation(ourPos));
                 for (var i = 0; i < segments; i++)
                 {
-                    var tex = texture;
-                    Vector2 bottomLeft;
-                    Vector2 drawSize;
-                    if (i == 0 && data.StartSprite is { } start)
-                    {
-                        tex = _sprite.GetFrame(start, time);
-                        (extraSize, drawSize, bottomLeft) = GetData(tex,
-                            size,
-                            extraSize,
-                            realX,
-                            realY,
-                            i,
-                            normalized);
-                    }
-                    else if (i == segments - 1 && data.EndSprite is { } end)
-                    {
-                        tex = _sprite.GetFrame(end, time);
-                        (extraSize, drawSize, bottomLeft) = GetData(tex,
-                            size,
-                            extraSize,
-                            realX,
-                            realY,
-                            i,
-                            normalized);
-                    }
-                    else
-                    {
-                        (extraSize, drawSize, bottomLeft) = GetData(null,
-                            size,
-                            extraSize,
-                            realX,
-                            realY,
-                            i,
-                            normalized);
-                    }
+                    Texture? tex = null;
 
-                    var quad = Box2.FromDimensions(bottomLeft, drawSize);
-                    var quadRotated = new Box2Rotated(quad, angle + Angle.FromDegrees(180), quad.Center);
-                    handle.DrawTextureRect(tex, quadRotated, data.Color);
+                    if (i == 0 && data.StartSprite is { } start)
+                        tex = _sprite.GetFrame(start, time);
+                    else if (i == segments - 1 && data.EndSprite is { } end)
+                        tex = _sprite.GetFrame(end, time);
+
+                    (extraLen, var drawSize, var pos) =
+                        GetData(tex, extraLen, realX, realY, i, size, normalized);
+
+                    var quad = Box2.CenteredAround(pos, drawSize);
+                    var quadRotated = new Box2Rotated(quad, angle, pos);
+                    handle.DrawTextureRect(tex ?? texture, quadRotated, data.Color);
                 }
             }
         }
@@ -139,12 +133,20 @@ public sealed class ComplexJointVisualsOverlay : Overlay
         handle.SetTransform(Matrix3x2.Identity);
     }
 
-    private (Vector2 extraSize, Vector2 drawSize, Vector2 bottomLeft) GetData(Texture? tex,
-        Vector2 size,
-        Vector2 extraSize,
+    private float? GetStartOrEndRealY(SpriteSpecifier? sprite)
+    {
+        if (sprite == null)
+            return null;
+
+        return (float) _sprite.Frame0(sprite).Size.Y / EyeManager.PixelsPerMeter;
+    }
+
+    private (float extraLen, Vector2 drawSize, Vector2 bottomLeft) GetData(Texture? tex,
+        float extraLen,
         float realX,
         float realY,
         int i,
+        Vector2 size,
         Vector2 normalized)
     {
         var x = realX;
@@ -159,9 +161,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
             newSize *= new Vector2(x / realX, y / realY);
         }
 
-        var dir2 = new Vector2(normalized.X * x / 2f, normalized.Y * y / 2f);
-        var pos = new Vector2(-x / 2f, -y / 2f) + dir2;
-        var bottomLeft = pos + normalized * newSize.Y * i + normalized * extraSize;
-        return (extraSize + newSize - size, newSize, bottomLeft);
+        var pos = normalized * (newSize.Y * (0.5f + i) + extraLen);
+        return (extraLen + (newSize - size).Y, newSize, pos);
     }
 }

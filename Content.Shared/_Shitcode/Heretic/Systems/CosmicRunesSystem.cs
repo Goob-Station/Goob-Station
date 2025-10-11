@@ -132,7 +132,8 @@ public sealed class CosmicRunesSystem : EntitySystem
         EntityUid? pulling = null;
         var grabStage = GrabStage.No;
         PullerComponent? puller = null;
-        var isUserCosmosHeretic = TryComp(user, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos";
+        var isUserCosmosHeretic = HasComp<StarGazerComponent>(user) ||
+                                  TryComp(user, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos";
         if (isUserCosmosHeretic && TryComp(user, out puller) && puller.Pulling != null)
         {
             pulling = puller.Pulling.Value;

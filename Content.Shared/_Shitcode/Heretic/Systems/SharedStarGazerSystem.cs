@@ -123,15 +123,16 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
         args.Handled = true;
 
-        comp.Endpoint = PredictedSpawnAtPosition(null, Xform.ToCoordinates(comp.CursorPosition.Value));
-        var endpoint = comp.Endpoint.Value;
-        EnsureComp<LaserBeamEndpointComponent>(endpoint);
-        EnsureComp<TimedDespawnComponent>(endpoint).Lifetime = comp.LaserDuration;
-        var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
-        beam.Data[GetNetEntity(endpoint)] =
-            new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime);
         if (_net.IsServer)
         {
+            comp.Endpoint = Spawn(null, Xform.ToCoordinates(comp.CursorPosition.Value));
+            var endpoint = comp.Endpoint.Value;
+            EnsureComp<LaserBeamEndpointComponent>(endpoint);
+            EnsureComp<TimedDespawnComponent>(endpoint).Lifetime = comp.LaserDuration;
+            var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
+            beam.Data[GetNetEntity(endpoint)] =
+            new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime);
+
             comp.BeamSoundEnt = _audio.PlayEntity(ent.Comp.BeamSound,
                     Filter.Empty().AddInMap(comp.CursorPosition.Value.MapId, EntityManager),
                     uid,
