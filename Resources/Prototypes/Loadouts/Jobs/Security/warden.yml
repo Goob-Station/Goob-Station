@@ -75,16 +75,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#goob
-- type: loadoutEffectGroup
-  id: SeniorWarden #masterwarden doesn't exist, but it'd be 20 hours, not this slop
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 187200 #Same as BSO mantle mostly for shits and giggles. Warden is Harrowing.
-
 # Head
 - type: loadout
   id: WardenHead
@@ -121,12 +111,3 @@
   id: WardenArmoredWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterWarden
-    
-#Goob
-- type: loadout
-  id: WardenCoatBlue
-  equipment:
-    outerClothing: ClothingOuterCoatWardenBlue
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorWarden

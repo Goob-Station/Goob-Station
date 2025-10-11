@@ -153,12 +153,3 @@
   id: HoPWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHoP
-    
-#Goob
-- type: loadout
-  id: HoPLongcoat
-  equipment:
-    outerClothing: ClothingOuterCoatHoPLong
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoP
