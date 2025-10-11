@@ -11,7 +11,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Server.Database.Migrations.Postgres;
 using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
