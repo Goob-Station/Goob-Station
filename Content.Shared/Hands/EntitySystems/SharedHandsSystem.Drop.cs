@@ -96,7 +96,7 @@ public abstract partial class SharedHandsSystem
         if (!ContainerSystem.CanRemove(held, container))
             return false;
 
-        if (checkActionBlocker && !_actionBlocker.CanDrop(uid))
+        if (checkActionBlocker && !_actionBlocker.CanDrop(uid, held))// goobstation - drop check for item
             return false;
 
         return true;
