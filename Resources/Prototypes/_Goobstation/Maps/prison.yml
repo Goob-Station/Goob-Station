@@ -1,5 +1,5 @@
 - type: gameMap
-  id: PrisonStation
+  id: Prison
   mapName: 'Prison'
   mapPath: /Maps/_Goobstation/prison.yml
   minPlayers: 60
