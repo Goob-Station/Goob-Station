@@ -264,3 +264,14 @@
     toggleAction: PulseThermalVision
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesMercenaryHeavy
+  name: Mercenary glasses
+  description: Glasses that allow you to discern your fellow mercenaries so that you can backstab them later.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mercglasses.rsi
