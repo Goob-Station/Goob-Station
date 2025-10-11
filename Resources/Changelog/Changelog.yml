@@ -4987,3 +4987,10 @@
   id: 9066
   time: '2025-10-10T23:31:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40764
+- author: Crude Oil
+  changes:
+  - message: Removed 'Activate Holopad Projector' verb from the station AI core.
+    type: Fix
+  id: 9067
+  time: '2025-10-11T00:03:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39937
