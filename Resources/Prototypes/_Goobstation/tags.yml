@@ -395,6 +395,9 @@
   id: MechThruster
 
 - type: Tag
+  id: MechUnGrabbable
+
+- type: Tag
   id: MedicalPatch
 
 - type: Tag

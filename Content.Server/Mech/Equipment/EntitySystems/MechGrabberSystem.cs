@@ -94,6 +94,7 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Wall;
+using Content.Shared.Whitelist; // goobstation - added blacklist
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -114,6 +115,7 @@ public sealed class MechGrabberSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - added blacklist
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -218,11 +220,13 @@ public sealed class MechGrabberSystem : EntitySystem
 
         if (TryComp<PhysicsComponent>(target, out var physics) && physics.BodyType == BodyType.Static ||
             HasComp<WallMountComponent>(target) ||
-            HasComp<MobStateComponent>(target) ||
-            HasComp<MechComponent>(target)) // Goobstation, mechs cant pick up mechs
+            HasComp<MobStateComponent>(target))
         {
             return;
         }
+
+        if (_whitelist.IsBlacklistPass(component.Blacklist, target)) // Goobstation - added blackist
+            return;
 
         if (Transform(target).Anchored)
             return;
