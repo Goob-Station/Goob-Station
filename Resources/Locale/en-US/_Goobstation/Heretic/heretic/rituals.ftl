@@ -48,6 +48,7 @@ heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
 heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 heretic-ritual-fail-sacrifice-rust = Not enough rotting or silicon corpses.
+heretic-ritual-fail-sacrifice-cosmos = Not enough star marked corpses.
 heretic-ritual-fail-limit = You have reached a limit of items that this ritual provides.
 heretic-ritual-fail-no-lost-blades = No lost blades can be found.
 heretic-ritual-fail-already-ascended = You are already ascended.

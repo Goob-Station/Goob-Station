@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.SpaceImmunityOnBuckle;
-using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared.Buckle.Components;
 

@@ -53,6 +53,11 @@ namespace Content.Server.Atmos.Components
         [DataField]
         public bool AirBlocked { get; set; } = true;
 
+        // Goobstation
+        [DataField]
+        [Access(Other = AccessPermissions.ReadWriteExecute)]
+        public bool BlockExplosions { get; set; } = true;
+
         /// <summary>
         /// If true, entities on this tile will attempt to draw air from surrounding tiles when they become unblocked
         /// and currently have no air. This is generally only required when <see cref="NoAirWhenFullyAirBlocked"/> is

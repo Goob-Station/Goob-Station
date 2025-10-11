@@ -181,7 +181,12 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         var target = args.Target.Value;
 
         if (TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path)
+        {
+            hereticComp.MansusGrasp = EntityUid.Invalid;
+            QueueDel(uid);
+            args.Handled = true;
             return;
+        }
 
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;

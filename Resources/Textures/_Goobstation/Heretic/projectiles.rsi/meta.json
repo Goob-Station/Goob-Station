@@ -8,6 +8,21 @@
   },
   "states": [
     {
+      "name": "star_ball",
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08
+        ]
+      ]
+    },
+    {
       "name": "eldritch_projectile",
       "delays": [
         [

@@ -77,7 +77,8 @@ public sealed class DivineInterventionSystem : EntitySystem
             && Exists(denyingItem.Value))
         {
             args.Cancel();
-            DenialEffects(denyingItem.Value, target);
+            if (args.DoEffects)
+                DenialEffects(denyingItem.Value, target);
         }
     }
 

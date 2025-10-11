@@ -9,7 +9,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "voidblink.ogg"]
+- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "voidblink.ogg", "cosmic_energy.ogg", "cosmic_expansion.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station. hereticknock.ogg and voidblink.ogg converted to mono by @deltanedas (github)"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"

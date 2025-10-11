@@ -98,6 +98,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
@@ -114,7 +115,6 @@ using Content.Shared.Temperature;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Projectiles;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Goobstation.Shared.Temperature;
 
 namespace Content.Server.Temperature.Systems;

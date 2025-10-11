@@ -36,7 +36,7 @@
     sprite: _Goobstation/Heretic/amber_focus.rsi
     state: icon
   requiredTags:
-    GlassShard: 1
+    SheetGlass: 1
     Eyes: 1
   output:
     ClothingNeckAmberFocus: 1
@@ -309,6 +309,36 @@
   outputKnowledge: RustbringersOath
   outputEvent: !type:EventHereticAscension
 
+### cosmic path
+- type: hereticRitual
+  id: BladeCosmos
+  locName: knowledge-path-cosmos-s1-name
+  locDesc: knowledge-path-cosmos-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeCosmos
+  requiredTags:
+    Knife: 1
+    SheetGlass: 1
+
+- type: hereticRitual
+  id: AscensionCosmos
+  locName: knowledge-path-cosmos-s9-name
+  locDesc: knowledge-path-cosmos-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: stargazer
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualCosmosAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: CreatorsGift
+  outputEvent: !type:EventHereticAscension
+
 ### side knowledge
 - type: hereticRitual
   id: RitualOfKnowledge
@@ -339,6 +369,7 @@
       Void: ClothingOuterArmorHereticVoid
       Flesh: ClothingOuterArmorHereticFlesh
       Blade: ClothingOuterArmorHereticBlade
+      Cosmos: ClothingOuterArmorHereticCosmos
       Rust: ClothingOuterArmorHeretic
 
 - type: hereticRitual

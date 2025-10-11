@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Atmos.Components;
+namespace Content.Goobstation.Common.Atmos;
 
 /// <summary>
 ///     Used to ensure that PressureImmunityComponent is not overriden.

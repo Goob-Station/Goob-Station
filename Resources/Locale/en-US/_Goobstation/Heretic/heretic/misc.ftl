@@ -22,6 +22,8 @@ rust-corruption-silicon-damage = You are being corrupted by the rust!
 
 disgust-effect-warning = You feel kind of iffy...
 
+cosmic-field-component-bomb-defused-message = {$bomb} suddenly shuts off!
+
 chat-speech-verb-name-hiss = Hiss
 
 void-ascend-begin = A snowstorm suddenly appears from outside the windows. An overwhelming sense of dread looms...

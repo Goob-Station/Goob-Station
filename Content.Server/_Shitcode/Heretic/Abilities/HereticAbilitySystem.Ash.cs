@@ -14,7 +14,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -24,10 +23,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
-using Content.Goobstation.Shared.Atmos.Components;
-using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server.Heretic.Abilities;
@@ -81,7 +79,7 @@ public sealed partial class HereticAbilitySystem
         if (ent.Comp is not { Ascended: true, CurrentPath: "Ash" })
             _flammable.Extinguish(ent);
 
-        var lookup = GetNearbyPeople(ent, args.Range);
+        var lookup = GetNearbyPeople(ent, args.Range, ent.Comp.CurrentPath);
         var toHeal = 0f;
 
         foreach (var look in lookup)

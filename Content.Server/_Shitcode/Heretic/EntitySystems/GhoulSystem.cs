@@ -142,9 +142,9 @@ public sealed class GhoulSystem : EntitySystem
             return;
 
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
-        var master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
+        var master = ent.Comp.BoundHeretic;
 
-        if (master.HasValue)
+        if (Exists(master))
             brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
 
         var sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");

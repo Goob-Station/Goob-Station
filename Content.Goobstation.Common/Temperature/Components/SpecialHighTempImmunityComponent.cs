@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Temperature.Components;
+namespace Content.Goobstation.Common.Temperature.Components;
 
 /// <summary>
 ///     Used to ensure that HighTempImmunityComponent is not overriden (when it is made eventually)

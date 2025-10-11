@@ -13,13 +13,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -27,6 +24,8 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using System.Linq;
 using Content.Shared.Interaction;
 
@@ -106,7 +105,7 @@ public sealed partial class HereticAbilitySystem
             return;
         }
 
-        var people = GetNearbyPeople(ent, args.Radius);
+        var people = GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath);
         var xform = Transform(ent);
 
         Spawn(args.InEffect, xform.Coordinates);
@@ -115,7 +114,7 @@ public sealed partial class HereticAbilitySystem
 
         var condition = ent.Comp.CurrentPath == "Void";
 
-        people.AddRange(GetNearbyPeople(ent, args.Radius));
+        people.AddRange(GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath));
         foreach (var pookie in people.ToHashSet())
         {
             if (condition)
@@ -136,9 +135,10 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, args.DamageRadius);
-        var midPriority = GetNearbyPeople(ent, args.StunRadius);
-        var farPriority = GetNearbyPeople(ent, args.Radius);
+        var path = ent.Comp.CurrentPath;
+        var topPriority = GetNearbyPeople(ent, args.DamageRadius, path);
+        var midPriority = GetNearbyPeople(ent, args.StunRadius, path);
+        var farPriority = GetNearbyPeople(ent, args.Radius, path);
 
         // damage closest ones
         foreach (var pookie in topPriority)

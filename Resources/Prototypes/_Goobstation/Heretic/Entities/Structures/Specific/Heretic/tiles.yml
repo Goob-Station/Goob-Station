@@ -177,3 +177,64 @@
   updatesPerSecond: 8
   preventSpreadOnSpaced: false
   ignoreBlockedTiles: true
+
+- type: entity
+  id: WallFieldCosmic
+  name: cosmic field
+  description: A field that cannot be passed by people marked with a cosmic star.
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Tag
+    tags:
+    - Wall
+    - WideSwingIgnore
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        - Opaque
+        hard: false
+  - type: Airtight
+    airBlocked: false
+    blockExplosions: false
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+    - state: cosmic_carpet
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: CosmicField
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 1.25
+    sprintSpeedModifier: 1.25
+    affectAirborne: true
+    whitelist:
+      components:
+      - CosmosPassive
+  - type: VelocityModifierContacts
+    isActive: false
+    modifier: 0.05
+    whitelist:
+      components:
+      - Projectile
+    blacklist:
+      components:
+      - StarBlast

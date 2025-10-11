@@ -33,6 +33,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -84,7 +85,7 @@ namespace Content.Server.Bible
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
             SubscribeLocalEvent<FamiliarComponent, MobStateChangedEvent>(OnFamiliarDeath);
             SubscribeLocalEvent<FamiliarComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
-            
+
         }
 
         private readonly Queue<EntityUid> _addQueue = new();

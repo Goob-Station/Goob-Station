@@ -18,7 +18,7 @@
     - state: eldritch_projectile
       shader: unshaded
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -36,3 +36,42 @@
     sprite:
       sprite: /Textures/_Goobstation/Heretic/projectiles.rsi
       state: eldritch_projectile
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileStarBall
+  name: star ball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/projectiles.rsi
+    layers:
+    - state: star_ball
+      shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    impactEffect: EffectCosmicExplosion
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+  - type: StarBlast
+  - type: CosmicTrail
+  - type: TileFrictionModifier
+    modifier: 0

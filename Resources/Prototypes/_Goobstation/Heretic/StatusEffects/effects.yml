@@ -4,3 +4,17 @@
   name: fire blasted
   components:
   - type: FireBlastedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectStarMark
+  name: star mark
+  components:
+  - type: StarMarkStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectStarTouched
+  name: star touched
+  components:
+  - type: StarTouchedStatusEffect

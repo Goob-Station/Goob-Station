@@ -85,6 +85,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly ClothingSystem _clothing = default!;
 
     public override void Initialize()
     {
@@ -295,6 +296,8 @@ public sealed class ToggleableClothingSystem : EntitySystem
         // If it's a part of PVS departure then don't handle it.
         if (_timing.ApplyingState)
             return;
+
+        _clothing.SetEquippedPrefix(toggleable, null);
 
         // Check if container exists and we have linked clothings
         if (comp.Container == null || comp.ClothingUids.Count == 0)
@@ -603,7 +606,18 @@ public sealed class ToggleableClothingSystem : EntitySystem
     private void UnequipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
     {
         var parent = Transform(toggleable.Owner).ParentUid;
-        _inventorySystem.TryUnequip(parent, slot, force: true);
+        var clothingQuery = GetEntityQuery<ClothingComponent>();
+        if (_inventorySystem.TryUnequip(parent, slot, force: true))
+        {
+            var prefix = toggleable.Comp.EquippedPrefixes
+                .IntersectBy(toggleable.Comp.ClothingUids
+                        .Where(x => clothingQuery.TryComp(x.Key, out var c) && c.InSlot == x.Value)
+                        .Select(x => x.Value),
+                    kvp => kvp.Key)
+                .FirstOrNull()
+                ?.Value;
+            _clothing.SetEquippedPrefix(toggleable, prefix);
+        }
 
         // If attached have clothing in container - equip it
         if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || attachedComp.ClothingContainer == null)
@@ -636,7 +650,9 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
-        _inventorySystem.TryEquip(user, parent, clothing, slot);
+        if (_inventorySystem.TryEquip(user, parent, clothing, slot) &&
+            toggleable.Comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
+            _clothing.SetEquippedPrefix(toggleable, toggleable.Comp.EquippedPrefixes.GetValueOrDefault(slot, prefix));
     }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)

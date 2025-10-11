@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/985fac79eb786937823510228212aa47624e0d82",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "star_gazer",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

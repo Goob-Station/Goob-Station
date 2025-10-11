@@ -75,6 +75,7 @@ using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -125,26 +126,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
 
-    private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
-    {
-        var list = new List<EntityUid>();
-        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
-
-        foreach (var look in lookup)
-        {
-            // ignore heretics with the same path*, affect everyone else
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath ||
-                HasComp<GhoulComponent>(look))
-                continue;
-
-            if (!HasComp<StatusEffectsComponent>(look))
-                continue;
-
-            list.Add(look);
-        }
-        return list;
-    }
-
     public override void Initialize()
     {
         base.Initialize();
@@ -184,18 +165,21 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (!TryComp<HandsComponent>(ent, out var handsComp))
+            return;
+
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            foreach (var item in _hands.EnumerateHeld(ent.Owner))
+            foreach (var item in _hands.EnumerateHeld((ent.Owner, handsComp)))
             {
-                if (HasComp<MansusGraspComponent>(item ))
-                    QueueDel(item );
+                if (HasComp<MansusGraspComponent>(item))
+                    QueueDel(item);
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
+        if (!_hands.TryGetEmptyHand((ent.Owner, handsComp), out var emptyHand))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
             if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
@@ -212,7 +196,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
 
-        if (!_hands.TryPickup(ent, st, emptyHand, animate: false))
+        if (!_hands.TryPickup(ent, st, emptyHand, animate: false, handsComp: handsComp))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);

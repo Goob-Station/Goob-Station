@@ -339,7 +339,7 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
+    public bool IsTouchSpellDenied(EntityUid target) // Goob edit
     {
         var ev = new BeforeCastTouchSpellEvent(target);
         RaiseLocalEvent(target, ev, true);

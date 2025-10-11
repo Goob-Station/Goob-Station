@@ -60,6 +60,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
@@ -314,13 +315,21 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
 
-        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+        // Goob edit start
+        if (mousePos.MapId != attackerPos.MapId)
             return;
 
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+            target = screen.GetDamageableClickedEntity(mousePos);
+
+        var ev = new GetLightAttackRangeEvent(target, attacker, meleeComponent.Range);
+        RaiseLocalEvent(weaponUid, ref ev);
+
+        if ((attackerPos.Position - mousePos.Position).Length() > ev.Range)
+            return;
+        // Goob edit end
 
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))

@@ -32,6 +32,9 @@ public abstract class SharedFireBlastSystem : EntitySystem
 
     private void OnRemoved(Entity<FireBlastedStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         if (TerminatingOrDeleted(args.Target))
             return;
 
@@ -40,6 +43,9 @@ public abstract class SharedFireBlastSystem : EntitySystem
 
     private void OnApplied(Entity<FireBlastedStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         EnsureComp<FireBlastedComponent>(args.Target);
     }
 

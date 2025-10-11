@@ -20,7 +20,6 @@ using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
@@ -70,10 +69,10 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Station.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Cuffs;

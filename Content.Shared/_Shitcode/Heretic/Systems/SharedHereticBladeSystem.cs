@@ -13,10 +13,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 
+using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -48,6 +52,8 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
+    [Dependency] private readonly CosmosComboSystem _combo = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
@@ -60,7 +66,41 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
+    }
+
+    private void OnGetRange(Entity<HereticBladeComponent> ent, ref GetLightAttackRangeEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (!TryComp(args.User, out HereticComponent? heretic))
+            return;
+
+        if (ent.Comp.Path != heretic.CurrentPath)
+            return;
+
+        if (heretic.CurrentPath != "Cosmos")
+            return;
+
+        if (heretic.PathStage >= 7 && HasComp<StarMarkComponent>(args.Target.Value))
+        {
+            if (heretic.Ascended)
+            {
+                args.Range = Math.Max(args.Range, 3.5f);
+                return;
+            }
+
+            args.Range = Math.Max(args.Range, 2.5f);
+        }
+
+        var netEnt = GetNetEntity(args.User);
+        var id = SharedStarTouchSystem.StarTouchBeamDataId;
+
+        if (TryComp(args.Target.Value, out ComplexJointVisualsComponent? joint) &&
+            joint.Data.Any(kvp => kvp.Key == netEnt && kvp.Value.Id == id))
+            args.Range = Math.Max(args.Range, 3.5f);
     }
 
     // Void seeking blade
@@ -212,6 +252,27 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                         },
                     };
                     break;
+                case "Cosmos":
+                    args.BonusDamage += new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Heat", 5f },
+                        },
+                    };
+
+                    var hitEnts = args.HitEntities;
+
+                    if (hitEnts.Count == 0)
+                        break;
+
+                    _combo.ComboProgress((args.User, hereticComp), hitEnts);
+
+                    foreach (var uid in hitEnts)
+                    {
+                        _starMark.TryApplyStarMark(uid, args.User);
+                    }
+                    break;
             }
         }
 
@@ -219,18 +280,18 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         foreach (var hit in args.HitEntities)
         {
-            // does not work on other heretics (Edit: yes it does)
-            // if (HasComp<HereticComponent>(hit))
-            //    continue;
-
             if (hit == args.User)
                 continue;
 
             if (TryComp(hit, out MobStateComponent? mobState) && mobState.CurrentState != MobState.Dead)
                 aliveMobsCount++;
 
+            if (TryComp(hit, out HereticComponent? targetHeretic) &&
+                targetHeretic.CurrentPath == hereticComp.CurrentPath)
+                continue;
+
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
-                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User);
+                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User, hereticComp);
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit, args);
