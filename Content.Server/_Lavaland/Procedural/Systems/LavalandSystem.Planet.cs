@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Server._Lavaland.Biome;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
@@ -52,12 +53,14 @@ public sealed partial class LavalandSystem
         if (!SetupOutpost(lavalandMap, lavalandMapId, prototype.OutpostPath, out var outpost))
             return false;
 
-        var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange, prototype.RestrictedRange));
+        var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange * 2, prototype.RestrictedRange * 2));
 
         mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;
         mapComp.PrototypeId = lavalandPrototypeId;
         mapComp.LoadArea = loadBox;
+
+        EnsureComp<BiomeOptimizeComponent>(lavalandMap).LoadArea = loadBox;
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
@@ -145,9 +148,9 @@ public sealed partial class LavalandSystem
 
         // Name it
         _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
+
         var member = EnsureComp<LavalandMemberComponent>(outpost);
         member.SignalName = Loc.GetString("lavaland-planet-outpost");
-
         return true;
     }
 }
