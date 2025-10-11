@@ -187,8 +187,8 @@
   description: Summons one basic intern. Interns are on your full command, order them to complete tasks instead of you doing it by yourself, or play cards with them.
   productEntity: SpawnPodCoin
   icon:
-    sprite: Objects/Misc/coins.rsi
-    state: coin_gold
+    sprite: Objects/Fun/coins.rsi
+    state: coin_gold_tails
   cost:
     NTLoyaltyPoint: 10
   categories:
