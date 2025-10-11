@@ -10,6 +10,7 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
+  - MaterialDurathread
 
 - type: latheRecipePack
   id: PartsStatic
