@@ -37,6 +37,11 @@
   - type: Sprite
     state: mecha_clamp
   - type: MechGrabber
+    blacklist: # Goobstation blacklist
+      tags:
+      - MechUnGrabbable
+      components:
+      - Mech
   - type: UIFragment
     ui: !type:MechGrabberUi
   - type: ContainerContainer
@@ -52,6 +57,11 @@
   - type: Sprite
     state: mecha_clamp_small
   - type: MechGrabber
+    blacklist: # Goobstation blacklist
+      tags:
+      - MechUnGrabbable
+      components:
+      - Mech
     maxContents: 4
     grabDelay: 3
     grabEnergyDelta: -20

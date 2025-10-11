@@ -12,6 +12,7 @@
 
 using System.Numerics;
 using Content.Shared.DoAfter;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
@@ -62,4 +63,11 @@ public sealed partial class MechGrabberComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;
+
+    /// <summary> goobstation start
+    /// Goobstation blacklist for mech grabbers
+    /// </summary>
+    [DataField]
+    public EntityWhitelist Blacklist = new();
+    //goobstation end
 }
