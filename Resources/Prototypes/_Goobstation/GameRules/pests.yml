@@ -43,7 +43,7 @@
   - type: StationEvent
     earliestStart: 30
     minimumPlayers: 30
-    weight: 5
+    weight: 1
     reoccurrenceDelay: 60
     eventType: Neutral
   - type: GameRule
