@@ -32,6 +32,14 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsRobotics
+  suffix: Robotics, Locked
+  components:
+  - type: AccessReader
+    access: [["Robotics"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsAllService
   suffix: All Service, Locked
   components:
