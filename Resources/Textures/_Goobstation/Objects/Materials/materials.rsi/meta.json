@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/obj/stack_objects.dmi.",
+  "copyright": "Taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/obj/stack_objects.dmi. hex_1 and screw_1 created by @LuciferEOS (github) for Goobstation",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,12 @@
     },
     {
       "name": "bluespace_crystal_3"
+    },
+    {
+      "name": "hex_1"
+    },
+    {
+      "name": "screw_1"
     }
   ]
 }
