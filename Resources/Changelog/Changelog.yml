@@ -5027,3 +5027,10 @@
   id: 9071
   time: '2025-10-11T01:05:08.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37557
+- author: PicklOH
+  changes:
+  - message: Added more Syndie ammo to the EMAG lathe inventory
+    type: Add
+  id: 9072
+  time: '2025-10-11T05:14:34.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40822
