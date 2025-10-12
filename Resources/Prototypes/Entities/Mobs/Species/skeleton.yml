@@ -161,6 +161,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FlashImmunity
+    showInExamine: false
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
