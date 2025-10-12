@@ -14,26 +14,50 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Stunnable;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedStunSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas:true), AutoGenerateComponentPause, Access(typeof(SharedStunSystem))]
 public sealed partial class KnockedDownComponent : Component
 {
-    [DataField("helpInterval"), AutoNetworkedField]
-    public float HelpInterval = 1f;
+    /// <summary>
+    /// Game time that we can stand up.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextUpdate;
 
-    [DataField("helpAttemptSound")]
-    public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+    /// <summary>
+    /// Should we try to stand up?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AutoStand = true;
 
-    [DataField]
-    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.DropIfStanding;
+    /// <summary>
+    /// The Standing Up DoAfter.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ushort? DoAfterId;
 
-    [ViewVariables, AutoNetworkedField]
-    public float HelpTimer = 0f;
+    /// <summary>
+    /// Friction modifier for knocked down players.
+    /// Makes them accelerate and deccelerate slower.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionModifier = 1f; // Should add a friction modifier to slipping to compensate for this
+
+    /// <summary>
+    /// Modifier to the maximum movement speed of a knocked down mover.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SpeedModifier = 1f;
+
+    /// <summary>
+    /// How long does it take us to get up?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan GetUpDoAfter = TimeSpan.FromSeconds(1);
 
     // Shitmed Change: ANNOYING WITH THE GOD DAMN PAIN PROCS.
     [DataField, AutoNetworkedField]
