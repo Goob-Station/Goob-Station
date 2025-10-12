@@ -5112,3 +5112,11 @@ Entries:
   id: 9083
   time: '2025-10-12T11:02:33.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40840
+- author: DrSmugleaf
+  changes:
+  - message: Fixed species not being ordered alphabetically in the character customization
+      UI.
+    type: Fix
+  id: 9084
+  time: '2025-10-12T11:14:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39359
