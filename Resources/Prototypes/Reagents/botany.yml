@@ -47,8 +47,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
 
 - type: reagent
   id: Left4Zed
@@ -71,15 +71,15 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
       - !type:HealthChange
         damage:
           types:
             Poison: 1
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
 
 - type: reagent
   id: PestKiller
@@ -102,8 +102,8 @@
           types:
             Poison: 3
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
 
 - type: reagent
   id: PlantBGone
@@ -133,8 +133,8 @@
             Slash: 1
             Piercing: 1
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
 
 - type: reagent
   id: RobustHarvest
@@ -165,13 +165,14 @@
             Slash: -3
             Piercing: -3
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plant
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
+        - !type:ReagentCondition
+          reagent: RobustHarvest
           min: 30
         damage:
           types:
@@ -183,9 +184,10 @@
       - !type:Polymorph
         prototype: TreeMorph
         conditions:
-          - !type:OrganType
-            type: Plant
-          - !type:ReagentThreshold
+          - !type:MetabolizerTypeCondition
+            type: [Plant]
+          - !type:ReagentCondition
+            reagent: RobustHarvest
             min: 80
 
 - type: reagent
@@ -225,8 +227,8 @@
           types:
             Poison: 4
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
 
 - type: reagent
   id: Ammonia
@@ -254,32 +256,25 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType
-          type: Rat
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type:
+          - Rat
+          - Yowie # Goobstation - Yowie
+          inverted: true
+        - !type:ReagentCondition
           reagent: Ammonia
           min: 1
         ignoreResistances: true
         damage:
           types:
             Poison: 0.25
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.12
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType
-          type: Rat
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Rat, Vox, Yowie ] # Goobstation Yowie
+          inverted: true
+        - !type:ReagentCondition
           reagent: Ammonia
           min: 0.8
       - !type:PopupMessage
@@ -288,28 +283,28 @@
         messages: [ "ammonia-smell" ]
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Ammonia
           min: 0.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Rat
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Rat ]
+        - !type:ReagentCondition
           reagent: Ammonia
           min: 1
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: true
         damage:
           groups:
-            Brute: -5
-            Burn: -5
+            Brute: -2.5
+            Burn: -2.5
           types:
             Bloodloss: -5
       - !type:Oxygenate # ammonia displaces nitrogen in vox blood
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         factor: -4
 
 

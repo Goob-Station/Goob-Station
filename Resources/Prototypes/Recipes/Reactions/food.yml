@@ -71,7 +71,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodCheese
 
 - type: reaction
@@ -86,7 +86,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodChevre
 
 - type: reaction
@@ -100,7 +100,7 @@
     Water:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodDough
 
 - type: reaction
@@ -116,7 +116,7 @@
     Egg:
       amount: 6
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodDoughCornmeal
 
 - type: reaction
@@ -130,7 +130,7 @@
     Water:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodDoughTortilla
 
 - type: reaction
@@ -146,7 +146,7 @@
     Water:
       amount: 10
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: FoodDoughCotton
 
 - type: reaction
@@ -164,7 +164,7 @@
     Milk:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodCakeBatter
 
 - type: reaction
@@ -179,7 +179,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodButter
 
 - type: reaction
@@ -195,7 +195,7 @@
     TableSalt:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodDoughPie
 
 # TG has a cake recipe that uses soy milk instead of eggs.
@@ -214,7 +214,7 @@
     Sugar:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodCakeBatter
 
 - type: reaction
@@ -229,7 +229,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodTofu
 
 - type: reaction
@@ -245,7 +245,7 @@
     Egg:
       amount: 6
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeatMeatball
 
 - type: reaction
@@ -261,7 +261,7 @@
     Sugar:
       amount: 2
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodSnackChocolateBar
 
 # Condiments
