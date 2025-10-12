@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Weapons.Recoil;
@@ -28,7 +27,4 @@ public sealed partial class GunRecoilComponent : Component
 
     [DataField]
     public bool RefreshKnockdown = true;
-
-    [DataField]
-    public DropHeldItemsBehavior Behavior = DropHeldItemsBehavior.NoDrop;
 }
