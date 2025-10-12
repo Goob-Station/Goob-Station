@@ -81,6 +81,7 @@ using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Timing; // Goobstation
 
 namespace Content.Client.Weapons.Melee;
 
@@ -184,7 +185,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
 
-            switch(altFireComponent.AttackType)
+            switch (altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
@@ -227,8 +228,45 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (TryComp(weaponUid, out MeleeDashComponent? dash))
             {
                 var direction = GetDirection();
-                if (direction != Vector2.Zero)
+                // Goobedit start
+                if (direction == Vector2.Zero)
+                    return;
+
+                // calculate the delay time (default to 0 if null)
+                var waitTime = dash.DoAfter ?? 0f;
+
+                // if the weapon has a DashSprite defined, change it now
+                if (!string.IsNullOrEmpty(dash.DashSprite) && TryComp(weaponUid, out SpriteComponent? sprite))
+                {
+                    // set dash sprite
+                    sprite.LayerSetState(0, dash.DashSprite);
+
+                    Timer.Spawn(TimeSpan.FromSeconds(waitTime), () =>
+                    {
+                        sprite.LayerSetState(0, "icon");
+                        Logger.Debug("Timer fired");
+                    });
+                }
+                // wait for DoAfter seconds before actually doing the dash
+                if (waitTime > 0f)
+                {
+                    Timer.Spawn(TimeSpan.FromSeconds((double) waitTime), () =>
+                    {
+                        // check that entities still exist
+                        if (!EntityManager.EntityExists(weaponUid))
+                            return;
+
+                        // perform the dash
+                        RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
+                    });
+                }
+                else
+                {
+                    // no delay → dash immediately
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
+                }
+                // Goobedit end
+
                 return;
             }
 

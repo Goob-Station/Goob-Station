@@ -40,4 +40,4 @@
     spread: 90
   - type: TigersClaw
   - type: UseDelay
-    delay: 0.7
+    delay: 1.1

@@ -11,7 +11,9 @@ using Content.Shared.Item;
 using Content.Shared.Wieldable;
 using Robust.Shared.Log;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Content.Goobstation.Shared.CaposOutfit;
 
@@ -122,7 +124,10 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
 
         if (!TryComp<MeleeDashComponent>(ent, out var dash))
         {
-            _entityManager.AddComponent<MeleeDashComponent>(ent);
+            dash = _entityManager.AddComponent<MeleeDashComponent>(ent);
+            dash.DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/tigersclawdash.ogg");
+            dash.DoAfter = 0.6f;
+            dash.DashSprite = "ability-icon";
         }
 
         if (_capoPieceCounts.TryGetValue(user, out var count) && count >= 5)
