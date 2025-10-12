@@ -61,9 +61,7 @@ public sealed class PainAlertSystem : EntitySystem
 private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
 {
     if (!Resolve(uid, ref nerve, false) || !TryComp<WoundableComponent>(uid, out var woundable))
-    {
         return;
-    }
 
     // Find the parent mob that should have the AlertsComponent
     EntityUid? mobUid = null;
