@@ -14,21 +14,34 @@
 
 
 using System.Linq;
+using System.Numerics;
 using System.Text;
+using Content.Goobstation.Common.BlockTeleport;
+using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
+using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Teleportation;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
@@ -36,11 +49,16 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedHereticCombatMarkSystem _combatMark = default!;
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
+    [Dependency] private readonly CosmosComboSystem _combo = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -49,6 +67,93 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
+        SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
+    }
+
+    private void OnGetRange(Entity<HereticBladeComponent> ent, ref GetLightAttackRangeEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (!TryComp(args.User, out HereticComponent? heretic))
+            return;
+
+        if (ent.Comp.Path != heretic.CurrentPath)
+            return;
+
+        if (heretic.CurrentPath != "Cosmos")
+            return;
+
+        if (heretic.PathStage >= 7 && HasComp<StarMarkComponent>(args.Target.Value))
+        {
+            if (heretic.Ascended)
+            {
+                args.Range = Math.Max(args.Range, 3.5f);
+                return;
+            }
+
+            args.Range = Math.Max(args.Range, 2.5f);
+        }
+
+        var netEnt = GetNetEntity(args.User);
+        var id = SharedStarTouchSystem.StarTouchBeamDataId;
+
+        if (TryComp(args.Target.Value, out ComplexJointVisualsComponent? joint) &&
+            joint.Data.Any(kvp => kvp.Key == netEnt && kvp.Value.Id == id))
+            args.Range = Math.Max(args.Range, 3.5f);
+    }
+
+    // Void seeking blade
+    private void OnAfterInteract(Entity<HereticBladeComponent> ent, ref AfterInteractEvent args)
+    {
+        // Goobstation start
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.User, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
+
+        if (args.Target == ent || ent.Comp.Path != "Void" || !TryComp(args.User, out HereticComponent? heretic) ||
+            !TryComp(args.User, out CombatModeComponent? combat) ||
+            heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(args.Target) ||
+            !TryComp(ent, out MeleeWeaponComponent? melee) ||
+            melee.NextAttack + TimeSpan.FromSeconds(0.5) > _timing.CurTime)
+            return;
+
+        var xform = Transform(args.User);
+        var targetXform = Transform(args.Target.Value);
+
+        if (xform.MapID != targetXform.MapID)
+            return;
+
+        var coords = _xform.GetWorldPosition(xform);
+        var targetCoords = _xform.GetWorldPosition(targetXform);
+
+        var dir = targetCoords - coords;
+        var len = dir.Length();
+        if (len is <= 0f or >= 16f)
+            return;
+
+        var normalized = new Vector2(dir.X / len, dir.Y / len);
+        var ray = new CollisionRay(coords,
+            normalized,
+            (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable));
+        var result = _physics.IntersectRay(xform.MapID, ray, len, args.User).FirstOrNull();
+        if (result != null && result.Value.HitEntity != args.Target.Value)
+            return;
+
+        var newPos = result?.HitPos ?? targetCoords - normalized * 0.5f;
+
+        _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, args.User);
+        _xform.SetWorldPosition(args.User, newPos);
+        var combatMode = _combat.IsInCombatMode(args.User, combat);
+        _combat.SetInCombatMode(args.User, true, combat);
+        if (!_melee.AttemptLightAttack(args.User, ent.Owner, melee, args.Target.Value))
+            melee.NextAttack += TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, args.User, melee));
+        _combat.SetInCombatMode(args.User, combatMode, combat);
+        _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, args.User);
+        args.Handled = true;
     }
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
@@ -90,23 +195,15 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!HasComp<HereticComponent>(args.User))
             return;
 
-        // void path exclusive
-        if (heretic.CurrentPath == "Void" && heretic.PathStage >= 7)
-        {
-            var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
-            if (look.Count > 0)
-            {
-                var targetCoords = Transform(look.ToList()[0]).Coordinates;
-                _xform.SetCoordinates(args.User, targetCoords);
-                args.Handled = true;
-                return;
-            }
-        }
-
         if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
+            return;
+
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.User, ref ev);
+        if (ev.Cancelled)
             return;
 
         RandomTeleport(args.User, ent, rtp);
@@ -116,22 +213,18 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Examiner, out var heretic))
+        if (!HasComp<HereticComponent>(args.Examiner))
             return;
 
-        var isUpgradedVoid = heretic is { CurrentPath: "Void", PathStage: >= 7 };
         var canBreak = HasComp<RandomTeleportComponent>(ent);
 
-        if (!isUpgradedVoid && !canBreak)
+        if (!canBreak)
             return;
 
         var sb = new StringBuilder();
 
         if (canBreak)
             sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-
-        if (isUpgradedVoid)
-            sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());
     }
@@ -159,7 +252,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     {
                         DamageDict =
                         {
-                            { "Poison", 5f },
+                            { "Poison", 8f },
                         },
                     };
                     break;
@@ -172,6 +265,27 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                         },
                     };
                     break;
+                case "Cosmos":
+                    args.BonusDamage += new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Heat", 5f },
+                        },
+                    };
+
+                    var hitEnts = args.HitEntities;
+
+                    if (hitEnts.Count == 0)
+                        break;
+
+                    _combo.ComboProgress((args.User, hereticComp), hitEnts);
+
+                    foreach (var uid in hitEnts)
+                    {
+                        _starMark.TryApplyStarMark(uid, args.User);
+                    }
+                    break;
             }
         }
 
@@ -179,18 +293,18 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         foreach (var hit in args.HitEntities)
         {
-            // does not work on other heretics (Edit: yes it does)
-            // if (HasComp<HereticComponent>(hit))
-            //    continue;
-
             if (hit == args.User)
                 continue;
 
             if (TryComp(hit, out MobStateComponent? mobState) && mobState.CurrentState != MobState.Dead)
                 aliveMobsCount++;
 
+            if (TryComp(hit, out HereticComponent? targetHeretic) &&
+                targetHeretic.CurrentPath == hereticComp.CurrentPath)
+                continue;
+
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
-                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User);
+                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User, hereticComp);
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit, args);

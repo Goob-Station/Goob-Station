@@ -84,6 +84,16 @@
     sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
 
 - type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticCosmos
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodVoidCloakHeretic
   name: void hood

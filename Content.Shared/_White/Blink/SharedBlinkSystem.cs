@@ -7,6 +7,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared._White.Standing;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
@@ -55,6 +56,11 @@ public abstract class SharedBlinkSystem : EntitySystem
             return;
 
         var user = args.SenderSession.AttachedEntity.Value;
+
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(user, ref ev);
+        if (ev.Cancelled)
+            return;
 
         if (!TryComp(user, out TransformComponent? xform))
             return;

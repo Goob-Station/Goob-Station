@@ -76,6 +76,7 @@
   parent: CratePlastic
   name: disaster pizza delivery
   description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  suffix: "bombs"
   components:
   - type: StorageFill
     contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)

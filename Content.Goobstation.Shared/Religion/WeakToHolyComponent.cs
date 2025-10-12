@@ -42,11 +42,6 @@ public sealed partial class WeakToHolyComponent : Component
     [ViewVariables]
     public TimeSpan NextPassiveHealTick;
 
-    /// <summary>
-    /// Used for rune healing.
-    /// </summary>
-    [ViewVariables]
-    public TimeSpan NextSpecialHealTick;
 
     /// <summary>
     /// How much the entity is healed by runes each tick.
@@ -68,7 +63,7 @@ public sealed partial class WeakToHolyComponent : Component
     {
         DamageDict =
         {
-            ["Holy"] = -0.06,
+            ["Holy"] = -0.5, // if its less it dont work du to limb damage
         },
     };
 }

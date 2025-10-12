@@ -49,6 +49,7 @@
     - Lock
     - Void
     - Rust
+    - Cosmos
 
 - type: listing
   id: HereticVoidPath2
@@ -104,12 +105,30 @@
     whitelist:
     - Void
 
+#- type: listing
+#  id: HereticVoidPath5
+#  name: knowledge-path-void-s5-name
+#  description: knowledge-path-void-s5-desc
+#  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_blast }
+#  productHereticKnowledge: VoidBlast
+#  cost:
+#    KnowledgePoint: 2
+#  categories:
+#  - HereticPathVoid
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 4
+#    whitelist:
+#    - Void
+
 - type: listing
   id: HereticVoidPath5
-  name: knowledge-path-void-s5-name
-  description: knowledge-path-void-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_blast }
-  productHereticKnowledge: VoidBlast
+  name: knowledge-path-side-s3-ice-spear-name
+  description: knowledge-path-side-s3-ice-spear-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
+  productHereticKnowledge: MysteriesOfCreation
   cost:
     KnowledgePoint: 2
   categories:

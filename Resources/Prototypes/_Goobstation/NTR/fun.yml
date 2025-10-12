@@ -1,0 +1,15 @@
+- type: entity
+  id: WaterCoolerGold
+  name: executive water cooler
+  description: Your taxes were spent on this...
+  parent: WaterCooler
+  suffix: full
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Storage/watercooler.rsi
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Whiskey # lmao
+          Quantity: 500
