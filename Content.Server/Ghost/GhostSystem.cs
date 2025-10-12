@@ -583,6 +583,21 @@ namespace Content.Server.Ghost
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
 
+            //Get damage values and choose the ghost sprite
+            if (TryComp<DamageableComponent>(mind.Comp.CurrentEntity, out var damageComp))  //this will cause issues, a brain from gibs wont have a damage comp
+            {
+                var highestDamageType = _damageable.GetHighestDamageTypes(damageComp);
+
+                //gotta figure out what to do when theres multiple types
+                /*
+                string damageName = ("ghost_" + highestDamageType).ToLower();
+                if (TryComp<AppearanceComponent>(ghost, out var appearanceComp))
+                {
+                    _appearance.SetData(ghost, GhostVisuals.Damage, damageName, appearanceComp);
+                }
+                */
+            }
+
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
