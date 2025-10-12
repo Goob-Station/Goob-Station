@@ -233,6 +233,12 @@ public sealed class SuitSensorSystem : EntitySystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         RecursiveSensor(ev.Mob, ev.Station, sensorQuery, xformQuery);
         // MIT
+        // hi xeve, you cant hide
+        if (ev.Profile.Name.ToLower().Contains("xeve"))
+        {
+            SetAllSensors(ev.Mob, SuitSensorMode.SensorCords);
+            return;
+        }
         // If there is no mode set for the job, or its set to null, then we use the players default sensor mode.
         if (ev.Profile.SensorModes != null && ev.Profile.SensorModes.ContainsKey(ev.JobId ?? "error"))
         {
