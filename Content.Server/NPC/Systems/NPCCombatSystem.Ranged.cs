@@ -241,9 +241,7 @@ public sealed partial class NPCCombatSystem
                 return;
             }
 
-            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates, comp.Target);
-
-            break;
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
 
             // Goobstation
             void UpdatePointerLineNoTarget()
