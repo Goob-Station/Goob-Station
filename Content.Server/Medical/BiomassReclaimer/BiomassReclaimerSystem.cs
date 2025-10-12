@@ -274,6 +274,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (!TryComp<PhysicsComponent>(args.Used, out var physics))
                 return;
 
+            // Goobedit start
             var massToInsert = physics.FixturesMass;
 
             if (storage != null)
@@ -282,6 +283,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                         massToInsert += itemPhysics.FixturesMass;
 
             var delay = reclaimer.Comp.BaseInsertionDelay * massToInsert;
+            // Goobedit end
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
                 NeedHand = true,
@@ -346,6 +348,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 return;
 
             var component = ent.Comp;
+
+            // Goob edit start
             component.ProcessingTimer = 0;
 
             if (CanGib(ent, toProcess))
@@ -366,9 +370,10 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (component.ProcessingTimer > 0)
                 EnsureComp<ActiveBiomassReclaimerComponent>(ent);
         }
+        // Goob edit end
 
         // Called once for each entity or content of an entity that is about to be processed
-        private void AddToStartingProcess(EntityUid toProcess, Entity<BiomassReclaimerComponent> ent, PhysicsComponent physics)
+        private void AddToStartingProcess(EntityUid toProcess, Entity<BiomassReclaimerComponent> ent, PhysicsComponent physics) // Goobstation
         {
             var component = ent.Comp;
 
