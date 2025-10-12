@@ -16258,3 +16258,35 @@ Entries:
       message: Added  Ancient Goliath  to lavaland
   id: 1815
   time: '2025-10-10T17:53:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Walls are now a good source of iron for a balanced diet.
+  id: 1816
+  time: '2025-10-10T20:43:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed interactor filters not working
+  id: 1817
+  time: '2025-10-11T19:36:50.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed Rodentia accent
+  id: 1818
+  time: '2025-10-11T19:37:58.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: you can now drag drop a orebox onto the ore prossesor to empty it
+  id: 1819
+  time: '2025-10-11T19:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic cosmos path.
+    - type: Add
+      message: Wizards now can speak and understand all languages.
+  id: 1820
+  time: '2025-10-12T09:59:47.0000000+00:00'

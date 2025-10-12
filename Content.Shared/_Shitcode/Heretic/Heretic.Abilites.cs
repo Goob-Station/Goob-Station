@@ -75,6 +75,20 @@ public sealed partial class HereticActionComponent : Component
     }
 }
 
+[Serializable, NetSerializable]
+public sealed partial class StarGazeDoAfterEvent : DoAfterEvent
+{
+    public StarGazeDoAfterEvent(NetEntity orbEffect)
+    {
+        OrbEffect = orbEffect;
+    }
+
+    [DataField]
+    public NetEntity OrbEffect = NetEntity.Invalid;
+
+    public override DoAfterEvent Clone() => this;
+}
+
 #endregion
 
 #region Abilities
@@ -324,6 +338,56 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
+// cosmos
+public sealed partial class EventHereticCosmicRune : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Rune = "HereticRuneCosmos";
+}
+
+public sealed partial class EventHereticStarTouch : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId StarTouch = "TouchSpellStar";
+}
+
+public sealed partial class EventHereticStarBlast : InstantWorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId Projectile = "ProjectileStarBall";
+
+    [DataField]
+    public float ProjectileSpeed = 2f;
+}
+
+public sealed partial class EventHereticCosmicExpansion : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Effect = "EffectCosmicDomain";
+
+    [DataField]
+    public float Range = 7f;
+}
+
+public sealed partial class StarGazeEvent : InstantActionEvent // Giga lazor
+{
+    [DataField]
+    public TimeSpan DoAfterDelay = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public EntProtoId OrbEffect = "EffectGazerOrb";
+
+    [DataField]
+    public SoundSpecifier BeamStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/stargazer/beam_open.ogg");
+}
+
+public sealed partial class ResetStarGazerConsciousnessEvent : InstantActionEvent;
+
+public sealed partial class StarGazerSeekMasterEvent : InstantActionEvent;
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class EventHereticCosmosPassive : EntityEventArgs;
+
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
 
@@ -368,4 +432,17 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionCosmosEvent : EntityEventArgs { }
 #endregion
+
+public abstract partial class InstantWorldTargetActionEvent : WorldTargetActionEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class LaserBeamEndpointPositionEvent(NetEntity uid, MapCoordinates coords) : EntityEventArgs
+{
+    public NetEntity Uid = uid;
+
+    public MapCoordinates Coordinates = coords;
+}
