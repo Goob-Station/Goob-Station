@@ -1192,10 +1192,20 @@ namespace Content.Client.Lobby.UI
                             OpenLoadout(job, loadout, roleLoadoutProto);
                         };
                     }
+                    // MIT
+                    var sensorWindowBtn = new Button()
+                    {
+                        Text = "sensor", //Loc.GetString("sensor-window"),
+                        HorizontalAlignment = HAlignment.Right,
+                        VerticalAlignment = VAlignment.Center,
+                        Margin = new Thickness(3f, 3f, 0f, 0f),
+                    };
+                    // end MIT
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
                     jobContainer.AddChild(loadoutWindowBtn);
+                    jobContainer.AddChild(sensorWindowBtn); //MIT
                     category.AddChild(jobContainer);
                 }
             }
