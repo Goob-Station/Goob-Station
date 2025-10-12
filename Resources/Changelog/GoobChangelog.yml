@@ -16282,3 +16282,11 @@ Entries:
       message: you can now drag drop a orebox onto the ore prossesor to empty it
   id: 1819
   time: '2025-10-11T19:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic cosmos path.
+    - type: Add
+      message: Wizards now can speak and understand all languages.
+  id: 1820
+  time: '2025-10-12T09:59:47.0000000+00:00'
