@@ -5069,3 +5069,10 @@ Entries:
   id: 9077
   time: '2025-10-11T23:15:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40074
+- author: jessicamaybe
+  changes:
+  - message: Added swabs and an emag inventory to the biogenerator
+    type: Tweak
+  id: 9078
+  time: '2025-10-12T00:15:18.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39037
