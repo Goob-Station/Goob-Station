@@ -325,6 +325,9 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
   id: ItemPickaxe
 
 - type: Tag
@@ -503,6 +506,9 @@
   id: ShadowCloakAction
 
 - type: Tag
+  id: SheetPlasma
+
+- type: Tag
   id: ShowWizardIcons
 
 - type: Tag
@@ -603,6 +609,9 @@
 
 - type: Tag
   id: Vial
+  
+- type: Tag
+  id: WallLight
 
 - type: Tag
   id: WaterTank

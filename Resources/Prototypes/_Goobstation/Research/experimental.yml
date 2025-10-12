@@ -85,7 +85,7 @@
   id: XenoBiology # :trollface:
   name: research-technology-xeno-biology
   icon:
-    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/drone.rsi
     state: xenomorph
   discipline: Experimental
   tier: 2
