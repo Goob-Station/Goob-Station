@@ -7,7 +7,7 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    - sprite: _RMC14/Mobs/Aliens/Xenomorphs/larva.rsi
       state: xenomorph
   - type: GhostRole
     name: ghost-role-information-xenomorph-larva-name
