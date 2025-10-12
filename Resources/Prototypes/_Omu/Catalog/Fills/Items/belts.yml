@@ -1,0 +1,14 @@
+- type: entity
+  id: ClothingBeltMilitaryWebbingBSOFilled
+  parent: ClothingBeltMilitaryWebbingBSO
+  suffix: Filled, BSO
+  components:
+  - type: StorageFill
+    contents:
+    - id: CombatInjector
+    - id: TirimolChemistryVial
+    - id: OmnizineChemistryVial
+    - id: SyriniverChemistryVial
+    - id: ProcenylLazideChemistryVial
+    - id: EbifinlLazideChemistryVial
+
