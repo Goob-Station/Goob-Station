@@ -10,7 +10,7 @@ using Content.Shared.StatusEffect;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects.StatusEffects;
+namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 
 /// <summary>
 ///     Adds a generic status effect to the entity,

@@ -178,29 +178,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
         return false;
     }
 
-    /// <summary>
-    /// Applies the status effect, i.e. starts it after it has been added. Ensures delayed start times trigger when they should.
-    /// </summary>
-    /// <param name="statusEffectEnt">The status effect entity.</param>
-    /// <returns>Returns true if the effect is applied.</returns>
-    private bool TryApplyStatusEffect(Entity<StatusEffectComponent> statusEffectEnt)
-    {
-        if (!statusEffectEnt.Comp.Applied &&
-            statusEffectEnt.Comp.AppliedTo != null &&
-            _timing.CurTime >= statusEffectEnt.Comp.StartEffectTime)
-        {
-            var ev = new StatusEffectAppliedEvent(statusEffectEnt.Comp.AppliedTo.Value);
-            RaiseLocalEvent(statusEffectEnt, ref ev);
-
-            statusEffectEnt.Comp.Applied = true;
-
-            DirtyField(statusEffectEnt, statusEffectEnt.Comp, nameof(StatusEffectComponent.StartEffectTime));
-            return true;
-        }
-
-        return false;
-    }
-
     public bool CanAddStatusEffect(EntityUid uid, EntProtoId effectProto)
     {
         if (!_proto.TryIndex(effectProto, out var effectProtoData))
