@@ -217,3 +217,9 @@
 - type: lobbyBackground
   id: Security
   background: /Textures/_CorvaxGoob/LobbyScreens/security.png
+
+- type: lobbyBackground
+  id: AwesomeShuttle
+  name: "Замечательный шаттл"
+  artist: qulezza
+  background: /Textures/_CorvaxGoob/LobbyScreens/awesome-shuttle.png
