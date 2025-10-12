@@ -3,11 +3,14 @@ using Content.Goobstation.Maths.FixedPoint;
 namespace Content.Goobstation.Server.Damage;
 
 /// <summary>
-/// This is used for prevents damage above a set amount.
+/// This is used for prevents damage if that damage is above death threshold.
 /// </summary>
 [RegisterComponent]
 public sealed partial class PreventDamageComponent : Component
 {
+    /// <summary>
+    ///  the minimum point diferance from crit to dead. for this to work
+    /// </summary>
     [DataField]
-    public  FixedPoint2 MaxDamage = FixedPoint2.New(190);
+    public  FixedPoint2 DifferensMinimum  = FixedPoint2.New(1);
 }

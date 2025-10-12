@@ -1,13 +1,16 @@
 using Content.Shared.Damage;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Server.Damage;
 
 /// <summary>
-/// This stops damage over a set number
+/// This stops a mob from taking damage if that damge leads to its death
 /// </summary>
 public sealed class PreventDamageSystem : EntitySystem
 {
     /// <inheritdoc/>
+    [Dependency] private readonly MobThresholdSystem _mobThreshold= null!;
     public override void Initialize()
     {
         SubscribeLocalEvent<PreventDamageComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
@@ -18,11 +21,19 @@ public sealed class PreventDamageSystem : EntitySystem
         if(!TryComp<DamageableComponent>(entity.Owner, out var damageable))
            return;
 
+        if (!_mobThreshold.TryGetThresholdForState(entity.Owner,MobState.Critical, out var critThreshold))
+            return; // systems dont work if there is no critical threshold, this is to prevent immortality
+
+        if (!_mobThreshold.TryGetThresholdForState(entity.Owner,MobState.Dead, out var deadThreshold))
+            return; // no death threshold
+
+        if (deadThreshold - critThreshold > entity.Comp.DifferensMinimum) // prevents misuse if the critical and death trigger is the same value
+            return;
+
         var currentDaamage = damageable.Damage.GetTotal();
-        var newTotaldamage = currentDaamage+arg.Damage.GetTotal();
+        var newTotalDamage = currentDaamage+arg.Damage.GetTotal();
 
-        if(newTotaldamage > entity.Comp.MaxDamage)
+        if(newTotalDamage > deadThreshold)
             arg.Cancelled = true;
-
     }
 }
