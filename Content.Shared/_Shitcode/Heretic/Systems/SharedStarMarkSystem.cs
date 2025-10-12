@@ -78,10 +78,13 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        var query = EntityQueryEnumerator<CosmicTrailComponent, TransformComponent>();
-        while (query.MoveNext(out var trail, out var xform))
+        var query = EntityQueryEnumerator<CosmicTrailComponent, PhysicsComponent, TransformComponent>();
+        while (query.MoveNext(out var trail, out var physics, out var xform))
         {
             if (trail.NextCosmicFieldTime > _timing.CurTime)
+                continue;
+
+            if (physics.LinearVelocity.LengthSquared() < 0.25)
                 continue;
 
             trail.NextCosmicFieldTime = _timing.CurTime + trail.CosmicFieldPeriod;

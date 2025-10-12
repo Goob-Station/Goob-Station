@@ -31,7 +31,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
     public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";
-    public static readonly EntProtoId StarTouchBeamDataId = "startouch";
+    public const string StarTouchBeamDataId = "startouch";
 
     public override void Initialize()
     {
