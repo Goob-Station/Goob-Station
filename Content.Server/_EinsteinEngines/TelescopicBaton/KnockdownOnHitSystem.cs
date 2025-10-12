@@ -44,8 +44,8 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-               //if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation //todo marty
-                   //knockedDown.Add(target);
+                if (_stun.TryCrawling(target)) // Goobstation
+                    knockedDown.Add(target);
                 continue;
             }
 

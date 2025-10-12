@@ -37,8 +37,8 @@ public sealed class TelefragSystem : EntitySystem
             if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, true)) // goob edit hardcoded wizden crawl change
                 continue;
 
-            //if (_stun.TryCrawling(ent, knockdownTime, true, true, true, true)) // goob edit hardcoded wizden crawl change //todo marty
-                _stun.TryStand(ent!); // Fuck it we ball rider tells me this is never gonna be null so
+            if (_stun.TryCrawling(ent, knockdownTime, true, true, true, true)) // goob edit hardcoded wizden crawl change
+                _stun.TryStand(ent!); // Fuck it we ball rider tells me this is never gonna be null so (!)
         }
     }
 }
