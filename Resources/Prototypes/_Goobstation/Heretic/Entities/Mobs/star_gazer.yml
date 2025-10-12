@@ -122,3 +122,6 @@
   - type: EventHorizonIgnore
   - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
     effect: EffectCosmicSlash
+  - type: Tag
+    tags:
+    - CannotSuicide

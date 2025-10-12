@@ -46,10 +46,15 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
     private void OnUseInHand(Entity<StarTouchComponent> ent, ref UseInHandEvent args)
     {
+        var starGazer = _starGazer.ResolveStarGazer(args.User, out var spawned);
+        if (starGazer == null)
+            return;
+
+        args.Handled = true;
+
         InvokeSpell(ent, args.User);
 
-        var starGazer = _starGazer.ResolveStarGazer(args.User, out var spawned);
-        if (starGazer == null || spawned)
+        if (spawned)
             return;
 
         _pulling.StopAllPulls(args.User);

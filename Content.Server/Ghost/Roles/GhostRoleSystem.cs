@@ -786,7 +786,7 @@ public sealed class GhostRoleSystem : EntitySystem
 
         var mind = EnsureComp<MindContainerComponent>(uid);
 
-        if (mind.HasMind)
+        if (mind.HasMind && !component.IgnoreMindCheck) // Goobstation edit
         {
             args.TookRole = false;
             return;

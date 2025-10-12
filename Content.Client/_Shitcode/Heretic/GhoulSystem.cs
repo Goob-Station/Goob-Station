@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
@@ -35,6 +36,13 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnHereticMasterIcons(Entity<HereticComponent> ent, ref GetStatusIconsEvent args)
     {
         var player = _player.LocalEntity;
+
+        if (TryComp(player, out StarGazerComponent? starGazer) && ent.Owner == starGazer.Summoner &&
+            _prototype.TryIndex(starGazer.MasterIcon, out var icon))
+        {
+            args.StatusIcons.Add(icon);
+            return;
+        }
 
         if (!TryComp<GhoulComponent>(player, out var playerGhoul))
             return;

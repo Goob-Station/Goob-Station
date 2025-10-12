@@ -21,7 +21,7 @@ public sealed partial class StarGazeComponent : Component
     public float ScreamProb = 0.05f;
 
     [DataField]
-    public float MaxThrowLength = 0.1f;
+    public float MaxThrowLength = 0.05f;
 
     [DataField]
     public float ThrowSpeed = 5f;

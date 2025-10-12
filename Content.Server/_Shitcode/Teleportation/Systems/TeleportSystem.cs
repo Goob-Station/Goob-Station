@@ -88,6 +88,8 @@ public sealed class TeleportSystem : EntitySystem
 
         if (playSound)
             _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
+
+        return true;
     }
 
     public Vector2 GetTeleportVector(float minRadius, float extraRadius)
