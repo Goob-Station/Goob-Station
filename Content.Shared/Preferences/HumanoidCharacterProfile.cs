@@ -118,7 +118,7 @@ namespace Content.Shared.Preferences
 
         //MIT
         [DataField]
-        public SuitSensorMode DefaultSuitSensorMode { get; set; } = SuitSensorMode.SensorCords;
+        public SuitSensorMode? DefaultSuitSensorMode { get; set; } = null;
         //End MIT
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            DefaultSuitSensorMode = SuitSensorMode.SensorCords; // MIT, TODO: make this a parameter
+            DefaultSuitSensorMode = null; // MIT, null means random
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -347,6 +347,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithName(string name)
         {
             return new(this) { Name = name };
+        }
+
+        public HumanoidCharacterProfile WithSensor(SuitSensorMode? mode)
+        {
+            return new(this) { DefaultSuitSensorMode = mode };
         }
 
         public HumanoidCharacterProfile WithFlavorText(string flavorText)

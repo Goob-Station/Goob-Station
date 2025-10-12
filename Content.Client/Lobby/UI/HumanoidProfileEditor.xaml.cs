@@ -1049,6 +1049,7 @@ namespace Content.Client.Lobby.UI
             //MIT
             var sensorItems = new[]
             {
+                ("humanoid-profile-editor-name-random-button", -1),
                 ("suit-sensor-mode-off", (int) SuitSensorMode.SensorOff),
                 ("suit-sensor-mode-binary", (int) SuitSensorMode.SensorBinary),
                 ("suit-sensor-mode-vitals", (int) SuitSensorMode.SensorVitals),
@@ -1208,20 +1209,28 @@ namespace Content.Client.Lobby.UI
                     {
                         sensorSelectorBtn.AddItem(Loc.GetString(name), id);
                     }
-                    // set to current value (TODO)
+                    // set to current value
+                    if (Profile?.DefaultSuitSensorMode != null)
+                    {
+                        sensorSelectorBtn.SelectId((int) Profile.DefaultSuitSensorMode);
+                    }
+
+
                     sensorSelectorBtn.OnItemSelected += args =>
                     {
                         sensorSelectorBtn.SelectId(args.Id);
-                        //Profile = Profile?.WithSensor((sensorMode) args.Id);
+                        if (args.Id == -1)
+                        {
+                            // the value representing random is null
+                            Profile = Profile?.WithSensor(null);
+                        }
+                        else
+                        {
+                            Profile = Profile?.WithSensor((SuitSensorMode) args.Id);
+                        }
                         SetDirty();
                     };
-                    var sensorWindowBtn = new Button()
-                    {
-                        Text = "sensor", //Loc.GetString("sensor-window"),
-                        HorizontalAlignment = HAlignment.Right,
-                        VerticalAlignment = VAlignment.Center,
-                        Margin = new Thickness(3f, 3f, 0f, 0f),
-                    };
+
                     // end MIT
 
                     _jobPriorities.Add((job.ID, selector));
