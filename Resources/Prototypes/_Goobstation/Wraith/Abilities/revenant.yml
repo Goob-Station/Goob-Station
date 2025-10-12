@@ -29,7 +29,7 @@
       - Body
       - Food
       - EntityStorage
-    maxObjects: 30  # why not
+      - Solution
     searchRange: 14 # why not
     stunDuration: 8 # why not
   - type: WraithPoints
@@ -45,7 +45,7 @@
     - ActionCrush
   - type: TriggerOnMobstateChange # smoke on death
     mobState:
-      - Critical
+    - Critical
   - type: SmokeOnTrigger
     duration: 4
     spreadAmount: 50

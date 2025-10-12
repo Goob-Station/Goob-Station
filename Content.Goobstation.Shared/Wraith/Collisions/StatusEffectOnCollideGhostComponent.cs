@@ -26,3 +26,9 @@ public sealed partial class StatusEffectOnCollideGhostComponent : Component
     [ViewVariables]
     public string FixtureId = "statusEffectCollision";
 }
+
+/// <summary>
+/// Raised on the entity that collided with the object
+/// </summary>
+[ByRefEvent]
+public record struct StatusEffectOnCollideEvent(TimeSpan EffectTimespan);

@@ -272,6 +272,11 @@
       state: open_portal
   - type: InstantAction
     event: !type:SummonPortalEvent
+  - type: ActionUserWhitelist
+    whitelist:
+      components:
+      - Corporeal
+    popup: wraith-must-be-corporeal
 
 - type: entity
   id: ActionSummonVoidCreature

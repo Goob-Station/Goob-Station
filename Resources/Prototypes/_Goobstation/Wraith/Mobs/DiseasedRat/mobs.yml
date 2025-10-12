@@ -5,6 +5,10 @@
   name: plague rat
   description: A diseased looking rat.
   components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
   - type: DiseasedRat
     diseasedRatForms:
     - MediumDiseasedRat

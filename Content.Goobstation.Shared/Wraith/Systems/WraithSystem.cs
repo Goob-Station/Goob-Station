@@ -1,20 +1,17 @@
 using Content.Goobstation.Shared.Wraith.Banishment;
+using Content.Goobstation.Shared.Wraith.Collisions;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
-using Content.Shared.Gibbing.Systems;
-using Content.Shared.Mobs;
-using Content.Shared.Revenant.Components;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class WraithSystem : EntitySystem
 {
-    [Dependency] private  readonly IPrototypeManager _proto  = default!;
+    [Dependency] private readonly IPrototypeManager _proto  = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private EntityQuery<WraithPointsComponent> _wraithPointsQuery;
     private EntityQuery<PassiveWraithPointsComponent> _passiveWraithPointsQuery;
@@ -29,6 +26,7 @@ public sealed class WraithSystem : EntitySystem
         SubscribeLocalEvent<WraithComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<WraithComponent, BanishmentEvent>(OnBanishment);
+        SubscribeLocalEvent<WraithComponent, StatusEffectOnCollideEvent>(OnCollide);
     }
 
     private void OnMapInit(Entity<WraithComponent> ent, ref MapInitEvent args) =>
@@ -44,4 +42,7 @@ public sealed class WraithSystem : EntitySystem
 
         //TO DO: reset absorb corpse cd
     }
+
+    private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args) =>
+        _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithWeakenedEffect, args.EffectTimespan);
 }

@@ -290,3 +290,7 @@ revenant-crush-you = You are completely crushed.
 revenant-crush-crack1 = You feel like you're about to be crushed!
 revenant-crush-crack2 = You feel like you're about to be destroyed!
 revenant-crush-crack3 = You feel like you're about to be vaporized!
+
+wraith-must-be-corporeal = You must be in corporeal form in order to use this action.
+collective-mind-wraith = Wraithmind
+wraith-wp-action-needs = [color=Red]{$wp}WP[/color]

@@ -1,5 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.WraithPoints;
 
@@ -18,4 +20,7 @@ public sealed partial class WraithPointsComponent : Component
     /// </summary>
     [DataField(required: true)]
     public FixedPoint2 StartingWraithPoints;
+
+    [DataField]
+    public ProtoId<AlertPrototype> Alert = "WraithPoints";
 }

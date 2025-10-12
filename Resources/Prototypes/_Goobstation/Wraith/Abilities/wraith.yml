@@ -50,8 +50,8 @@
       - Body
       - Food
       - EntityStorage
-    maxObjects: 8
-    searchRange: 3
+      - Solution
+    searchRange: 7
     stunDuration: 5
   - type: SummonVoidCreature
   - type: Evolve

@@ -5,6 +5,10 @@
   name: skeleton commander
   description: A bulky skeleton here to encourage his friends.
   components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
   - type: EmitSoundOnSpawn
     sound:
       collection: Wraith_Raise
@@ -88,6 +92,10 @@
   id: MobVoidSpiker
   description: Standing still is probably not a good idea.
   components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
   - type: EmitSoundOnSpawn
     sound:
       collection: Wraith_Raise
@@ -174,6 +182,10 @@
   id: MobVoidHound
   description: You probably shouldn't be staring at this thing.
   components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
   - type: EmitSoundOnSpawn
     sound:
       collection: Wraith_Raise

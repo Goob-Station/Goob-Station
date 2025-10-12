@@ -1,8 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
@@ -24,13 +22,10 @@ public sealed class WraithCommandSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _netManager = default!;
 
-    private EntityQuery<TransformComponent> _transformQuery;
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
-        _transformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<WraithCommandComponent, WraithCommandEvent>(OnCommand);
     }
@@ -39,7 +34,7 @@ public sealed class WraithCommandSystem : EntitySystem
     //Just cosmetic, so leaving for part 2.
     private void OnCommand(Entity<WraithCommandComponent> ent, ref WraithCommandEvent args)
     {
-        _stun.TryStun(args.Target, ent.Comp.StunDuration, false);
+        _stun.TryKnockdown(args.Target, ent.Comp.StunDuration, false);
 
         if (_netManager.IsClient)
             return;
@@ -47,21 +42,12 @@ public sealed class WraithCommandSystem : EntitySystem
         var entities = _lookupSystem.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange).ToList();
         _random.Shuffle(entities);
 
-        var selectedObjects = 0;
         foreach (var entity in entities)
         {
-            if (selectedObjects > ent.Comp.MaxObjects)
-                return;
-
             if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
                 continue;
 
-            if (_transformQuery.TryComp(entity, out var xform)
-                && xform.Anchored)
-                continue;
-
             _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
-            selectedObjects++;
         }
 
         // args.Handled = true;

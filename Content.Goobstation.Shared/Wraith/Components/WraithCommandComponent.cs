@@ -12,7 +12,7 @@ public sealed partial class WraithCommandComponent : Component
     /// The search range of nearby objects
     /// </summary>
     [DataField(required: true)]
-    public float SearchRange;
+    public float SearchRange = 5f;
 
     /// <summary>
     ///  What objects are allowed
@@ -26,9 +26,6 @@ public sealed partial class WraithCommandComponent : Component
     [DataField]
     public float ThrowSpeed = 30f;
 
-    [DataField]
-    public int MaxObjects = 10;
-
     [DataField(required: true)]
-    public TimeSpan StunDuration = TimeSpan.Zero;
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(5);
 }

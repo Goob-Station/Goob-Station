@@ -5,6 +5,7 @@
   name: Bloated abomination
   description: A rotting, walking mass of flesh.
   components:
+  - type: DeleteOnTrigger
   - type: SpamEmitSound
     minInterval: 5
     maxInterval: 25
@@ -17,6 +18,9 @@
   - type: TriggerOnMobstateChange
     mobState:
       - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/gib2.ogg
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 25
@@ -41,6 +45,9 @@
       - Wraith
   - type: WraithMinion
   - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
   - type: Fixtures
     fixtures:
       fix1:
@@ -75,17 +82,10 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
-  - type: Destructible
+  - type: MobThresholds
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              path: /Audio/Effects/gib2.ogg
+      0: Alive
+      100: Dead
 
 - type: entity
   id: MobRotHulkBuff
@@ -93,9 +93,6 @@
   parent: MobRotHulk
   name: Huge plague-ridden goliath
   components:
-  - type: TriggerOnMobstateChange
-    mobState:
-      - Dead
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 40
@@ -124,14 +121,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth # Not as weak to heat, but still vulnerable
-  - type: Destructible
+  - type: MobThresholds
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200 # Not parity, but the health system in Goonstation works completely differently so :shrug:
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              path: /Audio/Effects/gib2.ogg
+      0: Alive
+      200: Dead

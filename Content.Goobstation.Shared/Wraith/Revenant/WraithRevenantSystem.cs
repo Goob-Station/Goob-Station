@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
@@ -31,8 +30,7 @@ public sealed class WraithRevenantSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<WraithRevenantComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead
-            || args.NewMobState == MobState.Invalid)
+        if (args.NewMobState != MobState.Alive)
             RemComp<WraithRevenantComponent>(ent);
     }
 

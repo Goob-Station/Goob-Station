@@ -72,6 +72,11 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/bone_rattle.ogg
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MaterialBones:
+                min: 1
+                max: 15
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -666,6 +671,9 @@
   parent: MobSkeletonGoon
   components:
   - type: WraithMinion
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: VoidPortalEmpty
 
 - type: entity
   id: MobSkeletonGoonWraith

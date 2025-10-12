@@ -1,5 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
+using Content.Shared.Alert;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -15,16 +17,20 @@ public sealed class WraithPointsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private  readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<WraithPointsComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<WraithPointsComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PassiveWraithPointsComponent, MapInitEvent>(PassiveOnMapInit);
 
         SubscribeLocalEvent<ActionWraithPointsComponent, ActionAttemptEvent>(OnActionAttempt);
         SubscribeLocalEvent<ActionWraithPointsComponent, ActionPerformedEvent>(OnActionPerformed);
+        SubscribeLocalEvent<ActionWraithPointsComponent, MapInitEvent>(OnActionInitialized);
     }
 
     public override void Update(float frameTime)
@@ -51,8 +57,11 @@ public sealed class WraithPointsSystem : EntitySystem
 
     #region Events
 
-    private void OnMapInit(Entity<WraithPointsComponent> ent, ref MapInitEvent args) =>
+    private void OnMapInit(Entity<WraithPointsComponent> ent, ref MapInitEvent args)
+    {
         ChangeWraithPoints(ent.Comp.StartingWraithPoints, ent.AsNullable());
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
+    }
 
     private void PassiveOnMapInit(Entity<PassiveWraithPointsComponent> ent, ref MapInitEvent args)
     {
@@ -61,6 +70,8 @@ public sealed class WraithPointsSystem : EntitySystem
         Dirty(ent);
     }
 
+    private void OnShutdown(Entity<WraithPointsComponent> ent, ref ComponentShutdown args) =>
+        _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
 
     #endregion
 
@@ -68,23 +79,25 @@ public sealed class WraithPointsSystem : EntitySystem
 
     private void OnActionAttempt(Entity<ActionWraithPointsComponent> ent, ref ActionAttemptEvent args)
     {
-        var user = args.User;
+        if (GetCurrentWp(ent.Owner) >= ent.Comp.WpConsume)
+            return;
 
-        if (!TryComp<WraithPointsComponent>(user, out var comp)
-            || comp.WraithPoints < ent.Comp.WpConsume)
-        {
-            _popupSystem.PopupPredicted(Loc.GetString(ent.Comp.Popup), user, user);
-            args.Cancelled = true;
-        }
+        _popupSystem.PopupClient(Loc.GetString(ent.Comp.Popup), args.User, args.User);
+        args.Cancelled = true;
     }
 
-    private void OnActionPerformed(Entity<ActionWraithPointsComponent> ent, ref ActionPerformedEvent args)
+    private void OnActionPerformed(Entity<ActionWraithPointsComponent> ent, ref ActionPerformedEvent args) =>
+        AdjustWraithPoints(-ent.Comp.WpConsume, args.Performer);
+
+    private void OnActionInitialized(Entity<ActionWraithPointsComponent> ent, ref MapInitEvent args)
     {
-        var performer = args.Performer;
+        var meta = MetaData(ent.Owner);
 
-        AdjustWraithPoints(ent.Comp.WpConsume, performer);
+        _meta.SetEntityDescription(
+            ent.Owner,
+            meta.EntityDescription + ' ' + Loc.GetString("wraith-wp-action-needs", ("wp", ent.Comp.WpConsume)),
+            MetaData(ent.Owner));
     }
-
     #endregion
 
     #region Public Methods
@@ -114,12 +127,6 @@ public sealed class WraithPointsSystem : EntitySystem
 
         ent.Comp.WraithPoints = FixedPoint2.Clamp(ent.Comp.WraithPoints + wraithPoints, 0, FixedPoint2.MaxValue);
         Dirty(ent);
-
-        // debug
-        //_popupSystem.PopupPredicted(
-        //    Loc.GetString("wraith-points-added", ("wp", wraithPoints)),
-        //    ent.Owner,
-        //    ent.Owner);
     }
 
     /// <summary>
@@ -174,6 +181,14 @@ public sealed class WraithPointsSystem : EntitySystem
             return FixedPoint2.Zero;
 
         return ent.Comp.WpGeneration;
+    }
+
+    public FixedPoint2 GetCurrentWp(Entity<WraithPointsComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return FixedPoint2.Zero;
+
+        return ent.Comp.WraithPoints;
     }
     #endregion
 
