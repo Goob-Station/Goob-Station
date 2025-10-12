@@ -67,6 +67,10 @@
   components:
   - type: Sprite
     state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedEntityShape
+      id: BoxHollow
   - type: ShapeSpawnerCounter
   - type: AngerShapeSpawner
     counterRange: 3,8
@@ -74,9 +78,6 @@
     inversePeriod: true
   - type: ExpandingShapeSpawner
     counterSize: 1
-    spawn: LavalandHierophantSquare
-    shape: !type:NestedEntityShape
-      id: BoxHollow
 
 # Sequence crosses
 - type: entity

@@ -152,8 +152,8 @@ public sealed class AngerSystem : EntitySystem
         var anger = ent.Comp.CurrentAnger;
         var progress = anger / maxAnger;
         return inverse
-            ? max + (min - max) * (1f - progress)
-            : min + (max - min) * progress;
+            ? max + (min - max) * progress
+            : min + (max - min) * (1f - progress);
     }
 
     #region Event Handling

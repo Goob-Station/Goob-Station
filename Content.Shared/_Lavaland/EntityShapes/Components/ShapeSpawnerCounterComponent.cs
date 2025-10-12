@@ -18,5 +18,5 @@ public sealed partial class ShapeSpawnerCounterComponent : Component
     public TimeSpan NextSpawn;
 
     [ViewVariables, AutoNetworkedField]
-    public int Counter;
+    public int Counter = 1; // We spawn 1 shape not in a loop, so we have to start from 1.
 }

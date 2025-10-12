@@ -20,7 +20,7 @@ public sealed partial class MegafaunaBlinkComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan Delay = TimeSpan.FromSeconds(0.9f);
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 
     /// <summary>

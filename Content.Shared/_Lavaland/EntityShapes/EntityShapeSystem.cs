@@ -15,7 +15,9 @@ public sealed class EntityShapeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
 
+    private EntityQuery<ShapeSpawnerComponent> _spawnerQuery;
     private EntityQuery<ShapeSpawnerCounterComponent> _counterQuery;
 
     public override void Initialize()
@@ -23,9 +25,11 @@ public sealed class EntityShapeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
+        SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
         SubscribeLocalEvent<AngerShapeSpawnerComponent, SpawnedByActionEvent>(OnActionSpawned);
         SubscribeLocalEvent<ExpandingShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnExpandingShapeTrigger);
 
+        _spawnerQuery = GetEntityQuery<ShapeSpawnerComponent>();
         _counterQuery = GetEntityQuery<ShapeSpawnerCounterComponent>();
     }
 
@@ -54,8 +58,14 @@ public sealed class EntityShapeSystem : EntitySystem
         }
     }
 
-    public void SpawnEntityShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned)
-        => SpawnEntityShape(shape, Transform(target).Coordinates, spawnId, out spawned);
+    public void SpawnEntityShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned, bool alignTile = false)
+    {
+        var coords = alignTile
+            ? Transform(target).Coordinates.AlignWithClosestGridTile(1.5f, EntityManager, _mapMan)
+            : Transform(target).Coordinates;
+
+        SpawnEntityShape(shape, coords, spawnId, out spawned);
+    }
 
     /// <remarks>
     /// Use this only if you need to get all spawned entities by this shape,
@@ -85,7 +95,10 @@ public sealed class EntityShapeSystem : EntitySystem
     }
 
     private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
-        => SpawnEntityShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
+        => SpawnEntityShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _, ent.Comp.AlignCoords);
+
+    private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
+        => ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod; // First shape is spawned by an event right above this one, so delay it
 
     private void OnActionSpawned(Entity<AngerShapeSpawnerComponent> ent, ref SpawnedByActionEvent args)
     {
@@ -113,18 +126,21 @@ public sealed class EntityShapeSystem : EntitySystem
 
     private void OnExpandingShapeTrigger(Entity<ExpandingShapeSpawnerComponent> ent, ref SpawnCounterEntityShapeEvent args)
     {
-        var comp = ent.Comp;
+        var (uid, comp) = ent;
+
+        if (!_spawnerQuery.TryComp(uid, out var spawner))
+            return;
 
         if (comp.CounterOffset != null)
-            comp.Shape.DefaultOffset = comp.CounterOffset.Value * args.Counter;
+            spawner.Shape.DefaultOffset = comp.CounterOffset.Value * args.Counter;
 
         if (comp.CounterSize != null)
-            comp.Shape.DefaultSize = (int) Math.Round(comp.CounterSize.Value * args.Counter);
+            spawner.Shape.DefaultSize = (int) Math.Round(comp.CounterSize.Value * args.Counter);
 
         if (comp.CounterStepSize != null)
-            comp.Shape.DefaultStepSize = (int) Math.Round(comp.CounterStepSize.Value * args.Counter);
+            spawner.Shape.DefaultStepSize = (int) Math.Round(comp.CounterStepSize.Value * args.Counter);
 
-        SpawnEntityShape(comp.Shape, Transform(ent).Coordinates, comp.Spawn, out _);
+        SpawnEntityShape(spawner.Shape, uid, spawner.Spawn, out _, spawner.AlignCoords);
     }
 
     private System.Random GetRandom()

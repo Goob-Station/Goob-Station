@@ -47,7 +47,7 @@ public abstract partial class MegafaunaSelector
     /// Used for calculating the delay for actions.
     /// </summary>
     [DataField("delay")]
-    public MegafaunaNumberSelector DelaySelector = new MegafaunaConstantNumberSelector(1f);
+    public MegafaunaNumberSelector DelaySelector = new MegafaunaConstantNumberSelector(0f);
 
     /// <summary>
     /// Default delay time after failing random or conditions check.

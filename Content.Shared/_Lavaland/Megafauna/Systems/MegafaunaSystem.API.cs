@@ -26,7 +26,6 @@ public sealed partial class MegafaunaSystem
 
     public void KillMegafauna(Entity<MegafaunaAiComponent> ent)
     {
-        RaiseLocalEvent(ent, new MegafaunaShutdownEvent());
         RaiseLocalEvent(ent, new MegafaunaKilledEvent());
         ent.Comp.Active = false;
     }

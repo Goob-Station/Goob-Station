@@ -41,6 +41,7 @@ public sealed class MegafaunaFieldSystem : EntitySystem
 
         SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaStartupEvent>(OnStartup);
         SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaShutdownEvent>(OnShutdown);
+        SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaKilledEvent>(OnDefeated);
         SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, EntityTerminatingEvent>(OnTerminating);
 
         _job = new MegafaunaSpawnFieldJob { System = this };
@@ -50,6 +51,9 @@ public sealed class MegafaunaFieldSystem : EntitySystem
         => ActivateField(ent);
 
     private void OnShutdown(Entity<MegafaunaFieldGeneratorComponent> ent, ref MegafaunaShutdownEvent args)
+        => DeactivateField(ent);
+
+    private void OnDefeated(Entity<MegafaunaFieldGeneratorComponent> ent, ref MegafaunaKilledEvent args)
         => DeactivateField(ent);
 
     private void OnTerminating(Entity<MegafaunaFieldGeneratorComponent> ent, ref EntityTerminatingEvent args)
@@ -68,7 +72,7 @@ public sealed class MegafaunaFieldSystem : EntitySystem
     private void SpawnField(Entity<MegafaunaFieldGeneratorComponent> ent)
     {
         var comp = ent.Comp;
-        _entityShape.SpawnEntityShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
+        _entityShape.SpawnEntityShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls, true);
     }
 
     public void DeactivateField(Entity<MegafaunaFieldGeneratorComponent> ent)

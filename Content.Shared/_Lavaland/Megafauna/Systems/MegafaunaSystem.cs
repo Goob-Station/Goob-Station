@@ -33,7 +33,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // We are not ready to predict this thing...
+        // We are not ready to predict this thing... Probably never are.
         if (_net.IsClient)
             return;
 
@@ -43,6 +43,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
             if (!ai.Active)
                 continue;
 
+            // TODO when there's more than just hierophant make this a CPU job or make it parallel idk whatever is faster
             var selectors = new Dictionary<TimeSpan, MegafaunaSelector>(ai.Schedule);
             foreach (var (time, action) in selectors)
             {

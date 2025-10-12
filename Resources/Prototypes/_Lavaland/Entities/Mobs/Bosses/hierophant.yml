@@ -98,6 +98,7 @@
       2000: 2
   - type: BossMusic
     soundId: Hierophant
+  - type: TileMovement
   - type: DamageSquareImmunity
   - type: SpawnLootOnDeath
     loot: LavalandHierophantClub

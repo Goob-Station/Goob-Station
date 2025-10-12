@@ -1,7 +1,5 @@
 ﻿using System.Numerics;
-using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.EntityShapes.Components;
 
@@ -11,12 +9,6 @@ namespace Content.Shared._Lavaland.EntityShapes.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ExpandingShapeSpawnerComponent : Component
 {
-    [DataField(required: true)]
-    public EntityShape Shape;
-
-    [DataField(required: true)]
-    public EntProtoId Spawn;
-
     [DataField, AutoNetworkedField]
     public Vector2? CounterOffset;
 
