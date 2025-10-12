@@ -175,6 +175,15 @@
     bloodMaxVolume: 300
     bloodReagent: Sulfur
     bleedReductionAmount: 5
+  - type: Temperature # demons dont take damage from environment temperatures
+    coldDamage:
+      types:
+        Cold: 0
+    heatDamage:
+      types:
+        Heat: 0
+    heatDamageThreshold: 666 # temperature needed for taking heat damage
+    coldDamageThreshold: 66
 
 # laughter demon
 - type: entity
