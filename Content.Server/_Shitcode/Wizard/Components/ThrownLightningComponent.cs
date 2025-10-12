@@ -11,7 +11,7 @@ namespace Content.Server._Goobstation.Wizard.Components;
 public sealed partial class ThrownLightningComponent : Component
 {
     [DataField]
-    public float StaminaDamage = 60f;
+    public TimeSpan StunTime = TimeSpan.FromSeconds(6);
 
     [DataField]
     public LocId? Speech = "action-speech-spell-thrown-lightning";

@@ -95,7 +95,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
         _transform.SetParent(effectEnt, uid);
 
         var stealth = EnsureComp<StealthComponent>(uid);
-        _stealth.SetVisibility(uid, 0f, stealth);
+        _stealth.SetVisibility(uid, -1.5f, stealth);
 
         args.Handled = true;
     }

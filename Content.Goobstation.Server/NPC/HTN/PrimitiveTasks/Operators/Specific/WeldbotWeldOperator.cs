@@ -28,6 +28,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    private RepairableSystem _repairableSystem = default!;
     private ChatSystem _chat = default!;
     private WeldbotSystem _weldbot = default!;
     private SharedAudioSystem _audio = default!;
@@ -52,6 +53,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
         _popup = sysManager.GetEntitySystem<SharedPopupSystem>();
         _damageableSystem = sysManager.GetEntitySystem<DamageableSystem>();
         _tagSystem = sysManager.GetEntitySystem<TagSystem>();
+        _repairableSystem = sysManager.GetEntitySystem<RepairableSystem>();
     }
 
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
@@ -81,7 +83,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
         }
         else
         {
-            _damageableSystem.TryChangeDamage(target, botComp.DamageAmount, true, false, damage);
+            _repairableSystem.ApplyRepairs((target, repairComp), owner);
         }
 
         _audio.PlayPvs(botComp.WeldSound, target);
