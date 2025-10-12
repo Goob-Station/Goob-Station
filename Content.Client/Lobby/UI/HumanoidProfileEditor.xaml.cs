@@ -191,6 +191,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Content.Shared.Medical.SuitSensor;
 
 namespace Content.Client.Lobby.UI
 {
@@ -1045,6 +1046,15 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
+            //MIT
+            var sensorItems = new[]
+            {
+                ("suit-sensor-mode-off", (int) SuitSensorMode.SensorOff),
+                ("suit-sensor-mode-binary", (int) SuitSensorMode.SensorBinary),
+                ("suit-sensor-mode-vitals", (int) SuitSensorMode.SensorVitals),
+                ("suit-sensor-mode-cords", (int) SuitSensorMode.SensorCords),
+            };
+            // end MIT
 
             foreach (var department in departments)
             {
@@ -1193,6 +1203,18 @@ namespace Content.Client.Lobby.UI
                         };
                     }
                     // MIT
+                    var sensorSelectorBtn = new OptionButton();
+                    foreach (var (name, id) in sensorItems)
+                    {
+                        sensorSelectorBtn.AddItem(Loc.GetString(name), id);
+                    }
+                    // set to current value (TODO)
+                    sensorSelectorBtn.OnItemSelected += args =>
+                    {
+                        sensorSelectorBtn.SelectId(args.Id);
+                        //Profile = Profile?.WithSensor((sensorMode) args.Id);
+                        SetDirty();
+                    };
                     var sensorWindowBtn = new Button()
                     {
                         Text = "sensor", //Loc.GetString("sensor-window"),
@@ -1205,7 +1227,7 @@ namespace Content.Client.Lobby.UI
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
                     jobContainer.AddChild(loadoutWindowBtn);
-                    jobContainer.AddChild(sensorWindowBtn); //MIT
+                    jobContainer.AddChild(sensorSelectorBtn); //MIT
                     category.AddChild(jobContainer);
                 }
             }
