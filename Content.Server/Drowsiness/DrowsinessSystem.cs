@@ -34,7 +34,7 @@ public sealed class DrowsinessSystem : SharedDrowsinessSystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<DrowsinessStatusEffectComponent, StatusEffectComponent>();
-        while (query.MoveNext(out var drowsiness, out var statusEffect))
+        while (query.MoveNext(out var uid, out var drowsiness, out var statusEffect))
         {
             if (_timing.CurTime < drowsiness.NextIncidentTime)
                 continue;

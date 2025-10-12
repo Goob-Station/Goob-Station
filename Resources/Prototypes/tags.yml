@@ -525,6 +525,9 @@
 - type: Tag
   id: Chicken
 
+- type: Tag
+  id: Cheese
+
 # Allowed to control someone wearing a Chef's hat if inside their hat.
 - type: Tag
   id: ChefPilot
@@ -1055,6 +1058,9 @@
   id: Knife
 
 - type: Tag
+  id: KnockdownImmune
+
+- type: Tag
   id: LavaBrig
 
 - type: Tag
@@ -1510,6 +1516,9 @@
   id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
+  id: SlowImmune
+
+- type: Tag
   id: SmallAIChip
 
 - type: Tag
@@ -1579,6 +1588,9 @@
   id: Stunbaton
 
 - type: Tag
+  id: StunImmune
+
+- type: Tag
   id: SubdermalImplant
 
 - type: Tag
@@ -1610,6 +1622,9 @@
 
 - type: Tag
   id: TabletopBoard
+
+- type: Tag
+  id: Taco
 
 - type: Tag
   id: TabletopPiece

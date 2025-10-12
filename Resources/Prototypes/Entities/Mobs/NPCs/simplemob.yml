@@ -93,7 +93,6 @@
     baseSprintSpeed : 4
   - type: StatusEffects
     allowed:
-    - SlowedDown
     - Stutter
     - Electrocution
     - TemporaryBlindness
@@ -106,6 +105,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - StunImmune
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
 
@@ -170,8 +170,6 @@
     baseDecayRate: 0.04
   - type: StatusEffects
     allowed:
-    - Stun
-    - SlowedDown
     - Stutter
     - Electrocution
     - TemporaryBlindness

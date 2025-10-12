@@ -711,11 +711,7 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
-
-                // goob edit - stunmeta
-                _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime, true, status);
+                _stuns.TryUpdateParalyzeDuration(child, _hyperspaceKnockdownTime);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)

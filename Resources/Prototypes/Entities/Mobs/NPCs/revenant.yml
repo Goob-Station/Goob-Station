@@ -120,7 +120,6 @@
     - state: active
   - type: StatusEffects
     allowed:
-    - Stun
     - Corporeal
   - type: Damageable
     damageContainer: ManifestedSpirit
@@ -192,5 +191,7 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
-  - type: WeakToHoly # Goobstation Shitchap
-    alwaysTakeHoly: true
+  - type: Tag
+    tags:
+    - SlowImmune
+    - KnockdownImmune
