@@ -22,6 +22,10 @@
       "directions": 4
     },
     {
+      "name": "equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
       "name": "reinforced1-equipped-OUTERCLOTHING",
       "directions": 4
     },
@@ -30,6 +34,10 @@
     },
     {
       "name": "reinforced1-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "reinforced1-equipped-HELMET-vox",
       "directions": 4
     },
     {
@@ -47,6 +55,10 @@
       "directions": 4
     },
     {
+      "name": "reinforced2-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
       "name": "reinforced2-icon_head"
     },
     {
@@ -58,6 +70,10 @@
     },
     {
       "name": "reinforced3-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "reinforced3-equipped-HELMET-vox",
       "directions": 4
     },
     {
