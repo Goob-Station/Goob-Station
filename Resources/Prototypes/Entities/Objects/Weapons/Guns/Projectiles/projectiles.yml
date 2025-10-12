@@ -180,6 +180,7 @@
       shader: unshaded
   - type: Physics
     bodyType: Dynamic
+    bodyStatus: InAir
     linearDamping: 0
     angularDamping: 0
   - type: Fixtures
