@@ -33,14 +33,15 @@ namespace Content.Server.Body.Components
     /// <summary>
     ///     Handles metabolizing various reagents with given effects.
     /// </summary>
-    // [RegisterComponent, Access(typeof(MetabolizerSystem))] // Goob edit
-    [RegisterComponent] // Goobstation
+    [RegisterComponent, AutoGenerateComponentPause,
+     //Access(typeof(MetabolizerSystem)) // Goobstation
+     ]
     public sealed partial class MetabolizerComponent : Component
     {
         /// <summary>
         ///     The next time that reagents will be metabolized.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [DataField, AutoPausedField]
         public TimeSpan NextUpdate;
 
         /// <summary>

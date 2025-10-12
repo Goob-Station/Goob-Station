@@ -94,7 +94,8 @@
         damage:
           types:
             Poison: -1
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
+        excluded: Charcoal
         cleanseRate: 3
 
 - type: reagent
@@ -147,9 +148,7 @@
       methods: [ Touch ]
       effects:
       - !type:ArtifactUnlock
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
+        minScale: 5
 
 - type: reagent
   parent: Artifexium
@@ -164,9 +163,7 @@
       methods: [ Touch ]
       effects:
       - !type:ArtifactDurabilityRestore
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
+        minScale: 5
 
 - type: reagent
   id: Benzene
@@ -216,10 +213,13 @@
             Heat: 1.5
     Medicine:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:ReagentCondition
+          reagent: SodiumHydroxide
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
           shouldHave: false
         - !type:ReagentThreshold
           min: 5

@@ -113,9 +113,9 @@
       - !type:SatiateThirst
         factor: 1.0
         conditions:
-          - !type:OrganType
-            type: Human
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
+            inverted: true
     Food:
       effects:
         - !type:AdjustReagent
@@ -125,8 +125,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
         damage:
           groups:
             Brute: -3
@@ -245,10 +245,11 @@
         damage:
           types:
             Poison: 4
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
           shouldHave: false
         probability: 0.25
 
@@ -284,7 +285,7 @@
             Blunt: -5
             Slash: -5
             Piercing: -5
-      - !type:ModifyBloodLevel
+      - !type:ModifyBleed
             amount: 3
       # Goob end
   # Just in case you REALLY  REALLY want to water your plants

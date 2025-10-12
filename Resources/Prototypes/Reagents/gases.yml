@@ -48,57 +48,39 @@
     Poison:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
-      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
-        conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant,
+                  Feroxi ] # DeltaV - Feroxi Still need to breathe
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # EE Plasmeme
-          type: Plasmaman
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Plasmaman # EE Plasmeme
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+        scaling: true
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              3
+            Poison: 1.5
       - !type:AdjustAlert
         alertType: Toxins
+        minScale: 1
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
       - !type:Oxygenate # Shitmed - Cybernetic Organs
@@ -115,54 +97,38 @@
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
-      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
-        conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant,
+                  Feroxi]  # DeltaV - Feroxi Still need to breathe
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+        scaling: true
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              7
+            Poison: 0.7
       - !type:AdjustAlert
-        alertType: HighOxygen
+        alertType: Toxins
+        minScale: 1
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
       - !type:Oxygenate
@@ -229,7 +195,7 @@
           shouldHave: false
         damage:
           types:
-            Poison: 3
+            Poison: 1.5
       - !type:AdjustReagent
         conditions:
         - !type:OrganType
@@ -247,31 +213,34 @@
     Gas:
       effects:
       - !type:HealthChange
+# Goobstation start
+        scaling: true
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # EE - Plasmeme
-          type: Plasmaman
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie # Goobstation - Yowie
+          - Plasmaman  # EE - Plasmeme
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
+# Goobstation end
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              1
+              0.1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
+        minScale: 3
+# Goobstation start
         conditions:
-          - !type:OrganType
-            type: Plasmaman
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            typee: [ Plasmaman ]
+            inverted: true
           - !type:ReagentThreshold
             min: 1.5
+# Goobstation end
         clear: True
         time: 5
       - !type:Oxygenate
@@ -315,7 +284,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
 
 - type: reagent
   id: Tritium
@@ -333,33 +302,40 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.8
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
+# Goobstation start
         conditions:
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
+          type: [ Cybernetic ]
+          inverted: true
+# Goobstation end
         damage:
           types:
-            Radiation: 3
+            Radiation: 3 # Goobstation
+# Goobstation start
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [Cybernetic]
         damage:
           types:
             Radiation: 1.5
+# Goobstation end
     Gas:
       effects:
       - !type:HealthChange
+        scaling: true
+# Goobstation start
         conditions:
-        - !type:OrganType # Shitmed - Cybernetic Organs
+        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
           type: Cybernetic
-          shouldHave: false
+          inverted: true
+# Goobstation end
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -369,9 +345,7 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        minScale: 3
         clear: True
         time: 5
       - !type:HealthChange # Shitmed - Cybernetic Organs
@@ -396,73 +370,66 @@
     Poison:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Vox
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
+        scaling: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.8
+              0.4
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Cybernetic  # Shitmed - Cybernetic Organs
+          inverted: true
         factor: -4
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:HealthChange
+        minScale: 1
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Vox
+          - Yowie # Goobstation - Yowie
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
-        - !type:ReagentThreshold
-          min: 0.5
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         factor: -4
       # We need a metabolism effect on reagent removal
       #- !type:AdjustAlert
@@ -483,33 +450,31 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 1 # liquid nitrogen is cold
+            Cold: 0.5 # liquid nitrogen is cold
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Vox
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Slime
-      - !type:Oxygenate # Shitmed - Cybernetic Organs
-        conditions:
-        - !type:OrganType
-          type: Cybernetic
-      # Converts Nitrogen into CO2
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+      # Converts Nitrogen into Ammonia
       - !type:ModifyLungGas
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
+        scaling: true
         conditions:
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -1.0
@@ -536,35 +501,37 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
+            Poison: 1
     Gas:
       effects:
       - !type:Emote
+        minScale: 1
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.2
-          max: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         emote: Laugh
         showInChat: true
         probability: 0.1
-      - !type:PopupMessage
+      - !type:Emote
+        minScale: 0.4
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
+        emote: Scream
+        showInChat: true
+        probability: 0.01
+      - !type:PopupMessage
+        minScale: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
@@ -572,39 +539,28 @@
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
+        minScale: 2
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
+        minScale: 3.6
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Yowie  # Goobstation - Yowie
+          inverted: true
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
@@ -612,19 +568,14 @@
         time: 3
         type: Update
       - !type:HealthChange
+        minScale: 7
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 3.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Yowie # Goobstation - Yowie
+          inverted: true
         ignoreResistances: true
         damage:
           types:
@@ -647,11 +598,11 @@
     Narcotic:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 1
+            Cellular: 0.5
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -662,25 +613,23 @@
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
+        minScale: 1
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
     Gas:
       effects:
       - !type:HealthChange
+        minScale: 1
+        scaling: true
+# Goobstation start
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -691,12 +640,12 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          - Cybernetic
+          inverted: true
+# Goobstation End
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
@@ -704,11 +653,12 @@
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 0.5 # Goobstation
+# Goobstation Start
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
@@ -717,34 +667,23 @@
         damage:
           types:
             Cellular: 0.25
+# Goobstation End
       - !type:ModifyStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
       - !type:Drunk
         boozePower: 500
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
+        minScale: 2
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2

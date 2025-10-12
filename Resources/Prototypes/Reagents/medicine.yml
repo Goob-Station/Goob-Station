@@ -135,9 +135,11 @@
             Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:ReagentCondition
+          reagent: Dylovene
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         - !type:ReagentThreshold
           min: 20
         damage:
@@ -145,27 +147,32 @@
             Brute: 2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dylovene
           min: 20
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dylovene
           min: 20
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
         probability: 0.2
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:ReagentCondition
+          reagent: Dylovene
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         - !type:ReagentThreshold
           min: 20
         probability: 0.02
       - !type:Drunk
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dylovene
           min: 15
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -215,17 +222,17 @@
         effectProto: StatusEffectDrunk
       - !type:GenericStatusEffect # Goobstation
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         key: Drunk
         time: 6.0
         type: Remove
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Poison: -0.5
@@ -273,26 +280,31 @@
             Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:ReagentCondition
+          reagent: Bicaridine
+        - !type:MetabolizerTypeConditon # Goobstation - Yowie
           type: Yowie
-          shouldHave: false
+          inverted: true
         - !type:ReagentThreshold
           min: 15
         damage:
           types:
             Asphyxiation: 0.5
             Poison: 1.5
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:ReagentCondition
+          reagent: Bicaridine
+        - !type:MetabolizerTypeConditon # Goobstation - Yowie
           type: Yowie
-          shouldHave: false
+          inverted: true
         - !type:ReagentThreshold
           min: 30
         probability: 0.02
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bicaridine
           min: 15
       - !type:Drunk
       - !type:AdjustConsciousness
@@ -325,7 +337,7 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
           scaleByTemperature: # Shitmed Change
@@ -352,7 +364,7 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             max: 213.0
           scaleByTemperature: # Shitmed Change
             min: 100.0
@@ -389,9 +401,11 @@
             Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:ReagentCondition
+          reagent: Dermaline
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: Yowie
-          shouldHave: false
+          inverted: true
         - !type:ReagentThreshold
           min: 10
         damage:
@@ -402,7 +416,8 @@
             Brute: 0.5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dermaline
           min: 10
 
 - type: reagent
@@ -431,16 +446,17 @@
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 20
+          - !type:ReagentCondition
+            reagent: Dexalin
+            min: 20
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: [Yowie]
+            inverted: true
         damage:
           types:
             Asphyxiation: 3
             Cold: 1
-      - !type:AdjustConsciousness
+      - !type:AdjustConsciousness # Goobstation?
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
@@ -473,18 +489,19 @@
             Bloodloss: -3
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: HeartbreakerToxin
           min: 1
         reagent: HeartbreakerToxin
         amount: -3
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 25
+          - !type:ReagentCondition
+            reagent: DexalinPlus
+            min: 25
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: [Yowie]
+            inverted: true
         damage:
           types:
             Asphyxiation: 5
@@ -531,7 +548,7 @@
         time: 10
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Histamine
           min: 45
         reagent: Histamine
@@ -541,8 +558,8 @@
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
-        - !type:ReagentThreshold
-          min: 0
+        - !type:ReagentCondition
+          reagent: Epinephrine
           max: 20
         damage:
           types:
@@ -553,10 +570,11 @@
             Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Epinephrine
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
           min: 20
         damage:
           types:
@@ -567,7 +585,7 @@
         amount: -2
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: HeartbreakerToxin
           min: 1
         reagent: Epinephrine
@@ -575,7 +593,7 @@
       - !type:AdjustReagent
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: HeartbreakerToxin
           min: 1
         reagent: Histamine
@@ -619,17 +637,19 @@
         damage:
           types:
             Radiation: -1
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         probability: 0.02
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:ReagentCondition
+          reagent: Hyronalin
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         - !type:ReagentThreshold
           min: 30
         damage:
@@ -637,7 +657,8 @@
            Heat: 2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Hyronalin
           min: 30
 
 - type: reagent
@@ -653,13 +674,14 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ipecac
           min: 4
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         probability: 0.3
 
 - type: reagent
@@ -682,7 +704,7 @@
         damage:
           types:
             Asphyxiation: -2
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
       - !type:AdjustConsciousness
         allowNewModifiers: false
@@ -711,7 +733,8 @@
       - !type:SatiateThirst
         factor: -10
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Kelotane
           min: 30
       - !type:PopupMessage
         type: Local
@@ -721,7 +744,8 @@
         - generic-reagent-effect-parched
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Kelotane
           min: 25
 
 - type: reagent
@@ -741,12 +765,12 @@
             Cold: -4
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 293.15
         amount: 100000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 293.15
         amount: -10000
       - !type:PopupMessage
@@ -779,14 +803,23 @@
         damage:
           types:
             Heat: 0.5
-      - !type:ChemVomit
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentCondition
+            reagent: Barozine
+            min: 30
+        damage:
+          types:
+            Poison: 3
+      - !type:Vomit
         probability: 0.15
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 30
+          - !type:ReagentCondition
+            reagent: Barozine
+            min: 30
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: [Yowie]
+            inverted: true
       - !type:GenericStatusEffect
         key: PressureImmunity
         component: PressureImmunity
@@ -824,7 +857,8 @@
       amount: 6
     - !type:PlantPhalanximine
       conditions:
-      - !type:ReagentThreshold
+      - !type:ReagentCondition
+        reagent: Phalanximine
         min: 4
   metabolisms:
     Medicine:
@@ -838,14 +872,15 @@
             Caustic: 0.15
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Phalanximine
           min: 11
         damage:
           types:
             Radiation: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Arithrazine
           min: 1
         damage:
@@ -875,17 +910,18 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PolypyryliumOligomers
           min: 30
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 3.5
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
-      - !type:AdjustConsciousness
+      - !type:AdjustConsciousness # Goobstation?
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
@@ -914,7 +950,8 @@
       effects:
         - !type:CureZombieInfection
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: Ambuzol
               min: 10
 
 - type: reagent
@@ -931,7 +968,8 @@
         - !type:CureZombieInfection
           innoculate: true
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: AmbuzolPlus
               min: 5
 
 - type: reagent
@@ -945,7 +983,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.5
 
 - type: reagent
@@ -1008,12 +1046,12 @@
             Poison: -4
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Amatoxin
           min: 1
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         reagent: Amatoxin
         amount: -3
 
@@ -1061,11 +1099,12 @@
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1.5
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TranexamicAcid
           min: 15
         damage:
           types:
@@ -1084,7 +1123,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 100 # Goobstation
         damage:
           groups:
@@ -1159,14 +1198,16 @@
       effects:
       - !type:EvenHealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 0
           max: 20
         damage:
           Toxin: -6
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 0
           max: 20
         damage:
@@ -1174,27 +1215,29 @@
             Brute: 1.5
       - !type:EvenHealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 20
         damage:
           Toxin: -2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 20
         damage:
           groups:
             Brute: 6
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Histamine
           min: 1
         reagent: Histamine
         amount: -1
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Histamine
           min: 1
         reagent: Ultravasculine
@@ -1211,7 +1254,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ChemHealEyeDamage
+      - !type:EyeDamage
 
 - type: reagent
   id: Cognizine
@@ -1226,7 +1269,8 @@
       effects:
       - !type:MakeSentient
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Cognizine
           min: 5
 
 - type: reagent
@@ -1250,7 +1294,8 @@
         type: Remove
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethyloxyephedrine
           min: 10
       - !type:PopupMessage
         visualType: Medium
@@ -1275,7 +1320,8 @@
         type: Remove
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Diphenylmethylamine
           min: 5
       - !type:PopupMessage
         visualType: Medium
@@ -1301,46 +1347,50 @@
             Caustic: -3 # Goob
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sigynate
           min: 16
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: Yowie
+          inverted: true
         damage:
           types:
             Heat: 2 # Goobstation - 8 per u?
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sigynate
           min: 20
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sigynate
           min: 20
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
         probability: 0.2
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sigynate
           min: 30
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         probability: 0.02
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Arithrazine
           min: 1
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Arithrazine
           min: 1
         type: Local
@@ -1368,11 +1418,12 @@
             # Heat: 0.2 # 0.8 per u
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Lacerinol
           min: 12
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          iverted: true
         damage:
           types:
             Cold: 3 # Goobstation - 30 per u?
@@ -1396,11 +1447,12 @@
             Blunt: 0.1   # Goob
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 11 # Goob
+        - !type:ReagentCondition
+          reagent: Puncturase
+          min: 12
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Blunt: 5 # Goob
@@ -1425,11 +1477,12 @@
       #  factor: -1
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bruizine
           min: 10.5
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Poison: 4 # Goob
@@ -1454,7 +1507,7 @@
           min: 10
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 50
         damage:
           types:
@@ -1463,21 +1516,20 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
-
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction
-#    Acidic:  # Goobstation - Removing holy water damage on touch pending rework.
-#      methods: [ Touch ]
-#      effects:
-#      - !type:HealthChange
-#        scaleByQuantity: true
-#        ignoreResistances: false
-#        damage:
-#          types:
-#            Holy: 0.7
+      - !type:Extinguish
+    #Acidic: # Goobstation - Removing holy water damage on touch pending rework.
+    #  methods: [ Touch ]
+    #  effects:
+    #  - !type:HealthChange
+    #    scaling: true
+    #    ignoreResistances: false
+    #    damage:
+    #      types:
+    #        Holy: 0.5
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1506,30 +1558,33 @@
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pyrazine
           min: 20
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Slash: 0.5
             Piercing: 0.5
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pyrazine
           min: 15
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         probability: 0.1
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pyrazine
           min: 20
+        - !type:MetabolizerTypeConditon # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         emote: Scream
         probability: 0.2
 
@@ -1562,22 +1617,25 @@
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Cold: 2 # Goob
       - !type:AdjustTemperature
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
         amount: -30000
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
 
 - type: reagent
@@ -1596,7 +1654,7 @@
           seconds: 10 # Goob - Reduce effectiveness in exchange for easier recipe
           conditions:
           #Patient must be dead and in a cryo tube (or something cold)
-          - !type:Temperature
+          - !type:TemperatureCondition
             max: 150.0
           - !type:MobStateCondition
             mobstate: Dead
@@ -1626,7 +1684,7 @@
           amount: 10
         - !type:HealthChange
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             max: 213.0
           scaleByTemperature: # Shitmed Change
             min: 100.0
@@ -1653,7 +1711,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         scaleByTemperature: # Shitmed Change
           min: 100.0
@@ -1678,7 +1736,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mannitol
           min: 15
         type: Local
         visualType: Medium
@@ -1698,18 +1757,20 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Psicodine
           min: 30
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
             Poison: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Psicodine
           min: 30
         type: Add
         time: 8
@@ -1750,14 +1811,14 @@
         component: RadiationProtection
         time: 2
         type: Add
-        refresh: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 20
+          - !type:ReagentCondition
+            reagent: PotassiumIodide
+            min: 20
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: Yowie
+            inverted: true
         damage:
           types:
             Poison: 1

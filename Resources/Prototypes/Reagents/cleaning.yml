@@ -104,21 +104,27 @@
   metabolisms:
     Food:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:ReagentCondition
+          reagent: SoapReagent
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          inverted: true
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
     Drink:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:ReagentCondition
+          reagent: SoapReagent
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          inverted: true
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
@@ -159,7 +165,7 @@
       methods: [ Touch ]
       effects:
       # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1.5
   metabolisms:
     Narcotic:
@@ -173,8 +179,6 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
-        type: Add
         time: 5
-        refresh: false
   footstepSound:
     collection: FootstepSlime
