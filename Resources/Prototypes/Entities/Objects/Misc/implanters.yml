@@ -214,7 +214,7 @@
 
 - type: entity
   id: SadTromboneImplanter
-  name: sad trombone implanter
+  suffix: Sad Trombone
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -222,7 +222,7 @@
 
 - type: entity
   id: LightImplanter
-  name: light implanter
+  suffix: Light
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -230,7 +230,7 @@
 
 - type: entity
   id: BikeHornImplanter
-  name: bike horn implanter
+  suffix: Bike Horn
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -240,7 +240,7 @@
 
 - type: entity
   id: TrackingImplanter
-  name: tracking implanter
+  suffix: Tracking
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -250,7 +250,7 @@
 
 - type: entity
   id: StorageImplanter
-  name: storage implanter
+  suffix: Storage
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -258,7 +258,7 @@
 
 - type: entity
   id: FreedomImplanter
-  name: freedom implanter
+  suffix: Freedom
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -266,7 +266,7 @@
 
 - type: entity
   id: RadioImplanter
-  name: syndicate radio implanter
+  suffix: Syndicate Radio
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -274,7 +274,7 @@
 
 - type: entity
   id: UplinkImplanter
-  name: uplink implanter
+  suffix: Uplink
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -282,7 +282,7 @@
 
 - type: entity
   id: EmpImplanter
-  name: EMP implanter
+  suffix: EMP
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -290,7 +290,7 @@
 
 - type: entity
   id: ScramImplanter
-  name: scram implanter
+  suffix: Scram
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -298,7 +298,7 @@
 
 - type: entity
   id: DnaScramblerImplanter
-  name: DNA scrambler implanter
+  suffix: DNA scrambler
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -306,7 +306,7 @@
 
 - type: entity
   id: ChameleonControllerImplanter
-  name: chameleon controller implanter
+  suffix: Chameleon Controller
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -316,7 +316,7 @@
 
 - type: entity
   id: MicroBombImplanter
-  name: micro-bomb implanter
+  suffix: Micro-Bomb
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -324,7 +324,7 @@
 
 - type: entity
   id: MacroBombImplanter
-  name: macro-bomb implanter
+  suffix: Macro-Bomb
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -332,7 +332,7 @@
 
 - type: entity
   id: DeathRattleImplanter
-  name: death rattle implanter
+  suffix: Death Rattle
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -340,7 +340,7 @@
 
 - type: entity
   id: DeathAcidifierImplanter
-  name: death acidifier implanter
+  suffix: Death Acidifier
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -348,7 +348,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  name: fake mindshield implanter
+  suffix: Fake Mindshield
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -358,7 +358,7 @@
 
 - type: entity
   id: MindShieldImplanter
-  name: mindshield implanter
+  suffix: Mindshield
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -368,7 +368,7 @@
 
 - type: entity
   id: RadioImplanterCentcomm
-  name: centcomm radio implanter
+  suffix: Centcomm Radio
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
@@ -376,8 +376,8 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  name: centcomm death rattle implanter
-  parent: BaseImplantOnlyImplanter
+  suffix: Death Rattle
+  parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
     implant: DeathRattleImplantCentcomm
