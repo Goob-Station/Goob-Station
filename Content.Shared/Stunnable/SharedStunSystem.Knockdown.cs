@@ -512,6 +512,32 @@ public abstract partial class SharedStunSystem
         args.SpeedModifier *= entity.Comp.SpeedModifier;
     }
 
+    private void OnWeightlessnessChanged(Entity<KnockedDownComponent> entity, ref WeightlessnessChangedEvent args)
+    {
+        // I probably don't need this check since weightless -> non-weightless you shouldn't be knocked down
+        // But you never know.
+        if (!args.Weightless)
+            return;
+
+        // Targeted moth attack
+        CancelKnockdownDoAfter((entity, entity.Comp));
+        RemComp<KnockedDownComponent>(entity);
+    }
+
+    private void OnKnockdownAttempt(Entity<GravityAffectedComponent> entity, ref KnockDownAttemptEvent args)
+    {
+        // Directed, targeted moth attack.
+        if (entity.Comp.Weightless)
+            args.Cancelled = true;
+    }
+
+    private void OnGetStandUpTime(Entity<GravityAffectedComponent> entity, ref GetStandUpTimeEvent args)
+    {
+        // Get up instantly if weightless
+        if (entity.Comp.Weightless)
+            args.DoAfterTime = TimeSpan.Zero;
+    }
+
     #endregion
 
     #region Action Blockers
