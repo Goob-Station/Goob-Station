@@ -139,7 +139,6 @@
         effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
-        refresh: false
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -433,7 +432,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
