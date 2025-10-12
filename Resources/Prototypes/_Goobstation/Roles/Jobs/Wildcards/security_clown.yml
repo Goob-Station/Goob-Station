@@ -42,11 +42,12 @@
   id: SecurityClownGear
   equipment:
     mask: ClothingMaskClownSecurity
+    eyes: ClothingEyesGlassesSecurity
     jumpsuit: ClothingUniformJumpsuitClown
     shoes: ClothingShoesClown
     outerClothing: ClothingOuterArmorBasic
     id: SecurityClownPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurityRegular
     belt: BikeHorn
   storage:
     back:
