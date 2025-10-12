@@ -27,7 +27,7 @@ public sealed class PreventDamageSystem : EntitySystem
         if (!_mobThreshold.TryGetThresholdForState(entity.Owner,MobState.Dead, out var deadThreshold))
             return; // no death threshold
 
-        if (deadThreshold - critThreshold > entity.Comp.DifferensMinimum) // prevents misuse if the critical and death trigger is the same value
+        if (deadThreshold - critThreshold < entity.Comp.DifferensMinimum) // prevents misuse if the critical and death trigger is the same value
             return;
 
         var currentDaamage = damageable.Damage.GetTotal();
