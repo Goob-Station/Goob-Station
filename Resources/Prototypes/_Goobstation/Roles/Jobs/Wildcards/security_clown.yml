@@ -53,3 +53,13 @@
     back:
     - Flash
     - ClownRecorder
+
+- type: chameleonOutfit
+  id: SecurityClownChameleonOutfit
+  job: SecurityClown
+  equipment:
+    mask: ClothingMaskClownSecurity
+    jumpsuit: ClothingUniformJumpsuitClown
+    shoes: ClothingShoesClown
+    outerClothing: ClothingOuterArmorBasic
+    ears: ClothingHeadsetSecurity
