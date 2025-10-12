@@ -4,5 +4,5 @@
   id: AnimalLamarr
   name: steal-target-groups-animal-lamarr
   sprite:
-    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    sprite: _RMC14/Mobs/Aliens/Xenomorphs/facehugger.rsi
     state: facehugger
