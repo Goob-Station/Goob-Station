@@ -23,10 +23,11 @@ void fragment() {
     c = vec4(u.y, u.y, u.y, 1.0) / 20000.0;
 
     for(highp float t = 0.6; t < 100.0; t += t) {
-        // Slower time animations (reduced by factor of 2.5)
-        highp float timeScale = 0.4; // Slows down all time-based animations
+        // Much slower time animations for gentler movement
+        highp float timeScale = 0.15; // slower = safer
 
-        highp float f1 = 0.3;
+        // Lower frequency oscillations
+        highp float f1 = 0.15;
         highp float f2 = f1;
         highp float f3 = f1;
 
@@ -38,40 +39,44 @@ void fragment() {
         highp float ps2 = abs(s2);
         highp float ps3 = abs(s3);
 
-        s1 = sign(s1) * pow(ps1, 0.3); // Increased power = softer transition
-        s2 = sign(s2) * pow(ps2, 0.3);
-        s3 = sign(s3) * pow(ps3, 0.3);
+        // More gradual transitions (higher power = smoother)
+        s1 = sign(s1) * pow(ps1, 0.6); // Increased from 0.3
+        s2 = sign(s2) * pow(ps2, 0.6);
+        s3 = sign(s3) * pow(ps3, 0.6);
 
         highp vec4 gbar = vec4(c.g, c.b, c.a, c.r);
         highp vec2 wz = vec2(c.w, c.z);
 
+        // Significantly reduced effect intensity
+        highp vec4 v1 = gbar / (sin(TIME * 0.1517 * timeScale) * 20.0); // Increased divisor
+        v1 = v1 - c * 0.1;
+        v1 = v1 + T(u - wz * t * 0.5);
 
-        highp vec4 v1 = gbar / (sin(TIME * 0.1517 * timeScale) * 12.0); // Increased divisor = reduced effect
-        v1 = v1 - c * 0.2; // Reduced from 0.3
-        v1 = v1 + T(u - wz * t * 0.8); // Reduced movement speed
+        highp vec4 v2 = gbar / (cos(TIME * 0.1335 * timeScale) * 20.0);
+        v2 = v2 - c * 0.1;
+        v2 = v2 + T(u - wz * t * 0.5);
 
-        highp vec4 v2 = gbar / (cos(TIME * 0.1335 * timeScale) * 12.0);
-        v2 = v2 - c * 0.2;
-        v2 = v2 + T(u - wz * t * 0.8);
+        highp vec4 v3 = gbar / (sin(TIME * 0.1229 * timeScale) * 20.0);
+        v3 = v3 - c * 0.1;
+        v3 = v3 + T(u - wz * t * 0.5);
 
-        highp vec4 v3 = gbar / (sin(TIME * 0.1229 * timeScale) * 12.0);
-        v3 = v3 - c * 0.2;
-        v3 = v3 + T(u - wz * t * 0.8);
-
-        c += v1 * s1 * 0.7;
-        c += v2 * s2 * 0.7;
-        c += v3 * s3 * 0.7;
+        c += v1 * s1 * 0.4;
+        c += v2 * s2 * 0.4;
+        c += v3 * s3 * 0.4;
     }
 
-    highp float mixscl = 0.002 + 0.03 * (0.5 + 0.5 * sin(TIME * 0.05)); // Reduced from 0.06, slower time
+    // Gentler mixing with slower oscillation
+    highp float mixscl = 0.001 + 0.015 * (0.5 + 0.5 * sin(TIME * 0.03));
 
-    highp vec4 color1 = T(u + vec2(c.x, c.y) * 0.7); // Reduced distortion by 0.7
+    // Less distortion
+    highp vec4 color1 = T(u + vec2(c.x, c.y) * 0.4);
     highp vec4 color2 = vec4(cos(c.x), cos(c.y), cos(c.z), cos(c.w));
 
     highp vec4 originalColor = texture(SCREEN_TEXTURE, u);
     c = mix(color1, color2, mixscl);
 
-    c = mix(originalColor, c, 0.7);
+    // Reduced effect blend - keeps more of original image
+    c = mix(originalColor, c, 0.4);
 
     COLOR = vec4(c.rgb, remaining);
 }
