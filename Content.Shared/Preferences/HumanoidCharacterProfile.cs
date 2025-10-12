@@ -116,11 +116,6 @@ namespace Content.Shared.Preferences
         [DataField]
         public string Name { get; set; } = "John Doe";
 
-        //MIT
-        [DataField]
-        public SuitSensorMode? DefaultSuitSensorMode { get; set; } = null;
-        //End MIT
-
         /// <summary>
         /// Detailed text that can appear for the character if <see cref="CCVars.FlavorText"/> is enabled.
         /// </summary>
@@ -188,6 +183,20 @@ namespace Content.Shared.Preferences
         [DataField]
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
+
+        //MIT
+        [DataField]
+        public SuitSensorMode? DefaultSuitSensorMode { get; set; } = null;
+
+        /// <summary>
+        /// <see cref="_sensorModes"/>
+        /// </summary>
+        public IReadOnlyDictionary<string, SuitSensorMode?> SensorModes => _sensorModes;
+
+        [DataField]
+        private Dictionary<string, SuitSensorMode?> _sensorModes { get; set; } = new();
+        //End MIT
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -221,7 +230,6 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            DefaultSuitSensorMode = null; // MIT, null means random
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -236,6 +244,44 @@ namespace Content.Shared.Preferences
 
                 hasHighPrority = true;
             }
+        }
+
+        public HumanoidCharacterProfile(
+            string name,
+            string flavortext,
+            string species,
+            float height, // Goobstation: port EE height/width sliders
+            float width, // Goobstation: port EE height/width sliders
+            int age,
+            Sex sex,
+            Gender gender,
+            HumanoidCharacterAppearance appearance,
+            SpawnPriorityPreference spawnPriority,
+            Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
+            PreferenceUnavailableMode preferenceUnavailable,
+            HashSet<ProtoId<AntagPrototype>> antagPreferences,
+            HashSet<ProtoId<TraitPrototype>> traitPreferences,
+            Dictionary<string, RoleLoadout> loadouts,
+            SuitSensorMode? defaultSuitSensorMode,
+            Dictionary<string, SuitSensorMode?> sensorModes)
+            : this(name,
+            flavortext,
+            species,
+            height, // Goobstation: port EE height/width sliders
+            width, // Goobstation: port EE height/width sliders
+            age,
+            sex,
+            gender,
+            appearance,
+            spawnPriority,
+            jobPriorities,
+            preferenceUnavailable,
+            antagPreferences,
+            traitPreferences,
+            loadouts)
+        {
+            DefaultSuitSensorMode = defaultSuitSensorMode;
+            _sensorModes = sensorModes;
         }
 
         /// <summary>Copy constructor</summary>
@@ -254,7 +300,9 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.DefaultSuitSensorMode,
+                new Dictionary<string, SuitSensorMode?>(other.SensorModes))
         {
         }
 
@@ -352,6 +400,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithSensor(SuitSensorMode? mode)
         {
             return new(this) { DefaultSuitSensorMode = mode };
+        }
+
+        public HumanoidCharacterProfile WithRoleSensors(Dictionary<string, SuitSensorMode?> modes)
+        {
+            return new(this) { _sensorModes = modes };
         }
 
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
@@ -568,6 +621,8 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (DefaultSuitSensorMode != other.DefaultSuitSensorMode) return false;
+            if (!_sensorModes.SequenceEqual(other._sensorModes)) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
