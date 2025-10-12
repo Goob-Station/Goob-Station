@@ -23,6 +23,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovementIgnoreGravity
+    weightless: true
   - type: Sprite
     sprite: Objects/Fun/immovable_rod.rsi
     state: icon
