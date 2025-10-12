@@ -5083,3 +5083,10 @@ Entries:
   id: 9079
   time: '2025-10-12T00:56:09.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38381
+- author: aada
+  changes:
+  - message: Cannabis no longer stacks infinitely. Sorry, botanists!
+    type: Fix
+  id: 9080
+  time: '2025-10-12T01:29:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38412
