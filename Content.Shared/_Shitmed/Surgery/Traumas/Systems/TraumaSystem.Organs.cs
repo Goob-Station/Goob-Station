@@ -8,6 +8,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
@@ -20,6 +21,7 @@ public partial class TraumaSystem
         SubscribeLocalEvent<WoundableComponent, OrganIntegrityChangedEventOnWoundable>(OnOrganIntegrityOnWoundableChanged);
         SubscribeLocalEvent<OrganComponent, OrganIntegrityChangedEvent>(OnOrganIntegrityChanged);
         SubscribeLocalEvent<WoundableComponent, OrganDamageSeverityChangedOnWoundable>(OnOrganSeverityChanged);
+
     }
 
     #region Event handling
@@ -95,11 +97,11 @@ public partial class TraumaSystem
                 nerveSys.Value.Comp.OrganDestructionReflexSounds[sex],
                 AudioParams.Default.WithVolume(6f));
 
-            _stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true);
-            _stun.TrySlowdown(
+            _stun.TryUpdateParalyzeDuration(body.Value, nerveSys.Value.Comp.OrganDamageStunTime);
+            _movementMod.TryUpdateMovementSpeedModDuration(
                 body.Value,
+                MovementModStatusSystem.VomitingSlowdown, // Fuck it close enough
                 nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
-                true,
                 _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
                 _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }

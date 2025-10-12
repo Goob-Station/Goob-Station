@@ -19,7 +19,6 @@ public sealed class TelefragSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public void DoTelefrag(EntityUid uid,
@@ -35,11 +34,11 @@ public sealed class TelefragSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(coords, range, LookupFlags.Dynamic);
         foreach (var ent in entities.Where(ent => ent != uid && !_standing.IsDown(ent)))
         {
-            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior))
+            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, true)) // goob edit hardcoded wizden crawl change
                 continue;
 
-            if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp)
-                _layingDown.TryStandUp(ent);
+            if (_stun.TryCrawling(ent, knockdownTime, true, true, true, true)) // goob edit hardcoded wizden crawl change
+                _stun.TryStand(ent!); // Fuck it we ball rider tells me this is never gonna be null so
         }
     }
 }

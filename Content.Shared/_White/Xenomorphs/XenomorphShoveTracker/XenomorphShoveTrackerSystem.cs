@@ -43,7 +43,7 @@ public sealed class XenomorphShoveTrackerSystem : EntitySystem
         if (xenoComponent.ShoveCount[target] >= xenoComponent.ShoveThreshold)
         {
             // Apply knockdown and stun
-            bool wasStunned = _stun.TryStun(target, xenoComponent.KnockdownDuration, true);
+            bool wasStunned = _stun.TryUpdateStunDuration(target, xenoComponent.KnockdownDuration); // Goob edit wizden crawl change
             bool wasKnockedDown = _stun.TryKnockdown(target, xenoComponent.KnockdownDuration, true);
 
             // Reset the count for this target

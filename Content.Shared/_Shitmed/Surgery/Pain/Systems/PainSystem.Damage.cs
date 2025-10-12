@@ -834,7 +834,7 @@ public partial class PainSystem
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true, standOnRemoval: false);
+                _stun.TryUpdateParalyzeDuration(body, nerveSys.Comp.PainShockStunTime); // hurr durr wizden standonremoval
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime, true, 20f, 7f);
 
                 // For the funnies :3
@@ -850,7 +850,7 @@ public partial class PainSystem
                 var agonySpecifier = nerveSys.Comp.AgonyScreams[sex];
                 PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f), screamString: shockAgonyString);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true, standOnRemoval: false);
+                _stun.TryUpdateParalyzeDuration(body, nerveSys.Comp.PainShockStunTime * 1.4); // should reimplement standonremoval here
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime * 1.4, true, 20f, 7f);
 
                 _consciousness.ForceConscious(body, nerveSys.Comp.PainShockStunTime * 1.4);

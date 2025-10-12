@@ -38,6 +38,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     private static readonly ProtoId<TagPrototype> ActionTag = "ShadowCloakAction";
 
@@ -139,9 +140,10 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         if (ent.Comp.DebuffOnEarlyReveal)
         {
-            _stun.KnockdownOrStun(ent, ent.Comp.KnockdownTime, true);
+            _stun.TryAddKnockdownDuration(ent, ent.Comp.KnockdownTime);
             var (walk, sprint) = ent.Comp.EarlyRemoveMoveSpeedModifiers;
-            _stun.TrySlowdown(ent, ent.Comp.SlowdownTime, true, walk, sprint);
+            // Yeah because fuck having a generic slowdown function for people to use. lets instead use a generic speed modifier that needs an effect uid thanks wizden
+            _movementMod.TryUpdateMovementSpeedModDuration(ent.Owner, MovementModStatusSystem.FlashSlowdown, ent.Comp.SlowdownTime, walk, sprint); // owner is obsolete i dont care
         }
 
         ResetAbilityCooldown(ent, ent.Comp.ForceRevealCooldown);

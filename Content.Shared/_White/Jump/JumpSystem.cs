@@ -60,7 +60,7 @@ public sealed class JumpSystem : EntitySystem
 
         if (Transform(args.Target).Anchored)
         {
-            _stun.TryParalyze(uid, component.StunTime, true);
+            _stun.TryUpdateParalyzeDuration(uid, component.StunTime); // goob edit whatever
             return;
         }
 

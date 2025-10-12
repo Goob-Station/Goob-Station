@@ -209,7 +209,7 @@ public sealed class RiposteeSystem : EntitySystem
             _melee.InRange(user, target, weapon.Comp.Range, CompOrNull<ActorComponent>(user)?.PlayerSession))
         {
             if (data.StunTime > TimeSpan.Zero)
-                _stun.TryStun(target, data.StunTime, true);
+                _stun.TryUpdateStunDuration(target, data.StunTime);
 
             if (data.KnockdownTime > TimeSpan.Zero)
                 _stun.TryKnockdown(target, data.KnockdownTime, true);

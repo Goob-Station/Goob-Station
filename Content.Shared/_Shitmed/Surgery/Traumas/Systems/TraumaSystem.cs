@@ -39,6 +39,7 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!; // Fuck you specifically
 
     private string _brokenBonesAlertId = "BrokenBones";
     public override void Initialize()
