@@ -35,7 +35,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
     {
-        _layingDown.TryLieDown(args.Target);
+        //_layingDown.TryLieDown(args.Target); //todo marty
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 

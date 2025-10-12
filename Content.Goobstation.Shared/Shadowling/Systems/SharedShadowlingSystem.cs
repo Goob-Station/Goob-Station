@@ -138,7 +138,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
                 EntityManager.RemoveComponents(uid, _protoMan.Index(component.ObtainableComponents));
 
                 // this is such a big L that even the code is losing and all variables are hardcoded.
-                EnsureComp<SlowedDownComponent>(uid);
+                //EnsureComp<SlowedDownComponent>(uid);
                 _appearance.AddMarking(uid, "AbominationTorso");
                 _appearance.AddMarking(uid, "AbominationHorns");
 

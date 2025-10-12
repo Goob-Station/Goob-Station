@@ -28,6 +28,9 @@ using Robust.Shared.Prototypes;
 using Content.Server.Gravity;
 using Content.Goobstation.Common.CCVar;
 using Robust.Shared.Configuration;
+using Content.Shared._DV.Abilities;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -78,7 +81,7 @@ public sealed class FootprintSystem : EntitySystem
         if (_noFootprintsQuery.HasComp(entity))
             return;
 
-        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity.Owner) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager)) //Owner is deprecated i dont care
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
@@ -86,7 +89,7 @@ public sealed class FootprintSystem : EntitySystem
 
         entity.Comp.Distance += Vector2.Distance(newPosition, oldPosition);
 
-        var standing = TryComp<StandingStateComponent>(entity, out var standingState) && standingState.CurrentState == StandingState.Standing;
+        bool standing = TryComp<KnockedDownComponent>(entity, out var knockedDown);
 
         var requiredDistance = standing ? entity.Comp.FootDistance : entity.Comp.BodyDistance;
 

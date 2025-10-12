@@ -357,7 +357,7 @@ public sealed partial class HereticAbilitySystem
             if (dir.LengthSquared() < 0.001f)
                 continue;
             _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
-            _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
+            _stun.TryKnockdown(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
                 _dmg.TryChangeDamage(entity, args.Damage, targetPart: TargetBodyPart.All);
         }

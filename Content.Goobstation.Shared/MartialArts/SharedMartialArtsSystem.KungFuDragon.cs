@@ -11,6 +11,7 @@ using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -57,7 +58,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
@@ -74,11 +75,11 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         if (downed)
-            _stun.TryStun(target, args.DownedParalyzeTime, true); // No stunlocks
+            _stun.TryUpdateStunDuration(target, args.DownedParalyzeTime); // No stunlocks
         else
         {
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
 
@@ -93,8 +94,7 @@ public abstract partial class SharedMartialArtsSystem
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
-
-        _stun.TrySlowdown(target, args.SlowdownTime, true, args.WalkSpeedModifier, args.SprintSpeedModifier);
+        _movementMod.TryUpdateMovementSpeedModDuration (target, MovementModStatusSystem.VomitingSlowdown, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);

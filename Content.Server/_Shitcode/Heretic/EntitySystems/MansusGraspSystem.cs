@@ -217,7 +217,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         if (TryComp(target, out StatusEffectsComponent? status))
         {
-            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
+            _stun.TryKnockdown(target, comp.KnockdownTime, true);
             _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
             _language.DoRatvarian(target, comp.SpeechTime, true, status);
             _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,

@@ -250,7 +250,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (distance2 < minRange2)
                 continue;
 
-            Stun.TryParalyze(entity, ev.StunTime, true);
+            Stun.TryUpdateParalyzeDuration(entity, ev.StunTime);
 
             Spawn(ev.EffectProto, TransformSystem.GetMapCoordinates(entity, xform));
 

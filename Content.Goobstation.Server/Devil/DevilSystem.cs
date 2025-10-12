@@ -238,14 +238,14 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.Source))
         {
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
-            _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier, false);
+            _stun.TryUpdateParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier);
 
             var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", devil));
             _popup.PopupEntity(popup, devil, PopupType.LargeCaution);
         }
         else
         {
-            _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName, false);
+            _stun.TryUpdateParalyzeDuration(devil, devil.Comp.ParalyzeDurationOnTrueName);
             _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName, true);
 
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", devil));

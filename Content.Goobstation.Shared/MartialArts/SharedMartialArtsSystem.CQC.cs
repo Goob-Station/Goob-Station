@@ -32,6 +32,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
@@ -156,10 +157,8 @@ public partial class SharedMartialArtsSystem
                 }
 
                 // Leg sweep
-                if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing ||
-                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                    targetStanding.CurrentState != StandingState.Standing)
+                if (!TryComp<KnockedDownComponent>(ent, out var knockedDown) || // wiz laydownrefactor just check if we're on the floor and if target isn't on floor instead of whatever the fuck was here before
+                    TryComp<KnockedDownComponent>(args.Target, out var knockedDowntarget))
                     break;
 
                 _status.TryRemoveStatusEffect(ent, "KnockedDown");
@@ -182,7 +181,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -227,7 +226,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

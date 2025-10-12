@@ -76,7 +76,6 @@
   - type: Perishable
   - type: FireVisuals
     alternateState: Standing
-  - type: LayingDown
   - type: Hunger
   - type: Thirst
   - type: Carriable

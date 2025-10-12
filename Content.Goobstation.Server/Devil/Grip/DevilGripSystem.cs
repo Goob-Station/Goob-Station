@@ -61,7 +61,7 @@ public sealed class DevilGripSystem : EntitySystem
 
         if (TryComp(target, out StatusEffectsComponent? status))
         {
-            _stun.KnockdownOrStun(target, ent.Comp.KnockdownTime, true, status);
+            _stun.TryKnockdown(target, ent.Comp.KnockdownTime, true);
             _stamina.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
             _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
         }

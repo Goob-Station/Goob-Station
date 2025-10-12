@@ -133,7 +133,6 @@
         damage:
           types:
             Cellular: 1
-  - type: LayingDown
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: PaperCreature

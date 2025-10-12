@@ -60,7 +60,7 @@ public partial class CloneProjectorSystem
         if (!projector.Comp.DoStun)
             return;
 
-        _stun.TryParalyze(host, projector.Comp.StunDuration, true);
+        _stun.TryUpdateParalyzeDuration(host, projector.Comp.StunDuration);
         _damageable.TryChangeDamage(host, projector.Comp.DamageOnDestroyed, true, targetPart: TargetBodyPart.Groin);
     }
     private void OnExamined(Entity<HolographicCloneComponent> clone, ref ExaminedEvent args)
@@ -88,7 +88,7 @@ public partial class CloneProjectorSystem
 
         TryInsertClone(projector, true);
         if (projector.Comp.DoStun)
-            _stun.TryParalyze(host, duration, true);
+            _stun.TryUpdateParalyzeDuration(host, duration);
 
         var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
         _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);

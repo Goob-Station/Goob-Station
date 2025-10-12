@@ -8,15 +8,17 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Stunnable.Components;
+using Content.Server.Stunnable.Systems;
 
-/// <summary>
-/// Adds stun when it collides with an entity
-/// </summary>
-[RegisterComponent, Access(typeof(StunOnCollideSystem))]
-public sealed partial class StunOnCollideComponent : Component
+namespace Content.Server.Stunnable.Components
 {
-    // TODO: Can probably predict this.
+    /// <summary>
+    /// Adds stun when it collides with an entity
+    /// </summary>
+    [RegisterComponent, Access(typeof(StunOnCollideSystem))]
+    public sealed partial class StunOnCollideComponent : Component
+    {
+        // TODO: Can probably predict this.
 
     /// <summary>
     /// How long we are stunned for
@@ -71,4 +73,3 @@ public sealed partial class StunOnCollideComponent : Component
     /// </summary>
     [DataField("fixture")] public string FixtureID = "projectile";
 }
-

@@ -51,7 +51,7 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
 
         _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
 
-        _stun.TryParalyze(ent, ent.Comp.GunShootFailStunTime, false);
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
 
         args.Cancel();
     }

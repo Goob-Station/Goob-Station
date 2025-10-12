@@ -163,8 +163,8 @@ public sealed partial class HereticAbilitySystem
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            _stun.TryStun(pookie, args.StunTime, true);
-            _stun.TryKnockdown(pookie, args.KnockDownTime, true);
+            _stun.TryUpdateStunDuration(pookie, args.StunTime);
+            _stun.TryKnockdown(pookie.Owner, args.KnockDownTime, true); // Owner is obsolete i dont care
 
             if (condition)
                 _voidcurse.DoCurse(pookie);

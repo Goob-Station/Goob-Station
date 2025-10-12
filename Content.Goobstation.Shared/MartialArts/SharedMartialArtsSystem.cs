@@ -104,6 +104,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public override void Initialize()
     {
@@ -588,10 +589,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         bool IsDown(EntityUid uid)
         {
-            if (!TryComp<StandingStateComponent>(uid, out var standingState))
-                return false;
+            //usually folk are standing
+            if (TryComp<KnockedDownComponent>(ent, out var knockedDownComponent))
+                return true;
+            //but sometimes they are not
+            return false;
 
-            return standingState.CurrentState != StandingState.Standing;
+            //this used to be standingsystem goidacode
         }
     }
 

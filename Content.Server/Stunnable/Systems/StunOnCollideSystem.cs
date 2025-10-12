@@ -15,7 +15,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Stunnable.Components;
-using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
 using Content.Shared.Throwing;
@@ -39,7 +38,7 @@ internal sealed class StunOnCollideSystem : EntitySystem
 
     private void TryDoCollideStun(Entity<StunOnCollideComponent> ent, EntityUid target)
     {
-        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, ent.Comp.Drop, true);
+        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, ent.Comp.Drop);
 
         if (ent.Comp.Refresh)
         {

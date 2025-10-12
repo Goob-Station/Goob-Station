@@ -48,6 +48,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         if (HasComp<RustbringerComponent>(target))
             return;
 
-        _stun.TryCrawling(target, TimeSpan.MinValue, false);
+        //_stun.TryCrawling(target, TimeSpan.MinValue, false); //todo marty
     }
 }

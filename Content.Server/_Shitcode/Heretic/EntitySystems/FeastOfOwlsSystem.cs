@@ -45,7 +45,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             comp.ElapsedTime = 0f;
 
-            if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryParalyze(uid, comp.ParalyzeTime, true, status))
+            if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryUpdateParalyzeDuration(uid, comp.ParalyzeTime))
             {
                 _heretic.UpdateKnowledge(uid, heretic, comp.Reward - comp.CurrentStep, store);
                 RemCompDeferred(uid, comp);

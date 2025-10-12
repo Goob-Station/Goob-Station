@@ -1,3 +1,4 @@
+using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -41,7 +42,7 @@ public sealed partial class ModifyKnockdown : EntityEffect
     public bool Refresh = true;
 
     /// <inheritdoc />
-    public override void Effect(EntityEffectBaseArgs args)
+    public override void Effect(EntityEffectBaseArgs args) //todo marty
     {
         var stunSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedStunSystem>();
 
@@ -54,17 +55,17 @@ public sealed partial class ModifyKnockdown : EntityEffect
             case StatusEffectMetabolismType.Update:
                 if (Crawling)
                 {
-                    stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
+                    //stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
                 }
                 else
                 {
-                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                    stunSys.TryKnockdown(args.TargetEntity, time, false);
                 }
                 break;
             case StatusEffectMetabolismType.Add:
                 if (Crawling)
                 {
-                    stunSys.TryCrawling(args.TargetEntity, time, false, drop: Drop);
+                    //stunSys.TryCrawling(args.TargetEntity, time, false, drop: Drop);
                 }
                 else
                 {
@@ -72,18 +73,18 @@ public sealed partial class ModifyKnockdown : EntityEffect
                 }
                 break;
             case StatusEffectMetabolismType.Remove:
-                    stunSys.AddKnockdownTime(args.TargetEntity, -time);
+                    //stunSys.AddKnockdownTime(args.TargetEntity, -time);
                 break;
             case StatusEffectMetabolismType.Set:
                 if (Crawling)
                 {
-                    stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
+                    //stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
                 }
                 else
                 {
-                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                    //stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
                 }
-                stunSys.SetKnockdownTime(args.TargetEntity, time);
+                //stunSys.SetKnockdownTime(args.TargetEntity, time);
                 break;
         }
     }

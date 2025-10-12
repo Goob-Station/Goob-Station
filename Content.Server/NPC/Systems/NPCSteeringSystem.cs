@@ -399,7 +399,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         _modifierQuery.TryGetComponent(uid, out var modifier);
         var body = _physicsQuery.GetComponent(uid);
 
-        var weightless = _gravity.IsWeightless(uid, body, xform);
+        var weightless = _gravity.IsWeightless(uid);
         var moveSpeed = GetSprintSpeed(uid, modifier);
         var acceleration = GetAcceleration((uid, modifier), weightless);
         var friction = GetFriction((uid, modifier), weightless);
@@ -471,7 +471,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         steering.LastSteerDirection = resultDirection;
         DebugTools.Assert(!float.IsNaN(resultDirection.X));
         // Tile Movement Change
-        if (!_gravity.IsWeightless(uid, body, xform) &&
+        if (!_gravity.IsWeightless(uid) &&
             body.BodyStatus == BodyStatus.OnGround &&
             _tileMovementQuery.TryGetComponent(uid, out var tileMovement))
         {

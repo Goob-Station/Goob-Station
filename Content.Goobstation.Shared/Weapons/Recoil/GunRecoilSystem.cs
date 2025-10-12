@@ -47,6 +47,6 @@ public sealed class GunRecoilSystem : EntitySystem
         _stun.TryKnockdown(args.User,
             TimeSpan.FromSeconds(knockdownTime),
             ent.Comp.RefreshKnockdown,
-            ent.Comp.Behavior);
+            true, false, false);
     }
 }

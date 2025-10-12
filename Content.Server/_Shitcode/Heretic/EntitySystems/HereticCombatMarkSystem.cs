@@ -115,7 +115,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
             case "Rust":
                 _vomit.Vomit(target);
-                _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(20), true);
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(20), true);
                 break;
 
             case "Void":
@@ -139,7 +139,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
                 }
 
-                _stun.TryParalyze(target, cosmicMark.ParalyzeTime, true);
+                _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
                 break;
 
             default:

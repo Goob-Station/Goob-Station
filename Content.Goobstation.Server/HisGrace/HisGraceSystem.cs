@@ -469,7 +469,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var released = _containerSystem.EmptyContainer(hisGrace.Stomach, true);
 
         foreach (var ent in released)
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(8), true);
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(8));
     }
 
     #endregion

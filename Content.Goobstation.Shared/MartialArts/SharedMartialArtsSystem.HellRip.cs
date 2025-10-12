@@ -115,7 +115,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 

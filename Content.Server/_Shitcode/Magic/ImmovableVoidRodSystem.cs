@@ -79,7 +79,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
             // ascended void heretic will give 6 SECONDS OF STUN :bluesurprised:
             power += ent.Comp.User.Value.Comp.PathStage / 2f;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(power), false);
+        _stun.TryUpdateParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(power));
         _voidcurse.DoCurse(args.OtherEntity);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);

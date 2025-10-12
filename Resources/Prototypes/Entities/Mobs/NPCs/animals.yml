@@ -1789,6 +1789,7 @@
   - type: Crawler
 
 
+
 - type: entity
   name: monkey
   id: MobMonkey
@@ -2252,7 +2253,6 @@
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
     critThreshold: 20
-  - type: LayingDown
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
