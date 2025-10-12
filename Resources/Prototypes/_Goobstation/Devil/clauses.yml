@@ -61,7 +61,7 @@
     thresholds:
       0: Alive
       200: Critical
-      201: Dead
+      205: Dead
 
 - type: clause
   id: fearoflight

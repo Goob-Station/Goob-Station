@@ -1,5 +1,6 @@
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Shared.Mobs;
 
@@ -8,7 +9,7 @@ namespace Content.Goobstation.Shared.Mobs;
 /// </summary>
 public sealed class ChangeThresholdSystem : EntitySystem
 {
-    /// <inheritdoc/>
+    [Dependency] private readonly MobThresholdSystem _mobThreshold= null!;
     public override void Initialize()
     {
         SubscribeLocalEvent<ChangeThresholdComponent,ComponentStartup>(OnComponentStartup);
@@ -19,87 +20,23 @@ public sealed class ChangeThresholdSystem : EntitySystem
     {
         if (!TryComp<MobThresholdsComponent>(ent.Owner, out var thresholds))
             return;
+        ent.Comp.OldDeadThreshold = _mobThreshold.GetThresholdForState(ent.Owner, MobState.Dead);
+        ent.Comp.OldCriticalThreshold = _mobThreshold.GetThresholdForState(ent.Owner, MobState.Critical);
 
-        var critical = false;
-        var death = false;
-        foreach (var var in thresholds.Thresholds)
-        {
-            if (var.Value == MobState.Critical)
-            {
-                if (var.Key == ent.Comp.NewCriticalThreshold)
-                    continue;
+        /// becuse problems can arise if there are two trigrs on the same value, death is changed first then critical
+        _mobThreshold.SetMobStateThreshold(ent.Owner, ent.Comp.NewDeadThreshold,MobState.Dead);
 
-                ent.Comp.OldCriticalThreshold = var.Key;
-                critical = true;
-            }
-
-            if (var.Value == MobState.Dead)
-            {
-                if (var.Key == ent.Comp.NewDeadThreshold)
-                    continue;
-
-                ent.Comp.OldDeadThreshold = var.Key;
-                death = true;
-            }
-        }
-
-        if (critical)
-        {
-            thresholds.Thresholds.Remove(ent.Comp.OldCriticalThreshold);
-            thresholds.Thresholds.Add(ent.Comp.NewCriticalThreshold, MobState.Critical);
-        }
-
-        if (death)
-        {
-            thresholds.Thresholds.Remove(ent.Comp.OldDeadThreshold);
-            thresholds.Thresholds.Add(ent.Comp.NewDeadThreshold, MobState.Dead);
-        }
+        if(thresholds.Thresholds.ContainsValue(MobState.Critical))// some species like IPC  dont have critical threshold
+            _mobThreshold.SetMobStateThreshold(ent.Owner, ent.Comp.NewCriticalThreshold,MobState.Critical);
     }
     private void OnComponentShutdown(Entity<ChangeThresholdComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<MobThresholdsComponent>(ent.Owner, out var thresholds))
             return;
 
-        var critical = false;
-        var death = false;
+        if(thresholds.Thresholds.ContainsValue(MobState.Critical))
+            _mobThreshold.SetMobStateThreshold(ent.Owner, ent.Comp.OldCriticalThreshold,MobState.Critical);
 
-        foreach (var var in thresholds.Thresholds)
-        {
-            if (var.Value == MobState.Critical)
-            {
-                if (var.Key == ent.Comp.OldCriticalThreshold)
-                    continue;
-                if (ent.Comp.NewCriticalThreshold == ent.Comp.OldCriticalThreshold)
-                    continue;
-
-                critical = true;
-                //thresholds.Thresholds.Remove(var.Key);
-                //thresholds.Thresholds.Add(ent.Comp.OldCriticalThreshold, var.Value);
-            }
-
-            if (var.Value == MobState.Dead)
-            {
-                if (var.Key == ent.Comp.OldDeadThreshold)
-                    continue;
-                if (ent.Comp.NewDeadThreshold == ent.Comp.OldDeadThreshold)
-                    continue;
-
-                death = true;
-                //thresholds.Thresholds.Remove(var.Key);
-                //thresholds.Thresholds.Add(ent.Comp.OldDeadThreshold, var.Value);
-            }
-        }
-
-        if (critical)
-        {
-            thresholds.Thresholds.Remove(ent.Comp.NewCriticalThreshold);
-            thresholds.Thresholds.Add(ent.Comp.OldCriticalThreshold, MobState.Critical);
-        }
-
-        if (death)
-        {
-            thresholds.Thresholds.Remove(ent.Comp.NewDeadThreshold);
-            thresholds.Thresholds.Add(ent.Comp.OldDeadThreshold, MobState.Dead);
-        }
+        _mobThreshold.SetMobStateThreshold(ent.Owner, ent.Comp.OldDeadThreshold,MobState.Dead);
     }
 }
