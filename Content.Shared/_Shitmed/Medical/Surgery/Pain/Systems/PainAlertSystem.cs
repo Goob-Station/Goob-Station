@@ -41,9 +41,7 @@ public sealed class PainAlertSystem : EntitySystem
         foreach (var alertId in PainAlerts)
         {
             if (_prototypeManager.TryIndex<AlertPrototype>(alertId, out var alert))
-            {
                 _alerts.ClearAlert(uid, alert);
-            }
         }
     }
 
