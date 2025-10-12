@@ -19,6 +19,7 @@
   id: VulpEar
   bodyPart: HeadTop
   markingCategory: HeadTop
+  sponsorOnly: true # CorvaxGoob-Sponsors
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -286,6 +287,7 @@
   id: VulpTail
   bodyPart: Tail
   markingCategory: Tail
+  sponsorOnly: true # CorvaxGoob-Sponsors
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
