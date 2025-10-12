@@ -12,7 +12,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
-using Content.Server.Power.EntitySystems; // goobstation - check power
+using Content.Server.Power.EntitySystems; // goobstation - check power 
 using Content.Shared.Communications;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
