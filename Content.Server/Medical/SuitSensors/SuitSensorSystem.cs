@@ -233,6 +233,17 @@ public sealed class SuitSensorSystem : EntitySystem
         var xformQuery = GetEntityQuery<TransformComponent>();
         RecursiveSensor(ev.Mob, ev.Station, sensorQuery, xformQuery);
         // MIT
+        // If there is no mode set for the job, or its set to null, then we use the players default sensor mode.
+        if (ev.Profile.SensorModes != null && ev.Profile.SensorModes.ContainsKey(ev.JobId ?? "error"))
+        {
+            var mode = ev.Profile.SensorModes[ev.JobId ?? "error"];
+            if (mode.HasValue)
+            {
+                //otherwise set all sensors to the job's sensor mode.
+                SetAllSensors(ev.Mob, mode.Value);
+                return;
+            }
+        }
         // Set all sensors to the players default sensor mode. (null means keep it random)
         if (ev.Profile.DefaultSuitSensorMode.HasValue)
         {

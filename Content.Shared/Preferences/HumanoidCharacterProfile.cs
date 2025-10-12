@@ -246,6 +246,7 @@ namespace Content.Shared.Preferences
             }
         }
 
+        // MIT
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -283,6 +284,7 @@ namespace Content.Shared.Preferences
             DefaultSuitSensorMode = defaultSuitSensorMode;
             _sensorModes = sensorModes;
         }
+        // End MIT
 
         /// <summary>Copy constructor</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
@@ -301,8 +303,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                other.DefaultSuitSensorMode,
-                new Dictionary<string, SuitSensorMode?>(other.SensorModes))
+                other.DefaultSuitSensorMode, // MIT
+                new Dictionary<string, SuitSensorMode?>(other.SensorModes)) // MIT
         {
         }
 
@@ -397,6 +399,7 @@ namespace Content.Shared.Preferences
             return new(this) { Name = name };
         }
 
+        // start MIT
         public HumanoidCharacterProfile WithSensor(SuitSensorMode? mode)
         {
             return new(this) { DefaultSuitSensorMode = mode };
@@ -407,6 +410,7 @@ namespace Content.Shared.Preferences
             return new(this) { _sensorModes = modes };
         }
 
+        // end MIT
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
         {
             return new(this) { FlavorText = flavorText };
