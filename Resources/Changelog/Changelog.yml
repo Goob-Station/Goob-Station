@@ -5090,3 +5090,10 @@ Entries:
   id: 9080
   time: '2025-10-12T01:29:01.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38412
+- author: GovnokradZXC
+  changes:
+  - message: New hair named Pigtail (Over Eye)
+    type: Add
+  id: 9081
+  time: '2025-10-12T05:45:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39850
