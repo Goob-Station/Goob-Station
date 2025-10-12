@@ -26,6 +26,12 @@ public sealed partial class ModifyStatusEffect : EntityEffect
     [DataField]
     public float Delay = 0f;
 
+    /// <remarks>
+    /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
+    /// </remarks>
+    [DataField]
+    public bool Refresh = true;
+
     /// <summary>
     /// Should this effect add the status effect, remove time from it, or set its cooldown?
     /// </summary>
@@ -48,20 +54,31 @@ public sealed partial class ModifyStatusEffect : EntityEffect
                 //statusSys.TryUpdateStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null); //todo marty
                 break;
             case StatusEffectMetabolismType.Add:
-                //statusSys.TryAddStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
+                if (Refresh)
+                    statusSys.TryUpdateStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
+                else
+                    statusSys.TryAddStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
                 break;
             case StatusEffectMetabolismType.Remove:
                 statusSys.TryAddTime(args.TargetEntity, EffectProto, -duration);
                 break;
             case StatusEffectMetabolismType.Set:
-                statusSys.TrySetStatusEffectDuration(args.TargetEntity, EffectProto, duration);
+                statusSys.TrySetStatusEffectDuration(args.TargetEntity, EffectProto, duration, TimeSpan.FromSeconds(Delay));
                 break;
         }
     }
 
     /// <inheritdoc />
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString(
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
+        Delay > 0
+        ? Loc.GetString(
+            "reagent-effect-guidebook-status-effect-delay",
+            ("chance", Probability),
+            ("type", Type),
+            ("time", Time),
+            ("key", prototype.Index(EffectProto).Name),
+            ("delay", Delay))
+        : Loc.GetString(
             "reagent-effect-guidebook-status-effect",
             ("chance", Probability),
             ("type", Type),

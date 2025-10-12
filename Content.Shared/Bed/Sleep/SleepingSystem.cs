@@ -55,6 +55,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
@@ -99,7 +100,7 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<SleepingComponent, EntityZombifiedEvent>(OnZombified);
         SubscribeLocalEvent<SleepingComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<SleepingComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SleepingComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<SleepingComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<SleepingComponent, CanSeeAttemptEvent>(OnSeeAttempt);
         SubscribeLocalEvent<SleepingComponent, PointAttemptEvent>(OnPointAttempt);
@@ -110,6 +111,7 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SleepingComponent, StunEndAttemptEvent>(OnStunEndAttempt);
         SubscribeLocalEvent<SleepingComponent, StandUpAttemptEvent>(OnStandUpAttempt);
+        SubscribeLocalEvent<SleepingComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<ForcedSleepingStatusEffectComponent, StatusEffectAppliedEvent>(OnStatusEffectApplied);
         SubscribeLocalEvent<SleepingComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
@@ -175,7 +177,7 @@ public sealed partial class SleepingSystem : EntitySystem
         RemComp<SpamEmitSoundComponent>(ent);
     }
 
-    private void OnMapInit(Entity<SleepingComponent> ent, ref MapInitEvent args)
+    private void OnCompInit(Entity<SleepingComponent> ent, ref ComponentInit args)
     {
         var ev = new SleepStateChangedEvent(true);
         RaiseLocalEvent(ent, ref ev);
@@ -225,6 +227,11 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         // Shh the Urist McHands is sleeping...
         args.Cancelled = true;
+    }
+
+    private void OnRejuvenate(Entity<SleepingComponent> ent, ref RejuvenateEvent args)
+    {
+        TryWaking((ent.Owner, ent.Comp), true);
     }
 
     private void OnExamined(Entity<SleepingComponent> ent, ref ExaminedEvent args)
