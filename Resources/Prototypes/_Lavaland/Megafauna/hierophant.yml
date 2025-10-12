@@ -6,6 +6,21 @@
     - id: PickTargetSimple
     - id: HierophantActions
 
+# Target selector
+- type: megafaunaSelector
+  id: PickTargetSimple
+  selector: !type:AggressivePickTargetSelector
+    priority: 10
+    delay: 0.0 # Thinking doesn't take any time
+    targetConditions:
+    # Hit closer aggressors more often.
+    - !type:RangeCondition
+      maxRange: 3.0
+    - !type:RangeCondition
+      maxRange: 6.0
+    - !type:RangeCondition
+      maxRange: 9.0
+
 # Actions
 - type: megafaunaSelector
   id: HierophantActions

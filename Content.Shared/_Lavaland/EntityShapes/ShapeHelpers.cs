@@ -76,35 +76,30 @@ public static class ShapeHelpers
         if (range <= 0)
             yield break;
 
-        if (range == 1)
-        {
-            yield return center;
-            yield break;
-        }
+        var bottomLeft = center - new Vector2(range, range);
+        var topLeft = center - new Vector2(range, -range);
+        var topRight = center - new Vector2(-range, -range);
+        var bottomRight = center - new Vector2(-range, range);
 
-        var halfRange = range / 2f;
-        var bottomLeft = center - new Vector2(halfRange, halfRange);
-        var topLeft = center - new Vector2(halfRange, -halfRange);
-        var topRight = center - new Vector2(-halfRange, -halfRange);
-        var bottomRight = center - new Vector2(-halfRange, halfRange);
+        var side = range * 2;
 
         // Left side
-        for (var i = 0f; i < range; i += stepSize)
+        for (var i = 0f; i < side; i += stepSize)
         {
             yield return bottomLeft + Vector2.UnitY * i;
         }
         // Top side
-        for (var i = 0f; i < range; i += stepSize)
+        for (var i = 0f; i < side; i += stepSize)
         {
             yield return topLeft + Vector2.UnitX * i;
         }
         // Right side
-        for (var i = 0f; i < range; i += stepSize)
+        for (var i = 0f; i < side; i += stepSize)
         {
             yield return topRight + -Vector2.UnitY * i;
         }
         // Bottom side
-        for (var i = 0f; i < range; i += stepSize)
+        for (var i = 0f; i < side; i += stepSize)
         {
             yield return bottomRight + -Vector2.UnitX * i;
         }

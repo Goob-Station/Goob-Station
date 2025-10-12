@@ -15,17 +15,20 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 public abstract partial class MegafaunaTargetCondition
 {
     /// <summary>
-    /// If true, inverts the result of the condition.
+    /// Can be used to make some conditions have more influence than others.
     /// </summary>
     [DataField]
-    public bool Invert;
+    public float Weight = 1f;
 
-    public bool Evaluate(MegafaunaCalculationBaseArgs args, EntityUid target)
+    /// <summary>
+    /// How much weight this condition has when it had failed.
+    /// </summary>
+    [DataField]
+    public float FailWeight;
+
+    public float Evaluate(MegafaunaCalculationBaseArgs args, EntityUid target)
     {
-        var res = EvaluateImplementation(args, target);
-
-        // XOR eval to invert the result.
-        return res ^ Invert;
+        return EvaluateImplementation(args, target) ? Weight : FailWeight;
     }
 
     public abstract bool EvaluateImplementation(MegafaunaCalculationBaseArgs args, EntityUid target);

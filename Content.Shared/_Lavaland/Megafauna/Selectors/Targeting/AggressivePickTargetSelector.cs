@@ -20,7 +20,7 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public List<MegafaunaTargetCondition> TargetConditions = new();
 
     /// <summary>
-    /// If true, will clear all previous target values before assigning new ones.
+    /// If true, will also write down EntityCoordinates of the target to the component.
     /// </summary>
     /// <remarks>
     /// Only exists because for some reason ActionsSystem can get things wrong if
@@ -28,6 +28,13 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     /// </remarks>
     [DataField]
     public bool SetPosition = true;
+
+    /// <summary>
+    /// If true, instead of just picking a target with the biggest amount of points,
+    /// weighted random will be run between all targets to determine the result.
+    /// </summary>
+    [DataField]
+    public bool WeightedRandom;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {

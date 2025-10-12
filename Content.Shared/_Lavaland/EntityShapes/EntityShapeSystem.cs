@@ -23,10 +23,7 @@ public sealed class EntityShapeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
-        //SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
-
         SubscribeLocalEvent<AngerShapeSpawnerComponent, SpawnedByActionEvent>(OnActionSpawned);
-
         SubscribeLocalEvent<ExpandingShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnExpandingShapeTrigger);
 
         _counterQuery = GetEntityQuery<ShapeSpawnerCounterComponent>();
@@ -50,7 +47,6 @@ public sealed class EntityShapeSystem : EntitySystem
             }
 
             counterComp.NextSpawn = curTime + counterComp.SpawnPeriod;
-
             counterComp.Counter++;
 
             var ev = new SpawnCounterEntityShapeEvent(counterComp.Counter);
@@ -90,9 +86,6 @@ public sealed class EntityShapeSystem : EntitySystem
 
     private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
         => SpawnEntityShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
-
-    //private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
-        //=> ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod;
 
     private void OnActionSpawned(Entity<AngerShapeSpawnerComponent> ent, ref SpawnedByActionEvent args)
     {

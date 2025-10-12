@@ -2,6 +2,7 @@
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Selectors;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -10,6 +11,7 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 public sealed partial class MegafaunaSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -31,7 +33,8 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
+        // We are not ready to predict this thing...
+        if (_net.IsClient)
             return;
 
         var query = EntityQueryEnumerator<MegafaunaAiComponent>();

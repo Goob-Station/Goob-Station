@@ -113,7 +113,7 @@
     wallId: WallHierophantArenaTemporary
     wallShape: !type:NestedEntityShape
       id: BoxHollow
-      size: 23 # Equals to the size of the arena
+      size: 11 # Radius of the arena
   - type: MegafaunaAnchor
   - type: MegafaunaBlink
     spawnOnTarget: HierophantShapeBlink

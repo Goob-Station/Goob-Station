@@ -59,32 +59,28 @@ public sealed partial class MegafaunaSystem
             return false;
         }
 
-        var results = new Dictionary<EntityUid, int>();
+        // Check all conditions on all possible targets
+        var results = new Dictionary<EntityUid, float>();
         foreach (var target in aggressiveComp.Aggressors)
         {
-            var fails = 0;
+            var weight = 0f;
             foreach (var condition in conditions)
             {
-                if (!condition.Evaluate(args, target))
-                    fails++;
+                weight += condition.Evaluate(args, target);
             }
 
-            results.Add(target, fails);
+            results.Add(target, weight);
         }
 
-        // I bet that this code sucks. If someone actually knows how to code please fix.
-        var leastFails = int.MaxValue;
-        foreach (var (_, fails) in results)
-        {
-            if (leastFails > fails)
-                leastFails = fails;
-        }
-
+        var maxWeight = float.MinValue;
         EntityUid? picked = null;
         foreach (var (target, fails) in results)
         {
-            if (fails == leastFails)
+            if (maxWeight < fails)
+            {
+                maxWeight = fails;
                 picked = target;
+            }
         }
 
         if (picked == null)

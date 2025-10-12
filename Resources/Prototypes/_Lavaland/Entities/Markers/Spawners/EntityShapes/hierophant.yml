@@ -69,8 +69,8 @@
     state: red
   - type: ShapeSpawnerCounter
   - type: AngerShapeSpawner
-    counterRange: 4,11
-    periodRange: 0.1,0.4
+    counterRange: 3,8
+    periodRange: 0.2,0.7
     inversePeriod: true
   - type: ExpandingShapeSpawner
     counterSize: 1
