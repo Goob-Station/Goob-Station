@@ -91,6 +91,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Shared.GhostTypes;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -108,7 +109,6 @@ using Content.Shared.Eye;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
-using Content.Shared.GhostTypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;

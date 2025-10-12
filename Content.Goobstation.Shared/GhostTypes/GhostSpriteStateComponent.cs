@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.GhostTypes;
+namespace Content.Goobstation.Shared.GhostTypes;
 
 /// <summary>
 /// Changes the entity sprite according to damage taken

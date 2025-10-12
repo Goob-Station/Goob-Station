@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.GhostTypes;
+namespace Content.Goobstation.Shared.GhostTypes;
 
 /// <summary>
 /// Stores the damage an entity took before that body is destroyed in their mind component

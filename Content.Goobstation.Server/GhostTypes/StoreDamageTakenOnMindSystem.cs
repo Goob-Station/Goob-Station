@@ -1,12 +1,12 @@
 using Content.Server.Destructible;
 using Content.Shared.Damage;
-using Content.Shared.GhostTypes;
+using Content.Goobstation.Shared.GhostTypes;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Server.Containers;
 
-namespace Content.Server.GhostTypes;
+namespace Content.Goobstation.Server.GhostTypes;
 
 public sealed class StoreDamageTakenOnMindSystem : EntitySystem
 {
