@@ -28,7 +28,7 @@
   id: SecurityPracticeStatic
   recipes:
   - BoxShotgunPractice
-  # - MagazineBoxLightRiflePractice # Goobstation - remove light rifle
+  - MagazineBoxLightRiflePractice
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
@@ -47,12 +47,12 @@
   recipes:
   - BoxLethalshot
   - BoxShotgunSlug
-  # - MagazineBoxLightRifle # Goobstation - remove light rifle
+  - MagazineBoxLightRifle
   - MagazineBoxMagnum
   - MagazineBoxPistol
   - MagazineBoxRifle
-  # - MagazineLightRifle # Goobstation - remove light rifle
-  # - MagazineLightRifleEmpty # Goobstation - remove light rifle
+  - MagazineLightRifle
+  - MagazineLightRifleEmpty
   - MagazinePistol
   - MagazinePistolEmpty
   - MagazinePistolSubMachineGun
@@ -116,16 +116,16 @@
   - BoxShotgunIncendiary
   - BoxShotgunUranium
   - BoxShellTranquilizer
-  # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
-  # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxLightRifleUranium
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
   - MagazineBoxPistolIncendiary
   - MagazineBoxPistolUranium
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium
-  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
-  # - MagazineLightRifleUranium # Goobstation - remove light rifle
+  - MagazineLightRifleIncendiary
+  - MagazineLightRifleUranium
   - MagazinePistolIncendiary
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunIncendiary
