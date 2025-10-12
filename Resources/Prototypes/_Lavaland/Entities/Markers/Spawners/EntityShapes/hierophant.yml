@@ -89,12 +89,7 @@
   components:
   - type: Sprite
     state: red
-  - type: ShapeSpawnerCounter
-  - type: AngerShapeSpawner
-    counterRange: 2,4
-    periodRange: 0.7,1.2
-    inversePeriod: true
-  - type: ExpandingShapeSpawner
+  - type: ShapeSpawner
     spawn: LavalandHierophantSquare
     shape: !type:GroupEntityShape
       children:
@@ -105,3 +100,9 @@
       - id: QueenCross
         size: 11
         weight: 0.8
+  - type: ShapeSpawnerCounter
+  - type: AngerShapeSpawner
+    counterRange: 2,4
+    periodRange: 0.7,1.2
+    inversePeriod: true
+  - type: ExpandingShapeSpawner

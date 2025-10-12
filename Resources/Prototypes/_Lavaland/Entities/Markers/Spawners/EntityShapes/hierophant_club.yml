@@ -8,14 +8,15 @@
   components:
   - type: Sprite
     state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedEntityShape
+      id: BoxHollow
   - type: ShapeSpawnerCounter
     maxCounter: 5
     spawnPeriod: 1.2
   - type: ExpandingShapeSpawner
     counterSize: 1
-    spawn: LavalandHierophantSquare
-    shape: !type:NestedEntityShape
-      id: BoxHollow
 
 # Sequence crosses
 - type: entity
