@@ -6,6 +6,7 @@
   startingGear: PartyMakerGear
   icon: "JobIconPartyMaker"
   supervisors: job-supervisors-hop
+  goobcoins: 15 # cuz hes like a clown
   setPreference: false
   access:
   - Service

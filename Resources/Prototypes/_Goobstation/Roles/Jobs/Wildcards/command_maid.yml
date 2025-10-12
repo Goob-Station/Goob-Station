@@ -10,6 +10,7 @@
   startingGear: CommandMaidGear
   icon: "JobIconCommandMaid"
   supervisors: job-supervisors-command
+  goobcoins: 10
   setPreference: false
   access:
   - Service
