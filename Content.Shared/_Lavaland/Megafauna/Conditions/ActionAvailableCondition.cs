@@ -9,12 +9,6 @@ public sealed partial class ActionAvailableCondition : MegafaunaCondition
     [DataField(required: true)]
     public EntProtoId ActionId;
 
-    [DataField]
-    public string? EntityKey = "aggressor";
-
-    [DataField]
-    public string? CoordsKey = "aggressor";
-
     public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
@@ -24,7 +18,7 @@ public sealed partial class ActionAvailableCondition : MegafaunaCondition
         if (!actionSys.TryGetActionById(args.Entity, ActionId, out var action))
             return false;
 
-        var ev = megafaunaSys.GetPerformEvent(args.Entity, action.Value.Owner, EntityKey, CoordsKey);
+        var ev = megafaunaSys.GetPerformEvent(args.Entity, action.Value.Owner);
         return actionSys.CanPerformAction(args.Entity, action.Value, ev);
     }
 }

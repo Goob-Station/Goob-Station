@@ -7,8 +7,6 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public sealed partial class MegafaunaSystem
 {
-    private EntityQuery<MegafaunaAiTargetingComponent> _aiTargetQuery;
-
     private void InitializeHandle()
     {
         SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
@@ -16,10 +14,6 @@ public sealed partial class MegafaunaSystem
         SubscribeLocalEvent<MegafaunaAiComponent, AggressorAddedEvent>(OnAggressorAdded);
         SubscribeLocalEvent<MegafaunaAiComponent, AggressorRemovedEvent>(OnAggressorRemoved);
         SubscribeLocalEvent<MegafaunaAiComponent, MobStateChangedEvent>(OnStateChanged);
-
-        SubscribeLocalEvent<MegafaunaTargetedComponent, EntityTerminatingEvent>(OnTargetTerminating);
-
-        _aiTargetQuery = GetEntityQuery<MegafaunaAiTargetingComponent>();
     }
 
     private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
@@ -58,37 +52,5 @@ public sealed partial class MegafaunaSystem
             return;
 
         KillMegafauna(ent);
-    }
-
-    private void OnTargetTerminating(Entity<MegafaunaTargetedComponent> ent, ref EntityTerminatingEvent args)
-    {
-        if (!_aiTargetQuery.TryComp(ent.Comp.Targeted, out var aiComp))
-            return;
-
-        // Search in Entities
-        var toRemove = new List<string>();
-        foreach (var (key, entity) in aiComp.Entities)
-        {
-            if (entity == ent.Owner)
-                toRemove.Add(key);
-        }
-
-        foreach (var key in toRemove)
-        {
-            aiComp.Entities.Remove(key);
-        }
-
-        // Search in Coordinates
-        toRemove.Clear();
-        foreach (var (key, coords) in aiComp.Coordinates)
-        {
-            if (coords.EntityId == ent.Owner)
-                toRemove.Add(key);
-        }
-
-        foreach (var key in toRemove)
-        {
-            aiComp.Entities.Remove(key);
-        }
     }
 }

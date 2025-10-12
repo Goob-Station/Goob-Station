@@ -7,6 +7,8 @@ namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
 /// <summary>
 /// Uses AggressiveComponent to pick a new target to attack.
+/// Stores the result in a <see cref="MegafaunaAiTargetingComponent"/>
+/// as EntityUid and EntityCoordinates of the entity.
 /// </summary>
 public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
 {
@@ -18,32 +20,6 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public List<MegafaunaTargetCondition> TargetConditions = new();
 
     /// <summary>
-    /// Key to save the aggressor EntityUid to in the dictionary
-    /// inside <see cref="MegafaunaAiTargetingComponent"/>.
-    /// </summary>
-    /// <remarks>
-    /// For some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions.
-    /// So if your action is not EntityTarget and WorldTarget at the same time,
-    /// probably you want to set this or the other key to null.
-    /// </remarks>
-    [DataField]
-    public string? EntityKey = "aggressor";
-
-    /// <summary>
-    /// Key to save the resulting coordinates of an aggressor to in the dictionary
-    /// inside <see cref="MegafaunaAiTargetingComponent"/>.
-    /// </summary>
-    /// <remarks>
-    /// For some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions.
-    /// So if your action is not EntityTarget and WorldTarget at the same time,
-    /// probably you want to set this or the other key to null.
-    /// </remarks>
-    [DataField]
-    public string? CoordsKey = "aggressor";
-
-    /// <summary>
     /// If true, will clear all previous target values before assigning new ones.
     /// </summary>
     /// <remarks>
@@ -51,14 +27,14 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     /// you specify too much data for specifically WorldTarget/EntityTarget actions...
     /// </remarks>
     [DataField]
-    public bool ClearData = true;
+    public bool SetPosition = true;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var system = args.EntityManager.System<MegafaunaSystem>();
 
-        if (!system.TryPickTargetAggressive(args, TargetConditions, EntityKey, CoordsKey, ClearData))
-            return FailDelay;
+        if (!system.TryPickTargetAggressive(args, TargetConditions, SetPosition))
+            return FailDelay; // Debug asserts are handled inside the method
 
         return DelaySelector.Get(args);
     }

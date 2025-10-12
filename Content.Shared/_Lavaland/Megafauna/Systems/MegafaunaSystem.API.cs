@@ -1,10 +1,12 @@
 ﻿using System.Numerics;
+using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Actions;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -32,25 +34,13 @@ public sealed partial class MegafaunaSystem
     /// <summary>
     /// Helper method that constructs new <see cref="RequestPerformActionEvent"/> for megafauna AI to use an action.
     /// </summary>
-    public RequestPerformActionEvent GetPerformEvent(EntityUid boss, EntityUid action, string? entityKey, string? coordsKey)
+    public RequestPerformActionEvent GetPerformEvent(EntityUid boss, EntityUid action)
     {
         var targetingComp = CompOrNull<MegafaunaAiTargetingComponent>(boss);
+
         var netAction = GetNetEntity(action);
-
-        // I HATE DICTIONARIES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! and null logic.
-
-        EntityUid? targetEnt = null;
-        if (entityKey != null
-            && (targetingComp?.Entities.TryGetValue(entityKey, out var dictEnt)?? false))
-            targetEnt = dictEnt;
-
-        EntityCoordinates? targetCoords = null;
-        if (coordsKey != null
-            && (targetingComp?.Coordinates.TryGetValue(coordsKey, out var dictCoords) ?? false))
-            targetCoords = dictCoords;
-
-        var netTarget = GetNetEntity(targetEnt);
-        var netCoords = GetNetCoordinates(targetCoords);
+        var netTarget = GetNetEntity(targetingComp?.TargetEnt);
+        var netCoords = GetNetCoordinates(targetingComp?.TargetCoords);
 
         return new RequestPerformActionEvent(netAction, netTarget, netCoords);
     }
@@ -61,12 +51,13 @@ public sealed partial class MegafaunaSystem
     public bool TryPickTargetAggressive(
         MegafaunaCalculationBaseArgs args,
         List<MegafaunaTargetCondition> conditions,
-        string? entityKey,
-        string? coordsKey,
-        bool clearData = true)
+        bool setPosition = false)
     {
         if (!_aggressiveQuery.TryComp(args.Entity, out var aggressiveComp))
+        {
+            DebugTools.Assert($"Megafauna AI doesn't have {nameof(AggressiveComponent)}, but tried to pick a target using it's data!");
             return false;
+        }
 
         var results = new Dictionary<EntityUid, int>();
         foreach (var target in aggressiveComp.Aggressors)
@@ -97,98 +88,35 @@ public sealed partial class MegafaunaSystem
         }
 
         if (picked == null)
+        {
+            DebugTools.Assert($"Megafauna AI failed to pick a target from {nameof(AggressiveComponent)}, so it doesn't have any targets to pick from.");
             return false;
+        }
 
-        SetTargetingData(
-            args.Entity,
-            entityKey,
-            coordsKey,
-            picked,
-            Transform(picked.Value).Coordinates,
-            clearData);
+        var comp = EnsureComp<MegafaunaAiTargetingComponent>(args.Entity);
+        comp.TargetEnt = picked.Value;
+        comp.TargetCoords = null;
+
+        if (setPosition)
+            comp.TargetCoords = Transform(picked.Value).Coordinates;
+
         return true;
     }
 
-    public bool TryPickRandomPosition(
-        MegafaunaCalculationBaseArgs args,
-        string coordsKey,
-        float radius)
+    public void PickRandomPosition(MegafaunaCalculationBaseArgs args, float radius)
     {
         // TODO add an option to not pick any obstructed coordinates
 
         var uid = args.Entity;
         var mapId = Transform(uid).MapID;
 
-        var grid = _xform.GetGrid(uid);
-        if (grid == null)
-            return false;
-
         var randomVector = new Vector2(args.Random.NextFloat(-radius, radius), args.Random.NextFloat(-radius, radius));
         var position = _xform.GetWorldPosition(uid) + randomVector;
         var newMapCoords = new MapCoordinates(position, mapId);
-        var coords = _xform.ToCoordinates(grid.Value, newMapCoords);
+        var coords = _xform.ToCoordinates(newMapCoords);
 
-        return TrySetCoordinatesData(
-            args.Entity,
-            coordsKey,
-            coords);
-    }
-
-    private void SetTargetingData(
-        EntityUid bossEntity,
-        string? entityKey,
-        string? coordsKey,
-        EntityUid? uid = null,
-        EntityCoordinates? coords = null,
-        bool clearData = true)
-    {
-        var targetComp = EnsureComp<MegafaunaAiTargetingComponent>(bossEntity);
-
-        if (clearData)
-        {
-            if (entityKey != null && uid == null)
-                targetComp.Entities.Remove(entityKey);
-
-            if (coordsKey != null && coords == null)
-                targetComp.Coordinates.Remove(coordsKey);
-        }
-
-        if (entityKey != null && uid != null)
-            TrySetEntityData((bossEntity, targetComp), entityKey, uid.Value);
-
-        if (coordsKey != null && coords != null)
-            TrySetCoordinatesData((bossEntity, targetComp), coordsKey, coords.Value);
-    }
-
-    private bool TrySetEntityData(
-        Entity<MegafaunaAiTargetingComponent?> ent,
-        string entityKey,
-        EntityUid entity)
-    {
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return false;
-
-        if (!ent.Comp.Entities.TryAdd(entityKey, entity))
-            ent.Comp.Entities[entityKey] = entity;
-
-        var marker = EnsureComp<MegafaunaTargetedComponent>(entity);
-        marker.Targeted = ent.Owner;
-        return true;
-    }
-
-    private bool TrySetCoordinatesData(
-        Entity<MegafaunaAiTargetingComponent?> ent,
-        string coordsKey,
-        EntityCoordinates coords)
-    {
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return false;
-
-        if (!ent.Comp.Coordinates.TryAdd(coordsKey, coords))
-            ent.Comp.Coordinates[coordsKey] = coords;
-
-        var marker = EnsureComp<MegafaunaTargetedComponent>(coords.EntityId);
-        marker.Targeted = ent.Owner;
-        return true;
+        var comp = EnsureComp<MegafaunaAiTargetingComponent>(args.Entity);
+        comp.TargetEnt = null;
+        comp.TargetCoords = coords;
     }
 }

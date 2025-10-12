@@ -4,22 +4,17 @@ using Robust.Shared.Map;
 namespace Content.Shared._Lavaland.Megafauna.Components;
 
 /// <summary>
-/// Component that stores data for what Megafauna had targeted.
+/// Component that stores data for what Megafauna is currently targeting.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MegafaunaAiTargetingComponent : Component
 {
-    /// <remarks>
-    /// All of these entities has to exist, since they are automatically
-    /// updated whenever one of them gets deleted.
-    /// </remarks>
     [DataField, AutoNetworkedField]
-    public Dictionary<string, EntityUid> Entities = new();
+    public EntityUid? TargetEnt;
 
-    /// <remarks>
-    /// All of these coordinates has to be valid, since they are automatically
-    /// updated whenever one of them gets deleted.
-    /// </remarks>
+    /// <summary>
+    /// Used to reference a general position instead of some specific entity.
+    /// </summary>
     [DataField]
-    public Dictionary<string, EntityCoordinates> Coordinates = new();
+    public EntityCoordinates? TargetCoords;
 }

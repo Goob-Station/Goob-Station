@@ -20,6 +20,6 @@ public sealed partial class MegafaunaActiveBlinkComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityCoordinates Coordinates;
 
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField] // AutoNetworked intended here because it's spawning with a delay
     public SoundSpecifier? Sound;
 }

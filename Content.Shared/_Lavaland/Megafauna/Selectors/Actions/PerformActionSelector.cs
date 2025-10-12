@@ -2,6 +2,7 @@
 using Content.Shared._Lavaland.Megafauna.Systems;
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
@@ -14,12 +15,6 @@ public sealed partial class PerformActionSelector : MegafaunaSelector
     [DataField]
     public EntProtoId ActionId;
 
-    [DataField]
-    public string? EntityKey = "aggressor";
-
-    [DataField]
-    public string? CoordsKey = "aggressor";
-
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
@@ -28,15 +23,15 @@ public sealed partial class PerformActionSelector : MegafaunaSelector
 
         if (!actionSys.TryGetActionById(args.Entity, ActionId, out var action))
         {
-            args.Logger.Debug($"{entMan.ToPrettyString(args.Entity)}'s AI failed to get action with ID {ActionId}!");
+            DebugTools.Assert($"{entMan.ToPrettyString(args.Entity)}'s AI failed to get an action with ID {ActionId}!");
             return FailDelay;
         }
 
-        var ev = megafaunaSys.GetPerformEvent(args.Entity, action.Value.Owner, EntityKey, CoordsKey);
+        var ev = megafaunaSys.GetPerformEvent(args.Entity, action.Value.Owner);
 
         if (!actionSys.TryPerformAction(args.Entity, ev))
         {
-            args.Logger.Debug($"{entMan.ToPrettyString(args.Entity)}'s AI failed to perform action {entMan.ToPrettyString(action.Value.Owner)} with ID {ActionId}!");
+            DebugTools.Assert($"{entMan.ToPrettyString(args.Entity)}'s AI failed to perform action {entMan.ToPrettyString(action.Value.Owner)} with ID {ActionId}!");
             return FailDelay;
         }
 

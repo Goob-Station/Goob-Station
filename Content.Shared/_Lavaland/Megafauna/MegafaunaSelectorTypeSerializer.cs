@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 namespace Content.Shared._Lavaland.Megafauna;
 
 [TypeSerializer]
-public sealed class MegafaunaActionTypeSerializer :
+public sealed class MegafaunaSelectorTypeSerializer :
     ITypeReader<MegafaunaSelector, MappingDataNode>
 {
     public ValidationNode Validate(
