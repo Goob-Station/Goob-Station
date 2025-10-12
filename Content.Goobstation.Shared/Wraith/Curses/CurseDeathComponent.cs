@@ -1,6 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -13,7 +14,13 @@ public sealed partial class CurseDeathComponent : Component
     public EntProtoId SmokeProto = "AdminInstantEffectSmoke3";
 
     [DataField]
-    public DamageSpecifier Damage = new();
+    public int TicksElapsed;
+
+    [DataField]
+    public float RampMultiplier;
+
+    [DataField]
+    public DamageSpecifier BaseDamage = new();
 
     [DataField]
     public ProtoId<ReagentPrototype> Reagent = "Ammonia";
@@ -29,4 +36,16 @@ public sealed partial class CurseDeathComponent : Component
 
     [DataField]
     public ProtoId<CursePrototype> Curse = "CurseDeath";
+
+    [DataField]
+    public SoundSpecifier? CurseSound1 = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/Ambience/Void_Wail.ogg");
+
+    [DataField]
+    public bool MusicIsPlaying = false;
+
+    [DataField]
+    public bool EndIsNigh = false;
+
+    [DataField]
+    public SoundSpecifier? CurseSound2 = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithwhisper2.ogg");
 }

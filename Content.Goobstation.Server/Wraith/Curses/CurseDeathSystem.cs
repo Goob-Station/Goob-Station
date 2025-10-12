@@ -7,7 +7,9 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Wraith.Curses;
 
@@ -21,6 +23,8 @@ public sealed class CurseDeathSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -32,6 +36,14 @@ public sealed class CurseDeathSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<CurseDeathComponent> ent, ref MobStateChangedEvent args)
     {
+        if (args.NewMobState == MobState.Critical || !ent.Comp.EndIsNigh)
+        {
+            // Fuck parity. I'm adding this.
+            _popup.PopupPredicted(Loc.GetString("curse-death-end"), ent.Owner, ent.Owner, PopupType.LargeCaution); // I think pop-ups don't work on crit people but I'm keeping it, just in case it works in production!
+            _audio.PlayEntity(ent.Comp.CurseSound2, ent.Owner, ent.Owner);
+            ent.Comp.EndIsNigh = true;
+        }
+
         if (args.NewMobState != MobState.Dead)
             return;
 
@@ -56,8 +68,22 @@ public sealed class CurseDeathSystem : EntitySystem
     {
         if (args.Curse != ent.Comp.Curse)
             return;
-        
-        // always apply damage with curse of death
-        _damageableSystem.TryChangeDamage(ent.Owner, ent.Comp.Damage, targetPart: TargetBodyPart.All);
+
+        ent.Comp.TicksElapsed++;
+
+        // Calculate how much to scale the base damage
+        var scale = ent.Comp.TicksElapsed * ent.Comp.RampMultiplier;
+
+        // Create a scaled DamageSpecifier
+        var scaledDamage = ent.Comp.BaseDamage * scale;
+
+        if (!ent.Comp.MusicIsPlaying) // Shut up, don't @ me. You didn't leave me much choice.
+        {
+            _audio.PlayEntity(ent.Comp.CurseSound1, ent.Owner, ent.Owner);
+            ent.Comp.MusicIsPlaying = true;
+        }
+
+        // Apply the scaled damage instead of the fixed Damage field
+        _damageableSystem.TryChangeDamage(ent.Owner, scaledDamage, targetPart: TargetBodyPart.All);
     }
 }

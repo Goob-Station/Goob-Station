@@ -1,9 +1,11 @@
 using Content.Shared.Nutrition;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Wraith.Other;
 
 public sealed class UnableToEatSystem : EntitySystem
 {
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -14,7 +16,7 @@ public sealed class UnableToEatSystem : EntitySystem
 
     private void OnIngestionAttempt(Entity<UnableToEatComponent> ent, ref IngestionAttemptEvent args)
     {
-        // popup here
+        _popup.PopupEntity(Loc.GetString("curse-rot-cant-eat"), ent.Owner, ent.Owner);
         args.Cancel();
     }
 }

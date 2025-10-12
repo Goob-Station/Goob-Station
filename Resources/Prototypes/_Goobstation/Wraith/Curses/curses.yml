@@ -2,7 +2,7 @@
   id: CurseWeakness
   name: Curse of Enfeeblement
   statusIcon: CurseWeaknessIcon
-  update: 90 # how often this curse updates in seconds. 1.5 minutes
+  update: 30 # how often this curse updates in seconds.
   effects:
     0.5:
     - !type:PopupMessage
@@ -33,7 +33,7 @@
   id: CurseBlood
   name: Curse of Blood
   statusIcon: CurseBloodIcon
-  update: 150 #2.5 minutes
+  update: 25 #seconds
   effects:
     0.5:
     - !type:Emote
@@ -51,11 +51,11 @@
     - !type:CreateEntityReactionEffect
       entity: PuddleBlood
 
-- type: curse
+- type: curse # TO DO: Make them emote "blinks"
   id: CurseBlindness
   name: Curse of Blindness
   statusIcon: CurseBlindnessIcon
-  update: 130 #2.1 minutes
+  update: 90 #1.5 minutes
   effects:
     0.8:
     - !type:ChemHealEyeDamage
@@ -71,16 +71,16 @@
   components:
   - type: UnableToEat
   statusIcon: CurseRotIcon
-  update: 70 #1.1 minutes
+  update: 60 #1 minute
   effects:
     0.6:
     - !type:ChemVomit
       hungerAmount: -5
-    0.3:
+    0.5:
     - !type:Emote
       emote: Cough
       showInChat: true
-    0.4:
+    0.2:
     - !type:Emote
       emote: Gasp
       showInChat: true
@@ -88,30 +88,31 @@
 - type: curse
   id: CurseDeath
   name: Curse of Death
-  update: 20 #seconds
+  update: 10 #seconds
   components:
   - type: CurseDeath
-    damage:
+    baseDamage:
       groups:
         Brute: 5
+    rampMultiplier: 1.5 # The death curse deals more damage the longer it is on the curse holder.
   effects:
-    0.6:
+    0.5:
     - !type:Paralyze
       paralyzeTime: 2.5
     - !type:PopupMessage
       type: Local
       visualType: LargeCaution
       messages: [ "curse-death-1" ]
-    0.4:
+    0.3:
     - !type:Jitter
       time: 5
     - !type:TakeStaminaDamage
-      amount: 50
+      amount: 70
     - !type:PopupMessage
       type: Local
       visualType: LargeCaution
       messages: [ "curse-death-2" ]
-    0.2:
+    0.4:
     - !type:Emote
       emote: Screams
       showInChat: true
@@ -120,7 +121,10 @@
     - !type:HealthChange
       damage:
         groups:
-          Brute: 15
+          Brute: 10
+#    - !type:PlaySoundBehavior This causes the ProtoID to be invalid for some reason
+#     sound:
+#      collection: Flesh_Tear
     - !type:PopupMessage
       type: Pvs
       visualType: LargeCaution
