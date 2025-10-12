@@ -49,9 +49,7 @@ public sealed class PainAlertSystem : EntitySystem
     {
         // Update on both damage and healing
         if (args.DamageDelta != null)  // This will be non-null for both damage and healing
-        {
             UpdatePainAlert(uid, nerve);
-        }
     }
 
     private void OnExamine(EntityUid uid, NerveComponent nerve, ref DamageExamineEvent args)
