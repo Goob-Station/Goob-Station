@@ -203,7 +203,6 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            SuitSensorMode defaultSuitSensorMode, //MIT
             Dictionary<string, RoleLoadout> loadouts)
 
         {
@@ -222,7 +221,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            DefaultSuitSensorMode = SuitSensorMode.SensorCords; //MIT; TODO: Make this actually settable
+            DefaultSuitSensorMode = SuitSensorMode.SensorCords; // MIT, TODO: make this a parameter
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -255,7 +254,6 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                other.DefaultSuitSensorMode, //MIT
                 new Dictionary<string, RoleLoadout>(other.Loadouts))
         {
         }
