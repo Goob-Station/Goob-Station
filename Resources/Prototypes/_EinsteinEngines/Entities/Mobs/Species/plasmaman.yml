@@ -193,6 +193,7 @@
       243: 0.8
   - type: Fart
     gasToFart: Plasma
+  - type: FacehuggerImmune # Goobstation - Xenomorphs
 
 - type: entity
   parent: BaseSpeciesDummy
