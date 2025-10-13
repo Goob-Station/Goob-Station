@@ -83,7 +83,7 @@ public sealed class RushdownSystem : EntitySystem
     }
     private void OnRushdown(Entity<RushdownComponent> ent, ref RushdownEvent args)
     {
-        _popup.PopupPredicted(Loc.GetString("voidhound-pounce-broadcast", ("user", ent.Owner)), ent.Owner, ent.Owner);
+        _popup.PopupPredicted(Loc.GetString("wraith-voidhound-rushdown-leap"), ent.Owner, ent.Owner);
 
         ent.Comp.IsLeaping = true;
         Dirty(ent);

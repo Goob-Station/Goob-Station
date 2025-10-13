@@ -44,14 +44,14 @@ public sealed class RaiseSkeletonSystem : EntitySystem
         // otherwise, check if target is dead
         if (!_mobState.IsDead(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-alive"), ent.Owner, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("wraith-raise-no-corpse"), ent.Owner, ent.Owner);
             return;
         }
 
         // or rotting
         if (!_rotting.IsRotten(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("wraith-fail-target-not-rotting"), ent.Owner, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("wraith-raise-body-refuse"), ent.Owner, ent.Owner);
             return;
         }
 

@@ -25,6 +25,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
         SubscribeLocalEvent<SpikerShuffleEffectComponent, StatusEffectRemovedEvent>(OnRemoved);
     }
 
+    // TO DO: Prevent usage of other abilities while shuffled.
     private void OnSpikerShuffle(Entity<SpikerShuffleComponent> ent, ref SpikerShuffleEvent args)
     {
         // first remove all status effects
