@@ -14,13 +14,7 @@ public sealed class CurseHolderSystem : SharedCurseHolderSystem
 
     private void OnBibleSmite(Entity<CurseHolderComponent> ent, ref BibleSmiteUsed args)
     {
-        // reset everything
-        ent.Comp.ActiveCurses.Clear();
-        ent.Comp.CurseUpdate.Clear();
-        ent.Comp.CurseStatusIcons.Clear();
-        ent.Comp.Curser = null;
-
-        // popup here
-        Dirty(ent);
+        // TODO: popup here
+        RemCompDeferred<CurseHolderComponent>(ent.Owner);
     }
 }
