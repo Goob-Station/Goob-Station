@@ -63,4 +63,4 @@
     layers:
       - state: green
       - sprite: Mobs/Animals/goose.rsi
-        state: icon
+        state: goose
