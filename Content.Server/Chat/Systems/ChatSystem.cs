@@ -109,40 +109,44 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Chat;
-using Content.Goobstation.Common.Traits;
-using Content.Goobstation.Shared.Loudspeaker.Events;
-using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
+using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
+using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using System.Globalization;
+using System.Linq;
+using System.Text;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Server.Chat.Managers;
 using Content.Server.Effects;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Players.RateLimiting;
+using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Server.Speech; // Einstein Engines - Language
+using Content.Server.Players.RateLimiting;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
+using Content.Goobstation.Common.Chat;
+using Content.Goobstation.Common.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -154,10 +158,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
-using System.Globalization;
-using System.Linq;
-using System.Text;
 
 namespace Content.Server.Chat.Systems;
 
