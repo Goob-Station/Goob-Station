@@ -256,11 +256,13 @@
     minimumPlayers: 30
     weight: 1
     reoccurrenceDelay: 60
+    chaos:
+      Hostile: 400
+      Medical: 400
+      Death: 400
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore:
-      Hostile: 100
-      Death: 200
+    chaosScore: 300
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobHellGoose
