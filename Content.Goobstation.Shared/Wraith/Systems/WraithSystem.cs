@@ -1,7 +1,10 @@
+using Content.Goobstation.Shared.Wraith.Actions;
 using Content.Goobstation.Shared.Wraith.Banishment;
 using Content.Goobstation.Shared.Wraith.Collisions;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
@@ -12,6 +15,8 @@ public sealed class WraithSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto  = default!;
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly AbsorbCorpseSystem _corpse = default!;
 
     private EntityQuery<WraithPointsComponent> _wraithPointsQuery;
     private EntityQuery<PassiveWraithPointsComponent> _passiveWraithPointsQuery;
@@ -40,7 +45,20 @@ public sealed class WraithSystem : EntitySystem
 
         _wraithPoints.ResetEverything((ent.Owner, wp), passiveWp);
 
-        //TO DO: reset absorb corpse cd
+        // reset absorb corpse to original delay
+        if (!TryComp<ActionsComponent>(ent.Owner, out var actions))
+            return;
+
+        foreach (var action in actions.Actions)
+        {
+            if (!TryComp<ActionUseDelayOnUseComponent>(action, out var delay))
+                return;
+
+            _actions.SetUseDelay(action, delay.OriginalUseDelay);
+        }
+
+        // reset absorb corpse
+        _corpse.Reset(ent.Owner);
     }
 
     private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args) =>

@@ -19,9 +19,18 @@ public sealed class ActionUseDelayOnUseSystem : EntitySystem
 
         _actionQuery = GetEntityQuery<ActionComponent>();
 
+        SubscribeLocalEvent<ActionUseDelayOnUseComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ActionUseDelayOnUseComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
+    private void OnMapInit(Entity<ActionUseDelayOnUseComponent> ent, ref MapInitEvent args)
+    {
+        if (!_actionQuery.TryComp(ent, out var action)
+            || action.UseDelay == null)
+            return;
+
+        ent.Comp.OriginalUseDelay = action.UseDelay.Value;
+    }
     private void OnActionPerformed(Entity<ActionUseDelayOnUseComponent> ent, ref ActionPerformedEvent args)
     {
         if (!_actionQuery.TryComp(ent, out var action))

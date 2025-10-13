@@ -145,6 +145,7 @@
     volume: -15
     sound:
       path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+  - type: Plaguebinger
 
 - type: entity
   id: MobWraithHarbinger

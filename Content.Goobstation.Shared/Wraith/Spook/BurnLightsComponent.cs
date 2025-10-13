@@ -1,3 +1,4 @@
+using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Spook;
@@ -17,6 +18,15 @@ public sealed partial class BurnLightsComponent : Component
     [DataField]
     public int MaxBurnLights = 4;
 
+    /// <summary>
+    /// Range, inside which all entities going be set on fire.
+    /// </summary>
     [DataField]
-    public EntProtoId BombProto = "PipeBomb";
+    public float Range = 4f;
+
+    /// <summary>
+    /// Amount of fire stacks to apply
+    /// </summary>
+    [DataField]
+    public MinMax FireStack = new(2, 5);
 }

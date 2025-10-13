@@ -23,6 +23,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Xenoarchaeology.Artifact.XAE;
 
 namespace Content.Goobstation.Server.Wraith;
 
@@ -33,8 +36,7 @@ public sealed class SpookActionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
@@ -48,6 +50,7 @@ public sealed class SpookActionSystem : EntitySystem
     private EntityQuery<EntityStorageComponent> _entityStorageQuery;
     private EntityQuery<ApcComponent> _apcQuery;
     private EntityQuery<ActionComponent> _actionQuery;
+    private EntityQuery<FlammableComponent> _flammable;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -58,6 +61,7 @@ public sealed class SpookActionSystem : EntitySystem
         _entityStorageQuery = GetEntityQuery<EntityStorageComponent>();
         _apcQuery = GetEntityQuery<ApcComponent>();
         _actionQuery = GetEntityQuery<ActionComponent>();
+        _flammable = GetEntityQuery<FlammableComponent>();
 
         SubscribeLocalEvent<SpookMarkComponent, SpookEvent>(OnSpookEvent);
 
@@ -73,15 +77,11 @@ public sealed class SpookActionSystem : EntitySystem
 
     private void OnSpookEvent(Entity<SpookMarkComponent> ent, ref SpookEvent args)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
-
         if (ent.Comp.SpookEntity is {} spook)
             QueueDel(spook);
 
         var spookEnt = SpawnAtPosition(ent.Comp.Spook, args.Target);
         ent.Comp.SpookEntity = spookEnt;
-        _audio.PlayPredicted(comp.SpookSound, uid, uid);
         _popup.PopupEntity(Loc.GetString("spook-on-create"), ent.Owner, PopupType.Medium);
 
         args.Handled = true;
@@ -130,8 +130,15 @@ public sealed class SpookActionSystem : EntitySystem
 
             _poweredLight.TryDestroyBulb(entity, poweredLight);
 
-            var explosion = SpawnAtPosition(ent.Comp.BombProto, Transform(entity).Coordinates);
-            _explosion.TriggerExplosive(explosion);
+            var bulbLookup = _lookup.GetEntitiesInRange(entity, ent.Comp.Range);
+            foreach (var target in bulbLookup)
+            {
+                if (!_flammable.TryGetComponent(target, out var fl))
+                    continue;
+
+                fl.FireStacks += ent.Comp.FireStack.Next(_random);
+                _flammableSystem.Ignite(target, entity, fl);
+            }
 
             lightBrokenCounter++;
         }
