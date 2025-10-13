@@ -46,7 +46,7 @@ public sealed class WraithPointsSystem : EntitySystem
             if (_timing.CurTime < comp.WpGenerationAccumulator)
                 continue;
 
-            AdjustWraithPoints(comp.BaseWpGeneration, uid);
+            AdjustWraithPoints(comp.CurrentWpGeneration, uid);
             comp.WpGenerationAccumulator = _timing.CurTime + comp.NextWpUpdate;
 
             DirtyField<PassiveWraithPointsComponent>(
@@ -161,7 +161,10 @@ public sealed class WraithPointsSystem : EntitySystem
         {
             passiveWp.WpGeneration = 1;
             passiveWp.BaseWpGeneration = passiveWp.BaseWpResetter;
+            passiveWp.CurrentWpGeneration = passiveWp.BaseWpResetter;
         }
+
+        Dirty(ent);
     }
 
     public void SetWpRate(FixedPoint2 rate, Entity<PassiveWraithPointsComponent?> ent)
@@ -194,7 +197,7 @@ public sealed class WraithPointsSystem : EntitySystem
 
     private void AdjustWpGeneration(Entity<PassiveWraithPointsComponent> ent)
     {
-        ent.Comp.BaseWpGeneration *= ent.Comp.WpGeneration;
+        ent.Comp.CurrentWpGeneration = ent.Comp.WpGeneration * ent.Comp.BaseWpGeneration;
         Dirty(ent);
     }
 }

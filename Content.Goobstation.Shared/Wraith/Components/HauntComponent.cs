@@ -11,11 +11,11 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 [AutoGenerateComponentState]
 public sealed partial class HauntComponent : Component
 {
-    /// <summary>
-    /// How much Wp you gain from using the action per witness.
-    /// </summary>
     [DataField]
-    public FixedPoint2 HauntStolenWpPerWitness = 2.5;
+    public EntProtoId ActionId = "ActionHaunt";
+
+    [DataField]
+    public EntityUid? ActionEnt;
 
     /// <summary>
     /// How much the Wp regeneration gets boosted per witness.
@@ -31,12 +31,6 @@ public sealed partial class HauntComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan NextHauntWpRegenUpdate = TimeSpan.Zero;
-
-    /// <summary>
-    /// Sounds to be played whwn someone gets haunted.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? HauntSound = new SoundCollectionSpecifier("RevenantHaunt");
 
     /// <summary>
     /// How much the Wp regeneration gets boosted per witness.
@@ -66,5 +60,23 @@ public sealed partial class HauntComponent : Component
     public bool Active;
 
     [ViewVariables, AutoNetworkedField]
-    public FixedPoint2 PreviousWpRate;
+    public bool WpBoostActive;
+
+    [DataField]
+    public TimeSpan HauntDuration = TimeSpan.FromSeconds(30);
+
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan NextHauntUpdate;
+
+    [DataField]
+    public TimeSpan WitnessUpdate = TimeSpan.FromSeconds(0.75f);
+
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan WitnessNextUpdate;
+
+    [ViewVariables]
+    public HashSet<EntityUid> Witnesses = new();
+
+    [ViewVariables]
+    public FixedPoint2 OriginalWpRegen;
 }

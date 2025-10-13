@@ -61,7 +61,6 @@
     - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
-    - ActionHaunt
     - ActionWhisper
     - ActionBloodWriting
     - ActionAbsorbCorpse

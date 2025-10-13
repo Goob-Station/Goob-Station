@@ -23,6 +23,9 @@ public sealed partial class PassiveWraithPointsComponent : Component
     [DataField, AutoNetworkedField]
     public FixedPoint2 BaseWpGeneration = 5;
 
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 CurrentWpGeneration = 5;
+
     /// <summary>
     /// The accumulator for passive WP generation
     /// </summary>
