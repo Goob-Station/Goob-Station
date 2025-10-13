@@ -119,6 +119,9 @@ ghost-role-information-rules-default-xeno = You are a [color={role-type-team-ant
                                             Your objective is to protect your Queen and expand your Hive.
                                             Achieve this by bringing your Queen crewmembers to infest.
 
+# Hell Goose
+
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!

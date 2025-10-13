@@ -35,22 +35,3 @@
     max: 1
     table:
       id: MobFloorGoblin
-
-- type: entity
-  parent: BaseGameRule
-  id: HellGooseSpawn
-  components:
-  - type: StationEvent
-    earliestStart: 30
-    minimumPlayers: 30
-    weight: 1
-    reoccurrenceDelay: 60
-    eventType: HostilesSpawn
-  - type: GameRule
-    chaosScore:
-      Hostile: 100
-      Death: 200
-  - type: VentCrittersRule
-    max: 1
-    table:
-      id: MobHellGoose

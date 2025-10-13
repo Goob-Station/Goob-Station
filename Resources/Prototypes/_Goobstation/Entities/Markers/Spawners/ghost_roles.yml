@@ -39,3 +39,28 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: synd_sec
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostHellGoose
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hell-goose-name
+    description: ghost-role-information-hell-goose-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+  - type: GhostRoleMobSpawner
+    prototype: MobHellGoose
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/goose.rsi
+        state: icon
