@@ -180,7 +180,8 @@
         Blunt: -15
         Piercing: -15
         Slash: -15
-  - type: DamagedSiliconAccent
+  #   Goobstation - Energycrit: Remove low power accent
+  # - type: DamagedSiliconAccent
   - type: Uncloneable
   - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when
     sprintSpeedMultiplier: 1.2
