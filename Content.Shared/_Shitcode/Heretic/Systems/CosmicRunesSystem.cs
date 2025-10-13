@@ -154,7 +154,7 @@ public sealed class CosmicRunesSystem : EntitySystem
         }
 
         if (!isUserCosmosHeretic)
-            _starMark.TryApplyStarMark(user, null, true);
+            _starMark.TryApplyStarMark(user, null);
 
         if (pulling != null)
             _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage);

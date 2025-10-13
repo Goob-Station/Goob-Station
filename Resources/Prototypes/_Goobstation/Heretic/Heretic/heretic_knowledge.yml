@@ -215,14 +215,6 @@
   stage: 2
 
 - type: hereticKnowledge
-  id: ImperfectRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 3
-  ritualPrototypes:
-  - ImperfectRitual
-
-- type: hereticKnowledge
   id: MarkOfFlesh
   path: Flesh
   stage: 4
@@ -235,25 +227,9 @@
   - ActionHereticFleshSurgery
 
 - type: hereticKnowledge
-  id: RawRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 6
-  ritualPrototypes:
-  - RawRitual
-
-- type: hereticKnowledge
   id: BleedingSteel
   path: Flesh
   stage: 7
-
-- type: hereticKnowledge
-  id: LonelyRitual
-  path: Flesh
-  sideKnowledge: true
-  stage: 8
-  ritualPrototypes:
-  - LonelyRitual
 
 - type: hereticKnowledge
   id: AscensionFlesh
@@ -520,6 +496,13 @@
   ritualPrototypes:
   - ScorchingShark
 
+- type: hereticKnowledge
+  id: ImperfectRitual
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ImperfectRitual
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual
@@ -535,6 +518,13 @@
   ritualPrototypes:
   - CarvingKnife
 
+- type: hereticKnowledge
+  id: RawRitual
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RawRitual
+
 ## stage 8
 - type: hereticKnowledge
   id: Cleave
@@ -549,3 +539,10 @@
   stage: 8
   actionPrototypes:
   - ActionHereticRustCharge
+
+- type: hereticKnowledge
+  id: LonelyRitual
+  path: Flesh
+  stage: 8
+  ritualPrototypes:
+  - LonelyRitual

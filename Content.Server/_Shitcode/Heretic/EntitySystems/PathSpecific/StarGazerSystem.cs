@@ -383,7 +383,7 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                     continue;
                 }
 
-                _mark.TryApplyStarMark((noob, mobState), uid, true);
+                _mark.TryApplyStarMark((noob, mobState), uid);
                 _dmg.TryChangeDamage(noob,
                     starGaze.Damage,
                     origin: uid,

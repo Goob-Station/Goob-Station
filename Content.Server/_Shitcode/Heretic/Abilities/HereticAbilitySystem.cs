@@ -36,6 +36,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
@@ -43,6 +44,7 @@ using Robust.Shared.Random;
 using Content.Shared.Body.Systems;
 using Content.Server.Medical;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Content.Shared.Stunnable;
 using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
@@ -76,6 +78,7 @@ using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -122,6 +125,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+
+    private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
@@ -210,13 +217,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         bool InfuseOurBlades()
         {
+            if (!ent.Comp.LimitedTransmutations.TryGetValue(BladeBladeRitual, out var blades))
+                return false;
+
             var xformQuery = GetEntityQuery<TransformComponent>();
             var containerEnt = ent.Owner;
             if (_container.TryGetOuterContainer(ent, xformQuery.Comp(ent), out var container, xformQuery))
                 containerEnt = container.Owner;
 
             var success = false;
-            foreach (var blade in ent.Comp.OurBlades)
+            foreach (var blade in blades)
             {
                 if (!EntityManager.EntityExists(blade))
                     continue;

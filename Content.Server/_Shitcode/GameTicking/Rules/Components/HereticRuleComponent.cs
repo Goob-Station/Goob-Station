@@ -31,7 +31,7 @@ public sealed partial class HereticRuleComponent : Component
     {
         "HereticPathAsh",
         //"HereticPathLock",
-        "HereticPathFlesh",
+        //"HereticPathFlesh", Disable flesh path pending rework
         "HereticPathBlade",
         "HereticPathVoid",
         "HereticPathRust",

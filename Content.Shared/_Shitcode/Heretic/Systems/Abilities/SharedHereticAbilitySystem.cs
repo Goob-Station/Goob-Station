@@ -190,10 +190,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return projectile;
     }
 
-    protected void IHateWoundMed(Entity<DamageableComponent?, WoundableComponent?, ConsciousnessComponent?> uid,
+    public void IHateWoundMed(Entity<DamageableComponent?, WoundableComponent?, ConsciousnessComponent?> uid,
         DamageSpecifier toHeal,
         FixedPoint2 boneHeal,
-        FixedPoint2 otherHealIdk)
+        FixedPoint2 painHeal)
     {
         if (!Resolve(uid, ref uid.Comp1, false))
             return;
@@ -208,24 +208,39 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         _wound.TryHealWoundsOnOwner(uid, toHeal, true);
 
-        if (Resolve(uid, ref uid.Comp3, false))
+        if (painHeal != FixedPoint2.Zero && Resolve(uid, ref uid.Comp3, false))
         {
-            foreach (var painModifier in uid.Comp3.NerveSystem.Comp.Modifiers)
+            if (uid.Comp3.NerveSystem != default)
             {
-                // This reduces pain maybe, who the hell knows
-                _pain.TryChangePainModifier(uid.Comp3.NerveSystem.Owner,
-                    painModifier.Key.Item1,
-                    painModifier.Key.Item2,
-                    otherHealIdk,
-                    uid.Comp3.NerveSystem.Comp);
-            }
+                foreach (var painModifier in uid.Comp3.NerveSystem.Comp.Modifiers)
+                {
+                    // This reduces pain maybe, who the hell knows
+                    _pain.TryChangePainModifier(uid.Comp3.NerveSystem.Owner,
+                        painModifier.Key.Item1,
+                        painModifier.Key.Item2,
+                        painHeal,
+                        uid.Comp3.NerveSystem.Comp);
+                }
 
-            foreach (var painMultiplier in uid.Comp3.NerveSystem.Comp.Multipliers)
-            {
-                // Uhh... just fucking remove it, who cares
-                _pain.TryRemovePainMultiplier(uid.Comp3.NerveSystem.Owner,
-                    painMultiplier.Key,
-                    uid.Comp3.NerveSystem.Comp);
+                foreach (var painMultiplier in uid.Comp3.NerveSystem.Comp.Multipliers)
+                {
+                    // Uhh... just fucking remove it, who cares
+                    _pain.TryRemovePainMultiplier(uid.Comp3.NerveSystem.Owner,
+                        painMultiplier.Key,
+                        uid.Comp3.NerveSystem.Comp);
+                }
+
+                foreach (var nerve in uid.Comp3.NerveSystem.Comp.Nerves)
+                {
+                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    {
+                        // Idk what it does, just remove it
+                        _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
+                            painFeelsModifier.Key.Item2,
+                            nerve.Key,
+                            nerve.Value);
+                    }
+                }
             }
 
             foreach (var multiplier in
@@ -244,19 +259,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 // Read this method name
                 _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, uid.Comp3);
             }
-
-            foreach (var nerve in uid.Comp3.NerveSystem.Comp.Nerves)
-            foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-            {
-                // Idk what it does, just remove it
-                _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
-                    painFeelsModifier.Key.Item2,
-                    nerve.Key,
-                    nerve.Value);
-            }
         }
 
-        if (!Resolve(uid, ref uid.Comp2, false))
+        if (boneHeal == FixedPoint2.Zero || !Resolve(uid, ref uid.Comp2, false))
             return;
 
         foreach (var woundableChild in _wound.GetAllWoundableChildren(uid, uid.Comp2))

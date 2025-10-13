@@ -79,14 +79,12 @@
   cost:
     KnowledgePoint: 1
   categories:
-  - HereticPathFlesh
+  - HereticPathSide
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
     stage: 2
-    whitelist:
-    - Flesh
 
 - type: listing
   id: HereticFleshPath4
@@ -134,14 +132,12 @@
   cost:
     KnowledgePoint: 1
   categories:
-  - HereticPathFlesh
+  - HereticPathSide
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
     stage: 5
-    whitelist:
-    - Flesh
 
 - type: listing
   id: HereticFleshPath7
@@ -171,14 +167,12 @@
   cost:
     KnowledgePoint: 1
   categories:
-  - HereticPathFlesh
+  - HereticPathSide
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
     stage: 7
-    whitelist:
-    - Flesh
 
 - type: listing
   id: HereticFleshPath9
