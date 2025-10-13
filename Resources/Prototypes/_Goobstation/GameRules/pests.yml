@@ -47,7 +47,9 @@
     reoccurrenceDelay: 60
     eventType: Neutral
   - type: GameRule
-    chaosScore: 0
+    chaosScore:
+      Hostile: 100
+      Death: 200
   - type: VentCrittersRule
     max: 1
     table:
