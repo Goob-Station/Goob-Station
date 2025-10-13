@@ -37,7 +37,7 @@ public abstract class SharedBatteryDrinkerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Find an battery that can be charged without using BatterySystem
+    ///     Find a battery that can be charged without using BatterySystem
     /// </summary>
     public bool SearchForDrinker(EntityUid ent, [NotNullWhen(true)] out EntityUid? drinker)
     {
@@ -62,7 +62,7 @@ public abstract class SharedBatteryDrinkerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Find a battery that can be drank from without ChargerSystem
+    ///     Find a battery cell slot that we can be drink from without ChargerSystem
     /// </summary>
     private bool SearchForCellSlot(EntityUid ent, [NotNullWhen(true)] out ItemSlot? slot)
     {

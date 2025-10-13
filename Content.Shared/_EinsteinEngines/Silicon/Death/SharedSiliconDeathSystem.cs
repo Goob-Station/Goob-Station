@@ -1,6 +1,7 @@
 using Content.Shared._EinsteinEngines.Power.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 
 namespace Content.Shared._EinsteinEngines.Silicon.Death;
@@ -25,6 +26,9 @@ public abstract class SharedSiliconDeathSystem : EntitySystem
 
         // Disable interactions on items without a Drink verb
         SubscribeLocalEvent<SiliconDownOnDeadComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+
+        // Prevent dropping items on the ground trying to unequip them
+        SubscribeLocalEvent<SiliconDownOnDeadComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
     }
 
     private void OnPickupAttempt(Entity<SiliconDownOnDeadComponent> ent, ref PickupAttemptEvent args)
@@ -46,5 +50,11 @@ public abstract class SharedSiliconDeathSystem : EntitySystem
         // silicons not having ComplexInteractionComponent
         if (ent.Comp.Dead)
             args.Cancelled = !args.Target.HasValue || !_drinker.SearchForSource(args.Target.Value, out _);
+    }
+
+    private void OnUnequipAttempt(Entity<SiliconDownOnDeadComponent> ent, ref IsUnequippingAttemptEvent args)
+    {
+        if (ent.Comp.Dead)
+            args.Cancel();
     }
 }
