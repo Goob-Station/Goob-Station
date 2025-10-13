@@ -16317,3 +16317,11 @@ Entries:
       message: ReEnabled sprites for each character in the end round window.
   id: 1824
   time: '2025-10-13T10:02:37.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        The red pain overlay will now properly update based upon current pain
+        levels.
+  id: 1825
+  time: '2025-10-13T17:27:30.0000000+00:00'
