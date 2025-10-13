@@ -84,7 +84,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
             //roll microwave exploding -Space
             if (!micro.CanMicrowaveIdsSafely)
             {
-                float explodeCheck = _random.NextFloat();
+                var explodeCheck = _random.NextFloat();
 
                 if (explodeCheck <= micro.ExplosionChance)
                 {
@@ -113,6 +113,12 @@ public sealed class IdCardSystem : SharedIdCardSystem
                 return;
             }
 
+            //Explode if the microwave can't handle it
+            if (!micro.CanMicrowaveIdsSafely)
+            {
+                _microwave.Explode((args.Microwave, micro));
+                return;
+            }
 
             // If they're unlucky, brick their ID
             if (randomPick <= 0.4f)
@@ -159,7 +165,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
             _chat.TrySendInGameICMessage(
                 ent,
                 Loc.GetString(ent.Comp.ExpireMessage),
-                Shared.Chat.InGameICChatType.Speak,
+                InGameICChatType.Speak,
                 ChatTransmitRange.Normal,
                 true);
         }

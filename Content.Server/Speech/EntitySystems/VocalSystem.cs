@@ -15,6 +15,7 @@
 using Content.Goobstation.Common.Speech;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Speech;

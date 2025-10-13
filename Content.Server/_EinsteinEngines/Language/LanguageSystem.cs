@@ -72,23 +72,6 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     #region public api
 
-    //public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
-    //public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
-
-    /// <summary>
-    ///     Returns the current language of the given entity, assumes Universal if it's not a language speaker.
-    /// </summary>
-    public LanguagePrototype GetLanguage(Entity<LanguageSpeakerComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || string.IsNullOrEmpty(ent.Comp.CurrentLanguage)
-            || !_prototype.TryIndex<LanguagePrototype>(ent.Comp.CurrentLanguage, out var proto)
-        )
-            return Universal;
-
-        return proto;
-    }
-
     /// <summary>
     ///     Returns the list of languages this entity can speak.
     /// </summary>

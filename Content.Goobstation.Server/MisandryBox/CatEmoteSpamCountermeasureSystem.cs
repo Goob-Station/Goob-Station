@@ -6,6 +6,7 @@
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Random;

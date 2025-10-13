@@ -96,6 +96,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Prototypes;
+using Content.Shared.Chat;
 using Content.Shared.Chat; // Einstein Engines - Language
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects;
