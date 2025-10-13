@@ -20,7 +20,7 @@ public sealed partial class CreateSpookSmokeComponent : Component
     ///  Duration of the smoke in seconds
     /// </summary>
     [DataField]
-    public float Duration = 15f;
+    public float Duration = 4f;
 
     /// <summary>
     /// Spread amount of the smoke

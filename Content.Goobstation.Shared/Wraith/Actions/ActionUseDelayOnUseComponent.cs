@@ -10,4 +10,10 @@ public sealed partial class ActionUseDelayOnUseComponent : Component
     /// </summary>
     [DataField(required: true)]
     public TimeSpan UseDelayAccumulator;
+
+    /// <summary>
+    /// The original use delay
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan OriginalUseDelay;
 }
