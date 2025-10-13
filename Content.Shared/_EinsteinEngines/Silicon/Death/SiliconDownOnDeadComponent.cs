@@ -24,6 +24,7 @@ public sealed partial class SiliconDownOnDeadComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public bool Dead;
 
+    // Goobstation - Energycrit
     /// <summary>
     ///     Should we restore the ComplexInteractionComponent when we become powered again.
     /// </summary>
