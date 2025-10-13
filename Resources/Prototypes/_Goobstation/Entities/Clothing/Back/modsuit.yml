@@ -53,7 +53,7 @@
       cell_slot: !type:ContainerSlot
         showEnts: False
         occludes: True
-        ent: null # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+        ent: null
   - type: UserInterface
     interfaces:
       enum.ModSuitUiKey.Key:
@@ -66,9 +66,9 @@
     quickEquip: false
     slots:
     - back
-  # - type: Construction
-  #   graph: ADTModsuitStandard
-  #   node: adtmodsuitstandard
+  - type: Construction
+    graph: Modsuit
+    node: standard
   - type: ItemSlots
     slots:
       cell_slot:
