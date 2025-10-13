@@ -55,7 +55,7 @@ public sealed partial class ModSuitComponent : Component
     #region Actions
 
     /// <summary>
-    ///     Action used to toggle the clothing on or off.
+    /// Action used to toggle the clothing on or off.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntProtoId Action = "ActionToggleModPart";
@@ -73,13 +73,13 @@ public sealed partial class ModSuitComponent : Component
 
     #region Stats
     /// <summary>
-    ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
+    /// Maximum modules complexity
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxComplexity = 15;
 
     /// <summary>
-    ///     non-modifyed energy using. 1 toggled part - 1 energy per PowerCellDraw use
+    /// Non-modified energy using. 1 toggled part - 1 energy per PowerCellDraw use
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ModEnergyBaseUsing = 0.5f;
