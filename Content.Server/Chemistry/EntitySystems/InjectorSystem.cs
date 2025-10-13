@@ -40,6 +40,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
+using Robust.Shared.Timing; // Goobstation
+using System.Linq; // Goobstation
+using Content.Shared.Chemistry.Reagent; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -48,6 +51,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -437,6 +441,14 @@ public sealed class InjectorSystem : SharedInjectorSystem
                 ref target.Comp.BloodSolution))
         {
             var bloodTemp = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, drawAmount);
+            // Goobstation start
+            // On blood draw, freshness will almost always be at it's best
+            foreach (var dna in bloodTemp
+                .SelectMany(r => r.Reagent.EnsureReagentData().OfType<DnaData>()))
+            {
+                dna.Freshness = _timing.CurTime;
+            }
+            // Goobstation end
             SolutionContainers.TryAddSolution(injectorSolution, bloodTemp);
         }
 

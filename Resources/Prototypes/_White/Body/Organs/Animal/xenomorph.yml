@@ -106,10 +106,10 @@
           Heat: 20 # Goobstation
   # <Goobstation>
   - type: AcidGland
-  - type: OrganActions
-    actions:
-    - ActionAcid
-  # </Goobstation>
+  # - type: OrganActions
+  #   actions:
+  #   - ActionAcid
+  # </Goobstation> commented until acid if fixed
 
 - type: entity
   parent: BaseXenomorphOrgan

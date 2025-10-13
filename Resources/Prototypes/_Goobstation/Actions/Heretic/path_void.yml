@@ -35,15 +35,18 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    predicted: false
     checkCanInteract: false
-    useDelay: 15
+    useDelay: 25
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
   - type: TargetAction
     checkCanAccess: false
-    range: 0
+    range: 9
   - type: WorldTargetAction
     event: !type:HereticVoidBlinkEvent
   - type: HereticAction
@@ -54,16 +57,19 @@
   parent: BaseAction
   id: ActionHereticVoidPull
   name: Void Pull
-  description: Pull and damage nearby heathens.
+  description: Calls the void, damaging, knocking down, and stunning people nearby. Distant foes are also pulled closer to you (but not damaged).
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 30
     itemIconStyle: NoItem
+    predicted: false
     checkCanInteract: false
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
   - type: InstantAction
     event: !type:HereticVoidPullEvent
   - type: HereticAction

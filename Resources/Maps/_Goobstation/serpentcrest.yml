@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/15/2025 17:25:22
-  entityCount: 28305
+  time: 09/15/2025 21:33:38
+  entityCount: 28316
 maps:
 - 1
 grids:
@@ -150358,6 +150358,70 @@ entities:
     components:
     - type: Transform
       pos: 30.5,46.5
+      parent: 2
+  - uid: 28304
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-7.5
+      parent: 2
+  - uid: 28305
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-21.5
+      parent: 2
+  - uid: 28308
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-54.5
+      parent: 2
+  - uid: 28309
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,-53.5
+      parent: 2
+  - uid: 28310
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,-45.5
+      parent: 2
+  - uid: 28311
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-35.5
+      parent: 2
+  - uid: 28312
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 45.5,-3.5
+      parent: 2
+  - uid: 28313
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-1.5
+      parent: 2
+  - uid: 28314
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -53.5,1.5
+      parent: 2
+  - uid: 28315
+    components:
+    - type: Transform
+      pos: -72.5,-6.5
+      parent: 2
+  - uid: 28316
+    components:
+    - type: Transform
+      pos: -42.5,-23.5
       parent: 2
 - proto: StationMapBroken
   entities:
