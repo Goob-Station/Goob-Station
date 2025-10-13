@@ -16290,3 +16290,30 @@ Entries:
       message: Wizards now can speak and understand all languages.
   id: 1820
   time: '2025-10-12T09:59:47.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shallow clone bug for fluid solutions and made puddle freshness be
+        set on blood spill instead of every time new blood is created in the
+        bloodstream.
+  id: 1821
+  time: '2025-10-13T09:51:08.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed bats not storing in backpack properly
+  id: 1822
+  time: '2025-10-13T10:00:51.0000000+00:00'
+- author: JohnJohn, Nerdyyyy__
+  changes:
+    - type: Add
+      message: Added fell for it again award as contra in the clothes vending machine
+  id: 1823
+  time: '2025-10-13T10:01:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: ReEnabled sprites for each character in the end round window.
+  id: 1824
+  time: '2025-10-13T10:02:37.0000000+00:00'
