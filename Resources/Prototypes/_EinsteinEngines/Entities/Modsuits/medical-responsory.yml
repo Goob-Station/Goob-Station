@@ -19,12 +19,18 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/medical-responsory.rsi
-    - type: ToggleableClothing
+    - type: ModSuit # Goobstation
       clothingPrototypes:
         head: ClothingModsuitHelmetResponsoryMedical
         gloves: ClothingModsuitGauntletsResponsoryMedical
         outerClothing: ClothingModsuitChestplateResponsoryMedical
         shoes: ClothingModsuitBootsResponsoryMedical
+    # Goobstation start
+      startingModules:
+        - ModsuitModStorage
+        - ModsuitModLight
+        - ModsuitModEmpProtection
+    # Goobstation end
     - type: ItemSlots
       slots:
         cell_slot:
@@ -33,14 +39,14 @@
           whitelist:
             components:
               - PowerCell
-    - type: Storage
-      grid:
-        - 0,0,10,3
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        back:
-        - state: equipped-BACKPACK-sealed
+    # - type: Storage # Goob commented
+    #   grid:
+    #     - 0,0,10,3
+    # - type: SealableClothingVisuals
+    #   spriteLayer: sealed
+    #   clothingVisuals:
+    #     back:
+    #     - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard

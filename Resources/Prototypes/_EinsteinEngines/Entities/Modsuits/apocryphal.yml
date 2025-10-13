@@ -19,12 +19,18 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: ToggleableClothing
+    - type: ModSuit # Goobstation
       clothingPrototypes:
         head: ClothingModsuitHelmetApocryphal
         gloves: ClothingModsuitGauntletsApocryphal
         outerClothing: ClothingModsuitChestplateApocryphal
         shoes: ClothingModsuitBootsApocryphal
+    # Goobstation start
+      startingModules:
+        - ModsuitModStorage
+        - ModsuitModLight
+        - ModsuitModEmpProtection
+    # Goobstation end
     - type: ItemSlots
       slots:
         cell_slot:
@@ -33,16 +39,16 @@
           whitelist:
             components:
               - PowerCell
-    - type: Storage
-      grid:
-        - 0,0,7,6
+    # - type: Storage # Goob commented
+    #   grid:
+    #     - 0,0,7,6
     - type: ExplosionResistance
       damageCoefficient: 0.1
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        back:
-        - state: equipped-BACKPACK-sealed
+    # - type: SealableClothingVisuals # Goob commented
+    #   spriteLayer: sealed
+    #   clothingVisuals:
+    #     back:
+    #     - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
