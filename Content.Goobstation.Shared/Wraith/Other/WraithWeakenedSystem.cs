@@ -5,7 +5,7 @@ using Content.Shared.StatusEffectNew;
 namespace Content.Goobstation.Shared.Wraith.Other;
 
 /// <summary>
-/// Disables actions for wraith
+/// Disables actions for the entity
 /// </summary>
 public sealed class WraithWeakenedSystem : EntitySystem
 {

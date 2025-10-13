@@ -14,6 +14,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -33,6 +34,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
             _statusOld.TryRemoveStatusEffect(ent.Owner, statusEffect);
 
         _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusEffect, out _, ent.Comp.Duration);
+        _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusAbilityDisable, out _, ent.Comp.Duration); // disable using actions
 
         args.Handled = true;
     }
@@ -40,6 +42,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
     private void OnApplied(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
         _popup.PopupClient("You are shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
+        _appearance.SetData(args.Target, ShuffleVisuals.Shuffling, true);
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)
         {
@@ -53,6 +56,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
     private void OnRemoved(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
         _popup.PopupClient("You are not shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
+        _appearance.SetData(args.Target, ShuffleVisuals.Shuffling, false);
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)
         {

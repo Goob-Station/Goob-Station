@@ -54,7 +54,7 @@ public sealed class TentacleHookedSystem : EntitySystem
 
         if ((throwToPos - targetPos).Length() <= target.Comp.MaxDistance)
         {
-            QueueDel(target.Comp.Projectile);
+            PredictedQueueDel(target.Comp.Projectile);
             RemCompDeferred<TentacleHookedComponent>(target.Owner);
             return false;
         }

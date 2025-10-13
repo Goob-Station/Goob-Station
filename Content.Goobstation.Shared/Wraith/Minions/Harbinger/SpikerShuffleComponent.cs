@@ -15,4 +15,15 @@ public sealed partial class SpikerShuffleComponent : Component
 
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public EntProtoId StatusAbilityDisable = "StatusEffectWeakenedWraith";
+
+    #region Visualizer
+    [DataField]
+    public string Normal = "spiker";
+
+    [DataField]
+    public string Shuffling = "shuffling_spiker";
+    #endregion
 }
