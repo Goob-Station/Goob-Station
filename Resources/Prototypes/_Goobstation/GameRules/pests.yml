@@ -45,7 +45,7 @@
     minimumPlayers: 30
     weight: 1
     reoccurrenceDelay: 60
-    eventType: Neutral
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore:
       Hostile: 100
