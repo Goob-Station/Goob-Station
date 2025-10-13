@@ -138,7 +138,6 @@
     components:
       head:
       - type: NightVision
-        slotFlags: HEAD
       - type: ItemToggle
 
 - type: entity
@@ -429,8 +428,8 @@
             id: blinking
             interpolate: Nearest
             maxDuration: 1.0
-            minValue: 0.1
-            maxValue: 2.0
+            startValue: 0.1
+            endValue: 2.0
             isLooped: true
       - type: Battery
         maxCharge: 600
@@ -453,7 +452,6 @@
     components:
       outerClothing:
       - type: MagnetPickup
-        slotFlags: OUTERCLOTHING
       - type: Storage
         maxItemSize: Normal
         grid:
