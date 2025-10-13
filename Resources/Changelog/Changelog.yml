@@ -5175,3 +5175,11 @@ Entries:
   id: 9091
   time: '2025-10-13T20:53:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38444
+- author: Myra
+  changes:
+  - message: The built-in soundfont for MIDI's should sound better, especially for
+      songs with percussion.
+    type: Tweak
+  id: 9092
+  time: '2025-10-13T21:22:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40888
