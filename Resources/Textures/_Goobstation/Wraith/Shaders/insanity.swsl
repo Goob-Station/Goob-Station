@@ -1,0 +1,24 @@
+uniform vec2 CircleCenter;
+uniform float Radius;
+uniform float EdgeSoftness;
+uniform float Time;
+uniform float WaveAmplitude;
+uniform float NumTentacles;
+uniform float WaveSpeed;
+
+void main()
+{
+    vec2 diff = gl_FragCoord.xy - CircleCenter;
+    float angle = atan(diff.y, diff.x);
+    float radiusFromCenter = length(diff);
+
+    // Tentacle wave
+    float wave = sin(angle * NumTentacles + Time * WaveSpeed) * WaveAmplitude;
+
+    // Mask for smooth circle + tentacle
+    float mask = 1.0 - smoothstep(Radius - EdgeSoftness, Radius, radiusFromCenter + wave);
+
+    // Combine with base darkness
+    float alpha = (1.0 - mask) * 0.6 + mask * 0.0; // 0.6 is base darkness
+    gl_FragColor = vec4(0.0, 0.0, 0.0, alpha);
+}

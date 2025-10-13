@@ -11,6 +11,8 @@
   description: Become corporeal for 30 seconds. During this time, you gain additional wraith points, depending on the amount of humans in your vicinity. Use this ability again while corporeal to fade back into the aether.
   components:
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithhaunt.ogg
     useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
