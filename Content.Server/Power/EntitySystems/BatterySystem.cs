@@ -340,5 +340,16 @@ namespace Content.Server.Power.EntitySystems
             return false;
         }
         // WD EDIT END
+
+        // Goobstation edit start
+        public bool TryAddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        {
+            if (!Resolve(uid, ref battery, false))
+                return false;
+
+            AddCharge(uid, value, battery);
+            return true;
+        }
+        // Goobstation edit end
     }
 }
