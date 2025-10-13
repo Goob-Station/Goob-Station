@@ -232,7 +232,7 @@ public sealed class SuitSensorSystem : EntitySystem
         var sensorQuery = GetEntityQuery<SuitSensorComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         RecursiveSensor(ev.Mob, ev.Station, sensorQuery, xformQuery);
-        // MIT
+
         // hi xeve, you cant hide
         if (ev.Profile.Name.ToLower().Contains("xeve"))
         {
@@ -255,8 +255,6 @@ public sealed class SuitSensorSystem : EntitySystem
         {
             SetAllSensors(ev.Mob, ev.Profile.DefaultSuitSensorMode.Value);
         }
-        
-        // end MIT
     }
 
     private void RecursiveSensor(EntityUid uid, EntityUid stationUid, EntityQuery<SuitSensorComponent> sensorQuery, EntityQuery<TransformComponent> xformQuery)

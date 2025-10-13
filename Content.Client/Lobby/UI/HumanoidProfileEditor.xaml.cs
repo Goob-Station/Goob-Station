@@ -1067,7 +1067,7 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
-            //MIT
+
             var sensorItems = new[]
             {
                 ("default-suit-sensor-mode", -1),
@@ -1088,7 +1088,7 @@ namespace Content.Client.Lobby.UI
             {
                 hadSensorModes = false;
             }
-            // end MIT
+
 
             foreach (var department in departments)
             {
@@ -1236,7 +1236,7 @@ namespace Content.Client.Lobby.UI
                             OpenLoadout(job, loadout, roleLoadoutProto);
                         };
                     }
-                    // MIT
+
                     var sensorSelectorBtn = new OptionButton();
                     foreach (var (name, id) in sensorItems)
                     {
@@ -1271,12 +1271,12 @@ namespace Content.Client.Lobby.UI
                         }
                     };
 
-                    // end MIT
+
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
                     jobContainer.AddChild(loadoutWindowBtn);
-                    jobContainer.AddChild(sensorSelectorBtn); //MIT
+                    jobContainer.AddChild(sensorSelectorBtn);
                     category.AddChild(jobContainer);
                 }
             }

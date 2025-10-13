@@ -184,7 +184,9 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
-        //MIT
+        /// <summary>
+        /// The default suit sensor mode for this profile. Applies to all jobs that don't have a specific mode set in <see cref="_sensorModes"/>.
+        /// </summary> 
         [DataField]
         public SuitSensorMode? DefaultSuitSensorMode { get; set; } = null;
 
@@ -193,9 +195,11 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<string, SuitSensorMode?> SensorModes => _sensorModes;
 
+        /// <summary>
+        /// Which suit sensor mode to use for each role.
+        /// </summary>
         [DataField]
         private Dictionary<string, SuitSensorMode?> _sensorModes { get; set; } = new();
-        //End MIT
 
         public HumanoidCharacterProfile(
             string name,
@@ -246,7 +250,6 @@ namespace Content.Shared.Preferences
             }
         }
 
-        // MIT
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -284,7 +287,6 @@ namespace Content.Shared.Preferences
             DefaultSuitSensorMode = defaultSuitSensorMode;
             _sensorModes = sensorModes;
         }
-        // End MIT
 
         /// <summary>Copy constructor</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
@@ -303,8 +305,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                other.DefaultSuitSensorMode, // MIT
-                new Dictionary<string, SuitSensorMode?>(other.SensorModes)) // MIT
+                other.DefaultSuitSensorMode,
+                new Dictionary<string, SuitSensorMode?>(other.SensorModes))
         {
         }
 
@@ -399,7 +401,6 @@ namespace Content.Shared.Preferences
             return new(this) { Name = name };
         }
 
-        // start MIT
         public HumanoidCharacterProfile WithSensor(SuitSensorMode? mode)
         {
             return new(this) { DefaultSuitSensorMode = mode };
@@ -410,7 +411,6 @@ namespace Content.Shared.Preferences
             return new(this) { _sensorModes = modes };
         }
 
-        // end MIT
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
         {
             return new(this) { FlavorText = flavorText };
