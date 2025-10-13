@@ -16311,3 +16311,9 @@ Entries:
       message: Added fell for it again award as contra in the clothes vending machine
   id: 1823
   time: '2025-10-13T10:01:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: ReEnabled sprites for each character in the end round window.
+  id: 1824
+  time: '2025-10-13T10:02:37.0000000+00:00'
