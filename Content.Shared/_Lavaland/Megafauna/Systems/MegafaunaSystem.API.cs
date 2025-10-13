@@ -49,7 +49,7 @@ public sealed partial class MegafaunaSystem
     /// </summary>
     public bool TryPickTargetAggressive(
         MegafaunaCalculationBaseArgs args,
-        List<MegafaunaTargetCondition> conditions,
+        List<MegafaunaEntityCondition> conditions,
         bool setPosition = false)
     {
         if (!_aggressiveQuery.TryComp(args.Entity, out var aggressiveComp))

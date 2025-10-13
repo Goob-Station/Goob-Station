@@ -12,7 +12,7 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 [MeansImplicitUse]
-public abstract partial class MegafaunaTargetCondition
+public abstract partial class MegafaunaEntityCondition
 {
     /// <summary>
     /// Can be used to make some conditions have more influence than others.

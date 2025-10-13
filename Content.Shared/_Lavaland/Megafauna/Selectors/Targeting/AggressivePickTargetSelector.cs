@@ -17,7 +17,7 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     /// will pick target with the least amount of condition fails.
     /// </summary>
     [DataField]
-    public List<MegafaunaTargetCondition> TargetConditions = new();
+    public List<MegafaunaEntityCondition> TargetConditions = new();
 
     /// <summary>
     /// If true, will also write down EntityCoordinates of the target to the component.
@@ -30,7 +30,7 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public bool SetPosition = true;
 
     /// <summary>
-    /// If true, instead of just picking a target with the biggest amount of points,
+    /// If true, instead of just picking a target with the biggest weight,
     /// weighted random will be run between all targets to determine the result.
     /// </summary>
     [DataField]

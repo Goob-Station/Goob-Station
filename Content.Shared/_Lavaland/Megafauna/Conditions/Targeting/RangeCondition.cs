@@ -12,7 +12,7 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions;
 /// Condition that returns true if the target is at specific range from the boss.
 /// Returns false if out of range, or target is null.
 /// </summary>
-public sealed partial class RangeCondition : MegafaunaTargetCondition
+public sealed partial class RangeCondition : MegafaunaEntityCondition
 {
     [DataField]
     public float? MinRange;
