@@ -1,0 +1,21 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         xmlns:adt="clr-namespace:Content.Goobstation.Client.UserInterface.FancyButton">
+    <BoxContainer Orientation="Vertical" >
+        <PanelContainer VerticalExpand="True"
+                        HorizontalExpand="True"
+                        Name="Panel"
+                        Access="Public">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#162031"
+                                       BorderColor="#4972A1"
+                                       BorderThickness="2"/>
+            </PanelContainer.PanelOverride>
+            <adt:DrawButton Name="Button"
+                             Access="Public"
+                             ModulateSelfOverride="#00000000"
+                             HorizontalExpand="True"/>
+            <!-- Здесь будет храниться содержимое помимо кнопки - текст, изображение и тд и тп -->
+        </PanelContainer>
+    </BoxContainer>
+</Control>
