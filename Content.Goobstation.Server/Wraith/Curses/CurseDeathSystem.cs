@@ -7,7 +7,6 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
-using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 
@@ -24,7 +23,6 @@ public sealed class CurseDeathSystem : EntitySystem
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -38,8 +36,6 @@ public sealed class CurseDeathSystem : EntitySystem
     {
         if (args.NewMobState == MobState.Critical || !ent.Comp.EndIsNigh)
         {
-            // Fuck parity. I'm adding this.
-            _popup.PopupPredicted(Loc.GetString("curse-death-end"), ent.Owner, ent.Owner, PopupType.LargeCaution); // I think pop-ups don't work on crit people but I'm keeping it, just in case it works in production!
             _audio.PlayEntity(ent.Comp.CurseSound2, ent.Owner, ent.Owner);
             ent.Comp.EndIsNigh = true;
         }

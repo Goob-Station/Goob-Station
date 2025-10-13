@@ -34,8 +34,7 @@ public sealed class RallySystem : EntitySystem
 
             _status.TryAddStatusEffect(affected, ent.Comp.StatusEffectRally, out _, ent.Comp.Duration);
 
-            _popup.PopupClient(Loc.GetString("wraith-rally-start"), ent.Owner, ent.Owner);
-            _popup.PopupClient(Loc.GetString("wraith-rally-inspired"), affected, affected);
+            _popup.PopupClient(Loc.GetString("wraith-skeleton-rally-howl", ("user", ent.Owner)), ent.Owner, ent.Owner);
         }
 
         args.Handled = true;
