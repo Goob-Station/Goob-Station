@@ -19,6 +19,10 @@ heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this s
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
 
+heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
+heretic-cosmic-rune-fail-unlinked = No linked rune!
+heretic-cosmic-rune-fail-range = Not close enough!
+
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
 
 mansus-grasp-trigger-fail = Something prevents you from activating this!
@@ -47,6 +51,15 @@ heretic-livingheart-onstation = It's {$state}, {$direction}!
 heretic-livingheart-unknown = It's... not in this plain of reality.
 heretic-livingheart-faraway = It's {$state}, extremely far away!
 
+## star gazer
+heretic-stargaze-obliterate-other = You see {$uid} engulfed in the scorching wrath of the cosmos. For a moment, you see their silhouette flail in agony before fading to mere atoms.
+heretic-stargaze-obliterate-user = THE POWER OF THE COSMOS ITSELF POURS OUT OVER YOUR FORM. WAVES OF HEAT LATCH ONTO YOUR BODY, PULLING IT APART AT THE SEAMS. YOUR TOTAL ANNIHILATION TAKES ONLY A MOMENT BEFORE YOU ARE REDUCED BACK TO WHAT YOU ALWAYS WERE. MOTES OF MERE DUST...
+
+heretic-stargazer-reset-consciousness = THIS ACTION WILL IRREVERSIBLY CHANGE YOUR STAR GAZER MIND! Use it again to confirm.
+heretic-stargazer-consciousness-reset-fail = Your request to shift star gazer personality appears to have been denied... Looks like you're stuck with it for now.
+heretic-stargazer-consciousness-reset-target = Your summoner reset you, and your body was taken over by a ghost. Looks like they weren't happy with your performance.
+heretic-stargazer-consciousness-reset-user = The mind of star gazer has twisted itself to suit you better.
+
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 
@@ -68,6 +81,12 @@ heretic-speech-rust-plume = 'NTR'P'C PL'M'!
 heretic-speech-void-blast = F'RZ'E!
 heretic-speech-void-phase = RE'L'T' PH'S'E!
 heretic-speech-void-pull = BR'NG F'RTH TH'M T' M'!!
+
+heretic-speech-cosmic-rune = ST'R R'N'!
+heretic-speech-star-touch = ST'R 'N'RG'!!
+heretic-speech-star-blast = R'T'T' ST'R!!
+heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
+heretic-speech-stargaze = SH''P D' W''P
 
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!

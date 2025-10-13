@@ -551,6 +551,9 @@
   id: ShellShotgunHeavier
 
 - type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -627,6 +630,9 @@
 
 - type: Tag
   id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: WideSwingIgnore
 
 - type: Tag
   id: WeaponPistolCasul
