@@ -16290,3 +16290,12 @@ Entries:
       message: Wizards now can speak and understand all languages.
   id: 1820
   time: '2025-10-12T09:59:47.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shallow clone bug for fluid solutions and made puddle freshness be
+        set on blood spill instead of every time new blood is created in the
+        bloodstream.
+  id: 1821
+  time: '2025-10-13T09:51:08.0000000+00:00'
