@@ -13,12 +13,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
+  parent: Clothing
   id: ClothingModsuitStandard
-  name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  name: base MOD control unit
+  description: A civilian class suit by Nakamura Engineering, doesn't offer much other than slightly quicker movement.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
     layers:
@@ -27,44 +26,49 @@
       visible: false
       shader: unshaded
       map: [ "sealed" ]
-  - type: Item
-    size: Ginormous
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: Storage
-    grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: false # easier to use and now its fixed
-    replaceCurrentClothing: true
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetStandard
       gloves: ClothingModsuitGauntletsStandard
       outerClothing: ClothingModsuitChestplateStandard
       shoes: ClothingModsuitBootsStandard
-  - type: WiresPanel
+    startingModules:
+      - ModsuitModStorage
+      - ModsuitModWelding
+      - ModsuitModLight
+  - type: ContainerContainer
+    containers:
+      mod-modules-container: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      modsuit-part: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      cell_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null # ContainerContainer и UserInterface для модулей надо добавлять сюда, а через модули возможность включить
+  - type: UserInterface
+    interfaces:
+      enum.ModSuitUiKey.Key:
+        type: ModSuitRadialBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ModSuitMenuUiKey.Key:
+        type: ModSuitMenuBoundUserInterface
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  # - type: Construction
+  #   graph: ADTModsuitStandard
+  #   node: adtmodsuitstandard
   - type: ItemSlots
     slots:
       cell_slot:
@@ -72,29 +76,33 @@
         whitelist:
           components:
             - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+    requireOpen: false
+  - type: Item
+    size: Ginormous
   - type: PowerCellDraw
-    drawRate: 0.8 # Sealed draw rate
-    useRate: 4 # Draw rate for sealing
+    enabled: false
+    drawRate: 1
+    useRate: 5
+    delay: 10
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-  - type: Construction
-    graph: Modsuit
-    node: standard
-  - type: ClothingSpeedModifier
-    sprintModifier: 0.95
-    walkModifier: 0.95
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: EmpDisabling
+    disablingTime: 30000
+  - type: EnergyAlert
+  - type: ContainerFill
+    containers:
+      cell_slot:
+      - PowerCellMedium
+  - type: Geiger
+    showExamine: true
+    attachedToSuit: true
+    showControl: true
 
 - type: entity
   parent: ClothingModsuitStandard
@@ -119,12 +127,16 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetSecurity
       gloves: ClothingModsuitGauntletsSecurity
       outerClothing: ClothingModsuitChestplateSecurity
       shoes: ClothingModsuitBootsSecurity
+    startingModules:
+      - ModsuitModStorage
+      - ModsuitModLight
+      - ModsuitModEmpProtection
   - type: Construction
     graph: Modsuit
     node: security
@@ -163,22 +175,21 @@
       - state: equipped-BACKPACK-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetHeadOfSecurity
       gloves: ClothingModsuitGauntletsHeadOfSecurity
       outerClothing: ClothingModsuitChestplateHeadOfSecurity
       shoes: ClothingModsuitBootsHeadOfSecurity
+    startingModules:
+      - ModsuitModStorageLarge
+      - ModsuitModLight
+      - ModsuitModJetpack
+      - ModsuitModEmpProtection
+      - ModsuitModInsulation
   - type: Construction
     graph: Modsuit
     node: headofsecurity
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-      back-resomi:
-      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitHeadOfSecurity
@@ -208,7 +219,7 @@
     - 0,0,1,3
     - 3,0,6,3
     - 8,0,9,3
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetParamedic
       gloves: ClothingModsuitGauntletsParamedic
@@ -217,11 +228,6 @@
   - type: Construction
     graph: Modsuit
     node: paramedic
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitParamedic
@@ -246,22 +252,22 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetEngineer
       gloves: ClothingModsuitGauntletsEngineer
       outerClothing: ClothingModsuitChestplateEngineer
       shoes: ClothingModsuitBootsEngineer
+    startingModules:
+    - ModsuitModStorage
+    - ModsuitModWelding
+    - ModsuitModLight
+    - ModsuitModRadiationProtection
+    - ModsuitModMagboot
+    - ModsuitModInsulation
   - type: Construction
     graph: Modsuit
     node: engineer
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-      back-resomi:
-      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitEngineer
@@ -286,22 +292,22 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/atmostech.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetAtmostech
       gloves: ClothingModsuitGauntletsAtmostech
       outerClothing: ClothingModsuitChestplateAtmostech
       shoes: ClothingModsuitBootsAtmostech
+    startingModules:
+    - ModsuitModStorage
+    - ModsuitModWelding
+    - ModsuitModLight
+    - ModsuitModRadiationProtection
+    - ModsuitModTray
+    - ModsuitModInsulation
   - type: Construction
     graph: Modsuit
     node: atmostech
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-      back-resomi:
-      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitAtmostech
@@ -326,12 +332,18 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetResearchDirector
       gloves: ClothingModsuitGauntletsResearchDirector
       outerClothing: ClothingModsuitChestplateResearchDirector
       shoes: ClothingModsuitBootsResearchDirector
+    startingModules:
+      - ModsuitModStorageLarge
+      - ModsuitModLight
+      - ModsuitModJetpack
+      - ModsuitModEmpProtection
+      - ModsuitModInsulation
   - type: Construction
     graph: Modsuit
     node: rd
@@ -369,22 +381,20 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
-  - type: ToggleableClothing
+  - type: ModSuit
     clothingPrototypes:
       head: ClothingModsuitHelmetCaptain
       gloves: ClothingModsuitGauntletsCaptain
       outerClothing: ClothingModsuitChestplateCaptain
       shoes: ClothingModsuitBootsCaptain
+    startingModules:
+      - ModsuitModStorageLarge
+      - ModsuitModLight
+      - ModsuitModJetpack
+      - ModsuitModInsulation
   - type: Construction
     graph: Modsuit
     node: captain
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
-      back-resomi:
-      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitCaptain
