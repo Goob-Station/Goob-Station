@@ -92,6 +92,10 @@ namespace Content.Client.Cargo.UI
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
+                AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
+                    ("color", accountProto.Color),
+                    ("name", Loc.GetString(accountProto.Name)),
+                    ("code", Loc.GetString(accountProto.Code)));
             }
 
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
@@ -339,8 +343,8 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
-            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit",
-                ("limit", (int) (balance * orderConsole.TransferLimit)));
+            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
+            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", balance * orderConsole.TransferLimit));
 
             UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||

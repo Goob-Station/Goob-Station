@@ -41,7 +41,8 @@ cargo-console-menu-order-row-alerts-requester-unknown = Unknown
 cargo-console-menu-populate-categories-all-text = All
 cargo-console-menu-tab-title-orders = Orders
 cargo-console-menu-tab-title-funds = Transfers
-cargo-console-menu-account-action-transfer-limit = [bold]Transfer Limit:[/bold] ${$limit}
+cargo-console-menu-account-action-transfer-limit = Transfer Limit:
+cargo-console-menu-account-action-transfer-limit-amount = ${$amount}
 cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Unlimited)[/color]
 cargo-console-menu-account-action-select = [bold]Account Action:[/bold]
 cargo-console-menu-account-action-amount = [bold]Amount:[/bold] $
