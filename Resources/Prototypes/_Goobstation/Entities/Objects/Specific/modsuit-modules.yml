@@ -1,0 +1,556 @@
+- type: entity
+  parent: BaseItem
+  id: ModsuitModBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/modsuit-modules.rsi
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModAntigrav
+  name: MOD antigravity module
+  description: A module that uses a gravitational core to make the user completely weightless.
+  components:
+  - type: Sprite
+    state: antigrav
+  - type: ModSuitMod
+    complexity: 1
+    components:
+      shoes:
+      - type: AntiGravityClothing
+    energyUsing: 0.1
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModApparatus
+  name: MOD apparatus module
+  description: A favorite by Miners, this modification to the helmet utilizes a nanotechnology barrier in front of the mouth to allow eating and drinking while retaining protection and atmosphere. However, it will do nothing to improve the taste of a goliath stea
+  components:
+  - type: Sprite
+    state: apparatus
+  - type: ModSuitMod
+    complexity: 1
+    components:
+      head:
+      - type: IngestionBlocker
+    removeComponents:
+      head:
+      - type: IngestionBlocker # looks a bit shitty but it just works
+    energyUsing: 0.2
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModDrill
+  name: MOD drill module
+  description: An integrated drill, typically extending over the user's hand. While useful for drilling through rock, your drill is surely the one that both pierces and creates the heavens.
+  components:
+  - type: Sprite
+    state: drill
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 2
+    components:
+      gloves:
+      - type: IngestionBlocker
+      - type: Tag
+        tags:
+        - Pickaxe
+      - type: StaminaDamageOnHit
+        damage: 1
+      - type: MeleeWeapon
+        autoAttack: true
+        angle: 0
+        wideAnimationRotation: -90
+        soundHit:
+          path: "/Audio/Items/drill_hit.ogg"
+        attackRate: 4
+        damage:
+          groups:
+            Brute: 3
+          types:
+            Structural: 15
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModJetpack
+  name: MOD jetpack module
+  description: It's a jetpack module. It can hold 5 L of gas.
+  components:
+  - type: Sprite
+    state: jetpack_adv
+  - type: ModSuitMod
+    energyUsing: 3.5
+    components:
+      MODcore:
+      - type: MovementSpeedModifier
+        weightlessAcceleration: 1
+        weightlessFriction: 0.3
+        weightlessModifier: 1.2
+      - type: CanMoveInAir
+      - type: InputMover
+      - type: GasTank
+        outputPressure: 21.3
+        air:
+          volume: 5
+          temperature: 293.15
+          moles:
+            - 0.615413716 # oxygen
+      - type: Jetpack
+        moleUsage: 0
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModMagboot
+  name: MOD magboots module
+  description: These are powerful electromagnets fitted into the suit's boots, allowing users both excellent traction no matter the condition indoors, and to essentially hitch a ride on the exterior of a hull. However, these basic models do not feature computerized systems to automatically toggle them on and off, so numerous users report a certain stickiness to their steps.
+  components:
+  - type: Sprite
+    state: magnet
+  - type: ModSuitMod
+    energyUsing: 0.2
+    components:
+      shoes:
+      - type: ToggleClothing
+        action: ActionToggleMagboots
+        mustEquip: false
+      - type: ComponentToggler
+        components:
+        - type: NoSlip
+      - type: Magboots
+      - type: ClothingSpeedModifier
+        walkModifier: 0.85
+        sprintModifier: 0.8
+      - type: ItemToggle
+        onUse: false
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModNightVision
+  name: MOD night vision module
+  description: A heads-up display installed into the visor of the suit. Typical for both civilian and military applications, this allows the user to perceive their surroundings while in complete darkness.
+  components:
+  - type: Sprite
+    state: night_visor
+  - type: ModSuitMod
+    energyUsing: 0.4
+    complexity: 2
+    components:
+      head:
+      - type: NightVision
+        slotFlags: HEAD
+      - type: ItemToggle
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModStun
+  name: MOD stun module
+  description: Alows you to stun people with punching.
+  components:
+  - type: Sprite
+    state: no_baton
+  - type: ModSuitMod
+    energyUsing: 0.3
+    complexity: 3
+    components:
+      gloves:
+      - type: StaminaDamageOnHit
+        damage: 30
+      - type: MeleeWeapon
+        attackRate: 1.5
+        damage:
+          types:
+            Blunt: 0.4
+        animation: WeaponArcFist
+        mustBeEquippedToUse: true
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModNoslip
+  name: MOD no-slip module
+  description: These are a modified variant of standard magnetic boots, utilizing piezoelectric crystals on the soles. The two plates on the bottom of the boots automatically extend and magnetize as the user steps; a pull that's too weak to offer them the ability to affix to a hull, but just strong enough to protect against the fact that you didn't read the wet floor sign. Honk Co. has come out numerous times in protest of these modules being legal.
+  components:
+  - type: Sprite
+    state: noslip
+  - type: ModSuitMod
+    complexity: 2
+    components:
+      shoes:
+      - type: NoSlip
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModPowerKick
+  name: MOD power kick module
+  description: Super mega power punch! Twowing back every punched.
+  components:
+  - type: Sprite
+    state: power_kick
+  - type: ModSuitMod
+    energyUsing: 0.3
+    complexity: 3
+    components:
+      gloves:
+      - type: MeleeThrowOnHit
+      - type: MeleeWeapon
+        attackRate: 1
+        damage:
+          types:
+            Blunt: 1
+        animation: WeaponArcFist
+        mustBeEquippedToUse: true
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModSechud
+  name: MOD security visor module
+  description: A heads-up display installed into the visor of the suit. This module is a heavily-retrofitted targeting system, plugged into various criminal databases to be able to view arrest records, command simple security-oriented robots, and generally know who to shoot. They say these also let you see behind you.
+  components:
+  - type: Sprite
+    state: sechud_viisor
+  - type: ModSuitMod
+    energyUsing: 0.1
+    complexity: 2
+    components:
+      head:
+      - type: ShowJobIcons
+      - type: ShowMindShieldIcons
+      - type: ShowCriminalRecordIcons
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModStorage
+  name: MOD storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 3
+    components:
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,6,3
+        maxItemSize: Huge
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModDuffelbagStorage
+  name: MOD duffelbag storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage_large
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 3
+    components:
+      MODcore:
+      - type: Storage
+        maxItemSize: Huge
+        grid:
+        - 0,0,7,4
+      - type: ClothingSpeedModifier
+        walkModifier: 1
+        sprintModifier: 0.9
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModSatchelStorage
+  name: MOD satchel storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 3
+    components:
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,1,3
+        - 3,0,6,3
+        - 8,0,9,3
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModWelding
+  name: MOD welding module
+  description: A module installed into the visor of the suit, this projects a polarized, holographic overlay in front of the user's eyes. It's rated high enough for immunity against extremities such as spot and arc welding, solar eclipses, and handheld flashlights.
+  components:
+  - type: Sprite
+    state: welding
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 1
+    components:
+      head:
+      - type: EyeProtection
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModArmor
+  name: MOD aromor module
+  description: Repaces armor in your MOD with "perfect 40".
+  components:
+  - type: Sprite
+    state: plate_compression
+  - type: ModSuitMod
+    energyUsing: 0.1
+    complexity: 4
+    components:
+      outerClothing:
+      - type: Armor
+        modifiers:
+          coefficients:
+            Blunt: 0.6
+            Slash: 0.6
+            Piercing: 0.7
+            Heat: 0.7
+            Radiation: 0.6
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModStorageLarge
+  name: MOD large storage module
+  description: Reverse engineered by Nakamura Engineering from Donk Corporation designs, this system of hidden compartments is entirely within the suit, distributing items and weight evenly to ensure a comfortable experience for the user; whether smuggling, or simply hauling.
+  components:
+  - type: Sprite
+    state: storage_large
+  - type: ModSuitMod
+    energyUsing: 0.3
+    isInstantlyActive: true
+    complexity: 3
+    components:
+      MODcore:
+      - type: Storage
+        maxItemSize: Huge
+        grid:
+        - 0,0,7,4
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModTray
+  name: MOD T-ray module
+  description: A module installed into the visor of the suit, allowing the user to use a pulse of terahertz radiation to essentially echolocate things beneath the floor, mostly cables and pipes. A staple of atmospherics work, and counter-smuggling work.
+  components:
+  - type: Sprite
+    state: tray
+  - type: ModSuitMod
+    energyUsing: 0.1
+    complexity: 2
+    components:
+      head:
+      - type: TrayScanner
+        enabled: true
+        range: 10
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModInsulation
+  name: MOD insulated gloves module
+  description: Insulates your gloves.
+  components:
+  - type: Sprite
+    state: carry
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 2
+    components:
+      gloves:
+      - type: Insulated
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModJump
+  name: MOD jump boot module
+  description: A module, allowing modsuit boots to perform a long jump.
+  components:
+  - type: Sprite
+    state: longfall
+  - type: ModSuitMod
+    energyUsing: 0.3
+    complexity: 3
+    components:
+      shoes:
+      - type: JumpAbility
+        jumpDistance: 4
+        jumpSound: /Audio/Effects/stealthoff.ogg
+      - type: ActionGrant
+        actions:
+        - ActionGravityJump
+      - type: ItemActionGrant
+        actions:
+        - ActionGravityJump
+        activeIfWorn: true
+        restrictedSlots:
+        - FEET
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModLight
+  name: MOD light module
+  description: Blind.
+  components:
+  - type: Sprite
+    state: flashlight
+  - type: ModSuitMod
+    energyUsing: 0.1
+    complexity: 1
+    components:
+      head:
+      - type: ToggleableLightVisuals
+        clothingVisuals:
+          head:
+          - state: equipped-head-light
+            shader: unshaded
+      - type: Appearance
+      - type: HandheldLight
+        addPrefix: true
+        blinkingBehaviourId: blinking
+        radiatingBehaviourId: radiating
+      - type: LightBehaviour
+        behaviours:
+          - !type:FadeBehaviour
+            id: radiating
+            interpolate: Linear
+            maxDuration: 2.0
+            startValue: 3.0
+            endValue: 2.0
+            isLooped: true
+            reverseWhenFinished: true
+          - !type:PulseBehaviour
+            id: blinking
+            interpolate: Nearest
+            maxDuration: 1.0
+            minValue: 0.1
+            maxValue: 2.0
+            isLooped: true
+      - type: Battery
+        maxCharge: 600
+        startingCharge: 600
+      - type: BatterySelfRecharger
+        autoRecharge: true
+        autoRechargeRate: 2
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModOrebag
+  name: MOD ore bag module
+  description: Allows user to contain ores in their modsuit.
+  components:
+  - type: Sprite
+    state: ore
+  - type: ModSuitMod
+    isInstantlyActive: true
+    complexity: 2
+    components:
+      outerClothing:
+      - type: MagnetPickup
+        slotFlags: OUTERCLOTHING
+      - type: Storage
+        maxItemSize: Normal
+        grid:
+        - 0,0,9,5
+        quickInsert: true
+        areaInsert: true
+        whitelist:
+          tags:
+            - ArtifactFragment
+            - Ore
+      - type: Dumpable
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModRadiationProtection
+  name: MOD radiation protection module
+  description: Gives user a slight radiation protection.
+  components:
+  - type: Sprite
+    state: radshield
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 2
+    components:
+      outerClothing:
+      - type: RadiationBlocker
+        resistance: 100
+      - type: RadiationProtection
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModStorageSyndie
+  name: MOD syndie storage module
+  description: What amounts to a series of integrated storage compartments and specialized pockets installed across the surface of the suit, useful for storing various bits, and or bobs.
+  components:
+  - type: Sprite
+    state: storage_syndi
+  - type: ModSuitMod
+    energyUsing: 0.1
+    isInstantlyActive: true
+    complexity: 2
+    components:
+      MODcore:
+      - type: Storage
+        grid:
+        - 0,0,8,4
+        maxItemSize: Huge
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModEmpProtection
+  name: MOD emp protection module
+  description: Protecting user and modsuit from EMP pulses.
+  components:
+  - type: Sprite
+    state: empshield
+  - type: ModSuitMod
+    energyUsing: 0.2
+    complexity: 1
+    components:
+      MODcore:
+      - type: EmpContainerProtection
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModPlasmaStabilizer
+  name: MOD plasma fuel module
+  description: Allows to recharge mod battery by using plasma.
+  components:
+  - type: Sprite
+    state: micriwave_beam
+  - type: ModSuitMod
+    complexity: 3
+    components:
+      MODcore:
+      - type: MaterialStorage
+        storageLimit: 3000
+        materialWhiteList: [RawPlasma, Plasma]
+        canEjectStoredMaterials: false
+      - type: BatteryRecharge
+        multiplier: 1.25
+
+- type: entity
+  parent: ModsuitModBase
+  id: ModsuitModUraniumStabilizer
+  name: MOD uranium fuel module
+  description: Allows to recharge mod battery by using uranium.
+  components:
+  - type: Sprite
+    state: micriwave_beam
+  - type: ModSuitMod
+    complexity: 3
+    components:
+      MODcore:
+      - type: MaterialStorage
+        storageLimit: 3000
+        materialWhiteList: [Uranium]
+        canEjectStoredMaterials: false
+      - type: BatteryRecharge
+        multiplier: 3
