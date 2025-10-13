@@ -1,0 +1,8 @@
+- type: internalResources
+  id: DebugInteralResources
+  name: internal-resources-debug-name
+  description: internal-resources-debug-desc
+  alert: ChangelingChemicals
+  maxAmount: 100
+  regenerationRate: 1
+  startingAmount: 50
