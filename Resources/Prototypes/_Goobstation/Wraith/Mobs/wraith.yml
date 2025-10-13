@@ -54,7 +54,7 @@
   - type: Visibility
     layer: 2 #ghost vis layer
   - type: Speech
-    speechVerb: Ghost
+    speechVerb: Ghost # TO DO: Change this to WraithSpeech, which is invalid for some reason I couldn't figure out.
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
@@ -85,9 +85,18 @@
         probability: 1
   - type: WeakToHoly
     alwaysTakeHoly: true
+  - type: Access # Only realistically used while corporeal.
+    groups:
+    - AllAccess
+    - Silicon
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - CentralCommand
   - type: Tag
     tags:
     - WeakToSalt
+    - DoorBumpOpener
   - type: Banishment # revive on death, resets WP
     lives: 1
     popup: wraith-banishment

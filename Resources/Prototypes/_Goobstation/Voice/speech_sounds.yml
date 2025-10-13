@@ -16,3 +16,12 @@
     collection: DuendeSounds
   exclaimSound:
     collection: DuendeSounds
+
+- type: speechSounds
+  id: WraithSpeech
+  saySound:
+    collection: Wraith_Whisper
+  askSound:
+    collection: Wraith_Whisper
+  exclaimSound:
+    collection: Wraith_Whisper
