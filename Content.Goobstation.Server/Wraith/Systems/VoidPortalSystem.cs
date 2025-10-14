@@ -2,7 +2,9 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -16,6 +18,7 @@ public sealed class VoidPortalSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -65,14 +68,32 @@ public sealed class VoidPortalSystem : EntitySystem
         var grid = transform.GridUid;
         var center = transform.Coordinates;
 
-        // Determine spawn coordinates with offset
-        var spawnCoords = grid != null
-            ? new EntityCoordinates(
-                grid.Value,
-                center.X + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1),
-                center.Y + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1)
-              )
-            : center;
+        // Determine valid spawn coordinates
+        EntityCoordinates spawnCoords = default;
+        var attempts = 0;
+        const int MaxAttempts = 1000; // Lower this if too intensive, but realistically it is unlikely for the portal to have to loop 1000 times before finding an unobstructed tile.
+
+        do
+        {
+            attempts++;
+
+            spawnCoords = grid != null
+                ? new EntityCoordinates(
+                    grid.Value,
+                    center.X + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1),
+                    center.Y + _random.Next(-portal.OffsetForSpawn, portal.OffsetForSpawn + 1)
+                  )
+                : center;
+
+            // --- Obstruction check ---
+            var tempEnt = Spawn(portal.EmptyPortal, spawnCoords);
+            bool obstructed = _physics.GetEntitiesIntersectingBody(tempEnt, (int) CollisionGroup.Impassable).Count > 0;
+            QueueDel(tempEnt);
+
+            if (!obstructed)
+                break;
+
+        } while (attempts < MaxAttempts); // If it does not find a unobstructed tile it just spawns anyway at the last coordinate.
 
         // Count alive summoned mobs nearby
         var nearbyEntities = _lookup.GetEntitiesInRange(spawnCoords, portal.SearchRange);
@@ -88,7 +109,6 @@ public sealed class VoidPortalSystem : EntitySystem
         }
         else
         {
-            // Pick a random entry weighted by cost/power availability
             var affordable = portal.MobEntries.Where(e => e.Cost <= portal.CurrentPower).ToList();
             if (affordable.Count == 0)
             {

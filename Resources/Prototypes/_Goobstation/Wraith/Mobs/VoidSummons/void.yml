@@ -85,6 +85,10 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/bone_rattle.ogg
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
 
 - type: entity
   name: Tentacle fiend
@@ -175,6 +179,10 @@
     understands:
     - Dog
     - TauCetiBasic
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
 
 - type: entity
   name: Voidhound
@@ -249,6 +257,15 @@
     understands:
     - Dog
     - TauCetiBasic
+  - type: Sprinter
+    staminaDrainRate: 3
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
 
 # Wraith variants
 

@@ -67,5 +67,6 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
         RemComp<ChooseVoidCreatureComponent>(newForm);
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
+        Del(ent.Owner);
     }
 }

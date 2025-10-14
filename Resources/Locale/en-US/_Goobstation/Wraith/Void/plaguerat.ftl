@@ -5,6 +5,9 @@ wraith-plaguerat-eat-you-finish = You finish eating { $target }!
 
 wraith-plaguerat-bite-you-message = You bite { $target }!
 
+ghost-role-information-plagurat-name = Diseased Rat
+ghost-role-information-plaguerat-description = Summoned by the Wraith, you are small, weak, starving. Grow by eating trash and spread the plague to all these pesky crewmembers trying to get in your way!
+
 # Unused
 
 wraith-plaguerat-eat-too-far = That is too far away to eat.

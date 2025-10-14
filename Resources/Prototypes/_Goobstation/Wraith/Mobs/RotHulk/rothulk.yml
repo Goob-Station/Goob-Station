@@ -71,6 +71,8 @@
     damage:
       groups:
         Brute: 10
+      types:
+        Structural: 50
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -78,7 +80,7 @@
       task: SimpleHostileCompound
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
-    baseSprintSpeed: 6
+    baseSprintSpeed: 4
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
