@@ -8,6 +8,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_monitor.rsi
     state: head-1
@@ -19,6 +20,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_alt1.rsi
     state: head-1
@@ -30,6 +32,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: torso-1
@@ -41,6 +44,7 @@
   bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: l_arm-1
@@ -52,6 +56,7 @@
   bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: l_hand-1
@@ -63,6 +68,7 @@
   bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: l_leg-1
@@ -75,6 +81,7 @@
   bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: l_foot-1
@@ -88,6 +95,7 @@
   bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: r_arm-1
@@ -100,6 +108,7 @@
   bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: r_hand-1
@@ -111,6 +120,7 @@
   bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: r_leg-1
@@ -123,6 +133,7 @@
   bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [IPC]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
     state: r_foot-1

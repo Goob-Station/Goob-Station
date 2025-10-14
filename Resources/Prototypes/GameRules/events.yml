@@ -303,6 +303,9 @@
     minimumPlayers: 15
     chaos: # Goobstation
       Power: 100
+    announcersStartAudio: # CorvaxGoob-CustomAnnouncers
+      Intern:
+        path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/e-storm.ogg
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
