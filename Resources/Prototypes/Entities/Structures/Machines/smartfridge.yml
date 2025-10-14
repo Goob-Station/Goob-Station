@@ -52,11 +52,25 @@
       - Pill
       - Produce
       - Seed
+      # Goobstation - Start
+      - Organ
+      - BodyPart
+      - AbductorOrgan
+      - Food
+      - Healing
       tags:
       - PillCanister
       - Bottle
       - Syringe
       - ChemDispensable
+    blacklist:
+      components:
+      - Clothing
+      - Cybernetics
+      - Material # No cloth in chefFridge
+      tags:
+      - BodyPartInorganic
+      # Goobstation - End
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -114,6 +128,7 @@
           SheetSteel1:
             min: 1
             max: 1
+      - !type:EmptyAllContainersBehaviour # Goobstation
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
@@ -131,12 +146,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
 
-- type: entity
-  parent: SmartFridge
-  id: SmartFridgeMedical
-  suffix: Medical
-  components:
-  - type: SmartFridge
-    flavorText: smart-fridge-request-chemistry
-  - type: AccessReader
-    access: [["Medical"]]
+# Moved to Goob folder
+#- type: entity
+#  parent: SmartFridge
+#  id: SmartFridgeMedical
+#  suffix: Medical
+#  components:
+#  - type: SmartFridge
+#    flavorText: smart-fridge-request-chemistry
+#  - type: AccessReader
+#    access: [["Medical"]]

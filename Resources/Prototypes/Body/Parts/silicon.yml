@@ -139,6 +139,7 @@
     - Trash
     - BorgArm
     - BorgLArm
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-arm
 
@@ -156,6 +157,7 @@
     - Trash
     - BorgArm
     - BorgRArm
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-arm
 
@@ -173,6 +175,7 @@
     - Trash
     - BorgLeg
     - BorgLLeg
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-leg
 
@@ -190,6 +193,7 @@
     - Trash
     - BorgLeg
     - BorgRLeg
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-leg
 
@@ -206,6 +210,7 @@
     tags:
     - Trash
     - BorgHead
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-head
 
@@ -222,6 +227,7 @@
     tags:
     - Trash
     - BorgTorso
+    - BodyPartInorganic # Goobstation
   - type: Item
     heldPrefix: borg-chest
   - type: BodyPart

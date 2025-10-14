@@ -117,6 +117,9 @@
         ents: []
       Bone: !type:Container # Shitmed Change
         ents: []
+  - type: Tag # Goobstation
+    tags:
+    - BodyPartInorganic
 
 - type: entity
   abstract: true

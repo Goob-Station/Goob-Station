@@ -1,0 +1,208 @@
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeMedical
+  name: medical SmartFridge
+  description: A refrigerated storage unit for keeping your beakers cold and bodyparts fresh.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_medical
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#72bac1"
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: SmartFridge
+    flavorText: smart-fridge-request-chemistry
+    whitelist:
+      components:
+      - FitsInDispenser
+      - Pill
+      - Organ
+      - BodyPart
+      - AbductorOrgan
+      - Healing
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+    blacklist:
+      components:
+      - Cybernetics
+      - Material # No cloth in chefFridge
+      tags:
+      - BodyPartInorganic
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeChemical
+  name: chemical SmartFridge
+  description: A refrigerated storage unit for keeping your beakers cold and reagents fresh.
+  components:    
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_chemical
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#d2b677"
+  - type: SmartFridge
+    flavorText: smart-fridge-request-chemistry
+    whitelist:
+      components:
+      - FitsInDispenser
+      - Pill
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+  - type: AccessReader
+    access: [["Medical", "Chemistry"]]
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeBotanical
+  name: botanical SmartFridge
+  description: A refrigerated storage unit for keeping your mutagen cold and fruits fresh.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_botany
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#5fbb5f"
+  - type: SmartFridge
+    whitelist:
+      components:
+      - FitsInDispenser
+      tags:
+      - Produce
+      - Seed
+      - Bottle
+      - Syringe
+      - ChemDispensable
+  - type: AccessReader
+    access: [["Hydroponics", "Service"]]
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeAlien
+  name: alien MegaSmartFridge
+  description: A refrigerated glorpshit for keeping your shitsec bald and inferior lifeforms skill issued.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_alien
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door_alien
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#8d3a99"
+  - type: LanguageKnowledge
+    speaks:
+    - Xeeplian
+    understands:
+    - TauCetiBasic
+    - Xeeplian
+  - type: SmartFridge
+    whitelist:
+      components:
+      - FitsInDispenser
+      - Pill
+      - Organ
+      - BodyPart
+      - AbductorOrgan
+      - Healing
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+    blacklist:
+      components:
+      - Clothing
+      - Material # No cloth in chefFridge
+
+- type: entity
+  parent: SmartFridgeMedical
+  id: SmartFridgeSurgery
+  name: surgerical MegaSmartFridge
+  description: A refrigerated storage unit for keeping your bodyparts cold and organs fresh.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_surgery
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: SmartFridge
+    whitelist:
+      components:
+      - Organ
+      - BodyPart
+      - AbductorOrgan
+      - Healing
+    blacklist:
+      components:
+      - Cybernetics
+      tags:
+      - BodyPartInorganic
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeChef
+  name: chef MegaSmartFridge
+  description: A refrigerated storage unit for keeping your ice cream cold and pizza fresh.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/smartfridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge_chef
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#711414"
+  - type: SmartFridge
+    whitelist:
+      components:
+      - Food
+    blacklist:
+      components:
+      - Clothing
+      - Organ
+      - Material
