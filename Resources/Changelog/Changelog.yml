@@ -5250,3 +5250,18 @@ Entries:
   id: 9101
   time: '2025-10-14T23:13:02.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39370
+- author: Winkarst-cpu
+  changes:
+  - message: Now doors play an animation while being emagged.
+    type: Fix
+  id: 9102
+  time: '2025-10-14T23:31:16.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40350
+- author: slarticodefast
+  changes:
+  - message: Zombified arachnids can no longer spam infinite silk due to having no
+      hunger.
+    type: Fix
+  id: 9103
+  time: '2025-10-14T23:31:16.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40279
