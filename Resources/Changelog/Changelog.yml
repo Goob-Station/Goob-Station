@@ -5198,3 +5198,11 @@ Entries:
   id: 9094
   time: '2025-10-14T10:35:38.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40899
+- author: SirWarock
+  changes:
+  - message: Made Bodybags slightly harder to drag, and rollerbeds slightly easier.
+      They have wheels.
+    type: Tweak
+  id: 9095
+  time: '2025-10-14T11:41:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40880
