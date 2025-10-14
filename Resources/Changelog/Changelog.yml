@@ -5243,3 +5243,10 @@ Entries:
   id: 9100
   time: '2025-10-14T22:46:46.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40435
+- author: SlamBamActionman
+  changes:
+  - message: Lying trait now features more grammatically correct lying.
+    type: Fix
+  id: 9101
+  time: '2025-10-14T23:13:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39370
