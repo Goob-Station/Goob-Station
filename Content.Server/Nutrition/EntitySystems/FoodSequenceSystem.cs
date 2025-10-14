@@ -123,7 +123,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     {
         if (HasComp<EntityStorageComponent>(args.Used)
             || HasComp<StorageComponent>(args.Used)
-            || HasComp<UnremoveableComponent>(args.Used))
+            || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
             return; // Prevent Backpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
