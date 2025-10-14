@@ -22,7 +22,7 @@ public sealed class WraithWeakenedSystem : EntitySystem
     private void OnStatusEffectAdded(Entity<WraithWeakenedComponent> ent, ref StatusEffectAppliedEvent args)
     {
         var ev = new WraithWeakenedAddedEvent();
-        RaiseLocalEvent(ent.Owner, ref ev);
+        RaiseLocalEvent(args.Target, ref ev);
 
         DisableActions(args.Target);
     }
@@ -30,7 +30,7 @@ public sealed class WraithWeakenedSystem : EntitySystem
     private void OnStatusEffectEnded(Entity<WraithWeakenedComponent> ent, ref StatusEffectRemovedEvent args)
     {
         var ev = new WraithWeakenedRemovedEvent();
-        RaiseLocalEvent(ent.Owner, ref ev);
+        RaiseLocalEvent(args.Target, ref ev);
 
         DisableActions(args.Target, true);
     }
