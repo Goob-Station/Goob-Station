@@ -46,6 +46,7 @@
   - type: Tag
     tags:
     - Eyes
+    - Organ # CorvaxGoob-Cybernetic-items
   - type: Eyes
 
 - type: entity

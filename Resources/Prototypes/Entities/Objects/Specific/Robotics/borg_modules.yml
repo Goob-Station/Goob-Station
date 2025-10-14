@@ -1265,6 +1265,8 @@
       whitelist:
         components:
         - BodyPart
+        - AugmentPowerCellSlot # CorvaxGoob-Cybernetic-items
+        - AugmentCharger # CorvaxGoob-Cybernetic-items
         tags:
         - Organ
     # End Frontier: droppable borg items
@@ -1295,6 +1297,8 @@
       whitelist:
         components:
         - BodyPart
+        - AugmentPowerCellSlot # CorvaxGoob-Cybernetic-items
+        - AugmentCharger # CorvaxGoob-Cybernetic-items
         tags:
         - Organ
     # End Frontier: droppable borg items
