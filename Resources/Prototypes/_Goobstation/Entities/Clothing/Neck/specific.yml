@@ -18,6 +18,7 @@
   - type: SurveillanceCamera
     networkSet: true
     nameSet: True
+    mobile: True  # Goobstation - mobile cameras fix
     id: Bodycam
   - type: Eye
   - type: WirelessNetworkConnection
