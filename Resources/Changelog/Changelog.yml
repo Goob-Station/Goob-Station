@@ -5227,3 +5227,10 @@ Entries:
   id: 9098
   time: '2025-10-14T19:12:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40812
+- author: temm1ie, aksosotl
+  changes:
+  - message: Added new botany-themed poster.
+    type: Add
+  id: 9099
+  time: '2025-10-14T19:42:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40908
