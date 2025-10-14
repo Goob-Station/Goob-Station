@@ -70,7 +70,7 @@
   components:
   - type: AllowSuitStorage
     whitelist:
-      tags:
+      components:
       - GasTank
       components: # Goobstation
       - XenoVacuumTank
