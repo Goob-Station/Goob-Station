@@ -85,6 +85,10 @@
         Base: asc_dead
   - type: NameIdentifier
     identifier: 1
+  - type: CollectiveMind
+    defaultChannel: Shadowmind
+    channels:
+    - Shadowmind
 
 - type: entity
   parent: [BaseMobShadowlingAscendant]

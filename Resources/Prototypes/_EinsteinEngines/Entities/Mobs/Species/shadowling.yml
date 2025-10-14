@@ -63,6 +63,10 @@
   - type: LightDetection
     onLightLevel: 0.25
   - type: LightDetectionDamage
+  - type: CollectiveMind
+    defaultChannel: Shadowmind
+    channels:
+    - Shadowmind
 
 - type: entity
   parent: BaseSpeciesDummy

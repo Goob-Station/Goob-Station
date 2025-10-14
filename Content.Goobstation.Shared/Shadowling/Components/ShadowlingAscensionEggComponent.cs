@@ -84,4 +84,10 @@ public sealed partial class ShadowlingAscensionEggComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? AscensionEnterSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/egg/ascension_enter.ogg");
+
+    /// <summary>
+    /// The theme that plays on successful ascension.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier AscensionTheme = new SoundPathSpecifier("/Audio/_Goobstation/Shadowling/shadowascension.ogg");
 }

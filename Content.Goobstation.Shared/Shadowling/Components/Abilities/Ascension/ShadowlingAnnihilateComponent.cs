@@ -1,3 +1,5 @@
+using Content.Shared.Chat.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
@@ -13,4 +15,7 @@ public sealed partial class ShadowlingAnnihilateComponent : Component
 
     [DataField]
     public EntityUid? ActionEnt;
+
+    [DataField]
+    public ProtoId<EmotePrototype> SnapEmote = "Snap";
 }
