@@ -5234,3 +5234,12 @@ Entries:
   id: 9099
   time: '2025-10-14T19:42:59.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40908
+- author: ArtisticRoomba
+  changes:
+  - message: Atmospherics Delta-Pressure now properly computes delta pressure for
+      structures that can hold air in their tile while still being airtight (ex. directional
+      windows, diagonal windows).
+    type: Fix
+  id: 9100
+  time: '2025-10-14T22:46:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40435
