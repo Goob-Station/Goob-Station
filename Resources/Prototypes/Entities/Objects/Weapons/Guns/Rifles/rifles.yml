@@ -106,6 +106,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
+      - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
@@ -137,7 +138,9 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation V
-    missChance: 0.3
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 60 #youre not multifiring a rifle
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
@@ -148,6 +151,17 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  # Goobstation edit end
 
 - type: entity
   name: AKM
@@ -163,7 +177,6 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider

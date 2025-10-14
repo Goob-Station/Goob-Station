@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: LibrarianTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: librarian translator implant
+  components:
+  - type: Implanter
+    implant: LibrarianTranslatorImplant
+
+- type: entity
+  id: ChevalTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: Cheval translator implant
+  components:
+  - type: Implanter
+    implant: ChevalTranslatorImplant
+
+# Gives the ability to understand SpaceItalian
+- type: entity
+  id: BasicSpaceItalianTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: basic space italian translator implanter
+  components:
+  - type: Implanter
+    implant: BasicSpaceItalianTranslatorImplant
+
+# Gives both ability to speak and understand SpaceItalian.
+- type: entity
+  id: AdvancedSpaceItalianTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: advanced space italian translator implanter
+  components:
+  - type: Implanter
+    implant: SpaceItalianTranslatorImplant

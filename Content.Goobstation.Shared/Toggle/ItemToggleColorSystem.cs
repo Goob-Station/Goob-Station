@@ -23,6 +23,6 @@ public sealed class ItemToggleColorSystem : EntitySystem
 
     private void OnLightToggled(Entity<ItemToggleColorComponent> ent, ref ItemToggledEvent args)
     {
-        _appearance.SetData(ent, ToggleableLightVisuals.Enabled, args.Activated);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, args.Activated);
     }
 }

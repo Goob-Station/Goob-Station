@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Concepts by: https://github.com/ElusiveCoin",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "chitzite",
+            "delays": [
+            [
+                0.3,
+                0.3,
+                0.3,
+                0.3
+            ]
+        ]
+        },
+        {
+            "name": "chitzite_glow",
+            "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+        }
+    ]
+}

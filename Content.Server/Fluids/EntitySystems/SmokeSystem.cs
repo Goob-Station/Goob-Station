@@ -108,6 +108,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Nutrition.Components;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Server.Fluids.EntitySystems;
@@ -348,7 +349,7 @@ public sealed class SmokeSystem : EntitySystem
         if (!Resolve(smokeUid, ref component))
             return;
 
-        if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
+        if (!TryComp<BloodstreamComponent>(entity, out var bloodstream) || bloodstream.SmokeImmune) // Goobstation - ignore SmokeImmune entities
             return;
 
         if (!_solutionContainerSystem.ResolveSolution(entity, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution) || chemSolution.AvailableVolume <= 0)

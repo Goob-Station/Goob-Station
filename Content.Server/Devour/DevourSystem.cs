@@ -18,6 +18,7 @@ using Content.Shared.Devour;
 using Content.Shared.Devour.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Item; // Goobstation
+using Content.Server.Nutrition.Components; // Goobstation
 
 namespace Content.Server.Devour;
 
@@ -49,15 +50,29 @@ public sealed class DevourSystem : SharedDevourSystem
             }
             _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
         }
-        // Goobstation start - Item devouring
-        else if (args.Args.Target is { } target && HasComp<ItemComponent>(target))
+
+        // Goobstation start - Food devouring
+        else if (args.Args.Target is { } target && HasComp<FoodComponent>(target))
+        {
+            _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
+
+            // Food is consumed unlike humanoids
+            QueueDel(target);
+        }
+        // Non-Food Items: follow original behaviour (store otherwise delete)
+        else if (args.Args.Target is { } item && HasComp<ItemComponent>(item))
         {
             if (component.ShouldStoreDevoured)
-                ContainerSystem.Insert(target, component.Stomach);
+            {
+                ContainerSystem.Insert(item, component.Stomach);
+            }
             else
-                QueueDel(target);
+            {
+                QueueDel(item);
+            }
         }
         // Goobstation end
+
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
         //If it's not human, it must be a structure
         else if (args.Args.Target != null)

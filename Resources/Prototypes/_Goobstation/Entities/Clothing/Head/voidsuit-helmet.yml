@@ -18,7 +18,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
   name: futuristic helmet
-  description: The helmet of the fighters of the future, designed for special timeflow operations
+  description: The helmet of the fighters of the future, designed for special timeflow operations.
   components:
   - type: BreathMask
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: blueshield voidsuit helmet
-  description: The helmet of the captain's bodyguard's voidsuit.
+  name: blueshield hardsuit helmet
+  description: The helmet of the captain's bodyguard's hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -101,7 +101,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth voidsuit helmet
+  name: cybersun stealth hardsuit helmet
   description: A helmet with photo-reactive plating for stealth operations.
   components:
   - type: Sprite
@@ -141,7 +141,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDreadnought
-  name: cybersun Dreadnought suit helmet
+  name: Cybersun Dreadnought suit helmet
   description: A helmet, looking at this you wonder if there anyone alive.
   components:
   - type: Sprite
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
-  name: security voidsuit helmet
-  description: A well-built faceplate attached to the security voidsuit.
+  name: security hardsuit helmet
+  description: A well-built faceplate attached to the security hardsuit.
   components:
   - type: BreathMask
   - type: Sprite
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced voidsuit helmet
-  description: Security voidsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
+  name: head of security's advanced hardsuit helmet
+  description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi

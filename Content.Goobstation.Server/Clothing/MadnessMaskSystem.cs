@@ -7,13 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Drugs;
 using Content.Shared.Heretic;
 using Content.Shared.Jittering;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Clothing;
@@ -23,7 +21,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Update(float frameTime)
@@ -53,7 +51,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
                 if (_random.Prob(.25f))
-                    _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
+                    _statusEffect.TryAddStatusEffectDuration(look, "StatusEffectSeeingRainbow", out _, TimeSpan.FromSeconds(10f));
             }
         }
     }

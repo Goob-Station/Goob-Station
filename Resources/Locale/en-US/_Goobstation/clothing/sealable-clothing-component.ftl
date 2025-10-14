@@ -23,6 +23,7 @@ sealable-clothing-seal-down-boots= The {$partName} relaxs its grip on your legs
 sealable-clothing-sealed-process-toggle-fail = Suit is already shutting down!
 sealable-clothing-unsealed-process-toggle-fail = Suit is already starting up!
 sealable-clothing-sealed-toggle-fail = Deactivate the suit first!
+sealable-clothing-seal-was-broken = The Seal on the suit Breaks!
 
 sealable-clothing-not-powered = Suit is not powered!
 sealable-clothing-open-sealed-panel-fail = Wiring panel is too tightly sealed!

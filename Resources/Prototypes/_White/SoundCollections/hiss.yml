@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: XenomorphHiss
+  files:
+  - /Audio/_White/Voice/Xenomorph/hiss1.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss2.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss3.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss4.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss5.ogg

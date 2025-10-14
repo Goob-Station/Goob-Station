@@ -82,21 +82,25 @@
   equipment:
     head: ClothingHeadHatParamedicsoft
 
+
 # Jumpsuit
 - type: loadout
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
 
+
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
 
+
 - type: loadout # goob
   id: ParamedMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryParamedic
+
 
 # Outer clothing
 - type: loadout

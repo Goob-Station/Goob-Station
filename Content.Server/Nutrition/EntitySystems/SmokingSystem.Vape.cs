@@ -81,7 +81,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (entity.Comp.ExplodeOnUse || _emag.CheckFlag(entity, EmagType.Interaction))
             {
                 _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
-                EntityManager.DeleteEntity(entity);
+                Del(entity);
                 exploded = true;
             }
             else
@@ -97,7 +97,7 @@ namespace Content.Server.Nutrition.EntitySystems
                     {
                         exploded = true;
                         _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
-                        EntityManager.DeleteEntity(entity);
+                        Del(entity);
                         break;
                     }
                 }

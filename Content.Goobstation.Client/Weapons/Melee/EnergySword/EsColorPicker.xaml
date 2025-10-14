@@ -1,0 +1,32 @@
+<controls:FancyWindow  xmlns="https://spacestation14.io"
+                       xmlns:controls="using:Content.Client.UserInterface.Controls"
+                       Title="{Loc 'escolorpicker-menu-title'}"
+                       MinSize="600 200"
+                       Resizable="False">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Margin="0 5 10 10" Orientation="Vertical">
+            <BoxContainer Orientation="Horizontal">
+                <SpriteView Name="EntityView" Stretch="Fill" SetSize="128 128" OverrideDirection="South" Margin="25 0 0 0"/>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="30 0 0 0">
+                    <Label Text="{Loc 'escolorpicker-color-pick'}" HorizontalExpand="True"
+                           StyleClasses="StatusFieldTitle"/>
+                    <BoxContainer Name="RgbColorContainer" Visible="True" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
+                    <Button Name="ConfirmButton" Text="{Loc 'escolorpicker-confirm'}"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Name="CollaborationText" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'escolorpicker-menu-flavor-right'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True" />
+                <Button Name="SecretButton" StyleClasses="SecretButton" SetSize="25 25">
+                    <TextureRect Name="Logo" Stretch="KeepAspectCentered" SetSize="19 19"/>
+                </Button>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -177,6 +177,8 @@
     - DoorBumpOpener
     - AnomalyHost
     - Undead
+  - type: TypingIndicator
+    proto: skeleton
 
 - type: entity
   parent: BaseSpeciesDummy

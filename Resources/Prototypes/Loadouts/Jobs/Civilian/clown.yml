@@ -80,10 +80,12 @@
   equipment:
     head: ClothingHeadHatJester
 
+
 - type: loadout
   id: JesterAltHat
   equipment:
     head: ClothingHeadHatJesterAlt
+
 
 # Jumpsuit
 - type: loadout
@@ -91,20 +93,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
 
+
 - type: loadout
   id: ClownSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtClown
+
 
 - type: loadout
   id: JesterSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJester
 
+
 - type: loadout
   id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
+
 
 # Back
 - type: loadout

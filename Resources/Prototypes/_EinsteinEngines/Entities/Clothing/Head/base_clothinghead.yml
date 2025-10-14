@@ -1,0 +1,163 @@
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ClothingHeadEnvirohelmBase
+  name: base envirosuit helmet
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    size: Normal
+    heldPrefix: off
+  - type: Clothing
+    equipDelay: 0.4
+    unequipDelay: 0.6 # Slightly higher delay to protect against accidental unequips
+    equippedPrefix: off
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.90
+  - type: EyeProtection
+  - type: BreathMask
+  - type: PressureProtection # Same as EVA helmet
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Envirohelm
+    - PlasmamanSafe
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    clothingSlots:
+    - mask
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    color: "#ffa1ff"
+    radius: 4
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        minValue: 0.1
+        maxValue: 2.0
+        isLooped: true
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot {}
+  - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
+    guides: [ Plasmaman ]
+
+# When making new custom envirohelms, inherit from this entity and
+# replace the color fields on the layers
+- type: entity
+  abstract: true
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCustomBase
+  name: base custom envirosuit helmet
+  components:
+  - type: ToggleableVisuals
+    spriteLayer: light
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+        shader: unshaded
+      right:
+      - state: on-inhand-right
+        shader: unshaded
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/custom.rsi
+    layers:
+    - state: icon
+      color: "#FFFFFF"
+    - state: accent-icon
+      color: "#FF0000"
+    # - state: midaccent-icon
+    #   color: "#0000FF"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFFFFF"
+      - state: accent-inhand-left
+        color: "#FF0000"
+      # - state: midaccent-inhand-left
+      #   color: "#0000FF"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#FFFFFF"
+      - state: accent-inhand-right
+        color: "#FF0000"
+      # - state: midaccent-inhand-right
+      #   color: "#0000FF"
+      - state: visor-inhand-right
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/custom.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#FFFFFF"
+      - state: accent-equipped-HELMET
+        color: "#FF0000"
+      # - state: midaccent-equipped-HELMET
+      #   color: "#0000FF"
+      - state: visor-equipped-HELMET

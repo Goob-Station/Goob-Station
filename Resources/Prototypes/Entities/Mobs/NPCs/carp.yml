@@ -207,6 +207,7 @@
       color: "#808080"
       activateSound: null
       deactivateSound: null
+    - type: VentCrawler # Goobstation
     - type: Fauna # Lavaland Change
 
 - type: entity
@@ -295,8 +296,6 @@
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock
-      raffle:
-        settings: short
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:

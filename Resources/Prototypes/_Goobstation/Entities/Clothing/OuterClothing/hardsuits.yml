@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitChronolegioneer
-  name: futuristic voidsuit
-  description: A voidsuit covered in an unknown material that protects against most material and temporal damage
+  name: futuristic hardsuit
+  description: A hardsuit covered in an unknown material that protects against most material and temporal damage.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitBlueshieldLight
-  name: "'praetorian' escort voidsuit"
-  description: A voidsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+  name: "'praetorian' escort hardsuit"
+  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
@@ -129,8 +129,8 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth voidsuit
-  description: A voidsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+  name: cybersun stealth hardsuit
+  description: A hardsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
@@ -185,7 +185,7 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunDreadnought
-  name: cybersun dreadnought suit
+  name: Cybersun dreadnought suit
   description: The Syndicate places its glory on your shoulders, do not disappoint.
   components:
   - type: Sprite
@@ -246,8 +246,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterVoidsuitSecurity
-  name: security voidsuit
-  description: A light voidsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
+  name: security hardsuit
+  description: A light hardsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
@@ -290,8 +290,8 @@
 - type: entity
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
-  name: FI-52 "Honor Guard" parade voidsuit
-  description: A special voidsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+  name: FI-52 "Honor Guard" parade hardsuit
+  description: A special hardsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi

@@ -449,6 +449,7 @@
 - type: reaction
   id: Ethyloxyephedrine
   impact: Medium
+  minTemp: 370    #Goobstation edit
   reactants:
     Desoxyephedrine:
       amount: 1

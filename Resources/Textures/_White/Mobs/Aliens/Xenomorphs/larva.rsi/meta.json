@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "xenomorph",
+      "directions": 4
+    },
+    {
+      "name": "xenomorph-moving",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "xenomorph_sleep",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "xenomorph_unconscious",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "xenomorph_dead"
+    }
+  ]
+}
+

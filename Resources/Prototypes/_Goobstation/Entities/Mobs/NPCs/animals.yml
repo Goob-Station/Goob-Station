@@ -6,8 +6,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Astends <elliotnrothman@gmail.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -181,6 +183,12 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
   name: syndie bee
@@ -216,7 +224,7 @@
 - type: entity
   name: lootbug
   id: MobLootbug
-  parent: SimpleMobBase
+  parent: SimpleSpaceMobBase
   description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
@@ -276,12 +284,26 @@
     - Trash
     - VimPilot
   - type: Butcherable
-    spawned:
-    - id: SpawnLootLootbug
+    spawned: []
+    #- id: SpawnLootLootbug
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Ore
+      - Telecrystal
+  - type: MobPrice
+    price: 500
 
 - type: entity
   name: space carp
@@ -546,6 +568,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.05
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -561,14 +592,6 @@
         Base: brullbar
       Dead:
         Base: dead
-  - type: Vocal
-    sounds:
-      Male: Brullbar
-      Female: Brullbar
-      Unsexed: Brullbar
-  - type: AutoEmote
-    emotes:
-    - BrullbarHowl
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -714,7 +737,7 @@
   description: Very foul creature. For those that feel like punching.
   components:
   - type: MovementSpeedModifier
-    baseSprintSpeed: 7.5
+    baseSprintSpeed: 5.5
     baseWalkSpeed: 4.5 # default walking speed
   - type: Sprite
     drawdepth: Mobs
@@ -723,13 +746,23 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: horse
   - type: Physics
+  - type: Speech
+    speechVerb: HorseVerb
+    speechSounds: HorseSpeech
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cheval
+    understands:
+    - Cheval
+    - TauCetiBasic
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 15
+        density: 185
         mask:
         - MobMask
         layer:
@@ -770,4 +803,11 @@
     attributes:
       proper: true
       gender: male
+  - type: Sprinter
+    staminaDrainRate: 2
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
 

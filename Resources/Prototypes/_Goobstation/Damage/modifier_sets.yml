@@ -58,8 +58,8 @@
     Cold: 0.9
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
-    Radiation : 0.7 # Engie yowies need some help against anti-rads
-  ignoreArmorPierceFlags: All # Goobstation
+    Radiation: 0.7 # Engie yowies need some help against anti-rads
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: Tajaran
@@ -69,7 +69,7 @@
     Piercing: 1.15
     Heat: 1.20
     Cold: 0.80
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 # Mech armor
 - type: damageModifierSet
@@ -80,7 +80,6 @@
     Piercing: 0.9
     Shock: 1.2
     Heat: 0.8
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 3
@@ -94,7 +93,6 @@
     Piercing: 0.7
     Shock: 1.2
     Heat: 0.7
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 5
@@ -108,7 +106,6 @@
     Piercing: 0.65
     Shock: 1.4
     Heat: 0.7
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 8
@@ -122,7 +119,6 @@
     Piercing: 0.35
     Shock: 1.8
     Heat: 0.6
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 15
@@ -136,7 +132,6 @@
     Piercing: 0.6
     Shock: 1.4
     Heat: 0.75
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 8
@@ -150,13 +145,12 @@
     Piercing: 0.4
     Shock: 1.8
     Heat: 0.7
-    # GoobStation
     Ion: 1.0
   flatReductions:
     Blunt: 10
     Heat: 7
 
-# Goobstation - Blob
+#Blob
 - type: damageModifierSet
   id: BaseBlob # ReactiveSpines
   coefficients:
@@ -164,7 +158,7 @@
     Slash: 0.25
     Piercing: 0.25
     Heat: 2.00
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: ElectromagneticWebBlob # Explosive Lattice
@@ -174,7 +168,7 @@
     Piercing: 0.50
     Heat: 2.50
     Shock: 0.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice
@@ -184,7 +178,7 @@
     Piercing: 0.25
     Heat: 3.00
     Shock: 1.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: BlobMob # Blob mobs
@@ -193,7 +187,7 @@
     Slash: 0.5
     Piercing: 0.5
     Heat: 1.5
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: BlobReflective # If it reflects lasers, then it must be fragile?
@@ -202,7 +196,7 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: Bingle
@@ -213,7 +207,7 @@
     Shock: 0.9
     Heat: 0.9
     Ion: 2.0 # double damage from ion
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: BingleUpgraded
@@ -224,7 +218,7 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: HisGraceAscended
@@ -246,9 +240,9 @@
     Heat: 0.50
     Bloodloss: 0.50
     Poison: 0.50
-    Radiation : 0.50
+    Radiation: 0.50
     Holy: 1.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: DevilDealNegative
@@ -259,9 +253,9 @@
     Cold: 2
     Bloodloss: 2
     Poison: 2
-    Radiation : 2
+    Radiation: 2
     Holy: 2
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: StructuralImmunity
@@ -276,7 +270,7 @@
     Piercing: 0.8
     Shock: 1.2 # I guess snakes better conduct electricity????????
     Heat: 0.7
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: StrongCrates
@@ -291,3 +285,56 @@
     Piercing: 20
     Heat: 20
     Structural: 30
+
+# Barricades
+
+- type: damageModifierSet
+  id: BarricadeSteel
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+    Heat: 5
+    Structural: 5
+
+- type: damageModifierSet
+  id: BarricadeSteelFolding
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+    Heat: 3
+
+- type: damageModifierSet
+  id: BarricadePlasteel
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.6
+    Piercing: 0.7
+    Structural: 0.75
+    Heat: 0.5
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+    Heat: 3
+    Structural: 5
+
+- type: damageModifierSet
+  id: BarricadePlasteelFolding
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.7
+    Piercing: 0.8
+    Structural: 0.85
+    Heat: 0.5
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+    Heat: 3
+    Structural: 3

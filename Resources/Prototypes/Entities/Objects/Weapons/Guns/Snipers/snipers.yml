@@ -107,6 +107,17 @@
         ents: []
   - type: StaticPrice
     price: 500
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
+  # Goobstation edit end
   - type: MeleeWeapon # Goobstation V
     damage:
       types:
@@ -207,6 +218,8 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeRequiresWield # Goob edit end
   - type: GunRequiresWield
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: Hristov
@@ -240,6 +253,8 @@
   - type: EyeCursorOffset
     maxOffset: 8 # Goobstation - Sniper rifles buff
     pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
+  - type: StaticPrice
+    price: 3500
 
 - type: entity
   name: musket

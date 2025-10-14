@@ -4,12 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+language-Bingle-name = Bingle
+language-Bingle-description =
+    Bingle bongle dingle dangle yickity do yickity da ping pong lippy tappy too ta
 
-bingle-accent-1 = Bingle
-bingle-accent-2 = Bing
-bingle-accent-3 = Bongle
-bingle-accent-4 = Bong
-bingle-accent-5 = BINGLE
+chat-language-Bingle-name = Bingle
 
 chat-speech-verb-name-bingle = Bingle
 bingle-verb-1 = Croaks

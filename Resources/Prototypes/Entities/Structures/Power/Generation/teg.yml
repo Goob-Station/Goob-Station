@@ -199,8 +199,7 @@
           nodeGroupID: Teg
 
     - type: AtmosUnsafeUnanchor
-    # Goobstation - Allow device-on-pipe stacking
-    # - type: PipeRestrictOverlap
+    - type: PipeRestrictOverlap
     - type: TegCirculator
     - type: StealTarget
       stealGroup: Teg

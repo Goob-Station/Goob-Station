@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["sprint_puff.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Goonstation, made allegedly by Everett McCaffrey according to file metadata."
+  source: "https://github.com/goonstation/goonstation/blob/master/sound/effects/sprint_puff.ogg"

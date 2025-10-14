@@ -52,7 +52,7 @@
     - Hardsuit
     - WhitelistChameleon
 #Shoulder mounted flashlight
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
       outerClothing:

@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -35,7 +36,6 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -53,7 +53,11 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      chaosScore: 200
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -76,16 +80,19 @@
     delay:
       min: 465
       max: 665 # Delay is so the heads help their department get set up.
-    chaosScore: 500 # It's just one to two people with less tc even if they may be command
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
       playerRatio: 25
+      chaosScore: 300
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - Condemned # Stops the NTR from rolling it
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -96,16 +103,15 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 700
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - Changeling
       lateJoinAdditional: true
@@ -121,7 +127,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 450
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -129,6 +134,9 @@
     - prefRoles: [ Changeling ]
       max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -142,7 +150,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 1000
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -212,7 +219,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 700
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -220,7 +226,9 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -251,16 +259,17 @@
   components:
   - type: BlobRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
     chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
       briefing:
         text: blob-carrier-role-greeting
@@ -275,7 +284,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 15
+    weight: 10
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
@@ -374,11 +383,11 @@
   components:
   - type: DevilRule
   - type: GameRule
-    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
+    - DevilWeightObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: devil-roundend-name
@@ -386,6 +395,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
+      chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
@@ -393,3 +403,88 @@
   - type: Tag
     tags:
     - RoundstartAntag
+
+- type: entity
+  parent: DuoAbductorSpawn
+  id: DuoAbductorRoundstart
+  components:
+  - type: StationEvent
+    earliestStart: 0 # its roundstart chud
+  # I LOVE GOIDA COPY PASTING THE ENTIRE THING
+  # this just has ghost roles removed, pref roles added and players are picked roundstart
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - spawnerPrototype: AbductorScientistSpawner
+      prefRoles: [ AbductorScientistAntag ]
+      fallbackRoles: [ AbductorAgentAntag ]
+      min: 1
+      max: 1
+      pickPlayer: true
+      unequipOldGear: true
+      startingGear: AbductorScientistGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorScientistPrefix
+          - AbductorNames
+        nameFormat: name-format-standard
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      mindRoles:
+      - MindRoleAbductorScientist
+    - spawnerPrototype: AbductorAgentSpawner
+      prefRoles: [ AbductorAgentAntag ]
+      fallbackRoles: [ AbductorScientistAntag ]
+      min: 1
+      max: 1
+      pickPlayer: true
+      unequipOldGear: true
+      startingGear: AbductorAgentGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+          - ActionReturnToShip
+      - type: NpcFactionMember
+        factions:
+          - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+          - AbductorAgentPrefix
+          - AbductorNames
+        nameFormat: name-format-standard
+      - type: Tag
+        tags:
+          - Abductor
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: AbductorScientist # Should be removed when we have proper teleportation system
+      mindRoles:
+      - MindRoleAbductorAgent

@@ -1,0 +1,44 @@
+﻿- files: ["xenomorph.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["xenomorph_ask.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["xenomorph_exclaim.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["cough1.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["scream1.ogg", "scream2.ogg", "scream3.ogg", "scream4.ogg", "scream5.ogg", "scream6.ogg", "scream7.ogg", "scream8.ogg", "9.ogg", "scream10.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["hiss1.ogg", "hiss2.ogg", "hiss3.ogg", "hiss4.ogg", "hiss5.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["laugh1.ogg", "laugh2.ogg", "laugh3.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["snoring1.ogg", "snoring2.ogg", "snoring3.ogg", "snoring4.ogg", "snoring5.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+
+- files: ["xenomorphdisarm.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/tree/master/sound/alien"

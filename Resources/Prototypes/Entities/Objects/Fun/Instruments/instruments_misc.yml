@@ -66,6 +66,18 @@
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
     state: red_phone
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/phone_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
+      params:
+        volume: -2
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
        path: /Audio/Items/ring.ogg
@@ -198,7 +210,7 @@
     verbImage: null
 
    #Goobstation
-- type: entity 
+- type: entity
   parent: [BaseHandheldInstrument, Clothing, BaseSyndicateContraband]
   id: BloodredCasette
   name: bloodred casette player

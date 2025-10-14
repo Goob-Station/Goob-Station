@@ -1,6 +1,8 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -113,6 +115,12 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
+  - type: LanguageKnowledge
+    speaks:
+    - ValyrianStandard
+    understands:
+    - TauCetiBasic # Goob Edit
+    - ValyrianStandard
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale

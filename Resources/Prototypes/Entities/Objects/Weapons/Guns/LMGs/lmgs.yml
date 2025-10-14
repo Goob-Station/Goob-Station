@@ -115,8 +115,26 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: Multishot # Goobstation
-    missChance: 0.4
+  - type: Multishot # Goobstation V
+    missChance: 0.4 #MISS CHANCE DOESNT WORK LMAO
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  # Goobstation edit end
 
 - type: entity
   name: L6 SAW
@@ -136,6 +154,8 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   name: L6C ROW

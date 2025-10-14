@@ -92,7 +92,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: bowstring
     inhandVisuals:
       left:
@@ -124,7 +124,7 @@
         bowstring:
           True: { state: wielded-arrow }
           False: { state: unwielded-arrow }
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         bowstring:
           True: { visible: true }
           False: { visible: false }

@@ -80,6 +80,7 @@
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   goobcoins: 20 #Goob content
+  canBeAntag: false # Goobstation - salv lings crashing the economy
   supervisors: job-supervisors-qm
   access:
   - Cargo
@@ -96,3 +97,14 @@
   storage: # DeltaV: Add mining voucher
     back:
     - MiningVoucher
+
+- type: chameleonOutfit
+  id: SalvageSpecialistChameleonOutfit
+  job: SalvageSpecialist
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGasExplorer
+    outerClothing: ClothingOuterWinterMiner
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesColorBlack

@@ -500,6 +500,14 @@
           visible: false # Lavaland Change
 
 - type: entity
+  id: AsteroidRockBananiumCrab
+  parent: AsteroidRockBananium
+  suffix: Bananium Crab
+  components:
+  - type: OreVein
+    currentOre: OreBananiumCrab
+
+- type: entity
   id: AsteroidRockSalt
   parent: AsteroidRock
   suffix: Salt

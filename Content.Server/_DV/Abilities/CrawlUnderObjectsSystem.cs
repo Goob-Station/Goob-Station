@@ -42,7 +42,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
     private bool IsOnCollidingTile(EntityUid uid)
     {
         var xform = Transform(uid);
-        var tile = xform.Coordinates.GetTileRef();
+        var tile = _turf.GetTileRef(xform.Coordinates);
         if (tile == null)
             return false;
 

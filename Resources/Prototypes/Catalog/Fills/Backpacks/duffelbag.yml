@@ -153,6 +153,7 @@
       - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
+      - id: ClothingMaskBreath # Goobstation
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -376,7 +377,7 @@
         - id: ClothingEyesChameleon
         - id: ClothingHeadsetChameleon
         - id: ClothingShoesChameleon
-        - id: BarberScissors
+        - id: ChameleonControllerImplanter
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -392,12 +393,13 @@
       - id: ClothingHandsGlovesColorYellowBudget
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate voidsuit bundle
-  description: "Contains the Syndicate's signature blood red voidsuit."
+  name: syndicate hardsuit bundle
+  description: "Contains the Syndicate's signature blood red hardsuit."
   components:
   - type: StorageFill
     contents:
@@ -406,12 +408,13 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite voidsuit bundle
-  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
+  name: syndicate elite hardsuit bundle
+  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
@@ -420,6 +423,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -433,6 +437,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

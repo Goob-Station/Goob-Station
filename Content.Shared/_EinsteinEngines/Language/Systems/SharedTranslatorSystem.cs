@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared.Toggleable; // Ignore, touching for REUSE Headers.
@@ -18,6 +24,9 @@ public abstract class SharedTranslatorSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, HandheldTranslatorComponent component, ExaminedEvent args)
     {
+        if (!component.ShowInfoOnExamine) // goob - don't show info if the component tag is false
+            return;
+
         var understoodLanguageNames = component.UnderstoodLanguages
             .Select(it => Loc.GetString($"language-{it}-name"));
         var spokenLanguageNames = component.SpokenLanguages
@@ -39,6 +48,6 @@ public abstract class SharedTranslatorSystem : EntitySystem
         if (comp == null && !TryComp(translator, out comp))
             return;
 
-        _appearance.SetData(translator, ToggleVisuals.Toggled, comp.Enabled);
+        _appearance.SetData(translator, ToggleableVisuals.Enabled, comp.Enabled);
     }
 }

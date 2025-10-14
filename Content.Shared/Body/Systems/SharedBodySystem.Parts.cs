@@ -180,6 +180,14 @@ public partial class SharedBodySystem
         // Body part inserted into another body part.
         var insertedUid = args.Entity;
         var slotId = args.Container.ID;
+        // <Shitmed>
+        if (slotId == ent.Comp.ContainerName)
+        {
+            // this will give a mob inserted into someones chest an action to burst out
+            _insideBodyPart.InsertedIntoPart(insertedUid, ent);
+            return; // don't need to do bodypart logic it's just a cavity insertion
+        }
+        // </Shitmed>
 
         var body = ent.Comp.Body; // Shitmed Change
         if (body is null)
@@ -219,6 +227,13 @@ public partial class SharedBodySystem
         var slotId = args.Container.ID;
 
         // Shitmed Change Start
+        if (slotId == ent.Comp.ContainerName)
+        {
+            // this will remove the chest burst action
+            _insideBodyPart.RemovedFromPart(removedUid);
+            return; // don't need to do bodypart logic it's just a cavity removal
+        }
+
         if (TryComp(removedUid, out BodyPartComponent? part))
         {
             if (!slotId.Contains(PartSlotContainerIdPrefix + GetSlotFromBodyPart(part)))
