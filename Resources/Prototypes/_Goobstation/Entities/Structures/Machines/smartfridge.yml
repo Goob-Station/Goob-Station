@@ -97,9 +97,9 @@
     whitelist:
       components:
       - FitsInDispenser
-      tags:
       - Produce
       - Seed
+      tags:
       - Bottle
       - Syringe
       - ChemDispensable
