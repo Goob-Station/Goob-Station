@@ -38,8 +38,10 @@ public sealed class WraithEvolveSystem : EntitySystem
 
     private void OnWraithEvolve(Entity<EvolveComponent> ent, ref WraithEvolveEvent args)
     {
-        // add wp checks
-        // add corpse checks
+        // UNCOMMENT THIS ONCE DONE WITH PLAYTESTING!!!!!!!!!!!!
+        /*if (!TryComp<AbsorbCorpseComponent>(ent.Owner, out var corpse)
+            || corpse.CorpsesAbsorbed < ent.Comp.CorpsesRequired)
+            return;*/
 
         _ui.TryToggleUi(ent.Owner, RadialSelectorUiKey.Key, ent.Owner);
         _ui.SetUiState(ent.Owner, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(ent.Comp.AvailableEvolutions));

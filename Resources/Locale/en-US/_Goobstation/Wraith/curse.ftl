@@ -25,5 +25,5 @@ curse-popup-death = Their soul kneels before your final judgment.
 
 curse-fail-require-all = You must apply the four other curses first.
 
-curse-immune-fail = Their will is too strong to crumble under your curses.
+curse-immune-fail = A strange force prevents you from cursing this being, your energy is wasted.
 curse-fail-robot = You cannot curse a machine.

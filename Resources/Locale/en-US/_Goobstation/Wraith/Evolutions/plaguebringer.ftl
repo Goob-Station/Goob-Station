@@ -1,30 +1,3 @@
-wraith-curse-base-desc = This should never be seen.
-wraith-curse-holyground = The holy ground this creature is standing on repels the curse immediately.
-wraith-curse-holyground-target = You feel as though some weight was added to your soul, but the feeling immediately dissipates.
-wraith-curse-chaplain = A strange force prevents you from cursing this being, your energy is wasted.
-wraith-curse-count1 = You feel strangely sick.
-wraith-curse-count2 = You hear whispers in your head, pushing you towards your doom.
-wraith-curse-count3 = <b>A cacophony of otherworldly voices resonates within your mind. You sense a feeling of impending doom! You should seek salvation in the chapel or the purification of holy water.</b>
-
-wraith-blood-curse-already = That curse is already applied to this being...
-wraith-blood-curse-applied = We curse this being with a blood dripping curse.
-
-wraith-blind-curse-already = That curse is already applied to this being...
-wraith-blind-curse-applied = We curse this being with a blinding curse.
-
-wraith-weak-curse-already = That curse is already applied to this being...
-wraith-weak-curse-applied = We curse this being with an enfeebling curse.
-
-wraith-rot-curse-already = That curse is already applied to this being...
-wraith-rot-curse-applied = We curse this being with a decaying curse.
-
-wraith-death-curse-already = That curse is already applied to this being...
-wraith-death-curse-not-ready = That being's soul is not weakened enough. We need to curse it some more.
-wraith-death-curse-applied = <b>That soul will be OURS!</b>
-wraith-death-curse-hand = You feel netherworldly hands grasping at your soul!
-wraith-death-curse-coming = IT'S COMING FOR YOU!
-wraith-death-curse-tear = [H]'s flesh tears open before your very eyes!!
-
 wraith-plaguerat-cannot-use = You cannot use this here!
 wraith-plaguerat-blocked = There is something in the way!
 wraith-plaguerat-channel = You begin to channel power to summon a plague rat into this realm!
