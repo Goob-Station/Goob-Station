@@ -1,4 +1,4 @@
-namespace Content.Shared._White.Xenomorphs.FaceHugger;
+namespace Content.Goobstation.Shared.Xenomorph;
 
 // Goobstation
 /// <summary>
