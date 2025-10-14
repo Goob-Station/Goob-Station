@@ -3,6 +3,7 @@
   name: Urist McSling
   parent: BaseMobSpeciesOrganic
   id: BaseMobShadowling
+  categories: [HideSpawnMenu]
   abstract: true
   components:
   - type: Absorbable # idk why
@@ -20,6 +21,8 @@
   - type: Inventory
     speciesId: shadowling
     templateId: shadowling
+  - type: Insulated
+  - type: ProtectedFromStepTriggers
   - type: Body
     prototype: Shadowling
     requiredLegs: 2
@@ -35,8 +38,7 @@
     animation: WeaponArcShadowClaw
     damage:
       types:
-        Slash: 4
-        Piercing: 1
+        Heat: 10
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -58,6 +60,9 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
+  - type: LightDetection
+    onLightLevel: 0.25
+  - type: LightDetectionDamage
 
 - type: entity
   parent: BaseSpeciesDummy
