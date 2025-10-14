@@ -50,7 +50,7 @@
     description: ghost-role-information-hell-goose-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements
