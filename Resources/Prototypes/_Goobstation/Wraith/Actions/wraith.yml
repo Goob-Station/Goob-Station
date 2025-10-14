@@ -346,6 +346,7 @@
   - type: EntityTargetAction
     event: !type:ApplyCurseActionEvent
       curse: CurseBlindness
+      popup: curse-popup-blindness
 
 - type: entity
   id: ActionCurseWeakness
@@ -364,6 +365,7 @@
   - type: EntityTargetAction
     event: !type:ApplyCurseActionEvent
       curse: CurseWeakness
+      popup: curse-popup-weakness
       # todo: sound for target
 
 - type: entity
@@ -383,6 +385,7 @@
   - type: EntityTargetAction
     event: !type:ApplyCurseActionEvent
       curse: CurseBlood
+      popup: curse-popup-blood
 
 - type: entity
   id: ActionCurseRot
@@ -401,6 +404,7 @@
   - type: EntityTargetAction
     event: !type:ApplyCurseActionEvent
       curse: CurseRot
+      popup: curse-popup-rot
 
 - type: entity
   id: ActionCurseDeath
@@ -419,6 +423,7 @@
   - type: EntityTargetAction
     event: !type:ApplyCurseActionEvent
       curse: CurseDeath
+      popup: curse-popup-death
       requireAllCurses: true
 
 - type: entity

@@ -33,6 +33,12 @@ public sealed partial class ApplyCurseActionEvent : EntityTargetActionEvent
     /// </summary>
     [DataField]
     public bool RequireAllCurses;
+
+    /// <summary>
+    /// Popup to show to the user once a curse is applied
+    /// </summary>
+    [DataField]
+    public LocId? Popup;
 };
 
 /// <summary>
@@ -40,13 +46,13 @@ public sealed partial class ApplyCurseActionEvent : EntityTargetActionEvent
 /// </summary>
 /// <param name="Target"></param> The target trying to apply the curse to
 [ByRefEvent]
-public record struct AttemptCurseEvent(bool Cancelled = false);
+public record struct AttemptCurseEvent(EntityUid Curser, bool Cancelled = false);
 
 /// <summary>
 /// Raised to the target once a curse is applied to them
 /// </summary>
 [ByRefEvent]
-public record struct CurseAppliedEvent(ProtoId<CursePrototype> Curse, EntityUid? Curser);
+public record struct CurseAppliedEvent(ProtoId<CursePrototype> Curse, EntityUid? Curser, bool Cancelled = false);
 
 /// <summary>
 /// Raised on the target once a curse effect is applied to them

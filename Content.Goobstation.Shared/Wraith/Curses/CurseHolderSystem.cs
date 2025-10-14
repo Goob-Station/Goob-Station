@@ -66,7 +66,10 @@ public abstract class SharedCurseHolderSystem : EntitySystem
 
         if (ent.Comp.ActiveCurses.Contains(args.Curse)
             || !_proto.TryIndex(args.Curse, out var curseIndex))
-            return; // fail popup here
+        {
+            args.Cancelled = true; // so the actions don't go to cooldown
+            return;
+        }
 
         if (curseIndex.Components != null)
             EntityManager.AddComponents(ent.Owner, curseIndex.Components);

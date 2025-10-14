@@ -29,6 +29,9 @@ public sealed class WraithPointsClientSystem : EntitySystem
 
     private void OnClickAlert(Entity<WraithPointsComponent> ent, ref ClickAlertEvent args)
     {
+        if (args.Type != ent.Comp.Alert)
+            return;
+
         if (!TryComp<PassiveWraithPointsComponent>(ent.Owner, out var passiveWraithPointsComponent))
             return; // popup something here
 

@@ -41,10 +41,10 @@ public sealed partial class CurseDeathComponent : Component
     public SoundSpecifier? CurseSound1 = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/Ambience/Void_Wail.ogg");
 
     [DataField]
-    public bool MusicIsPlaying = false;
+    public bool MusicIsPlaying;
 
     [DataField]
-    public bool EndIsNigh = false;
+    public bool EndIsNigh;
 
     [DataField]
     public SoundSpecifier? CurseSound2 = new SoundPathSpecifier("/Audio/_Goobstation/Wraith/wraithwhisper2.ogg");

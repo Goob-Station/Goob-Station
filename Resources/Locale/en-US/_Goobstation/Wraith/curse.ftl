@@ -16,3 +16,14 @@ curse-blindness-3 = You blink and notice that your vision is blurier than before
 curse-death-1 = You feel netherworldly hands grasping at your soul!
 curse-death-2 = IT'S COMING FOR YOU!
 curse-death-3 = {CAPITALIZE(THE($entity))}'s flesh tears open before your very eyes!!
+
+curse-popup-weakness = Their strength crumbles under your will.
+curse-popup-blood = Their veins weep at your command.
+curse-popup-rot = Their hunger turns to ash in their mouth.
+curse-popup-blindness = Darkness swallows their sight.
+curse-popup-death = Their soul kneels before your final judgment.
+
+curse-fail-require-all = You must apply the four other curses first.
+
+curse-immune-fail = Their will is too strong to crumble under your curses.
+curse-fail-robot = You cannot curse a machine.

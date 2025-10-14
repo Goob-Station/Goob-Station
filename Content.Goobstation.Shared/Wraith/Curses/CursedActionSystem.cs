@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -16,6 +17,7 @@ public sealed class CursedActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private const int MaxCursesBeforeFinal = 4;
     /// <inheritdoc/>
@@ -31,7 +33,7 @@ public sealed class CursedActionSystem : EntitySystem
 
     private void OnApplyCurseAction(ApplyCurseActionEvent args)
     {
-        var attemptEv = new AttemptCurseEvent();
+        var attemptEv = new AttemptCurseEvent(args.Performer);
         RaiseLocalEvent(args.Target, ref attemptEv);
 
         if (attemptEv.Cancelled)
@@ -43,11 +45,20 @@ public sealed class CursedActionSystem : EntitySystem
         if (args.RequireAllCurses)
         {
             if (curseHolder.ActiveCurses.Count < MaxCursesBeforeFinal)
-                return; // popup here
+            {
+                _popup.PopupClient(Loc.GetString("curse-fail-require-all"), args.Performer, args.Performer);
+                return;
+            }
         }
 
         var curseApply = new CurseAppliedEvent(args.Curse, args.Performer);
         RaiseLocalEvent(args.Target, ref curseApply);
+
+        if (curseApply.Cancelled)
+            return;
+
+        if (args.Popup.HasValue)
+            _popup.PopupClient(Loc.GetString(args.Popup.Value), args.Performer, args.Performer, PopupType.Medium);
 
         // play curse sound if it exists
         if (args.CurseSound != null && _netManager.IsServer)
@@ -71,13 +82,13 @@ public sealed class CursedActionSystem : EntitySystem
     #region Cancel Events
     private void OnSiliconAttempt(Entity<SiliconComponent> ent, ref AttemptCurseEvent args)
     {
-        // popup here
+        _popup.PopupClient(Loc.GetString("curse-fail-robot"), args.Curser, args.Curser);
         args.Cancelled = true;
     }
 
     private void OnAttemptCurseImmune(Entity<CurseImmuneComponent> ent, ref AttemptCurseEvent args)
     {
-        // popup here
+        _popup.PopupClient(Loc.GetString("curse-immune-fail"), args.Curser, args.Curser);
         args.Cancelled = true;
     }
     #endregion
