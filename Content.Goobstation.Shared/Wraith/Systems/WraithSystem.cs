@@ -61,6 +61,9 @@ public sealed class WraithSystem : EntitySystem
         _corpse.Reset(ent.Owner);
     }
 
-    private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args) =>
+    private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args)
+    {
         _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithWeakenedEffect, args.EffectTimespan);
+        _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithInsanity, args.EffectTimespan);
+    }
 }

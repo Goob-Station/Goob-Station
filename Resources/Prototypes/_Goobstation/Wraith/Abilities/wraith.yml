@@ -25,6 +25,10 @@
   - type: BloodWriting
   - type: Decay
   - type: AbsorbCorpse
+    damage:
+      types:
+        Slash: 25
+        Blunt: 25
   - type: DemonicWhisper
   - type: PossessObject
   - type: SummonPortal
