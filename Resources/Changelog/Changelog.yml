@@ -5213,3 +5213,10 @@ Entries:
   id: 9096
   time: '2025-10-14T12:12:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40898
+- author: kontakt
+  changes:
+  - message: Singulo now consumes carpet tiles.
+    type: Fix
+  id: 9097
+  time: '2025-10-14T18:27:58.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40896
