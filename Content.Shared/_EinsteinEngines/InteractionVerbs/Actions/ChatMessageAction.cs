@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Chat.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.InteractionVerbs;
@@ -61,7 +60,7 @@ public sealed partial class ChatMessageAction : InteractionAction
         }
 
         var speaker = GetSpeaker(args);
-        deps.EntMan.System<ChatSystem>().TrySendInGameICMessage(speaker, message, ChatType, false);
+        deps.EntMan.System<SharedChatSystem>().TrySendInGameICMessage(speaker, message, ChatType, false);
 
         return true;
     }
