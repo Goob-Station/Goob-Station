@@ -106,7 +106,9 @@ public sealed class SpellbladeSystem : SharedSpellbladeSystem
                 continue;
             }
 
-            AddComp<TemporalSlashComponent>(entity).Damage = args.BaseDamage;
+            tempSlash = AddComp<TemporalSlashComponent>(entity);
+            tempSlash.Damage = args.BaseDamage;
+            tempSlash.Effect = ent.Comp.Effect;
         }
     }
 

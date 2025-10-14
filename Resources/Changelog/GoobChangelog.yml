@@ -16174,3 +16174,166 @@ Entries:
       message: changed name of "slugcat" jelly-donuts to "scurret" jelly-donuts
   id: 1804
   time: '2025-10-10T06:22:46.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Tweak
+      message: >-
+        The Chief Engineer and Atmospheric Technicians can now control
+        maintenance doors with their remotes.
+  id: 1805
+  time: '2025-10-10T17:10:08.0000000+00:00'
+- author: CyberSamson
+  changes:
+    - type: Fix
+      message: >-
+        Lootbugs, mice, zombies, and other simple creatures can no longer eject
+        bodies from medical scanners.
+  id: 1806
+  time: '2025-10-10T17:12:07.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Scurrets are now clumsy.
+  id: 1807
+  time: '2025-10-10T17:13:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Time requirements to Blob and Centcomm Interns
+  id: 1808
+  time: '2025-10-10T17:37:10.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Damaged hullplating is no longer strangely slippery.
+  id: 1809
+  time: '2025-10-10T17:37:55.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: RCD now respects door access and bolts on deconstuction.
+    - type: Fix
+      message: Fixed RCD in-tile wall light stacking.
+  id: 1810
+  time: '2025-10-10T17:38:30.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Sprinting into each other causes a knockdown.
+    - type: Add
+      message: >-
+        Getting shoved while sprinting breaks sprinting and causes you to lose
+        some extra stamina.
+  id: 1811
+  time: '2025-10-10T17:45:28.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Raised abductor time requirement so chuds maybe learn to use the return
+        to ship action.
+  id: 1812
+  time: '2025-10-10T17:46:17.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Increased the moth dash's cooldown
+  id: 1813
+  time: '2025-10-10T17:48:08.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Energycrit
+    - type: Add
+      message: IPCs can drink power from batteries.
+    - type: Tweak
+      message: IPCs are no longer round removed when they run out of power in maints.
+    - type: Tweak
+      message: IPCs now have a permanent high capacity battery.
+  id: 1814
+  time: '2025-10-10T17:51:06.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added  Ancient Goliath  to lavaland
+  id: 1815
+  time: '2025-10-10T17:53:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Walls are now a good source of iron for a balanced diet.
+  id: 1816
+  time: '2025-10-10T20:43:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed interactor filters not working
+  id: 1817
+  time: '2025-10-11T19:36:50.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed Rodentia accent
+  id: 1818
+  time: '2025-10-11T19:37:58.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: you can now drag drop a orebox onto the ore prossesor to empty it
+  id: 1819
+  time: '2025-10-11T19:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic cosmos path.
+    - type: Add
+      message: Wizards now can speak and understand all languages.
+  id: 1820
+  time: '2025-10-12T09:59:47.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shallow clone bug for fluid solutions and made puddle freshness be
+        set on blood spill instead of every time new blood is created in the
+        bloodstream.
+  id: 1821
+  time: '2025-10-13T09:51:08.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed bats not storing in backpack properly
+  id: 1822
+  time: '2025-10-13T10:00:51.0000000+00:00'
+- author: JohnJohn, Nerdyyyy__
+  changes:
+    - type: Add
+      message: Added fell for it again award as contra in the clothes vending machine
+  id: 1823
+  time: '2025-10-13T10:01:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: ReEnabled sprites for each character in the end round window.
+  id: 1824
+  time: '2025-10-13T10:02:37.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        The red pain overlay will now properly update based upon current pain
+        levels.
+  id: 1825
+  time: '2025-10-13T17:27:30.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Tweak
+      message: Add ringtone next tone input  after typing
+  id: 1826
+  time: '2025-10-13T21:19:48.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed Xenomorph evolution.
+  id: 1827
+  time: '2025-10-13T21:45:32.0000000+00:00'
