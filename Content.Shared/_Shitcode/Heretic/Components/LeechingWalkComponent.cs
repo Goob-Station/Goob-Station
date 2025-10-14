@@ -15,26 +15,29 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class LeechingWalkComponent : Component
 {
     [DataField]
-    public float AscensuionMultiplier = 3f;
+    public float AscensionMultiplier = 3f;
+
+    [DataField]
+    public FixedPoint2 BoneHeal = -5;
 
     [DataField]
     public DamageSpecifier ToHeal = new()
     {
         DamageDict =
         {
-            {"Blunt", -1},
-            {"Slash", -1},
-            {"Piercing", -1},
-            {"Heat", -1},
-            {"Cold", -1},
-            {"Shock", -1},
-            {"Asphyxiation", -1},
-            {"Bloodloss", -1},
-            {"Caustic", -1},
-            {"Poison", -1},
-            {"Radiation", -1},
-            {"Cellular", -1},
-            {"Holy", -1},
+            {"Blunt", -2},
+            {"Slash", -2},
+            {"Piercing", -2},
+            {"Heat", -2},
+            {"Cold", -2},
+            {"Shock", -2},
+            {"Asphyxiation", -2},
+            {"Bloodloss", -2},
+            {"Caustic", -2},
+            {"Poison", -2},
+            {"Radiation", -2},
+            {"Cellular", -2},
+            {"Holy", -2},
         },
     };
 

@@ -19,6 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
@@ -27,9 +28,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -97,9 +96,10 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
 
-        // GoobStation
-        var ev = new ImplantRemovedFromEvent(uid, component.ImplantedEntity.Value);
-        RaiseLocalEvent(component.ImplantedEntity.Value, ref ev);
+        // <GoobStation>
+        var ev = new ImplantRemovedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // </GoobStation>
 
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
@@ -116,7 +116,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     /// Add a list of implants to a person.
     /// Logs any implant ids that don't have <see cref="SubdermalImplantComponent"/>.
     /// </summary>
-    public void AddImplants(EntityUid uid, IEnumerable<String> implants)
+    public void AddImplants(EntityUid uid, IEnumerable<EntProtoId> implants)
     {
         foreach (var id in implants)
         {
@@ -246,21 +246,9 @@ public readonly struct ImplantImplantedEvent
     }
 }
 
-// GoobStation
-
 /// <summary>
-/// Event that is raised whenever removed implant from implanted entity.
-/// Raised on implanted entity.
+/// Goobstation - Event that is raised whenever an implant is removed from an implanted entity.
+/// Raised on the implant.
 /// </summary>
 [ByRefEvent]
-public readonly struct ImplantRemovedFromEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanted;
-
-    public ImplantRemovedFromEvent(EntityUid implant, EntityUid implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
-    }
-}
+public readonly record struct ImplantRemovedEvent(EntityUid Implant, EntityUid Implanted);

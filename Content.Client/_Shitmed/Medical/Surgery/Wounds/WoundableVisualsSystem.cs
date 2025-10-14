@@ -26,6 +26,12 @@ namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
 
 public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsComponent>
 {
+    /*
+    // Disabled Wound Visuals
+    // It gets applied no problem but after attempts it doesn't seem to be removeable
+    // I will at somepoint might try to fix it, by writing/reviewing the code fully.
+    // RichardBlonski 🐢
+
     [Dependency] private readonly SharedBodySystem _body = default!;
 
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -322,4 +328,5 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
             spriteComponent.LayerSetState(spriteLayer, $"{statePrefix}_{threshold}");
         }
     }
+    */
 }

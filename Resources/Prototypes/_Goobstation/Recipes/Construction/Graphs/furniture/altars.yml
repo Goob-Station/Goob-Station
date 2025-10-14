@@ -75,6 +75,14 @@
       - tag: Meat
         name: construction-graph-tag-meat
         doAfter: 3
+    - to: BlueAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: MakeshiftShield
+        name: construction-graph-tag-blue
+        doAfter: 3
     - to: HeavenAltarNode
       completed:
       - !type:SnapToGrid
@@ -167,6 +175,18 @@
       completed:
       - !type:SpawnPrototype
         prototype: FoodMeatFish
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: BlueAltarNode
+    entity: AltarConvertBlue
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: MakeshiftShield
         amount: 1
       steps:
       - tool: Prying

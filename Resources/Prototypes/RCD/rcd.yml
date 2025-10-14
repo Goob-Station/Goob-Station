@@ -211,6 +211,8 @@
   delay: 1
   collisionMask: TabletopMachineMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWallLight # Goobstation - No light stacking
   rotation: User
   fx: EffectRCDConstruct1
 
@@ -224,6 +226,8 @@
   delay: 1
   collisionMask: TabletopMachineMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWallLight # Goobstation - No light stacking
   rotation: User
   fx: EffectRCDConstruct1
 
