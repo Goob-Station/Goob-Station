@@ -18,7 +18,6 @@ using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using JetBrains.FormatRipper.Elf;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
