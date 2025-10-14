@@ -65,16 +65,8 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
 
         var hulk = PredictedSpawnAtPosition(proto, xform.Coordinates);
 
-        // Choose the correct FTL line
-        var popupKey = isBuff
-            ? "wraith-rot-hulk-strong-emerge"
-            : "wraith-rot-hulk-emerge";
-
         // Show the localized message, substituting the spawned entity name
-        _popup.PopupEntity(
-            Loc.GetString(popupKey, ("E", hulk)),
-            hulk,
-            ent.Owner);
+        _popup.PopupPredicted(Loc.GetString("wraith-rot-hulk-emerge", ("E", hulk)), hulk, ent.Owner);
 
         args.Handled = true;
     }

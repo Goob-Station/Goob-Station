@@ -146,7 +146,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
-      useDelay: 5
+    useDelay: 5
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
