@@ -1,0 +1,36 @@
+- type: entity
+  id: GrapplingHookHunter
+  name: Grappler Capture Head
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EmbeddableProjectile
+      deleteOnRemove: true
+      removalTime: 3
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      noRot: false
+      sprite: _CorvaxGoob/Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      layers:
+        - state: hook
+    - type: Physics
+      bodyType: Dynamic
+      linearDamping: 0
+      angularDamping: 0
+    - type: Projectile
+      deleteOnCollide: false
+      damage:
+        types:
+          Blunt: 0
+    - type: Fixtures
+      fixtures:
+        projectile:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.1,-0.1,0.1,0.1"
+          hard: false
+          mask:
+            - Impassable
+            - HighImpassable
+            - BulletImpassable
+    - type: GrapplingHookHunter

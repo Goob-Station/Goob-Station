@@ -1,0 +1,10 @@
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponGrapplingGunHunter
+  result: WeaponGrapplingGunHunter
+  materials:
+    Steel: 1800
+    Glass: 500
+    Plastic: 800
+    Gold: 300
+    Plasma: 200

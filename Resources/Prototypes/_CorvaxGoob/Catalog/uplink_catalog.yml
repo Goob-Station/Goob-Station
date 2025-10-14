@@ -1,0 +1,14 @@
+- type: listing
+  id: UplinkWeaponGrapplingGunHunterSyndicate
+  name: uplink-syndicate-capture-device-scd-name
+  description: uplink-syndicate-capture-device-scd-desc
+  productEntity: WeaponGrapplingGunHunterSyndicate
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

@@ -790,6 +790,7 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
+    - SecurityCaptureDevicePack # Corvax-Goob-WeaponGrapplingGunHunter
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoLightStatic

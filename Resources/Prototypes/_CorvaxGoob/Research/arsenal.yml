@@ -1,0 +1,14 @@
+- type: technology
+  id: SecurityCaptureDevice
+  name: research-technology-security-capture-device
+  icon:
+    sprite: _CorvaxGoob/Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+    state: lathe
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - WeaponGrapplingGunHunter
+  technologyPrerequisites:
+  - RestraintTechnology
+  position: 3,1

@@ -1,0 +1,4 @@
+- type: latheRecipePack
+  id: SecurityCaptureDevicePack
+  recipes:
+  - WeaponGrapplingGunHunter
