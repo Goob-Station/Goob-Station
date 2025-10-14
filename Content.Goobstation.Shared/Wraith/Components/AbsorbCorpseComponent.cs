@@ -45,7 +45,7 @@ public sealed partial class AbsorbCorpseComponent : Component
     public DamageSpecifier Damage = new();
 
     [DataField]
-    public ProtoId<ReagentPrototype> Reagent = "Opporozidone";
+    public ProtoId<ReagentPrototype> Reagent = "Formaldehyde";
 
     /// <summary>
     /// Sounds to be played whwn wraith absorbs someone.
