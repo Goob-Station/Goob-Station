@@ -5220,3 +5220,10 @@ Entries:
   id: 9097
   time: '2025-10-14T18:27:58.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40896
+- author: B_Kirill
+  changes:
+  - message: Fixed blocked rotation of zombie NPCs.
+    type: Fix
+  id: 9098
+  time: '2025-10-14T19:12:36.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40812
