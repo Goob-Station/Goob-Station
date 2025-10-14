@@ -147,6 +147,7 @@
         type: SurgeryBui
   - type: Bloodstream
     bloodMaxVolume: 650
+    bleedReductionAmount: 5 #goob
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

@@ -56,8 +56,16 @@ knowledge-path-side-s3-void-cloak-desc =
     The Owl is the keeper of things that are not quite in practice, but in theory are. Many things are.
 
     Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
-    While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
+    While the hood is down, the cloak functions as a focus and provides low pressure and low temperature protection, and while the hood is up, the cloak is completely invisible.
     It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
+knowledge-path-side-s3-shark-name = Scorching Shark
+knowledge-path-side-s3-shark-desc =
+    The cradle of the nebula was cold, but not dead. Light and heat flits even through the deepest darkness, and is hunted by its own predators.
+
+    Allows you to transmute a pool of ash, a liver, and a sheet of plasma into a Fire Shark.
+    Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
+    Fire Sharks ignite their victims and spawn plasma once they die.
 
 knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s3-ice-spear-desc =
