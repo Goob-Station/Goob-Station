@@ -13,7 +13,14 @@
       - MindRoleGhostRoleSoloAntagonist
       briefing:
         text: wraith-role-greeting
-        color: Red
+        color: "#8B0000"
+        sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWraith
+        - NamesWraithTitle
+        nameFormat: name-format-wraith
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobWraith

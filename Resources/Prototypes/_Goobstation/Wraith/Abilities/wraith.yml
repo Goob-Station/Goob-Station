@@ -47,6 +47,7 @@
       Toxin: 10
   - type: SummonPlagueRat
   - type: SummonRotHulk
+    searchRadius: 7
   - type: WraithCommand
     blacklist:
       components:

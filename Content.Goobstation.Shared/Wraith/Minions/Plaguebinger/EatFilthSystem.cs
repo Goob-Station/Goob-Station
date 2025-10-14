@@ -68,6 +68,8 @@ public sealed class EatFilthSystem : EntitySystem
         var ev = new AteFilthEvent(ent.Comp.FilthConsumed);
         RaiseLocalEvent(ent.Owner, ref ev);
 
+        PredictedQueueDel(args.Target);
+
         _popup.PopupClient(Loc.GetString("wraith-plaguerat-eat-you-finish", ("target", args.Target)), ent.Owner, ent.Owner);
     }
 
@@ -89,7 +91,7 @@ public sealed class EatFilthSystem : EntitySystem
             }
         }
 
-        // then if its not a puddle, just delete check if it passes the whitelist and delete it
+        // then if its not a puddle, just check if it passes the whitelist
         if (_entityWhitelist.IsWhitelistPass(ent.Comp.AllowedEntities, target))
             return true;
 

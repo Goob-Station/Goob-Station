@@ -18,6 +18,7 @@ public sealed class WraithEvolveSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -66,6 +67,9 @@ public sealed class WraithEvolveSystem : EntitySystem
 
         var coordinates = _transformSystem.GetMoverCoordinates(uid);
         var newForm = Spawn(evolve, coordinates);
+
+        var meta = MetaData(uid);
+        _meta.SetEntityName(newForm, meta.EntityName);
 
         _mind.TransferTo(mindUid, newForm, mind: mind);
         _mind.UnVisit(mindUid, mind);

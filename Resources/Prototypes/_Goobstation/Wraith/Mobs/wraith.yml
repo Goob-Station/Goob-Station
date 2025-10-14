@@ -52,8 +52,6 @@
     castShadows: false
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  - type: NameIdentifier
-    group: GenericNumber
   - type: Visibility
     layer: 2 #ghost vis layer
   - type: Speech
@@ -136,12 +134,10 @@
   - type: Puller
     needsHands: false
 
-
 - type: entity
   id: MobWraithPlague
   parent: MobWraith
   name: Plaguebringer
-  description: Template
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi
@@ -165,7 +161,6 @@
   id: MobWraithHarbinger
   parent: MobWraith
   name: Harbinger of the Void
-  description: Template
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi
@@ -188,7 +183,6 @@
   id: MobWraithTrickster
   parent: MobWraith
   name: Trickster
-  description: Template
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi

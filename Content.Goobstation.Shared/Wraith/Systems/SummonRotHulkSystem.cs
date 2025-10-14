@@ -16,8 +16,6 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-
-
     public override void Initialize()
     {
         base.Initialize();
@@ -25,9 +23,11 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
         SubscribeLocalEvent<SummonRotHulkComponent, SummonRotHulkEvent>(OnSummonHulk);
     }
 
-    public void OnSummonHulk(Entity<SummonRotHulkComponent> ent, ref SummonRotHulkEvent args)
+    private void OnSummonHulk(Entity<SummonRotHulkComponent> ent, ref SummonRotHulkEvent args)
     {
         if (args.Handled)
+            return;
+        if (_net.IsClient)
             return;
 
         var uid = ent.Owner;
@@ -35,7 +35,7 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
         var xform = Transform(uid);
 
         var nearbyTrash = new List<EntityUid>();
-        foreach (var e in _lookup.GetEntitiesInRange(xform.Coordinates, comp.SearchRadius))
+        foreach (var e in _lookup.GetEntitiesInRange(xform.Coordinates, comp.SearchRadius, LookupFlags.Uncontained))
         {
             if (_tags.HasTag(e, comp.TrashTag))
                 nearbyTrash.Add(e);
@@ -45,17 +45,15 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
 
         if (nearbyTrash.Count < comp.MinTrash)
         {
-            _popup.PopupEntity(Loc.GetString("wraith-rot-hulk-rise"), ent.Owner, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("wraith-rot-hulk-too-clean"), ent.Owner, ent.Owner);
             return;
         }
 
         //TO DO: Would be cool if the trash slowly was dragged into a center point and only then spawn the rot hulk in the middle of that, rather than just deleting. For parity's sake and all.
         //Leaving this for part 2, it's just cosmetic.
-        if (_net.IsServer) //Only server can delete networked entities.
-        {
-            foreach (var trash in nearbyTrash)
-                QueueDel(trash);
-        }
+
+        foreach (var trash in nearbyTrash)
+            QueueDel(trash);
 
         // Choose which prototype to spawn
         var isBuff = nearbyTrash.Count >= comp.BuffThreshold;
@@ -63,10 +61,8 @@ public sealed partial class SummonRotHulkSystem : EntitySystem
             ? comp.BuffRotHulkProto
             : comp.RotHulkProto;
 
-        var hulk = PredictedSpawnAtPosition(proto, xform.Coordinates);
-
-        // Show the localized message, substituting the spawned entity name
-        _popup.PopupPredicted(Loc.GetString("wraith-rot-hulk-emerge", ("E", hulk)), hulk, ent.Owner);
+        Spawn(proto, xform.Coordinates);
+        _popup.PopupEntity(Loc.GetString("wraith-rot-hulk-emerge"), ent.Owner, ent.Owner);
 
         args.Handled = true;
     }

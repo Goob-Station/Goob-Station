@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 public sealed partial class SummonRotHulkComponent : Component
 {
     [DataField]
-    public ProtoId<TagPrototype> TrashTag = "Trash";
+    public ProtoId<TagPrototype> TrashTag = "RotHulkTrash";
 
     [DataField]
     public EntProtoId RotHulkProto = "MobRotHulk";

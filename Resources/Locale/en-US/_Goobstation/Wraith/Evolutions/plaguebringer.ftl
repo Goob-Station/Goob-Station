@@ -14,5 +14,5 @@ wraith-rot-hulk-too-clean = This place is much too clean to summon a rot hulk.
 wraith-rot-hulk-rise = All the filth and grime around begins to writhe and move!
 wraith-rot-hulk-abomination = The filth accumulates into a living bloated abomination
 wraith-rot-hulk-goliath = The great amount of filth coalesces into a rotting goliath
-wraith-rot-hulk-emerge = A [E] slowly rises up from the coalesced filth!
-wraith-rot-hulk-strong-emerge = A [E] slowly emerges from the gigantic pile of grime!
+wraith-rot-hulk-emerge = A rot hulk slowly rises up from the coalesced filth!
+wraith-rot-hulk-strong-emerge = A rot hulk slowly emerges from the gigantic pile of grime!

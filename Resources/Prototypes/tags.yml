@@ -1645,9 +1645,6 @@
   id: Trash
 
 - type: Tag
-  id: Fungus
-
-- type: Tag
   id: TrashBag
 
 - type: Tag

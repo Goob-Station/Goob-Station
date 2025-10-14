@@ -39,7 +39,7 @@ public sealed partial class SummonPlagueRatSystem : EntitySystem
 
         if (_net.IsServer)
         {
-            var voidUid = Spawn(comp.RatProto, xform.Coordinates);
+            Spawn(comp.RatProto, xform.Coordinates);
             _popup.PopupPredicted(Loc.GetString("wraith-plaguerat-channel"), uid, uid);
         }
 
