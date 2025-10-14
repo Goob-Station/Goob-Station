@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Actions;
 using Content.Goobstation.Shared.Wraith.Banishment;
 using Content.Goobstation.Shared.Wraith.Collisions;
 using Content.Goobstation.Shared.Wraith.Components;
+using Content.Goobstation.Shared.Wraith.Other;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -32,6 +33,9 @@ public sealed class WraithSystem : EntitySystem
 
         SubscribeLocalEvent<WraithComponent, BanishmentEvent>(OnBanishment);
         SubscribeLocalEvent<WraithComponent, StatusEffectOnCollideEvent>(OnCollide);
+
+        SubscribeLocalEvent<WraithComponent, WraithWeakenedAddedEvent>(OnWraithWeakenedAdded);
+        SubscribeLocalEvent<WraithComponent, WraithWeakenedRemovedEvent>(OnWraithWeakenedRemoved);
     }
 
     private void OnMapInit(Entity<WraithComponent> ent, ref MapInitEvent args) =>
@@ -61,9 +65,12 @@ public sealed class WraithSystem : EntitySystem
         _corpse.Reset(ent.Owner);
     }
 
-    private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args)
-    {
+    private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args) =>
         _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithWeakenedEffect, args.EffectTimespan);
-        _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithInsanity, args.EffectTimespan);
-    }
+
+    private void OnWraithWeakenedAdded(Entity<WraithComponent> ent, ref WraithWeakenedAddedEvent args) =>
+        EnsureComp<WraithInsanityComponent>(ent.Owner);
+
+    private void OnWraithWeakenedRemoved(Entity<WraithComponent> ent, ref WraithWeakenedRemovedEvent args) =>
+        RemComp<WraithInsanityComponent>(ent.Owner);
 }

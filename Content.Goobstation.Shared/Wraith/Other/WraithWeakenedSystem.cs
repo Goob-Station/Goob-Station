@@ -19,11 +19,21 @@ public sealed class WraithWeakenedSystem : EntitySystem
         SubscribeLocalEvent<WraithWeakenedComponent, StatusEffectRemovedEvent>(OnStatusEffectEnded);
     }
 
-    private void OnStatusEffectAdded(Entity<WraithWeakenedComponent> ent, ref StatusEffectAppliedEvent args) =>
-        DisableActions(args.Target);
+    private void OnStatusEffectAdded(Entity<WraithWeakenedComponent> ent, ref StatusEffectAppliedEvent args)
+    {
+        var ev = new WraithWeakenedAddedEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
 
-    private void OnStatusEffectEnded(Entity<WraithWeakenedComponent> ent, ref StatusEffectRemovedEvent args) =>
+        DisableActions(args.Target);
+    }
+
+    private void OnStatusEffectEnded(Entity<WraithWeakenedComponent> ent, ref StatusEffectRemovedEvent args)
+    {
+        var ev = new WraithWeakenedRemovedEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
         DisableActions(args.Target, true);
+    }
 
     private void DisableActions(EntityUid uid, bool enabled = false)
     {

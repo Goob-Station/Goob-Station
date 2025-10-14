@@ -34,12 +34,3 @@
   name: weakened
   components:
   - type: WraithWeakened
-
-# Wraith - Insanity
-# Results -> Adds insanity overlay to your screen (usually when you step over salt)
-- type: entity
-  parent: MobStatusEffectBase
-  id: StatusEffectInsanityWraith
-  name: insanity
-  components:
-  - type: WraithInsanity
