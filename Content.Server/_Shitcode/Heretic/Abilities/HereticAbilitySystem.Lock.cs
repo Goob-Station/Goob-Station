@@ -14,6 +14,7 @@ using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
+using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -63,6 +64,12 @@ public sealed partial class HereticAbilitySystem
 
         if (polymorphed == null)
             return;
+
+        // This shouldn't break because ghoul comp should be copied on polymorph (it copies max health),
+        // change this behavior if this ability is ever given to heretic
+        if (TryComp(user, out DamageableComponent? userDamage) &&
+            TryComp(polymorphed.Value, out DamageableComponent? polymorphedDamage))
+            _dmg.SetDamage(polymorphed.Value, polymorphedDamage, userDamage.Damage);
 
         _npcFaction.AddFaction(polymorphed.Value, HereticRuleSystem.HereticFactionId);
 

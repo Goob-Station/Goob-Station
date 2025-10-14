@@ -93,6 +93,8 @@
       NavSmash: !type:Bool
         true
   - type: Targeting
+  - type: Bloodstream
+    maxBleedAmount: 0
 
 - type: entity
   parent: BaseMobGhoul
