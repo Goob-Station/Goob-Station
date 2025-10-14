@@ -15988,3 +15988,352 @@ Entries:
       message: '**Removed Corrosive Acid Ability** until it can be properly fixed.'
   id: 1779
   time: '2025-10-08T18:37:02.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: changling no longer reveal if flash imune
+  id: 1780
+  time: '2025-10-10T05:47:55.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed plamamens Envirosuit helmet lamps
+  id: 1781
+  time: '2025-10-10T05:48:15.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Fixed Plasmamen damage modifers now work '
+  id: 1782
+  time: '2025-10-10T05:48:31.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: 'Heretics void blast  now stoped by nullrod (no longer in use) '
+    - type: Fix
+      message: Heretics Ice Spear now stoped by nullrod
+  id: 1783
+  time: '2025-10-10T05:49:50.0000000+00:00'
+- author: Fishbait ,
+  changes:
+    - type: Fix
+      message: Rakings servants have no longer spawn organs when gibbed
+  id: 1784
+  time: '2025-10-10T05:50:37.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Having upgraded cybernetic lungs no longer causes you to jitter like a
+        grinder
+  id: 1785
+  time: '2025-10-10T05:53:15.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed like half of wizard spells/items not working.
+    - type: Tweak
+      message: >-
+        Buffed lightning bolt, thrown lightning, barnyard curse, summon bees,
+        mjollnir, singulo hammer, sm halberd, magic missile.
+    - type: Tweak
+      message: You can now summon maximum of 3 demons of each type as wizard.
+    - type: Tweak
+      message: Nerfed bind soul.
+  id: 1786
+  time: '2025-10-10T05:54:33.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: Two instances of blood appearing in the health analyzer.
+    - type: Fix
+      message: Blood freshness mechanic not working.
+    - type: Add
+      message: Blood drawn with a syringe from a body is actually fresh.
+  id: 1787
+  time: '2025-10-10T05:55:39.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Fixed Nullrod reflect description.
+  id: 1788
+  time: '2025-10-10T05:57:54.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Fix
+      message: Moths can no longer eat bomb suit helmets.
+  id: 1789
+  time: '2025-10-10T05:58:42.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Holy damage now disapates over time.
+  id: 1790
+  time: '2025-10-10T05:59:24.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: chaplains devine shoulder holster is now a null rod
+  id: 1791
+  time: '2025-10-10T06:00:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: >-
+        The Ore Processor and its variant now output materials directly to the
+        silo, instead of lagging the entire server with 10,000 steel.
+  id: 1792
+  time: '2025-10-10T06:03:33.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: Weldbot properly heal IPCs now.
+  id: 1793
+  time: '2025-10-10T06:04:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: >-
+        Dragons, blobbernaughts, heretic ascention, demons, and xenos no longer
+        bleed out.
+  id: 1794
+  time: '2025-10-10T06:09:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: >-
+        NV and IR goggles give flash vulnrability while worn, nukie versions do
+        not.
+  id: 1795
+  time: '2025-10-10T06:10:05.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Add
+      message: Added a space cleaner dispenser to Fland's janitor room
+  id: 1796
+  time: '2025-10-10T06:10:46.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Remove
+      message: Disabled the Woundmed **wound visuals** system.
+  id: 1797
+  time: '2025-10-10T06:12:26.0000000+00:00'
+- author: LuciferEOS, Freeman
+  changes:
+    - type: Tweak
+      message: Changed the nukies elite hardsuit icon.
+  id: 1798
+  time: '2025-10-10T06:12:46.0000000+00:00'
+- author: Mavislav
+  changes:
+    - type: Tweak
+      message: Updated all vial capacity to match the default vial's 30 units
+  id: 1799
+  time: '2025-10-10T06:13:26.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Sharkminnow Tooth damage reduced from 15 to 12 slash.
+    - type: Tweak
+      message: >-
+        Sharkminnow Spear damage increased from 18 to 20 piercing, throw damage
+        increased from 25 to 30.
+  id: 1800
+  time: '2025-10-10T06:16:28.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Shadowling glare stun has a max of 6 instead of 5
+    - type: Tweak
+      message: Shadowling mute time up to 6 from 5
+    - type: Tweak
+      message: Shadowling enthrall takes 4 seconds, down from 5
+    - type: Fix
+      message: Fixed Shadowling glare not muting target
+  id: 1801
+  time: '2025-10-10T06:17:22.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Now you won't able to check people wanted status without hud
+  id: 1802
+  time: '2025-10-10T06:20:43.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added a new Lavaland ruin centered around combat and exploration.
+    - type: Fix
+      message: >-
+        Fixed collision issues with Flock structures, and made them
+        destructible.
+  id: 1803
+  time: '2025-10-10T06:22:08.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Tweak
+      message: changed name of "slugcat" jelly-donuts to "scurret" jelly-donuts
+  id: 1804
+  time: '2025-10-10T06:22:46.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Tweak
+      message: >-
+        The Chief Engineer and Atmospheric Technicians can now control
+        maintenance doors with their remotes.
+  id: 1805
+  time: '2025-10-10T17:10:08.0000000+00:00'
+- author: CyberSamson
+  changes:
+    - type: Fix
+      message: >-
+        Lootbugs, mice, zombies, and other simple creatures can no longer eject
+        bodies from medical scanners.
+  id: 1806
+  time: '2025-10-10T17:12:07.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Scurrets are now clumsy.
+  id: 1807
+  time: '2025-10-10T17:13:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Time requirements to Blob and Centcomm Interns
+  id: 1808
+  time: '2025-10-10T17:37:10.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Damaged hullplating is no longer strangely slippery.
+  id: 1809
+  time: '2025-10-10T17:37:55.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: RCD now respects door access and bolts on deconstuction.
+    - type: Fix
+      message: Fixed RCD in-tile wall light stacking.
+  id: 1810
+  time: '2025-10-10T17:38:30.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: Sprinting into each other causes a knockdown.
+    - type: Add
+      message: >-
+        Getting shoved while sprinting breaks sprinting and causes you to lose
+        some extra stamina.
+  id: 1811
+  time: '2025-10-10T17:45:28.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Raised abductor time requirement so chuds maybe learn to use the return
+        to ship action.
+  id: 1812
+  time: '2025-10-10T17:46:17.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Increased the moth dash's cooldown
+  id: 1813
+  time: '2025-10-10T17:48:08.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Energycrit
+    - type: Add
+      message: IPCs can drink power from batteries.
+    - type: Tweak
+      message: IPCs are no longer round removed when they run out of power in maints.
+    - type: Tweak
+      message: IPCs now have a permanent high capacity battery.
+  id: 1814
+  time: '2025-10-10T17:51:06.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added  Ancient Goliath  to lavaland
+  id: 1815
+  time: '2025-10-10T17:53:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Walls are now a good source of iron for a balanced diet.
+  id: 1816
+  time: '2025-10-10T20:43:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed interactor filters not working
+  id: 1817
+  time: '2025-10-11T19:36:50.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed Rodentia accent
+  id: 1818
+  time: '2025-10-11T19:37:58.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: you can now drag drop a orebox onto the ore prossesor to empty it
+  id: 1819
+  time: '2025-10-11T19:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New heretic cosmos path.
+    - type: Add
+      message: Wizards now can speak and understand all languages.
+  id: 1820
+  time: '2025-10-12T09:59:47.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shallow clone bug for fluid solutions and made puddle freshness be
+        set on blood spill instead of every time new blood is created in the
+        bloodstream.
+  id: 1821
+  time: '2025-10-13T09:51:08.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed bats not storing in backpack properly
+  id: 1822
+  time: '2025-10-13T10:00:51.0000000+00:00'
+- author: JohnJohn, Nerdyyyy__
+  changes:
+    - type: Add
+      message: Added fell for it again award as contra in the clothes vending machine
+  id: 1823
+  time: '2025-10-13T10:01:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: ReEnabled sprites for each character in the end round window.
+  id: 1824
+  time: '2025-10-13T10:02:37.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        The red pain overlay will now properly update based upon current pain
+        levels.
+  id: 1825
+  time: '2025-10-13T17:27:30.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Tweak
+      message: Add ringtone next tone input  after typing
+  id: 1826
+  time: '2025-10-13T21:19:48.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed Xenomorph evolution.
+  id: 1827
+  time: '2025-10-13T21:45:32.0000000+00:00'

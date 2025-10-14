@@ -59,7 +59,7 @@
   deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5 # goobstation - damaged tiles shouldn't be slippery
   heatCapacity: 10000
 
 - type: tile

@@ -89,8 +89,11 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 ComponentsToTransfer = new()
                 {
                     new("Wizard", mirror: true),
-                    new ("Apprentice", mirror: true),
-                    new ("NpcFactionMember"),
+                    new("Apprentice", mirror: true),
+                    new("UniversalLanguageSpeaker", mirror: true),
+                    new("TowerOfBabel", mirror: true),
+                    new("CanEnchant", mirror: true),
+                    new("NpcFactionMember"),
                 },
             };
             var newUid = _polymorph.PolymorphEntity(target, config);

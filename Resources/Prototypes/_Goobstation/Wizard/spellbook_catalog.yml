@@ -238,7 +238,7 @@
   description: spellbook-barnyard-desc
   productAction: ActionBarnyardCurse
   cost:
-    WizCoin: 2
+    WizCoin: 1
   categories:
   - SpellbookOffensive
   conditions:
@@ -844,8 +844,11 @@
   - SpellbookSummons
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 3
   - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
   disableRefund: true
 
 - type: listing
@@ -862,8 +865,11 @@
   - SpellbookSummons
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 3
   - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
   disableRefund: true
 
 # Event
