@@ -71,6 +71,17 @@
     Cold: 0.80
   ignoreArmorPierceFlags: All
 
+- type: damageModifierSet
+  id: FireShark
+  coefficients:
+    Heat: 0.25
+    Cold: 0.25
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Cellular: 0.0
+  ignoreArmorPierceFlags: All
+
 # Mech armor
 - type: damageModifierSet
   id: ThinArmor
