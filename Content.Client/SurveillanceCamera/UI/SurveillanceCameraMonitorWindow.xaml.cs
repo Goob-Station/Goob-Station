@@ -68,7 +68,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     }
 
     // Goobstation start
-    // 
     // need to translate entity to string and then call the same method the list does
     private void SetTrackedEntityFromNavMap(NetEntity? netEntity)
     {
@@ -133,6 +132,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         var blip = new NavMapBlip(coords, _spriteSystem.Frame0(texture), color * modulator, blink);
         NavMap.TrackedEntities[ent] = blip;
     }
+    // Goobstation End
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
@@ -140,8 +140,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
-
-        // Goobstation Start
+        // Goobstation start
         _reverseCameras.Clear();
         NavMap.TrackedEntities.Clear();
         foreach (var (camera, (ent, coordinates)) in cameras)
@@ -154,9 +153,9 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             _reverseCameras[ent] = camera;
             AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, true);
         }
+        // Goobstation end
     }
 
-    // Goobstation End
 
     private void SetCameraView(IEye? eye)
     {

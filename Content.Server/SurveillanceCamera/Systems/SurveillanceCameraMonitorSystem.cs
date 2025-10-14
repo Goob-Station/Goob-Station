@@ -198,7 +198,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
                 // Cleanup component if empty
                 if (monitor.KnownMobileCameras.Count == 0)
-                    RemComp<ReconnectingSurveillanceCameraMonitorComponent>(uid);
+                    RemComp<HasMobileCamerasSurveillanceCameraMonitorComponent>(uid);
 
                 // Refresh subnets as clearly something went wrong with the networking
                 if (expiredCameras.Count > 0)
