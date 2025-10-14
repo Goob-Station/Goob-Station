@@ -22,7 +22,7 @@
       Heat: 4
   damageBlacklist: # DeltaV
     components:
-    - AshStormImmune
+    - WeatherImmune
 
 - type: weather
   id: AshfallLight
