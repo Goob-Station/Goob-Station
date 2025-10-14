@@ -64,8 +64,6 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
-  - type: MobPrice
-    price: 666
   - type: Puller
     needsHands: false
   - type: Speech
