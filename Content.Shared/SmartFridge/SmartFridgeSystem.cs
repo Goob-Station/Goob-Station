@@ -28,6 +28,7 @@ public sealed class SmartFridgeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnItemAdded);
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
 
         SubscribeLocalEvent<SmartFridgeComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
@@ -53,19 +54,9 @@ public sealed class SmartFridgeSystem : EntitySystem
         {
             if (!_whitelist.CheckBoth(used, ent.Comp.Blacklist, ent.Comp.Whitelist))
                 continue;
+
             anyInserted = true;
-
             _container.Insert(used, container);
-            var key = new SmartFridgeEntry(Identity.Name(used, EntityManager));
-            if (!ent.Comp.Entries.Contains(key))
-                ent.Comp.Entries.Add(key);
-
-            ent.Comp.ContainedEntries.TryAdd(key, new());
-            var entries = ent.Comp.ContainedEntries[key];
-            if (!entries.Contains(GetNetEntity(used)))
-                entries.Add(GetNetEntity(used));
-
-            Dirty(ent);
         }
 
         if (anyInserted && playSound)
@@ -73,7 +64,21 @@ public sealed class SmartFridgeSystem : EntitySystem
             _audio.PlayPredicted(ent.Comp.InsertSound, ent, user);
         }
 
+        Dirty(ent);
         return anyInserted;
+    }
+
+    // Goobstation - SmartFridge respects ContainerFill
+    private void TryCreateSmartFridgeEntry(Entity<SmartFridgeComponent> fridge, EntityUid toInsert)
+    {
+        var key = new SmartFridgeEntry(Identity.Name(toInsert, EntityManager));
+        if (!fridge.Comp.Entries.Contains(key))
+            fridge.Comp.Entries.Add(key);
+
+        fridge.Comp.ContainedEntries.TryAdd(key, new());
+        var entries = fridge.Comp.ContainedEntries[key];
+        if (!entries.Contains(GetNetEntity(toInsert)))
+            entries.Add(GetNetEntity(toInsert));
     }
 
     private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
@@ -82,6 +87,14 @@ public sealed class SmartFridgeSystem : EntitySystem
             return;
 
         args.Handled = DoInsert(ent, args.User, [args.Used], true);
+    }
+
+    // Goobstation - SmartFridge respects ContainerFill
+    private void OnItemAdded(Entity<SmartFridgeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        TryCreateSmartFridgeEntry(ent, args.Entity); // Goobstation - SmartFridge respects ContainerFill
+
+        Dirty(ent);
     }
 
     private void OnItemRemoved(Entity<SmartFridgeComponent> ent, ref EntRemovedFromContainerMessage args)
