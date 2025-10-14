@@ -24,8 +24,6 @@ public sealed partial class SummonPortalSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SummonPortalComponent, SummonPortalEvent>(OnSummonPortal);
     }
-
-    // TO DO: Part 2, only allow the wraith to open the portal while in corporeal form.
     public void OnSummonPortal(Entity<SummonPortalComponent> ent, ref SummonPortalEvent args)
     {
         var uid = ent.Owner;

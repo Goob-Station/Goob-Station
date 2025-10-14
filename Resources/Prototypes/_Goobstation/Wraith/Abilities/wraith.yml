@@ -62,7 +62,7 @@
     availableEvolutions:
     - prototype: MobWraithHarbinger
     - prototype: MobWraithPlague
-    - prototype: MobWraithTrickster
+ #   - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
     - ActionWhisper
@@ -75,7 +75,6 @@
     - ActionPossessObject
     - ActionRaiseSkeleton
     - ActionSummonVoidPortal
-    - ActionSummonVoidCreature
     - ActionMakeRevenant
     - ActionCurseBlindness
     - ActionCurseWeakness

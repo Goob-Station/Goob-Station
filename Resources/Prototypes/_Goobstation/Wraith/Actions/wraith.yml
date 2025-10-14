@@ -268,6 +268,8 @@
     popup: wraith-portal-already
     primeTime: 10
   - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
     useDelay: 180
     icon:
       sprite: _Goobstation/Wraith/actions.rsi

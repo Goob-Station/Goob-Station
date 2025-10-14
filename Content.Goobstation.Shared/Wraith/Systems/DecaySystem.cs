@@ -23,7 +23,7 @@ public sealed partial class DecaySystem : EntitySystem
         if (HasComp<HumanoidAppearanceComponent>(args.Target))
         {
             _stamina.TakeOvertimeStaminaDamage(args.Target, ent.Comp.StaminaDamageAmount);
-            _popup.PopupPredicted(Loc.GetString("wraith-decay-human-alert"), args.Target, args.Target);
+            _popup.PopupClient(Loc.GetString("wraith-decay-human-alert"), args.Target, args.Target);
             args.Handled = true;
             return;
         }

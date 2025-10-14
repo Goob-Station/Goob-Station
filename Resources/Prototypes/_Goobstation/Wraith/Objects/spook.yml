@@ -1,6 +1,7 @@
 - type: entity
   id: SpookObject
-  name: The Spook
+  name: ???
+  suffix: DO NOT MAP
   description: It can do various things by being interacted with.
   components:
   - type: Transform
@@ -19,8 +20,10 @@
         - GhostImpassable
   - type: InteractionOutline
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/unknownplushie.rsi
-    state: plushie_cosmic
+    noRot: true
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: curse
     overrideContainerOcclusion: true # Always show up regardless of where they're contained.
     drawdepth: Ghosts
   - type: Visibility

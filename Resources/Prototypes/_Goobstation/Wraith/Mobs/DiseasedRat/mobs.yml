@@ -109,6 +109,16 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/snap.ogg
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-plagurat-name
+    description: ghost-role-information-plaguerat-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: MobPlagueRatMedium
@@ -170,13 +180,14 @@
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
-    animation: WeaponArcBite
+    animation: WeaponArcPunch
     soundHit:
-      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+      path: /Audio/_Goobstation/Wraith/Attack/Flesh_Tear_2.ogg
     damage:
       types:
         Slash: 10
         Blunt: 5
+        Structural: 50
   - type: MobThresholds
     thresholds:
       0: Alive
