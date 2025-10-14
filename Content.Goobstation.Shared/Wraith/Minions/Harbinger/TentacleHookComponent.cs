@@ -15,8 +15,12 @@ public sealed partial class TentacleHookComponent : Component
     public EntityUid? Projectile;
 
     [DataField]
-    public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wraith/Objects/Line/tentacle.rsi"), "mid_tentacle");
+    public SpriteSpecifier HookSprite =
+        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wraith/Objects/Line/tentacle.rsi"), "end_tentacle");
+
+    [DataField]
+    public SpriteSpecifier RopeSprite =
+    new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wraith/Objects/Line/tentacle.rsi"), "mid_tentacle");
 
     /// <summary>
     /// Sounds to be played whwn hooking.

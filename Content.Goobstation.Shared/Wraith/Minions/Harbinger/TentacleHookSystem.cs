@@ -24,6 +24,7 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private const string TentacleJoint = "grappling";
     /// <inheritdoc/>
@@ -52,11 +53,12 @@ public sealed class TentacleHookSystem : EntitySystem
         ent.Comp.Projectile = proj;
 
         var visuals = EnsureComp<JointVisualsComponent>(proj);
-        visuals.Sprite = ent.Comp.Sprite;
+        visuals.Sprite = ent.Comp.RopeSprite;
         visuals.OffsetA = new Vector2(0f, 0.5f);
         visuals.Target = GetNetEntity(ent.Owner);
         Dirty(proj, visuals);
 
+        _audio.PlayPredicted(ent.Comp.HookSound, ent.Owner, ent.Owner);
         _gun.ShootProjectile(proj,
             dir,
             Vector2.Zero,

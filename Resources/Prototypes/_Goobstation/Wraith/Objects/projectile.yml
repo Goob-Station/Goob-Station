@@ -11,7 +11,7 @@
     noRot: false
     sprite: _Goobstation/Wraith/Objects/Line/tentacle.rsi
     layers:
-    - state: mid_tentacle
+    - state: end_tentacle
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
