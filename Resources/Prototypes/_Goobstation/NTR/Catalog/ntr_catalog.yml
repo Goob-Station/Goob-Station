@@ -2,7 +2,7 @@
 - type: listing
   id: NTRExecutiveCargoBingle
   name: Call a cargo bingle
-  description: After capturing, pitless bingles are amputated of their sharp teeth, and are shipped across poor stations to help cargo with heavy lifting. Their emotional well being does not matter.
+  description: After capture, pitless bingles have their sharp teeth removed and are transported through stations to assist with heavy cargo lifting. Their emotional well-being is disregarded.
   productEntity: SpawnPodCargoBingle
   icon:
     sprite: _Goobstation/Mobs/Bingle/cargo-bingle.rsi
