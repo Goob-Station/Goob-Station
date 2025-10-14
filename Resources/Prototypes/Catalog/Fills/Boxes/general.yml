@@ -472,6 +472,8 @@
   components:
   - type: Sprite
     state: box
+  - type: RadiationBlockingContainer # CorvaxGoob Radiation Overhaul Revert
+    resistance: 2
 
 
 - type: entity

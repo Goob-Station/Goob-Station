@@ -19,10 +19,11 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
-using Content.Shared.Singularity.Components; // Goobstation - Radiation Overhaul
+//using Content.Shared.Singularity.Components; // Goobstation - Radiation Overhaul // CorvaxGoob Radiation Overhaul - Start
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -151,16 +152,31 @@ public partial class RadiationSystem
 
         var mapId = destTrs.MapID;
 
+        // CorvaxGoob Radiation Overhaul Revert - Start
+        var dir = destWorld - source.WorldPosition;
+        var dist = dir.Length();
+
+        // check if receiver is too far away
+        if (dist > GridcastMaxDistance)
+            return null;
+
+        // will it even reach destination considering distance penalty
+        var rads = source.Intensity - source.Slope * dist;
+        if (rads < MinIntensity)
+            return null;
+
         // Goobstation Start - Radiation Overhaul
         // get direction from rad source to destination and its distance
-        var dir = destWorld - source.WorldPosition;
-        var dist = Math.Max(dir.Length(),0.5f);
-        if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
-            dist = Math.Max(dist - horizon.Radius, 0.5f);
-        var rads = source.Intensity / (dist );
-        if (rads < 0.01)
-            return null;
+        // var dir = destWorld - source.WorldPosition;
+        // var dist = Math.Max(dir.Length(),0.5f);
+        // if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
+        //     dist = Math.Max(dist - horizon.Radius, 0.5f);
+        // var rads = source.Intensity / (dist );
+        // if (rads < 0.01)
+        //     return null;
         // Goobstation End - Radiation Overhaul
+
+        // CorvaxGoob Radiation Overhaul Revert - End
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers
@@ -206,6 +222,8 @@ public partial class RadiationSystem
         return ray;
     }
 
+    // CorvaxGoob Radiation Overhaul - Start
+    /*
     // Goobstation - Radiation Overhaul
     /// <summary>
     /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
@@ -268,6 +286,9 @@ public partial class RadiationSystem
             entry = exit;
         }
     }
+    */
+    // CorvaxGoob Radiation Overhaul Revert - End
+
     private RadiationRay Gridcast(
         Entity<MapGridComponent, TransformComponent> grid,
         ref RadiationRay ray,
@@ -285,27 +306,40 @@ public partial class RadiationSystem
 
         // get coordinate of source and destination in grid coordinates
 
+        // CorvaxGoob Radiation Overhaul Revert - Start
         // Goobstation Start - Radiation Overhaul
 
         // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
-        var srcLocal = sourceTrs.ParentUid == grid.Owner
+
+        //var srcLocal = sourceTrs.ParentUid == grid.Owner
+        Vector2 srcLocal = sourceTrs.ParentUid == grid.Owner
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
 
-        var dstLocal = destTrs.ParentUid == grid.Owner
+        //var dstLocal = destTrs.ParentUid == grid.Owner
+        Vector2 dstLocal = destTrs.ParentUid == grid.Owner
             ? destTrs.LocalPosition
             : Vector2.Transform(ray.Destination, grid.Comp2.InvLocalMatrix);
 
-        Vector2 sourceGrid = new(
-            srcLocal.X / grid.Comp1.TileSize,
-            srcLocal.Y / grid.Comp1.TileSize);
+        // Vector2 sourceGrid = new(
+        //     srcLocal.X / grid.Comp1.TileSize,
+        //     srcLocal.Y / grid.Comp1.TileSize);
 
-        Vector2 destGrid = new(
-            dstLocal.X / grid.Comp1.TileSize,
-            dstLocal.Y / grid.Comp1.TileSize);
+        // Vector2 destGrid = new(
+        //     dstLocal.X / grid.Comp1.TileSize,
+        //     dstLocal.Y / grid.Comp1.TileSize);
 
+        Vector2i sourceGrid = new(
+            (int) Math.Floor(srcLocal.X / grid.Comp1.TileSize),
+            (int) Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
+
+        Vector2i destGrid = new(
+            (int) Math.Floor(dstLocal.X / grid.Comp1.TileSize),
+            (int) Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
+
+        /*
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
             if (resistanceMap.TryGetValue(point, out var resData))
@@ -327,9 +361,31 @@ public partial class RadiationSystem
                 }
             }
         }
+        */
+
+        // iterate tiles in grid line from source to destination
+        var line = new GridLineEnumerator(sourceGrid, destGrid);
+        while (line.MoveNext())
+        {
+            var point = line.Current;
+            if (!resistanceMap.TryGetValue(point, out var resData))
+                continue;
+            ray.Rads -= resData;
+
+            // save data for debug
+            if (saveVisitedTiles)
+                blockers!.Add((point, ray.Rads));
+
+            // no intensity left after blocker
+            if (ray.Rads <= MinIntensity)
+            {
+                ray.Rads = 0;
+                break;
+            }
+        }
 
         // Goobstation End - Radiation Overhaul
-
+        // CorvaxGoob Radiation Overhaul Revert - End
 
         if (!saveVisitedTiles || blockers!.Count <= 0)
             return ray;
@@ -361,12 +417,16 @@ public partial class RadiationSystem
 
             if (_blockerQuery.TryComp(xform.ParentUid, out var blocker))
             {
+                // CorvaxGoob Radiation Overhaul Revert - Start
                 // Goobstation Start - Radiation Overhaul
-                var ratio = blocker.RadDecay>2? 1 / (blocker.RadDecay/2):1;
-                rads = (rads - blocker.RadResistance) * ratio;
+                // var ratio = blocker.RadDecay>2? 1 / (blocker.RadDecay/2):1;
+                // rads = (rads - blocker.RadResistance) * ratio;
+
+                rads -= blocker.RadResistance;
                 if (rads < 0.1)
                     return 0;
                 // Goobstation End - Radiation Overhaul
+                // CorvaxGoob Radiation Overhaul Revert - End
             }
 
             child = parent;

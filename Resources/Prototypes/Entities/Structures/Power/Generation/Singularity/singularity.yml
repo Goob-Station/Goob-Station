@@ -132,7 +132,8 @@
   - type: Singularity
     energy: 180
     level: 1
-    radsPerLevel: 6 # Goobstation - Radiation Overhaul
+    radsPerLevel: 2 # CorvaxGoob Radiation Overhaul Revert
+    #radsPerLevel: 6 # Goobstation - Radiation Overhaul
     energyLoss: 1
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5
@@ -142,7 +143,8 @@
     intensity: 3645
   - type: RadiationSource
     slope: 0.2 # its emit really far away
-    intensity: 6 # Goobstation - Radiation Overhaul
+    intensity: 2 # CorvaxGoob Radiation Overhaul Revert
+    #intensity: 6 # Goobstation - Radiation Overhaul
   - type: PointLight
     enabled: true
     radius: 10

@@ -369,6 +369,8 @@
     node: pwindoor
   - type: StaticPrice
     price: 500
+  - type: RadiationBlocker # CorvaxGoob Radiation Overhaul Revert
+    resistance: 2
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 40
     damagePenalty: 0.1
