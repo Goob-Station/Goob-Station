@@ -198,6 +198,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: WraithMidround # Goobstation - Wraith
 
 - type: entity
   id: BaseStationEvent
