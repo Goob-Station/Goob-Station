@@ -6,8 +6,8 @@
   - sprite: /Textures/_Goobstation/Wraith/UI/alert.rsi
     state: wp
   alertViewEntity: AlertWraithPointsSpriteView
-  name: alerts-revenant-essence-name
-  description: alerts-revenant-essence-desc
+  name: alerts-revenant-wp-name
+  description: alerts-revenant-wp-desc
 
 - type: alertCategory
   id: EntityResource

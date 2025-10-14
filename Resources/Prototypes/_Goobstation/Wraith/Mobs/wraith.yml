@@ -27,6 +27,14 @@
     sprite: _Goobstation/Wraith/wraith.rsi
     layers:
     - state: base
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Ghost
+      - Normal
+      - CosmicCultMonument
+      - Abductor
+  - type: GhostHearing
   - type: StatusEffects
     allowed:
     - Stun
@@ -35,11 +43,6 @@
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
   - type: NoSlip
-  - type: Eye
-    drawFov: false
-    visMask:
-    - Normal
-    - Ghost
   - type: PointLight
     enabled: true
     color: "#790c24"
@@ -130,6 +133,8 @@
   - type: SmokeOnTrigger
     duration: 3
     spreadAmount: 3
+  - type: Puller
+    needsHands: false
 
 
 - type: entity
