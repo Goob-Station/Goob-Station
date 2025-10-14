@@ -11,7 +11,6 @@ using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Hands.EntitySystems;
 // Goobstation Start - Energycrit
 using Content.Goobstation.Shared.Sprinting;
 using Content.Server.Radio;
@@ -31,7 +30,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SiliconChargeSystem _silicon = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; // Monolith - IPC rework
     // Goobstation Start - Energycrit
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
