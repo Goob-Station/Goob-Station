@@ -90,8 +90,8 @@ ghost-role-intern-rules = Follow the orders given you by the [color=yellow][bold
 ghost-role-lead-intern-rules = Follow the orders given you by the [color=yellow][bold]NanoTrasen Representative[/bold][/color] & CentComm, protect command, give orders to other interns.
 
 # cargo bingle
-ghost-role-cargo-bingle-name = cargo bingle
-ghost-role-cargo-bingle-desc = Serve the Nanotrasen Representative and his interests, do not injure crew members, help cargo and the station.
+ghost-role-cargo-bingle-name = Cargo bingle
+ghost-role-cargo-bingle-desc = Serve the Nanotrasen Representative and their interests, do not injure crew members, help cargo and the station.
 
 # shuttle roles
 
