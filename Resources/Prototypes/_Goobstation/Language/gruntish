@@ -1,57 +1,57 @@
-# Spoken by Felinids.
-# Jargon language of Japanese tidbits and memes.
-# TODO: Replace this with a much better language.
+# Spoken by onis and yowie
+# Jargon language of Japanese tidbits and fent
+
 - type: language
-  id: Nekomimetic
+  id: Gruntish
   isVisibleLanguage: true
   speech:
-    color: "#df57aaee"
-    # fontId: Manga #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
+    fontSize: 18
+    color: "#721f1f"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
-    maxSyllables: 3 # May be too long even, we'll see.
+    maxSyllables: 3
     replacement:
-    - neko
-    - nyan
+    - drugo
+    - cuntu
     - mimi
     - moe
     - mofu
     - fuwa
-    - kyaa
-    - kawaii
+    - brugna
+    - ugna
     - poka
     - munya
     - puni
     - munyu
-    - ufufu
+    - Rescunt
     - icha
     - doki
     - kyun
     - kusu
-    - nya
-    - nyaa
-    - desu
+    - fuckin'
+    - oath
+    - kilatu
     - kis
     - ama
     - chuu
     - baka
-    - hewo
+    - Gormo
     - boop
-    - gato
+    - trashin
     - kit
     - sune
     - yori
     - sou
-    - baka
-    - chan
+    - Ough
+    - ye'
     - san
     - kun
     - mahou
     - yatta
     - suki
-    - usagi
-    - domo
+    - usagh
+    - fent
     - ori
     - uwa
     - zaazaa
