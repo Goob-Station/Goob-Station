@@ -98,9 +98,6 @@
     tags:
     - WeakToSalt
     - DoorBumpOpener
-  - type: Banishment # revive on death, resets WP
-    lives: 1
-    popup: wraith-banishment
   - type: MobState
     allowedStates:
       - Alive

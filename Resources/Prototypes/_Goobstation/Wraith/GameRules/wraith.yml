@@ -21,6 +21,9 @@
         - NamesWraith
         - NamesWraithTitle
         nameFormat: name-format-wraith
+      - type: Banishment # revive on death, resets WP
+        lives: 1
+        popup: wraith-banishment
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobWraith

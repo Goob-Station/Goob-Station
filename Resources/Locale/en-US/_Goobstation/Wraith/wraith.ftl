@@ -8,7 +8,7 @@ wraith-already-haunted = { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($targ
 wraith-possess = Your essence takes over the object!
 wraith-leave-body = The wraith's possession has coem to an end.
 
-wraith-banishment = I goida
+wraith-banishment = I'm whole, for the final time.
 
 wraith-action-generic-fail = Not enough points to use this action!
 
