@@ -27,6 +27,7 @@ public sealed class AreaSpawnerSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<AreaSpawnerComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -34,6 +35,9 @@ public sealed class AreaSpawnerSystem : EntitySystem
     {
         foreach (var spawned in component.Spawneds)
         {
+            if (TerminatingOrDeleted(spawned)) // Goobstation
+                continue;
+
             var despawnComponent = new TimedDespawnComponent
             {
                 Lifetime = _random.NextFloat(component.MinTime, component.MaxTime)
