@@ -22,11 +22,8 @@
         # Goobstation - allow from-materials construction
         - to: solarassembly
           steps:
-            - tag: CapacitorStockPart
-              name: construction-graph-tag-capacitor
-              icon:
-                sprite: Objects/Misc/stock_parts.rsi
-                state: capacitor
+            - material: Manipulator
+              amount: 1
               doAfter: 1
             - material: Steel
               amount: 2

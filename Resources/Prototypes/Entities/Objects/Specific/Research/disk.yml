@@ -21,6 +21,23 @@
   name: research point disk (1000)
   description: A disk for the R&D server containing 1000 points.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon

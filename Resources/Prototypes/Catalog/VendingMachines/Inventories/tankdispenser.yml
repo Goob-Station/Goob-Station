@@ -11,6 +11,7 @@
   startingInventory:
     OxygenTankFilled: 10
     NitrogenTankFilled: 10
+    PlasmaTankFilled: 10 # EE Plasmeme Change
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory

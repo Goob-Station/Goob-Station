@@ -1,7 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
 # SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -17,9 +21,25 @@
   whitelist:
     tags:
     - ReptilianEmotes
+    - HarpyEmotes
   blacklist:
     components:
       - BorgChassis
   chatTriggers:
   - yip
   - yips
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  category: Vocal
+  chatMessages: [ "chat-emote-msg-coo" ]
+  whitelist:
+    tags:
+      - HarpyEmotes
+  blacklist:
+    components:
+      - BorgChassis
+  chatTriggers:
+  - coo
+  - coos

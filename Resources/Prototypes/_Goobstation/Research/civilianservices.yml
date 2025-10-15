@@ -6,6 +6,8 @@
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
@@ -27,6 +29,7 @@
   recipeUnlocks:
   - VehicleHoverchairSci
   - PrescriptionGlasses
+  - EnvirosuitExtinguisherRefill
   position: 3,4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -57,7 +60,6 @@
   cost: 7500
   recipeUnlocks:
   - HandheldCrewMonitor
-  - DefibrillatorCompact
   position: 4,6
   technologyPrerequisites:
   - BiochemicalStasis
@@ -76,7 +78,7 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
-  position: 0,6
+  position: 0,7
   technologyPrerequisites:
   - HONKMech
 

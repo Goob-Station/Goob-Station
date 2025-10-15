@@ -1,0 +1,14 @@
+- type: soundCollection
+  id: FlockBeep
+  files:
+  - /Audio/_Goobstation/Flock/flockdrone_beep1.ogg
+  - /Audio/_Goobstation/Flock/flockdrone_beep2.ogg
+  - /Audio/_Goobstation/Flock/flockdrone_beep3.ogg
+  - /Audio/_Goobstation/Flock/flockdrone_beep4.ogg
+
+- type: soundCollection
+  id: FlockGrump
+  files:
+  - /Audio/_Goobstation/Flock/flockdrone_grump1.ogg
+  - /Audio/_Goobstation/Flock/flockdrone_grump2.ogg
+  - /Audio/_Goobstation/Flock/flockdrone_grump3.ogg

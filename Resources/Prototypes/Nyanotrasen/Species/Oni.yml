@@ -1,9 +1,17 @@
 # SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,6 +28,14 @@
   femaleFirstNames: NamesOniFirstFemale
   lastNames: NamesOniLast
   naming: LastNoFirst
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 1.0
+  defaultHeight: 1.2
+  maxHeight: 1.35
+  minWidth: 1.05
+  defaultWidth: 1.2
+  maxWidth: 1.3
+  # end Goobstation: port EE height/width sliders
 
 - type: markingPoints
   id: MobOniMarkingLimits
@@ -35,18 +51,36 @@
       required: true
       defaultMarkings: [ OniHornDoubleCurved ]
     HeadSide:
-      points: 1
-      required: false
+      points: 3
+      required: true
       defaultMarkings: [ PointyEarsUpwards ]
     Snout:
       points: 2
       required: false
     Chest:
+      points: 8
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
       points: 3
       required: false
-    Legs:
-      points: 6
+    LeftArm:
+      points: 2
       required: false
-    Arms:
-      points: 6
+    LeftHand:
+      points: 3
       required: false

@@ -7,6 +7,7 @@
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Devil.Condemned;
 
@@ -75,6 +76,12 @@ public sealed partial class CondemnedComponent : Component
     public bool FreezeDuringCondemnation;
 
     /// <summary>
+    /// If true, scrambles the targets DNA after banishing them.
+    /// </summary>
+    [DataField]
+    public bool ScrambleAfterBanish = true;
+
+    /// <summary>
     /// Should this entity be banished (sent to limbo for several minutes) or should they just be deleted?
     /// </summary>
     [DataField]
@@ -91,6 +98,16 @@ public sealed partial class CondemnedComponent : Component
 
     [DataField]
     public ProtoId<PolymorphPrototype> BanishProto = "ShadowJaunt180";
+    /// <summary>
+    /// The map file location of the hell map used after banishment
+    /// </summary>
+    [DataField]
+    public ResPath HellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
+    /// <summary>
+    /// The Prototype of the exit portal spawned in hell
+    /// </summary>
+    [DataField]
+    public EntProtoId ExitPortalPrototype = "PortalHellExit";
 }
 
 public enum CondemnedPhase : byte

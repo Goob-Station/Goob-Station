@@ -1,0 +1,47 @@
+- type: emoteSounds
+  id: Xenomorph
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: XenomorphScreams
+      params:
+        volume: -12
+    Laugh:
+      collection: XenomorphLaugh
+      params:
+        volume: -12
+    Sneeze:
+      collection: XenomorphCoughs
+      params:
+        volume: -12
+    Cough:
+      collection: XenomorphCoughs
+      params:
+        volume: -12
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: XenomorphHiss
+      params:
+        volume: -12
+    Snore:
+      collection: XenomorphSnores
+      params:
+        volume: -12
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh

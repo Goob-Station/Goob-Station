@@ -145,6 +145,7 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
@@ -246,7 +247,6 @@
   categories:
   - UplinkWeaponry
 
-
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
@@ -334,6 +334,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkEstoc # goob unbundle
+  name: uplink-estoc-name # goob unbundle
+  description: uplink-estoc-desc # goob unbundle
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: WeaponRifleEstoc # goob unbundle
+  cost:
+    Telecrystal: 55 # goob unbundle
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkBulldog #goob
@@ -706,6 +716,17 @@
   categories:
   - UplinkAmmo
 
+# For the Estoc
+- type: listing
+  id: UplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 5 # goob - on par with c20
+  categories:
+  - UplinkAmmo
+
 # for the hristov
 - type: listing
   id: UplinkHristovAmmo
@@ -811,7 +832,7 @@
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 10 #goob
   categories:
   - UplinkChemicals
 
@@ -822,7 +843,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 12 # Goobstation - Combat pen rebalance
+    Telecrystal: 8 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 
@@ -988,7 +1009,10 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-
+  conditions: # EE Plasmeme Change: Plasmamen get another listing.
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Plasmaman
 
 # - type: listing
 #   id: UplinkGigacancerScanner
@@ -2294,6 +2318,17 @@
     - Mime
 
 - type: listing
+  id: UplinkContrabandLighter
+  name: uplink-contraband-lighter-name
+  description: uplink-contraband-lighter-desc
+  icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
+  productEntity: UplinkLighterBox
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: UplinkSmugglerSatchel
   name: uplink-smuggler-satchel-name
   description: uplink-smuggler-satchel-desc
@@ -2302,3 +2337,18 @@
     Telecrystal: 10 # Goobstation
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkAcolyteArmor
+  name: uplink-acolyte-armor-name
+  description: uplink-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  cost:
+    Telecrystal: 20 # Goobstation
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain

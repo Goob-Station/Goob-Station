@@ -112,6 +112,14 @@ public partial class StatusIconData : IComparable<StatusIconData>
     [DataField]
     public bool VisibleToGhosts = true;
 
+    // WD EDIT START
+    /// <summary>
+    /// Whether or not to hide the icon to owner
+    /// </summary>
+    [DataField]
+    public bool VisibleToOwner = true;
+    // WD EDIT END
+
     /// <summary>
     /// Whether or not to hide the icon when we are inside a container like a locker or a crate.
     /// </summary>

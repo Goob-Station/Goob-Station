@@ -68,7 +68,15 @@
         NavBlob: !type:Bool
           true
     - type: BlobMob
-    #- type: BlobSpeak
+    # - type: BlobSpeak
+    # Einstein Engines - Language begin
+    - type: LanguageSpeaker
+    - type: LanguageKnowledge
+      speaks:
+      - Blob
+      understands:
+      - Blob
+    # Einstein Engines - Language end
     - type: CombatMode
     - type: NpcFactionMember
       factions:
@@ -154,8 +162,15 @@
     - type: InputMover
     - type: MobMover
     - type: BlobMob
-    - type: ReplacementAccent
-      accent: genericAggressive
+    # - type: BlobSpeak
+    # Einstein Engines - Language begin
+    - type: LanguageSpeaker
+    - type: LanguageKnowledge
+      speaks:
+      - Blob
+      understands:
+      - Blob
+    # Einstein Engines - Language end
     - type: CombatMode
     - type: HTN
       rootTask:
@@ -220,6 +235,10 @@
     - type: GuideHelp
       guides:
       - Blob
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Blood
+      bleedReductionAmount: 5
 
 # Observer
 - type: entity
@@ -234,8 +253,17 @@
           type: BlobChemSwapBoundUserInterface
     - type: Actions
     - type: Alerts
-    - type: ReplacementAccent
-      accent: genericAggressive
+    # Einstein Engines - Language begin
+    - type: LanguageSpeaker
+      currentLanguage: Blob
+    - type: LanguageKnowledge
+      speaks:
+      - Blob
+      understands:
+      - Blob
+      - Xeno
+      - TauCetiBasic
+    # Einstein Engines - Language end
     - type: Hands
       showInHands: true
     - type: BlobObserver

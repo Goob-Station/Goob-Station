@@ -1,0 +1,721 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+- type: marking
+  id: ChestChimeraFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: chimeraf
+
+- type: marking
+  id: ChestChimeraMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: chimeram
+
+- type: marking
+  id: ChestTwistingLeftFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: twistingleftf
+
+- type: marking
+  id: ChestTwistingLeftMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: twistingleftm
+
+- type: marking
+  id: ChestTwistingRightFemaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: twistingrightf
+
+- type: marking
+  id: ChestTwistingRightMaleMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: twistingrightm
+
+- type: marking
+  id: ChestStarMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: star
+
+- type: marking
+  id: MothBodyClaw
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: claw
+
+- type: marking
+  id: MothChestGlow
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: glow
+  shader: unshaded
+
+- type: marking
+  id: TorsoIncisionMoth
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+    state: incision
+
+# Head
+
+- type: marking
+  id: BadmoltMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: badmolt
+
+- type: marking
+  id: EyebagsMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: eyebags
+
+- type: marking
+  id: HeadChimeraMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: chimera
+
+- type: marking
+  id: HeadTwistingMoth
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: twisting
+
+- type: marking
+  id: MothBurnLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: burnleft
+
+- type: marking
+  id: MothBurnRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: burnright
+
+- type: marking
+  id: MothFaceClaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: claw
+
+- type: marking
+  id: MothHeadGlow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: glow
+  shader: unshaded
+
+- type: marking
+  id: MothSlashLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: slashleft
+
+- type: marking
+  id: MothSlashRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: slashright
+
+# Snout
+
+- type: marking
+  id: MouthpartsFulgoridae
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: fulgoridae
+
+- type: marking
+  id: MouthpartsFulgoridaeUpturned
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: fulgoridaeupturned
+
+- type: marking
+  id: MouthpartsHymenoptera
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: hymenoptera
+
+- type: marking
+  id: MouthpartsHymenopteraLarge
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: hymenopteralarge
+
+- type: marking
+  id: MouthpartsProboscisDownturned
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: proboscisdownturned
+
+- type: marking
+  id: MouthpartsProboscisUpturned
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: proboscisupturned
+
+- type: marking
+  id: MouthpartsSchistocerca
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
+    state: schistocerca
+
+# Eyes
+
+- type: marking
+  id: HeterochromiaMoth
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/eyes.rsi
+    state: heterochromia
+
+- type: marking
+  id: MothBiggerEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/eyes.rsi
+    state: bigger
+
+# RArm
+
+- type: marking
+  id: ProstheticArmRightMoth
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
+    state: prosthetic
+
+- type: marking
+  id: TwistingArmRightMoth
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
+    state: twisting
+
+# LeftArm
+
+- type: marking
+  id: ChimeraArmLeftMoth
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
+    state: chimera
+
+- type: marking
+  id: ProstheticArmLeftMoth
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
+    state: prosthetic
+
+- type: marking
+  id: TwistingArmLeftMoth
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
+    state: twisting
+
+# RLeg
+
+- type: marking
+  id: LegProstheticRightMoth
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
+    state: prosthetic
+
+- type: marking
+  id: LegTwistingRightMoth
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
+    state: twisting
+
+# LLeg
+
+- type: marking
+  id: LegChimeraLeftMoth
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
+    state: chimera
+
+- type: marking
+  id: LegProstheticLeftMoth
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
+    state: prosthetic
+
+- type: marking
+  id: LegTwistingLeftMoth
+  bodyPart: Lleg
+  markingCategory: LeftLeg
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
+    state: twisting
+
+# LFoot
+
+- type: marking
+  id: FootChimeraLeftMoth
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
+    state: chimera
+
+- type: marking
+  id: FootProstheticLeftMoth
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
+    state: prosthetic
+
+# RFoot
+
+- type: marking
+  id: FootProstheticRightMoth
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rfoot.rsi
+    state: prosthetic
+
+# LHand
+
+- type: marking
+  id: HandChimeraLeftMoth
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
+    state: chimera
+
+- type: marking
+  id: HandProstheticLeftMoth
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
+    state: prosthetic
+
+- type: marking
+  id: HandTwistingLeftMoth
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
+    state: twisting
+
+# RHand
+
+- type: marking
+  id: HandProstheticRightMoth
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
+    state: prosthetic
+
+- type: marking
+  id: HandTwistingRightMoth
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
+    state: twisting
+
+# HeadSide
+
+- type: marking
+  id: PlateBlunt
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
+    state: blunt
+
+- type: marking
+  id: PlateDaisy
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
+    state: daisy
+
+- type: marking
+  id: PlateHeart
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
+    state: heart
+
+- type: marking
+  id: PlateHorn
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
+    state: horn
+
+- type: marking
+  id: PlateSmallSpike
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
+    state: smallspike
+
+# HeadTop
+
+- type: marking
+  id: MothBeetleHorn1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: beetlehorn1
+
+- type: marking
+  id: MothBeetleHorn2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: beetlehorn2
+
+- type: marking
+  id: MothGlowAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: glowantenna
+  shader: unshaded
+
+- type: marking
+  id: AntennaCockroach
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: cockroach
+
+- type: marking
+  id: AntennaFly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: fly
+
+- type: marking
+  id: AntennaHeart
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: heart1
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: heart2
+
+- type: marking
+  id: AntennaShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+    state: nub
+
+# Tail
+
+- type: marking
+  id: LunaWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: luna1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: luna2
+
+- type: marking
+  id: MothBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: bee1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: bee2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: bee3
+
+- type: marking
+  id: MothBeetleTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: beetle1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: beetle2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: beetle3
+
+- type: marking
+  id: MothFirefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: firefly2
+
+- type: marking
+  id: MothFireflyOverlay
+  bodyPart: Tail
+  markingCategory: Overlay
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: firefly1
+  shader: unshaded
+
+- type: marking
+  id: MothGlasswing
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: glasswing1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: glasswing2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: glasswing3
+
+- type: marking
+  id: MothRhinoBeetle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: rhinobeetle1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: rhinobeetle2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: rhinobeetle3
+
+- type: marking
+  id: MothSnoth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: snoth1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: snoth2
+
+- type: marking
+  id: MothTrueButterfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: truebutterfly1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: truebutterfly2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: truebutterfly3
+
+- type: marking
+  id: WingsBackstabbed
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: backstabbed
+
+- type: marking
+  id: WingsDragonfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: dragonfly1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: dragonfly2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: dragonfly3
+
+- type: marking
+  id: WingsFly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: fly1
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: fly2
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: fly3
+
+- type: marking
+  id: WingsLanternfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+    state: lanternfly
+

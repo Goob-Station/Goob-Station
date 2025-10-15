@@ -1,0 +1,17 @@
+- type: loadout
+  id: MimeEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMime
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: MimeEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMime
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

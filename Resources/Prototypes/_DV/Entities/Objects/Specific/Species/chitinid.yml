@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  id: Chitzite
+  name: chitzite
+  description: A small radioactive stone formed in the chest cavity of a radioactive chitinid, gross.... but kinda pretty?
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Species/chitinid.rsi
+    layers:
+      - state: chitzite
+      - state: chitzite_glow
+  - type: RadiationSource
+    intensity: 0.5
+  - type: Extractable
+    grindableSolutionName: chitzite
+  - type: SolutionContainerManager
+    solutions:
+      chitzite:
+        maxVol: 5
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 2.5
+        - ReagentId: Radium
+          Quantity: 2.5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 3
+        Radiation: 3
+  - type: Tag
+    tags:
+    - Recyclable
+    - Trash

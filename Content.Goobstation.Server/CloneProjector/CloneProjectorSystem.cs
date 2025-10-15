@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -11,7 +12,9 @@ using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
+using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -27,6 +30,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Radio.Components;
 using Content.Shared.Storage;
 using Content.Shared.Strip.Components;
 using Content.Shared.Stunnable;
@@ -63,6 +67,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
+    [Dependency] private readonly InternalEncryptionKeySpawner _encryptionKeySpawner = default!;
 
     private ISawmill _sawmill = default!;
     public override void Initialize()
@@ -111,7 +116,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         if (!args.CanInteract
             || !args.CanComplexInteract
             || projector.Comp.CurrentHost is not { } host
-            || args.User != host)
+            || args.User != host
+            || !CanUseProjector(projector, args.User))
             return;
 
         AlternativeVerb regenerateVerb = new()
@@ -156,7 +162,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         TryGenerateClone(projector, args.User);
 
-        _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
+        if (projector.Comp.DoStun)
+            _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
 
         EnsureComp<WearingCloneProjectorComponent>(args.User).ConnectedProjector = projector;
     }
@@ -169,7 +176,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         var popup = Loc.GetString(projector.Comp.UnequippedMessage);
         _popup.PopupEntity(popup, args.Equipee, args.Equipee);
 
-        _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
+        if (projector.Comp.DoStun)
+            _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
 
         RemComp<WearingCloneProjectorComponent>(args.Equipee);
     }
@@ -177,7 +185,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
     private void OnProjectorActivated(Entity<CloneProjectorComponent> projector, ref CloneProjectorActivatedEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || !CanUseProjector(projector, args.Performer))
             return;
 
         // Does the clone match the current user?
@@ -288,7 +297,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         roleComp.RoleDescription = Loc.GetString(projector.Comp.GhostRoleDescription);
         roleComp.RoleRules = Loc.GetString(projector.Comp.GhostRoleRules);
 
-        Dirty(clone, projector.Comp);
+        Dirty(projector);
         return true;
     }
 
@@ -315,7 +324,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         if (doCooldown)
             DoCooldown(projector);
 
-        Dirty(clone, projector.Comp);
+        Dirty(projector);
         return true;
     }
 
@@ -324,8 +333,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         if (projector.CloneUid is not { } clone
             || !_container.IsEntityOrParentInContainer(clone))
             return false;
-
-        Dirty(clone, projector);
 
         return _container.TryRemoveFromContainer(clone);
     }
@@ -376,6 +383,19 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
                 }
             }
 
+        }
+
+        // Spawn keys
+        if (TryComp<EncryptionKeyHolderComponent>(host, out var hostKey)
+            && TryComp<EncryptionKeyHolderComponent>(clone, out var cloneKey))
+        {
+            foreach (var key in hostKey.KeyContainer.ContainedEntities)
+            {
+                if (!TryPrototype(key, out var keyProto))
+                    continue;
+
+                SpawnInContainerOrDrop(keyProto.ID, clone, cloneKey.KeyContainer.ID);
+            }
         }
 
         return true;
@@ -430,12 +450,17 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     private void DoCooldown(Entity<CloneProjectorComponent> projector)
     {
         if (projector.Comp.ActionEntity is not { } actionEntity
-            || !TryComp<InstantActionComponent>(actionEntity, out var actionComp))
+            || !TryComp<ActionComponent>(actionEntity, out var actionComp))
             return;
 
-        actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
+        _actions.SetCooldown(projector.Owner, _timing.CurTime + projector.Comp.DestroyedCooldown);
 
-        _actions.UpdateAction(actionEntity, actionComp);
+        _actions.UpdateAction((actionEntity, actionComp));
         Dirty(actionEntity, actionComp);
+    }
+
+    private bool CanUseProjector(Entity<CloneProjectorComponent> projector, EntityUid user)
+    {
+        return _whitelist.IsBlacklistFail(projector.Comp.UserBlacklist, user);
     }
 }

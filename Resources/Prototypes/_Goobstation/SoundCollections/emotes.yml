@@ -33,3 +33,8 @@
   id: Wurble
   files:
     - /Audio/_Goobstation/Voice/Resomi/wurble.ogg
+
+- type: soundCollection # Mono
+  id: Bagawk
+  files:
+  - /Audio/_Mono/Voice/bagawk.ogg

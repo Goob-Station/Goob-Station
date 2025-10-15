@@ -52,3 +52,33 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitCasualSyndicate
   result: ClothingUniformJumpsuitCasualSyndicate
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSSummer
+  result: ClothingUniformJumpsuitHoSSummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitRDSummer
+  result: ClothingUniformJumpsuitRDSummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCESummer
+  result: ClothingUniformJumpsuitCESummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCaptainSummer
+  result: ClothingUniformJumpsuitCaptainSummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoPSummer
+  result: ClothingUniformJumpsuitHoPSummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitQMSummer
+  result: ClothingUniformJumpsuitQMSummer

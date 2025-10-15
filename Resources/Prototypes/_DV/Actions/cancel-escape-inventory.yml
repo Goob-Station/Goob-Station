@@ -8,12 +8,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionCancelEscape
   name: Stop escaping
   description: Calm down and sit peacefuly in your carrier's inventory
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: _DV/Actions/escapeinventory.rsi/cancel-escape.png
-    event: !type:EscapeInventoryCancelActionEvent
     useDelay: 2
+  - type: InstantAction
+    event: !type:EscapeInventoryCancelActionEvent

@@ -21,6 +21,7 @@ using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.CCVar;
+using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
@@ -41,6 +42,8 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly BatterySystem _battery = default!; // Goobstation - Energycrit
+
     public override void Initialize()
     {
         base.Initialize();
@@ -48,18 +51,32 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
+    // Goobstation - Energycrit: Added batteryEnt argument
+    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp, [NotNullWhen(true)] out EntityUid? batteryEnt)
     {
         batteryComp = null;
+        batteryEnt = null; // Goobstation - Energycrit
         if (!HasComp<SiliconComponent>(silicon))
             return false;
 
+        // Try to get battery on silicon
+        if (TryComp(silicon, out batteryComp))
+        {
+            batteryEnt = silicon;
+            return true;
+        }
 
+        // Try to get inserted battery
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryEnt, out batteryComp))
+            return true;
+
+        // Goobstation - Energycrit: Deshitcodified this
+        /*
         // try get a battery directly on the inserted entity
         if (TryComp(silicon, out batteryComp)
             || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
             return true;
-
+        */
 
         //DebugTools.Assert("SiliconComponent does not contain Battery");
         return false;
@@ -96,8 +113,9 @@ public sealed class SiliconChargeSystem : EntitySystem
                 siliconComp.LastDrainTime = _timing.CurTime;
             }
 
+            // Goobstation - Added batteryEnt parameter
             // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryEnt))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
                 if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
@@ -130,7 +148,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
-            _powerCell.TryUseCharge(silicon, frameTime * drainRate);
+            _battery.TryUseCharge(batteryEnt.Value, frameTime * drainRate); // Goobstation - Use BatterySystem instead of PowerCellSystem
 
             // Figure out the current state of the Silicon.
             var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);

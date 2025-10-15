@@ -1,0 +1,31 @@
+- type: loadout
+  id: DetectiveEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitDetective
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DetectiveEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmDetective
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DetectiveEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesDetective
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DetectiveGloves
+  equipment:
+    gloves: ClothingHandsGlovesForensic

@@ -95,13 +95,14 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
 using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
@@ -110,6 +111,7 @@ namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
+    private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 
     private void InitializeParts()
     {
@@ -180,6 +182,14 @@ public partial class SharedBodySystem
         // Body part inserted into another body part.
         var insertedUid = args.Entity;
         var slotId = args.Container.ID;
+        // <Shitmed>
+        if (slotId == ent.Comp.ContainerName)
+        {
+            // this will give a mob inserted into someones chest an action to burst out
+            _insideBodyPart.InsertedIntoPart(insertedUid, ent);
+            return; // don't need to do bodypart logic it's just a cavity insertion
+        }
+        // </Shitmed>
 
         var body = ent.Comp.Body; // Shitmed Change
         if (body is null)
@@ -219,6 +229,13 @@ public partial class SharedBodySystem
         var slotId = args.Container.ID;
 
         // Shitmed Change Start
+        if (slotId == ent.Comp.ContainerName)
+        {
+            // this will remove the chest burst action
+            _insideBodyPart.RemovedFromPart(removedUid);
+            return; // don't need to do bodypart logic it's just a cavity removal
+        }
+
         if (TryComp(removedUid, out BodyPartComponent? part))
         {
             if (!slotId.Contains(PartSlotContainerIdPrefix + GetSlotFromBodyPart(part)))
@@ -985,10 +1002,11 @@ public partial class SharedBodySystem
         return containerNames.Count > 0;
     }
 
-    public bool TryGetPartFromSlotContainer(string slot, out BodyPartType? partType)
+    public bool TryGetPartFromSlotContainer(string slot, [NotNullWhen(true)] out BodyPartType? partType)
     {
         partType = slot switch
         {
+            "innerclothing" or "outerclothing" => BodyPartType.Chest,
             "gloves" => BodyPartType.Hand,
             "shoes" => BodyPartType.Foot,
             "eyes" or "ears" or "head" or "mask" => BodyPartType.Head,

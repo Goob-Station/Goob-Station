@@ -1,0 +1,140 @@
+- type: loadout
+  id: WhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+
+- type: loadout
+  id: WhiteEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorWhite
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: WhiteEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorWhite
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: WhiteEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesWhite
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DarkGreenEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorDarkGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DarkGreenEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorDarkGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DarkGreenEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesColorDarkGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PurpleEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PurpleEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PurpleEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BlackEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesBlack
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: GreyEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorGrey
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: GreyEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorGrey
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: DarkGreyEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesColorDarkGrey
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: Enviroslacks
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: LeatherEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesLeather
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

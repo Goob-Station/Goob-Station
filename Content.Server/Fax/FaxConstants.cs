@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -29,6 +32,12 @@ public static class FaxConstants
      */
     public const string FaxPrintCommand = "fax_print";
 
+    // Goobstation
+    /**
+     * Used when fax sending entity to destination fax
+     */
+    public const string FaxSendEntityCommand = "fax_send_entity";
+
     // Data
 
     public const string FaxNameData = "fax_data_name";
@@ -40,4 +49,8 @@ public static class FaxConstants
     public const string FaxPaperStampedByData = "fax_data_stamped_by";
     public const string FaxSyndicateData = "fax_data_i_am_syndicate";
     public const string FaxPaperLockedData = "fax_data_locked";
+
+    // Goobstation
+    public const string FaxEntitySentData = "fax_data_entity_sent";
+    public const string FaxWorkCrossGridData = "fax_data_work_crossgrid"; // used for sending entities
 }

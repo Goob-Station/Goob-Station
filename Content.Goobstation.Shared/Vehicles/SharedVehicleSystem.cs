@@ -2,12 +2,15 @@
 // SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._vg.TileMovement;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
@@ -25,6 +28,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
+using Content.Shared.Actions.Components;
 
 namespace Content.Goobstation.Shared.Vehicles;
 
@@ -243,6 +247,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             }
         }
 
+        if (HasComp<TileMovementComponent>(driver))
+            EnsureComp<TileMovementComponent>(vehicle);
+
         _mover.SetRelay(driver, vehicle);
     }
 
@@ -268,6 +275,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (TryComp<AccessComponent>(vehicle, out var accessComp))
             accessComp.Tags.Clear();
+
+        if (HasComp<TileMovementComponent>(vehicle))
+            RemComp<TileMovementComponent>(vehicle);
     }
 
     private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)

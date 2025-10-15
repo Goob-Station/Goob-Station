@@ -1,8 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: martialArt
   id: Ninjutsu
   martialArtsForm: Ninjutsu
   roundstartCombos: NinjutsuMoves
-  startingStage: Hard
 
 - type: comboList
   id: NinjutsuMoves
