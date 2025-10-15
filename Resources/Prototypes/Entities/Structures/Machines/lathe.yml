@@ -525,6 +525,7 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    - ConstructionBagOfHolding
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
@@ -1027,6 +1028,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      outputToStorage: true # Goob edit
       staticPacks:
       - OreSmelting
       - RGlassSmelting

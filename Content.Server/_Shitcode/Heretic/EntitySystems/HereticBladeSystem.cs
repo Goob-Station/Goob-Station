@@ -58,8 +58,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
     {
         base.RandomTeleport(user, blade, comp);
 
-
-        _teleport.RandomTeleport(user, comp);
+        _teleport.RandomTeleport(user, comp, false, true);
         QueueDel(blade);
     }
 }

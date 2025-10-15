@@ -171,6 +171,10 @@
             types:
               Blunt: 0
         - type: Item
+    - !type:ComponentFilter
+      components:
+        - type: Gun
+      invert: true
     - !type:RemoveAnchoredFilter
   considerations:
     - !type:TargetMeleeCon

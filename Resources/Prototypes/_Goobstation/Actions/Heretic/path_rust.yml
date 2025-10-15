@@ -95,6 +95,8 @@
   - type: TargetAction
     range: 0
     checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileWaveRust
