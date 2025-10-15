@@ -152,7 +152,12 @@
     boost:
       types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
         Blunt: 75
-
+  - type: Tool
+    speedModifier: 1.5 # peak hammer technology
+    useSound:
+      path: /Audio/Items/trayhit2.ogg
+    qualities:
+    - Hammering
 
 - type: entity
   parent: [LavalandWeaponKineticBase, ClothingHandsBase]

@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,8 +18,7 @@
   - type: MachineBoard
     prototype: EngineeringTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -33,8 +35,7 @@
   - type: MachineBoard
     prototype: CargoTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -51,8 +52,7 @@
   - type: MachineBoard
     prototype: ScienceTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -69,9 +69,37 @@
   - type: MachineBoard
     prototype: ServiceTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+
+- type: entity
+  id: TeslaCoilCircuitboard
+  parent: BaseMachineCircuitboard
+  name: tesla coil board
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: TeslaCoil
+      stackRequirements:
+        Manipulator: 5
+        Steel: 10
+        CableHV: 10
+
+- type: entity
+  id: RadiationCollectorCircuitboard
+  parent: BaseMachineCircuitboard
+  name: radiation collector board
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: RadiationCollector
+      stackRequirements:
+        Manipulator: 5
+        Steel: 5
+        CableHV: 10
+        Plasma: 5

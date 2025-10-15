@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Book
+    - Paper
   - type: GuideHelp
     openOnActivation: true
     guides:

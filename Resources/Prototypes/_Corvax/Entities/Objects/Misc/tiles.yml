@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: tiles-wood-parquet
+  name: wooden parquet
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquet
   components:
@@ -22,7 +22,7 @@
     stackType: FloorTileWood
 
 - type: entity
-  name: tiles-wood-black
+  name: black wooden floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodBlack
   components:
@@ -40,7 +40,7 @@
     stackType: FloorTileItemWoodBlack
 
 - type: entity
-  name: tiles-wood-dark
+  name: dark wooden floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodDark
   components:
@@ -58,7 +58,7 @@
     stackType: FloorTileItemWoodDark
 
 - type: entity
-  name: tiles-wood-light
+  name: white wooden floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodLight
   components:
@@ -76,7 +76,7 @@
     stackType: FloorTileItemWoodLight
 
 - type: entity
-  name: tiles-wood-red
+  name: red wooden floor
   parent: FloorTileItemBase
   id: FloorTileItemWoodRed
   components:

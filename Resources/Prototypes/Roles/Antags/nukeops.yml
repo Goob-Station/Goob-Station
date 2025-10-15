@@ -106,6 +106,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -123,6 +127,10 @@
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -140,7 +148,11 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
-  # should be changed to nukie playtime when thats tracked (wyci)
+# should be changed to nukie playtime when thats tracked (wyci)
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -170,6 +182,15 @@
   equipment:
     pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
 
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
+
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
@@ -180,6 +201,15 @@
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
   inhand:
   - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -205,6 +235,15 @@
     - CombatMedipen
     - DeathAcidifierImplanter
     - MedkitCombatFilled # Goobstation
+
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
 
 #Lone Operative Gear
 - type: startingGear

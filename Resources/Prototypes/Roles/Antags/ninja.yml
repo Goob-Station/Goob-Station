@@ -83,6 +83,11 @@
   setPreference: false
   objective: roles-antag-space-ninja-objective
   guides: [ SpaceNinja ]
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
 
 #Ninja Gear
 - type: startingGear
@@ -103,6 +108,7 @@
     belt: EnergyKatana
   inhand:
     - JetpackBlackFilled
+    - NinjutsuScroll # Goobstation
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
     - Crowbar
@@ -111,3 +117,11 @@
     - Wirecutter
     - Welder
     - Multitool
+
+- type: chameleonOutfit
+  id: NinjaChameleonOutfit
+  name: roles-antag-space-ninja-name
+  startingGear: SpaceNinjaGear
+  equipment:
+    id: PassengerPDA
+    neck: ClothingNeckGoldmedal

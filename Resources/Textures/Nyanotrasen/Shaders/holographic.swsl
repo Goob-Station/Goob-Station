@@ -2,7 +2,6 @@ light_mode unshaded;
 
 uniform highp float hue;
 uniform highp float textureHeight;
-uniform highp float pixel_scale = 12.0;
 
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex
@@ -213,6 +212,7 @@ highp float pingpong(highp float value)
 
 void fragment()
 {
+    const highp float pixel_scale = 12.0;
     const highp float TIME_OFFSET1 = 138.11;
     const highp float TIME_OFFSET2 = 517.43;
     const highp float TIME_OFFSET3 = 1298.67;

@@ -14,17 +14,23 @@ using Content.Shared._EinsteinEngines.Silicon;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Server._EinsteinEngines.Silicon.Charge;
+using Content.Shared._EinsteinEngines.Silicon.Charge; // Goobstation - Energycrit: BatteryDrinkerSourceComponent moved to shared
 using Content.Server.Power.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Server._EinsteinEngines.Power.Components;
+// Goobstation Start - Energycrit
+using Content.Shared._EinsteinEngines.Power.Components;
+using Content.Shared._EinsteinEngines.Power.Systems;
+using Content.Shared.Whitelist;
+// Goobstation End
 
 namespace Content.Server._EinsteinEngines.Power;
 
-public sealed class BatteryDrinkerSystem : EntitySystem
+// Goobstation - Energycrit: Create SharedBatteryDrinkerSystem and Client BatteryDrinkerSystem so client can predict drink verbs
+public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 {
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -34,31 +40,43 @@ public sealed class BatteryDrinkerSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly ChargerSystem _chargers = default!; // Goobstation
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Energycrit
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BatteryComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
+        SubscribeLocalEvent<PowerCellSlotComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb); // Goobstation - Energycrit
 
         SubscribeLocalEvent<BatteryDrinkerComponent, BatteryDrinkerDoAfterEvent>(OnDoAfter);
     }
 
-    private void AddAltVerb(EntityUid uid, BatteryComponent batteryComponent, GetVerbsEvent<AlternativeVerb> args)
+    // Goobstation - Energycrit: Switched component from BatteryComponent to generic type.
+    private void AddAltVerb<TComp>(EntityUid uid, TComp component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinkerComp) ||
-            !TestDrinkableBattery(uid, drinkerComp) ||
-            !_silicon.TryGetSiliconBattery(args.User, out var drinkerBattery))
+            // Goobstation Start - Energycrit
+            _whitelist.IsBlacklistPass(drinkerComp.Blacklist, uid) ||
+            // Goobstation - replaced battery lookup to allow augment power cells
+            !_chargers.SearchForBattery(args.User, out _, out _) ||
+            !_chargers.SearchForBattery(uid, out var battery, out _) ||
+            !TestDrinkableBattery(battery.Value, drinkerComp))
+            // Goobstation End - Energycrit
             return;
 
         AlternativeVerb verb = new()
         {
-            Act = () => DrinkBattery(uid, args.User, drinkerComp),
+            // Goobstation - Energycrit
+            Act = () => DrinkBattery(battery.Value, args.User, drinkerComp),
             Text = Loc.GetString("battery-drinker-verb-drink"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
+            // Goobstation - Energycrit: dont block removing power cells
+            Priority = -5
         };
 
         args.Verbs.Add(verb);
@@ -104,20 +122,12 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         var drinker = uid;
         var sourceBattery = Comp<BatteryComponent>(source);
 
-        _silicon.TryGetSiliconBattery(drinker, out var drinkerBatteryComponent);
-
-        if (!TryComp(uid, out PowerCellSlotComponent? batterySlot))
+        // <Goobstation> - replace battery lookup to allow augment power cells
+        if (!_chargers.SearchForBattery(drinker, out var drinkerBattery, out var drinkerBatteryComponent))
             return;
-
-        var container = _container.GetContainer(uid, batterySlot.CellSlotId);
-        var drinkerBattery = container.ContainedEntities.First();
+        // </Goobstation>
 
         TryComp<BatteryDrinkerSourceComponent>(source, out var sourceComp);
-
-        DebugTools.AssertNotNull(drinkerBattery);
-
-        if (drinkerBattery == null)
-            return;
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
@@ -134,10 +144,10 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
 
         if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.SetCharge(drinkerBattery, drinkerBatteryComponent.CurrentCharge + amountToDrink, drinkerBatteryComponent);
+            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.CurrentCharge + amountToDrink, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
         else
         {
-            _battery.SetCharge(drinkerBattery, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge, drinkerBatteryComponent);
+            _battery.SetCharge(drinkerBattery.Value, sourceBattery.CurrentCharge + drinkerBatteryComponent.CurrentCharge, drinkerBatteryComponent); // DeltaV - people with augment power cells can drink batteries
             _battery.SetCharge(source, 0);
         }
 

@@ -53,7 +53,7 @@ public partial class MobStateSystem
             return;
 
         var ev = new UpdateMobStateEvent {Target = entity, Component = component, Origin = origin};
-        RaiseLocalEvent(entity, ref ev);
+        RaiseLocalEvent(entity, ref ev, true); // Goob edit - broadcasted event
         ChangeState(entity, component, ev.State, origin: origin);
     }
 

@@ -9,7 +9,7 @@
 - type: species
   id: Gingerbread
   name: Gingerbread
-  roundStart: true
+  roundStart: false
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
@@ -23,6 +23,8 @@
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     Chest: MobGingerbreadChest
     Groin: MobGingerbreadGroin
     Eyes: MobGingerbreadEyes

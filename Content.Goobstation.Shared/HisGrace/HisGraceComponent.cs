@@ -155,6 +155,11 @@ public sealed partial class HisGraceComponent : Component
     public bool IsHeld;
 
     /// <summary>
+    /// Prevent His Grace from being dropped?
+    /// </summary>
+    public bool PreventDrop;
+
+    /// <summary>
     /// Who is holding His Grace
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -186,15 +191,6 @@ public sealed partial class HisGraceComponent : Component
     /// </summary>
     [DataField]
     public float DefaultDamageCoefficient = 0.7f;
-
-    [ViewVariables]
-    public float BaseStamCritThreshold;
-
-    /// <summary>
-    /// The stam crit threshold the user gains when holding.
-    /// </summary>
-    [DataField]
-    public float HoldingStamCritThreshold = 1000f;
 
     [DataField]
     public SoundSpecifier AscendSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/hisgrace_ascension.ogg")

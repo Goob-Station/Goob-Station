@@ -1,0 +1,103 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: GrenadeBeanbagShotgun
+  name: "40mm beanbag shot"
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSpreadBeanbag
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: beanbag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
+  - type: SpentAmmoVisuals
+    state: frag
+#    suffix: false - Goobstation
+
+- type: entity
+  id: GrenadeBirdshot
+  name: "40mm birdshot"
+  description: "For hunting alien birds of unusual size."
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSpreadBirdshot
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+#    suffix: false - Goobstation
+
+- type: entity
+  id: GrenadeSlug
+  name: "40mm slug"
+  description: "For hunting alien game the size of a mountain."
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSlug
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: slug
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation, This very much is lethal, but the bounty wanted this to also fire out of the riot launcher.
+  - type: SpentAmmoVisuals
+    state: frag
+#    suffix: false - Goobstation
+
+
+
+- type: entity
+  id: Grenade00Buckshot
+  name: "40mm 00-Buckshot"
+  description: "For when you're hunting alien game animals the size of a house."
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSpread00Buckshot
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+#    suffix: false - Goobstation
+
+- type: entity
+  id: Grenade0000Buckshot
+  name: "40mm 0000-Buckshot"
+  parent: BaseGrenade
+  description: "For when you're hunting alien game animals the size of a dropship."
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSpread0000Buckshot
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+#    suffix: false - Goobstation

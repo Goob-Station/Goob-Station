@@ -43,4 +43,6 @@
     tags:
     - Structure
     - LavalandStationGateway
-  - type: Anchorable
+  - type: Construction
+    graph: LavaPortal
+    node: Lavaportal

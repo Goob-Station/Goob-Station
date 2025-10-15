@@ -31,12 +31,16 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -201,7 +205,6 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
-      - id: WeaponNailgun # Goobstation
       - id: MetalFoamGrenade
 
 - type: entity
@@ -216,7 +219,6 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
-      - id: WeaponNailgun # Goobstation
       - id: MetalFoamGrenade
 
 - type: entity
@@ -224,11 +226,49 @@
   parent: ClosetRadiationSuit
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterSuitRad
-        amount: 2
-      - id: GeigerCounter
-        amount: 2
-      - id: ClothingOuterSuitHEV
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillRadiationSuit
+
+- type: entityTable
+  id: FillRadiationSuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterSuitRad
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: GeigerCounter
+      amount: !type:ConstantNumberSelector
+        value: 2
+
+- type: entity
+  parent: LockerEvacRepair
+  id: LockerEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entity
+  parent: LockerWallEvacRepair
+  id: LockerWallEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entityTable
+  id: FillLockerEvacRepair
+  table: !type:AllSelector
+    children:
+    - id: BoxInflatable
+    - id: HolofanProjector
+    - id: MetalFoamGrenade
+      amount: 3
+    - id: AirGrenade
+      amount: 3

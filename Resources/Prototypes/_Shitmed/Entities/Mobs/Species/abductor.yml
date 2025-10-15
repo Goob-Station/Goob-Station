@@ -23,7 +23,7 @@
   id: MobAbductor
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
-  - type: GlorpAccent # GoobStation - Glorpshit
+  # - type: GlorpAccent # GoobStation - Glorpshit # Removed for EE - Languages
   - type: HumanoidAppearance
     species: Abductor
   - type: Icon
@@ -47,6 +47,12 @@
     defaultChannel: Abductormind
     channels:
     - Abductormind
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeeplian
+    understands:
+    - TauCetiBasic # Can understand, but cannot speak it.
+    - Xeeplian
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:

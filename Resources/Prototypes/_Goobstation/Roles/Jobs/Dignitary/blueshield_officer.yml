@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Androidonator <33227516+Androidonator@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -43,6 +44,10 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
@@ -81,7 +86,7 @@
   id: BlueshieldOfficerGear
   equipment:
     eyes: ClothingEyesGlassesBSO
-    gloves: ClothingHandsGlovesCombat
+    #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
     belt: ClothingBeltAssaultFilled
@@ -90,3 +95,20 @@
     back:
     - Flash
     - ClothingMaskGasSecurity
+    - CombatKnife
+
+- type: chameleonOutfit
+  id: BlueshieldOfficerChameleonOutfit
+  job: BlueshieldOfficer
+  equipment:
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesBSO
+    mask: ClothingMaskGasSecurity
+    ears: ClothingHeadsetAltBlueshield
+    outerClothing: ClothingBlueshieldArmourVest
+    neck: ClothingNeckMantleBlueshield
+    gloves: ClothingHandsGlovesCombat
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    id: BlueshieldPDA
+    back: ClothingBackpackBlueshield
+    shoes: ClothingShoesBootsJack

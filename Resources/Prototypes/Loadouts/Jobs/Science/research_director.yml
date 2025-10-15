@@ -90,6 +90,7 @@
   id: ResearchDirectorBeret
   startingGear: ScientificBeret
 
+
 # Neck
 - type: loadout
   id: ResearchDirectorMantle
@@ -120,10 +121,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
+
 - type: loadout # goob
   id: ResearchDirectorMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryResearchDirector
+
 
 # OuterClothing
 - type: loadout

@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -39,15 +40,6 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
-
-- type: entity
-  id: ActionHailer
-  name: Hail
-  description: Audibly hail nearby crew, useful for giving quick orders.
-  components:
-  - type: InstantAction
-    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
-    event: !type:HailerActionEvent
 
 - type: entity
   parent: ClothingMaskClown
@@ -145,4 +137,4 @@
   - type: ShockOnTrigger
   - type: TriggerOnSpeak
   - type: ActiveListener
-    range: 0
+    range: 4

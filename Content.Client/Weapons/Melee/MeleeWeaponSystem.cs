@@ -29,7 +29,6 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
@@ -37,18 +36,23 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Sigil <84070966+Siigiil@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -56,6 +60,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
@@ -253,7 +258,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    public override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session) // Goob edit
     {
         var xform = Transform(target);
         var targetCoordinates = xform.Coordinates;
@@ -310,13 +315,21 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
 
-        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+        // Goob edit start
+        if (mousePos.MapId != attackerPos.MapId)
             return;
 
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+            target = screen.GetDamageableClickedEntity(mousePos);
+
+        var ev = new GetLightAttackRangeEvent(target, attacker, meleeComponent.Range);
+        RaiseLocalEvent(weaponUid, ref ev);
+
+        if ((attackerPos.Position - mousePos.Position).Length() > ev.Range)
+            return;
+        // Goob edit end
 
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))

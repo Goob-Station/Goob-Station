@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseThiefStealAnimalObjective
+  id: LamarrStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: AnimalLamarr
+  - type: Objective
+    difficulty: 2

@@ -167,16 +167,6 @@
     spillWhenThrown: false
 
 - type: entity
-  name: wizard's rubber stamp
-  parent: RubberStampCMO
-  id: RubberStampWizard
-  suffix: DO NOT MAP
-  categories: [ DoNotMap ]
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-wizard
-
-- type: entity
   parent: [DrinkBase, BaseMagicalContraband]
   id: EverfullMug
   name: everfull mug

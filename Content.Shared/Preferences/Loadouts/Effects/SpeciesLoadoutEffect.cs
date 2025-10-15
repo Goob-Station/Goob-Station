@@ -18,10 +18,13 @@ public sealed partial class SpeciesLoadoutEffect : LoadoutEffect
     [DataField(required: true)]
     public List<ProtoId<SpeciesPrototype>> Species = new();
 
+    [DataField]
+    public bool Inverted = false; // Goobstation - EE Plasmeme Change.
+
     public override bool Validate(HumanoidCharacterProfile profile, RoleLoadout loadout, ICommonSession? session, IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        if (Species.Contains(profile.Species))
+        if (Species.Contains(profile.Species) ^ Inverted) // Goobstation - EE Plasmeme Change.
         {
             reason = null;
             return true;

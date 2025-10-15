@@ -98,6 +98,11 @@
   - type: Sprite
   - type: Item
     size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
   - type: Gun
     fireRate: 20
     selectedMode: FullAuto
@@ -110,6 +115,17 @@
   - type: StaticPrice
     price: 500
   # No chamber because HMG may want its own
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
+  # Goobstation edit end
 
 - type: entity
   name: minigun

@@ -73,6 +73,32 @@
   description: alerts-curse-of-byond-desc
 
 - type: alert
+  id: DragonPower
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/dragonpower.rsi
+    state: icon
+  name: alerts-dragon-power-name
+  description: alerts-dragon-power-desc
+
+- type: alert
+  id: SneakAttack
+  category: Ninjutsu
+  icons:
+  - sprite: /Textures/Objects/Weapons/Melee/energykatana.rsi
+    state: icon
+  name: alerts-sneak-attack-name
+  description: alerts-sneak-attack-desc
+
+- type: alert
+  id: LossOfSurprise
+  category: Ninjutsu
+  icons:
+  - sprite: /Textures/Structures/Storage/closet.rsi
+    state: cardboard_special
+  name: alerts-loss-of-surprise-name
+  description: alerts-loss-of-surprise-desc
+
+- type: alert
   id: MedigunUberBattery
   icons:
   - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi

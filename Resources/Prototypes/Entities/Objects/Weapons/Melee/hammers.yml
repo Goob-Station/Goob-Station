@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -42,19 +44,21 @@
   components:
   - type: Wieldable
     useDelayOnWield: false # GoobStation Edit
+  - type: MeleeRequiresWield # Goobstation
   - type: LandAtCursor
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
     layers:
     - state: icon
-  - type: UseDelay
-    delay: 5 # Goobstation
-  - type: UseDelayOnMeleeHit
+  # - type: UseDelay
+  #   delay: 5 # Goobstation
+  # - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
     distance: 10 # Goobstation
     stunTime: 3
     activateOnThrown: true
   - type: MeleeWeapon
+    attackRate: 0.75 # Goobstation
     wideAnimationRotation: -135
     damage:
       types:
@@ -67,8 +71,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 15 # GoobStation Edit
+        Blunt: 20 # GoobStation Edit
+        Structural: 35 # GoobStation Edit
   - type: DamageOtherOnHit
     damage:
       types:
@@ -77,6 +81,9 @@
   - type: Item
     size: Ginormous
   - type: Boomerang # Goobstation
+    maxHops: 20
+  - type: StaticPrice
+    price: 50000
 
 - type: entity
   id: SingularityHammer
@@ -98,10 +105,11 @@
       components:
       - MobMover
       - Item
-  - type: UseDelay
-    delay: 5
-  - type: UseDelayOnMeleeHit
+  # - type: UseDelay
+  #   delay: 5
+  # - type: UseDelayOnMeleeHit
   - type: MeleeWeapon
+    attackRate: 0.75 # Goobstation
     wideAnimationRotation: -135
     damage:
       types:
@@ -114,7 +122,9 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 15
-        Structural: 15
+        Blunt: 25 # Goob edit
+        Structural: 35 # Goob edit
   - type: Item
     size: Ginormous
+  - type: StaticPrice
+    price: 30000

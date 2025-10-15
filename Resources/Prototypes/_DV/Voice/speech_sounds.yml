@@ -23,3 +23,12 @@
     path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   exclaimSound:
     path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+
+- type: speechSounds
+  id: Chitinid
+  saySound:
+    path: /Audio/Voice/Talk/speak_1.ogg
+  askSound:
+    path: /Audio/Voice/Talk/speak_1_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Talk/speak_1_exclaim.ogg

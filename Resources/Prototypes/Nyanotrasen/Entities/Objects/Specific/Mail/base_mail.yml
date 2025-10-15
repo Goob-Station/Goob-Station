@@ -8,12 +8,15 @@
   parent: BaseItem
   abstract: true
   id: BaseMail
-  name: mail-item-name-unaddressed
+  name: mail
   components:
   - type: Item
 #    size: Normal # Frontier
     storedRotation: -90
   - type: Mail
+  - type: Tag # Goobstation - Moth food
+    tags:
+    - Paper
   - type: AccessReader
   - type: Sprite
     scale: 0.7, 0.7 # Frontier
@@ -102,6 +105,8 @@
         Blunt: 10
   - type: CargoSellBlacklist # Frontier
   - type: Food # Frontier - Moth food
+    delay: 7 # Goobstation - Mail should take as long as paper to eat
+    forceFeedDelay: 7
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -110,6 +115,16 @@
         reagents:
         - ReagentId: Nothing
           Quantity: 1
+  - type: FlavorProfile # Goobstation - Moth food
+    flavors:
+    - paper
+    ignoreReagents:
+    - Fiber
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # So that them foreigners can't understand what the broken mail is saying
+    understands: []
 
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.

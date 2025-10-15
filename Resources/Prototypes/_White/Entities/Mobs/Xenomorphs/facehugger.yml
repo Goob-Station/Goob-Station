@@ -1,0 +1,119 @@
+- type: entity
+  parent: [BaseMob, ClothingMaskBase, MobDamageable]
+  id: MobXenomorphFaceHugger
+  name: xenomorph facehugger
+  description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: facehugger
+  - type: Clothing
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    slots: [mask]
+  - type: IngestionBlocker
+  - type: Blindfold
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: mumble
+  - type: ThrowableFacehugger # Goobstation
+    minThrowForce: 5.0 # Goobstation
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+    stateAlertDict:
+      Alive: XenomorphHealth
+      Critical: XenomorphCrit
+      Dead: XenomorphDead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: facehugger
+      Dead:
+        Base: facehugger_dead
+  - type: MeleeWeapon
+    hidden: true
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatXeno
+      amount: 1
+  - type: FaceHugger
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Silicon
+      - Ghost
+      - XenomorphEgg
+    damageOnImpact:
+      types:
+        Blunt: 15
+    damageOnInfect:
+      groups:
+        Genetic: 100
+    sleepChem: Nocturine # ID of the Chemical we want to inject  - Goobstation start
+    sleepChemAmount: 10 # Amount in units (Often no need to use more than 10u for most chems)
+    minChemicalThreshold: 8 # Minimum amount of the chemical required to prevent additional injections
+    initialInjectionDelay: 5 # Delay in seconds before the first injection occurs
+    attachAttemptDelay: 5 # Delay in seconds between attach attempts when blocked by a mask
+    maskBlockDamage:
+      damage:
+        Slash: 5 # Damage dealt when blocked by a breathable mask
+    maskBlockSound:
+      collection: MetalThud # Sound collection for when the facehugger hits the mask - Goobstation end
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0.0
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: Tag
+    tags:
+    - XenomorphItem
+  - type: Physics
+    bodyType: Dynamic
+  - type: CollisionWake
+    enabled: false
+  - type: RequireProjectileTarget
+    active: true
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        layer:
+        - SlipLayer
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+      step:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        layer:
+        - LowImpassable
+        hard: false

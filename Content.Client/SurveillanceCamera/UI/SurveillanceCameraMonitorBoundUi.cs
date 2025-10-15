@@ -38,21 +38,17 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
         _window = this.CreateWindow<SurveillanceCameraMonitorWindow>();
 
         _window.CameraSelected += OnCameraSelected;
-        _window.SubnetOpened += OnSubnetRequest;
         _window.CameraRefresh += OnCameraRefresh;
         _window.SubnetRefresh += OnSubnetRefresh;
         _window.CameraSwitchTimer += OnCameraSwitchTimer;
         _window.CameraDisconnect += OnCameraDisconnect;
+
+        _window.SetEntity(Owner); // Goobstation
     }
 
     private void OnCameraSelected(string address)
     {
         SendMessage(new SurveillanceCameraMonitorSwitchMessage(address));
-    }
-
-    private void OnSubnetRequest(string subnet)
-    {
-        SendMessage(new SurveillanceCameraMonitorSubnetRequestMessage(subnet));
     }
 
     private void OnCameraSwitchTimer()
@@ -86,7 +82,7 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
 
         if (active == null)
         {
-            _window.UpdateState(null, cast.Subnets, cast.ActiveAddress, cast.ActiveSubnet, cast.Cameras);
+            _window.UpdateState(null, cast.ActiveAddress, cast.Cameras); // Goobstation
 
             if (_currentCamera != null)
             {
@@ -111,7 +107,7 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
 
             if (EntMan.TryGetComponent<EyeComponent>(active, out var eye))
             {
-                _window.UpdateState(eye.Eye, cast.Subnets, cast.ActiveAddress, cast.ActiveSubnet, cast.Cameras);
+                _window.UpdateState(eye.Eye, cast.ActiveAddress, cast.Cameras); // Goobstation
             }
         }
     }

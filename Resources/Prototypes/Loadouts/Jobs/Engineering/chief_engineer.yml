@@ -91,25 +91,30 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
 
+
 - type: loadout
   id: ChiefEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChiefEngineer
+
 
 - type: loadout
   id: ChiefEngineerTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitChiefEngineerTurtle
 
+
 - type: loadout
   id: ChiefEngineerTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChiefEngineerTurtle
 
+
 - type: loadout # goob
   id: ChiefEngineerMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineeringChief
+
 
 # Head
 - type: loadout
@@ -117,9 +122,11 @@
   equipment:
     head: ClothingHeadHatHardhatWhite
 
+
 - type: loadout
   id: ChiefEngineerBeret
   startingGear: EngineeringBeret
+
 
 # Neck
 - type: loadout

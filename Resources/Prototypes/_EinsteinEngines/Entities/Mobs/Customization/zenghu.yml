@@ -28,7 +28,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuLArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -39,7 +39,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuLHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -50,7 +50,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuLLeg
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -62,7 +62,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuLFoot
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -75,7 +75,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuRArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -88,7 +88,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuRHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -99,7 +99,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuRLeg
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi
@@ -111,7 +111,7 @@
 - type: marking
   id: CyberLimbsMarkingZenghuRFoot
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/zenghu/zenghu_main.rsi

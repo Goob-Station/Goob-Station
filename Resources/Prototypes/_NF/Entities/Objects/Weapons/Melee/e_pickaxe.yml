@@ -40,7 +40,7 @@
     - Belt
     - back
     - suitStorage
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: blade
     inhandVisuals:
       left:

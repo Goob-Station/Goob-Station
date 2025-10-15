@@ -69,10 +69,10 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:
@@ -82,6 +82,7 @@
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
+  - type: ItemTogglePointLight
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -116,8 +117,8 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD 
+      HeadTop: HEAD
+      HeadSide: HEAD
 
 - type: entity
   parent: ClothingHeadHatHardhatBase

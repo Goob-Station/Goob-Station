@@ -71,6 +71,27 @@
     quickEquip: false
     slots:
     - back
+  # Goobstation edit start
+    equipSound:
+      path: /Audio/_Goobstation/Items/handling/backpack_equip.ogg
+      params:
+        volume: -9
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_pickup.ogg
+      params:
+        volume: -9
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
+  # Goobstation edit end
   - type: Storage
     grid:
     - 0,0,6,3
@@ -88,6 +109,10 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Backpack
 
 - type: entity
   parent: ClothingBackpack
@@ -346,6 +371,8 @@
     grid:
     - 0,0,7,3
     - 8,1,8,3
+  - type: StaticPrice
+    price: 1000
 
 #Special
 - type: entity

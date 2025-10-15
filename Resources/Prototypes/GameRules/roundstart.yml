@@ -110,6 +110,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -118,6 +119,7 @@
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -125,6 +127,8 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -157,7 +161,9 @@
     - id: Heretic # goob edit
       prob: 0.2
     - id: Devil # Goob
-      prob: 0.1
+      prob: 0.02
+    - id: Shadowling # Goob
+      prob: 0.09
 
 - type: entity
   parent: BaseGameRule
@@ -226,9 +232,6 @@
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
-  # Goobstation
-  - type: GameRule
-    chaosScore: 1200
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -254,6 +257,7 @@
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -272,6 +276,7 @@
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -292,6 +297,7 @@
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
+      chaosScore: 300 # Goobstation
       startingGear: SyndicateOperativeGearFull
       unequipOldGear: true
       roleLoadout:
@@ -315,9 +321,6 @@
   id: BaseTraitorRuleNoObjectives
   components:
   - type: TraitorRule
-  # Goobstation
-  - type: GameRule
-    chaosScore: 900
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagSelection
@@ -334,7 +337,7 @@
     maxDifficulty: 5
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
-# TODO: Fix that 
+# TODO: Fix that
 - type: entity
   id: TraitorReinforcement
   parent: BaseTraitorRuleNoObjectives # Goobstation
@@ -347,6 +350,9 @@
     selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
+      blacklist: # Goobstation
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleTraitorReinforcement
 
@@ -362,8 +368,10 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
+      chaosScore: 150 # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
@@ -376,7 +384,7 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 1000 # Goobstation
+    chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
@@ -384,6 +392,10 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff # Goobstation
+      jobBlacklist: [ Mime ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -479,9 +491,10 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain ]
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - ZombieImmune
       briefing:
         text: zombie-patientzero-role-greeting
@@ -643,3 +656,11 @@
       prob: 0.90
     - id: SolarPanelDamageVariationPass
     - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

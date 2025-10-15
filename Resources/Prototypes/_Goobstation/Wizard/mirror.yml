@@ -42,6 +42,7 @@
     - Monkey
     - Tajaran
     - Shadowkin
+    - Chitinid
   - type: ActivatableUI
     key: enum.WizardMirrorUiKey.Key
     singleUser: true

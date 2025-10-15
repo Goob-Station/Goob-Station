@@ -1,0 +1,41 @@
+# /tg/ gas triggers
+
+- type: xenoArchTrigger
+  id: TriggerBZ
+  tip: xenoarch-trigger-tip-bz
+  components:
+  - type: XATGas
+    targetGas: BZ
+  - type: XATReactive
+    reagents:
+    - BZ
+
+- type: xenoArchTrigger
+  id: TriggerNitrium
+  tip: xenoarch-trigger-tip-nitrium
+  components:
+  - type: XATGas
+    targetGas: Nitrium
+  - type: XATReactive
+    reagents:
+    - Nitrium
+
+- type: xenoArchTrigger
+  id: TriggerHealium
+  tip: xenoarch-trigger-tip-healium
+  components:
+  - type: XATGas
+    targetGas: Healium
+  - type: XATReactive
+    reagents:
+    - Healium
+
+- type: xenoArchTrigger
+  id: TriggerPluoxium
+  tip: xenoarch-trigger-tip-pluoxium
+  components:
+  - type: XATGas
+    targetGas: Pluoxium
+  - type: XATReactive
+    reagents:
+    - Pluoxium

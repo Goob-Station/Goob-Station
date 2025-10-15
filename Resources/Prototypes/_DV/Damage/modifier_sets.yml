@@ -4,8 +4,12 @@
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -29,7 +33,17 @@
 - type: damageModifierSet
   id: Rodentia
   coefficients:
-    Blunt: 1.3
+    Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: Chitinid
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.9
+    Slash: 0.9
+    Cold: 1.1
+    Shock: 1.15
+    Radiation: 0.2

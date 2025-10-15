@@ -58,6 +58,13 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Canilunzt
+    understands:
+    - TauCetiBasic
+    - Canilunzt
   - type: Sprite
     netsync: false
     noRot: true
@@ -101,6 +108,7 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "maskalt" ]

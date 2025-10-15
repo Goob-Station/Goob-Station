@@ -33,7 +33,9 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -73,6 +75,9 @@
     inherentRadioChannels:
     - Common
     # - Binary # Goobstation - replaced with collective mind
+  - type: BorgSwitchableSubtype # Goobstation
+    # - Binary # Goobstation - replaced with collective mind
+
 
 - type: entity
   id: BorgChassisGeneric
@@ -82,6 +87,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: generic
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: generic_default
 
 - type: entity
   id: BorgChassisMining
@@ -90,6 +97,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: mining_default
 
 - type: entity
   id: BorgChassisEngineer
@@ -98,6 +107,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: engineering
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: engineer_default
 
 - type: entity
   id: BorgChassisJanitor
@@ -106,6 +117,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: janitor_default
 
 - type: entity
   id: BorgChassisMedical
@@ -114,6 +127,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: default_medical
 
 - type: entity
   id: BorgChassisService
@@ -122,6 +137,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
+  - type: BorgSwitchableSubtype # Goobstation
+    borgSubtype: default_service
 
 - type: entity
   id: BorgChassisSyndicateAssault

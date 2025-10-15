@@ -140,7 +140,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
             _popup.PopupEntity(
                 component.Target == message.Actor
                     ? Loc.GetString("magic-mirror-blocked-by-hat-self")
-                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target", ("target", Identity.Entity(message.Actor, EntityManager))),
+                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target", ("target", Identity.Entity(component.Target.Value, EntityManager))), // Goob-fix
                 message.Actor,
                 message.Actor,
                 PopupType.Medium);
@@ -215,13 +215,13 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
         if (component.Target is not { } target)
             return;
 
-                // Check if the target getting their hair altered has any clothes that hides their hair
+        // Check if the target getting their hair altered has any clothes that hides their hair
         if (CheckHeadSlotOrClothes(message.Actor, component.Target.Value))
         {
             _popup.PopupEntity(
                 component.Target == message.Actor
                     ? Loc.GetString("magic-mirror-blocked-by-hat-self")
-                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target"),
+                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target", ("target", Identity.Entity(component.Target.Value, EntityManager))), // Goob-fix
                 message.Actor,
                 message.Actor,
                 PopupType.Medium);
@@ -300,7 +300,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
             _popup.PopupEntity(
                 component.Target == message.Actor
                     ? Loc.GetString("magic-mirror-blocked-by-hat-self")
-                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target"),
+                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target", ("target", Identity.Entity(component.Target.Value, EntityManager))), // Goob-fix
                 message.Actor,
                 message.Actor,
                 PopupType.Medium);
@@ -379,7 +379,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
             _popup.PopupEntity(
                 component.Target == message.Actor
                     ? Loc.GetString("magic-mirror-blocked-by-hat-self")
-                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target"),
+                    : Loc.GetString("magic-mirror-blocked-by-hat-self-target", ("target", Identity.Entity(component.Target.Value, EntityManager))), // Goob-fix
                 message.Actor,
                 message.Actor,
                 PopupType.Medium);

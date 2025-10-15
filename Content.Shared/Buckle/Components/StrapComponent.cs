@@ -105,6 +105,9 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -202,17 +205,35 @@ public sealed partial class StrapComponent : Component
     [DataField]
     public bool BuckleOnInteractHand = true;
 
+    // <Goobstation>
     /// <summary>
     /// adds bverb for bucle
     /// </summary>
     [DataField]
-    public bool AddBuckleverb = true; //Goobstation
+    public bool AddBuckleverb = true;
 
     /// <summary>
     /// add so can block unbuckeling of vehicle drivers
     /// </summary>
     [DataField]
-    public bool AllowOthersToUnbuckle = true; // Goobstation
+    public bool AllowOthersToUnbuckle = true;
+
+    // Goobstation
+    /// <summary>
+    /// Whether to block movement if buckled.
+    /// For use with other components that might want the buckled entity to still be able to move.
+    /// </summary>
+    [DataField]
+    public bool BlockMovement = true;
+    // </Goobstation>
+
+    // WD EDIT START
+    /// <summary>
+    /// Delay, that must occur, before user can unbuckle
+    /// </summary>
+    [DataField]
+    public TimeSpan SelfUnBuckleDelay = TimeSpan.Zero;
+    // WD EDIT END
 }
 
 public enum StrapPosition

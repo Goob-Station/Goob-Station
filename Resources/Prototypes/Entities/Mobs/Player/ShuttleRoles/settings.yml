@@ -2,10 +2,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -105,7 +107,7 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 # Security
-# Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
+# Following use EventHumanoidMindShielded since they are security and probably should have mindshields
 
 - type: randomHumanoidSettings
   id: VisitorSecurity
@@ -362,6 +364,31 @@
 
 # Civilian
 
+#Goobstation start
+- type: randomHumanoidSettings
+  id: VisitorCivilianLibrarian
+  parent: EventHumanoidLibrarian
+  components:
+    - type: GhostRole
+      name: ghost-role-information-civilian-name
+      description: ghost-role-information-civilian-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+
+- type: randomHumanoidSettings
+  id: VisitorCivilianChef
+  parent: EventHumanoidChef
+  components:
+    - type: GhostRole
+      name: ghost-role-information-civilian-name
+      description: ghost-role-information-civilian-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+#Goobstation end
+
+
 - type: randomHumanoidSettings
   id: VisitorCivilian
   parent: EventHumanoid
@@ -417,7 +444,7 @@
 
 - type: randomHumanoidSettings
   id: VisitorChef
-  parent: VisitorCivilian
+  parent: VisitorCivilianChef #Goobstation
   components:
     - type: GhostRole
       name: job-name-chef
@@ -472,7 +499,7 @@
 
 - type: randomHumanoidSettings
   id: VisitorLibrarian
-  parent: VisitorCivilian
+  parent: VisitorCivilianLibrarian #Goobstation
   components:
     - type: GhostRole
       name: job-name-librarian
@@ -593,6 +620,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -613,6 +641,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimCMO
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -633,6 +662,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfPersonnel
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -653,6 +683,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfSecurity
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -673,6 +704,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimResearchDirector
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -693,6 +725,7 @@
 
 - type: randomHumanoidSettings
   id: ChallengeVictimQuartermaster
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -799,8 +832,6 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-nonantagonist-rules
-      mindRoles:
-      - MindRoleGhostRoleFreeAgentHarmless
       raffle:
         settings: short
     - type: Loadout
