@@ -175,6 +175,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid #Goobedit - Fix Arachnid specific textures
   - type: IgnoreSpiderWeb # Goobstation
 
 - type: entity
