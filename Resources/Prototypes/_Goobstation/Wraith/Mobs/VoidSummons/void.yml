@@ -78,7 +78,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 150 # Not parity, but the health system in Goonstation works completely differently so :shrug:
+          damage: 160 # Not parity, but the health system in Goonstation works completely differently so :shrug:
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -236,7 +236,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
+      120: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
   - type: Grammar
     attributes:
       gender: male

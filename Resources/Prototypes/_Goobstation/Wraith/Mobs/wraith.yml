@@ -181,7 +181,7 @@
     range: 10
     volume: -15
     sound:
-      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
+      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
 
 - type: entity
   id: MobWraithTrickster
