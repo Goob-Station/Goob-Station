@@ -363,10 +363,10 @@ public sealed class SharedExecutionSystem : EntitySystem
         // Check if there's any ammo left
         if (ev.Ammo.Count <= 0)
         {
-            _audio.PlayPredicted(component.SoundEmpty, uid, uid);
+            if (_netManager.IsServer)
+                _audio.PlayPvs(component.SoundEmpty, uid);
             ShowExecutionInternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
             ShowExecutionExternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
-            Logger.Debug("GunFired");
             return;
         }
 
