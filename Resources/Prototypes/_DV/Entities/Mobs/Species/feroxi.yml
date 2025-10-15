@@ -46,8 +46,8 @@
         # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
         # sprite refactor when
         state: l_leg
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Omu 120
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Omu 120
+      - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 120
+      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 120
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -58,19 +58,19 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.Face" ] # Omu 120
+      - map: [ "enum.HumanoidVisualLayers.Face" ] # Goob 120
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
-      - map: [ "belt" ] # Omu 120 - default belt under outerclothing
+      - map: [ "belt" ] # Goob 120 - default belt under outerclothing
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
-      - map: [ "beltalt" ] # Omu 120
+      - map: [ "beltalt" ] # Goob 120
       - map: [ "neck" ]
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "maskalt" ] # Omu - alt mask gooblayer below hair
+      - map: [ "maskalt" ] # Goob - alt mask gooblayer below hair
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
@@ -119,7 +119,7 @@
   components:
   - type: HumanoidAppearance
     species: Feroxi
-  - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Omu 120
+  - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Goob 120
     netsync: false
     noRot: true
     drawdepth: Mobs
@@ -138,8 +138,8 @@
       # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
       # sprite refactor when
       state: l_leg
-    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Omu 120
-    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Omu 120
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 120
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 120
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -150,19 +150,19 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "enum.HumanoidVisualLayers.Face" ] # Omu 120
+    - map: [ "enum.HumanoidVisualLayers.Face" ] # Goob 120
     - map: [ "id" ]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "belt" ] # Omu 120 - default belt under outerclothing
+    - map: [ "belt" ] # Goob 120 - default belt under outerclothing
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
-    - map: [ "beltalt" ] # Omu 120
+    - map: [ "beltalt" ] # Goob 120
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "maskalt" ] # Omu - alt mask gooblayer below hair
+    - map: [ "maskalt" ] # Goob - alt mask gooblayer below hair
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]

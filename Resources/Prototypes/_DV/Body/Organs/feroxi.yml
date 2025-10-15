@@ -42,16 +42,16 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
-    intCap: 17 # Omu start
+    intCap: 17 # Goob start
     integrity: 17
     integrityThresholds:
       Normal: 17
       Damaged: 9
       Destroyed: 0
     slotId: lungs
-    removable: False # Omu end, make them actualy unremovable
+    removable: False # Goob end, make them actualy unremovable
   - type: Lung
-  - type: Item # Omu
+  - type: Item # Goob
     size: Small
     heldPrefix: lungs
   - type: Metabolizer
@@ -77,7 +77,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # Omu
+  - type: Tag # Goob
     tags:
       - Meat
       - Organ

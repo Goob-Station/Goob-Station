@@ -14,7 +14,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _body = default!;
 
-    public override void Update(float frameTime) /// Omu start, reverted this section back to what it was on DV (Durks change broke things)
+    public override void Update(float frameTime) /// Goob start, reverted this section back to what it was on DV (Durks change broke things)
     {
         var query = EntityQueryEnumerator<FeroxiDehydrateComponent, ThirstComponent>();
 
@@ -28,7 +28,7 @@ public sealed class FeroxiDehydrateSystem : EntitySystem
                 UpdateDehydrationStatus((uid, feroxiDehydrate), shouldBeDehydrated);
             }
         }
-    } /// Omu end
+    } /// Goob end
 
     /// <summary>
     /// Checks and changes the lungs when meeting the threshold for a swap of metabolizer
