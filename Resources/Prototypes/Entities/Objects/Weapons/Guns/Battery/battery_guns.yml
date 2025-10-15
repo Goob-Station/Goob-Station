@@ -767,6 +767,7 @@
     - Taser
     - Sidearm
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist
 
 
 - type: entity
@@ -843,6 +844,7 @@
   - type: StaticPrice
     price: 260
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist
 
 
 - type: entity
@@ -881,6 +883,7 @@
     zeroVisible: true
   - type: Appearance
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist
 
 
 - type: entity
