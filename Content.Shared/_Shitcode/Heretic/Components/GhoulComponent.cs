@@ -42,6 +42,9 @@ public sealed partial class GhoulComponent : Component
     public bool GiveBlade;
 
     [DataField]
+    public LocId? ExamineMessage = "examine-system-cant-see-entity";
+
+    [DataField]
     public EntityUid? BoundBlade;
 
     [DataField]

@@ -20,6 +20,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Polymorph;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -129,7 +130,11 @@ public sealed partial class EventHereticShadowCloak : InstantActionEvent
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
-public sealed partial class EventHereticAshenShift : InstantActionEvent { }
+public sealed partial class EventHereticAshenShift : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype> Jaunt = "AshJaunt";
+}
 
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent
 {
@@ -258,6 +263,8 @@ public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 // lock
 public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
 public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
+
+public sealed partial class EventHereticShapeshift : InstantActionEvent;
 
 // rust
 [Serializable, NetSerializable, DataDefinition]

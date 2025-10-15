@@ -234,8 +234,8 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
-        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
-            args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
+        // if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
+        //    args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
             return;

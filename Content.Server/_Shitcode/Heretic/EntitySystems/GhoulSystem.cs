@@ -183,15 +183,16 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnTryAttack(Entity<GhoulComponent> ent, ref AttackAttemptEvent args)
     {
-        // prevent attacking owner and other heretics
-        if (args.Target == ent.Owner
-        || HasComp<HereticComponent>(args.Target))
+        if (args.Target != null && args.Target == ent.Comp.BoundHeretic)
             args.Cancel();
     }
 
     private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("examine-system-cant-see-entity"));
+        if (ent.Comp.ExamineMessage == null)
+            return;
+
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineMessage));
     }
 
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)

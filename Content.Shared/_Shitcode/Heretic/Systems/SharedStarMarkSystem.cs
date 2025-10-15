@@ -134,7 +134,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     {
         if (args.OurFixture.Hard && (!HasComp<StarMarkComponent>(args.OtherEntity) ||
                                      TryComp(args.OtherEntity, out PullableComponent? pullable) &&
-                                     (HasComp<StarGazerComponent>(args.OtherEntity) ||
+                                     (HasComp<StarGazerComponent>(pullable.Puller) ||
                                       TryComp(pullable.Puller, out HereticComponent? heretic) &&
                                       heretic.CurrentPath == "Cosmos")))
             args.Cancelled = true;
@@ -219,12 +219,11 @@ public abstract class SharedStarMarkSystem : EntitySystem
         }
     }
 
-    public bool TryApplyStarMark(Entity<MobStateComponent?> entity, EntityUid? user, bool ignoreGhouls = false)
+    public bool TryApplyStarMark(Entity<MobStateComponent?> entity, EntityUid? user)
     {
         if (entity == user || !Resolve(entity, ref entity.Comp, false) ||
             TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" ||
-            !ignoreGhouls && user != null && TryComp(entity, out GhoulComponent? ghoul) &&
-            ghoul.BoundHeretic == user.Value)
+            HasComp<GhoulComponent>(entity))
             return false;
 
         var ev = new BeforeCastTouchSpellEvent(entity, false);

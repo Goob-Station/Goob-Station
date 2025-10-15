@@ -44,7 +44,7 @@ knowledge-path-flesh-s3-desc =
 
     Allows you to transmute a corpse and a muzzle to create a Voiceless Dead.
     The corpse does not need to have a soul.
-    Voiceless Dead are mute ghouls and only have 100 health, but can use Bloody Blades effectively.
+    Voiceless Dead are mute ghouls, which have 100 health and a Bloody Blade.
 
 knowledge-path-flesh-s4-name = Mark of Flesh
 knowledge-path-flesh-s4-desc =
@@ -68,7 +68,9 @@ knowledge-path-flesh-s6-desc =
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
-    Raw Prophets have a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets have a greatly increased sight range and x-ray vision, as well as a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets passively heal heretics and ghouls around themselves.
+    You can only create two at a time.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =
@@ -83,7 +85,7 @@ knowledge-path-flesh-s8-desc =
     An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved.
 
     Allows you to transmute a heart, a stomach, lungs and a pen to create a Stalker.
-    Stalkers can jaunt, release EMPs, and are strong in combat.
+    Stalkers can jaunt, release EMPs, shapeshift into different creatures, and are strong in combat.
 
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =

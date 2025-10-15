@@ -51,20 +51,20 @@ public sealed partial class HereticAbilitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
-    private bool TryDoJaunt(EntityUid ent)
+    private bool TryDoJaunt(EntityUid ent, string proto)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
-        var urist = _poly.PolymorphEntity(ent, "AshJaunt");
+        var urist = _poly.PolymorphEntity(ent, proto);
         if (urist == null)
             return false;
 

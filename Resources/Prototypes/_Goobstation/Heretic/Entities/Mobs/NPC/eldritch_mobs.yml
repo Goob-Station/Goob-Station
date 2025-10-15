@@ -93,6 +93,8 @@
       NavSmash: !type:Bool
         true
   - type: Targeting
+  - type: Bloodstream
+    maxBleedAmount: 0
 
 - type: entity
   parent: BaseMobGhoul
@@ -115,6 +117,7 @@
     - ActionHereticJaunt
     # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
+    - ActionHereticShapeshift
   - type: TriggerImplantAction
   - type: EmpOnTrigger
     range: 5
@@ -124,6 +127,18 @@
     baseWalkSpeed: 5
     baseSprintSpeed: 5
   - type: FlashImmunity
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Piercing: 10
 
 - type: entity
   parent: BaseMobGhoul
@@ -132,7 +147,7 @@
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
   components:
   - type: Ghoul
-    totalHealth: 75
+    totalHealth: 65
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
@@ -153,8 +168,24 @@
     - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
-    - ActionHereticJaunt
+    - ActionHereticJauntLong
     - ActionHereticMansusLink
+  - type: HealingAura
+    selfHealMultiplier: 2
+    componentHealMultipliers:
+      Heretic: 1
+      Ghoul: 2
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false
+  - type: Eye
+    drawFov: false
+  - type: ContentEye
+    maxZoom: 1.25, 1.25
+    targetZoom: 1.25, 1.25
+  - type: ShowHealthBars
 
 - type: entity
   parent: [BaseMobGhoul, FlyingMobBase]
