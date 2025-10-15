@@ -51,7 +51,7 @@
   - type: AntagSpawner
     prototype: MobWraith
   - type: AntagSelection
-    agentName: wraith-end-agent-name
+    agentName: wraith-round-end-agent-name
     definitions:
     - spawnerPrototype: WraithToken
       min: 1

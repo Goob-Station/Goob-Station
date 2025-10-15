@@ -61,10 +61,6 @@
     disableExplosionRecursion: true
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: UniversalLanguageSpeaker # Einstein Engines - Languages
-  - type: NightVision
-    color: MediumPurple
-    activateSound: null
-    deactivateSound: null
   - type: Reactive
     groups:
       Acidic: [ Touch ]

@@ -9,6 +9,7 @@ using Content.Shared.Actions.Components;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -20,6 +21,7 @@ public sealed class WraithSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AbsorbCorpseSystem _corpse = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<WraithPointsComponent> _wraithPointsQuery;
     private EntityQuery<PassiveWraithPointsComponent> _passiveWraithPointsQuery;
@@ -72,11 +74,21 @@ public sealed class WraithSystem : EntitySystem
     private void OnCollide(Entity<WraithComponent> ent, ref StatusEffectOnCollideEvent args) =>
         _statusEffects.TryAddStatusEffectDuration(ent.Owner, ent.Comp.WraithWeakenedEffect, args.EffectTimespan);
 
-    private void OnWraithWeakenedAdded(Entity<WraithComponent> ent, ref WraithWeakenedAddedEvent args) =>
-        EnsureComp<WraithInsanityComponent>(ent.Owner);
+    private void OnWraithWeakenedAdded(Entity<WraithComponent> ent, ref WraithWeakenedAddedEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
 
-    private void OnWraithWeakenedRemoved(Entity<WraithComponent> ent, ref WraithWeakenedRemovedEvent args) =>
+        EnsureComp<WraithInsanityComponent>(ent.Owner);
+    }
+
+    private void OnWraithWeakenedRemoved(Entity<WraithComponent> ent, ref WraithWeakenedRemovedEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         RemCompDeferred<WraithInsanityComponent>(ent.Owner);
+    }
 
     private void OnBanishmentDone(Entity<WraithComponent> ent, ref BanishmentDoneEvent args)
     {
