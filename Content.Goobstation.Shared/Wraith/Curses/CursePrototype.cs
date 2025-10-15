@@ -42,7 +42,7 @@ public sealed class CursePrototype : IPrototype
 public sealed partial class CurseStatusIconPrototype : StatusIconPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<JobIconPrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<CurseStatusIconPrototype>))]
     public string[]? Parents { get; private set; }
 
     /// <inheritdoc />

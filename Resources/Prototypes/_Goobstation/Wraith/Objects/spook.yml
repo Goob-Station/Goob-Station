@@ -84,7 +84,7 @@
           reagents:
             - ReagentId: Ash
               Quantity: 25
-            - ReagentId: ColdSauce
+            - ReagentId: Coldsauce
               Quantity: 25
     - type: GuideHelp
       guides:

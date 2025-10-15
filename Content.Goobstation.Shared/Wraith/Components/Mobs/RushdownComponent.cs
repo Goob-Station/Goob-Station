@@ -1,3 +1,4 @@
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -48,7 +49,7 @@ public sealed partial class RushdownComponent : Component
     /// Status effect to make you stunned.
     /// </summary>
     [DataField]
-    public EntProtoId Stunned = "Stun";
+    public ProtoId<StatusEffectPrototype> Stunned = "Stun";
 
     [DataField]
     public SoundSpecifier? ShockwaveSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_footstep_charge2.ogg");

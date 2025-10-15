@@ -114,7 +114,7 @@
       messages: [ "curse-death-2" ]
     0.4:
     - !type:Emote
-      emote: Screams
+      emote: Scream
       showInChat: true
     - !type:CreateEntityReactionEffect
       entity: PuddleBloodSmall
