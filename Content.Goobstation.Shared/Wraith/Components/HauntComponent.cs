@@ -25,7 +25,7 @@ public sealed partial class HauntComponent : Component
     /// How long the Wp regen boost lasts.
     /// </summary>
     [DataField]
-    public TimeSpan HauntWpRegenDuration = TimeSpan.FromSeconds(60);
+    public TimeSpan HauntWpRegenDuration = TimeSpan.FromSeconds(30);
 
     [DataField, AutoNetworkedField]
     public TimeSpan NextHauntWpRegenUpdate = TimeSpan.Zero;

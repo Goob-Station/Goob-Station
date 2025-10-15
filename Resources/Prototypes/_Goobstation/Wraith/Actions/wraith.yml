@@ -115,6 +115,7 @@
     blacklist:
       components:
       - BorgChassis
+      - BibleUser
     event: !type:DecayEvent
   - type: ActionWraithPoints
     wpConsume: 30
@@ -134,6 +135,9 @@
     range: 10
   - type: EntityTargetAction
     canTargetSelf: false
+    blacklist:
+      components:
+      - BibleUser
     event: !type:WraithCommandEvent
   - type: ActionWraithPoints
     wpConsume: 50

@@ -32,6 +32,9 @@
   - type: TargetAction
     range: 10
   - type: EntityTargetAction
+    blacklist:
+      components:
+        - BibleUser
     canTargetSelf: false
     event: !type:WraithCommandEvent
 
@@ -82,4 +85,7 @@
     whitelist:
       components:
         - Body
+    blacklist:
+      components:
+        - BibleUser
 
