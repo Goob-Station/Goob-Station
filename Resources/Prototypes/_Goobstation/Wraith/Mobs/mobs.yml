@@ -40,7 +40,8 @@
       path: /Audio/Effects/bone_rattle.ogg
     damage:
       types:
-        Blunt: 10
+        Blunt: 15
+        Structural: 30
   - type: MobState
   - type: Fixtures
     fixtures:

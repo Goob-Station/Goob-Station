@@ -5,7 +5,7 @@
   components:
   - type: Aura
     auraFarm: 0.4
-    distortion: 0.02 # change the values to smth good cuz idk what works
+    distortion: 0.02
     auraColor: "#030300"
   - type: RevenantCrush
     abilityDuration: 5
@@ -33,9 +33,9 @@
     searchRange: 14 # why not
     stunDuration: 8 # why not
   - type: WraithPoints
-    startingWraithPoints: 50
+    startingWraithPoints: 500
   - type: PassiveWraithPoints
-    wpGeneration: 15 # generate points 5x than a normal wraith
+    wpGeneration: 15 # generate points 15x than a normal wraith
   - type: ActionGrant
     actions:
     - ActionRevenantPush

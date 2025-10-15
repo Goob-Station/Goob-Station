@@ -1,6 +1,7 @@
 <Document>
-  # Harbinger of the Void <Box>
-    <GuideEntityEmbed Entity="GuidebookWraithHarbingerFluff" Caption=""/>
+  # Harbinger of the Void
+  <Box>
+    <GuideEntityEmbed Entity="MobWraithHarbinger" Caption=""/>
   </Box>
 
   The Harbinger of the Void focuses on summoning and controlling the dead or otherworldly creatures. You don’t just haunt the crew, you call reinforcements from beyond to do the dirty work for you.
@@ -42,11 +43,9 @@
 
   [textlink="The revenant has its own set of skills and mechanics." link="Revenant"]
 
-  ### Glorious Morning
-
   ## General tips
 
-  # Your void portal
+  ### Your void portal
 
   Position your portal wisely. Placing it near high-traffic areas can allow your minions to overwhelm the crew faster.
 
@@ -54,7 +53,7 @@
 
   Becoming a revenant is extremely expensive, but you'll be an unstopable killing machine during the short duration of your possesion. Amass lots of WP before using it, as activating this skill is already costly on its own.
 
-  Your end goal should always be to use your other skills to amass power to become a revenant. 
+  Your end goal should always be to use your other skills to amass power to become a revenant.
 
 
   [textlink="Back to Wraith Evolutions" link="Wraiths"]

@@ -1,6 +1,7 @@
 <Document>
-  # Trickster <Box>
-    <GuideEntityEmbed Entity="GuidebookWraithTricksterFluff" Caption=""/>
+  # Trickster
+  <Box>
+    <GuideEntityEmbed Entity="MobWraithTrickster" Caption=""/>
   </Box> "The greatest trick the devil ever pulled was convincing the world he didn't exist."
 
   Is he real? Who knows. Best be on your toes!

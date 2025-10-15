@@ -31,5 +31,5 @@
 
 - type: guideEntry
   id: RevenantWraith
-  name: guide-entry-revenant-wraith
+  name: guide-entry-revenant
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/revenant.xml"

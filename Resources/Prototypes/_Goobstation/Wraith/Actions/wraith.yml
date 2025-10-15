@@ -70,6 +70,10 @@
       - MobState
       - HumanoidAppearance
     event: !type:AbsorbCorpseEvent
+  - type: ActionWraithPoints
+    wpConsume: 20
+  - type: ActionUseDelayOnUse
+    useDelayAccumulator: 45
 
 - type: entity
   id: ActionSpook
@@ -88,6 +92,8 @@
     range: 10
   - type: WorldTargetAction
     event: !type:SpookEvent
+  - type: ActionWraithPoints
+    wpConsume: 20
 
 - type: entity
   id: ActionDecay
@@ -110,6 +116,8 @@
       components:
       - BorgChassis
     event: !type:DecayEvent
+  - type: ActionWraithPoints
+    wpConsume: 30
 
 - type: entity
   id: ActionCommand
@@ -127,6 +135,8 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:WraithCommandEvent
+  - type: ActionWraithPoints
+    wpConsume: 50
 
 - type: entity
   id: ActionAnimateObject
@@ -141,12 +151,16 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: anim_object
+  - type: ActionWraithPoints
+    wpConsume: 100
 
 - type: entity
   id: ActionPossessObject
   name: Possess object
   description: Possess and control an everyday object. Freakout level high.
   components:
+  - type: ActionWraithPoints
+    wpConsume: 300
   - type: Action
     itemIconStyle: BigAction
     # useDelay: 150
@@ -233,6 +247,8 @@
       state: evolve
   - type: InstantAction
     event: !type:WraithEvolveEvent
+  - type: ActionWraithPoints
+    wpConsume: 150
 
 # Harbinger Actions
 - type: entity
@@ -258,6 +274,8 @@
       - EntityStorage
       - HumanoidAppearance
     event: !type:RaiseSkeletonEvent
+  - type: ActionWraithPoints
+    wpConsume: 100
 
 - type: entity
   id: ActionSummonVoidPortal
@@ -281,6 +299,8 @@
       components:
       - Corporeal
     popup: wraith-must-be-corporeal
+  - type: ActionWraithPoints
+    wpConsume: 150
 
 - type: entity
   id: ActionSummonVoidCreature
@@ -294,6 +314,8 @@
       state: summon_creature
   - type: InstantAction
     event: !type:SummonVoidCreatureEvent
+  - type: ActionWraithPoints
+    wpConsume: 400
 
 - type: entity
   id: ActionMakeRevenant
@@ -311,6 +333,8 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:MakeRevenantEvent
+  - type: ActionWraithPoints
+    wpConsume: 1000
 
 # Plaguebinger Actions
 
@@ -329,6 +353,8 @@
     canTargetSelf: false
     event: !type:ApplyCurseActionEvent
   - type: CurseAction # refreshes all curses when a curse is used
+  - type: ActionWraithPoints
+    wpConsume: 40
 
 
 - type: entity
@@ -427,6 +453,8 @@
       curse: CurseDeath
       popup: curse-popup-death
       requireAllCurses: true
+  - type: ActionWraithPoints
+    wpConsume: 80
 
 - type: entity
   id: ActionDefile
@@ -445,6 +473,8 @@
     deselectOnMiss: true
   - type: EntityTargetAction
     event: !type:DefileEvent
+  - type: ActionWraithPoints
+    wpConsume: 50
 
 - type: entity
   id: ActionSummonPlagueRat
@@ -471,5 +501,7 @@
       state: summon_goo
   - type: InstantAction
     event: !type:SummonRotHulkEvent
+  - type: ActionWraithPoints
+    wpConsume: 120
 
 # Trickster Actions

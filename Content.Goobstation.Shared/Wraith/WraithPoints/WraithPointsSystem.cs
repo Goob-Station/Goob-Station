@@ -65,6 +65,7 @@ public sealed class WraithPointsSystem : EntitySystem
     {
         ent.Comp.WpGenerationAccumulator = ent.Comp.NextWpUpdate + _timing.CurTime;
         ent.Comp.BaseWpResetter = ent.Comp.BaseWpGeneration;
+        AdjustWpGeneration(ent);
         Dirty(ent);
     }
 
@@ -77,7 +78,7 @@ public sealed class WraithPointsSystem : EntitySystem
 
     private void OnActionAttempt(Entity<ActionWraithPointsComponent> ent, ref ActionAttemptEvent args)
     {
-        if (GetCurrentWp(ent.Owner) >= ent.Comp.WpConsume)
+        if (GetCurrentWp(args.User) >= ent.Comp.WpConsume)
             return;
 
         _popupSystem.PopupClient(Loc.GetString(ent.Comp.Popup), args.User, args.User);

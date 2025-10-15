@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Actions;
 using Content.Server.Mind;
 using Content.Shared._White.RadialSelector;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -19,6 +20,7 @@ public sealed class WraithEvolveSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -29,6 +31,8 @@ public sealed class WraithEvolveSystem : EntitySystem
 
         SubscribeLocalEvent<EvolveComponent, WraithEvolveEvent>(OnWraithEvolve);
         SubscribeLocalEvent<EvolveComponent, RadialSelectorSelectedMessage>(OnWraithEvolveRecieved);
+
+        SubscribeLocalEvent<AbsorbCorpseComponent, WraithEvolveAttemptEvent>(OnWraithEvolveAttempt);
     }
 
     private void OnMapInit(Entity<EvolveComponent> ent, ref MapInitEvent args) =>
@@ -39,10 +43,11 @@ public sealed class WraithEvolveSystem : EntitySystem
 
     private void OnWraithEvolve(Entity<EvolveComponent> ent, ref WraithEvolveEvent args)
     {
-        // UNCOMMENT THIS ONCE DONE WITH PLAYTESTING!!!!!!!!!!!!
-        /*if (!TryComp<AbsorbCorpseComponent>(ent.Owner, out var corpse)
-            || corpse.CorpsesAbsorbed < ent.Comp.CorpsesRequired)
-            return;*/
+        var ev = new WraithEvolveAttemptEvent(ent.Comp.CorpsesRequired);
+        RaiseLocalEvent(ent, ref ev);
+
+        if (ev.Cancelled)
+            return;
 
         _ui.TryToggleUi(ent.Owner, RadialSelectorUiKey.Key, ent.Owner);
         _ui.SetUiState(ent.Owner, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(ent.Comp.AvailableEvolutions));
@@ -78,5 +83,14 @@ public sealed class WraithEvolveSystem : EntitySystem
 
         RemComp<EvolveComponent>(newForm);
         Del(uid);
+    }
+
+    private void OnWraithEvolveAttempt(Entity<AbsorbCorpseComponent> ent, ref WraithEvolveAttemptEvent args)
+    {
+        if (ent.Comp.CorpsesAbsorbed < args.CorpsesRequired)
+        {
+            _popups.PopupEntity(Loc.GetString("wraith-evolve-not-enough", ("corpseCount", args.CorpsesRequired)), ent.Owner, ent.Owner);
+            args.Cancelled = true;
+        }
     }
 }

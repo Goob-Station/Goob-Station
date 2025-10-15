@@ -139,6 +139,8 @@
   parent: MobWraith
   name: Plaguebringer
   components:
+  - type: Wraith
+    abilities: PlaguebingerAbilities
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi
     layers:
@@ -162,6 +164,8 @@
   parent: MobWraith
   name: Harbinger of the Void
   components:
+  - type: Wraith
+    abilities: HarbingerAbilities
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi
     layers:

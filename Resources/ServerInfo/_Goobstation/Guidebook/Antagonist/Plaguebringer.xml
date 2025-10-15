@@ -1,33 +1,34 @@
 <Document>
-  # Plaguebringer <Box>
-    <GuideEntityEmbed Entity="GuidebookWraithPlaguebringerFluff" Caption=""/>
+  # Plaguebringer
+  <Box>
+    <GuideEntityEmbed Entity="MobWraithPlague" Caption=""/>
   </Box>
 
   The Plaguebringer is a path focused around curses, diseases and filth. Most of your abilities involve applying debuffs to one of those clueless crewmembers, and then, once the time is right and their soul is ripe, collecting your dues.
 
-  ## Curses
+  # Curses
 
   The Plaguebringer has access to four base curses, with one, final curse to rule them all.
 
-  # Blindness
+  ## Blindness
 
   - Slowly damages the eyesight of the afflicted until they are rendered fully blind.
 
-  # Blood
+  ## Blood
 
   - Causes them to cough blood, sometimes a little, sometimes a lot. Mostly just an annoyance, but can get serious if left untreated.
   - In an ideal world, this would also apply Hemophilia to the target, which makes them bleed for longer. However, that is not yet implemented.
 
-  # Enfeeblement
+  ## Enfeeblement
 
   - This one has several effects, such as draining the stamina of the afflicted, or making them drowsy and forcing them into a sudden nap.
 
-  # Rot
+  ## Rot
 
   - Causes the afflicted to randomly puke and cough all over the place. Great for spreading disease.
   - Prevents them from eating at all. Combined with the fact that they are slowly puking out all the contents of their stomach, this will eventually leave them starving, unable to do anything about it.
 
-  # Death
+  ## Death
 
   - The final of the curses. Can only be applied once all four other curses have been applied on the same person.
   - Once applied, the target will have less than a minute to live. They will hear a dreadful song signifying that their end is near.
@@ -51,7 +52,7 @@
   Uses nearby filth to summon a mass of filth and decay that attacks nearby crew and explodes on death. Try using this action at disposals, or near large amounts of trash if you can find something of the sort.
   If you manage to find a pile of more than 30 pieces of trash, it will spawn a much stronger version of the rot hulk.
 
-  ### Sick! But how do I do better as this?
+  # Sick! But how do I do better as this?
 
   ## General tips
 

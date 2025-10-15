@@ -1,7 +1,5 @@
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Shared.Prototypes;
-using Content.Goobstation.Shared.Wraith;
+using Content.Goobstation.Shared.Wraith.Components;
 
 namespace Content.Goobstation.Client.Wraith;
 
@@ -12,6 +10,7 @@ public sealed class FadingInSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<FadingInComponent, ComponentStartup>(OnStartup);
     }
 

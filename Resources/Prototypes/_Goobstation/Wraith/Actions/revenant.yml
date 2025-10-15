@@ -7,7 +7,7 @@
   description: Pushes a target object or mob away from the revenant.
   components:
   - type: Action
-    # useDelay: 30
+    useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -24,7 +24,7 @@
   description: Launch an assortment of nearby objects at a target location.
   components:
   - type: Action
-    # useDelay: 30
+    useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -41,7 +41,7 @@
   description: Emit a shockwave, breaking nearby lights and walls, and stunning nearby humans for a short time.
   components:
   - type: Action
-    # useDelay: 30
+    useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: shockwave
@@ -56,7 +56,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/revtouch.ogg
-    # useDelay: 30
+    useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: evil_touch
@@ -69,7 +69,7 @@
   description: Channel your telekinetic abilities at a human target, causing damage as long as you stand still. Casting any other spell will interrupt this!
   components:
   - type: Action
-    # useDelay: 60
+    useDelay: 60
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi

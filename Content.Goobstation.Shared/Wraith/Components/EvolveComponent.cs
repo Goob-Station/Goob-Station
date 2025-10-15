@@ -25,3 +25,9 @@ public sealed partial class EvolveComponent : Component
     [ViewVariables]
     public EntProtoId ActionId = "ActionEvolve";
 }
+
+/// <summary>
+/// Raised when attempting to evolve.
+/// </summary>
+[ByRefEvent]
+public record struct WraithEvolveAttemptEvent(int CorpsesRequired, bool Cancelled = false);

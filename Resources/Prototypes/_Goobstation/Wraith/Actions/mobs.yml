@@ -7,7 +7,7 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
-      useDelay: 60
+    useDelay: 60
     icon:
       sprite: _Goobstation/Wraith/Mobs/actions.rsi
       state: rally
@@ -23,7 +23,7 @@
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
-      useDelay: 30
+    useDelay: 30
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: skeleton
