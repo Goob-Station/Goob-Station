@@ -5265,3 +5265,10 @@ Entries:
   id: 9103
   time: '2025-10-14T23:31:16.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40279
+- author: telavivgamers
+  changes:
+  - message: You may put ashes and matchsticks into ashtrays.
+    type: Tweak
+  id: 9104
+  time: '2025-10-15T12:38:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40926
