@@ -76,7 +76,7 @@ public sealed class WraithSystem : EntitySystem
         EnsureComp<WraithInsanityComponent>(ent.Owner);
 
     private void OnWraithWeakenedRemoved(Entity<WraithComponent> ent, ref WraithWeakenedRemovedEvent args) =>
-        RemComp<WraithInsanityComponent>(ent.Owner);
+        RemCompDeferred<WraithInsanityComponent>(ent.Owner);
 
     private void OnBanishmentDone(Entity<WraithComponent> ent, ref BanishmentDoneEvent args)
     {
