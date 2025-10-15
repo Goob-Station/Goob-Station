@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Collisions;
 using Content.Shared.Physics;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Server.Wraith;
@@ -30,6 +31,7 @@ public sealed class StatusEffectOnCollideGhostSystem : SharedStatusEffectOnColli
 
     private void OnMapInit(Entity<StatusEffectOnCollideGhostComponent> ent, ref MapInitEvent args)
     {
+        EnsureComp<PhysicsComponent>(ent.Owner);
         var fixtures = EnsureComp<FixturesComponent>(ent.Owner);
         _fixtures.TryCreateFixture(ent.Owner,
             GetOrCreateShape(ent.Owner, fixtures),

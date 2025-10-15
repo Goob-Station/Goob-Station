@@ -1,5 +1,5 @@
 #0 has 16 frames. 1 has 14 frames, 2 has 15 frames, 3 has 14 frames, 4 has 15 frames, 5 has 17 frames, 6 has 13 frames, 7 has 16 frames, 8 has 15 frames, 9 has 14 frames.A has 16 frames, & has 16 frames, all four arrow directions have 17 frames. B has 17 frames. Bee has 38 frames, C has 13 frames, circle has 15 frames, colon has 12 frames, comma has 10 frames, D has 17 frames, divided has 15 frames, dollar has 21 frames, E has 16 frames, Equals has 14 frames, Euro has 16 frames, exclamationpoint has 12 frames, F has 14 frames, frown has 18 frames, G has 17 frames, GreaterThan has 13 frames, H has 17 frames, heart has 16 frames, I has 17 frames, J has 15 frames, K has 17 frames, L has 14 frames, LeeftBracket has 13 frames, Left parenthesis has 12 frames, lessthan has 13 frames, M has 18 frames, Minus has 11 frames, N has 17 frames, NeutralFace has 15 frames, O has 13 frames, P has 14 frames, Pentagram has 26 frames, percent has 18 frames, period has 10 frames, plus has 14 frames, Q has 15 frames, QuestionMark has 15 frames, R has 16 frames, RightBracket has 13 frames, S has 13 frames, semicolon has 12 frames, skull has 19 frames, smile has 18 frames, square has 20 frames, star has 23 frames, T has 14 frames, Times has 14 frames, U has 13 frames, V has 14 frames, W has 18 frames, X has 15 frames, Y has 15 frames, Z has 17 frames
-# THE END IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END 
+# THE END IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END  IS NEVER THE END
 # Numbers
 - type: entity
   id: BloodWriting0
@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 0
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting1
@@ -15,7 +15,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 1
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting2
@@ -23,7 +23,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 2
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting3
@@ -31,7 +31,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 3
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting4
@@ -39,7 +39,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 4
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting5
@@ -47,7 +47,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 5
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting6
@@ -55,7 +55,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 6
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting7
@@ -63,7 +63,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 7
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting8
@@ -71,7 +71,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 8
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWriting9
@@ -79,7 +79,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: 9
-    loop: false
+    #loop: false
 
 # Letters
 - type: entity
@@ -88,7 +88,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: A
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingB
@@ -96,7 +96,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: B
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingC
@@ -104,7 +104,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: C
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingD
@@ -112,7 +112,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: D
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingE
@@ -120,7 +120,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: E
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingF
@@ -128,7 +128,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: F
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingG
@@ -136,7 +136,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: G
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingH
@@ -144,7 +144,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: H
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingI
@@ -152,7 +152,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: I
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingJ
@@ -160,7 +160,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: J
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingK
@@ -168,7 +168,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: K
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingL
@@ -176,7 +176,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: L
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingM
@@ -184,7 +184,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: M
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingN
@@ -192,7 +192,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: N
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingO
@@ -200,7 +200,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: O
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingP
@@ -208,7 +208,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: P
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingQ
@@ -216,7 +216,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Q
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingR
@@ -224,7 +224,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: R
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingS
@@ -232,7 +232,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: S
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingT
@@ -240,7 +240,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: T
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingU
@@ -248,7 +248,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: U
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingV
@@ -256,7 +256,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: V
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingW
@@ -264,7 +264,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: W
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingX
@@ -272,7 +272,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: X
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingY
@@ -280,7 +280,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Y
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingZ
@@ -288,7 +288,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Z
-    loop: false
+    #loop: false
 
 # Symbols & Drawings
 - type: entity
@@ -297,7 +297,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Ampersand
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingArrowEast
@@ -305,7 +305,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: ArrowEast
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingArrowNorth
@@ -313,7 +313,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: ArrowNorth
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingArrowSouth
@@ -321,7 +321,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: ArrowSouth
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingArrowWest
@@ -329,7 +329,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: ArrowWest
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingBee
@@ -337,7 +337,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Bee
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingCircle
@@ -345,7 +345,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Circle
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingColon
@@ -353,7 +353,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Colon
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingComma
@@ -361,7 +361,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Comma
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingDivided
@@ -369,7 +369,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Divided
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingDollar
@@ -377,7 +377,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Dollar
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingEquals
@@ -385,7 +385,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Equals
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingEuro
@@ -393,7 +393,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Euro
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingExclamationPoint
@@ -401,7 +401,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: ExclamationPoint
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingFrown
@@ -409,7 +409,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Frown
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingGreaterThan
@@ -417,7 +417,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: GreaterThan
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingHeart
@@ -425,7 +425,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Heart
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingLeftBracket
@@ -433,7 +433,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: LeftBracket
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingLeftParenthesis
@@ -441,7 +441,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: LeftParenthesis
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingLessThan
@@ -449,7 +449,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: LessThan
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingMinus
@@ -457,7 +457,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Minus
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingNeutralFace
@@ -465,7 +465,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: NeutralFace
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingPentagram
@@ -473,7 +473,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Pentagram
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingPercent
@@ -481,7 +481,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Percent
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingPeriod
@@ -489,7 +489,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Period
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingPlus
@@ -497,7 +497,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Plus
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingQuestionMark
@@ -505,7 +505,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: QuestionMark
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingRightBracket
@@ -513,7 +513,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: RightBracket
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingRightParenthesis
@@ -521,7 +521,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: RightParenthesis
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingSemicolon
@@ -529,7 +529,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Semicolon
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingSkull
@@ -537,7 +537,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Skull
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingSmile
@@ -545,7 +545,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Smile
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingSquare
@@ -553,7 +553,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Square
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingStar
@@ -561,7 +561,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Star
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingTimes
@@ -569,7 +569,7 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Times
-    loop: false
+    #loop: false
 
 - type: entity
   id: BloodWritingTriangle
@@ -577,5 +577,4 @@
   - type: Sprite
     sprite: _Goobstation/Wraith/bloodwriting.rsi
     state: Triangle
-    loop: false
-
+    #loop: false
