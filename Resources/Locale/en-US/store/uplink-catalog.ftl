@@ -152,7 +152,7 @@ uplink-whitehole-grenade-name = Whitehole Grenade
 uplink-whitehole-grenade-desc = Grenade that repulses everything around for about 10 seconds. Very useful in small rooms and for chasing someone.
 
 uplink-penguin-grenade-name = Grenade Penguin
-uplink-penguin-grenade-desc = A small, highly-aggressive penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
+uplink-penguin-grenade-desc = A small, highly-aggressive penguin with a grenade strapped around its neck. Trained to ignore all Syndicate agents and relentlessly pursue a single, random nearby target when released.
 
 uplink-c4-name = C-4
 # Goobstation - C4 sentience
