@@ -25,11 +25,6 @@ public sealed partial class PossessObjectSystem : EntitySystem
 
     private void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
     {
-        if (!HasComp<CorporealComponent>(ent.Owner))
-        {
-            _popup.PopupClient(Loc.GetString("wraith-revenant-corporeal"), ent.Owner, ent.Owner);
-            return;
-        }
 
         if (!_mind.TryGetMind(args.Performer, out var mindId, out _))
             return;
