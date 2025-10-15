@@ -4,3 +4,5 @@ ent-BaseWardenContraband = { ent-BaseRestrictedContraband }
     .desc = { ent-BaseRestrictedContraband.desc }
 ent-BaseSecurityEngineeringCargoContraband = { ent-BaseRestrictedContraband }
     .desc = { ent-BaseRestrictedContraband.desc }
+ent-BaseSecurityZookeeperContraband = { ent-BaseRestrictedContraband }
+    .desc = { ent-BaseRestrictedContraband.desc }

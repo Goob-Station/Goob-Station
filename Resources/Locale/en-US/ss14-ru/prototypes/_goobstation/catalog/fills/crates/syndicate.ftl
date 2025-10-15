@@ -11,5 +11,6 @@ ent-CrateSyndicateDreadnought = cybersun dreadnought bundle
     .desc = An advanced cybersun dreadnought bundle.
 ent-CratePizzaParty = disaster pizza delivery
     .desc = In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+    .suffix = bombs
 ent-CrateSyndicateUndetermined = undetermined Syndicate bundle crate
     .desc = Contains a Syndicate bundle. Which one is yet to be determined.

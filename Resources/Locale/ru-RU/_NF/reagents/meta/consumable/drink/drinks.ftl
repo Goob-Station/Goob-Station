@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-name-gin-and-sonic = Джин и Соник
+reagent-name-gin-and-sonic = джин-соник
 reagent-desc-gin-and-sonic = Зачем ежик отправился на Сатурн? Чтобы собрать его кольца!
 reagent-name-golden-cat = золотой кот
 reagent-desc-golden-cat = Легенды говорят о золотом коте, который продал бургер за целое состояние. Имеет металлический запах.

@@ -1,0 +1,12 @@
+ent-ShadowlingAbilitiesPostHatch = shadowling post-hatch abilities
+    .desc = Entity that contains all actions that are assigned after a shadowling hatched.
+ent-ShadowlingAbilitiesObtainable = shadowling obtainable abilities
+    .desc = Entity that contains all actions that are obtainable for a shadowling through crew conversion.
+ent-ShadowlingAbilitiesAscension = shadowling ascension abilities
+    .desc = Entity that contains all actions that are obtainable for a shadowling through ascension.
+ent-NightmareAbilities = shadowling ascension abilities
+    .desc = Entity that contains all components for Nightmares.
+ent-LesserShadowlingAbilities = lesser shadowling abilities
+    .desc = Entity that contains all components for Lesser Shadowlings.
+ent-ThrallAbilities = thrall abilities
+    .desc = Entity that contains all components for Thralls after Hypnosis.

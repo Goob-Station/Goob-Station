@@ -10,9 +10,8 @@ card-blue-sc-7-kotahi = 7 синяя
 card-blue-sc-8-kotahi = 8 синяя
 card-blue-sc-9-kotahi = 9 синяя
 card-blue-sc-draw2-kotahi = возьми две, синяя
-card-blue-sc-reverse-kotahi =  смена направления, синяя
-card-blue-sc-skip-kotahi =  пропуск хода, синяя
-
+card-blue-sc-reverse-kotahi = смена направления, синяя
+card-blue-sc-skip-kotahi = пропуск хода, синяя
 # Green
 card-green-sc-0-kotahi = 0 зелёная
 card-green-sc-1-kotahi = 1 зелёная
@@ -25,9 +24,8 @@ card-green-sc-7-kotahi = 7 зелёная
 card-green-sc-8-kotahi = 8 зелёная
 card-green-sc-9-kotahi = 9 зелёная
 card-green-sc-draw2-kotahi = возьми две, зелёная
-card-green-sc-reverse-kotahi =  смена направления, зелёная
-card-green-sc-skip-kotahi =  пропуск хода, зелёная
-
+card-green-sc-reverse-kotahi = смена направления, зелёная
+card-green-sc-skip-kotahi = пропуск хода, зелёная
 # Red
 card-red-sc-0-kotahi = 0 красная
 card-red-sc-1-kotahi = 1 красная
@@ -40,9 +38,8 @@ card-red-sc-7-kotahi = 7 красная
 card-red-sc-8-kotahi = 8 красная
 card-red-sc-9-kotahi = 9 красная
 card-red-sc-draw2-kotahi = возьми две, красная
-card-red-sc-reverse-kotahi =  смена направления, красная
-card-red-sc-skip-kotahi =  пропуск хода, красная
-
+card-red-sc-reverse-kotahi = смена направления, красная
+card-red-sc-skip-kotahi = пропуск хода, красная
 # Yellow
 card-yellow-sc-0-kotahi = 0 жёлтая
 card-yellow-sc-1-kotahi = 1 жёлтая
@@ -55,8 +52,8 @@ card-yellow-sc-7-kotahi = 7 жёлтая
 card-yellow-sc-8-kotahi = 8 жёлтая
 card-yellow-sc-9-kotahi = 9 жёлтая
 card-yellow-sc-draw2-kotahi = возьми две, жёлтая
-card-yellow-sc-reverse-kotahi =  смена направления, жёлтая
-card-yellow-sc-skip-kotahi =  пропуск хода, жёлтая
+card-yellow-sc-reverse-kotahi = смена направления, жёлтая
+card-yellow-sc-skip-kotahi = пропуск хода, жёлтая
 
 # Black
 

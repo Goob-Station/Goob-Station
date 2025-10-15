@@ -1,0 +1,9 @@
+name-identifier-format-monkey = MK-{ $number }
+name-identifier-format-kobold = KB-{ $number }
+name-identifier-format-holoparasite = ГОЛО-{ $number }
+name-identifier-format-mmi = MMI-{ $number }
+name-identifier-format-positronic-brain = PB-{ $number }
+name-identifier-format-silicon = Si-{ $number }
+name-identifier-format-station-ai = ИИ-{ $number }
+name-identifier-format-telepad = ТЕЛЕ-{ $number }
+name-identifier-format-drone = DR-{ $number }

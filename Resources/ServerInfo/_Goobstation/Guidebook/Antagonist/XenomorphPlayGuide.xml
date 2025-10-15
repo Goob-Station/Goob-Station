@@ -1,95 +1,95 @@
 <Document>
-## Playing as a Xenomorph
+## Игра за Ксеноморфа
 
 <Box>
   <GuideEntityEmbed Entity="ResinWeedNode" Caption=""/>
 </Box>
 
-  ### Initial Spawn and Survival
+### Начальное появление и выживание
 
-  When you spawn as a xenomorph, you will always begin as a Larva.
-  Larvae are extremely vulnerable, and your sole objective is to survive long enough to evolve.
-  Use your hivemind language by pressing L (or language keybind) to communicate with other xenos.
+При появлении в роли ксеноморфа вы всегда начинаете как Грудолом.
+Грудоломы крайне уязвимы, и ваша главная цель — выжить достаточно долго, чтобы эволюционировать.
+Используйте язык коллективного разума, набрав + (или назначенную клавишу языка), чтобы общаться с другими ксеноморфами.
 
-  If you spawn alone, finding safety is critical.
-  You can hide under tables and crawl through vents (alt+click) to escape danger.
-  Being space-proof also means you can wait safely on the station's exterior.
-  Once you have survived long enough on plasma weeds, you can evolve into an adult caste.
+Если вы появились в одиночку, критически важно найти безопасное место.
+Вы можете прятаться под столами и ползать по вентиляции (alt клик), чтобы избежать опасности.
+Будучи защищённым от воздействия космоса, вы также можете безопасно ждать на обшивке станции.
+Выжив достаточно долго на плазменной траве, вы сможете эволюционировать во взрослую особь.
 
-  ### Resources and Abilities
+### Ресурсы и способности
 
-  Once you evolve, plasma becomes your primary resource.
-  You generate it over time and can spend it to plant weeds.
-  Weeds create resin floors that significantly boost your plasma regeneration, so begin planting them immediately to establish territory and accelerate your power.
-  Adult xenomorphs share several powerful abilities:
-  - Corrosive Acid: A spit that slowly melts walls, doors, and other structures.
-  Use it to break into secure areas and reshape the station.
-  - Neurotoxin Spit: A ranged attack that stuns your target.
-  Ready the ability, then click your target to fire.
+После эволюции плазма становится вашим основным ресурсом.
+Со временем вы производите её и можете использовать для посадки травы.
+Трава создает смоляное покрытие, которое значительно ускоряет регенерацию плазмы, поэтому сразу начинайте их сажать для укрепления территории и ускорения развития.
+Взрослые ксеноморфы обладают несколькими мощными способностями:
+- Едкая кислота: плевок, который постепенно разъедает стены, шлюзы и другие конструкции.
+Используйте её для взлома защищённых зон и изменения структуры станции.
+- Нейротоксичный плевок: дальнобойная атака, оглушающая цель.
+Активируйте способность и кликните по цели для атаки.
 
-  - Innate Abilities: All adults have night vision, can see humans through walls, and can pry open airlocks.
+- Врожденные способности: все взрослые особи имеют ночное зрение, видят людей через стены и могут открывать шлюзы.
 
-  ### The First Xeno: Becoming the Queen
+### Первый ксеноморф: становление Королевой
 
-  If you are the first and only xenomorph, [bold]it is absolutely essential that you evolve into a Drone.[/bold]
+Если вы первый и единственный ксеноморф, [bold]крайне важно эволюционировать в Дрона.[/bold]
 
-  - Your entire goal is to become a Queen as quickly as possible.
-  This requires evolving from Drone to Praetorian, and then to Queen.
-  Find a secure, hidden location before you evolve, as Praetorians and Queens lose the ability to crawl through vents.
-  As the Queen, your main role is to build a nest and lay eggs.
-  - Find a Nest: Choose a defensible, out-of-the-way location with room to expand.
-  - Secure the Area: Destroy cameras and consider depressurizing the area to make it hostile for human intruders.
-  - Lay Eggs Constantly: Your plasma should be almost exclusively used for laying eggs to grow your hive.
+- Ваша цель — стать Королевой как можно быстрее.
+Это требует эволюции от Дрона к Преторианцу, а затем к Королеве.
+Найдите безопасное и скрытое место перед эволюцией, так как Преторианцы и Королевы теряют способность ползать по вентиляции.
+В роли Королевы, ваша главная задача — строить гнездо и откладывать яйца.
+- Постройте Гнездо: выберите обороняемое место в укромном месте с пространством для расширения.
+- Обеспечьте безопасность: уничтожьте камеры и подумайте о разгерметизации, чтобы сделать область враждебной для людей.
+- Постоянно откладывайте яйца: используйте плазму почти исключительно для откладывания яиц и роста улья.
 
-  [bold]Click a fully grown egg to open it.[/bold]
-  Once you have facehuggers, you can begin hunting.
-  Monkeys are easy, defenseless targets.
-  For human targets, a thrown facehugger can be an instant incapacitation, but be aware that Medbay can surgically remove the larva.
-  Prioritize your own survival above all; if the Queen dies without a successor, the hive is finished.
-  In a direct fight, your tail swing is a powerful stun, but it has a long cooldown.
-  You are slow and vulnerable to ranged attackers, but deadly in melee.
+[bold]Кликните по полностью вылупившемуся яйцу, чтобы открыть его.[/bold]
+Когда появятся лицехват, можно начать охоту.
+Обезьяны — простая и беззащитная добыча.
+Брошенный лицехват в человека может мгновенно нейтрализовать цель, но имейте в виду, что медицинский отдел может хирургически удалить Грудолома.
+Ставьте выживание превыше всего; если Королева умрёт без преемника, улей погибнет.
+В прямом бою, взмах хвоста — мощное оглушение, но с долгой перезарядкой.
+Вы медлительны и уязвимы для дальнобойных атак, но смертельно опасны в ближнем бою.
 
-  ### The Hunter: Aggressive Offense
+### Охотник: Агрессивная атака
 
-  If a hive already has a Queen, the Hunter is an excellent choice for an offensive role.
-  Your high speed and ability to ventcrawl make you perfect for navigating the station.
-  The Hunter's signature ability is the pounce, a long-range leap that heavily stuns a target on impact.
-  Be cautious of shields, which will stun you instead.
-  Your main tactic is to carry facehuggers from the nest, pounce on an isolated crewmember, apply the facehugger, and drag them away.
-  Remember to sabotage the station by destroying machines and ripping open airlocks as you move.
+Если у улья уже есть Королева, Охотник — отличный выбор для наступления.
+Ваша высокая скорость и способность ползать по вентиляции делают вас идеальным для перемещения по станции.
+Основная способность Охотника — прыжок на дальнее расстояние, сильно оглушающая цель при приземлении.
+Осторожно с щитами, они оглушают вас.
+Главная тактика: нести лицехватов из гнезда, прыгать на одинокого члена экипажа, кидать лицехвата и утаскивать цель.
+Не забывайте саботировать станцию, разрушая машины и открывая шлюзы.
 
-  ### The Sentinel: Defensive Guardian
+### Плевальщик: Оборонительный страж
 
-  The Sentinel is the hive's dedicated defender.
-  Your primary role is to guard the nest, protect the Queen, and watch over captured hosts.
-  While slower than a Hunter, you are tougher and have larger plasma reserves that recharge faster, allowing for more frequent use of Neurotoxin Spit and Corrosive Acid.
-  The Sentinel's key ability is partial invisibility.
-  By staying still, you can blend into the resin-covered floors of your nest, making you perfect for ambushing intruders.
+Плевальщик — защитник улья.
+Ваша основная задача — охранять гнездо, защищать Королеву и присматривать за пойманной добычей.
+Хоть вы и медленнее Охотника, но зато крепче и имеете больше запасов плазмы, которые быстрее восстанавливаются, позволяя чаще использовать Нейротоксичный плевок и Едкую кислоту.
+Ключевая способность Плевальщика — частичная невидимость.
+Если стоять неподвижно, вы сливаетесь с покрытыми смолой полами гнезда, что идеально подходит для засады.
 
-  ### The Drone: Hive Architect
+### Дрон: Архитектор улья
 
-  With a Queen already established, the Drone functions as the hive's architect.
-  You can construct several key structures to fortify your nest:
+Когда Королева уже установлена, Дрон выполняет роль архитектора улья.
+Вы можете строить несколько ключевых конструкций для укрепления гнезда:
 
 <Box>
 <GuideEntityEmbed Entity="WallResin" Caption=""/>
 </Box>
 
-  - Resin Walls: Standard walls to block paths and create chokepoints.
+- Смоляные стены: стандартные стены для блокировки путей и создания узких мест.
 
 <Box>
 <GuideEntityEmbed Entity="ResinMembrane" Caption=""/>
 </Box>
 
-  - Resin Membranes: Durable windows that allow sight in and out of the nest.
+- Смоляные мембраны: прочные окна, позволяющие видеть внутри и снаружи гнезда.
 
 <Box>
 <GuideEntityEmbed Entity="ResinNest" Caption=""/>
 </Box>
 
-  - Resin Nests: Beds used to secure captured hosts while their larva gestates.
-  While not a primary combatant, you must be ready to defend the Queen.
+- Смоляные гнёзда: места для удержания пойманной добычи, пока её Грудолом развивается.
+Хотя Дрон не является основным бойцом, вы должны быть готовы защитить Королеву.
 
-  Crucially, if the Queen dies, a Drone must evolve to replace her.
-  If you are the last surviving Drone, your priority is to escape, find a safe place, and begin the evolution process to save the hive.
+Важно: если Королева умрёт, Дрон должен эволюционировать, чтобы заменить её.
+Если вы последний выживший Дрон, ваша приоритетная задача — сбежать, найти безопасное место и начать процесс эволюции, чтобы спасти улей.
 </Document>

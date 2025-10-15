@@ -1,4 +1,5 @@
-ent-MindcontrolImplanter = имплантер "контроль разума"
+ent-MindcontrolImplanter = имплантер
     .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }
-ent-MindcontrolImplant = имплант "контроль разума"
+    .suffix = Контроль разума
+ent-MindcontrolImplant = имплант "Контроль разума"
     .desc = начать контролировать

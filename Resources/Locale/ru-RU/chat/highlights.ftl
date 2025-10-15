@@ -1,12 +1,16 @@
+#Goob start
+#Central Command
 # Command
 highlights-captain = Капитан, "Кэп", Мостик, Командование
 highlights-head-of-personnel = Глава Персонала, "ГП", "ХОП", Сервис, Мостик, Командование
+#Goob end
+
 highlights-chief-engineer = Старший инженер, "СИ", Атмос, Атмосия, Атмосферный, Инженер, Инженерия, Инженерный, Мостик, Командование
 highlights-chief-medical-officer = Главный врач, "ГВ", "СМО", Доктор, "Док", "Медик", Медбей, "Мед", Медицинский, Химик, "Химка", Химия, Химическая лаборатория, Мостик, Командование
 highlights-head-of-security = Глава Службы безопасности, "ГСБ", "ХОС", Служба безопасности, СБшник,  Бриг, "СБ", "КЗ", "Перма", Пермабриг, Мостик, Командование
 highlights-quartermaster = Квартирмейстер, "КМ", "Карго", Каргония, Мостик, Командование
 highlights-research-director = Научный Руководитель, "НР", "РД", Научный, "Ученый", "Ученые", "РНД", Робототехника, "Робо", Мостик, Командование
-highlights-nanotrasen-representative = Инспектор Nanotrasen, Инспектор
+highlights-nanotrasen-representative = Представитель NanoTrasen, Представитель
 highlights-blueshield-officer = Офицер Синего Щита, Синий Щит, "ОСЩ", Мостик, Командование
 # Security
 highlights-detective = Детектив, "Дек", Служба безопасности, Бриг, "СБ", "КЗ"

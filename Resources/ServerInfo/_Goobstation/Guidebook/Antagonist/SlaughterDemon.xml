@@ -1,52 +1,52 @@
 <Document>
-  # Slaughter Demon
+  # Демон резни
 
   <Box>
     <GuideEntityEmbed Entity="BaseMobSlaughterDemon" Caption=""/>
   </Box>
 
-  Slaughter Demons are large, armour-plated monsters sent from the depths of hell to steal the souls of the crew in a very violent fashion.
-  They can use blood to travel quickly, possess a pair of large blades in place of arms, and can fully heal by eating downed crewmembers.
+  Демоны резни — крупные, бронированные монстры, посланные из глубин Ада, чтобы, в очень жестокой форме, похищать души экипажа.
+  Они умеют перемещаться по кровавым лужам, обладают парой крупных клинков вместо рук, и способны полностью исцеляться, поедая поверженных членов экипажа.
 
-  ## Summoning a Being from Hell
+  ## Призыв существа
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHeadHatWizard" Caption=""/>
   </Box>
 
-  There are a two ways a Slaughter Demon may enter the station to terrorize it. It can be summoned onto the overworld with a mystical summoning item by a Wizard foolish enough to do so, or through a Midround roll.
-  Both options let spirits take over the role of a blood thirsty spawn of Satan.
+  Существует два способа появления демона резни на станции. Его могут призвать мистическим предметом глупые маги, либо он может появиться случайным событием в середине раунда.
+  В обоих случаях, призраки получают возможность занять роль кровожадного порождения Сатаны.
 
-  ## How to play as the slaughter demon, by a slaughter demon
+  ## Как играть за демона резки — За авторством демона резни
 
-  LISTEN, DEMON. [color=red]ALL YOU HAVE TO DO IS KILL[/color]. RIP THEIR GUTS OUT, DRINK THEIR BLOOD... YOU KNOW, DAILY UNDERWORLD ACTIVITIES.
-  JUST GO OUT THERE AND HIT PEOPLE, MAKE THEM BLEED. YOU UNDERSTAND???
+  ЧУХАЙ, ДЕМОНЮГА. [color=red]ВСЁ, ЧТО ТЕБЕ НУЖНО — УБИВАТЬ[/color]. ВЫРЫВАЙ ИМ КИШКИ, ПЕЙ ИХ КРОВЬ... ТИПА ТО, ЧЕМ МЫ ОБЫЧНО ЗАНИМАЕМСЯ В АДУ.
+  ПРОСТО ИДИ И УБИВАЙ, ЗАСТАВЬ ИХ ИСТЕКАТЬ КРОВЬЮ. ПОН???
 
-  BUT REMEMBER, DEVILS ARE OUR HOMIES SO DON'T GO ATTACKING THEM FOR NO REASON!
+  НО ПОМНИ, ДЬЯВОЛЫ — НАШИ ТОВАРИЩИ, ТАК ЧТО НЕ НАПАДАЙ НА НИХ БЕЗ ПРИЧИНЫ!
 
-  OH, AND IF YOU SEE A LAUGHTER DEMON THEN MAKE FUN OF THEM, OR MAKE THEIR DAY WORSE... SATAN TOLD US THAT WE CAN'T KILL THEM, SOOOO... DEAL WITH THEM FOR THE TIME BEING!
-  HOW CAN THEY NOT LOVE BLOOD AS MUCH AS WE DO????
+  И ЕСЛИ ТЫ УВИДИШЬ ДЕМОНА СМЕХА, ПОСМЕЙСЯ НАД НИМ ИЛИ ИСПОРТИ ЕГО ДЕНЬ... САТАНА СКАЗАЛ, ЧТО МЫ НЕ МОЖЕМ ИХ УБИВАТЬ, ТАК ЧТО... РАЗБЕРЕМСЯ С НИМИ КОГДА ПРЕДОСТАВИТСЯ ВОЗМОЖНОСТЬ!
+  КАК ОНИ МОГУТ НЕ ЛЮБИТЬ КРОВЬ???
 
-  ## BASIC ABILITIES
+  ## ОСНОВНЫЕ СПОСОБНОСТИ
 
-  - BLOOD JAUNTING
+  - КРОВАВЫЙ ПРЫЖОК
 
-  SPREADING BLOOD ALL THROUGH THE HALLWAYS (DRAGGING A CORPSE WHILE SLASHING IT) WILL HELP YOU IN THE LONG RUN, TRUST ME.
-  HAVING THE ABILITY TO TELEPORT ANYWHERE PROVES TO BE PRETTY USEFUL.
+  РАЗНОСИ КРОВЬ ПО ВСЕМ КОРИДОРАМ (ТАЩЯ ТРУП, РАЗРЕЗАЯ ЕГО) ОЧЕНЬ ПОЛЕЗНО В БУДУЩЕМ ПЕРСПЕКТИВЕ, ОТВЕЧАЮ.
+  УМЕНИЕ ТЕЛЕПОРТИРОВАТЬСЯ ПО КРОВИ ЧЁТКОЕ.
 
-  - CORPSE FEEDING
+  - ПИТАНИЕ ТРУПАМИ
 
-  NO SHAME ON TAKING A BITE ONCE YOU DRAG THEM TO HELL, MY FRIEND.
-  IT'S YOUR ONLY WAY OF HEALING, SHORT OF A HUMAN PATCHING YOU UP. NOT ONLY IS A HUMAN GIVING YOU MEDICAL HELP A DISGRACE TO ALL DEMONKIND,
-  BUT IF YOU EVEN ADMIT THAT YOU'RE CLOSE TO DYING THEY'LL PROBABLY JUST KILL YOU ANYWAY, YOU STUPID IDIOT DEMON.
+  НЕТ НИЧЕГО ПОЗОРНОГО В ТОМ, ЧТОБЫ РАЗОК КУСАНУТЬ, ПОКА ТЫ ТАЩИШЬ ИХ В АД, БРАТУХА.
+  ЭТО ЕДИНСТВЕННЫЙ СПОСОБ ИСЦЕЛЕНИЯ, КРОМЕ МОМЕНТОВ, КОГДА МЕШОК С КОСТЯМИ ТЕБЯ ЛЕЧИТ. НО ЕСЛИ ТЕБЯ ЛЕЧИТ ЧЛЕН ЭКИПАЖА, ТО ТЫ ПОЗОРИШЬ ИМЯ ДЕМОНОВ,
+  НО ДАЖЕ ЕСЛИ ТЫ СКАЖЕШЬ, ЧТО НАХОДИШЬСЯ ПРИСМЕРТИ, ОНИ, ВЕРОЯТНО, ПРОСТО УБЬЮТ ТЕБЯ, ДЕМОН-ДЕБИЛ.
 
-  [bold](In order to corpse feed, drag a body with one hand and use blood jaunt on a blood pool)[/bold]
+  [bold](Чтобы питаться трупом: тащи тело в одной руке и используй Кровавый прыжок по луже крови)[/bold]
 
-  - JAUNT KILLING
+  - УБИЙСТВА ПРИ ПРЫЖКЕ
 
-  WE ARE SLOW, OKAY? IT TURNS OUT HAVING A SUIT OF INFERNAL ARMOR GLUED TO US IS PRETTY HEAVY. LUCKILY, YOU CAN GET SOME PRETTY EASY KILLS JUMPING OUT OF BLOOD AS THE BLOOD WILL GIVE YOU A SPEED BOOST.
-  FANTASTIC COMBO, JUMP OUT OF BLOOD, ATTACK, TRY TO GET IN A FEW, AND THEN RETREAT TO THE BLOOD FOR ANOTHER SPEED ATTACK.
-  REALLY THE ONLY WAY YOU'RE REALISTICALLY GOING TO STOP A SHOTGUN WIELDING ASSHOLE, SO PRACTICE MAKES PERFECT.
+  МЫ МЕДЛЕННЫЕ, ПОНИМАЕШЬ? ОКАЗЫВАЕТСЯ, БРОНЯ ИЗ АДСКИХ ПЛАСТИН ПИЗДЕЦ ТЯЖЁЛАЯ. К СЧАСТЬЮ, ТЫ МОЖЕШЬ ЛЁГКО УБИВАТЬ, ВЫСКАКИВАЯ ИЗ КРОВИ — КРОВЬ ДАЁТ ТЕБЕ УСКОРЕНИЕ.
+  ОТЛИЧНАЯ КОМБИНАЦИЯ: ВЫСКОЧИЛ ИЗ КРОВИ, АТАКОВАЛ, ПОПЫТАЙСЯ НАНЕСТИ НЕСКОЛЬКО УДАРОВ, ЗАТЕМ ОТСТУПИ В КРОВЬ ДЛЯ ЕЩЁ ОДНОГО УСКОРЕННОГО УДАРА.
+  ЭТО ПОЧТИ ЕДИНСТВЕННЫЙ СПОСОБ, КОТОРЫЙ РЕАЛЬНО ПОЗВОЛИТ ТЕБЕ ОСТАНОВИТЬ ГОНДОНА С ДРОБОВИКОМ, ТАК ЧТО НАДО ТРЕНИРОВАТЬСЯ.
 
-  ANYWAYS, I'M TOO BUSY WITH DRINKING SOME CLOWN'S BLOOD RIGHT NOW, SO I'LL SEE YA LATER IN HELL.
+  ЛАДНО, МНЕ ЕЩЕ НАДО ДОПИТЬ КРОВЬ КЛОУНА, ТАК ЧТО УВИДИМСЯ В АДУ, ЩЕГОЛ.
 </Document>

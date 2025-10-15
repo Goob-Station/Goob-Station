@@ -1,0 +1,15 @@
+ent-RadioLeadIntern = lead intern summoning radio
+    .desc = A NT-approved radio that can summon a lead intern with special coins.
+ent-LeadIntern = Lead Intern
+    .suffix = Human
+    .desc = { ent-MobHuman.desc }
+ent-InternCoin = intern summoning coin
+    .desc = Toss to summon an intern.
+ent-NerdInternCoin = nerd intern summoning coin
+    .desc = Toss to summon a nerd intern.
+ent-NTIntern = NT Intern
+    .suffix = Human
+    .desc = { ent-MobHuman.desc }
+ent-NTNerdIntern = NT Nerd Intern
+    .suffix = Human
+    .desc = { ent-MobHuman.desc }

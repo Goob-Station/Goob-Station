@@ -7,3 +7,5 @@ ent-ClothingBackpackFirefighterTank = firefighter water tank backpack
     .desc = A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher.
 ent-ClothingBagPet = pet bag
     .desc = A small bag designed for use by pets and small animals.
+ent-ClothingBackpackHarmpack = H.A.R.M.P.A.C.K.
+    .desc = Now you can reload, punch, and eat a snack - simultaneously.

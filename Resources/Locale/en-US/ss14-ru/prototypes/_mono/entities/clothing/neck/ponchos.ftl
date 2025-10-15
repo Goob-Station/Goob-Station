@@ -1,0 +1,16 @@
+ent-ClothingNeckPonchoBlack = black cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one is black.
+ent-ClothingNeckPonchoArctic = cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold.
+ent-ClothingNeckPonchoSyndicate = black and red cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one seems vaguely sinister...
+ent-ClothingNeckPonchoSmallPink = small pink cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size. This one is pink and white.
+ent-ClothingNeckPonchoSmallRed = small red cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is red and black.
+ent-ClothingNeckPonchoSmallPurple = small purple cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is purple with a fish decal.
+ent-ClothingNeckPonchoSmallBlack = small black cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size. This one is black.
+ent-ClothingNeckPonchoSmallWhite = small cold weather poncho
+    .desc = The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size.

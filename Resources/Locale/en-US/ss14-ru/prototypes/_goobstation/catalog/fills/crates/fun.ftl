@@ -7,5 +7,7 @@ ent-CrateFunBingleLoot = Bingle loot
 ent-CrateFunBingleAdmeme = Bingle
     .suffix = Admeme voice triggered bingle crate
     .desc = { ent-CrateBingle.desc }
+ent-CrateFunDiscoBeachBall = disco beach ball crate
+    .desc = A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
 ent-CrateWizardAnomCore = Crate of Enchanting
     .desc = A box containing stolen anomaly cores, used for enchanting.

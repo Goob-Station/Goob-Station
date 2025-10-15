@@ -94,3 +94,6 @@ ent-AirlockMiningGlass = { ent-AirlockCargoGlass }
 ent-AirlockCentralCommandGlass = { ent-AirlockCommandGlass }
     .suffix = Центральное командование
     .desc = { ent-AirlockCommandGlass.desc }
+ent-AirlockStandardGlass = { ent-AirlockGlass }
+    .suffix = Сервис
+    .desc = { ent-AirlockGlass.desc }

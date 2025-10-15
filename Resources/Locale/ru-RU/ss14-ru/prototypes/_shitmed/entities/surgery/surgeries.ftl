@@ -1,5 +1,11 @@
 ent-SurgeryBase = { "" }
     .desc = { "" }
+ent-BasePartSurgery = { ent-SurgeryBase }
+    .desc = { ent-SurgeryBase.desc }
+ent-BaseSurgeryInsertOrgan = { ent-SurgeryBase }
+    .desc = { ent-SurgeryBase.desc }
+ent-BaseSurgeryRemoveOrgan = { ent-SurgeryBase }
+    .desc = { ent-SurgeryBase.desc }
 ent-SurgeryOpenIncision = Вскрытие разреза
     .desc = { ent-SurgeryBase.desc }
 ent-SurgeryStopBloodOutput = Остановить постоянное кровотечение

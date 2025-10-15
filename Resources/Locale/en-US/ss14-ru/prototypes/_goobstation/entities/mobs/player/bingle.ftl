@@ -1,3 +1,6 @@
+ent-MobBingleRandom = bingle
+    .suffix = Random
+    .desc = { ent-MarkerBase.desc }
 ent-MobBingle = bingle
     .desc = bingle
 ent-MobBinglePrime = { ent-MobBingle }
@@ -6,3 +9,8 @@ ent-MobBinglePrime = { ent-MobBingle }
 ent-MobBingleUpgraded = { ent-MobBingle }
     .suffix = Upgraded
     .desc = { ent-MobBingle.desc }
+ent-MobTurkle = turkle
+    .desc = A bingle from foreign lands lost to time. Seems very proud of their homeland.
+ent-MobTurkleUpgraded = { ent-MobBingleUpgraded }
+    .suffix = Upgraded
+    .desc = { ent-MobBingleUpgraded.desc }

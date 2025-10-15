@@ -9,17 +9,19 @@
 
 job-name-futureagent = агент будущего
 job-name-salvagediver = спасатель
-job-name-ntr = инспектор Nanotrasen
+job-name-ntr = представитель Nanotrasen
 job-name-bs = офицер Синего Щита
 job-name-overall = общее
 job-name-exec = служебный доступ
 
 # Navy Stuff
 
+job-name-navy-officer = офицер ЦК
 job-name-navyofficer = офицер ЦК
+job-name-navy-captain = капитан ВКФ
 job-name-navy-officer-undercover = офицер под прикрытием
 job-name-navycaptain = капитан ВКФ
-job-name-diplomat = дипломат Nanotrasen
+job-name-diplomat = дипломат NanoTrasen
 job-name-inspector = инспектор ЦК
 job-name-nct = наставник ЦК
 job-name-special-operations-officer = офицер спецопераций
@@ -42,13 +44,13 @@ job-name-mercenarycaptain = капитан Наёмников
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = офицер Синего Щита
-JobNanotrasenRepresentative = инспектор Nanotrasen
+JobNanotrasenRepresentative = представитель NanoTrasen
 JobNanotrasenCareerTrainer = наставник ЦК
 JobHecuOperative = агент HECU
 JobNavyOfficer = офицер ЦК
 JobNavyOfficerUndercover = офицер под прикрытием
 JobNavyCaptain = капитан ВКФ
-JobDiplomat = дипломат Nanotrasen
+JobDiplomat = дипломат NanoTrasen
 JobGovernmentMan = G-Man
 JobConquest = конквест
 JobInspector = инспектор ЦК

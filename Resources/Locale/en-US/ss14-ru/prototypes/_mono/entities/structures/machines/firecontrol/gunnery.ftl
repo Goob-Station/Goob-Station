@@ -1,0 +1,12 @@
+ent-GunneryServerBase = gunnery control server
+    .desc = Manages the remote operation of ship weapons.
+ent-GunneryServerLow = low-power gunnery control server
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerMedium = medium-power gunnery control server
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerHigh = high-power gunnery control server
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerUltra = ultra-high-power gunnery control server
+    .desc = { ent-GunneryServerBase.desc }
+ent-ComputerGunneryConsole = gunnery control console
+    .desc = Interfaces with the gunnery control server to operate ship weapons.

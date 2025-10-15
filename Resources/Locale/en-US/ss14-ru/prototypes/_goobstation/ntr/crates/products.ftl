@@ -1,0 +1,16 @@
+ent-NTRCrateSpesosSmall = Spesos grant bonus
+    .desc = Tough times require capitalist solutions.
+ent-NTRCratePointDisks = Point disks grant bonus
+    .desc = Progress, my friend, progress.
+ent-NTRCrateEmergencyMed = Emergency medical supplies
+    .desc = Think about how would you explain this to NT.
+ent-NTRCrateDisablers = Disablers crate
+    .desc = A crate with disablers, why would you need this?
+ent-NTRCrateToolsSmall = Tools crate
+    .desc = A crate with standard NanoTrasen tools.
+ent-NTRBoardTelecom = Telecom server computer board crate
+    .desc = A crate, containing 2 telecom server machine boards.
+ent-NTRBoardHolopad = Holopad crate
+    .desc = A crate, that contains 2 holopad machine boards.
+ent-NTRBoardShuttle = Shuttle-maker bundle crate
+    .desc = { ent-CrateEngineeringSecure.desc }

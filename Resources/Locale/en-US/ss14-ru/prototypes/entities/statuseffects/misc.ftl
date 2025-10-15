@@ -1,0 +1,12 @@
+ent-StatusEffectBase = { "" }
+    .desc = { "" }
+ent-MobStatusEffectBase = { ent-StatusEffectBase }
+    .desc = { ent-StatusEffectBase.desc }
+ent-StatusEffectForcedSleeping = forced sleep
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectSSDSleeping = forced sleep
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectDrowsiness = drowsiness
+    .desc = { ent-MobStatusEffectBase.desc }
+ent-StatusEffectSeeingRainbow = hallucinations
+    .desc = { ent-MobStatusEffectBase.desc }

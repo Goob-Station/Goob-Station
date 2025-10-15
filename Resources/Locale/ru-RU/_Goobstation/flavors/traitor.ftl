@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 traitor-arcterrorist-intro = Вы — террорист ARC.
-traitor-arcterrorist-goal = Существа этого мира должны быть освобождены из железной хватки Nanotrasen, и вы — их единственная надежда!
+traitor-arcterrorist-goal = Существа этого мира должны быть освобождены из железной хватки NanoTrasen, и вы — их единственная надежда!
 traitor-arcterrorist-allies = Вы можете сотрудничать с другими агентами Синдиката, если они поддерживают нашу цель. Может, получится уговорить агентов Bee Liberation Front наконец-то сотрудничать?
 traitor-arcterrorist-uplink = Синдикат любезно предоставил вам один из своих аплинков в КПК для выполнения задания.
 traitor-arcterrorist-roundend = [color=green]активист из Animal Rights Consortium[/color]
@@ -37,7 +37,7 @@ traitor-gorlexmarauders-roundend = [color=red]мародёр Gorlex[/color]
 traitor-tigercooperative-intro = Вы — фанатик Tiger Cooperative.
 traitor-tigercooperative-goal = Помните учение Хай-лургиксона: сперва убей, потом задавай вопросы!
 traitor-tigercooperative-allies = Доверяйте только просвещённым братьям Tiger. Все остальные должны быть изгнаны из этого мира!
-traitor-tigercooperative-uplink = Друзья из Cybersun выдали вам аплинк Синдиката. Докажите улью генокрадов, что вы достойны быть частью их сущности.
+traitor-tigercooperative-uplink = Друзья из Cybersun выдали вам аплинк Синдиката. Докажите улью генокрадов, что вы достойны стать их частью.
 traitor-tigercooperative-roundend = [color=crimson]фанатик Tiger Cooperative[/color]
 traitor-wafflecorporation-intro = Вы — внедрённый агент Waffle Co.
 traitor-wafflecorporation-goal = Вы не здесь не для того, чтобы устраивать показательную резню. Может, другие агенты Waffle Co. и будут этим заниматься, но ваша задача — просто выполнить цели.
@@ -45,7 +45,7 @@ traitor-wafflecorporation-allies = Убивайте сотрудников Donk 
 traitor-wafflecorporation-uplink = Вам выдали аплинк Синдиката в КПК для выполнения задания.
 traitor-wafflecorporation-roundend = [color=orange]сотрудник Waffle Corporation[/color]
 traitor-wafflecorporationterrorist-intro = Вы — террорист Waffle Co.
-traitor-wafflecorporationterrorist-goal = Нашим инвесторам нужно доказательство нашей решимости уничтожить Nanotrasen. Устроим грязюку!
+traitor-wafflecorporationterrorist-goal = Нашим инвесторам нужно доказательство нашей решимости уничтожить NanoTrasen. Устроим грязюку!
 traitor-wafflecorporationterrorist-allies = Большинство агентов Синдиката ненадёжны, кроме мародёров Gorlex.
 traitor-wafflecorporationterrorist-uplink = Вам выдали аплинк Синдиката в КПК для выполнения задания.
 traitor-wafflecorporationterrorist-roundend = [color=red]террорист Waffle Corporation[/color]
@@ -60,10 +60,10 @@ traitor-legaltrouble-allies = Смерть Синдикату.
 traitor-legaltrouble-uplink = Вы подключились к чёрному рынку, чтобы замести следы. Аплинк находится в вашем КПК. Нет улик — нет преступления.
 traitor-legaltrouble-roundend = [color=white]под следствием[/color]
 traitor-mi13-intro = Вы — агент MI13.
-traitor-mi13-goal = Избегайте убийства невиновных любой ценой. Мы не здесь, чтобы бездумно убивать — это привлекло бы слишком много внимания. Оставайтесь незаметны.
+traitor-mi13-goal = Избегайте убийства невиновных любой ценой. Мы здесь не для того, чтобы бездумно убивать — это привлекло бы слишком много внимания. Оставайтесь незаметным.
 traitor-mi13-allies = Вы — единственный настоящий агент. Все остальные — самозванцы. Доверяйте только специалистам Cybersun.
 traitor-mi13-uplink = Вам выдали аплинк Синдиката в КПК для выполнения задания.
 traitor-mi13-roundend = [color=cyan]агент MI13[/color]
-issuers-corporate-flavor-1 = Nanotrasen
+issuers-corporate-flavor-1 = NanoTrasen
 issuers-corporate-flavor-2 = Центральное Командование
 huyhuyzhopapizda-mew = ХУУУУУУЙ

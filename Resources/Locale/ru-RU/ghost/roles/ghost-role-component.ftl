@@ -42,6 +42,8 @@ ghost-role-information-mothroach-description = Милая озорная тар�
 ghost-role-information-snail-name = Улитка
 ghost-role-information-squackroach-name = Гарпимоль
 ghost-role-information-squackroach-description = Дьявольская, но почти безобидная гарпимоль.
+ghost-role-information-moproach-name = Швабромоль
+ghost-role-information-moproach-description = Милая швабромоль с ещё более милыми обувью в виде швабр на ногах.
 ghost-role-information-snail-description = Маленькая улитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!
 ghost-role-information-snailspeed-name = Улитка
 ghost-role-information-snailspeed-description = Маленькая улитка с турбоулиточными ускорителями.
@@ -150,7 +152,7 @@ ghost-role-information-behonker-description = Вы - антагонист, не�
 ghost-role-information-hellspawn-name = Адское отродье
 ghost-role-information-hellspawn-description = Несите смерть всем, кто не повинуется великой богине Нар'Си.
 ghost-role-information-Death-Squad-name = Оперативник Эскадрона смерти
-ghost-role-information-Death-Squad-description = Один из лучших агентов внутренних дел Nanotrasen. Ожидайте приказов от Центкома или представителя Центкома.
+ghost-role-information-Death-Squad-description = Один из лучших агентов внутренних дел NanoTrasen. Ожидайте приказов от Центкома или представителя Центкома.
 ghost-role-information-Death-Squad-rules = Вы обязаны подчиняться приказам своего командира, вы фактически его [color={ role-type-familiar-color }][bold]{ role-type-familiar-name }[/bold][/color].
 ghost-role-information-SyndiCat-name = СиндиКот
 ghost-role-information-SyndiCat-description = Вы - верный дрессированный питомец ядерных оперативников с микробомбой. Служите своему хозяину до самой смерти!
@@ -231,11 +233,11 @@ ghost-role-information-pirate-captain-name = Капитан космически
 ghost-role-information-pirate-captain-description = Агх, дружище! Ты здесь главный, и тебе нужно разработать план, как заполучить эту сочную добычу с помощью крючка или мошенничества. Только постарайтесь избегать службы безопасности и утилизаторов!
 ghost-role-information-disaster-victim-name = Жертва катастрофы
 ghost-role-information-disaster-victim-description = Вы спаслись на спасательной капсуле с другой станции, которую постигла ужасная участь. Возможно, вас найдут и спасут.
-ghost-role-information-pirate-irs-name = Space Pirate
-ghost-role-information-pirate-irs-description = Confiscate the station's valuable assets. Arrest the captain for tax evasion.
-ghost-role-information-pirate-irs-captain-name = Space Pirate Captain
-ghost-role-information-pirate-irs-captain-description = Direct the plundering process. Arrest the captain for tax evasion.
-ghost-role-information-pirate-irs-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the other pirates.
+ghost-role-information-pirate-irs-name = Космический пират
+ghost-role-information-pirate-irs-description = Конфискуйте ценные ресурсы станции. Арестуйте капитана за уклонение от налоговой службы.
+ghost-role-information-pirate-irs-captain-name = Капитан космических пиратов
+ghost-role-information-pirate-irs-captain-description = Руководите раскулачиванием. Арестуйте капитана за уклонение от налоговой службы.
+ghost-role-information-pirate-irs-rules = Вы [color=red][bold]Командный антагонист[/bold][/color] вместе с другими пиратами.
 ghost-role-information-syndie-disaster-victim-name = Жертва катастрофы из Синдиката
 ghost-role-information-syndie-disaster-victim-description = Вы - обычный пассажир со станции Синдиката. К несчастью, спасательная капсула закинула вас во вражеский сектор...
 ghost-role-information-artifact-name = Разумный артефакт
@@ -246,5 +248,7 @@ ghost-role-information-gingerbread-name = Пряничный человечек
 ghost-role-information-gingerbread-description =
     Существо чистого праздничного духа.
     Распространяйте паточную вкуснятину и хорошее настроение.
+ghost-role-information-emotional-support-scurret-name = Эмоционально поддерживающий Скюррет
+ghost-role-information-emotional-support-scurret-description = Поддерживайте экипаж, будьте милым, постоянно говорите "ва".
 ghost-role-information-wizard-name = Волшебник
 ghost-role-information-wizard-desc = ТЫ ВОЛШЕБНИК! Покажи станции, из чего сделана твоя магия.

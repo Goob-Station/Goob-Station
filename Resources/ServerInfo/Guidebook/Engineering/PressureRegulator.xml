@@ -1,23 +1,23 @@
 ﻿<Document>
-  # Inlet Pressure Regulator
-  The Inlet Pressure Regulator is a passive device that allows gas to escape from a [textlink="pipenet" link="PipeNetworks"] when the pressure exceeds a certain threshold.
+  # Регулятор входного давления
+  Регулятор входного давления — это пассивное устройство, которое позволяет газу выходить из [textlink="сети труб" link="PipeNetworks"], когда давление превышает заданный порог.
 
   <Box>
     <GuideEntityEmbed Entity="GasPressureRegulator"/>
   </Box>
 
-  ## Operation
-  The valve will automatically [color=green]open[/color] when the pressure in the pipe exceeds the set threshold, allowing gas to escape to the connected output pipe.
+  ## Работа
+  Клапан автоматически [color=green]открывается[/color], когда давление в трубе превышает установленный порог, позволяя газу выходить в подключённую выходную трубу.
 
-  The valve will [color=red]close[/color] again when the pressure drops below the set threshold.
+  Клапан [color=red]закрывается[/color], когда давление падает ниже установленного порога.
 
-  The flow rate of the valve is limited to [color=orange][protodata="GasPressureRegulator" comp="GasPressureRegulator" member="MaxTransferRate"/] L/s[/color].
+  Пропускная способность клапана ограничена [color=orange][protodata="GasPressureRegulator" comp="GasPressureRegulator" member="MaxTransferRate"/] л/с[/color].
 
-  ## Example Uses
-  The valve is commonly used to prevent overpressure situations in gas systems, such as [textlink="TEG" link="TEG"] cooling loops and [textlink="pipes" link="Pipes"], which would cause a failure in the system (clogged [textlink="pumps" link="Pumps"]).
+  ## Примеры использования
+  Клапан часто используется для предотвращения избыточного давления в газовых системах, таких как охлаждающие контуры [textlink="ТЭГ" link="TEG"] и [textlink="труб" link="Pipes"], что могло бы привести к сбою системы (забитые [textlink="трубы" link="Pumps"]).
 
-  The valve can also be used to vent off ready-to-use, hot gas from a burn chamber.
-  For example, it may be undesirable to allow a burn chamber to drop below a specific pressure for a long time, as this may cause the gas to cool down too much and thin out, which would cause a flameout.
+  Клапан также можно использовать для сброса готового к использованию горячего газа из камеры сгорания.
+  Например, может быть нежелательно, чтобы давление в камере сгорания долго опускалось ниже определённого уровня, так как это приведёт к излишнему охлаждению газа и его разжижению, что вызовет тушение пламени.
 
-  An inlet pressure regulator can be used to vent off excess gas, while keeping the pressure in the burn chamber above a certain threshold, which may help in sustaining a fire in the chamber.
+  Регулятор входного давления можно использовать для сброса избыточного газа, сохраняя давление в камере сгорания выше определённого порога, что помогает поддерживать горение в камере.
 </Document>

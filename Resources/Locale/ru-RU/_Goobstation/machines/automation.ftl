@@ -70,6 +70,8 @@ signal-port-description-automation-slot-tool = Слот автоматизаци
 
 signal-port-name-automation-slot-autodoc-hand = Предмет: Рука автодока
 signal-port-description-automation-slot-autodoc-hand = Слот автоматизации для удерживаемого автодоком органа/части и т.п. из инструкций STORE ITEM / GRAB ITEM.
+signal-port-name-alt-interact = Альт. взаимодействие
+signal-port-description-alt-interact = Порт сигнала для переключения режима альтернативного взаимодействия или установки значения HIGH/LOW.
 signal-port-name-automation-slot-gas-tank = Слот: Баллон
 signal-port-description-automation-slot-gas-tank = Автоматизированный слот для газовой емкости.
 signal-port-name-rad-empty = Пусто

@@ -153,3 +153,5 @@ ent-ChameleonPDA = passenger PDA
     .suffix = Chameleon
 ent-WizardPDA = wizard PDA
     .desc = You hear faint whispers coming from it.
+ent-ScurretPDA = { ent-ClearPDA }
+    .desc = A temporary PDA granted to scurret temps. Doesn't do much. Wawa!

@@ -46,5 +46,5 @@ ent-CrateFunMysteryFigurines = mystery figure crate
     .desc = A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
 ent-CrateFunDartsSet = dartboard box set
     .desc = A box with everything you need for a fun game of darts.
-ent-CrateFunDiscoBeachBall = disco beach ball crate
-    .desc = A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+ent-CrateFunScurret = hydrated scurret
+    .desc = Wait, what?

@@ -32,18 +32,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Поместите все предметы в ящик и [bold]закройте его![/bold].
   - Возьмите этикетку манифеста, нажав кнопку [color=#a4885c]распечатать этикетку[/color] на консоли запросов.
   - Поместите этикетку на ящик, в котором находятся предметы.
-  - Переместите ящик на грузовой шаттл.
-  - Продайте его.
 
-  Вот и всё! После того как вы выполните эти действия, запрос должен исчезнуть с компьютера, а на его месте появится новый.
-
-  With the [color=cyan]Bounty Manifest[/color], it is now up to you to collect the required goods, but most departments will give you what you need if you ask for it with a Bounty Manifest.
-
-  Once you have collected the goods, return to the cargo bay and put the goods inside an empty [color=cyan]Crate[/color]. After everything is in the crate, close it, and then apply the Bounty Manifest to it.
-
-  To verify the completion of a bounty, use the [color=cyan]Appraisal Tool[/color] on it. It should show a confirmation that the bounty has been completed.
-
-  ## Selling Bounties
+  ## Продажа запросов
 
   <Box>
     <GuideEntityEmbed Entity="PaperCargoBountyManifest"/>
@@ -51,9 +41,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="CargoPalletSell"/>
   </Box>
 
-  Once you have verified that you have completed the bounty, follow the same steps as selling anything else.
+  После подтверждения выполнения запроса следуйте тем же шагам, что и при обычной продаже.
 
-  Just transport it to the [color=cyan]Trading Station[/color], sell it, and you are done!
+  Просто доставьте его на [color=cyan]Торговую Станцию[/color], продайте и готово!
 
-  When you return, there should be a new bounty to take its place.
+  После возвращения на компьютере появится новый запрос, заменяющий выполненный.
 </Document>

@@ -1,3 +1,3 @@
 ent-ClosetCursed = шкаф
-    .desc = Стандартное хранилище Nanotrasen.
+    .desc = Стандартное хранилище NanoTrasen.
     .suffix = проклятый

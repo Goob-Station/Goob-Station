@@ -211,9 +211,10 @@ marking-VoxTailNub-nub1 = Хвост
 marking-VoxTailNub-nub2 = Рубец
 marking-VoxTailRaptor = Хищник
 marking-VoxTailRaptor-raptor = Хвост
-marking-VoxTailShort = Короткий вниз
+marking-VoxTailShort1 = Короткий (Вниз)
+marking-VoxTailShort1-short = Хвост
 marking-VoxTailShort-short = Хвост
-marking-VoxTailShort2 = Короткий вверх
+marking-VoxTailShort2 = Короткий (Вверх)
 marking-VoxTailShort2-short2 = Хвост
 marking-VoxTailSmallPlume = Малое перо
 marking-VoxTailSmallPlume-smallplume = Малое перо
@@ -223,7 +224,3 @@ marking-VoxTailSplit = Раздвоенный
 marking-VoxTailSplit-split = Раздвоенный
 marking-VoxSunAndMoon = Солнце и Луна
 marking-VoxSunAndMoon-sunandmoon = Солнце и Луна
-marking-VoxTail = Стандартный хвост
-
-# RArmExtension
-

@@ -1,0 +1,15 @@
+ent-RadioLeadIntern = телепортер главы студентов NanoTrasen
+    .desc = Рация, одобренная NT, призывающая главу студентов, используя специальные монеты
+ent-LeadIntern = глава студентов
+    .suffix = Человек
+    .desc = { ent-MobHuman.desc }
+ent-InternCoin = монета призыва студента NT
+    .desc = Подбрось, чтобы призвать студента.
+ent-NerdInternCoin = монета призыва нёрда студента NT
+    .desc = Подбрось, чтобы призвать нёрда студента.
+ent-NTIntern = студент NT
+    .suffix = Человек
+    .desc = { ent-MobHuman.desc }
+ent-NTNerdIntern = нёрд студент NT
+    .suffix = Человек
+    .desc = { ent-MobHuman.desc }

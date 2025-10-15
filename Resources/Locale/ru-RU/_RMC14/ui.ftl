@@ -19,8 +19,8 @@ rmc-ui-lobby-message-description =
     Убедитесь, что выбранное сообщение не нарушает правила.
     Если не уверены, спросите в AHelp! (F1)
 rmc-ui-shoutout = Объявление в конце раунда
-rmc-ui-shoutout-nt-title = Имя для объявления Nanotrasen в конце раунда.
-rmc-ui-shoutout-nt-description = Отображается в конце раунда как "Nanotrasen финансируется: " и ваше имя.
+rmc-ui-shoutout-nt-title = Имя для объявления NanoTrasen в конце раунда.
+rmc-ui-shoutout-nt-description = Отображается в конце раунда как "NanoTrasen финансируется: " и ваше имя.
 rmc-ui-shoutout-example = Пример:
 rmc-ui-shoutout-info =
     Каждое имя выбирается случайным образом из всех Патронов этого уровня.
@@ -29,6 +29,6 @@ rmc-ui-shoutout-info =
 rmc-ui-ghost-color = Цвет призрака
 rmc-ui-ghost-color-clear = Очистить
 rmc-ui-ghost-color-save = Сохранить
-rmc-ui-shoutout-nt = [bold]Nanotrasen финансируется: [color=green]{ $name }[/color]![/bold]
+rmc-ui-shoutout-nt = [bold]NanoTrasen финансируется: [color=green]{ $name }[/color]![/bold]
 rmc-ui-discord = Discord
 rmc-ui-patreon = Patreon

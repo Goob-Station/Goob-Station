@@ -17,4 +17,4 @@ ent-BasicCyberneticLiver = cybernetic liver
 ent-BasicCyberneticLungs = cybernetic lungs
     .desc = Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
 ent-UpgradedCyberneticLungs = upgraded cybernetic lungs
-    .desc = A self-contained respiratory system that eliminates the need to breathe entirely and grants full immunity to atmospheric pressure extremes.
+    .desc = A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.

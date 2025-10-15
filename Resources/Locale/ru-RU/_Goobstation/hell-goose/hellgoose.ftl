@@ -1,0 +1,10 @@
+ghost-role-information-hell-goose-name = Адский гусь
+ghost-role-information-hell-goose-description = Просвети экипаж станции, показав им их истинный гусинный потенциал.
+language-Honkese-name = Хонгусь
+language-Honkese-description = Родной язык гусей.
+chat-language-Honkese-name = Хонгусевский
+chat-speech-verb-name-hell-goose = Адский гусь
+chat-speech-verb-hell-goose-1 = Ревёт
+chat-speech-verb-hell-goose-2 = Требует
+chat-speech-verb-hell-goose-3 = Приказывает
+chat-speech-verb-hell-goose-4 = Повелевает

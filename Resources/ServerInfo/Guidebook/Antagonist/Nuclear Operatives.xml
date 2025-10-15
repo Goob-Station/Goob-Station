@@ -20,52 +20,29 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Оперативники
 
-  В вашей команде может быть разное количество представителей трех разных ролей:
-  - [color=#a4885c]Командир Ядерных Оперативников[/color] одет в уникальный скафандр командира и разрабатывает или утверждает план сражения.
-  <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieCommander" Caption="Скафандр командира"/>
-  </Box>
+  Вы только что были выбраны в качестве ядерного оперативника [color=#ff0000]Синдиката[/color]. У вас одна цель — подорвать одну из лучших станций NanoTrasen при помощи ядерной боеголовки.
 
-  - [color=#a4885c]Агент Ядерных Оперативников[/color] одет в кроваво-красный медицинский скафандр и может выступать в роли боевого медика во время миссии.
-  <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieMedic" Caption="Кроваво-красный медицинский скафандр"/>
-  </Box>
-
-  - Обычные [color=#a4885c]Ядерные Оперативники[/color], у которых обычный кроваво-красный скафандр.
-
-  You've just been chosen to be a nuclear operative for the [color=#ff0000]Syndicate[/color]. You have one goal, to blow up one of Nanotrasen's finest vessels with a nuclear fission explosive.
-
-  ## Operatives
-  Your team will be made up of several different roles, which are:
-  - [bold]Operatives[/bold], standard soldiers who can take up the grunt work.
-  - The [bold]Corpsman[/bold] who works with reagents to make medicines or chemical weapons.
-  - The [bold]Commander[/bold] who draws up the plan and leads the team.
+  ## Оперативники
+  Ваша команда будет состоять из нескольких разных ролей, а именно:
+  - [bold]Оперативники[/bold], стандартные солдаты, которые выполняют основную тяжёлую работу.
+  - [bold]Медик[/bold], который работает с реагентами для изготовления медикаментов или химического оружия.
+  - [bold]Командир[/bold], который разрабатывает план и ведёт команду.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndie"/>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieMedic" Caption="corpsman's hardsuit"/>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieCommander" Caption="commander's hardsuit"/>
-  </Box>
-
-  If you have been selected as the Corpsman or Commander but don't feel ready, one of your teammates can take over your responsibilities.
-
-  ## The Disk
-
-  Each operative starts with a [color=cyan]pinpointer[/color], which you should turn on and keep with you at all times. It will always point to the [color=cyan]nuclear authentication disk.[/color]
-  The disk belongs to the [color=yellow]Captain[/color], who will almost always have it on them. Follow the direction of the arrow on the pinpointer to the disk, and [italic]do whatever it takes to get it[/italic].
-
-  <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndie" Caption="Кроваво-красный скафандр"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieMedic" Caption="скафандр медика"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieCommander" Caption="скафандр командира"/>
   </Box>
 
   Если вы были выбраны на одну из этих особенных ролей, но не чувствуете себя готовым, один из ваших товарищей по команде может взять на себя эту ответственность.
 
-  ## Подготовка
+  ## Диск
 
-  Взять в бою целую станцию - задача не из легких, но, к счастью, вы хорошо подготовлены к ней. У каждого оперативника есть [color=#a4885c]аплинк[/color]. В комплекте с ним идёт 40 [color=#a4885c]телекристаллов[/color], которые можно использовать для покупки снаряжения. То, что вы получите, зависит от стратегии, выбранной вашим командиром или голосованием команды. Только ваш командир и агент будут иметь пассажирский доступ, но не будут иметь доступа к внешним шлюзам. Это значит, что вам понадобится что-то, чтобы взломать или взорвать путь на станцию. В целом вам понадобится оружие, что-то для взлома дверей, медицинские препараты и разное по мелочи.
+  Каждый оперативник начинает с [color=cyan]пинпоинтером[/color], который нужно включить и держать при себе всё время. Он всегда будет указывать на [color=cyan]диск ядерной аутентификации.[/color]
+  Диск принадлежит [color=yellow]капитану[/color], который почти всегда будет иметь его при себе. Следуйте по направлению стрелки на пинпоинтере к диску и [italic]делайте всё возможное, чтобы его заполучить[/italic].
 
   <Box>
-    <GuideEntityEmbed Entity="BaseUplinkRadio225TC" Caption="Аплинк"/>
+    <GuideEntityEmbed Entity="NukeDisk" Caption="Диск ядерной аутентификации"/>
   </Box>
 
   ## Как добраться до станции
@@ -73,15 +50,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Вооружившись и разработав план, возьмите джетпак из оружейной и вместе с другими оперативниками отправляйтесь на [color=#a4885c]Шаттл Ядерных Оперативников[/color]. Здесь вы найдете несколько дополнительных взрывчаток и инструментов, а также ядерную бомбу и ядерные коды.
   На шаттле вы найдете [color=#a4885c]консоль системы опознавания[/color], которая позволит вам скрываться от других кораблей и сканеров массы. Убедитесь, что [color=#a4885c]Показать "свой-чужой"[/color] и [color=#a4885c]Показать судно[/color] выключены, чтобы скрыть ваш шаттл от экипажа. Когда все будут готовы, отправляйтесь к станции с помощью БСС, а затем летите к ней с помощью реактивного ранца. Не забудьте ядерную бомбу на своём корабле, если собираетесь её использовать, и уж точно не забудьте ядерные коды или пинпоинтер.
 
-  ## Диск
-
-  Вы заметите, что каждый оперативник стартует с [color=#a4885c]пинпоинтером[/color]. Это устройство - один из самых важных предметов в миссии, и вы должны всегда держать его при себе. Включите пинпоинтер, когда прибудете на станцию, и он всегда будет указывать на вашу следующую цель - [color=#a4885c]ядерный диск[/color].
-  Ядерный диск (формально диск ядерной аутентификации) принадлежит капитану, который почти всегда будет иметь его при себе. Следуйте по направлению стрелки на пинпоинтере к диску и сделайте всё возможное, чтобы получить его.
-
-
   <Box>
     <GuideEntityEmbed Entity="PinpointerNuclear" Caption="Пинпоинтер"/>
-    <GuideEntityEmbed Entity="NukeDisk" Caption="Диск ядерной аутентификации"/>
+  </Box>
+
+  ## Подготовка
+
+  Взять в бою целую станцию - задача не из легких, но, к счастью, вы хорошо подготовлены к ней. У каждого оперативника есть [color=#a4885c]аплинк[/color]. В комплекте с ним идёт 40 [color=#a4885c]телекристаллов[/color], которые можно использовать для покупки снаряжения. То, что вы получите, зависит от стратегии, выбранной вашим командиром или голосованием команды. Только ваш командир и агент будут иметь пассажирский доступ, но не будут иметь доступа к внешним шлюзам. Это значит, что вам понадобится что-то, чтобы взломать или взорвать путь на станцию. В целом вам понадобится оружие, что-то для взлома дверей, медицинские препараты и разное по мелочи.
+
+  <Box>
+    <GuideEntityEmbed Entity="BaseUplinkRadio225TC" Caption="Аплинк"/>
   </Box>
 
   ## Ядерная боеголовка

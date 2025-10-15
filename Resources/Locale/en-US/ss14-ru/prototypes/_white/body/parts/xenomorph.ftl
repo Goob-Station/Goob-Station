@@ -1,4 +1,4 @@
-ent-PartXenomorph = xenomorph body part
+ent-PartXenomorph = { ent-BasePart }
     .desc = { ent-BasePart.desc }
 ent-ChestXenomorph = xenomorph chest
     .desc = { ent-PartXenomorph.desc }

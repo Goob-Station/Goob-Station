@@ -1,7 +1,7 @@
 ent-MailRobustToolsSpam = Робаст Тулбокс - Специальное предложение!
     .desc = Реклама робаст тулбоксов.
-ent-MailNanotrasenSpam = Причины выбрать Nanotrasen!
-    .desc = Реклама Nanotrasen.
+ent-MailNanotrasenSpam = Причины выбрать NanoTrasen!
+    .desc = Реклама NanoTrasen.
 ent-MailSyndicateSpam = Причины выбрать Синдикат!
     .desc = Реклама Синдиката.
 ent-MailAlternativeDimensionSpam = Отправьте подкрепление!

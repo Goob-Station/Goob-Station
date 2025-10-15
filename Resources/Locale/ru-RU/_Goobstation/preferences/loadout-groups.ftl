@@ -10,12 +10,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-loadout-group-ntr-head = Голова инспектора Nanotrasen
-loadout-group-ntr-backpack = Рюкзак инспектора Nanotrasen
-loadout-group-ntr-neck = Ожерелье инспектора Nanotrasen
-loadout-group-ntr-jumpsuit = Комбинезон инспектора Nanotrasen
-loadout-group-ntr-belt = Пояс инспектора Nanotrasen
-loadout-group-ntr-shoes = Обувь инспектора Nanotrasen
+loadout-group-ntr-head = Голова представителя NanoTrasen
+loadout-group-ntr-backpack = Рюкзак представителя NanoTrasen
+loadout-group-ntr-neck = Ожерелье представителя NanoTrasen
+loadout-group-ntr-jumpsuit = Комбинезон представителя NanoTrasen
+loadout-group-ntr-belt = Пояс представителя NanoTrasen
+loadout-group-ntr-shoes = Обувь представителя NanoTrasen
 loadout-group-bso-head = Голова офицера Синего Щита
 loadout-group-bso-backpack = Рюкзак офицера Синего Щита
 loadout-group-bso-jumpsuit = Комбинезон офицера Синего Щита
@@ -23,13 +23,13 @@ loadout-group-bso-mask = Маска офицера Синего Щита
 loadout-group-bso-outer = Броня офицера Синего Щита
 loadout-group-bso-neck = Ожерелье офицера Синего Щита
 loadout-group-bso-shoes = Обувь офицера Синего Щита
-loadout-group-nct-head = Голова тренера Nanotrasen
-loadout-group-nct-backpack = Рюкзак тренера Nanotrasen
-loadout-group-nct-jumpsuit = Комбинезон тренера Nanotrasen
-loadout-group-nct-outerclothing = Внешняя одежда тренера Nanotrasen
-loadout-group-nct-belt = Пояс тренера Nanotrasen
-loadout-group-nct-gloves = Перчатки тренера  Nanotrasen
-loadout-group-nct-shoes = Обувь тренера Nanotrasen
+loadout-group-nct-head = Голова тренера NanoTrasen
+loadout-group-nct-backpack = Рюкзак тренера NanoTrasen
+loadout-group-nct-jumpsuit = Комбинезон тренера NanoTrasen
+loadout-group-nct-outerclothing = Внешняя одежда тренера NanoTrasen
+loadout-group-nct-belt = Пояс тренера NanoTrasen
+loadout-group-nct-gloves = Перчатки тренера  NanoTrasen
+loadout-group-nct-shoes = Обувь тренера NanoTrasen
 loadout-group-reporter-outerclothing = Внешняя одежда репортера
 loadout-group-security-neck = Ожерелье службы безопасности
 loadout-group-captain-mask = Маска капитана

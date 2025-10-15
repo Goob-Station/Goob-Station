@@ -1,6 +1,6 @@
 ent-LibrarianTranslatorImplant = librarian translator implant
     .desc = An implant giving the ability to understand and speak most languages.
-ent-ChevalTranslatorImplant = Cheval translator implant
+ent-ChevalTranslatorImplant = cheval translator implant
     .desc = An implant giving the ability to understand and speak Cheval.
 ent-BasicSpaceItalianTranslatorImplant = basic space italian translator implant
     .desc = Provides you the ability to understand the residents of the kitchen.

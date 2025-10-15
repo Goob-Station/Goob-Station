@@ -1,0 +1,12 @@
+ent-GunneryServerBase = сервер контроля артиллерийских орудий
+    .desc = Управление дистанционным артиллерийским орудием шаттла.
+ent-GunneryServerLow = маломощный сервер контроля артиллерийских орудий
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerMedium = среднемощный сервер контроля артиллерийских орудий
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerHigh = мощный сервер контроля артиллерийских орудий
+    .desc = { ent-GunneryServerBase.desc }
+ent-GunneryServerUltra = ультра мощный сервер контроля артиллерийских орудий
+    .desc = { ent-GunneryServerBase.desc }
+ent-ComputerGunneryConsole = консоль контроля артиллерийских орудий
+    .desc = Интерфейс с контролем артиллерийских орудий для управления вооружением.

@@ -1,22 +1,20 @@
 <Document>
 
-  # Hell Ripte
+  # Адский разрыв
 
   <Box>
     <GuideEntityEmbed Entity="LegionnaireBonfire" Caption=""/>
   </Box>
 
-  Hell Ripte, is a [textlink="martial art" link="MartialArts"] that focuses on ripping through crowds of demons with
-  brutal efficiency. This art can only be mastered by the slaughter demons of hell, as it requires an enormous amount of raw strength and power to master.
-  A full understanding of this art will allow you to paint the station red. None will be safe from your carnage.
+  Адский разрыв — это [textlink="боевое искусство" link="MartialArts"], сосредоточенное на безжалостном уничтожении орд демонов с ужасающей эффективностью. Это искусство могут постичь лишь демоны резни, поскольку для его освоения требуется огромное количество чистой силы и мощи. Полное овладение этим искусством позволит тебе окрасить станцию кровью. Никто не укроется от твоей резни.
 
-  ## Special abilities
+  ## Особые способности
 
-  Hell Ripte masters do extreme amounts of damage in short windows, making them unmatched in hand to hand combat.
+  Мастера Адского разрыва наносят колоссальный урон за короткое время, делая их непревзойдёнными в рукопашном бою.
 
-  ## Combo attacks
+  ## Комбо-атаки
 
-  ### Tear Down
+  ### Срыв
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
@@ -24,9 +22,9 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Deals massive slashing damage and bleeds the target.
+  Наносит мощный режущий урон и вызывает кровотечение у цели.
 
-  ### Head Rip
+  ### Отвал башки
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
@@ -35,24 +33,24 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Rip off the head of an opponent who is dead, very lethal. Cannot be done while target is alive.
+  Отрывает голову у мёртвого противника — чрезвычайно смертоносно. Невозможно выполнить, если цель жива.
 
-  ### Hellish Slam
+  ### Адский удар
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Knocks an opponent down and deals heavy stamina damage. If you are downed you pull yourself up.
+  Сбивает противника с ног и наносит сильный урон по выносливости. Если ты упал, то поднимаешься.
 
-  ### Drop Kick
+  ### Удар с разворота
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Launch a downed opponent. Great for painting. Cannot be done while on the ground.
+  Отбрасывает поверженного противника. Невозможно выполнить, находясь на земле.
 
 </Document>

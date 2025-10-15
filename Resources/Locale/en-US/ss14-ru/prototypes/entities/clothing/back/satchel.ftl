@@ -34,3 +34,6 @@ ent-ClothingBackpackSatchelSalvage = salvage satchel
     .desc = A robust satchel for stashing your loot.
 ent-ClothingBackpackSatchelHolding = satchel of holding
     .desc = A satchel that opens into a localized pocket of bluespace.
+ent-ClothingBackpackSatchelAdmin = satchel of administration
+    .desc = If you are somehow seeing this, no you're not.
+    .suffix = Admin

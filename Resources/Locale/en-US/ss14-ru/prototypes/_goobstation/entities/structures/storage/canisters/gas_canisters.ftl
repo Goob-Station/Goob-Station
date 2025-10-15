@@ -1,0 +1,16 @@
+ent-BZCanister = bz canister
+    .desc = { ent-GasCanister.desc }
+ent-HealiumCanister = healium canister
+    .desc = { ent-GasCanister.desc }
+ent-NitriumCanister = nitrium canister
+    .desc = { ent-GasCanister.desc }
+ent-PluoxiumCanister = pluoxium canister
+    .desc = { ent-GasCanister.desc }
+ent-BZCanisterBroken = { ent-GasCanisterBrokenBase }
+    .desc = { ent-GasCanisterBrokenBase.desc }
+ent-HealiumCanisterBroken = { ent-GasCanisterBrokenBase }
+    .desc = { ent-GasCanisterBrokenBase.desc }
+ent-NitriumCanisterBroken = { ent-GasCanisterBrokenBase }
+    .desc = { ent-GasCanisterBrokenBase.desc }
+ent-PluoxiumCanisterBroken = { ent-GasCanisterBrokenBase }
+    .desc = { ent-GasCanisterBrokenBase.desc }

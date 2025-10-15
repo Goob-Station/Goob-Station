@@ -8,3 +8,6 @@ ent-CartridgePistolIncendiary = cartridge (.35 auto incendiary)
     .desc = Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
 ent-CartridgePistolUranium = cartridge (.35 auto uranium)
     .desc = Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium core ammunition features a load of fissile material, irradiating the target from the inside.
+ent-CartridgePistolSpent = cartridge (.35 auto)
+    .suffix = spent
+    .desc = { ent-BaseCartridgePistol.desc }

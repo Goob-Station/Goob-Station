@@ -1,2 +1,2 @@
-ent-RubberStampNanorep = печать инспектора Nanotrasen
+ent-RubberStampNanorep = печать представителя Nanotrasen
     .desc = { ent-RubberStampBase.desc }

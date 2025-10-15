@@ -6,5 +6,5 @@ humanoid-profile-editor-voice-other = Прочие
 humanoid-profile-editor-voice-play = ▶
 humanoid-profile-editor-voice-tooltip-play = Прослушать
 humanoid-profile-editor-voice-tooltip-sponsoronly = Доступно только спонсорам
-humanoid-profile-editor-voice-category-tooltip = Показать голоса из {$category}
-humanoid-profile-editor-voice-match = Найдено: {$filtered}/{$all}
+humanoid-profile-editor-voice-category-tooltip = Показать голоса из { $category }
+humanoid-profile-editor-voice-match = Найдено: { $filtered }/{ $all }

@@ -18,4 +18,4 @@ revolutionaries-win-announcement =
     
     Viva la revolution!
 revolutionaries-win-sender = Связь Cybersun
-revolutionaries-sender-cc = Отдел лояльности Nanotrasen
+revolutionaries-sender-cc = Отдел лояльности NanoTrasen

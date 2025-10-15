@@ -10,3 +10,5 @@ ent-SkeletonMidround = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-BlobMidround = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-FloorGoblinMidRound = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }

@@ -1,0 +1,16 @@
+ent-NTRCrateSpesosSmall = субсидия кредитов
+    .desc = Трудные времена требуют капиталистических решений..
+ent-NTRCratePointDisks = субсидия исследовательских дисков
+    .desc = Прогресс, мой друг, прогресс.
+ent-NTRCrateEmergencyMed = экстренные медицинские запасы
+    .desc = Подумай, как бы ты объяснил это NanoTrasen.
+ent-NTRCrateDisablers = ящик станнеров
+    .desc = Ящик со станнерами... зачем он тебе?
+ent-NTRCrateToolsSmall = ящик инструментов
+    .desc = Ящик стандартных инструментов NanoTrasen.
+ent-NTRBoardTelecom = ящик плат серверов телекоммуникации
+    .desc = Ящик, содержащий 2 машинные платы серверов телекоммуникации.
+ent-NTRBoardHolopad = ящик плат голопадов
+    .desc = Ящик, содержащий 2 машинные платы голопадов.
+ent-NTRBoardShuttle = ящик набора для шаттла
+    .desc = { ent-CrateEngineeringSecure.desc }

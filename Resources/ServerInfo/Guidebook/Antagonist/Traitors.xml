@@ -64,36 +64,36 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="CaptainIDCard" Caption="ID карта капитана"/>
   </Box>
 
-  The purchases that you make should be to help you with your objectives. Some gear may not be of use to you, and you'll have to choose between being sneaky or going loud.
+  Покупки, которые вы делаете, должны помогать вам в выполнении целей. Некоторое снаряжение может быть бесполезным, и вам придётся выбирать между скрытностью и громкой игрой.
 
-  ## Coordination
-  Codewords are words or phrases that every traitor will know. They provide a discreet way to identify or establish contact with a fellow traitor, which can be useful if your objectives include [italic][color=cyan]helping them with their objectives.[/color][/italic]
+  ## Координация
+  Кодовые слова — это слова или фразы, известные каждому предателю. Они предоставляют скрытый способ идентифицировать или установить контакт с другим предателем, что полезно, если ваши задачи включают [italic][color=cyan]помощь с их целями.[/color][/italic]
 
-  When you find some friends, [bold]you can withdraw [color=red]telecrystals[/color] from your uplink to give to them.[/bold] They can put these in their own uplink to spend for themselves.
+  Когда находите союзников, [bold]вы можете передавать им [color=red]телекристаллы[/color] со своего аплинка.[/bold] Они могут положить их в свой аплинк для использования.
 
-  Some offers available on your uplink require more than 20 TC to purchase, so if you want them you'll have to share.
+  Некоторые предметы в аплинке требуют более 100 ТК для покупки, так что для их получения придётся делиться.
 
-  ## Assassination
-  One of your objectives may be to [italic][color=cyan]kill or maroon a crewmember.[/color][/italic]
+  ## Убийство
+  Одной из ваших целей может быть [italic][color=cyan]убийство или изоляция члена экипажа.[/color][/italic]
 
-  You can [color=cyan]maroon[/color] your target by [bold]preventing them from reaching CentComm[/bold] via the evacuation shuttle or an escape pod.
+  Вы можете [color=cyan]изолировать[/color] цель, [bold]не позволив ей добраться до станции ЦК[/bold] через эвакуационный шаттл или спасательный модуль.
 
-  If you can't maroon your target or they're too important to leave alive, you'll have to get your hands dirty and [color=cyan]murder[/color] them. Make sure your target is not alive when the [bold]evacuation shuttle gets to CentComm,[/bold] and don't let them be resuscitated.
+  Если цель слишком важна или её нельзя изолировать, придётся действовать радикально и [color=cyan]убить[/color] её. Убедитесь, что цель мертва к моменту прибытия [bold]эвакуационного шаттла на СЦК,[/bold] и не давайте её оживить.
 
-  Remember, the Syndicate want only your targets dead. [color=red]Try to avoid mass murder or major damage to the station,[/color] as the more innocent lives you take, the more of a liability you become.
+  Помните, Синдикат хочет, чтобы были устранены только ваши цели. [color=red]Старайтесь избегать массовых убийств и серьёзного ущерба станции,[/color] так как чем больше невинных жизней вы заберёте, тем большей угрозой станете для станции.
 
-  ## Evasion & Self-Termination
-  Your objectives may require you to [italic][color=cyan]make it to CentComm without being killed or captured.[/color][/italic] Don't let [color=#cb0000]Security[/color] stop you, complete your other objectives and [bold]come back alive.[/bold]
+  ## Уклонение и самоубийство
+  Ваши задачи могут требовать [italic][color=cyan]добраться до СЦК живым, не будучи убитым или захваченным.[/color][/italic] Не позвольте [color=#cb0000]Службе Безопасности[/color] остановить вас, выполняйте остальные задачи и [bold]вернитесь живым.[/bold]
 
-  Alternatively, your objectives may require you to [italic][color=cyan]die a glorious death.[/color][/italic] [bold]Make sure you don't come back from the dead,[/bold] or else you may wake up in cuffs.
+  Также задачи могут требовать [italic][color=cyan]славной смерти.[/color][/italic] [bold]Не возвращайтесь к жизни,[/bold] иначе вы можете проснуться в наручниках.
 
-  ## Appropriation
-  More often than not, you'll have to [italic][color=cyan]steal a possession of a department head.[/color][/italic]
+  ## Кража
+  Часто вам придётся [italic][color=cyan]красть предметы главы отдела.[/color][/italic]
 
-  The target may be in their office, or on their person. It may become necessary to kill whoever is carrying it, if you cannot pickpocket them.
+  Цель может находиться в офисе или при себе. Возможно, придётся убить носителя, если не удается выкрасть цель.
 
-  Some of the things you may be tasked with include:
-  - Stealing the [color=yellow]Captain[/color]'s [bold]ID Card[/bold], [bold]antique laser pistol[/bold], [bold]jetpack[/bold], or [bold]nuclear authentication disk[/bold].
+  Среди возможных предметов для кражи:
+  - Украсть [color=yellow]ID карту[/color], [bold]антикварный лазерный пистолет[/bold], [bold]джетпак[/bold] или [bold]диск ядерной аутентификации[/bold] у Капитана.
   <Box>
     <GuideEntityEmbed Entity="WeaponAntiqueLaser" Caption="Капитанский Антикварный Лазерный Пистолет"/>
   </Box>

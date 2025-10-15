@@ -11,3 +11,5 @@ ent-ClothingHeadHelmetVoidsuitSecurity = шлем боевого костюма 
     .desc = Крепкая лицевая панель, прикреплённая к боевому костюму охраны.
 ent-ClothingHeadHelmetHardsuitHeadOfSecurityExperimental = усовершенствованный шлем боевого костюма главы охраны
     .desc = Шлем боевого костюма охраны с новейшим топ-секретным NT-HUD софтом. Кажется, этот шлем прочнее стандартных.
+ent-ClothingHeadHelmetHardsuitNanorep = шлем скафандра ПNT
+    .desc = { ent-ClothingHeadHardsuitWithLightBase.desc }

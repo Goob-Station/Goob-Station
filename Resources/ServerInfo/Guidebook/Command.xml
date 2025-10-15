@@ -49,8 +49,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 Также у вас есть доступ к вашему собственному [color=#1b67a5]Командному[/color] каналу связи, как и любому другому. Однако ваш уникален тем, что все кого вы слышите в эту рацию контролируют [color=#a4885c]целые отделы[/color].
 Используйте это для общения с другими главами и представляйте желания и нужды своих работников.
 
-The [color=#1b67a5]Captain[/color] and the [color=#9fed58]Head of Personnel[/color] get access to the lucrative [color=#a4885c]master encryption key[/color], letting them tune into every radio channel on the station. This is extremely valuable, as you can coordinate between departments yourself.
-[color=#a4885c]Don't waste this vital advantage![/color]
+[color=#1b67a5]Капитан[/color] и [color=#9fed58]Глава Персонала[/color] получают доступ к ценнейшему [color=#a4885c]ключу шифрования руководства станции[/color], позволяющему подключаться ко всем радиоканалам станции. Это крайне ценно, так как позволяет координировать работу отделов самостоятельно.
+[color=#a4885c]Не упускайте это важное преимущество![/color]
   <Box>
     <GuideEntityEmbed Entity="ClothingHeadsetCommand"/>
     <GuideEntityEmbed Entity="EncryptionKeyStationMaster"/>
