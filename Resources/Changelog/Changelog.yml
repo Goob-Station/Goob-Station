@@ -5272,3 +5272,10 @@ Entries:
   id: 9104
   time: '2025-10-15T12:38:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40926
+- author: slarticodefast, Davyei
+  changes:
+  - message: You can now use parcelwrap on humanoids.
+    type: Add
+  id: 9105
+  time: '2025-10-15T20:30:45.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40911
