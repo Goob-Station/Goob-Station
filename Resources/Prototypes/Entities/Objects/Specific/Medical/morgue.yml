@@ -184,6 +184,7 @@
     state: ash
   - type: Tag
     tags:
+    - Burnt
     - Trash
     - Ash # Goobstation
   - type: SolutionContainerManager
