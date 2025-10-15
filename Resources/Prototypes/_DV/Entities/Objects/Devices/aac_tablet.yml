@@ -42,3 +42,12 @@
     speechSounds: Alto
   - type: AACTablet
   - type: VoiceMask
+    # Goob changes due to languages:
+  - type: LanguageSpeaker #This should get added regardless on startup but eh future planning or whatever.
+  - type: EncryptionKeyHolder # This holds a 'language' encryption key that can be added to the tablet.
+    keyslots: 1 #todo later marty: at some point add func and UI for multiple keys.
+  - type: LanguageKnowledge # Languages are not held here, this gets autoupdated. They are held in the encryp key.
+  - type: ContainerFill
+    containers:
+      key_slots: #Hijacking.
+      - EncryptionKeyCommon #todo now marty # Tau-ceti default, i assume ill implement checks if need to spawn for other languages in whateever system.cs

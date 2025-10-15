@@ -31,3 +31,18 @@
     layers:
     - state: crypt_silver
     - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyLanguageTauCeti
+  name: tau-ceti basic translator key
+  description: An automatic translation decoder for Tau-Ceti, fits in an AAC Tablet.
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_silver
+    - state: nano_label
