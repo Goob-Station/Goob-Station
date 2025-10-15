@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.StatusEffectNew;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
@@ -18,6 +19,7 @@ public sealed class WraithSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AbsorbCorpseSystem _corpse = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<WraithPointsComponent> _wraithPointsQuery;
     private EntityQuery<PassiveWraithPointsComponent> _passiveWraithPointsQuery;
@@ -36,6 +38,8 @@ public sealed class WraithSystem : EntitySystem
 
         SubscribeLocalEvent<WraithComponent, WraithWeakenedAddedEvent>(OnWraithWeakenedAdded);
         SubscribeLocalEvent<WraithComponent, WraithWeakenedRemovedEvent>(OnWraithWeakenedRemoved);
+
+        SubscribeLocalEvent<WraithComponent, BanishmentDoneEvent>(OnBanishmentDone);
     }
 
     private void OnMapInit(Entity<WraithComponent> ent, ref MapInitEvent args) =>
@@ -73,4 +77,13 @@ public sealed class WraithSystem : EntitySystem
 
     private void OnWraithWeakenedRemoved(Entity<WraithComponent> ent, ref WraithWeakenedRemovedEvent args) =>
         RemComp<WraithInsanityComponent>(ent.Owner);
+
+    private void OnBanishmentDone(Entity<WraithComponent> ent, ref BanishmentDoneEvent args)
+    {
+        if (_netManager.IsClient)
+            return;
+
+        QueueDel(ent.Owner);
+        SpawnAtPosition(ent.Comp.WraithDeathEffect, Transform(ent.Owner).Coordinates);
+    }
 }

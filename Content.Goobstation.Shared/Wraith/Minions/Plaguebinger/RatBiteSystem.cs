@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
@@ -32,7 +33,7 @@ public sealed partial class RatBiteSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("wraith-plaguerat-bite-you-message", ("target", target)), uid, uid);
         args.Handled = true;
     }
-    private bool TryInjectReagents(EntityUid target, Dictionary<EntProtoId, FixedPoint2> reagents)
+    private bool TryInjectReagents(EntityUid target, Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents)
     {
         // Build up a solution from the bite's reagents.
         var solution = new Solution();

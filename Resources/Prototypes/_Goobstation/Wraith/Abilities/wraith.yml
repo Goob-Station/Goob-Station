@@ -19,7 +19,7 @@
 - type: entity
   id: WraithAbilities
   name: Wraith Abilities
-  category: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Haunt
   - type: BloodWriting
@@ -62,7 +62,7 @@
   id: HarbingerAbilities
   name: Harbinger Abilities
   parent: WraithAbilities
-  category: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: SummonVoidCreature
   - type: MakeRevenant
@@ -81,7 +81,7 @@
   id: PlaguebingerAbilities
   name: Plaguebinger Abilities
   parent: WraithAbilities
-  category: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: SummonPlagueRat
   - type: SummonRotHulk

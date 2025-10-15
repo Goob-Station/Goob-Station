@@ -6,8 +6,4 @@ namespace Content.Goobstation.Shared.Wraith.Curses;
 /// Marks an entity as immune to getting curses
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CurseImmuneComponent : Component
-{
-    [DataField]
-    public LocId CurseApplyAttempt = "chud-yes";
-}
+public sealed partial class CurseImmuneComponent : Component;

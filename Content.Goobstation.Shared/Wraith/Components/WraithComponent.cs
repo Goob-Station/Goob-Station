@@ -11,4 +11,7 @@ public sealed partial class WraithComponent : Component
 
     [DataField]
     public EntProtoId WraithWeakenedEffect = "StatusEffectWeakenedWraith";
+
+    [DataField]
+    public EntProtoId WraithDeathEffect = "WraithDeathEffect";
 }

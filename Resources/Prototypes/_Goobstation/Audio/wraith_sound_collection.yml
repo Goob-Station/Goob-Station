@@ -54,7 +54,7 @@
 - type: soundCollection
   id: GoonZGroan
   files:
-  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan1.ogg
-  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan2.ogg
-  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan3.ogg
-  - /Audio/_Goobstation/Wraith/Mobs/hulk/ZGroan4.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan3.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan4.ogg
