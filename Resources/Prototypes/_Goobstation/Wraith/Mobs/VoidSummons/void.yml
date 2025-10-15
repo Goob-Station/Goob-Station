@@ -144,7 +144,6 @@
     - Electrocution
     - SlowedDown
     - Stutter
-    - Drowsiness
     - TemporaryBlindness
   - type: ActionGrant
     actions:

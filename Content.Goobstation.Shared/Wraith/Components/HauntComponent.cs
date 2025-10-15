@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.StatusEffect;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -45,13 +46,13 @@ public sealed partial class HauntComponent : Component
     /// The status effect to flash anyone who gets haunted.
     /// </summary>
     [DataField]
-    public EntProtoId FlashedId = "Flashed";
+    public ProtoId<StatusEffectPrototype> FlashedId = "Flashed";
 
     /// <summary>
     /// The status effect to make the Wraith corporeal upon using haunt.
     /// </summary>
     [DataField]
-    public EntProtoId CorporealEffect = "Corporeal";
+    public ProtoId<StatusEffectPrototype> CorporealEffect = "Corporeal";
 
     /// <summary>
     /// Is the action active?

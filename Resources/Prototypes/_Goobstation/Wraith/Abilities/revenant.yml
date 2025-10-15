@@ -1,7 +1,7 @@
 - type: entity
   id: RevenantAbilities
   name: Revenant Abilities
-  category: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Aura
     auraFarm: 0.4
