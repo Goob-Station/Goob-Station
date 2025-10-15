@@ -13,7 +13,6 @@
       - MindRoleGhostRoleSoloAntagonist
       briefing:
         text: wraith-role-greeting
-        color: "#8B0000"
         sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
       components:
       - type: RandomMetadata
@@ -44,3 +43,22 @@
   - type: Tag
     tags:
     - MidroundAntag
+
+- type: entity
+  parent: WraithMidround
+  id: TokenWraith
+  components:
+  - type: AntagSpawner
+    prototype: MobWraith
+  - type: AntagSelection
+    agentName: wraith-end-agent-name
+    definitions:
+    - spawnerPrototype: WraithToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: wraith-role-greeting
+        sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg

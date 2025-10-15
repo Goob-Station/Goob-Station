@@ -49,15 +49,18 @@
     #- prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
-    - ActionWhisper
-    - ActionBloodWriting
     - ActionAbsorbCorpse
-    - ActionSpook
+    - ActionPossessObject
     - ActionDecay
     - ActionCommand
     - ActionAnimateObject
-    - ActionPossessObject
-
+    - ActionWhisper
+    - ActionBloodWriting
+    - ActionSpook
+    - ActionToggleGhostHearingWraith
+    - ActionToggleGhosts
+    - ActionToggleLighting
+    
 - type: entity
   id: HarbingerAbilities
   name: Harbinger Abilities

@@ -1,4 +1,4 @@
-guide-entry-wraith = Wraiths
+guide-entry-wraith = Wraith
 
 guide-entry-plaguebringer = Plaguebringer path
 guide-entry-harbinger = Harbinger path
