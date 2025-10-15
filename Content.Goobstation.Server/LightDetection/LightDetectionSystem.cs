@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
+using Content.Server.Disposal.Unit;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -84,7 +85,14 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
             var worldPos = XformSys.GetWorldPosition(xform);
 
             var totalLightLevel = 0f;
-
+            
+            //ignore lights while travelling through disposals
+            if (LightSys.HasComp<BeingDisposedComponent>(uid))
+            {
+                comp.CurrentLightLevel = 0f;
+                return;
+            }
+            
             var lookup = LookupSys.GetEntitiesInRange<PointLightComponent>(xform.Coordinates, LightSys.LookupRange);
             foreach (var ent in lookup)
             {
