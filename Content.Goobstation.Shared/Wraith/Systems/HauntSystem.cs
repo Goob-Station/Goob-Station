@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Robust.Shared.Timing;
 using Content.Shared.Actions;
 using Content.Shared.Flash.Components;
+using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 
@@ -18,6 +19,7 @@ public sealed partial class HauntSystem : EntitySystem
     [Dependency] private readonly WraithPointsSystem _wraithPointsSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private EntityQuery<HauntedComponent> _hauntQuery;
     private EntityQuery<WraithAbsorbableComponent> _wraithAbsorbableQuery;
@@ -33,7 +35,7 @@ public sealed partial class HauntSystem : EntitySystem
 
         SubscribeLocalEvent<HauntComponent, HauntEvent>(OnHaunt);
     }
-    //TO DO: Add action to stop corporeal form.
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -98,6 +100,7 @@ public sealed partial class HauntSystem : EntitySystem
             return;
         }
 
+        _popupSystem.PopupClient(Loc.GetString("wraith-haunt-show"), ent.Owner, ent.Owner, PopupType.MediumCaution);
         // flash people nearby
         var lookup = _lookup.GetEntitiesInRange(ent.Owner, 3f);
         foreach (var entity in lookup)
@@ -118,7 +121,7 @@ public sealed partial class HauntSystem : EntitySystem
         ent.Comp.WitnessNextUpdate = _timing.CurTime + ent.Comp.WitnessUpdate;
 
         // boost wp regen per witness
-        ent.Comp.HauntWpRegenDuration = _timing.CurTime + ent.Comp.HauntWpRegenDuration;
+        ent.Comp.NextHauntWpRegenUpdate = _timing.CurTime + ent.Comp.HauntWpRegenDuration;
         ent.Comp.WpBoostActive = true;
         Dirty(ent);
     }
