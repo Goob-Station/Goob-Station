@@ -11,7 +11,6 @@ namespace Content.Goobstation.Common.Physics;
 
 /// <summary>
 /// Works like JointVisualsComponent, but supports multiple targets and more customization.
-/// Sometimes it works not good enough though, so use this only when necessary.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ComplexJointVisualsComponent : Component
@@ -22,18 +21,40 @@ public sealed partial class ComplexJointVisualsComponent : Component
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class ComplexJointVisualsData(
+    string id,
     SpriteSpecifier sprite,
-    Color color)
+    Color color,
+    SpriteSpecifier? startSprite = null,
+    SpriteSpecifier? endSprite = null,
+    TimeSpan? creationTime = null)
 {
-    public ComplexJointVisualsData() : this(SpriteSpecifier.Invalid, Color.White) { }
+    public ComplexJointVisualsData() : this(string.Empty, SpriteSpecifier.Invalid, Color.White) { }
 
-    public ComplexJointVisualsData(SpriteSpecifier sprite) : this(sprite, Color.White) { }
+    public ComplexJointVisualsData(string id,
+        SpriteSpecifier sprite,
+        SpriteSpecifier? startSprite = null,
+        SpriteSpecifier? endSprite = null,
+        TimeSpan? creationTime = null) : this(id, sprite, Color.White, startSprite, endSprite, creationTime)
+    {
+    }
+
+    [DataField]
+    public SpriteSpecifier? StartSprite = startSprite;
+
+    [DataField]
+    public SpriteSpecifier? EndSprite = endSprite;
 
     [DataField]
     public SpriteSpecifier Sprite = sprite;
 
     [DataField]
     public Color Color = color;
+
+    [DataField]
+    public string Id = id;
+
+    [DataField]
+    public TimeSpan? CreationTime = creationTime;
 
     // TODO: add support for joint offsets
 }

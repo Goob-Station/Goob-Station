@@ -604,7 +604,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddOrganSlotStep
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 21
+    painDuration: 60
+    sleepModifier: 0.34
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -645,12 +648,6 @@
   - type: SurgerySpecialDamageChangeEffect
     damageType: Rot
     isConsumable: true
-
-# Doesn't serve much of a purpose right now. Just here for completeness-sake.
-- type: entity
-  parent: SurgeryStepInsertOrgan
-  id: SurgeryStepInsertStomach
-  name: Add stomach
 
 - type: entity
   parent: SurgeryStepBase

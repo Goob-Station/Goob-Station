@@ -1,4 +1,4 @@
 - type: sinkPort
   id: SpaceArtilleryFire
-  name: "Fire Armament"
-  description: "Controls Space Artillery's firing mechanism."
+  name: signal-port-fire-armament-name
+  description: signal-port-fire-armament-description

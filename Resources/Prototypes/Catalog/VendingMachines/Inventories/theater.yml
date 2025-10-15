@@ -116,8 +116,15 @@
     ClothingCostumeAbductor: 1
     ClothingHeadSanabi: 1 # Goobstation
     ClothingNeckCloakSanabi: 1 # Goobstation
+    ClothingCostumeGingerbreadHead: 1 #goob
   contrabandInventory:
     ClothingHeadHatRichard: 1
+    ClothingShoesBling: 1
+    ClothingShoesBootsCowboyFancy: 1
+    ClothingOuterDogi: 1
+    ClothingMaskSexyClown: 1
+    ClothingMaskSexyMime: 1
+    ClothingHeadHatCowboyBountyHunter: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
     WeaponLauncherTaiwanPond: 1 # Goobstation
@@ -125,10 +132,3 @@
     ClothingShoesResonant: 1 # Goobstation
     ClothingNeckCloakResonant: 1 # Goobstation
     ClothingUniformJumpsuitResonant: 1 # Goobstation
-  emaggedInventory:
-    ClothingShoesBling: 1
-    ClothingShoesBootsCowboyFancy: 1
-    ClothingOuterDogi: 1
-    ClothingMaskSexyClown: 1
-    ClothingMaskSexyMime: 1
-    ClothingHeadHatCowboyBountyHunter: 1

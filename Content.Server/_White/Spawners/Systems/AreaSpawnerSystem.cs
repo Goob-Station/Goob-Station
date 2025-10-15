@@ -35,14 +35,13 @@ public sealed class AreaSpawnerSystem : EntitySystem
     {
         foreach (var spawned in component.Spawneds)
         {
-            if (TerminatingOrDeleted(spawned)) // Goobstation
+            // <Goobstation> rewrote to be non goida
+            if (TerminatingOrDeleted(spawned))
                 continue;
 
-            var despawnComponent = new TimedDespawnComponent
-            {
-                Lifetime = _random.NextFloat(component.MinTime, component.MaxTime)
-            };
-            AddComp(spawned, despawnComponent);
+            var comp = EnsureComp<TimedDespawnComponent>(spawned);
+            comp.Lifetime = _random.NextFloat(component.MinTime, component.MaxTime);
+            // </Goobstation>
         }
     }
 

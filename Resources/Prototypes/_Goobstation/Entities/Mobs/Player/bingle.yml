@@ -75,7 +75,6 @@
       - Alive
       - Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: alive
@@ -141,6 +140,8 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
+  - type: ScannableForPoints # NTR update
+    points: 2 # this would be abused so much if i made it more
   - type: Butcherable
     spawned:
     - id: FoodMeatBingle
@@ -153,6 +154,7 @@
   components:
   - type: Bingle
     prime: true
+  - type: ScannableForPoints # NTR update, 5 points is the default.
 
 - type: entity
   id: MobBingleUpgraded
@@ -171,7 +173,6 @@
       state: combat
       visible: false
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: Upgraded

@@ -1,0 +1,127 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - FlyingMobBase
+  id: MobStarGazer
+  name: star gazer
+  description: A creature that has been tasked to watch over the stars.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/star_gazer.rsi
+    layers:
+    - state: star_gazer
+      offset: 0, 1
+  - type: ActionsProvider
+    actions:
+    - ActionHereticCosmicExpansion
+    - ActionHereticStarBlast
+    - ActionStarGaze
+    - ActionStarGazerSeekMaster
+  - type: MeleeWeapon
+    range: 4
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcHereticCosmic
+    attackRate: 1.5
+    canWideSwing: false
+    damage:
+      types:
+        Slash: 10
+        Piercing: 10
+        Structural: 100
+      armorPenetration: 0.5
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementIgnoreGravity
+  - type: Speech
+  - type: TypingIndicator
+  - type: NoSlip
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghostrole-stargazer-name
+    description: ghostrole-stargazer-desc
+    rules: ghostrole-ghoul-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+    channels:
+    - MansusLink
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: Insulated
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: FlashImmunity
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: Targeting
+  - type: Eye
+    drawFov: false
+  - type: ContentEye
+    maxZoom: 1.5, 1.5
+    targetZoom: 1.5, 1.5
+  - type: LanguageKnowledge
+    speaks: []
+    understands: []
+  - type: UniversalLanguageSpeaker
+  - type: TowerOfBabel
+  - type: LanguageSpeaker
+  - type: CosmicTrail
+    strength: 10
+  - type: PointLight
+    color: "#dcaa5b"
+    radius: 5
+    softness: 1
+  - type: Puller
+    needsHands: false
+  - type: StarGazer
+  - type: WarpPoint
+    follow: true
+    location: star gazer
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false
+  - type: SupermatterImmune
+  - type: EventHorizonIgnore
+  - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
+    effect: EffectCosmicSlash
+  - type: Tag
+    tags:
+    - CannotSuicide
