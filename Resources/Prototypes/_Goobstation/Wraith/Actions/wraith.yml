@@ -6,6 +6,16 @@
 
 # Base Wraith Actions
 - type: entity
+  parent: ActionToggleGhostHearing
+  id: ActionToggleGhostHearingWraith
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: hide_chat
+    iconOn: _Goobstation/Wraith/actions.rsi/show_chat.png
+
+- type: entity
   id: ActionHaunt
   name: Haunt
   description: Become corporeal for 30 seconds. During this time, you gain additional wraith points, depending on the amount of humans in your vicinity. Use this ability again while corporeal to fade back into the aether.

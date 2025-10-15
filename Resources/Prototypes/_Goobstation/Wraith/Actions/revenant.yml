@@ -6,6 +6,8 @@
   name: Push
   description: Pushes a target object or mob away from the revenant.
   components:
+  - type: ActionWraithPoints
+    wpConsume: 50
   - type: Action
     useDelay: 30
     itemIconStyle: BigAction
@@ -23,6 +25,8 @@
   name: Mass Command
   description: Launch an assortment of nearby objects at a target location.
   components:
+  - type: ActionWraithPoints
+    wpConsume: 300
   - type: Action
     useDelay: 30
     itemIconStyle: BigAction
@@ -43,6 +47,8 @@
   name: Shockwave
   description: Emit a shockwave, breaking nearby lights and walls, and stunning nearby humans for a short time.
   components:
+  - type: ActionWraithPoints
+    wpConsume: 750
   - type: Action
     useDelay: 30
     icon:
@@ -56,6 +62,8 @@
   name: Touch of Evil
   description: Empower your hand-to-hand attacks for a short time, causing additional damage and knockdown.
   components:
+  - type: ActionWraithPoints
+    wpConsume: 1000
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/revtouch.ogg
@@ -71,6 +79,8 @@
   name: Crush
   description: Channel your telekinetic abilities at a human target, causing damage as long as you stand still. Casting any other spell will interrupt this!
   components:
+  - type: ActionWraithPoints
+    wpConsume: 2500
   - type: Action
     useDelay: 60
     itemIconStyle: BigAction

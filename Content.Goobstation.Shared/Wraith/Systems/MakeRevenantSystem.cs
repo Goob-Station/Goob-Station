@@ -26,11 +26,6 @@ public sealed class MakeRevenentSystem : EntitySystem
     //TO DO: Add action for wraith to leave body
     private void OnMakeRevenant(Entity<MakeRevenantComponent> ent, ref MakeRevenantEvent args)
     {
-        if (!HasComp<CorporealComponent>(ent.Owner))
-        {
-            _popup.PopupClient(Loc.GetString("wraith-revenant-corporeal"), ent.Owner, ent.Owner);
-            return;
-        }
 
         if (!_mind.TryGetMind(ent.Owner, out var mindId, out _))
             return;
