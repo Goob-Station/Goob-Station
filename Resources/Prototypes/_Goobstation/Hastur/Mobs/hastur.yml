@@ -1,0 +1,100 @@
+- type: entity
+  name: ????
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobHastur
+  description: He who must not be named...
+  components:
+    - type: Hastur
+    - type: ActionGrant
+      actions:
+      - ActionHasturDevour
+      - ActionInsanityAura
+      - ActionMassWhisper
+      - ActionVeilOfTheVoid
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 4
+    - type: Sprite
+      sprite: _Goobstation/Hastur/hastur.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: hastur
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: hasturM
+      noMovementLayers:
+        movement:
+          state: hastur
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 100
+          mask:
+            - LargeMobMask
+          layer:
+            - LargeMobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        650: Dead
+    - type: StaticPrice
+      price: 30000
+    - type: TileMovement
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
+      damage:
+        types:
+          Piercing: 20
+          Slash: 15
+    - type: WeakToHoly
+      alwaysTakeHoly: true
+    - type: NoSlip
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Haloperidol
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: TentacleWalk
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+      - FootstepSound
+    - type: Megafauna
+      loot: AnomalyCoreShadow # Change to robes later
+    - type: Sprinter
+    - type: CombatPower
+      factor: 10 # times more dangerous than a crew-member
+
+- type: entity
+  name: ????
+  parent: SimpleSpaceMobBase 
+  id: MobHasturClone
+  description: He who must not be named...
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Hastur/hastur.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: hastur
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: hasturM
+      noMovementLayers:
+        movement:
+          state: hastur
+    - type: TimedDespawn
+      lifetime: 10
