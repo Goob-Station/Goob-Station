@@ -11,6 +11,7 @@ construction-graph-tag-mod-plating = mod plating
 construction-graph-tag-gas-mask = gas mask
 construction-graph-tag-toy-sword = toy sword
 construction-graph-tag-templar-helmet = templar helmet
+construction-graph-tag-blue = makeshift shield
 construction-graph-tag-budget-insuls = budget insuls
 construction-graph-tag-nun-hood = nun hood
 construction-graph-tag-toolbox = toolbox
