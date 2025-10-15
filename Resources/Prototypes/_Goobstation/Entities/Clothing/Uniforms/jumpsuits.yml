@@ -307,8 +307,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMSummer
-  name: quartermaster's summer shirt
-  description: The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
+  name: logistics officer's summer shirt
+  description: The logistics officer's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi

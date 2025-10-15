@@ -645,7 +645,7 @@
     - DoorBumpOpener
 
 - type: entity
-  name: quartermaster PDA
+  name: Logistics Officer's PDA
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
@@ -675,7 +675,7 @@
 - type: entity
   parent: BasePDA
   id: CargoPDA
-  name: cargo PDA
+  name: Logistics PDA
   description: PDA for the guys that order the pizzas.
   components:
   - type: Pda

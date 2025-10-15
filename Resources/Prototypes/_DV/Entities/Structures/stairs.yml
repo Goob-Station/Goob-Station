@@ -1,0 +1,79 @@
+- type: entity
+  id: Stairs2
+  parent: Stairs
+  suffix: Steel
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_steel
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairStage2
+  parent: Stairs
+  suffix: Steel, stage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_stage_steel
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairWhite2
+  parent: Stairs
+  suffix: White
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_white
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairStageWhite2
+  parent: Stairs
+  suffix: White, stage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_stage_white
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairDark2
+  parent: Stairs
+  suffix: Dark
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_dark
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairStageDark2
+  parent: Stairs
+  suffix: Dark, stage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_stage_dark
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairWood2
+  parent: Stairs
+  suffix: Wood
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_wood
+    drawdepth: FloorTiles
+
+- type: entity
+  id: StairStageWood2
+  parent: Stairs
+  suffix: Wood, stage
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
+    state: stairs_stage_wood
+    drawdepth: FloorTiles

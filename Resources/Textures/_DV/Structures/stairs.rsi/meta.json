@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from MonkeStation, White and Dark sprites by noctyrn",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "stairs_white",
+            "directions": 4
+        },
+        {
+            "name": "stairs_stage_white"
+        },
+        {
+            "name": "stairs_steel",
+            "directions": 4
+        },
+        {
+            "name": "stairs_stage_steel"
+        },
+        {
+            "name": "stairs_dark",
+            "directions": 4
+        },
+        {
+            "name": "stairs_stage_dark"
+        },
+        {
+            "name": "stairs_wood",
+            "directions": 4
+        },
+        {
+            "name": "stairs_stage_wood"
+        }
+    ]
+}

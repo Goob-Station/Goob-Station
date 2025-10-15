@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalLogistics
+  name: logistics sign
+  description:  A direction sign, pointing out which way the Logistics department is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_logi
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalMail
+  name: mailroom sign
+  description:  A direction sign, pointing out which way the mailroom is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_mail
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionaAI
+  name: AI sign
+  description:  A direction sign, pointing out which way the AI core is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_aicore
+
+- type: entity
+  parent: BaseSign
+  id: SignLogistics
+  name: logistics sign
+  description:  A sign, pointing out that this is the Logistics department.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: logistics

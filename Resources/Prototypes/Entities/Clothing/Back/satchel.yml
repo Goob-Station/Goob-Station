@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCargo
-  name: cargo satchel
-  description: A robust satchel for stealing cargo's loot.
+  name: logistics satchel
+  description: A robust satchel for stealing logistics' loot.
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/cargo.rsi

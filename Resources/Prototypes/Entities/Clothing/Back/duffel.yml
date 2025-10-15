@@ -198,8 +198,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
-  name: cargo duffel bag
-  description: A large duffel bag for stealing cargo's precious loot.
+  name: logistics duffel bag
+  description: A large duffel bag for stealing logistics' precious loot.
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/cargo.rsi
