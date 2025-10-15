@@ -2,13 +2,10 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Robust.Shared.Map;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
-using System.Xml.Schema;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 

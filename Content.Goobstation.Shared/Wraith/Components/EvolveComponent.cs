@@ -7,9 +7,15 @@ namespace Content.Goobstation.Shared.Wraith.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EvolveComponent : Component
 {
+    /// <summary>
+    /// Used in UI. The evolutions that you can choose from.
+    /// </summary>
     [DataField(required: true)]
     public List<RadialSelectorEntry> AvailableEvolutions = new();
 
+    /// <summary>
+    /// The corpses required from AbsorbCorpse in order to evolve
+    /// </summary>
     [DataField]
     public int CorpsesRequired = 3;
 

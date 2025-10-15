@@ -27,3 +27,5 @@ curse-fail-require-all = You must apply the four other curses first.
 
 curse-immune-fail = A strange force prevents you from cursing this being, your energy is wasted.
 curse-fail-robot = You cannot curse a machine.
+
+curse-not-anymore = You have been cured from the curses of an unknown spirit!

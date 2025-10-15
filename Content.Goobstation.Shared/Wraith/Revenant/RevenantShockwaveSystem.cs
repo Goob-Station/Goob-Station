@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Damage;
 using Content.Shared.Maps;
-using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -9,7 +8,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
@@ -61,10 +59,11 @@ public sealed class RevenantShockwaveSystem : EntitySystem
                 continue;
 
             _stun.KnockdownOrStun(entity, ent.Comp.KnockdownDuration, true, statusEffect);
-            _audio.PlayPredicted(ent.Comp.ShockSound, ent.Owner, ent.Owner);
         }
 
-        // args.Handled = true;
+        _audio.PlayPredicted(ent.Comp.ShockSound, ent.Owner, null);
+
+        args.Handled = true;
     }
 
     //TO DO: Add some sort of effect that telegraphs the use of the shockwave.

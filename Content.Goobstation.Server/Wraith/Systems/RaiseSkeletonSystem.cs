@@ -6,6 +6,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Mobs.Systems;
+
 namespace Content.Goobstation.Server.Wraith.Systems;
 
 public sealed class RaiseSkeletonSystem : EntitySystem
@@ -25,7 +26,6 @@ public sealed class RaiseSkeletonSystem : EntitySystem
 
     private void OnRaiseSkeleton(Entity<RaiseSkeletonComponent> ent, ref RaiseSkeletonEvent args)
     {
-
         // check if we targeted a locker, early return and deploy skeleton if yes
         if (TryComp<EntityStorageComponent>(args.Target, out var entStorage))
         {

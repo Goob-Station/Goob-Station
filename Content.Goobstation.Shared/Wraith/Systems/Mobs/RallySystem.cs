@@ -42,8 +42,6 @@ public sealed class RallySystem : EntitySystem
 
     private void OnEffectApplied(Entity<RalliedComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        //TO DO: Also increase attack speed.
-
         if (!TryComp<MeleeWeaponComponent>(args.Target, out var melee))
             return;
 

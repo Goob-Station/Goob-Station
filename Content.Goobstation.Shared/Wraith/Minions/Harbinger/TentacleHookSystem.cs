@@ -13,9 +13,6 @@ using Content.Shared.Stunnable;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
-/// <summary>
-/// TODO: ADD POPUP, SOUNDS AND SPRITES
-/// </summary>
 public sealed class TentacleHookSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _gun = default!;

@@ -1,20 +1,11 @@
 using Content.Goobstation.Shared.Wraith.Components;
-using Content.Goobstation.Shared.Wraith.Events;
-using Content.Goobstation.Shared.Wraith.Spook;
 using Content.Shared._White.RadialSelector;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Content.Shared.Doors.Components;
-using Content.Shared.Doors.Systems;
-using Content.Shared.Interaction;
-using Content.Shared.Magic.Events;
 using Content.Shared.Popups;
-using Content.Shared.Prototypes;
 using Content.Shared.UserInterface;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System.Linq;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -27,8 +18,6 @@ public sealed class SpookSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {

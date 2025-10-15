@@ -31,3 +31,9 @@ public sealed partial class BanishmentComponent : Component
 
 [ByRefEvent]
 public record struct BanishmentEvent(int Lives);
+
+/// <summary>
+/// Raised when your lives become 0
+/// </summary>
+[ByRefEvent]
+public record struct BanishmentDoneEvent;

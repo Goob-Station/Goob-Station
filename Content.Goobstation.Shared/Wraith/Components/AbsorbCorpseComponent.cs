@@ -1,6 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -52,6 +53,9 @@ public sealed partial class AbsorbCorpseComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? AbsorbSound = new SoundCollectionSpecifier("Wraith_SoulSucc");
+
+    [ViewVariables]
+    public ProtoId<TagPrototype> Tag = "VimPilot";
 }
 
 /// <summary>

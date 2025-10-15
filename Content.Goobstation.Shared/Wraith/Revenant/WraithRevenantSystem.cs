@@ -44,7 +44,6 @@ public sealed class WraithRevenantSystem : EntitySystem
         {
             if (amount < 0)
                 args.Damage.DamageDict[type] = 0;
-            // TODO: Popup here you cant heal
         }
     }
 

@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
+using Content.Shared.Revenant.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -22,11 +23,14 @@ public sealed partial class PossessObjectSystem : EntitySystem
         SubscribeLocalEvent<PossessObjectEvent>(OnChangeComponents);
     }
 
-    //TO DO: Make the wraith return to their body if they get killed as a possessed object.
-    //TO DO: Clean action bar for wraith, add an action for them to stop the possession. Revert this once it's over.
-    //TO DO: Prevent the use of the action while corporeal.
     private void OnPossess(Entity<PossessObjectComponent> ent, ref PossessObjectEvent args)
     {
+        if (!HasComp<CorporealComponent>(ent.Owner))
+        {
+            _popup.PopupClient(Loc.GetString("wraith-revenant-corporeal"), ent.Owner, ent.Owner);
+            return;
+        }
+
         if (!_mind.TryGetMind(args.Performer, out var mindId, out _))
             return;
 

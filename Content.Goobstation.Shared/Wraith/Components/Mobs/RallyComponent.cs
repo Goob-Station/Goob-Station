@@ -13,12 +13,18 @@ public sealed partial class RallyComponent : Component
     [DataField]
     public float RallyRange = 10f;
 
+    /// <summary>
+    /// Which entities are allowed to get rallied
+    /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist = new();
 
     [ViewVariables]
     public EntProtoId StatusEffectRally = "StatusEffectRally";
 
+    /// <summary>
+    /// How long the status effect lasts
+    /// </summary>
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(25);
 }

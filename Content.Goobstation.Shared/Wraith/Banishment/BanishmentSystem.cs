@@ -27,9 +27,16 @@ public sealed class BanishmentSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<BanishmentComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != ent.Comp.MobStateTrigger
-            || ent.Comp.Lives <= 0)
+        if (args.NewMobState != ent.Comp.MobStateTrigger)
             return;
+
+        if (ent.Comp.Lives <= 0)
+        {
+            var doneEv = new BanishmentDoneEvent();
+            RaiseLocalEvent(ent, ref doneEv);
+
+            return;
+        }
 
         if (_netManager.IsClient)
             return;

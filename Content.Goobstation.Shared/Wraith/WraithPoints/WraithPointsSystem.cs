@@ -1,9 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 

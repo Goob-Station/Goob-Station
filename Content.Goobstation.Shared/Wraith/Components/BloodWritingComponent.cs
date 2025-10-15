@@ -13,6 +13,9 @@ public sealed partial class BloodWritingComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? BloodCrayon;
 
+    /// <summary>
+    /// The name of the hand slot to put the blood crayon
+    /// </summary>
     [ViewVariables]
     public string HandName = "bloodCrayon";
 

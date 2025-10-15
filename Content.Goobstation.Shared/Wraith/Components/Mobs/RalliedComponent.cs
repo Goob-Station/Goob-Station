@@ -19,9 +19,15 @@ public sealed partial class RalliedComponent : Component
     [DataField]
     public float RalliedAttackSpeed = 1.5f;
 
+    /// <summary>
+    /// The original attack damage, in order to reset it later
+    /// </summary>
     [DataField, AutoNetworkedField]
     public DamageSpecifier? OriginalDamage;
 
+    /// <summary>
+    /// The original attack speed, in order to reset it later
+    /// </summary>
     [DataField, AutoNetworkedField]
     public float OriginalSpeed;
 }

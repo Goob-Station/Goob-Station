@@ -1,6 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared.Mobs;
-using Content.Shared.Module;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

@@ -4,7 +4,6 @@ using Content.Goobstation.Shared.Wraith.Spook;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Server.Actions;
 using Content.Server.Doors.Systems;
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
@@ -18,14 +17,12 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Xenoarchaeology.Artifact.XAE;
 
 namespace Content.Goobstation.Server.Wraith;
 

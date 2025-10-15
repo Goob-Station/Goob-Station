@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Actions;
 using Content.Server.Mind;
-using Content.Server.Polymorph.Systems;
 using Content.Shared._White.RadialSelector;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -56,7 +55,6 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
             || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind))
             return;
 
-        // TODO: Playtest this to make sure it works
         var coordinates = _transform.GetMoverCoordinates(ent.Owner);
         var newForm = Spawn(proto, coordinates);
 

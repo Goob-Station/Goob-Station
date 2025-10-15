@@ -1,14 +1,12 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebinger;
 
 public sealed partial class RatBiteSystem : EntitySystem
 {
@@ -28,10 +26,9 @@ public sealed partial class RatBiteSystem : EntitySystem
         var target = args.Target;
         var comp = ent.Comp;
 
-        if (args.Handled)
+        if (args.Handled || !TryInjectReagents(target, comp.Reagents))
             return;
 
-        TryInjectReagents(target, comp.Reagents);
         _popup.PopupClient(Loc.GetString("wraith-plaguerat-bite-you-message", ("target", target)), uid, uid);
         args.Handled = true;
     }

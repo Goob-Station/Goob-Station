@@ -1,5 +1,4 @@
 using Content.Shared.Destructible.Thresholds;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Spook;
 

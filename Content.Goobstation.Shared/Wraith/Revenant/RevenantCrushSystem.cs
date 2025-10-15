@@ -1,15 +1,12 @@
-using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Curses;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Gibbing.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
@@ -41,11 +38,9 @@ public sealed class RevenantCrushSystem : EntitySystem
         if (ent.Comp.InitialDamage == null)
             return;
 
-        // TO DO: popup here. Free hand required, cannot cast from inside a storage, and must target a human.
-
         if (HasComp<CurseImmuneComponent>(args.Target))
         {
-            _popup.PopupPredicted(Loc.GetString("revenant-crush-chaplain"), ent.Owner, args.Performer);
+            _popup.PopupClient(Loc.GetString("revenant-crush-chaplain"), ent.Owner, ent.Owner);
             return;
         }
 
@@ -63,7 +58,7 @@ public sealed class RevenantCrushSystem : EntitySystem
             DistanceThreshold = 15f,
         };
 
-        _popup.PopupPredicted(Loc.GetString("revenant-crush-start"), ent.Owner, args.Performer);
+        _popup.PopupClient(Loc.GetString("revenant-crush-start"), args.Target, args.Target, PopupType.MediumCaution);
         _doAfter.TryStartDoAfter(doAftersArgs);
         _audio.PlayPredicted(ent.Comp.CrushSound, args.Target, args.Target);
 
@@ -82,7 +77,7 @@ public sealed class RevenantCrushSystem : EntitySystem
         if (args.Cancelled || target == null)
             return;
 
-        _popup.PopupPredicted(Loc.GetString("revenant-crush-you"), target.Value, target.Value); // TO DO: Fix this. This pop-up is showing to UID even though it clearly says target as the value. FUck me
+        _popup.PopupClient(Loc.GetString("revenant-crush-you"), target.Value, target.Value);
         if (_netManager.IsServer) // this shit mispredicts, requires upstream prediction fix
             _body.GibBody(target.Value, splatModifier: 5f);
 

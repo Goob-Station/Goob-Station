@@ -33,11 +33,11 @@ public sealed partial class DecaySystem : EntitySystem
 
         if (emagEvent.Handled)
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-decay-object1", ("target", ent.Owner)), ent.Owner, ent.Owner);
+            _popup.PopupClient(Loc.GetString("wraith-decay-object1", ("target", ent.Owner)), ent.Owner, ent.Owner);
             args.Handled = true;
             return;
         }
 
-        _popup.PopupPredicted(Loc.GetString("wraith-decay-nothing"), ent.Owner, ent.Owner);
+        _popup.PopupClient(Loc.GetString("wraith-decay-nothing"), ent.Owner, ent.Owner);
     }
 }

@@ -34,5 +34,9 @@ public sealed partial class EatFilthComponent : Component
     public EntityWhitelist? AllowedEntities = new();
 }
 
+/// <summary>
+/// Raised once you eat filth
+/// </summary>
+/// <param name="CurrentFilthConsumed"></param> The current filth that has been consumed by the entity
 [ByRefEvent]
 public record struct AteFilthEvent(int CurrentFilthConsumed);

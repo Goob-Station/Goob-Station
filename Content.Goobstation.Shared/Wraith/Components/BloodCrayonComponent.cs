@@ -1,6 +1,8 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Goobstation.Shared.Wraith.Components;
-//Ported from Impstation
-[RegisterComponent]
+
+[RegisterComponent, NetworkedComponent]
 public sealed partial class BloodCrayonComponent : Component
 {
     /// <summary>

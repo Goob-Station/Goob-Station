@@ -26,7 +26,6 @@ public sealed class SpikerShuffleSystem : EntitySystem
         SubscribeLocalEvent<SpikerShuffleEffectComponent, StatusEffectRemovedEvent>(OnRemoved);
     }
 
-    // TO DO: Prevent usage of other abilities while shuffled.
     private void OnSpikerShuffle(Entity<SpikerShuffleComponent> ent, ref SpikerShuffleEvent args)
     {
         // first remove all status effects
@@ -41,7 +40,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
 
     private void OnApplied(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        _popup.PopupClient("You are shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
+        _popup.PopupClient(Loc.GetString("wraith-spiker-shuffle"), args.Target, args.Target, PopupType.Medium);
         _appearance.SetData(args.Target, ShuffleVisuals.Shuffling, true);
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)
@@ -55,7 +54,7 @@ public sealed class SpikerShuffleSystem : EntitySystem
 
     private void OnRemoved(Entity<SpikerShuffleEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        _popup.PopupClient("You are not shuffled", args.Target, args.Target, PopupType.Medium); // TO DO: Remove this and add the sprite change you chud.
+        _popup.PopupClient(Loc.GetString("wraith-spiker-shuffle-removed"), args.Target, args.Target, PopupType.Medium);
         _appearance.SetData(args.Target, ShuffleVisuals.Shuffling, false);
 
         if (TryComp<FixturesComponent>(args.Target, out var fixtures) && fixtures.FixtureCount >= 1)

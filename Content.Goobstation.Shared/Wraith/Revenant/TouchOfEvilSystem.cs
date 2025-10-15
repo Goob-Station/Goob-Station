@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared._White.Grab;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -13,6 +14,7 @@ public sealed class TouchOfEvilSystem : EntitySystem
     [Dependency] private readonly GrabThrownSystem _throw = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -54,6 +56,8 @@ public sealed class TouchOfEvilSystem : EntitySystem
             || !TryComp<MeleeWeaponComponent>(args.Target, out var melee))
             return;
 
+        _popups.PopupClient(Loc.GetString("revenant-touch-of-evil-start"), args.Target, args.Target, PopupType.LargeCaution);
+
         touch.OriginalDamage = melee.Damage;
         touch.Active = true;
         ent.Comp.ThrowSpeed = touch.ThrowSpeed;
@@ -69,6 +73,8 @@ public sealed class TouchOfEvilSystem : EntitySystem
             || !TryComp<MeleeWeaponComponent>(args.Target, out var melee)
             || touch.OriginalDamage == null)
             return;
+
+        _popups.PopupClient(Loc.GetString("revenant-touch-of-evil-end"), args.Target, args.Target, PopupType.Medium);
 
         melee.Damage = touch.OriginalDamage;
         Dirty(args.Target, melee);

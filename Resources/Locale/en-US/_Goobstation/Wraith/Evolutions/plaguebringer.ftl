@@ -16,3 +16,5 @@ wraith-rot-hulk-abomination = The filth accumulates into a living bloated abomin
 wraith-rot-hulk-goliath = The great amount of filth coalesces into a rotting goliath
 wraith-rot-hulk-emerge = A rot hulk slowly rises up from the coalesced filth!
 wraith-rot-hulk-strong-emerge = A rot hulk slowly emerges from the gigantic pile of grime!
+
+wraith-plague-absorb-corpse = You absorbed the corpse, may the rot begin.

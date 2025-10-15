@@ -1,4 +1,3 @@
-using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;

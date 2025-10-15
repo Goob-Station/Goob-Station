@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
@@ -6,13 +5,12 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
@@ -27,6 +25,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -41,16 +40,22 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         var user = args.Performer;
         var target = args.Target;
 
+        if (_tag.HasTag(args.Target, ent.Comp.Tag)) // save the monkeys
+            return;
+
         if (!_mobState.IsDead(target))
         {
-            _popup.PopupPredicted(Loc.GetString("wraith-absorb-living"), user, user);
+            _popup.PopupClient(Loc.GetString("wraith-absorb-living"), user, user);
             return;
         }
 
         // user already absorbed, stop there
         if (TryComp<WraithAbsorbableComponent>(args.Target, out var absorbable)
             && absorbable.Absorbed)
+        {
+            _popup.PopupClient(Loc.GetString("wraith-absorb-already"), ent.Owner, ent.Owner);
             return;
+        }
 
         var ev = new AbsorbCorpseAttemptEvent(args.Target);
         RaiseLocalEvent(args.Performer, ref ev);
@@ -64,7 +69,10 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
 
         if (_rotting.IsRotten(target))
-            return; // popup here
+        {
+            _popup.PopupClient(Loc.GetString("wraith-absorb-too-decomposed"), user, user);
+            return;
+        }
 
         // do reagent checking logic, if true activate cooldown
         if (RemoveReagent(args.Target, ent))
@@ -109,14 +117,15 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         if (toxinDamage >= 60 || perish.Stage > 2)
         {
             _wraithPoints.AdjustWraithPoints(150, ent.Owner);
+            _wraithPoints.AdjustWpGenerationRate(0.2, ent.Owner);
             if (_netManager.IsServer)
                 _body.GibBody(args.Target);
 
-            // popup here
+            _popup.PopupClient(Loc.GetString("wraith-absorb-rotbonus"), ent.Owner, ent.Owner, PopupType.Medium);
         }
         else if (toxinDamage < 30 && perish.Stage <= 2)
         {
-            // popup here
+            _popup.PopupClient(Loc.GetString("wraith-absorb-fresh"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             args.Cancelled = true;
         }
 
@@ -132,7 +141,6 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             || !_solution.ResolveSolution(target, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
             return false;
 
-        //Part 2 TO DO: Add formaldehyde, a chemical that prevents rotting of corpses.
         foreach (var (reagentId, qty) in chemSolution.Contents)
         {
             if (reagentId.Prototype != ent.Comp.Reagent || qty < ent.Comp.FormaldehydeThreshhold)

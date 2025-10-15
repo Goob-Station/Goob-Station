@@ -1,7 +1,6 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Wraith;
+namespace Content.Goobstation.Shared.Wraith.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FadingInComponent : Component
@@ -9,7 +8,7 @@ public sealed partial class FadingInComponent : Component
     /// <summary>
     /// Time in seconds for the sprite to fade in from 0 → 1
     /// </summary>
-    [DataField("fadeInTime")]
+    [DataField]
     public float FadeInTime = 1f;
 
     /// <summary>

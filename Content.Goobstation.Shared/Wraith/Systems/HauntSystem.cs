@@ -2,8 +2,6 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
 using Content.Shared.Interaction;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Actions;
 using Content.Shared.Flash.Components;

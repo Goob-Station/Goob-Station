@@ -2,7 +2,9 @@ using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Revenant.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -13,6 +15,7 @@ public sealed class MakeRevenentSystem : EntitySystem
     [Dependency] private readonly WraithPossessedSystem _wraithPossessed = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -23,13 +26,22 @@ public sealed class MakeRevenentSystem : EntitySystem
     //TO DO: Add action for wraith to leave body
     private void OnMakeRevenant(Entity<MakeRevenantComponent> ent, ref MakeRevenantEvent args)
     {
+        if (!HasComp<CorporealComponent>(ent.Owner))
+        {
+            _popup.PopupClient(Loc.GetString("wraith-revenant-corporeal"), ent.Owner, ent.Owner);
+            return;
+        }
+
         if (!_mind.TryGetMind(ent.Owner, out var mindId, out _))
             return;
 
         if (!HasComp<WraithAbsorbableComponent>(args.Target)
             || !TryComp<PerishableComponent>(args.Target, out var perishComp)
             || perishComp.Stage != 1) // should have been an enum... anyways: 1 means its a fresh corpse
-            return; // todo: popup here
+        {
+            _popup.PopupClient("wraith-absorb-too-decomposed", ent.Owner, ent.Owner);
+            return;
+        }
 
         if (_netManager.IsClient)
             return;

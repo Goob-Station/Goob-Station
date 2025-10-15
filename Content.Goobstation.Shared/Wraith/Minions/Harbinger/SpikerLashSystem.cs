@@ -23,9 +23,9 @@ public sealed class SpikerLashSystem : EntitySystem
 
     private void OnSpikerLash(Entity<SpikerLashComponent> ent, ref SpikerLashEvent args)
     {
-        _popup.PopupClient(Loc.GetString("wraith-spiker-lash", ("user", ent.Owner), ("target", args.Target)), ent.Owner, ent.Owner);
+        _popup.PopupPredicted(Loc.GetString("wraith-spiker-lash", ("user", ent.Owner), ("target", args.Target)), ent.Owner, ent.Owner, PopupType.MediumCaution);
         _audio.PlayPredicted(ent.Comp.LashSound, ent.Owner, args.Target);
-        _stunSystem.TryKnockdown(args.Target, ent.Comp.KnockdownDuration, false);
+        _stunSystem.TryKnockdown(args.Target, ent.Comp.KnockdownDuration, true);
 
         if (!TryComp<BloodstreamComponent>(args.Target, out var blood))
             return;

@@ -16,6 +16,9 @@ public sealed partial class DefileComponent : Component
     [DataField(required: true)]
     public Dictionary<EntProtoId, FixedPoint2> Reagents = new();
 
+    /// <summary>
+    /// This is used for the UI to show the reagents
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public List<ListViewSelectorEntry> ReagentsEntryList = new();
 

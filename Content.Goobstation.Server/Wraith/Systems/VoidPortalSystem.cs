@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Robust.Shared.Map;

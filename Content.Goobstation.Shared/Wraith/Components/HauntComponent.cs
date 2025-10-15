@@ -1,9 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.StatusEffect;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using System.Numerics;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 
@@ -56,12 +53,21 @@ public sealed partial class HauntComponent : Component
     [DataField]
     public EntProtoId CorporealEffect = "Corporeal";
 
+    /// <summary>
+    /// Is the action active?
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Active;
 
+    /// <summary>
+    /// Is the wp boost active?
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool WpBoostActive;
 
+    /// <summary>
+    /// How long the haunt lasts
+    /// </summary>
     [DataField]
     public TimeSpan HauntDuration = TimeSpan.FromSeconds(30);
 
@@ -73,9 +79,6 @@ public sealed partial class HauntComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public TimeSpan WitnessNextUpdate;
-
-    [ViewVariables]
-    public HashSet<EntityUid> Witnesses = new();
 
     [ViewVariables]
     public FixedPoint2 OriginalWpRegen;

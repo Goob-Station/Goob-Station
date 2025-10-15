@@ -7,7 +7,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
 public sealed class RushdownSystem : EntitySystem
@@ -53,9 +52,6 @@ public sealed class RushdownSystem : EntitySystem
         ent.Comp.IsLeaping = false;
         Dirty(ent);
 
-        var xform = Transform(ent);
-        var position = xform.Coordinates;
-
         // define how far the stun AOE reaches
         var range = ent.Comp.LandShockwaveRange;
 
@@ -72,8 +68,9 @@ public sealed class RushdownSystem : EntitySystem
                 continue;
 
             _stun.KnockdownOrStun(target, ent.Comp.CollideKnockdown, true, status);
-            _audio.PlayPredicted(ent.Comp.ShockwaveSound, ent.Owner, null); //This might be playing twice for some reason. Should be fine though.
         }
+
+        _audio.PlayPredicted(ent.Comp.ShockwaveSound, ent.Owner, null);
     }
 
     private void OnStopThrow(Entity<RushdownComponent> ent, ref StopThrowEvent args)
@@ -83,7 +80,7 @@ public sealed class RushdownSystem : EntitySystem
     }
     private void OnRushdown(Entity<RushdownComponent> ent, ref RushdownEvent args)
     {
-        _popup.PopupPredicted(Loc.GetString("wraith-voidhound-rushdown-leap"), ent.Owner, ent.Owner);
+        _popup.PopupClient(Loc.GetString("wraith-voidhound-rushdown-leap"), ent.Owner, ent.Owner);
 
         ent.Comp.IsLeaping = true;
         Dirty(ent);

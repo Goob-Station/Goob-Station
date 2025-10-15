@@ -1,7 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wraith.Components;
 

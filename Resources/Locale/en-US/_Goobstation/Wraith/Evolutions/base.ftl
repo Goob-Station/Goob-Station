@@ -64,3 +64,4 @@ wraith-absorb-draw2 = You drain the last scraps of life out of the corpse!
 wraith-absorb-smoke1 = Black smoke rises from the corpse! Freaky!
 wraith-absorb-smoke2 = The corpse suddenly rots to nothing but bone in moments!
 wraith-absorb-fresh = This body is too fresh. It needs to be poisoned or rotten before we consume it.
+wraith-absorb-already = This corpse has already been absorbed!

@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Network;
