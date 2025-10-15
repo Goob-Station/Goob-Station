@@ -68,8 +68,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCargomedal
-  name: cargo medal
-  description: Given for the best work in the cargo department.
+  name: logistics medal
+  description: Given for the best work in the logistical department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup

@@ -116,7 +116,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieSharkCargo
-  name: cargo shark soft toy
+  name: logistics shark soft toy
   description: Can we order a big fishtank for this one?
   components:
   - type: Sprite

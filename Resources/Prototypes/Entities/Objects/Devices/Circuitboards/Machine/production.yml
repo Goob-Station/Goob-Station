@@ -1332,8 +1332,8 @@
 - type: entity
   id: CargoTelepadMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: cargo telepad machine board
-  description: A machine printed circuit board for a cargo telepad.
+  name: logistics telepad machine board
+  description: A machine printed circuit board for a logistics telepad.
   components:
     - type: Sprite
       state: supply

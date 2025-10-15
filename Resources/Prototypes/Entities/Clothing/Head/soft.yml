@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatCargosoft
-  name: cargo cap
-  description: A baseball cap colored to match cargo's uniforms.
+  name: logistics cap
+  description: A baseball cap colored to match logistics' uniforms.
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/cargosoft.rsi
@@ -100,7 +100,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatCargosoft]
   id: ClothingHeadHatCargosoftFlipped
-  name: cargo cap
+  name: logistics cap
   components:
   - type: Tag
     tags:
@@ -112,8 +112,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatQMsoft
-  name: quartermaster's cap
-  description: A baseball cap colored to match the Quartermaster's uniform.
+  name: logistics officer's cap
+  description: A baseball cap colored to match the logistics officer's uniform.
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft.rsi
@@ -123,7 +123,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatQMsoft]
   id: ClothingHeadHatQMsoftFlipped
-  name: quartermaster's cap
+  name: logistics officer's cap
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable

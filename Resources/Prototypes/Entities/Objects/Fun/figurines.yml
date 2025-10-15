@@ -270,8 +270,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineCargoTech
-  name: cargo technican figure
-  description: A figurine depicting a reptillian Cargo Technican.
+  name: logistics technican figure
+  description: A figurine depicting a reptillian Logistics Technican.
   components:
   - type: Sprite
     state: cargotech
@@ -292,8 +292,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineQuartermaster
-  name: quartermaster figure
-  description: A figurine depicting the glorious head of the Cargo department.
+  name: logistics officer figure
+  description: A figurine depicting the glorious head of the Logistics department.
   components:
   - type: Sprite
     state: qm

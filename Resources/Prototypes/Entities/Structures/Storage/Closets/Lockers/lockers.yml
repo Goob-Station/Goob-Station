@@ -80,7 +80,7 @@
 - type: entity
   id: LockerQuarterMaster
   parent: LockerBaseSecure
-  name: quartermaster's locker
+  name: logistics officer's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

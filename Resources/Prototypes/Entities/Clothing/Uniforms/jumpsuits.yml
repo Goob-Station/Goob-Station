@@ -222,8 +222,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargo
-  name: cargo tech jumpsuit
-  description: A sturdy jumpsuit, issued to members of the Cargo department.
+  name: logistics tech jumpsuit
+  description: A sturdy jumpsuit, issued to members of the Logistics department.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
@@ -663,7 +663,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQM
-  name: quartermaster's jumpsuit
+  name: logistics officer's jumpsuit
   description: 'What can brown do for you?'
   components:
   - type: Sprite
@@ -674,8 +674,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: logistics officer's turtleneck
+  description: A sharp turtleneck made for the hardy work environment of logistics.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
@@ -685,8 +685,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMFormal
-  name: quartermasters's formal suit
-  description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
+  name: logistics officer's formal suit
+  description: Inspired by the logistics officer's of military's past, the perfect outfit for supplying a formal occasion.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi

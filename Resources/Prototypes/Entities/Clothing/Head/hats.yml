@@ -330,8 +330,8 @@
 - type: entity
   parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretQM
-  name: quartermaster's beret
-  description: A beret with the cargo department's insignia.
+  name: logistics officer's beret
+  description: A beret with the logistical department's insignia.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_qm.rsi

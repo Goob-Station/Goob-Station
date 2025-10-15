@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 ## UI
-cargo-console-menu-title = Cargo request console
+cargo-console-menu-title = logistics request console
 cargo-console-menu-account-name-label = Account:{" "}
 cargo-console-menu-account-name-none-text = None
 cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font="Monospace"]\[{$code}\][/font]
@@ -76,11 +76,11 @@ cargo-console-paper-print-text = [head=2]Order #{$orderNumber}[/head]
     {"[bold]Reason:[/bold]"} {$reason}
 
 # Cargo shuttle console
-cargo-shuttle-console-menu-title = Cargo shuttle console
+cargo-shuttle-console-menu-title = logistics shuttle console
 cargo-shuttle-console-station-unknown = Unknown
 cargo-shuttle-console-shuttle-not-found = Not found
 cargo-shuttle-console-organics = Detected organic lifeforms on the shuttle
-cargo-no-shuttle = No cargo shuttle found!
+cargo-no-shuttle = No logistics shuttle found!
 
 # Funding allocation console
 cargo-funding-alloc-console-menu-title = Funding Allocation Console
@@ -89,10 +89,10 @@ cargo-funding-alloc-console-label-code = [bold] Code [/bold]
 cargo-funding-alloc-console-label-balance = [bold] Balance [/bold]
 cargo-funding-alloc-console-label-cut = [bold] Revenue Division (%) [/bold]
 
-cargo-funding-alloc-console-label-primary-cut = Cargo's cut of funds from non-lockbox sources (%):
-cargo-funding-alloc-console-label-lockbox-cut = Cargo's cut of funds from lockbox sales (%):
+cargo-funding-alloc-console-label-primary-cut = logistics' cut of funds from non-lockbox sources (%):
+cargo-funding-alloc-console-label-lockbox-cut = logistics' cut of funds from lockbox sales (%):
 
-cargo-funding-alloc-console-label-help-non-adjustible = Cargo receives {$percent}% of profits from non-lockbox sales. The rest is split as specified below:
+cargo-funding-alloc-console-label-help-non-adjustible = logistics receives {$percent}% of profits from non-lockbox sales. The rest is split as specified below:
 cargo-funding-alloc-console-label-help-adjustible = Remaining funds from non-lockbox sources are distributed as specified below:
 cargo-funding-alloc-console-button-save = Save Changes
 cargo-funding-alloc-console-label-save-fail = [bold]Revenue Divisions Invalid![/bold] [color=red]({$pos ->

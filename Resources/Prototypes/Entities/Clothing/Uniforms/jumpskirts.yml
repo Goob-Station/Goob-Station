@@ -141,8 +141,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCargo
-  name: cargo tech jumpskirt
-  description: A sturdy jumpskirt, issued to members of the Cargo department.
+  name: logistics tech jumpskirt
+  description: A sturdy jumpskirt, issued to members of the Logistics department.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
@@ -460,7 +460,7 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtQM
-  name: quartermaster's jumpskirt
+  name: logistics officer's jumpskirt
   description: 'What can brown do for you?'
   components:
   - type: Sprite
@@ -471,8 +471,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: logistics officer's turtleneck
+  description: A sharp turtleneck made for the hardy work environment of logistics.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi

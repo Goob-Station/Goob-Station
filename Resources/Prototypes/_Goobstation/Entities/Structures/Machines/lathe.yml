@@ -90,8 +90,8 @@
 - type: entity
   id: CargoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: cargo techfab
-  description: Prints equipment and circuitboards for use by cargo department.
+  name: logistics techfab
+  description: Prints equipment and circuitboards for use by logistics department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi

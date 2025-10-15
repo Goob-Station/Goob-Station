@@ -27,8 +27,8 @@
 - type: entity
   id: CargoTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: cargo techfab machine board
-  description: A machine printed circuit board for a cargo techfab.
+  name: logistics techfab machine board
+  description: A machine printed circuit board for a logistics techfab.
   components:
   - type: Sprite
     state: engineering

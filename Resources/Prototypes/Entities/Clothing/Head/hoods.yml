@@ -426,7 +426,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCargo
   categories: [ HideSpawnMenu ]
-  name: cargo winter coat hood
+  name: logistics winter coat hood
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
@@ -581,7 +581,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterQM
   categories: [ HideSpawnMenu ]
-  name: quartermaster's coat hood
+  name: logistics officer's coat hood
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi

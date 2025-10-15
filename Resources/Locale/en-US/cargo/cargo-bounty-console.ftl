@@ -8,7 +8,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-bounty-console-menu-title = Cargo bounty console
+bounty-console-menu-title = logistics bounty console
 bounty-console-label-button-text = Print label
 bounty-console-skip-button-text = Skip
 bounty-console-time-label = Time: [color=orange]{$time}[/color]
@@ -26,7 +26,7 @@ bounty-console-id-label = ID#{$id}
 bounty-console-flavor-left = Bounties sourced from local unscrupulous dealers.
 bounty-console-flavor-right = v1.4
 
-bounty-manifest-header = [font size=14][bold]Official cargo bounty manifest[/bold] (ID#{$id})[/font]
+bounty-manifest-header = [font size=14][bold]Official logistics bounty manifest[/bold] (ID#{$id})[/font]
 bounty-manifest-list-start = Item manifest:
 
 bounty-console-tab-available-label = Available

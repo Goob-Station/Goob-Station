@@ -435,8 +435,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleCargo
-  name: cargo shuttle console
-  description: Used to pilot the cargo shuttle.
+  name: logistics shuttle console
+  description: Used to pilot the logistics shuttle.
   components:
   - type: Sprite
     layers:
@@ -1081,7 +1081,7 @@
 - type: entity
   id: ComputerCargoOrders
   parent: BaseComputerAiAccess
-  name: cargo request computer
+  name: logistics request computer
   description: Used to order supplies and approve requests.
   components:
   - type: Sprite
@@ -1299,7 +1299,7 @@
 - type: entity
   id: ComputerCargoBounty
   parent: BaseComputerAiAccess
-  name: cargo bounty computer
+  name: logistics bounty computer
   description: Used to manage currently active bounties.
   components:
   - type: Sprite
@@ -1598,8 +1598,8 @@
 - type: entity
   id: ComputerPalletConsole
   parent: BaseComputerAiAccess
-  name: cargo sale computer
-  description: Used to sell goods loaded onto cargo pallets.
+  name: logistics sale computer
+  description: Used to sell goods loaded onto logistics pallets.
   components:
   - type: Sprite
     layers:
