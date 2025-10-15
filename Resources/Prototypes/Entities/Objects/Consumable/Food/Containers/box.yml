@@ -605,7 +605,7 @@
         orGroup: GiftPool
       - id: ToyFigurinePassenger
         orGroup: GiftPool
-      - id: ToyGriffin
+      - id: ToyFigurineGriffin
         orGroup: GiftPool
       - id: ToyHonk
         orGroup: GiftPool
@@ -619,7 +619,7 @@
         orGroup: GiftPool
       - id: ToyOdysseus
         orGroup: GiftPool
-      - id: ToyOwlman
+      - id: ToyFigurineOwlman
         orGroup: GiftPool
       - id: ToyDeathRipley
         orGroup: GiftPool
@@ -635,7 +635,7 @@
         orGroup: GiftPool
       - id: ToyDurand
         orGroup: GiftPool
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
@@ -798,7 +798,7 @@
         orGroup: GiftPool
       - id: ToyFigurinePassenger
         orGroup: GiftPool
-      - id: ToyGriffin
+      - id: ToyFigurineGriffin
         orGroup: GiftPool
       - id: ToyHonk
         orGroup: GiftPool
@@ -812,7 +812,7 @@
         orGroup: GiftPool
       - id: ToyOdysseus
         orGroup: GiftPool
-      - id: ToyOwlman
+      - id: ToyFigurineOwlman
         orGroup: GiftPool
       - id: ToyDeathRipley
         orGroup: GiftPool
@@ -828,7 +828,7 @@
         orGroup: GiftPool
       - id: ToyDurand
         orGroup: GiftPool
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
@@ -875,7 +875,7 @@
         orGroup: GiftPool
       - id: ToyFigurinePassenger
         orGroup: GiftPool
-      - id: ToyGriffin
+      - id: ToyFigurineGriffin
         orGroup: GiftPool
       - id: ToyHonk
         orGroup: GiftPool
@@ -889,7 +889,7 @@
         orGroup: GiftPool
       - id: ToyOdysseus
         orGroup: GiftPool
-      - id: ToyOwlman
+      - id: ToyFigurineOwlman
         orGroup: GiftPool
       - id: ToyDeathRipley
         orGroup: GiftPool
@@ -905,7 +905,7 @@
         orGroup: GiftPool
       - id: ToyDurand
         orGroup: GiftPool
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
