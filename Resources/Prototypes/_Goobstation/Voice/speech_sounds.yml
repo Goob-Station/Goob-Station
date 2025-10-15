@@ -18,10 +18,10 @@
     collection: DuendeSounds
 
 - type: speechSounds
-  id: WraithSpeech
+  id: HellGoose
   saySound:
-    collection: Wraith_Whisper
+    collection: GooseSounds
   askSound:
-    collection: Wraith_Whisper
+    collection: GooseSounds
   exclaimSound:
-    collection: Wraith_Whisper
+    collection: GooseSounds
