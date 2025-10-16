@@ -217,5 +217,33 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         Dirty(ent);
     }
 
+    /// <summary>
+    ///     Immediately clears without ensuring (!) the cached lists of spoken and understood languages for the given entity.
+    /// </summary>
+    public void ClearEntityLanguages(Entity<LanguageSpeakerComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        var ev = new DetermineEntityLanguagesEvent();
+        // We add the intrinsically known languages first so other systems can manipulate them easily
+        if (TryComp<LanguageKnowledgeComponent>(ent, out var knowledge))
+        {
+            foreach (var spoken in knowledge.SpokenLanguages)
+                ev.SpokenLanguages.Remove(spoken);
+
+            foreach (var understood in knowledge.UnderstoodLanguages)
+                ev.UnderstoodLanguages.Remove(understood);
+        }
+
+        RaiseLocalEvent(ent, ref ev);
+
+        ent.Comp.SpokenLanguages.Clear();
+        ent.Comp.UnderstoodLanguages.Clear();
+
+        RaiseLocalEvent(ent, new LanguagesUpdateEvent());
+
+        Dirty(ent);
+    }
     #endregion
 }

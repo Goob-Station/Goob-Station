@@ -9,10 +9,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Chat;
 using Content.Shared.Containers;
+using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Containers;
-using Robust.Shared.Utility;
 
 
 namespace Content.Server._DV.AACTablet;
@@ -35,62 +36,56 @@ public sealed class AACTabletSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
+        SubscribeLocalEvent<AACTabletComponent, InteractUsingEvent>(OnLanguageKeyInsert);
+        SubscribeLocalEvent<AACTabletComponent, EncryptionKeySystem.EncryptionRemovalFinishedEvent>(OnLanguageKeyRemove);
     }
 
-    private void OnStartup(Entity<AACTabletComponent> ent, ContainerFillComponent container,
-        LanguageSpeakerComponent speaker, LanguageKnowledgeComponent outerKeyLanguageComp, ComponentStartup start)
+    private void OnStartup(Entity<AACTabletComponent> ent, ComponentStartup start)
     {
-        var comp = EnsureComp<LanguageSpeakerComponent>(ent); // Ensure they can speak language before adding language.
-        if (!HasComp<EncryptionKeyHolderComponent>(ent) ||
+        RefreshLanguages(ent);
+    }
+
+    private void RefreshLanguages(EntityUid ent)
+    {
+        if (
+            !HasComp<EncryptionKeyHolderComponent>(ent) ||
+            !TryComp<ContainerFillComponent>(ent, out var container) ||
+            !TryComp<LanguageSpeakerComponent>(ent, out var speaker) ||
             !container.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName,
                 out var containedLanguageKeyList)
            )
-            return;
-        RefreshLanguages(ent, containedLanguageKeyList, speaker);
-
-        if (outerKeyLanguageComp.SpokenLanguages.Contains("Universal")) // assume no key.
-            return;
-
-
-    }
-
-    private void RefreshLanguages(Entity<AACTabletComponent> ent, List<string>? containedLanguageKeyList, LanguageSpeakerComponent speaker)
-    {
-        if (containedLanguageKeyList == null)
             return;
 
         foreach (var languageKey in containedLanguageKeyList)
         {
             _prototype.TryIndex<EntityPrototype>(languageKey, out var languageKeyProto); // We're getting the languages from the key prototype NOT the tablet.
             if (languageKeyProto == null ||
-                !languageKeyProto.Components.TryGetValue(
-                    _compFactory
-                        .GetComponentName<
-                            LanguageKnowledgeComponent>(), // What the fuck is this horseshit i miss TryGetComponent
-                    out var reg))
+                !languageKeyProto.Components.TryGetValue(_compFactory.GetComponentName<LanguageKnowledgeComponent>(), // What the fuck is this horseshit i miss TryGetComponent
+                    out var reg)
+                )
                 continue;
             var innerKeyLanguageComp = (LanguageKnowledgeComponent)reg.Component;
-            innerKeyLanguageComp.SpokenLanguages.Clear();
-            _language.AddLanguage(ent,
-                innerKeyLanguageComp.SpokenLanguages
-                    .ToString()!, // if you give something a languagecomp without language thats your problem.
-                true, false); // we speak not listen.
+            _language.ClearEntityLanguages(ent);
+            _language.AddLanguage(ent, innerKeyLanguageComp.SpokenLanguages.FirstOrDefault());
+            _language.UpdateEntityLanguages(ent);
         }
 
-        speaker.CurrentLanguage =
-            speaker.SpokenLanguages.FirstOrDefault();
-        _language.UpdateEntityLanguages(ent.Owner);
+        speaker.CurrentLanguage = speaker.SpokenLanguages.FirstOrDefault().ToString();
+        _language.UpdateEntityLanguages(ent);
     }
 
-    private void OnLanguageKeyInsert(Entity<AACTabletComponent> ent, Entity<LanguageKnowledgeComponent> insertedKey)
+    private void OnLanguageKeyInsert(EntityUid ent, AACTabletComponent comp, InteractUsingEvent args)
     {
-        if (HasComp<EncryptionKeyComponent>(insertedKey)) // we dont care about radio keys.
+        if (!HasComp<LanguageKnowledgeComponent>(args.Used)) // we dont care about radio keys.
             return;
+        RefreshLanguages(args.Target);
+    }
 
-
-        var langContainerFill = _container.GetAllContainers(ent);
-        if (!_container.CanInsert(insertedKey), langContainerFill, )
+    private void OnLanguageKeyRemove(EntityUid ent, AACTabletComponent comp, EncryptionKeySystem.EncryptionRemovalFinishedEvent args)
+    {
+        if (args.Target == null)
             return;
+        RefreshLanguages(args.Target.Value);
     }
 
 private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
