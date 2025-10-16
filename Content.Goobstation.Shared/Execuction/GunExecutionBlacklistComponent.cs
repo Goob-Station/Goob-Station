@@ -1,4 +1,4 @@
-namespace Content.Shared.Execution;
+namespace Content.Goobstation.Shared.Execution;
 /// <summary>
 /// Used in any guns that shouldn't be able to be used for exucutions
 /// </summary>
