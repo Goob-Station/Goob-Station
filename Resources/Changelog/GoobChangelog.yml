@@ -16368,3 +16368,9 @@ Entries:
       message: Ore price of steel recipe in ore processor was increased.
   id: 1831
   time: '2025-10-16T07:16:42.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Add
+      message: Chaplain Claymore can now cut food.
+  id: 1832
+  time: '2025-10-16T07:20:53.0000000+00:00'
