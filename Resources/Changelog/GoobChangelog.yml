@@ -16462,3 +16462,17 @@ Entries:
       message: You can no longer go to CC by putting quantum spin inverters in mice.
   id: 1844
   time: '2025-10-16T09:53:47.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Remove
+      message: >-
+        Removed pre-injected acidifier implant from all Nuclear Operatives, use
+        the one in your backpack instead if you need it.
+  id: 1845
+  time: '2025-10-16T16:59:06.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Fix
+      message: Slings taking light damage while traveling through disposals
+  id: 1846
+  time: '2025-10-16T17:11:45.0000000+00:00'
