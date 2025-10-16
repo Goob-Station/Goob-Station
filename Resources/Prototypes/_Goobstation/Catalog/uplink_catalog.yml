@@ -1495,6 +1495,7 @@
         components:
         - SurplusBundle
   
+- type: listing
   id: UplinkSyndiedrobe
   name: uplink-syndiedrobe-name
   description: uplink-syndiedrobe-desc
