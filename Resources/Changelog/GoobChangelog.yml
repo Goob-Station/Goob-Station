@@ -16337,3 +16337,48 @@ Entries:
       message: Fixed Xenomorph evolution.
   id: 1827
   time: '2025-10-13T21:45:32.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: Bullets will now travel through open lockers.
+  id: 1828
+  time: '2025-10-16T02:43:26.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Captain, HOP, QM, HOS, CMO, CE, RD and the Nuke-ops commander are now
+        able to utilise a loudspeaker functionality via their over-ear headset.
+        Make your voice known.
+    - type: Add
+      message: >-
+        QM, Warden, HOP and Clown can now find a megaphone in their round-start
+        locker.
+  id: 1829
+  time: '2025-10-16T05:13:04.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: You can no longer burger borg modules (or other unremovable items)
+  id: 1830
+  time: '2025-10-16T07:15:49.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Ore price of steel recipe in ore processor was increased.
+  id: 1831
+  time: '2025-10-16T07:16:42.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Add
+      message: Chaplain Claymore can now cut food.
+  id: 1832
+  time: '2025-10-16T07:20:53.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Ibuprofen metabolization rate 0.25 > 0.15, making it last longer and
+        thus heal slightly more
+  id: 1833
+  time: '2025-10-16T07:21:13.0000000+00:00'
