@@ -106,7 +106,7 @@
       - DoorBumpOpener
       - FootstepSound
     - type: Megafauna
-      loot: AnomalyCoreShadow # Change to robes later
+      loot: ClothingOuterHasturRobes
     - type: Sprinter
     - type: CombatPower
       factor: 10 # times more dangerous than a crew-member
