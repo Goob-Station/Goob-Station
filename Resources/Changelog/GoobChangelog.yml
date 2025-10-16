@@ -16450,3 +16450,9 @@ Entries:
       message: Fixed shadowlings being zombifiable.
   id: 1842
   time: '2025-10-16T09:52:32.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: Adds a new coat for Warden, HoP, and RD.
+  id: 1843
+  time: '2025-10-16T09:53:02.0000000+00:00'
