@@ -26,5 +26,6 @@ namespace Content.Shared.Eye
         CosmicCultMonument = 1 << 4, // DeltaV - DeltaV - Cosmic Cult
         EldritchInfluence = 1 << 5, // Goobstation
         EldritchInfluenceSpent = 1 << 6, // Goobstation
+        Hallucination = 1 << 10, // Goobstation
     }
 }
