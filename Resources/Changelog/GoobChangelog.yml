@@ -16424,3 +16424,9 @@ Entries:
       message: Xenomorphs weed healing has been buffed.
   id: 1838
   time: '2025-10-16T09:48:44.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Accentless now works for yowies and rodentia
+  id: 1839
+  time: '2025-10-16T09:48:49.0000000+00:00'
