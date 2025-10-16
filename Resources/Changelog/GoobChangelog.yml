@@ -16470,3 +16470,9 @@ Entries:
         the one in your backpack instead if you need it.
   id: 1845
   time: '2025-10-16T16:59:06.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Fix
+      message: Slings taking light damage while traveling through disposals
+  id: 1846
+  time: '2025-10-16T17:11:45.0000000+00:00'
