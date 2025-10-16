@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components.Mobs;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Whitelist;
@@ -11,7 +12,9 @@ public sealed class RallySystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _status = default!;
+
+    private readonly HashSet<Entity<MeleeWeaponComponent>> _melee = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -25,9 +28,10 @@ public sealed class RallySystem : EntitySystem
     private void OnRally(Entity<RallyComponent> ent, ref RallyEvent args)
     {
         // Get all entities in range of the rally
-        var nearbyEntities = _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.RallyRange);
+        _melee.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.RallyRange, _melee);
 
-        foreach (var affected in nearbyEntities)
+        foreach (var affected in _melee)
         {
             if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, affected))
                 continue;

@@ -1,10 +1,12 @@
 using System.Linq;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
@@ -39,10 +41,12 @@ public sealed class WraithCommandSystem : EntitySystem
         if (_netManager.IsClient)
             return;
 
-        var entities = _lookupSystem.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange).ToList();
-        _random.Shuffle(entities);
+        var found = new HashSet<Entity<PullableComponent>>();
+        _lookupSystem.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.SearchRange, found);
+        var foundList = found.ToList();
+        _random.Shuffle(foundList);
 
-        foreach (var entity in entities)
+        foreach (var entity in foundList)
         {
             if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
                 continue;

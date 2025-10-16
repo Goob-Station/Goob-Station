@@ -14,6 +14,7 @@
         Airloss: -3
         Toxin: -3
         Genetic: -3
+    delay: 9
   - type: TimedSpawner
     prototypes:
     - MobMadRat

@@ -57,10 +57,9 @@
     - ActionWhisper
     - ActionBloodWriting
     - ActionSpook
-    - ActionToggleGhostHearingWraith
     - ActionToggleGhosts
     - ActionToggleLighting
-    
+
 - type: entity
   id: HarbingerAbilities
   name: Harbinger Abilities

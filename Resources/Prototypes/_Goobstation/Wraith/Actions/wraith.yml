@@ -5,7 +5,7 @@
 #    wpConsume: int -> Amount of Wraith Points to remove
 
 # Base Wraith Actions
-- type: entity
+- type: entity # Unused - Requires Rework of ghost system to allow re-usable actions
   parent: ActionToggleGhostHearing
   id: ActionToggleGhostHearingWraith
   components:

@@ -17,12 +17,10 @@ public sealed class RushdownSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
+    private readonly HashSet<Entity<StatusEffectsComponent>> _statusEffects = new();
     public override void Initialize()
     {
         base.Initialize();
-
-        _statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
 
         SubscribeLocalEvent<RushdownComponent, RushdownEvent>(OnRushdown);
         SubscribeLocalEvent<RushdownComponent, StartCollideEvent>(OnCollide);
@@ -55,19 +53,15 @@ public sealed class RushdownSystem : EntitySystem
         // define how far the stun AOE reaches
         var range = ent.Comp.LandShockwaveRange;
 
-        // find nearby entities
-        var nearby = _lookup.GetEntitiesInRange(ent.Owner, range);
+        _statusEffects.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, range, _statusEffects);
 
-        foreach (var target in nearby)
+        foreach (var target in _statusEffects)
         {
-            if (target == ent.Owner) // skip self
+            if (target.Owner == ent.Owner) // skip self
                 continue;
 
-            // only affect things that can be stunned
-            if (!_statusEffectsQuery.TryComp(target, out var status))
-                continue;
-
-            _stun.KnockdownOrStun(target, ent.Comp.CollideKnockdown, true, status);
+            _stun.KnockdownOrStun(target, ent.Comp.CollideKnockdown, true);
         }
 
         _audio.PlayPredicted(ent.Comp.ShockwaveSound, ent.Owner, null);

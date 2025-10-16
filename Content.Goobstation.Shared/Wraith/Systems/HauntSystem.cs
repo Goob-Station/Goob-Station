@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Robust.Shared.Timing;
 using Content.Shared.Actions;
 using Content.Shared.Flash.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
@@ -23,6 +24,9 @@ public sealed partial class HauntSystem : EntitySystem
 
     private EntityQuery<HauntedComponent> _hauntQuery;
     private EntityQuery<WraithAbsorbableComponent> _wraithAbsorbableQuery;
+
+    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoid = new();
+    private readonly HashSet<Entity<StatusEffectsComponent>> _statusEffects = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -66,14 +70,15 @@ public sealed partial class HauntSystem : EntitySystem
             // constantly check for witnesses
             if (_timing.CurTime >= haunt.WitnessNextUpdate)
             {
-                var lookup = _lookup.GetEntitiesInRange(uid, 10f); // 10f should cover your view-range
-                foreach (var entity in lookup)
+                _humanoid.Clear();
+                _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f, _humanoid); // 10f should cover your view-range
+                foreach (var entity in _humanoid)
                 {
                     // skip if we are already haunted, or if we cant be haunted
                     if (_hauntQuery.HasComp(entity) || !_wraithAbsorbableQuery.HasComp(entity))
                         continue;
 
-                    if (!_interact.InRangeUnobstructed(uid, entity, 10f))
+                    if (!_interact.InRangeUnobstructed(uid, entity.Owner, 10f))
                         continue;
 
                     EnsureComp<HauntedComponent>(entity);
@@ -102,8 +107,10 @@ public sealed partial class HauntSystem : EntitySystem
 
         _popupSystem.PopupClient(Loc.GetString("wraith-haunt-show"), ent.Owner, ent.Owner, PopupType.MediumCaution);
         // flash people nearby
-        var lookup = _lookup.GetEntitiesInRange(ent.Owner, 3f);
-        foreach (var entity in lookup)
+
+        _statusEffects.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, 3f, _statusEffects);
+        foreach (var entity in _statusEffects)
             _statusEffectsOld.TryAddStatusEffect<FlashedComponent>(entity,
                 ent.Comp.FlashedId,
                 ent.Comp.HauntFlashDuration,
