@@ -225,7 +225,7 @@
     - id: GoldenBikeHorn
     - id: ClothingHeadHatCatEars
     - id: GoldenPersonalAI
-    - id: TreasureCoinDiamond
+    - id: CoinDiamond
       amount: !type:RangeNumberSelector
         range: 2, 5
     - !type:NestedSelector

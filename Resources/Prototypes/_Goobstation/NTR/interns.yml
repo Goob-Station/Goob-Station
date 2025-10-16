@@ -39,8 +39,8 @@
   description: Toss to summon an intern.
   components:
   - type: Sprite
-    sprite: Objects/Misc/coins.rsi
-    state: coin_gold
+    sprite: Objects/Fun/coins.rsi
+    state: coin_gold_tails
   - type: GhostRole
     name: ghost-role-intern-name
     description: ghost-role-intern-desc
@@ -59,8 +59,8 @@
   description: Toss to summon a nerd intern.
   components:
   - type: Sprite
-    sprite: Objects/Misc/coins.rsi
-    state: coin_silver
+    sprite: Objects/Fun/coins.rsi
+    state: coin_silver_tails
   - type: GhostRole
     name: ghost-role-nerd-intern-name
     description: ghost-role-intern-desc
