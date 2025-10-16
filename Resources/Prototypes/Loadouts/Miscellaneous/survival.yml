@@ -138,6 +138,7 @@
     - Chitinid # DeltaV
     - Shadowkin
 
+# Goobstation start
 - type: loadoutEffectGroup
   id: HarnessWearers
   effects:
@@ -145,6 +146,7 @@
     species:
     - Vox
     - Plasmaman
+# Goobstation end
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
