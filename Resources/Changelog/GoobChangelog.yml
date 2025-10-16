@@ -16362,3 +16362,9 @@ Entries:
       message: You can no longer burger borg modules (or other unremovable items)
   id: 1830
   time: '2025-10-16T07:15:49.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Ore price of steel recipe in ore processor was increased.
+  id: 1831
+  time: '2025-10-16T07:16:42.0000000+00:00'
