@@ -887,7 +887,7 @@
       amount: -10
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
+      metabolismRate: 0.15
       effects:
       - !type:SuppressPain
         amount: 10
