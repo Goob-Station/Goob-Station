@@ -16374,3 +16374,11 @@ Entries:
       message: Chaplain Claymore can now cut food.
   id: 1832
   time: '2025-10-16T07:20:53.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Ibuprofen metabolization rate 0.25 > 0.15, making it last longer and
+        thus heal slightly more
+  id: 1833
+  time: '2025-10-16T07:21:13.0000000+00:00'
