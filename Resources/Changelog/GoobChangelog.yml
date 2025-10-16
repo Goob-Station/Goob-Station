@@ -16416,3 +16416,11 @@ Entries:
       message: Fixed - Xenomorph Facehuggers throwing works properly
   id: 1837
   time: '2025-10-16T09:47:10.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Resin Structures now have more health.
+    - type: Tweak
+      message: Xenomorphs weed healing has been buffed.
+  id: 1838
+  time: '2025-10-16T09:48:44.0000000+00:00'
