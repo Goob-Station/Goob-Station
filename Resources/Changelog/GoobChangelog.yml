@@ -16410,3 +16410,9 @@ Entries:
         lifetime increased from 12 => 60 seconds.
   id: 1836
   time: '2025-10-16T09:43:51.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed - Xenomorph Facehuggers throwing works properly
+  id: 1837
+  time: '2025-10-16T09:47:10.0000000+00:00'
