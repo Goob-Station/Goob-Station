@@ -5324,3 +5324,11 @@ Entries:
   id: 9111
   time: '2025-10-16T17:03:08.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39210
+- author: MilenVolf
+  changes:
+  - message: Go go hat's activation phrase can be reset to the default without having
+      to record it manually to reset the phrase.
+    type: Tweak
+  id: 9112
+  time: '2025-10-16T18:47:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35636
