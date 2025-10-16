@@ -38,9 +38,17 @@ job-name-governmentman = The G-Man
 job-name-conquest = Conquest
 job-name-mercenarycaptain = Mercenary Captain
 
+# event-restricted jobs
+job-name-security-clown = Security Clown
+job-name-command-maid = Command Maid
+job-name-party-maker = Party Maker
+
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = Blueshield Officer
+JobCommandMaid = Command Maid
+JobPartyMaker = Party Maker
+JobSecurityClown = Security Clown
 JobNanotrasenRepresentative = Nanotrasen Representative
 JobNanotrasenCareerTrainer = Nanotrasen Career Trainer
 JobHecuOperative = HECU Operative

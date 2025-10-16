@@ -1075,7 +1075,7 @@
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
 
-# event-resctricted jobs
+# Goobstation event-restricted jobs, early merged from wizden in pr #4677
 
 - type: entity
   parent: IDCardStandard

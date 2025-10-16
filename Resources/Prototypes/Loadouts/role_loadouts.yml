@@ -851,7 +851,7 @@
   - BoxerEnvirohelm
   - BoxerEnvirosuit
 
-# Event-restricted roles
+# Goobstation event-restricted jobs, early merged from wizden in pr #4677
 
 - type: roleLoadout
   id: JobSecurityClown

@@ -31,7 +31,7 @@
           type: ChameleonBoundUserInterface
     - type: HideContrabandContent #Goobstation-Contraband detector
 
-- type: entity
+- type: entity # Goobstation early merged from wizden in pr #4677
   parent: ClothingHeadsetCommand
   id: ClothingHeadsetCommandService
   name: command-service headset

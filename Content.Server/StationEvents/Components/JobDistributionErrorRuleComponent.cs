@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.StationEvents.Components;
 
 /// <summary>
-/// This is a station event that randomly adds specific jobs for latejoin.
+/// This is a station event that randomly adds specific jobs for latejoin. Early merged from wizden in pr #4677.
 /// </summary>
 [RegisterComponent]
 [Access(typeof(JobDistributionErrorRule))]

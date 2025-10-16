@@ -23,7 +23,7 @@
     shoes: ClothingShoesColorBlack
   storage:
     back:
-    - SuperSynthesizerInstrument
+    - SynthesizerInstrument
 
 - type: chameleonOutfit
   id: PartyMakerChameleonOutfit

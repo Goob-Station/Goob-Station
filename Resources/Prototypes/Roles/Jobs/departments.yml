@@ -133,7 +133,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
-  - PartyMaker # event-restricted
+  - PartyMaker # Goobstation event-restricted jobs, early merged from wizden in pr #4677
 
 - type: department
   id: CentralCommand
@@ -189,7 +189,7 @@
   - ERTEngineer
   - DeathSquad
   - HecuOperative
-  - CommandMaid # Goobstation
+  - CommandMaid # Goobstation event-restricted jobs, early merged from wizden in pr #4677
   primary: false
   weight: 100
 
@@ -230,7 +230,7 @@
   - Detective
   - Warden
   - Brigmedic # Goob
-  - SecurityClown # Goob
+  - SecurityClown # Goobstation event-restricted jobs, early merged from wizden in pr #4677
 
 - type: department
   id: Science

@@ -7,7 +7,9 @@ using Content.Shared.Roles;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
-
+/// <summary>
+/// Early merged from wizden in pr #4677.
+/// </summary>
 public sealed class JobDistributionErrorRule : StationEventSystem<JobDistributionErrorRuleComponent>
 {
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;

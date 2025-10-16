@@ -160,7 +160,7 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
-    - id: JobDistributionError
+    - id: JobDistributionError # Goobstation event-restricted jobs, early merged from wizden in pr #4677
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -1042,7 +1042,7 @@
       max: 1
       pickPlayer: false
 
-# Goobstation
+# Goobstation event-restricted jobs, early merged from wizden in pr #4677
 - type: entity
   id: JobDistributionError
   parent: BaseGameRule
