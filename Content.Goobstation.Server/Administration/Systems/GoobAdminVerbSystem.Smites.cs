@@ -57,59 +57,10 @@ public sealed partial class GoobAdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
             Act = () =>
             {
-                ResPath hellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
-                EntProtoId exitPortalPrototype = "PortalHellExit";
-                TransformComponent? portalXform = null;
-                HellPortalExitComponent? targetportal = null;
-                TryTeleportToHell(false);
-                void TryTeleportToHell(bool retry = false)
+                EntityCoordinates? portalCoords = _hellPortalsystem.TryLoadHell(false);
+                if (portalCoords != null)
                 {
-                    var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
-                    while (query.MoveNext(out var hellexitportalcomp, out var xform))
-                    {
-                        targetportal = hellexitportalcomp;
-                        portalXform = xform;
-                        break;
-                    }
-
-                    if (targetportal == null || portalXform == null)
-                    {
-                        if (!_mapLoader.TryLoadMap(hellMapPath,
-                            out var map, out var roots,
-                            options: new DeserializationOptions { InitializeMaps = true }))
-                        {
-                            Log.Error($"Failed to load hell map at {hellMapPath}");
-                            QueueDel(map);
-                            return;
-                        }
-
-                        foreach (var root in roots)
-                        {
-                            if (!HasComp<HellMapComponent>(root))
-                                continue;
-
-                            var pos = new EntityCoordinates(root, 0, 0);
-
-                            var exitPortal = Spawn(exitPortalPrototype, pos);
-
-                            EnsureComp<PortalComponent>(exitPortal, out var hellPortalComp);
-
-                            var newHellMapComp = EnsureComp<HellMapComponent>(root);
-                            newHellMapComp.ExitPortal = exitPortal;
-
-                            break;
-                        }
-                        if (!retry)
-                        {
-                            TryTeleportToHell(true);
-                            return;
-                        }
-                    }
-                    if (portalXform == null)
-                    {
-                        return;
-                    }
-                    _sharedTransformSystem.SetCoordinates(args.Target, portalXform.Coordinates);
+                    _hellPortalsystem.TryTeleportToHell(args.Target, portalCoords.Value);
                 }
             },
             Impact = LogImpact.Extreme,
