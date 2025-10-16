@@ -67,6 +67,7 @@
     defaultChannel: Shadowmind
     channels:
     - Shadowmind
+  - type: ZombieImmune  # Goobstation
 
 - type: entity
   parent: BaseSpeciesDummy
