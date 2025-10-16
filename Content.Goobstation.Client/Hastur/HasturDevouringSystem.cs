@@ -3,22 +3,20 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Hastur;
 
-/// <summary>
-/// This handles appearance for devouring
-/// </summary>
 public sealed class HasturDevouringSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HasturDevouringComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        // FIX: Subscribing to HasturDevourComponent instead of the old Devouring one
+        SubscribeLocalEvent<HasturDevourComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnAppearanceChange(Entity<HasturDevouringComponent> ent, ref AppearanceChangeEvent args)
+    private void OnAppearanceChange(Entity<HasturDevourComponent> ent, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;

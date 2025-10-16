@@ -7,14 +7,20 @@
   - type: ClothingGrantComponent
     component:
     - type: HasturVeil
-    - type: ActionGrant
-      actions:
-        - ActionVeilOfTheVoid
     - type: AmbientSound
       volume: -10
       range: 5
       sound:
         path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
+  - type: ItemActionGrant
+    activeIfWorn: true
+    restrictedSlots:
+    - neck
+    actions:
+    - ActionVeilOfTheVoid
+  - type: ActionGrant
+    actions:
+      - ActionVeilOfTheVoid
   - type: Sprite
     sprite: /Textures/_Goobstation/Hastur/clothing.rsi
   - type: Clothing
@@ -46,10 +52,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
-        Piercing: 0.2
-        Heat: 0.3
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.2
         Cold: 0.5
         Shock: 0.2
         Caustic: 0.7

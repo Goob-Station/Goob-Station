@@ -9,6 +9,12 @@ public sealed partial class HasturDevourComponent : Component
 {
 
     [DataField]
+    public string Normal = "hastur";
+
+    [DataField]
+    public string Devouring = "hastur_devour";
+
+    [DataField]
     public TimeSpan StunDuration = TimeSpan.FromSeconds(1);
 
     [DataField]
@@ -18,7 +24,7 @@ public sealed partial class HasturDevourComponent : Component
     /// How long the DoAfter delay before devour executes
     /// </summary>
     [DataField]
-    public TimeSpan DevourDuration = TimeSpan.FromSeconds(2);
+    public TimeSpan DevourDuration = TimeSpan.FromSeconds(1.5);
 
     /// <summary>
     /// Healing from devouring an entity.
