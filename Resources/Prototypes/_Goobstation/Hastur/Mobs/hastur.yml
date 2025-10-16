@@ -5,12 +5,29 @@
   description: He who must not be named...
   components:
     - type: Hastur
+    - type: Omnipresence
+      CloneProto: MobHasturClone
+      cloneDistance: 3.5
+      stunRange: 2.5
+      stunDuration: 4.0
+      cloneLifetime: 5.0
+    - type: InsanityAura
+      reagents:
+        SpaceDrugs: 50
+      range: 12
+    - type: HasturDevour
+    - type: HasturLash
+    - type: HasturVeil
+    - type: MassWhisper
     - type: ActionGrant
       actions:
       - ActionHasturDevour
       - ActionInsanityAura
       - ActionMassWhisper
       - ActionVeilOfTheVoid
+      - ActionOmnipresence
+      - ActionHasturLash
+      - ActionHasturClone
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
@@ -82,6 +99,7 @@
   name: ????
   parent: SimpleSpaceMobBase 
   id: MobHasturClone
+  suffix: DO NOT MAP
   description: He who must not be named...
   components:
     - type: Sprite
@@ -98,3 +116,10 @@
           state: hastur
     - type: TimedDespawn
       lifetime: 10
+    - type: EmitSoundOnSpawn
+      sound:
+        path: /Audio/_Goobstation/Misc/Hastur/growl.ogg
+        params:
+          volume: 1
+          maxDistance: 10
+          variation: 0.3

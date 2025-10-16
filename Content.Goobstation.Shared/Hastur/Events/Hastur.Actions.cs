@@ -18,3 +18,7 @@ public sealed partial class MassWhisperEvent : InstantActionEvent;
 public sealed partial class InsanityAuraEvent : InstantActionEvent;
 
 public sealed partial class OmnipresenceEvent : InstantActionEvent;
+
+
+[Serializable, NetSerializable]
+public sealed partial class HasturDevourDoAfterEvent : SimpleDoAfterEvent;

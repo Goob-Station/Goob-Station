@@ -25,7 +25,7 @@
   description: Lash a target from a distance, bringing them to their knees.
   components:
   - type: Action
-    useDelay: 30
+    useDelay: 25
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
@@ -43,10 +43,12 @@
 - type: entity
   id: ActionInsanityAura
   name: Insanity Aura
-  description: Causes everyone to go a bit mad around you..
+  description: Causes everyone to go a bit mad around you...
   components:
   - type: Action
-    useDelay: 180
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/Hastur/void_song.ogg
+    useDelay: 60
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: insanity_aura
@@ -56,20 +58,20 @@
 - type: entity
   id: ActionMassWhisper
   name: Mass Whisper
-  description: Send a creepy void flavoured text to all living beings..
+  description: Reach into the mind of all beings and whisper them into madness...
   components:
   - type: Action
-    useDelay: 180
+    useDelay: 500
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: mass_whisper
   - type: InstantAction
-    event: !type:InsanityAuraEvent
+    event: !type:MassWhisperEvent
 
 - type: entity
   id: ActionVeilOfTheVoid
   name: Veil of the void
-  description: Vanish/Manifest back from the void to hunt your prey..
+  description: Vanish/Manifest back from the void to hunt your prey...
   components:
   - type: Action
     useDelay: 30
@@ -77,15 +79,15 @@
       sprite: _Goobstation/Hastur/actions.rsi
       state: veil_void
   - type: InstantAction
-    event: !type:InsanityAuraEvent
+    event: !type:VeilOfTheVoidEvent
 
 - type: entity
   id: ActionOmnipresence
   name: Omnipresence
-  description: Choose somewhere to be. 
+  description: Choose everywhere to be. 
   components:
   - type: Action
-    useDelay: 180
+    useDelay: 60
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: omnipresence
@@ -99,7 +101,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 45
+    useDelay: 30
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: clone
