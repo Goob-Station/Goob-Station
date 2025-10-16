@@ -70,7 +70,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
                 ("state",_parent.SelectedState),
                 ("charges", _parent.Charges),
                 ("capacity",_parent.Capacity),
-                ("infinite", _parent.Infinite))); // Goobstation
+                ("infinite", _parent.Infinite))); // Impstation
         }
     }
 }
