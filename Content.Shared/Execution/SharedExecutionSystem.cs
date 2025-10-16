@@ -38,7 +38,7 @@ using Robust.Shared.Timing;
 using System.Diagnostics;
 
 namespace Content.Shared.Execution;
-
+// If wizden touches this file just ping me (@john john) and i'll do the merge conflits personally so that delta stops bitching.
 /// <summary>
 ///     Verb for violently murdering cuffed creatures.
 /// </summary>
@@ -363,8 +363,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         // Check if there's any ammo left
         if (ev.Ammo.Count <= 0)
         {
-            if (_netManager.IsServer)
-                _audio.PlayPvs(component.SoundEmpty, uid);
+            _audio.PlayPredicted(component.SoundEmpty, uid, attacker);
             ShowExecutionInternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
             ShowExecutionExternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
             return;
@@ -402,8 +401,7 @@ public sealed class SharedExecutionSystem : EntitySystem
             ShowExecutionInternalPopup("suicide-popup-gun-complete-internal", attacker, victim, weapon);
             ShowExecutionExternalPopup("suicide-popup-gun-complete-external", attacker, victim, weapon);
             _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
-            if (_netManager.IsServer)
-                _audio.PlayPvs(component.SoundGunshot, uid);
+            _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
             if (!HasComp<RevolverAmmoProviderComponent>(weapon))
             {
                 var suicideGhostEvent = new SuicideGhostEvent(victim);
@@ -414,8 +412,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         {
             ShowExecutionInternalPopup("execution-popup-gun-complete-internal", attacker, victim, weapon);
             ShowExecutionExternalPopup("execution-popup-gun-complete-external", attacker, victim, weapon);
-            if (_netManager.IsServer)
-                _audio.PlayPvs(component.SoundGunshot, uid);
+            _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
             _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
         }
 
