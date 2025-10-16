@@ -16444,3 +16444,9 @@ Entries:
       message: Yowies can now properly change fur colour
   id: 1841
   time: '2025-10-16T09:51:22.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed shadowlings being zombifiable.
+  id: 1842
+  time: '2025-10-16T09:52:32.0000000+00:00'
