@@ -32,20 +32,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
@@ -71,6 +70,7 @@ using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
+using Content.Goobstation.Shared.Devour.Events;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -405,6 +405,13 @@ public sealed partial class ChangelingSystem
     }
     private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
     {
+        // check if we're allowed to revive
+        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
+        RaiseLocalEvent(uid, ref reviveEv);
+
+        if (reviveEv.Cancelled)
+            return;
+
         if (!comp.IsInStasis)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);

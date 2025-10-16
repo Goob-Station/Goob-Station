@@ -229,6 +229,13 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public bool AttachToGridOrMap;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Skip revert action confirmation
+    /// </summary>
+    [DataField]
+    public bool SkipRevertConfirmation;
 }
 
 public enum PolymorphInventoryChange : byte

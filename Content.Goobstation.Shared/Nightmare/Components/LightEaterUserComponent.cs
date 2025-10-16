@@ -10,6 +10,12 @@ namespace Content.Goobstation.Shared.Nightmare.Components;
 public sealed partial class LightEaterUserComponent : Component
 {
     [DataField]
+    public EntProtoId ActionId = "ActionLightEater";
+
+    [DataField]
+    public EntityUid? ActionEnt;
+
+    [DataField]
     public EntProtoId LightEaterProto = "LightEaterArmBlade";
 
     [DataField]

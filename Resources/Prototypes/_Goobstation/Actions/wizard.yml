@@ -476,6 +476,7 @@
   components:
   - type: Action
     raiseOnUser: true
+    checkCanInteract: false
     useDelay: 8
     itemIconStyle: BigAction
     sound:
@@ -515,6 +516,7 @@
   components:
   - type: Action
     raiseOnUser: true
+    checkCanInteract: false
     useDelay: 0.5 # SpellCardsEvent handles use delay
     itemIconStyle: BigAction
     sound:
@@ -534,6 +536,7 @@
     canTargetSelf: false
   - type: WorldTargetAction
     event: !type:SpellCardsEvent
+      minMaxLinearDamping: 15, 20
   - type: SpeakOnAction
     sentence: action-speech-spell-spell-cards
   - type: Magic
@@ -787,7 +790,7 @@
   - type: Action
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 60
+    useDelay: 50
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/bee.ogg
@@ -954,13 +957,12 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: swap
   - type: TargetAction
+    checkCanAccess: false
     interactOnMiss: false
     range: 15
   - type: EntityTargetAction
     whitelist:
-      requireAll: true
       components:
-      - Transform
       - MobState
     canTargetSelf: true # Required for secondary target deselecting
     event: !type:SwapSpellEvent
@@ -1052,7 +1054,7 @@
   - type: Action
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 3
+    useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/summon_magic.ogg
