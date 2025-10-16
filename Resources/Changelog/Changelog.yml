@@ -5287,3 +5287,10 @@ Entries:
   id: 9106
   time: '2025-10-15T23:59:05.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34935
+- author: redmushie
+  changes:
+  - message: Fixed power sensors not respecting their configured network setting
+    type: Fix
+  id: 9108
+  time: '2025-10-16T12:38:04.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40934
