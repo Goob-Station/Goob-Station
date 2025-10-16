@@ -16,7 +16,7 @@
     back: ClothingBackpack
     belt: ScrollTeleport
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
     pocket2: WizardsGrimoire
 
@@ -50,7 +50,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -63,7 +63,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -76,7 +76,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -89,7 +89,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -102,7 +102,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -114,7 +114,7 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard
 
 - type: startingGear
@@ -127,5 +127,5 @@
     back: ClothingBackpack
     belt: ScrollTeleportApprentice
     gloves: ClothingHandsGlovesWizard
-    id: WizardIDCard
+    id: WizardPDA
     pocket1: CrowbarWizard

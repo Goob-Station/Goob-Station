@@ -24,12 +24,16 @@ public sealed partial class GhoulComponent : Component
     /// <summary>
     ///     Indicates who ghouled the entity.
     /// </summary>
-    [DataField, AutoNetworkedField] public NetEntity? BoundHeretic;
+    [DataField, AutoNetworkedField]
+    public EntityUid? BoundHeretic;
 
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
+
+    [DataField]
+    public EntProtoId? SpawnOnDeathPrototype;
 
     /// <summary>
     ///     Whether ghoul should be given a bloody blade

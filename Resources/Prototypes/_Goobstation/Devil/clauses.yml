@@ -23,8 +23,13 @@
   clauseWeight: -30
   addedComponents:
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+      - Item
     chemical: Ichor
     healRate: 7.5
     whitelist:
@@ -218,5 +223,6 @@
   clauseWeight: 150
   addedComponents:
   - type: DelayedDeath
+    preventAllRevives: true # :trol:
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out

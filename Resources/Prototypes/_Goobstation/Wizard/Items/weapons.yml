@@ -86,6 +86,9 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: AmmoCounter
   - type: EnchantedBoltActionRifle
+  - type: Wieldable
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: supermatter halberd
@@ -106,6 +109,7 @@
         Piercing: 2
         Radiation: 5
         Structural: 5
+      armorPenetration: 0.8
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Wieldable
@@ -116,6 +120,7 @@
         Piercing: 8
         Radiation: 15
         Structural: 10
+      armorPenetration: 0.8
   - type: Item
     size: Huge
   - type: Clothing

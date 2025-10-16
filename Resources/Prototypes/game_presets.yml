@@ -146,6 +146,7 @@
     - BasicRoundstartVariation
     - Changeling # Goobstation - changeling playtest
     - LavalandStormScheduler # Lavaland Change
+    - Shadowling # Einstein Engines - Shadowlings
 
 - type: gamePreset
   id: Extended
@@ -181,7 +182,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: true # Goob - Game Director
+  showInVote: false # Goob - Game Director
   description: secret-description
   rules:
     - Secret

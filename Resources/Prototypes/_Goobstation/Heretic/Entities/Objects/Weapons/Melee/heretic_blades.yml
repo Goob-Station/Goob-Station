@@ -189,3 +189,18 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
+
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeCosmos
+  name: cosmic blade
+  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+  suffix: Cosmos
+  components:
+  - type: HereticBlade
+    path: Cosmos
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Heretic/Blades/blade_cosmos-inhand.rsi

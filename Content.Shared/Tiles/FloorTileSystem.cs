@@ -118,8 +118,14 @@ public sealed class FloorTileSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private static readonly Vector2 CheckRange = new(1f, 1f);
+
+    /// <summary>
+    ///     A recycled hashset used to check for walls when trying to place tiles on turfs.
+    /// </summary>
+    private readonly HashSet<EntityUid> _turfCheck = [];
 
     public override void Initialize()
     {
@@ -135,7 +141,7 @@ public sealed class FloorTileSystem : EntitySystem
         if (!TryComp<StackComponent>(uid, out var stack))
             return;
 
-        if (component.OutputTiles == null)
+        if (component.Outputs == null)
             return;
 
         // this looks a bit sussy but it might be because it needs to be able to place off of grids and expand them
@@ -185,14 +191,16 @@ public sealed class FloorTileSystem : EntitySystem
 
         // if user can access tile center then they can place floor
         // otherwise check it isn't blocked by a wall
-        if (!canAccessCenter)
+        if (!canAccessCenter && _turf.TryGetTileRef(location, out var tileRef))
         {
-            foreach (var ent in location.GetEntitiesInTile(lookupSystem: _lookup))
+            _turfCheck.Clear();
+            _lookup.GetEntitiesInTile(tileRef.Value, _turfCheck);
+            foreach (var ent in _turfCheck)
             {
                 if (physicQuery.TryGetComponent(ent, out var phys) &&
                     phys.BodyType == BodyType.Static &&
                     phys.Hard &&
-                    (phys.CollisionLayer & (int) CollisionGroup.Impassable) != 0)
+                    (phys.CollisionLayer & (int)CollisionGroup.Impassable) != 0)
                 {
                     return;
                 }
@@ -200,7 +208,7 @@ public sealed class FloorTileSystem : EntitySystem
         }
         TryComp<MapGridComponent>(location.EntityId, out var mapGrid);
 
-        foreach (var currentTile in component.OutputTiles)
+        foreach (var currentTile in component.Outputs)
         {
             var currentTileDefinition = (ContentTileDefinition) _tileDefinitionManager[currentTile];
 
@@ -240,7 +248,7 @@ public sealed class FloorTileSystem : EntitySystem
                 var gridXform = Transform(grid);
                 _transform.SetWorldPosition((grid, gridXform), locationMap.Position);
                 location = new EntityCoordinates(grid, Vector2.Zero);
-                PlaceAt(args.User, grid, grid.Comp, location, _tileDefinitionManager[component.OutputTiles[0]].TileId, component.PlaceTileSound, grid.Comp.TileSize / 2f);
+                PlaceAt(args.User, grid, grid.Comp, location, _tileDefinitionManager[component.Outputs[0]].TileId, component.PlaceTileSound, grid.Comp.TileSize / 2f);
                 return;
             }
         }

@@ -77,6 +77,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -89,8 +92,8 @@ namespace Content.Shared.Forensics
     {
         public readonly List<string> Fingerprints = new();
         public readonly List<string> Fibers = new();
-        public readonly List<string> TouchDNAs = new();
-        public readonly List<string> SolutionDNAs = new();
+        public readonly List<(string, TimeSpan)> TouchDNAs = new(); // Goobstation
+        public readonly List<(string, TimeSpan)> SolutionDNAs = new(); // Goobstation
         public readonly List<string> Residues = new();
         public readonly string LastScannedName = string.Empty;
         public readonly TimeSpan PrintCooldown = TimeSpan.Zero;
@@ -99,8 +102,8 @@ namespace Content.Shared.Forensics
         public ForensicScannerBoundUserInterfaceState(
             List<string> fingerprints,
             List<string> fibers,
-            List<string> touchDnas,
-            List<string> solutionDnas,
+            List<(string, TimeSpan)> touchDnas, // Goobstation
+            List<(string, TimeSpan)> solutionDnas, // Goobstation
             List<string> residues,
             string lastScannedName,
             TimeSpan printCooldown,
