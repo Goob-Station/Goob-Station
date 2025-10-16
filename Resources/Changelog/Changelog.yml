@@ -5311,3 +5311,16 @@ Entries:
   id: 9110
   time: '2025-10-16T16:28:48.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40940
+- author: FairlySadPanda
+  changes:
+  - message: Two new instrument options for the microphone, Wa and Wah.
+    type: Add
+  - message: Fixed the gilded bike horn's instrument not playing properly, causing
+      listening to it to be even worse than it is supposed to be.
+    type: Fix
+  - message: Fixed the microphone's Kweh instrument not playing properly, causing
+      listening it to be even worse than it is supposed to be.
+    type: Fix
+  id: 9111
+  time: '2025-10-16T17:03:08.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39210
