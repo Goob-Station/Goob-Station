@@ -12,15 +12,9 @@
       range: 5
       sound:
         path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
-  - type: ItemActionGrant
-    activeIfWorn: true
-    restrictedSlots:
-    - neck
-    actions:
-    - ActionVeilOfTheVoid
-  - type: ActionGrant
-    actions:
-      - ActionVeilOfTheVoid
+    - type: ActionGrant #ItemGrantComponent didn't work :/
+      actions:
+        - ActionVeilOfTheVoid
   - type: Sprite
     sprite: /Textures/_Goobstation/Hastur/clothing.rsi
   - type: Clothing

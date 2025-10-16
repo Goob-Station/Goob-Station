@@ -15,6 +15,7 @@ hastur-pet = A sharp tentacle slaps {THE($user)} away as they attempt to pet {TH
 
 hastur-announcement = The King is watching. It's time for you to perform.
 
+ghost-role-information-hastur-name-token = The King in Yellow (Token)
 ghost-role-information-hastur-name = The King in Yellow
 ghost-role-information-hastur-description = ????
 ghost-role-information-hastur-rules =  You are [color=yellow]???[/color]. 

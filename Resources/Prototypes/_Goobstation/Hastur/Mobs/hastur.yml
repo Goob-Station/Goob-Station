@@ -75,9 +75,11 @@
       thresholds:
         0: Alive
         650: Dead
+    - type: Damageable
+      damageContainer: BiologicalMetaphysical
+      damageModifierSet: DevilDealPositive # Lots of damage to Holy.
     - type: StaticPrice
       price: 30000
-    - type: TileMovement
     - type: MeleeWeapon
       soundHit:
         path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
@@ -85,18 +87,35 @@
         types:
           Piercing: 20
           Slash: 15
+          Structural: 50
+    - type: Insulated
+    - type: Temperature
+      heatDamageThreshold: 10000
+      coldDamageThreshold: -300
+    - type: Flammable
+      damage:
+        types: {}
+    - type: SlowOnDamage # When slowed down too much his sprite looks weird. I think it might just be movement sprite system being bad though;
+      speedModifierThresholds:
+        250: 0.95
+        100: 0.7
+    - type: StatusEffects
+      allowed:
+        - Electrocution
+        - TemporaryBlindness
+        - RadiationProtection
+        - Adrenaline
     - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against it.
       allowedStates:
         - Alive
         - Critical
-        - Dead
       damageCap: 0
       damage:
         groups:
-          Brute: -1
-          Burn: -1
-          Toxin: -5
-          Genetic: -5
+          Brute: -2
+          Burn: -2
+          Toxin: -15
+          Genetic: -15
     - type: WeakToHoly
       alwaysTakeHoly: true
     - type: NoSlip
