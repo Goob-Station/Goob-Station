@@ -88,14 +88,18 @@ public sealed class KeyringSystem : EntitySystem
             _doorSystem.StartOpening(target);
 
             var successPopup = Loc.GetString("keyring-finish-unlock-popup");
-            _popupSystem.PopupClient(successPopup, args.User, args.User);
+            _popupSystem.PopupPredicted(successPopup, args.User, args.User);
+
+            args.Handled = true;
 
             return;
         }
 
 
         var failPopup = Loc.GetString("keyring-unlock-fail-popup");
-        _popupSystem.PopupClient(failPopup, args.User, args.User);
+        _popupSystem.PopupPredicted(failPopup, args.User, args.User);
+
+        args.Handled = true;
     }
 
 }
