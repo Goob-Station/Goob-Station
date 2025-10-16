@@ -374,7 +374,7 @@
   id: LoadoutTankHarness
   effects:
   - !type:GroupLoadoutEffect
-    proto: HarnessWearers
+    proto: HarnessWearers # Goobstation edit
   equipment:
     outerClothing: ClothingOuterVestTank
 
