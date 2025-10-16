@@ -169,10 +169,10 @@ public sealed partial class CondemnedSystem : EntitySystem
         switch (comp)
         {
             case { CondemnedBehavior: CondemnedBehavior.Delete }:
-                var portalCoords = _hellPortalsystem.TryLoadHell(false);
+                EntityCoordinates? portalCoords = _hellPortalsystem.TryLoadHell(false);
                 if (portalCoords != null)
                 {
-                    _sharedTransformSystem.SetCoordinates(uid, portalCoords.Value);
+                    _hellPortalsystem.TryTeleportToHell(uid, portalCoords.Value);
                 }
                 break;
             case { CondemnedBehavior: CondemnedBehavior.Banish }:

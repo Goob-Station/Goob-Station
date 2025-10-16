@@ -62,10 +62,10 @@ public sealed partial class GoobAdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
             Act = () =>
             {
-                var portalCoords = _hellPortalsystem.TryLoadHell(false);
+                EntityCoordinates? portalCoords = _hellPortalsystem.TryLoadHell(false);
                 if (portalCoords != null)
                 {
-                    _sharedTransformSystem.SetCoordinates(args.Target, portalCoords.Value);
+                    _hellPortalsystem.TryTeleportToHell(args.Target, portalCoords.Value);
                 }
             },
             Impact = LogImpact.Extreme,

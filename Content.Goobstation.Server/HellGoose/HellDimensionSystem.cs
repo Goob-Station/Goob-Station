@@ -10,6 +10,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
+using System.Reflection.Metadata;
+using System.Xml.Serialization;
 
 namespace Content.Goobstation.Server.HellGoose;
 
@@ -18,6 +20,7 @@ public sealed class HellPortalSystem : EntitySystem
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -126,5 +129,10 @@ public sealed class HellPortalSystem : EntitySystem
         {
             return portalXform?.Coordinates;
         }
+    }
+    public void TryTeleportToHell(EntityUid entity, EntityCoordinates? cords)
+    {
+        if (cords != null)
+            _sharedTransformSystem.SetCoordinates(entity, cords.Value);
     }
 }
