@@ -16438,3 +16438,9 @@ Entries:
         by scanning them.
   id: 1840
   time: '2025-10-16T09:49:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Yowies can now properly change fur colour
+  id: 1841
+  time: '2025-10-16T09:51:22.0000000+00:00'
