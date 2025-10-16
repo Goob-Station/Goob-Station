@@ -9,7 +9,7 @@ public sealed partial class HasturDevourComponent : Component
 {
 
     [DataField]
-    public string Normal = "hastur";
+    public string Normal = "hasturM";
 
     [DataField]
     public string Devouring = "hastur_devour";
