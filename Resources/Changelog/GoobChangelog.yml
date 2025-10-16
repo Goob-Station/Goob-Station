@@ -16382,3 +16382,17 @@ Entries:
         thus heal slightly more
   id: 1833
   time: '2025-10-16T07:21:13.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: >-
+        Bagel station now has a proper brigmed and a fully equipped security
+        department.
+    - type: Tweak
+      message: >-
+        Bagel station's cameras have been moved to better see Hydroponics,
+        janitorial area and virology.
+    - type: Remove
+      message: Bagel Station's Old AKM is now truly gone.
+  id: 1834
+  time: '2025-10-16T09:39:29.0000000+00:00'
