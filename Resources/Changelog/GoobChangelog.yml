@@ -16402,3 +16402,11 @@ Entries:
       message: Syndicate got a couple of new cybernetic implants!
   id: 1835
   time: '2025-10-16T09:43:05.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard's stick-man summon cooldown decreased from 3 => 10 seconds and
+        lifetime increased from 12 => 60 seconds.
+  id: 1836
+  time: '2025-10-16T09:43:51.0000000+00:00'
