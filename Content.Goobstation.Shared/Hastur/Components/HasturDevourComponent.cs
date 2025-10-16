@@ -30,19 +30,5 @@ public sealed partial class HasturDevourComponent : Component
     /// Healing from devouring an entity.
     /// </summary>
     [DataField]
-    public DamageSpecifier Healing = new()
-    {
-        DamageDict = new()
-        {
-            { "Blunt", -100},
-            { "Slash", -100 },
-            { "Piercing", -100 },
-            { "Heat", -100},
-            { "Shock", -100},
-            { "Cold", -100},
-            { "Poison", -100},
-            { "Radiation", -100},
-            { "Asphyxiation", -100 }
-        }
-    };
+    public DamageSpecifier Healing = new();
 }

@@ -4,7 +4,6 @@
   id: MobHastur
   description: He who must not be named...
   components:
-    - type: Hastur
     - type: Omnipresence
       cloneDistance: 3.5
       stunRange: 2.5
@@ -15,6 +14,17 @@
         SpaceDrugs: 50
       range: 12
     - type: HasturDevour
+      healing:
+        types:
+          Blunt: -100
+          Slash: -100
+          Piercing: -100
+          Heat: -100
+          Shock: -100
+          Cold: -100
+          Poison: -100
+          Radiation: -100
+          Asphyxiation: -100
     - type: HasturLash
     - type: HasturVeil
     - type: MassWhisper

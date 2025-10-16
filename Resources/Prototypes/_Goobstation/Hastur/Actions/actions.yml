@@ -10,13 +10,14 @@
       sprite: _Goobstation/Hastur/actions.rsi
       state: devour
   - type: TargetAction
-    range: 3
+    range: 2
     deselectOnMiss: true
   - type: EntityTargetAction
     canTargetSelf: false
     whitelist:
       components:
       - HumanoidAppearance
+      - Body
     event: !type:HasturDevourEvent
 
 - type: entity

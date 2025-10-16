@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Hastur.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Network;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Hastur.Systems;
@@ -12,6 +13,7 @@ public sealed class OmnipresenceSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _mobCache = new();
     public override void Initialize()
@@ -43,8 +45,11 @@ public sealed class OmnipresenceSystem : EntitySystem
         foreach (var (x, y) in offsets)
         {
             var coords = xform.Coordinates.Offset(new Vector2(x, y));
-            var clone = Spawn(comp.CloneProto, coords);
-            affectedCenters.Add(clone);
+            if (_net.IsServer)
+            {
+                var clone = Spawn(comp.CloneProto, coords);
+                affectedCenters.Add(clone);
+            }
         }
 
         // Perform AOE stun around each source
@@ -53,7 +58,7 @@ public sealed class OmnipresenceSystem : EntitySystem
             DoAoEStun(source, comp.StunRange, comp.StunDuration);
         }
 
-        _popup.PopupEntity(Loc.GetString("hastur-omnipresence-activate"), uid, uid);
+        _popup.PopupPredicted(Loc.GetString("hastur-omnipresence-activate"), uid, uid);
         args.Handled = true;
     }
 

@@ -13,7 +13,6 @@ namespace Content.Goobstation.Server.Hastur.Systems
     {
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
 
         public override void Initialize()
         {
@@ -34,16 +33,16 @@ namespace Content.Goobstation.Server.Hastur.Systems
             _audio.PlayGlobal(comp.Sound, Filter.Broadcast(), true);
 
             // Apply EntropicPlumeAffectedComponent to all mobs on station
-            var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
-            while (query.MoveNext(out var mob, out var xform))
+            var query = EntityQueryEnumerator<MobStateComponent>();
+            while (query.MoveNext(out var mob))
             {
-                // Skip Hastur themselves
                 if (mob.Owner == uid)
                     continue;
 
                 var affected = EnsureComp<EntropicPlumeAffectedComponent>(mob.Owner);
                 affected.Duration = comp.Duration;
             }
+
 
             args.Handled = true;
         }
