@@ -74,7 +74,7 @@ public sealed class MiningPointsSystem : EntitySystem
     private void OnClaimMiningPoints(Entity<MiningPointsLatheComponent> ent, ref LatheClaimMiningPointsMessage args)
     {
         var user = args.Actor;
-        if (GetPointComp(user) is {} dest)
+        if (GetPointComp(user) is {} dest) // Goobstation - borg Miningpoints
             TransferAll(ent.Owner, dest);
     }
 
@@ -83,7 +83,7 @@ public sealed class MiningPointsSystem : EntitySystem
     /// <summary>
     /// if user can claim mining points
     /// <summary>
-    public bool CanClaimPoints(EntityUid user)
+    public bool CanClaimPoints(EntityUid user) // Goobstation - borg Miningpoints
     {
         if (TryComp<MiningPointsComponent>(user, out var comp))
             return true;
@@ -96,7 +96,7 @@ public sealed class MiningPointsSystem : EntitySystem
     /// <summary>
     /// returns Miningpoint component of user, if its directly atatched or on users Id card
     /// <summary>
-    public Entity<MiningPointsComponent?>? GetPointComp(EntityUid user)
+    public Entity<MiningPointsComponent?>? GetPointComp(EntityUid user) // Goobstation - borg Miningpoints
     {
         if (TryComp<MiningPointsComponent>(user, out var comp))
             return  (user,comp);
@@ -125,7 +125,7 @@ public sealed class MiningPointsSystem : EntitySystem
     /// </summary>
     public bool UserHasPoints(EntityUid user, uint points)
     {
-        if (GetPointComp(user)?.Comp is not {} comp)
+        if (GetPointComp(user)?.Comp is not {} comp) // Goobstation - borg Miningpoints
             return false;
 
         return comp.Points >= points;
