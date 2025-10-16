@@ -19,6 +19,7 @@
     speed: 0.75
   - type: Wieldable
   - type: MeleeWeapon
+    animation: WeaponArcThrust
     heavyStaminaCost: 2.5
     attackRate: 1.6
     wideAnimationRotation: -135

@@ -244,7 +244,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     Timer.Spawn(TimeSpan.FromSeconds(waitTime), () =>
                     {
                         sprite.LayerSetState(0, "icon");
-                        Logger.Debug("Timer fired");
                     });
                 }
                 // wait for DoAfter seconds before actually doing the dash

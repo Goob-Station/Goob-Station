@@ -7,6 +7,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Reflect;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Item;
 using Content.Shared.Wieldable;
 using Robust.Shared.Log;
@@ -110,6 +111,11 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
             reflect.ReflectProb = 0f;
             Dirty(ent, reflect);
         }
+        if (TryComp<MeleeWeaponComponent>(ent, out var meleecomp))
+        {
+            meleecomp.Animation = "WeaponArcThrust";
+            Dirty(ent, meleecomp);
+        }
         if (TryComp<MeleeDashComponent>(ent, out var dash))
         {
             _entityManager.RemoveComponent<MeleeDashComponent>(ent);
@@ -122,6 +128,11 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         if (user == EntityUid.Invalid)
             return;
 
+        if (TryComp<MeleeWeaponComponent>(ent, out var meleecomp))
+        {
+            meleecomp.Animation = "WeaponTigersClawHit";
+            Dirty(ent, meleecomp);
+        }
         if (!TryComp<MeleeDashComponent>(ent, out var dash))
         {
             dash = _entityManager.AddComponent<MeleeDashComponent>(ent);
