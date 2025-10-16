@@ -12,10 +12,10 @@
   - type: Xenomorph
     weedHeal: # Goobstation - nerfed healing
       groups:
-        Burn: -2
-        Toxin: -3
+        Burn: -3
+        Toxin: -5
         Airloss: -10
-        Brute: -3
+        Brute: -4
   - type: Pinpointer
     whitelist:
       components:
