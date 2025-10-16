@@ -85,6 +85,7 @@
         Base: asc_dead
   - type: NameIdentifier
     identifier: 1
+  - type: CurseImmune
 
 - type: entity
   parent: [BaseMobShadowlingAscendant]
