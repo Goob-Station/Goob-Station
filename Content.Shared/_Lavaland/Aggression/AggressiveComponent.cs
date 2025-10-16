@@ -37,6 +37,9 @@ public sealed partial class AggressiveComponent : Component
     [ViewVariables]
     public HashSet<EntityUid> Aggressors = new();
 
+    [ViewVariables]
+    public TimeSpan NextUpdate;
+
     /// <summary>
     /// If specified, will forgive the target after it enters another map or
     /// goes farther than this range from it.
@@ -44,14 +47,8 @@ public sealed partial class AggressiveComponent : Component
     [DataField]
     public float? ForgiveRange;
 
-    /// <summary>
-    /// How often we check that aggressor should be removed.
-    /// </summary>
-    [ViewVariables]
-    public float UpdateFrequency = 10f;
-
-    [ViewVariables]
-    public float Accumulator = 0f;
+    [DataField]
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(10f);
 }
 
 [Serializable, NetSerializable]

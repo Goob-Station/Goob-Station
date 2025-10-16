@@ -45,10 +45,19 @@
       types:
         Blunt: 15
         Heat: 5
-  - type: HierophantClubItem
+  - type: ActionGrant
+    actions:
+    - ActionHierophantClubTileMovement
+    - ActionHierophantClubAttackCross
+    - ActionHierophantClubAttackBox
+  - type: ItemActionGrant
+    actions:
+    - ActionHierophantClubTileMovement
+    - ActionHierophantClubAttackCross
+    - ActionHierophantClubAttackBox
 
 - type: entity
-  id: LavalandHierophantClubTeleportMarker
+  id: LavalandHierophantMarker
   name: mysterious marker
   description: What even is this?
   save: false

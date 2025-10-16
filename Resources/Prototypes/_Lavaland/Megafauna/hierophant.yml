@@ -1,0 +1,67 @@
+# Main selector
+- type: megafaunaSelector
+  id: Hierophant
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: HierophantActions
+
+# Target selector
+- type: megafaunaSelector
+  id: PickTargetSimple
+  selector: !type:AggressivePickTargetSelector
+    priority: 10
+    targetConditions:
+    # Hit closer aggressors more often.
+    - !type:RangeCondition
+      maxRange: 3.0
+    - !type:RangeCondition
+      maxRange: 6.0
+    - !type:RangeCondition
+      maxRange: 9.0
+
+# Actions
+- type: megafaunaSelector
+  id: HierophantActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionHierophantBox
+    - id: ActionHierophantCrosses
+    - id: ActionHierophantChasers
+    - id: ActionHierophantBlink
+
+- type: megafaunaSelector
+  id: ActionHierophantBox
+  selector: !type:PerformActionSelector
+    delay: 0.5
+    actionId: ActionHierophantBox
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBox
+
+- type: megafaunaSelector
+  id: ActionHierophantCrosses
+  selector: !type:PerformActionSelector
+    delay: 0.5
+    actionId: ActionHierophantCrosses
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantCrosses
+
+- type: megafaunaSelector
+  id: ActionHierophantChasers
+  selector: !type:PerformActionSelector
+    delay: 0.5
+    actionId: ActionHierophantChasers
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantChasers
+
+- type: megafaunaSelector
+  id: ActionHierophantBlink
+  selector: !type:PerformActionSelector
+    delay: 0.5
+    actionId: ActionHierophantBlink
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBlink
