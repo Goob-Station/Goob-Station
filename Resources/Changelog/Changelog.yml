@@ -5303,3 +5303,11 @@ Entries:
   id: 9109
   time: '2025-10-16T13:37:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40867
+- author: Worldwaker
+  changes:
+  - message: Fixed parcels being indestructible for all damage types except Slash
+      damage.
+    type: Fix
+  id: 9110
+  time: '2025-10-16T16:28:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40940
