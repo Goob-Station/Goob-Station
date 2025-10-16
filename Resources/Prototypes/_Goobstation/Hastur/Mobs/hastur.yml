@@ -75,6 +75,18 @@
         types:
           Piercing: 20
           Slash: 15
+    - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against it.
+      allowedStates:
+        - Alive
+        - Critical
+        - Dead
+      damageCap: 0
+      damage:
+        groups:
+          Brute: -1
+          Burn: -1
+          Toxin: -5
+          Genetic: -5
     - type: WeakToHoly
       alwaysTakeHoly: true
     - type: NoSlip
@@ -119,8 +131,8 @@
         movement:
           state: hastur
     - type: FadingTimedDespawn
-      lifetime: 6
-      fadeOutTime: 3
+      lifetime: 8
+      fadeOutTime: 4
     - type: EmitSoundOnSpawn
       sound:
         path: /Audio/_Goobstation/Misc/Hastur/growl.ogg

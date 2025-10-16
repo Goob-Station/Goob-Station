@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,8 @@ public sealed class InsanityAuraSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
 
+    private readonly HashSet<Entity<MobStateComponent>> _mobCache = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -30,30 +33,30 @@ public sealed class InsanityAuraSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var uid = ent.Owner;
-        var comp = ent.Comp;
+        var (uid, comp) = ent;
 
-        // Get everyone in visible range
-        var entities = _lookup.GetEntitiesInRange(uid, comp.Range);
+        // Get coordinates of the aura source
+        var centerCoords = Transform(uid).Coordinates;
 
-        foreach (var target in entities)
+        // Clear reusable cache and get nearby mobs only
+        _mobCache.Clear();
+        _lookup.GetEntitiesInRange(centerCoords, comp.Range, _mobCache);
+
+        foreach (var mob in _mobCache)
         {
-            if (target == uid)
+            if (mob.Owner == uid)
                 continue;
 
             // Must have unobstructed line of sight
-            if (!_interact.InRangeUnobstructed(uid, target, comp.Range))
+            if (!_interact.InRangeUnobstructed(uid, mob.Owner, comp.Range))
                 continue;
 
-            // Inject configured reagents
-            TryInjectReagents(target, comp.Reagents);
+            TryInjectReagents(mob.Owner, comp.Reagents);
 
-            // Play sound for that target only (client-local)
             if (comp.VoidSound != null)
-                _audio.PlayPredicted(comp.VoidSound, target, target);
+                _audio.PlayPredicted(comp.VoidSound, mob.Owner, mob.Owner);
 
-            // Optional feedback
-            _popup.PopupEntity(Loc.GetString("hastur-insanityaura-begin3"), target, target);
+            _popup.PopupEntity(Loc.GetString("hastur-insanityaura-begin3"), mob.Owner, mob.Owner);
         }
 
         args.Handled = true;

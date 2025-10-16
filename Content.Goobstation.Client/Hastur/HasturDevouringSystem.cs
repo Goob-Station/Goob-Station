@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.Hastur.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Goobstation.Client.Wraith;
+namespace Content.Goobstation.Client.Hastur;
 
 /// <summary>
 /// This handles appearance for devouring

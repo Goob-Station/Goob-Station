@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -8,7 +9,7 @@ public sealed partial class HasturDevourComponent : Component
 {
 
     [DataField]
-    public TimeSpan StunDuration = TimeSpan.FromSeconds(3);
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(1);
 
     [DataField]
     public SoundSpecifier? DevourSound = new SoundCollectionSpecifier("HasturDevour");
@@ -18,4 +19,24 @@ public sealed partial class HasturDevourComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DevourDuration = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Healing from devouring an entity.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier Healing = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", -100},
+            { "Slash", -100 },
+            { "Piercing", -100 },
+            { "Heat", -100},
+            { "Shock", -100},
+            { "Cold", -100},
+            { "Poison", -100},
+            { "Radiation", -100},
+            { "Asphyxiation", -100 }
+        }
+    };
 }

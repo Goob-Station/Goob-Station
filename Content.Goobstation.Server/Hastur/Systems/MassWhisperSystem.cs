@@ -26,29 +26,19 @@ namespace Content.Goobstation.Server.Hastur.Systems
             if (args.Handled)
                 return;
 
-            var uid = ent.Owner;
-            var comp = ent.Comp;
+            var (uid, comp) = ent;
 
             // Broadcast station-wide announcement
             _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("hastur-announcement"), null, false, null, Color.FromHex("#f3ce6d"));
 
-            // Play sound globally
-            foreach (var player in EntityManager.EntityQuery<ActorComponent>())
-            {
-                _audio.PlayEntity(comp.Sound, player.Owner, player.Owner);
-                _popup.PopupEntity(Loc.GetString("hastur-insanityaura-begin1"), player.Owner, player.Owner);
-            }
+            _audio.PlayGlobal(comp.Sound, Filter.Broadcast(), true);
 
             // Apply EntropicPlumeAffectedComponent to all mobs on station
-            var allMobs = EntityManager.EntityQuery<MobStateComponent>();
-            foreach (var mob in allMobs)
+            var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
+            while (query.MoveNext(out var mob, out var xform))
             {
                 // Skip Hastur themselves
                 if (mob.Owner == uid)
-                    continue;
-
-                // Optional filters: ignore ghosts, admins, certain factions, etc.
-                if (!EntityManager.TryGetComponent(mob.Owner, out TransformComponent? xform))
                     continue;
 
                 var affected = EnsureComp<EntropicPlumeAffectedComponent>(mob.Owner);

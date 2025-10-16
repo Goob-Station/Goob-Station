@@ -1,8 +1,8 @@
 using Content.Goobstation.Shared.Hastur.Components;
 using Content.Goobstation.Shared.Hastur.Events;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Hastur.Systems;
@@ -12,8 +12,8 @@ public sealed class OmnipresenceSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
+    private readonly HashSet<Entity<MobStateComponent>> _mobCache = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -45,14 +45,6 @@ public sealed class OmnipresenceSystem : EntitySystem
             var coords = xform.Coordinates.Offset(new Vector2(x, y));
             var clone = Spawn(comp.CloneProto, coords);
             affectedCenters.Add(clone);
-
-            // Schedule clone deletion
-            var deleteTime = _timing.CurTime + TimeSpan.FromSeconds(comp.CloneLifetime);
-            Timer.Spawn(TimeSpan.FromSeconds(comp.CloneLifetime), () =>
-            {
-                if (Exists(clone))
-                    QueueDel(clone);
-            });
         }
 
         // Perform AOE stun around each source
@@ -67,14 +59,17 @@ public sealed class OmnipresenceSystem : EntitySystem
 
     private void DoAoEStun(EntityUid center, float range, float duration)
     {
-        var nearby = _lookup.GetEntitiesInRange(center, range);
+        _mobCache.Clear();
 
-        foreach (var target in nearby)
+        var centerCoords = Transform(center).Coordinates; // get coordinates
+        _lookup.GetEntitiesInRange(centerCoords, range, _mobCache);
+
+        foreach (var mob in _mobCache)
         {
-            if (target == center)
+            if (mob.Owner == center)
                 continue;
 
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(duration), true);
+            _stun.TryKnockdown(mob.Owner, TimeSpan.FromSeconds(duration), true);
         }
     }
 }
