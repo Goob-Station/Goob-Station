@@ -5279,3 +5279,11 @@ Entries:
   id: 9105
   time: '2025-10-15T20:30:45.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40911
+- author: aada
+  changes:
+  - message: Grenade penguins have new AI. They won't bite your hand while holding
+      them, and hone in on a single target when released.
+    type: Tweak
+  id: 9106
+  time: '2025-10-15T23:59:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34935
