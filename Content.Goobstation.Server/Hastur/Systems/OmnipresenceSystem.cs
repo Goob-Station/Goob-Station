@@ -2,8 +2,6 @@ using Content.Goobstation.Shared.Hastur.Components;
 using Content.Goobstation.Shared.Hastur.Events;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
 
@@ -14,7 +12,6 @@ public sealed class OmnipresenceSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()

@@ -1,7 +1,7 @@
 hastur-lash-target = {THE($user)} lashes {THE($target)} with a sharp tentacle!
 
 hastur-devour = {THE($user)} reveals their true form for a moment and devours {THE($target)} whole!
-hastur-devour-fail = They must be further weakened before being consumed. Make them kneel.
+hastur-devour-fail = Taking out a lead actor before making them dance? 
 
 hastur-insanityaura-begin1 = The reality around you fades out...
 hastur-insanityaura-begin2 = Suddenly, your mind feels extremely frail and vulnerable...

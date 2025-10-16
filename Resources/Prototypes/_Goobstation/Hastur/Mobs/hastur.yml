@@ -6,7 +6,6 @@
   components:
     - type: Hastur
     - type: Omnipresence
-      CloneProto: MobHasturClone
       cloneDistance: 3.5
       stunRange: 2.5
       stunDuration: 4.0
@@ -86,6 +85,7 @@
       footstepSoundCollection:
         collection: TentacleWalk
     - type: Puller
+      needsHands: false
     - type: Speech
       speechVerb: HolierThanThou
       speechSounds: Hastur
@@ -118,8 +118,9 @@
       noMovementLayers:
         movement:
           state: hastur
-    - type: TimedDespawn
-      lifetime: 10
+    - type: FadingTimedDespawn
+      lifetime: 6
+      fadeOutTime: 3
     - type: EmitSoundOnSpawn
       sound:
         path: /Audio/_Goobstation/Misc/Hastur/growl.ogg

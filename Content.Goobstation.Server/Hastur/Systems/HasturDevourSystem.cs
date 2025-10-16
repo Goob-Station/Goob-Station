@@ -31,7 +31,7 @@ public sealed class HasturDevourSystem : EntitySystem
 
     private void OnTryDevour(Entity<HasturDevourComponent> ent, ref HasturDevourEvent args)
     {
-        if (!_mobState.IsCritical(args.Target) || !_mobState.IsDead(args.Target))
+        if (_mobState.IsAlive(args.Target))
         {
             _popup.PopupPredicted(Loc.GetString("hastur-devour-fail"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             return;
@@ -40,9 +40,7 @@ public sealed class HasturDevourSystem : EntitySystem
         // Stun the target first
         _stun.TryStun(args.Target, ent.Comp.StunDuration, false);
 
-        _popup.PopupPredicted(
-            Loc.GetString("hastur-devour-start", ("user", ent.Owner), ("target", args.Target)),
-            ent.Owner, args.Target, PopupType.LargeCaution);
+        _popup.PopupPredicted(Loc.GetString("hastur-devour", ("user", ent.Owner), ("target", args.Target)),ent.Owner, args.Target, PopupType.LargeCaution);
 
         _audio.PlayPredicted(ent.Comp.DevourSound, ent.Owner, args.Target);
 
