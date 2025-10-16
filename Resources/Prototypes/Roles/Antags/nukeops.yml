@@ -198,6 +198,7 @@
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    ears: ClothingHeadsetAltSyndicateCommander # goob - loudspeaker
   inhand:
   - NukeOpsDeclarationOfWar
 
