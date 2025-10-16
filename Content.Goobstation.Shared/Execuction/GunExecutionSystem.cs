@@ -36,8 +36,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Execution;
+
 /// <summary>
 ///     verb for executing with guns
 /// </summary>
@@ -73,19 +75,16 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         var attacker = args.User;
         var weapon = args.Using!.Value;
         var victim = args.Target;
+        var gunexecutiontime = component.GunExecutionTime;
 
-        if (HasComp<GunExecutionBlacklistComponent>(weapon))
-            return;
-
-        if (HasComp<PacifismAllowedGunComponent>(weapon))
-            return;
-
-        if (!CanExecuteWithGun(weapon, victim, attacker))
+        if (HasComp<GunExecutionBlacklistComponent>(weapon)
+            || HasComp<PacifismAllowedGunComponent>(weapon)
+            || !CanExecuteWithGun(weapon, victim, attacker))
             return;
 
         UtilityVerb verb = new()
         {
-            Act = () => TryStartGunExecutionDoafter(weapon, victim, attacker),
+            Act = () => TryStartGunExecutionDoafter(weapon, victim, attacker, gunexecutiontime),
             Impact = LogImpact.High,
             Text = Loc.GetString("execution-verb-name"),
             Message = Loc.GetString("execution-verb-message"),
@@ -96,19 +95,17 @@ public sealed class SharedGunExecutionSystem : EntitySystem
 
     private bool CanExecuteWithGun(EntityUid weapon, EntityUid victim, EntityUid user)
     {
-        if (!_execution.CanBeExecuted(victim, user))
-            return false;
-
-        // We must be able to actually fire the gun
-        if (!TryComp<GunComponent>(weapon, out var gun) && _gunSystem.CanShoot(gun!))
+        if (!_execution.CanBeExecuted(victim, user)
+            || TryComp<GunComponent>(weapon, out var gun)
+            && !_gunSystem.CanShoot(gun))
             return false;
 
         return true;
     }
 
-    private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker)
+    private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker, float gunexecutiontime)
     {
-        if (!CanExecuteWithGun(weapon, victim, attacker))
+        if (!CanExecuteWithGun(weapon, victim, attacker) || !_timing.IsFirstTimePredicted)
             return;
 
         if (attacker == victim)
@@ -123,7 +120,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         }
 
         var doAfter =
-            new DoAfterArgs(EntityManager, attacker, GunExecutionTime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
+            new DoAfterArgs(EntityManager, attacker, gunexecutiontime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
@@ -136,23 +133,20 @@ public sealed class SharedGunExecutionSystem : EntitySystem
 
     private void OnDoafterGun(EntityUid uid, GunComponent component, DoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || args.Used == null || args.Target == null)
-            return;
-
-        if (!TryComp<GunComponent>(uid, out var guncomp))
+        if (args.Handled
+            || args.Cancelled
+            || args.Used == null
+            || args.Target == null
+            || !TryComp<GunComponent>(uid, out var guncomp))
             return;
 
         var attacker = args.User;
         var victim = args.Target.Value;
         var weapon = args.Used.Value;
 
-        if (!CanExecuteWithGun(weapon, victim, attacker))
-            return;
 
-        if (!TryComp<DamageableComponent>(victim, out var damageableComponent))
-            return;
-
-        if (!_timing.IsFirstTimePredicted)
+        if (!CanExecuteWithGun(weapon, victim, attacker)
+            || !TryComp<DamageableComponent>(victim, out var damageableComponent))
             return;
 
         // Take some ammunition for the shot (one bullet)
@@ -169,6 +163,8 @@ public sealed class SharedGunExecutionSystem : EntitySystem
             return;
         }
 
+        DamageSpecifier damage = new DamageSpecifier();
+        string? mainDamageType = null;
         // Get some information from IShootable
         var ammoUid = ev.Ammo[0].Entity;
 
@@ -179,8 +175,23 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                     var prototype = _prototypeManager.Index<EntityPrototype>(cartridge.Prototype);
 
                     prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me
-                    // Expend the cartridge
-                    cartridge.Spent = true;
+
+                    if (projectileA != null)
+                    {
+                        damage = projectileA.Damage;
+
+                        // ADDED: determine the main damage type
+                        if (damage.DamageDict.Count > 0)
+                        {
+                            // pick the damage type with the highest damage, ignoring "Structural"
+                            var filtered = damage.DamageDict
+                                .Where(kv => !string.Equals(kv.Key, "Structural", StringComparison.OrdinalIgnoreCase));
+                            if (filtered.Any())
+                                mainDamageType = filtered.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
+                        }
+                    }
+
+                    cartridge.Spent = true; // Expend the cartridge
                     _appearanceSystem.SetData(ammoUid!.Value, AmmoVisuals.Spent, true);
                     Dirty(ammoUid.Value, cartridge);
 
@@ -188,10 +199,28 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                 }
             case AmmoComponent newAmmo: // This stops revolvers from hitting the user while executing someone, somehow
                 TryComp<ProjectileComponent>(ammoUid, out var projectileB);
+
+                if (projectileB != null)
+                {
+                    damage = projectileB.Damage;
+
+                    // ADDED: determine the main damage type
+                    if (damage.DamageDict.Count > 0)
+                    {
+                        var filtered = damage.DamageDict
+                            .Where(kv => !string.Equals(kv.Key, "Structural", StringComparison.OrdinalIgnoreCase));
+                        if (filtered.Any())
+                            mainDamageType = filtered.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
+                    }
+                }
+
                 if (ammoUid != null)
                     Del(ammoUid);
                 break;
         }
+
+        if (HasComp<HitscanBatteryAmmoProviderComponent>(weapon)) // Most hitscans are lasers (heat) so this should work fine as i can't figure out how to get the hitscan to work
+            mainDamageType = "Heat";
 
         var prev = _combat.IsInCombatMode(attacker);
         _combat.SetInCombatMode(attacker, true);
@@ -201,14 +230,14 @@ public sealed class SharedGunExecutionSystem : EntitySystem
             _execution.ShowExecutionInternalPopup("suicide-popup-gun-complete-internal", attacker, victim, weapon);
             _execution.ShowExecutionExternalPopup("suicide-popup-gun-complete-external", attacker, victim, weapon);
             _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
-            _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
+            _suicide.ApplyLethalDamage((victim, damageableComponent), mainDamageType);
         }
         else
         {
             _execution.ShowExecutionInternalPopup("execution-popup-gun-complete-internal", attacker, victim, weapon);
             _execution.ShowExecutionExternalPopup("execution-popup-gun-complete-external", attacker, victim, weapon);
             _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
-            _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
+            _suicide.ApplyLethalDamage((victim, damageableComponent), mainDamageType);
         }
 
         _combat.SetInCombatMode(attacker, prev);
