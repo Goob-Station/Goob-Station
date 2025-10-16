@@ -4,7 +4,7 @@
   description: Instantly devour a human...
   components:
   - type: Action
-    useDelay: 60
+    useDelay: 150
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
@@ -62,7 +62,7 @@
   description: Reach into the mind of all beings and whisper them into madness...
   components:
   - type: Action
-    useDelay: 500
+    useDelay: 360
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: mass_whisper
@@ -75,7 +75,7 @@
   description: Vanish/Manifest back from the void to hunt your prey...
   components:
   - type: Action
-    useDelay: 30
+    useDelay: 25
     icon:
       sprite: _Goobstation/Hastur/actions.rsi
       state: veil_void
@@ -85,7 +85,7 @@
 - type: entity
   id: ActionOmnipresence
   name: Omnipresence
-  description: Choose everywhere to be. 
+  description: Choose everywhere to be.
   components:
   - type: Action
     useDelay: 60
