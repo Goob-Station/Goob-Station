@@ -16356,3 +16356,9 @@ Entries:
         locker.
   id: 1829
   time: '2025-10-16T05:13:04.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: You can no longer burger borg modules (or other unremovable items)
+  id: 1830
+  time: '2025-10-16T07:15:49.0000000+00:00'
