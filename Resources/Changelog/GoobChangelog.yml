@@ -16396,3 +16396,9 @@ Entries:
       message: Bagel Station's Old AKM is now truly gone.
   id: 1834
   time: '2025-10-16T09:39:29.0000000+00:00'
+- author: _kote
+  changes:
+    - type: Add
+      message: Syndicate got a couple of new cybernetic implants!
+  id: 1835
+  time: '2025-10-16T09:43:05.0000000+00:00'
