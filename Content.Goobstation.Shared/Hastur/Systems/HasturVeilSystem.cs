@@ -14,6 +14,8 @@ public sealed class HasturVeilSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HasturVeilComponent, VeilOfTheVoidEvent>(OnVeil);
+
+        SubscribeLocalEvent<HasturVeilComponent, HasturDevourEvent>(OnDevour);
     }
 
     private void OnVeil(Entity<HasturVeilComponent> ent, ref VeilOfTheVoidEvent args)
@@ -44,5 +46,16 @@ public sealed class HasturVeilSystem : EntitySystem
 
             args.Handled = true; // Only set the event as handled if he deactivates the stealth. Then the cooldown kicks in.
         }
+    }
+
+    private void OnDevour(Entity<HasturVeilComponent> ent, ref HasturDevourEvent args) // Stealth gets broken on devour as well.
+    {
+        RemComp<StealthComponent>(ent.Owner);
+
+        _popup.PopupPredicted(
+            Loc.GetString("hastur-reveal1", ("user", ent.Owner)),
+            ent.Owner, ent.Owner, PopupType.Medium);
+        ent.Comp.IsActive = false;
+        Dirty(ent);
     }
 }

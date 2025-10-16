@@ -39,7 +39,7 @@ public sealed class HasturDevourSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("hastur-devour", ("user", ent.Owner), ("target", args.Target)),ent.Owner, args.Target, PopupType.LargeCaution);
 
-        _audio.PlayPredicted(ent.Comp.DevourSound, ent.Owner, args.Target);
+        _audio.PlayPredicted(ent.Comp.DevourSound, ent.Owner, ent.Owner);
 
         _appearance.SetData(ent.Owner, DevourVisuals.Devouring, true);
 

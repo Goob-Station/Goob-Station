@@ -27,7 +27,7 @@ public sealed class HasturLashSystem : EntitySystem
         _popup.PopupPredicted(
             Loc.GetString("hastur-lash-target", ("user", ent.Owner), ("target", args.Target)),
             ent.Owner, args.Target, PopupType.MediumCaution);
-        _audio.PlayPredicted(ent.Comp.LashSound, ent.Owner, args.Target);
+        _audio.PlayPredicted(ent.Comp.LashSound, ent.Owner, ent.Owner);
         _stunSystem.TryKnockdown(args.Target, ent.Comp.KnockdownDuration, true);
 
         if (!TryComp<BloodstreamComponent>(args.Target, out var blood))
