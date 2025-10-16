@@ -219,7 +219,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                 break;
         }
 
-        if (HasComp<HitscanBatteryAmmoProviderComponent>(weapon)) // Most hitscans are lasers (heat) so this should work fine as i can't figure out how to get the hitscan to work
+        if (HasComp<HitscanBatteryAmmoProviderComponent>(weapon)) // Almost all hitscans are heat so this should work fine 
             mainDamageType = "Heat";
 
         var prev = _combat.IsInCombatMode(attacker);
