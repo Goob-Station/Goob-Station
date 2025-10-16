@@ -16337,3 +16337,22 @@ Entries:
       message: Fixed Xenomorph evolution.
   id: 1827
   time: '2025-10-13T21:45:32.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: Bullets will now travel through open lockers.
+  id: 1828
+  time: '2025-10-16T02:43:26.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Captain, HOP, QM, HOS, CMO, CE, RD and the Nuke-ops commander are now
+        able to utilise a loudspeaker functionality via their over-ear headset.
+        Make your voice known.
+    - type: Add
+      message: >-
+        QM, Warden, HOP and Clown can now find a megaphone in their round-start
+        locker.
+  id: 1829
+  time: '2025-10-16T05:13:04.0000000+00:00'
