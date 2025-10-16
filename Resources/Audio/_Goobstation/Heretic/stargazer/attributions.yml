@@ -1,0 +1,4 @@
+- files: ["beam_loop_one.ogg, beam_loop_two.ogg, beam_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/pull/92119/files"

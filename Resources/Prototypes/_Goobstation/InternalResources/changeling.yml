@@ -1,0 +1,8 @@
+- type: internalResources
+  id: ChangelingChemicals
+  name: internal-resources-chemicals-name
+  description: internal-resources-chemicals-desc
+  alert: ChangelingChemicals
+  maxAmount: 100
+  regenerationRate: 1
+  startingAmount: 50

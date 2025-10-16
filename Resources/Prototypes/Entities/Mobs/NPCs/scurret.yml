@@ -1,4 +1,4 @@
-﻿# Defines the scurret, a small, agile sapient species intended for players who want to play as something similar to an ewok.
+# Defines the scurret, a small, agile sapient species intended for players who want to play as something similar to an ewok.
 # Although based on MobBaseAncestor, this species does not have a "developed" playable species it is an ancestor to.
 
 - type: entity
@@ -168,6 +168,20 @@
     - CanPilot
     - VimPilot
     - AnomalyHost
+#goobstation edit - clumsy addition
+  - type: Clumsy 
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+    clumsySound:
+      path: /Audio/Animals/wawa_protest.ogg
+ 
 
 # Spawnable scurrets have a random name and colour.
 

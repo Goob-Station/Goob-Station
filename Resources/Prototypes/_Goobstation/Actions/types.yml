@@ -208,7 +208,7 @@
       sprite: /Textures/_Goobstation/Effects/portal.rsi
       state: portal-hell
   - type: TargetAction
-    range: 2
+    range: 1
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -265,3 +265,20 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:RocketChairBoostActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateBerserkerImplant
+  name: Activate Berserker Implant
+  description: Activate your berserker implant, greatly increasing your melee damage and speed for a short duration. While in berserk mode, you will be unable to use ranged weapons.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 40
+    icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
+  - type: InstantAction
+    event: !type:ActivateBerserkerImplantActionEvent
