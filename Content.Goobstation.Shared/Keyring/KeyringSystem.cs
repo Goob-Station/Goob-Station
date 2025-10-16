@@ -72,7 +72,7 @@ public sealed class KeyringSystem : EntitySystem
 
         _audioSystem.PlayPredicted(keyring.Comp.UseSound, keyring, args.User);
 
-        args.Handled = true;
+        args.Handled = true; 
     }
 
     private void OnDoAfterEvent(Entity<KeyringComponent> keyring, ref KeyringDoAfterEvent args)
