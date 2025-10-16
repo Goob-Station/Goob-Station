@@ -405,7 +405,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -645,7 +645,7 @@
     - DoorBumpOpener
 
 - type: entity
-  name: quartermaster PDA
+  name: Logistics Officer's PDA
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
@@ -675,7 +675,7 @@
 - type: entity
   parent: BasePDA
   id: CargoPDA
-  name: cargo PDA
+  name: Logistics PDA
   description: PDA for the guys that order the pizzas.
   components:
   - type: Pda
@@ -951,7 +951,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: MedicalPDA
@@ -1116,6 +1116,7 @@
     id: CentcomIDCard
     penSlot:
       startingItem: PenCentcom
+      priority: -1
       whitelist:
         tags:
         - Write

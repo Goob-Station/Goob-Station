@@ -395,8 +395,8 @@
   parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
   id: ClothingHandsKnuckleDustersQM
   suffix: DO NOT MAP
-  name: quartermaster's engraved knuckleduster
-  description: Forged by the finest craftsmen at the Quartermaster's request, this hard and dense knuckle-duster is designed to deliver bone-crushing blows and damage the internal organs of the unfortunate victim.
+  name: logistics officer's engraved knuckleduster
+  description: Forged by the finest craftsmen at the logistics officer's request, this hard and dense knuckle-duster is designed to deliver bone-crushing blows and damage the internal organs of the unfortunate victim.
   components:
   - type: Sprite
     state: goldenknuckleduster

@@ -61,6 +61,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Interaction;
@@ -89,17 +90,18 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Common.Stunnable;
 using Content.Shared._White.Standing;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;
 
-public abstract class SharedStunSystem : EntitySystem
+public abstract partial class SharedStunSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -124,7 +126,7 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<SlowedDownComponent, ComponentShutdown>(OnSlowRemove);
 
         SubscribeLocalEvent<StunnedComponent, ComponentStartup>(UpdateCanMove);
-        SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(UpdateCanMove);
+        SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(OnStunShutdown);
 
         SubscribeLocalEvent<StunOnContactComponent, StartCollideEvent>(OnStunOnContactCollide);
 
@@ -146,6 +148,9 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<StunnedComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<MobStateComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        // Stun Appearance Data
+        InitializeAppearance();
     }
 
     private void OnAttemptInteract(Entity<StunnedComponent> ent, ref InteractionAttemptEvent args)
@@ -182,9 +187,16 @@ public abstract class SharedStunSystem : EntitySystem
 
     }
 
+    private void OnStunShutdown(Entity<StunnedComponent> ent, ref ComponentShutdown args)
+    {
+        // This exists so the client can end their funny animation if they're playing one.
+        UpdateCanMove(ent, ent.Comp, args);
+        Appearance.RemoveData(ent, StunVisuals.SeeingStars);
+    }
+
     private void UpdateCanMove(EntityUid uid, StunnedComponent component, EntityEventArgs args)
     {
-        _blocker.UpdateCanMove(uid);
+        Blocker.UpdateCanMove(uid);
     }
 
     private void OnStunOnContactCollide(Entity<StunOnContactComponent> ent, ref StartCollideEvent args)
@@ -415,7 +427,8 @@ public abstract class SharedStunSystem : EntitySystem
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
-        if (visual) // Goob edit
+        if (visual
+            && 0 <= ent.Comp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit // Goob edit 2 - So stamina regenerating effects doesn't cause jittering
         {
             _jitter.DoJitter(ent, cCFactor * cCTime, true);
             _stutter.DoStutter(ent, cCFactor * cCTime, true);

@@ -253,8 +253,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackCargo
-  name: cargo backpack
-  description: A robust backpack for stealing cargo's loot.
+  name: logistics backpack
+  description: A robust backpack for stealing logistics' loot.
   components:
     - type: Sprite
       sprite: Clothing/Back/Backpacks/cargo.rsi

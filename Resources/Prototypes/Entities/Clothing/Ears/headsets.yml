@@ -149,7 +149,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCargo
-  name: cargo headset
+  name: logistics headset
   description: A headset used by supply employees.
   components:
   - type: ContainerFill
@@ -176,7 +176,7 @@
 - type: entity
   parent: [ClothingHeadsetCargo, BaseCommandContraband]
   id: ClothingHeadsetQM
-  name: qm headset
+  name: logistics officer's headset
   description: A headset used by the quartermaster.
   components:
   - type: ContainerFill

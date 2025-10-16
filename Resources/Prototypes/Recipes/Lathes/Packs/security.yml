@@ -86,11 +86,13 @@
   - ClothingBackpackElectropack
   - HoloprojectorSecurity
   - HoloprojectorSecurityAdvanced
+  - AntiMindControlDevice
   - PortableRecharger
   - PowerCageHigh
   - PowerCageMedium
   - PowerCageSmall
   - TelescopicShield
+  - ClothingBackpackHarmpack
 
 - type: latheRecipePack
   id: SecurityBoards

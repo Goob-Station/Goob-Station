@@ -71,7 +71,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleRD
   name: research director's mantle
-  description: For when long days in the office consist of explosives, poisonous gas, murder robots, and a fresh pizza from cargo; this mantle will keep you comfy.
+  description: For when long days in the office consist of explosives, poisonous gas, murder robots, and a fresh pizza from logistics; this mantle will keep you comfy.
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/rdmantle.rsi
@@ -81,7 +81,7 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleQM
-  name: quartermaster's mantle
+  name: logistics officer's mantle
   description: For the master of goods and materials to rule over the department, a befitting mantle to show off superiority!
   components:
   - type: Sprite
@@ -98,4 +98,4 @@
   - type: Sprite
     sprite: Clothing/Neck/mantles/mantle.rsi
   - type: Clothing
-    sprite: Clothing/Neck/mantles/mantle.rsi 
+    sprite: Clothing/Neck/mantles/mantle.rsi

@@ -116,7 +116,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
   id: ClothingHeadsetAltCargo
-  name: quartermaster's over-ear headset
+  name: logistics officer's over-ear headset
   components:
   - type: ContainerFill
     containers:

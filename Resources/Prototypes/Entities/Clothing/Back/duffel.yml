@@ -171,6 +171,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/mime.rsi
+  - type: Storage
     storageOpenSound:
       collection: null
     storageInsertSound:
@@ -197,8 +198,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
-  name: cargo duffel bag
-  description: A large duffel bag for stealing cargo's precious loot.
+  name: logistics duffel bag
+  description: A large duffel bag for stealing logistics' precious loot.
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/cargo.rsi
@@ -227,8 +228,16 @@
     - 0,0,8,4
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
   id: ClothingBackpackDuffelSyndicateBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBundle
   abstract: true
   components:
   - type: Tag

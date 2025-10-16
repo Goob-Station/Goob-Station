@@ -125,6 +125,7 @@ using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -281,10 +282,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        Color? colorOverride = null // Goobstation
         )
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, colorOverride); // Goob edit
     }
 
     /// <summary>
@@ -309,7 +310,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "", // Goobstation
+        Color? colorOverride = null, // Goobstation
         LanguagePrototype? languageOverride = null // Einstein Engines - Language
         )
     {
@@ -379,10 +380,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // Goobstation start
-        var postfixEv = new GetMessagePostfixEvent();
-        RaiseLocalEvent(source, postfixEv);
-        if (!string.IsNullOrEmpty(postfixEv.Postfix))
-            wrappedMessagePostfix = postfixEv.Postfix;
+        var colorEv = new GetMessageColorOverrideEvent();
+        RaiseLocalEvent(source, colorEv);
+        if (colorEv.Color != null)
+            colorOverride = colorEv.Color.Value;
         // Goobstation end
 
         // This is really terrible. I hate myself for doing this. [-] Einstein Engines - Languages
@@ -394,7 +395,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
             {
-                SendEntityWhisper(source, modMessage, range, channel, nameOverride, language, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit & Einstein Engines - Language
+                SendEntityWhisper(source, modMessage, range, channel, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 return;
             }
         }
@@ -420,10 +421,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, language, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit & Einstein Engines - Language
+                SendEntitySpeak(source, message, range, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, language, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit & Einstein Engines - Language
+                SendEntityWhisper(source, message, range, null, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, language, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker); // Einstein Engines - Language
@@ -667,7 +668,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype language, // Einstein Engines - Language
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        Color? colorOverride = null // Goobstation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -718,13 +719,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         // The chat message wrapped in a "x says y" string.
-        var wrappedMessage = WrapPublicMessage(source, name, message, language: language);
+        var wrappedMessage = WrapPublicMessage(source, name, message, language: language, colorOverride);
         // The chat message obfuscated via language obfuscation.
         var obfuscated = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation),
         (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
         || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en"));
         // The language-obfuscated message wrapped in a "x says y" string.
-        var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
+        var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language, colorOverride);
         // Einstein Engines - Language end
 
         SendInVoiceRange(
@@ -775,7 +776,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype language, // Einstein Engines - Language
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        Color? colorOverride = null // Goobstation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -835,17 +836,18 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Floof: handle languages that require LOS
             string result, wrappedMessage;
             if (!language.SpeechOverride.RequireLOS && data.Range <= WhisperClearRange
-                || _examineSystem.InRangeUnOccluded(source, listener, WhisperClearRange))
+                || _examineSystem.InRangeUnOccluded(source, listener, WhisperClearRange)
+                || data.Observer)
             {
                 // Scenario 1: the listener can clearly understand the message
                 result = perceivedMessage;
-                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, result, language);
+                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, result, language, colorOverride);
             }
             else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange)) // UNEDIT FROM Einstein Engines - Language // They are out of date, this has been reverted to current ChatSystem
             {
                 // Scenario 2: if the listener is too far, they only hear fragments of the message
                 result = ObfuscateMessageReadability(perceivedMessage);
-                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", nameIdentity, result, language);
+                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", nameIdentity, result, language, colorOverride);
             }
             else
             {
@@ -854,13 +856,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
                 // Scenario 3: If listener is too far and has no line of sight, they can't identify the whisperer's identity
                 result = ObfuscateMessageReadability(perceivedMessage);
-                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language);
+                wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language, colorOverride);
             }
 
             _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, false, session.Channel);
         }
 
-        var replayWrap = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, message, language);
+        var replayWrap = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, message, language, colorOverride);
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, replayWrap, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
         // Einstein Engines - Languages end
 
@@ -910,8 +912,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entity", ent),
             ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
-        if (checkEmote)
-            TryEmoteChatInput(source, action);
+        if (checkEmote &&
+            !TryEmoteChatInput(source, action))
+            return;
 
         SendInVoiceRange(
             ChatChannel.Emotes,
@@ -1201,8 +1204,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return message;
     }
 
-    [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public const string ChatSanitize_Accent = "chatsanitize";
+    public static readonly ProtoId<ReplacementAccentPrototype> ChatSanitize_Accent = "chatsanitize";
 
     public string SanitizeMessageReplaceWords(string message)
     {
@@ -1219,24 +1221,24 @@ public sealed partial class ChatSystem : SharedChatSystem
        /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
-    public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null)
+    public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null, Color? colorOverride = null)
     {
         var wrapId = GetSpeechVerb(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message";
-        return WrapMessage(wrapId, InGameICChatType.Speak, source, name, message, language);
+        return WrapMessage(wrapId, InGameICChatType.Speak, source, name, message, language, colorOverride);
     }
 
     /// <summary>
     ///     Wraps a message whispered by the specified entity into an "x whispers y" string.
     /// </summary>
-    public string WrapWhisperMessage(EntityUid source, LocId defaultWrap, string entityName, string message, LanguagePrototype? language = null)
+    public string WrapWhisperMessage(EntityUid source, LocId defaultWrap, string entityName, string message, LanguagePrototype? language = null, Color? colorOverride = null)
     {
-        return WrapMessage(defaultWrap, InGameICChatType.Whisper, source, entityName, message, language);
+        return WrapMessage(defaultWrap, InGameICChatType.Whisper, source, entityName, message, language, colorOverride);
     }
 
     /// <summary>
     ///     Wraps a message sent by the specified entity into the specified wrap string.
     /// </summary>
-    public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message, LanguagePrototype? language)
+    public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message, LanguagePrototype? language, Color? colorOverride)
     {
         var speech = GetSpeechVerb(source, message);
         language ??= _language.GetLanguage(source);
@@ -1253,8 +1255,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             ? _random.Pick(verbsOverride).ToString()
             : _random.Pick(speech.SpeechVerbStrings);
         var color = DefaultSpeakColor;
-        if (language.SpeechOverride.Color is { } colorOverride)
-            color = Color.InterpolateBetween(color, colorOverride, colorOverride.A);
+        colorOverride ??= language.SpeechOverride.Color;
+        if (colorOverride != null)
+            color = Color.InterpolateBetween(color, colorOverride.Value, colorOverride.Value.A);
         var languageDisplay = language.IsVisibleLanguage
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";

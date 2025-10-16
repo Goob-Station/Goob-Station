@@ -69,8 +69,8 @@ job-name-bartender = Bartender
 job-name-passenger = Assistant
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
-job-name-qm = Quartermaster
-job-name-cargotech = Cargo Technician
+job-name-qm = Logistics Officer
+job-name-cargotech = Logistics Technician
 job-name-chef = Chef
 job-name-clown = Clown
 job-name-ertleader = ERT Leader
@@ -83,6 +83,7 @@ job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
 job-name-mercenary = Mercenary
+job-name-cluwne = Cluwne
 
 # unused jobs
 # these are required for the agent ID job icon tooltips
@@ -108,7 +109,7 @@ JobBorg = Borg
 JobBotanist = Botanist
 JobBoxer = Boxer
 JobCaptain = Captain
-JobCargoTechnician = Cargo Technician
+JobCargoTechnician = Logistics Technician
 JobCentralCommandOfficial = Central Command Official
 JobChaplain = Chaplain
 JobChef = Chef
@@ -137,7 +138,7 @@ JobMusician = Musician
 JobParamedic = Paramedic
 JobPassenger = Assistant
 JobPsychologist = Psychologist
-JobQuartermaster = Quartermaster
+JobQuartermaster = Logistics Officer
 JobReporter = Reporter
 JobResearchAssistant = Research Assistant
 JobResearchDirector = Research Director

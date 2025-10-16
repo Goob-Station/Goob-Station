@@ -369,7 +369,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: cargo ID card
+  name: Logistics ID card
   components:
   - type: Sprite
     layers:
@@ -405,7 +405,7 @@
 - type: entity
   parent: IDCardStandard
   id: QuartermasterIDCard
-  name: quartermaster ID card
+  name: Logistics Officer's ID card
   components:
     - type: Sprite
       layers:
