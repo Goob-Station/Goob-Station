@@ -47,7 +47,7 @@
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Misc/Hastur/void_song.ogg
+      path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
     useDelay: 60
     icon:
       sprite: _Goobstation/Hastur/actions.rsi

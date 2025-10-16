@@ -18,7 +18,7 @@ public sealed partial class InsanityAuraComponent : Component
 
 
     [DataField]
-    public SoundSpecifier? VoidSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/Hastur/void_song.ogg");
+    public SoundSpecifier? VoidSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/Hastur/Void_Song.ogg");
 
     /// <summary>
     /// The maximum distance for visibility/LOS check.

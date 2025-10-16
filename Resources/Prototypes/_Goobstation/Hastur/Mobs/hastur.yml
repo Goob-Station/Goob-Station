@@ -85,6 +85,10 @@
     - type: FootstepModifier
       footstepSoundCollection:
         collection: TentacleWalk
+    - type: Puller
+    - type: Speech
+      speechVerb: HolierThanThou
+      speechSounds: Hastur
     - type: Tag
       tags:
       - DoorBumpOpener

@@ -14,7 +14,7 @@
       briefing:
         text: hastur-role-greeting
         color: Yellow
-        sound: /Audio/_Goobstation/Misc/Hastur/void_song.ogg
+        sound: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobHastur
@@ -43,7 +43,7 @@
   - type: AntagSpawner
     prototype: MobHastur
   - type: AntagSelection
-    agentName: hastur-end-agent-name
+    agentName: hastur-round-end-agent-name
     definitions:
     - spawnerPrototype: HasturToken
       min: 1
@@ -54,4 +54,4 @@
       briefing:
         text: hastur-role-greeting
         color: Yellow
-        sound: /Audio/_Goobstation/Misc/Hastur/void_song.ogg
+        sound: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg

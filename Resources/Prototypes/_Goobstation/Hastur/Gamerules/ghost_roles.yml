@@ -11,7 +11,7 @@
     - MindRoleGhostRoleSoloAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hours. It's a very cryptic antag. No guidebook either so.
+      time: 72000 # 20 hours. It's a very cryptic antag. No guidebook either, so.
     raffle:
       settings: default
   - type: Sprite
