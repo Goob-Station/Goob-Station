@@ -16430,3 +16430,11 @@ Entries:
       message: Accentless now works for yowies and rodentia
   id: 1839
   time: '2025-10-16T09:48:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        The NTR can no longer make various items like Syndicate Bombs disappear
+        by scanning them.
+  id: 1840
+  time: '2025-10-16T09:49:35.0000000+00:00'
