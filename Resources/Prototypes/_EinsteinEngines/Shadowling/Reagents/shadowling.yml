@@ -11,7 +11,7 @@
       effects:
       - !type:HealShadowling
         damage:
-          groups:
+          groups: # goob edit
             Burn: -12
             Brute: -12
           types:
