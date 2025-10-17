@@ -20,7 +20,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Heretic.Abilities;
@@ -36,7 +35,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
-using Content.Shared.Magic;
 using Content.Shared.Maps;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -69,7 +67,6 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedMagicSystem _magic = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -112,19 +109,6 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (args.Target == null || _whitelist.IsBlacklistPass(grasp.Blacklist, args.Target.Value))
         {
             RustTile();
-            return;
-        }
-
-        // Already rusted walls are destroyed
-        if (HasComp<RustedWallComponent>(args.Target))
-        {
-            if (!_ability.CanSurfaceBeRusted(args.Target.Value, (args.User, heretic)))
-                return;
-
-            args.Handled = true;
-            InvokeGrasp(args.User, (uid, grasp));
-            ResetDelay();
-            Del(args.Target);
             return;
         }
 
@@ -197,7 +181,12 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         var target = args.Target.Value;
 
         if (TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path)
+        {
+            hereticComp.MansusGrasp = EntityUid.Invalid;
+            QueueDel(uid);
+            args.Handled = true;
             return;
+        }
 
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
