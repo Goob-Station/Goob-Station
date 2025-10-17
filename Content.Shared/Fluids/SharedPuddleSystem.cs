@@ -39,8 +39,9 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     private static readonly ProtoId<ReagentPrototype> Slime = "Slime";
     private static readonly ProtoId<ReagentPrototype> CopperBlood = "CopperBlood";
     private static readonly ProtoId<ReagentPrototype> BloodChangeling = "BloodChangeling"; // Goobstation
+    private static readonly ProtoId<ReagentPrototype> BlackBlood = "BlackBlood"; // Goobstation
 
-    private static readonly string[] StandoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // Goobstation - added BloodChangeling
+    private static readonly string[] StandoutReagents = [Blood, Slime, CopperBlood, BloodChangeling, BlackBlood]; // Goobstation - added BloodChangeling+Blackblood
 
 
     /// <summary>

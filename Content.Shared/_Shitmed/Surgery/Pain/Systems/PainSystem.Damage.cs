@@ -127,9 +127,25 @@ public partial class PainSystem
         if (!Resolve(uid, ref nerveSys, false))
             return false;
 
-        var modifier = new PainModifier(change, MetaData(nerveUid).EntityPrototype!.ID, painType, _timing.CurTime + time);
-        if (!nerveSys.Modifiers.TryAdd((nerveUid, identifier), modifier))
-            return false;
+        // Create a modifier for WoundPain
+        var woundModifier = new PainModifier(
+            change,
+            MetaData(nerveUid).EntityPrototype!.ID,
+            PainDamageTypes.WoundPain,
+            _timing.CurTime + time
+        );
+
+        // Create a modifier for TraumaticPain
+        var traumaModifier = new PainModifier(
+            change,
+            MetaData(nerveUid).EntityPrototype!.ID,
+            PainDamageTypes.TraumaticPain,
+            _timing.CurTime + time
+        );
+
+        // Add both modifiers
+        nerveSys.Modifiers[(nerveUid, $"{identifier}_wound")] = woundModifier;
+        nerveSys.Modifiers[(nerveUid, $"{identifier}_trauma")] = traumaModifier;
 
         var ev = new PainModifierAddedEvent(uid, nerveUid, change);
         RaiseLocalEvent(uid, ref ev);
@@ -647,7 +663,7 @@ public partial class PainSystem
 
             if (_timing.CurTime > nerveSys.ReactionUpdateTime)
                 UpdatePainThreshold(nerveSysEnt, nerveSys);
-            
+
             shouldUpdate = true;
         }
 
