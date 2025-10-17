@@ -37,7 +37,7 @@
   - type: DisarmMalus
   - type: MeleeDash
   - type: UseDelay
-    delay: 1.5
+    delay: 5 # Melee dash is strong
   - type: StaticPrice
     price: 10000
   - type: Tag
@@ -46,9 +46,10 @@
 
 - type: entity
   name: cryo katana
-  description: Maybe it's a bit weird that this sword is freezing in that route.
-  parent: LavalandBaseKatana
+  description: Okay maybe things took a weird route when a snow golem was making this engraved sword.
+  parent: [ LavalandBaseKatana, BaseSalvageContraband ]
   id: CryoKatana
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     layers:
@@ -79,13 +80,14 @@
       - state: blade-equipped-BELT
         color: "#00FFFF"
   - type: ChangeTemperatureOnHit
-    heat: -150000 # Low temperature also slows you down, so decrease is lower than on lava katana
+    heat: -100000 # Low temperature also slows you down, so the change is lower than on lava katana
 
 - type: entity
   name: lava katana
   description: One thousand degree knife, that somehow always keeps intact.
-  parent: LavalandBaseKatana
+  parent: [ LavalandBaseKatana, BaseSalvageContraband ]
   id: LavaKatana
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     layers:
@@ -116,13 +118,14 @@
       - state: blade-equipped-BELT
         color: "#FF6600"
   - type: ChangeTemperatureOnHit
-    heat: 200000
+    heat: 150000
 
 - type: entity
   name: shadow katana
-  description: The legendary sword that emmits the darkess itself, 
+  description: Legendary sword that emits the darkness itself. Has an ability to pierce through any armor with enough luck and determination.
   parent: BaseSword
   id: ShadowKatana
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Melee/shadow_katana.rsi
@@ -145,7 +148,7 @@
   - type: DisarmMalus
   - type: MeleeDash
   - type: UseDelay
-    delay: 2
+    delay: 3
   - type: StaticPrice
     price: 25000
   - type: Tag
