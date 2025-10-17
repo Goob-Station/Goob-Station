@@ -54,11 +54,6 @@
       actions:
         - ActionVeilOfTheVoid
     - type: HasturVeil
-    - type: AmbientSound
-      volume: -8
-      range: 5
-      sound:
-        path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
