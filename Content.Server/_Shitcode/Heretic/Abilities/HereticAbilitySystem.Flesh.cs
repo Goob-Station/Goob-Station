@@ -181,7 +181,7 @@ public sealed partial class HereticAbilitySystem
         var metabolizer = EnsureComp<MetabolizerComponent>(fleshStomach);
         metabolizer.MaxPoisonsProcessable = 10;
         metabolizer.MetabolismGroups = new() { new() { Id = "Food" }, new() { Id = "Drink" } };
-        metabolizer.MetabolizerTypes = new() { "Animal" };
+        metabolizer.MetabolizerTypes = new() { "Vox" };
         metabolizer.SolutionOnBody = false;
         metabolizer.RemoveEmpty = true;
         metabolizer.SolutionName = solName;
