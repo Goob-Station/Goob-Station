@@ -683,4 +683,10 @@
   id: MidroundAntag
 
 - type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
+
+- type: Tag
   id: DisposableBattery

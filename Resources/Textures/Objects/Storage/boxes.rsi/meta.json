@@ -241,6 +241,9 @@
     },
     {
       "name": "agrichemkit"
+    },
+    {
+      "name": "watertank"
     }
   ]
 }
