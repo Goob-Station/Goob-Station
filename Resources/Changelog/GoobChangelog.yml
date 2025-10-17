@@ -16476,3 +16476,9 @@ Entries:
       message: Slings taking light damage while traveling through disposals
   id: 1846
   time: '2025-10-16T17:11:45.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: The RPDS should now work again. Catch this mail!
+  id: 1847
+  time: '2025-10-17T16:57:04.0000000+00:00'
