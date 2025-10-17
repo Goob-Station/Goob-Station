@@ -4,17 +4,6 @@
   name: yellow robes
   description: It's calling to you...
   components:
-  - type: ClothingGrantComponent
-    component:
-    - type: HasturVeil
-    - type: AmbientSound
-      volume: -10
-      range: 5
-      sound:
-        path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
-    - type: ActionGrant #ItemGrantComponent didn't work :/
-      actions:
-        - ActionVeilOfTheVoid
   - type: Sprite
     sprite: /Textures/_Goobstation/Hastur/clothing.rsi
   - type: Clothing
@@ -40,9 +29,6 @@
     damageCoefficient: 0.7
   - type: StaticPrice
     price: 10000
-  - type: ClothingSpeedModifier
-    walkModifier: 1.2
-    sprintModifier: 1.2
   - type: Armor
     modifiers:
       coefficients:
@@ -62,6 +48,20 @@
   categories: [HideSpawnMenu]
   description: It's hard to see who is wearing it under that...
   components:
+  - type: ClothingGrantComponent
+    component:
+    - type: ActionGrant
+      actions:
+        - ActionVeilOfTheVoid
+    - type: HasturVeil
+    - type: AmbientSound
+      volume: -8
+      range: 5
+      sound:
+        path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
   - type: Sprite
     sprite: /Textures/_Goobstation/Hastur/head.rsi
   - type: Clothing

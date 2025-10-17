@@ -19,7 +19,7 @@
   - type: AntagSpawner
     prototype: MobHastur
   - type: StationEvent
-    weight: 1 # Extremely rare
+    weight: 0.5 # Extremely rare
     earliestStart: 45
     minimumPlayers: 30
     duration: null

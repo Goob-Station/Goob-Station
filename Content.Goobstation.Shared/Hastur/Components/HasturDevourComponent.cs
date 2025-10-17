@@ -24,7 +24,7 @@ public sealed partial class HasturDevourComponent : Component
     /// How long the DoAfter delay before devour executes
     /// </summary>
     [DataField]
-    public TimeSpan DevourDuration = TimeSpan.FromSeconds(1.5);
+    public TimeSpan DevourDuration = TimeSpan.FromSeconds(1.7);
 
     /// <summary>
     /// Healing from devouring an entity.
