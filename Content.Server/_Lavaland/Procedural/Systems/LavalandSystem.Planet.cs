@@ -85,7 +85,7 @@ public sealed partial class LavalandSystem
 
         // Assign all other components to the map
         if (prototype.AddComponents != null)
-            EntityManager.AddComponents(lavalandMap, prototype.AddComponents.Value);
+            EntityManager.AddComponents(lavalandMap, prototype.AddComponents);
 
         // Preload here to prevent biome entities from overlaying with everything else
         _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
