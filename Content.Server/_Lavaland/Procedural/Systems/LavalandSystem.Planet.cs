@@ -83,7 +83,7 @@ public sealed partial class LavalandSystem
 
         // Assign all other components to the map
         EntityManager.AddComponents(lavalandMap, prototype.AddComponents);
-        
+
         _map.InitializeMap(lavalandMapId);
 
         // Preload here to prevent biome entities from overlaying with everything else
@@ -140,6 +140,7 @@ public sealed partial class LavalandSystem
             _metaData.SetEntityName(result.Value, Loc.GetString(layout.Name));
 
             Log.Debug($"Spawned {ToPrettyString(result.Value)} grid on planet {ToPrettyString(lavaland)}.");
+            spawned.Add(result.Value);
         }
     }
 }
