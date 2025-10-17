@@ -38,6 +38,18 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     [DataField]
     public SlotFlags? CopyEquipment = SlotFlags.All;
 
+    // Goobstation
+    [DataField]
+    public bool MakeEquipmentUnremoveable;
+
+    // Goobstation
+    [DataField]
+    public bool CopyStorage = true;
+
+    // Goobstation
+    [DataField]
+    public bool InternalContentsUnremoveable;
+
     /// <summary>
     ///     Whether or not to copy slime storage and storage implant contents.
     /// </summary>

@@ -33,6 +33,9 @@ public sealed partial class GhoulComponent : Component
     [DataField] public FixedPoint2 TotalHealth = 50;
 
     [DataField]
+    public bool DropOrgansOnDeath = true;
+
+    [DataField]
     public EntProtoId? SpawnOnDeathPrototype;
 
     /// <summary>
@@ -45,7 +48,7 @@ public sealed partial class GhoulComponent : Component
     public LocId? ExamineMessage = "examine-system-cant-see-entity";
 
     [DataField]
-    public EntityUid? BoundBlade;
+    public EntityUid? BoundWeapon;
 
     [DataField]
     public EntProtoId BladeProto = "HereticBladeFleshGhoul";

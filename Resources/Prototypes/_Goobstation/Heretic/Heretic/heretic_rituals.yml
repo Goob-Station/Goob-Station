@@ -195,6 +195,7 @@
   - !type:RitualMuteGhoulifyBehavior
   requiredTags:
     Muzzle: 1
+  limit: 2
 
 - type: hereticRitual
   id: RawRitual

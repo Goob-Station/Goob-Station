@@ -186,6 +186,7 @@
     maxZoom: 1.25, 1.25
     targetZoom: 1.25, 1.25
   - type: ShowHealthBars
+  - type: ShowHealthIcons
 
 - type: entity
   parent: [BaseMobGhoul, FlyingMobBase]

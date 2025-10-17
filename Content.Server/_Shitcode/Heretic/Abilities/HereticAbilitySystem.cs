@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
@@ -42,7 +43,6 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared.Body.Systems;
-using Content.Server.Medical;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Content.Shared.Stunnable;
@@ -70,6 +70,9 @@ using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Server.Cloning;
+using Content.Server.NPC.HTN;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -100,7 +103,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
@@ -127,6 +129,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -148,9 +152,20 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
-        SubscribeFlesh();
         SubscribeVoid();
         SubscribeLock();
+    }
+
+    public override void InvokeTouchSpell<T>(Entity<T> ent, EntityUid user)
+    {
+        base.InvokeTouchSpell(ent, user);
+
+        _chat.TrySendInGameICMessage(user, Loc.GetString(ent.Comp.Speech), InGameICChatType.Speak, false);
+
+        if (Exists(ent.Comp.Action))
+            _actions.SetCooldown(ent.Comp.Action.Value, ent.Comp.Cooldown);
+
+        QueueDel(ent);
     }
 
     protected override void SpeakAbility(EntityUid ent, HereticActionComponent actionComp)
@@ -381,9 +396,53 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         RaiseLocalEvent(ent, toggleEvent);
     }
 
+    private (float mult, float mod) GetFleshHealMultiplierModifier(Entity<MartialArtModifiersComponent> ent)
+    {
+        var mult = 1f;
+        var mod = 0f;
+        const MartialArtModifierType type = MartialArtModifierType.Healing;
+        foreach (var data in ent.Comp.Data.Where(x => (x.Type & type) != 0))
+        {
+            mult *= data.Multiplier;
+            mod += data.Modifier;
+        }
+
+        foreach (var (_, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
+        {
+            mult = Math.Clamp(mult, limit.X, limit.Y);
+            mod = Math.Clamp(mod, limit.Z, limit.W);
+        }
+
+        return (mult, mod);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        var fleshQuery = EntityQueryEnumerator<FleshPassiveComponent, MartialArtModifiersComponent, DamageableComponent>();
+        while (fleshQuery.MoveNext(out var uid, out var flesh, out var modifiers, out var dmg))
+        {
+            flesh.Accumulator += frameTime;
+
+            if (flesh.Accumulator < flesh.HealInterval)
+                continue;
+
+            flesh.Accumulator = 0f;
+
+            var (mult, _) = GetFleshHealMultiplierModifier((uid, modifiers));
+
+            var realMult = mult - 1;
+
+            if (realMult <= 0f)
+                continue;
+
+            var toHeal = -AllDamage * realMult;
+            var boneHeal = -mult * flesh.BoneHealMultiplier;
+            var painHeal = -mult * flesh.PainHealMultiplier;
+
+            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal);
+        }
 
         var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
         while (rustChargeQuery.MoveNext(out var uid, out var rust, out var xform))

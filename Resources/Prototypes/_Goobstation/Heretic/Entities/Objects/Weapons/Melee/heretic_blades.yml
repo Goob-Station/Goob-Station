@@ -127,7 +127,7 @@
 - type: entity
   parent: HereticBladeBaseNoTeleport
   id: HereticBladeFleshGhoul
-  name: bloody blade
+  name: ghoul blade
   description: A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins.
   suffix: Flesh ghoul
   components:

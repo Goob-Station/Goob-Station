@@ -95,7 +95,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
 
             if (!behavior.Execute(ritData, out var missingStr))
             {
@@ -168,7 +168,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
             behavior.Finalize(ritData);
         }
 
