@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Surgery;
 using Content.Shared.DoAfter;
@@ -70,6 +72,10 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnAscensionFlesh(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
     {
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
+
         EnsureComp<FleshPassiveComponent>(ent);
     }
 

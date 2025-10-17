@@ -36,7 +36,7 @@ knowledge-path-flesh-s2-desc =
 
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
     Ghouls have only 50 health and look like husks to the heathens' eyes.
-    All ghouls get their own bloody blade that cannot be shattered and disappears on ghoul death.
+    All ghouls get their own Bloody Blade that cannot be shattered and disappears on ghoul death.
     You are now able to consume raw flesh. Eating meat, organs and body parts will empower you temporarily, the effect scales with your path stage.
     You also become immune to damage from poisons.
 
@@ -63,7 +63,7 @@ knowledge-path-flesh-s5-desc =
     But they were not out of my reach for long. With every step, the screams grew, until at last
     I learned that they could be silenced.
 
-    Grants you the spell Knit Flesh. This touch spell acts as a great surgery tool that bypasses surgery steps, clothing and doesn't cause pain. Also acts as medical hud and health analyzer.
+    Grants you the spell Knit Flesh. This touch spell acts as a great surgery tool that bypasses surgery steps, clothing, doesn't cause pain and doesn't deal poison damage. Also acts as medical hud and health analyzer.
     This spell also allows you to heal your minions and summons.
 
 knowledge-path-flesh-s6-name = Raw Ritual
@@ -98,3 +98,4 @@ knowledge-path-flesh-s9-desc =
     Additionally, upon taking damage, your body will split into mute flesh mimic. They will be given a Bloody Blade.
     Mute flesh mimics are identical to Voiceless Dead but they receive damage over time that increases slowly.
     You can only sustain 10 flesh mimics at once, taking even more damage will instead heal existing mimics.
+    You will also become immune to extreme temperatures and pressure.
