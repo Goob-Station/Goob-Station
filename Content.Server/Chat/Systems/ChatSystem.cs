@@ -197,10 +197,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     public readonly Color DefaultSpeakColor = Color.White; // Einstein Engines - Language
 
     // Floofstation - Emotes and Sign Languages Respect LOS begin
-    public const bool SpeakRespectsLOS = false; // You can hear through walls.
-    public const bool WhisperRespectsLOS = false; // You can hear some whispers through walls.
+    public const bool SpeakRespectsLOS = true; // You can't hear through walls.
+    public const bool WhisperRespectsLOS = true; // I set this to true but this just doesn't do fucking anything.
     public const bool EmoteRespectsLOS = true; // You can still hear the noises, but you don't know who is making them.
-    public const bool LocalOOCRespectsLOS = false; // LOOC can be seen through walls.
+    public const bool LocalOOCRespectsLOS = true; // LOOC can't be seen through walls to prevent accidential reveals.
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -1218,7 +1218,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     // Einstein Engines - Language begin
-       /// <summary>
+    /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null, Color? colorOverride = null)
