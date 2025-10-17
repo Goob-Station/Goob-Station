@@ -5,17 +5,14 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.DynamicAudio;
 
-public sealed class DynamicAudioSystem : EntitySystem
+public sealed class DynamicAudioSystem : SharedDynamicAudioSystem
 {
-    [Dependency] private readonly SharedDynamicAudioSystem _dynamicAudio = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AudioComponent, ComponentAdd>(OnAudioAdd);
-        SubscribeLocalEvent<DynamicAudioComponent, ComponentStartup>(OnEffectedAudioStartup, after: [typeof(SharedAudioSystem)]);
+        SubscribeLocalEvent<DynamicAudioComponent, ComponentStartup>(OnEffectedAudioStartup);
     }
 
     private void OnAudioAdd(Entity<AudioComponent> ent, ref ComponentAdd args)
@@ -36,6 +33,6 @@ public sealed class DynamicAudioSystem : EntitySystem
             || audio.Global)
             return;
 
-        _dynamicAudio.ApplyAudioEffect((ent, audio));
+        ApplyAudioEffect((ent, audio));
     }
 }

@@ -3,6 +3,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Physics;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
@@ -19,42 +20,24 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.DynamicAudio;
 
-public sealed class SharedDynamicAudioSystem : EntitySystem
+public abstract class SharedDynamicAudioSystem : EntitySystem
 {
     private Dictionary<ProtoId<AudioPresetPrototype>, EntityUid> _presets = new();
-    private Dictionary<int, string> _areaPresets = new Dictionary<int, string> // sort it or will be broken
-    {
-        { 10, "PaddedCell" },
-        { 70, "Generic" }, // no echo / normal
-        { 80, "SpaceStationMediumRoom" },
-        { 100, "SpaceStationLargeRoom" },
-        { 200, "SpaceStationHall" }
-    };
 
-    private string _defaultPreset = "LivingRoom";
+    private string _defaultPreset = "Generic"; // change this to "LivingRoom" for normal audio
     private string _inSpacePreset = "InSpace";
-    private string _onPlanetPreset = "Forest";
-
-    private int _maxAreaScanRadius = 8; // prefer to set value of pvs divided by 2
-    private int _maxTilesScanCount = 200;
-
     private int _soundMuffleInSpace = -10;
 
+    [Dependency] protected readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] protected readonly IConfigurationManager _cfg = default!;
+    [Dependency] protected readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityLookupSystem _lookUp = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _presets.Clear());
-    }
 
     /// <summary>
     /// Applies sound effects by it's environment.
@@ -97,93 +80,9 @@ public sealed class SharedDynamicAudioSystem : EntitySystem
             return _inSpacePreset;
         }
 
-        // checks if sound on planet
-        if (HasComp<BiomeComponent>(soundTransform.GridUid))
-            return _onPlanetPreset;
-
-        if (!TryComp<MapGridComponent>(soundTransform.GridUid, out var mapGrid))
-            return _defaultPreset;
-
-        int estimatedArea = CountTilesInRoom(_map.TileIndicesFor(soundTransform.GridUid.Value, mapGrid, _xform.GetMapCoordinates(soundTransform)), (soundTransform.GridUid.Value, mapGrid));
-
-        foreach (var areaPreset in _areaPresets)
-            if (estimatedArea <= areaPreset.Key)
-                return areaPreset.Value;
-
         return _defaultPreset;
     }
 
-    /// <summary>
-    /// Calculates room area tile by tile.
-    /// </summary>
-    private int CountTilesInRoom(Vector2i startTile, Entity<MapGridComponent> grid)
-    {
-        var visited = new HashSet<Vector2i>();
-        var queue = new Queue<Vector2i>();
-
-        queue.Enqueue(startTile);
-        visited.Add(startTile);
-
-        var directions = new Vector2i[] { new(0, 1), new(1, 0), new(0, -1), new(-1, 0) };
-
-        while (queue.Count > 0)
-        {
-            var currentTile = queue.Dequeue();
-
-            var distance = Math.Abs(currentTile.X - startTile.X) +
-                          Math.Abs(currentTile.Y - startTile.Y);
-
-            if (distance > _maxAreaScanRadius) // must be restricted by radius or your CPU gets fuck
-                continue;
-
-            if (visited.Count > _maxTilesScanCount) // and also by maximum of tiles
-                break;
-
-            foreach (var direction in directions)
-            {
-                var neighborTile = currentTile + direction;
-
-                if (visited.Contains(neighborTile))
-                    continue;
-
-                if (IsValidTile(neighborTile, grid))
-                {
-                    visited.Add(neighborTile);
-                    queue.Enqueue(neighborTile);
-                }
-            }
-        }
-
-        return visited.Count;
-    }
-
-    /// <summary>
-    /// Validates tile for being space or solid structure in it like wall that can block sound.
-    /// </summary>
-    private bool IsValidTile(Vector2i tilePos, Entity<MapGridComponent> grid)
-    {
-        if (!_map.TryGetTileRef(grid.Owner, grid.Comp, tilePos, out var tile))
-            return false;
-
-        if (_turf.IsSpace(tile))
-            return false;
-
-        var loc = _map.GridTileToWorld(grid.Owner, grid.Comp, tilePos);
-        foreach (var ent in _lookUp.GetEntitiesInRange(loc, 0.01f))
-            if (TryComp<PhysicsComponent>(ent, out var phys) &&
-                phys.BodyType == BodyType.Static &&
-                phys.Hard &&
-                (phys.CollisionLayer & (int) (CollisionGroup.Impassable | CollisionGroup.HighImpassable)) != 0)
-            {
-                return false;
-            }
-
-        return true;
-    }
-
-    /// <summary>
-    /// Tries to get effect from dictionary or create and save it.
-    /// </summary>
     private bool TryCreateAudioEffect(ProtoId<AudioPresetPrototype> preset, [NotNullWhen(true)] out EntityUid auxUid)
     {
         auxUid = default;

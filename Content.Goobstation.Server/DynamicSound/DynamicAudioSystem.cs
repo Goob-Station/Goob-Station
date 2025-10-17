@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.DynamicAudio;
 using Content.Goobstation.Shared.DynamicAudio.Effects;
@@ -9,13 +10,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.DynamicSound;
 
-public sealed class DynamicAudioSystem : EntitySystem
+public sealed class DynamicAudioSystem : SharedDynamicAudioSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
     private float _soundBarotraumaMoles = 10;
 
     private TimeSpan _nextPlayersBarotraumaCheck = new TimeSpan();
@@ -45,7 +42,8 @@ public sealed class DynamicAudioSystem : EntitySystem
     /// </summary>
     public void DoDynamicChecks(EntityUid entityUid)
     {
-        if (TerminatingOrDeleted(entityUid) || Paused(entityUid))
+        if (TerminatingOrDeleted(entityUid)
+            || Paused(entityUid))
             return;
 
         var mixture = _atmos.GetTileMixture((entityUid, Transform(entityUid)));
