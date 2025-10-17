@@ -19,32 +19,26 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Procedural.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
-[RegisterComponent]
-public sealed partial class LavalandMapComponent : Component
+/// <summary>
+/// Contains information about Lavaland ruin configuration.
+/// </summary>
+[Prototype]
+public sealed partial class LavalandRuinPrototype : IPrototype
 {
-    [ViewVariables]
-    public EntityUid Outpost;
+    [IdDataField] public string ID { get; } = default!;
 
-    [ViewVariables]
-    public int Seed;
+    [DataField] public LocId Name = "lavaland-ruin-unknown";
 
-    [ViewVariables]
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
+    [DataField(required: true)]
+    public string Path { get; } = default!;
 
-    /// <summary>
-    /// Chunks in this area are always loaded
-    /// </summary>
-    [ViewVariables]
-    public Box2 LoadArea;
+    [DataField]
+    public int SpawnAttemps = 8;
 
-    /// <summary>
-    /// Currently active chunks
-    /// </summary>
-    [DataField("loadedChunks")]
-    public HashSet<Vector2i> LoadedChunks = new();
+    [DataField(required: true)]
+    public int Priority = int.MinValue;
 }

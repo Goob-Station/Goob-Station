@@ -19,32 +19,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Procedural.Prototypes;
-using Robust.Shared.Prototypes;
+using Content.Shared.Destructible.Thresholds;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Server._Lavaland.Weather.Gamerule;
 
 [RegisterComponent]
-public sealed partial class LavalandMapComponent : Component
+public sealed partial class LavalandStormSchedulerRuleComponent : Component
 {
-    [ViewVariables]
-    public EntityUid Outpost;
-
-    [ViewVariables]
-    public int Seed;
-
-    [ViewVariables]
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
+    /// <summary>
+    ///     How long until the next check for an event runs
+    /// </summary>
+    [DataField] public float EventClock = 600f; // Ten minutes
 
     /// <summary>
-    /// Chunks in this area are always loaded
+    ///     How much time it takes in seconds for a lavaland storm to be raised.
     /// </summary>
-    [ViewVariables]
-    public Box2 LoadArea;
-
-    /// <summary>
-    /// Currently active chunks
-    /// </summary>
-    [DataField("loadedChunks")]
-    public HashSet<Vector2i> LoadedChunks = new();
+    [DataField] public MinMax Delays = new(20 * 60, 40 * 60);
 }

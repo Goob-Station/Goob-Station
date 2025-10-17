@@ -19,32 +19,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Procedural.Prototypes;
-using Robust.Shared.Prototypes;
-
 namespace Content.Server._Lavaland.Procedural.Components;
 
+/// <summary>
+/// Component that is used for displaying GPS locator points on it's UI.
+/// </summary>
 [RegisterComponent]
-public sealed partial class LavalandMapComponent : Component
+public sealed partial class LavalandMemberComponent : Component
 {
-    [ViewVariables]
-    public EntityUid Outpost;
-
-    [ViewVariables]
-    public int Seed;
-
-    [ViewVariables]
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
-
     /// <summary>
-    /// Chunks in this area are always loaded
+    /// Name that is going to be displayed at GPS.
     /// </summary>
-    [ViewVariables]
-    public Box2 LoadArea;
-
-    /// <summary>
-    /// Currently active chunks
-    /// </summary>
-    [DataField("loadedChunks")]
-    public HashSet<Vector2i> LoadedChunks = new();
+    [DataField]
+    public LocId SignalName;
 }

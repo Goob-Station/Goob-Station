@@ -17,12 +17,6 @@
     params:
       loop: true
       volume: -6
-  damage: # DeltaV
-    types:
-      Heat: 4
-  damageBlacklist: # DeltaV
-    components:
-    - WeatherImmune
 
 - type: weather
   id: AshfallLight

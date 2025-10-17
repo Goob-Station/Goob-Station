@@ -19,32 +19,26 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Procedural.Prototypes;
+using Content.Shared._Lavaland.Weather;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Server._Lavaland.Weather;
 
 [RegisterComponent]
-public sealed partial class LavalandMapComponent : Component
+public sealed partial class LavalandStormedMapComponent : Component
 {
-    [ViewVariables]
-    public EntityUid Outpost;
+    [DataField]
+    public float Accumulator;
 
-    [ViewVariables]
-    public int Seed;
+    [DataField]
+    public ProtoId<LavalandWeatherPrototype> CurrentWeather;
 
-    [ViewVariables]
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
+    [DataField]
+    public float Duration;
 
-    /// <summary>
-    /// Chunks in this area are always loaded
-    /// </summary>
-    [ViewVariables]
-    public Box2 LoadArea;
+    [DataField]
+    public float NextDamage = 10f;
 
-    /// <summary>
-    /// Currently active chunks
-    /// </summary>
-    [DataField("loadedChunks")]
-    public HashSet<Vector2i> LoadedChunks = new();
+    [DataField]
+    public float DamageAccumulator;
 }

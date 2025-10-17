@@ -21,6 +21,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GridPreloader;
 using Content.Shared._Lavaland.Shelter;
@@ -29,6 +30,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Salvage;
 
@@ -109,5 +111,6 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             shelter.Comp,
             coords,
             Angle.Zero);
+        EnsureComp<LavalandMemberComponent>(shelter);
     }
 }

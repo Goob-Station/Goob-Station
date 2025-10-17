@@ -7,7 +7,6 @@
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -15,41 +14,13 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Basic lavaland.
-- type: lavalandMap
-  id: Lavaland
-  name: lavaland-planet-name-lavaland
-  outpostPath: /Maps/_Lavaland/Lavaland/outpost_lavaland.yml
-  ruinPool: Lavaland
-  temperature: 308.4523 # 35.3023 C
-  planetColor: "#A34931"
-  biome: LavaLand
-  shuttleWhitelist:
-    components:
-    - MiningShuttle
-  atmosphere:
-  - 10.524779 # oxygen, not enough for breathing
-  - 25.10312 # nitrogen
-  - 8.21301 # carbon dioxide
-  weather:
-  - AshfallLight
-  - AshfallHeavy
-  markers:
-  - RandomTendrilLavaland
-  - RandomMobLavaland
-  - OreIron
-  - OreCoal
-  - OreQuartz
-  - OreGold
-  - OreSilver
-  - OrePlasma
-  - OreUranium
-  - OreBananium
-  - OreArtifactFragment
-  - OreDiamond
-  - BSCrystal
+
+- type: entity
+  id: LavalandStormScheduler
+  parent: BaseGameRule
+  components:
+  - type: LavalandStormSchedulerRule

@@ -21,11 +21,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Lavaland.Weather;
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
@@ -33,32 +35,38 @@ namespace Content.Shared._Lavaland.Procedural.Prototypes;
 /// Contains information about Lavaland planet configuration.
 /// </summary>
 [Prototype]
-public sealed partial class LavalandPlanetPrototype : IPrototype, IInheritingPrototype
+public sealed partial class LavalandMapPrototype : IPrototype
 {
-    [IdDataField]
-    public string ID { get; } = default!;
+    [IdDataField] public string ID { get; } = default!;
 
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LavalandPlanetPrototype>))]
-    public string[]? Parents { get; private set; }
+    [DataField] public LocId Name = "lavaland-planet-name-unknown";
 
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; private set; }
-
-    [DataField(required: true)]
-    public LocId Name = "lavaland-planet-name-unknown";
+    [DataField]
+    public ResPath OutpostPath = new ResPath("");
 
     [DataField]
     public float RestrictedRange = 512f;
 
     [DataField(required: true)]
-    public GasMixture Atmosphere = GasMixture.SpaceGas;
+    public ProtoId<LavalandRuinPoolPrototype> RuinPool;
+
+    [DataField(required: true)]
+    public EntityWhitelist ShuttleWhitelist = new();
+
+    #region Atmos
+
+    [DataField]
+    public float[] Atmosphere = new float[Atmospherics.AdjustedNumberOfGases];
 
     [DataField]
     public float Temperature = Atmospherics.T20C;
 
     [DataField]
-    public Color MapLight = Color.FromHex("#D8B059");
+    public Color? PlanetColor;
+
+    #endregion
+
+    #region Biomes
 
     [DataField("biome", required: true)]
     public ProtoId<BiomeTemplatePrototype> BiomePrototype;
@@ -79,6 +87,8 @@ public sealed partial class LavalandPlanetPrototype : IPrototype, IInheritingPro
         "OreDiamond",
     };
 
-    [DataField]
-    public ComponentRegistry? AddComponents;
+    [DataField("weather")]
+    public List<ProtoId<LavalandWeatherPrototype>>? AvailableWeather;
+
+    #endregion
 }

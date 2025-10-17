@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,32 +20,40 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Procedural.Prototypes;
+using Content.Shared.Damage;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Shared._Lavaland.Weather;
 
-[RegisterComponent]
-public sealed partial class LavalandMapComponent : Component
+[Prototype("lavalandWeather")]
+public sealed class LavalandWeatherPrototype : IPrototype
 {
-    [ViewVariables]
-    public EntityUid Outpost;
+    [IdDataField] public string ID { get; } = default!;
 
-    [ViewVariables]
-    public int Seed;
+    [DataField]
+    public float Duration = 150;
 
-    [ViewVariables]
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
+    [DataField]
+    public float Variety = 20;
+
+    [DataField]
+    public ProtoId<WeatherPrototype> WeatherType;
+
+    [DataField]
+    public LocId PopupStartMessage = "lavaland-weather-start-message";
+
+    [DataField]
+    public LocId PopupEndMessage = "lavaland-weather-end-message";
 
     /// <summary>
-    /// Chunks in this area are always loaded
+    /// Amount of temperature to apply every tick.
+    /// Be careful changing this number.
     /// </summary>
-    [ViewVariables]
-    public Box2 LoadArea;
+    [DataField]
+    public float TemperatureChange = 30000f;
 
-    /// <summary>
-    /// Currently active chunks
-    /// </summary>
-    [DataField("loadedChunks")]
-    public HashSet<Vector2i> LoadedChunks = new();
+    [DataField]
+    public DamageSpecifier Damage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Heat", 4 }}};
 }

@@ -40,7 +40,7 @@ public sealed partial class LavalandDungeonRuinPrototype : IPrototype
     public EntProtoId SpawnedMarker;
 
     [DataField]
-    public int SpawnAttempts = 8;
+    public int SpawnAttemps = 8;
 
     [DataField(required: true)]
     public int Priority = int.MinValue;
