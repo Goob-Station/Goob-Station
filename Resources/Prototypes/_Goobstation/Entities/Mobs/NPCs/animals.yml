@@ -291,7 +291,7 @@
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Devourer
-    devourAction: ActionDevourLootbug
+    structureDevourTime: 3
     foodPreferenceWhitelist:
       tags:
       - Ingot
