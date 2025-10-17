@@ -60,6 +60,7 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
+    #Bola: 6 # Goob edit - already have energy bolas
     CombatKnife: 1 # Goob edit
     # Goobstation
     PolymerBaton: 1

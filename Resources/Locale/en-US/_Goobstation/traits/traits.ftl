@@ -30,6 +30,11 @@ trait-movement-impaired-desc = You can't quite seem to walk very well without so
 
 movement-impaired-trait-examined = [color=yellow]{CAPITALIZE(SUBJECT($target))} seems to walk with a slight limp. It doesn't seem like {SUBJECT($target)} can walk very well without assistance[/color]
 
-
 trait-movement-split-personality-name = Split Personality
 trait-movement-split-personality-desc = You never quite grew out of that imaginary friend phase...
+
+trait-social-anxiety-name = Social Anxiety
+trait-social-anxiety-disc = You have crippling social anxiety, you're freaked out by affectionate things, such as hugs.
+
+trait-deaf-name = Deaf
+trait-deaf-disc =  You're completly deaf, you can't hear anything, including yourself!

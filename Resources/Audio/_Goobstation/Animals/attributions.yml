@@ -21,3 +21,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from VStation 13"
   source: "https://github.com/VOREStation/VOREStation/tree/b8e46bc7717e705b40ba6a99ccaa444666facc9c/sound"
+
+- files: ["horse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "stolen from unknown source by loltart, converted to mono by @deltanedas (github)"
+  source: "https://goida.zip/unknown"

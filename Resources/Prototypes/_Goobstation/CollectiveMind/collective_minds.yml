@@ -83,6 +83,11 @@
   keycode: 'q'
   color: "#a832a8"
   
+  id: Shadowmind
+  name: collective-mind-shadow-mind
+  keycode: 'q'
+  color: "#77698d"
+
 - type: collectiveMind
   id: Xenomorphivemind
   name: collective-mind-xeno

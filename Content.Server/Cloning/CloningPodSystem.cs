@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cloning; // Goobstation
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
@@ -62,7 +63,8 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
+    // Goobstation - killed
+    //public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
     public const float EasyModeCloningCost = 0.7f;
 
@@ -85,7 +87,7 @@ public sealed class CloningPodSystem : EntitySystem
         _signalSystem.EnsureSinkPorts(ent.Owner, ent.Comp.PodPort);
     }
 
-    // GoobStation: rewrite so it uses BeingClonedComponent instead of a dictionary
+    // <GoobStation> rewrite so it uses BeingClonedComponent instead of a dictionary
     // Most other edits in this commit are ported from f4f4e258929bdf61177a4fb61467d527dd9d103b
     internal void TransferMindToClone(EntityUid mindId, MindComponent mind)
     {
@@ -107,11 +109,19 @@ public sealed class CloningPodSystem : EntitySystem
 
         _mindSystem.TransferTo(mindId, mob, ghostCheckOverride: true, mind: mind);
         _mindSystem.UnVisit(mindId, mind);
-        ClonesWaitingForMind.Remove(mind);
     }
+    // <Goobstation>
 
     private void HandleMindAdded(EntityUid uid, BeingClonedComponent clonedComponent, MindAddedMessage message)
     {
+        // <Goobstation>
+        if (clonedComponent.Original is {} original && Exists(original))
+        {
+            var ev = new TransferredToCloneEvent(uid);
+            RaiseLocalEvent(original, ref ev);
+            clonedComponent.Original = null; // prevent multiple events from brain swaps
+        }
+        // </Goobstation>
         if (clonedComponent.Parent == EntityUid.Invalid ||
             !Exists(clonedComponent.Parent) ||
             !TryComp<CloningPodComponent>(clonedComponent.Parent, out var cloningPodComponent) ||
@@ -233,6 +243,7 @@ public sealed class CloningPodSystem : EntitySystem
         var cloneMindReturn = AddComp<BeingClonedComponent>(mob.Value);
         cloneMindReturn.Mind = mind;
         cloneMindReturn.Parent = uid;
+        cloneMindReturn.Original = bodyToClone; // Goobstation
         _containerSystem.Insert(mob.Value, clonePod.BodyContainer);
         //ClonesWaitingForMind.Add(mind, mob.Value); // Goobstation: use mindId
         _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
@@ -344,6 +355,6 @@ public sealed class CloningPodSystem : EntitySystem
 
     public void Reset(RoundRestartCleanupEvent ev)
     {
-        ClonesWaitingForMind.Clear();
+        //ClonesWaitingForMind.Clear(); // Goobstation
     }
 }

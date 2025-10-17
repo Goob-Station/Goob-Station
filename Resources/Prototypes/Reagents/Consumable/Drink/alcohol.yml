@@ -1021,6 +1021,12 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.3
+  metabolisms: # Goobstation - start
+    Drink:
+      effects:
+      - !type:GenericStatusEffect
+        key: DemonsBlood
+        component: DemonsBlood # Goobstation - start
 
 - type: reagent
   id: DevilsKiss
@@ -1036,6 +1042,12 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  metabolisms: # Goobstation - start
+    Drink:
+      effects:
+      - !type:GenericStatusEffect
+        key: DemonsKiss
+        component: DemonsKiss # Goobstation - end
 
 - type: reagent
   id: DoctorsDelight

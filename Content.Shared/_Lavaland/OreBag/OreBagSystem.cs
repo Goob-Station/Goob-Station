@@ -20,6 +20,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._DV.Salvage.Components;
+using Content.Shared.DragDrop;
 using Content.Shared.Storage;
 using Content.Shared.Interaction;
 using Content.Shared.Materials;
@@ -34,6 +35,10 @@ public sealed class OreBagSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<OreBagComponent, AfterInteractEvent>(OnAfterInteract);
+
+        SubscribeLocalEvent<OreBagComponent, CanDropDraggedEvent>(OnDragAttempt);
+        SubscribeLocalEvent<OreBagComponent, DragDropDraggedEvent>(OnDrag);
+        SubscribeLocalEvent<OreBagComponent, CanDragEvent>(OnCanDragBox);
     }
 
     private void OnAfterInteract(EntityUid uid, OreBagComponent component, AfterInteractEvent args)
@@ -55,5 +60,34 @@ public sealed class OreBagSystem : EntitySystem
 
         foreach (var entity in validEntities)
             _materialStorage.TryInsertMaterialEntity(args.User, entity, args.Target.Value);
+    }
+
+    private void OnDrag(Entity<OreBagComponent> ent, ref DragDropDraggedEvent args)
+    {
+        if (!TryComp<StorageComponent>(ent.Owner, out var storage) || args.Handled)
+            return;
+
+        var validEntities = new List<EntityUid>();
+
+        foreach (var entity in storage.Container.ContainedEntities)
+            if (HasComp<MaterialComponent>(entity))
+                validEntities.Add(entity);
+
+        foreach (var entity in validEntities)
+            _materialStorage.TryInsertMaterialEntity(args.User, entity, args.Target);
+
+        args.Handled = true;
+    }
+
+    private void OnDragAttempt(Entity<OreBagComponent> ent, ref CanDropDraggedEvent args)
+    {
+        if (HasComp<MiningPointsLatheComponent>(args.Target))
+            args.CanDrop = true;
+        args.Handled = true;
+    }
+
+    private void OnCanDragBox(Entity<OreBagComponent> ent, ref CanDragEvent args)
+    {
+        args.Handled = true;
     }
 }
