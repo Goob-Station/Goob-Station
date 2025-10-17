@@ -5332,3 +5332,11 @@ Entries:
   id: 9112
   time: '2025-10-16T18:47:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35636
+- author: Wolfkey-SomeoneElseTookMyUsername
+  changes:
+  - message: The recipes for grilled cheese, cotton buns, cotton cakes, and cotton
+      grilled cheese are now in the correct category in the guidebook
+    type: Fix
+  id: 9113
+  time: '2025-10-17T18:56:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40949
