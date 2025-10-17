@@ -2,7 +2,7 @@
 - type: entity
   id: MobBingleCargo
   name: cargo bingle
- description: Once a proud Bingle, now captured and forced to work 9 to 5 to repay for its crimes, you can see their tears.
+  description: Once a proud Bingle, now captured and forced to work 9 to 5 to repay for its crimes, you can see their tears.
   parent: SimpleSpaceMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
   components:
   - type: GhostTakeoverAvailable
