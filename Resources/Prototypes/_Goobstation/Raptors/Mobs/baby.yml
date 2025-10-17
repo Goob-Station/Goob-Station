@@ -5,6 +5,15 @@
   parent: LavalandMobBase
   abstract: true
   components:
+  - type: Raptor
+    GrowthPath: RaptorRed
+    MaxHealth: 25
+    CurrentHealth: 25
+    Speed: 5
+    MeleeDamageLower: 3
+    MeleeDamageUpper: 5
+    GrowthRate: 1.5
+    Happiness: 50
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
@@ -66,6 +75,8 @@
   parent: BaseBabyRaptor
   name: baby black raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorBlack
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -82,6 +93,8 @@
   parent: BaseBabyRaptor
   name: baby red raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorRed
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -98,6 +111,8 @@
   parent: BaseBabyRaptor
   name: baby purple raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorPurple
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -114,6 +129,8 @@
   parent: BaseBabyRaptor
   name: baby white raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorWhite
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -130,6 +147,8 @@
   parent: BaseBabyRaptor
   name: baby yellow raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorYellow
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -146,6 +165,8 @@
   parent: BaseBabyRaptor
   name: baby green raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorGreen
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
@@ -162,6 +183,8 @@
   parent: BaseBabyRaptor
   name: baby blue raptor
   components:
+  - type: Raptor
+    GrowthPath: RaptorBlue
   - type: Sprite
     sprite: _Goobstation/Raptors/babyraptor.rsi
     layers:
