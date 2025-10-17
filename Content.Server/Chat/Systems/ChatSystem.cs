@@ -198,7 +198,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     // Floofstation - Emotes and Sign Languages Respect LOS begin
     public const bool SpeakRespectsLOS = true; // You can't hear through walls.
-    public const bool WhisperRespectsLOS = true; // I set this to true but this just doesn't do fucking anything.
+    public const bool WhisperRespectsLOS = true; // You can't hear whispers through walls.
     public const bool EmoteRespectsLOS = true; // You can still hear the noises, but you don't know who is making them.
     public const bool LocalOOCRespectsLOS = true; // LOOC can't be seen through walls to prevent accidential reveals.
 
