@@ -26,7 +26,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle: null # no raffle for spammed role fuck you
   - type: GhostRoleMobSpawner
-    prototype: MobBingle
+    prototype: MobBingleRandom
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

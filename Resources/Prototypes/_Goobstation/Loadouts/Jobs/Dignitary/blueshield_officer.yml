@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Androidonator <33227516+Androidonator@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -165,9 +166,9 @@
 - type: loadout
   id: BlackCowboyBoots
   equipment:
-    shoes: ClothingShoesBootsCowboyBlackFilled
+    shoes: ClothingShoesBootsCowboyBlack
 
 - type: loadout
   id: SnowjacksBso
   equipment:
-    shoes: ClothingShoesBootsWinterSnowjackBsoFilled
+    shoes: ClothingShoesBootsWinterSnowjackBso

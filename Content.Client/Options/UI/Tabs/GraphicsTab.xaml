@@ -32,6 +32,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <ui:OptionDropDown Name="DropDownLightingQuality" Title="{Loc 'ui-options-lighting-label'}" />
                 <CheckBox Name="ViewportLowResCheckBox" Text="{Loc 'ui-options-vp-low-res'}" />
                 <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
+                <CheckBox Name="AmbientOcclusionCheckBox" Text="{Loc 'ui-options-ambient-occlusion'}" />
 
                 <!-- Interface -->
                 <Label Text="{Loc 'ui-options-interface-label'}" StyleClasses="LabelKeyText"/>
@@ -49,9 +50,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <!-- Misc -->
                 <Label Text="{Loc 'ui-options-misc-label'}" StyleClasses="LabelKeyText"/>
                 <CheckBox Name="FpsCounterCheckBox" Text="{Loc 'ui-options-fps-counter'}" />
-
-                <!-- MisandryBox - Spider! -->
-                <Button Name="Arachnofriend" Text="{Loc 'ui-options-spiderbuddy'}" ToolTip="{Loc 'ui-options-spiderbuddy-desc'}" Modulate="#ffbcbc"/>
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

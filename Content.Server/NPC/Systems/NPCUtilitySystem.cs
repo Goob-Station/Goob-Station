@@ -29,6 +29,7 @@
 
 using Content.Server.Atmos.Components;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Hands.Systems;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
@@ -77,6 +78,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly DrinkSystem _drink = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FoodSystem _food = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -290,8 +292,9 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetAmmoMatchesCon:
             {
-                if (!blackboard.TryGetValue(NPCBlackboard.ActiveHand, out Hand? activeHand, EntityManager) ||
-                    !TryComp<BallisticAmmoProviderComponent>(activeHand.HeldEntity, out var heldGun))
+                if (!blackboard.TryGetValue(NPCBlackboard.ActiveHand, out string? activeHand, EntityManager) ||
+                    !_hands.TryGetHeldItem(owner, activeHand, out var heldEntity) ||
+                    !TryComp<BallisticAmmoProviderComponent>(heldEntity, out var heldGun))
                 {
                     return 0f;
                 }
@@ -330,7 +333,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new WieldAttemptEvent();
+                var beforeWieldEv = new WieldAttemptEvent(owner);
                 RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
@@ -567,7 +570,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     foreach (var comp in compFilter.Components)
                     {
-                        if (HasComp(ent, comp.Value.Component.GetType()))
+                        if (HasComp(ent, comp.Value.Component.GetType()) ^ compFilter.Invert) // Goob edit
                             continue;
 
                         _entityList.Add(ent);

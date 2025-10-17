@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Goobstation
 - type: entity
-  parent: [BaseItem, BaseMinorContraband]
+  parent: [BaseItem, BaseHonkraband]
   id: BananiumSword
   name: bananium energy sword
   description: A very loud & slippery sword with a beam made of pure, concentrated bananium. Slips un-galoshed targets like butter.

@@ -1,0 +1,287 @@
+- type: entity
+  id: SpawnPodEvaKit
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyEvaKit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrateEvaKit
+
+- type: entity
+  id: SpawnPodSpesos
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplySpesosSmall
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRCrateSpesosSmall
+
+- type: entity
+  id: SpawnPodDisks
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyPointDisks
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRCratePointDisks
+
+- type: entity
+  id: SpawnPodEmergencyMed
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyEmergencyMed
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRCrateEmergencyMed
+
+- type: entity
+  id: SpawnPodDisablers
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyDisablers
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRCrateDisablers
+
+- type: entity
+  id: SpawnPodTools
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyTools
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRCrateToolsSmall
+
+- type: entity
+  id: SpawnPodInterns
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyInterns
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: RadioLeadIntern
+
+- type: entity
+  id: SpawnPodDagger
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyDagger
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: PhoronDagger
+
+- type: entity
+  id: SpawnPodCoin
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyInternCoin
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: InternCoin
+
+- type: entity
+  id: SpawnPodBsd
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyBsd
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: BlueShieldDeputySpawnBriefcase
+
+#- type: entity
+#  id: SpawnPodHardsuit
+#  categories: [ HideSpawnMenu ]
+#  name: SpawnSupplyHardsuit
+#  parent: SpawnSupplyEmpty
+#  components:
+#  - type: SpawnOnDespawn
+#    prototype: ClothingOuterHardsuitNanorep
+
+- type: entity
+  id: SpawnPodGoldCase
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyCigar
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CigarGoldCase # might be an overill but who cares lol
+
+- type: entity
+  id: SpawnPodWhiskey
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyWhiskey
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: DrinkPremiumWhiskeyBottleFull
+
+- type: entity
+  id: SpawnPodCentCommGlasses
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodCentCommGlasses
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: ClothingEyesGlassesCentCommNoThermal
+
+- type: entity
+  id: SpawnPodSvalinn
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplySvallin
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: WeaponLaserSvalinn
+
+- type: entity
+  id: SpawnPodDeckard
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyDeckard
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: WeaponRevolverDeckard
+
+- type: entity
+  id: SpawnPodTelecom
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyTelecom
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRBoardTelecom
+
+- type: entity
+  id: SpawnPodFat
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyFat
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: FatExtractorMachineCircuitboard
+
+- type: entity
+  id: SpawnPodGrav
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyGrav
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: MiniGravityGeneratorCircuitboard
+
+- type: entity
+  id: SpawnPodTeleporter
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyTeleporter
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CargoTelepadMachineCircuitboard
+
+- type: entity
+  id: SpawnPodHolopad
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyHolopad
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRBoardHolopad
+
+- type: entity
+  id: SpawnPodMonitoring
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyMonitoring
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrewMonitoringServerMachineCircuitboard
+
+- type: entity
+  id: SpawnPodRnd
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyRnd
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: ResearchAndDevelopmentServerMachineCircuitboard
+
+- type: entity
+  id: SpawnPodComms
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyComms
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CommsComputerCircuitboard
+
+- type: entity
+  id: SpawnPodCargo
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyCargo
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CargoSaleComputerCircuitboard
+
+- type: entity
+  id: SpawnPodCargoShuttle
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyCargoShuttle
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CargoShuttleConsoleCircuitboard
+
+- type: entity
+  id: SpawnPodShuttle
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyShuttle
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: NTRBoardShuttle
+
+- type: entity
+  id: SpawnPodMedkit
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyMedkit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: MedkitCombatFilled
+
+- type: entity
+  id: SpawnPodMindshield
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyMindshield
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrateMindShieldImplants
+
+- type: entity
+  id: SpawnPodSecHardsuit
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplySecHardsuit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrateArmoryCombatHardsuit
+
+- type: entity
+  id: SpawnPodTaskFlatpack
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyTaskFlatpack
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: ComputerNTRTasksFlatpack
+
+- type: entity
+  id: SpawnPodWaterCoolerGold
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodWaterCoolerGold
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: WaterCoolerGold

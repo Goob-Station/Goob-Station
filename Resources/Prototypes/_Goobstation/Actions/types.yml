@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -157,3 +158,127 @@
     priority: -8
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.StationMapUiKey.Key }
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleFloorBoardsMode
+  name: Enter or Exit Floor
+  description: Crawl under the floor boards.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: Structures/Piping/Atmospherics/vent.rsi
+      state: vent_off
+  - type: InstantAction
+    event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStealShoes
+  name: Steal Shoes
+  description: A tasty snack it will be!
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Clothing/Shoes/Boots/jackboots.rsi
+      state: icon
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Inventory
+    canTargetSelf: false
+    event: !type:StealShoesEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCreateHellPortal
+  name: Make Hell Portal
+  description: Using your demonic powers you can open a portal to hell.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Effects/portal.rsi
+      state: portal-hell
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: HellPortal
+        amount: 1
+      offset: 0, 0
+
+- type: entity
+  parent: BaseAction
+  id: ActionHellGooseTeleport
+  name: Teleport to station
+  description: Teleports you to the station.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Effects/portal.rsi
+      state: portal-chrono
+  - type: InstantAction
+    event: !type:GooseTeleportEvent
+
+- type: entity
+  id: ActionVehicleWallPush
+  name: Wall Launch
+  description: Launch yourself off the nearest surface, tiders count as surfaces.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: office-dark
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:VehicleWallPushActionEvent
+
+- type: entity
+  id: ActionRocketChairBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: Objects/Misc/fire_extinguisher.rsi
+      state: fire_extinguisher_closed
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:RocketChairBoostActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateBerserkerImplant
+  name: Activate Berserker Implant
+  description: Activate your berserker implant, greatly increasing your melee damage and speed for a short duration. While in berserk mode, you will be unable to use ranged weapons.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 40
+    icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
+  - type: InstantAction
+    event: !type:ActivateBerserkerImplantActionEvent
