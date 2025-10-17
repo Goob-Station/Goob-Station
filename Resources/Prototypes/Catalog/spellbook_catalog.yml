@@ -322,3 +322,21 @@
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
+
+- type: listing
+  id: SpellbookEventMobCollitions
+  name: MobCollitions
+  description: MobCollitions
+  productEvent: !type:MobColissionSpellEvent # Goobstation
+  icon: # Goobstation
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    state: icon
+  # productAction: ActionSummonGhosts # Goobstation
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true # Goobstation

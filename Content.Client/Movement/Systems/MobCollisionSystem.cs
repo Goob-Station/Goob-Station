@@ -15,7 +15,7 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
 
     public override void Update(float frameTime)
     {
-        if (!CfgManager.GetCVar(CCVars.MovementMobPushing))
+        if (!CfgManager.GetCVar(CCVars.MovementMobPushing) && !_mobCollisionSpell.MobCollisionEnabled())
             return;
 
         if (_timing.IsFirstTimePredicted)

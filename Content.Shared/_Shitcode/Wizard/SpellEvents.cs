@@ -541,3 +541,10 @@ public sealed partial class RandomizeSpellsEvent : EntityEventArgs
     [DataField(required: true)]
     public Dictionary<ProtoId<WeightedRandomEntityPrototype>, int?> SpellsDict;
 }
+
+[DataDefinition]
+public sealed partial class MobColissionSpellEvent : EntityEventArgs
+{
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost2.ogg");
+}
