@@ -80,5 +80,5 @@ public sealed partial class LavalandPlanetPrototype : IPrototype, IInheritingPro
     };
 
     [DataField]
-    public ComponentRegistry AddComponents = new();
+    public ComponentRegistry? AddComponents;
 }

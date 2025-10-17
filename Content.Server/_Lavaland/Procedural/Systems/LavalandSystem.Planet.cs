@@ -81,10 +81,11 @@ public sealed partial class LavalandSystem
             _shuttle.AddIFFFlag(grid, flag);
         }
 
-        // Assign all other components to the map
-        EntityManager.AddComponents(lavalandMap, prototype.AddComponents);
-
         _map.InitializeMap(lavalandMapId);
+
+        // Assign all other components to the map
+        if (prototype.AddComponents != null)
+            EntityManager.AddComponents(lavalandMap, prototype.AddComponents.Value);
 
         // Preload here to prevent biome entities from overlaying with everything else
         _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
