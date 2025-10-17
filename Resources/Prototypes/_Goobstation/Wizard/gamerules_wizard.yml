@@ -191,6 +191,12 @@
   components:
   - type: GlobalTileMovementRule
 
+- type: entity
+  parent: BaseGameRule
+  id: MobCollisionSpell
+  components:
+  - type: MobCollisionSpellRule
+
 - type: gamePreset
   id: Wizard
   alias:

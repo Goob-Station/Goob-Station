@@ -10,6 +10,7 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -25,6 +26,9 @@ public sealed class MobCollisionSpellSystem : SharedMobCollisionSpellSystem
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IConfigurationManager CfgManager = default!;
+
+    private static readonly EntProtoId GameRule = "MobCollisionSpell";
+
     public override void Initialize()
     {
         SubscribeLocalEvent<MobColissionSpellEvent>(OnCastSpell);
@@ -34,14 +38,14 @@ public sealed class MobCollisionSpellSystem : SharedMobCollisionSpellSystem
         if (MobCollisionEnabled() || CfgManager.GetCVar(CCVars.MovementMobPushing))
             return;
 
-        _gameTicker.StartGameRule("MobCollisionSpellRule");
+        _gameTicker.StartGameRule(GameRule);
 
         var message = "Out of my way fatty";
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, Color.Red);
         _audio.PlayGlobal(ev.Sound, Filter.Broadcast(), true);
 
-        _log.Add(LogType.EventRan, LogImpact.Extreme, $"Mob Collition have been enabled via wizard spellbook.");
+        _log.Add(LogType.EventRan, LogImpact.Extreme, $"Mob collision have been enabled via wizard spellbook.");
     }
 
 

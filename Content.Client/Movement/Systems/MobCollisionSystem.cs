@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -12,6 +13,7 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+
 
     public override void Update(float frameTime)
     {
