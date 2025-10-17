@@ -57,9 +57,9 @@ public sealed partial class GibActionSystem : EntitySystem
     private void OnGibAction(EntityUid uid, GibActionComponent comp, GibActionEvent args)
     {
         // Goobstation start
-        if (HasComp<MansusGraspBlockTriggerComponent>(uid) && HasComp<MansusGraspAffectedComponent>(args.Performer))
+        if (HasComp<MansusGraspBlockTriggerComponent>(args.Action.Owner) && HasComp<MansusGraspAffectedComponent>(args.Performer))
         {
-            _popupSystem.PopupEntity(Loc.GetString("mansus-grasp-trigger-fail"), args.Performer, args.Performer);
+            _popupSystem.PopupClient(Loc.GetString("mansus-grasp-trigger-fail"), args.Performer, args.Performer);
             return;
         }
         // Goobstation end

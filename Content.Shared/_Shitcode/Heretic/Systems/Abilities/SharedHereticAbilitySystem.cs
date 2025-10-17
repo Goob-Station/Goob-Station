@@ -284,7 +284,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             _mobThreshold.SetAllowRevives(uid, false, thresholds);
         }
 
-        _wound.TryHealWoundsOnOwner(uid, toHeal, true);
+        _wound.TryHealWoundsOnOwner(uid, toHeal ?? -AllDamage * 100, true);
 
         if (painHeal != FixedPoint2.Zero && Resolve(uid, ref uid.Comp3, false))
         {
