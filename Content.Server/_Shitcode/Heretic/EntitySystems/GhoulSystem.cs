@@ -20,6 +20,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Server.Dragon;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Humanoid;
@@ -27,7 +28,10 @@ using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.Body.Systems;
+using Content.Shared.CombatMode;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Heretic;
@@ -42,6 +46,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.RatKing;
 using Robust.Server.Audio;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.GameTicking.Rules;
@@ -95,6 +100,11 @@ public sealed class GhoulSystem : EntitySystem
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
         RemComp<ConsciousnessComponent>(ent);
+        RemComp<PacifiedComponent>(ent);
+        RemComp<XenomorphComponent>(ent);
+        RemComp<RatKingComponent>(ent);
+        RemComp<DragonComponent>(ent);
+        EnsureComp<CombatModeComponent>(ent);
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind)
@@ -121,12 +131,12 @@ public sealed class GhoulSystem : EntitySystem
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
 
-        if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
+        if (!hasMind)
         {
             var ghostRole = EnsureComp<GhostRoleComponent>(ent);
-            ghostRole.RoleName = Loc.GetString("ghostrole-ghoul-name");
-            ghostRole.RoleDescription = Loc.GetString("ghostrole-ghoul-desc");
-            ghostRole.RoleRules = Loc.GetString("ghostrole-ghoul-rules");
+            ghostRole.RoleName = Loc.GetString(ent.Comp.GhostRoleName);
+            ghostRole.RoleDescription = Loc.GetString(ent.Comp.GhostRoleDesc);
+            ghostRole.RoleRules = Loc.GetString(ent.Comp.GhostRoleRules);
         }
 
         if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)

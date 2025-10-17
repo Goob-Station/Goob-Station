@@ -5,6 +5,7 @@
   - DetailExaminable
   - Dna
   - Fingerprint
+  - RandomSprite
   - EncryptionKeyHolder # Goobstation
   # traits
   - BlackAndWhiteOverlay
@@ -55,6 +56,7 @@
   copyStorage: false
   makeEquipmentUnremoveable: true
   internalContentsUnremoveable: true
+  allowNonHumanoid: true
   copyEquipment: # No pockets, ears, suit storage, id card
   - PREVENTEQUIP
   - HEAD

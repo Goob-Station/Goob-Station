@@ -18,6 +18,7 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Body.Organ;
@@ -43,7 +44,7 @@ namespace Content.Server.Heretic.Abilities;
 public sealed partial class HereticAbilitySystem
 {
     private static readonly ProtoId<CloningSettingsPrototype> Settings = "FleshMimic";
-    private static readonly ProtoId<HTNCompoundPrototype> Compound = "SimpleHumanoidHostileCompound";
+    private static readonly ProtoId<HTNCompoundPrototype> Compound = "FleshMimicCompound";
     private static readonly SoundSpecifier MimicSpawnSound = new SoundCollectionSpecifier("gib");
 
     protected override void SubscribeFlesh()
@@ -255,6 +256,8 @@ public sealed partial class HereticAbilitySystem
         ghoul.TotalHealth = hp;
         ghoul.BoundHeretic = user;
         ghoul.DropOrgansOnDeath = false;
+        ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
+        ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
         if (weapon != null && _cloning.CopyItem(weapon.Value, xform.Coordinates, copyStorage: false) is { } weaponClone)
         {
             if (!_hands.TryPickup(clone.Value, weaponClone, null, false, false, false))
@@ -306,6 +309,7 @@ public sealed partial class HereticAbilitySystem
 
         var htn = EnsureComp<HTNComponent>(clone.Value);
         htn.RootTask = new HTNCompoundTask { Task = Compound };
+        _npc.SetBlackboard(clone.Value, NPCBlackboard.FollowTarget, user.ToCoordinates(), htn);
 
         var exception = EnsureComp<FactionExceptionComponent>(clone.Value);
         _npcFaction.IgnoreEntity((clone.Value, exception), user);

@@ -67,6 +67,7 @@ using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -85,7 +86,6 @@ using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Radio.Components; // Goobstation
 using Content.Shared.Radio.EntitySystems;
@@ -121,11 +121,18 @@ public sealed partial class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(settingsId, out var settings))
             return false; // invalid settings
 
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid))
+        // Goobstation start
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid)
             return false; // whatever body was to be cloned, was not a humanoid
 
-        if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
+        SpeciesPrototype? speciesPrototype = null;
+        if (humanoid != null && !_prototype.TryIndex(humanoid.Species, out speciesPrototype))
             return false; // invalid species
+
+        var proto = speciesPrototype?.Prototype.ToString() ?? Prototype(original)?.ID;
+        if (proto == null)
+            return false;
+        // Goobstation end
 
         if (HasComp<HolographicCloneComponent>(original) && !settings.ForceCloning) // Goobstation - This has to be separate because I don't want to touch the other check.
             return false;
@@ -138,7 +145,7 @@ public sealed partial class CloningSystem : EntitySystem
         if (attemptEv.Cancelled && !settings.ForceCloning)
             return false; // cannot clone, for example due to the unrevivable trait
 
-        clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
+        clone = coords == null ? Spawn(proto) : Spawn(proto, coords.Value); // Goob edit
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);

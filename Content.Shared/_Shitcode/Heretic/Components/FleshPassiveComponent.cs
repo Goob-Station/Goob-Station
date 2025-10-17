@@ -20,13 +20,13 @@ public sealed partial class FleshPassiveComponent : Component
     public EntityUid? FleshStomach;
 
     [DataField]
-    public float BaseMoveSpeedPerFlesh = 0.0002f;
+    public float BaseMoveSpeedPerFlesh = 0.00015f;
 
     [DataField]
-    public float BaseAttackRatePerFlesh = 0.0005f;
+    public float BaseAttackRatePerFlesh = 0.001f;
 
     [DataField]
-    public float BaseHealingPerFlesh = 0.001f;
+    public float BaseHealingPerFlesh = 0.0015f;
 
     [DataField]
     public float OrganMultiplier = 2f;
@@ -54,6 +54,12 @@ public sealed partial class FleshPassiveComponent : Component
 
     [DataField]
     public float BoneHealMultiplier = 5f;
+
+    [DataField]
+    public float BloodHealMultiplier = 10f;
+
+    [DataField]
+    public float BleedReductionMultiplier = 1f;
 
     [DataField]
     public ProtoId<TagPrototype> MeatTag = "Meat";

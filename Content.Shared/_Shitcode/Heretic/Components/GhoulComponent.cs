@@ -60,4 +60,13 @@ public sealed partial class GhoulComponent : Component
     public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
+
+    [DataField]
+    public LocId GhostRoleName = "ghostrole-ghoul-name";
+
+    [DataField]
+    public LocId GhostRoleDesc = "ghostrole-ghoul-desc";
+
+    [DataField]
+    public LocId GhostRoleRules = "ghostrole-ghoul-rules";
 }

@@ -73,6 +73,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Cloning;
 using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -131,6 +132,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -420,6 +422,9 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     {
         base.Update(frameTime);
 
+        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
+        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
+
         var fleshQuery = EntityQueryEnumerator<FleshPassiveComponent, MartialArtModifiersComponent, DamageableComponent>();
         while (fleshQuery.MoveNext(out var uid, out var flesh, out var modifiers, out var dmg))
         {
@@ -442,6 +447,23 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var painHeal = -mult * flesh.PainHealMultiplier;
 
             IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal);
+
+            if (!bloodQuery.TryComp(uid, out var blood))
+                continue;
+
+            var bloodHeal = -mult * flesh.BloodHealMultiplier;
+            var bleedHeal = -mult * flesh.BleedReductionMultiplier;
+
+            if (blood.BleedAmount > 0f)
+                _blood.TryModifyBleedAmount((uid, blood), bleedHeal);
+
+            if (solutionQuery.TryComp(uid, out var sol) &&
+                _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
+                blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
+            {
+                _blood.TryModifyBloodLevel((uid, blood),
+                    FixedPoint2.Min(bloodHeal, blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
+            }
         }
 
         var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
@@ -482,8 +504,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _accumulator = 0f;
 
         var damageableQuery = GetEntityQuery<DamageableComponent>();
-        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
@@ -513,9 +533,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
 
             if (damageableQuery.TryComp(uid, out var damageable))
-            {
                 IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
-            }
 
             if (bloodQuery.TryComp(uid, out var blood))
             {

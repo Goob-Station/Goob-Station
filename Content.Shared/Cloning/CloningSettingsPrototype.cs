@@ -50,6 +50,10 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     [DataField]
     public bool InternalContentsUnremoveable;
 
+    // Goobstation
+    [DataField]
+    public bool AllowNonHumanoid;
+
     /// <summary>
     ///     Whether or not to copy slime storage and storage implant contents.
     /// </summary>

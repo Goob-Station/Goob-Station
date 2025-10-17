@@ -104,6 +104,8 @@
   components:
   - type: Ghoul
     totalHealth: 150
+    ghostRoleName: ghostrole-stalker-name
+    ghostRoleDesc: ghostrole-stalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
@@ -148,6 +150,8 @@
   components:
   - type: Ghoul
     totalHealth: 65
+    ghostRoleName: ghostrole-prophet-name
+    ghostRoleDesc: ghostrole-prophet-desc
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
@@ -196,6 +200,8 @@
   components:
   - type: Ghoul
     spawnOnDeathPrototype: SheetPlasma1
+    ghostRoleName: ghostrole-fire-shark-name
+    ghostRoleDesc: ghostrole-fire-shark-desc
     totalHealth: 20
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
@@ -258,6 +264,8 @@
   components:
   - type: Ghoul
     totalHealth: 100
+    ghostRoleName: ghostrole-rustwalker-name
+    ghostRoleDesc: ghostrole-rustwalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     layers:
