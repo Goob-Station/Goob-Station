@@ -162,7 +162,6 @@ namespace Content.Shared.Chemistry.Components
         ///     systems use this.
         /// </remarks>
         [DataField("maxVol")]
-        [ViewVariables(VVAccess.ReadWrite)]
         public FixedPoint2 MaxVolume { get; set; } = FixedPoint2.Zero;
 
         public float FillFraction => MaxVolume == 0 ? 1 : Volume.Float() / MaxVolume.Float();
@@ -170,8 +169,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         ///     If reactions will be checked for when adding reagents to the container.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("canReact")]
+        [DataField]
         public bool CanReact { get; set; } = true;
 
         /// <summary>
@@ -183,8 +181,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         ///     The temperature of the reagents in the solution.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("temperature")]
+        [DataField]
         public float Temperature { get; set; } = 293.15f;
 
         /// <summary>
@@ -225,7 +222,7 @@ namespace Content.Shared.Chemistry.Components
             _heatCapacity = 0;
             foreach (var (reagent, quantity) in Contents)
             {
-                _heatCapacity += (float) quantity *
+                _heatCapacity += (float)quantity *
                                     protoMan.Index<ReagentPrototype>(reagent.Prototype).SpecificHeat;
             }
 
@@ -273,7 +270,7 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="prototype">The prototype ID of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
-        public Solution(string prototype, FixedPoint2 quantity, List<ReagentData>? data = null) : this()
+        public Solution([ForbidLiteral] string prototype, FixedPoint2 quantity, List<ReagentData>? data = null) : this()
         {
             AddReagent(new ReagentId(prototype, data), quantity);
         }
@@ -315,7 +312,7 @@ namespace Content.Shared.Chemistry.Components
         public void ValidateSolution()
         {
             // sandbox forbids: [Conditional("DEBUG")]
-    #if DEBUG
+#if DEBUG
             // Correct volume
             DebugTools.Assert(Contents.Select(x => x.Quantity).Sum() == Volume);
 
@@ -333,7 +330,7 @@ namespace Content.Shared.Chemistry.Components
                 UpdateHeatCapacity(null);
                 DebugTools.Assert(MathHelper.CloseTo(_heatCapacity, cur, tolerance: 0.01));
             }
-    #endif
+#endif
         }
 
         void ISerializationHooks.AfterDeserialization()
@@ -348,7 +345,7 @@ namespace Content.Shared.Chemistry.Components
                 MaxVolume = Volume;
         }
 
-        public bool ContainsPrototype(string prototype)
+        public bool ContainsPrototype([ForbidLiteral] string prototype)
         {
             foreach (var (reagent, _) in Contents)
             {
@@ -370,7 +367,7 @@ namespace Content.Shared.Chemistry.Components
             return false;
         }
 
-        public bool ContainsReagent(string reagentId, List<ReagentData>? data)
+        public bool ContainsReagent([ForbidLiteral] string reagentId, List<ReagentData>? data)
             => ContainsReagent(new(reagentId, data));
 
         public bool TryGetReagent(ReagentId id, out ReagentQuantity quantity)
@@ -477,7 +474,7 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="prototype">The prototype ID of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
-        public void AddReagent(string prototype, FixedPoint2 quantity, bool dirtyHeatCap = true)
+        public void AddReagent([ForbidLiteral] string prototype, FixedPoint2 quantity, bool dirtyHeatCap = true)
             => AddReagent(new ReagentId(prototype, null), quantity, dirtyHeatCap);
 
         /// <summary>
@@ -800,6 +797,12 @@ namespace Content.Shared.Chemistry.Components
             return sol;
         }
 
+        /// <summary>
+        /// Splits a solution into two by moving reagents from the given solution into a new one.
+        /// This modifies the original solution.
+        /// </summary>
+        /// <param name="toTake">The quantity of this solution to remove.</param>
+        /// <returns>A new solution containing the removed reagents.</returns>
         public Solution SplitSolution(FixedPoint2 toTake)
         {
             if (toTake <= FixedPoint2.Zero)
@@ -817,7 +820,7 @@ namespace Content.Shared.Chemistry.Components
             var origVol = Volume;
             var effVol = Volume.Value;
             newSolution = new Solution(Contents.Count) { Temperature = Temperature };
-            var remaining = (long) toTake.Value;
+            var remaining = (long)toTake.Value;
 
             for (var i = Contents.Count - 1; i >= 0; i--) // iterate backwards because of remove swap.
             {
@@ -833,7 +836,7 @@ namespace Content.Shared.Chemistry.Components
                     continue;
                 }
 
-                var splitQuantity = FixedPoint2.FromCents((int) split);
+                var splitQuantity = FixedPoint2.FromCents((int)split);
                 var newQuantity = quantity - splitQuantity;
 
                 DebugTools.Assert(newQuantity >= 0);
@@ -932,7 +935,7 @@ namespace Content.Shared.Chemistry.Components
 
             var effVol = Volume.Value;
             Volume -= toTake;
-            var remaining = (long) toTake.Value;
+            var remaining = (long)toTake.Value;
             for (var i = Contents.Count - 1; i >= 0; i--)// iterate backwards because of remove swap.
             {
                 var (reagent, quantity) = Contents[i];
@@ -947,7 +950,7 @@ namespace Content.Shared.Chemistry.Components
                     continue;
                 }
 
-                var splitQuantity = FixedPoint2.FromCents((int) split);
+                var splitQuantity = FixedPoint2.FromCents((int)split);
                 var newQuantity = quantity - splitQuantity;
 
                 if (newQuantity > FixedPoint2.Zero)
