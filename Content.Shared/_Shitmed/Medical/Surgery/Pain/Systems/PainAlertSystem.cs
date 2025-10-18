@@ -98,9 +98,7 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
         foreach (var alertId in PainAlerts)
         {
             if (_prototypeManager.TryIndex<AlertPrototype>(alertId, out var alert))
-            {
                 _alerts.ClearAlert(mobUid.Value, alert);
-            }
         }
 
         // Show the appropriate pain alert
