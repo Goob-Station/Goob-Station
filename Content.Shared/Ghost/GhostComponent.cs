@@ -16,6 +16,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Ghost;
 
@@ -116,6 +117,16 @@ public sealed partial class GhostComponent : Component
     [DataField]
     public bool CanTakeGhostRoles = true;
     // Goobstation end
+
+    /// <summary>
+    /// Ghost sprites dependent on damage by the player body
+    /// </summary>
+    /// <remarks>Used to change a ghost sprite to better visually represent their cause of death</remarks>
+    [Serializable, NetSerializable]
+    public enum GhostVisuals : byte
+    {
+        Damage
+    }
 }
 
 public sealed partial class ToggleFoVActionEvent : InstantActionEvent { }
