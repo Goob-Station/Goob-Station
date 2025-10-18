@@ -393,17 +393,16 @@ public sealed class HealingSystem : EntitySystem
 
         if (canHeal)
         {
-            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User); // GOOBEDIT
+            if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
+            {
+                _popupSystem.PopupPredicted(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
+                return;
+            }
+
+            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User, ignoreBlockers: healedBleed || healing.BloodlossModifier == 0); // GOOBEDIT
 
             if (damageChanged is not null)
                 healedTotal += -damageChanged.GetTotal();
-
-            if (healedTotal <= 0 && !healedBleed)
-            {
-                if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
-                    _popupSystem.PopupPredicted(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
-                return;
-            }
         }
 
         // Re-verify that we can heal the damage.

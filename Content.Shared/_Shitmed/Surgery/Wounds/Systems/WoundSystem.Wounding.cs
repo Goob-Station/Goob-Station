@@ -217,7 +217,7 @@ public sealed partial class WoundSystem
         if (args.NewSeverity != WoundSeverity.Healed)
             return;
 
-        TryMakeScar(wound, out _, woundComponent);
+        //TryMakeScar(wound, out _, woundComponent); // disabled as there is no way to heal scars currently?
         RemoveWound(wound, woundComponent);
     }
 
@@ -503,8 +503,10 @@ public sealed partial class WoundSystem
 
         var bodyPart = Comp<BodyPartComponent>(wound.HoldingWoundable);
         var old = wound.WoundSeverityPoint;
+
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
         wound.WoundSeverityPoint =
-            FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, woundable.IntegrityCap);
+        FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, upperLimit);
 
         if (wound.WoundSeverityPoint != old)
         {
@@ -561,7 +563,8 @@ public sealed partial class WoundSystem
             ? old + ApplySeverityModifiers(wound.HoldingWoundable, severity)
             : old + severity;
 
-        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, woundable.IntegrityCap);
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
+        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, upperLimit);
         Dirty(uid, wound);
         if (wound.WoundSeverityPoint != old || rawValue > wound.WoundSeverityPoint)
         {
