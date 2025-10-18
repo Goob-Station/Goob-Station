@@ -123,6 +123,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
+  - PowerCellMicrortg # Einstein Engine Port for micro-RTGs (Goobstation change)
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
   # Goobstation R&D Console rework start
