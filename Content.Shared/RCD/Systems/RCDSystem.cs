@@ -97,7 +97,7 @@ public sealed class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
-        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
+        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // goobstation rdp
 
     }
 
@@ -353,7 +353,7 @@ public sealed class RCDSystem : EntitySystem
     }
 
 
-    private void OnRCDConstructionGhostFlipEvent(RCDConstructionGhostFlipEvent ev, EntitySessionEventArgs session)
+    private void OnRCDConstructionGhostFlipEvent(RCDConstructionGhostFlipEvent ev, EntitySessionEventArgs session) // Goobstation - rdp
     {
         var uid = GetEntity(ev.NetEntity);
 
@@ -361,7 +361,7 @@ public sealed class RCDSystem : EntitySystem
         if (session.SenderSession.AttachedEntity == null)
             return;
 
-        if (_hands.TryGetActiveItem(session.SenderSession.AttachedEntity.Value, out var held)
+        if (!_hands.TryGetActiveItem(session.SenderSession.AttachedEntity.Value, out var held)
             || uid != held)
             return;
 
