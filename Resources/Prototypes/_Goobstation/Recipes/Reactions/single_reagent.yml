@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -38,3 +40,89 @@
       intensityPerUnit: 2 # this is scary
       intensitySlope: 2.5 # spreads out a lot
       maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole department
+
+- type: reaction
+  id: CycloniteExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    Cyclonite:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #Better at breaking walls and stuff
+      maxIntensity: 20
+      intensityPerUnit: 7 # RDX's RE factor is 1.6 of tnt
+      intensitySlope: 20 # more controlled explosion
+      maxTotalIntensity: 700
+
+- type: reaction
+  id: AmmoniumNitrateDecomposition
+  minTemp: 484
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+  products:
+    Nitrogen: 2
+    Oxygen: 1
+    Water: 4
+
+- type: reaction
+  id: SodiumBicarbonateDecomposition
+  minTemp: 324
+  reactants:
+    SodiumBicarbonate:
+      amount: 2
+  products:
+    SodiumCarbonate: 2
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: ANFOExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    AmmoniumNitrateFuelOil:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #ANFO is used in mining
+      maxIntensity: 20
+      intensityPerUnit: 1 # you need a lot of it for a large explosion
+      intensitySlope: 2
+      maxTotalIntensity: 5000 # max explosion requires 5000 units which is A LOT
+
+- type: reaction
+  id: VinegarDecomposition
+  minTemp: 504
+  reactants:
+    Vinegar:
+      amount: 1
+  products:
+    Ethenone: 1
+    Water: 1
+
+- type: reaction
+  id: OctogenExplosion
+  minTemp: 553 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    Octogen:
+      amount: 1
+  products:
+    Ash: 0.1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: HardBomb # very high detonation velocity
+      maxIntensity: 30
+      intensityPerUnit: 3 # Lower because hardbomb
+      intensitySlope: 2 # very high detonation velocity
+      maxTotalIntensity: 3000 # very high detonation velocity
