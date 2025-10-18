@@ -57,6 +57,7 @@ public sealed partial class WoundSystem
         SubscribeLocalEvent<WoundableComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
+        SubscribeLocalEvent<TraumaInflicterComponent, TraumaBeingRemovedEvent>(OnTraumaBeingRemoved);
     }
 
     #region Event Handling
@@ -217,7 +218,7 @@ public sealed partial class WoundSystem
         if (args.NewSeverity != WoundSeverity.Healed)
             return;
 
-        TryMakeScar(wound, out _, woundComponent);
+        //TryMakeScar(wound, out _, woundComponent); // disabled as there is no way to heal scars currently?
         RemoveWound(wound, woundComponent);
     }
 
@@ -503,8 +504,10 @@ public sealed partial class WoundSystem
 
         var bodyPart = Comp<BodyPartComponent>(wound.HoldingWoundable);
         var old = wound.WoundSeverityPoint;
+
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
         wound.WoundSeverityPoint =
-            FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, woundable.IntegrityCap);
+        FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, upperLimit);
 
         if (wound.WoundSeverityPoint != old)
         {
@@ -561,7 +564,8 @@ public sealed partial class WoundSystem
             ? old + ApplySeverityModifiers(wound.HoldingWoundable, severity)
             : old + severity;
 
-        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, woundable.IntegrityCap);
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
+        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, upperLimit);
         Dirty(uid, wound);
         if (wound.WoundSeverityPoint != old || rawValue > wound.WoundSeverityPoint)
         {
@@ -1143,6 +1147,16 @@ public sealed partial class WoundSystem
         _container.Remove(woundEntity, woundable.Wounds!, false, true);
 
         return true;
+    }
+
+    private void OnTraumaBeingRemoved(Entity<TraumaInflicterComponent> ent, ref TraumaBeingRemovedEvent args)
+    {
+        if (TryComp<WoundComponent>(ent, out var woundComp))
+        {
+            if (woundComp.WoundSeverity != WoundSeverity.Healed)
+                return;
+            RemoveWound(ent); // Remove wound method will perform the check on if there are any other wounds pending treatment
+        }
     }
 
     protected void InternalAddWoundableToParent(
