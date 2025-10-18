@@ -127,7 +127,6 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         var user = args.User;
         if (user == EntityUid.Invalid)
             return;
-
         if (TryComp<MeleeWeaponComponent>(ent, out var meleecomp))
         {
             meleecomp.Animation = "WeaponTigersClawHit";

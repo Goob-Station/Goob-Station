@@ -24,7 +24,7 @@
       "directions": 4
     },
     {
-      "name": "wielded-inhand-ability",
+      "name": "wielded-inhand-right-ability",
       "directions": 4,
       "delays":
       [
@@ -61,7 +61,6 @@
           0.1
         ]
       ]
-  
     }
   ]
 }
