@@ -179,3 +179,18 @@
     - state: teg-middle
   - type: StaticPrice
     price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: ChemDispenserFlatpack
+  name: Chemical Dispenser generator flatpack
+  description: A flatpack used for constructing a Chemical Dispenser.
+  components:
+  - type: Flatpack
+    entity: ChemDispenser
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/flatpack.rsi
+    layers:
+    - state: teg-middle
+  - type: StaticPrice
+    price: 500
