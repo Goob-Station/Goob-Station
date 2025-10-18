@@ -1,8 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared._EinsteinEngines.Power.Components;
 using Content.Shared._EinsteinEngines.Power.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Charge;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -25,7 +23,6 @@ namespace Content.Client._EinsteinEngines.Power.Systems;
 public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
@@ -35,9 +32,6 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
         SubscribeLocalEvent<PowerCellSlotComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
     }
 
-    /// <summary>
-    ///     *Good enough* prediction for the battery drinking verb.
-    /// </summary>
     private void OnGetVerbs<TComp>(Entity<TComp> ent, ref GetVerbsEvent<AlternativeVerb> args)
         where TComp : Component
     {
@@ -58,54 +52,5 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
         };
 
         args.Verbs.Add(verb);
-    }
-
-    private bool SearchForSource(EntityUid ent, [NotNullWhen(true)] out EntityUid? source)
-    {
-        // Are we a battery drinker source
-        if (HasComp<BatteryDrinkerSourceComponent>(ent))
-        {
-            source = ent;
-            return true;
-        }
-
-        // Do we contain a source?
-        if (TryComp<PowerCellSlotComponent>(ent, out var slotId) &&
-            HasComp<ItemSlotsComponent>(ent) &&
-            _itemSlots.TryGetSlot(ent, slotId.CellSlotId, out var slot) &&
-            slot.HasItem && HasComp<BatteryDrinkerSourceComponent>(slot.Item))
-        {
-            source = slot.Item;
-            return true;
-        }
-
-        // We found nothing
-        source = null;
-        return false;
-    }
-
-    private bool SearchForDrinker(EntityUid ent, [NotNullWhen(true)] out EntityUid? drinker)
-    {
-        drinker = null;
-
-        // Do we have a power cell slot
-        if (TryComp<PowerCellSlotComponent>(ent, out var slotId))
-        {
-            // Do we have a battery to charge?
-            if (HasComp<ItemSlotsComponent>(ent) &&
-                _itemSlots.TryGetSlot(ent, slotId.CellSlotId, out var slot) &&
-                slot.HasItem && HasComp<BatteryDrinkerSourceComponent>(slot.Item))
-            {
-                drinker = slot.Item;
-                return true;
-            }
-
-            // We don't have a battery to charge
-            return false;
-        }
-
-        // We don't have a power cell slot, assume it's inside us
-        drinker = ent;
-        return true;
     }
 }
