@@ -183,7 +183,7 @@ public sealed partial class LatheMenu : DefaultWindow
     {
         MiningPointsClaimButton.Disabled = points == 0 ||
             _player.LocalSession?.AttachedEntity is not { } player ||
-            _miningPoints.TryFindIdCard(player) == null;
+            !_miningPoints.CanClaimPoints(player); // Goobstation - borg mining Points
         if (points == _lastMiningPoints)
             return;
 
