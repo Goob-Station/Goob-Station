@@ -16506,3 +16506,9 @@ Entries:
       message: Adds the Unholy water reagent. Made with blood, Sulfur, and water
   id: 1848
   time: '2025-10-18T00:56:04.0000000+00:00'
+- author: Mehonizer
+  changes:
+    - type: Add
+      message: Plasmamen now spawn with tank harnesses just like voxes do
+  id: 1849
+  time: '2025-10-18T21:47:20.0000000+00:00'
