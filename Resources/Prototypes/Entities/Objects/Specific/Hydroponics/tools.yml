@@ -89,6 +89,12 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: Tool
+    qualities:
+    - Cutting
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+    speedModifier: 0.25     
 
 - type: entity
   name: scythe
