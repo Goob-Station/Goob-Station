@@ -179,6 +179,7 @@
     - Undead
   - type: TypingIndicator
     proto: skeleton
+  - type: FacehuggerImmune # Goobstation - Xenomorphs
 
 - type: entity
   parent: BaseSpeciesDummy
