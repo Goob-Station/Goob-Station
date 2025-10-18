@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: BossImpactFootstep
+  files:
+  - /Audio/_Lavaland/Effects/meteorimpact.ogg
