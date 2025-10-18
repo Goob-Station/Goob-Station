@@ -393,7 +393,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (canHeal)
         {
-            if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
+            if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
             {
                 _popupSystem.PopupPredicted(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
                 return;
@@ -500,7 +500,7 @@ public sealed class HealingSystem : EntitySystem
             HasDamage(healing, (target.Owner, target.Comp)) ||
             TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
             IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
-            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+            healing.Comp.ModifyBloodLevel < 0 // Special case if healing item can restore lost blood... Goobstation edit
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
                 && _solutionContainerSystem.ResolveSolution(target.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume; // ...and there is lost blood to restore.
