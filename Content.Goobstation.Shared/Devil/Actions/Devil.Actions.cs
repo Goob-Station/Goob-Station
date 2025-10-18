@@ -17,3 +17,5 @@ public sealed partial class ShadowJauntEvent : InstantActionEvent;
 public sealed partial class DevilGripEvent : InstantActionEvent;
 
 public sealed partial class DevilPossessionEvent : EntityTargetActionEvent;
+
+public sealed partial class SummonGoldenFiddleEvent : InstantActionEvent;
