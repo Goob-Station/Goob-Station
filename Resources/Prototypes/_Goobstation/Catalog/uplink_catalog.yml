@@ -983,6 +983,55 @@
       components:
       - SurplusBundle
 
+- type: listing
+  id: UplinkAutosurgeonSmartLink
+  name: uplink-autosurgeon-smartlink-name
+  description: uplink-autosurgeon-smartlink-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
+  productEntity: AutosurgeonSmartLink
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonRecoilAbsorber
+  name: uplink-autosurgeon-recoil-absorbing-name
+  description: uplink-autosurgeon-recoil-absorbing-desc
+  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: AutosurgeonRecoilAbsorber
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonBerserkerHeart
+  name: uplink-autosurgeon-berserker-heart-name
+  description: uplink-autosurgeon-berserker-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+  productEntity: AutosurgeonBerserker
+  cost:
+    Telecrystal: 66
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonJumpstarter
+  name: uplink-autosurgeon-jumpstarter-heart-name
+  description: uplink-autosurgeon-jumpstarter-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
+  productEntity: AutosurgeonJumpstarter
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+
 # Deception
 
 - type: listing
