@@ -9,7 +9,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Wrestler.Systems;
 
-public sealed class WrestlerKickSystem : EntitySystem
+public sealed class WrestleStrikeSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -23,11 +23,11 @@ public sealed class WrestlerKickSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WrestlerKickComponent, WrestlerKickEvent>(OnKick);
+        SubscribeLocalEvent<WrestlerStrikeComponent, WrestlerStrikeEvent>(OnStrike);
 
     }
 
-    private void OnKick(Entity<WrestlerKickComponent> ent, ref WrestlerKickEvent args)
+    private void OnStrike(Entity<WrestlerStrikeComponent> ent, ref WrestlerStrikeEvent args)
     {
         var (uid, comp) = ent;
         var target = args.Target;
@@ -41,16 +41,10 @@ public sealed class WrestlerKickSystem : EntitySystem
             return;
         }
 
-        // KNOCK THEIR ASS DOWN!!!
+        // Stun the target first
+        _stun.TryStun(target, comp.StunDuration, false);
         _stun.TryKnockdown(target, comp.KnockdownDuration, true);
 
-        var entPos = _transform.GetMapCoordinates(ent).Position;
-        var targetPos = _transform.GetMapCoordinates(args.Target).Position;
-        var direction = targetPos - entPos;
-
-        // TO DO: Slow down
-
-        _grab.Throw(target, uid, direction, comp.ThrowSpeed, comp.DamageWhenThrown);
         _damage.TryChangeDamage(uid, comp.Damage, targetPart: TargetBodyPart.All);
         _popup.PopupPredicted(Loc.GetString("wrestler-kick-1"), uid, uid, PopupType.MediumCaution);
 

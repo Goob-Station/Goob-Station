@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -11,4 +12,16 @@ public sealed partial class WrestlerThrowComponent : Component
 
     [DataField]
     public SoundSpecifier? Sound = new SoundCollectionSpecifier("MachoRage");
+
+    /// <summary>
+    /// Damage dealt.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", 15}
+        }
+    };
 }

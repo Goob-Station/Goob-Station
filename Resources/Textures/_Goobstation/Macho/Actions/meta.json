@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from paradise station at https://github.com/ParadiseSS13/Paradise/commit/e3bc7e3fd7787cc772353295a56f087fc1c37312. lightning taken from https://github.com/Citadel-Station-13/Citadel-Station-13/commit/06689416691093474d600924242f69eb7d223f3e and modified. toolbox Taken from baystation at commit https://github.com/Baystation12/Baystation12/commit/a929584d9db319eb7484113221be25cfa1d5dc09 and modified. art_summon, return_to_monkey, spellcard, exsanguinating_strike, scream_for_me, bee, chuuni, swap, soultap, thrown_lightning, the_traps and arcane_barrage taken from tgstation at https://github.com/tgstation/tgstation/commit/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c and modified",
+    "copyright": "Taekn from Goonstation 13 https://github.com/goonstation/goonstation/blob/0c577a2dc8a87fe45a6f8a5d1dd04fb1411b5a17/icons/mob/spell_buttons.dmi",
     "size": {
         "x": 32,
         "y": 32
