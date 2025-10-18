@@ -910,7 +910,7 @@ entities:
     - type: Transform
       pos: 0.22491169,11.544002
       parent: 1
-- proto: DVSmartFridgeMedical
+- proto: SmartFridge
   entities:
   - uid: 185
     components:

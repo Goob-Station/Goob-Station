@@ -79,6 +79,9 @@
   id: BlueprintMedicalFabricator
 
 - type: Tag
+  id: BodyPartInorganic
+
+- type: Tag
   id: BolaEnergy
 
 - type: Tag
