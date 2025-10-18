@@ -88,14 +88,14 @@ spellbook-ninjutsu-desc =
 spellbook-staff-animate-name = Staff of Animation
 spellbook-staff-animate-desc =
     An arcane staff capable of infusing eldritch energy on contact which cause inanimate objects to come to life.
-    This magic doesn't affect machines.
-    Objects brought to life using this staff will have silly googly eyes but make no mistake, they are quite dangerous!
 
 spellbook-hammer-mjollnir-name = Mjollnir
-spellbook-hammer-mjollnir-description = Wield the power of THUNDER in your hands. Send foes flying with a mighty swing or by throwing it right at em!
+spellbook-hammer-mjollnir-description =
+    A mighty hammer on loan from Thor, God of Thunder. It crackles with barely contained power.
 
 spellbook-hammer-singularity-name = Singularity Hammer
-spellbook-hammer-singularity-description = Ever wonder what it'd be like to be the singularity? Swing this hammer to draw in your surroundings, even works if you miss!
+spellbook-hammer-singularity-description =
+    A hammer that creates an intensely powerful field of gravity where it strikes, pulling everything nearby to the point of impact.
 
 spellbook-crate-of-enchanting-name = Crate of Enchanting
 spellbook-crate-of-enchanting-description =
