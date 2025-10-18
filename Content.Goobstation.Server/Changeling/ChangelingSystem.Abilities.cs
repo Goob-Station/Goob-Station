@@ -438,6 +438,14 @@ public sealed partial class ChangelingSystem
         var stasisEv = new RejuvenateEvent(false, true);
         RaiseLocalEvent(uid, stasisEv);
 
+        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        {
+            var bola = ensnareable.Container.ContainedEntities[0];
+            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, 0, new EnsnareableDoAfterEvent(), uid, uid, bola));
+            QueueDel(bola);
+        }
+
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 
         // stuns or knocks down anybody grabbing you
