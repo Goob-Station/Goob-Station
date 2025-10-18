@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites taken from TGstation 13",
+    "size": {
+        "x": 32,
+        "y": 37
+    },
+    "states": [
+        {
+            "name": "dead_baby_raptor_black"
+        },
+        {
+            "name": "dead_baby_raptor_blue"
+        },
+        {
+            "name": "dead_baby_raptor_green"
+        },
+        {
+            "name": "dead_baby_raptor_purple"
+        },
+        {
+            "name": "dead_baby_raptor_red"
+        },
+        {
+            "name": "dead_baby_raptor_white"
+        },
+        {
+            "name": "dead_baby_raptor_yellow"
+        },
+        {
+            "name": "dead_raptor_black"
+        },
+        {
+            "name": "dead_raptor_blue"
+        },
+        {
+            "name": "dead_raptor_green"
+        },
+        {
+            "name": "dead_raptor_purple"
+        },
+        {
+            "name": "dead_raptor_red"
+        },
+        {
+            "name": "dead_raptor_white"
+        },
+        {
+            "name": "dead_raptor_yellow"
+        },
+        {
+            "name": "raptor_black",
+            "directions": 4
+        },
+        {
+            "name": "raptor_blue",
+            "directions": 4
+        },
+        {
+            "name": "raptor_green",
+            "directions": 4
+        },
+        {
+            "name": "raptor_purple",
+            "directions": 4
+        },
+        {
+            "name": "raptor_red",
+            "directions": 4
+        },
+        {
+            "name": "raptor_white",
+            "directions": 4
+        },
+        {
+            "name": "raptor_yellow",
+            "directions": 4
+        }
+    ]
+}
