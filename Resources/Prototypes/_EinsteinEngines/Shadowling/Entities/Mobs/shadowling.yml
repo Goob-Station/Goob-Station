@@ -28,6 +28,7 @@
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
   - type: Insulated
+  - type: ZombieImmune # Goobstation
   - type: StepTriggerImmune
   - type: Clickable
   - type: Physics
