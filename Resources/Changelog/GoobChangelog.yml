@@ -16518,3 +16518,21 @@ Entries:
       message: Upgraded lathes can now print recipes via signal.
   id: 1850
   time: '2025-10-18T21:50:47.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: IPCs no longer drop handcuffs when discharged
+    - type: Fix
+      message: >-
+        IPCs can no longer interact with items they shouldn't be able to
+        interact with when discharged
+    - type: Fix
+      message: IPCs can drink from magfed lasers
+    - type: Fix
+      message: IPCs no longer have the borg low power accent at all times
+    - type: Fix
+      message: IPCs can no longer drop equipped items while discharged
+    - type: Fix
+      message: Fix spelling error in recharge text
+  id: 1851
+  time: '2025-10-18T22:00:47.0000000+00:00'
