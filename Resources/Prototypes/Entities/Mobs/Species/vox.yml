@@ -158,7 +158,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Bagawk','Click','Chitter','Hiss','Caw']
+    allowedEmotes: ['Bagawk','Click','Chitter','Hiss','Caw'] # Goob
   - type: TypingIndicator
     proto: vox
   - type: Vocal

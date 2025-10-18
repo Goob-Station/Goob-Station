@@ -389,12 +389,14 @@
       collection: VoxScreams
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
-    #Cough: # Goob
+    #Cough: # Goob - Tho we should doublecheck these.
     #  path: /Audio/Voice/Vox/vox_cough.ogg
-    #Sigh: # Goob
+    #Sigh:
     #  path: /Audio/Voice/Vox/vox_sigh.ogg
-    Bagawk: # Mono
-      collection: Bagawk # Mono
+    #Click:
+    #  path: /Audio/Voice/Vox/vox_click.ogg
+    #Chitter:
+    #  path: /Audio/Voice/Vox/vox_chitter.ogg
     Honk:
       collection: BikeHorn
     #Crying: # Goob
