@@ -729,7 +729,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Add the insert-item verbs
-            if (args.Using != null && _actionBlockerSystem.CanDrop(args.User))
+            if (args.Using != null && _actionBlockerSystem.CanDrop(args.User,args.Using.Value))// goobstation - drop check for item
             {
                 var canInsertAny = false;
                 foreach (var slot in itemSlots.Slots.Values)
@@ -853,7 +853,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Next, add the insert-item verbs
-            if (args.Using == null || !_actionBlockerSystem.CanDrop(args.User))
+            if (args.Using == null || !_actionBlockerSystem.CanDrop(args.User, args.Using.Value)) // goobstation - drop check for item
                 return;
 
             foreach (var slot in itemSlots.Slots.Values)
