@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "done by discord: mnogo_znal",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "defib"
+    },
+    {
+      "name": "diaghud_visor"
+    },
+    {
+      "name": "dispenser"
+    },
+    {
+      "name": "dnalock"
+    },
+    {
+      "name": "drill"
+    },
+    {
+      "name": "emp_pulse"
+    },
+    {
+      "name": "empshield"
+    },
+    {
+      "name": "energy_net"
+    },
+    {
+      "name": "energy_shield"
+    },
+    {
+      "name": "flametrower"
+    },
+    {
+      "name": "flashlight"
+    },
+    {
+      "name": "gps"
+    },
+    {
+      "name": "hacker"
+    },
+    {
+      "name": "health"
+    },
+    {
+      "name": "holster"
+    },
+    {
+      "name": "infotrator"
+    },
+    {
+      "name": "injector"
+    },
+    {
+      "name": "insignia"
+    },
+    {
+      "name": "jetpack"
+    },
+    {
+      "name": "jetpack_adv"
+    },
+    {
+      "name": "kinesis"
+    },
+    {
+      "name": "longfall"
+    },
+    {
+      "name": "mag_harmess"
+    },
+    {
+      "name": "magnet"
+    },
+    {
+      "name": "medhud_visor"
+    },
+    {
+      "name": "megaphone"
+    },
+    {
+      "name": "meson_visor"
+    },
+    {
+      "name": "micriwave_beam"
+    },
+    {
+      "name": "mine_bomb"
+    },
+    {
+      "name": "mister"
+    },
+    {
+      "name": "night_visor"
+    },
+    {
+      "name": "no_baton"
+    },
+    {
+      "name": "noslip"
+    },
+    {
+      "name": "ore"
+    },
+    {
+      "name": "organizer"
+    },
+    {
+      "name": "paper_maker"
+    },
+    {
+      "name": "pathfinder"
+    },
+    {
+      "name": "pathfinder_empty"
+    },
+    {
+      "name": "pepper_shoulder"
+    },
+    {
+      "name": "plate_compression"
+    },
+    {
+      "name": "power_kick"
+    },
+    {
+      "name": "radshield"
+    },
+    {
+      "name": "rare_visor"
+    },
+    {
+      "name": "recall"
+    },
+    {
+      "name": "regulator"
+    },
+    {
+      "name": "rewinder"
+    },
+    {
+      "name": "scanner"
+    },
+    {
+      "name": "sechud_viisor"
+    },
+    {
+      "name": "siaposal"
+    },
+    {
+      "name": "siglang_radio"
+    },
+    {
+      "name": "sphere"
+    },
+    {
+      "name": "springlock"
+    },
+    {
+      "name": "stamp"
+    },
+    {
+      "name": "status"
+    },
+    {
+      "name": "storage"
+    },
+    {
+      "name": "storage_bluespace"
+    },
+    {
+      "name": "storage_case"
+    },
+    {
+      "name": "storage_large"
+    },
+    {
+      "name": "storage_syndi"
+    },
+    {
+      "name": "tanning"
+    },
+    {
+      "name": "teleporter"
+    },
+    {
+      "name": "tether"
+    },
+    {
+      "name": "thermal_visor"
+    },
+    {
+      "name": "tray"
+    },
+    {
+      "name": "welding"
+    },
+    {
+      "name": "welding_camera"
+    },
+    {
+      "name": "adrenaline"
+    },
+    {
+      "name": "antigrav"
+    },
+    {
+      "name": "apparatus"
+    },
+    {
+      "name": "armor_booster"
+    },
+    {
+      "name": "ash_accretion"
+    },
+    {
+      "name": "bikehorn"
+    },
+    {
+      "name": "bloon"
+    },
+    {
+      "name": "carry"
+    },
+    {
+      "name": "chameleon"
+    },
+    {
+      "name": "chronogun"
+    },
+    {
+      "name": "clamp"
+    },
+    {
+      "name": "clamp_loader"
+    },
+    {
+      "name": "cloak"
+    },
+    {
+      "name": "cloak_ninja"
+    },
+    {
+      "name": "constructor"
+    },
+    {
+      "name": "criminal_capture"
+    }
+  ]
+}

@@ -60,3 +60,28 @@
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
   - type: InstantAction
     event: !type:HailerActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleModPart
+  name: Toggle MOD part
+  description: Toggle parts of your modsuit.
+  components:
+  - type: Action
+    icon: null
+    priority: 2
+  - type: InstantAction
+    event: !type:ToggleModPartActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleModMenu
+  name: MOD menu
+  description: Toggle modsuit menu.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: { sprite: _Goobstation/Actions/mod_menu.rsi, state: icon }
+    priority: 3
+  - type: InstantAction
+    event: !type:ToggleModMenuActionEvent
