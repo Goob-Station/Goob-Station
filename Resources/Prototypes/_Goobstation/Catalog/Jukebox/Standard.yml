@@ -301,3 +301,8 @@
   path:
     path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
 
+- type: jukebox
+  id: graytide
+  name: Mrjajkes - The Greytide Song
+  path:
+    path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg
