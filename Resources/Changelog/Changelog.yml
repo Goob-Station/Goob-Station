@@ -5381,3 +5381,10 @@ Entries:
   id: 9118
   time: '2025-10-18T13:49:54.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40818
+- author: MissKay1994
+  changes:
+  - message: Vox organs now have unique sprites.
+    type: Add
+  id: 9119
+  time: '2025-10-18T17:07:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40555
