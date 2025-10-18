@@ -149,7 +149,7 @@ public sealed class ThermalVisionOverlay : Overlay
     private bool CanSee(EntityUid uid, SpriteComponent sprite)
     {
         return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
-                                  _stealth.GetVisibility(uid, stealth) > 0.5f);
+                                  !stealth.ThermalsImmune); // Goobstation - thermals ability to see invisible entities
     }
 
     public void ResetLight(bool checkFirstTimePredicted = true)
