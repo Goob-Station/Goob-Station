@@ -1,0 +1,5 @@
+- type: collectiveMind
+  id: Wraithmind
+  name: collective-mind-wraith
+  keycode: 'y'
+  color: "#7393B3"

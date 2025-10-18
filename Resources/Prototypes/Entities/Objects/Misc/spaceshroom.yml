@@ -47,6 +47,9 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Tag
+      tags:
+      - Fungus # Goobstation. used for plague rat to be able to eat maints shrooms in structure form.
 
 - type: entity
   name: spaceshroom

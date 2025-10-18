@@ -1,0 +1,44 @@
+- files: ["cantanymore.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/cantanymore.ogg"
+
+- files: ["brick.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/brick.ogg"
+
+- files: ["entropy.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/entropy.ogg"
+
+- files: ["fixit.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/fixit.ogg"
+
+- files: ["fixtouch.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/fixtouch.ogg"
+
+- files: ["passionproject.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/passionproject.ogg"
+
+- files: ["patchingholes.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/patchingholes.ogg"
+
+- files: ["pay.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/pay.ogg"
+
+- files: ["strings.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGStation."
+  source: "https://github.com/tgstation/tgstation/blob/2dc405fc43a3b0b75d4480ca94aab599ccc1915a/sound/mobs/non-humanoids/repairbot/strings.ogg"

@@ -1,0 +1,14 @@
+- files: ["Void_Calls.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/ambience/spooky/Void_Calls.ogg"
+
+- files: ["Void_Hisses.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/ambience/spooky/Void_Hisses.ogg"
+
+- files: ["Void_Wail.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/ambience/spooky/Void_Wail.ogg"

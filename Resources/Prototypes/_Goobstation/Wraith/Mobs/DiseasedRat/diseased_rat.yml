@@ -1,0 +1,17 @@
+# This holds all forms of the diseased rat
+- type: diseasedRatFormUnlock
+  id: MediumDiseasedRat
+  filthRequired: 6
+  entity: MobPlagueRatMedium
+  transferComponents:
+  - component: EatFilth
+  - component: DiseasedRat
+
+- type: diseasedRatFormUnlock
+  id: GiantDiseasedRat
+  filthRequired: 12
+  entity: MobPlagueRatLarge
+  transferComponents:
+  - component: EatFilth
+  - component: DiseasedRat
+

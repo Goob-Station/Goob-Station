@@ -1,0 +1,14 @@
+- files: ["creepywhisper_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/creepywhisper_1.ogg"
+
+- files: ["creepywhisper_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/creepywhisper_2.ogg"
+
+- files: ["creepywhisper_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/creepywhisper_3.ogg"

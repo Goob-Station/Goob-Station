@@ -1,0 +1,7 @@
+- type: shader
+  id: Aura
+  kind: source
+  path: "/Textures/_Goobstation/Wraith/Shaders/aura.swsl"
+  params:
+    mango: 0.5
+    distortion: 0.05

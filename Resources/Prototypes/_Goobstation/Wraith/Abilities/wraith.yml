@@ -1,0 +1,107 @@
+# This is where all the wraith abilities are stored at.
+# Abilities are structured in a way that each action corresponds in its own component, and its own system.
+
+# For example,
+#  - type: entity
+#  id: MyAbilities
+#  name: A name
+#  category: [ HideSpawnMenu ]
+#  components:
+#  - AbilityOne -> Allows us to perform ActionOne
+#  - AbilityTwo -> Allows us to perform ActionTwo
+#  - ActionGrant -> Grants us the actions
+#    actions:
+#    - ActionOne
+#    - ActionTwo
+
+# This gets added to the entity either through MapInit or through an event
+
+- type: entity
+  id: WraithAbilities
+  name: Wraith Abilities
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Haunt
+  - type: BloodWriting
+  - type: Decay
+  - type: AbsorbCorpse
+    damage:
+      types:
+        Slash: 25
+        Blunt: 25
+  - type: DemonicWhisper
+  - type: PossessObject
+  - type: SpookMark
+  - type: WraithCommand
+    blacklist:
+      components:
+      - MobState
+      - Body
+      - Food
+      - EntityStorage
+      - Solution
+    searchRange: 7
+    stunDuration: 5
+  - type: Evolve
+    availableEvolutions:
+    - prototype: MobWraithHarbinger
+    - prototype: MobWraithPlague
+    #- prototype: MobWraithTrickster
+  - type: ActionGrant
+    actions:
+    - ActionAbsorbCorpse
+    - ActionPossessObject
+    - ActionDecay
+    - ActionCommand
+    - ActionAnimateObject
+    - ActionWhisper
+    - ActionBloodWriting
+    - ActionSpook
+    - ActionToggleGhosts
+    - ActionToggleLighting
+
+- type: entity
+  id: HarbingerAbilities
+  name: Harbinger Abilities
+  parent: WraithAbilities
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SummonVoidCreature
+  - type: MakeRevenant
+    passiveRevenantDamage:
+      types:
+        Caustic: 1
+  - type: RaiseSkeleton
+  - type: SummonPortal
+  - type: ActionGrant
+    actions:
+    - ActionRaiseSkeleton
+    - ActionSummonVoidPortal
+    - ActionMakeRevenant
+
+- type: entity
+  id: PlaguebingerAbilities
+  name: Plaguebinger Abilities
+  parent: WraithAbilities
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SummonPlagueRat
+  - type: SummonRotHulk
+    searchRadius: 7
+  - type: Defile
+    reagents:
+      BuzzochloricBees: 10
+      Bleach: 10
+      Ash: 10
+      Vomit: 10
+      Toxin: 10
+  - type: ActionGrant
+    actions:
+    - ActionCurseBlindness
+    - ActionCurseWeakness
+    - ActionCurseBlood
+    - ActionCurseRot
+    - ActionCurseDeath
+    - ActionDefile
+    - ActionSummonPlagueRat
+    - ActionSummonRotHulk

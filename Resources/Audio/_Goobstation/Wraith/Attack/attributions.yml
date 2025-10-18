@@ -1,0 +1,64 @@
+- files: ["Blade_Small.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Blade_Small.ogg"
+
+- files: ["Blade_Small_Bloody.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Blade_Small_Bloody.ogg"
+
+- files: ["Flesh_Break_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Break_1.ogg"
+
+- files: ["Flesh_Break_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Break_2.ogg"
+
+- files: ["Flesh_Crush_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Crush_1.ogg"
+
+- files: ["Flesh_Cut_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Cut_1.ogg"
+
+- files: ["Flesh_Stab_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Stab_1.ogg"
+
+- files: ["Flesh_Stab_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Stab_2.ogg"
+
+- files: ["Flesh_Stab_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Stab_3.ogg"
+
+- files: ["Flesh_Tear_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Tear_1.ogg"
+
+- files: ["Flesh_Tear_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Tear_2.ogg"
+
+- files: ["Flesh_Tear_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/impact_sounds/Flesh_Tear_3.ogg"
+
+- files: ["handcuffs.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/weapons/handcuffs.ogg"

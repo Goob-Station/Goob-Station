@@ -693,6 +693,7 @@
   - type: Tag
     tags:
     - Trash
+    - RotHulkTrash # Goobstation - Wraith
   - type: PhysicalComposition #Goobstation - Recycle update - Changed trash to plastic
     materialComposition:
       Plastic: 50

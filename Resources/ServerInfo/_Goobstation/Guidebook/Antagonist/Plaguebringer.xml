@@ -1,0 +1,66 @@
+<Document>
+  # Plaguebringer
+  <Box>
+    <GuideEntityEmbed Entity="MobWraithPlague" Caption=""/>
+  </Box>
+
+  The Plaguebringer is a path focused around curses, diseases and filth. Most of your abilities involve applying debuffs to one of those clueless crewmembers, and then, once the time is right and their soul is ripe, collecting your dues.
+
+  # Curses
+
+  The Plaguebringer has access to four base curses, with one, final curse to rule them all.
+
+  ## Blindness
+
+  - Slowly damages the eyesight of the afflicted until they are rendered fully blind.
+
+  ## Blood
+
+  - Causes them to cough blood, sometimes a little, sometimes a lot. Mostly just an annoyance, but can get serious if left untreated.
+  - In an ideal world, this would also apply Hemophilia to the target, which makes them bleed for longer. However, that is not yet implemented.
+
+  ## Enfeeblement
+
+  - This one has several effects, such as draining the stamina of the afflicted, or making them drowsy and forcing them into a sudden nap.
+
+  ## Rot
+
+  - Causes the afflicted to randomly puke and cough all over the place. Great for spreading disease.
+  - Prevents them from eating at all. Combined with the fact that they are slowly puking out all the contents of their stomach, this will eventually leave them starving, unable to do anything about it.
+
+  ## Death
+
+  - The final of the curses. Can only be applied once all four other curses have been applied on the same person.
+  - Once applied, the target will have less than a minute to live. They will hear a dreadful song signifying that their end is near.
+  - During that time, they will begin to experience several effects, such as falling to the ground or shaking.
+  - This curse deals damage that ramps up over time. It starts small, but quickly enough, becomes so deadly that no medicine in the world can help them survive it.
+  - Once they die, their corpse will gib, and you will permanently gain increased WP regeneration. This will count as if you had absorbed their corpse.
+
+  Do note that if one curse is used, all other curses will go on cooldown. So there is a limit to how quickly you can reap someone's soul.
+  Also, important to mention, the Chaplain can [color=red]purge all of your curses with their bible by using it on the afflicted[/color], so don't expect this to be easy.
+
+  ## Defile
+
+  This serves to fill up either some sort of drink, or to contaminate food with a chemical of your choosing (It's always poison). First, use the action on yourself to pick the reagent, then use it again on the food/drink to defile it.
+
+  ## Summon Plague Rat
+
+  Creates a diseased rat on your position, a ghost role that can be taken over by someone else. The diseased rat can eat trash to grow into a larger form of itself, gaining new abilities in the process. It starts very weak, but once fully grown, can prove to be a real pain.
+
+  ## Create Rot Hulk
+
+  Uses nearby filth to summon a mass of filth and decay that attacks nearby crew and explodes on death. Try using this action at disposals, or near large amounts of trash if you can find something of the sort.
+  If you manage to find a pile of more than 30 pieces of trash, it will spawn a much stronger version of the rot hulk.
+
+  # Sick! But how do I do better as this?
+
+  ## General tips
+
+  It takes some time for you to apply all four curses on someone. And even more so, they still have another full minute before the death curse does them in. Try to use your curses on targets that are far away from the chaplain, to reduce the chances of them wasting all of your effort.
+  
+  Use actions such as Possess object or Spook to create more trash by breaking windows or lightbulbs. This will allow you to summon stronger rot hulks, and can even help diseased rats to evolve faster.
+  
+  Defile leaves a very distinct taste in the mouth of whoever eats the contaminated food. You can use this to frame the chef or the bartender for trying to poison someone.
+
+  [textlink="Back to Wraith Evolutions" link="Wraiths"]
+</Document>
