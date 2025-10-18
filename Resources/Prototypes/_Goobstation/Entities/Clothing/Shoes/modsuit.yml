@@ -62,7 +62,6 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
@@ -92,6 +91,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -138,6 +139,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -184,7 +187,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
@@ -214,6 +218,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ItemToggle
   - type: ToggleClothing
     action: ActionToggleMagboots
@@ -255,6 +261,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: FireProtection # lmao
     reduction: 0.25
 
@@ -287,7 +295,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
@@ -317,3 +326,5 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
