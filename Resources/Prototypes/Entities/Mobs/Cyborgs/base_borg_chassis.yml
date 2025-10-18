@@ -500,6 +500,7 @@
   - type: SurveillanceCamera # they act like cameras for the mothership
     networkSet: true
     nameSet: True
+    mobile: True # Goobstation - mobile cameras fix, borg camera not really relevant since monitor doesn't see it anyways but eh
     id: Xenoborg
   - type: Explosive
     explosionType: Minibomb
