@@ -325,7 +325,8 @@
   - !type:GroupLoadoutEffect
     proto: EffectSpeciesVox
   equipment:
-    suitstorage: NitrogenTankFilled
+    tankstorage: NitrogenTankFilled
+    neck: ClothingNeckTankHarness
 
 # Full EVA Tank, Any Species
 - type: loadout
@@ -368,7 +369,7 @@
   - !type:GroupLoadoutEffect
     proto: EffectSpeciesVox
   equipment:
-    outerClothing: ClothingOuterVestTank
+    neck: ClothingNeckTankHarness
 
 # Breath Tool On Face
 - type: loadout
