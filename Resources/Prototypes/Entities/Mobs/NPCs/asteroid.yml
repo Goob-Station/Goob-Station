@@ -86,7 +86,7 @@
         Base: goliath_dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
-    baseSprintSpeed : 1.5
+    baseSprintSpeed : 3
   - type: Bloodstream
     bloodMaxVolume: 350
     chemicalMaxVolume: 0
@@ -246,9 +246,9 @@
         Base: hivelord
       Dead:
         Base: hivelord_dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.75
-    baseSprintSpeed : 3.0
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -300,9 +300,9 @@
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
     layers:
     - state: hivelordbrood
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 4.0
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -411,9 +411,9 @@
         Base: basilisk
       Dead:
         Base: basilisk_dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 3
+  - type: MovementSpeedModifier #goob
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 5.5
   - type: MobThresholds
     thresholds:
       0: Alive
