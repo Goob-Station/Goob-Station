@@ -245,8 +245,10 @@ public sealed class ToggleableClothingSystem : EntitySystem
         UnequipClothing(wearer, new Entity<ToggleableClothingComponent>(attachedComp.AttachedUid, toggleableComp), attached.Owner, slot);
     }
 
-
-
+    public bool IsToggled(Entity<ToggleableClothingComponent> ent, EntityUid clothing)
+    {
+        return !ent.Comp.Container.Contains(clothing);
+    }
 
     private void OnInteractHand(Entity<AttachedClothingComponent> attached, ref InteractHandEvent args)
     {
@@ -628,7 +630,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (storedClothing != null)
             _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true, triggerHandContact: true, silent:true);
     }
-    private void EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
+    public bool EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot, bool silent = false)
     {
         var parent = Transform(toggleable.Owner).ParentUid;
         var comp = toggleable.Comp;
@@ -639,20 +641,22 @@ public sealed class ToggleableClothingSystem : EntitySystem
             if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || !comp.ReplaceCurrentClothing)
             {
                 _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-first", ("entity", currentClothing)), user, user);
-                return;
+                return false;
             }
 
             // Check if attached clothing have container or this container not empty
             if (attachedComp.ClothingContainer == null || attachedComp.ClothingContainer.ContainedEntity != null)
-                return;
+                return false;
 
             if (_inventorySystem.TryUnequip(user, parent, slot))
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
-        if (_inventorySystem.TryEquip(user, parent, clothing, slot) &&
+        if (_inventorySystem.TryEquip(user, parent, clothing, slot, silent) &&
             toggleable.Comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
             _clothing.SetEquippedPrefix(toggleable, toggleable.Comp.EquippedPrefixes.GetValueOrDefault(slot, prefix));
+
+        return true;
     }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)

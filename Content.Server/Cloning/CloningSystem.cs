@@ -61,19 +61,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Cloning;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Chat.Systems;
-using Content.Server.Cloning.Components;
-using Content.Server.DeviceLinking.Systems;
-using Content.Server.EUI;
-using Content.Server.Fluids.EntitySystems;
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -88,9 +82,14 @@ using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Goobstation.Shared.Clothing.Components;
+using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Radio.Components; // Goobstation
-using Content.Shared.Radio.EntitySystems; // Goobstation
+using Content.Shared.Radio.EntitySystems;
+using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Cloning;
 
@@ -110,6 +109,8 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
+    [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -120,11 +121,18 @@ public sealed partial class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(settingsId, out var settings))
             return false; // invalid settings
 
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid))
+        // Goobstation start
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid)
             return false; // whatever body was to be cloned, was not a humanoid
 
-        if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
+        SpeciesPrototype? speciesPrototype = null;
+        if (humanoid != null && !_prototype.TryIndex(humanoid.Species, out speciesPrototype))
             return false; // invalid species
+
+        var proto = speciesPrototype?.Prototype.ToString() ?? Prototype(original)?.ID;
+        if (proto == null)
+            return false;
+        // Goobstation end
 
         if (HasComp<HolographicCloneComponent>(original) && !settings.ForceCloning) // Goobstation - This has to be separate because I don't want to touch the other check.
             return false;
@@ -137,14 +145,14 @@ public sealed partial class CloningSystem : EntitySystem
         if (attemptEv.Cancelled && !settings.ForceCloning)
             return false; // cannot clone, for example due to the unrevivable trait
 
-        clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
+        clone = coords == null ? Spawn(proto) : Spawn(proto, coords.Value); // Goob edit
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
-            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
+            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable); // Goob edit
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
@@ -255,7 +263,7 @@ public sealed partial class CloningSystem : EntitySystem
     ///     Copies the equipment the original has to the clone.
     ///     This uses the original prototype of the items, so any changes to components that are done after spawning are lost!
     /// </summary>
-    public void CopyEquipment(Entity<InventoryComponent?> original, Entity<InventoryComponent?> clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public void CopyEquipment(Entity<InventoryComponent?> original, Entity<InventoryComponent?> clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null, bool makeUnremoveable = false, bool copyStorage = true, bool internalContentsUnremoveable = false) // Goob edit
     {
         if (!Resolve(original, ref original.Comp) || !Resolve(clone, ref clone.Comp))
             return;
@@ -266,10 +274,80 @@ public sealed partial class CloningSystem : EntitySystem
         var slotEnumerator = _inventory.GetSlotEnumerator(original, slotFlags);
         while (slotEnumerator.NextItem(out var item, out var slot))
         {
-            var cloneItem = CopyItem(item, coords, whitelist, blacklist);
+            var cloneItem = CopyItem(item, coords, whitelist, blacklist, copyStorage);
 
-            if (cloneItem != null && !_inventory.TryEquip(clone, cloneItem.Value, slot.Name, silent: true, inventory: clone.Comp))
+            // Goob edit start
+            if (cloneItem == null)
+                continue;
+
+            if (!_inventory.TryEquip(clone, cloneItem.Value, slot.Name, silent: true, inventory: clone.Comp))
+            {
                 Del(cloneItem); // delete it again if the clone cannot equip it
+                continue;
+            }
+
+            if (makeUnremoveable)
+                EnsureComp<UnremoveableComponent>(cloneItem.Value);
+
+            if (internalContentsUnremoveable && TryComp(cloneItem.Value, out ContainerManagerComponent? manager))
+            {
+                foreach (var container in manager.Containers.Values)
+                {
+                    foreach (var contained in container.ContainedEntities)
+                    {
+                        if (!HasComp<AttachedClothingComponent>(contained))
+                            EnsureComp<UnremoveableComponent>(contained);
+                    }
+                }
+            }
+
+            if (!TryComp(item, out ToggleableClothingComponent? toggleable) || toggleable.ClothingUids.Count == 0 ||
+                !TryComp(cloneItem.Value, out ToggleableClothingComponent? clonedToggleable))
+                continue;
+
+            var allEquipped = true;
+            List<EntityUid> equipped = new();
+            foreach (var (clothing, toggleSlot) in toggleable.ClothingUids)
+            {
+                if (!_toggleable.IsToggled((item, toggleable), clothing))
+                {
+                    allEquipped = false;
+                    continue;
+                }
+
+                if (clonedToggleable.ClothingUids.FirstOrNull(kvp => kvp.Value == toggleSlot) is not
+                    { } newClothing)
+                {
+                    allEquipped = false;
+                    continue;
+                }
+
+                if (_toggleable.EquipClothing(clone.Owner,
+                        (cloneItem.Value, clonedToggleable),
+                        newClothing.Key,
+                        newClothing.Value,
+                        true))
+                    equipped.Add(newClothing.Key);
+            }
+
+            if (!allEquipped || !TryComp(item, out SealableClothingControlComponent? sealable) ||
+                !sealable.IsCurrentlySealed ||
+                !TryComp(cloneItem.Value, out SealableClothingControlComponent? clonedSealable))
+                continue;
+
+            var success = true;
+            foreach (var toSeal in equipped)
+            {
+                if (!_sealable.SealPart(toSeal, (cloneItem.Value, clonedSealable), true))
+                {
+                    success = false;
+                    break;
+                }
+            }
+
+            if (success)
+                _sealable.EndSealProcess((cloneItem.Value, clonedSealable), true);
+            // Goob edit end
         }
     }
 
@@ -281,7 +359,7 @@ public sealed partial class CloningSystem : EntitySystem
     ///     This is not perfect and only considers item in storage containers.
     ///     Some components have their own additional spawn logic on map init, so we cannot just copy all containers.
     /// </remarks>
-    public EntityUid? CopyItem(EntityUid original, EntityCoordinates coords, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public EntityUid? CopyItem(EntityUid original, EntityCoordinates coords, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null, bool copyStorage = true) // Goob edit
     {
         // we use a whitelist and blacklist to be sure to exclude any problematic entities
         if (!_whitelist.CheckBoth(original, blacklist, whitelist))
@@ -298,11 +376,14 @@ public sealed partial class CloningSystem : EntitySystem
         RaiseLocalEvent(original, ref ev);
 
         // if the original has items inside its storage, copy those as well
-        if (TryComp<StorageComponent>(original, out var originalStorage) && TryComp<StorageComponent>(spawned, out var spawnedStorage))
+        if (TryComp<StorageComponent>(original, out var originalStorage) && TryComp<StorageComponent>(spawned, out var spawnedStorage)) // Goob edit
         {
             // remove all items that spawned with the entity inside its storage
             // this ignores other containers, but this should be good enough for our purposes
             _container.CleanContainer(spawnedStorage.Container);
+
+            if (!copyStorage) // Goobstation
+                return spawned;
 
             // recursively replace them
             // surely no one will ever create two items that contain each other causing an infinite loop, right?

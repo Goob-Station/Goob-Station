@@ -26,6 +26,8 @@ public sealed partial class MartialArtModifiersComponent : Component
         { MartialArtModifierType.Damage, new Vector4(0.5f, 3f, -20f, 20f)},
         // No modifiers for move speed are supported
         { MartialArtModifierType.MoveSpeed, new Vector4(0.2f, 3f, 0f, 0f)},
+        // No modifiers for healing are supported
+        { MartialArtModifierType.Healing, new Vector4(0f, 10f, 0f, 0f)},
     };
 }
 
@@ -48,7 +50,9 @@ public enum MartialArtModifierType : byte
     AttackRate = 1 << 0,
     Damage = 1 << 1,
     MoveSpeed = 1 << 2,
+    // Healing is not supported currently for martial arts, make custom code for it or add support yourself
+    Healing = 1 << 3,
     // Add more if needed
-    Unarmed = 1 << 3,
-    Armed = 1 << 4,
+    Unarmed = 1 << 4,
+    Armed = 1 << 5,
 }

@@ -101,3 +101,42 @@
   - type: Tag
     tags:
     - ShadowCloakAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticShapeshift
+  name: Shapechange
+  description: A spell that allows you to take on the form of another creature, gaining their abilities.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: shapeshift
+  - type: InstantAction
+    event: !type:EventHereticShapeshift
+  - type: ShapeshiftAction
+    polymorphs:
+    - ShapeshiftMouse
+    - ShapeshiftHonkBot
+    - ShapeshiftAdultSlimesBlue
+    - ShapeshiftBat
+    - ShapeshiftMothroach
+    - ShapeshiftCrab
+    - ShapeshiftGoose
+    - ShapeshiftLizard
+    - ShapeshiftParrot
+    - ShapeshiftGiantSpider
+    - ShapeshiftFox
+    - ShapeshiftCorgi
+    - ShapeshiftCat
+    - ShapeshiftHamster
+    - ShapeshiftCarp
+    - ShapeshiftBingle
+    - ShapeshiftLaserRaptor
+  - type: UserInterface
+    interfaces:
+      enum.HereticShapeshiftUiKey.Key:
+        type: HereticShapeshiftBoundUserInterface
