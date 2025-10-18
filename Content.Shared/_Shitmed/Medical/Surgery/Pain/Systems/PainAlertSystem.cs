@@ -66,13 +66,9 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
     // Find the parent mob that should have the AlertsComponent
     EntityUid? mobUid = null;
     if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body is { } bodyUid)
-    {
         mobUid = bodyUid;
-    }
     else
-    {
         mobUid = uid;
-    }
 
     if (mobUid == null || !HasComp<AlertsComponent>(mobUid.Value))
     {
