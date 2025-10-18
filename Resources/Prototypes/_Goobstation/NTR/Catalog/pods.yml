@@ -278,6 +278,33 @@
     prototype: ComputerNTRTasksFlatpack
 
 - type: entity
+  id: SpawnPodMarlen
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodMarlen
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: Marlen
+
+- type: entity
+  id: SpawnPodNTRCigs
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRCigs
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: VendingMachineCigsDeluxe
+
+- type: entity
+  id: SpawnPodNTRSoap
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRSoap
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: SoapCentcomm
+
+- type: entity
   id: SpawnPodWaterCoolerGold
   categories: [ HideSpawnMenu ]
   name: SpawnPodWaterCoolerGold
@@ -285,3 +312,4 @@
   components:
   - type: SpawnOnDespawn
     prototype: WaterCoolerGold
+
