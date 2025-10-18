@@ -772,7 +772,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 3
+            Poison: 1
         conditions:
         - !type:ReagentThreshold
           min: 10
