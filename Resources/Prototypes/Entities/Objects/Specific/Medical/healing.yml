@@ -121,11 +121,6 @@
   - type: Stack
     stackType: Ointment
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 5
 
@@ -183,11 +178,6 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 20
 
@@ -242,11 +232,6 @@
   - type: Stack
     stackType: Brutepack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 5
 
@@ -303,11 +288,6 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 20
   # <Shitmed>
@@ -379,11 +359,6 @@
   - type: Stack
     stackType: Bloodpack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 10
 
@@ -459,11 +434,6 @@
   - type: Stack
     stackType: Gauze
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 10
 
