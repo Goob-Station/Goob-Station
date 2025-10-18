@@ -146,6 +146,8 @@
   - WeaponLaserCarbine
   - WeaponXrayCannon
   - WeaponTemperatureGun # Goobstation
+  - PolymerBaton #goob
+  - SpearTelescopic #goob
 
 - type: latheRecipePack
   id: SecurityDisablers
