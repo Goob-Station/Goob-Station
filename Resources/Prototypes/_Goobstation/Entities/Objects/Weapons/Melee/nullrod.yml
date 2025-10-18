@@ -70,6 +70,7 @@
     fireRate: 0.5
     useKey: false
   - type: GunRequiresWield
+  - type: OniAllowedGun
   - type: MeleeWeapon
     animationRotation: -45
     wideAnimationRotation: -135
@@ -612,6 +613,7 @@
     slots:
     - suitStorage
     - Belt
+  - type: OniAllowedGun
   - type: Gun
     minAngle: 1
     maxAngle: 5
