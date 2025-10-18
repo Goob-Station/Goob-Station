@@ -5395,3 +5395,13 @@ Entries:
   id: 9120
   time: '2025-10-18T17:20:44.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40955
+- author: perryprog
+  changes:
+  - message: Drag-and-dropping liquids between containers has been adjusted.
+    type: Tweak
+  - message: You can no longer insert liquids into foods by clicking. Using syringes
+      still works as before.
+    type: Tweak
+  id: 9121
+  time: '2025-10-18T17:58:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38871
