@@ -60,6 +60,7 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
+    decapitation: true # Goobstation - Decapitation
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
