@@ -579,4 +579,11 @@ public sealed partial class GoobCVars
         CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
 
     #endregion
+
+    #region Flash
+
+    public static readonly CVarDef<bool> FlashDirectionCheck =
+        CVarDef.Create("flash.direction_check", true, CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
 }
