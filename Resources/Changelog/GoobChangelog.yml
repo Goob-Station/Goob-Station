@@ -16512,3 +16512,9 @@ Entries:
       message: Plasmamen now spawn with tank harnesses just like voxes do
   id: 1849
   time: '2025-10-18T21:47:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Upgraded lathes can now print recipes via signal.
+  id: 1850
+  time: '2025-10-18T21:50:47.0000000+00:00'
