@@ -1,0 +1,109 @@
+- type: entity
+  id: ActionWrestlerKick
+  name: Kick
+  description: A powerful kick that sends your opponent flying away. Useful for breaking free or creating space.
+  components:
+  - type: Action
+#    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wrestler/actions.rsi
+      state: kick
+  - type: TargetAction
+    range: 1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:WrestlerKickEvent
+
+- type: entity
+  id: ActionWrestlerStrike
+  name: Strike
+  description: Deliver a fast, close-range hit to stagger your opponent.
+  components:
+  - type: Action
+#    useDelay: 15
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wrestler/actions.rsi
+      state: strike
+  - type: TargetAction
+    range: 1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:WrestlerStrikeEvent
+
+- type: entity
+  id: ActionWrestlerDrop
+  name: Drop (Prone)
+  description: Leap onto a prone opponent, crushing them under your weight.
+  components:
+  - type: Action
+ #   useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wrestler/actions.rsi
+      state: drop
+  - type: TargetAction
+    range: 1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:WrestlerDropEvent
+
+- type: entity
+  id: ActionWrestlerThrow
+  name: Throw (Grab)
+  description: Spin and hurl your grappled opponent through the air.
+  components:
+  - type: Action
+ #   useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wrestler/actions.rsi
+      state: throw
+  - type: TargetAction
+    range: 1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:WrestlerThrowEvent
+
+- type: entity
+  id: ActionWrestlerSlam
+  name: Slam (Grab)
+  description: Lift and slam your grappled opponent into the floor with crushing force.
+  components:
+  - type: Action
+#    useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wrestler/actions.rsi
+      state: slam
+  - type: TargetAction
+    range: 1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:WrestlerSlamEvent
