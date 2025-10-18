@@ -5356,3 +5356,10 @@ Entries:
   id: 9115
   time: '2025-10-18T00:28:44.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40878
+- author: Kittygyat
+  changes:
+  - message: Added a new generic Artistry borg module!
+    type: Add
+  id: 9116
+  time: '2025-10-18T07:13:42.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39679
