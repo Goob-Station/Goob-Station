@@ -286,7 +286,7 @@
 
 - type: entity
   id: CrateServiceSodaDispenser
-  parent: CrateGenericSteel
+  parent: CrateFreezer
   name: soda dispenser refill crate
   description: Contains refills for soda dispensers.
   components:
@@ -313,7 +313,7 @@
 
 - type: entity
   id: CrateServiceBoozeDispenser
-  parent: CrateGenericSteel
+  parent: CrateFreezer
   name: booze dispenser refill crate
   description: Contains refills for booze dispensers.
   components:
