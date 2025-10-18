@@ -345,7 +345,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ClothingOuterHardsuitEngineeringWhite
+    - id: ClothingModsuitChiefEngineerPowerCell # Goobstation
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled

@@ -260,6 +260,51 @@
 
 - type: entity
   parent: ClothingShoesBase
+  id: ClothingModsuitBootsChiefEngineer
+  name: archon modsuit boots
+  description: Made to be unmovable object.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/chief_engineer.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET-sealed
+  - type: FireProtection # lmao x2
+    reduction: 0.001
+  # If advanced magboots module will be made - delete everything bellow
+  - type: ItemToggle
+  - type: ToggleClothing
+    action: ActionToggleMagboots
+  - type: ComponentToggler
+    components:
+      - type: NoSlip
+  - type: Magboots
+    enabledPrefix: null
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+
+
+- type: entity
+  parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
   name: minerva modsuit boots
   description: Won't stop you slipping on your own blood when the holocarp gets to you.
