@@ -1,0 +1,31 @@
+- type: constructionGraph
+  id: HexNutDouble
+  graph:
+  - node: start
+    edges:
+    - to: stack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2
+  - node: stack
+    entity: MaterialHexNutSingle
+
+- type: constructionGraph
+  id: ScrewDouble
+  graph:
+  - node: start
+    edges:
+    - to: stack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2
+  - node: stack
+    entity: MaterialScrewSingle

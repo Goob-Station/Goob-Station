@@ -1,7 +1,6 @@
 - type: construction
   id: AltarConvert
   graph: AltarsGraph
-  startNode: start
   targetNode: AltarConvertNode
   category: construction-category-structures
   objectType: Structure
