@@ -121,13 +121,9 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         var modulator = Color.White;
 
         if (mobile)
-        {
             color = selected ? Color.Green : Color.Orange;
-        }
         else
-        {
             color = selected ? Color.Green : Color.Red;
-        }
 
         var blip = new NavMapBlip(coords, _spriteSystem.Frame0(texture), color * modulator, blink);
         NavMap.TrackedEntities[ent] = blip;

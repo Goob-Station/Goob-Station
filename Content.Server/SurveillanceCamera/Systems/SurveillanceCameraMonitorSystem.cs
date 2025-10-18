@@ -171,9 +171,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                     SendHeartbeat(uid, key, monitor);
 
                     if (lastHeartbeat > MaxHeartbeatTime)
-                    {
                         expiredCameras[key] = _entityManager.GetEntity(cameraData.Item2.NetEntity);
-                    }
                 }
 
                 // Remove PVS overrides for all viewers in a single pass
@@ -183,9 +181,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                         continue;
 
                     foreach (var entity in expiredCameras.Values)
-                    {
                         _pvsOverrideSystem.RemoveSessionOverride(entity, actor.PlayerSession);
-                    }
                 }
 
                 // Remove expired cameras from all dictionaries
@@ -264,9 +260,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                     }
                     // Goobstation start
                     if (component.KnownMobileCamerasLastHeartbeat.ContainsKey(args.SenderAddress))
-                    {
                         component.KnownMobileCamerasLastHeartbeat[args.SenderAddress] = 0;
-                    }
                     // Goobstation end
                     break;
                 case SurveillanceCameraSystem.CameraDataMessage:
@@ -282,9 +276,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                     if (mobile.HasValue && mobile.Value) // if camera is mobile, it should be in the mobile cameras list
                     {
                         if (component.KnownMobileCameras.Count == 0) // was it the first mobile camera added?
-                        {
                             EnsureComp<HasMobileCamerasSurveillanceCameraMonitorComponent>(uid);
-                        }
                         if (!component.KnownMobileCameras.ContainsKey(address))
                         {
                             component.KnownMobileCameras.Add(address, netEntity.Value);
