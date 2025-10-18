@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -83,9 +84,12 @@ public abstract class SharedShadowlingSystem : EntitySystem
         _lightDamage.AddResistance((ent.Owner, lightDet), -ent.Comp.LightResistanceModifier);
     }
 
+    public ProtoId<CollectiveMindPrototype> ShadowMind = "Shadowmind";
     private void OnInit(EntityUid uid, ShadowlingComponent component, ref MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch);
+
+        EnsureComp<CollectiveMindComponent>(uid).Channels.Add(ShadowMind);
     }
 
     private void OnHatch(Entity<ShadowlingComponent> ent, ref HatchEvent args)
