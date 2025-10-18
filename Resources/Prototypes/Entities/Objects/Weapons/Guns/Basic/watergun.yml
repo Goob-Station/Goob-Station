@@ -48,9 +48,9 @@
         type: TransferAmountBoundUserInterface
   - type: DrawableSolution
     solution: chamber
-  - type: RefillableSolution
-    solution: chamber
   - type: DrainableSolution
+    solution: chamber
+  - type: RefillableSolution
     solution: chamber
   - type: ExaminableSolution
     solution: chamber
