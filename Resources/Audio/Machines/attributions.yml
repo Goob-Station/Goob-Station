@@ -141,10 +141,10 @@
   copyright: "cmorris035"
   source: "https://freesound.org/people/cmorris035/sounds/319152/"
 
-- files: ["airlock_open.ogg", "airlock_close.ogg", "airlock_deny.ogg"]
+- files: ["airlock_open.ogg" "airlock_close.ogg" "airlock_deny.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Paradise Station" "/tg/station" 
-  source: "https://github.com/ParadiseSS13/Paradise/tree/master/sound/machines", "https://github.com/tgstation/tgstation/tree/5f5002b21253354c20ea224be3f604d79299b37e/sound/machines"
+  source: "https://github.com/ParadiseSS13/Paradise/tree/master/sound/machines" "https://github.com/tgstation/tgstation/tree/5f5002b21253354c20ea224be3f604d79299b37e/sound/machines"
 
 - files: ["machine_vend_hot_drink.ogg"]
   license: "CC0-1.0"
