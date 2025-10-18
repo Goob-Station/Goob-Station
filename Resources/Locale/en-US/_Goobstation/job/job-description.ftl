@@ -30,3 +30,8 @@ job-description-hecu = Fufill the orders of your supervisor, no matter the moral
 
 job-description-conquest = Stand ready for my arrival, worm.
 job-description-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.
+
+# event-restricted jobs
+job-description-command-maid = Clean the bridge, command rooms, and everything else that command tells you to.
+job-description-security-clown = Do security's job, but don't forget to do it with your clown spice.
+job-description-party-maker = Throw the biggest party ever at this station!
