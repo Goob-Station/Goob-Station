@@ -16482,3 +16482,27 @@ Entries:
       message: The RPDS should now work again. Catch this mail!
   id: 1847
   time: '2025-10-17T16:57:04.0000000+00:00'
+- author: Avalon-Proto, BarryNorfolk, AeraAuling, CliveOcelot, CerberusWolfie
+  changes:
+    - type: Add
+      message: Oni now have the option to bring a sake gourd with them to NT stations
+    - type: Add
+      message: >-
+        Cybersun has begun producing a new concoction of beasts blood, bottled
+        in special gourds for their oni operative. Unleash the inner beast
+    - type: Tweak
+      message: Oni damage buffs and resistances have been buffed
+    - type: Tweak
+      message: Oni can now drink to their heart's content
+    - type: Tweak
+      message: >-
+        Oni code has been refactored and cleaned up into 4 seperate components
+        instead of one big one
+    - type: Tweak
+      message: Oni inaccuracy debuff now works on all guns but shotguns
+    - type: Add
+      message: Adds Umbroxol, a medication for holy damage making use of unholy water
+    - type: Add
+      message: Adds the Unholy water reagent. Made with blood, Sulfur, and water
+  id: 1848
+  time: '2025-10-18T00:56:04.0000000+00:00'
