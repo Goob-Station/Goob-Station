@@ -513,7 +513,6 @@
       tags:
         - Mop
         - DroneUsable # Goobstation
-    - type: CleansForensics
     - type: FloorCleaner # Goobstation
     - type: Fiber
       fiberColor: fibers-white
