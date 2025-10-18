@@ -1,9 +1,14 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Content.Shared.CCVar;
 using Content.Client.CharacterInfo;
+using Content.Client.Gameplay;
+using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 
 namespace Content.Client.UserInterface.Systems.Chat;
@@ -16,6 +21,9 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 {
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
+
+    // Goobstation - Highlight chat ping sound!
+    private static readonly ResPath HighlightSoundPath = new("/Audio/_Goobstation/Interface/HighlightChatPings/Beep.ogg");
 
     private static readonly Regex StartDoubleQuote = new("\"$");
     private static readonly Regex EndDoubleQuote = new("^\"|(?<=^@)\"");
@@ -40,10 +48,34 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 
     public event Action<string>? HighlightsUpdated;
 
+    #region Highlight chat ping sound!
+    // Goobstation
+    /// <summary>
+    /// Plays the highlight sound effect if enabled in settings
+    /// </summary>
+    private void PlayHighlightSound()
+    {
+        // Don't play sounds if the game is still loading
+        if (_state.CurrentState is not GameplayStateBase)
+            return;
+
+        if (!_config.GetCVar(CCVars.ChatHighlightSound))
+            return;
+
+        // Get the volume setting and apply it to the audio params
+        var volume = _config.GetCVar(CCVars.ChatHighlightVolume);
+        var volumeDb = MathF.Log10(Math.Clamp(volume, 0f, 1f)) * 20f;
+        var audioParams = AudioParams.Default.WithVolume(volumeDb);
+
+        // Play the sound using the audio system
+        _ent.System<AudioSystem>().PlayGlobal(HighlightSoundPath, Filter.Local(), false, audioParams);
+    }
+    // Goobstation End
+    #endregion
+
     private void InitializeHighlights()
     {
         _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; }, true);
-
         _config.OnValueChanged(CCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; }, true);
 
         // Load highlights if any were saved.
