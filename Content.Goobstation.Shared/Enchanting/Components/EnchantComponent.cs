@@ -67,6 +67,13 @@ public sealed partial class EnchantComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Enchanted;
+
+    /// <summary>
+    /// Fake enchants do not apply any properties to the item but can be transferred to other items
+    /// Used for enchanted books
+    /// </summary>
+    [DataField(readOnly: true), AutoNetworkedField]
+    public bool Fake;
 }
 
 /// <summary>
