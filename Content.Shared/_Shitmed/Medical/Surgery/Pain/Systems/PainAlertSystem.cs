@@ -76,9 +76,7 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
     // Check if the mob is in a critical state
     bool isCritical = false;
     if (TryComp<MobStateComponent>(mobUid, out var mobState))
-    {
         isCritical = _mobState.IsCritical(mobUid.Value, mobState);
-    }
 
     float totalPain = 0f;
 
