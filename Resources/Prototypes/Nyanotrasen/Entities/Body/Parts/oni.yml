@@ -84,6 +84,9 @@
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart
+    walkSpeed: 2.2
+    sprintSpeed: 3.1
 
 - type: entity
   id: RightLegOni
@@ -93,6 +96,9 @@
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart
+    walkSpeed: 2.2
+    sprintSpeed: 3.1
 
 - type: entity
   id: LeftFootOni
