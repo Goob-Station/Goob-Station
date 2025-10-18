@@ -108,6 +108,11 @@ public sealed partial class SleepingCarpStudentComponent : Component
 }
 
 [RegisterComponent]
+public sealed partial class GrantWerewolfMovesComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Werewolf;
+
 public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]

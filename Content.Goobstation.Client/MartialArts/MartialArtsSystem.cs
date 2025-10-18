@@ -28,4 +28,10 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     {
         args.AttackTypes = ent.Comp.LastAttacks;
     }
+
+    #region Override Methods
+
+    protected override void TryModifyBleeding(EntityUid target, float amount) {}
+
+    #endregion
 }

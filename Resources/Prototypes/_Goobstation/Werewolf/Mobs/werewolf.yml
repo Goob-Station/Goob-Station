@@ -1,0 +1,228 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseMobWerewolf
+  name: Werewolf
+  abstract: true
+  parent: BaseMobSpeciesOrganic
+  components:
+  - type: Hunger
+    baseDecayRate: 0.0467
+    startingHunger: 100
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    starvationDamage:
+      types:
+       Poison: 5
+  - type: PassiveDamageHunger
+    hungerThresholds:
+      Overfed:
+        groups:
+          Brute: -10
+          Burn: -10
+          Toxin: -10
+          Metaphysical: -10
+          Airloss: -10
+      Okay:
+        groups:
+          Brute: -5
+          Burn: -5
+          Toxin: -5
+          Metaphysical: -5
+          Airloss: -5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 1.5
+  - type: Prying
+    pryPowered: true
+    speedModifier: 0.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: HumanoidAppearance
+    species: SlimePerson # add werewolf
+  - type: Body
+    prototype: Slime # add werewolf
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Werewolf
+  - type: Bloodstream
+    bloodReagent: Blood
+  - type: ActionGrant
+    actions:
+    - ActionRevertPolymorph
+    - ActionWerewolfGut
+    - ActionWerewolfAmbush
+    - ActionWerewolfHowl
+    - ActionWerewolfCursedBite
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: WerewolfAmbush
+  - type: WerewolfGut
+    whitelist:
+      tags:
+      - Kidneys
+      - Liver
+      - Stomach
+      - Heart
+  - type: WerewolfHowl
+    oldDamageModifier: Werewolf
+    newDamageModifier: WerewolfHowl
+  - type: GrantWerewolfMoves
+  - type: WerewolfCounter
+  - type: WerewolfCursedBite
+    startingForm: DefaultFormWerewolf
+    pathLockedForm: DefaultFormWerewolf
+    formsToTransfer:
+    - DefaultFormWerewolf
+    - ExplosiveFormWerewolf
+    bleedingAmount: -50
+    damage:
+      types:
+       Piercing: 45
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+
+# All Form Entities
+- type: entity
+  id: BaseWerewolf
+  name: Werewolf
+  parent: BaseMobWerewolf
+
+- type: entity
+  id: MistyWerewolf
+  name: Misty Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionRevertPolymorph
+    - ActionWerewolfGut
+    - ActionWerewolfAmbush
+    - ActionWerewolfHowl
+    - ActionWerewolfSmokescreen
+  - type: WerewolfSmokescreen
+    spreadAmount: 30
+
+- type: entity
+  id: BlackWerewolf
+  name: Black Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      500: Dead
+  - type: ActionGrant
+    actions:
+    - ActionRevertPolymorph
+    - ActionWerewolfGut
+    - ActionWerewolfAmbush
+    - ActionWerewolfHowl
+    - ActionWerewolfCursedBite
+  - type: WerewolfCursedBite
+    startingForm: DefaultFormWerewolf
+    pathLockedForm: DefaultFormWerewolf
+    formsToTransfer:
+    - DefaultFormWerewolf
+    - ExplosiveFormWerewolf
+
+- type: entity
+  id: DireWerewolf
+  name: Dire Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+  - type: BleedOnMeleeHit
+    bleedAmount: -25
+
+- type: entity
+  id: HellhoundWerewolf
+  name: Hellhound Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: Flammable
+    canResistFire: true
+
+- type: entity
+  id: WhiteWerewolf
+  name: White Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: Hunger # reset hunger
+    baseDecayRate: 0.01666666666
+    startingHunger: null
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    starvationDamage: null
+
+- type: entity
+  id: RaijuWerewolf
+  name: Raiju Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: Insulated
+  - type: Tag
+    tags:
+    - Raiju
+
+- type: entity
+  id: LupusWerewolf
+  name: Lupus Werewolf
+  parent: BaseMobWerewolf
+  components:
+  - type: PressureImmunity
+  - type: BreathingImmunity
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Cold: 10
+
+# testing
+- type: entity
+  id: TestWerewolfDebug
+  name: Werewolf Appearance
+  parent: BaseSimpleMob
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/werewolf.rsi
+    state: werewolf
+
