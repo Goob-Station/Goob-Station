@@ -57,6 +57,7 @@ public sealed partial class WoundSystem
         SubscribeLocalEvent<WoundableComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
+        SubscribeLocalEvent<TraumaInflicterComponent, TraumaBeingRemovedEvent>(OnTraumaBeingRemoved);
     }
 
     #region Event Handling
@@ -1146,6 +1147,16 @@ public sealed partial class WoundSystem
         _container.Remove(woundEntity, woundable.Wounds!, false, true);
 
         return true;
+    }
+
+    private void OnTraumaBeingRemoved(Entity<TraumaInflicterComponent> ent, ref TraumaBeingRemovedEvent args)
+    {
+        if (TryComp<WoundComponent>(ent, out var woundComp))
+        {
+            if (woundComp.WoundSeverity != WoundSeverity.Healed)
+                return;
+            RemoveWound(ent); // Remove wound method will perform the check on if there are any other wounds pending treatment
+        }
     }
 
     protected void InternalAddWoundableToParent(
