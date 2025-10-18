@@ -291,3 +291,18 @@
     job: SyndicateHighCommander
   - type: Emag
     emagType: Access
+
+# Mercenary
+- type: entity
+  parent: SyndicateIDCard
+  id: MercenaryIDCard
+  name: mercenary ID card
+  description: A card used by space mercenaries to get into places.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mercenary
+    - state: idmercenary
+  - type: PresetIdCard
+    job: Mercenary
