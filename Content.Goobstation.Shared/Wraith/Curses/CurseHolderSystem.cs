@@ -1,4 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -13,6 +15,7 @@ public abstract class SharedCurseHolderSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -82,6 +85,9 @@ public abstract class SharedCurseHolderSystem : EntitySystem
 
         ent.Comp.CurseStatusIcons.Add(curseIndex.StatusIcon.Value);
         Dirty(ent);
+
+        _adminLogger.Add(LogType.Action, LogImpact.Medium,
+            $"{ToPrettyString(ent.Comp.Curser)} cursed {ToPrettyString(ent.Owner)} with {curseIndex.Name}");
     }
 
     #region Helper

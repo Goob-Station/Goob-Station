@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Revenant;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Magic.Components;
 using Content.Shared.Mind;
@@ -20,6 +22,7 @@ public sealed class WraithPossessedSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly WraithRevenantSystem _wraithRevenant = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -121,6 +124,7 @@ public sealed class WraithPossessedSystem : EntitySystem
 
             _wraithRevenant.SetPassiveDamageValues((ent.Owner, rev), ent.Comp.RevenantDamageOvertime, alive);
 
+            _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(possessor)} made a revenant (possessed) out of ${ToPrettyString(ent.Owner)}");
             return;
         }
 
@@ -131,6 +135,8 @@ public sealed class WraithPossessedSystem : EntitySystem
 
             ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.PossessionDuration;
             Dirty(ent);
+
+            _admin.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(possessor)} possessed the object ${ToPrettyString(ent.Owner)}");
         }
     }
 

@@ -3,6 +3,8 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Server.Actions;
 using Content.Server.Mind;
 using Content.Shared._White.RadialSelector;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -21,6 +23,7 @@ public sealed class WraithEvolveSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -80,6 +83,8 @@ public sealed class WraithEvolveSystem : EntitySystem
         _mind.UnVisit(mindUid, mind);
 
         EntityManager.CopyComponents(uid, newForm);
+
+        _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} evolved to {ToPrettyString(newForm)} as a Wraith");
 
         RemComp<EvolveComponent>(newForm);
         Del(uid);

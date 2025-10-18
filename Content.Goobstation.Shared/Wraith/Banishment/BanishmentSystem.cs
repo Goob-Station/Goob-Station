@@ -1,3 +1,5 @@
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
@@ -12,6 +14,7 @@ public sealed class BanishmentSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -53,5 +56,8 @@ public sealed class BanishmentSystem : EntitySystem
         // Reduce 1 life
         ent.Comp.Lives = Math.Max(ent.Comp.Lives - 1, 0);
         Dirty(ent);
+
+        _admin.Add(LogType.Respawn, LogImpact.High,
+            $"{ToPrettyString(ent.Owner)} got revived by Banishment, and now has {ent.Comp.Lives} lives left.");
     }
 }

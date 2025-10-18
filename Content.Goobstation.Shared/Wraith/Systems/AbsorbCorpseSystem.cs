@@ -1,11 +1,13 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Database;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
@@ -26,6 +28,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {
@@ -64,6 +67,8 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         if (ev.Handled)
         {
+            _admin.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(ent.Owner)} absorbed the corpse of {ToPrettyString(args.Target)} as a Plaguebinger Wraith");
             args.Handled = true;
             return;
         }
@@ -101,6 +106,8 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             Dirty(args.Target, absorbable);
         }
 
+        _admin.Add(LogType.Action, LogImpact.Medium,
+            $"{ToPrettyString(ent.Owner)} absorbed the corpse of {ToPrettyString(args.Target)} as a Wraith");
         args.Handled = true;
     }
 
