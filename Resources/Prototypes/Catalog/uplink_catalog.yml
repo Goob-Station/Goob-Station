@@ -1248,24 +1248,24 @@
       components:
       - SurplusBundle
 
-- type: listing
-  id: UplinkStarterKit
-  name: uplink-starter-kit-name
-  description: uplink-starter-kit-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
-  cost:
-    Telecrystal: 200
-  categories:
-  - UplinkDisruption
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-        - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-        - SurplusBundle
+#- type: listing
+#  id: UplinkStarterKit
+#  name: uplink-starter-kit-name
+#  description: uplink-starter-kit-desc
+#  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+#  cost:
+#    Telecrystal: 200
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#        - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#        - SurplusBundle
 
 
 - type: listing

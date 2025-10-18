@@ -131,6 +131,7 @@
 # SPDX-FileCopyrightText: 2025 Stomf <5dorkydorks@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 robinthedragon <92946919+robinthedragon@users.noreply.github.com>
 #
@@ -497,6 +498,26 @@
       - id: SyndieTrickyBomb
         amount: 2
 
+#- type: entity
+#  parent: ClothingBackpackDuffelSyndicateBundle
+#  id: ClothingBackpackDuffelSyndicateFilledStarterKit
+#  name: basic operative bundle
+#  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: WeaponSubMachineGunC20r
+#      - id: MagazinePistolSubMachineGun
+#        amount: 3
+#      - id: MagazinePistol
+#      - id: SyndicateJawsOfLife
+#      - id: C4
+#        amount: 2
+#      - id: MedkitCombatFilled
+#      - id: EmpImplanter
+#      - id: ClothingShoesBootsMagSyndie
+#      - id: AgentIDCard
+
 - type: entity
   parent: [ ClothingBackpackDuffelBundle, BaseMajorContraband ]
   id: ClothingBackpackDuffelAcolyteBundle
@@ -509,23 +530,3 @@
     - id: ClothingHeadHelmetCult
     - id: ClothingShoesCult
     - id: BedsheetCult
-
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledStarterKit
-  name: basic operative bundle
-  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
-  components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSubMachineGunC20r
-      - id: MagazinePistolSubMachineGun
-        amount: 3
-      - id: MagazinePistol
-      - id: SyndicateJawsOfLife
-      - id: C4
-        amount: 2
-      - id: MedkitCombatFilled
-      - id: EmpImplanter
-      - id: ClothingShoesBootsMagSyndie
-      - id: AgentIDCard
