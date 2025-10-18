@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Teleportation.Components;
 using Content.Goobstation.Shared.Maps;
+using Content.Goobstation.Shared.HellGoose.Components;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
 using Robust.Shared.Audio.Systems;
@@ -8,6 +9,9 @@ using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
+using System.Reflection.Metadata;
+using System.Xml.Serialization;
 
 namespace Content.Goobstation.Server.HellGoose;
 
@@ -16,6 +20,7 @@ public sealed class HellPortalSystem : EntitySystem
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -68,5 +73,66 @@ public sealed class HellPortalSystem : EntitySystem
             _link.TryLink(uid, exitPortal);
             break;
         }
+    }
+    public EntityCoordinates? TryLoadHell(bool retry = false)
+    {
+        ResPath hellMapPath = new ResPath("/Maps/_Goobstation/Nonstations/Hell.yml");
+        EntProtoId exitPortalPrototype = "PortalHellExit";
+        TransformComponent? portalXform = null;
+        HellPortalExitComponent? targetportal = null;
+
+        var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
+        while (query.MoveNext(out var hellexitportalcomp, out var xform))
+        {
+            targetportal = hellexitportalcomp;
+            portalXform = xform;
+            break;
+        }
+
+        if (targetportal == null || portalXform == null)
+        {
+            if (!_mapLoader.TryLoadMap(hellMapPath,
+                out var map, out var roots,
+                options: new DeserializationOptions { InitializeMaps = true }))
+            {
+                Log.Error($"Failed to load hell map at {hellMapPath}");
+                QueueDel(map);
+                return null;
+            }
+
+            foreach (var root in roots)
+            {
+                if (!HasComp<HellMapComponent>(root))
+                    continue;
+
+                var pos = new EntityCoordinates(root, 0, 0);
+
+                var exitPortal = Spawn(exitPortalPrototype, pos);
+
+                EnsureComp<PortalComponent>(exitPortal, out var hellPortalComp);
+
+                var newHellMapComp = EnsureComp<HellMapComponent>(root);
+                newHellMapComp.ExitPortal = exitPortal;
+
+                break;
+            }
+            if (!retry)
+            {
+                return TryLoadHell(true);
+            }
+        }
+        if (portalXform == null)
+        {
+            return null;
+        }
+        else
+        {
+            return portalXform?.Coordinates;
+        }
+    }
+    public void TryTeleportToHell(EntityUid entity, EntityCoordinates? cords)
+    {
+        if (cords != null)
+            _sharedTransformSystem.SetCoordinates(entity, cords.Value);
     }
 }
