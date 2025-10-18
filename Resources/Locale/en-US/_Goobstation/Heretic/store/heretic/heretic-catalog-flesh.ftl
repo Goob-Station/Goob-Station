@@ -27,7 +27,8 @@ knowledge-path-flesh-s1-desc =
     Hundreds of us starved, but not me... I found strength in my greed.
 
     Opens up the Path of Flesh to you.
-    Allows you to transmute a knife and a pool of blood into a Bloody Blade. Limit of two at a time.
+    Allows you to transmute a knife and a pool of blood into a Bloody Blade.
+    You can only create two at a time.
 
 knowledge-path-flesh-s2-name = Grasp of Flesh
 knowledge-path-flesh-s2-desc =

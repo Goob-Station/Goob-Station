@@ -159,7 +159,6 @@
     ClothingNeckCloakCOG: 3 # Monolith
     ClothingShoesClothwrap: 3 # NF
     ClothingNeckPonchoBlack: 3 # Monolith
-    ClothingNeckPonchoBlackStripe: 3 # Monolith
     ClothingNeckPonchoArctic: 3 # Monolith
     ClothingNeckPonchoSyndicate: 3 # Monolith
     ClothingNeckPonchoSmallPink: 3 # Monolith
@@ -180,4 +179,5 @@
     ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
     ClothingHeadHatSolidHeadband: 2
+    ClothingNeckFellForItAward: 1 # Goobstation
   # DO NOT ADD MORE, USE UNIFORM DYING
