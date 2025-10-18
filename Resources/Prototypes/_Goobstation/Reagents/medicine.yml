@@ -764,7 +764,7 @@
       amount: -20
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15
       effects:
       - !type:AdjustReagent
         group: Poison
@@ -772,7 +772,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 3
+            Poison: 1
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -792,57 +792,8 @@
               Brute: 1
               Burn: 1
           inverse: true
-      - !type:HealthChange # Ideally it'd be a slope, but that's TBD together with cryox scaling with temps
-        damage:
-          types:
-            Poison: 1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 30
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 60
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 30
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 60
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
 
 # Low-effect meds
-
 - type: reagent
   id: Antihol # Charcoal hog more than anything
   name: reagent-name-antihol
