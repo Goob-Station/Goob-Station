@@ -979,6 +979,7 @@
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
+  - BlueshieldOfficerBSOCatEars
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -996,6 +997,7 @@
   - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
   - BlueshieldOfficerInnerBlueshieldShirt
+  - BlueshieldOfficerInnerBlueshieldMaid
 
 - type: loadoutGroup
   id: BlueshieldOfficerOuter

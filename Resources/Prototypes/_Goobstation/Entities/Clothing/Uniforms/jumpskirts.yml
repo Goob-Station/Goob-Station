@@ -74,3 +74,33 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtBlueshieldOfficerMaid
+  name: blueshield officer maid uniform
+  description: A maid uniform designed for Blueshield Officers. God help us.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/blueshield_officer_maid.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/blueshield_officer_maid.rsi
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 1.2
+        Slash: 1.2
+        Piercing: 1.2
+        Heat: 1.2 #Burn them
+        Radiation: 1.2
+        Caustic: 1.2
+  - type: ExplosionResistance
+    damageCoefficient: 1.2

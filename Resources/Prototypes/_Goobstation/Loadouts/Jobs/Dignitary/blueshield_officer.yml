@@ -24,6 +24,15 @@
       role: JobBlueshieldOfficer
       time: 187200
 
+- type: loadoutEffectGroup
+  id: ValidBlueshieldOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshieldOfficer
+      time: 252000 #70 hrs
+
 # Hats
 - type: loadout
   id: BlueshieldOfficerHeadSwatHelmet
@@ -48,6 +57,13 @@
   equipment:
     head: ClothingHeadHatUshankaBlueshield
 
+- type: loadout
+  id: BlueshieldOfficerBSOCatEars
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ValidBlueshieldOfficer
+  equipment:
+    head: ClothingHeadHatBSOCatEar
 
 - type: loadout
   id: BlueshieldOfficerEnvirohelm
@@ -76,6 +92,14 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
 
+
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldMaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ValidBlueshieldOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueshieldOfficerMaid
 
 - type: loadout
   id: BlueshieldOfficerEnvirosuit
