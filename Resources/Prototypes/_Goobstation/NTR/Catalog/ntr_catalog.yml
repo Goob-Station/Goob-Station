@@ -1,5 +1,21 @@
 # station
 - type: listing
+  id: NTRExecutiveCargoBingle
+  name: Call a cargo bingle
+  description: After capture, pitless bingles have their sharp teeth removed and are transported through stations to assist with heavy cargo lifting. Their emotional well-being is disregarded.
+  productEntity: SpawnPodCargoBingle
+  icon:
+    sprite: _Goobstation/Mobs/Bingle/cargo-bingle.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 5 # go my cargo tech without hands nor the ability to speak, only drag items.
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 min, cadet who doesnt know about friendly bingles vs cargo bingle:
+
+- type: listing
   id: NTRExecutiveCrateEVA
   name: EVA crate
   description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.

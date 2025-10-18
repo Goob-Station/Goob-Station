@@ -278,6 +278,15 @@
     prototype: ComputerNTRTasksFlatpack
 
 - type: entity
+  id: SpawnPodCargoBingle
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodCargoBingle
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CargoBingleSpawnCoin
+
+- type: entity
   id: SpawnPodWaterCoolerGold
   categories: [ HideSpawnMenu ]
   name: SpawnPodWaterCoolerGold
