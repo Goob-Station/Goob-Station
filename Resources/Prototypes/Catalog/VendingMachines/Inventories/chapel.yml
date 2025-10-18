@@ -69,6 +69,8 @@
     ToyFigurineChaplain: 1
     ClothingNeckScarfStripedBlack: 3
   emaggedInventory:
+    ClothingHeadHelmetCult: 1 #Goob station
+    ClothingOuterArmorCult: 1 #Goob station
     ClothingOuterRobesCult: 3
     ClothingHeadHatHoodCulthood: 3
     ClothingShoesCult: 4
