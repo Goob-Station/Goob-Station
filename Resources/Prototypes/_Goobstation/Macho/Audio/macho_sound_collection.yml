@@ -1,0 +1,100 @@
+- type: soundCollection
+  id: MachoSarcasm
+  files:
+  - /Audio/_Goobstation/Macho/macho_sarcasm.ogg
+
+- type: soundCollection
+  id: MachoShout
+  files:
+  - /Audio/_Goobstation/Macho/macho_shout04.ogg
+  - /Audio/_Goobstation/Macho/macho_shout06.ogg
+  - /Audio/_Goobstation/Macho/macho_shout07.ogg
+  - /Audio/_Goobstation/Macho/macho_shout08.ogg
+
+- type: soundCollection
+  id: MachoSlimJim
+  files:
+  - /Audio/_Goobstation/Macho/macho_slimjim.ogg
+
+- type: soundCollection
+  id: MachoAlert
+  files:
+  - /Audio/_Goobstation/Macho/macho_alert13.ogg
+  - /Audio/_Goobstation/Macho/macho_alert16.ogg
+  - /Audio/_Goobstation/Macho/macho_alert22.ogg
+  - /Audio/_Goobstation/Macho/macho_alert24.ogg
+  - /Audio/_Goobstation/Macho/macho_alert26.ogg
+  - /Audio/_Goobstation/Macho/macho_alert41.ogg
+
+- type: soundCollection
+  id: MachoBecomeAlert
+  files:
+  - /Audio/_Goobstation/Macho/macho_become_alert54.ogg
+  - /Audio/_Goobstation/Macho/macho_become_alert55.ogg
+  - /Audio/_Goobstation/Macho/macho_become_alert56.ogg
+
+- type: soundCollection
+  id: MachoBecomeEnraged
+  files:
+  - /Audio/_Goobstation/Macho/macho_become_enraged01.ogg
+
+- type: soundCollection
+  id: MachoBreathing
+  files:
+  - /Audio/_Goobstation/Macho/macho_breathing01.ogg
+  - /Audio/_Goobstation/Macho/macho_breathing02.ogg
+  - /Audio/_Goobstation/Macho/macho_breathing13.ogg
+  - /Audio/_Goobstation/Macho/macho_breathing18.ogg
+  - /Audio/_Goobstation/Macho/macho_breathing26.ogg
+
+- type: soundCollection
+  id: MachoCuppaCoffee
+  files:
+  - /Audio/_Goobstation/Macho/macho_cuppacoffee1.ogg
+  - /Audio/_Goobstation/Macho/macho_cuppacoffee2.ogg
+  - /Audio/_Goobstation/Macho/macho_cuppacoffee3.ogg
+
+- type: soundCollection
+  id: MachoFreakout
+  files:
+  - /Audio/_Goobstation/Macho/macho_freakout.ogg
+
+- type: soundCollection
+  id: MachoIdleBreath
+  files:
+  - /Audio/_Goobstation/Macho/macho_idle_breath_01.ogg
+  - /Audio/_Goobstation/Macho/macho_idle_breath_02.ogg
+  - /Audio/_Goobstation/Macho/macho_idle_breath_04.ogg
+  - /Audio/_Goobstation/Macho/macho_idle_breath_06.ogg
+
+- type: soundCollection
+  id: MachoMoan
+  files:
+  - /Audio/_Goobstation/Macho/macho_moan03.ogg
+  - /Audio/_Goobstation/Macho/macho_moan07.ogg
+
+- type: soundCollection
+  id: MachoMumbling
+  files:
+  - /Audio/_Goobstation/Macho/macho_mumbling04.ogg
+  - /Audio/_Goobstation/Macho/macho_mumbling05.ogg
+  - /Audio/_Goobstation/Macho/macho_mumbling07.ogg
+  - /Audio/_Goobstation/Macho/macho_mumbling08.ogg
+
+- type: soundCollection
+  id: MachoRage
+  files:
+  - /Audio/_Goobstation/Macho/macho_rage_54.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_55.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_58.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_61.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_64.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_68.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_71.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_72.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_73.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_78.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_79.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_80.ogg
+  - /Audio/_Goobstation/Macho/macho_rage_81.ogg
+  - /Audio/_Goobstation/Macho/macho_rage30.ogg

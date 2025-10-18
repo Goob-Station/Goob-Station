@@ -1,0 +1,36 @@
+- type: entity
+  parent: [ ClothingBeltChampion, BaseMagicalContraband ]
+  id: ClothingBeltWrestler
+  name: wrestling belt
+  description: It's time to step into the ring
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: ActionGrant
+      actions:
+        - ActionWrestlerKick
+        - ActionWrestlerStrike
+        - ActionWrestlerDrop
+        - ActionWrestlerThrow
+        - ActionWrestlerSlam
+    - type: Wrestler
+    - type: WrestlerKick
+    - type: WrestlerStrike
+    - type: WrestlerDrop
+    - type: WrestlerThrow
+    - type: WrestlerSlam
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: StaticPrice
+    price: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.5
