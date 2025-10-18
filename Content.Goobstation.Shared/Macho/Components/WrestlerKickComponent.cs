@@ -22,7 +22,7 @@ public sealed partial class WrestlerKickComponent : Component
     /// <summary>
     /// Damage to deal to the target when colliding once thrown
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public DamageSpecifier? DamageWhenThrown = new()
     {
         DamageDict = new()

@@ -2,7 +2,7 @@
   parent: [ ClothingBeltChampion, BaseMagicalContraband ]
   id: ClothingBeltWrestler
   name: wrestling belt
-  description: It's time to step into the ring
+  description: WANNA TAKE MY BELT? OVER MY DEAD BODY!!!
   components:
   - type: ClothingGrantComponent
     component:

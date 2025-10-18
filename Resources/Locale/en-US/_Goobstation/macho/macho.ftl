@@ -2,10 +2,12 @@ wrestler-alert-self = Why would you want to wrestle yourself?
 wrestler-alert-too-far = [target] is too far away.
 wrestler-alert-immune = You seem to attack [target]!
 wrestler-alert-invalid-loc = You can't wrestle the target here!
-wrestler-alert-no-grab = You can't [action] the target without a firm grab!
+wrestler-alert-no-grab = You can't do this action to the target without a firm grab!
 wrestler-alert-not-prone = You can use this move on prone opponents only!
 wrestler-alert-cant-drop = You can't drop onto [target] from here!
 wrestler-alert-dive-fail = ...and dives head-first into the ground, ouch!
+
+wrestler-alert-wrong-target = How are you supposed to slam that person while you are holding someone else?
 
 wrestler-msg-climb = <B>[M] climbs onto [surface]!</B>
 wrestler-msg-lift = <B>[M] lifts [HH] up!</B>

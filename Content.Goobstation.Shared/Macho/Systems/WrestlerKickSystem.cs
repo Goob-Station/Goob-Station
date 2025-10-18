@@ -51,10 +51,15 @@ public sealed class WrestlerKickSystem : EntitySystem
         // TO DO: Slow down
 
         _grab.Throw(target, uid, direction, comp.ThrowSpeed, comp.DamageWhenThrown);
-        _damage.TryChangeDamage(uid, comp.Damage, targetPart: TargetBodyPart.All);
-        _popup.PopupPredicted(Loc.GetString("wrestler-kick-1"), uid, uid, PopupType.MediumCaution);
+        _damage.TryChangeDamage(target, comp.Damage, targetPart: TargetBodyPart.All);
 
-        _audio.PlayPredicted(comp.Sound, uid, uid);
+
+        if (HasComp<MachoManComponent>(uid))
+        {
+            _popup.PopupPredicted(Loc.GetString("wrestler-kick-1"), uid, uid, PopupType.MediumCaution);
+            _audio.PlayPredicted(comp.Sound, uid, uid);
+        }
+
 
         args.Handled = true;
     }
