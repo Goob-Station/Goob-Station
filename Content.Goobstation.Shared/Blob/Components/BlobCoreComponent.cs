@@ -11,158 +11,69 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Shared.Explosion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Blob.Prototypes;
+using Content.Goobstation.Shared.Blob.Systems;
+using Content.Goobstation.Shared.Blob.Systems.Core;
+using Content.Goobstation.Shared.Blob.Systems.Observer;
+using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Blob.Components;
 
+[Access(typeof(SharedBlobCoreSystem), typeof(SharedBlobObserverSystem), typeof(SharedBlobTileSystem))]
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobCoreComponent : Component
 {
-    #region Live Data
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Projection = default!;
+
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Controller;
 
     [ViewVariables]
-    public EntityUid? Observer = default!;
+    public HashSet<EntityUid> BlobTiles = new();
 
-    [ViewVariables]
-    public HashSet<EntityUid> BlobTiles = [];
+    // TODO move this to ActionGrant
+    [ViewVariables, AutoNetworkedField]
+    public List<EntityUid> Actions = new();
 
-    [ViewVariables]
-    public List<EntityUid> Actions = [];
-
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public TimeSpan NextAction = TimeSpan.Zero;
 
+    [DataField]
+    public FixedPoint2 MaxPoints = 250;
+
+    /// <summary>
+    /// TODO replace this with Currency when StoreSystem is predicted
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public FixedPoint2 Points;
+
     [ViewVariables]
-    public BlobChemType CurrentChem = BlobChemType.ReactiveSpines;
-
-    #endregion
-
-    #region Balance
+    public ProtoId<BlobChemPrototype> CurrentChemical;
 
     [DataField]
-    public FixedPoint2 CoreBlobTotalHealth = 400;
+    public ProtoId<BlobChemPrototype> StartingChemical;
 
     [DataField]
-    public float StartingMoney = 250f; // enough for 2 resource nodes and a bit of defensive action
+    public DamageSpecifier AttackDamage = new();
 
     [DataField]
-    public float AttackRate = 0.3f;
+    public float AttackRate = 0.5f;
 
     [DataField]
-    public float GrowRate = 0.1f;
+    public float GrowRate = 0.4f;
 
     [DataField]
     public bool CanSplit = true;
 
-    #endregion
-
-    #region Damage Specifiers
-
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public BlobChemDamage ChemDamageDict { get; set; } = new()
-    {
-        {
-            BlobChemType.BlazingOil, new DamageSpecifier()
-            {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Heat", 15 },
-                    { "Structural", 150 },
-                }
-            }
-        },
-        {
-            BlobChemType.ReactiveSpines, new DamageSpecifier()
-            {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Blunt", 8 },
-                    { "Slash", 8 },
-                    { "Piercing", 8 },
-                    { "Structural", 150 },
-                }
-            }
-        },
-        {
-            BlobChemType.ExplosiveLattice, new DamageSpecifier()
-            {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Heat", 5 },
-                    { "Structural", 150 },
-                }
-            }
-        },
-        {
-            BlobChemType.ElectromagneticWeb, new DamageSpecifier()
-            {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Structural", 150 },
-                    { "Heat", 20 },
-                },
-            }
-        },
-        {
-            BlobChemType.RegenerativeMateria, new DamageSpecifier()
-            {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Structural", 150 },
-                    { "Poison", 15 },
-                }
-            }
-        },
-    };
-
-    #endregion
-
-    #region Blob Chems
-
-    [ViewVariables]
-    public readonly BlobChemColors ChemСolors = new()
-    {
-        {BlobChemType.ReactiveSpines, Color.FromHex("#637b19")},
-        {BlobChemType.BlazingOil, Color.FromHex("#937000")},
-        {BlobChemType.RegenerativeMateria, Color.FromHex("#441e59")},
-        {BlobChemType.ExplosiveLattice, Color.FromHex("#6e1900")},
-        {BlobChemType.ElectromagneticWeb, Color.FromHex("#0d7777")},
-    };
-
-    [DataField]
-    public BlobChemType DefaultChem = BlobChemType.ReactiveSpines;
-
-    #endregion
-
-    #region Blob Costs
-
-    [DataField]
-    public int ResourceBlobsTotal;
-
     [DataField]
     public FixedPoint2 AttackCost = 4;
 
-    [DataField]
-    public BlobTileCosts BlobTileCosts = new()
-    {
-        {BlobTileType.Core, 0},
-        {BlobTileType.Invalid, 0},
-        {BlobTileType.Resource, 60},
-        {BlobTileType.Factory, 80},
-        {BlobTileType.Node, 50},
-        {BlobTileType.Reflective, 15},
-        {BlobTileType.Strong, 15},
-        {BlobTileType.Normal, 6},
-        /*
-        {BlobTileType.Storage, 50},
-        {BlobTileType.Turret, 75},*/
-    };
-
+    // TODO move this to actions
     [DataField]
     public FixedPoint2 BlobbernautCost = 60;
 
@@ -175,66 +86,40 @@ public sealed partial class BlobCoreComponent : Component
     [DataField]
     public FixedPoint2 SwapChemCost = 70;
 
-    #endregion
-
-    #region Blob Ranges
+    // TODO move this to ActionGrant
+    [DataField]
+    public List<EntProtoId> ActionPrototypes = new();
 
     [DataField]
-    public float NodeRadiusLimit = 5f;
+    public List<ProtoId<BlobChemPrototype>> AvailableChemicals = new();
 
     [DataField]
-    public float TilesRadiusLimit = 9f;
-
-    #endregion
-
-    #region Prototypes
+    public ProtoId<AlertPrototype> HealthAlert = "BlobHealth";
 
     [DataField]
-    public BlobTileProto TilePrototypes = new()
-    {
-        {BlobTileType.Resource, "ResourceBlobTile"},
-        {BlobTileType.Factory, "FactoryBlobTile"},
-        {BlobTileType.Node, "NodeBlobTile"},
-        {BlobTileType.Reflective, "ReflectiveBlobTile"},
-        {BlobTileType.Strong, "StrongBlobTile"},
-        {BlobTileType.Normal, "NormalBlobTile"},
-        {BlobTileType.Invalid, "NormalBlobTile"}, // wtf
-        //{BlobTileType.Storage, "StorageBlobTile"},
-        //{BlobTileType.Turret, "TurretBlobTile"},
-        {BlobTileType.Core, "CoreBlobTile"},
-    };
-
-    [DataField(required: true)]
-    public List<EntProtoId> ActionPrototypes = [];
+    public ProtoId<AlertPrototype> ResourceAlert = "BlobResource";
 
     [DataField]
-    public ProtoId<ExplosionPrototype> BlobExplosive = "Blob";
-
-    [DataField]
-    public EntProtoId<BlobObserverComponent> ObserverBlobPrototype = "MobObserverBlob";
+    public EntProtoId<BlobProjectionComponent> ProjectionProtoId = "MobObserverBlob";
 
     [DataField]
     public EntProtoId MindRoleBlobPrototypeId = "MindRoleBlob";
 
-    #endregion
+    /// <summary>
+    /// Tile that is placed when player clicks on an empty spot near another tile.
+    /// </summary>
+    [DataField]
+    public ProtoId<BlobTilePrototype> GrowthTile = "MindRoleBlob";
 
-    #region Sounds
+    /// <summary>
+    /// If specified, stops blob from growing too far away from nodes.
+    /// </summary>
+    [DataField]
+    public float? TilesRadiusLimit = 9f;
 
     [DataField]
-    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Effects/clang.ogg");
+    public SoundSpecifier? GreetSoundNotification = new SoundPathSpecifier("/Audio/Effects/clang.ogg");
 
     [DataField]
-    public SoundSpecifier AttackSound = new SoundPathSpecifier("/Audio/Animals/Blob/blobattack.ogg");
-
-    #endregion
-}
-
-[Serializable, NetSerializable]
-public enum BlobChemType : byte
-{
-    BlazingOil,
-    ReactiveSpines,
-    RegenerativeMateria,
-    ExplosiveLattice,
-    ElectromagneticWeb
+    public SoundSpecifier? AttackSound = new SoundPathSpecifier("/Audio/Animals/Blob/blobattack.ogg");
 }

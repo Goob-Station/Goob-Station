@@ -1,0 +1,34 @@
+- type: blobChem
+  id: ReactiveSpines
+  damage:
+    types:
+      Slash: 10
+  color: "#637b19"
+
+- type: blobChem
+  id: BlazingOil
+  damage:
+    types:
+      Heat: 5
+  color: "#937000"
+  effects:
+  - !type:Ignite
+  - !type:FlammableReaction
+    multiplier: 2.5
+    multiplierOnExisting: 0.5
+
+- type: blobChem
+  id: RegenerativeMateria
+  color: "#441e59" # no additional damage
+
+- type: blobChem
+  id: ElectromagneticWeb
+  damage:
+    types:
+      Shock: 8
+  color: "#0d7777"
+  effects:
+  - !type:EmpReactionEffect
+    rangePerUnit: 2
+    energyConsumption: 3500
+    duration: 6
