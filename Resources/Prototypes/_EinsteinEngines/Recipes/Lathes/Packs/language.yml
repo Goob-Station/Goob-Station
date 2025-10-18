@@ -22,6 +22,7 @@
   - MarishTranslator
   - NewKinPidginTranslator
   - SchechiTranslator
+  - GruntishTranslator
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -42,3 +43,4 @@
   - ChevalTranslatorImplanter
   - NewKinPidginTranslatorImplanter
   - SchechiTranslatorImplanter
+  - GruntishTranslatorImplanter

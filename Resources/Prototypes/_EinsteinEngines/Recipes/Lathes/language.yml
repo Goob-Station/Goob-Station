@@ -157,6 +157,17 @@
     Plastic: 50
     Gold: 50
 
+- type: latheRecipe
+  id: GruntishTranslator
+  result: GruntishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
 # Implanters
 - type: latheRecipe
   abstract: true
@@ -259,3 +270,21 @@
   id: NewKinPidginTranslatorImplanter
   subname: lathe-recipe-NewKinPidginTranslatorImplanter-subname
   result: NewKinPidginTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: GruntishTranslatorImplanter
+  result: GruntishTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
