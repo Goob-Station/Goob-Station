@@ -71,9 +71,7 @@ private void UpdatePainAlert(EntityUid uid, NerveComponent? nerve = null)
         mobUid = uid;
 
     if (mobUid == null || !HasComp<AlertsComponent>(mobUid.Value))
-    {
         return;
-    }
 
     // Check if the mob is in a critical state
     bool isCritical = false;
