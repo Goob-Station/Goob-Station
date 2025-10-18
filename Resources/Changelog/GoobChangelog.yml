@@ -16536,3 +16536,13 @@ Entries:
       message: Fix spelling error in recharge text
   id: 1851
   time: '2025-10-18T22:00:47.0000000+00:00'
+- author: RadsammyT, Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        Interaction Verbs from Einstein Engines. GoobMRP folk: This brings back
+        the 'Interact' dropdown in the context menu. 
+    - type: Tweak
+      message: Interaction Verb 'Look At' changed to 'Stare' for impact
+  id: 1852
+  time: '2025-10-18T23:22:09.0000000+00:00'
