@@ -39,8 +39,10 @@
     base: hierophant
   - type: SyncSprite
   - type: PointLight
-    radius: 3.0
+    radius: 5.0
     energy: 1.5
+    softness: 1
+    castShadows: false
   - type: RustRequiresPathStage
     pathStage: 11 # Can't rust
 

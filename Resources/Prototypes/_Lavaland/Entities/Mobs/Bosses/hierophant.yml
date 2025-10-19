@@ -23,7 +23,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: LavalandBossHierophant
+  id: MobHierophant
   name: hierophant
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:

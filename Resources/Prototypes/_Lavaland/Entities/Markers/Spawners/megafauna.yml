@@ -1,0 +1,12 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHierophant
+  name: Hierophant Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHierophant

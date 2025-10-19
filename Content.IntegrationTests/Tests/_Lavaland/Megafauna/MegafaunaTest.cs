@@ -14,7 +14,7 @@ namespace Content.IntegrationTests.Tests._Lavaland.Megafauna;
 [TestOf(typeof(MegafaunaSystem))]
 public sealed class MegafaunaTest
 {
-    public const string TestBoss = "LavalandBossHierophant";
+    public const string TestBoss = "MobHierophant";
 
     [Test]
     public async Task LaunchAndShutdownMegafauna()

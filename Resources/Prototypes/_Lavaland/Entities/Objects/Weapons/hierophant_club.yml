@@ -60,7 +60,6 @@
   id: LavalandHierophantMarker
   name: mysterious marker
   description: What even is this?
-  save: false
   placement:
     mode: AlignTileAny
   components:
@@ -73,6 +72,9 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/hierophant_telepad.rsi
     state: hierophant_tele_on # TODO hierophant visuals
+  - type: SyncSprite
   - type: PointLight
-    radius: 10.0
-    energy: 2.5
+    radius: 5.0
+    energy: 1.5
+    softness: 1
+    castShadows: false
