@@ -73,8 +73,6 @@
     critThreshold: 115
   - type: TypingIndicator
     proto: oni
-  - type: WeakToHoly
-    alwaysTakeHoly: true
   - type: Tag
     tags:
     - CanPilot
