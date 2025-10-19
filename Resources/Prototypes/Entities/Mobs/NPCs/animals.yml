@@ -1667,6 +1667,7 @@
   - type: VentCrawler # goobstation - Ventcrawl
     allowInventory: false
   - type: CombatMode
+    canDisarm: true
   # Shitmed Change Start
   - type: Targeting
   - type: HumanoidAppearance
