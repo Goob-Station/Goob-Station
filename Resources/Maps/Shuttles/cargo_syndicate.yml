@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/19/2025 18:50:59
-  entityCount: 202
-maps:
-- 198
+  time: 10/19/2025 19:55:27
+  entityCount: 201
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   4: Space
@@ -29,7 +29,7 @@ entities:
       name: Syndicate cargo shuttle
     - type: Transform
       pos: -0.5,-0.484375
-      parent: 198
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -136,16 +136,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: FTLDrive
-  - uid: 198
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 140
