@@ -16554,3 +16554,11 @@ Entries:
         damage scaling.
   id: 1853
   time: '2025-10-19T02:26:10.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        added back the missing emag items syndicate smokes, cyber sun pen, and
+        chap's cult armor
+  id: 1854
+  time: '2025-10-19T05:08:56.0000000+00:00'
