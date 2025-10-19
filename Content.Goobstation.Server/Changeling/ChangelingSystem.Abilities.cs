@@ -720,8 +720,7 @@ public sealed partial class ChangelingSystem
 
     public void OnAnatomicPanacea(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAnatomicPanaceaEvent args)
     {
-        if (!TryUseAbility(uid, comp, args)
-            || !TryComp(uid, out StatusEffectsComponent? status))
+        if (!TryUseAbility(uid, comp, args))
             return;
 
         _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
@@ -807,8 +806,7 @@ public sealed partial class ChangelingSystem
 
     public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, fireAffected: false)
-            || !TryComp(uid, out StatusEffectsComponent? status))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         _popup.PopupEntity(Loc.GetString("changeling-adrenaline"), uid, uid);
@@ -828,8 +826,7 @@ public sealed partial class ChangelingSystem
     // john space made me do this
     public void OnHealUltraSwag(EntityUid uid, ChangelingIdentityComponent comp, ref ActionFleshmendEvent args)
     {
-        if (!TryUseAbility(uid, comp, args)
-            || !TryComp(uid, out StatusEffectsComponent? status))
+        if (!TryUseAbility(uid, comp, args))
             return;
 
         _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
