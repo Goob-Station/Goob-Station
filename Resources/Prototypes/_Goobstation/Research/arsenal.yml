@@ -87,30 +87,30 @@
   technologyPrerequisites:
   - WeaponizedLaserManipulation
 
-#- type: technology
-#  id: Gygax
-#  name: research-technology-gygax
-#  icon:
-#    sprite: Objects/Specific/Mech/mecha.rsi
-#    state: gygax
-#  discipline: Arsenal
-#  tier: 2
-#  cost: 20000
-#  recipeUnlocks:
-#  - GygaxHarness
-#  - GygaxArmor
-#  - GygaxHead
-#  - GygaxLArm
-#  - GygaxLLeg
-#  - GygaxRArm
-#  - GygaxRLeg
+- type: technology
+  id: Gygax
+  name: research-technology-gygax
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: gygax
+  discipline: Arsenal
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
+  - GygaxHarness
+  - GygaxArmor
+  - GygaxHead
+  - GygaxLArm
+  - GygaxLLeg
+  - GygaxRArm
+  - GygaxRLeg
 #  - GygaxCentralElectronics
-#  - GygaxPeripheralsElectronics
-#  - GygaxTargetingElectronics
-#  - WeaponMechCombatUltraRifle
-#  technologyPrerequisites:
-#  - RipleyAPLU
-#  position: 2,-1
+  - GygaxPeripheralsElectronics
+  - GygaxTargetingElectronics
+  - WeaponMechCombatUltraRifle
+  technologyPrerequisites:
+  - RipleyAPLU
+  position: 2,-1
 
 - type: technology
   id: EnergyBoltBasedWeaponry # for future energy bolt weapon
@@ -165,46 +165,46 @@
   technologyPrerequisites:
   - WeaponLaserCellSMGTech
 
-#- type: technology
-#  id: ExplosiveMechAmmunition
-#  name: research-technology-explosive-mech-ammunition
-#  icon:
-#    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-#    state: mecha_missilerack
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 30000
-#  recipeUnlocks:
-#  - WeaponMechCombatMissileRack8
-#  technologyPrerequisites:
-#  - Gygax
-#  position: 3,-2
+- type: technology
+  id: ExplosiveMechAmmunition
+  name: research-technology-explosive-mech-ammunition
+  icon:
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_missilerack
+  discipline: Arsenal
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponMechCombatMissileRack8
+  technologyPrerequisites:
+  - Gygax
+  position: 3,-2
 
-#- type: technology
-#  id: Durand
-#  name: research-technology-durand
-#  icon:
-#    sprite: Objects/Specific/Mech/mecha.rsi
-#    state: durand
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 40000
-#  recipeUnlocks:
-#  - DurandHarness
-#  - DurandArmor
-#  - DurandHead
-#  - DurandLArm
-#  - DurandLLeg
-#  - DurandRArm
-#  - DurandRLeg
+- type: technology
+  id: Durand
+  name: research-technology-durand
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: durand
+  discipline: Arsenal
+  tier: 3
+  cost: 40000
+  recipeUnlocks:
+  - DurandHarness
+  - DurandArmor
+  - DurandHead
+  - DurandLArm
+  - DurandLLeg
+  - DurandRArm
+  - DurandRLeg
 #  - DurandCentralElectronics
-#  - DurandPeripheralsElectronics
-#  - DurandTargetingElectronics
-#  - WeaponMechCombatShotgun
-#  - WeaponMechCombatShotgunIncendiary
-#  technologyPrerequisites:
-#  - Gygax
-#  position: 3,-1
+  - DurandPeripheralsElectronics
+  - DurandTargetingElectronics
+  - WeaponMechCombatShotgun
+  - WeaponMechCombatShotgunIncendiary
+  technologyPrerequisites:
+  - Gygax
+  position: 3,-1
 
 - type: technology
   id: SmartWeaponry
