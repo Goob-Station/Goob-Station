@@ -35,8 +35,6 @@
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Traits;
-using Content.Goobstation.Common.Traits.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
@@ -741,19 +739,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
             // changeling related
             typeof(VoidAdaptionComponent),
-
-            // disability related
-            typeof(PermanentBlindnessComponent),
-            typeof(NarcolepsyComponent),
-            typeof(UnrevivableComponent),
-            typeof(BlackAndWhiteOverlayComponent),
-            typeof(MutedComponent),
-            typeof(ParacusiaComponent),
-            typeof(PainNumbnessComponent),
-            typeof(LegsParalyzedComponent),
-            typeof(MovementImpairedComponent),
-            typeof(SocialAnxietyComponent),
-            typeof(DeafComponent)
             // ADD MORE TYPES HERE
         };
         foreach (var type in types)
