@@ -5420,3 +5420,10 @@ Entries:
   id: 9123
   time: '2025-10-19T06:55:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40974
+- author: AlwyAnri
+  changes:
+  - message: Added a ninja headset.
+    type: Add
+  id: 9124
+  time: '2025-10-19T11:45:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40054
