@@ -36,7 +36,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'game-hud-open-escape-menu-button-tooltip'}"
         MinSize="70 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonOpenRight}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonOpenRight}"
         />
     <ui:MenuButton
         Name="GuidebookButton"
@@ -46,7 +46,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenGuidebook}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="CharacterButton"
@@ -56,7 +56,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenCharacterMenu}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="EmotesButton"
@@ -66,7 +66,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenEmotesMenu}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="CraftingButton"
@@ -76,7 +76,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'game-hud-open-crafting-menu-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="ActionButton"
@@ -86,7 +86,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'game-hud-open-actions-menu-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="LanguageButton"
@@ -106,7 +106,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'game-hud-open-admin-menu-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="SandboxButton"
@@ -116,7 +116,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'game-hud-open-sandbox-menu-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <ui:MenuButton
         Name="AHelpButton"
@@ -126,6 +126,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         ToolTip="{Loc 'ui-options-function-open-a-help'}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonOpenLeft}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonOpenLeft}"
         />
 </widgets:GameTopMenuBar>

@@ -357,7 +357,7 @@ namespace Content.Client.Arcade
             menuInnerPanel.AddChild(menuContainer);
             #endregion
 
-            Contents.AddChild(_mainPanel);
+            ContentsContainer.AddChild(_mainPanel);
 
             CanKeyboardFocus = true;
         }

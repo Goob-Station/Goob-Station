@@ -92,6 +92,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using System.Linq;
+using Content.Client.Stylesheets;
 
 namespace Content.Client.Access.UI
 {
@@ -167,12 +168,12 @@ namespace Content.Client.Access.UI
             icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
             foreach (var jobIcon in icons)
             {
-                String styleBase = StyleBase.ButtonOpenBoth;
+                String styleBase = StyleClass.ButtonOpenBoth;
                 var modulo = i % JobIconColumnCount;
                 if (modulo == 0)
-                    styleBase = StyleBase.ButtonOpenRight;
+                    styleBase = StyleClass.ButtonOpenRight;
                 else if (modulo == JobIconColumnCount - 1)
-                    styleBase = StyleBase.ButtonOpenLeft;
+                    styleBase = StyleClass.ButtonOpenLeft;
 
                 // Generate buttons
                 var jobIconButton = new Button

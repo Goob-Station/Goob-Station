@@ -22,7 +22,8 @@ SPDX-License-Identifier: MIT
                 Name="IconLabel"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                StyleClasses="contextMenuIconLabel"
+                StyleClasses="LabelSubText"
+                Align="Right"
                 Visible="false"/>
         </SpriteView>
         <RichTextLabel

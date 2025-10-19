@@ -171,15 +171,12 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
             {
                 var panelContainer = new PanelContainer
                 {
-                    PanelOverride = new StyleBoxFlat
-                    {
-                        BackgroundColor = StyleNano.ButtonColorDefault
-                    },
                     Children =
                     {
                         button
                     }
                 };
+                panelContainer.SetOnlyStyleClass(StyleClass.PanelLight);
                 Grid.AddChild(panelContainer);
             }
             else

@@ -24,7 +24,7 @@ public sealed class DoorRemoteStatusControl : Control
     public DoorRemoteStatusControl(Entity<DoorRemoteComponent> entity)
     {
         _entity = entity;
-        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
         AddChild(_label);
     }
 

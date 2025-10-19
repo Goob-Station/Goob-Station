@@ -15,7 +15,7 @@ namespace Content.Client.UserInterface.Controls
     {
         public HighDivider()
         {
-            Children.Add(new PanelContainer {StyleClasses = {StyleBase.ClassHighDivider}});
+            Children.Add(new PanelContainer {StyleClasses = {StyleClass.HighDivider}});
         }
     }
 }

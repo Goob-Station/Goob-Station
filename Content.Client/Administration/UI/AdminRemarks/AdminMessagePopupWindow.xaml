@@ -17,7 +17,7 @@ SPDX-License-Identifier: MIT
         </PanelContainer.PanelOverride>
 
         <Control HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="600">
-            <PanelContainer StyleClasses="AngleRect" />
+            <PanelContainer StyleClasses="BackgroundPanel" />
 
             <BoxContainer Orientation="Vertical" Margin="4">
                 <RichTextLabel Name="Description" />

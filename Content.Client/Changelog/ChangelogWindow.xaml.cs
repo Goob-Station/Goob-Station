@@ -47,8 +47,7 @@ namespace Content.Client.Changelog
         public ChangelogWindow()
         {
             RobustXamlLoader.Load(this);
-            WindowTitle.AddStyleClass(StyleBase.StyleClassLabelHeading);
-            Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSpace;
+            WindowTitle.AddStyleClass(StyleClass.LabelHeading);
         }
 
         protected override void Opened()
