@@ -221,7 +221,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.55
-        Heat: 0.55
+        Heat: 0.65 # Goobstation - Energy Rework
         Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -248,7 +248,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.65
-        Heat: 0.55
+        Heat: 0.65 # Goobstation - Energy Rework
         Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
