@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
@@ -7,6 +8,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -209,7 +211,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
     {
         return HasComp<MobStateComponent>(target)
                && !HasComp<ShadowlingComponent>(target)
-               && !HasComp<ThrallComponent>(target);
+               && !HasComp<ThrallComponent>(target)
+               && !HasComp<HereticComponent>(target)
+               && !HasComp<ChangelingComponent>(target);
     }
 
     public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)
