@@ -13,4 +13,5 @@
 // So we can't really parallelize integration tests harder either until the runtime fixes that,
 // *or* we fix serv3 to not spam expression trees.
 // Goobstation - we hit these lockups due to higher entity counts. Lowering to 2.
-[assembly: LevelOfParallelism(2)]
+// Goobstation - we hit even stronger lockups due to even higher entity counts. Lowering to 1.
+[assembly: LevelOfParallelism(1)]
