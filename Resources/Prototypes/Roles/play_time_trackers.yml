@@ -163,9 +163,6 @@
   id: JobSecurityCadet
 
 - type: playTimeTracker
-  id: JobSecurityClown
-
-- type: playTimeTracker
   id: JobSecurityOfficer
 
 - type: playTimeTracker

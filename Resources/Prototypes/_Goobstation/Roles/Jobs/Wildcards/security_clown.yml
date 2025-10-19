@@ -41,12 +41,13 @@
 - type: startingGear
   id: SecurityClownGear
   equipment:
+    eyes: ClothingEyesGlassesSecurity
     mask: ClothingMaskClownSecurity
     jumpsuit: ClothingUniformJumpsuitClown
     shoes: ClothingShoesClown
     outerClothing: ClothingOuterArmorBasic
     id: SecurityClownPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurityRegular
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
     pocket2: BookSecurity
