@@ -275,7 +275,7 @@ public sealed class HealingSystem : EntitySystem
             || !TryComp(targetedPart, out DamageableComponent? damageable))
         {
             if (user is not null)
-                _popupSystem.PopupPredicted(Loc.GetString("missing-body-part"), target, user.Value, PopupType.MediumCaution);
+                _popupSystem.PopupClient(Loc.GetString("missing-body-part"), target, user.Value, PopupType.MediumCaution);
             return false;
         }
 
@@ -347,7 +347,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (targetedWoundable == EntityUid.Invalid)
         {
-            _popupSystem.PopupPredicted(
+            _popupSystem.PopupClient(
                 Loc.GetString("medical-item-cant-use", ("item", args.Used)),
                 ent,
                 args.User,
@@ -370,7 +370,7 @@ public sealed class HealingSystem : EntitySystem
         {
             healedBleedWound = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
             if (healedBleedWound)
-                _popupSystem.PopupPredicted(modifiedBleedStopAbility > 0
+                _popupSystem.PopupClient(modifiedBleedStopAbility > 0
                         ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
                         : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
                     ent,
@@ -388,7 +388,7 @@ public sealed class HealingSystem : EntitySystem
 
             if (!healedBleed)
             {
-                _popupSystem.PopupPredicted(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
+                _popupSystem.PopupClient(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
                 return;
             }
         }
@@ -403,7 +403,7 @@ public sealed class HealingSystem : EntitySystem
             if (healedTotal <= 0 && !healedBleed)
             {
                 if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
-                    _popupSystem.PopupPredicted(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
+                    _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
                 return;
             }
         }
@@ -442,7 +442,7 @@ public sealed class HealingSystem : EntitySystem
             return;
 
         if (modifiedBleedStopAbility != -healing.BloodlossModifier)
-            _popupSystem.PopupPredicted(Loc.GetString("medical-item-finished-using", ("item", args.Used)), ent, args.User, PopupType.Medium);
+            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), ent, args.User, PopupType.Medium);
     }
 
     // Shitmed Change End
