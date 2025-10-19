@@ -16546,3 +16546,11 @@ Entries:
       message: Interaction Verb 'Look At' changed to 'Stare' for impact
   id: 1852
   time: '2025-10-18T23:22:09.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Tweak: Ammonite Mercury now metabolizes more slowly and no longer has
+        damage scaling.
+  id: 1853
+  time: '2025-10-19T02:26:10.0000000+00:00'
