@@ -284,6 +284,16 @@
         - !type:OrganType
           type: Dwarf
         amount: 1
+          # Begin DeltaV Additons - Oni heal brute and take less poison
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        - !type:OrganType
+          type: Oni
+        damage:
+          types:
+            Poison: 0.2
       # End DeltaV Additons
       - !type:ChemVomit
         probability: 0.04
