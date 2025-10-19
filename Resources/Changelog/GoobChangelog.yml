@@ -16620,3 +16620,11 @@ Entries:
       message: moved the silo into cargo on Atlas
   id: 1859
   time: '2025-10-19T22:07:32.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: 'Oni no longer use guns, take holy damage or heal from alcohol. '
+    - type: Fix
+      message: Popup when using gun now shows text properly again
+  id: 1860
+  time: '2025-10-19T23:32:24.0000000+00:00'
