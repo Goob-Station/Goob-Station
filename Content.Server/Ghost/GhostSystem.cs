@@ -674,8 +674,8 @@ namespace Content.Server.Ghost
             {
                 if (_mobState.IsCritical(playerEntity.Value, mobState))
                 {
-                    canReturn = true;
-
+                    canReturn = false; // Goobstation. True to false.
+/* Goobstation beginning. Removed quick suicide.
                     if (!HasComp<XenomorphPreventSuicideComponent>(playerEntity.Value))
                     {
                         FixedPoint2 dealtDamage = 200;
@@ -704,6 +704,7 @@ namespace Content.Server.Ghost
                             _damageable.TryChangeDamage(playerEntity, damage, true);
                         // Shitmed Change End
                     }
+*/ // Goobstation end. Removed quick suicide.
                 }
             }
 
