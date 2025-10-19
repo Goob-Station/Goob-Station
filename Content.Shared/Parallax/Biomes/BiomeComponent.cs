@@ -11,6 +11,7 @@
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Noise; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
@@ -35,6 +36,13 @@ public sealed partial class BiomeComponent : Component
     [DataField("layers")]
     [AutoNetworkedField]
     public List<IBiomeLayer> Layers = new();
+
+    /// <summary>
+    /// Goob - cached noise data for each layer.
+    /// Updated whenever seed or layers are changed.
+    /// </summary>
+    [ViewVariables]
+    public List<FastNoiseLite> LayerNoises = new();
 
     /// <summary>
     /// Templates to use for <see cref="Layers"/>.

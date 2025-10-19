@@ -29,6 +29,7 @@ public sealed partial class DungeonJob
         var biomeSystem = _entManager.System<BiomeSystem>();
 
         var seed = random.Next();
+        var layerNoises = biomeSystem.GetTemplateNoises(indexedBiome, seed); // Goob
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
 
         var tiles = _maps.GetAllTilesEnumerator(_gridUid, _grid);
@@ -46,12 +47,14 @@ public sealed partial class DungeonJob
             }
 
             // Need to set per-tile to override data.
-            if (biomeSystem.TryGetTile(node, indexedBiome.Layers, seed, (_gridUid, _grid), out var tile))
+            // Goob - added layerNoises
+            if (biomeSystem.TryGetTile(node, indexedBiome.Layers, layerNoises, seed, (_gridUid, _grid), out var tile))
             {
                 _maps.SetTile(_gridUid, _grid, node, tile.Value);
             }
 
-            if (biomeSystem.TryGetDecals(node, indexedBiome.Layers, seed, (_gridUid, _grid), out var decals))
+            // Goob - added layerNoises
+            if (biomeSystem.TryGetDecals(node, indexedBiome.Layers, layerNoises, seed, (_gridUid, _grid), out var decals))
             {
                 foreach (var decal in decals)
                 {
@@ -59,7 +62,8 @@ public sealed partial class DungeonJob
                 }
             }
 
-            if (biomeSystem.TryGetEntity(node, indexedBiome.Layers, tile ?? tileRef.Value.Tile, seed, (_gridUid, _grid), out var entityProto))
+            // Goob - added layerNoises
+            if (biomeSystem.TryGetEntity(node, indexedBiome.Layers, tile ?? tileRef.Value.Tile, layerNoises, seed, (_gridUid, _grid), out var entityProto))
             {
                 var ent = _entManager.SpawnEntity(entityProto, new EntityCoordinates(_gridUid, node + _grid.TileSizeHalfVector));
                 var xform = xformQuery.Get(ent);

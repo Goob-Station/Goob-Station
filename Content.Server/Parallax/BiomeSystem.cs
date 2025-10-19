@@ -148,6 +148,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         var xform = Transform(uid);
         var mapId = xform.MapID;
+        CacheLayerNoises(component); // Goob - cache before reserving
 
         if (mapId != MapId.Nullspace && HasComp<MapGridComponent>(uid))
         {
@@ -189,8 +190,13 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     {
         component.Seed = seed;
 
+        // <Goob> cache it as well
         if (dirty)
+        {
+            CacheLayerNoises(component);
             Dirty(uid, component);
+        }
+        // </Goob>
     }
 
     public void ClearTemplate(EntityUid uid, BiomeComponent component, bool dirty = true)
@@ -198,8 +204,13 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         component.Layers.Clear();
         component.Template = null;
 
+        // <Goob> cache it as well
         if (dirty)
+        {
+            CacheLayerNoises(component);
             Dirty(uid, component);
+        }
+        // </Goob>
     }
 
     /// <summary>
@@ -215,8 +226,13 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             component.Layers.Add(layer);
         }
 
+        // <Goob> cache it as well
         if (dirty)
+        {
+            CacheLayerNoises(component);
             Dirty(uid, component);
+        }
+        // </Goob>
     }
 
     /// <summary>
@@ -236,6 +252,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             break;
         }
 
+        CacheLayerNoises(component); // Goob
         Dirty(uid, component);
     }
 
@@ -304,7 +321,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
                     var mod = biome.ModifiedTiles.GetOrNew(chunk * ChunkSize);
 
-                    if (!mod.Add(index) || !TryGetBiomeTile(index, biome.Layers, biome.Seed, (ev.MapUid, grid), out var tile))
+                    // Goob - added LayerNoises
+                    if (!mod.Add(index) || !TryGetBiomeTile(index, biome.Layers, biome.LayerNoises, biome.Seed, (ev.MapUid, grid), out var tile))
                         continue;
 
                     // If we flag it as modified then the tile is never set so need to do it ourselves.
@@ -410,9 +428,9 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 continue;
 
             // Load new chunks
-            LoadChunks(biome, gridUid, grid, biome.Seed);
+            LoadChunks(biome, gridUid, grid); // Goob - removed seed
             // Unload old chunks
-            UnloadChunks(biome, gridUid, grid, biome.Seed);
+            UnloadChunks(biome, gridUid, grid); // Goob - removed seed
         }
 
         _handledEntities.Clear();
@@ -456,12 +474,13 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// <summary>
     /// Loads all of the chunks for a particular biome, as well as handle any marker chunks.
     /// </summary>
+    // Goob - removed seed
     private void LoadChunks(
         BiomeComponent component,
         EntityUid gridUid,
-        MapGridComponent grid,
-        int seed)
+        MapGridComponent grid)
     {
+        var seed = component.Seed; // Goob
         BuildMarkerChunks(component, gridUid, grid, seed);
 
         var active = _activeChunks[component];
@@ -474,7 +493,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 continue;
 
             // Load NOW!
-            LoadChunk(component, gridUid, grid, chunk, seed);
+            LoadChunk(component, gridUid, grid, chunk); // Goob - removed seed
         }
     }
 
@@ -743,7 +762,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                     continue;
 
                 // Need to ensure the tile under it has loaded for anchoring.
-                if (TryGetBiomeTile(node, component.Layers, seed, (gridUid, grid), out var tile))
+                // Goob - added LayerNoises
+                if (TryGetBiomeTile(node, component.Layers, component.LayerNoises, component.Seed, (gridUid, grid), out var tile))
                 {
                     _mapSystem.SetTile(gridUid, grid, node, tile.Value);
                 }
@@ -783,12 +803,12 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// <summary>
     /// Loads a particular queued chunk for a biome.
     /// </summary>
+    // Goob - removed seed
     private void LoadChunk(
         BiomeComponent component,
         EntityUid gridUid,
         MapGridComponent grid,
-        Vector2i chunk,
-        int seed)
+        Vector2i chunk)
     {
         component.ModifiedTiles.TryGetValue(chunk, out var modified);
         modified ??= _tilePool.Get();
@@ -809,7 +829,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 if (_mapSystem.TryGetTileRef(gridUid, grid, indices, out var tileRef) && !tileRef.Tile.IsEmpty)
                     continue;
 
-                if (!TryGetBiomeTile(indices, component.Layers, seed, (gridUid, grid), out var biomeTile))
+                // Goob - added component.LayerNoises
+                if (!TryGetBiomeTile(indices, component.Layers, component.LayerNoises, component.Seed, (gridUid, grid), out var biomeTile))
                     continue;
 
                 _tiles.Add((indices, biomeTile.Value));
@@ -868,7 +889,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 // Don't mess with anything that's potentially anchored.
                 var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
 
-                if (anchored.MoveNext(out _) || !TryGetDecals(indices, component.Layers, seed, (gridUid, grid), out var decals))
+                // Goob - added LayerNoises
+                if (anchored.MoveNext(out _) || !TryGetDecals(indices, component.Layers, component.LayerNoises, component.Seed, (gridUid, grid), out var decals))
                     continue;
 
                 foreach (var decal in decals)
@@ -899,7 +921,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// <summary>
     /// Handles all of the queued chunk unloads for a particular biome.
     /// </summary>
-    private void UnloadChunks(BiomeComponent component, EntityUid gridUid, MapGridComponent grid, int seed)
+    // Goob - removed seed
+    private void UnloadChunks(BiomeComponent component, EntityUid gridUid, MapGridComponent grid)
     {
         var active = _activeChunks[component];
         List<(Vector2i, Tile)>? tiles = null;
@@ -919,14 +942,15 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
             // Unload NOW!
             tiles ??= new List<(Vector2i, Tile)>(ChunkSize * ChunkSize);
-            UnloadChunk(component, gridUid, grid, chunk, seed, tiles);
+            UnloadChunk(component, gridUid, grid, chunk, tiles); // Goob - removed seed
         }
     }
 
     /// <summary>
     /// Unloads a specific biome chunk.
     /// </summary>
-    private void UnloadChunk(BiomeComponent component, EntityUid gridUid, MapGridComponent grid, Vector2i chunk, int seed, List<(Vector2i, Tile)> tiles)
+    // Goob - removed seed
+    private void UnloadChunk(BiomeComponent component, EntityUid gridUid, MapGridComponent grid, Vector2i chunk, List<(Vector2i, Tile)> tiles)
     {
         // Reverse order to loading
         component.ModifiedTiles.TryGetValue(chunk, out var modified);
@@ -999,7 +1023,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 }
 
                 // If it's default data unload the tile.
-                if (!TryGetBiomeTile(indices, component.Layers, seed, null, out var biomeTile) ||
+                // Goob - added LayerNoises
+                if (!TryGetBiomeTile(indices, component.Layers, component.LayerNoises, component.Seed, null, out var biomeTile) ||
                     _mapSystem.TryGetTileRef(gridUid, grid, indices, out var tileRef) && tileRef.Tile != biomeTile.Value)
                 {
                     modified.Add(indices);
@@ -1040,6 +1065,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         SetSeed(mapUid, biome, seed.Value, false);
         SetTemplate(mapUid, biome, biomeTemplate, false);
         AddComp(mapUid, biome, true);
+        CacheLayerNoises(biome); // Goob
         Dirty(mapUid, biome, metadata);
 
         var gravity = EnsureComp<GravityComponent>(mapUid);
@@ -1080,6 +1106,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         if (!Resolve(mapUid, ref biome, ref mapGrid, false))
             return;
 
+        DebugTools.Assert(biome.Layers.Count == biome.LayerNoises.Count, $"Tried to reserve tiles for dirty biome {ToPrettyString(mapUid)}"); // Goob
         foreach (var tileSet in _mapSystem.GetLocalTilesIntersecting(mapUid, mapGrid, bounds, false))
         {
             Vector2i chunkOrigin;
@@ -1094,7 +1121,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 continue;
             }
 
-            if (!TryGetBiomeTile(tileSet.GridIndices, biome.Layers, biome.Seed, (mapUid, mapGrid), out var tile))
+            // Goob - added LayerNoises
+            if (!TryGetBiomeTile(tileSet.GridIndices, biome.Layers, biome.LayerNoises, biome.Seed, (mapUid, mapGrid), out var tile))
             {
                 continue;
             }
