@@ -81,8 +81,3 @@
     actions:
     - ActionCreateHellPortal
     - ActionHellGooseTeleport
-  - type: Damageable
-    damageContainer: BiologicalMetaphysical
-    damageModifierSet: HellSpawn
-  - type: WeakToHoly
-    alwaysTakeHoly: true
