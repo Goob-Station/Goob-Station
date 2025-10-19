@@ -5,7 +5,7 @@ on:
     types: [opened, reopened]
 
 env:
-  BLOCKED_AUTHORS: "201311861"
+  BLOCKED_AUTHORS: "201311861 189290423"
 
 jobs:
   check-author:
