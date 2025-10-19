@@ -5427,3 +5427,10 @@ Entries:
   id: 9124
   time: '2025-10-19T11:45:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40054
+- author: Pgriha
+  changes:
+  - message: Cotton seeds added to seeds crate from Cargo.
+    type: Add
+  id: 9125
+  time: '2025-10-19T16:02:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40970
