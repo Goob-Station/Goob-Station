@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <BoxContainer xmlns="https://spacestation14.io"
     HorizontalExpand="True">
     <PanelContainer HorizontalExpand="True">
@@ -6,7 +16,7 @@
                 ToolTip=""
                 Access="Public"
                 VerticalExpand="False"
-                StyleClasses="OpenRight" />
+                StyleClasses="OpenBoth" />
 
         <!-- Icon & Name -->
         <BoxContainer Orientation="Horizontal"
@@ -29,5 +39,6 @@
            Access="Public"
            MinSize="56 32"
            Align="Right"
+           Margin="0 0 5 0"
            HorizontalAlignment="Right"/>
 </BoxContainer>

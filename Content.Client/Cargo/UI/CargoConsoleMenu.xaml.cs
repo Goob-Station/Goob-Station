@@ -1,3 +1,27 @@
+// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Marat Gadzhiev <15rinkashikachi15@gmail.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.Cargo.Systems;
 using Content.Client.UserInterface.Controls;
@@ -65,6 +89,10 @@ namespace Content.Client.Cargo.UI
             {
                 var accountProto = _protoManager.Index(orderConsole.Account);
                 AccountNameLabel.Text = Loc.GetString("cargo-console-menu-account-name-format",
+                    ("color", accountProto.Color),
+                    ("name", Loc.GetString(accountProto.Name)),
+                    ("code", Loc.GetString(accountProto.Code)));
+                AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
@@ -216,9 +244,9 @@ namespace Content.Client.Cargo.UI
 
                 var product = _protoManager.Index<EntityPrototype>(order.ProductId);
                 var productName = product.Name;
-                var account = _protoManager.Index(order.Account);
                 var requester = !string.IsNullOrEmpty(order.Requester) ?
                     order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown");
+                var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
                 {
@@ -228,8 +256,9 @@ namespace Content.Client.Cargo.UI
                     {
                         Text = Loc.GetString(
                             "cargo-console-menu-order-row-title",
-                            ("orderRequester", requester),
-                            ("orderPrice", order.Price))
+                            ("productName", productName),
+                            ("orderAmount", order.OrderQuantity),
+                            ("orderPrice", order.Price)),
                     },
 
                     Stride =
@@ -246,9 +275,10 @@ namespace Content.Client.Cargo.UI
                     ProductName =
                     {
                         Text = Loc.GetString(
-                            "cargo-console-menu-order-row-product-name",
-                            ("productName", productName),
-                            ("orderAmount", order.OrderQuantity))
+                            "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
+                            ("orderRequester", requester),
+                            ("accountColor", account.Color),
+                            ("account", Loc.GetString(account.Code)))
                     },
 
                     Description =
@@ -265,25 +295,35 @@ namespace Content.Client.Cargo.UI
                 };
 
                 row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
-                if (order.Approved)
-                {
-                    row.Approve.Visible = false;
-                    row.Cancel.Visible = false;
-                    Orders.AddChild(row);
-                }
-                else
-                {
-                    // TODO: Disable based on access.
-                    row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
-                    Requests.AddChild(row);
-                }
+
+                // TODO: Disable based on access.
+                row.SetApproveVisible(orderConsole.Mode != CargoOrderConsoleMode.SendToPrimary);
+                row.Approve.OnPressed += (args) => { OnOrderApproved?.Invoke(args); };
+                Requests.AddChild(row);
             }
         }
 
-        public void UpdateCargoCapacity(int count, int capacity)
+        public void PopulateAccountActions()
         {
-            // TODO: Rename + Loc.
-            ShuttleCapacityLabel.Text = $"{count}/{capacity}";
+            if (!_entityManager.TryGetComponent<StationBankAccountComponent>(_station, out var bank) ||
+                !_entityManager.TryGetComponent<CargoOrderConsoleComponent>(_owner, out var console))
+                return;
+
+            var i = 0;
+            ActionOptions.Clear();
+            ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), i);
+            i++;
+            foreach (var account in bank.Accounts.Keys)
+            {
+                if (account == console.Account)
+                    continue;
+                var accountProto = _protoManager.Index(account);
+                ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-transfer",
+                    ("code", Loc.GetString(accountProto.Code))),
+                    i);
+                ActionOptions.SetItemMetadata(i, account);
+                i++;
+            }
         }
 
         public void UpdateStation(EntityUid station)
@@ -303,16 +343,15 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
-            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit",
-                ("limit", (int) (balance * orderConsole.TransferLimit)));
+            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
+            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", balance * orderConsole.TransferLimit));
 
             UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
 
-            OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
-            Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+            RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
         }
     }
 }
