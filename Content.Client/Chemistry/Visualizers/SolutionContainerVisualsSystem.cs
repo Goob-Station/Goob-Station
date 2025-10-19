@@ -156,9 +156,9 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
             _sprite.LayerSetRsiState((uid, args.Sprite), fillLayer, stateName);
 
             if (component.InsertedItemSlotID != null && solutionComponent != null)
-                args.Sprite.LayerSetColor(fillLayer, solutionComponent.Solution.GetColor(_prototype));
+                _sprite.LayerSetColor(fillLayer, solutionComponent.Solution.GetColor(_prototype));
             else if (changeColor && AppearanceSystem.TryGetData<Color>(uid, SolutionContainerVisuals.Color, out var color, args.Component))
-                args.Sprite.LayerSetColor(fillLayer, color);
+                _sprite.LayerSetColor(fillLayer, color);
             else
                 _sprite.LayerSetColor((uid, args.Sprite), fillLayer, Color.White);
         }
