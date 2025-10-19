@@ -135,3 +135,10 @@
   id: AutomationSlotBottles
   name: signal-port-name-automation-slot-bottles
   description: signal-port-description-automation-slot-bottles
+
+# Lathe
+
+- type: sinkPort
+  id: LathePrint
+  name: signal-port-name-lathe-print
+  description: signal-port-description-lathe-print
