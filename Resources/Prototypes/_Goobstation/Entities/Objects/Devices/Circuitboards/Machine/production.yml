@@ -119,7 +119,7 @@
     - type: MachineBoard
       prototype: EnergyChemDispenser
       stackRequirements:
-        Capacitor: 1
+        Manipulator: 1
         Glass: 1
         Steel: 3
       tagRequirements:
