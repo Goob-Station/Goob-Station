@@ -37,3 +37,8 @@
   license: "Custom"
   copyright: "No copyright - ai generated sound"
   source: "https://goida.zip/unknown" # keeping up this tradition
+
+- files: ["odetojoy.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "9th Symphony, Finale by Beethoven"
+  source: "https://www.youtube.com/watch?v=EnUQJZ5ZpNw"

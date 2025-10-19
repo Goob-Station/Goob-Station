@@ -1,6 +1,6 @@
 - type: entity
   name: goose
-  suffix: Hell goose
+  suffix: Hell goose, Admeme
   parent: [ BaseSimpleMob, MobAtmosExposed, MobCombat, MobBloodstream ]
   id: MobHellGoose
   description: The way this creature looks at you sends a shiver down your spine.
