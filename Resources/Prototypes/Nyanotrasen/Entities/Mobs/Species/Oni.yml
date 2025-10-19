@@ -52,7 +52,6 @@
         Structural: 1.3
   - type: Damageable
     damageModifierSet: Oni
-    damageContainer: BiologicalMetaphysical
   - type: Body
     prototype: Oni
   - type: LightweightDrunk
