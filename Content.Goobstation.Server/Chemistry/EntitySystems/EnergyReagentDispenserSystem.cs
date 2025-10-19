@@ -97,9 +97,6 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
         private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
             UpdateUiState(ent);
 
-        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
-            _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.BeakerSlot);
-
         private void UpdateUiState(Entity<EnergyReagentDispenserComponent> reagentDispenser)
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
