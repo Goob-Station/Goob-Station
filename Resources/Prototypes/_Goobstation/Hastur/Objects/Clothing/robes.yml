@@ -48,12 +48,6 @@
   categories: [HideSpawnMenu]
   description: It's hard to see who is wearing it under that...
   components:
-  - type: ClothingGrantComponent
-    component:
-    - type: ActionGrant
-      actions:
-        - ActionVeilOfTheVoid
-    - type: HasturVeil
   - type: ClothingSpeedModifier
     walkModifier: 1.2
     sprintModifier: 1.2
