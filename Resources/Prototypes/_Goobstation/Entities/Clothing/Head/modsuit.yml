@@ -219,7 +219,7 @@
         Blunt: 0.65
         Slash: 0.65
         Piercing: 0.65
-        Heat: 0.65
+        Heat: 0.7
         Radiation: 0.6
   - type: ComponentToggler
     components:
@@ -320,7 +320,7 @@
         Blunt: 0.55
         Slash: 0.55
         Piercing: 0.5
-        Heat: 0.55
+        Heat: 0.65
         Caustic: 0.5
         Radiation: 0.5
   - type: ComponentToggler
@@ -399,7 +399,7 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.85
-        Heat: 0.8
+        Heat: 0.9
         Caustic: 0.6
         Radiation: 0.3
   - type: ComponentToggler
@@ -480,7 +480,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.8
-        Heat: 0.7
+        Heat: 0.8
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.01
@@ -571,7 +571,7 @@
         Blunt: 0.8
         Slash: 0.85
         Piercing: 0.85
-        Heat: 0.2
+        Heat: 0.8
         Radiation: 0.05
   - type: EyeProtection # goob
   - type: ComponentToggler
@@ -666,7 +666,7 @@
         Blunt: 0.6
         Slash: 0.8
         Piercing: 0.9
-        Heat: 0.3
+        Heat: 0.75
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
@@ -761,7 +761,7 @@
         Blunt: 0.75
         Slash: 0.75
         Piercing: 0.6
-        Heat: 0.6
+        Heat: 0.75
         Radiation: 0.1
         Caustic: 0.55
   - type: ComponentToggler

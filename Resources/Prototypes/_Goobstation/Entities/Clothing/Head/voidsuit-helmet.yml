@@ -125,7 +125,7 @@
         Blunt: 0.65
         Slash: 0.65
         Piercing: 0.65
-        Heat: 0.65
+        Heat: 0.7
         Radiation: 0.5
         Caustic: 0.7
   - type: ClothingGrantComponent
@@ -165,7 +165,7 @@
         Blunt: 0.15
         Slash: 0.15 # holy shit bruv
         Piercing: 0.15
-        Heat: 0.15
+        Heat: 0.2
         Radiation: 0.25 # do people even know rad ammo exists? anyway making rad its weakness is kinda fair
         Caustic: 0.4
   - type: FlashImmunity

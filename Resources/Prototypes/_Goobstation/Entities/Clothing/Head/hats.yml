@@ -49,7 +49,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.65
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
@@ -83,7 +83,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.65
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
@@ -117,7 +117,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.65
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
@@ -151,7 +151,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.65
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
@@ -185,7 +185,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.7
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance
@@ -229,7 +229,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.7
         Radiation: 0.75
         Caustic: 0.75
   - type: ExplosionResistance

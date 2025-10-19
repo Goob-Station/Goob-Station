@@ -142,7 +142,7 @@
         Piercing: 0.40
         Radiation: 0.70
         Caustic: 0.70
-        Heat: 0.40
+        Heat: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.60
     sprintModifier: 0.60
