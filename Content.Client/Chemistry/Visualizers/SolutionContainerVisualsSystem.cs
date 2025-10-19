@@ -19,11 +19,11 @@
 using Content.Client.Items.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.EntitySystems; // Goobstation
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Containers.ItemSlots; // Goobstation
 using Content.Shared.Hands;
 using Content.Shared.Item;
 using Content.Shared.Rounding;
@@ -37,9 +37,8 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ItemSystem _itemSystem = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!; // Goobstation
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -67,6 +66,8 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
             }
         }
 
+        // Goobstation start
+
         float fraction = 0;
         SolutionComponent? solutionComponent = null;
         if (component.InsertedItemSlotID != null)
@@ -77,6 +78,8 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         }
         else if (!AppearanceSystem.TryGetData<float>(uid, SolutionContainerVisuals.FillFraction, out fraction, args.Component))
             return;
+
+        // GoobStation end
 
         if (args.Sprite == null)
             return;
@@ -154,10 +157,10 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                 _sprite.LayerSetSprite((uid, args.Sprite), fillLayer, fillSprite);
             _sprite.LayerSetRsiState((uid, args.Sprite), fillLayer, stateName);
 
-            if (component.InsertedItemSlotID != null && solutionComponent != null)
+            if (component.InsertedItemSlotID != null && solutionComponent != null) // Goobstation start
                 _sprite.LayerSetColor((uid, args.Sprite), fillLayer, solutionComponent.Solution.GetColor(_prototype));
             else if (changeColor && AppearanceSystem.TryGetData<Color>(uid, SolutionContainerVisuals.Color, out var color, args.Component))
-                _sprite.LayerSetColor((uid, args.Sprite), fillLayer, color);
+                _sprite.LayerSetColor((uid, args.Sprite), fillLayer, color); // Goobstation end
             else
                 _sprite.LayerSetColor((uid, args.Sprite), fillLayer, Color.White);
         }
@@ -175,15 +178,18 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
             }
         }
 
+        // Goobstation Start
         var parentuid = Transform(uid).ParentUid;
         var parentApp = CompOrNull<AppearanceComponent>(parentuid);
         if (parentApp != null && HasComp<SolutionContainerVisualsComponent>(parentuid))
             _appearance.QueueUpdate(parentuid, parentApp);
+        // Goobstation end
 
         // in-hand visuals
         _itemSystem.VisualsChanged(uid);
     }
 
+    // Goobstation start
     private bool GetSolutionFromEntity(EntityUid containerUid, string insertedItemSlotID, out SolutionComponent? solutionComponent)
     {
         solutionComponent = null;
@@ -202,6 +208,8 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         solutionComponent = solution;
         return true;
     }
+
+    // Goobstation end
 
     private void OnGetHeldVisuals(EntityUid uid, SolutionContainerVisualsComponent component, GetInhandVisualsEvent args)
     {

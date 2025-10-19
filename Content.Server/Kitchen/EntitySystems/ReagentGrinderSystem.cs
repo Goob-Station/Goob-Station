@@ -245,7 +245,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 DoWork(uid, reagentGrinder, program);
             }
 
-            if (TryComp<AppearanceComponent>(uid, out var appearanceComponent))
+            if (TryComp<AppearanceComponent>(uid, out var appearanceComponent)) // Goobstation
                 Dirty(uid, appearanceComponent);
         }
 

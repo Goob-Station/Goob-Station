@@ -76,7 +76,7 @@ namespace Content.Shared.Chemistry.Components
         public int EquippedMaxFillLevels = 0;
 
         /// <summary>
-        /// Optional, visuals will be calculated based on item inserted into insertedItemSlotID instead of item itself
+        /// Optional, visuals will be calculated based on item inserted into insertedItemSlotID instead of item itself Goobstation
         /// </summary>
         [DataField]
         public string? InsertedItemSlotID = null;

@@ -76,8 +76,8 @@
       state: "grinder_empty"
     - map: [ "enum.SolutionContainerLayers.Fill" ]
       state: beakerSlot1
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
+  - type: SolutionContainerVisuals # Goobstation
+    maxFillLevels: 4
     insertedItemSlotID: beakerSlot
     fillBaseName: beakerSlot
   - type: ApcPowerReceiver
