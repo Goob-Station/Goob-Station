@@ -2,6 +2,8 @@ using Content.Goobstation.Shared.Hastur.Components;
 using Content.Goobstation.Shared.Hastur.Events;
 using Content.Server.Chat.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -13,6 +15,7 @@ namespace Content.Goobstation.Server.Hastur.Systems
     {
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
         public override void Initialize()
         {
@@ -42,7 +45,7 @@ namespace Content.Goobstation.Server.Hastur.Systems
                 var affected = EnsureComp<EntropicPlumeAffectedComponent>(mob.Owner);
                 affected.Duration = comp.Duration;
             }
-
+            _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} used Mass Whisper as a Hastur, affecting all entities on station.");
 
             args.Handled = true;
         }
