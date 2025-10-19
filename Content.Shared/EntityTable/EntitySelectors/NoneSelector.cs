@@ -84,7 +84,8 @@ public sealed partial class NoneSelector : EntityTableSelector
 {
     protected override IEnumerable<EntProtoId> GetSpawnsImplementation(System.Random rand,
         IEntityManager entMan,
-        IPrototypeManager proto)
+        IPrototypeManager proto,
+        EntityTableContext ctx)
     {
         yield break;
     }

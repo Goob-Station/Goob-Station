@@ -19,3 +19,21 @@
     proto: MasterChemist
   equipment:
     head: ClothingHeadHatUshanka
+
+- type: loadout
+  id: ChemistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChemist
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ChemistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmChemist
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

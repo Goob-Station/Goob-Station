@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -48,7 +51,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusLArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -62,7 +65,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusLHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -76,7 +79,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusLLeg
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -91,7 +94,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusLFoot
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -107,7 +110,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusRArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -122,7 +125,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusRHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -136,7 +139,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusRLeg
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   coloring:
     default:
@@ -151,7 +154,7 @@
 - type: marking
   id: CyberLimbsMarkingMorpheusRFoot
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [IPC]
   coloring:
     default:

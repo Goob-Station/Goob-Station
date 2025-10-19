@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github) | Remade for Goobstation by Yonsim",
+  "size": {
+    "x": 32,
+    "y": 36
+  },
+  "states": [ 
+    {
+      "name": "xenomorph",
+      "directions": 4
+    },
+    {
+      "name": "xenomorph_dead"
+    },
+    {
+      "name": "xenomorph_unconscious"
+    }
+  ]
+}

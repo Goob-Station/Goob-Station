@@ -93,9 +93,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: FTLDestination
       whitelist:
         tags:
@@ -870,37 +868,6 @@ entities:
     - type: Transform
       pos: 1.5197191,3.3667846
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 394
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 836
-    - type: InstantAction
-      container: 836
-      originalIconColor: '#FFFFFFFF'
-  - uid: 395
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 1404
-    - type: InstantAction
-      container: 1404
-      originalIconColor: '#FFFFFFFF'
-- proto: ActionToggleLight
-  entities:
-  - uid: 663
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 666
-    - type: InstantAction
-      container: 666
-      originalIconColor: '#FFFFFFFF'
 - proto: AirAlarm
   entities:
   - uid: 1517
@@ -4840,14 +4807,6 @@ entities:
     - type: Transform
       pos: 2.6069674,-6.435194
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 394
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 394
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
   - uid: 1404
@@ -4855,14 +4814,6 @@ entities:
     - type: Transform
       pos: 2.3673842,-6.299683
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 395
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 395
 - proto: DresserFilled
   entities:
   - uid: 644
@@ -5073,20 +5024,6 @@ entities:
     - type: Transform
       pos: 16.73354,-12.778286
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 663
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 663
-    - type: ActionsContainer
 - proto: FloorDrain
   entities:
   - uid: 2435

@@ -85,7 +85,7 @@
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
-    resistance: 2.5
+    resistance: 2.5 # Goobstation - Radiation Overhaul
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75
     damagePenalty: 0.1
@@ -146,7 +146,7 @@
   - type: StaticPrice
     price: 50
   - type: RadiationBlocker
-    resistance: 2.444
+    resistance: 2.444 # Goobstation - Radiation Overhaul
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1

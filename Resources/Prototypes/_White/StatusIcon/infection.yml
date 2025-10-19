@@ -1,0 +1,92 @@
+# Xenomorph
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageZero
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_0
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageOne
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_1
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageTwo
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_2
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageThree
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_3
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageFour
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_4
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageFive
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_5
+
+- type: infectionIcon
+  id: XenomorphInfectionIconStageSix
+  priority: 0
+  locationPreference: Right
+  isShaded: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Xenomorph
+  icon:
+    sprite: /Textures/_White/Interface/Misc/infection_icons.rsi
+    state: xenomorph_6

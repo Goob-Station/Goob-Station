@@ -9,6 +9,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionClothingSeal
   name: Seal clothing
   description: Seals your current clothing.
@@ -17,7 +18,7 @@
   - type: ConfirmableAction
     confirmDelay: 0
     primeTime: 2
-  - type: InstantAction
+  - type: Action
     checkCanInteract: true
     checkConsciousness: true
     itemIconStyle: NoItem
@@ -27,16 +28,18 @@
     iconOn:
       sprite: _Goobstation/Actions/modsuit.rsi
       state: activate-ready
+  - type: InstantAction
     event: !type:SealClothingEvent {}
 
 
 - type: entity
+  parent: BaseAction
   id: ActionActivateProjector
   name: Toggle Clone
   description: Generates or dissipates your connected gemini.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     checkCanInteract: false
     checkConsciousness: true
@@ -44,4 +47,16 @@
     icon:
       sprite: Mobs/Silicon/station_ai.rsi
       state: default
+  - type: InstantAction
     event: !type:CloneProjectorActivatedEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionHailer
+  name: Hail
+  description: Audibly hail nearby crew, useful for giving quick orders.
+  components:
+  - type: Action
+    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
+  - type: InstantAction
+    event: !type:HailerActionEvent

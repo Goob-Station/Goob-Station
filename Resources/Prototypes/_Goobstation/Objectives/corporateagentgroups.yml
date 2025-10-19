@@ -23,7 +23,7 @@
     CorporateRDHardsuitStealObjective: 1
     CorporateNukeDiskStealObjective: 1
     CorporateMagbootsStealObjective: 1
-    CorporateCERocketLauncherStealObjective: 1
+    # CorporateCERocketLauncherStealObjective: 1
     CorporateCorgiMeatStealObjective: 1
     CorporateClipboardStealObjective: 1
     CorporateCaptainGunStealObjective: 0.5

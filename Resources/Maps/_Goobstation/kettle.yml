@@ -147,9 +147,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -10563,14 +10561,6 @@ entities:
     - type: Transform
       pos: -9.519083,35.601566
       parent: 2
-- proto: ActionStethoscope
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      parent: 5
-    - type: EntityTargetAction
-      container: 5
 - proto: AirAlarm
   entities:
   - uid: 7
@@ -66872,14 +66862,6 @@ entities:
     - type: Transform
       pos: -38.522915,-36.380253
       parent: 2
-    - type: Stethoscope
-      actionEntity: 6
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6
   - uid: 10087
     components:
     - type: Transform

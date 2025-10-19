@@ -55,6 +55,7 @@
   - Heat
   - Shock
   - Structural
+  - Caustic # WD EDIT
 
 - type: damageContainer
   id: Silicon

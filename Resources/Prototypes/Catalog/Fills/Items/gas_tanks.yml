@@ -164,7 +164,7 @@
         - 0 # water vapor
         - 0 # ammonia
         - 0.014251686 # 5% N2O
-        # 0.285033721       total 
+        # 0.285033721       total
       temperature: 293.15
 
 - type: entity
@@ -233,9 +233,9 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 101.3
+    outputPressure: 5.325
     air:
-      # 6 minutes of agony
+      # 125.2 minutes with plasmaman lungs
       volume: 5
       moles:
         - 0           # oxygen

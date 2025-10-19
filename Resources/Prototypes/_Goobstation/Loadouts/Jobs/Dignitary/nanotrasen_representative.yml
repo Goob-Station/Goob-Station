@@ -86,25 +86,46 @@
   equipment:
     head: ClothingHeadHatBowlerHat
 
+
 - type: loadout
   id: NanotrasenRepresentativeTop
   equipment:
     head: ClothingHeadHatTophat
+
 
 - type: loadout
   id: NanotrasenRepresentativeOutlaw
   equipment:
     head: ClothingHeadHatOutlawHat
 
+
 - type: loadout
   id: NanotrasenRepresentativeBeret
   equipment:
     head: ClothingHeadHatBeretFrench
 
+
 - type: loadout
   id: NanotrasenRepresentativeMAA
   equipment:
     head: ClothingHeadHatSyndieMAA
+
+
+- type: loadout
+  id: NanotrasenRepresentativeEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmNanotrasenRepresentative
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+# Gloves
+- type: loadout
+  id: NanotrasenRepresentativeGloves
+  equipment:
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+
 
 # Neck
 - type: loadout
@@ -139,10 +160,21 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
+
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+
+
+- type: loadout
+  id: NanotrasenRepresentativeEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitNanotrasenRepresentative
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
 
 # Belt
 - type: loadout

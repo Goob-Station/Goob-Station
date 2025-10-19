@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2024 HawkeyeBlade <hawkeyewarframexd@gmail.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -18,6 +17,8 @@
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -65,23 +66,29 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: true
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        locked: true
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: BatterySlotRequiresLock
-    itemSlot: cell_slot
+  # Goobstation Start - Energycrit
+  # - type: PowerCellSlot
+  #   cellSlotId: cell_slot
+  #   fitsInCharger: true
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       locked: true
+  #       name: power-cell-slot-component-slot-name-default
+  #       startingItem: PowerCellMedium
+  # - type: BatterySlotRequiresLock
+  #   itemSlot: cell_slot
+  - type: Battery # Power cell slot replaced with high capacity battery
+    maxCharge: 1080
+    startingCharge: 1080
+  # Goobstation End - Energycrit
   - type: EncryptionHolderRequiresLock
-  - type: SiliconEmitSoundOnDrained
-    sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
-    minInterval: 8
-    maxInterval: 12
-    popUp: "silicon-power-low"
+  # Goobstation - Energycrit
+  #- type: SiliconEmitSoundOnDrained
+  #  sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
+  #  minInterval: 8
+  #  maxInterval: 12
+  #  popUp: "silicon-power-low"
   - type: Lock
     locked: true
     lockOnClick: false
@@ -143,8 +150,11 @@
       3: 1
       2: 0.80
       1: 0.45
-      0: 0.00
+      0: 0.40 # Goobstation - Energycrit
   - type: BatteryDrinker
+    blacklist: # Goobstation - Energycrit
+      tags:
+      - IPCDrinkBlacklist
   - type: EncryptionKeyHolder
     keySlots: 4
     examineWhileLocked: false
@@ -161,19 +171,30 @@
   #     layoutId: IPC
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
-  - type: WeldingHealable
+  - type: Repairable #Goob edit
+    fuelCost: 5
+    doAfterDelay: 3
+    selfRepairPenalty: 2.0
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
   - type: DamagedSiliconAccent
   - type: Uncloneable
-  - type: Sprinter # slight nerf to speed because heavy robot, mass contest when
-    sprintSpeedMultiplier: 1.35
+  - type: OwnInteractionVerbs
+    allowedVerbs: []
+  - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when
+    sprintSpeedMultiplier: 1.2
   - type: Tag
     tags:
     - SiliconMob
+    - SiliconEmotes
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other ipcs.
 - type: entity
   save: false
   name: Urist McPositronic

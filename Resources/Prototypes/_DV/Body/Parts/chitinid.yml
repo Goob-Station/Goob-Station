@@ -1,0 +1,136 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartChitinidBase
+  parent: [BaseItem, BasePart]
+  name: "Chitinid body part"
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#507846"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Chitinid
+
+- type: entity
+  id: ChestChitinid
+  name: "chitinid chest"
+  parent: [PartChitinidBase, BaseChest]
+  components:
+  - type: Sprite
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [ PartChitinidBase, BaseGroin ]
+  id: GroinChitinid
+  name: "chitinid groin"
+  components:
+  - type: Sprite
+    state: "groin_m"
+  - type: Icon
+    state: "groin_m"
+
+- type: entity
+  id: HeadChitinid
+  name: "chitinid head"
+  parent: [PartChitinidBase, BaseHead]
+  components:
+  - type: Sprite
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmChitinid
+  name: "left chitinid arm"
+  parent: [PartChitinidBase, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  id: RightArmChitinid
+  name: "right chitinid arm"
+  parent: [PartChitinidBase, BaseRightArm]
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandChitinid
+  name: "left chitinid hand"
+  parent: [PartChitinidBase, BaseLeftHand]
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  id: RightHandChitinid
+  name: "right chitinid hand"
+  parent: [PartChitinidBase, BaseRightHand]
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegChitinid
+  name: "left chitinid leg"
+  parent: [PartChitinidBase, BaseLeftLeg]
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  id: RightLegChitinid
+  name: "right chitinid leg"
+  parent: [PartChitinidBase, BaseRightLeg]
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootChitinid
+  name: "left chitinid foot"
+  parent: [PartChitinidBase, BaseLeftFoot]
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  id: RightFootChitinid
+  name: "right chitinid foot"
+  parent: [PartChitinidBase, BaseRightFoot]
+  components:
+  - type: Sprite
+    state: "r_foot"

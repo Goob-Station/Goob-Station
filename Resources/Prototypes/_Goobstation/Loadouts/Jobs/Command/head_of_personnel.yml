@@ -1,0 +1,44 @@
+- type: loadout
+  id: HoPEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHoP
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HoPEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmHoP
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HoPEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesHoP
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HoPGloves
+  equipment:
+    gloves: ClothingHandsGlovesHop
+
+- type: loadout
+  id: HoPSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPSummer
+    
+- type: loadout
+  id: HoPLongcoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoPLong
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoP

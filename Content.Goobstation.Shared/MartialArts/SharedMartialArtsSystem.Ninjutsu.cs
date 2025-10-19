@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -204,6 +205,11 @@ public abstract partial class SharedMartialArtsSystem
         if (args.Performer == args.Weapon)
             _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
+        var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
+
+        if (fireRate.TotalSeconds - fireRate.TotalSeconds / 2f <= minFireRate.TotalSeconds)
+            return;
+
         melee.NextAttack -= fireRate / 2f;
         Dirty(args.Weapon, melee);
     }

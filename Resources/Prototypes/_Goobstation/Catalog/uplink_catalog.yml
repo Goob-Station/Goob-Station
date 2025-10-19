@@ -71,6 +71,16 @@
     -  UplinkDisruption
 
 - type: listing
+  id: UplinkCarpCaller
+  name: uplink-carpcaller-name
+  description: uplink-carpcaller-desc
+  productEntity: CarpCaller
+  cost:
+    Telecrystal: 40 # you can't really do much with it
+  categories:
+    -  UplinkDisruption
+
+- type: listing
   id: UplinkBoxReagentGrenades
   name: Box of Reagent Grenades
   description: Contains 2 Glue grenades and 2 Lube Grenades
@@ -674,6 +684,22 @@
     - Clown
 
 - type: listing
+  id: UplinkClowncarNukie
+  name: uplink-clowncar-name
+  description: uplink-clowncar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  productEntity: CrateFunClownCarNukieUplink
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkMobRoachMicrobomb
   name: uplink-mobroach-microbomb-name
   description: uplink-mobroach-microbomb-desc
@@ -749,7 +775,7 @@
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
   cost:
-    Telecrystal: 28
+    Telecrystal: 20
   categories:
   - UplinkChemicals
 
@@ -957,6 +983,55 @@
       components:
       - SurplusBundle
 
+- type: listing
+  id: UplinkAutosurgeonSmartLink
+  name: uplink-autosurgeon-smartlink-name
+  description: uplink-autosurgeon-smartlink-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
+  productEntity: AutosurgeonSmartLink
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonRecoilAbsorber
+  name: uplink-autosurgeon-recoil-absorbing-name
+  description: uplink-autosurgeon-recoil-absorbing-desc
+  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: AutosurgeonRecoilAbsorber
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonBerserkerHeart
+  name: uplink-autosurgeon-berserker-heart-name
+  description: uplink-autosurgeon-berserker-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+  productEntity: AutosurgeonBerserker
+  cost:
+    Telecrystal: 66
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonJumpstarter
+  name: uplink-autosurgeon-jumpstarter-heart-name
+  description: uplink-autosurgeon-jumpstarter-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
+  productEntity: AutosurgeonJumpstarter
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+
 # Deception
 
 - type: listing
@@ -1097,7 +1172,7 @@
   id: UplinkCaselessRifleMag
   name: uplink-rifle-caseless-mag-name
   description: uplink-rifle-caseless-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: base }
   productEntity: MagazineCaselessRifle
   cost:
     Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
@@ -1108,7 +1183,7 @@
   id: UplinkHighCapacityMagazinePistol
   name: uplink-highcap-pistol-mag-name
   description: uplink-highcap-pistol-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base }
   productEntity: MagazinePistolHighCapacity
   cost:
     Telecrystal: 3
@@ -1145,7 +1220,7 @@
   id: UplinkMagazinePistolCaselessRifleSAPHE
   name: uplink-pistol-magazine-caseless-saphe-name
   description: uplink-pistol-magazine-caseless-saphe-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: base }
   productEntity: MagazinePistolCaselessRifleSAPHE
   cost:
     Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive
@@ -1355,6 +1430,17 @@
 
 - type: listing
   id: UplinkRPOA
+  name: uplink-ExplosivePayloadBlueprint-name
+  description: uplink-ExplosivePayloadBlueprint-desc
+  productEntity: BlueprintExplosivePayload
+  icon: { sprite: _Goobstation/Objects/Devices/payload.rsi, state: icon }
+  cost:
+    Telecrystal: 40 #Should be alot, its an investment item
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkExplosivePayloadBlueprint
   name: uplink-RPOA-name
   description: uplink-RPOA-desc
   productEntity: WeaponLauncherRocketDisposableThermobaric
@@ -1436,5 +1522,16 @@
   productEntity: BloodredCasette
   cost:
     Telecrystal: 3
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkSyndiedrobe
+  name: uplink-syndiedrobe-name
+  description: uplink-syndiedrobe-desc
+  icon: { sprite: Structures/Machines/VendingMachines/syndiedrobe.rsi, state: off }
+  productEntity: VendingMachineSyndieDrobe
+  cost:
+    Telecrystal: 40
   categories:
   - UplinkPointless

@@ -65,6 +65,3 @@
       - MiningShuttle
   - type: Computer
     board: LavalandShuttleConsoleCircuitboard
-  - type: AccessReader
-    access:
-    - [ Salvage ]

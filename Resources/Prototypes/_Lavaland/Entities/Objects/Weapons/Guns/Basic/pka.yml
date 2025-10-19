@@ -146,14 +146,3 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-
-# Lavaland Change
-- type: entity
-  id: ActionTogglePKALight
-  name: action-name-toggle-pka-light
-  description: action-description-toggle-pka-light
-  components:
-  - type: InstantAction
-    useDelay: 0.5
-    icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
-    event: !type:ToggleActionEvent

@@ -1,0 +1,85 @@
+- type: entity
+  id: AlwaysPoweredFloorLight
+  name: floor light
+  description: "An always powered floor-mounted light."
+  suffix: Always powered
+  parent: AlwaysPoweredWallLight
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/floorlight.rsi
+    layers:
+      - map: ["enum.PoweredLightLayers.Base"]
+        state: base
+      - map: ["enum.PoweredLightLayers.Glow"]
+        state: glow
+        shader: unshaded
+    state: base
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+          - Impassable
+        layer:
+          - Opaque
+
+- type: entity
+  id: PoweredFloorLightEmpty
+  name: floor light
+  description: "A floor-mounted light fixture. Draws power and produces light when equipped with a light bulb."
+  suffix: Empty
+  parent: PoweredlightEmpty
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/floorlight.rsi
+    layers:
+      - map: ["enum.PoweredLightLayers.Base"]
+        state: empty
+    state: empty
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+          - Impassable
+        layer:
+          - Opaque
+
+- type: entity
+  id: PoweredFloorLight
+  name: floor light
+  description: "A floor-mounted light fixture. Draws power and produces light when equipped with a light bulb."
+  parent: Poweredlight
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/floorlight.rsi
+    layers:
+      - map: ["enum.PoweredLightLayers.Base"]
+        state: base
+      - map: ["enum.PoweredLightLayers.Glow"]
+        state: glow
+        shader: unshaded
+    state: base
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+          - Impassable
+        layer:
+          - Opaque
