@@ -116,6 +116,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Projectiles;
 using Content.Goobstation.Shared.Temperature;
+using Content.Goobstation.Common.Temperature; // goob edit
 
 namespace Content.Server.Temperature.Systems;
 
@@ -155,6 +156,7 @@ public sealed class TemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goob edit
         SubscribeLocalEvent<SpecialHighTempImmunityComponent, TemperatureImmunityEvent>(OnCheckHighTemperatureImmunity); // Goob edit
+        SubscribeLocalEvent<TemperatureComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds); // goob edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -231,6 +233,12 @@ public sealed class TemperatureSystem : EntitySystem
         if (args.CurrentTemperature > args.IdealTemperature)
             args.CurrentTemperature = args.IdealTemperature;
     }
+
+    private void OnGetTemperatureThresholds(Entity<TemperatureComponent> ent, ref GetTemperatureThresholdsEvent args)
+    {
+        args.HeatDamageThreshold = ent.Comp.HeatDamageThreshold;
+        args.ColdDamageThreshold = ent.Comp.ColdDamageThreshold;
+    }
     // Goob end
 
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
@@ -242,6 +250,13 @@ public sealed class TemperatureSystem : EntitySystem
         temperature.CurrentTemperature = temp;
 
         // Goob start
+
+        var preEv = new BeforeTemperatureChange(
+            temperature.CurrentTemperature,
+            lastTemp,
+            temperature.CurrentTemperature - lastTemp);
+        RaiseLocalEvent(uid, ref preEv);
+
         var tempEv = new TemperatureImmunityEvent(temperature.CurrentTemperature);
         RaiseLocalEvent(uid, tempEv);
         temperature.CurrentTemperature = tempEv.CurrentTemperature;
@@ -275,6 +290,12 @@ public sealed class TemperatureSystem : EntitySystem
         // Goobstation start
         float lastTemp = temperature.CurrentTemperature;
         float newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
+
+        var preEv = new BeforeTemperatureChange(
+            newTemp,
+            lastTemp,
+            newTemp - lastTemp);
+        RaiseLocalEvent(uid, ref preEv);
 
         var tempEv = new TemperatureImmunityEvent(newTemp);
         RaiseLocalEvent(uid, tempEv);

@@ -284,6 +284,14 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
             return false;
 
+        // goob start
+        var ignoreEv = new BeforeStunEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
+
         // goob edit
         _jitter.DoJitter(uid, time, refresh);
         _stutter.DoStutter(uid, time, refresh);
@@ -311,6 +319,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeKnockdownEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         var component = _componentFactory.GetComponent<KnockedDownComponent>();
         component.DropHeldItemsBehavior = behavior;
@@ -354,6 +370,14 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
             return false;
 
+        // goob start
+        var ignoreEv = new BeforeStunEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
+
         var ev = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref ev);
 
@@ -385,6 +409,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (time <= TimeSpan.Zero)
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeTrySlowdownEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
         {

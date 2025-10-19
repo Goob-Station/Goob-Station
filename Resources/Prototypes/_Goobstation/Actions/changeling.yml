@@ -571,7 +571,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 1
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -643,35 +643,13 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionVoidAdapt
-  name: Toggle Void Adaption
-  description: Adapt to the harsh environment of space, removing the need for oxygen or a suit. Cost free.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    useDelay: 1
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: void_adaptation
-  - type: InstantAction
-    event: !type:ActionVoidAdaptEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-    useInLesserForm: true
-    requireAbsorbed: 2
-
-- type: entity
-  parent: BaseAction
   id: ActionAdrenalineReserves
   name: Adrenaline Reserves
   description: Release powerful adrenaline from your glands. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 5
+    useDelay: 1
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -692,7 +670,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 10
+    useDelay: 1
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem

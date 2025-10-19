@@ -89,6 +89,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Medical; // goob edit
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
@@ -137,6 +138,14 @@ namespace Content.Server.Medical
             var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(uid);
             if (stomachList.Count == 0)
                 return;
+
+            // goob start
+            var beforeEv = new BeforeVomitEvent();
+            RaiseLocalEvent(uid, ref beforeEv);
+
+            if (beforeEv.Cancelled)
+                return;
+            // goob end
 
             // Vomiting makes you hungrier and thirstier
             if (TryComp<HungerComponent>(uid, out var hunger))

@@ -78,6 +78,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Temperature; // goob
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Temperature.Components;
@@ -104,6 +105,8 @@ public sealed class SharedTemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+
+        SubscribeLocalEvent<TemperatureSpeedComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds); // goob edit
     }
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
@@ -137,6 +140,13 @@ public sealed class SharedTemperatureSystem : EntitySystem
 
         args.ModifySpeed(ent.Comp.CurrentSpeedModifier.Value, ent.Comp.CurrentSpeedModifier.Value);
     }
+
+    // goob start
+    private void OnGetTemperatureThresholds(Entity<TemperatureSpeedComponent> ent, ref GetTemperatureThresholdsEvent args)
+    {
+        args.SpeedThresholds = ent.Comp.Thresholds;
+    }
+    // goob end
 
     public override void Update(float frameTime)
     {

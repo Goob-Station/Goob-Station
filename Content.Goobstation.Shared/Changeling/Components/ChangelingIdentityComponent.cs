@@ -85,8 +85,6 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     public bool ChameleonActive = false;
 
-    public bool VoidAdaptActive = false;
-
     public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();

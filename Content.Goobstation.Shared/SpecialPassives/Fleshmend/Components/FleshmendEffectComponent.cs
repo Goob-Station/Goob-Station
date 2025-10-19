@@ -6,17 +6,19 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 
 /// <summary>
-///     Component responsible for Fleshmend's visual effects.
+///     Component responsible for Fleshmend's visual effects. Should NOT be added outside of FleshmendSystem.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class FleshmendEffectComponent : Component
 {
-    public string EffectState = "mend_active";
+    [DataField, AutoNetworkedField]
+    public string EffectState;
 
-    public ResPath ResPath = new("_Goobstation/Changeling/fleshmend_visuals.rsi");
+    [DataField, AutoNetworkedField]
+    public ResPath ResPath;
 
 }
 
