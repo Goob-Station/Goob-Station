@@ -188,7 +188,9 @@ public sealed class HealingSystem : EntitySystem
                 $"{ToPrettyString(args.User):user} healed themselves for {total:damage} damage");
         }
 
-        _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
+        // Only play sound if this is not a body part (body parts are handled by OnBodyDoAfter)
+        if (!HasComp<BodyComponent>(target.Owner))
+            _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
         args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
@@ -430,7 +432,7 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {healedTotal:damage} damage");
         }
 
-        _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f)); // Goob edit
+            _audio.PlayPredicted(healing.HealingEndSound, ent, ent, AudioParams.Default.WithVariation(0.125f).WithVolume(1f)); // Goob edit
 
         // Logic to determine whether or not to repeat the healing action
         args.Repeat = IsAnythingToHeal(args.User, ent, (args.Used.Value, healing)); // GOOBEDIT
@@ -512,15 +514,15 @@ public sealed class HealingSystem : EntitySystem
             return false;
         }
         // Shitmed Change End
-
-        _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
+            _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
         var isNotSelf = user != target.Owner;
 
         if (isNotSelf)
         {
+            // Show this to the target
             var msg = Loc.GetString("medical-item-popup-target", ("user", Identity.Entity(user, EntityManager)), ("item", healing.Owner));
-            _popupSystem.PopupPredicted(msg, target, target, PopupType.Medium);
+            _popupSystem.PopupClient(msg, target, target, PopupType.Medium);
         }
 
         var delay = isNotSelf
