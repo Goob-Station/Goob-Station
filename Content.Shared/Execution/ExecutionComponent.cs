@@ -92,6 +92,5 @@ public sealed partial class ExecutionComponent : Component
     /// </summary>
     [DataField]
     public bool Decapitation;
-
     // Goobstation end
 }
