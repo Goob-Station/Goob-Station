@@ -321,7 +321,6 @@
   name: evolutionmenu-utility-voidadapt-name
   description: evolutionmenu-utility-voidadapt-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: void_adaptation }
-  #productAction: ActionVoidAdapt
   productEvent: !type:VoidAdaptionPurchasedEvent
   raiseProductEventOnUser: true
   cost:

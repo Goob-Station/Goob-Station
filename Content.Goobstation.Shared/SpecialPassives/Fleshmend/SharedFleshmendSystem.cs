@@ -103,6 +103,15 @@ public sealed class SharedFleshmendSystem : EntitySystem
         HealDamage(ent);
     }
 
+    #region Event Handlers
+
+    private void OnMobStateChange(Entity<FleshmendComponent> ent, ref MobStateChangedEvent args)
+    {
+        ent.Comp.Mobstate = args.NewMobState;
+    }
+
+    #endregion
+
     #region Helper Methods
 
     public readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
@@ -241,11 +250,6 @@ public sealed class SharedFleshmendSystem : EntitySystem
             return false;
 
         return true;
-    }
-
-    private void OnMobStateChange(Entity<FleshmendComponent> ent, ref MobStateChangedEvent args)
-    {
-        ent.Comp.Mobstate = args.NewMobState;
     }
 
     #endregion

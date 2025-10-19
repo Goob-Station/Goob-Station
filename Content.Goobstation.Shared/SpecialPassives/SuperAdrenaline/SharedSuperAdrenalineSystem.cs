@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.Stunnable;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Clothing;
+using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
@@ -35,17 +36,16 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
 
         _staminaQuery = GetEntityQuery<StaminaComponent>();
         _sleepingQuery = GetEntityQuery<SleepingComponent>();
-        _forcedsleepQuery = GetEntityQuery<ForcedSleepingStatusEffectComponent>();
         _nerveQuery = GetEntityQuery<NerveSystemComponent>();
 
         SubscribeLocalEvent<SuperAdrenalineComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SuperAdrenalineComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeStunEvent>(OnAttemptStun);
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeKnockdownEvent>(OnAttemptKnockdown);
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeTrySlowdownEvent>(OnAttemptTrySlowdown);
         SubscribeLocalEvent<SuperAdrenalineComponent, ModifySlowOnDamageSpeedEvent>(OnDamageSlowdown);
         SubscribeLocalEvent<SuperAdrenalineComponent, TryingToSleepEvent>(OnAttemptSleep);
+        SubscribeLocalEvent<SuperAdrenalineComponent, MobStateChangedEvent>(OnMobStateChange);
 
         SubscribeLocalEvent<SuperAdrenalineComponent, DelayedKnockdownAttemptEvent>(OnAttemptDelayedKnockdown);
     }
@@ -99,13 +99,6 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
         }
 
         Cycle(ent);
-    }
-
-    private void OnRemoved(Entity<SuperAdrenalineComponent> ent, ref ComponentRemove args)
-    {
-
-        
-
     }
 
     public override void Update(float frameTime)
@@ -183,6 +176,11 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
     {
         if (ent.Comp.IgnoreKnockdown)
             args.Cancel();
+    }
+
+    private void OnMobStateChange(Entity<SuperAdrenalineComponent> ent, ref MobStateChangedEvent args)
+    {
+        ent.Comp.Mobstate = args.NewMobState;
     }
     #endregion
 
