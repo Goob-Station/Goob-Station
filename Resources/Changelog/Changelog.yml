@@ -5448,3 +5448,12 @@ Entries:
   id: 9127
   time: '2025-10-19T19:09:04.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38542
+- author: PotentiallyTom
+  changes:
+  - message: AI Law boards now have a link to the lawsets guide page
+    type: Tweak
+  - message: Added the My, Robot book.
+    type: Add
+  id: 9128
+  time: '2025-10-19T21:10:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40944
