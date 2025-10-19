@@ -16562,3 +16562,13 @@ Entries:
         chap's cult armor
   id: 1854
   time: '2025-10-19T05:08:56.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed lavaland not having any weather and being unreachable for the
+        mining shuttle.
+    - type: Fix
+      message: Fixed ruins sometimes layering on top of the mining outpost.
+  id: 1855
+  time: '2025-10-19T11:47:10.0000000+00:00'
