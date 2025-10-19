@@ -768,7 +768,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         bool dirty = true)
     {
         targeted = EnsureComp<TargetedProjectileComponent>(projectile);
-        targeted.Target = target;
+        targeted.Target = TerminatingOrDeleted(target) ? null : target; // Goobstation - set to null if deleted
         if (dirty)
             Dirty(projectile, targeted);
     }
