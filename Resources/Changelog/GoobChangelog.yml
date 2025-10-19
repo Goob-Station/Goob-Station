@@ -16462,3 +16462,103 @@ Entries:
       message: You can no longer go to CC by putting quantum spin inverters in mice.
   id: 1844
   time: '2025-10-16T09:53:47.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Remove
+      message: >-
+        Removed pre-injected acidifier implant from all Nuclear Operatives, use
+        the one in your backpack instead if you need it.
+  id: 1845
+  time: '2025-10-16T16:59:06.0000000+00:00'
+- author: korczoczek
+  changes:
+    - type: Fix
+      message: Slings taking light damage while traveling through disposals
+  id: 1846
+  time: '2025-10-16T17:11:45.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: The RPDS should now work again. Catch this mail!
+  id: 1847
+  time: '2025-10-17T16:57:04.0000000+00:00'
+- author: Avalon-Proto, BarryNorfolk, AeraAuling, CliveOcelot, CerberusWolfie
+  changes:
+    - type: Add
+      message: Oni now have the option to bring a sake gourd with them to NT stations
+    - type: Add
+      message: >-
+        Cybersun has begun producing a new concoction of beasts blood, bottled
+        in special gourds for their oni operative. Unleash the inner beast
+    - type: Tweak
+      message: Oni damage buffs and resistances have been buffed
+    - type: Tweak
+      message: Oni can now drink to their heart's content
+    - type: Tweak
+      message: >-
+        Oni code has been refactored and cleaned up into 4 seperate components
+        instead of one big one
+    - type: Tweak
+      message: Oni inaccuracy debuff now works on all guns but shotguns
+    - type: Add
+      message: Adds Umbroxol, a medication for holy damage making use of unholy water
+    - type: Add
+      message: Adds the Unholy water reagent. Made with blood, Sulfur, and water
+  id: 1848
+  time: '2025-10-18T00:56:04.0000000+00:00'
+- author: Mehonizer
+  changes:
+    - type: Add
+      message: Plasmamen now spawn with tank harnesses just like voxes do
+  id: 1849
+  time: '2025-10-18T21:47:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Upgraded lathes can now print recipes via signal.
+  id: 1850
+  time: '2025-10-18T21:50:47.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: IPCs no longer drop handcuffs when discharged
+    - type: Fix
+      message: >-
+        IPCs can no longer interact with items they shouldn't be able to
+        interact with when discharged
+    - type: Fix
+      message: IPCs can drink from magfed lasers
+    - type: Fix
+      message: IPCs no longer have the borg low power accent at all times
+    - type: Fix
+      message: IPCs can no longer drop equipped items while discharged
+    - type: Fix
+      message: Fix spelling error in recharge text
+  id: 1851
+  time: '2025-10-18T22:00:47.0000000+00:00'
+- author: RadsammyT, Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        Interaction Verbs from Einstein Engines. GoobMRP folk: This brings back
+        the 'Interact' dropdown in the context menu. 
+    - type: Tweak
+      message: Interaction Verb 'Look At' changed to 'Stare' for impact
+  id: 1852
+  time: '2025-10-18T23:22:09.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Tweak: Ammonite Mercury now metabolizes more slowly and no longer has
+        damage scaling.
+  id: 1853
+  time: '2025-10-19T02:26:10.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        added back the missing emag items syndicate smokes, cyber sun pen, and
+        chap's cult armor
+  id: 1854
+  time: '2025-10-19T05:08:56.0000000+00:00'
