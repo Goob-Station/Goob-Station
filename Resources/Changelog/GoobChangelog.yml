@@ -16592,3 +16592,31 @@ Entries:
       message: Resprited a bunch of hardsuits, modsuits, and other clothing for Vox
   id: 1858
   time: '2025-10-19T21:55:31.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: public lavaland to Atlas
+    - type: Add
+      message: genpop to Atlas
+    - type: Add
+      message: PTL to engi on Atlas
+    - type: Add
+      message: TEG to engi on Atlas
+    - type: Add
+      message: sentrie turrets to vault, armory on Atlas
+    - type: Add
+      message: AI sentrie turrets to AI core on Atlas
+    - type: Add
+      message: sentry turret controll pannels to vault, armory and AI core on atlas
+    - type: Add
+      message: Xenobiologie satelite to sci on Atlas
+    - type: Add
+      message: Departmental Economics to Atlas
+    - type: Add
+      message: Office chairs to Atlas
+    - type: Tweak
+      message: Layout of security on Atlas
+    - type: Tweak
+      message: moved the silo into cargo on Atlas
+  id: 1859
+  time: '2025-10-19T22:07:32.0000000+00:00'
