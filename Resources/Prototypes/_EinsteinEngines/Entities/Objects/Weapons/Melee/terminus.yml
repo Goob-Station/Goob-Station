@@ -38,12 +38,13 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 15
-        Slash: 15
+        Blunt: 10 #onis will be able to decap and delimb, non-onis will not be
+        Slash: 8
+        Piercing: 4 #pierce here exists so its easier to heal with chems
     soundHit:
       collection: MetalThud
-  - type: StaminaDamageOnHit
-    damage: 30
+#  - type: StaminaDamageOnHit - LMAOOOOOOO
+#    damage: 30
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
