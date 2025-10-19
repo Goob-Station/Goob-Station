@@ -141,6 +141,6 @@ public sealed class FloorCleanerSystem : EntitySystem
         _absorbent.Mop((uid,absorb), uid, target );
         _useDelay.CancelDelay((uid, useDelay)); // prevents cleaning loop from being aborted
 
-        return true;
+        return true; 
     }
 }
