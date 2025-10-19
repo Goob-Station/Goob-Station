@@ -236,6 +236,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+        - !type:OrganType # DeltaV - Reduced toxin damage for Oni
+          type: Oni
+          shouldHave: false
         - !type:OrganType
           type: Dwarf
           shouldHave: false
@@ -284,6 +287,24 @@
         - !type:OrganType
           type: Dwarf
         amount: 1
+  # Begin DeltaV Additons - Oni heal brute and take less poison
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Oni
+        damage:
+          groups:
+            Brute: -3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        - !type:OrganType
+          type: Oni
+        damage:
+          types:
+            Poison: 0.2
+      # End DeltaV Additons
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -299,6 +320,9 @@
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType # DeltaV - Oni Dont puke either
+          type: Oni
           shouldHave: false
       - !type:Drunk
         boozePower: 2
@@ -2650,6 +2674,9 @@
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
+        - !type:OrganType # DeltaV - Oni are our heavy drinkers
+          type: Oni
+          shouldHave: false
         damage:
           types:
             Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
@@ -2659,6 +2686,8 @@
           min: 6
         - !type:OrganType
           type: Dwarf
+        - !type:OrganType # Delta V - Same as above
+          type: Oni
         damage:
           types:
             Poison: 0.4 # TODO: Might increase this, even though it's just double of ethanol from 0.2 to 0.4
@@ -2673,4 +2702,7 @@
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType # Delta V - Same as above
+          type: Oni
           shouldHave: false
