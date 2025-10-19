@@ -16586,3 +16586,9 @@ Entries:
       message: Fixed sounds when using Medical items being played twice.
   id: 1857
   time: '2025-10-19T21:48:59.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprited a bunch of hardsuits, modsuits, and other clothing for Vox
+  id: 1858
+  time: '2025-10-19T21:55:31.0000000+00:00'
