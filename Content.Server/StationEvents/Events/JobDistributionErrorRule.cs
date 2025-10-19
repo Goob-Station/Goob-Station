@@ -10,6 +10,9 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class JobDistributionErrorRule : StationEventSystem<JobDistributionErrorRuleComponent>
 {
+    /// <summary>
+    /// Early merged from wizden in pr #4677.
+    /// </summary>
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
 
     protected override void Started(EntityUid uid, JobDistributionErrorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
