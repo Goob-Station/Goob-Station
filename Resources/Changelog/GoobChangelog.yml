@@ -16634,3 +16634,11 @@ Entries:
       message: Onis can use topicals, eat most foods, and be seen on medhuds again
   id: 1861
   time: '2025-10-20T00:23:10.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        Plamamen now start whit a smaller plasma tank but have a larger one in
+        the survivalkit.
+  id: 1862
+  time: '2025-10-20T09:08:26.0000000+00:00'
