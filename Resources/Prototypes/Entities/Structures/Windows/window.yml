@@ -136,7 +136,7 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-  - type: InteractionVerbs
+  - type: InteractionVerbs # GoobStation: EE Interaction Verbs
     allowedVerbs:
       - KnockOn
 
@@ -257,7 +257,7 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 10
-  - type: InteractionVerbs
+  - type: InteractionVerbs # GoobStation: EE Interaction Verbs
     allowedVerbs:
     - KnockOn
 
