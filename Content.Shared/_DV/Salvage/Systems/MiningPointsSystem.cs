@@ -81,7 +81,7 @@ public sealed class MiningPointsSystem : EntitySystem
     #endregion
     #region Public API
     /// <summary>
-    /// if user can claim mining points
+    /// if user can claim mining points 
     /// <summary>
     public bool CanClaimPoints(EntityUid user) // Goobstation - borg Miningpoints
     {
