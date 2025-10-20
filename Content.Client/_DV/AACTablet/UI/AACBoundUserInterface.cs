@@ -1,6 +1,7 @@
 using Content.Client.Chat.TypingIndicator;
 using Content.Shared._DV.AACTablet;
 using Content.Shared._DV.QuickPhrase;
+using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
@@ -28,7 +29,29 @@ public sealed class AACBoundUserInterface : BoundUserInterface
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
         _window.Typing += OnTyping;
         _window.SubmitPressed += OnSubmit;
+        SendMessage(new AACTabletLanguagesRefreshRequestEvent(Owner));
     }
+
+    /// <summary>
+    /// Ensures the tablet has a LanguageSpeakerComponent and updates the UI with its spoken languages.
+    /// </summary>
+    private void RefreshTabletLanguages()
+    {
+        if (!EntMan.TryGetComponent<LanguageSpeakerComponent>(Owner, out var speaker))
+            EntMan.EnsureComponent<LanguageSpeakerComponent>(Owner);
+
+        var test = speaker!.SpokenLanguages.Count;
+        // spokenlangugees will be universal if the component was just added here. handled in languagebuttonrefresh.
+        _window?.LanguageButtonRefresh(speaker.SpokenLanguages);
+    }
+
+    protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+    {
+        if (message is AACTabletLanguagesRefreshedEvent ev)
+            RefreshTabletLanguages();
+    }
+
+
 
     private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
     {

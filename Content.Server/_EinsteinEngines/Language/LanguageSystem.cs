@@ -218,7 +218,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     }
 
     /// <summary>
-    ///     Immediately clears without ensuring (!) the cached lists of spoken and understood languages for the given entity.
+    ///     Immediately clears without ensuring (!!!) the cached lists of spoken and understood languages for the given entity.
     /// </summary>
     public void ClearEntityLanguages(Entity<LanguageSpeakerComponent?> ent)
     {

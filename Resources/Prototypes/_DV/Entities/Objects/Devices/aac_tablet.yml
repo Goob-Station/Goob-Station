@@ -40,7 +40,6 @@
         type: AACBoundUserInterface
   - type: Speech
     speechSounds: Alto
-  - type: AACTablet
   - type: VoiceMask
     # Goob changes due to languages:
   - type: LanguageSpeaker #This should get added regardless on startup but eh future planning or whatever.
@@ -50,3 +49,4 @@
     containers:
       key_slots: #Hijacking.
       - EncryptionKeyLanguageTauCeti #todo now marty # Tau-ceti default, i assume ill implement checks if need to spawn for other languages in whateever system.cs
+  - type: AACTablet # This should load after EncryptionKeyHolder ContainerFIll and LanguageSpeaker

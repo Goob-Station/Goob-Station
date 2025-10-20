@@ -8,6 +8,7 @@
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <CheckBox Name="ShouldBuffer" Text="{Loc 'aac-tablet-combine'}"/>
             <LineEdit Name="BufferedString" Editable="False" HorizontalExpand="True"/>
+            <OptionButton Name="LanguageButton" HorizontalExpand="true" MinWidth="200"/>
             <Button Name="ClearButton" Text="{Loc 'aac-tablet-backspace'}" TextAlign="Center"/>
             <Button Name="SendButton" Text="{Loc 'aac-tablet-send'}" TextAlign="Center"/>
         </BoxContainer>

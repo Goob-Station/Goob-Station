@@ -36,14 +36,25 @@ public sealed class AACTabletSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
+        //goob languages start
+        SubscribeLocalEvent<AACTabletComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<AACTabletComponent, InteractUsingEvent>(OnLanguageKeyInsert);
         SubscribeLocalEvent<AACTabletComponent, EncryptionKeySystem.EncryptionRemovalFinishedEvent>(OnLanguageKeyRemove);
+        SubscribeLocalEvent<AACTabletComponent, AACTabletLanguagesRefreshRequestEvent>(OnRequestRefresh);
+        //goob languages end
     }
 
-    private void OnStartup(Entity<AACTabletComponent> ent, ComponentStartup start)
+    // Goob edit start, languages.
+    private void OnStartup(EntityUid uid, AACTabletComponent comp, ComponentStartup  args)
     {
-        RefreshLanguages(ent);
+        RefreshLanguages(uid);
     }
+
+    private void OnRequestRefresh(EntityUid uid, AACTabletComponent comp, AACTabletLanguagesRefreshRequestEvent args)
+    {
+        RefreshLanguages(uid);
+    }
+
 
     private void RefreshLanguages(EntityUid ent)
     {
@@ -53,18 +64,22 @@ public sealed class AACTabletSystem : EntitySystem
             !TryComp<LanguageSpeakerComponent>(ent, out var speaker) ||
             !container.Containers.TryGetValue(EncryptionKeyHolderComponent.KeyContainerName,
                 out var containedLanguageKeyList)
-           )
+        )
             return;
 
         foreach (var languageKey in containedLanguageKeyList)
         {
-            _prototype.TryIndex<EntityPrototype>(languageKey, out var languageKeyProto); // We're getting the languages from the key prototype NOT the tablet.
+            _prototype.TryIndex<EntityPrototype>(languageKey,
+                out var languageKeyProto); // We're getting the languages from the key prototype NOT the tablet.
             if (languageKeyProto == null ||
-                !languageKeyProto.Components.TryGetValue(_compFactory.GetComponentName<LanguageKnowledgeComponent>(), // What the fuck is this horseshit i miss TryGetComponent
+                !languageKeyProto.Components.TryGetValue(
+                    _compFactory
+                        .GetComponentName<
+                            LanguageKnowledgeComponent>(), // What the fuck is this horseshit i miss TryGetComponent
                     out var reg)
-                )
+               )
                 continue;
-            var innerKeyLanguageComp = (LanguageKnowledgeComponent)reg.Component;
+            var innerKeyLanguageComp = (LanguageKnowledgeComponent) reg.Component;
             _language.ClearEntityLanguages(ent);
             _language.AddLanguage(ent, innerKeyLanguageComp.SpokenLanguages.FirstOrDefault());
             _language.UpdateEntityLanguages(ent);
@@ -72,6 +87,12 @@ public sealed class AACTabletSystem : EntitySystem
 
         speaker.CurrentLanguage = speaker.SpokenLanguages.FirstOrDefault().ToString();
         _language.UpdateEntityLanguages(ent);
+
+        var uiEvent = new AACTabletLanguagesRefreshedEvent(ent)
+        {
+            SpokenLanguages = speaker.SpokenLanguages
+        };
+        RaiseNetworkEvent(uiEvent);
     }
 
     private void OnLanguageKeyInsert(EntityUid ent, AACTabletComponent comp, InteractUsingEvent args)
@@ -87,6 +108,8 @@ public sealed class AACTabletSystem : EntitySystem
             return;
         RefreshLanguages(args.Target.Value);
     }
+
+    // Goob edit end, language
 
 private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
     {
