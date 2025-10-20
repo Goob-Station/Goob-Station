@@ -15,37 +15,3 @@
       amount: 1
   products:
     BlackPowder: 3
-
-- type: reaction
-  id: PotassiumVinegarExplosion
-  impact: High
-  priority: 20
-  reactants:
-    Vinegar:
-      amount: 1
-    Potassium:
-      amount: 1
-  effects:
-    - !type:ExplosionReactionEffect
-      explosionType: Default
-      maxIntensity: 100
-      intensityPerUnit: 0.5 # identical to the reactions with water
-      intensitySlope: 4
-      maxTotalIntensity: 100
-
-- type: reaction
-  id: SodiumVinegarExplosion
-  impact: High
-  priority: 20
-  reactants:
-    Vinegar:
-      amount: 1
-    Sodium:
-      amount: 1
-  effects:
-    - !type:ExplosionReactionEffect
-      explosionType: Default
-      maxIntensity: 100
-      intensityPerUnit: 0.5
-      intensitySlope: 4
-      maxTotalIntensity: 100
