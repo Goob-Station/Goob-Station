@@ -30,7 +30,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
+using Content.Shared.Interaction.Components; 
 
 namespace Content.Goobstation.Shared.Vehicles;
 
