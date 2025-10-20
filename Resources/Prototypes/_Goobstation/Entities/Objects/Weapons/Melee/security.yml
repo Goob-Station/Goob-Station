@@ -103,7 +103,7 @@
       path: /Audio/Weapons/bladeslice.ogg
     activatedDamage:
       types:
-        Piercing: 24
+        Piercing: 18
   - type: IncreaseDamageOnWield
     damage:
       types:

@@ -259,7 +259,7 @@
         Blunt: 20
     soundHit:
       collection: MetalThud
-    bluntStaminaDamageFactor: 1,5
+    bluntStaminaDamageFactor: 1.5
   - type: Item
     size: Normal
   - type: Tag
