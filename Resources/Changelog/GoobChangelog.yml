@@ -16660,3 +16660,9 @@ Entries:
       message: Bleeding is shown on health analyzer again.
   id: 1863
   time: '2025-10-20T12:26:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added bodybag box to Brigmedic Locker
+  id: 1864
+  time: '2025-10-20T23:11:41.0000000+00:00'
