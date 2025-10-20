@@ -211,15 +211,6 @@
     Glass: 250
     Steel: 100
 
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: Terminus
-  result: Terminus # Einstein Engines
-  materials:
-    Steel: 1250
-    Plastic: 750
-    Gold: 500
-
 # Smartgun
 
 - type: latheRecipe
