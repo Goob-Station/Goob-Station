@@ -35,12 +35,6 @@
   - CartridgeSaline
   - SecHypo
 
-- type: latheRecipePack
-  id: SecurityWeaponsStaticGoob
-  recipes:
-  - PolymerBaton
-  - SpearTelescopic
-
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob

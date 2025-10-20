@@ -766,7 +766,6 @@
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
-    - SecurityWeaponsStaticGoob
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
