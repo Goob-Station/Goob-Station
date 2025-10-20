@@ -31,7 +31,7 @@ public sealed partial class PressureDamageChangeComponent : Component
     public bool Enabled = true;
 
     [DataField]
-    public float LowerBound = Atmospherics.OneAtmosphere * 0.2f;
+    public float LowerBound = Atmospherics.OneAtmosphere * 0.0f;
 
     [DataField]
     public float UpperBound = Atmospherics.OneAtmosphere * 0.5f;
