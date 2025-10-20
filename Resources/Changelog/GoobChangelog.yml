@@ -16628,3 +16628,9 @@ Entries:
       message: Popup when using gun now shows text properly again
   id: 1860
   time: '2025-10-19T23:32:24.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Onis can use topicals, eat most foods, and be seen on medhuds again
+  id: 1861
+  time: '2025-10-20T00:23:10.0000000+00:00'
