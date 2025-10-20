@@ -63,10 +63,9 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
-      - map: [ "belt" ] # Goob 120 - default belt under outerclothing
       - map: [ "outerClothing" ]
+      - map: [ "belt" ] # Goob
       - map: [ "eyes" ]
-      - map: [ "beltalt" ] # Goob 120
       - map: [ "neck" ]
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -155,10 +154,9 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "belt" ] # Goob 120 - default belt under outerclothing
     - map: [ "outerClothing" ]
+    - map: [ "belt" ] # Goob
     - map: [ "eyes" ]
-    - map: [ "beltalt" ] # Goob 120
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
