@@ -5490,3 +5490,10 @@ Entries:
   id: 9132
   time: '2025-10-20T00:40:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/32537
+- author: Kittygyat
+  changes:
+  - message: Added a cosmetic carp suit to the AutoDrobe's contraband inventory!
+    type: Add
+  id: 9133
+  time: '2025-10-20T02:56:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40995
