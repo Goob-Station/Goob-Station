@@ -136,6 +136,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: InteractionVerbs
+    allowedVerbs:
+      - KnockOn
 
 - type: entity
   parent: Window
@@ -157,9 +160,6 @@
     price: 70
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   id: WindowRCDResistant
