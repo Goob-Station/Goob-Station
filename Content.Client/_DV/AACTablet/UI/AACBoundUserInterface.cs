@@ -14,7 +14,6 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     private AACWindow? _window;
 
     private static readonly ProtoId<TypingIndicatorPrototype> AACTypingIndicator = "aac";
-
     private TypingIndicatorSystem? _typing;
 
     public AACBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -29,7 +28,7 @@ public sealed class AACBoundUserInterface : BoundUserInterface
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
         _window.Typing += OnTyping;
         _window.SubmitPressed += OnSubmit;
-        SendMessage(new AACTabletLanguagesRefreshRequestEvent(Owner));
+        RefreshTabletLanguages();
     }
 
     /// <summary>
@@ -39,19 +38,9 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         if (!EntMan.TryGetComponent<LanguageSpeakerComponent>(Owner, out var speaker))
             EntMan.EnsureComponent<LanguageSpeakerComponent>(Owner);
-
-        var test = speaker!.SpokenLanguages.Count;
         // spokenlangugees will be universal if the component was just added here. handled in languagebuttonrefresh.
-        _window?.LanguageButtonRefresh(speaker.SpokenLanguages);
+        _window?.LanguageButtonRefresh(speaker!.SpokenLanguages);
     }
-
-    protected override void ReceiveMessage(BoundUserInterfaceMessage message)
-    {
-        if (message is AACTabletLanguagesRefreshedEvent ev)
-            RefreshTabletLanguages();
-    }
-
-
 
     private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
     {

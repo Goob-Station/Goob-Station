@@ -4,31 +4,23 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.AACTablet;
 
-/// <summary>
-///     Raised on the AAC tablet its opened to request known languages from server.
-/// </summary>
-public sealed class AACTabletLanguagesRefreshRequestEvent(EntityUid uid) : BoundUserInterfaceMessage
+[Serializable, NetSerializable]
+public sealed class AACTabletLanguagesRefreshedEvent : EntityEventArgs
 {
     /// <summary>
-    /// The tablet itself
+    /// The tablet entity,
     /// </summary>
-    public EntityUid Uid = uid;
-}
-/// <summary>
-///     Raised on the AAC tablet from server to update the list of languages.
-/// </summary>
-public sealed class AACTabletLanguagesRefreshedEvent(EntityUid uid) : BoundUserInterfaceMessage
-{
-    /// <summary>
-    /// The tablet itself
-    /// </summary>
-    public EntityUid Uid = uid;
+    public NetEntity Tablet;
 
     /// <summary>
-    /// The known language protos
+    /// The known language prototypes.
     /// </summary>
-    public List<ProtoId<LanguagePrototype>> SpokenLanguages = [];
+    public List<ProtoId<LanguagePrototype>> SpokenLanguages;
+
+    public AACTabletLanguagesRefreshedEvent(NetEntity tablet, List<ProtoId<LanguagePrototype>> spokenlanguage)
+    {
+        Tablet = tablet;
+        SpokenLanguages = [];
+        SpokenLanguages.AddRange(spokenlanguage);
+    }
 }
-
-
-

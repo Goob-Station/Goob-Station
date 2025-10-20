@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Chat;
 using Content.Shared.Containers;
+using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Radio.Components;
@@ -40,7 +41,7 @@ public sealed class AACTabletSystem : EntitySystem
         SubscribeLocalEvent<AACTabletComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<AACTabletComponent, InteractUsingEvent>(OnLanguageKeyInsert);
         SubscribeLocalEvent<AACTabletComponent, EncryptionKeySystem.EncryptionRemovalFinishedEvent>(OnLanguageKeyRemove);
-        SubscribeLocalEvent<AACTabletComponent, AACTabletLanguagesRefreshRequestEvent>(OnRequestRefresh);
+        SubscribeLocalEvent<AACTabletComponent, GotEquippedHandEvent>(OnPickup);
         //goob languages end
     }
 
@@ -50,9 +51,13 @@ public sealed class AACTabletSystem : EntitySystem
         RefreshLanguages(uid);
     }
 
-    private void OnRequestRefresh(EntityUid uid, AACTabletComponent comp, AACTabletLanguagesRefreshRequestEvent args)
+    private void OnPickup(EntityUid uid, AACTabletComponent comp, GotEquippedHandEvent args)
     {
-        RefreshLanguages(uid);
+        if (!TryComp<LanguageSpeakerComponent>(uid, out var speaker))
+            return;
+        var netuid = GetNetEntity(uid);
+        var ev = new AACTabletLanguagesRefreshedEvent(netuid, speaker.SpokenLanguages);
+        RaiseNetworkEvent(ev, args.User);
     }
 
 
@@ -72,12 +77,7 @@ public sealed class AACTabletSystem : EntitySystem
             _prototype.TryIndex<EntityPrototype>(languageKey,
                 out var languageKeyProto); // We're getting the languages from the key prototype NOT the tablet.
             if (languageKeyProto == null ||
-                !languageKeyProto.Components.TryGetValue(
-                    _compFactory
-                        .GetComponentName<
-                            LanguageKnowledgeComponent>(), // What the fuck is this horseshit i miss TryGetComponent
-                    out var reg)
-               )
+                !languageKeyProto.Components.TryGetValue(_compFactory.GetComponentName<LanguageKnowledgeComponent>(), out var reg)) // What the fuck is this horseshit i miss TryGetComponent
                 continue;
             var innerKeyLanguageComp = (LanguageKnowledgeComponent) reg.Component;
             _language.ClearEntityLanguages(ent);
@@ -87,12 +87,6 @@ public sealed class AACTabletSystem : EntitySystem
 
         speaker.CurrentLanguage = speaker.SpokenLanguages.FirstOrDefault().ToString();
         _language.UpdateEntityLanguages(ent);
-
-        var uiEvent = new AACTabletLanguagesRefreshedEvent(ent)
-        {
-            SpokenLanguages = speaker.SpokenLanguages
-        };
-        RaiseNetworkEvent(uiEvent);
     }
 
     private void OnLanguageKeyInsert(EntityUid ent, AACTabletComponent comp, InteractUsingEvent args)
