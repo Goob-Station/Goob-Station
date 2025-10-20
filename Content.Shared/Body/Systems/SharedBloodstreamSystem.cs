@@ -26,6 +26,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Body.Systems;
 
@@ -458,6 +459,15 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 tempSolution.AddSolution(temp, _prototypeManager);
             }
 
+            // Goobstation start
+            // Set the freshness when the spill is created instead of every time new blood is created
+            foreach (var dna in tempSolution
+                .SelectMany(r => r.Reagent.EnsureReagentData().OfType<DnaData>()))
+            {
+                dna.Freshness = _timing.CurTime;
+            }
+            // Goobstation end
+
             _puddle.TrySpillAt(ent.Owner, tempSolution, out _, sound: false);
 
             tempSolution.RemoveAllSolution();
@@ -564,7 +574,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
         {
             dnaData.DNA = donorComp.DNA;
-            dnaData.Freshness = _timing.CurTime; // Goobstation
         }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
