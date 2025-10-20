@@ -101,7 +101,7 @@
   components:
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Megafauna
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound

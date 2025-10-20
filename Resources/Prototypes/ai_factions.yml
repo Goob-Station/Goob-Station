@@ -52,6 +52,7 @@
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
+    - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: NanoTrasen
@@ -70,6 +71,7 @@
   - Wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Mouse
@@ -90,6 +92,7 @@
   - Wizard
   - Dragon
   - Blob # Goobstation - Blob
+  - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: SimpleHostile
@@ -107,6 +110,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Megafauna # Goob - Lavaland
   friendly: # Goobstation
   - Wizard
   - Shadowling # Einstein Engines - Shadowlings
@@ -131,6 +135,7 @@
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Shadowling # Einstein Engines - Shadowlings
+  - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Xeno
@@ -148,6 +153,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Megafauna # Goob - Lavaland
   friendly: # Goobstation
     - Wizard
 
@@ -170,6 +176,7 @@
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Revolutionary
@@ -184,6 +191,7 @@
   - Wizard # Goobstation - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Megafauna # Goob - Lavaland
 
 - type: npcFaction
   id: AllHostile
@@ -205,6 +213,7 @@
   - Shadowling # Einstein Engines - Shadowlings
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Megafauna # Goob - Lavaland
 
 # Balloons Factions Edit:
 - type: npcFaction  
@@ -236,3 +245,27 @@
   - AllHostile
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
+  - Megafauna # Lavaland
+
+# Lavaland mob faction to stop gang wars
+- type: npcFaction
+  id: Megafauna
+  hostile:
+  - NanoTrasen
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates
+  friendly:
+  - Dragon
