@@ -10,6 +10,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
+using Content.Shared.DoAfter; // Goobstation. Do-after suicide
+using Robust.Shared.Serialization; // Goobstation. Do-after suicide
 
 namespace Content.Shared.Interaction.Events;
 
@@ -48,3 +50,9 @@ public sealed class SuicideGhostEvent : HandledEntityEventArgs
     public EntityUid Victim { get; set; }
     public bool CanReturnToBody;
 }
+// Goobstation beginning. Do-after suicide
+[Serializable, NetSerializable]
+public sealed partial class SuicideDoAfterEvent : SimpleDoAfterEvent
+{
+}
+// Goobstation end. Do-after suicide

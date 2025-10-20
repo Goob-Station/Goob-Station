@@ -60,13 +60,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/* Goobstation beginning. Removed quick suicide.
+///* Goobstation beginning. Removed quick suicide.
 
 using Content.Server.Popups;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using Content.Shared.DoAfter; // Goobstation - Do-after suicide
+using Content.Shared.Interaction.Events; // Goobstation - Do-after suicide
+using Robust.Shared.Player; // Goobstation - Do-after suicide
+using Content.Shared.Mobs.Systems; // Goobstation - Do-after suicide
 
 namespace Content.Server.Chat.Commands
 {
@@ -101,8 +105,7 @@ namespace Content.Server.Chat.Commands
                 shell.WriteLine(Loc.GetString("suicide-command-no-mind"));
                 return;
             }
-
-            var suicideSystem = _e.System<SuicideSystem>();
+            //            var suicideSystem = _e.System<SuicideSystem>(); // Goobstation - Do-after suicide
 
             if (_e.HasComponent<AdminFrozenComponent>(victim))
             {
@@ -112,12 +115,50 @@ namespace Content.Server.Chat.Commands
                     .PopupEntity(deniedMessage, victim, victim);
                 return;
             }
+            // Goobstation beginning. Do-after suicide
 
-            if (suicideSystem.Suicide(victim))
+            // Block suicide if the mob is in critical state.
+            var mobState = _e.System<MobStateSystem>();
+            if (mobState.IsCritical(victim))
+            {
+                var deniedMessage = Loc.GetString("suicide-command-denied");
+                shell.WriteLine(deniedMessage);
+                _e.System<PopupSystem>()
+                    .PopupEntity(deniedMessage, victim, victim);
                 return;
+            }
+
+            var doAfter = _e.System<SharedDoAfterSystem>();
+            var argsDo = new DoAfterArgs(
+                _e,
+                victim,
+                TimeSpan.FromSeconds(4),
+                new SuicideDoAfterEvent(),
+                victim,
+                target: victim)
+            {
+                NeedHand = false,
+                BreakOnMove = true,
+                BreakOnDamage = true,
+                RequireCanInteract = false,
+                MultiplyDelay = true,
+            };
+
+            if (doAfter.TryStartDoAfter(argsDo))
+            {
+                // Show suicide popups at do-after start
+                var popup = _e.System<PopupSystem>();
+                var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", _e.ToPrettyString(victim)));
+                popup.PopupEntity(othersMessage, victim, Filter.PvsExcept(victim), true);
+
+                var selfMessage = Loc.GetString("suicide-command-default-text-self");
+                popup.PopupEntity(selfMessage, victim, victim);
+                return;
+            }
+            // Goobstation end. Do-after suicide
 
             shell.WriteLine(Loc.GetString("ghost-command-denied"));
         }
     }
 }
-*/ // Goobstation end. Removed quick suicide
+
