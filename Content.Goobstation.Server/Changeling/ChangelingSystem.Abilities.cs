@@ -726,6 +726,7 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
 
         var panacea = _compFactory.GetComponent<BoostedImmunityComponent>();
+        panacea.AlertId = args.Alert;
         panacea.Duration = args.Duration;
 
         AddComp(uid, panacea, true);
@@ -812,6 +813,7 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-adrenaline"), uid, uid);
 
         var adrenaline = _compFactory.GetComponent<SuperAdrenalineComponent>();
+        adrenaline.AlertId = args.Alert;
         adrenaline.Duration = args.Duration;
         adrenaline.PassiveDamage = args.PassiveDamage;
 
@@ -832,6 +834,7 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
 
         var fleshmend = _compFactory.GetComponent<FleshmendComponent>();
+        fleshmend.AlertId = args.Alert;
         fleshmend.Duration = args.Duration;
         fleshmend.PassiveSound = args.PassiveSound;
         fleshmend.ResPath = args.ResPath;

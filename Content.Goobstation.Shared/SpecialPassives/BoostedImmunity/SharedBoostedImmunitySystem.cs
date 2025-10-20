@@ -4,6 +4,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -21,11 +22,12 @@ namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
 public abstract class SharedBoostedImmunitySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly BlindableSystem _blindSys = default!;
+    [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
-    [Dependency] private readonly BlindableSystem _blindSys = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
@@ -38,8 +40,16 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _statusQuery = GetEntityQuery<StatusEffectsComponent>();
 
+        SubscribeLocalEvent<BoostedImmunityComponent, ComponentRemove>(OnRemoved);
+
         SubscribeLocalEvent<BoostedImmunityComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<BoostedImmunityComponent, BeforeVomitEvent>(OnBeforeVomitEvent);
+    }
+
+    private void OnRemoved(Entity<BoostedImmunityComponent> ent, ref ComponentRemove args)
+    {
+        if (ent.Comp.AlertId != null)
+            _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
     }
 
     public override void Update(float frameTime)
@@ -169,7 +179,10 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     {
         if (ent.Comp.Mobstate == MobState.Dead
             && !ent.Comp.WorkWhileDead)
+        {
+            RemComp<BoostedImmunityComponent>(ent);
             return false;
+        }
 
         return true;
     }

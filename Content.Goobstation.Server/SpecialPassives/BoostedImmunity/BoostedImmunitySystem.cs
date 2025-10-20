@@ -36,7 +36,7 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
     {
         base.Initialize();
 
-        _mobStateQuery = new EntityQuery<MobStateComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
 
         SubscribeLocalEvent<BoostedImmunityComponent, MapInitEvent>(OnMapInit);
     }

@@ -1,7 +1,6 @@
 using Content.Goobstation.Common.Stunnable;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Clothing;
-using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
@@ -9,11 +8,14 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Stunnable;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline;
@@ -21,24 +23,28 @@ namespace Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline;
 public sealed class SharedSuperAdrenalineSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SleepingSystem _sleep = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly SleepingSystem _sleep = default!;
 
+    private EntityQuery<MobStateComponent> _mobstateQuery;
+    private EntityQuery<NerveSystemComponent> _nerveQuery;
     private EntityQuery<StaminaComponent> _staminaQuery;
     private EntityQuery<SleepingComponent> _sleepingQuery;
-    private EntityQuery<NerveSystemComponent> _nerveQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _mobstateQuery = GetEntityQuery<MobStateComponent>();
+        _nerveQuery = GetEntityQuery<NerveSystemComponent>();
         _staminaQuery = GetEntityQuery<StaminaComponent>();
         _sleepingQuery = GetEntityQuery<SleepingComponent>();
-        _nerveQuery = GetEntityQuery<NerveSystemComponent>();
 
         SubscribeLocalEvent<SuperAdrenalineComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SuperAdrenalineComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeStunEvent>(OnAttemptStun);
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeKnockdownEvent>(OnAttemptKnockdown);
@@ -56,6 +62,9 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
 
         if (ent.Comp.Duration.HasValue)
             ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
+
+        if (_mobstateQuery.TryComp(ent, out var state))
+            ent.Comp.Mobstate = state.CurrentState;
 
         if (ent.Comp.IgnoreStun)
             RemComp<StunnedComponent>(ent);
@@ -99,6 +108,12 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
         }
 
         Cycle(ent);
+    }
+
+    private void OnRemoved(Entity<SuperAdrenalineComponent> ent, ref ComponentRemove args)
+    {
+        if (ent.Comp.AlertId != null)
+            _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
     }
 
     public override void Update(float frameTime)
@@ -188,7 +203,10 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
     private bool TryValidMobstateCheck(Entity<SuperAdrenalineComponent> ent)
     {
         if (ent.Comp.Mobstate == MobState.Dead)
+        {
+            RemComp<SuperAdrenalineComponent>(ent);
             return false;
+        }
 
         return true;
     }

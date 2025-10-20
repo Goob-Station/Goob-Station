@@ -1,6 +1,8 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Alert;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 
@@ -10,6 +12,11 @@ namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BoostedImmunityComponent : Component
 {
+    /// <summary>
+    /// The alert id of the component (if one should exist)
+    /// </summary>
+    public ProtoId<AlertPrototype>? AlertId;
+
     /// <summary>
     /// How long should the effect go on for?
     /// </summary>
@@ -28,7 +35,7 @@ public sealed partial class BoostedImmunityComponent : Component
     /// <summary>
     /// Current mobstate of the entity.
     /// </summary>
-    public MobState? Mobstate;
+    public MobState Mobstate;
 
     /// <summary>
     /// Should the ability continue while on fire?

@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -27,12 +28,13 @@ namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend;
 public sealed class SharedFleshmendSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<MobStateComponent> _mobstateQuery;
@@ -65,10 +67,11 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
     private void OnRemoved(Entity<FleshmendComponent> ent, ref ComponentRemove args)
     {
-        if (_netManager.IsClient) // it'll throw a warning otherwise
-            return;
+        if (!_netManager.IsClient) // it'll throw a warning otherwise
+            RemoveFleshmendEffects(ent);
 
-        RemoveFleshmendEffects(ent);
+        if (ent.Comp.AlertId != null)
+            _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
     }
 
     public override void Update(float frameTime)
@@ -96,9 +99,11 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
     private void Cycle(Entity<FleshmendComponent> ent)
     {
-        if (!TryFlammableChecks(ent)
-            || !TryMobstateCheck(ent))
+        if (!IsValidFireCheck(ent)
+            || !IsValidMobstateCheck(ent))
             return;
+
+        TryAddFleshmendEffects(ent);
 
         HealDamage(ent);
     }
@@ -199,22 +204,6 @@ public sealed class SharedFleshmendSystem : EntitySystem
         ent.Comp.SoundSource = null;
     }
 
-    private bool TryFlammableChecks(Entity<FleshmendComponent> ent)
-    {
-        if (!IsValidFireCheck(ent))
-        {
-            RemoveFleshmendEffects(ent);
-
-            return false;
-        }
-        else
-        {
-            TryAddFleshmendEffects(ent);
-
-            return true;
-        }
-    }
-
     private bool IsValidFireCheck(Entity<FleshmendComponent> ent)
     {
         var fireEv = new GetFireStateEvent();
@@ -222,32 +211,22 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
         if (fireEv.OnFire
             && !ent.Comp.IgnoreFire)
+        {
+            RemoveFleshmendEffects(ent);
             return false;
+        }
 
         return true;
     }
 
-    private bool TryMobstateCheck(Entity<FleshmendComponent> ent)
-    {
-        if (!ValidMobstateCheck(ent))
-        {
-            RemoveFleshmendEffects(ent);
-
-            return false;
-        }
-        else
-        {
-            TryAddFleshmendEffects(ent);
-
-            return true;
-        }
-    }
-
-    private bool ValidMobstateCheck(Entity<FleshmendComponent> ent)
+    private bool IsValidMobstateCheck(Entity<FleshmendComponent> ent)
     {
         if (ent.Comp.Mobstate == MobState.Dead
             && !ent.Comp.WorkWhileDead)
-            return false;
+        {
+            RemComp<FleshmendComponent>(ent);
+            return false; // seems unecessary, but this stops the rest of the logic from running and prevents the vfx/sfx from persisting
+        }
 
         return true;
     }

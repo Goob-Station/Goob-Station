@@ -14,9 +14,9 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public sealed class SharedVoidAdaptionSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 

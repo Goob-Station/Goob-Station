@@ -3,9 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Alert;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
@@ -16,6 +18,11 @@ namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FleshmendComponent : Component
 {
+    /// <summary>
+    /// The alert id of the component (if one should exist)
+    /// </summary>
+    public ProtoId<AlertPrototype>? AlertId;
+
     /// <summary>
     /// How long should the effect go on for?
     /// </summary>
@@ -39,7 +46,7 @@ public sealed partial class FleshmendComponent : Component
     /// <summary>
     /// Current mobstate of the entity.
     /// </summary>
-    public MobState? Mobstate;
+    public MobState Mobstate;
 
     /// <summary>
     /// The passive sound to be played.
