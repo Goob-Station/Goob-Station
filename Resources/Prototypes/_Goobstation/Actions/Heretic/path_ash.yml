@@ -61,7 +61,7 @@
   components:
   - type: Action
     checkCanInteract: false
-    useDelay: 15
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -71,6 +71,9 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-rebirth
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 10
+    requiredPath: Ash
 
 - type: entity
   parent: BaseAction

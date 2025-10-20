@@ -76,8 +76,8 @@
     distance: 1
     speed: 5
   - type: Item
-    size: Normal
-    storedRotation: 45 # Goob
+    size: Normal # CorvaxGoob
+    storedRotation: 90 # Goob
   - type: Tool
     qualities:
     - Rolling

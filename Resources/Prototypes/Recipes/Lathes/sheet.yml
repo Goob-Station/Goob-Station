@@ -37,16 +37,16 @@
   result: SheetSteel1
   completetime: 0
   materials:
-    RawIron: 100 # Goobstation - was 100 # Corvax-Goob-OreSmeltingRebalance
-    Coal: 30 # Goobstation - was 30 # Corvax-Goob-OreSmeltingRebalance
+    RawIron: 100
+    Coal: 30
 
 - type: latheRecipe
   id: SheetSteel30
   result: SheetSteel
   completetime: 2
   materials:
-    RawIron: 3000 # Goobstation - was 3000 # Corvax-Goob-OreSmeltingRebalance
-    Coal: 1000 # Goobstation - was 1000 # Corvax-Goob-OreSmeltingRebalance
+    RawIron: 3000
+    Coal: 1000
 
 - type: latheRecipe
   id: SheetGlass1
