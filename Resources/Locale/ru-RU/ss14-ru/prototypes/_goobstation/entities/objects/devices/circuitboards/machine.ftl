@@ -1,10 +1,15 @@
 ent-MaterialSiloCircuitboard = сило (машинная плата)
     .desc = Печатная плата сило.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }
 ent-RoboticArmCircuitboard = робо-рука (машинная плата)
     .desc = Печатная плата робо-руки.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }
 ent-ConstructorCircuitboard = конструктор (машинная плата)
     .desc = Печатная плата конструктора.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }
 ent-StorageBinCircuitboard = контейнер для хранения (машинная плата)
     .desc = Печатная плата контейнера для хранения.
-ent-InteractorCircuitboard = интерактор (машинная плата)
-    .desc = Печатная плата интерактора.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }
+ent-InteractorCircuitboard = исполнитель (машинная плата)
+    .desc = Печатная плата исполнителя.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }

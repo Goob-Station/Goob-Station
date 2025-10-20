@@ -7,3 +7,4 @@ ent-ContrabandDetectorFrame = каркас детектора контрабан
     .desc = { "" }
 ent-ContrabandDetectorCircuitboard = детектор контрабанды (машинная плата)
     .desc = Машинная плата для детектора контрабанды.
+    .suffix = { ent-BaseMachineCircuitboard.suffix }

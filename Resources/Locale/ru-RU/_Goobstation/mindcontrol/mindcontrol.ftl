@@ -13,5 +13,5 @@ mindcontrol-briefing-get-master = Повинуйтесь { $master }
 
 ## uplink shop
 
-uplink-mindcontrol-implant-name = Имплант Контроля Разума
+uplink-mindcontrol-implant-name = Имплантер Контроля Разума
 uplink-mindcontrol-implant-desc = Когда тебе нужен просто друг.

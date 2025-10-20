@@ -6,5 +6,5 @@ ent-FoodMeatBingle = сырое мясо бингла
     .desc = Пахнет как дерьмо.
 ent-FoodMeatBingleCooked = стейк из бингла
     .desc = Всё ещё пахнет как дерьмо.
-ent-FoodMeatVoxFried = жареный «цыплёнок»
+ent-FoodMeatVoxFried = жареный "цыплёнок"
     .desc = Сочный кусочек куриного мяса... Вроде как...

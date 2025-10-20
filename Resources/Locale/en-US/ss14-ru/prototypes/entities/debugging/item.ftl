@@ -1,15 +1,3 @@
 ent-DebugItemShapeWeird = weirdly shaped item
     .desc = What is it...?
     .suffix = DEBUG
-ent-PonderingOrbRadioactive = pönderıng örb [700 rads]
-    .desc = If you can read this you are dead.. also someone is türking it
-    .suffix = DEBUG
-ent-PonderingOrbRadioactiveM = pönderıng örb [100 rads]
-    .desc = In glory of Richard Turk
-    .suffix = DEBUG
-ent-PonderingOrbRadioactiveS = pönderıng örb [7 rads]
-    .desc = Local artifact gone emmisive
-    .suffix = DEBUG
-ent-GasMinerNitrogenSM = N2 gas miner
-    .suffix = SM DEBUG, 4500kPa
-    .desc = { ent-GasMinerNitrogen.desc }

@@ -1,4 +1,4 @@
-ent-BaseMagazineBoxHighCaliber = ящик патронов (.50 анти-материальные)
+ent-BaseMagazineBoxHighCaliber = ящик патронов (.50 крупнокалиберные)
     .desc = { ent-BaseItem.desc }
 ent-MagazineBoxHighCaliber = { ent-BaseMagazineBoxHighCaliber }
     .desc = { ent-BaseMagazineBoxHighCaliber.desc }

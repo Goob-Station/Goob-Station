@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-uplink-syndicate-deck-name = Syndicate Deck Box
-uplink-syndicate-deck-desc = A deck box with the standard 53 playing cards with syndicate branding. Please gamble responsibly.
+uplink-syndicate-deck-name = Rоробка для колоды Cиндиката
+uplink-syndicate-deck-desc = Коробка со стандартной колодой из 53 игральных карт с символикой Синдиката. Пожалуйста, играйте ответственно.
