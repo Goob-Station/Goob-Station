@@ -37,7 +37,7 @@
         - MachineLayer
   - type: Battery
     maxCharge: 1500
-    startingCharge: 1500
+    startingCharge: 0
   - type: ApcPowerReceiverBattery
     idleLoad: 65
     batteryRechargeRate: 30
