@@ -60,7 +60,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-///* Goobstation beginning. Removed quick suicide.
 
 using Content.Server.Popups;
 using Content.Shared.Administration;
