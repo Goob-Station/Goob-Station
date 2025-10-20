@@ -19,7 +19,7 @@ using System.Numerics;
 namespace Content.Goobstation.Server.Voodoo
 {
     /// <summary>
-    /// System used for the voodoo component for making someone take damage when their counterpart "voodoo doll" takes damage.
+    /// System used for the voodoo component for making someone take damage, and throw them when their counterpart "voodoo doll" takes damage.
     /// </summary>
     public sealed class VengeanceSystem : EntitySystem
     {
@@ -33,7 +33,6 @@ namespace Content.Goobstation.Server.Voodoo
         {
             base.Initialize();
 
-            // Listen for when an entity with VengeanceComponent is damaged
             SubscribeLocalEvent<VoodooComponent, DamageChangedEvent>(OnDamaged);
             SubscribeLocalEvent<VoodooComponent, DestructionEventArgs>(OnDestroyed);
             SubscribeLocalEvent<VoodooComponent, ThrownEvent>(OnThrow);
