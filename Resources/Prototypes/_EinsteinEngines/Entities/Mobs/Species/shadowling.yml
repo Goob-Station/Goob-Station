@@ -63,6 +63,7 @@
   - type: LightDetection
     onLightLevel: 0.25
   - type: LightDetectionDamage
+  - type: ZombieImmune  # Goobstation
 
 - type: entity
   parent: BaseSpeciesDummy
