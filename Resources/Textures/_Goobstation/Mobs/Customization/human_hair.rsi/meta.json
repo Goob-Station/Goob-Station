@@ -4,7 +4,7 @@
       "x": 32,
       "y": 32
     },
-    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936, JohnOakman, poofed ported from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi; Long twintails hair by OnsenCapy",
+    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936, JohnOakman, poofed ported from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi; Long twintails hair by OnsenCapy; loosebun and lowponytail ported from https://github.com/Monkestation/Monkestation2.0/blob/67175e73aa192336cd69ad61f2c4b42423a87969/monkestation/icons/mob/sprite_accessories/hair.dmi and modified by whowhatwhenwherewhy. Classic_bun taken from https://github.com/cmss13-devs/cmss13/blob/master/icons/mob/humans/human_hair.dmi.",
     "license": "CC-BY-SA-3.0",
     "states": [
       {
@@ -41,6 +41,18 @@
       },
       {
         "name": "frontBraidsMedium",
+        "directions": 4
+      },
+      {
+        "name": "classic_bun",
+        "directions": 4
+      },
+      {
+        "name": "lowponytail",
+        "directions": 4
+      },
+      {
+        "name": "loosebun",
         "directions": 4
       },
       {

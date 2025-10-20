@@ -111425,15 +111425,6 @@ entities:
     - type: Transform
       pos: -39.5,37.5
       parent: 2
-- proto: GatfruitSeeds
-  entities:
-  - uid: 20986
-    components:
-    - type: Transform
-      parent: 10443
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Gauze
   entities:
   - uid: 10431
@@ -125096,46 +125087,6 @@ entities:
     - type: Transform
       pos: 15.5,-16.5
       parent: 2
-- proto: LockerBotanistLoot
-  entities:
-  - uid: 10443
-    components:
-    - type: Transform
-      pos: 68.5,19.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14624
-        moles:
-        - 1.606311
-        - 6.042789
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 20986
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 10444
     components:
     - type: Transform
