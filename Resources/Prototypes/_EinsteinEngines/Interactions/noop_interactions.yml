@@ -48,7 +48,6 @@
     # TODO: this should pull the target closer or sumth, but I need to code that action first
     !type:NoOpAction
 
-
 # Knocking on the target - windows, doors, etc.
 - type: Interaction
   id: KnockOn

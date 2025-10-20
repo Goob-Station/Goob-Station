@@ -10,7 +10,6 @@ interaction-Hug-success-self-popup = You hug {THE($target)}.
 interaction-Hug-success-target-popup = {THE($user)} hugs you.
 interaction-Hug-success-others-popup = {THE($user)} hugs {THE($target)}.
 
-
 interaction-KnockOn-name = Knock
 interaction-KnockOn-description = Knock on the target to attract attention.
 interaction-KnockOn-success-self-popup = You knock on {THE($target)}.
