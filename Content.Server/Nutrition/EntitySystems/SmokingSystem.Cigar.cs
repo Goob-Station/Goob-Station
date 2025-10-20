@@ -39,7 +39,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (args.Handled || !args.Complex)
                 return;
 
-            if (!EntityManager.TryGetComponent(entity, out SmokableComponent? smokable))
+            if (!TryComp(entity, out SmokableComponent? smokable))
                 return;
 
             if (smokable.State != SmokableState.Lit)
@@ -54,7 +54,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (args.Handled)
                 return;
 
-            if (!EntityManager.TryGetComponent(entity, out SmokableComponent? smokable))
+            if (!TryComp(entity, out SmokableComponent? smokable))
                 return;
 
             if (smokable.State != SmokableState.Unlit)
@@ -75,7 +75,7 @@ namespace Content.Server.Nutrition.EntitySystems
             var targetEntity = args.Target;
             if (targetEntity == null ||
                 !args.CanReach ||
-                !EntityManager.TryGetComponent(entity, out SmokableComponent? smokable) ||
+                !TryComp(entity, out SmokableComponent? smokable) ||
                 smokable.State == SmokableState.Lit)
                 return;
 

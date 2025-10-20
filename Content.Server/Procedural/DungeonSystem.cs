@@ -82,6 +82,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -99,8 +100,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
     private readonly JobQueue _dungeonJobQueue = new(DungeonJobTime);
     private readonly Dictionary<DungeonJob.DungeonJob, CancellationTokenSource> _dungeonJobs = new();
 
-    [ValidatePrototypeId<ContentTileDefinition>]
-    public const string FallbackTileId = "FloorSteel";
+    public static readonly ProtoId<ContentTileDefinition> FallbackTileId = "FloorSteel";
 
     public override void Initialize()
     {
@@ -258,6 +258,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
             this,
             _lookup,
             _tile,
+            _turf,
             _transform,
             gen,
             grid,
@@ -290,6 +291,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
             this,
             _lookup,
             _tile,
+            _turf,
             _transform,
             gen,
             grid,

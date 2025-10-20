@@ -31,7 +31,7 @@ public static class MidiParser
         stream.Skip(2); // time div
 
         // We now skip ahead if we still have any header length left
-        stream.Skip((int)(headerLength - 6));
+        stream.Skip((int) (headerLength - 6));
 
         var parsedTracks = new List<MidiTrack>();
 
@@ -102,6 +102,8 @@ public static class MidiParser
                         // 0x03 is TrackName,
                         // 0x04 is InstrumentName
 
+                        // This string can potentially contain control characters, including 0x00 which can cause problems if it ends up in database entries via admin logs
+                        // we sanitize TrackName and InstrumentName after they have been send to the server
                         var text = Encoding.ASCII.GetString(metaData, 0, (int)metaLength);
                         switch (metaType)
                         {

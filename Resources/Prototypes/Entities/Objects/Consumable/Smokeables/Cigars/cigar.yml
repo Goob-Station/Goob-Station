@@ -73,6 +73,9 @@
     equippedPrefix: unlit
   - type: Item
     size: Tiny
+  - type: Tag
+    tags:
+      - Cigarette #Goobstation - whitelisted cig pack strorage (added tag)
 
 - type: entity
   id: CigarGoldSpent

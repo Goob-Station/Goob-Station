@@ -33,6 +33,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -84,7 +85,7 @@ namespace Content.Server.Bible
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
             SubscribeLocalEvent<FamiliarComponent, MobStateChangedEvent>(OnFamiliarDeath);
             SubscribeLocalEvent<FamiliarComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
-            
+
         }
 
         private readonly Queue<EntityUid> _addQueue = new();
@@ -120,7 +121,7 @@ namespace Content.Server.Bible
                 // Clean up the old body
                 if (summonableComp.Summon != null)
                 {
-                    EntityManager.DeleteEntity(summonableComp.Summon.Value);
+                    Del(summonableComp.Summon.Value);
                     summonableComp.Summon = null;
                 }
                 summonableComp.AlreadySummoned = false;
@@ -280,7 +281,7 @@ namespace Content.Server.Bible
                 return;
 
             // Make this familiar the component's summon
-            var familiar = EntityManager.SpawnEntity(component.SpecialItemPrototype, position.Coordinates);
+            var familiar = Spawn(component.SpecialItemPrototype, position.Coordinates);
             component.Summon = familiar;
 
             // If this is going to use a ghost role mob spawner, attach it to the bible.

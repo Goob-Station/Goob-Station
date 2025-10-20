@@ -48,11 +48,13 @@
     - Snout
     clothingSlots:
     - mask
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     clothingVisuals:
       head:
       - state: on-equipped-HELMET
         shader: unshaded
+  - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     color: "#ffa1ff"
@@ -80,8 +82,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: PowerCellSlot
     cellSlotId: cell_slot
@@ -104,7 +106,8 @@
   id: ClothingHeadEnvirohelmCustomBase
   name: base custom envirosuit helmet
   components:
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
     inhandVisuals:
       left:
       - state: on-inhand-left

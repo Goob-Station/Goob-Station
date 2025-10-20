@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
@@ -22,8 +23,10 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
+    - Schechi               # From Floof
     understands:
     - TauCetiBasic
+    - Schechi               # From Floof
   - type: Fixtures
     fixtures:
       fix1:
@@ -247,7 +250,6 @@
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "belt" ]                             # Above leg
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]  # Hands below jumpsuit since its bigger-than-usual sprite and this allows jumpsuits to have better-looking sleeves
@@ -263,6 +265,7 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "belt" ] #Goobedit - Belts over outerwear
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "back" ]
@@ -370,7 +373,6 @@
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "belt" ]                             # Above leg
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]  # Hands below jumpsuit since its bigger-than-usual sprite and this allows jumpsuits to have better-looking sleeves
@@ -386,6 +388,7 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "belt" ] #Goobedit - Belts over outerwear
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "back" ]

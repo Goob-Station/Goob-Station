@@ -14,10 +14,19 @@
 // SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <43324723+Topicranger@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <krusti@fluffytech.xyz>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Collections;
+using System.Text;
 using Robust.Shared.Audio.Midi;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -41,7 +50,7 @@ public abstract partial class SharedInstrumentComponent : Component
     public bool AllowPercussion { get; set; }
 
     [DataField("allowProgramChange"), ViewVariables(VVAccess.ReadWrite)]
-    public bool AllowProgramChange { get ; set; }
+    public bool AllowProgramChange { get; set; }
 
     [DataField("respectMidiLimits"), ViewVariables(VVAccess.ReadWrite)]
     public bool RespectMidiLimits { get; set; } = true;
@@ -226,6 +235,18 @@ public sealed class MidiTrack
             ProgramName = Truncate(ProgramName, limit);
     }
 
+    public void SanitizeFields()
+    {
+        if (InstrumentName != null)
+            InstrumentName = Sanitize(InstrumentName);
+
+        if (TrackName != null)
+            TrackName = Sanitize(TrackName);
+
+        if (ProgramName != null)
+            ProgramName = Sanitize(ProgramName);
+    }
+
     private const string Postfix = "…";
     // TODO: Make a general method to use in RT? idk if we have that.
     private string Truncate(string input, int limit)
@@ -236,5 +257,18 @@ public sealed class MidiTrack
         var truncatedLength = limit - Postfix.Length;
 
         return input.Substring(0, truncatedLength) + Postfix;
+    }
+
+    private static string Sanitize(string input)
+    {
+        var sanitized = new StringBuilder(input.Length);
+
+        foreach (char c in input)
+        {
+            if (!char.IsControl(c) && c <= 127) // no control characters, only ASCII
+                sanitized.Append(c);
+        }
+
+        return sanitized.ToString();
     }
 }

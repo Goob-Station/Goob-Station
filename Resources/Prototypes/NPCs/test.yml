@@ -21,7 +21,7 @@
   id: MobPathfindDummy
   name: pathfind dummy
   suffix: NPC
-  parent: MobXenoRouny
+  parent: MobSpiderAngryBase
   components:
   - type: HTN
     rootTask:

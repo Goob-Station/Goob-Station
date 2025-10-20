@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -13,11 +15,27 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingHeadHelmetRaid
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetBase]
   id: ClothingHeadHelmetHelldiver
   name: salvage NT-01 tactical helmet
   description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
   components:
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Caustic: 0.35
   - type: BreathMask
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
@@ -49,6 +67,10 @@
         Shock: 0.7
         Radiation: 0.01
         Caustic: 0.5
+  - type: HideLayerClothing
+    layers:
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -108,3 +130,22 @@
         Heat: 0.75
   - type: PressureProtection
     lowPressureMultiplier: 1000
+
+- type: entity  # Helmets hide / show hair verb
+  parent: [ClothingHeadHelmetBase, BaseFoldable]
+  id: ClothingHeadHelmetBaseFoldable 
+  abstract: true
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-hidehair-verb
+    foldVerbText: fold-showhair-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: ""
+    foldedSlots:
+    - HEAD
+    unfoldedSlots:
+    - HEAD
+    unfoldedHideLayers:
+    - Hair
+    foldedHideLayers: []

@@ -145,11 +145,16 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+      - Felinid
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
   goobcoins: 40 #Goob content
+  weight: 10 #Goob Edit
   access:
   - Medical
   - Command

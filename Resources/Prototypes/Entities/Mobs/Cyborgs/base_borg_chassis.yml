@@ -146,6 +146,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
@@ -250,7 +251,7 @@
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
-        toggleAction: ActionAGhostShowStationMap
+        toggleAction: ActionShowStationMap
   - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
@@ -261,7 +262,7 @@
   - type: EmagSiliconLaw
     stunTime: 5
   - type: SiliconLawProvider
-    laws: Asimov
+    laws: Crewsimov
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -336,6 +337,11 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+    allowedEmotes: # Goobstation - Cyborg emote sounds
+    - Laugh
+    - Sigh
+    - Crying
+    - Whistle
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
@@ -391,20 +397,20 @@
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
-      isLooped: true
+      - !type:FadeBehaviour
+        id: radiating
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
   - type: ToggleableVisuals
     spriteLayer: light
   - type: PointLight
@@ -424,6 +430,8 @@
     - CanPilot
     - Unimplantable
     - SiliconMob
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from borgs.
+    - SiliconEmotes
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -431,10 +439,10 @@
     - Robotics
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
-    - SolCommon
+    - TauCetiBasic
     - RobotTalk
     understands:
-    - SolCommon
+    - TauCetiBasic
     - RobotTalk
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
@@ -513,7 +521,7 @@
     factions:
     - NanoTrasen
   - type: SiliconLawProvider
-    laws: Asimov # Goobstation - AI/borg law changes - borgs obeying AI
+    laws: CrewsimovBorg # Goobstation - AI/borg law changes - borgs obeying AI
   - type: Access
     enabled: false
     groups:
@@ -561,6 +569,11 @@
     speechSounds: SyndieBorg
     allowedEmotes:
     - Laugh
+    # Goobstation - Cyborg emote sounds
+    - Sigh
+    - Crying
+    - Whistle
+    # end Goobstation - Cyborg emote sounds
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
@@ -644,6 +657,11 @@
     speechSounds: Xenoborg
     allowedEmotes:
     - Laugh
+    # Goobstation - Cyborg emote sounds
+    - Sigh
+    - Crying
+    - Whistle
+    # end Goobstation - Cyborg emote sounds
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconXenoborg

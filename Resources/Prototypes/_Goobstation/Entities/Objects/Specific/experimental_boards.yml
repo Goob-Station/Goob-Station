@@ -13,7 +13,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: Asimov # Placeholder because lazy.
+    laws: Crewsimov # Placeholder because lazy.
   - type: ExperimentalLawProvider
 
 - type: entity
@@ -27,7 +27,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: Asimov # Placeholder because lazy.
+    laws: Crewsimov # Placeholder because lazy.
   - type: ExperimentalLawProvider
     rewardTime: 10.0
     rewardPoints: 100000

@@ -54,6 +54,7 @@
     - BaseStationCargo
     - BaseStationJobsSpawning
     - BaseStationRecords
+    - BaseStationNtrTasks
     - BaseStationArrivals
     - BaseStationGateway
     - BaseStationShuttles
@@ -63,7 +64,7 @@
     - BaseStationMagnet
     - BaseStationExpeditions
     - BaseStationSalvageJobs
-    - BaseStationSiliconLawAsimov
+    - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationMail # Nyano component, required for station mail to function

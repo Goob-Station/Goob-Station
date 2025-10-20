@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by Kai518 (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ 
+    {
+      "name": "egg_burst"
+    },
+    {
+      "name": "egg_bursting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "egg_growing"
+    },
+    {
+      "name": "egg_grown"
+    }
+  ]
+}

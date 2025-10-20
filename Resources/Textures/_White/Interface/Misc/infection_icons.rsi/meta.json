@@ -1,0 +1,42 @@
+
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/029cdbdae1a118c40b558a75e8171fbd49d560a6/icons/mob/hud/hud.dmi | Edited by Spatison (Github)",
+  "size": {
+    "x": 8,
+    "y": 8
+  },
+  "states": [
+      {
+          "name": "xenomorph_0"
+      },
+      {
+          "name": "xenomorph_1"
+      },
+      {
+          "name": "xenomorph_2"
+      },
+      {
+          "name": "xenomorph_3"
+      },
+      {
+          "name": "xenomorph_4"
+      },
+      {
+          "name": "xenomorph_5"
+      },
+      {
+          "name": "xenomorph_6",
+          "delays": [
+            [
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ]
+         ]
+      }
+   ]
+}

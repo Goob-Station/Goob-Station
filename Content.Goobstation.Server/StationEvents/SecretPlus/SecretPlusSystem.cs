@@ -81,6 +81,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
     // cvars
     private float _minimumTimeUntilFirstEvent;
+    private float _roundstartChaosScoreMultiplier;
 
     private ISawmill _sawmill = default!;
 
@@ -91,13 +92,16 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         _sawmill = _log.GetSawmill("secret_plus");
 
         Subs.CVar(_cfg, GoobCVars.MinimumTimeUntilFirstEvent, value => _minimumTimeUntilFirstEvent = value, true);
+        Subs.CVar(_cfg, GoobCVars.RoundstartChaosScoreMultiplier, value => _roundstartChaosScoreMultiplier = value, true);
     }
 
     protected override void Added(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
         // set up starting chaos score
-        scheduler.ChaosScore = -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers);
+        scheduler.ChaosScore =
+            -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers) *
+            _roundstartChaosScoreMultiplier;
 
         // roll midroundchaos generation variation
         var roll = _random.NextFloat();

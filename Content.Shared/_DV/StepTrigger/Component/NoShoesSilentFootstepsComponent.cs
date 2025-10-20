@@ -9,7 +9,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.StepTrigger.Components;
+namespace Content.Shared._DV.StepTrigger.Components;
 
 
 [RegisterComponent, NetworkedComponent]

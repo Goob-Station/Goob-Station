@@ -337,3 +337,16 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  id: SpawnPointGhostAncientRogueKing
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: AncientRogueKingToken
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Mobs/Xenos/king.rsi
+      state: rogue

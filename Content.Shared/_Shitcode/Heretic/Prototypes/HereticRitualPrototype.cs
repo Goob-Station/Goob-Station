@@ -10,17 +10,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Materials;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticRitual")]
-public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
+public sealed partial class HereticRitualPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
@@ -72,22 +69,4 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField]
     public bool RuneSuccessAnimation = true;
-
-    /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-    public object Clone()
-    {
-        return new HereticRitualPrototype()
-        {
-            ID = ID,
-            RequiredEntityNames = RequiredEntityNames,
-            RequiredTags = RequiredTags,
-            CustomBehaviors = CustomBehaviors,
-            Output = Output,
-            OutputEvent = OutputEvent,
-            OutputKnowledge = OutputKnowledge,
-            LocName = LocName,
-            LocDesc = LocDesc,
-            Icon = Icon
-        };
-    }
 }

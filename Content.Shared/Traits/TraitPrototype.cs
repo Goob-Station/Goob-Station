@@ -15,6 +15,7 @@
 
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes; // Goob: Ported from DeltaV - Species specific trait support.
 
 namespace Content.Shared.Traits;
 
@@ -75,6 +76,18 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// Goob: Ported from DeltaV - Hides traits from specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
+
+    /// <summary>
+    /// Goob: Only shows traits to specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> IncludedSpecies = new();
 
     // Einstein Engines - Language begin (remove this if trait system refactor)
     /// <summary>

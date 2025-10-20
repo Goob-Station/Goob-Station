@@ -100,6 +100,11 @@
   name: signal-port-name-automation-slot-tool
   description: signal-port-description-automation-slot-tool
 
+- type: sinkPort
+  id: AltInteract
+  name: signal-port-name-alt-interact
+  description: signal-port-description-alt-interact
+
 # Autodoc
 
 - type: sinkPort
@@ -113,3 +118,10 @@
   id: AutomationSlotGasTank
   name: signal-port-name-automation-slot-gas-tank
   description: signal-port-description-automation-slot-gas-tank
+
+# Lathe
+
+- type: sinkPort
+  id: LathePrint
+  name: signal-port-name-lathe-print
+  description: signal-port-description-lathe-print

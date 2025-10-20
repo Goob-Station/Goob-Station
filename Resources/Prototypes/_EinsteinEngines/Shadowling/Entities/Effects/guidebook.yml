@@ -1,0 +1,10 @@
+- type: entity
+  id: GuidebookShadowling
+  name: guidebook shadowling
+  description: what
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Shadowling/Guidebook/guidebook.rsi
+    state: icon
+
