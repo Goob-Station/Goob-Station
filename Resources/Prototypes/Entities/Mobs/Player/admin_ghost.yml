@@ -273,6 +273,8 @@
     baseSprintSpeed: 30
     baseWalkSpeed: 12
   # Corvax-Goob-end
+  - type: OwnInteractionVerbs
+    allowedVerbs: []
   - type: ExplosionResistance
     damageCoefficient: 0
 

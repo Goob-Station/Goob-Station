@@ -333,7 +333,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new WieldAttemptEvent();
+                var beforeWieldEv = new WieldAttemptEvent(owner);
                 RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
@@ -570,7 +570,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     foreach (var comp in compFilter.Components)
                     {
-                        if (HasComp(ent, comp.Value.Component.GetType()))
+                        if (HasComp(ent, comp.Value.Component.GetType()) ^ compFilter.Invert) // Goob edit
                             continue;
 
                         _entityList.Add(ent);

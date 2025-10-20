@@ -35,24 +35,34 @@
     # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: ScaleData # Goobstation
     # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
-  - type: Oni
-    modifiers:
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.6
+  - type: PlayerAccuracyModifier
+    spreadMultiplier: 15
+    maxSpreadAngle: 180
+  - type: BonusStaminaDamage
+    multiplier: 1.25
+  - type: BonusMeleeDamage
+    damageModifierSet:
       coefficients:
-        Blunt: 1.35
-        Slash: 1.2
-        Piercing: 1.2
-        Structural: 1.35 # Goobstation - Changed from Asphyxiation
+        Blunt: 1.3
+        Slash: 1.3
+        Piercing: 1.3
+        Asphyxiation: 1.3
+        Structural: 1.3
   - type: Damageable
     damageModifierSet: Oni
   - type: Body
     prototype: Oni
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 0.5 # REAL hard to get drunk
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.35 # Goobstation: port EE height/width sliders
-        density: 220
+        density: 275 #Goob - HEAVY Bastards
         restitution: 0.0
         mask:
         - MobMask
