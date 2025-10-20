@@ -719,6 +719,7 @@
     damage:
       types:
         Heat: 1
+  - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: fire

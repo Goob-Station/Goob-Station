@@ -5,10 +5,16 @@ using Content.Shared.Damage;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible;
+using Content.Shared.Weapons.Melee.Components;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Throwing;
 using Robust.Shared.Player;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Server.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Maths;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Voodoo
 {
@@ -21,6 +27,7 @@ namespace Content.Goobstation.Server.Voodoo
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+        [Dependency] private readonly ThrowingSystem _throwing = default!;
 
         public override void Initialize()
         {
@@ -29,6 +36,7 @@ namespace Content.Goobstation.Server.Voodoo
             // Listen for when an entity with VengeanceComponent is damaged
             SubscribeLocalEvent<VoodooComponent, DamageChangedEvent>(OnDamaged);
             SubscribeLocalEvent<VoodooComponent, DestructionEventArgs>(OnDestroyed);
+            SubscribeLocalEvent<VoodooComponent, ThrownEvent>(OnThrow);
         }
 
         private void OnDamaged(EntityUid uid, VoodooComponent comp, ref DamageChangedEvent args)
@@ -67,7 +75,38 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                _bodySystem.GibBody(target, splatModifier: 20);
+                var bruteGroup = _proto.Index<DamageGroupPrototype>("Brute");
+                var damage = new DamageSpecifier(bruteGroup, 200);
+
+                _damageable.TryChangeDamage(target, damage);
+
+                break;
+            }
+        }
+        private void OnThrow(Entity<VoodooComponent> ent, ref ThrownEvent args)
+        {
+            foreach (var session in _playerManager.Sessions)
+            {
+                if (session.AttachedEntity is not { Valid: true } target)
+                    continue;
+
+                var name = MetaData(target).EntityName;
+
+                if (!name.Equals(ent.Comp.TargetName, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                var random = IoCManager.Resolve<IRobustRandom>();
+                var strength = random.NextFloat(3f, 5f);
+
+                var origin = Transform(ent).MapPosition.Position;
+                var targetPos = Transform(target).MapPosition.Position;
+
+                var direction = targetPos - origin;
+                if (direction == Vector2.Zero)
+                    direction = random.NextVector2(1f);
+
+                _throwing.TryThrow(target, direction, strength, args.User);
+
 
                 break;
             }
