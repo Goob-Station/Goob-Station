@@ -4,6 +4,5 @@ xenomorphs-face-hugger-unequip = { $equipment } прицепился слишк�
 xenomorphs-face-hugger-try-equip = { $equipment } врезается в твой { $equipmentBlocker }
 xenomorphs-face-hugger-try-equip-other = { $equipment } врезается в { $equipmentBlocker } { $target }
 
-<#-- Goob station -- >
 xenomorphs-face-hugger-mask-blocked = Твой { $mask } блокирует { $facehugger }!
 xenomorphs-face-hugger-mask-blocked-other = { $facehugger } блокируется { $mask } { $target }!
