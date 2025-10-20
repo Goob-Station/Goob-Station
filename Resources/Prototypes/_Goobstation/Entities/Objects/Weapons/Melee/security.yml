@@ -95,7 +95,7 @@
       - type: DamageOtherOnHit
         damage:
           types:
-            Piercing: 24
+            Piercing: 36
   - type: ItemToggleSize
     activatedSize: Ginormous
   - type: ItemToggleMeleeWeapon
@@ -103,7 +103,7 @@
       path: /Audio/Weapons/bladeslice.ogg
     activatedDamage:
       types:
-        Piercing: 12 #same as regular spear
+        Piercing: 24
   - type: IncreaseDamageOnWield
     damage:
       types:

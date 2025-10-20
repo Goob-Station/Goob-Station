@@ -259,7 +259,7 @@
         Blunt: 20
     soundHit:
       collection: MetalThud
-    bluntStaminaDamageFactor: 0.5 #Goob, was 1.5, sprinting
+    bluntStaminaDamageFactor: 1,5
   - type: Item
     size: Normal
   - type: Tag
