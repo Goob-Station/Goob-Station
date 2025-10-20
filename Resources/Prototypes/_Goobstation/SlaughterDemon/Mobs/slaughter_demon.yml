@@ -171,6 +171,10 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 1
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: Sulfur
+    bleedReductionAmount: 5
 
 # laughter demon
 - type: entity

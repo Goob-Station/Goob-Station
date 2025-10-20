@@ -26,13 +26,10 @@ using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
-using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
-using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Store.Systems;
-using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -63,32 +60,22 @@ using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
-using Content.Server.Jittering;
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Server.Examine;
-using Content.Server.Interaction;
 using Content.Shared.Chat;
-using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
-using Content.Shared.Mech.Components;
-using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -117,7 +104,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
@@ -135,32 +121,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly JitteringSystem _jitter = default!;
-    [Dependency] private readonly StutteringSystem _stutter = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
-
-    private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
-    {
-        var list = new List<EntityUid>();
-        var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
-
-        foreach (var look in lookup)
-        {
-            // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
-                continue;
-
-            if (!HasComp<StatusEffectsComponent>(look))
-                continue;
-
-            list.Add(look);
-        }
-        return list;
-    }
 
     public override void Initialize()
     {
@@ -201,18 +165,21 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (!TryComp<HandsComponent>(ent, out var handsComp))
+            return;
+
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            foreach (var item in _hands.EnumerateHeld(ent.Owner))
+            foreach (var item in _hands.EnumerateHeld((ent.Owner, handsComp)))
             {
-                if (HasComp<MansusGraspComponent>(item ))
-                    QueueDel(item );
+                if (HasComp<MansusGraspComponent>(item))
+                    QueueDel(item);
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent.Owner, out var emptyHand))
+        if (!_hands.TryGetEmptyHand((ent.Owner, handsComp), out var emptyHand))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
             if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
@@ -229,7 +196,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
 
-        if (!_hands.TryPickup(ent, st, emptyHand, animate: false))
+        if (!_hands.TryPickup(ent, st, emptyHand, animate: false, handsComp: handsComp))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);
@@ -418,7 +385,24 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             RustObjectsInRadius(_transform.GetMapCoordinates(uid, xform),
                 rust.RustRadius,
                 rust.TileRune,
-                rust.LookupRange);
+                rust.LookupRange,
+                rust.RustStrength);
+        }
+
+        var rustBringerQuery = EntityQueryEnumerator<RustbringerComponent, TransformComponent>();
+        while (rustBringerQuery.MoveNext(out var rustBringer, out var xform))
+        {
+            rustBringer.Accumulator += frameTime;
+
+            if (rustBringer.Accumulator < rustBringer.Delay)
+                continue;
+
+            rustBringer.Accumulator = 0f;
+
+            if (!IsTileRust(xform.Coordinates, out _))
+                continue;
+
+            Spawn(rustBringer.Effect, xform.Coordinates);
         }
 
         _accumulator += frameTime;
@@ -440,8 +424,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
         {
-            RemCompDeferred<DisgustComponent>(uid);
-
             if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
@@ -449,7 +431,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             if (rustbringerQuery.HasComp(uid))
             {
-                multiplier = leech.AscensuionMultiplier;
+                multiplier = leech.AscensionMultiplier;
 
                 if (resiratorQuery.TryComp(uid, out var respirator))
                     _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
@@ -457,17 +439,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
+            var toHeal = leech.ToHeal * multiplier;
+            var boneHeal = leech.BoneHeal * multiplier;
+            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
+
             if (damageableQuery.TryComp(uid, out var damageable))
             {
-                _dmg.TryChangeDamage(uid,
-                    leech.ToHeal * multiplier,
-                    true,
-                    false,
-                    damageable,
-                    null,
-                    false,
-                    targetPart: TargetBodyPart.All,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
@@ -508,119 +486,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
-            }
-        }
-
-        var siliconQuery = GetEntityQuery<SiliconComponent>();
-        var borgChassisQuery = GetEntityQuery<BorgChassisComponent>();
-        var godmodeQuery = GetEntityQuery<GodmodeComponent>();
-        var hereticQuery = GetEntityQuery<HereticComponent>();
-        var ghoulQuery = GetEntityQuery<GhoulComponent>();
-        var mobQuery = GetEntityQuery<MobStateComponent>();
-        var mechQuery = GetEntityQuery<MechComponent>();
-
-        var siliconDamage = new DamageSpecifier(_prot.Index<DamageGroupPrototype>("Brute"), 10);
-
-        var disgustQuery = EntityQueryEnumerator<DisgustComponent, TransformComponent>();
-        while (disgustQuery.MoveNext(out var uid, out var disgust, out var xform))
-        {
-            if (godmodeQuery.HasComp(uid) || hereticQuery.HasComp(uid) || ghoulQuery.HasComp(uid))
-            {
-                RemCompDeferred(uid, disgust);
-                continue;
-            }
-
-            var isNotDead = mobQuery.TryComp(uid, out var mobState) && mobState.CurrentState != MobState.Dead;
-            var isMech = mechQuery.HasComp(uid);
-            var isSilicon = siliconQuery.HasComp(uid) || borgChassisQuery.HasComp(uid) || _tag.HasTag(uid, "Bot");
-
-            // If we are standing on rusted tile while we are a mech or not dead - apply/accumulate rust effects,
-            // Else we stop damaging the entity if we are silicon or mech or reduce disgust level.
-            if ((isNotDead || isMech) && IsTileRust(xform.Coordinates, out _))
-            {
-                // Apply rust corruption
-                if (isSilicon || isMech)
-                {
-                    _dmg.TryChangeDamage(uid,
-                        siliconDamage,
-                        ignoreResistances: true,
-                        targetPart: TargetBodyPart.Chest);
-
-                    // Don't popup to mech
-                    if (isMech)
-                        continue;
-
-                    Popup.PopupEntity(Loc.GetString("rust-corruption-silicon-damage"),
-                        uid,
-                        uid,
-                        PopupType.MediumCaution);
-
-                    continue;
-                }
-
-                disgust.CurrentLevel += disgust.ModifierPerUpdate;
-            }
-            else
-            {
-                if (isSilicon || isMech)
-                {
-                    RemCompDeferred(uid, disgust);
-                    continue;
-                }
-
-                disgust.CurrentLevel -= disgust.PassiveReduction;
-
-                if (disgust.CurrentLevel <= 0f)
-                {
-                    RemCompDeferred(uid, disgust);
-                    continue;
-                }
-            }
-
-            if (!statusQuery.TryComp(uid, out var status))
-                continue;
-
-            // First level: Visual effects. Jitter stutter and popups.
-            if (disgust.CurrentLevel >= disgust.NegativeThreshold)
-            {
-                if (_random.Prob(disgust.NegativeEffectProb))
-                {
-                    _jitter.DoJitter(uid, disgust.NegativeTime, true, 10f, 10f, true, status);
-                    _stutter.DoStutter(uid, disgust.NegativeTime, true, status);
-                    Popup.PopupEntity(Loc.GetString("disgust-effect-warning"), uid, uid, PopupType.SmallCaution);
-                }
-            }
-
-            // Second level: Chance to vomit which knocks down for a long time and reduces disgust level
-            if (disgust.CurrentLevel >= disgust.VomitThreshold)
-            {
-                var vomitProb = Math.Clamp(0.025f + 0.00025f * disgust.VomitThreshold, 0f, 1f);
-                if (_random.Prob(vomitProb))
-                {
-                    _vomit.Vomit(uid);
-                    _stun.KnockdownOrStun(uid, disgust.VomitKnockdownTime, true, status);
-                    disgust.CurrentLevel -= disgust.VomitThreshold;
-                }
-            }
-
-            // Third level: Harmful negative effects: eyeblur and slowdown.
-            if (disgust.CurrentLevel >= disgust.BadNegativeThreshold)
-            {
-                if (_random.Prob(disgust.BadNegativeEffectProb))
-                {
-                    _statusEffect.TryAddStatusEffect<BlurryVisionComponent>(uid,
-                        "BlurryVision",
-                        disgust.BadNegativeTime,
-                        true,
-                        status);
-
-                    _stun.TrySlowdown(uid,
-                        disgust.BadNegativeTime,
-                        true,
-                        disgust.SlowdownMultiplier,
-                        disgust.SlowdownMultiplier,
-                        status);
-                }
             }
         }
     }
