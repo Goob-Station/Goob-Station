@@ -1,0 +1,11 @@
+- type: Interaction
+  id: Smack
+  parent: [BaseHelp, BaseGlobal]
+  delay: 0.5
+  cooldown: 1
+  hideByRequirement: true
+  requirement: !type:StandingStateRequirement
+    allowLaying: true
+  action: !type:ChatMessageAction
+    numMessages: 1
+    chatType: Emote
