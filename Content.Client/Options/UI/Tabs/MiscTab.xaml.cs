@@ -137,6 +137,8 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox);
         Control.AddOptionCheckBox(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox);
         Control.AddOptionCheckBox(CCVars.StaticStorageUI, StaticStorageUI);
+        Control.AddOptionCheckBox(GoobCVars.AreaEchoEnabled, AreaEchoCheckBox); // Mono
+        Control.AddOptionCheckBox(GoobCVars.AreaEchoHighResolution, AreaEchoHighResolutionCheckBox); // Mono
 
         Control.Initialize();
     }
