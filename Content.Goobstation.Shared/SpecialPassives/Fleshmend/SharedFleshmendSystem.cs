@@ -144,7 +144,6 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
         var bruteHealAmount = ent.Comp.BruteHeal / bruteDiv;
         var burnHealAmount = ent.Comp.BurnHeal / burnDiv;
-        //
 
         var healSpec = new DamageSpecifier();
 

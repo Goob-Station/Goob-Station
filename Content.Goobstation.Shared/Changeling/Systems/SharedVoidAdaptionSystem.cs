@@ -153,6 +153,8 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         ent.Comp.AdaptingLowPressure = false;
         ent.Comp.AdaptingLowTemp = false;
 
+        TryRemoveDebuff(ent);
+
         return false;
     }
 

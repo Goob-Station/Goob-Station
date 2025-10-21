@@ -126,7 +126,6 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
             != FixedPoint2.Zero);
 
         var toxinHealAmount = ent.Comp.ToxinHeal / toxinDiv;
-        //
 
         var healSpec = new DamageSpecifier();
 
