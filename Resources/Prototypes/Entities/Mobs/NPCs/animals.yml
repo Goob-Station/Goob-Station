@@ -3069,6 +3069,19 @@
       thresholds:
         0: Alive
         180: Dead
+    # Omu change start
+    - type: SolutionRegeneration
+      solution: melee
+      generated:
+        reagents:
+        - ReagentId: Mechanotoxin
+          Quantity: 1
+        - ReagentId: CrapoToxin
+          Quantity: 1
+    - type: MeleeChemicalInjector
+      transferAmount: 1.5
+      solution: melee
+    # Omu change end
     - type: Spider
       webPrototype: SpiderWebClown
     - type: MeleeWeapon
