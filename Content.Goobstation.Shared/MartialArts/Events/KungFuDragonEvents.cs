@@ -19,13 +19,10 @@ public abstract partial class BaseKungFuDragonEvent : EntityEventArgs
 public sealed partial class DragonClawPerformedEvent : BaseKungFuDragonEvent
 {
     [DataField]
-    public TimeSpan SlowdownTime = TimeSpan.FromSeconds(2);
+    public TimeSpan SpeedUpTime = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public float WalkSpeedModifier = 0.6f;
-
-    [DataField]
-    public float SprintSpeedModifier = 0.6f;
+    public float SpeedMultiplier = 1.3f;
 }
 
 [DataDefinition]
