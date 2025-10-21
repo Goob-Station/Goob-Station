@@ -73,7 +73,7 @@ public sealed partial class NerveSystemComponent : Component
     public TimeSpan NextCritScream;
 
     [DataField("painShockStun")]
-    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(2f);
+    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(0f); //disabled
 
     [DataField("organDamageStun")]
     public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
