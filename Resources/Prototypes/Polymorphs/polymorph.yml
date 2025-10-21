@@ -37,6 +37,8 @@
     entity: MobMouse
     forced: true
     duration: 30
+    revertOnCrit: true # Goobstation
+    revertOnDeath: true # Goobstation
 
 - type: polymorph
   id: Chicken
@@ -44,6 +46,8 @@
     entity: MobChicken
     forced: true
     inventory: Drop
+    revertOnCrit: true # Goobstation
+    revertOnDeath: true # Goobstation
 
 - type: polymorph
   id: Monkey
@@ -295,14 +299,3 @@
     exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg
     duration: 120
     effectProto: EffectDesynchronizer
-
-- type: polymorph
-  id: HellGooseMorph
-  configuration:
-    entity: MobHellGoose
-    forced: true
-    inventory: None
-    transferName: false
-    transferDamage: false
-    revertOnCrit: false
-    revertOnDeath: false

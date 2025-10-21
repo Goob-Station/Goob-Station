@@ -22,8 +22,8 @@
     transferName: false
     transferHumanoidAppearance: false
     inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
+    revertOnDeath: true
+    revertOnCrit: true
 
 - type: polymorph
   id: Bingle
@@ -33,8 +33,8 @@
     transferName: false
     transferHumanoidAppearance: false
     inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
+    revertOnDeath: true
+    revertOnCrit: true
 
 - type: polymorph
   id: Bananamen
@@ -77,6 +77,8 @@
     forced: true
     inventory: Transfer
     transferName: true
+    revertOnCrit: true
+    revertOnDeath: true
 
 - type: polymorph
   id: BinglePolymorph
@@ -86,7 +88,7 @@
     transferName: true
     transferHumanoidAppearance: false
     inventory: Drop
-    revertOnDeath: false
+    revertOnDeath: true
     revertOnCrit: false
 
 - type: polymorph
@@ -96,6 +98,8 @@
     forced: true
     duration: 4
     attachToGridOrMap: true
+    revertOnCrit: true
+    revertOnDeath: true
 
 - type: polymorph
   id: ShadowJauntPermanent
