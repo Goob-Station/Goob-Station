@@ -176,7 +176,7 @@
     - id: MothroachSpawn # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
-    - id: FloorGoblinSpawn # Goobstation
+    - id: FloorGoblinMidRound # Goobstation
     - id: HellGooseSpawn # Goobstation
 
 - type: entityTable
