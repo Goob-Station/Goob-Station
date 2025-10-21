@@ -20,15 +20,15 @@
   id: FlashPowder
   priority: 21 # Must be higher priority than the original reaction
   reactants:
+    StabilizingAgent:
+        amount: 1
+        catalyst: true
     Aluminium:
       amount: 1
     Potassium:
       amount: 1
     Sulfur:
       amount: 1
-    StabilizingAgent:
-      amount: 1
-      catalyst: true
   products:
     FlashPowder: 3
 
@@ -36,15 +36,15 @@
   id: SmokePowder
   priority: 11
   reactants:
+    StabilizingAgent:
+        amount: 1
+        catalyst: true
     Phosphorus:
       amount: 1
     Potassium:
       amount: 1
     Sugar:
       amount: 1
-    StabilizingAgent:
-      amount: 1
-      catalyst: true
   products:
     SmokePowder: 3
 
