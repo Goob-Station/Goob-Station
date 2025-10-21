@@ -16666,3 +16666,11 @@ Entries:
       message: Added bodybag box to Brigmedic Locker
   id: 1864
   time: '2025-10-20T23:11:41.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: >-
+        NanoTrasen has taken out the Hell Geese that have been plaguing your
+        dreams. (They've been reverted.)
+  id: 1865
+  time: '2025-10-21T00:20:28.0000000+00:00'
