@@ -179,3 +179,33 @@
     - state: teg-middle
   - type: StaticPrice
     price: 500
+
+
+- type: entity
+  parent: BaseFlatpack
+  id: ChemMasterFlatpack
+  name: ChemMaster 4000 flatpack
+  description: A flatpack used for constructing a ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMaster
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  parent: BaseFlatpack
+  id: ChemDispenserFlatpack
+  name: ChemDispenser flatpack
+  suffix: Filled
+  description: A flatpack used for constructing a ChemDispenser.
+  components:
+  - type: Flatpack
+    entity: ChemDispenser
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: StaticPrice
+    price: 1000
