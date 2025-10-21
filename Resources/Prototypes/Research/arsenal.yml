@@ -183,7 +183,6 @@
   # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
-  - MagazineBoxShotgunUraniumHighCaliber # Goobstation
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:

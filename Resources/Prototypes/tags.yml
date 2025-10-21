@@ -1120,7 +1120,7 @@
   id: MagazineShotgun
 
 - type: Tag
-  id: MagazineShotgunLeverRifle
+  id: MagazineLeverRifle
 
 - type: Tag
   id: MagazineMagnumSubMachineGun

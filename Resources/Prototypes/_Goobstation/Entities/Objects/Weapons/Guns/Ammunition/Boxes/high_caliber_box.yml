@@ -49,5 +49,44 @@
   name: ammunition box (.50 high-explosive incendiary)
   components:
   - type: BallisticAmmoProvider
-    capacity: 30
     proto: CartridgeHighCaliberExplosive
+
+# Ensnaring
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberEnsnaring
+  name: ammunition box (.50 ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: BulletHighCaliberEnsnaring
+
+# EMP
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberEMP
+  name: ammunition box (.50 ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: BulletHighCaliberEMP
+
+# Flash
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberFlash
+  name: ammunition box (.50 ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: BulletHighCaliberFlash
+
+# Beanbag
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberBeanbag
+  name: ammunition box (.50 ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: BulletHighCaliberBeanbag

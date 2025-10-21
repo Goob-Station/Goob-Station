@@ -1281,17 +1281,6 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-box-flash-slug-name
-  description: uplink-high-caliber-shotgun-box-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
-  productEntity: MagazineBoxShotgunHighCaliberFlash
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkBox8GaugeSarin
   name: uplink-high-caliber-shotgun-box-sarin-name
   description: uplink-high-caliber-shotgun-box-sarin-desc

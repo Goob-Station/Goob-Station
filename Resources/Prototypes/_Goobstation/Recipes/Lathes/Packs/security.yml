@@ -15,9 +15,7 @@
 - type: latheRecipePack
   id: SecurityAmmoStaticGoob
   recipes:
-  - MagazineBoxShotgunHighCaliber
-  - MagazineBoxShotgunSlugHighCaliber
-  - MagazineBoxShotgunPracticeHighCaliber
+  - MagazineBoxHighCaliber
 
 - type: latheRecipePack
   id: SecurityEquipmentStaticGoob
@@ -60,9 +58,6 @@
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
   - MagazineSmart
-  - MagazineBoxShotgunIncendiaryHighCaliber
-  - MagazineBoxShotgunBeanbagHighCaliber
-  - MagazineBoxShotgunUraniumHighCaliber
   - PowerCellIRRevolver
   - PowerCellIonRevolver
   - PowerCellXrayRevolver

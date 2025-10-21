@@ -143,7 +143,7 @@ selectable-set-blueshield-dragon-description =
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
     Ready to go hunting?
-    Includes: 8 Gauge shotgun, the Chester. Spare ammo,
+    Includes: .50 cal lever rifle, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
 selectable-set-blueshield-syringe-name = medical set

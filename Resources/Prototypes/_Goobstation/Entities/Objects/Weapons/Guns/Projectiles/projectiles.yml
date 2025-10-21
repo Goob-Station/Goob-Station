@@ -154,6 +154,84 @@
     - state: bullet
       shader: unshaded
 
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliberEnsnaring
+  name: bullet (.50 ensnaring)
+  components:
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 20 #Low damage, but ensnaring
+  - type: Ensnaring
+    canThrowTrigger: true
+    destroyOnRemove: true
+    breakoutTime: 2
+    freeTime: 2
+    sprintSpeed: 0.7
+    walkSpeed: 0.7
+    staminaDamage: 10
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliberEMP
+  name: bullet (.50 emp)
+  components:
+  - type: EmpOnTrigger
+    range: 0.2
+    energyConsumption: 80
+    disableDuration: 1
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: blue
+    energy: 0.5
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Ion: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliberBeanbag
+  name: bullet (.50 beanbag)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 15
+  - type: StaminaDamageOnCollide
+    damage: 75
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BulletHighCaliber
+  id: BulletHighCaliberEnsnaring
+  name: bullet (.50 flash)
+  components:
+  - type: FlashOnTrigger
+    range: 5
+    duration: 4
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: yellow
+    energy: 1
+  - type: Projectile
+    armorPenetration: 0
+    damage:
+      types:
+        Piercing: 20
+
 - type: hitscan
   id: HeavyPulse
   damage:

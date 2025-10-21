@@ -13,20 +13,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Empty mags
 - type: entity
-  id: BaseMagazineShotgunLeverRifle
-  name: "magazine (8 Gauge)"
+  id: MagazineLeverRifle
+  name: "lever rifle magazine (.50 cal)"
   parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineShotgunLeverRifle
+      - MagazineLeverRifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - ShellShotgunHeavy
-    proto: ShellShotgunHighCaliber
+        - CartridgeHighCaliber
+    proto: CartridgeHighCaliber
     capacity: 8
   - type: Item
     size: Small
@@ -47,19 +46,8 @@
   - type: Appearance
 
 - type: entity
-  id: MagazineShotgunLeverRifle
-  name: "lever rifle magazine (8 Gauge)"
-  parent: BaseMagazineShotgunLeverRifle
-  components:
-  - type: Tag
-    tags:
-      - MagazineShotgunLeverRifle
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/lever_rifle_mags.rsi
-
-- type: entity
-  id: MagazineShotgunLeverRifleEmpty
-  parent: MagazineShotgunLeverRifle
+  id: MagazineLeverRifleEmpty
+  parent: MagazineLeverRifle
   suffix: Empty
   components:
   - type: BallisticAmmoProvider

@@ -598,15 +598,15 @@
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
-  id: MagazineShotgunLeverRifleEmpty
-  result: MagazineShotgunLeverRifleEmpty
+  id: MagazineLeverRifleEmpty
+  result: MagazineLeverRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineShotgunLeverRifle
-  result: MagazineShotgunLeverRifle
+  id: MagazineLeverRifle
+  result: MagazineLeverRifle
   materials:
     Steel: 240
 
@@ -616,45 +616,6 @@
   result: MagazineBoxShotgunHighCaliber
   materials:
     Steel: 480
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxShotgunSlugHighCaliber
-  result: MagazineBoxShotgunSlugHighCaliber
-  materials:
-    Steel: 480
-    Plastic: 160
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxShotgunIncendiaryHighCaliber
-  result: MagazineBoxShotgunIncendiaryHighCaliber
-  materials:
-    Steel: 160
-    Plastic: 320
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxShotgunUraniumHighCaliber
-  result: MagazineBoxShotgunUraniumHighCaliber
-  materials:
-    Plastic: 640
-    Uranium: 480
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxShotgunBeanbagHighCaliber
-  result: MagazineBoxShotgunBeanbagHighCaliber
-  materials:
-    Steel: 320
-    Plastic: 240
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxShotgunPracticeHighCaliber
-  result: MagazineBoxShotgunPracticeHighCaliber
-  materials:
-    Steel: 160
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe

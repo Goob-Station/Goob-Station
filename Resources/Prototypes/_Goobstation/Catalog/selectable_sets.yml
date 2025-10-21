@@ -377,10 +377,12 @@
   content:
   # Guaranteed items
   - WeaponLeverChester
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEMP
-  - MagazineBoxShotgunHighCaliberEnsnaring
+  - MagazineLeverRifleEmpty
+  - MagazineLeverRifleEmpty
+  - MagazineBoxHighCaliberEMP
+  - MagazineBoxHighCaliberEnsnaring
+  - MagazineBoxHighCaliberFlash
+  - MagazineBoxHighCaliberBeanbag
 #  tables:
 #  - ChesterRandomAmmoTable
 
