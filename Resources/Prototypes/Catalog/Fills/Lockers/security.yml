@@ -196,7 +196,7 @@
         tableId: FillLockerBrigmedic
 
 - type: entityTable
-  id: FillLockerBrigmedic # heavily good edited
+  id: FillLockerBrigmedic # heavily goob edited
   table: !type:AllSelector
     children:
     - id: BoxAutoinjectorCartidges
@@ -209,6 +209,9 @@
       prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
+    - id: ChemDispenserFlatpack
+    - id: ChemMasterFlatpack
+    - id: Multitool
 
 - type: entity
   id: LockerDetectiveFilled
