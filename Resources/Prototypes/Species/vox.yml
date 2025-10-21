@@ -65,7 +65,7 @@
       points: 1
       required: false
     Head:
-      points: 2 # Goobstation?
+      points: 4
       required: true
     Snout:
       points: 1
