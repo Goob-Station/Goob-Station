@@ -110,13 +110,12 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
-        var requireReason = msg.Status is SecurityStatus.Wanted
-            or SecurityStatus.Suspected
-            or SecurityStatus.Search
-            or SecurityStatus.Dangerous
-            or SecurityStatus.Demote; // Goobstation
-
-        if (requireReason != (msg.Reason != null))
+        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Hostile != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Search != (msg.Reason != null) && // Goobstation
+            msg.Status == SecurityStatus.Dangerous != (msg.Reason != null) &&  // Goobstation
+            msg.Status == SecurityStatus.Demote != (msg.Reason != null)) // Goobstation
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -173,6 +172,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         // figure out which radio message to send depending on transition
         var statusString = (oldStatus, msg.Status) switch
         {
+            (_, SecurityStatus.Hostile) => "hostile",
+            (_, SecurityStatus.Eliminated) => "eliminated",
             // person has been detained
             (_, SecurityStatus.Detained) => "detained",
             // person did something sus
@@ -183,12 +184,14 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
+            (SecurityStatus.Hostile, SecurityStatus.None) => "not-hostile",
+            (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated",
             // person has been sentenced to perma
-            (_, SecurityStatus.Perma) => "perma",
+            (_, SecurityStatus.Perma) => "perma", // Goobstation
             // person needs to be searched
-            (_, SecurityStatus.Search) => "search",
+            (_, SecurityStatus.Search) => "search", // Goobstation
             // person is very dangerous
-            (_, SecurityStatus.Dangerous) => "dangerous",
+            (_, SecurityStatus.Dangerous) => "dangerous", // Goobstation
             // person is demoted from their job
             (_, SecurityStatus.Demote) => "demote", // Goobstation
             // person is no longer sus
@@ -200,11 +203,11 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
             // criminal is no longer in perma
-            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma",
+            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma", // Goobstation
             // person no longer needs to be searched
-            (SecurityStatus.Search, SecurityStatus.None) => "not-search",
+            (SecurityStatus.Search, SecurityStatus.None) => "not-search", // Goobstation
             // person is no longer dangerous
-            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
+            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous", // Goobstation
             // person no longer demoted
             (SecurityStatus.Demote, SecurityStatus.None) => "not-demoted", // Goobstation
             // this is impossible
