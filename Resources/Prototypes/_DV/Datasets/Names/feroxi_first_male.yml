@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: NamesFeroxiFirstMale
+  values:
+    prefix: names-feroxi-first-male-dataset-
+    count: 41
