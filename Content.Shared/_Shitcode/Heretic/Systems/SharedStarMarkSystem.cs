@@ -278,6 +278,5 @@ public abstract class SharedStarMarkSystem : EntitySystem
             return;
 
         _broadphase.RegenerateContacts(ent);
-        Dirty(ent);
     }
 }
