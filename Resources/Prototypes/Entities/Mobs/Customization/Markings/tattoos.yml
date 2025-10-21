@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
@@ -156,7 +157,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -170,7 +171,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
