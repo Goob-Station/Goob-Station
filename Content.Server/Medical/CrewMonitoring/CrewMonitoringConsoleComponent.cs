@@ -30,4 +30,11 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
     public float SensorTimeout = 10f;
+
+    /// <summary>
+    ///     Goobstation
+    ///     If not null, only show certain departments.
+    /// </summary>
+    [DataField]
+    public List<string>? ValidDepartments;
 }

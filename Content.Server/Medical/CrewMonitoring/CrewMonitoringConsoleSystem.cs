@@ -92,17 +92,27 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         // Update all sensors info
         // GoobStation - Start
-        var isCommandOnly = HasComp<CrewMonitorScanningComponent>(uid);
-
         var filteredSensors = component.ConnectedSensors
-            .Where(pair => isCommandOnly
-                ? pair.Value.IsCommandTracker
-                : !pair.Value.IsCommandTracker)
+            .Where(pair => IsSensorValid(pair.Value, component))
             .Select(pair => pair.Value)
             .ToList();
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(filteredSensors));
         // GoobStation - End
         //var allSensors = component.ConnectedSensors.Values.ToList();
         //_uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
+    }
+
+    private bool IsSensorValid(SuitSensorStatus status, CrewMonitoringConsoleComponent component)
+    {
+        if (component.ValidDepartments == null)
+            return true;
+
+        foreach (var dept in status.JobDepartments)
+        {
+            if (component.ValidDepartments.Contains(dept))
+                return true;
+        }
+
+        return false;
     }
 }
