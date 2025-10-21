@@ -177,7 +177,6 @@
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinSpawn # Goobstation
-    - id: HellGooseSpawn # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
