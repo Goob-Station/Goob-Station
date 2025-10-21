@@ -147,16 +147,14 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
             var tier = _linkAccount.Tier;
             SetTabTitle(_patronPerksWindow.LobbyMessageTab, Loc.GetString("rmc-ui-lobby-message"));
             SetTabVisible(_patronPerksWindow.LobbyMessageTab, tier is { LobbyMessage: true });
-            _patronPerksWindow.LobbyMessage.OnTextEntered += ChangeLobbyMessage;
-            _patronPerksWindow.LobbyMessage.OnFocusExit += ChangeLobbyMessage;
+            _patronPerksWindow.LobbyMessageSaveButton.OnPressed += OnLobbyMessageSave;
 
             if (_linkAccount.LobbyMessage?.Message is { } lobbyMessage)
                 _patronPerksWindow.LobbyMessage.Text = lobbyMessage;
 
             SetTabTitle(_patronPerksWindow.ShoutoutTab, Loc.GetString("rmc-ui-shoutout"));
             SetTabVisible(_patronPerksWindow.ShoutoutTab, tier is { RoundEndShoutout: true });
-            _patronPerksWindow.NTShoutout.OnTextEntered += ChangeNTShoutout;
-            _patronPerksWindow.NTShoutout.OnFocusExit += ChangeNTShoutout;
+            _patronPerksWindow.NTShoutoutSaveButton.OnPressed += OnNTShoutoutSave;
 
             if (_linkAccount.RoundEndShoutout?.NT is { } ntShoutout)
                 _patronPerksWindow.NTShoutout.Text = ntShoutout;
@@ -188,9 +186,12 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         _patronPerksWindow = null;
     }
 
-    private void ChangeLobbyMessage(LineEditEventArgs args)
+    private void OnLobbyMessageSave(ButtonEventArgs args)
     {
-        var text = args.Text;
+        var text = _patronPerksWindow?.LobbyMessage.Text;
+        if (text == null)
+            return;
+
         if (text.Length > SharedRMCLobbyMessage.CharacterLimit)
         {
             text = text[..SharedRMCLobbyMessage.CharacterLimit];
@@ -200,13 +201,16 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         _net.ClientSendMessage(new RMCChangeLobbyMessageMsg { Text = text });
     }
 
-    private void ChangeNTShoutout(LineEditEventArgs args)
+    private void OnNTShoutoutSave(ButtonEventArgs args)
     {
-        var text = args.Text;
+        var text = _patronPerksWindow?.NTShoutout.Text;
+        if (text == null)
+            return;
+
         if (text.Length > SharedRMCRoundEndShoutouts.CharacterLimit)
         {
             text = text[..SharedRMCRoundEndShoutouts.CharacterLimit];
-            _patronPerksWindow?.LobbyMessage.SetText(text, false);
+            _patronPerksWindow?.NTShoutout.SetText(text, false);
         }
 
         _net.ClientSendMessage(new RMCChangeNTShoutoutMsg { Name = text });
