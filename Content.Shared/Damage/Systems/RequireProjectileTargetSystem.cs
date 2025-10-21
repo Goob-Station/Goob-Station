@@ -25,8 +25,10 @@ namespace Content.Shared.Damage.Components;
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!; //Goobstation
-    [Dependency] private readonly IConfigurationManager _cfg = default!; //Goobstation
+
+    // Goobstation
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private float _crawlHitzoneSize; //Goobstation
 
@@ -84,7 +86,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
                 return;
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))
-               args.Cancelled = true;
+                args.Cancelled = true;
         }
     }
 
