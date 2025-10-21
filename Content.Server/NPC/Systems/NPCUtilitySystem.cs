@@ -203,7 +203,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 var nutrition = TotalFoodUtilityConditioned(targetUid, owner).TotalNutrition; // Goobstation edit
-                if (nutrition <= 1.0f)
+                if (nutrition <= 0.0f)
                     return 0f;
 
                 return 1f;

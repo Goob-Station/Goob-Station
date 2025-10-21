@@ -118,6 +118,7 @@
             types:
               Heat: 0.5
     - type: AtmosExposed
+    - type: Edible
     - type: Kudzu
       growthTickChance: 0.3
       spreadChance: 0.2 #goob
@@ -138,7 +139,7 @@
         food:
           reagents:
           - ReagentId: Nutriment
-            Quantity: 2
+            Quantity: 0.1
     - type: Tag
       tags:
       - Ruminant
@@ -193,6 +194,9 @@
       - CrystalCyan
       rarePrototypes:
       - AnomalyFloraBulb
+    - type: Tag
+      tags:
+      - Ruminant
 
 - type: entity
   id: KudzuFlowerAngry
@@ -285,6 +289,7 @@
        types:
          Heat: 1.5
     - type: AtmosExposed
+    - type: Edible
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.3
       sprintSpeedModifier: 0.3
@@ -307,6 +312,7 @@
     - type: Tag
       tags:
       - Meat
+      - Ruminant
 
 - type: entity
   name: dark haze
