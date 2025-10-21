@@ -128,7 +128,7 @@
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
       networkSet: true
-      mobile: True
+      mobile: True # Goobstation - mobile cameras fix
 
 - type: entity
   parent: SurveillanceWirelessCameraMovableBase
@@ -141,4 +141,4 @@
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
       networkSet: true
-      mobile: True
+      mobile: True # Goobstation - mobile cameras fix

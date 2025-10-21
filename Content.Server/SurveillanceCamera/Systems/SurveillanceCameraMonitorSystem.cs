@@ -71,18 +71,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.SurveillanceCamera; // Goobstation
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.SurveillanceCamera;
-using Content.Shared.UserInterface;// Goobstation
 using Robust.Server.GameObjects;
-using Robust.Server.GameStates; // Goobstation
-using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Player;
-using System.Runtime.InteropServices; // Goobstation
+
+// Goobstation
+using Content.Goobstation.Common.SurveillanceCamera;
+using Content.Shared.UserInterface;
+using Robust.Server.GameStates;
+using Robust.Shared.Map;
+using System.Runtime.InteropServices;
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -91,8 +93,10 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     [Dependency] private readonly SurveillanceCameraSystem _surveillanceCameras = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!; // Goobstation
-    [Dependency] private readonly EntityManager _entityManager = default!; // Goobstation
+
+    // Goobstation
+    [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     public override void Initialize()
     {

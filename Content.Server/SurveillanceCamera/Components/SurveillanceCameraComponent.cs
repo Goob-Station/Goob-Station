@@ -55,6 +55,6 @@ public sealed partial class SurveillanceCameraComponent : Component
     [DataField("setupAvailableNetworks")]
     public List<ProtoId<DeviceFrequencyPrototype>> AvailableNetworks { get; private set; } = new();
 
-    [DataField("mobile")]
+    [DataField]
     public bool Mobile { get; set; } = false; // Goobstation - a value to differentiate stationary cameras from mobile like bodycams
 }
