@@ -17,7 +17,7 @@ public sealed class WraithPointsSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private  readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

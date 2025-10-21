@@ -12,7 +12,7 @@ public sealed class ActionUseDelayOnUseSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

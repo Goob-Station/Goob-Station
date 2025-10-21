@@ -13,5 +13,5 @@ public sealed partial class ActionUserWhitelistComponent : Component
     public EntityWhitelist? Whitelist = new();
 
     [DataField]
-    public LocId? Popup = "test-test"; // todo: add
+    public LocId? Popup = "whitelist-action-generic-fail";
 }

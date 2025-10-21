@@ -24,7 +24,7 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private const string TentacleJoint = "grappling";
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

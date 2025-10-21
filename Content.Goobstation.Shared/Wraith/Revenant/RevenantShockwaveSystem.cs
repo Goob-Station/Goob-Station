@@ -28,7 +28,7 @@ public sealed class RevenantShockwaveSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

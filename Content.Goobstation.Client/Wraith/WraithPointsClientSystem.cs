@@ -6,7 +6,7 @@ namespace Content.Goobstation.Client.Wraith;
 public sealed class WraithPointsClientSystem : EntitySystem
 {
     [Dependency] private readonly WraithPointsSystem _wraithPointsSystem = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

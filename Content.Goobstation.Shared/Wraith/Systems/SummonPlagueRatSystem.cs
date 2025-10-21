@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
@@ -12,6 +14,7 @@ public sealed partial class SummonPlagueRatSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {
@@ -41,6 +44,7 @@ public sealed partial class SummonPlagueRatSystem : EntitySystem
         {
             Spawn(comp.RatProto, xform.Coordinates);
             _popup.PopupEntity(Loc.GetString("wraith-plaguerat-channel"), uid, uid);
+            _admin.Add(LogType.EntitySpawn, LogImpact.Medium, $"{args.Performer} has summoned a plague rat");
         }
 
         args.Handled = true;

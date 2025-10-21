@@ -13,7 +13,7 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 public sealed class WraithRevenantSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

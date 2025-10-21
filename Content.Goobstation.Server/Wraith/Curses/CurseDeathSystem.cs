@@ -23,7 +23,7 @@ public sealed class CurseDeathSystem : EntitySystem
     [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
@@ -73,7 +73,7 @@ public sealed class CurseDeathSystem : EntitySystem
         // Create a scaled DamageSpecifier
         var scaledDamage = ent.Comp.BaseDamage * scale;
 
-        if (!ent.Comp.MusicIsPlaying) // Shut up, don't @ me. You didn't leave me much choice.
+        if (!ent.Comp.MusicIsPlaying)
         {
             _audio.PlayEntity(ent.Comp.CurseSound1, ent.Owner, ent.Owner);
             ent.Comp.MusicIsPlaying = true;

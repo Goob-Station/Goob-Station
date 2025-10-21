@@ -1,7 +1,9 @@
 using Content.Goobstation.Shared.Wraith.Curses;
 using Content.Goobstation.Shared.Wraith.Events;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -24,7 +26,8 @@ public sealed class RevenantCrushSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -78,6 +81,7 @@ public sealed class RevenantCrushSystem : EntitySystem
             return;
 
         _popup.PopupClient(Loc.GetString("revenant-crush-you"), target.Value, target.Value);
+        _admin.Add(LogType.Gib, LogImpact.High, $"{ent.Owner} gibbed {target.Value} via Crush");
         if (_netManager.IsServer) // this shit mispredicts, requires upstream prediction fix
             _body.GibBody(target.Value, splatModifier: 5f);
 

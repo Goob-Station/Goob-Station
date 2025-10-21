@@ -13,7 +13,7 @@ public sealed class SpikerLashSystem : EntitySystem
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

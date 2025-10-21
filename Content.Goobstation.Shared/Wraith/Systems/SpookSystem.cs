@@ -10,7 +10,8 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Wraith.Systems;
 
 /// <summary>
-/// Aaaaa
+/// Handles UI opening of spook menu and activating an action.
+/// The actions exist in the server-sided system.
 /// </summary>
 public sealed class SpookSystem : EntitySystem
 {
@@ -18,7 +19,7 @@ public sealed class SpookSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.Wraith.Other;
 public sealed class WraithWeakenedSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

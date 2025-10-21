@@ -1486,6 +1486,7 @@
         amount: -50
         time: 12
 
+# Wraith
 - type: reagent
   id: Formaldehyde
   name: reagent-name-formaldehyde

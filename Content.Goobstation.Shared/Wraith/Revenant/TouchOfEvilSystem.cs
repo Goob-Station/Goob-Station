@@ -2,6 +2,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared._White.Grab;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee;
@@ -15,6 +17,7 @@ public sealed class TouchOfEvilSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -57,6 +60,7 @@ public sealed class TouchOfEvilSystem : EntitySystem
             return;
 
         _popups.PopupClient(Loc.GetString("revenant-touch-of-evil-start"), args.Target, args.Target, PopupType.LargeCaution);
+        _admin.Add(LogType.Action, LogImpact.Low, $"{args.Target}'s Touch of Evil duration has started");
 
         touch.OriginalDamage = melee.Damage;
         touch.Active = true;
@@ -75,6 +79,7 @@ public sealed class TouchOfEvilSystem : EntitySystem
             return;
 
         _popups.PopupClient(Loc.GetString("revenant-touch-of-evil-end"), args.Target, args.Target, PopupType.Medium);
+        _admin.Add(LogType.Action, LogImpact.Low, $"{args.Target}'s Touch of Evil duration has ended");
 
         melee.Damage = touch.OriginalDamage;
         Dirty(args.Target, melee);

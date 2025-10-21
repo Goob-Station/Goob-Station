@@ -16,7 +16,7 @@ public abstract class SharedCurseHolderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

@@ -48,7 +48,7 @@ public sealed class SpookActionSystem : EntitySystem
     private EntityQuery<ApcComponent> _apcQuery;
     private EntityQuery<ActionComponent> _actionQuery;
     private EntityQuery<FlammableComponent> _flammable;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
