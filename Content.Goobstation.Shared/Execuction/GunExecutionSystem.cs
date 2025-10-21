@@ -131,6 +131,25 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfter);
     }
 
+    private string GetDamage(DamageSpecifier damage, string? mainDamageType)
+    {
+        // Default fallback if nothing valid found
+        mainDamageType ??= "Blunt";
+
+        if (damage == null || damage.DamageDict.Count == 0)
+            return mainDamageType;
+
+        var filtered = damage.DamageDict
+            .Where(kv => !string.Equals(kv.Key, "Structural", StringComparison.OrdinalIgnoreCase));
+
+        if (filtered.Any())
+        {
+            mainDamageType = filtered.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
+        }
+
+        return mainDamageType ?? "Blunt";
+    }
+
     private void OnDoafterGun(EntityUid uid, GunComponent component, DoAfterEvent args)
     {
         if (args.Handled
@@ -179,16 +198,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                     if (projectileA != null)
                     {
                         damage = projectileA.Damage;
-
-                        // ADDED: determine the main damage type
-                        if (damage.DamageDict.Count > 0)
-                        {
-                            // pick the damage type with the highest damage, ignoring "Structural"
-                            var filtered = damage.DamageDict
-                                .Where(kv => !string.Equals(kv.Key, "Structural", StringComparison.OrdinalIgnoreCase));
-                            if (filtered.Any())
-                                mainDamageType = filtered.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
-                        }
+                        mainDamageType = GetDamage(damage, mainDamageType);
                     }
 
                     cartridge.Spent = true; // Expend the cartridge
@@ -203,15 +213,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                 if (projectileB != null)
                 {
                     damage = projectileB.Damage;
-
-                    // ADDED: determine the main damage type
-                    if (damage.DamageDict.Count > 0)
-                    {
-                        var filtered = damage.DamageDict
-                            .Where(kv => !string.Equals(kv.Key, "Structural", StringComparison.OrdinalIgnoreCase));
-                        if (filtered.Any())
-                            mainDamageType = filtered.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
-                    }
+                    mainDamageType = GetDamage(damage, mainDamageType);
                 }
 
                 if (ammoUid != null)
