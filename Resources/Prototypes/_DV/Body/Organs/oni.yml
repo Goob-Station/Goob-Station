@@ -12,6 +12,7 @@
       - Pill
       - Crayon
       - Paper
+    isSpecialDigestibleExclusive: false # goob edit
   - type: SolutionContainerManager
     solutions:
       stomach:
