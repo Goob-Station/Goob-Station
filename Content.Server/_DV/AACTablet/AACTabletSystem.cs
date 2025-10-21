@@ -42,26 +42,39 @@ public sealed class AACTabletSystem : EntitySystem
         SubscribeLocalEvent<AACTabletComponent, InteractUsingEvent>(OnLanguageKeyInsert);
         SubscribeLocalEvent<AACTabletComponent, EncryptionKeySystem.EncryptionRemovalFinishedEvent>(OnLanguageKeyRemove);
         SubscribeLocalEvent<AACTabletComponent, GotEquippedHandEvent>(OnPickup);
+        SubscribeNetworkEvent<AACTabletLanguagesRefreshedEvent>(OnLanguageSelected);
         //goob languages end
     }
 
     // Goob edit start, languages.
     private void OnStartup(EntityUid uid, AACTabletComponent comp, ComponentStartup  args)
     {
-        RefreshLanguages(uid);
+        RefreshLanguages(uid, comp);
     }
 
     private void OnPickup(EntityUid uid, AACTabletComponent comp, GotEquippedHandEvent args)
     {
         if (!TryComp<LanguageSpeakerComponent>(uid, out var speaker))
             return;
+        var current = comp.CurrentLanguage;
+        if (!speaker.SpokenLanguages.ToString()!.Contains(comp.CurrentLanguage) || comp.CurrentLanguage == null)
+        {
+            current = speaker.SpokenLanguages.FirstOrDefault();
+        }
+
         var netuid = GetNetEntity(uid);
-        var ev = new AACTabletLanguagesRefreshedEvent(netuid, speaker.SpokenLanguages);
+        var ev = new AACTabletLanguagesRefreshedEvent(netuid, speaker.SpokenLanguages, current);
         RaiseNetworkEvent(ev, args.User);
     }
 
+    private void OnLanguageSelected(AACTabletLanguagesRefreshedEvent ev, EntitySessionEventArgs args)
+    {
+        if (!TryComp<LanguageSpeakerComponent>(GetEntity(ev.Tablet), out var speaker))
+            return;
+        speaker.
+    }
 
-    private void RefreshLanguages(EntityUid ent)
+    private void RefreshLanguages(EntityUid ent, AACTabletComponent comp)
     {
         if (
             !HasComp<EncryptionKeyHolderComponent>(ent) ||
@@ -85,6 +98,14 @@ public sealed class AACTabletSystem : EntitySystem
             _language.UpdateEntityLanguages(ent);
         }
 
+        // after change, if it still has the language that was previously selected, we keep it selected.
+        if (speaker.SpokenLanguages.ToString()!.Contains(comp.CurrentLanguage) && comp.CurrentLanguage != null)
+        {
+            speaker.CurrentLanguage = comp.CurrentLanguage;
+            _language.UpdateEntityLanguages(ent);
+            return;
+        }
+
         speaker.CurrentLanguage = speaker.SpokenLanguages.FirstOrDefault().ToString();
         _language.UpdateEntityLanguages(ent);
     }
@@ -93,14 +114,14 @@ public sealed class AACTabletSystem : EntitySystem
     {
         if (!HasComp<LanguageKnowledgeComponent>(args.Used)) // we dont care about radio keys.
             return;
-        RefreshLanguages(args.Target);
+        RefreshLanguages(args.Target, comp);
     }
 
     private void OnLanguageKeyRemove(EntityUid ent, AACTabletComponent comp, EncryptionKeySystem.EncryptionRemovalFinishedEvent args)
     {
         if (args.Target == null)
             return;
-        RefreshLanguages(args.Target.Value);
+        RefreshLanguages(args.Target.Value, comp);
     }
 
     // Goob edit end, language

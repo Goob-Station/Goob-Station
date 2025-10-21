@@ -39,7 +39,7 @@ public sealed class AACBoundUserInterface : BoundUserInterface
         if (!EntMan.TryGetComponent<LanguageSpeakerComponent>(Owner, out var speaker))
             EntMan.EnsureComponent<LanguageSpeakerComponent>(Owner);
         // spokenlangugees will be universal if the component was just added here. handled in languagebuttonrefresh.
-        _window?.LanguageButtonRefresh(speaker!.SpokenLanguages);
+        _window?.LanguageButtonRefresh(speaker!.SpokenLanguages, speaker.CurrentLanguage);
     }
 
     private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
@@ -57,5 +57,10 @@ public sealed class AACBoundUserInterface : BoundUserInterface
     {
         _typing ??= EntMan.System<TypingIndicatorSystem>();
         _typing?.ClientSubmittedChatText();
+    }
+
+    private void OnLanguageButtonPressed()
+    {
+
     }
 }

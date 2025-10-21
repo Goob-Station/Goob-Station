@@ -20,6 +20,7 @@ public sealed partial class AACWindow : FancyWindow
     public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
     public event Action? Typing;
     public event Action? SubmitPressed;
+    public event Action? SelectLanguage;
 
     private const float SpaceWidth = 10f;
     private const float ParentWidth = 540f;
@@ -242,11 +243,17 @@ public sealed partial class AACWindow : FancyWindow
         }
     }
 
+    private void OnLanguageSelected(BaseButton.ButtonEventArgs? buttonEventArgs)
+    {
+        
+    }
+    // Goobstation Start
+
     /// <summary>
     /// Populates the language OptionsButton based on the provided list.
     /// If the list contains the Universal language, it will display only a single "None" option.
     /// </summary>
-    public void LanguageButtonRefresh(List<ProtoId<LanguagePrototype>> languages)
+    public void LanguageButtonRefresh(List<ProtoId<LanguagePrototype>> languages, string selectedLanguage)
     {
         LanguageButton.Clear();
 
@@ -275,6 +282,7 @@ public sealed partial class AACWindow : FancyWindow
             return;
         }
         // Otherwise, populate for each language normally.
+        LanguageButton.AddItem(selectedLanguage); // saved lang
         foreach (var lang in languages)
         {
             if (!_prototype.TryIndex(lang, out var proto))
@@ -282,8 +290,9 @@ public sealed partial class AACWindow : FancyWindow
 
             LanguageButton.AddItem(Loc.GetString(proto.Name));
         }
-        // Select first by default.
+        // Select first by default, and we make the saved selected language first.
         if (LanguageButton.ItemCount > 0)
             LanguageButton.SelectId(0);
     }
+    //Goobstation end.
 }
