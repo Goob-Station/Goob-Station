@@ -16660,3 +16660,43 @@ Entries:
       message: Bleeding is shown on health analyzer again.
   id: 1863
   time: '2025-10-20T12:26:11.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added bodybag box to Brigmedic Locker
+  id: 1864
+  time: '2025-10-20T23:11:41.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: >-
+        NanoTrasen has taken out the Hell Geese that have been plaguing your
+        dreams. (They've been reverted.)
+  id: 1865
+  time: '2025-10-21T00:20:28.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added shark
+  id: 1866
+  time: '2025-10-21T00:50:44.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Fix
+      message: Windows can now be knocked on again via the "Interact" dropdown. whoops.
+  id: 1867
+  time: '2025-10-21T01:27:07.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: RCDs will no longer cause ruptures in the space-time continuum.
+  id: 1868
+  time: '2025-10-21T01:44:52.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Added cargo bingles, a new ghostrole summon for NTR for 5LP, help cargo
+        and cry in the bathroom.
+  id: 1869
+  time: '2025-10-21T13:39:44.0000000+00:00'

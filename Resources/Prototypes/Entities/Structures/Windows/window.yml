@@ -141,6 +141,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: InteractionVerbs # GoobStation: EE Interaction Verbs
+    allowedVerbs:
+      - KnockOn
 
 - type: entity
   parent: Window
