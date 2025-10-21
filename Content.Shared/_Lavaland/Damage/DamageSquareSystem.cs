@@ -64,18 +64,6 @@ public sealed class DamageSquareSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        var query = EntityQueryEnumerator<DamageSquareComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var damage, out _))
-        {
-            if (_timing.CurTime < damage.DamageTime)
-                continue;
-
-            Damage((uid, damage));
-        }
-
         var immuneQuery = EntityQueryEnumerator<DamageSquareImmunityComponent>();
         while (immuneQuery.MoveNext(out var uid, out var immune))
         {
@@ -84,6 +72,15 @@ public sealed class DamageSquareSystem : EntitySystem
                 continue;
 
             RemComp(uid, immune);
+        }
+
+        var query = EntityQueryEnumerator<DamageSquareComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var damage, out _))
+        {
+            if (_timing.CurTime < damage.DamageTime)
+                continue;
+
+            Damage((uid, damage));
         }
     }
 
@@ -109,9 +106,15 @@ public sealed class DamageSquareSystem : EntitySystem
                 || _whitelist.IsBlacklistPass(field.Comp.DamageBlacklist, target))
                 continue;
 
-            _audio.PlayPredicted(field.Comp.Sound, target, target);
-            if (_net.IsServer) // One must imagine DamageableSystem prediction.
-                _damage.TryChangeDamage(target, field.Comp.Damage, damageable: damageable, origin: field.Owner, targetPart: TargetBodyPart.All);
+            if (_net.IsServer) // Movement prediction is wonky and doesn't compensate for lag
+            {
+                _audio.PlayPvs(field.Comp.Sound, target);
+                _damage.TryChangeDamage(target,
+                    field.Comp.Damage,
+                    damageable: damageable,
+                    origin: field.Owner,
+                    targetPart: TargetBodyPart.All);
+            }
 
             EnsureComp<DamageSquareImmunityComponent>(target).ImmunityEndTime =
                 _timing.CurTime + TimeSpan.FromSeconds(field.Comp.ImmunityTime);

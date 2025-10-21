@@ -10,6 +10,7 @@
 - type: megafaunaSelector
   id: PickTargetSimple
   selector: !type:AggressivePickTargetSelector
+    delay: 0.0
     priority: 10
     targetConditions:
     # Hit closer aggressors more often.
@@ -30,10 +31,14 @@
     - id: ActionHierophantChasers
     - id: ActionHierophantBlink
 
+# Anger delays are needed so hierophant doesn't wait for 4 seconds and then uses all actions at once.
+# TODO: add support for actions to have a shared delay so we can remove AngerNumberSelector
 - type: megafaunaSelector
   id: ActionHierophantBox
   selector: !type:PerformActionSelector
-    delay: 0.5
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
     actionId: ActionHierophantBox
     conditions:
     - !type:ActionAvailableCondition
@@ -42,7 +47,9 @@
 - type: megafaunaSelector
   id: ActionHierophantCrosses
   selector: !type:PerformActionSelector
-    delay: 0.5
+    delay: !type:AngerNumberSelector
+      range: 1.0,3.0
+      inverse: true
     actionId: ActionHierophantCrosses
     conditions:
     - !type:ActionAvailableCondition
@@ -51,7 +58,9 @@
 - type: megafaunaSelector
   id: ActionHierophantChasers
   selector: !type:PerformActionSelector
-    delay: 0.5
+    delay: !type:AngerNumberSelector
+      range: 0.1,0.5
+      inverse: true
     actionId: ActionHierophantChasers
     conditions:
     - !type:ActionAvailableCondition
@@ -60,7 +69,9 @@
 - type: megafaunaSelector
   id: ActionHierophantBlink
   selector: !type:PerformActionSelector
-    delay: 0.5
+    delay: !type:AngerNumberSelector
+      range: 0.2,1.0
+      inverse: true
     actionId: ActionHierophantBlink
     conditions:
     - !type:ActionAvailableCondition

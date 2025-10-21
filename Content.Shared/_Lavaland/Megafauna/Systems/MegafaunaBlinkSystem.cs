@@ -97,14 +97,14 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
     private void OnMapInit(Entity<MegafaunaBlinkInactiveComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.FixedPosition)
-            ent.Comp.Marker = Spawn(ent.Comp.MarkerId, Transform(ent).Coordinates);
+            ent.Comp.Marker = PredictedSpawnAtPosition(ent.Comp.MarkerId, Transform(ent).Coordinates);
     }
 
     private void OnStartup(Entity<MegafaunaBlinkInactiveComponent> ent, ref MegafaunaStartupEvent args)
     {
         if (!ent.Comp.FixedPosition
             && ent.Comp.Marker == null)
-            ent.Comp.Marker = Spawn(ent.Comp.MarkerId, Transform(ent).Coordinates);
+            ent.Comp.Marker = PredictedSpawnAtPosition(ent.Comp.MarkerId, Transform(ent).Coordinates);
     }
 
     private void OnShutdown(Entity<MegafaunaBlinkInactiveComponent> ent, ref MegafaunaShutdownEvent args)
@@ -114,13 +114,13 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
             return;
 
         Blink(ent.Owner, ent.Comp.Marker.Value, blinkComp.Delay, blinkComp.Sound);
-        QueueDel(ent.Comp.Marker);
+        PredictedQueueDel(ent.Comp.Marker);
         ent.Comp.Marker = null;
     }
 
     private void OnDelete(Entity<MegafaunaBlinkInactiveComponent> ent, ref EntityTerminatingEvent args)
     {
-        QueueDel(ent.Comp.Marker);
+        PredictedQueueDel(ent.Comp.Marker);
         ent.Comp.Marker = null;
     }
 }

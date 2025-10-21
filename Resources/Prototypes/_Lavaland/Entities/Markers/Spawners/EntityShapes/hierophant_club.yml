@@ -13,8 +13,8 @@
     shape: !type:NestedEntityShape
       id: BoxHollow
   - type: ShapeSpawnerCounter
-    maxCounter: 5
-    spawnPeriod: 1.2
+    maxCounter: 3
+    spawnPeriod: 0.6
   - type: ExpandingShapeSpawner
     counterSize: 1
 

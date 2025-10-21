@@ -96,7 +96,7 @@ public sealed class AggressorsSystem : EntitySystem
 
     private void HandleComponentState(Entity<AggressiveComponent> ent, ref ComponentHandleState args)
     {
-        if (args.Current is not AggressiveComponentState state)
+        if (args.Current is not AggressiveComponentState state || _timing.ApplyingState)
             return;
 
         foreach (var netEntity in state.Aggressors)

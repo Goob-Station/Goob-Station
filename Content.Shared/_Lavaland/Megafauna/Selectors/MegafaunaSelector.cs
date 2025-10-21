@@ -53,7 +53,7 @@ public abstract partial class MegafaunaSelector
     /// Default delay time after failing random or conditions check.
     /// </summary>
     [DataField]
-    public float FailDelay = 0.5f;
+    public float FailDelay;
 
     public bool CheckConditions(MegafaunaCalculationBaseArgs args)
     {

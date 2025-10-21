@@ -51,6 +51,8 @@
   name: Expanding box
   description: Spawns an expanding box on the target position.
   components:
+  - type: Action
+    useDelay: 4.0
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
       spawn: HierophantClubShapeExpandingBox

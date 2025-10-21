@@ -18,12 +18,18 @@ public sealed partial class MegafaunaSystem
 
     private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         var nextAction = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingDelay);
         ent.Comp.Schedule.Add(nextAction, ent.Comp.Selector);
     }
 
     private void OnMegafaunaShutdown(Entity<MegafaunaAiComponent> ent, ref MegafaunaShutdownEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         ent.Comp.Schedule.Clear();
     }
 

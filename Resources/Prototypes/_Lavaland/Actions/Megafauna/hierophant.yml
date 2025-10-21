@@ -25,8 +25,8 @@
   description: Spawns an expanding box on the target position.
   components:
   - type: AngerDelayAction
-    minDelay: 4.0
-    maxDelay: 8.0
+    minDelay: 1.5
+    maxDelay: 4.0
     inverse: true
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
@@ -39,8 +39,8 @@
   description: Spawns a sequence of crosses on the target position.
   components:
   - type: AngerDelayAction
-    minDelay: 4.0
-    maxDelay: 8.0
+    minDelay: 1.5
+    maxDelay: 4.0
     inverse: true
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
@@ -55,8 +55,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: AngerDelayAction
-    minDelay: 10.0
-    maxDelay: 30.0
+    minDelay: 7.0
+    maxDelay: 20.0
     inverse: true
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
@@ -70,8 +70,8 @@
   description: Teleports you to the target position.
   components:
   - type: AngerDelayAction
-    minDelay: 5.0
-    maxDelay: 15.0
+    minDelay: 3.0
+    maxDelay: 10.0
     inverse: true
   - type: WorldTargetAction
     event: !type:MegafaunaBlinkActionEvent
