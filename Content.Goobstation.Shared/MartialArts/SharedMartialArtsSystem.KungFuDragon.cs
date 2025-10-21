@@ -95,6 +95,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         ApplyMultiplier(target, args.SpeedMultiplier, 0f, args.SpeedUpTime, MartialArtModifierType.MoveSpeed);
+        _modifier.RefreshMovementSpeedModifiers(target);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);

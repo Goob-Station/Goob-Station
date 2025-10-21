@@ -22,7 +22,7 @@ public sealed partial class DragonClawPerformedEvent : BaseKungFuDragonEvent
     public TimeSpan SpeedUpTime = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public float SpeedMultiplier = 1.4f;
+    public float SpeedMultiplier = 1.3f;
 }
 
 [DataDefinition]
