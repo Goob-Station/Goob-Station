@@ -180,9 +180,9 @@
     - !type:GroupSelector
       children:
       - id: ClothingBeltSecurityFilled
-        weight: 0.5
+        weight: 0.7
       - id: ClothingBeltCorporateJudoFilled
-        weight: 0.5
+        weight: 0.3
     # Goobstation - Martial Arts - end
 
 - type: entity
@@ -209,9 +209,10 @@
       prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
-    - id: ChemDispenserFlatpack
+    - id: ChemDispenserFlatpack # Goob Station start
     - id: ChemMasterFlatpack
     - id: Multitool
+    - id: BoxBodyBag # Goob Station end
 
 - type: entity
   id: LockerDetectiveFilled
