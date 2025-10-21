@@ -148,7 +148,7 @@ public abstract partial class SharedHereticAbilitySystem
     {
         foreach (var mob in GetNearbyPeople(user, 2f, "Cosmos", coords))
         {
-            if (_starMark.TryApplyStarMark(mob!, user))
+            if (_starMark.TryApplyStarMark(mob.AsNullable()))
                 _throw.TryThrow(mob, coords);
         }
         _starMark.SpawnCosmicFields(coords, 1, strength);
