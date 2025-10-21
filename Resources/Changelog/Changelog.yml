@@ -1,12 +1,4 @@
-# Do NOT put anything after the Entries section, in order to prevent merge conflict with new CL entries
 Entries:
-- author: K-Dynamic
-  changes:
-  - message: Disablers now hold 16 shots instead of 20
-    type: Tweak
-  id: 8635
-  time: '2025-06-07T13:05:25.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36019
 - author: perryprog
   changes:
   - message: Diamonds can now be ejected from lathes and material silos.
@@ -2172,6 +2164,15 @@ Entries:
   id: 8907
   time: '2025-09-01T15:24:37.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39976
+- author: IProduceWidgets
+  changes:
+  - message: there are now civilian versions of nanomed vendors.
+    type: Add
+  - message: nanomed inventories have been increased some.
+    type: Tweak
+  id: 8908
+  time: '2025-09-01T23:39:18.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39718
 - author: M4rchy-S
   changes:
   - message: dead mobs will no longer vomit from radiation damage
@@ -2330,6 +2331,13 @@ Entries:
   id: 8929
   time: '2025-09-05T07:47:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40126
+- author: ScarKy0, FairlySadPanda, TiniestShark, MilonPL, beck-thompson
+  changes:
+  - message: The vulpkanin species can now be selected as a roundstart species.
+    type: Add
+  id: 8930
+  time: '2025-09-05T10:43:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37539
 - author: IProduceWidgets
   changes:
   - message: Pride pins can now chameleon to any other pride pin!
@@ -2367,6 +2375,21 @@ Entries:
   id: 8935
   time: '2025-09-06T15:13:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40158
+- author: ToastEnjoyer
+  changes:
+  - message: On box, fixed a bug where there was a disconnected grid at the tesla
+      engine spot.
+    type: Fix
+  id: 8936
+  time: '2025-09-06T16:00:24.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40161
+- author: Dutch-VanDerLinde
+  changes:
+  - message: Some jumpsuits may now be folded to give them an alternate look.
+    type: Add
+  id: 8937
+  time: '2025-09-06T17:55:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/31213
 - author: Crude Oil
   changes:
   - message: Regular syringes no longer have the 1u transfer amount
@@ -2374,6 +2397,15 @@ Entries:
   id: 8938
   time: '2025-09-07T14:01:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40197
+- author: FairlySadPanda
+  changes:
+  - message: Removing displaced markings no longer makes the renderer give up.
+    type: Fix
+  - message: Vulpkanin can once again use normal human hair.
+    type: Fix
+  id: 8939
+  time: '2025-09-07T14:36:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40171
 - author: ArtisticRoomba
   changes:
   - message: Atmospherics Delta-Pressure now has a short guidebook entry. You can
@@ -2449,6 +2481,13 @@ Entries:
   id: 8949
   time: '2025-09-10T22:13:59.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40260
+- author: TsjipTsjip LuckyShotPictures IProduceWidgets
+  changes:
+  - message: Admin shuttles have been added to the repo, and can be found in /Maps/Shuttles/AdminSpawn/..
+    type: Add
+  id: 8950
+  time: '2025-09-11T01:01:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/32139
 - author: ToastEnjoyer
   changes:
   - message: Fixed the laser carbine not being labeled as contraband
@@ -2513,6 +2552,35 @@ Entries:
   id: 8958
   time: '2025-09-13T07:01:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40103
+- author: Huaqas
+  changes:
+  - message: Vulpkanin now have Undergarments.
+    type: Add
+  id: 8959
+  time: '2025-09-13T17:36:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40321
+- author: MissKay1994
+  changes:
+  - message: Greatly reduced lethality of Man-O-War shuttle
+    type: Tweak
+  id: 8960
+  time: '2025-09-14T05:44:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40339
+- author: ScarKy0
+  changes:
+  - message: Vulpkanin now use the corrent undergarments when "Censor character nudity"
+      is enabled.
+    type: Fix
+  id: 8961
+  time: '2025-09-14T07:39:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40341
+- author: Huaqas
+  changes:
+  - message: Vulpkanin eye tattoos now correctly changes the color of the entire eye.
+    type: Fix
+  id: 8962
+  time: '2025-09-14T15:18:49.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40320
 - author: Winkarst-cpu
   changes:
   - message: Fixed the wizard's recharge spell not working on some wands.
@@ -2555,6 +2623,14 @@ Entries:
   id: 8966
   time: '2025-09-15T14:18:32.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39588
+- author: Admiral-Obvious-001
+  changes:
+  - message: Increased the cooldown of ninja glove stun from 2 seconds to 10 seconds.
+      Stun duration remains unchanged at 5 seconds.
+    type: Tweak
+  id: 8967
+  time: '2025-09-15T23:31:50.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39707
 - author: ScarKy0
   changes:
   - message: Intellicards can now be obtained from the Station AI Electronics crates.
@@ -2621,6 +2697,13 @@ Entries:
   id: 8976
   time: '2025-09-18T02:37:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40432
+- author: sowelipililimute
+  changes:
+  - message: Vulpkanin use the standard hugging emote now
+    type: Tweak
+  id: 8977
+  time: '2025-09-18T17:17:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40183
 - author: vgskye
   changes:
   - message: You can now get chemical analysis goggles from a ChemDrobe.
@@ -2853,6 +2936,20 @@ Entries:
   id: 9007
   time: '2025-09-26T20:04:33.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35671
+- author: SlamBamActionman
+  changes:
+  - message: Nocturine now causes sleep after a 6 second delay.
+    type: Tweak
+  id: 9008
+  time: '2025-09-26T20:05:34.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40231
+- author: Princess-Cheeseballs
+  changes:
+  - message: Added the Vulpkanin Plushie
+    type: Add
+  id: 9009
+  time: '2025-09-27T07:21:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40303
 - author: Princess-Cheeseballs
   changes:
   - message: Meth, Hyperzine and other stimulants properly reduce Knockdown and Stun
@@ -3023,6 +3120,13 @@ Entries:
   id: 9031
   time: '2025-10-04T01:44:30.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37975
+- author: AwareFoxy
+  changes:
+  - message: Added Pride-O-Mat to marathon!
+    type: Add
+  id: 9032
+  time: '2025-10-04T16:50:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40696
 - author: Moomoobeef
   changes:
   - message: Evac directional signs now glow in the dark!
@@ -3067,6 +3171,13 @@ Entries:
   id: 9038
   time: '2025-10-07T07:39:37.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39181
+- author: Huaqas
+  changes:
+  - message: The Tanakh and Satanic bibles have been removed.
+    type: Remove
+  id: 9039
+  time: '2025-10-07T09:14:49.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39698
 - author: jessicamaybe
   changes:
   - message: Gorillas can now pull objects.
@@ -3220,6 +3331,13 @@ Entries:
   id: 9058
   time: '2025-10-08T22:27:58.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40783
+- author: ToastEnjoyer
+  changes:
+  - message: On fland, the wardens enforcer has been removed.
+    type: Remove
+  id: 9059
+  time: '2025-10-08T23:45:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40786
 - author: SlamBamActionman
   changes:
   - message: EXPERIMENTAL Nocturine now slows the target down, with a longer duration
@@ -3571,6 +3689,13 @@ Entries:
   id: 9106
   time: '2025-10-15T23:59:05.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34935
+- author: DinnerCalzone
+  changes:
+  - message: ID card sprites have been tweaked to unsquish their job icons.
+    type: Tweak
+  id: 9107
+  time: '2025-10-16T03:35:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40414
 - author: redmushie
   changes:
   - message: Fixed power sensors not respecting their configured network setting
@@ -3802,3 +3927,10 @@ Entries:
   id: 9136
   time: '2025-10-21T09:37:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41016
+- author: SnappingOpossum
+  changes:
+  - message: Upgraded solar panels can now take structural damage.
+    type: Fix
+  id: 9137
+  time: '2025-10-21T09:50:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40992
