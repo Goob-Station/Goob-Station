@@ -14,8 +14,8 @@
     sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
     state: icon-lethal
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 300
+    startingCharge: 300
   - type: BatteryDrinkerSource
     maxAmount: 100
   - type: BatterySelfRecharger
@@ -33,11 +33,11 @@
   id: EnergySpeedloaderLethal
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (lethal)
-  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
+  description: A rather volatile powercell utilizing phoron to increase battery efficiency. Phoron will make us all rich.
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
-    fireCost: 100
+    fireCost: 30
   - type: Tag
     tags:
       - EnergySpeedloader
@@ -47,13 +47,13 @@
   id: EnergySpeedloaderDisabler
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (disabler)
-  description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
+  description: A rather volatile powercell utilizing phoron to increase battery efficiency. Phoron will make us all rich.
   components:
   - type: Sprite
     state: icon-disabling
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunDisabler
-    fireCost: 50
+    fireCost: 15
   - type: Tag
     tags:
       - EnergySpeedloader
@@ -63,11 +63,11 @@
   id: EnergySpeedloaderPulse
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (pulse)
-  description: A rather volatile powercell utilizing phoron to charge destructive energy pulses over time. Phoron will make us all rich.
+  description: A rather volatile powercell utilizing phoron to increase battery efficiency. Phoron will make us all rich.
   components:
   - type: HitscanBatteryAmmoProvider
     proto: LightPulse
-    fireCost: 50
+    fireCost: 30
   - type: Tag
     tags:
     - EnergySpeedloader
