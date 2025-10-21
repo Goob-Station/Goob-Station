@@ -71,6 +71,7 @@
   - PowerCellXraySniper
   - PowerCellOverchargedSniper
   - MilitaryPowerCellLMG
+  - MagazineBoxHighCaliberBeanbag
 
 - type: latheRecipePack
   id: SecurityEquipmentDynamicGoob
