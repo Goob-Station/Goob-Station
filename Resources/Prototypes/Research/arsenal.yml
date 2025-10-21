@@ -106,7 +106,6 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -154,7 +153,7 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
+  - MagazineBoxHighCaliberBeanbag # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
   # Goobstation R&D Console rework start
