@@ -22,7 +22,7 @@
     damage:
       types:
         Slash: 10
-        Genetic: 3
+        Cellular: 3
         Structural: 40
   - type: StaminaDamageOnHit
     damage: 20
