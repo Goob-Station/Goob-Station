@@ -180,7 +180,6 @@
   - type: StaticPrice
     price: 500
 
-
 - type: entity
   parent: BaseFlatpack
   id: ChemMasterFlatpack
