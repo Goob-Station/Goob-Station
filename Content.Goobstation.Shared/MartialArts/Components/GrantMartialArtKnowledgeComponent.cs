@@ -39,6 +39,11 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
+
+    //omu start
+    [DataField]
+    public bool IsRemovable = true;
+    //omu end
 }
 
 [RegisterComponent]
