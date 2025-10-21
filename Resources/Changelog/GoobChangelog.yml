@@ -16686,3 +16686,9 @@ Entries:
       message: Windows can now be knocked on again via the "Interact" dropdown. whoops.
   id: 1867
   time: '2025-10-21T01:27:07.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: RCDs will no longer cause ruptures in the space-time continuum.
+  id: 1868
+  time: '2025-10-21T01:44:52.0000000+00:00'
