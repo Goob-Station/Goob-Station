@@ -69,6 +69,7 @@ public abstract partial class SharedMartialArtsSystem
 
             _sprinting.ToggleSprint(args.Target, sprinter, false, false);
             sprinter.LastSprint = _timing.CurTime + TimeSpan.FromSeconds(2); // 5s sprinting delay
+            Dirty(args.Target, sprinter);
             return;
         }
 
