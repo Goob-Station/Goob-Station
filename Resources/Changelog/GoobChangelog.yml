@@ -16692,3 +16692,11 @@ Entries:
       message: RCDs will no longer cause ruptures in the space-time continuum.
   id: 1868
   time: '2025-10-21T01:44:52.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: >-
+        Added cargo bingles, a new ghostrole summon for NTR for 5LP, help cargo
+        and cry in the bathroom.
+  id: 1869
+  time: '2025-10-21T13:39:44.0000000+00:00'
