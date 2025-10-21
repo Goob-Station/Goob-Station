@@ -1,4 +1,7 @@
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Voodoo;
 
@@ -8,6 +11,18 @@ namespace Content.Goobstation.Shared.Voodoo;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VoodooComponent : Component
 {
-    [DataField("targetName"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public string TargetName;
+
+    [DataField, AutoNetworkedField]
+    public bool? GibOnDestory;
+
+    [AutoNetworkedField]
+    public ProtoId<DamageGroupPrototype> DamageType = "Brute";
+
+    [DataField, AutoNetworkedField]
+    public float Damage = 10f;
+
+    [DataField, AutoNetworkedField]
+    public float DamageOnDestroy = 200f;
 }

@@ -28,6 +28,7 @@ namespace Content.Goobstation.Server.Voodoo
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -38,6 +39,9 @@ namespace Content.Goobstation.Server.Voodoo
             SubscribeLocalEvent<VoodooComponent, ThrownEvent>(OnThrow);
         }
 
+        /// <summary>
+        /// When the voodoo item takes damage, deal damage to the player
+        /// </summary>
         private void OnDamaged(EntityUid uid, VoodooComponent comp, ref DamageChangedEvent args)
         {
             if (string.IsNullOrWhiteSpace(comp.TargetName))
@@ -53,8 +57,8 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var bruteGroup = _proto.Index<DamageGroupPrototype>("Brute");
-                var damage = new DamageSpecifier(bruteGroup, 10);
+                var damageType = _proto.Index(comp.DamageType);
+                var damage = new DamageSpecifier(damageType, comp.Damage);
 
                 _damageable.TryChangeDamage(target, damage);
 
@@ -62,6 +66,9 @@ namespace Content.Goobstation.Server.Voodoo
             }
         }
 
+        /// <summary>
+        /// When the voodoo item is destroyed, deal 200 blunt
+        /// </summary>
         private void OnDestroyed(EntityUid uid, VoodooComponent comp, DestructionEventArgs args)
         {
             foreach (var session in _playerManager.Sessions)
@@ -74,14 +81,25 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var bruteGroup = _proto.Index<DamageGroupPrototype>("Brute");
-                var damage = new DamageSpecifier(bruteGroup, 200);
+                if (comp.GibOnDestory == true)
+                {
+                    _bodySystem.GibBody(target, splatModifier: 20);
+                }
+                else
+                {
+                    var damageType = _proto.Index(comp.DamageType);
+                    var damage = new DamageSpecifier(damageType, comp.DamageOnDestroy);
 
-                _damageable.TryChangeDamage(target, damage);
+                    _damageable.TryChangeDamage(target, damage);
+                }
 
                 break;
             }
         }
+
+        /// <summary>
+        /// Whenever the voodoo item is thrown, throw the player in a random direction
+        /// </summary>
         private void OnThrow(Entity<VoodooComponent> ent, ref ThrownEvent args)
         {
             foreach (var session in _playerManager.Sessions)
@@ -94,15 +112,14 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(ent.Comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var random = IoCManager.Resolve<IRobustRandom>();
-                var strength = random.NextFloat(3f, 5f);
+                var strength = _random.NextFloat(3f, 5f);
 
                 var origin = Transform(ent).MapPosition.Position;
                 var targetPos = Transform(target).MapPosition.Position;
 
                 var direction = targetPos - origin;
                 if (direction == Vector2.Zero)
-                    direction = random.NextVector2(1f);
+                    direction = _random.NextVector2(1f);
 
                 _throwing.TryThrow(target, direction, strength, args.User);
 
