@@ -16572,3 +16572,9 @@ Entries:
       message: Fixed ruins sometimes layering on top of the mining outpost.
   id: 1855
   time: '2025-10-19T11:47:10.0000000+00:00'
+- author: EvaisaDev
+  changes:
+    - type: Fix
+      message: AI vision no longer goes black when outside of the station grid.
+  id: 1856
+  time: '2025-10-19T14:51:20.0000000+00:00'
