@@ -15444,7 +15444,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MagazineShotgunLeverRifle
+- proto: MagazineLeverRifle
   entities:
   - uid: 3372
     components:
@@ -15453,7 +15453,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MagazineShotgunLeverRifleEmpty
+- proto: MagazineLeverRifleEmpty
   entities:
   - uid: 3358
     components:
