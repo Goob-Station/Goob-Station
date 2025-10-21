@@ -234,7 +234,7 @@
     weight: 15
     earliestStart: 15
     minimumPlayers: 15
-    duration: null
+#    duration: null
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
