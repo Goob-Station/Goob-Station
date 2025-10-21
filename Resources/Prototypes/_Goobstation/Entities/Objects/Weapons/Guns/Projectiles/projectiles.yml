@@ -227,7 +227,6 @@
     color: yellow
     energy: 1
   - type: Projectile
-    armorPenetration: 0
     damage:
       types:
         Piercing: 20
