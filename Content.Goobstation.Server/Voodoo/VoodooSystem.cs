@@ -81,7 +81,7 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (comp.GibOnDestory == true)
+                if (comp.GibOnDestory)
                 {
                     _bodySystem.GibBody(target, splatModifier: 20);
                 }

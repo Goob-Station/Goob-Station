@@ -15,7 +15,7 @@ public sealed partial class VoodooComponent : Component
     public string TargetName;
 
     [DataField, AutoNetworkedField]
-    public bool? GibOnDestory;
+    public bool GibOnDestory;
 
     [AutoNetworkedField]
     public ProtoId<DamageGroupPrototype> DamageType = "Brute";
