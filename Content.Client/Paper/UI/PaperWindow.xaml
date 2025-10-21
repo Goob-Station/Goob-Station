@@ -37,7 +37,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         </BoxContainer>
                         <!-- Starlight-end -->
                         <BoxContainer Name="InputContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">
-                            <PanelContainer StyleClasses="TransparentBorderedWindowPanel" MinHeight="100"
+                            <PanelContainer StyleClasses="PaperEditBackground" MinHeight="100"
                                 VerticalAlignment="Stretch" VerticalExpand="True" HorizontalExpand="True">
                                 <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public" />
                             </PanelContainer>
