@@ -16723,3 +16723,9 @@ Entries:
         hidden to thermal vision.
   id: 1872
   time: '2025-10-22T13:38:31.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Tweak
+      message: Footprints only start forming from medium and bigger puddles.
+  id: 1873
+  time: '2025-10-22T13:41:18.0000000+00:00'
