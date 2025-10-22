@@ -433,3 +433,27 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingHandsGlovesCombat, BaseSyndicateContraband]
+  id: ClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
+  description: Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#940000"
+      right:
+      - state: inhand-right
+        color: "#940000"
+  - type: GrabModifier
+    startingGrabStage: Hard
+    grabEscapeModifier: -0.1
+    grabEscapeMultiplier: 0.8
+    grabMoveSpeedMultiplier: 2 # 0.8 speed modifier on hard grab

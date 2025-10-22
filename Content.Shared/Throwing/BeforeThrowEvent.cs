@@ -26,5 +26,11 @@ public struct BeforeThrowEvent
     public float ThrowSpeed { get; set;}
     public EntityUid PlayerUid { get; }
 
+    /// <summary>
+    /// Goobstation
+    /// Whether it should use GrabThrownSystem to throw
+    /// </summary>
+    public bool GrabThrow { get; set; }
+
     public bool Cancelled = false;
 }

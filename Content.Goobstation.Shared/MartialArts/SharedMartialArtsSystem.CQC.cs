@@ -215,7 +215,7 @@ public partial class SharedMartialArtsSystem
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, behavior: proto.DropHeldItemsBehavior);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

@@ -71,6 +71,9 @@ public sealed class SharedGoobStealthSystem : EntitySystem
         if (!ent.Comp.RevealOnAttack)
             return;
 
+        if (ent.Owner != args.PlayerUid)
+            return;
+
         _stealth.ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);
         TryRevealNinja(ent.Owner);
     }
