@@ -38,9 +38,13 @@ heretic-ghoul-greeting-noname =
 ghostrole-ghoul-name = Гуль
 ghostrole-prophet-name = Пророк
 ghostrole-stalker-name = Плотевой Следопыт
+ghostrole-fire-shark-name = Пылающая Акула
 ghostrole-rustwalker-name = Ржавый Бродяга
+ghostrole-stargazer-name = Звёздный Наблюдатель
 ghostrole-ghoul-desc = Помогай своему призывателю достичь вознесения.
 ghostrole-prophet-desc = Помогай своему призывателю достичь вознесения. Общайся с другими через Связь Мансуса.
 ghostrole-stalker-desc = Помогай своему призывателю достичь вознесения. Телепортируйся и саботируй освещение экипажа.
+ghostrole-fire-shark-desc = Помогайте своему призывателю достичь вознесения. Сжигайте своих жертв.
 ghostrole-rustwalker-desc = Помогай своему призывателю достичь вознесения. Распространяй ржавчину повсюду.
+ghostrole-stargazer-desc = Помогайте своему призывателю сеять хаос.
 ghostrole-ghoul-rules = Ты — [color=red][bold]Командный антагонист[/bold][/color] вместе с тем, кто тебя призвал, и прочими древними силами.

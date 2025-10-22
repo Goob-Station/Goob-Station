@@ -1,5 +1,6 @@
 ### Localization used for the list verbs command.
 
+
 # Mostly help + error messages.
 
 list-verbs-command-description = Перечисляет все verbs, которые игрок может использовать на данной сущности.

@@ -33,6 +33,7 @@ marking-SlimeBrain-brain = Мозг
 
 # Snout
 
+
 # Eyes
 
 marking-SlimeEyesDefault = Глаза
@@ -70,7 +71,9 @@ marking-SlimeBonelegleft-bone = Плавающие кости (левая ног
 
 # UndergarmentBottom
 
+
 # UndergarmentTop
+
 
 # LFoot
 
@@ -94,13 +97,18 @@ marking-SlimeBonehandright-bone = Плавающие кости (правая р
 
 # FacialHair
 
+
 # Hair
+
 
 # HeadSide
 
+
 # HeadTop
 
+
 # Tail
+
 
 # RArmExtension
 

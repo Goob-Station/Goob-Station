@@ -1,0 +1,10 @@
+ent-Megaphone = megaphone
+    .desc = Testing!
+ent-CargoMegaphone = cargo megaphone
+    .desc = Make money in silence and let the hustle make noise. Or something like that.
+ent-CommandMegaphone = command megaphone
+    .desc = Turn shallow authority into loud shallow authority.
+ent-SecurityMegaphone = security megaphone
+    .desc = Use to make suspects aware you're after them. Or to yell at prisoners you don't like.
+ent-ClownMegaphone = clown megaphone
+    .desc = A comedian has to make their voice known.

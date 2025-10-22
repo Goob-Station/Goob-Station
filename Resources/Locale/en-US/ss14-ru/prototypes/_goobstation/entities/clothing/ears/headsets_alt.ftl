@@ -1,3 +1,7 @@
+ent-ClothingHeadsetAltLoudspeaker = { ent-ClothingHeadsetAlt }
+    .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetAltSyndicateCommander = blood-red commander over-ear headset
+    .desc = { ent-ClothingHeadsetAltSyndicate.desc }
 ent-ClothingHeadsetChronolegioneer = futuristic over-ear headset
     .desc = A headset from the future that can pick up most station frequencies.
 ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }

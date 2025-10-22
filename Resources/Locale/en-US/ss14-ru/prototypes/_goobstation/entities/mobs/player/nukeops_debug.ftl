@@ -1,0 +1,14 @@
+ent-MobHumanLoneNuclearOperativeSuitDebug = Lone Operative Suit Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitEliteDebug = Lone Operative Suit Elite Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitJuggDebug = Lone Operative Suit Juggernaut Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitCommanderDebug = Lone Operative Suit Commander Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitStealthDebug = Lone Operative Suit Stealth Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitMedicDebug = Lone Operative Suit Medic Debug
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitDreadDebug = Lone Operative Suit Dread Debug
+    .desc = { ent-MobHuman.desc }

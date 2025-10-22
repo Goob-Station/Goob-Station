@@ -306,6 +306,9 @@ desktop.ini
 # Images generated using the MapRenderer
 Resources/MapImages
 
+# Locale duplicates
+Resources/Locale/ru-RU/_Goobstation/join-queue/queue-screen.ftl
+
 ## Docfx stuff
 /Content.Docfx/api/
 /Content.Docfx/*site

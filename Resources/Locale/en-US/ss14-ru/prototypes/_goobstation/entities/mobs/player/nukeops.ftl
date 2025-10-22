@@ -1,0 +1,14 @@
+ent-MobHumanLoneNuclearOperativeSuit = Lone Operative Suit
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitElite = Lone Operative Suit Elite
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitJugg = Lone Operative Suit Juggernaut
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitCommander = Lone Operative Suit Commander
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitStealth = Lone Operative Suit Stealth
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitMedic = Lone Operative Suit Medic
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitDread = Lone Operative Suit Medic
+    .desc = { ent-MobHuman.desc }

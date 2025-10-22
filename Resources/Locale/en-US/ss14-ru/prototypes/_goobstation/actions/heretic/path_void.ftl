@@ -3,4 +3,4 @@ ent-ActionHereticVoidBlast = Void Blast
 ent-ActionHereticVoidPhase = Void Phase
     .desc = Shift through the void, knocking down everyone around you.
 ent-ActionHereticVoidPull = Void Pull
-    .desc = Pull and damage nearby heathens.
+    .desc = Calls the void, damaging, knocking down, and stunning people nearby. Distant foes are also pulled closer to you (but not damaged).

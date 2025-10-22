@@ -8,6 +8,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
 ## Species Names
 
 species-name-vulpkanin = Вульпканин

@@ -30,3 +30,5 @@ ent-ActionVehicleWallPush = Wall Launch
     .desc = Launch yourself off the nearest surface, tiders count as surfaces.
 ent-ActionRocketChairBoost = Boost
     .desc = Spray water to launch forward.
+ent-ActionActivateBerserkerImplant = Activate Berserker Implant
+    .desc = Activate your berserker implant, greatly increasing your melee damage and speed for a short duration. While in berserk mode, you will be unable to use ranged weapons.

@@ -39,3 +39,4 @@ lavaland-ruin-desk = Обломки станции
 lavaland-ruin-generator = Кладбище генераторов
 lavaland-ruin-mug = Фабрика кружек
 lavaland-ruin-temple = Храм Нар'Си
+lavaland-ruin-flock-large = Странные стеклянные руины

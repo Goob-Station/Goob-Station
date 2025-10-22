@@ -4,4 +4,5 @@ ent-ClothingOuterHardsuitSecPilot = костюм пилота службы бе�
 ent-ClothingOuterHardsuitSecPilotFilled = { ent-ClothingOuterHardsuitSecPilot }
     .suffix = Полный
     .desc = { ent-ClothingOuterHardsuitSecPilot.desc }
-
+ent-ClothingOuterHardsuitCBURNLeader = экзокостюм командира отряда РХБЗЗ
+    .desc = Легковесный но прочный экзокостюм, который используют специальные подразделения зачистки.

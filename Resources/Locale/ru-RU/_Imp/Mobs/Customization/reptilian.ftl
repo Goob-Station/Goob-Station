@@ -29,6 +29,7 @@ marking-LizardUpperSnout-upper = Рыло
 
 # Eyes
 
+
 # RArm
 
 marking-BadMoltRArm = Шрам (Плохая линька, правая рука)
@@ -41,21 +42,30 @@ marking-BadMoltLArm-badmolt = Шрам (Плохая линька, левая р
 
 # RLeg
 
+
 # LLeg
+
 
 # UndergarmentTop
 
+
 # LFoot
+
 
 # RFoot
 
+
 # LHand
+
 
 # RHand
 
+
 # FacialHair
 
+
 # Hair
+
 
 # HeadSide
 

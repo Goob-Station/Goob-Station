@@ -1,5 +1,6 @@
 ### Loc for the transfer amount eui window
 
+
 ## Title
 
 ui-transfer-amount-title = Изменить перемещаемое количество

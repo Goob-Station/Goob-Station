@@ -25,3 +25,6 @@ ent-HereticBladeRust = rusted blade
 ent-HereticBladeVoid = void blade
     .desc = Devoid of any substance, this blade reflects nothingness. It is a real depiction of purity, and chaos that ensues after its implementation.
     .suffix = Void
+ent-HereticBladeCosmos = cosmic blade
+    .desc = A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+    .suffix = Cosmos

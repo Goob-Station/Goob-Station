@@ -1,4 +1,5 @@
-
+ent-FoodPelmeniBowl = пельмени
+    .desc = Много мяса, мало теста.
 ent-FoodGOOOOLsoup = медвежий суп
     .desc = Доигрался в карты....
 ent-FoodOkroshkasoup = окрошка

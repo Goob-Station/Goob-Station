@@ -1,5 +1,6 @@
 ### for technical and/or system messages
 
+
 ## General
 
 shell-command-success = Команда выполнена.

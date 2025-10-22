@@ -18,6 +18,9 @@ heretic-ability-fail-tile-occupied = Целевая плитка занята!
 heretic-ability-fail-rust-stage-low = У вас недостаточно силы, чтобы заржаветь эту поверхность!
 heretic-ability-fail-target-ghoul = Цель уже является упырем!
 heretic-ability-fail-target-no-mind = Цель не имеет души!
+heretic-cosmic-rune-fail-star-mark = Заблокировано звездной меткой!
+heretic-cosmic-rune-fail-unlinked = Нет связанной руны!
+heretic-cosmic-rune-fail-range = Слишком далеко!
 heretic-magicitem-examine = [color=yellow]Позволяет использовать продвинутые заклинания при удержании или экипировке.[/color]
 mansus-grasp-trigger-fail = Что-то мешает вам активировать это!
 
@@ -49,6 +52,12 @@ heretic-livingheart-offstation = Оно { $state }, вне станции, { $di
 heretic-livingheart-onstation = Оно { $state }, { $direction }!
 heretic-livingheart-unknown = Оно... не в этом измерении реальности.
 heretic-livingheart-faraway = Оно { $state }, чрезвычайно далеко!
+eretic-stargaze-obliterate-other = Вы видите, как { $uid } поглощается испепеляющим гневом космоса. На мгновение вы замечаете его силуэт, корчащийся в агонии, прежде чем он рассыпается в атомы.
+heretic-stargaze-obliterate-user = САМА СИЛА КОСМОСА ИЗЛИВАЕТСЯ НА ВАШУ ПЛОТЬ. ОБЖАГИЮЩИЕ ВОЛНЫ ОХВАТЫВАЮТ ВАШЕ ТЕЛО, РАЗДИРАЯ ЕГО НА ЧАСТИ. ВО МГНОВЕНИЕ ВЫ АННИГИЛИРУЕТЕ, ПРЕВРАЩАЕТЕСЬ В ТО, ЧЕМ ВСЕГДА БЫЛИ — В ПЫЛЬ...
+heretic-stargazer-reset-consciousness = ЭТО ДЕЙСТВИЕ НЕОБРАТИМО ИЗМЕНИТ СОЗНАНИЕ ВАШЕГО ЗВЁЗДНОГО НАБЛЮДАТЕЛЯ! Используйте снова, чтобы подтвердить.
+heretic-stargazer-consciousness-reset-fail = Ваш запрос на смену личности звездного наблюдателя, похоже, был отклонён... Вам пока придётся смириться с этим.
+heretic-stargazer-consciousness-reset-target = Ваш призыватель сбросил вас, и тело было захвачено призраком. Похоже, его не устроила ваша работа.
+heretic-stargazer-consciousness-reset-user = Сознание звездного наблюдателя изменилось, чтобы лучше соответствовать вам.
 
 ## speech
 
@@ -67,6 +76,11 @@ heretic-speech-rust-plume = 'НТР'И'Н'Й ШЛ''Ф!
 heretic-speech-void-blast = З'МОР'ЗЬ!
 heretic-speech-void-phase = П'РИ'Д Р'ЛЬН'СТ'!
 heretic-speech-void-pull = ПРИВ'Д' 'Х К' М'Н!!
+heretic-speech-cosmic-rune = ЗВ'ЗДН'Я Р'Н'!
+heretic-speech-star-touch = ЗВ'ЗДН'Е ПР'К'СН'В'Н'Е!!
+heretic-speech-star-blast = ЗВ'ЗДН'Й ВСТ'Р'Л!!
+heretic-speech-cosmic-expansion = К'СМ'Ч'СК'Я ЭК'СП'НС'Я!
+heretic-speech-stargaze = ЗВ'ЗДН'Й Н'Б'ДТ'Л!
 heretic-speech-cleave = Р'СК'Л!
 heretic-speech-bloodsiphon = ПЛ'МЯ В'ЧН'СТ'!
 heretic-speech-mansuslink = ПРО'Н'КН' В Р'ЗУМ!

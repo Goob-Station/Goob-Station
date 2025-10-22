@@ -1,5 +1,6 @@
 ### Interaction Popup component
 
+
 ## Petting animals
 
 petting-success-generic = Вы гладите { $target } по голове.

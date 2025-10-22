@@ -5,8 +5,9 @@ ent-CrateFunSyndicateSegway = ящик с сегвеем Синдиката
 ent-CrateFunBingleLoot = добыча Бингла
     .desc = { ent-CrateBingle.desc }
 ent-CrateFunBingleAdmeme = Бингл
-    .suffix = Ящик с Бингл, активируемый голосом Admeme
+    .suffix = Ящик с Бингл, активируемый голосом, Адмем
     .desc = { ent-CrateBingle.desc }
-
+ent-CrateFunDiscoBeachBall = ящик с пляжным диско-шаром
+    .desc = Ящик с пляжным диско-шаром, который превратит любую поездку на пляж в Студия 54.
 ent-CrateWizardAnomCore = ящик зачарований
     .desc = Коробка, содержащая украденные аномальные ядра, используемые для зачарования.

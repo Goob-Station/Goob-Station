@@ -8,5 +8,7 @@ ent-ClothingHeadHatHoodHereticFlesh = { ent-ClothingHeadHatHoodHeretic }
     .desc = { ent-ClothingHeadHatHoodHeretic.desc }
 ent-ClothingHeadHatHoodHereticBlade = { ent-ClothingHeadHatHoodHeretic }
     .desc = { ent-ClothingHeadHatHoodHeretic.desc }
+ent-ClothingHeadHatHoodHereticCosmos = { ent-ClothingHeadHatHoodHeretic }
+    .desc = { ent-ClothingHeadHatHoodHeretic.desc }
 ent-ClothingHeadHatHoodVoidCloakHeretic = void hood
     .desc = Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.

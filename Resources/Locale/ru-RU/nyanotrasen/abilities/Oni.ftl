@@ -3,4 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-oni-gun-fire = You can't fire guns!
+oni-cannot-shoot-guns-1 = Они не используют оружие! Это глупо!
+oni-cannot-shoot-guns-2 = Вы пытаетесь нажать на спуск, но ваши большие пальцы не справляются с этим.
+oni-cannot-shoot-guns-3 = Вы скорее воспользуетесь штыком, чем будете возиться с этой неудобной штукой.
+oni-gun-fire = Вы не можете стрелять из оружия!
