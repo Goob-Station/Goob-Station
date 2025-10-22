@@ -1,8 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
@@ -12,7 +10,6 @@ public sealed partial class DecaySystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
@@ -34,7 +31,6 @@ public sealed partial class DecaySystem : EntitySystem
 
         if (_emag.TryEmagEffect(ent.Owner, ent.Owner, args.Target, ent.Comp.Emag))
         {
-            _admin.Add(LogType.Emag, LogImpact.Medium, $"{ToPrettyString(args.Performer)} emmaged {ToPrettyString(args.Target)} with Decay");
             args.Handled = true;
             return;
         }
