@@ -104,12 +104,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: jukebox
-  id: skubstep
-  name: Finket - Skubstep
-  path:
-    path: /Audio/Lobby/skubstep.ogg
-
-- type: jukebox
   id: sneeds
   name: Burgerchild - Sneeds Feed and Seed
   path:
