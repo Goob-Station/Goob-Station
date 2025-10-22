@@ -69,13 +69,12 @@
   id: MagazineShotgunLeverRifleSlug
   name: "lever rifle magazine (8 Gauge)"
   parent: BaseMagazineShotgunLeverRifle
+  suffix: Slug
   components:
   - type: Tag
     tags:
     - MagazineShotgunLeverRifle
-    suffix: Slug
-    components:
-    - type: BallisticAmmoProvider
-      proto: null
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugHighCaliber
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/lever_rifle_mags.rsi
