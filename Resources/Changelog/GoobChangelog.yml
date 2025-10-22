@@ -16745,3 +16745,11 @@ Entries:
         feasting on a corpse, if there are at least 25u of it inside the corpse!
   id: 1874
   time: '2025-10-22T14:29:28.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Golden plungers can now be inserted into janibelts as well as being
+        valid ammo for a bow.
+  id: 1875
+  time: '2025-10-22T16:31:48.0000000+00:00'
