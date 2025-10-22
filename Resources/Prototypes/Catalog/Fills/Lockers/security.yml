@@ -210,8 +210,6 @@
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
     - id: BoxSyringe
-    - id: ChemDispenserFlatpack
-    - id: Multitool
     - id: BoxBodyBag # Goob Station
 
 - type: entity
