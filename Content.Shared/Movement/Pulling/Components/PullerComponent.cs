@@ -157,7 +157,7 @@ public sealed partial class PullerComponent : Component
     {
         { GrabStage.No, 1f },
         { GrabStage.Soft, 1f },
-        { GrabStage.Hard, 0.5f },
+        { GrabStage.Hard, 0.6f },
         { GrabStage.Suffocate, 0.2f },
     };
 
