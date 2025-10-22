@@ -1,0 +1,23 @@
+- type: reaction
+  id: Umbroxol
+  reactants:
+    UnholyWater:
+      amount: 2
+    TableSalt:
+      amount: 1
+    Mercury:
+      amount: 1
+  products:
+    Umbroxol: 2
+
+- type: reaction
+  id: UnholyWater
+  reactants:
+    Blood:
+      amount: 1
+    Sulfur:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    UnholyWater: 3
