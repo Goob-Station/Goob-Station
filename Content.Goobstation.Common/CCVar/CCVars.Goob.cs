@@ -250,6 +250,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AutoGetUp =
         CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
 
+    /// <summary>
+    ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
+    /// </summary>
+    public static readonly CVarDef<float> CrawlHitzoneSize =
+        CVarDef.Create("goob.crawl_hitzone_size", 0.4f, CVar.SERVER | CVar.REPLICATED);
+
     #region Blob
     public static readonly CVarDef<int> BlobMax =
         CVarDef.Create("blob.max", 3, CVar.SERVERONLY);
