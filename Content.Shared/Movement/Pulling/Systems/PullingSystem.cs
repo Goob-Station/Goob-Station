@@ -1171,6 +1171,14 @@ public sealed class PullingSystem : EntitySystem
         Entity<PullerComponent> puller,
         bool dirty = true)
     {
+        if (puller.Comp.GrabStage == GrabStage.No)
+        {
+            pullable.Comp.GrabEscapeChance = 1f;
+            if (dirty)
+                Dirty(pullable);
+            return;
+        }
+
         var massMultiplier = Math.Clamp(_contests.MassContest(pullable, puller, true) * 2f, 0.5f, 2f);
         var extraMultiplier = 1f;
         if (_standing.IsDown(pullable))

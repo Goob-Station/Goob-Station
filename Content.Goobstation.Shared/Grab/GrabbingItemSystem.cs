@@ -67,7 +67,8 @@ public sealed class GrabbingItemSystem : EntitySystem
         if (grabbed == null)
             return;
 
-        if (!TryComp(args.User, out PullerComponent? puller) || puller.GrabStage < GrabStage.Suffocate)
+        if (!args.IsHeavyAttack && (!TryComp(args.User, out PullerComponent? puller) ||
+            puller.GrabStage < GrabStage.Suffocate))
             return;
 
         args.Cancelled = true;
