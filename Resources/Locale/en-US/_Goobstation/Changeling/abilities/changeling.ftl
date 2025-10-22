@@ -76,7 +76,7 @@ changeling-passive-active = Already active!
 
 changeling-fleshmend = We begin to seal our wounds and regenerate dead cells.
 changeling-panacea = We begin to reconstruct our cellular structure and immune system.
-changeling-adrenaline = We release highly potent adrenaline into our body.
+changeling-adrenaline = We inject highly potent adrenaline into our body.
 
 changeling-chameleon-start = We adapt our skin to the environment
 changeling-chameleon-end = Our skin is losing its translucency
