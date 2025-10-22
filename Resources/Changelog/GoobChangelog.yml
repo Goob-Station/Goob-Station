@@ -16714,3 +16714,12 @@ Entries:
         where they will be.
   id: 1871
   time: '2025-10-22T13:37:34.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Thermals can now see invisible players. Space ninja, cybersun stealth
+        suit, shadowling in shadow walk, and stealth xenoborg (?) are still
+        hidden to thermal vision.
+  id: 1872
+  time: '2025-10-22T13:38:31.0000000+00:00'
