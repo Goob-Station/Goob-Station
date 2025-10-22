@@ -555,7 +555,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 40f) // Goobstation - Fast Bullets
+    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 40f, Vector2? targetCoordinates = null) // Goobstation - Fast Bullets
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -572,6 +572,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             Projectiles.SetShooter(uid, projectile, shooter.Value);
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+        if (targetCoordinates.HasValue) // Goobstation
+            projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
