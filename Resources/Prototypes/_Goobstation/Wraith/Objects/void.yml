@@ -1,0 +1,69 @@
+# Dummy Entity for ghost roles to choose a void creature
+- type: entity
+  id: SummonVoidGhost
+  name: ???
+  description: It looks unfinished.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: curse
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/_Goobstation/Wraith/revleave.ogg
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Examiner
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - Opaque
+  - type: PointLight
+    color: MediumPurple
+    radius: 5
+    softness: 1
+  - type: Polymorphable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nascent-name
+    description: ghost-role-information-nascent-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: ActionGrant
+    actions:
+    - ActionChooseVoidCreature
+  - type: ChooseVoidCreature
+    availableSummons:
+    - prototype: MobSkeletonCommanderWraith
+    - prototype: MobVoidSpikerWraith
+    - prototype: MobVoidHoundWraith
+  - type: UserInterface # allows them to use radial selector
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
