@@ -153,6 +153,13 @@
     magState: mag
     steps: 4
     zeroVisible: true
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: Appearance
   - type: StaticPrice
     price: 10000
@@ -194,6 +201,13 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: RestrictGunshotsByUserTag # Goobstation
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 25

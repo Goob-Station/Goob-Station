@@ -18,6 +18,13 @@
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -30
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: Gun
     minAngle: 21
     maxAngle: 32
