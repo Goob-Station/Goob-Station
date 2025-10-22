@@ -90,6 +90,7 @@
     defaultChannel: Shadowmind
     channels:
     - Shadowmind
+  - type: CurseImmune
 
 - type: entity
   parent: [BaseMobShadowlingAscendant]

@@ -132,6 +132,13 @@
   - type: EmitSoundOnLand
     sound:
       collection: SMGDrop
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   # Goobstation edit end
   - type: Multishot # Goobstation V
     missChance: 0.4
