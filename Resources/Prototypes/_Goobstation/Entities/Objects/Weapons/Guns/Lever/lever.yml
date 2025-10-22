@@ -32,7 +32,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineShotgunLeverRifle
+        startingItem: MagazineShotgunLeverRifleSlug
         insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2

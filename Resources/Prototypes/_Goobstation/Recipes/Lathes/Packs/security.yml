@@ -15,7 +15,7 @@
 - type: latheRecipePack
   id: SecurityAmmoStaticGoob
   recipes:
-  - MagazineBoxShotgunHighCaliber
+#  - MagazineBoxShotgunHighCaliber, no more 8 gauge carpshot for bso
   - MagazineBoxShotgunSlugHighCaliber
   - MagazineBoxShotgunPracticeHighCaliber
 
