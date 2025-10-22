@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseGameRule
+  id: WraithMidround
+  components:
+  - type: AntagSelection
+    agentName: wraith-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostWraith
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: wraith-role-greeting
+        sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWraith
+        - NamesWraithTitle
+        nameFormat: name-format-wraith
+      - type: Banishment # revive on death, resets WP
+        lives: 1
+        popup: wraith-banishment
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobWraith
+  - type: StationEvent
+    weight: 4
+    earliestStart: 40
+    minimumPlayers: 30
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 600
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: WraithMidround
+  id: TokenWraith
+  components:
+  - type: AntagSpawner
+    prototype: MobWraith
+  - type: AntagSelection
+    agentName: wraith-round-end-agent-name
+    definitions:
+    - spawnerPrototype: WraithToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: wraith-role-greeting
+        sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
