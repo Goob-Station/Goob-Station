@@ -25,6 +25,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         public override void Initialize()
         {
             base.Initialize();
+// Goobstation start
             Subs.CVar(_cfg, GoobCVars.DoContestsSystem, (val) => _doContestSystem = val, true);
             Subs.CVar(_cfg, GoobCVars.DoMassContests, (val) => _doMassContests = val, true);
             Subs.CVar(_cfg, GoobCVars.AllowClampOverride, (val) => _allowClampOverride = val, true);
@@ -32,6 +33,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             Subs.CVar(_cfg, GoobCVars.DoStaminaContests, (val) => _doStaminaContests = val, true);
             Subs.CVar(_cfg, GoobCVars.DoHealthContests, (val) => _doHealthContests = val, true);
             Subs.CVar(_cfg, GoobCVars.DoMindContests, (val) => _doMindContests = val, true);
+// Goobstation end
 
         }
 
@@ -55,6 +57,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="performerUid">Uid of Performer</param>
         public float MassContest(EntityUid performerUid, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
@@ -74,6 +77,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// </remarks>
         public float MassContest(EntityUid? performerUid, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || performerUid is null)
@@ -89,6 +93,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="performerPhysics"></param>
         public float MassContest(PhysicsComponent performerPhysics, bool bypassClamp = false, float rangeFactor = 1f, float otherMass = AverageMass)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || performerPhysics.Mass == 0)
@@ -109,6 +114,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <param name="targetUid"></param>
         public float MassContest(EntityUid performerUid, EntityUid targetUid, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
@@ -127,6 +133,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(EntityUid performerUid, PhysicsComponent targetPhysics, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || !TryComp<PhysicsComponent>(performerUid, out var performerPhysics)
@@ -144,6 +151,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(PhysicsComponent performerPhysics, EntityUid targetUid, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || !TryComp<PhysicsComponent>(targetUid, out var targetPhysics)
@@ -161,6 +169,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <inheritdoc cref="MassContest(EntityUid, EntityUid, bool, float)"/>
         public float MassContest(PhysicsComponent performerPhysics, PhysicsComponent targetPhysics, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doMassContests
                 || performerPhysics.Mass == 0
@@ -179,6 +188,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float StaminaContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doStaminaContests
                 || !TryComp<StaminaComponent>(performer, out var perfStamina)
@@ -192,6 +202,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float StaminaContest(StaminaComponent perfStamina, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doStaminaContests)
                 return 1f;
@@ -203,6 +214,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float StaminaContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edits
             if (!_doContestSystem
                 || !_doStaminaContests
                 || !TryComp<StaminaComponent>(performer, out var perfStamina)
@@ -222,6 +234,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float HealthContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edit
             if (!_doContestSystem
                 || !_doHealthContests
                 || !TryComp<DamageableComponent>(performer, out var damage)
@@ -235,6 +248,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float HealthContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edit
             if (!_doContestSystem
                 || !_doHealthContests
                 || !TryComp<DamageableComponent>(performer, out var perfDamage)
@@ -263,6 +277,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         /// <returns></returns>
         public float MindContest(EntityUid performer, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edit
             if (!_doContestSystem
                 || !_doMindContests)
                 return 1f;
@@ -272,6 +287,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
 
         public float MindContest(EntityUid performer, EntityUid target, bool bypassClamp = false, float rangeFactor = 1f)
         {
+            // Goob edit
             if (!_doContestSystem
                 || !_doMindContests)
                 return 1f;
@@ -299,6 +315,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             float weightMind = 1f,
             bool sumOrMultiply = false)
         {
+            // Goob edit
             if (!_doContestSystem)
                 return 1f;
 
@@ -336,6 +353,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             float weightMind = 1f,
             bool sumOrMultiply = false)
         {
+            // Goob edit
             if (!_doContestSystem)
                 return 1f;
 
