@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+7y# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
@@ -306,7 +306,8 @@
   name: Bobik-music - The Final Battle
   path:
     path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
-    
+
+- type: jukebox
   id: graytide
   name: Mrjajkes - The Greytide Song
   path:
