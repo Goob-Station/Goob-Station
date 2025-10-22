@@ -1,19 +1,11 @@
 using Content.Goobstation.Shared.Voodoo;
 using Content.Shared.Body.Systems;
-using Content.Server.Damage.Systems;
 using Content.Shared.Damage;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible;
-using Content.Shared.Weapons.Melee.Components;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Throwing;
-using Robust.Shared.Player;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Server.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Maths;
 using System.Numerics;
 
 namespace Content.Goobstation.Server.Voodoo
@@ -47,6 +39,9 @@ namespace Content.Goobstation.Server.Voodoo
             if (string.IsNullOrWhiteSpace(comp.TargetName))
                 return;
 
+            var damageType = _proto.Index(comp.DamageType);
+            var damage = new DamageSpecifier(damageType, comp.Damage);
+
             foreach (var session in _playerManager.Sessions)
             {
                 if (session.AttachedEntity is not { Valid: true } target)
@@ -57,12 +52,7 @@ namespace Content.Goobstation.Server.Voodoo
                 if (!name.Equals(comp.TargetName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var damageType = _proto.Index(comp.DamageType);
-                var damage = new DamageSpecifier(damageType, comp.Damage);
-
                 _damageable.TryChangeDamage(target, damage);
-
-                break;
             }
         }
 
@@ -71,6 +61,10 @@ namespace Content.Goobstation.Server.Voodoo
         /// </summary>
         private void OnDestroyed(EntityUid uid, VoodooComponent comp, DestructionEventArgs args)
         {
+
+            var damageType = _proto.Index(comp.DamageType);
+            var damage = new DamageSpecifier(damageType, comp.DamageOnDestroy);
+
             foreach (var session in _playerManager.Sessions)
             {
                 if (session.AttachedEntity is not { Valid: true } target)
@@ -87,13 +81,8 @@ namespace Content.Goobstation.Server.Voodoo
                 }
                 else
                 {
-                    var damageType = _proto.Index(comp.DamageType);
-                    var damage = new DamageSpecifier(damageType, comp.DamageOnDestroy);
-
                     _damageable.TryChangeDamage(target, damage);
                 }
-
-                break;
             }
         }
 
@@ -122,9 +111,6 @@ namespace Content.Goobstation.Server.Voodoo
                     direction = _random.NextVector2(1f);
 
                 _throwing.TryThrow(target, direction, strength, args.User);
-
-
-                break;
             }
         }
     }

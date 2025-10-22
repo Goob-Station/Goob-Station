@@ -687,6 +687,7 @@
   parent: BasePlushie
   id: PlushieXeve
   name: Xeve Byrd plush
+  suffix: Voodoo
   description: "That fucking byrd that I hate."
   components:
   - type: Sprite
@@ -731,13 +732,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 80
+        damage: 90
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
