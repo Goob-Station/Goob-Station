@@ -209,9 +209,6 @@
       prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
-    - id: portableChemicalMixer
-    - id: LargeBeaker
-    - id: LargeBeaker
     - id: BoxSyringe
     - id: ChemDispenserFlatpack
     - id: Multitool
