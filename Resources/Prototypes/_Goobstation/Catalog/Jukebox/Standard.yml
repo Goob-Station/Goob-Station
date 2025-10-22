@@ -306,3 +306,8 @@
   name: Bobik-music - The Final Battle
   path:
     path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
+    
+  id: graytide
+  name: Mrjajkes - The Greytide Song
+  path:
+    path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg

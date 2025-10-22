@@ -74,6 +74,15 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 180
   - type: Multishot # Goobstation V
     missChance: 0.4
     spreadMultiplier: 3
@@ -139,6 +148,8 @@
   - type: Multishot
     missChance: 0
     spreadAddition: 10
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: plasma rifle
@@ -226,6 +237,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -349,6 +367,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:
