@@ -16729,3 +16729,19 @@ Entries:
       message: Footprints only start forming from medium and bigger puddles.
   id: 1873
   time: '2025-10-22T13:41:18.0000000+00:00'
+- author: OnsenCapy, Luminal
+  changes:
+    - type: Add
+      message: A very spooky ghostie.
+    - type: Add
+      message: >-
+        Cargo has a new purchase available, the morgue supplies bundle! It
+        contains several body bags, bottles of embalming fluid, a syringe, a
+        bible and a coffin, which the supplies come inside of.
+    - type: Add
+      message: >-
+        A new chemical, Formaldehyde. It is used to embalm corpses and prevent
+        them from rotting. It also serves to prevent the vengeful spirit from
+        feasting on a corpse, if there are at least 25u of it inside the corpse!
+  id: 1874
+  time: '2025-10-22T14:29:28.0000000+00:00'
