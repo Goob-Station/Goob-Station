@@ -16706,3 +16706,11 @@ Entries:
       message: Fixed Floor Goblins not spawning
   id: 1870
   time: '2025-10-22T05:47:13.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        You can now hit moving, crawling targets with ranged weapons by shooting
+        where they will be.
+  id: 1871
+  time: '2025-10-22T13:37:34.0000000+00:00'
