@@ -88,7 +88,7 @@ spellbook-ninjutsu-desc =
 spellbook-hell-rip-name = Hell Ripte Scroll
 spellbook-hell-rip-desc =
     A scroll that teaches one Hell Ripte, a martial art and set of tactics used by Slaughter Demons.
-    Purchasing this and Bottle of Blood unlocks purchasing a special slaughter demon heart.
+    Buying this and Bottle of Blood unlocks purchasing a special slaughter demon heart.
     Cannot be refunded.
 
 spellbook-demon-heart-name = Heart of the Demon
