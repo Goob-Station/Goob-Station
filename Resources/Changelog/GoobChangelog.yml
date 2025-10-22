@@ -16753,3 +16753,11 @@ Entries:
         valid ammo for a bow.
   id: 1875
   time: '2025-10-22T16:31:48.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: the jukebox has a new song "the grayide song" by Mrjajkes!
+    - type: Fix
+      message: All audio files in the jukebox are now mono
+  id: 1876
+  time: '2025-10-22T16:32:35.0000000+00:00'
