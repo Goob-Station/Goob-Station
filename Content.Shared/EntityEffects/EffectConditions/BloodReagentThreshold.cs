@@ -58,8 +58,8 @@ public sealed partial class BloodReagentThresholdCondition : EntityConditionBase
         if (Reagent is not null)
             prototype.TryIndex(Reagent, out reagentProto);
 
-        return Loc.GetString("reagent-effect-condition-guidebook-blood-reagent-threshold",
-            ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("reagent-effect-condition-guidebook-this-reagent")),
+        return Loc.GetString("entity-condition-guidebook-blood-reagent-threshold",
+            ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("entity-condition-guidebook-this-reagent")),
             ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
             ("min", Min.Float()));
     }

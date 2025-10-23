@@ -163,7 +163,7 @@
     Potassium:
       amount: 1
   effects:
-    - !type:ExplosionEffect
+    - !type:Explosion
       explosionType: Default
       intensityPerUnit: 0.25
       maxTotalIntensity: 100
