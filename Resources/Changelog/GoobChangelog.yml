@@ -16761,3 +16761,11 @@ Entries:
       message: All audio files in the jukebox are now mono
   id: 1876
   time: '2025-10-22T16:32:35.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmeic SOP was changed - they are now allowed to carry either a
+        disabler or a pistol for their standard issue self-defense firearm.
+  id: 1877
+  time: '2025-10-23T03:22:54.0000000+00:00'
