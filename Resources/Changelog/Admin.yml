@@ -1,7 +1,4 @@
 ﻿AdminOnly: true
-Name: Admin
-Order: 2
-# Do NOT put anything after the Entries section, in order to prevent merge conflict with new CL entries
 Entries:
 - author: DrSmugleaf
   changes:
@@ -1433,6 +1430,13 @@ Entries:
   id: 173
   time: '2025-09-22T02:39:56.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40452
+- author: Princess-Cheeseballs
+  changes:
+  - message: Added vulpkanin smite.
+    type: Add
+  id: 174
+  time: '2025-09-22T06:22:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40360
 - author: IProduceWidgets
   changes:
   - message: The Homing Rod smite. Does what it says on the tin.
@@ -1472,3 +1476,12 @@ Entries:
   id: 179
   time: '2025-10-17T15:38:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40904
+- author: PJB3005
+  changes:
+  - message: Fixed pre-round lobby Discord ahelps showing incorrect round number
+    type: Fix
+  id: 180
+  time: '2025-10-23T14:16:13.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41060
+Name: Admin
+Order: 2
