@@ -415,7 +415,7 @@
   parent: [ClothingOuterPonchoClassic, BaseMajorContraband]
   id: ClothingOuterPonchoClassicRobust
   name: authentic cowboys poncho
-  description: A warm and comfy classic poncho.
+  description: A poncho made for real cowboy's.
   components:
   - type: Armor
     coverage:
