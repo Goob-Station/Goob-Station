@@ -11,6 +11,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.EntityEffects.Effects.Transform;
 
 /// <inheritdoc cref="EntityEffect"/>
+/// <seealso cref="ExplodeEffect">
 public sealed partial class ExplosionEffect : EntityEffectBase<ExplosionEffect>
 {
     /// <summary>
@@ -56,7 +57,7 @@ public sealed partial class ExplosionEffect : EntityEffectBase<ExplosionEffect>
     public float TileBreakScale = 1f;
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("entity-effect-guidebook-explosion-reaction-effect", ("chance", Probability));
+        => Loc.GetString("entity-effect-guidebook-explosion", ("chance", Probability));
 
     public override LogImpact? Impact => LogImpact.High;
 }
