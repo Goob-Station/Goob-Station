@@ -41,6 +41,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     private readonly FixedEye _defaultEye = new();
     private readonly SpriteSystem _spriteSystem; // Goobstation
     private readonly Dictionary<NetEntity, string> _reverseCameras = new(); // Goobstation
+    private readonly Dictionary<string, string> _resolveCameraName = new(); // Goobstation
 
     public SurveillanceCameraMonitorWindow()
     {
@@ -132,21 +133,24 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (NetEntity, NetCoordinates)> cameras, Dictionary<string, (NetEntity, NetCoordinates)> mobileCameras) // Goobstation
+    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
         // Goobstation start
         _reverseCameras.Clear();
+        _resolveCameraName.Clear();
         NavMap.TrackedEntities.Clear();
-        foreach (var (camera, (ent, coordinates)) in cameras)
+        foreach (var (camera, (name, (ent, coordinates))) in cameras)
         {
             _reverseCameras[ent] = camera;
+            _resolveCameraName[camera] = name;
             AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, false);
         }
-        foreach (var (camera, (ent, coordinates)) in mobileCameras)
+        foreach (var (camera, (name, (ent, coordinates))) in mobileCameras)
         {
             _reverseCameras[ent] = camera;
+            _resolveCameraName[camera] = name;
             AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, true);
         }
         // Goobstation end
@@ -169,9 +173,16 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
             _isSwitching = true;
             CameraViewBackground.Visible = true;
-            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
-                ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
-                ("address", _currentAddress));
+            // Goobstation start
+            if (_resolveCameraName.TryGetValue(_currentAddress, out var name))
+                CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                    ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
+                    ("address", _currentAddress)) + " - " + name;
+            else
+                CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                    ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
+                    ("address", _currentAddress));
+            // Goobstation end
             CameraSwitchTimer!();
         }
         else
@@ -186,8 +197,15 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         _isSwitching = false;
         CameraView.Visible = CameraView.Eye != _defaultEye;
         CameraViewBackground.Visible = CameraView.Eye == _defaultEye;
-        CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+        // Goobstation start
+        if (_resolveCameraName.TryGetValue(_currentAddress, out var name))
+            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                            ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connected")),
+                            ("address", _currentAddress)) + " - " + name;
+        else
+            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
                             ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connected")),
                             ("address", _currentAddress));
+        // Goobstation end
     }
 }

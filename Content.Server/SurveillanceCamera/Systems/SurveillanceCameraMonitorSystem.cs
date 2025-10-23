@@ -175,7 +175,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                     SendHeartbeat(uid, key, monitor);
 
                     if (lastHeartbeat > MaxHeartbeatTime)
-                        expiredCameras[key] = _entityManager.GetEntity(cameraData.Item2.NetEntity);
+                        expiredCameras[key] = _entityManager.GetEntity(cameraData.Item2.Item2.NetEntity);
                 }
 
                 // Remove PVS overrides for all viewers in a single pass
@@ -283,14 +283,14 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                             EnsureComp<HasMobileCamerasSurveillanceCameraMonitorComponent>(uid);
                         if (!component.KnownMobileCameras.ContainsKey(address))
                         {
-                            component.KnownMobileCameras.Add(address, netEntity.Value);
+                            component.KnownMobileCameras.Add(address, (name, netEntity.Value));
                             foreach (var player in component.Viewers)
                                 if (TryComp<ActorComponent>(player, out var actor))
                                     _pvsOverrideSystem.AddSessionOverride(_entityManager.GetEntity(netEntity.Value.Item2.NetEntity), actor.PlayerSession);
                         }
                     }
                     else if (!component.KnownCameras.ContainsKey(address))
-                        component.KnownCameras.Add(address, netEntity.Value);
+                        component.KnownCameras.Add(address, (name, netEntity.Value));
                     // Goobstation end
                     UpdateUserInterface(uid, component);
                     break;
@@ -326,7 +326,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         foreach (var player in component.Viewers)
             if (TryComp<ActorComponent>(player, out var actor))
                 foreach (var camera in component.KnownMobileCameras)
-                    _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.NetEntity), actor.PlayerSession);
+                    _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
         component.KnownCameras.Clear();
         component.KnownMobileCameras.Clear();
         RequestKnownSubnetsInfo(uid, component);
@@ -532,7 +532,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         // Goobstation start
         if (TryComp<ActorComponent>(player, out var actor))
             foreach (var camera in monitor.KnownMobileCameras)
-                _pvsOverrideSystem.AddSessionOverride(_entityManager.GetEntity(camera.Value.Item2.NetEntity), actor.PlayerSession);
+                _pvsOverrideSystem.AddSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
         // Goobstation end
 
         if (monitor.ActiveCamera != null)
@@ -556,7 +556,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         // Goobstation end
         if (TryComp<ActorComponent>(player, out var actor))
             foreach (var camera in monitor.KnownMobileCameras)
-                _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.NetEntity), actor.PlayerSession);
+                _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
         // Goobstation start
 
         if (monitor.ActiveCamera != null)
