@@ -103,3 +103,7 @@ signal-port-description-rad-low = Signal port set to HIGH if the tank is below 6
 
 signal-port-name-rad-full = Full
 signal-port-description-rad-full = Signal port set to HIGH if the tank is above 66% pressure, LOW otherwise.
+
+# Lathe
+signal-port-name-lathe-print = Print last recipe
+signal-port-description-lathe-print = Signal port that prints the last set recipe when pulsed.
