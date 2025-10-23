@@ -8,6 +8,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
@@ -18,6 +19,9 @@ public sealed class VoidPortalSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private  readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
@@ -85,9 +89,7 @@ public sealed class VoidPortalSystem : EntitySystem
                 : center;
 
             // --- Obstruction check ---
-            var tempEnt = Spawn(portal.EmptyPortal, spawnCoords);
-            bool obstructed = _physics.GetEntitiesIntersectingBody(tempEnt, (int) CollisionGroup.Impassable).Count > 0;
-            QueueDel(tempEnt);
+            bool obstructed = TileFree(_transformSystem.ToMapCoordinates(spawnCoords));
 
             if (!obstructed)
                 break;
@@ -122,5 +124,17 @@ public sealed class VoidPortalSystem : EntitySystem
         }
 
         Spawn(protoToSpawn, spawnCoords);
+    }
+
+    private bool TileFree(MapCoordinates coords)
+    {
+        // Check if tile is occupied
+        if (!_mapManager.TryFindGridAt(coords, out var gridUid, out var grid))
+            return false;
+
+        if (_mapSystem.GetAnchoredEntities(gridUid, grid, coords).Any())
+            return false;
+
+        return true;
     }
 }
