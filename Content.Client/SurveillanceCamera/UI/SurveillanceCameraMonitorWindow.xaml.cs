@@ -42,6 +42,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     private readonly SpriteSystem _spriteSystem; // Goobstation
     private readonly Dictionary<NetEntity, string> _reverseCameras = new(); // Goobstation
     private readonly Dictionary<string, string> _resolveCameraName = new(); // Goobstation
+    private Texture? _blipTexture; // Goobstation
 
     public SurveillanceCameraMonitorWindow()
     {
@@ -103,6 +104,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             msg.AddMarkupOrThrow(Loc.GetString("surveillance-camera-monitor-ui-station-name", ("stationName", stationName)));
 
             StationName.SetMessage(msg);
+            _blipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
         }
 
         else
@@ -133,7 +135,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras) // Goobstation
+    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras, EntityUid monitor, EntityCoordinates? monitorCoords) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
@@ -153,6 +155,9 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             _resolveCameraName[camera] = name;
             AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, true);
         }
+        // Show monitor on nav map
+        if (monitorCoords != null && _blipTexture != null)
+            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false);
         // Goobstation end
     }
 
