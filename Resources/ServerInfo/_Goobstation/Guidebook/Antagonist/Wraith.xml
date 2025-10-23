@@ -1,0 +1,106 @@
+<Document>
+  # Wraith
+  <Box>
+    <GuideEntityEmbed Entity="MobWraith" Caption=""/>
+  </Box>
+  Where most other antagonist roles exist to make you afraid of some maniac with a fire extinguisher coming to get you,
+  the Wraith exists to make you afraid of the station itself.
+
+  Given enough time and corpses (and given that they almost always appear with other antagonists, there will be corpses), they can progress from an inconvenience to a terrifying juggernaut of murder.
+
+  They have their downsides, though, and a clever chef with some salt can be far more dangerous to a wraith than an army of supercops armed to the teeth.
+
+  ## So I've been reborn as a Wraith, now what?
+  
+
+  First and foremost, wraiths are ghosts. They cannot be seen by the living unless manifested, they can hear everything on the station, they can talk to and see normal ghosts, fly through walls, all of it.
+  They can use their powers while incorporeal as well, and are effectively invulnerable in this state.
+
+  When wraiths use the Haunt ability, they manifest in a physical form for about minute, able to be injured and even killed.
+
+  If killed while manifested, though, a wraith isn't necessarily dead. Wraiths can survive being banished from physical form once - the second time kills them for good.
+  Moreover, there's strings attached: when banished, they lose all of their built-up WP and, far more cripplingly, any WP regeneration bonuses from Absorb Corpse. The consolation prize is that Absorb Corpse's cooldown is reset as well.
+
+  Wraiths can also move items by pulling them around.
+
+  ## Wraith Points
+
+  Wraith abilities work off the creatively named Wraith Points, or WP, a resource that passively increases over time. The rate of regeneration can be permanently increased by absorbing corpses, or temporarily increased by using Haunt near a crowd or possessing a Revenant.
+  There's no upper limit to banked points or regeneration rate, but banishment resets both.
+
+  ### Ok, that's good and all, but how do I work this thing?
+
+  At the beginning, you are fairly weak. Not necessarily in the literal sense, but without WP (Wraith Points!),
+  you are incapable of using most of your skills to cause actual harm. Your two most important abilities are:
+
+  ### Haunt
+
+  - Makes you corporeal, allowing others to see you. While this does leave you vulnerable to being attacked, it also increases the rate at which you gain WP based on the number of witnesses to your spooky presence.
+  - Some actions may only be used while corporeal, so this is your way of doing that.
+
+  ### Absorb Corpse
+
+  - Consumes a corpse (so long as they aren't rotting), giving you some extra WP regeneration permanently, as well as a nice chunk of WP in the process.
+  - Once this action is used, it will rot the target and create some nasty black smoke, so it isn't exactly subtle.
+  - Be warned! If you attempt to absorb a corpse that has at least 25 units of Formaldehyde inside it, while the chemical will be removed in the process, you will be left severely harmed! Avoid targetting corpses inside the morgue that may have been injected with this embalming chemical.
+
+  These are your bread and butter. Once you absorb enough corpses, you will be allowed to...
+
+  ## Evolve
+
+  Past the basic wraith form, three unique paths are available in the form of an ability in its original power set. Each has their own ability set granted on top of the base wraith's, allowing for different styles of gameplay. The different forms also have their own weaknesses to go along with their individual strengths.
+
+  ### Be careful around these...
+    [color=red]Salt![/color]
+  - If you walk over salt, you will lose [color=red]all of your skills, and be made corporeal in the process against your will.[/color] This usually is a death sentence for your average Wraith, so always keep an eye out for any lines of salt or ore rocks lying around!
+  - Salt can be hidden under objects, or even inside doorways.
+
+    [color=red]That pesky chaplain![/color]
+  - The chaplain is immune to most of your actions. In some cases, attempting to interact with them may even end up harming you, instead!
+  - However, the chaplain is not immortal. You can still find ways to kill him indirectly. His corpse will be quite delicious, I promise you that...
+
+  ## Fighting a Wraith
+  
+
+  The Wraith may seem powerful at first, but once you know their weakness, it is quite easy to deal with them.
+
+  - Use salt! Salt shakers, ore rocks, salt lines! Leave salt spread all over areas of interest for the Wraith.
+  - Get rid of corpses! Without corpses to absorb, the Wraith cannot evolve, which will significantly decrease the amount of harm it can cause. Gib corpses, recycle them, space them. Anything works, so long as there is nothing left to absorb.
+  - Formaldehyde! It is a chemical used to prevent rotting in corpses. It can be bought in cargo or easily synthesized in the Chemistry lab. Injecting a corpse with more than 25 units of Formaldehyde will cause the body to be tainted if the Wraith ever tries to absorb it, hurting them in the process.
+
+  ## Plaguebringer
+
+  [textlink="Learn about the Plaguebringer." link="Plaguebringer"]
+
+  ## Harbinger of the Void
+
+  [textlink="Learn about the Harbinger of the Void." link="Harbinger"]
+
+  ## Trickster
+
+  [textlink="Learn about the Trickster." link="Trickster"]
+
+  # Being the Ghost with the Most (Evil)
+
+  ## Making the Most of Base Abilities
+
+  - You can't use Decay on a Cyborg to remove its laws, nor can you use it on a cyborg frame to make the borg it's built from have no laws.
+    With Decay you are able to emag stuff without the usual risk of being seen by others, and that can be extremely helpful for setting up traps and ambushes.
+  - Haunt can give you a ton of WP when used in a large crowd, but a large crowd is also in prime position to wreck you when you're at your most vulnerable.
+  - Whenever someone has a gun drawn, use Command to knock them down, immediately use Possess Object on the gun, and shoot them with it.
+  - Is the chaplain pissing you off? Command and Mass Command may not work on them when you click them directly, but if they're stunned, standing still, or distracted by animated objects, targeting the floor under them works just as well.
+  - Spook may seem harmless, but some cunning applications can save your ass or cause mass chaos in a clutch.
+  - Try using Possess Object on the fire extinguisher in Toxins Storage, bashing open a plasma tank. Then, use Spook to flip lights and cause a fire.
+  - Has Security recently confiscated some guns/weapons? Pop open the contraband safe with the Open doors, lockers, crates option from Spook.
+
+  ## In General
+  [bold]You are not invincible[/bold], no matter how much it may seem like it sometimes. It only takes one twitchy crew member with a weapon and a salt shaker to ruin you.
+  
+  Wraiths don't appear alone, so try to lay low for a little while and look for the other antagonists. Scavenge the corpses they'll inevitably leave in their wake for more WP regeneration, or try to strike deals with them with Whisper. A wraith with someone to feed it a steady stream of corpses can get very, very scary, but be warned that some antagonists might not trust you to not murder them and raise the alarm on you.
+  
+  Plan for things going terribly. You may not want to absorb every corpse you find just in case you get banished, but you may not want to leave any corpses undrained either in case the crew gets wise and starts spacing/gibbing/reclaiming corpses immediately.
+
+You're not that great at outright killing people without isolating someone or being lucky. Be a scavenger; try to make a bad situation worse for someone already pretty fucked up rather than try to kill a healthy person. The crew will amaze you with how many ways they can kill themselves.
+
+
+</Document>
