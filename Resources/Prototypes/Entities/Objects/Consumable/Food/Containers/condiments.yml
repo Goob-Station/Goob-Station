@@ -314,7 +314,7 @@
       tags:
       - WeakToSalt
     statusEffect: Corporeal
-    duration: 8
+    duration: 15
 
 - type: entity
   parent: BaseFoodCondimentPacket
@@ -614,6 +614,12 @@
   - type: Tag
     tags:
       - SaltShaker
+  - type: StatusEffectOnCollideGhost
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
 
 - type: entity
   parent: BaseFoodShaker
