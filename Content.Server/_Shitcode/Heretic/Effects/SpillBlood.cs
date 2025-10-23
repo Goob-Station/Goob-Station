@@ -8,22 +8,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Body.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Effects;
 
-public sealed partial class VoidCurse : EntityEffect
+public sealed partial class SpillBlood : EntityEffect
 {
-    [DataField]
-    public int Stacks = 1;
-
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => "Inflicts void curse.";
+        => "Spills all blood.";
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity, Stacks);
+        args.EntityManager.System<BloodstreamSystem>().SpillAllSolutions(args.TargetEntity);
     }
 }

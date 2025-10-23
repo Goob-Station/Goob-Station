@@ -20,9 +20,7 @@ public abstract class BaseTextureTag : IMarkupTagHandler
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
-    public virtual string Name => "example";
-
-    public abstract bool TryGetControl(MarkupNode node, [NotNullWhen(true)] out Control? control);
+    public string Name => "example";
 
     protected static bool TryDrawIcon(string rawPath, long scaleValue, [NotNullWhen(true)] out Control? control)
     {
@@ -55,7 +53,7 @@ public abstract class BaseTextureTag : IMarkupTagHandler
         return true;
     }
 
-    protected static bool TryDrawIconEntity(string stringUid, long spriteSize, [NotNullWhen(true)] out Control? control)
+    protected bool TryDrawIconEntity(string stringUid, long spriteSize, [NotNullWhen(true)] out Control? control)
     {
         control = null;
         var spriteView = new StaticSpriteView()

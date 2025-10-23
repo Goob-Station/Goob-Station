@@ -7,23 +7,23 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Access;
+using Content.Shared.Access.Systems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Effects;
 
-public sealed partial class VoidCurse : EntityEffect
+public sealed partial class RemoveAccess : EntityEffect
 {
-    [DataField]
-    public int Stacks = 1;
-
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => "Inflicts void curse.";
+        => "Removes all target access.";
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity, Stacks);
+        if (!args.EntityManager.System<SharedIdCardSystem>().TryFindIdCard(args.TargetEntity, out var id))
+            return;
+
+        args.EntityManager.System<SharedAccessSystem>().TrySetTags(id, new List<ProtoId<AccessLevelPrototype>>());
     }
 }

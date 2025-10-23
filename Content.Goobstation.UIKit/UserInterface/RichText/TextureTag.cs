@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Robust.Client.UserInterface;
 using Robust.Shared.Utility;
 
@@ -6,9 +6,9 @@ namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
 public sealed class TextureTag : BaseTextureTag
 {
-    public override string Name => "tex";
+    public string Name => "tex";
 
-    public override bool TryGetControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
+    public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
         control = null;
 
