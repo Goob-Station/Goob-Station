@@ -182,11 +182,11 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         if (!_lingQuery.TryComp(ent, out var ling))
             return;
 
-        if ( ent.Comp.AdaptingLowPressure
+        if (ent.Comp.AdaptingLowPressure
             || ent.Comp.AdaptingLowTemp)
             return;
 
-        ling.ChemicalRegenMultiplier -= 0.25f;
+        ling.ChemicalRegenMultiplier -= ent.Comp.ChemModifierValue;
         Dirty(ent, ling);
 
         _alerts.ShowAlert(
@@ -203,7 +203,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             || ent.Comp.AdaptingLowTemp)
             return;
 
-        ling.ChemicalRegenMultiplier += 0.25f;
+        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
         Dirty(ent, ling);
 
         _alerts.ClearAlert(

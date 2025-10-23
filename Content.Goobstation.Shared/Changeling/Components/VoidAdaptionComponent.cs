@@ -23,4 +23,6 @@ public sealed partial class VoidAdaptionComponent : Component
     public LocId EnterLowTempPopup = "changeling-voidadapt-lowtemperature-start";
     public LocId LeaveLowTempPopup = "changeling-voidadapt-lowtemperature-end";
 
+    public float ChemModifierValue = 0.25f;
+
 }
