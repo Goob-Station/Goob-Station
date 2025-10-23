@@ -4,21 +4,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
-using Content.Goobstation.Shared.Maps;
 using Content.Goobstation.Shared.MisandryBox.Smites;
-using Content.Goobstation.Shared.HellGoose.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Verbs;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Maths;
-using Robust.Shared.Log;
 
 namespace Content.Goobstation.Server.Administration.Systems;
 
@@ -34,7 +27,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = thunderstrike,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")),
             Act = () =>
             {
                 var ogun = EntityManager.System<ThunderstrikeSystem>();
@@ -44,35 +37,6 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-smite-thunderstrike-desc"),
         };
         args.Verbs.Add(thunder);
-        var hellName = Loc.GetString("admin-smite-hell-teleport-name").ToLowerInvariant(); // teleports to hell
-        Verb hellTeleport = new()
-        {
-            Text = hellName,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
-            Act = () =>
-            {
-                TransformComponent? portalXform = null;
-
-                var query = EntityQueryEnumerator<HellPortalExitComponent, TransformComponent>();
-                while (query.MoveNext(out var uid, out var exitComp, out var xform))
-                {
-                    portalXform = xform;
-                    break;
-                }
-
-                if (portalXform == null)
-                {
-                    return;
-                }
-
-                // Teleport target
-                EntityManager.System<SharedTransformSystem>().SetCoordinates(args.Target, portalXform.Coordinates);
-            },
-            Impact = LogImpact.Extreme,
-            Message = string.Join(": ", hellName, Loc.GetString("admin-smite-hell-teleport-description"))
-        };
-        args.Verbs.Add(hellTeleport);
     }
 
     private bool SmitesAllowed(GetVerbsEvent<Verb> args)
