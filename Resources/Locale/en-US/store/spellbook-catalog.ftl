@@ -50,10 +50,18 @@ spellbook-mind-swap-description =
     Doesn't work on changelings, heretics, ghouls, ghosts and temporary creatures.
     Doesn't require discord's robe and hat to cast.
 
+spellbook-slip-name = Slippery Slope
+spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery.
+
+spellbook-item-recall-name = Item Recall
+spellbook-item-recall-description = Mark a held item and summon it back at any time with just a snap of your fingers!
+
+# Goobstation?
 spellbook-tile-toggle-name = Tile Movement
 spellbook-tile-toggle-description = The assistants will not like this.
 spellbook-curse-of-byond-name = Curse of Byond
 spellbook-curse-of-byond-description = Condemn your target to an eternity of suffering.
+# Goobstation End?
 
 # Equipment
 
