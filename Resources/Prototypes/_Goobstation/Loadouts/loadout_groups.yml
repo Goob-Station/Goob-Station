@@ -1385,6 +1385,8 @@
   name: loadout-group-security-melee
   loadouts:
   - SecurityMeleeKnife
+  - SecurityMeleePolyBaton
+  - SecurityMeleeSpear
 
 # Zookeeper
 
