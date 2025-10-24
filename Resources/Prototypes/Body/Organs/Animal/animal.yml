@@ -35,7 +35,7 @@
       Normal: 13
       Damaged: 6
       Destroyed: 0
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: StaticPrice
@@ -161,6 +161,11 @@
     solutions:
       stomach:
         maxVol: 30
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
   - type: Item
     size: Small
     heldPrefix: stomach

@@ -617,7 +617,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Food
+  - type: Edible
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:

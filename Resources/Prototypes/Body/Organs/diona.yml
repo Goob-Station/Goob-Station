@@ -40,7 +40,7 @@
       Normal: 24
       Damaged: 15
       Destroyed: 0
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -53,7 +53,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -166,7 +166,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: Organ # Shitmed
     intCap: 35
@@ -236,6 +236,11 @@
       Lung:
         maxVol: 100
         canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
   - type: Tag # goob edit
     tags:
     - Meat

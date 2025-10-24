@@ -109,7 +109,7 @@
   - type: FlavorProfile
     flavors:
       - clean
-  - type: Food
+  - type: Edible
     solution: soap
   - type: BadFood
   - type: CleansForensics
