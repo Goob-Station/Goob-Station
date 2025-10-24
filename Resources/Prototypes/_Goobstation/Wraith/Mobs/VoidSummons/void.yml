@@ -44,7 +44,7 @@
     damage:
       types:
         Blunt: 7
-        Slash: 9
+        Slash: 5
   - type: MobState
   - type: Fixtures
     fixtures:
@@ -56,7 +56,7 @@
         mask:
           - MobMask
         layer:
-          - Opaque
+          - MobLayer
   - type: Damageable #Reduced blunt and heat damage according to code.
     damageContainer: Inorganic
     damageModifierSet: SiliconProtected
@@ -78,13 +78,17 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 160 # Not parity, but the health system in Goonstation works completely differently so :shrug:
+          damage: 100 # Not parity, but the health system in Goonstation works completely differently so :shrug:
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/bone_rattle.ogg
+  - type: NightVision # Goobstation - Nigthvision
+    color: white
+    activateSound: null
+    deactivateSound: null
   - type: Prying
     pryPowered: true
     force: true
@@ -162,7 +166,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
+      100: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
   - type: Grammar
     attributes:
       gender: male
@@ -178,6 +182,10 @@
     understands:
     - Dog
     - TauCetiBasic
+  - type: NightVision # Goobstation - Nigthvision
+    color: purple
+    activateSound: null
+    deactivateSound: null
   - type: Prying
     pryPowered: true
     force: true
@@ -217,7 +225,7 @@
     damage:
       types:
         Piercing: 8
-        Slash: 7
+        Slash: 5
   - type: Rushdown
   - type: Cloak
   - type: ActionGrant
@@ -236,7 +244,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
+      100: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
   - type: Grammar
     attributes:
       gender: male
@@ -261,6 +269,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 5
+  - type: NightVision # Goobstation - Nigthvision
+    color: purple
+    activateSound: null
+    deactivateSound: null
   - type: Prying
     pryPowered: true
     force: true
