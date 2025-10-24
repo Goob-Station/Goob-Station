@@ -588,7 +588,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         if (!sm.Activated)
         {
-            // Goobstation - START
             // Extra logging for supermatter
             var activator = ToPrettyString(args.OtherEntity);
             var isMob = HasComp<MobStateComponent>(args.OtherEntity);
