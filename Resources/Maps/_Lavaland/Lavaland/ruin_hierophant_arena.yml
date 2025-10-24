@@ -84,10 +84,6 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-    - type: Physics
-      canCollide: False
-    - type: Fixtures
-      fixtures: {}
 - proto: SpawnMobHierophant
   entities:
   - uid: 2
