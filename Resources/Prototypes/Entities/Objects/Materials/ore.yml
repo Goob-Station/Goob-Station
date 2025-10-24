@@ -508,6 +508,12 @@
           Quantity: 5
   - type: Item
     heldPrefix: salt
+  - type: StatusEffectOnCollideGhost # Goobstation
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
 
 - type: entity
   parent: SaltOre
