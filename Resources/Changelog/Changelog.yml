@@ -3934,3 +3934,18 @@ Entries:
   id: 9148
   time: '2025-10-23T07:00:24.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41047
+- author: Absotively
+  changes:
+  - message: Minor hand labeler UI improvements
+    type: Tweak
+  id: 9149
+  time: '2025-10-23T15:27:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40318
+- author: Silverfur-underscore
+  changes:
+  - message: The Mime Job Lizard plushie no longer breaks its vow when being thrown
+      against something or eaten.
+    type: Fix
+  id: 9150
+  time: '2025-10-24T00:02:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41063
