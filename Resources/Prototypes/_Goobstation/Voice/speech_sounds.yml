@@ -25,3 +25,12 @@
     collection: GooseSounds
   exclaimSound:
     collection: GooseSounds
+
+- type: speechSounds
+  id: JeremySpeech
+  saySound:
+    collection: DuendeSounds
+  askSound:
+    collection: DuendeSounds
+  exclaimSound:
+    collection: DuendeSounds

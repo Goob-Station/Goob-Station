@@ -1,0 +1,71 @@
+
+- type: entity
+  name: Jeremy
+  parent: [BaseSimpleMob, MobFlammable, MobRespirator, MobAtmosExposed, MobBloodstream, MobCombat]
+  id: MobJeremy
+  description: Your only form of HELLISH entertainment!
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: jeremy
+        sprite: _Goobstation/Mobs/Hell/jeremy.rsi
+    - type: Hands
+    - type: Input
+      enabled: true
+    - type: InputMover
+    - type: Puller
+      needsHands: false
+    - type: Body
+      prototype: Human
+    - type: Inventory
+      templateId: human 
+    - type: ComplexInteraction
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Bloodstream
+      bloodMaxVolume: 200
+      bloodReagent: Blood
+      bloodlossDamage:
+        types:
+          Bloodloss:
+            0.5
+      bloodlossHealDamage:
+        types:
+          Bloodloss:
+            -0.25
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: jeremy
+        Critical:
+          Base: jemery_dead
+        Dead:
+          Base: jemery_dead
+    - type: LanguageSpeaker
+    - type: LanguageKnowledge
+      speaks:
+      - FloorGoblin
+      understands:
+      - FloorGoblin
+      - TauCetiBasic
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-jeremy-name
+      description: ghost-role-information-jeremy-description
+      rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+    - type: Speech
+      speechSounds: JeremySpeech
+      allowedEmotes: [Scream]
+    - type: Vocal
+      sounds:
+        Unsexed: JeremySounds

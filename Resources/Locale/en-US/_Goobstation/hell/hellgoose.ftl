@@ -1,3 +1,5 @@
+#Goose
+
 ghost-role-information-hell-goose-name = Hell Goose
 ghost-role-information-hell-goose-description = Enlighten the stations crew of their true potential as a goose.
 
@@ -11,3 +13,14 @@ chat-speech-verb-hell-goose-1 = Bellows
 chat-speech-verb-hell-goose-2 = Demands
 chat-speech-verb-hell-goose-3 = Orders
 chat-speech-verb-hell-goose-4 = Commands
+
+#Statue
+
+hell-goose-statue-accept = Transcend
+
+hell-goose-statue-not-worthy = You are not worthy
+
+#Jeremy
+
+ghost-role-information-jeremy-name = Jeremy
+ghost-role-information-jeremy-description = Be the only form of entertainment in hell! 

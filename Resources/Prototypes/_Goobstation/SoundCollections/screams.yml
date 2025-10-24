@@ -9,3 +9,8 @@
     - /Audio/Voice/Vox/shriek1.ogg
     - /Audio/_Goobstation/Voice/Vox/scream4.ogg
     - /Audio/_Goobstation/Voice/Vox/scream3.ogg
+
+- type: soundCollection
+  id: JeremyScreams
+  files:
+    - /Audio/_Goobstation/Jeremy/Jeremy.ogg

@@ -13,6 +13,7 @@ using Content.Goobstation.Server.HellGoose;
 using Content.Server._Shitmed.StatusEffects;
 using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Administration.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
@@ -40,6 +41,7 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly HellPortalSystem _hellPortalsystem = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = default!;
 
     public override void Initialize()
     {
@@ -173,6 +175,7 @@ public sealed partial class CondemnedSystem : EntitySystem
                 if (portalCoords != null)
                 {
                     _hellPortalsystem.TryTeleportToHell(uid, portalCoords.Value);
+                    _rejuvenateSystem.PerformRejuvenate(uid);
                 }
                 break;
             case { CondemnedBehavior: CondemnedBehavior.Banish }:
