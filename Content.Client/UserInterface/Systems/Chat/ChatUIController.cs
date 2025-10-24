@@ -201,6 +201,13 @@ public sealed partial class ChatUIController : UIController
     /// </summary>
     private readonly Dictionary<ChatChannel, int> _unreadMessages = new();
 
+
+    // Goobstation - Chat Pings
+    /// <summary>
+    /// Used for Goobstation's - Chat Pings
+    /// </summary>
+    private TimeSpan LastHighlightTime = TimeSpan.Zero;
+
     // TODO add a cap for this for non-replays
     public readonly List<(GameTick Tick, ChatMessage Msg)> History = new();
 
@@ -957,9 +964,18 @@ public sealed partial class ChatUIController : UIController
                 }
             }
 
-            // Play sound if a highlight was found
-            if (hadHighlight)
+            var currentTime = _timing.CurTime;
+
+            // Only play sound if enough time has passed since the last highlight
+            // This avoids playing multiple pings in less than a second
+            if (!hadHighlight)
+                return;
+
+            if ((currentTime - LastHighlightTime).TotalMilliseconds >= 500)
+            {
+                LastHighlightTime = currentTime;
                 PlayHighlightSound();
+            }
         }
         // Goobstation end
         #endregion
