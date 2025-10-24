@@ -174,11 +174,7 @@
   - type: TargetAction
     range: 2
   - type: WorldTargetAction
-    event: !type:WorldSpawnSpellEvent
-      prototypes:
-      - id: RatDen
-        amount: 1
-      offset: 0, 1
+    event: !type:SummonRatDenEvent
 
 - type: entity
   id: ActionRatSlam
