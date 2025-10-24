@@ -16803,3 +16803,11 @@ Entries:
       message: Buffed Make Revenant from Harbinger Wraith
   id: 1879
   time: '2025-10-24T13:01:14.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Fix
+      message: >-
+        Advanced Biohazard pens now have enough Ambuzol plus to immunize against
+        zombiefication
+  id: 1880
+  time: '2025-10-24T13:37:21.0000000+00:00'
