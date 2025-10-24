@@ -334,8 +334,6 @@ namespace Content.Server.Hands.Systems
         /// </summary>
         public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f)
         {
-            var holderVelocity = _physicsQuery.TryComp(player, out var physics) ? physics.LinearVelocity : Vector2.Zero; // Goobstation
-
             if (ContainerSystem.IsEntityInContainer(player) ||
                 !TryComp(player, out HandsComponent? hands) ||
                 !TryGetActiveItem((player, hands), out var throwEnt) ||
@@ -379,7 +377,11 @@ namespace Content.Server.Hands.Systems
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
-            var ev = new BeforeThrowEvent(throwEnt.Value, direction + holderVelocity, throwSpeed, player); // Goobstation - added thrower's velocity for inertia
+            // Goobstation start - added thrower's velocity for inertia
+            var holderVelocity = _physicsQuery.TryComp(player, out var physics) ? physics.LinearVelocity : Vector2.Zero;
+            var modifier = MathF.Max(0f, Vector2.Dot(direction, holderVelocity));
+            var ev = new BeforeThrowEvent(throwEnt.Value, direction * (1f + modifier), throwSpeed, player);
+            // Goobstation end
             RaiseLocalEvent(player, ref ev);
 
             if (ev.Cancelled)
