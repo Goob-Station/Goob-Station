@@ -312,15 +312,19 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-    - type: Tag
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+      heatDamageThreshold: 1200
+    - type: Tag # Goobstation Start
       tags:
         - Carp
         - DoorBumpOpener
-    # Goobstation - Collective mind
     - type: CollectiveMind
       defaultChannel: Dragonmind
       channels:
-      - Dragonmind
+      - Dragonmind # Goobstation End
 
 - type: entity
   id: MobCarpDungeon
