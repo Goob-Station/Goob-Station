@@ -176,7 +176,7 @@
     - id: MothroachSpawn # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
-    - id: FloorGoblinSpawn # Goobstation
+    - id: FloorGoblinMidRound # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -198,6 +198,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    # - id: WraithMidround # Goobstation - Wraith - enable once testing is done
 
 - type: entity
   id: BaseStationEvent
