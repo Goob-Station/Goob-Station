@@ -57,6 +57,15 @@
       id: BoxFilled
       size: 3
 
+- type: entity
+  parent: HierophantShapeBlink
+  id: HierophantShapeBlinkSafe
+  name: hierophant attack safe blink spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquareSafe
+
 # Expanding box
 - type: entity
   parent: MarkerBase

@@ -6,7 +6,6 @@
 # hierophant damaging thing
 - type: entity
   id: LavalandHierophantSquare
-  suffix: DO NOT MAP
   categories: [ DoNotMap ]
   name: hierophant square
   placement:
@@ -50,3 +49,15 @@
   - type: AngerTileChaser
     speedRange: 3,5
     stepsRange: 15,40
+
+- type: entity
+  parent: LavalandHierophantSquare
+  id: LavalandHierophantSquareSafe
+  suffix: Safe
+  components:
+  - type: DamageSquare
+    damageWhitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Fauna # Only damages fauna

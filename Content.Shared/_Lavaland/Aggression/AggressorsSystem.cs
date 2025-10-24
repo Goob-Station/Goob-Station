@@ -24,9 +24,9 @@ using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Aggression;
 
@@ -47,12 +47,10 @@ public sealed class AggressorsSystem : EntitySystem
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
         SubscribeLocalEvent<AggressiveComponent, MobStateChangedEvent>(OnStateChange);
 
-        SubscribeLocalEvent<AggressiveComponent, ComponentGetState>(OnAgressiveGetState);
-        SubscribeLocalEvent<AggressiveComponent, ComponentHandleState>(HandleComponentState);
-
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnAggressorStateChange);
         SubscribeLocalEvent<AggressorComponent, EntityTerminatingEvent>(OnAggressorDeleted);
-        SubscribeLocalEvent<AggressorComponent, ComponentRemove>(OnAggressorRemoved);
+        SubscribeLocalEvent<AggressorComponent, AggressiveAddedEvent>(OnAggressorAdded);
+        SubscribeLocalEvent<AggressorComponent, AggressiveRemovedEvent>(OnAggressorRemoved);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
     }
@@ -91,28 +89,12 @@ public sealed class AggressorsSystem : EntitySystem
 
     #region Event Handling
 
-    private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args) =>
-        args.State = new AggressiveComponentState(GetNetEntitySet(component.Aggressors));
-
-    private void HandleComponentState(Entity<AggressiveComponent> ent, ref ComponentHandleState args)
-    {
-        if (args.Current is not AggressiveComponentState state || _timing.ApplyingState)
-            return;
-
-        foreach (var netEntity in state.Aggressors)
-        {
-            if (!TryGetEntity(netEntity, out var aggressor))
-                continue;
-
-            AddAggressor(ent, aggressor.Value); // DamageChangedEvent isn't actually predicted, sooo we have to add it like that manually
-        }
-    }
-
     private void OnDamageChanged(Entity<AggressiveComponent> ent, ref DamageChangedEvent args)
     {
         var aggro = args.Origin;
 
-        if (aggro == null || !HasComp<ActorComponent>(aggro))
+        if (aggro == null
+            || !HasComp<ActorComponent>(aggro))
             return;
 
         AddAggressor(ent, aggro.Value);
@@ -124,7 +106,13 @@ public sealed class AggressorsSystem : EntitySystem
     private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
         => RemoveAllAggressors(ent);
 
-    private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref ComponentRemove args)
+    private void OnAggressorAdded(Entity<AggressorComponent> ent, ref AggressiveAddedEvent args)
+    {
+        if (ent.Comp.Aggressives.TryFirstOrNull(out var boss))
+            _bossMusic.StartBossMusic(boss.Value);
+    }
+
+    private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref AggressiveRemovedEvent args)
         => _bossMusic.EndAllMusic(); // Stop the music if we are no longer get attacked by anyone.
 
     private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
@@ -142,15 +130,17 @@ public sealed class AggressorsSystem : EntitySystem
 
     public void AddAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
     {
+        var (uid, comp) = ent;
         ent.Comp.Aggressors.Add(aggressor);
 
-        var aggcomp = EnsureComp<AggressorComponent>(aggressor);
-        RaiseLocalEvent(ent, new AggressorAddedEvent(GetNetEntity(aggressor)));
+        var aggComp = EnsureComp<AggressorComponent>(aggressor);
+        aggComp.Aggressives.Add(uid);
 
-        aggcomp.Aggressives.Add(ent);
+        RaiseLocalEvent(uid, new AggressorAddedEvent(aggressor));
+        RaiseLocalEvent(aggressor, new AggressiveAddedEvent(uid));
 
-        _bossMusic.StartBossMusic(ent.Owner);
-        Dirty(ent.Owner, ent.Comp); // freaky but works.
+        Dirty(uid, comp);
+        Dirty(aggressor, aggComp);
     }
 
     public void RemoveAggressor(Entity<AggressiveComponent> ent, Entity<AggressorComponent?> aggressor)
@@ -174,7 +164,10 @@ public sealed class AggressorsSystem : EntitySystem
 
             aggressorComp.Aggressives.Remove(ent.Owner);
             if (aggressorComp.Aggressives.Count == 0)
+            {
+                RaiseLocalEvent(aggressor, new AggressiveRemovedEvent(ent.Owner));
                 RemComp(aggressor, aggressorComp);
+            }
         }
 
         ent.Comp.Aggressors.Clear();

@@ -1,6 +1,8 @@
-﻿using Content.Shared._Lavaland.Megafauna.Components;
+﻿using Content.Shared._Lavaland.Aggression;
+using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
-using Content.Shared._Lavaland.Megafauna.Systems;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Utility;
 
 // ReSharper disable once CheckNamespace
 namespace Content.Shared._Lavaland.Megafauna.Selectors;
@@ -20,7 +22,17 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public List<MegafaunaEntityCondition> TargetConditions = new();
 
     /// <summary>
-    /// If true, will also write down EntityCoordinates of the target to the component.
+    /// If true, will write down EntityUid of the target to the component.
+    /// </summary>
+    /// <remarks>
+    /// Only exists because for some reason ActionsSystem can get things wrong if
+    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
+    /// </remarks>
+    [DataField]
+    public bool SetEntity = true;
+
+    /// <summary>
+    /// If true, will write down EntityCoordinates of the target to the component.
     /// </summary>
     /// <remarks>
     /// Only exists because for some reason ActionsSystem can get things wrong if
@@ -38,10 +50,60 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
-        var system = args.EntityManager.System<MegafaunaSystem>();
+        var entMan = args.EntityManager;
 
-        if (!system.TryPickTargetAggressive(args, TargetConditions, SetPosition))
-            return FailDelay; // Debug asserts are handled inside the method
+        if (!entMan.TryGetComponent<AggressiveComponent>(args.Entity, out var aggressiveComp))
+        {
+            DebugTools.Assert($"Megafauna AI doesn't have {nameof(AggressiveComponent)}, but tried to pick a target using it's data!");
+            return FailDelay;
+        }
+
+        if (aggressiveComp.Aggressors.Count == 0)
+        {
+            DebugTools.Assert($"Megafauna AI failed to pick a target from {nameof(AggressiveComponent)}, it doesn't have any targets to pick from.");
+            return FailDelay;
+        }
+
+        // Check all conditions on all possible targets
+        var results = new Dictionary<EntityUid, float>();
+        foreach (var target in aggressiveComp.Aggressors)
+        {
+            var weight = 0f;
+            foreach (var condition in TargetConditions)
+            {
+                weight += condition.Evaluate(args, target);
+            }
+
+            results.Add(target, weight);
+        }
+
+        EntityUid? picked = null;
+        if (WeightedRandom)
+            picked = SharedRandomExtensions.Pick(results, args.Random);
+        else
+        {
+            var maxWeight = float.MinValue;
+            foreach (var (target, fails) in results)
+            {
+                if (maxWeight < fails)
+                {
+                    maxWeight = fails;
+                    picked = target;
+                }
+            }
+
+            DebugTools.Assert(picked != null, nameof(picked) + " != null"); // It's impossible at that point, but better to check.
+        }
+
+        var comp = args.EntityManager.EnsureComponent<MegafaunaAiTargetingComponent>(args.Entity);
+        comp.TargetEnt = null;
+        comp.TargetCoords = null;
+
+        if (SetEntity)
+            comp.TargetEnt = picked.Value;
+
+        if (SetPosition)
+            comp.TargetCoords = args.EntityManager.GetComponent<TransformComponent>(picked.Value).Coordinates;
 
         return DelaySelector.Get(args);
     }

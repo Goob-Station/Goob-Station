@@ -28,7 +28,7 @@ public sealed partial class LavalandSystem
         lavaland = null;
 
         if (!LavalandEnabled)
-            return true;
+            return false;
 
         if (preloader == null)
         {
@@ -69,7 +69,7 @@ public sealed partial class LavalandSystem
         mapComp.LoadArea = loadBox;
 
         EnsureComp<BiomeOptimizeComponent>(lavalandMap).LoadArea = loadBox;
-        
+
         SetupRuins(pool, lavaland.Value, preloader.Value);
 
         // Hide all grids from the mass scanner.

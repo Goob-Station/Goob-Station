@@ -21,20 +21,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Lavaland.Aggression;
 
 /// <summary>
 ///     Keeps track of whoever attacked our mob, so that it could prioritize or randomize targets.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AggressiveComponent : Component
 {
     /// <summary>
     /// Active aggressors, that this aggressor will try to attack.
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Aggressors = new();
 
     [ViewVariables]
@@ -49,15 +48,4 @@ public sealed partial class AggressiveComponent : Component
 
     [DataField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(10f);
-}
-
-[Serializable, NetSerializable]
-public sealed class AggressiveComponentState : ComponentState
-{
-    public readonly HashSet<NetEntity> Aggressors;
-
-    public AggressiveComponentState(HashSet<NetEntity> aggressors)
-    {
-        Aggressors = aggressors;
-    }
 }

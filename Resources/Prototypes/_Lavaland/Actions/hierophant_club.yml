@@ -27,32 +27,31 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    priority: -23
     useDelay: 30
     icon:
       sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
       state: hierophant
     itemIconStyle: NoItem
+  - type: TargetAction
+    range: 5
   - type: EntityTargetAction
     event: !type:ToggleTileMovementActionEvent
 
 - type: entity
-  id: ActionHierophantClubAttackCross
+  id: ActionHierophantClubBlink
   parent: ActionBaseHierophant
-  name: Random Cross
-  description: Spawns a random cross on the target position.
-  components:
-  - type: WorldTargetAction
-    event: !type:SpawnEntityActionEvent
-      spawn: HierophantClubShapeRandomCross
-
-- type: entity
-  id: ActionHierophantClubAttackBox
-  parent: ActionBaseHierophant
-  name: Expanding box
-  description: Spawns an expanding box on the target position.
+  name: Blink
+  description: Teleports you to any position you can physically reach.
   components:
   - type: Action
-    useDelay: 4.0
+    raiseOnUser: true
+    priority: -24
+    useDelay: 10
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+  - type: TargetAction
+    range: 10
   - type: WorldTargetAction
-    event: !type:SpawnEntityActionEvent
-      spawn: HierophantClubShapeExpandingBox
+    event: !type:MegafaunaBlinkActionEvent

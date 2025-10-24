@@ -48,13 +48,16 @@
   - type: ActionGrant
     actions:
     - ActionHierophantClubTileMovement
-    - ActionHierophantClubAttackCross
-    - ActionHierophantClubAttackBox
+    - ActionHierophantClubBlink
   - type: ItemActionGrant
     actions:
     - ActionHierophantClubTileMovement
-    - ActionHierophantClubAttackCross
-    - ActionHierophantClubAttackBox
+    - ActionHierophantClubBlink
+  - type: HeldGrantComponent
+    components:
+    - type: MegafaunaBlink
+      spawnOnTarget: HierophantShapeBlinkSafe
+      spawnOnUsed: HierophantShapeBlinkSafe
 
 - type: entity
   id: LavalandHierophantMarker

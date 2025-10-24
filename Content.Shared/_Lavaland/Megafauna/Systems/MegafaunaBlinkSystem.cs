@@ -120,6 +120,9 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
 
     private void OnDelete(Entity<MegafaunaBlinkInactiveComponent> ent, ref EntityTerminatingEvent args)
     {
+        if (TerminatingOrDeleted(ent.Comp.Marker))
+            return;
+
         PredictedQueueDel(ent.Comp.Marker);
         ent.Comp.Marker = null;
     }

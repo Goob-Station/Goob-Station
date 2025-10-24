@@ -1,5 +1,4 @@
 ﻿using Content.Shared.Actions;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Events;

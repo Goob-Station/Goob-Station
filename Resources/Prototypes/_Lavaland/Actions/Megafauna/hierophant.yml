@@ -13,9 +13,8 @@
       state: icon
     itemIconStyle: NoItem
   - type: TargetAction
-    #checkCanAccess: false
+    checkCanAccess: false
     range: 30
-  - type: EntityTargetAction
   - type: WorldTargetAction
 
 - type: entity

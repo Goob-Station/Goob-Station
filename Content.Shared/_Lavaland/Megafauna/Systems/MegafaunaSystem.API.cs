@@ -50,50 +50,9 @@ public sealed partial class MegafaunaSystem
     public bool TryPickTargetAggressive(
         MegafaunaCalculationBaseArgs args,
         List<MegafaunaEntityCondition> conditions,
-        bool setPosition = false)
+        bool setEntity,
+        bool setPosition)
     {
-        if (!_aggressiveQuery.TryComp(args.Entity, out var aggressiveComp))
-        {
-            DebugTools.Assert($"Megafauna AI doesn't have {nameof(AggressiveComponent)}, but tried to pick a target using it's data!");
-            return false;
-        }
-
-        // Check all conditions on all possible targets
-        var results = new Dictionary<EntityUid, float>();
-        foreach (var target in aggressiveComp.Aggressors)
-        {
-            var weight = 0f;
-            foreach (var condition in conditions)
-            {
-                weight += condition.Evaluate(args, target);
-            }
-
-            results.Add(target, weight);
-        }
-
-        var maxWeight = float.MinValue;
-        EntityUid? picked = null;
-        foreach (var (target, fails) in results)
-        {
-            if (maxWeight < fails)
-            {
-                maxWeight = fails;
-                picked = target;
-            }
-        }
-
-        if (picked == null)
-        {
-            DebugTools.Assert($"Megafauna AI failed to pick a target from {nameof(AggressiveComponent)}, so it doesn't have any targets to pick from.");
-            return false;
-        }
-
-        var comp = EnsureComp<MegafaunaAiTargetingComponent>(args.Entity);
-        comp.TargetEnt = picked.Value;
-        comp.TargetCoords = null;
-
-        if (setPosition)
-            comp.TargetCoords = Transform(picked.Value).Coordinates;
 
         return true;
     }
