@@ -1,0 +1,1023 @@
+# This holds all simplemobs summoned by void portal.
+
+- type: entity
+  id: MobSkeletonGoon
+  parent: [ BaseMob, MobCombat]
+  name: malicious skeleton
+  description: A hostile skeleton summoned by a wraith.
+  components:
+  - type: HTN
+    rootTask:
+      task: XenomorphCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/skeleton.rsi
+    layers:
+      - state: skeletonGoon
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bone_rattle.ogg
+    damage:
+      types:
+        Blunt: 15
+        Structural: 30
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Skeleton
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/bone_rattle.ogg
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MaterialBones:
+                min: 1
+                max: 15
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  id: MobCrunched
+  parent: [ BaseMob, MobCombat ]
+  name: transposed scientist
+  description: A fellow who seems to have been shunted between dimensions. Not a good state to be in.
+  components:
+  - type: Advertise
+    pack: CrunchedSpeech
+    minimumWait: 10
+    maximumWait: 45
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/humanoid.rsi
+    layers:
+      - state: crunched
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcFist
+    soundHit:
+      collection: Flesh_Tear
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: NoSlip
+  - type: Pullable
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib2.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  id: MobShade
+  parent: [ BaseMob, MobCombat ]
+  name: darkness
+  description: Oh god.
+  components:
+  - type: Advertise
+    pack: Shade
+    minimumWait: 10
+    maximumWait: 45
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      collection: CreepyWhisper
+      params:
+        volume: 3
+        maxDistance: 12
+        variation: 0.01
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/humanoid.rsi
+    layers:
+      - state: shade
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: HeavyArmorSyndi # Massive daamge reduction, but very low health.
+  - type: NoSlip
+  - type: Pullable
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 20
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/_Goobstation/Wraith/ghostrespawn.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  name: mechanical monstrosity
+  id: MobMonstrosityHead
+  parent: [ BaseMob, MobCombat ]
+  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  components:
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      path: /Audio/_Goobstation/Wraith/Mobs/mechmonstrositylaugh.ogg
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.01
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
+    layers:
+      - state: crawler
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: crawler
+      Dead:
+        Base: crawler_dead
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 10
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: TileMovement
+
+- type: entity
+  id: MobMonstrosityBody
+  parent: [ BaseMob, MobCombat ]
+  name: mechanical monstrosity
+  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  components:
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      path: /Audio/_Goobstation/Wraith/Mobs/mechmonstrositylaugh.ogg
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.01
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/monstrosity.rsi
+    layers:
+      - state: monstrosity
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Blunt: 7
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: NoSlip
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 60
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/gib1.ogg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: TileMovement
+
+- type: entity
+  name: lion
+  id: MobLion
+  parent: [ BaseMob, MobCombat ]
+  description: Oh christ.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/lion.rsi
+    layers:
+      - state: lion
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lion
+      Dead:
+        Base: lion_dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 12
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: MobAncientRepairBot # This mob is supposed to be a drone that auto-repairs stuff, but out of scope, and olny for adventure zones anyway.
+  parent: [ BaseMob, MobCombat ]
+  name: strange robot  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
+  description: It looks like some sort of floating repair bot or something?
+  components:
+  - type: Advertise
+    pack: Repairbot
+    minimumWait: 15
+    maximumWait: 45
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - state: ancient_repairbot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Piercing: 10
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: SpamEmitSound
+    minInterval: 10
+    maxInterval: 30
+    sound:
+      collection: Repairbot
+      params:
+        volume: -1
+        maxDistance: 12
+        variation: 0.05
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HeavyArmorSyndi
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 3
+    softness: 5
+    autoRot: true
+    castShadows: false
+  - type: NoSlip
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: MobAncientGuardBot
+  parent: MobAncientRepairBot
+  name: strange robot
+  description: A Security Robot, something seems a bit off.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - state: ancient_guardbot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Piercing: 15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+
+- type: entity
+  id: MobAncientRobot1
+  parent: [ BaseMob, MobCombat ]
+  name: ???
+  description: What the hell is that?
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: Prying
+    pryPowered: true
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robotM
+    noMovementLayers:
+      movement:
+        state: ancient_robot
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 13
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HeavyArmorSyndi
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+  - type: TileMovement
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 3
+    softness: 5
+    autoRot: true
+    castShadows: false
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - FootstepSound
+
+- type: entity
+  id: MobAncientRobot2
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot2
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robot2M
+    noMovementLayers:
+      movement:
+        state: ancient_robot2
+
+- type: entity
+  id: MobAncientRobot3
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_robot3
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_robot3M
+    noMovementLayers:
+      movement:
+        state: ancient_robot3
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+
+- type: entity
+  id: MobAncientLegs
+  parent: MobAncientRobot1
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/ancient.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: ancient_legs
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: ancient_legsM
+    noMovementLayers:
+      movement:
+        state: ancient_legs
+
+# Wraith variants
+
+- type: entity
+  id: MobSkeletonGoonLesser
+  suffix: Lesser
+  parent: MobSkeletonGoon
+  categories: [ Spawner ]
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: VoidPortalEmpty
+
+- type: entity
+  id: MobSkeletonGoonWraith
+  suffix: Wraith
+  parent: MobSkeletonGoon
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobCrunchedWraith
+  suffix: Wraith
+  parent: MobCrunched
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: VoidSummoned
+
+- type: entity
+  id: MobShadeWraith
+  suffix: Wraith
+  parent: MobShade
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobMonstrosityHeadWraith
+  suffix: Wraith
+  parent: MobMonstrosityHead
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobMonstrosityBodyWraith
+  suffix: Wraith
+  parent: MobMonstrosityBody
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobLionWraith
+  suffix: Wraith
+  parent: MobLion
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientRepairBotWraith
+  suffix: Wraith
+  parent: MobAncientRepairBot
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientGuardBotWraith
+  suffix: Wraith
+  parent: MobAncientGuardBot
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientRobot1Wraith
+  suffix: Wraith
+  parent: MobAncientRobot1
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientRobot2Wraith
+  suffix: Wraith
+  parent: MobAncientRobot2
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientRobot3Wraith
+  suffix: Wraith
+  parent: MobAncientRobot3
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobAncientLegsWraith
+  suffix: Wraith
+  parent: MobAncientLegs
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: VoidSummoned
+
+- type: entity
+  id: MobBearGoonWraith
+  suffix: Wraith
+  parent: MobBearGoon
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: VoidSummoned
+
+- type: entity
+  id: MobBrullbarWraith
+  suffix: Wraith
+  parent: MobBrullbar
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: VoidSummoned
+
+- type: entity
+  id: MobBGunbotWraith
+  suffix: Wraith
+  parent: GunBot
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: VoidSummoned
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 1
+
+- type: entity
+  id: MobNukebotWraith
+  suffix: Wraith
+  parent: NukeBot
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: WraithMinion
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: VoidSummoned
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 1
