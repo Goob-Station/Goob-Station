@@ -34,6 +34,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using System.Numerics; // Goobstation
 
 namespace Content.Shared.Projectiles;
 
@@ -142,5 +143,8 @@ public sealed partial class ProjectileComponent : Component
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();
+
+    [DataField]
+    public Vector2 TargetCoordinates;
     // Goobstation end
 }
