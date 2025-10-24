@@ -1,27 +1,11 @@
-using System.Linq;
-using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
-using Content.Server.Heretic.Components;
 using Content.Server.Teleportation;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Examine;
-using Content.Shared.Heretic;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.Teleportation;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -51,7 +35,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
         base.ApplyVoidBladeEffect(target);
 
         if (TryComp<TemperatureComponent>(target, out var temp))
-            _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
+            _temp.ForceChangeTemperature(target, Math.Max(Atmospherics.TCMB, temp.CurrentTemperature - 20f), temp);
     }
 
     protected override void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp)

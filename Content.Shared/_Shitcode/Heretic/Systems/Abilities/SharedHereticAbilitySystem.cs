@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -13,6 +15,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -44,6 +47,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
+    [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -64,6 +68,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -75,6 +80,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeBlade();
         SubscribeRust();
         SubscribeCosmos();
+        SubscribeVoid();
         SubscribeSide();
 
         SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
@@ -83,7 +89,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
         float range,
         string? path,
-        EntityCoordinates? coords = null)
+        EntityCoordinates? coords = null,
+        bool checkNullRod = true)
     {
         var list = new List<Entity<MobStateComponent>>();
         var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
@@ -96,6 +103,14 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
             if (!HasComp<StatusEffectsComponent>(look))
                 continue;
+
+            if (checkNullRod)
+            {
+                var ev = new BeforeCastTouchSpellEvent(look, false);
+                RaiseLocalEvent(look, ev, true);
+                if (ev.Cancelled)
+                    continue;
+            }
 
             list.Add(look);
         }

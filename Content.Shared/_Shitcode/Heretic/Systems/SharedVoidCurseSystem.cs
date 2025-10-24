@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -46,9 +47,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        // If entity is not slowed down by temperature - slow them down even more
-        var divisor = HasComp<TemperatureSpeedComponent>(ent) ? 15f : 10f;
-        var modifier = 1f - Math.Clamp(ent.Comp.Stacks / divisor, 0f, 1f);
+        var modifier = 1f - ent.Comp.Stacks * 0.05f;
         args.ModifySpeed( modifier, modifier);
     }
 
@@ -66,6 +65,11 @@ public abstract class SharedVoidCurseSystem : EntitySystem
             return; // ignore non mobs because holy shit
 
         if (TryComp<HereticComponent>(uid, out var h) && h.CurrentPath == "Void" || HasComp<GhoulComponent>(uid))
+            return;
+
+        var ev = new BeforeCastTouchSpellEvent(uid, false);
+        RaiseLocalEvent(uid, ev, true);
+        if (ev.Cancelled)
             return;
 
         var curse = EnsureComp<VoidCurseComponent>(uid);

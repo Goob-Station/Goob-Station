@@ -68,7 +68,7 @@
     - Wall
   components:
   - type: TimedDespawn
-    lifetime: 30
+    lifetime: 5
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
@@ -76,13 +76,24 @@
       types:
         - Lava
   - type: Sprite
+    drawdepth: Effects
     sprite: _Goobstation/Heretic/void_overlay.rsi
     layers:
       - state: voidtile
         shader: unshaded
+  - type: SyncSprite
   - type: TileEntityEffect
     effects:
     - !type:VoidCurse
+    - !type:GenericStatusEffect
+      key: PressureImmunity
+      component: PressureImmunity
+      conditions:
+      - !type:HasComponentCondition
+        components:
+          - Heretic
+          - Ghoul
+        guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
   - type: Transform
     anchored: true
   - type: Physics

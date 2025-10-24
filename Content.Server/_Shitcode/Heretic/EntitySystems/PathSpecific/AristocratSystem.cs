@@ -16,7 +16,6 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
-using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -24,7 +23,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
-using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -40,19 +38,31 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Doors.Components;
+using Content.Shared.Effects;
+using Content.Shared.Movement.Components;
+using Content.Shared.Physics.Controllers;
+using Content.Shared.Projectiles;
+using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 // void path heretic exclusive
-public sealed partial class AristocratSystem : EntitySystem
+public sealed class AristocratSystem : EntitySystem
 {
+
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
@@ -63,13 +73,39 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+
+    private static readonly EntProtoId IceTilePrototype = "IceCrust";
+    private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
+    private static readonly EntProtoId IceWallPrototype = "WallIce";
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AristocratComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<AristocratComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AristocratComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<AristocratComponent, HitScanReflectAttemptEvent>(OnReflectHitScan);
+
+        SubscribeLocalEvent<ProjectileComponent, MapInitEvent>(OnProjectileInit);
+    }
+
+    private void OnProjectileInit(Entity<ProjectileComponent> ent, ref MapInitEvent args)
+    {
+        var query = EntityQueryEnumerator<AristocratComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var aristocrat, out var xform))
+        {
+            FreezeBullet((uid, aristocrat, xform), ent);
+        }
+    }
+
+    private void OnReflectHitScan(Entity<AristocratComponent> ent, ref HitScanReflectAttemptEvent args)
+    {
+        args.Reflected = true;
     }
 
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
@@ -89,6 +125,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
             return true;
         }
+
         return false;
     }
 
@@ -106,10 +143,15 @@ public sealed partial class AristocratSystem : EntitySystem
 
             if (xformVictim.MapUid != xform.MapUid
                 || stateComp.CurrentState == MobState.Dead
-                || ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
+                ||
+                ent.Owner ==
+                victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
                 continue;
 
-            _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"), victim, actorComp.PlayerSession, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"),
+                victim,
+                actorComp.PlayerSession,
+                PopupType.LargeCaution);
         }
     }
 
@@ -118,7 +160,10 @@ public sealed partial class AristocratSystem : EntitySystem
         if (CheckOtherAristocrats(ent))
             return;
 
-        _globalSound.DispatchStationEventMusic(ent, ent.Comp.VoidsEmbrace, StationEventMusicType.VoidAscended, AudioParams.Default.WithLoop(true));
+        _globalSound.DispatchStationEventMusic(ent,
+            ent.Comp.VoidsEmbrace,
+            StationEventMusicType.VoidAscended,
+            AudioParams.Default.WithLoop(true));
 
         // the fog (snow) is coming
         var xform = Transform(ent);
@@ -156,86 +201,203 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
-    private List<TileRef>? GetTiles(Entity<AristocratComponent> ent)
+
+    private void OnShutdown(Entity<AristocratComponent> ent, ref ComponentShutdown args)
     {
-        var xform = Transform(ent);
+        EndWaltz(ent); // its over bros
+        DoVoidAnnounce(ent, "end");
+    }
 
-        var range = (int) ent.Comp.Range;
+    private List<EntityCoordinates> GetTiles(EntityCoordinates coords, int range)
+    {
+        var tiles = new List<EntityCoordinates>();
 
-        var tilerefs = new List<TileRef>();
-
-        var tileSelects = (range * range) * 2; // roughly 1/2 of the area's tiles should get selected per cycle
-        for (int i = 0; i < tileSelects; i++)
+        for (var y = -range; y <= range; y++)
         {
-            var xOffset = _rand.Next(-range, range);
-            var yOffset = _rand.Next(-range, range);
-            var offsetValue = new Vector2(xOffset, yOffset);
+            for (var x = -range; x <= range; x++)
+            {
+                var offset = new Vector2(x, y);
 
-            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-            var tile = _turf.GetTileRef(coords);
-
-            if (tile.HasValue)
-                tilerefs.Add(tile.Value);
+                var pos = coords.Offset(offset).SnapToGrid(EntityManager, _mapMan);
+                tiles.Add(pos);
+            }
         }
 
-        return tilerefs;
+        return tiles;
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AristocratComponent>();
-        while (query.MoveNext(out var uid, out var aristocrat))
+        var query = EntityQueryEnumerator<AristocratComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var aristocrat, out var xform))
         {
-            if (!uid.IsValid())
-                continue;
-
             aristocrat.UpdateTimer += frameTime;
 
-            if (aristocrat.UpdateTimer >= aristocrat.UpdateDelay)
+            if (aristocrat.UpdateTimer < aristocrat.UpdateDelay)
+                continue;
+
+            Cycle((uid, aristocrat, xform));
+            aristocrat.UpdateTimer = 0;
+        }
+
+        var airlockQuery = GetEntityQuery<AirlockComponent>();
+
+        var conduitQuery = EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
+        while (conduitQuery.MoveNext(out var uid, out var conduit, out var xform))
+        {
+            conduit.Accumulator += frameTime;
+
+            if (conduit.Accumulator < conduit.Delay)
+                continue;
+
+            conduit.Accumulator = 0f;
+
+            FreezeAtmos((uid, xform));
+
+            if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+                return;
+
+            var tiles = GetTiles(xform.Coordinates, conduit.Range);
+
+            if (tiles.Count == 0)
+                return;
+
+            List<EntityUid> affected = new();
+            foreach (var tile in tiles)
             {
-                Cycle((uid, aristocrat));
-                aristocrat.UpdateTimer = 0;
+                // this shit is for checking if there is a void trap already on that tile or not.
+                var ents = _lookup.GetEntitiesInRange(tile, .1f, LookupFlags.Static | LookupFlags.Sensors);
+                var foundHereticTiles = false;
+                foreach (var ent in ents)
+                {
+                    var dmg = conduit.StructureDamage;
+
+                    if (airlockQuery.HasComp(ent))
+                    {
+                        _audio.PlayPvs(conduit.AirlockDamageSound, Transform(ent).Coordinates);
+                        affected.Add(ent);
+                        _damage.TryChangeDamage(ent,
+                            dmg * _rand.NextFloat(conduit.MinMaxAirlockDamageMultiplier.X,
+                                conduit.MinMaxAirlockDamageMultiplier.Y),
+                            origin: ent);
+                    }
+                    else if (_tag.HasTag(ent, "Window"))
+                    {
+                        _audio.PlayPvs(conduit.WindowDamageSound, Transform(ent).Coordinates);
+                        affected.Add(ent);
+                        _damage.TryChangeDamage(ent,
+                            dmg * _rand.NextFloat(conduit.MinMaxWindowDamageMultiplier.X,
+                                conduit.MinMaxWindowDamageMultiplier.Y),
+                            origin: ent);
+                    }
+
+                    if ((Prototype(ent)?.ID ?? string.Empty) == conduit.Tile)
+                        foundHereticTiles = true;
+                }
+
+                if (affected.Count > 0)
+                    _color.RaiseEffect(Color.Black, affected, Filter.Pvs(uid, 3f, EntityManager));
+
+                if (!foundHereticTiles)
+                    Spawn(conduit.Tile, tile);
             }
         }
     }
 
-    private void Cycle(Entity<AristocratComponent> ent)
+    private void Cycle(Entity<AristocratComponent, TransformComponent> ent)
     {
-        if (ent.Comp.HasDied) // powers will only take effect for as long as we're alive
+        if (TryComp(ent, out PhysicsComponent? physics))
+            _physics.SetBodyStatus(ent.Owner, physics, BodyStatus.InAir);
+
+        if (ent.Comp1.HasDied) // powers will only take effect for as long as we're alive
             return;
 
-        var coords = Transform(ent).Coordinates;
-        var step = ent.Comp.UpdateStep;
+        FreezeBullets(ent);
 
-        switch (step)
+        var step = ent.Comp1.UpdateStep;
+
+        if (step % 100 == 0)
         {
-            case 0:
-                ExtinguishFires(ent, coords);
-                break;
-            case 1:
-                FreezeAtmos(ent);
-                break;
-            case 2:
-                DoChristmas(ent, coords);
-                break;
-            case 3:
-                SpookyLights(ent, coords);
-                break;
-            case 4:
-                FreezeNoobs(ent, coords);
-                break;
-            default:
-                ent.Comp.UpdateStep = 0;
-                break;
+            step = 10;
         }
 
-        ent.Comp.UpdateStep++;
+        if (step % 10 == 0)
+            FreezeNoobs(ent);
+        else
+        {
+            switch (step % 4)
+            {
+                case 0:
+                    ExtinguishFires(ent);
+                    break;
+                case 1:
+                    FreezeAtmos((ent.Owner, ent.Comp2));
+                    break;
+                case 2:
+                    DoChristmas(ent);
+                    break;
+                case 3:
+                    SpookyLights(ent);
+                    break;
+            }
+        }
+
+        ent.Comp1.UpdateStep++;
+    }
+
+    private void FreezeBullets(Entity<AristocratComponent, TransformComponent> ent)
+    {
+        var coords = ent.Comp2.Coordinates;
+        var look = _lookup.GetEntitiesInRange<ProjectileComponent>(coords, ent.Comp1.Range, LookupFlags.Dynamic);
+        foreach (var bullet in look)
+        {
+            FreezeBullet(ent, bullet);
+        }
+    }
+
+    private void FreezeBullet(Entity<AristocratComponent, TransformComponent> ent, Entity<ProjectileComponent> bullet)
+    {
+        var (uid, comp) = bullet;
+
+        if (comp.Shooter == ent)
+            return;
+
+        var coords = ent.Comp2.Coordinates;
+
+        var targetVelocity = (_xform.GetWorldPosition(uid) - _xform.ToWorldPosition(coords)).Length();
+
+        if (targetVelocity > ent.Comp1.Range)
+            return;
+
+        // antihoming
+        var homing = EnsureComp<HomingProjectileComponent>(uid);
+        if (homing.Target != ent && !HasComp<AristocratComponent>(homing.Target) || homing.HomingSpeed > -180f)
+        {
+            homing.Target = ent;
+            homing.HomingSpeed = -180f;
+            Dirty(uid, homing);
+        }
+
+        if (!TryComp(uid, out PhysicsComponent? physics))
+            return;
+
+        var curVelocity = physics.LinearVelocity.Length();
+
+        if (curVelocity < 0.01f)
+            return;
+
+        targetVelocity = MathF.Max(1f, targetVelocity * 1.5f);
+
+        if (curVelocity < targetVelocity)
+            return;
+
+        _physics.SetLinearVelocity(uid, physics.LinearVelocity / curVelocity * targetVelocity, body: physics);
     }
 
     // makes shit cold
-    private void FreezeAtmos(Entity<AristocratComponent> ent)
+    private void FreezeAtmos(Entity<TransformComponent> ent)
     {
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
         var freezingTemp = Atmospherics.T0C;
@@ -250,22 +412,30 @@ public sealed partial class AristocratSystem : EntitySystem
     }
 
     // extinguish gases on tiles
-    private void ExtinguishFiresTiles(Entity<AristocratComponent> ent)
+    private void ExtinguishFiresTiles(Entity<AristocratComponent, TransformComponent> ent)
     {
-        var tilerefs = GetTiles(ent);
+        var coords = ent.Comp2.Coordinates;
+        var tiles = GetTiles(coords, (int) ent.Comp1.Range);
 
-        if (tilerefs == null
-            || tilerefs.Count == 0)
+        if (tiles.Count == 0)
             return;
 
-        foreach (var tile in tilerefs)
-            _atmos.HotspotExtinguish(tile.GridUid, tile.GridIndices);
+        foreach (var pos in tiles)
+        {
+            var tile = _turf.GetTileRef(pos);
+
+            if (tile == null)
+                continue;
+
+            _atmos.HotspotExtinguish(tile.Value.GridUid, tile.Value.GridIndices);
+        }
     }
 
     // extinguish ppl and stuff
-    private void ExtinguishFires(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    private void ExtinguishFires(Entity<AristocratComponent, TransformComponent> ent)
     {
-        var fires = _lookup.GetEntitiesInRange<FlammableComponent>(coords, ent.Comp.Range);
+        var coords = ent.Comp2.Coordinates;
+        var fires = _lookup.GetEntitiesInRange<FlammableComponent>(coords, ent.Comp1.Range);
 
         foreach (var entity in fires)
         {
@@ -277,103 +447,81 @@ public sealed partial class AristocratSystem : EntitySystem
     }
 
     // replaces certain things with their winter analogue (amongst other things)
-    private void DoChristmas(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    private void DoChristmas(Entity<AristocratComponent, TransformComponent> ent)
     {
         SpawnTiles(ent);
 
-        var dspec = new DamageSpecifier();
-        dspec.DamageDict.Add("Structural", 100);
+        var coords = ent.Comp2.Coordinates;
 
-        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp.Range);
+        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp1.Range);
 
         foreach (var tag in tags)
         {
             // walls
-            if (_tag.HasTag(tag.Owner, "Wall")
-                && _rand.Prob(.45f)
-                && Prototype(tag) != null
-                && Prototype(tag)!.ID != SnowWallPrototype)
-            {
-                Spawn(SnowWallPrototype, Transform(tag).Coordinates);
-                QueueDel(tag);
-            }
+            if (!_tag.HasTag(tag.Owner, "Wall")
+                || !_rand.Prob(.45f)
+                || Prototype(tag) == null
+                || Prototype(tag)!.ID == IceWallPrototype)
+                continue;
 
-            // windows
-            if (_tag.HasTag(tag.Owner, "Window")
-                && Prototype(tag) != null)
-                _damage.TryChangeDamage(tag, dspec, origin: ent);
+            Spawn(IceWallPrototype, Transform(tag).Coordinates);
+            QueueDel(tag);
         }
     }
 
     // kill the lights
-    private void SpookyLights(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    private void SpookyLights(Entity<AristocratComponent, TransformComponent> ent)
     {
-        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp.Range);
+        var coords = ent.Comp2.Coordinates;
+        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp1.Range);
 
         foreach (var light in lights)
+        {
             _light.TryDestroyBulb(light);
+        }
     }
 
     // curses noobs
-    private void FreezeNoobs(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    private void FreezeNoobs(Entity<AristocratComponent, TransformComponent> ent)
     {
-        var noobs = _lookup.GetEntitiesInRange<MobStateComponent>(coords, ent.Comp.Range);
+        var coords = ent.Comp2.Coordinates;
+        var noobs = _lookup.GetEntitiesInRange<MobStateComponent>(coords, ent.Comp1.Range);
 
         foreach (var noob in noobs)
         {
-            // ignore same path heretics and ghouls
-            if (HasComp<HereticComponent>(noob)
-                || HasComp<GhoulComponent>(noob))
-                continue;
-
             _voidcurse.DoCurse(noob);
         }
     }
 
-    private static readonly string SnowTilePrototype = "FloorAstroSnow";
-    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId SnowWallPrototype = "WallSnowCobblebrick";
-    [ValidatePrototypeId<EntityPrototype>] private static readonly EntProtoId BoobyTrapTile = "TileHereticVoid";
-
-    private void SpawnTiles(Entity<AristocratComponent> ent)
+    private void SpawnTiles(Entity<AristocratComponent, TransformComponent> ent)
     {
-        var xform = Transform(ent);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        if (!TryComp<MapGridComponent>(ent.Comp2.GridUid, out var grid))
             return;
 
-        var tilerefs = GetTiles(ent);
+        var tiles = GetTiles(ent.Comp2.Coordinates, (int) ent.Comp1.Range);
 
-        if (tilerefs == null
-            || tilerefs.Count == 0)
+        if (tiles.Count == 0)
             return;
-
-        var tiles = new List<TileRef>();
-        var tiles2 = new List<TileRef>();
-        foreach (var tile in tilerefs)
-        {
-            if (_rand.Prob(.45f))
-                tiles.Add(tile);
-
-            if (_rand.Prob(.25f))
-                tiles2.Add(tile);
-        }
 
         // it's christmas!!
-        foreach (var tileref in tiles)
+        foreach (var pos in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>(SnowTilePrototype);
-            _tile.ReplaceTile(tileref, tile);
-        }
-
-        // boobytraps :trollface:
-        foreach (var tileref in tiles2)
-        {
-            var tpos = _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tileref.GridIndices);
+            if (!_rand.Prob(.3f))
+                continue;
 
             // this shit is for checking if there is a void trap already on that tile or not.
-            var el = _lookup.GetEntitiesInRange(tpos, .25f).Where(e => Prototype(e)?.ID == BoobyTrapTile.Id).ToList();
-            if (el.Count == 0)
-                Spawn(BoobyTrapTile, tpos);
+            var condition = _lookup.GetEntitiesInRange(pos, .1f, LookupFlags.Static | LookupFlags.Sensors)
+                .All(e => Prototype(e)?.ID != IceTilePrototype.Id);
+            if (condition)
+                Spawn(IceTilePrototype, pos);
+
+            var tile = _turf.GetTileRef(pos);
+
+            if (tile == null)
+                continue;
+
+            var newTile = _prot.Index(SnowTilePrototype);
+            _tile.ReplaceTile(tile.Value, newTile);
         }
     }
 }
