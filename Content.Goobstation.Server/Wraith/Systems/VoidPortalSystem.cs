@@ -8,6 +8,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
