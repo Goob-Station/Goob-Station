@@ -189,11 +189,8 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
     private void DoFleshmendSound(Entity<FleshmendComponent> ent)
     {
-        if (_netManager.IsClient)
-            return;
-
         var audioParams = AudioParams.Default.WithLoop(true).WithVolume(-3f);
-        var source = _audio.PlayPvs(ent.Comp.PassiveSound, ent, audioParams); // playpredicted is a bitch
+        var source = _audio.PlayPredicted(ent.Comp.PassiveSound, ent, null, audioParams);
         ent.Comp.SoundSource = source?.Entity;
     }
 
