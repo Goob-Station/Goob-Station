@@ -19,7 +19,7 @@
     sprite: Structures/Decoration/statues.rsi
     state: venus_red
     drawdepth: Mobs
-    offset: 0.0,0.5
+    offset: "0.0,0.5"
 
 - type: entity
   id: StatueVenusBlue
@@ -33,7 +33,7 @@
     sprite: Structures/Decoration/statues.rsi
     state: venus_blue
     drawdepth: Mobs
-    offset: 0.0,0.5
+    offset: "0.0,0.5"
 
 - type: entity
   id: StatueBananiumClown
@@ -46,21 +46,7 @@
     sprite: Structures/Decoration/statues.rsi
     state: bananium_clown
     drawdepth: Mobs
-    offset: 0.0,0.5
+    offset: "0.0,0.5"
   - type: Construction
     graph: BananiumStatueClown
     node: bananiumStatue
-
-- type: entity
-  id: StatueHellGoose
-  parent: BaseStructure
-  name: hell goose statue
-  description: A stone statue. It depicts a goose with blood red eyes, on the pedestal writen is "Bones upon flesh upon organs upon blood, the hell geese will arise to purge this world of it's sins and enlighten all those who accept."
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: _Goobstation/Structures/Decoration/statues.rsi
-    state: hell_goose
-    drawdepth: Mobs
-    offset: 0.0,0.5
-  - type: HellGooseStatue
