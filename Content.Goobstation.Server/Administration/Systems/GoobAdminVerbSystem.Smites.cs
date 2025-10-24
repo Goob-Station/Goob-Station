@@ -22,6 +22,10 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Maths;
 using Robust.Shared.Log;
+using Robust.Shared.Map;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Administration.Systems;
 
@@ -29,6 +33,7 @@ public sealed partial class GoobAdminVerbSystem
 {
     [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly HellPortalSystem _hellPortalsystem = default!;
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {
         if (!SmitesAllowed(args))
@@ -54,7 +59,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = hellName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Effects/portal.rsi"), "portal-hell"),
             Act = () =>
             {
                 EntityCoordinates? portalCoords = _hellPortalsystem.TryLoadHell(false);
