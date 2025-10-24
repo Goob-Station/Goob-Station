@@ -180,7 +180,7 @@
   components:
   - type: SubGamemodes
     rules:
-    - id: TraitorSubgamemode
+    - id: SubgamemodeTraitor
       prob: 0.5
 
 - type: entity
