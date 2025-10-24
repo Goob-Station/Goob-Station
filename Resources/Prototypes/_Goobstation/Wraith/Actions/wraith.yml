@@ -79,6 +79,9 @@
       components:
       - MobState
       - HumanoidAppearance
+    blacklist:
+      components:
+      - PartialAbsorbable
     event: !type:AbsorbCorpseEvent
   - type: ActionWraithPoints
     wpConsume: 20
@@ -88,7 +91,7 @@
 - type: entity
   id: ActionSpook
   name: Spook
-  description: Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to mark your current tile as the origin of these events, then activate it by using this ability again.
+  description: Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to spawn an entity as the origin of these events, then interact with it to select which action to use.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
