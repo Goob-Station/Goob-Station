@@ -8,6 +8,16 @@
   name: Wraith
   description: A VERY spooky ghostie.
   components:
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.2
+        Burn: -0.2
+  - type: Emag
+    emagType: All
+    successText: wraith-decay-object1
   - type: Wraith
     abilities: WraithAbilities
   - type: WraithPoints

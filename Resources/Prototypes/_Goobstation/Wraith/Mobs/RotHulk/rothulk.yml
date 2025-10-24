@@ -53,8 +53,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
-        density: 100
+          radius: 0.3
+        density: 60
         mask:
           - MobMask
         layer:
@@ -84,6 +84,20 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona # Weak to heat
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-rothulk-name
+    description: ghost-role-information-rothulk-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#00FF00"
+    activateSound: null
+    deactivateSound: null
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -117,9 +131,10 @@
       types:
         Slash: 10
         Blunt: 10
+        Structural: 80
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
-    baseSprintSpeed: 6
+    baseSprintSpeed: 5
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth # Not as weak to heat, but still vulnerable

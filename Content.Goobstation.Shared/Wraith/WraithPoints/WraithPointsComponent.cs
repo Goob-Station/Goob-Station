@@ -12,7 +12,7 @@ public sealed partial class WraithPointsComponent : Component
     /// <summary>
     ///  Current wraith points the entity has
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 WraithPoints;
 
     /// <summary>
