@@ -15,6 +15,9 @@
       groups:
         Brute: -0.2
         Burn: -0.2
+  - type: Emag
+    emagType: All
+    successText: wraith-decay-object1
   - type: Wraith
     abilities: WraithAbilities
   - type: WraithPoints

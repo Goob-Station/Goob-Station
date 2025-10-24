@@ -16769,3 +16769,37 @@ Entries:
         disabler or a pistol for their standard issue self-defense firearm.
   id: 1877
   time: '2025-10-23T03:22:54.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Add
+      message: Add the printing sound when the hand labeler is used on an entity.
+  id: 1878
+  time: '2025-10-23T22:48:55.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed Decay from Wraith not emagging everything
+    - type: Fix
+      message: 'Fixed Aghosts colliding with Wraith '
+    - type: Fix
+      message: Fixed Absorb Corpse from Wraith working on unidentified corpses
+    - type: Fix
+      message: >-
+        Fixed hook from Tentacle Fiends not having a use delay. It also
+        automatically deletes itself after some seconds now.
+    - type: Fix
+      message: >-
+        Rat Den from Diseased Rat (Plaguebinger Wraith Mob) only spawns 1 at a
+        time now. Previous one gets deleted.
+    - type: Fix
+      message: Fix wraith shaders breaking compatibality mode
+    - type: Fix
+      message: Fixed Formaldehyde to reduce 60s of rotting per 1u instead of 600s.
+    - type: Tweak
+      message: Wraith burn lights don't burn humanoids anymore
+    - type: Tweak
+      message: Wraith becomes weakened in salt for 15 seconds from 8 seconds.
+    - type: Tweak
+      message: Buffed Make Revenant from Harbinger Wraith
+  id: 1879
+  time: '2025-10-24T13:01:14.0000000+00:00'
