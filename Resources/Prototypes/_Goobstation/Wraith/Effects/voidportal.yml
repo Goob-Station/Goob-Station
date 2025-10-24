@@ -37,7 +37,7 @@
           maxDistance: 10
           variation: 0.05
   - type: FadingIn # New component used to fade in a sprite once it is spawned.
-    fadeInTime: 2 
+    fadeInTime: 2
   - type: FadingTimedDespawn
     lifetime: 7
     fadeOutTime: 2
