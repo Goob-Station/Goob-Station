@@ -600,7 +600,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             // New admin alert
             _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                 $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
-            // Goobstation - END
 
             sm.Activated = true;
         }
