@@ -119,6 +119,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
@@ -486,20 +487,25 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnWorldValidate(Entity<WorldTargetActionComponent> ent, ref ActionValidateEvent args)
     {
+        var user = args.User;
+        var provider = args.Provider;
+
         if (args.Input.EntityCoordinatesTarget is not { } netTarget)
         {
-            args.Invalid = true;
+            args.Invalid |= !Fallback(); // Goob edit
             return;
         }
 
-        var user = args.User;
         var target = GetCoordinates(netTarget);
 
         if (ent.Comp.RotateOnUse)
             _rotateToFace.TryFaceCoordinates(user, _transform.ToMapCoordinates(target).Position);
 
         if (!ValidateWorldTarget(user, target, ent))
+        {
+            Fallback(); // Goobstation
             return;
+        }
 
         // if the client specified an entity it needs to be valid
         var targetEntity = GetEntity(args.Input.EntityTarget);
@@ -507,7 +513,7 @@ public abstract class SharedActionsSystem : EntitySystem
             !TryComp<EntityTargetActionComponent>(ent, out var entTarget) ||
             !ValidateEntityTarget(user, targetEntity.Value, (ent, entTarget))))
         {
-            args.Invalid = true;
+            args.Invalid |= !Fallback(); // Goob edit
             return;
         }
 
@@ -519,6 +525,24 @@ public abstract class SharedActionsSystem : EntitySystem
             ev.Target = target;
             ev.Entity = targetEntity;
         }
+
+        // Goobtation start
+        return;
+
+        bool Fallback()
+        {
+            if (ent.Comp.Event is not InstantWorldTargetActionEvent instantWorldEv)
+                return false;
+
+            instantWorldEv.Target = EntityCoordinates.Invalid;
+            instantWorldEv.Entity = null;
+
+            _adminLogger.Add(LogType.Action,
+                $"{ToPrettyString(user):user} is performing the {Name(ent):action} action provided by {ToPrettyString(provider):provider}.");
+
+            return true;
+        }
+        // Goobstation end
     }
 
     public bool ValidateEntityTarget(EntityUid user, EntityUid target, Entity<EntityTargetActionComponent> ent)
@@ -546,7 +570,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
         // if not just checking pure range, let stored entities be targeted by actions
         // if it's out of range it probably isn't stored anyway...
-        return _interaction.CanAccessViaStorage(user, target);
+        // return _interaction.CanAccessViaStorage(user, target);
+        // This shit is broken - Goob edit
+        return true;
     }
 
     public bool ValidateWorldTarget(EntityUid user, EntityCoordinates target, Entity<WorldTargetActionComponent> ent)
@@ -781,10 +807,13 @@ public abstract class SharedActionsSystem : EntitySystem
     public bool AddActionDirect(Entity<ActionsComponent?> performer,
         Entity<ActionComponent?>? action)
     {
+        if (GameTiming.ApplyingState) // Goobstation
+            return false;
+
         if (GetAction(action) is not {} ent)
             return false;
 
-        DebugTools.Assert(ent.Comp.Container == null ||
+        DebugTools.Assert(ent.Comp.Container == null || _net.IsClient && action?.Comp?.ClientExclusive is false || // Goob edit
                           (TryComp(ent.Comp.Container, out ActionsContainerComponent? containerComp)
                            && containerComp.Container.Contains(ent)));
 
