@@ -11,7 +11,7 @@ public sealed partial class SpiritCandleAreaComponent : Component
     public EntityWhitelist Whitelist;
 
     [ViewVariables]
-    public HashSet<EntityUid?> EntitiesInside;
+    public HashSet<EntityUid?> EntitiesInside = new();
 }
 
 [ByRefEvent]

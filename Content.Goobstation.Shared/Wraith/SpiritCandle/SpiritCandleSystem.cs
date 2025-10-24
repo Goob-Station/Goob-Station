@@ -83,13 +83,18 @@ public sealed class SpiritCandleSystem : EntitySystem
         if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.OtherEntity))
             return;
 
-        Log.Info("Activated spirit candle effects");
+        if (!TryComp<VisibilityComponent>(args.OtherEntity, out var visibility))
+            return;
+
+        var otherEnt = (args.OtherEntity, visibility);
 
         ent.Comp.EntitiesInside.Add(args.OtherEntity);
 
-        _visibility.RemoveLayer(args.OtherEntity, (int) VisibilityFlags.Ghost, false);
-        _visibility.SetLayer(args.OtherEntity, (int) VisibilityFlags.Normal, false);
-        _visibility.RefreshVisibility(args.OtherEntity);
+        _visibility.RemoveLayer(otherEnt, (int) VisibilityFlags.Ghost, false);
+        _visibility.SetLayer(otherEnt, (int) VisibilityFlags.Normal, false);
+        _visibility.RefreshVisibility(otherEnt);
+
+        Log.Info("Activated spirit candle effects");
     }
 
     private void OnEndCollide(Entity<SpiritCandleAreaComponent> ent, ref EndCollideEvent args)
@@ -103,12 +108,18 @@ public sealed class SpiritCandleSystem : EntitySystem
         if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.OtherEntity))
             return;
 
-        Log.Info("Removed spirit candle effects");
+        if (!TryComp<VisibilityComponent>(args.OtherEntity, out var visibility))
+            return;
+
+        var otherEnt = (args.OtherEntity, visibility);
+
         ent.Comp.EntitiesInside.Remove(args.OtherEntity);
 
-        _visibility.AddLayer(args.OtherEntity, (int) VisibilityFlags.Ghost, false);
-        _visibility.RemoveLayer(args.OtherEntity, (int) VisibilityFlags.Normal, false);
-        _visibility.RefreshVisibility(args.OtherEntity);
+        _visibility.AddLayer(otherEnt, (int) VisibilityFlags.Ghost, false);
+        _visibility.RemoveLayer(otherEnt, (int) VisibilityFlags.Normal, false);
+        _visibility.RefreshVisibility(otherEnt);
+
+        Log.Info("Removed spirit candle effects");
     }
 
     private void OnAttemptCollideSpiritCandle(Entity<CorporealComponent> ent, ref AttemptCollideSpiritCandleEvent args) =>
