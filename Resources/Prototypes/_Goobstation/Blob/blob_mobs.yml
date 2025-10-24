@@ -235,6 +235,10 @@
     - type: GuideHelp
       guides:
       - Blob
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Blood
+      bleedReductionAmount: 5
 
 # Observer
 - type: entity

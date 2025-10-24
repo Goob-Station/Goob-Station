@@ -81,6 +81,9 @@
     MobFelinidRandom: 1 # le funny
     MobTajaranRandom: 1
     MobOniRandom: 1
+    MobChitinidRandom: 1
+    MobShadowkinRandom: 1
+    MobShadowling: 0.01
 
 - type: weightedRandomEntity
   id: WabbajackAnimal
@@ -170,11 +173,24 @@
     MobStickman: 1
     MobCreature: 1
     MobBingle: 1
+    MobGhoulStalker: 0.33
+    MobGhoulProphet: 0.33
+    MobGhoulRustWalker: 0.33
 
 - type: weightedRandomEntity
   id: WabbajackSpecial
   weights:
     MobBinglePrime: 1
+
+- type: weightedRandomEntity
+  id: WabbajackXeno
+  weights:
+    MobXenomorphQueen: 0.1
+    MobXenomorphDrone: 2
+    MobXenomorphSentinel: 0.8
+    MobXenomorphHunter: 1
+    MobXenomorphPraetorian: 0.5
+    MobXenomorphMaid: 0.01
 
 - type: weightedRandom
   id: WabbajackGroups
@@ -185,4 +201,5 @@
     WabbajackSlime: 1
     WabbajackSpecies: 1
     WabbajackAnimal: 1
+    WabbajackXeno: 1
     WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups

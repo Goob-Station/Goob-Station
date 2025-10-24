@@ -72,7 +72,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseSyndicateAnchoredContraband]
   abstract: true
   id: ReinforcementRadio
   name: syndicate reinforcement radio

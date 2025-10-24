@@ -7,7 +7,4 @@
     WizCoin: 1
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   disableRefund: true #no gamble scamming

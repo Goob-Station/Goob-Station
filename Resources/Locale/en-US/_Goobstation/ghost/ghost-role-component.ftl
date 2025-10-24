@@ -89,6 +89,10 @@ ghost-role-intern-desc = You are a CentComm intern, you're underpaid, hungry, wi
 ghost-role-intern-rules = Follow the orders given you by the [color=yellow][bold]NanoTrasen Representative[/bold][/color] & CentComm, protect command, listen to the Lead intern.
 ghost-role-lead-intern-rules = Follow the orders given you by the [color=yellow][bold]NanoTrasen Representative[/bold][/color] & CentComm, protect command, give orders to other interns.
 
+# cargo bingle
+ghost-role-cargo-bingle-name = Cargo bingle
+ghost-role-cargo-bingle-desc = Serve the Nanotrasen Representative and their interests, do not injure crew members, help cargo and the station.
+
 # shuttle roles
 
 ghost-role-information-alien-tourist-name = Alien Tourist
@@ -135,3 +139,4 @@ roles-wizard-name-token = Wizard (Token)
 roles-slaughter-demon-name-token = Slaughter Demon (Token)
 roles-laughter-demon-name-token = Laughter Demon (Token)
 ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
+ghost-role-information-wraith-name-token = Wraith (Token)

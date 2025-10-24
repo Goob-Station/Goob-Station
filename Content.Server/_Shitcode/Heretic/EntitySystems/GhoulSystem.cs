@@ -142,9 +142,9 @@ public sealed class GhoulSystem : EntitySystem
             return;
 
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
-        var master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
+        var master = ent.Comp.BoundHeretic;
 
-        if (master.HasValue)
+        if (Exists(master))
             brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
 
         var sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
@@ -196,7 +196,11 @@ public sealed class GhoulSystem : EntitySystem
 
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (ent.Comp.SpawnOnDeathPrototype != null)
+            Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
+        _body.GibBody(ent);
     }
 }
