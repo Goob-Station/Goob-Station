@@ -627,6 +627,8 @@
         volume: -4
     duration: 50
     maxDuration: 100
+  - type: GameRule
+    chaosScore: 80
   - type: PowerGridCheckRule
 
 - type: entity
