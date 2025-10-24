@@ -690,3 +690,12 @@
 
 - type: Tag
   id: DisposableBattery
+
+- type: Tag
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WelderIndustrial
