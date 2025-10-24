@@ -23,6 +23,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Humanoid;
 
 namespace Content.Goobstation.Server.Wraith;
 
@@ -48,6 +49,7 @@ public sealed class SpookActionSystem : EntitySystem
     private EntityQuery<ApcComponent> _apcQuery;
     private EntityQuery<ActionComponent> _actionQuery;
     private EntityQuery<FlammableComponent> _flammable;
+    private EntityQuery<HumanoidAppearanceComponent> _humanoidAppearanceQuery;
 
     public override void Initialize()
     {
@@ -59,6 +61,7 @@ public sealed class SpookActionSystem : EntitySystem
         _apcQuery = GetEntityQuery<ApcComponent>();
         _actionQuery = GetEntityQuery<ActionComponent>();
         _flammable = GetEntityQuery<FlammableComponent>();
+        _humanoidAppearanceQuery = GetEntityQuery<HumanoidAppearanceComponent>();
 
         SubscribeLocalEvent<SpookMarkComponent, SpookEvent>(OnSpookEvent);
 
@@ -130,7 +133,7 @@ public sealed class SpookActionSystem : EntitySystem
             var bulbLookup = _lookup.GetEntitiesInRange(entity, ent.Comp.Range);
             foreach (var target in bulbLookup)
             {
-                if (!_flammable.TryGetComponent(target, out var fl))
+                if (!_flammable.TryGetComponent(target, out var fl) || _humanoidAppearanceQuery.HasComp(target))
                     continue;
 
                 fl.FireStacks += ent.Comp.FireStack.Next(_random);
