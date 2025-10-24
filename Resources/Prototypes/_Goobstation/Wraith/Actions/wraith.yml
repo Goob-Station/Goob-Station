@@ -79,6 +79,9 @@
       components:
       - MobState
       - HumanoidAppearance
+    blacklist:
+      components:
+      - PartialAbsorbable
     event: !type:AbsorbCorpseEvent
   - type: ActionWraithPoints
     wpConsume: 20

@@ -8,6 +8,9 @@
   name: Wraith
   description: A VERY spooky ghostie.
   components:
+  - type: Emag
+    emagType: All
+    successText: wraith-decay-object1
   - type: Wraith
     abilities: WraithAbilities
   - type: WraithPoints
