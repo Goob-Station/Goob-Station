@@ -122,8 +122,9 @@
       amount: 2
     - id: RemoteSignaller
       amount: 2
+    #- id: NetworkConfigurator # Goobstation?
     - id: Binoculars
-    - id: WeaponEnergyShotgun
+    - id: WeaponEnergyShotgun # Goobstation?
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: BoxLethalInjection # Goobstation
     - id: ClothingHeadsetAltWarden # Goobstation
