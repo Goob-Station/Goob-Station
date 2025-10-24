@@ -23,8 +23,8 @@
     possibleExamineEffects:
     # Ash
     - - !type:FlammableReaction
-        multiplier: 10
-        multiplierOnExisting: 10
+        multiplier: 5
+        multiplierOnExisting: 5
       - !type:Ignite
     # Rust
     - - !type:ChemVomit
@@ -51,7 +51,7 @@
     - - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
-        time: 120
+        time: 60
         type: Add
     # Cosmos
     - - !type:ModifyStatusEffect
@@ -60,6 +60,7 @@
         type: Add
     # Flesh
     - - !type:SpillBlood
+        amount: 100
     # Lock
     - - !type:GenericStatusEffect
         key: TemporaryBlindness

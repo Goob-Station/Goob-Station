@@ -72,8 +72,7 @@ public sealed class HereticSystem : EntitySystem
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
 
-    private const int HereticVisFlags =
-        ((int) VisibilityFlags.EldritchInfluence) | ((int) VisibilityFlags.EldritchInfluenceSpent);
+    private const int HereticVisFlags = (int) VisibilityFlags.EldritchInfluence;
 
     public override void Initialize()
     {
@@ -145,16 +144,9 @@ public sealed class HereticSystem : EntitySystem
 
         var baseMessage = comp.InfluenceGainBaseMessage;
         var message = Loc.GetString(_rand.Pick(comp.InfluenceGainMessages));
-        var loc = Loc.GetString(baseMessage, ("size", comp.InfluenceGainTextFontSize), ("text", message));
-
-        // Add new line count * 2 - 1 new lines to our string so that is doesn't overlap with other text
-        var newLines = Regex.Matches(message, @"\r\n|\n|\r").Count + 1;
-        for (int i = 1; i < newLines * 2; i++)
-        {
-            loc += '\n';
-            message += '\n';
-        }
-
+        var size = comp.InfluenceGainTextFontSize;
+        var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
+        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
     }
 
@@ -203,11 +195,7 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
     {
-        var eyeVisVal =
-            ((int) VisibilityFlags.EldritchInfluence) |
-            ((int) VisibilityFlags
-                .EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
-        args.VisibilityMask |= eyeVisVal;
+        args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluence;
     }
 
     #region Internal events (target reroll, ascension, etc.)

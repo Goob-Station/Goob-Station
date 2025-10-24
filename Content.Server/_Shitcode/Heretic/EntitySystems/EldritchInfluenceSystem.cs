@@ -67,16 +67,9 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
         var baseMessage = ent.Comp.ExamineBaseMessage;
         var message = Loc.GetString(_random.Pick(ent.Comp.HeathenExamineMessages));
-
-        // Add new line count * 2 - 1 new lines to our string so that is doesn't overlap with other text
-        var newLines = Regex.Matches(message, @"\r\n|\n|\r").Count + 1;
-        var loc = Loc.GetString(baseMessage, ("size", ent.Comp.FontSize), ("text", message));
-        for (int i = 1; i < newLines + 2; i++)
-        {
-            loc += '\n';
-            message += '\n';
-        }
-
+        var size = ent.Comp.FontSize;
+        var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
+        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
         var effectArgs = new EntityEffectBaseArgs(args.Examiner, EntityManager);
