@@ -3973,3 +3973,18 @@ Entries:
   id: 9153
   time: '2025-10-24T07:36:29.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40966
+- author: TheGrimbeeper
+  changes:
+  - message: Fix artifact radiation trigger not being triggered by ambient radiation.
+    type: Fix
+  id: 9154
+  time: '2025-10-24T09:21:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41065
+- author: PicklOH
+  changes:
+  - message: Space Dragon and Carp are more heat resistant. Carp no longer take fire
+      damage.
+    type: Tweak
+  id: 9155
+  time: '2025-10-24T19:26:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40820
