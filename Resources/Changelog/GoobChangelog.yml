@@ -16811,3 +16811,11 @@ Entries:
         zombiefication
   id: 1880
   time: '2025-10-24T13:37:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Fix
+      message: Fixed various things related to mobs summoned by the Wraith.
+    - type: Fix
+      message: Admin spawned blood writing no longer loops.
+  id: 1881
+  time: '2025-10-24T16:03:35.0000000+00:00'
