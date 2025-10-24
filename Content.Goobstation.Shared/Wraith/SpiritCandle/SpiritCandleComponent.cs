@@ -1,4 +1,5 @@
 using Content.Shared.StatusEffect;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -8,10 +9,10 @@ namespace Content.Goobstation.Shared.Wraith.SpiritCandle;
 public sealed partial class SpiritCandleComponent : Component
 {
     [ViewVariables]
-    public EntProtoId SpritiCandleArea = "SpiritCandleRevealArea";
-
-    [ViewVariables]
     public EntityUid? AreaUid;
+
+    [DataField]
+    public EntProtoId SpiritArea = "SpiritCandleRevealArea";
 
     [DataField]
     public TimeSpan CorporealDuration = TimeSpan.FromSeconds(15);

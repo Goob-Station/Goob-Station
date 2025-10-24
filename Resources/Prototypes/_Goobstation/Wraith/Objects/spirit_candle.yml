@@ -35,9 +35,8 @@
       components:
       - Wraith
   - type: Transform
-    anchored: false
   - type: Physics
-    bodyType: Static
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       fix1:
