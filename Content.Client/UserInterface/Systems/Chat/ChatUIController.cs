@@ -938,7 +938,7 @@ public sealed partial class ChatUIController : UIController
             }
         }
 
-        #region Highlight chat sounds/pings!
+        #region Goobstation - Highlight chat sounds/pings!
         // Goobstation - Highlight chat sounds/pings!
         // Color any words chosen by the client and check for highlights
         var hadHighlight = false;
@@ -959,9 +959,7 @@ public sealed partial class ChatUIController : UIController
 
             // Play sound if a highlight was found
             if (hadHighlight)
-            {
                 PlayHighlightSound();
-            }
         }
         // Goobstation end
         #endregion
