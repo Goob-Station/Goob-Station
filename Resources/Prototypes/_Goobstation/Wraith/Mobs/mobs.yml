@@ -670,6 +670,7 @@
   id: MobSkeletonGoonLesser
   suffix: Lesser
   parent: MobSkeletonGoon
+  categories: [ Spawner ]
   components:
   - type: WraithMinion
   - type: TriggerOnSpawn
