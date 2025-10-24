@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.GunSpinning;
 public sealed partial class SpinableGunComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float SpinTime = 6.4f;
+    public float SpinTime = 6f;
 
     [DataField, AutoNetworkedField]
     public float FailChance = 0.2f;

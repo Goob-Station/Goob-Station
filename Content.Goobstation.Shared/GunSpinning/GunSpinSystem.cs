@@ -53,9 +53,10 @@ namespace Content.Goobstation.Shared.GunSpinning
                 {
 
                     var user = args.User;
+                    var weapon = Identity.Name(uid, EntityManager);
 
-                    var selfMsgStart = Loc.GetString("gun-spin-start-self", ("weapon", Identity.Name(uid, EntityManager)));
-                    var othersMsgStart = Loc.GetString("gun-spin-start-others", ("user", user), ("weapon", Identity.Name(uid, EntityManager)));
+                    var selfMsgStart = Loc.GetString("gun-spin-start-self", ("weapon", weapon));
+                    var othersMsgStart = Loc.GetString("gun-spin-start-others", ("user", user), ("weapon", weapon));
 
                     _popupSystem.PopupPredicted(selfMsgStart, othersMsgStart, user, user, PopupType.Small);
                     var audio = _audio.PlayPredicted(comp.SoundSpin, uid, args.User);
@@ -71,11 +72,13 @@ namespace Content.Goobstation.Shared.GunSpinning
         {
 
             var user = args.User;
+            var weapon = Identity.Name(uid, EntityManager);
 
             if (args.Cancelled)
             {
-                var selfMsgCancel = Loc.GetString("gun-spin-cancel-self", ("weapon", Identity.Name(uid, EntityManager)));
-                var othersMsgCancel = Loc.GetString("gun-spin-cancel-other", ("user", user), ("weapon", Identity.Name(uid, EntityManager)));
+                var selfMsgCancel = Loc.GetString("gun-spin-cancel-self", ("weapon", weapon));
+                var othersMsgCancel = Loc.GetString("gun-spin-cancel-other", ("user", user), ("weapon", weapon));
+
                 _audio.Stop(comp.SoundEntity);
                 _popupSystem.PopupPredicted(selfMsgCancel, othersMsgCancel, user, user, PopupType.Small);
                 return;
@@ -89,15 +92,17 @@ namespace Content.Goobstation.Shared.GunSpinning
             {
                 // TODO replace this with a chance to shoot yourself in the head when gun executions gets merged
 
-                var selfMsgFail = Loc.GetString("gun-spin-fail-self", ("weapon", Identity.Name(uid, EntityManager)));
-                var othersMsgFail = Loc.GetString("gun-spin-fail-others", ("user", user), ("weapon", Identity.Name(uid, EntityManager)));
+                var selfMsgFail = Loc.GetString("gun-spin-fail-self", ("weapon", weapon));
+                var othersMsgFail = Loc.GetString("gun-spin-fail-others", ("user", user), ("weapon", weapon));
+
                 _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, user, user, PopupType.Small);
                 _audio.PlayPredicted(comp.SoundFail, uid, args.User);
                 return;
             }
 
-            var selfMsgFinish = Loc.GetString("gun-spin-complete-self", ("weapon", Identity.Name(uid, EntityManager)));
-            var othersMsgFinish = Loc.GetString("gun-spin-complete-others", ("user", user), ("weapon", Identity.Name(uid, EntityManager)));
+            var selfMsgFinish = Loc.GetString("gun-spin-complete-self", ("weapon", weapon));
+            var othersMsgFinish = Loc.GetString("gun-spin-complete-others", ("user", user), ("weapon", weapon));
+
             _popupSystem.PopupPredicted(selfMsgFinish, othersMsgFinish, user, user, PopupType.Small);
 
         }
