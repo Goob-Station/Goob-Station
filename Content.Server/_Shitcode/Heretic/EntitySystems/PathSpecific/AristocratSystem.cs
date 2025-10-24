@@ -49,6 +49,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
@@ -91,16 +92,50 @@ public sealed class AristocratSystem : EntitySystem
         SubscribeLocalEvent<AristocratComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<AristocratComponent, HitScanReflectAttemptEvent>(OnReflectHitScan);
 
-        SubscribeLocalEvent<ProjectileComponent, MapInitEvent>(OnProjectileInit);
+        SubscribeLocalEvent<VoidAscensionAuraComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<VoidAscensionAuraComponent, EndCollideEvent>(OnEndCollide);
+
+        SubscribeLocalEvent<AffectedByVoidAuraComponent, MoveEvent>(OnMove);
     }
 
-    private void OnProjectileInit(Entity<ProjectileComponent> ent, ref MapInitEvent args)
+    private void OnMove(Entity<AffectedByVoidAuraComponent> ent, ref MoveEvent args)
     {
-        var query = EntityQueryEnumerator<AristocratComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var aristocrat, out var xform))
+        if (ent.Comp.Aura == EntityUid.Invalid || !TryComp(ent.Comp.Aura, out VoidAscensionAuraComponent? aura))
         {
-            FreezeBullet((uid, aristocrat, xform), ent);
+            RemCompDeferred(ent, ent.Comp);
+            return;
         }
+
+        ProcessAura((ent.Comp.Aura, aura), ent, false);
+    }
+
+    private void OnEndCollide(Entity<VoidAscensionAuraComponent> ent, ref EndCollideEvent args)
+    {
+        RemCompDeferred<AffectedByVoidAuraComponent>(args.OtherEntity);
+    }
+
+    private void OnStartCollide(Entity<VoidAscensionAuraComponent> ent, ref StartCollideEvent args)
+    {
+        ProcessAura(ent, args.OtherEntity, true);
+    }
+
+    private void ProcessAura(Entity<VoidAscensionAuraComponent> ent, EntityUid bullet, bool firstContact)
+    {
+        if (!TryComp(bullet, out ProjectileComponent? projectile))
+            return;
+
+        var xform = Transform(ent);
+        var parent = xform.ParentUid;
+        if (!TryComp(parent, out AristocratComponent? aristocrat))
+            return;
+
+        if (projectile.Shooter == parent)
+            return;
+
+        if (firstContact)
+            EnsureComp<AffectedByVoidAuraComponent>(bullet).Aura = ent;
+
+        FreezeBullet((parent, aristocrat, Transform(parent)), (bullet, projectile));
     }
 
     private void OnReflectHitScan(Entity<AristocratComponent> ent, ref HitScanReflectAttemptEvent args)
@@ -314,8 +349,6 @@ public sealed class AristocratSystem : EntitySystem
         if (ent.Comp1.HasDied) // powers will only take effect for as long as we're alive
             return;
 
-        FreezeBullets(ent);
-
         var step = ent.Comp1.UpdateStep;
 
         if (step % 100 == 0)
@@ -345,16 +378,6 @@ public sealed class AristocratSystem : EntitySystem
         }
 
         ent.Comp1.UpdateStep++;
-    }
-
-    private void FreezeBullets(Entity<AristocratComponent, TransformComponent> ent)
-    {
-        var coords = ent.Comp2.Coordinates;
-        var look = _lookup.GetEntitiesInRange<ProjectileComponent>(coords, ent.Comp1.Range, LookupFlags.Dynamic);
-        foreach (var bullet in look)
-        {
-            FreezeBullet(ent, bullet);
-        }
     }
 
     private void FreezeBullet(Entity<AristocratComponent, TransformComponent> ent, Entity<ProjectileComponent> bullet)

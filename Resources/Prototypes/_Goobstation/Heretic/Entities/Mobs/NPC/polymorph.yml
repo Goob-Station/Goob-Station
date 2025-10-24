@@ -203,7 +203,7 @@
     - state: voidball_effect
       shader: unshaded
       map: [ "base" ]
-    drawdepth: SmallMobs
+    drawdepth: OverMobs
     noRot: true
   - type: CosmicLapse
   - type: Speech

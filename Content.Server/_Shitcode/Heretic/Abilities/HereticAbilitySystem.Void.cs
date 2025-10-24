@@ -25,15 +25,19 @@ using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Common.Religion;
 using Content.Server.Polymorph.Components;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics.Controllers;
 using Content.Shared.Polymorph;
 using Content.Shared.Stunnable;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
+    private static readonly EntProtoId VoidAuraId = "VoidAscensionAura";
+
     protected override void SubscribeVoid()
     {
         base.SubscribeVoid();
@@ -72,6 +76,8 @@ public sealed partial class HereticAbilitySystem
         // the hunt begins
         var voidVision = new HereticVoidVisionEvent();
         RaiseLocalEvent(ent, voidVision);
+
+        SpawnAttachedTo(VoidAuraId, ent.Owner.ToCoordinates());
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)

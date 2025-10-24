@@ -324,3 +324,22 @@
     volume: 10
     range: 10
   - type: VoidConduit
+
+- type: entity
+  id: VoidAscensionAura
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 10
+        density: 1
+        hard: false
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: VoidAscensionAura
