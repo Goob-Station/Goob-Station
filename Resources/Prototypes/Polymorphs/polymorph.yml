@@ -295,14 +295,3 @@
     exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg
     duration: 120
     effectProto: EffectDesynchronizer
-
-- type: polymorph
-  id: HellGooseMorph
-  configuration:
-    entity: MobHellGoose
-    forced: true
-    inventory: None
-    transferName: false
-    transferDamage: false
-    revertOnCrit: false
-    revertOnDeath: false

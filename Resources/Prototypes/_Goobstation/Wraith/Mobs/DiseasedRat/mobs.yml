@@ -1,0 +1,274 @@
+- type: entity
+  id: MobPlagueRatSmall
+  suffix: Wraith
+  parent: [ BaseMob, MobCombat ]
+  name: plague rat
+  description: A diseased looking rat.
+  components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
+  - type: DiseasedRat
+    diseasedRatForms:
+    - MediumDiseasedRat
+    - GiantDiseasedRat
+  - type: EatFilth
+    eatDuration: 9
+    allowedReagents:
+    - Blood
+    - AmmoniaBlood
+    - InsectBlood
+    - CopperBlood
+    - ZombieBlood
+    - AlienBlood
+    - BlackBlood
+    - BloodChangeling
+    - Vomit
+    allowedEntities:
+      tags:
+      - Trash
+      - Fungus # Fungus
+      components:
+      - Puddle
+  - type: RatBite
+    reagents:
+      Toxin: 8 # Swap for rat spit once virology is added
+  - type: ActionGrant
+    actions:
+    - ActionEatFilth
+    - ActionRatBite
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+        volume: -5
+        maxDistance: 10
+        variation: 0.8
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+    - state: smallRat
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: WraithMinion
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 3
+        Blunt: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin # Change this to rat spit once that disease effect gets coded.
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 4
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona # Weak to heat
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/snap.ogg
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-plagurat-name
+    description: ghost-role-information-plaguerat-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#00FF00"
+    activateSound: null
+    deactivateSound: null
+
+- type: entity
+  id: MobPlagueRatMedium
+  suffix: Wraith
+  parent: MobPlagueRatSmall
+  name: plague-ridden rat
+  description: A wretched, disgusting rat.
+  components:
+  - type: SummonRatDen # allows you to use summon rat den
+  - type: ActionGrant
+    actions:
+    - ActionRatDen
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+    - state: mediumRat
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 4
+        Blunt: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+
+- type: entity
+  id: MobPlagueRatLarge
+  suffix: Wraith
+  parent: MobPlagueRatMedium
+  name: Bloated rat mass
+  description: A horrible mass of pus and warts, that once used to look like a rat.
+  components:
+  - type: Rushdown #TO DO: Change the jump sound, or don't. Werewolf sound isn't perfect but works.
+  - type: ActionGrant
+    actions:
+    - ActionRatSlam
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+    - state: giantRat
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 60
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/Flesh_Tear_2.ogg
+    damage:
+      types:
+        Slash: 10
+        Blunt: 5
+        Structural: 50
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+
+- type: entity
+  id: MobMadRat
+  suffix: Wraith
+  parent: [ BaseMob, MobCombat ]
+  name: mad rat
+  description: A very weak rat spawned from a den.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rat.rsi
+    layers:
+      - state: smallRat
+  - type: NpcFactionMember
+    factions:
+      - Wraith
+  - type: WraithMinion
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 10
+        mask:
+          - SmallMobMask
+        layer:
+          - SmallMobLayer
+  - type: TimedDespawn # The rat den is only supposed to ever have 5 mad rats at any given time. This is a much simpler way of doing this. Sue me.
+    lifetime: 60.0
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    damage:
+      types:
+        Slash: 3
+        Blunt: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin # Change this to rat spit once that disease effect gets coded.
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 4
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona # Weak to heat
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Items/snap.ogg

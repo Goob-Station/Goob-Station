@@ -184,7 +184,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
     /// <param name="effectProto">ProtoId of the status effect entity. Make sure it has StatusEffectComponent on it.</param>
     /// <param name="duration">Duration of status effect. Leave null and the effect will be permanent until it is removed using <c>TryRemoveStatusEffect</c>.</param>
     /// <param name="statusEffect">The EntityUid of the status effect we have just created or null if we couldn't create one.</param>
-    private bool TryAddStatusEffect(
+    public bool TryAddStatusEffect( // Goobstation, apparently? blame @LuciferEOS on Github if this isn't goob code.
         EntityUid target,
         EntProtoId effectProto,
         [NotNullWhen(true)] out EntityUid? statusEffect,
