@@ -1,0 +1,60 @@
+- type: entity
+  id: WashingMachine
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: washing machine
+  description: Remove the bloodstains from your grayshirt.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/washing_machine.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: empty
+      map: [ "content" ]
+    - state: door-open
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: running
+      map: [ "washing" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      visible: false
+  - type: WashingMachine
+    washingTime: 5
+    washingSound:
+      path: /Audio/Machines/washing_loop.ogg
+      params:
+        loop: true
+    finishedSound:
+      path: /Audio/Machines/washing_open.ogg
+  - type: EntityStorage
+    isCollidableWhenOpen: true
+    open: true
+    capacity: 8
+    whitelist:
+      components:
+      - Clothing
+      sizes:
+      - Tiny
+  - type: Forensics
+    canDnaBeCleaned: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WashingMachineVisuals.State:
+        washing:
+          Idle: { visible: false }
+          Washing: { visible: true }
+          Broken: { visible: false }
+      enum.StorageVisuals.HasContents:
+        content:
+          True: { state: full }
+          False: { state: empty }
+  - type: EntityStorageVisuals
+    stateDoorOpen: door-open
+    stateDoorClosed: door-closed
+  - type: Machine
+    board: WashingMachineCircuitboard
+  - type: PlaceableSurface

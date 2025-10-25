@@ -19,6 +19,11 @@
 # SPDX-FileCopyrightText: 2024 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Zachary Yona <magicalusf@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -67,6 +72,22 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpsuit.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumpsuit.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon
   - type: Tag
     tags:
     - ClothMade
@@ -82,6 +103,21 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumppskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon
 
 
 - type: entity
@@ -114,3 +150,18 @@
     - Skirt
     - ClothMade
     - WhitelistChameleon
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon

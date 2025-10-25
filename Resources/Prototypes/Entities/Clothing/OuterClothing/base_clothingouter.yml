@@ -167,6 +167,17 @@
   # Goobstation edit end
   - type: Sprite
     state: icon
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: outerclothing
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: outerclothing
+  - type: StainBlocker
+    slots: [INNERCLOTHING]
 
 - type: entity
   abstract: true
@@ -185,6 +196,16 @@
   - type: Tag
     tags:
       - WhitelistChameleon
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: suitblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: suitbloodicon
+  - type: StainBlocker
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   abstract: true
@@ -204,6 +225,14 @@
         type: StorageBoundUserInterface
   - type: StaticPrice
     price: 70
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: coatblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: coatbloodicon
 
 - type: entity
   abstract: true
@@ -225,6 +254,14 @@
     - state: icon-open
       map: ["foldedLayer"]
       visible: false
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: outerclothing
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: outerclothing
 
 - type: entity
   abstract: true
@@ -364,6 +401,8 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: StainBlocker
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   abstract: true
@@ -409,6 +448,8 @@
   - type: Tag
     tags:
     - PlasmamanSafe # EE Plasmeme Change
+  - type: StainBlocker
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   parent: ClothingOuterBase

@@ -91,6 +91,7 @@
       - id: BoxCleanerGrenades
       - id: WireBrush
         amount: 2
+      - id: FlatpackWashingMachine
 
 - type: entity
   id: CrateServiceCleanerGrenades

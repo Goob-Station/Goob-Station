@@ -57,6 +57,7 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - WashingMachineCircuitboard # Gabystation/Goob change
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic
