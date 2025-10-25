@@ -76,3 +76,13 @@
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: FunDartMonkey
+  icon:
+    sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
+    state: icon
+  product: CrateDartMonkey
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
