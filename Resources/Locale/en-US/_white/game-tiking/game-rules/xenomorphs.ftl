@@ -1,13 +1,17 @@
 xenomorphs-announcement = Warning: Hostile bio-signatures detected. Unknown entities are moving through the station’s vents and maintenance shafts. All personnel, initiate lockdown protocols and avoid isolated areas.
 xenomorphs-no-more-threat-announcement = According to data from our long-range sensors, all xenomorphs have been eliminated.
 xenomorphs-win-announcement-shuttle-call =
-    We have detected that xenomorphs have overtaken the station. All remaining personnel should arm the nuclear fission explosive and proceed to the evacuation shuttle.
+    ALERT: The station has been consumed by the Black Swarm. All remaining personnel are ordered to arm the nuclear fission explosive and proceed to the evacuation shuttle immediately.
 
-    An emergency shuttle has been sent. ETA: {$time} {$units}.
+    Colonial Marines have been contacted and will arrive within two weeks.
+
+    The evacuation shuttle will arrive in {$time} {$units}.
 xenomorphs-win-announcement =
-    We have detected that Xenomorphs have overtaken the station. All remaining personnel should arm the nuclear fission explosive and proceed to the evacuation shuttle.
+    ALERT: The station has been consumed by the Black Swarm. All remaining personnel are ordered to arm the nuclear fission explosive and proceed to the evacuation shuttle immediately.
 
-    An emergency shuttle has already been sent.
+    Colonial Marines have been contacted and will arrive within two weeks.
+
+    An emergency shuttle is on its way.
 
 xenomorphs-xenomajor = Major xenomorph victory!
 xenomorphs-xenominor = Minor xenomorph victory!

@@ -303,6 +303,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
             component.RoundEndTextShuttleCall,
             component.RoundEndTextAnnouncement
         );
+        _audioSystem.PlayGlobal(component.XenomorphTakeoverSound, Filter.Broadcast(), true); // Goobstation - Play music on announcement
 
         component.WinType = WinType.XenoMinor;
         component.WinConditions.Add(WinCondition.XenoTakeoverStation);
