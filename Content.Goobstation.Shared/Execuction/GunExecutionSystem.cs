@@ -110,7 +110,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
 
     private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker, float gunexecutiontime)
     {
-        if (!CanExecuteWithGun(weapon, victim, attacker) || !_timing.IsFirstTimePredicted)
+        if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
 
         if (attacker == victim)
