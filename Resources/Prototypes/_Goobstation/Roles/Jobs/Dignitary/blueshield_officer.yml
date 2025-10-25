@@ -72,7 +72,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
+    implants: [ MindShieldImplant ] # CorvaxGoob-Not-Roundstart-BluespaceLifeline-Implant
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
