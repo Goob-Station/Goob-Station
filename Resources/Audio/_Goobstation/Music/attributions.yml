@@ -5,25 +5,35 @@
 
 - files: ["running_in.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Original music by Q/\ntum & Z.W.E.I. for SS220, slightly modified by pheenty, converted to mono by @deltanedas (github)"
+  copyright: "Original music by Q/\ntum & Z.W.E.I. for SS220, slightly modified by pheenty"
   source: "https://youtu.be/AisGME8DRk0"
 
 - files: ["asgore_runs_over_dess.ogg"]
   license: "CC-BY-4.0"
-  copyright: "Original music by @Bub8les @KennyTheLyr1c1st @RagamuffinWLYR @zebuez and @MythicApex slightly modified by Loltart, converted to mono by @deltanedas (github)"
+  copyright: "Original music by @Bub8les @KennyTheLyr1c1st @RagamuffinWLYR @zebuez and @MythicApex slightly modified by Loltart"
   source: "https://www.youtube.com/watch?v=L4MlbwcaKLo"
 
 - files: ["Abductor.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Original music by Crockitz, converted to mono by @deltanedas (github)"
+  copyright: "Original music by Crockitz"
   source: "https://discord.com/channels/1202734573247795300/1405280283254853806/1405534426183762072"
 
 - files: ["Black_Swarm.ogg"]
   license: "CC-BY-4.0"
-  copyright: "Original music by @Bobik-music, converted to mono by @deltanedas (github)"
+  copyright: "Original music by @Bobik-music"
   source: "https://www.youtube.com/watch?v=lamfDvGtk_Q"
 
 - files: ["Black_Swarm_Short.ogg"]
   license: "CC-BY-4.0"
   copyright: "Original music by @Bobik-music"
   source: "https://www.youtube.com/watch?v=lamfDvGtk_Q"
+
+- files: ["the_gray_tide_song.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original music by @mrjajkes, (youtube)"
+  source: "https://www.youtube.com/watch?v=fYU8LI2qC-s"
+  
+- files: ["91476_Glorious_morning.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original music by Waterflame"
+  source: "https://www.newgrounds.com/audio/listen/91476"
