@@ -1,0 +1,323 @@
+# This holds all mobs that can be summoned by Summon void creature action
+- type: entity
+  id: MobSkeletonCommander
+  parent: [ BaseMob, MobCombat ]
+  name: skeleton commander
+  description: A bulky skeleton here to encourage his friends.
+  components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/skeletoncommander.rsi
+    layers:
+      - state: skeleton_commander
+  - type: MeleeWeapon #TO DO: Increase attack range of this fella. Parity and what not.
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcSlash
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Blunt: 7
+        Slash: 5
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Damageable #Reduced blunt and heat damage according to code.
+    damageContainer: Inorganic
+    damageModifierSet: SiliconProtected
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: GhostTakeoverAvailable
+  - type: Rally
+    whitelist:
+      components:
+      - WraithMinion
+  - type: ActionGrant
+    actions:
+    - ActionRally
+    - ActionSummonLesserSkeleton
+  - type: Speech
+    speechVerb: Ghost
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100 # Not parity, but the health system in Goonstation works completely differently so :shrug:
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/bone_rattle.ogg
+  - type: NightVision # Goobstation - Nigthvision
+    color: white
+    activateSound: null
+    deactivateSound: null
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
+
+- type: entity
+  name: Tentacle fiend
+  parent: MobCorgiNarsi
+  id: MobVoidSpiker
+  description: Standing still is probably not a good idea.
+  components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/void.rsi
+    layers:
+      - state: spiker
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spiker
+      Dead:
+        Base: dead_spiker
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 4 #Very weak damage, but makes target sleep on attack. I'm not sure if our balance fits with Goon's balance, because 4 damage is pathetically weak, but this creature might be only for kidnapping.
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 4
+  - type: TentacleHook
+  - type: SpikerLash
+  - type: SpikerShuffle
+    statusEffectsToRemove:
+    - Stun
+    - KnockedDown
+    - Electrocution
+    - SlowedDown
+    - Stutter
+    - TemporaryBlindness
+  - type: ActionGrant
+    actions:
+    - ActionTentacleHook
+    - ActionShuffle
+    - ActionLash
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+  - type: NightVision # Goobstation - Nigthvision
+    color: purple
+    activateSound: null
+    deactivateSound: null
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
+
+- type: entity
+  name: Voidhound
+  parent: MobCorgiNarsi
+  id: MobVoidHound
+  description: You probably shouldn't be staring at this thing.
+  components:
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+    - Wraithmind
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/void.rsi
+    layers:
+      - state: voidHound
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: voidHound
+      Dead:
+        Base: dead_voidHound
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+        Slash: 5
+  - type: Rushdown
+  - type: Cloak
+  - type: ActionGrant
+    actions:
+    - ActionRushdown
+    - ActionCloak
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Wraith
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead # Not parity, but the health system in Goonstation works completely differently so :shrug:
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Vocal
+    sounds:
+      Male: Cerberus
+      Female: Cerberus
+      Unsexed: Cerberus
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+  - type: Sprinter
+    staminaDrainRate: 3
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: NightVision # Goobstation - Nigthvision
+    color: purple
+    activateSound: null
+    deactivateSound: null
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5
+
+# Wraith variants
+
+- type: entity
+  id: MobSkeletonCommanderWraith
+  suffix: Wraith
+  parent: MobSkeletonCommander
+  components:
+  - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+
+- type: entity
+  id: MobVoidSpikerWraith
+  suffix: Wraith
+  parent: MobVoidSpiker
+  components:
+  - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+
+- type: entity
+  id: MobVoidHoundWraith
+  suffix: Wraith
+  parent: MobVoidHound
+  components:
+  - type: WraithMinion
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
