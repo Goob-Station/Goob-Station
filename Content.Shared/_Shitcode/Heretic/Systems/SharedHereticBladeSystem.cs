@@ -182,9 +182,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 break;
 
             case "Void":
-                if (hereticComp.Ascended)
-                    _voidCurse.DoCurse(target);
-                ApplyVoidBladeEffect(target);
+                _voidCurse.DoCurse(target);
                 break;
 
             case "Rust":
@@ -332,8 +330,6 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }
 
     protected virtual void ApplyFleshBladeEffect(EntityUid target) { }
-
-    protected virtual void ApplyVoidBladeEffect(EntityUid target) { }
 
     protected virtual void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp) { }
 }
