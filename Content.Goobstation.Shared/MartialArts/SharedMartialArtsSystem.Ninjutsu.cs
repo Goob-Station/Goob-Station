@@ -203,7 +203,7 @@ public abstract partial class SharedMartialArtsSystem
 
         // Swift Strike
         if (args.Performer == args.Weapon)
-            _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
+            _stamina.TakeStaminaDamage(args.Target, 30f);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
         var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
 

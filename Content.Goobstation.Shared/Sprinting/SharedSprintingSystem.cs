@@ -290,7 +290,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         if (!sprinter.IsSprinting)
             return;
 
-        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, applyResistances: true, logDamage: false);
+        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, logDamage: false);
         ToggleSprint(uid, sprinter, false, gracefulStop: true);
     }
 
