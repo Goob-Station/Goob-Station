@@ -372,7 +372,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false, bool logDamage = true)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -436,7 +436,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // Goobstation - Don't log stamina damage if the entity is sprinting and the damage is from themselves (sprinting)
-        if (!TryComp<InputMoverComponent>(uid, out var mover) || !mover.Sprinting || source != null)
+        if (logDamage is true and source is not null)
         {
             if (source != null)
                 _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(source.Value):user} caused {value} stamina damage to {ToPrettyString(uid):target}{(with != null ? $" using {ToPrettyString(with.Value):using}" : "")}");
