@@ -15,6 +15,7 @@
         Toxin: -3
         Genetic: -3
     delay: 9
+  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobMadRat

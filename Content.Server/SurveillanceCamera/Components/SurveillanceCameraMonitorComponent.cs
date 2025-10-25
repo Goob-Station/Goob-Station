@@ -43,7 +43,19 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     // Known cameras in this subnet by address with name values.
     // This is cleared when the subnet is changed.
     [ViewVariables]
-    public Dictionary<string, (NetEntity, NetCoordinates)> KnownCameras { get; } = new(); //Goobstation
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> KnownCameras { get; } = new(); //Goobstation
+
+    // The same as KnownCameras but for MobileCameras only: sec bodycams, no pro, dragable wireless camera
+    [ViewVariables]
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> KnownMobileCameras { get; } = new(); //Goobstation
+
+    // Mobile cameras should receive a heartbeat as they constantly stream their location
+    [ViewVariables]
+    public Dictionary<string, float> KnownMobileCamerasLastHeartbeat { get; } = new(); //Goobstation
+
+    // Mobile cameras should receive a heartbeat as they constantly stream their location
+    [ViewVariables]
+    public Dictionary<string, float> KnownMobileCamerasLastHeartbeatSent { get; } = new(); //Goobstation
 
     [ViewVariables]
     // The subnets known by this camera monitor.
