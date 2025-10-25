@@ -107,7 +107,7 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -274,7 +274,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna # Goobedit - Lavaland
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
