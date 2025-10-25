@@ -1485,3 +1485,38 @@
         identifier: Suffocation
         amount: -50
         time: 12
+
+# Wraith
+- type: reagent
+  id: Formaldehyde
+  name: reagent-name-formaldehyde
+  group: Medicine
+  desc: reagent-desc-formaldehyde
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#FFA500"
+  worksOnTheDead: true
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:ReduceRotting
+        seconds: 6
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Dead
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Formaldehyde
+          min: 30
+        reagent: Histamine
+        amount: 0.4
+        probability: 0.1
