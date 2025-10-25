@@ -1,0 +1,210 @@
+# This is where the wraith mob exists, and all its variants (Harbinger, Plaguebringer, Trickster)
+
+- type: entity
+  id: MobWraith
+  parent:
+  - Incorporeal
+  - BaseMob
+  name: Wraith
+  description: A VERY spooky ghostie.
+  components:
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.2
+        Burn: -0.2
+  - type: Emag
+    emagType: All
+    successText: wraith-decay-object1
+  - type: Wraith
+    abilities: WraithAbilities
+  - type: WraithPoints
+    startingWraithPoints: 0
+  - type: CollectiveMind
+    defaultChannel: Wraithmind
+    channels:
+      - Wraithmind
+  - type: PassiveWraithPoints
+  - type: Input
+    context: "ghost"
+  - type: Spectral
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: base
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Ghost
+      - Normal
+      - CosmicCultMonument
+      - Abductor
+  - type: GhostHearing
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - Corporeal
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
+  - type: NoSlip
+  - type: PointLight
+    enabled: true
+    color: "#790c24"
+    radius: 5
+    softness: 5
+    autoRot: true
+    castShadows: false
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Visibility
+    layer: 2 #ghost vis layer
+  - type: Speech
+    speechVerb: Ghost # TO DO: Change this to WraithSpeech, which is invalid for some reason I couldn't figure out.
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: UniversalLanguageSpeaker # Einstein Engines - Languages
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [TableSalt]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:GenericStatusEffect
+        key: Corporeal
+        component: Corporeal
+        time: 15
+        type: Add
+        probability: 1
+      - !type:GenericStatusEffect
+        key: Stunned
+        component: Stunned
+        time: 3
+        type: Add
+        probability: 1
+  - type: WeakToHoly
+    alwaysTakeHoly: true
+  - type: Access # Only realistically used while corporeal.
+    groups:
+    - AllAccess
+    - Silicon
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - CentralCommand
+  - type: Tag
+    tags:
+    - WeakToSalt
+    - DoorBumpOpener
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+    stateAlertDict:
+      Alive: WraithHealth
+      Dead: WraithDead
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.RadialSelectorUiKey.Key: # WWDP
+        type: TrackedRadialSelectorMenuBUI
+      enum.ListViewSelectorUiKey.Key: # WWDP
+        type: ListViewSelectorBUI
+  - type: TriggerOnMobstateChange
+    mobState:
+      - Dead
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 3
+  - type: Puller
+    needsHands: false
+
+- type: entity
+  id: MobWraithPlague
+  parent: MobWraith
+  name: Plaguebringer
+  components:
+  - type: Wraith
+    abilities: PlaguebingerAbilities
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: plague
+  - type: PointLight
+    enabled: true
+    color: "#434f2a"
+    radius: 5
+    softness: 5
+    autoRot: true
+    castShadows: false
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+  - type: Plaguebinger
+
+- type: entity
+  id: MobWraithHarbinger
+  parent: MobWraith
+  name: Harbinger of the Void
+  components:
+  - type: Wraith
+    abilities: HarbingerAbilities
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: harbinger
+  - type: PointLight
+    enabled: true
+    color: "#ebb02b"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+    castShadows: false
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
+
+- type: entity
+  id: MobWraithTrickster
+  parent: MobWraith
+  name: Trickster
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    layers:
+    - state: trickster
+  - type: PointLight
+    enabled: true
+    color: "#66ccff"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+    castShadows: false
+  - type: AmbientSound
+    range: 10
+    volume: -15
+    sound:
+      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
+
