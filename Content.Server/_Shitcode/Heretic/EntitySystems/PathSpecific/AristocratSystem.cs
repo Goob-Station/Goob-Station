@@ -33,6 +33,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -110,12 +111,20 @@ public sealed class AristocratSystem : EntitySystem
 
     private void OnEndCollide(Entity<VoidAscensionAuraComponent> ent, ref EndCollideEvent args)
     {
-        if (!TryComp(args.OtherEntity, out AffectedByVoidAuraComponent? affected))
+        if (TerminatingOrDeleted(args.OtherEntity))
+            return;
+
+        if (!TryComp(args.OtherEntity, out AffectedByVoidAuraComponent? affected) ||
+            !TryComp(args.OtherEntity, out PhysicsComponent? physics))
             return;
 
         if (affected.OldVelocity != null)
-            _physics.SetLinearVelocity(ent, affected.OldVelocity.Value);
+        {
+            var velocity = physics.LinearVelocity.Normalized() * affected.OldVelocity.Value;
+            _physics.SetLinearVelocity(args.OtherEntity, velocity, body: physics);
+        }
 
+        RemComp<HomingProjectileComponent>(args.OtherEntity);
         RemComp(args.OtherEntity, affected);
     }
 
@@ -166,8 +175,7 @@ public sealed class AristocratSystem : EntitySystem
         var others = EntityQueryEnumerator<AristocratComponent, MobStateComponent>();
         while (others.MoveNext(out var other, out _, out var stateComp))
         {
-            if (ent.Owner == other
-                || stateComp.CurrentState == MobState.Dead)
+            if (ent.Owner == other || stateComp.CurrentState == MobState.Dead)
                 continue;
 
             return true;
@@ -188,11 +196,8 @@ public sealed class AristocratSystem : EntitySystem
         {
             var xformVictim = Transform(victim);
 
-            if (xformVictim.MapUid != xform.MapUid
-                || stateComp.CurrentState == MobState.Dead
-                ||
-                ent.Owner ==
-                victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
+            if (xformVictim.MapUid != xform.MapUid || stateComp.CurrentState == MobState.Dead ||
+                ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
                 continue;
 
             _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"),
@@ -239,8 +244,8 @@ public sealed class AristocratSystem : EntitySystem
             DoVoidAnnounce(ent, "end");
         }
 
-        if (stateComp.CurrentState == MobState.Alive
-            && ent.Comp.HasDied) // in the rare case that they are revived for whatever reason
+        // in the rare case that they are revived for whatever reason
+        if (stateComp.CurrentState == MobState.Alive && ent.Comp.HasDied)
         {
             ent.Comp.HasDied = false;
             BeginWaltz(ent); // we're back bros
@@ -314,7 +319,6 @@ public sealed class AristocratSystem : EntitySystem
             List<EntityUid> affected = new();
             foreach (var tile in tiles)
             {
-                // this shit is for checking if there is a void trap already on that tile or not.
                 var ents = _lookup.GetEntitiesInRange(tile, .1f, LookupFlags.Static | LookupFlags.Sensors);
                 var foundHereticTiles = false;
                 foreach (var ent in ents)
@@ -369,25 +373,23 @@ public sealed class AristocratSystem : EntitySystem
         }
 
         if (step % 10 == 0)
-            FreezeNoobs(ent);
-        else
+
+        FreezeNoobs(ent);
+        switch (step % 4)
         {
-            switch (step % 4)
-            {
-                case 0:
-                    ExtinguishFires(ent);
-                    break;
-                case 1:
-                    FreezeAtmos((ent.Owner, ent.Comp2));
-                    break;
-                case 2:
-                    DoChristmas(ent);
-                    break;
-                case 3:
-                    SpookyLights(ent);
-                    break;
-            }
-        }
+            case 0:
+                ExtinguishFires(ent);
+                break;
+            case 1:
+                FreezeAtmos((ent.Owner, ent.Comp2));
+                break;
+            case 2:
+                DoChristmas(ent);
+                break;
+            case 3:
+                SpookyLights(ent);
+                break;
+    }
 
         ent.Comp1.UpdateStep++;
     }
@@ -400,32 +402,38 @@ public sealed class AristocratSystem : EntitySystem
         if (proj.Shooter == ent)
             return;
 
-        var coords = ent.Comp2.Coordinates;
+        var (pos, rot) = _xform.GetWorldPositionRotation(uid);
 
-        var targetVelocity = (_xform.GetWorldPosition(uid) - _xform.ToWorldPosition(coords)).Length();
+        var dir = pos - _xform.GetWorldPosition(ent.Comp2);
+        var targetVelocity = dir.Length();
 
         if (targetVelocity > ent.Comp1.Range)
             return;
 
         // antihoming
         var homing = EnsureComp<HomingProjectileComponent>(uid);
-        if (homing.Target != ent && !HasComp<AristocratComponent>(homing.Target) || homing.HomingSpeed > -180f)
-        {
-            homing.Target = ent;
-            homing.HomingSpeed = -180f;
-            Dirty(uid, homing);
-        }
+        homing.Target = ent;
+        var multiplier = MathHelper.Lerp(10f, 0f, Math.Clamp(targetVelocity * 2f / ent.Comp1.Range, 0f, 1f));
+        homing.HomingSpeed = -216f * multiplier;
+        Dirty(uid, homing);
 
-        affected.OldVelocity ??= physics.LinearVelocity;
+        affected.OldVelocity ??= physics.LinearVelocity.Length();
+        var oldLength = affected.OldVelocity.Value;
 
         var curVelocity = physics.LinearVelocity.Length();
 
         if (curVelocity < 0.01f)
             return;
 
-        targetVelocity = MathF.Max(1f, targetVelocity * 1.5f);
+        var dot = Vector2.Dot(dir, rot.ToWorldVec()) +
+            Vector2.Dot(dir, rot.ToVec()) +
+            Vector2.Dot(dir, rot.Opposite().ToVec());
+        var modifier = MathF.Max(0f, dot);
 
-        if (targetVelocity > affected.OldVelocity.Value.Length())
+        targetVelocity = MathF.Max(5f, targetVelocity * (2f + modifier * oldLength));
+        targetVelocity = MathF.Min(targetVelocity, oldLength);
+
+        if (MathF.Abs(curVelocity - targetVelocity) < 0.01f)
             return;
 
         _physics.SetLinearVelocity(uid, physics.LinearVelocity / curVelocity * targetVelocity, body: physics);
@@ -472,10 +480,10 @@ public sealed class AristocratSystem : EntitySystem
         var coords = ent.Comp2.Coordinates;
         var fires = _lookup.GetEntitiesInRange<FlammableComponent>(coords, ent.Comp1.Range);
 
-        foreach (var entity in fires)
+        foreach (var (uid, flam) in fires)
         {
-            if (entity.Comp.OnFire)
-                _flammable.Extinguish(entity);
+            if (flam.OnFire)
+                _flammable.Extinguish(uid, flam);
         }
 
         ExtinguishFiresTiles(ent);
@@ -488,19 +496,17 @@ public sealed class AristocratSystem : EntitySystem
 
         var coords = ent.Comp2.Coordinates;
 
-        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp1.Range);
+        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp1.Range, LookupFlags.Static);
 
-        foreach (var tag in tags)
+        foreach (var (uid, tag) in tags)
         {
             // walls
-            if (!_tag.HasTag(tag.Owner, "Wall")
-                || !_rand.Prob(.45f)
-                || Prototype(tag) == null
-                || Prototype(tag)!.ID == IceWallPrototype)
+            if (!_tag.HasTag(tag, "Wall") || !_rand.Prob(.45f) ||
+                (Prototype(uid)?.ID ?? string.Empty) == IceWallPrototype)
                 continue;
 
-            Spawn(IceWallPrototype, Transform(tag).Coordinates);
-            QueueDel(tag);
+            Spawn(IceWallPrototype, Transform(uid).Coordinates);
+            QueueDel(uid);
         }
     }
 
@@ -508,11 +514,11 @@ public sealed class AristocratSystem : EntitySystem
     private void SpookyLights(Entity<AristocratComponent, TransformComponent> ent)
     {
         var coords = ent.Comp2.Coordinates;
-        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp1.Range);
+        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp1.Range, LookupFlags.Static);
 
-        foreach (var light in lights)
+        foreach (var (uid, light) in lights)
         {
-            _light.TryDestroyBulb(light);
+            _light.TryDestroyBulb(uid, light);
         }
     }
 
@@ -544,12 +550,6 @@ public sealed class AristocratSystem : EntitySystem
             if (!_rand.Prob(.3f))
                 continue;
 
-            // this shit is for checking if there is a void trap already on that tile or not.
-            var condition = _lookup.GetEntitiesInRange(pos, .1f, LookupFlags.Static | LookupFlags.Sensors)
-                .All(e => Prototype(e)?.ID != IceTilePrototype.Id);
-            if (condition)
-                Spawn(IceTilePrototype, pos);
-
             var tile = _turf.GetTileRef(pos);
 
             if (tile == null)
@@ -557,6 +557,11 @@ public sealed class AristocratSystem : EntitySystem
 
             var newTile = _prot.Index(SnowTilePrototype);
             _tile.ReplaceTile(tile.Value, newTile);
+
+            var condition = _lookup.GetEntitiesInRange(pos, .1f, LookupFlags.Static | LookupFlags.Sensors)
+                .All(e => Prototype(e)?.ID != IceTilePrototype.Id);
+            if (condition)
+                Spawn(IceTilePrototype, pos);
         }
     }
 }

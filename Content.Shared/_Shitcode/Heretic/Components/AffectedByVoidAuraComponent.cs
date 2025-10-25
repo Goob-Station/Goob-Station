@@ -10,5 +10,5 @@ public sealed partial class AffectedByVoidAuraComponent : Component
     public EntityUid Aura;
 
     [DataField]
-    public Vector2? OldVelocity;
+    public float? OldVelocity;
 }

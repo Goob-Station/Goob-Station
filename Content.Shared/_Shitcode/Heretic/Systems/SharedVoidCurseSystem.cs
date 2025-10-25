@@ -47,7 +47,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        var modifier = 1f - ent.Comp.Stacks * 0.05f;
+        var modifier = 1f - ent.Comp.Stacks * 0.1f;
         args.ModifySpeed( modifier, modifier);
     }
 
