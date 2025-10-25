@@ -662,10 +662,10 @@
   - SpellbookEquipment
 
 - type: listing
-  id: SpellbookCryoKatana
-  name: spellbook-cryo-katana-name
-  description: spellbook-cryo-katana-desc
-  productEntity: CryoKatana
+  id: SpellbookEchoKatana
+  name: spellbook-echo-katana-name
+  description: spellbook-echo-katana-desc
+  productEntity: EchoKatana
   cost:
     WizCoin: 2
   categories:
