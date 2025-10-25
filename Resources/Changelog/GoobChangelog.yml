@@ -16881,3 +16881,11 @@ Entries:
       message: You can no longer pet people
   id: 1890
   time: '2025-10-25T16:14:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Lavafauna (Lavaland mobs) now have their own faction
+    - type: Fix
+      message: Lavaland mobs should no longer attack carps due to factional differences
+  id: 1891
+  time: '2025-10-25T16:15:06.0000000+00:00'
