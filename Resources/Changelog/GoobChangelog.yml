@@ -16827,3 +16827,11 @@ Entries:
         destroy it whenever he is in the game.
   id: 1882
   time: '2025-10-24T17:51:40.0000000+00:00'
+- author: CoffeePoweredPHD
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer spawn infinite quantities of carpotoxin using a
+        convert altar.
+  id: 1883
+  time: '2025-10-25T16:06:53.0000000+00:00'
