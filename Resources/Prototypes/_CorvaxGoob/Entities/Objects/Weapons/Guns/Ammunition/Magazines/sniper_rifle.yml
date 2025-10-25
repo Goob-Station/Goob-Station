@@ -1,0 +1,49 @@
+- type: entity
+  id: BaseMagazineLargeCaliber
+  name: magazine (.55 large)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeLargeCaliber
+    proto: CartridgeLargeCaliber
+    capacity: 8
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Weapons/Guns/Ammunition/Magazine/uncle_styopa_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: Tag
+    tags:
+    - MagazineLargeCaliber
+
+- type: entity
+  id: MagazineLargeCaliberEmpty
+  name: magazine (.55 empty)
+  parent: BaseMagazineLargeCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: MagazineLargeCaliber
+  name: magazine (.55 large)
+  parent: BaseMagazineLargeCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLargeCaliber

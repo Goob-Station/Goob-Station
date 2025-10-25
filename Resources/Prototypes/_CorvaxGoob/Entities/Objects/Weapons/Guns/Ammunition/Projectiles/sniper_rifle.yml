@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletLargeCaliber
+  name: bullet (.55 large)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 65
+      armorPenetration: 0.4
+    penetrationThreshold: 100
+  - type: StaminaDamageOnCollide
+    damage: 95

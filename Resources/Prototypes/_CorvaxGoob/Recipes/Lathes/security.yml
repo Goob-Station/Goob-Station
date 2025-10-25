@@ -8,3 +8,17 @@
     Plastic: 800
     Gold: 300
     Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLargeCaliber
+  result: MagazineLargeCaliber
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLargeCaliber
+  result: MagazineBoxLargeCaliber
+  materials:
+    Steel: 1000

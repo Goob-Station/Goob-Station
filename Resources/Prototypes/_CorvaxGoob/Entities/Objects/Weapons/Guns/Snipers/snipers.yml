@@ -1,0 +1,71 @@
+- type: entity
+  parent: [ BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponSniperUncleStyopa
+  name: Uncle Styopa
+  description: A deadly large-caliber sniper rifle. Clearly not designed to disperse peaceful demonstrations... Although, who's going to argue with you? Uses .55 large-caliber ammo.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Weapons/Guns/Snipers/uncle_styopa.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _CorvaxGoob/Objects/Weapons/Guns/Snipers/uncle_styopa.rsi
+    size: Huge
+    shape:
+      - 0,0,6,1
+    storedRotation: 45
+  - type: Clothing
+    sprite: _CorvaxGoob/Objects/Weapons/Guns/Snipers/uncle_styopa.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+      params:
+        pitch: 1.5
+    resetOnHandSelected: false
+  - type: AmmoCounter
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 1
+  - type: StaticPrice
+    price: 3500
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: MagazineLargeCaliber
+        insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLargeCaliber
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        startingItem: CartridgeLargeCaliber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLargeCaliber
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg

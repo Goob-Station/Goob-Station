@@ -1,0 +1,20 @@
+- type: entity
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  id: CartridgeLargeCaliber
+  name: cartridge (.55 large)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLargeCaliber
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeLargeCaliber

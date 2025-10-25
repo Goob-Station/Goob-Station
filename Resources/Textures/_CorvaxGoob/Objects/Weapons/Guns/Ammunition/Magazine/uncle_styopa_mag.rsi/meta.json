@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+    "x": 32,
+    "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/pull/13612, modified by Ko4erga (discord)",
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "mag-1"
+        }
+    ]
+}

@@ -1,50 +1,58 @@
-- type: Tag
-  id: CarcTile # Spacessonne
-
-- type: Tag
-  id: Skills
-
-- type: Tag
-  id: Hemostat
-
-- type: Tag
-  id: Scalpel
-
-- type: Tag
-  id: EnergyScalpel
-
-- type: Tag
-  id: ScalpelLaser
-
-- type: Tag
-  id: Retractor
-
-- type: Tag
-  id: BoneSetter
+# В алфавитном порядке пж
 
 - type: Tag
   id: AdvancedRetractor
 
 - type: Tag
-  id: Cautery
+  id: BoneSetter
 
 - type: Tag
-  id: EnergyCautery
+  id: CarcTile
+
+- type: Tag
+  id: CartridgeLargeCaliber
+
+- type: Tag
+  id: Cautery
 
 - type: Tag
   id: Drill
 
 - type: Tag
-  id: SawElectric
-
-- type: Tag
   id: DroneShuttleLinkable
 
 - type: Tag
-  id: LightTubeCrystalRed
+  id: EnergyCautery
+
+- type: Tag
+  id: EnergyScalpel
+
+- type: Tag
+  id: Hemostat
+
+- type: Tag
+  id: LightTubeCrystalBlue
 
 - type: Tag
   id: LightTubeCrystalGreen
 
 - type: Tag
-  id: LightTubeCrystalBlue
+  id: LightTubeCrystalRed
+
+- type: Tag
+  id: MagazineLargeCaliber
+
+- type: Tag
+  id: Retractor
+
+- type: Tag
+  id: SawElectric
+
+- type: Tag
+  id: Scalpel
+
+- type: Tag
+  id: ScalpelLaser
+
+- type: Tag
+  id: Skills
