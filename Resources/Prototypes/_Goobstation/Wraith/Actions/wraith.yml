@@ -1,0 +1,524 @@
+# This file includes all the actions for wraith.
+# Revenants, other ghost-roles should get their own directory outside the Wraith one.
+
+#   - type: ActionWraithPoints -> Removes Wraith Points once the action gets handled
+#    wpConsume: int -> Amount of Wraith Points to remove
+
+# Base Wraith Actions
+- type: entity # Unused - Requires Rework of ghost system to allow re-usable actions
+  parent: ActionToggleGhostHearing
+  id: ActionToggleGhostHearingWraith
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: hide_chat
+    iconOn: _Goobstation/Wraith/actions.rsi/show_chat.png
+
+- type: entity
+  id: ActionHaunt
+  name: Haunt
+  description: Become corporeal for 30 seconds. During this time, you gain additional wraith points, depending on the amount of humans in your vicinity. Use this ability again while corporeal to fade back into the aether.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithhaunt.ogg
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: haunt
+  - type: InstantAction
+    event: !type:HauntEvent
+
+- type: entity
+  id: ActionWhisper
+  parent: DemonicWhisperAction
+  name: Whisper
+  description: Send an ethereal message to a living being.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithwhisper2.ogg
+    useDelay: 2
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: whisper
+
+- type: entity
+  id: ActionBloodWriting
+  name: Blood Writing
+  description: Write a spooky character on the ground.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: blood_writing
+  - type: InstantAction
+    event: !type:BloodWritingEvent
+
+- type: entity
+  id: ActionAbsorbCorpse
+  name: Absorb corpse
+  description: Steal life essence from a corpse. You cannot use this on a skeleton!
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithsoulsucc1.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: absorb_corpse
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - HumanoidAppearance
+    blacklist:
+      components:
+      - PartialAbsorbable
+    event: !type:AbsorbCorpseEvent
+  - type: ActionWraithPoints
+    wpConsume: 20
+  - type: ActionUseDelayOnUse
+    useDelayAccumulator: 45
+
+- type: entity
+  id: ActionSpook
+  name: Spook
+  description: Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to spawn an entity as the origin of these events, then interact with it to select which action to use.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithspook1.ogg
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: spook
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:SpookEvent
+  - type: ActionWraithPoints
+    wpConsume: 20
+
+- type: entity
+  id: ActionDecay
+  name: Decay
+  description: Cause a human to lose stamina, or an object to malfunction.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: decay
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    blacklist:
+      components:
+      - BorgChassis
+      - BibleUser
+    event: !type:DecayEvent
+  - type: ActionWraithPoints
+    wpConsume: 30
+
+- type: entity
+  id: ActionCommand
+  name: Command
+  description: Command a few objects to hurl themselves at the target location.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: command
+  - type: TargetAction
+    range: 10
+  - type: EntityTargetAction
+    canTargetSelf: false
+    blacklist:
+      components:
+      - BibleUser
+    event: !type:WraithCommandEvent
+  - type: ActionWraithPoints
+    wpConsume: 50
+
+- type: entity
+  id: ActionAnimateObject
+  parent: ActionAnimateSpell
+  name: Animate object
+  description: Animate an inanimate object to attack nearby humans.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithlivingobject.ogg
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: anim_object
+  - type: ActionWraithPoints
+    wpConsume: 100
+
+- type: entity
+  id: ActionPossessObject
+  name: Possess object
+  description: Possess and control an everyday object. Freakout level high.
+  components:
+  - type: ActionWraithPoints
+    wpConsume: 300
+  - type: Action
+    itemIconStyle: BigAction
+    # useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: possess_object
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister
+    blacklist:
+      components:
+      - NukeDisk
+      - GravityGenerator
+      - AnomalyGenerator
+      - TegGenerator
+      - TegCirculator
+      - XenoArtifact
+      - Ghost
+      - Spectral
+      - FadingTimedDespawn
+      - TimedDespawn
+    event: !type:PossessObjectEvent
+      toAdd:
+      - type: Animate
+      - type: MindContainer
+      - type: InputMover
+      - type: MobMover
+      - type: CombatMode
+      - type: MeleeWeapon
+        animation: Slash
+        wideAnimation: WeaponArcClaw
+        altDisarm: false
+        soundHit:
+          collection: Flesh_Stab
+        range: 1.5
+        angle: 0.0
+        damage:
+          types:
+            Slash: 20
+      - type: NpcFactionMember
+        factions:
+        - Wraith
+      - type: NoSlip
+      - type: MovementSpeedModifier
+        baseWalkSpeed: 5
+        baseSprintSpeed: 5
+      - type: MovementAlwaysTouching
+      - type: CanMoveInAir
+      - type: Damageable
+        damageContainer: ManifestedSpirit
+        damageModifierSet: ManifestedSpirit
+      - type: Destructible
+        thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300 #Easily killable with holy damage so it has to be somewhat high for it to be worth the wraith risking it
+          behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+      - type: Hands
+      - type: CanEscapeInventory
+      - type: MobCollision
+      toRemove:
+      - RequireProjectileTarget
+      - BlockMovement
+      - Item
+      - MeleeRequiresWield
+
+- type: entity
+  id: ActionEvolve
+  name: Evolve
+  description: Choose a form to evolve into once you have absorbed at least 3 souls.
+  components:
+  - type: Action
+    useDelay: 0
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: evolve
+  - type: InstantAction
+    event: !type:WraithEvolveEvent
+  - type: ActionWraithPoints
+    wpConsume: 150
+
+# Harbinger Actions
+- type: entity
+  id: ActionRaiseSkeleton
+  name: Raise skeleton
+  description: Raise a skeletonized dead body or fill a locker with an indurable skeletal servant.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithraise1.ogg
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: skeleton
+  - type: TargetAction
+    range: 15
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - EntityStorage
+      - HumanoidAppearance
+    event: !type:RaiseSkeletonEvent
+  - type: ActionWraithPoints
+    wpConsume: 100
+
+- type: entity
+  id: ActionSummonVoidPortal
+  name: Summon void portal
+  description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
+  components:
+  - type: ConfirmableAction
+    popup: wraith-portal-already
+    primeTime: 10
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+    useDelay: 180
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: open_portal
+  - type: InstantAction
+    event: !type:SummonPortalEvent
+  - type: ActionUserWhitelist
+    whitelist:
+      components:
+      - Corporeal
+    popup: wraith-must-be-corporeal
+  - type: ActionWraithPoints
+    wpConsume: 150
+
+- type: entity
+  id: ActionSummonVoidCreature
+  name: Summon void creatures
+  description: Attempt to breach the veil between worlds to allow a lesser void creature to enter this realm.
+  components:
+  - type: Action
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_creature
+  - type: InstantAction
+    event: !type:SummonVoidCreatureEvent
+  - type: ActionWraithPoints
+    wpConsume: 400
+
+- type: entity
+  id: ActionMakeRevenant
+  name: Make revenant
+  description: Take control of an intact corpse as a powerful Revenant! You will not be able to absorb this corpse later. As a revenant, you gain increased point generation, but your revenant abilities cost much more points than normal.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: revenant
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:MakeRevenantEvent
+  - type: ActionWraithPoints
+    wpConsume: 1000
+
+# Plaguebinger Actions
+
+- type: entity
+  id: BaseCurseAction
+  parent: BaseAction
+  components:
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      requireAll: true
+      components:
+      - StatusEffects
+      - Body
+    canTargetSelf: false
+    event: !type:ApplyCurseActionEvent
+  - type: CurseAction # refreshes all curses when a curse is used
+  - type: ActionWraithPoints
+    wpConsume: 40
+
+
+- type: entity
+  id: ActionCurseBlindness
+  name: Curse of blindness
+  parent: BaseCurseAction
+  description: Curse the living with blindness.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: blind_curse
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseBlindness
+      popup: curse-popup-blindness
+
+- type: entity
+  id: ActionCurseWeakness
+  name: Curse of weakness
+  parent: BaseCurseAction
+  description: Curse the living with weakness. Applies slowdown and makes the target feel dizzy.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: weak_curse
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseWeakness
+      popup: curse-popup-weakness
+      # todo: sound for target
+
+- type: entity
+  id: ActionCurseBlood
+  name: Curse of blood
+  parent: BaseCurseAction
+  description: Curse the living with a plague of blood.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: blood_curse
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseBlood
+      popup: curse-popup-blood
+
+- type: entity
+  id: ActionCurseRot
+  name: Curse of rot
+  parent: BaseCurseAction
+  description: Curse the living with a netherworldly plague.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: rot_curse
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseRot
+      popup: curse-popup-rot
+
+- type: entity
+  id: ActionCurseDeath
+  name: Curse of death
+  parent: BaseCurseAction
+  description: Reap a fully cursed being's soul!
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 45
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: death_curse
+  - type: EntityTargetAction
+    event: !type:ApplyCurseActionEvent
+      curse: CurseDeath
+      popup: curse-popup-death
+      requireAllCurses: true
+  - type: ActionWraithPoints
+    wpConsume: 80
+
+- type: entity
+  id: ActionDefile
+  name: Defile
+  description: Manifest some horrible poison inside a food item or a container. Use on self first to choose chemical.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/wraithstaminadrain.ogg
+    useDelay: 50
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: wraith_poison
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    event: !type:DefileEvent
+  - type: ActionWraithPoints
+    wpConsume: 50
+
+- type: entity
+  id: ActionSummonPlagueRat
+  name: Summon Plague rat
+  description: Attempt to breach the veil between worlds to allow a plague rat to enter this realm.
+  components:
+  - type: Action
+    useDelay: 150
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_rats
+  - type: InstantAction
+    event: !type:SummonPlagueRatEvent
+
+- type: entity
+  id: ActionSummonRotHulk
+  name: Summon Rot Hulk
+  description: Assimilate the filth in an area and create an unstable servant.
+  components:
+  - type: Action
+    useDelay: 90
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_goo
+  - type: InstantAction
+    event: !type:SummonRotHulkEvent
+  - type: ActionWraithPoints
+    wpConsume: 120
+
+# Trickster Actions
