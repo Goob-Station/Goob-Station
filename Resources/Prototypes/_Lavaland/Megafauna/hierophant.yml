@@ -1,4 +1,4 @@
-# Main selector
+# Root selector
 - type: megafaunaSelector
   id: Hierophant
   selector: !type:AllMegafaunaSelector
