@@ -9,7 +9,7 @@
 
 - type: clause
   id: soulownership
-  name: Владение душой # CorvaxGoob devil fix
+  name: Право владения душой # CorvaxGoob devil fix
   clauseWeight: 25
   event: !type:DevilContractSoulOwnershipEvent
 
