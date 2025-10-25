@@ -56,7 +56,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     }
 
-    public void DoCurse(EntityUid uid, int stacks = 1)
+    public void DoCurse(EntityUid uid, int stacks = 1, int max = 0)
     {
         if (stacks < 1)
             return;
@@ -74,6 +74,8 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
         var curse = EnsureComp<VoidCurseComponent>(uid);
         curse.Lifetime = curse.MaxLifetime;
+        if (max > 0 && curse.Stacks + stacks > max)
+            stacks = Math.Max(0, max - (int) curse.Stacks);
         curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
         Dirty(uid, curse);
 

@@ -197,7 +197,8 @@ public sealed class AristocratSystem : EntitySystem
             var xformVictim = Transform(victim);
 
             if (xformVictim.MapUid != xform.MapUid || stateComp.CurrentState == MobState.Dead ||
-                ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
+                ent.Owner ==
+                victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
                 continue;
 
             _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"),
@@ -373,8 +374,8 @@ public sealed class AristocratSystem : EntitySystem
         }
 
         if (step % 10 == 0)
+            FreezeNoobs(ent);
 
-        FreezeNoobs(ent);
         switch (step % 4)
         {
             case 0:
@@ -389,7 +390,7 @@ public sealed class AristocratSystem : EntitySystem
             case 3:
                 SpookyLights(ent);
                 break;
-    }
+        }
 
         ent.Comp1.UpdateStep++;
     }
@@ -426,8 +427,8 @@ public sealed class AristocratSystem : EntitySystem
             return;
 
         var dot = Vector2.Dot(dir, rot.ToWorldVec()) +
-            Vector2.Dot(dir, rot.ToVec()) +
-            Vector2.Dot(dir, rot.Opposite().ToVec());
+                  Vector2.Dot(dir, rot.ToVec()) +
+                  Vector2.Dot(dir, rot.Opposite().ToVec());
         var modifier = MathF.Max(0f, dot);
 
         targetVelocity = MathF.Max(5f, targetVelocity * (2f + modifier * oldLength));
@@ -530,7 +531,8 @@ public sealed class AristocratSystem : EntitySystem
 
         foreach (var noob in noobs)
         {
-            _voidcurse.DoCurse(noob);
+            // Apply up to 3 void chill stacks
+            _voidcurse.DoCurse(noob, 1, 3);
         }
     }
 

@@ -20,6 +20,7 @@ using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
@@ -58,6 +59,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -180,6 +182,8 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 break;
 
             case "Void":
+                if (hereticComp.Ascended)
+                    _voidCurse.DoCurse(target);
                 ApplyVoidBladeEffect(target);
                 break;
 
