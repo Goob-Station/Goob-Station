@@ -748,6 +748,6 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone()
     {
-        return this;
+        return this; 
     }
 }
