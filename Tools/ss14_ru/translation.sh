@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env sh
+#!/usr/bin/env sh
 
 # make sure to start from script dir
 if [ "$(dirname $0)" != "." ]; then
