@@ -243,6 +243,7 @@ namespace Content.IntegrationTests.Tests
             "CorvaxAmber",
             "CorvaxBagel",
             //"CorvaxMarathon",
+            "CorvaxMascara",
             "CorvaxOutpost",
             "CorvaxPaper",
             //"CorvaxPearl",
