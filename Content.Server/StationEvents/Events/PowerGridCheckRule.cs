@@ -16,9 +16,9 @@
 using System.Threading;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Station.Components;
+using Content.Server.Station.Components; // Goobstation
 using Content.Server.StationEvents.Components;
-using Content.Server.GameTicking;
+using Content.Server.GameTicking; // Goobstation
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
@@ -33,7 +33,7 @@ namespace Content.Server.StationEvents.Events
     public sealed class PowerGridCheckRule : StationEventSystem<PowerGridCheckRuleComponent>
     {
         [Dependency] private readonly ApcSystem _apcSystem = default!;
-        [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!; // Goobstation
 
         protected override void Started(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
         {
@@ -45,9 +45,9 @@ namespace Content.Server.StationEvents.Events
             component.AffectedStation = chosenStation.Value;
 
             var query = AllEntityQuery<ApcComponent, TransformComponent>();
-            while (query.MoveNext(out var apcUid, out var apc, out var transform))
+            while (query.MoveNext(out var apcUid, out var apc, out var transform)) // Goobstation
             {
-                if (apc.MainBreakerEnabled && ApcCanBeAffected((uid, component), (apcUid, apc)))
+                if (apc.MainBreakerEnabled && ApcCanBeAffected((uid, component), (apcUid, apc))) // Goobstation
                     component.Powered.Add(apcUid);
             }
 
@@ -67,7 +67,7 @@ namespace Content.Server.StationEvents.Events
 
                 if (TryComp(entity, out ApcComponent? apcComponent))
                 {
-                    if (!apcComponent.MainBreakerEnabled)
+                    if (!apcComponent.MainBreakerEnabled) // Goobstation
                         _apcSystem.ApcToggleBreaker(entity, apcComponent);
                 }
             }
@@ -90,7 +90,7 @@ namespace Content.Server.StationEvents.Events
             component.FrameTimeAccumulator += frameTime;
             if (component.FrameTimeAccumulator > component.UpdateRate)
             {
-                updates = (int)(component.FrameTimeAccumulator / component.UpdateRate);
+                updates = (int)(component.FrameTimeAccumulator / component.UpdateRate); // Goobstation
                 component.FrameTimeAccumulator -= component.UpdateRate * updates;
             }
 
@@ -111,6 +111,7 @@ namespace Content.Server.StationEvents.Events
             }
         }
 
+        // Goobstation start
         public bool ApcCanBeAffected(Entity<PowerGridCheckRuleComponent> ent, Entity<ApcComponent> apc, TransformComponent? apcXform = null)
         {
             if (!_gameTicker.IsGameRuleActive(ent.Owner))
@@ -146,5 +147,6 @@ namespace Content.Server.StationEvents.Events
 
             return true;
         }
+        // Goobstation end
     }
 }

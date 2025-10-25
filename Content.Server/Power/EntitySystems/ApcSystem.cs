@@ -33,8 +33,8 @@ using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
-using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.Events;
+using Content.Server.StationEvents.Components; // Goobstation
+using Content.Server.StationEvents.Events; // Goobstation
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
 using Content.Shared.Emag.Systems;
@@ -53,7 +53,7 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PowerGridCheckRule _powerGridCheckRule = default!;
+    [Dependency] private readonly PowerGridCheckRule _powerGridCheckRule = default!; // Goobstation
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -68,7 +68,7 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, ComponentStartup>(OnApcStartup);
         SubscribeLocalEvent<ApcComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerMessage>(OnToggleMainBreaker);
-        SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreakerAttempt);
+        SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreakerAttempt); // Goobstation
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
 
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
@@ -98,17 +98,18 @@ public sealed class ApcSystem : EntitySystem
         UpdateApcState(uid, component);
     }
 
-    private void OnApcStartup(EntityUid uid, ApcComponent component, ref ComponentStartup args)
+    private void OnApcStartup(EntityUid uid, ApcComponent component, ref ComponentStartup args) // Goobstation
     {
         // We cannot update immediately, as various network/battery state is not valid yet.
         // Defer until the next tick.
         component.NeedStateUpdate = true;
-
+        // Goobstation start
         var query = AllEntityQuery<PowerGridCheckRuleComponent>();
 
         while (query.MoveNext(out var ruleUid, out var ruleComp))
             if (_powerGridCheckRule.TryAddUnpoweredApc((ruleUid, ruleComp), (uid, component)))
                 component.MainBreakerEnabled = false;
+        // Goobstation end
     }
 
     private void OnBoundUiOpen(EntityUid uid, ApcComponent component, BoundUIOpenedEvent args)
@@ -138,6 +139,7 @@ public sealed class ApcSystem : EntitySystem
         }
     }
 
+    // Goobstation start
     private void OnApcToggleMainBreakerAttempt(Entity<ApcComponent> ent, ref ApcToggleMainBreakerAttemptEvent args)
     {
         var query = AllEntityQuery<PowerGridCheckRuleComponent>();
@@ -146,6 +148,7 @@ public sealed class ApcSystem : EntitySystem
             if (_powerGridCheckRule.ContainsUnpoweredApc((ruleUid, ruleComp), ent))
                 args.Cancelled = true;
     }
+    // Goobstation end
 
     public void ApcToggleBreaker(EntityUid uid, ApcComponent? apc = null, PowerNetworkBatteryComponent? battery = null)
     {
@@ -178,7 +181,7 @@ public sealed class ApcSystem : EntitySystem
             return;
 
         // May have been disabled at startup, but we had to wait to react
-        battery.CanDischarge = apc.MainBreakerEnabled;
+        battery.CanDischarge = apc.MainBreakerEnabled;  // Goobstation
 
         if (apc.LastChargeStateTime == null || apc.LastChargeStateTime + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime)
         {
