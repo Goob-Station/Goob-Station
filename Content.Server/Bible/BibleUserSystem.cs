@@ -155,6 +155,11 @@ namespace Content.Server.Bible
                 return;
             }
 
+            // Goobstation - Wraith - Start
+            var ev = new BibleSmiteUsed();
+            RaiseLocalEvent(args.Target.Value, ref ev);
+            // Goobstation - Wraith - End
+
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))
             {
