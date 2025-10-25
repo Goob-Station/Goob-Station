@@ -133,6 +133,7 @@
     - type: Stealth
       enabledOnDeath: false
       enabledOnCrit: false
+      thermalsImmune: true # Goobstation
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
@@ -171,7 +172,7 @@
   - type: FlashImmunity
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
-    speechSounds: Chrono # why? its badass.
+    speechSounds: Chrono
 
 # Security
 - type: entity

@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Devour;
 using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Goobstation.Shared.SlaughterDemon.Systems;
 using Content.Server.Administration.Systems;
@@ -39,6 +40,10 @@ public sealed class SlaughterDemonSystem : SharedSlaughterDemonSystem
             return;
 
         _container.EmptyContainer(devour.Container);
+
+        // Allow everyone to self revive again (if they have the ability to)
+        foreach (var entity in ent.Comp.ConsumedMobs)
+            RemComp<PreventSelfRevivalComponent>(entity);
 
         // heal them if they were in the laughter demon
         if (!ent.Comp.IsLaughter)
