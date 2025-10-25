@@ -36,6 +36,7 @@
     startingWraithPoints: 500
   - type: PassiveWraithPoints
     wpGeneration: 15 # generate points 15x than a normal wraith
+    nextWpUpdate: 1 # generate points every second
   - type: ActionGrant
     actions:
     - ActionRevenantPush
