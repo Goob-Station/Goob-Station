@@ -82,7 +82,7 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ChevalTranslatorImplant
-  name: Cheval translator implant
+  name: cheval translator implant
   description: An implant giving the ability to understand and speak Cheval.
   categories: [ HideSpawnMenu ]
   components:

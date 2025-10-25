@@ -185,7 +185,7 @@
     thresholds:
       0: Alive
       60: Dead
-  - type: Flash
+  #- type: Flash # Goobstation - Remove drone flashing.
   - type: NoSlip
   - type: StatusEffects
     allowed:
@@ -271,6 +271,7 @@
     - EmagImmune
     - CanPilot
     - VimPilot
+    - Bot # Goobstation
   - type: CollectiveMind # Goobstation
     defaultChannel: Dronemind
     channels:

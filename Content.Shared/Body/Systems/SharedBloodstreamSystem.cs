@@ -3,6 +3,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
@@ -26,6 +27,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Body.Systems;
 
@@ -149,12 +151,19 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             var total = FixedPoint2.Zero;
             foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
             {
+                var totalPartBleeds = FixedPoint2.Zero; // Goobstation
                 foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
                 {
                     if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                         continue;
 
                     total += bleeds.BleedingAmount;
+                    totalPartBleeds = bleeds.BleedingAmount; // Goobstation
+                }
+
+                if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
+                {
+                    woundable.Bleeds = totalPartBleeds; // Goobstation
                 }
             }
 
@@ -458,6 +467,15 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 tempSolution.AddSolution(temp, _prototypeManager);
             }
 
+            // Goobstation start
+            // Set the freshness when the spill is created instead of every time new blood is created
+            foreach (var dna in tempSolution
+                .SelectMany(r => r.Reagent.EnsureReagentData().OfType<DnaData>()))
+            {
+                dna.Freshness = _timing.CurTime;
+            }
+            // Goobstation end
+
             _puddle.TrySpillAt(ent.Owner, tempSolution, out _, sound: false);
 
             tempSolution.RemoveAllSolution();
@@ -562,7 +580,9 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         var dnaData = new DnaData();
 
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
+        {
             dnaData.DNA = donorComp.DNA;
+        }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 

@@ -119,3 +119,15 @@
     rules: ghost-role-information-ancient-rogue-king-rules
     raffle:
       settings: short
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostWraith
+  id: WraithToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-wraith-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-wraith-rules
+    raffle:
+      settings: short
