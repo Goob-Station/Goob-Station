@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goobstation 13 https://wiki.ss13.co/Wraith (Couldn't find the sprites in the code so I fetched all of them from the wiki)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "apc" },
+        { "name": "flip" },
+        { "name": "burn" },
+        { "name": "open" },
+        { "name": "PDA" },
+        { "name": "ectoplasm" },
+        { "name": "random" },
+        { "name": "smoke" }
+    ]
+}

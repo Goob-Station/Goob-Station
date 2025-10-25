@@ -1,0 +1,32 @@
+- type: soundCollection
+  id: Blade_Small
+  files:
+  - /Audio/_Goobstation/Wraith/Attack/Blade_Small.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Blade_Small_Bloody.ogg
+
+- type: soundCollection
+  id: Flesh_Break
+  files:
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Break_1.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Break_2.ogg
+
+- type: soundCollection
+  id: Flesh_Stab
+  files:
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Stab_1.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Stab_2.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Stab_3.ogg
+
+- type: soundCollection
+  id: Flesh_Tear
+  files:
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Tear_1.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Tear_2.ogg
+  - /Audio/_Goobstation/Wraith/Attack/Flesh_Tear_3.ogg
+
+- type: soundCollection
+  id: Werewolf_Attack
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/werewolf_attack1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/werewolf_attack2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/werewolf_attack3.ogg
