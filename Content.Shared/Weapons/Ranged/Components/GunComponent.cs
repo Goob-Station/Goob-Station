@@ -327,7 +327,7 @@ public sealed partial class GunComponent : Component
     /// How long should it take to execute with this gun
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float GunExecutionTime = 3f;
+    public float GunExecutionTime = 3.5f;
 }
 
 [Flags]

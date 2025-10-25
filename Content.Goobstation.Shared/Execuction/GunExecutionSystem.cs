@@ -30,6 +30,7 @@ using Content.Shared.Weapons.Ranged;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Projectiles;
 using Content.Shared.Execution;
+using Content.Shared.Camera;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -37,6 +38,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Execution;
 
@@ -55,6 +58,8 @@ public sealed class SharedGunExecutionSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private const float GunExecutionTime = 4.0f;
 
@@ -163,6 +168,14 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         var victim = args.Target.Value;
         var weapon = args.Used.Value;
 
+        // Get the direction for the recoil
+        Vector2 direction = Vector2.Zero;
+        var attackerXform = Transform(attacker);
+        var victimXform = Transform(victim);
+        var diff = victimXform.WorldPosition - attackerXform.WorldPosition;
+        if (diff != Vector2.Zero)
+            direction = -diff.Normalized(); // recoil opposite of shot
+
 
         if (!CanExecuteWithGun(weapon, victim, attacker)
             || !TryComp<DamageableComponent>(victim, out var damageableComponent))
@@ -236,6 +249,8 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         }
         else
         {
+            if (_net.IsClient && direction != Vector2.Zero && _timing.IsFirstTimePredicted) // Just apply recoil for the client
+                _recoil.KickCamera(attacker, direction);
             _execution.ShowExecutionInternalPopup("execution-popup-gun-complete-internal", attacker, victim, weapon);
             _execution.ShowExecutionExternalPopup("execution-popup-gun-complete-external", attacker, victim, weapon);
             _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
