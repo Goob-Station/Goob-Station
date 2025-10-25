@@ -3,7 +3,6 @@ using Content.Shared.Verbs;
 using Content.Shared.Popups;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
-using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -17,7 +16,6 @@ namespace Content.Goobstation.Shared.GunSpinning
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedHandsSystem _hands = default!;
         [Dependency] private readonly SharedIdentitySystem _identity = default!;
@@ -95,7 +93,7 @@ namespace Content.Goobstation.Shared.GunSpinning
                 var selfMsgFail = Loc.GetString("gun-spin-fail-self", ("weapon", weapon));
                 var othersMsgFail = Loc.GetString("gun-spin-fail-others", ("user", user), ("weapon", weapon));
 
-                _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, user, user, PopupType.Small);
+                _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, user, user, PopupType.SmallCaution);
                 _audio.PlayPredicted(comp.SoundFail, uid, args.User);
                 return;
             }
