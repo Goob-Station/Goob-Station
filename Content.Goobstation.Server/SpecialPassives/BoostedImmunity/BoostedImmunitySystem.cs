@@ -1,12 +1,9 @@
-using Content.Goobstation.Common.Traits;
-using Content.Goobstation.Common.Traits.Components;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
-using Content.Goobstation.Shared.Traits.Components;
-using Content.Server.Traits.Assorted;
+using Content.Server.GameTicking;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Overlays;
-using Content.Shared.Speech.Muting;
-using Content.Shared.Traits.Assorted;
+using Content.Shared.Traits;
+using Robust.Server.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
@@ -14,23 +11,11 @@ namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
 public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
 
     private EntityQuery<MobStateComponent> _mobStateQuery;
-
-    private static readonly List<Type> Disabilities = new()
-    {
-        typeof(PermanentBlindnessComponent),
-        typeof(NarcolepsyComponent), // narcolepsy is the sole reason this part is in server
-        typeof(UnrevivableComponent),
-        typeof(BlackAndWhiteOverlayComponent),
-        typeof(MutedComponent),
-        typeof(ParacusiaComponent),
-        typeof(PainNumbnessComponent),
-        typeof(LegsParalyzedComponent),
-        typeof(MovementImpairedComponent),
-        typeof(SocialAnxietyComponent),
-        typeof(DeafComponent)
-    };
 
     public override void Initialize()
     {
@@ -51,10 +36,31 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
         if (_mobStateQuery.TryComp(ent, out var state))
             ent.Comp.Mobstate = state.CurrentState;
 
-        if (ent.Comp.RemoveDisabilities)
-            foreach (var disability in Disabilities)
-                RemComp(ent, disability);
+        RemoveDisabilities(ent);
 
         Cycle(ent);
+    }
+
+    public readonly ProtoId<TraitCategoryPrototype> DisabilityProto = "Disabilities";
+    private void RemoveDisabilities(Entity<BoostedImmunityComponent> ent)
+    {
+        _playerManager.TryGetSessionByEntity(ent, out var session);
+
+        if (session == null)
+            return;
+
+        var profile = _ticker.GetPlayerProfile(session);
+
+        foreach (var trait in profile.TraitPreferences)
+        {
+            if (!_protoManager.TryIndex<TraitPrototype>(trait, out var traitProto))
+                continue;
+
+            if (traitProto.Category != DisabilityProto)
+                continue;
+
+            var comps = traitProto.Components;
+            EntityManager.RemoveComponents(ent, comps);
+        }
     }
 }
