@@ -240,7 +240,7 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.6
-        Heat: 0.6
+        Heat: 0.9 # Goobstation - Energy Rework
         Caustic: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -277,7 +277,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.3
-        Heat: 0.8
+        Heat: 0.9 # Goobstation - Energy Rework
   - type: ExplosionResistance
     damageCoefficient: 0.8
 
@@ -342,7 +342,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.3
-        Heat: 0.3
+        Heat: 0.65 # Goobstation - Energy Rework
         Caustic: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.35
@@ -435,7 +435,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.4
-        Heat: 0.3
+        Heat: 0.65 # Goobstation - Energy Rework
   - type: GroupExamine
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
@@ -522,7 +522,7 @@
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.4
-        Heat: 0.4
+        Heat: 0.5  # Goobstation - Energy Rework
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier # Goobstation
@@ -568,7 +568,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.4
-        Heat: 0.3
+        Heat: 0.65 # Goobstation - Energy Rework
         Caustic: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 1.0
@@ -631,7 +631,7 @@
         Blunt: 0.45
         Slash: 0.45
         Piercing: 0.45
-        Heat: 0.45
+        Heat: 0.5 # Goobstation - Energy Rework
         Caustic: 0.45
   - type: ClothingSpeedModifier
     walkModifier: 0.65

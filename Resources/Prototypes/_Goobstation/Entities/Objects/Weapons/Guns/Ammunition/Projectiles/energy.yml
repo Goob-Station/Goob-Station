@@ -46,7 +46,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 17 
+        Heat: 20 #Standardizing Laser Damage to 20
     soundHit:
       collection: MeatLaserImpact
 

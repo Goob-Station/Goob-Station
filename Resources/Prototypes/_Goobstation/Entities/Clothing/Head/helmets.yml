@@ -34,7 +34,7 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.35
-        Heat: 0.35
+        Heat: 0.75
         Caustic: 0.35
   - type: BreathMask
   - type: Sprite

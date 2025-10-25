@@ -100,7 +100,7 @@
         Blunt: 0.3
         Slash: 0.3
         Piercing: 0.55
-        Heat: 0.2
+        Heat: 0.5 # Goobstation - Energy Rework
         Radiation: 0.3
         Caustic: 0.3
   - type: ExplosionResistance
