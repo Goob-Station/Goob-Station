@@ -16843,3 +16843,9 @@ Entries:
         Chrome The F Up.” 
   id: 1884
   time: '2025-10-25T16:07:41.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: The basic operative bundle isn't a new player trap now.
+  id: 1885
+  time: '2025-10-25T16:08:44.0000000+00:00'
