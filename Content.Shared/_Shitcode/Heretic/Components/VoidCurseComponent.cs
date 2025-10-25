@@ -15,11 +15,17 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VoidCurseComponent : Component
 {
-    [DataField, AutoNetworkedField] public float Lifetime = 30f;
-    [DataField] public float MaxLifetime = 30f;
+    [DataField, AutoNetworkedField]
+    public float Lifetime = 8f;
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] public float Stacks = 0f;
-    [DataField, AutoNetworkedField] public float MaxStacks = 5f;
+    [DataField]
+    public float MaxLifetime = 8f;
+
+    [DataField, AutoNetworkedField]
+    public float Stacks = 0f;
+
+    [DataField, AutoNetworkedField]
+    public float MaxStacks = 5f;
 
     public float Timer = 1f;
 }
