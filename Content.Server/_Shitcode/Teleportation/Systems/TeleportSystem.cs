@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Shared.Database;
@@ -23,7 +24,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Teleportation;
@@ -37,9 +37,6 @@ public sealed class TeleportSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IAdminLogManager _alog = default!;
     [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -57,7 +54,8 @@ public sealed class TeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        RandomTeleport(args.User, component);
+        if (!RandomTeleport(args.User, component))
+            return;
 
         if (component.ConsumeOnUse)
         {
@@ -74,17 +72,24 @@ public sealed class TeleportSystem : EntitySystem
         _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} randomly teleported with {ToPrettyString(uid)}");
     }
 
-    public void RandomTeleport(EntityUid uid, RandomTeleportComponent component, bool playSound = true)
+    public bool RandomTeleport(EntityUid uid,
+        RandomTeleportComponent component,
+        bool playSound = true,
+        bool checkEv = true)
     {
+        if (checkEv && !CanTeleport(uid))
+            return false;
+
         // play sound before and after teleport if playSound is true
         if (playSound)
             _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
 
-        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport);
+        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false);
 
         if (playSound)
             _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
 
+        return true;
     }
 
     public Vector2 GetTeleportVector(float minRadius, float extraRadius)
@@ -96,8 +101,15 @@ public sealed class TeleportSystem : EntitySystem
         return _random.NextAngle().ToVec() * distance;
     }
 
-    public void RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true)
+    public void RandomTeleport(EntityUid uid,
+        MinMax radius,
+        int triesBase = 10,
+        bool forceSafe = true,
+        bool checkEv = true)
     {
+        if (checkEv && !CanTeleport(uid))
+            return;
+
         var xform = Transform(uid);
         // break any active pulls e.g. secoff pulling you with cuffs
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
@@ -162,5 +174,12 @@ public sealed class TeleportSystem : EntitySystem
         // pulled entity goes with us
         if (pullableEntity != null)
             _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
+    }
+
+    private bool CanTeleport(EntityUid uid)
+    {
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(uid, ref ev);
+        return !ev.Cancelled;
     }
 }
