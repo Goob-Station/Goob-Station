@@ -16920,3 +16920,11 @@ Entries:
       message: Added Woundmend pain indicator shows when your character is in pain.
   id: 1894
   time: '2025-10-25T16:22:11.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Xenomorph takeover announcement is now more ominous
+    - type: Add
+      message: added The Final Battle - by bobik-musik to the jukebox
+  id: 1895
+  time: '2025-10-25T16:22:48.0000000+00:00'
