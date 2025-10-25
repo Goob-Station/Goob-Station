@@ -16849,3 +16849,11 @@ Entries:
       message: The basic operative bundle isn't a new player trap now.
   id: 1885
   time: '2025-10-25T16:08:44.0000000+00:00'
+- author: Krispy-Lime
+  changes:
+    - type: Add
+      message: >-
+        Added dart monkeys which throw darts at balloons. They are purchasable
+        from cargo. 
+  id: 1886
+  time: '2025-10-25T16:09:23.0000000+00:00'
