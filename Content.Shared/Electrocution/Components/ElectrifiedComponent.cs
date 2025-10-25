@@ -170,7 +170,7 @@ public sealed partial class ElectrifiedComponent : Component
     /// Cooldown between shocks
     /// </summary>
     [DataField]
-    public TimeSpan ShockCooldown { get; set; } = TimeSpan.FromSeconds(3f);
+    public TimeSpan ShockCooldown { get; set; } = TimeSpan.FromSeconds(1.5f);
 
     /// <summary>
     /// Last time this entity was shocked
