@@ -16863,3 +16863,9 @@ Entries:
       message: Diamonds can be used to enchant fortune
   id: 1887
   time: '2025-10-25T16:09:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed Mopping Puddle sounds repeating multiple times.
+  id: 1888
+  time: '2025-10-25T16:10:35.0000000+00:00'
