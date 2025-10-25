@@ -25,5 +25,5 @@ public sealed partial class WraithCommandComponent : Component
     public float ThrowSpeed = 30f;
 
     [DataField(required: true)]
-    public TimeSpan StunDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(0.5f);
 }
