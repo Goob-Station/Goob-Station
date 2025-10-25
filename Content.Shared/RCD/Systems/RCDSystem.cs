@@ -52,6 +52,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 
 namespace Content.Shared.RCD.Systems;
@@ -600,24 +601,28 @@ public sealed class RCDSystem : EntitySystem
                 return false;
             }
 
-            // Goobstation - RCD check access for doors
-            if (!_accessReader.IsAllowed(user, target.Value))
+            // CorvaxGoob-Fix-Door-Start
+            if (HasComp<DoorComponent>(target))
             {
-                if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-no-access"), uid, user);
+                // Goobstation - RCD check access for doors
+                if (!_accessReader.IsAllowed(user, target.Value))
+                {
+                    if (popMsgs)
+                        _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-no-access"), uid, user);
 
-                return false;
+                    return false;
+                }
+
+                // Goobstation - RCD check access for bolts (Yeah, this should be event based...)
+                if (_doorSystem.IsBolted(target.Value))
+                {
+                    if (popMsgs)
+                        _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-is-bolted"), uid, user);
+
+                    return false;
+                }
             }
-
-            // Goobstation - RCD check access for bolts (Yeah, this should be event based...)
-            if (_doorSystem.IsBolted(target.Value))
-            {
-                if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-is-bolted"), uid, user);
-
-                return false;
-            }
-
+            // CorvaxGoob-Fix-Door-End
         }
         return true;
     }
