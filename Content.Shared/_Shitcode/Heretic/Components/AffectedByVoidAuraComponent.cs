@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
@@ -7,4 +8,7 @@ public sealed partial class AffectedByVoidAuraComponent : Component
 {
     [DataField]
     public EntityUid Aura;
+
+    [DataField]
+    public Vector2? OldVelocity;
 }

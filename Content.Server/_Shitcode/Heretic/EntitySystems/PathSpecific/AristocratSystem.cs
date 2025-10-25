@@ -57,7 +57,6 @@ namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 // void path heretic exclusive
 public sealed class AristocratSystem : EntitySystem
 {
-
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
@@ -102,25 +101,37 @@ public sealed class AristocratSystem : EntitySystem
     {
         if (ent.Comp.Aura == EntityUid.Invalid || !TryComp(ent.Comp.Aura, out VoidAscensionAuraComponent? aura))
         {
-            RemCompDeferred(ent, ent.Comp);
+            RemComp(ent, ent.Comp);
             return;
         }
 
-        ProcessAura((ent.Comp.Aura, aura), ent, false);
+        ProcessAura((ent.Comp.Aura, aura), ent, ent.Comp);
     }
 
     private void OnEndCollide(Entity<VoidAscensionAuraComponent> ent, ref EndCollideEvent args)
     {
-        RemCompDeferred<AffectedByVoidAuraComponent>(args.OtherEntity);
+        if (!TryComp(args.OtherEntity, out AffectedByVoidAuraComponent? affected))
+            return;
+
+        if (affected.OldVelocity != null)
+            _physics.SetLinearVelocity(ent, affected.OldVelocity.Value);
+
+        RemComp(args.OtherEntity, affected);
     }
 
     private void OnStartCollide(Entity<VoidAscensionAuraComponent> ent, ref StartCollideEvent args)
     {
-        ProcessAura(ent, args.OtherEntity, true);
+        ProcessAura(ent, args.OtherEntity, physics: args.OtherBody);
     }
 
-    private void ProcessAura(Entity<VoidAscensionAuraComponent> ent, EntityUid bullet, bool firstContact)
+    private void ProcessAura(Entity<VoidAscensionAuraComponent> ent,
+        EntityUid bullet,
+        AffectedByVoidAuraComponent? affected = null,
+        PhysicsComponent? physics = null)
     {
+        if (!Resolve(bullet, ref physics, false))
+            return;
+
         if (!TryComp(bullet, out ProjectileComponent? projectile))
             return;
 
@@ -132,10 +143,11 @@ public sealed class AristocratSystem : EntitySystem
         if (projectile.Shooter == parent)
             return;
 
-        if (firstContact)
-            EnsureComp<AffectedByVoidAuraComponent>(bullet).Aura = ent;
+        affected ??= EnsureComp<AffectedByVoidAuraComponent>(bullet);
 
-        FreezeBullet((parent, aristocrat, Transform(parent)), (bullet, projectile));
+        affected.Aura = ent;
+
+        FreezeBullet((parent, aristocrat, Transform(parent)), (bullet, projectile, affected, physics));
     }
 
     private void OnReflectHitScan(Entity<AristocratComponent> ent, ref HitScanReflectAttemptEvent args)
@@ -380,11 +392,12 @@ public sealed class AristocratSystem : EntitySystem
         ent.Comp1.UpdateStep++;
     }
 
-    private void FreezeBullet(Entity<AristocratComponent, TransformComponent> ent, Entity<ProjectileComponent> bullet)
+    private void FreezeBullet(Entity<AristocratComponent, TransformComponent> ent,
+        Entity<ProjectileComponent, AffectedByVoidAuraComponent, PhysicsComponent> bullet)
     {
-        var (uid, comp) = bullet;
+        var (uid, proj, affected, physics) = bullet;
 
-        if (comp.Shooter == ent)
+        if (proj.Shooter == ent)
             return;
 
         var coords = ent.Comp2.Coordinates;
@@ -403,8 +416,7 @@ public sealed class AristocratSystem : EntitySystem
             Dirty(uid, homing);
         }
 
-        if (!TryComp(uid, out PhysicsComponent? physics))
-            return;
+        affected.OldVelocity ??= physics.LinearVelocity;
 
         var curVelocity = physics.LinearVelocity.Length();
 
@@ -413,7 +425,7 @@ public sealed class AristocratSystem : EntitySystem
 
         targetVelocity = MathF.Max(1f, targetVelocity * 1.5f);
 
-        if (curVelocity < targetVelocity)
+        if (targetVelocity > affected.OldVelocity.Value.Length())
             return;
 
         _physics.SetLinearVelocity(uid, physics.LinearVelocity / curVelocity * targetVelocity, body: physics);
