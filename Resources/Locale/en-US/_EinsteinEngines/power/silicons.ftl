@@ -4,7 +4,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ipc-recharge-tip = You charged a litte of your battery.
+# Goobstation - Fix spelling error.
+ipc-recharge-tip = You recharge your battery.
 dead-startup-button-verb = Reboot
 dead-startup-system-reboot-success = {$target}'s system was rebooted.
 dead-startup-system-reboot-failed = {$target}'s chassis is way too damaged.

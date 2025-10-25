@@ -343,6 +343,8 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -381,6 +383,8 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: UnisexChitinid
@@ -419,6 +423,90 @@
       collection: MaleSigh
     Whistle:
       collection: Whistles
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+
+- type: emoteSounds
+  id: FemaleFeroxi
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Hiss:
+      path: /Audio/Animals/snake_hiss.ogg
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
+    Gnash:
+      collection: FeroxiGnashes
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+
+- type: emoteSounds
+  id: MaleFeroxi
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Hiss:
+      path: /Audio/Animals/snake_hiss.ogg
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
+    Gnash:
+      collection: FeroxiGnashes
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
