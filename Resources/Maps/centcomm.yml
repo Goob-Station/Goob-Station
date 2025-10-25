@@ -51,8 +51,6 @@ entities:
     components:
     - type: MetaData
       name: Central Command
-    - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -27357,7 +27355,7 @@ entities:
       - stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
       content: >-
-        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ 
+        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
         ║░██░░░░██░║
 
@@ -27367,7 +27365,7 @@ entities:
 
         ║░██░░░███░║─ Central Field Command
 
-        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ 
+        ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
 
         ────────────────────⋆⋅☆⋅⋆──────────────────
 
