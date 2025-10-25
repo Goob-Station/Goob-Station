@@ -16914,3 +16914,9 @@ Entries:
         (it used to appear in the camera selection with the old UI).
   id: 1893
   time: '2025-10-25T16:20:23.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: Added Woundmend pain indicator shows when your character is in pain.
+  id: 1894
+  time: '2025-10-25T16:22:11.0000000+00:00'
