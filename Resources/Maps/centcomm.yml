@@ -51,8 +51,6 @@ entities:
     components:
     - type: MetaData
       name: Central Command
-    - type: Transform
-      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -41241,8 +41239,6 @@ entities:
       pos: -22.5,-6.5
       parent: 1668
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2771
 - proto: WeaponEnergyTurretCommandControlPanel
