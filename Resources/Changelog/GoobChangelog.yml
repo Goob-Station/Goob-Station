@@ -16827,3 +16827,124 @@ Entries:
         destroy it whenever he is in the game.
   id: 1882
   time: '2025-10-24T17:51:40.0000000+00:00'
+- author: CoffeePoweredPHD
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer spawn infinite quantities of carpotoxin using a
+        convert altar.
+  id: 1883
+  time: '2025-10-25T16:06:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Loneops can now buy the sandevistan at an increased price. “Bout Time I
+        Chrome The F Up.” 
+  id: 1884
+  time: '2025-10-25T16:07:41.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: The basic operative bundle isn't a new player trap now.
+  id: 1885
+  time: '2025-10-25T16:08:44.0000000+00:00'
+- author: Krispy-Lime
+  changes:
+    - type: Add
+      message: >-
+        Added dart monkeys which throw darts at balloons. They are purchasable
+        from cargo. 
+  id: 1886
+  time: '2025-10-25T16:09:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Diamonds can be used to enchant fortune
+  id: 1887
+  time: '2025-10-25T16:09:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed Mopping Puddle sounds repeating multiple times.
+  id: 1888
+  time: '2025-10-25T16:10:35.0000000+00:00'
+- author: caoimhan2008
+  changes:
+    - type: Tweak
+      message: replaced old door/airlock sounds with new updated sounds.
+  id: 1889
+  time: '2025-10-25T16:14:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: You can no longer pet people
+  id: 1890
+  time: '2025-10-25T16:14:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Lavafauna (Lavaland mobs) now have their own faction
+    - type: Fix
+      message: Lavaland mobs should no longer attack carps due to factional differences
+  id: 1891
+  time: '2025-10-25T16:15:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard's cryo katana was replaced with a new Echo katana, which has
+        stronger physical damage and longer dash, but doesn't freeze the
+        enemies.
+  id: 1892
+  time: '2025-10-25T16:16:20.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed body cameras and other mobile cameras "randomly" appearing and
+        disappearing, 1984 intensifies.
+    - type: Tweak
+      message: >-
+        Made camera switching a little bit faster and more consistent. Cameras
+        automatically disconnect without connection much faster, too.
+    - type: Add
+      message: >-
+        Camera name is now shown alongside camera address on the monitor status
+        (it used to appear in the camera selection with the old UI).
+  id: 1893
+  time: '2025-10-25T16:20:23.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: Added Woundmend pain indicator shows when your character is in pain.
+  id: 1894
+  time: '2025-10-25T16:22:11.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Xenomorph takeover announcement is now more ominous
+    - type: Add
+      message: added The Final Battle - by bobik-musik to the jukebox
+  id: 1895
+  time: '2025-10-25T16:22:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Tweak Electrocution now has a short cooldown between shocks.
+    - type: Fix
+      message: Fixed electrocution occasionally causing server crashes.
+  id: 1896
+  time: '2025-10-25T16:28:56.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: A station beacon was added to CC
+  id: 1897
+  time: '2025-10-25T16:41:58.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Mechs can no longer pick up other mechs
+  id: 1898
+  time: '2025-10-25T16:53:44.0000000+00:00'
