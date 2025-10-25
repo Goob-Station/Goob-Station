@@ -461,7 +461,7 @@
 # Dark Gygax
 - type: entity
   id: MechGygaxSyndie
-  parent: [ BaseMech, CombatMech, BaseSyndicateContraband ]
+  parent: [ BaseMech, CombatMech, BaseSyndicateAnchoredContraband ]
   name: Dark Gygax
   description: A modified Gygax used for nefarious purposes. On the back of the armor plate there is an inscription "Cybersun Inc."
   components:
