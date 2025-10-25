@@ -961,6 +961,23 @@
       - NukeOpsUplink
 
 - type: listing
+  id: NukieUplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 124
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
+
+- type: listing
   id: UplinkClothingOuterDavidsJacketValid
   name: uplink-davids-jacket-name
   description: uplink-davids-jacket-desc
