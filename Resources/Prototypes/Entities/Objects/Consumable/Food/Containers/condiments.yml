@@ -620,6 +620,10 @@
       - WeakToSalt
     statusEffect: Corporeal
     duration: 15
+  - type: SaltLinePlacer
+    saltLine: SaltLine
+  - type: ConsumeOnSaltLine
+    amount: 1
 
 - type: entity
   parent: BaseFoodShaker
