@@ -16700,3 +16700,251 @@ Entries:
         and cry in the bathroom.
   id: 1869
   time: '2025-10-21T13:39:44.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Fixed Floor Goblins not spawning
+  id: 1870
+  time: '2025-10-22T05:47:13.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        You can now hit moving, crawling targets with ranged weapons by shooting
+        where they will be.
+  id: 1871
+  time: '2025-10-22T13:37:34.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Thermals can now see invisible players. Space ninja, cybersun stealth
+        suit, shadowling in shadow walk, and stealth xenoborg (?) are still
+        hidden to thermal vision.
+  id: 1872
+  time: '2025-10-22T13:38:31.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Tweak
+      message: Footprints only start forming from medium and bigger puddles.
+  id: 1873
+  time: '2025-10-22T13:41:18.0000000+00:00'
+- author: OnsenCapy, Luminal
+  changes:
+    - type: Add
+      message: A very spooky ghostie.
+    - type: Add
+      message: >-
+        Cargo has a new purchase available, the morgue supplies bundle! It
+        contains several body bags, bottles of embalming fluid, a syringe, a
+        bible and a coffin, which the supplies come inside of.
+    - type: Add
+      message: >-
+        A new chemical, Formaldehyde. It is used to embalm corpses and prevent
+        them from rotting. It also serves to prevent the vengeful spirit from
+        feasting on a corpse, if there are at least 25u of it inside the corpse!
+  id: 1874
+  time: '2025-10-22T14:29:28.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Golden plungers can now be inserted into janibelts as well as being
+        valid ammo for a bow.
+  id: 1875
+  time: '2025-10-22T16:31:48.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: the jukebox has a new song "the grayide song" by Mrjajkes!
+    - type: Fix
+      message: All audio files in the jukebox are now mono
+  id: 1876
+  time: '2025-10-22T16:32:35.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmeic SOP was changed - they are now allowed to carry either a
+        disabler or a pistol for their standard issue self-defense firearm.
+  id: 1877
+  time: '2025-10-23T03:22:54.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Add
+      message: Add the printing sound when the hand labeler is used on an entity.
+  id: 1878
+  time: '2025-10-23T22:48:55.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Fixed Decay from Wraith not emagging everything
+    - type: Fix
+      message: 'Fixed Aghosts colliding with Wraith '
+    - type: Fix
+      message: Fixed Absorb Corpse from Wraith working on unidentified corpses
+    - type: Fix
+      message: >-
+        Fixed hook from Tentacle Fiends not having a use delay. It also
+        automatically deletes itself after some seconds now.
+    - type: Fix
+      message: >-
+        Rat Den from Diseased Rat (Plaguebinger Wraith Mob) only spawns 1 at a
+        time now. Previous one gets deleted.
+    - type: Fix
+      message: Fix wraith shaders breaking compatibality mode
+    - type: Fix
+      message: Fixed Formaldehyde to reduce 60s of rotting per 1u instead of 600s.
+    - type: Tweak
+      message: Wraith burn lights don't burn humanoids anymore
+    - type: Tweak
+      message: Wraith becomes weakened in salt for 15 seconds from 8 seconds.
+    - type: Tweak
+      message: Buffed Make Revenant from Harbinger Wraith
+  id: 1879
+  time: '2025-10-24T13:01:14.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Fix
+      message: >-
+        Advanced Biohazard pens now have enough Ambuzol plus to immunize against
+        zombiefication
+  id: 1880
+  time: '2025-10-24T13:37:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Fix
+      message: Fixed various things related to mobs summoned by the Wraith.
+    - type: Fix
+      message: Admin spawned blood writing no longer loops.
+  id: 1881
+  time: '2025-10-24T16:03:35.0000000+00:00'
+- author: JohnJohn, Yonsim, Xeve
+  changes:
+    - type: Add
+      message: >-
+        Added Xeve plush, this behaves as a voodoo doll for him so please
+        destroy it whenever he is in the game.
+  id: 1882
+  time: '2025-10-24T17:51:40.0000000+00:00'
+- author: CoffeePoweredPHD
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer spawn infinite quantities of carpotoxin using a
+        convert altar.
+  id: 1883
+  time: '2025-10-25T16:06:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Loneops can now buy the sandevistan at an increased price. “Bout Time I
+        Chrome The F Up.” 
+  id: 1884
+  time: '2025-10-25T16:07:41.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: The basic operative bundle isn't a new player trap now.
+  id: 1885
+  time: '2025-10-25T16:08:44.0000000+00:00'
+- author: Krispy-Lime
+  changes:
+    - type: Add
+      message: >-
+        Added dart monkeys which throw darts at balloons. They are purchasable
+        from cargo. 
+  id: 1886
+  time: '2025-10-25T16:09:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Diamonds can be used to enchant fortune
+  id: 1887
+  time: '2025-10-25T16:09:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: Fixed Mopping Puddle sounds repeating multiple times.
+  id: 1888
+  time: '2025-10-25T16:10:35.0000000+00:00'
+- author: caoimhan2008
+  changes:
+    - type: Tweak
+      message: replaced old door/airlock sounds with new updated sounds.
+  id: 1889
+  time: '2025-10-25T16:14:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: You can no longer pet people
+  id: 1890
+  time: '2025-10-25T16:14:26.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Lavafauna (Lavaland mobs) now have their own faction
+    - type: Fix
+      message: Lavaland mobs should no longer attack carps due to factional differences
+  id: 1891
+  time: '2025-10-25T16:15:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard's cryo katana was replaced with a new Echo katana, which has
+        stronger physical damage and longer dash, but doesn't freeze the
+        enemies.
+  id: 1892
+  time: '2025-10-25T16:16:20.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed body cameras and other mobile cameras "randomly" appearing and
+        disappearing, 1984 intensifies.
+    - type: Tweak
+      message: >-
+        Made camera switching a little bit faster and more consistent. Cameras
+        automatically disconnect without connection much faster, too.
+    - type: Add
+      message: >-
+        Camera name is now shown alongside camera address on the monitor status
+        (it used to appear in the camera selection with the old UI).
+  id: 1893
+  time: '2025-10-25T16:20:23.0000000+00:00'
+- author: RichardBlonski
+  changes:
+    - type: Add
+      message: Added Woundmend pain indicator shows when your character is in pain.
+  id: 1894
+  time: '2025-10-25T16:22:11.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Xenomorph takeover announcement is now more ominous
+    - type: Add
+      message: added The Final Battle - by bobik-musik to the jukebox
+  id: 1895
+  time: '2025-10-25T16:22:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Tweak Electrocution now has a short cooldown between shocks.
+    - type: Fix
+      message: Fixed electrocution occasionally causing server crashes.
+  id: 1896
+  time: '2025-10-25T16:28:56.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: A station beacon was added to CC
+  id: 1897
+  time: '2025-10-25T16:41:58.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Mechs can no longer pick up other mechs
+  id: 1898
+  time: '2025-10-25T16:53:44.0000000+00:00'
