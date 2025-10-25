@@ -16857,3 +16857,9 @@ Entries:
         from cargo. 
   id: 1886
   time: '2025-10-25T16:09:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Diamonds can be used to enchant fortune
+  id: 1887
+  time: '2025-10-25T16:09:48.0000000+00:00'
