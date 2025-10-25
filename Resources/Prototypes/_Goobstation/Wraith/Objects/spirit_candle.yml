@@ -6,14 +6,30 @@
   - type: Item
     size: Tiny
   - type: Sprite
+    sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
     layers:
-    - state: candle-small
-      color: "#e2ca90"
-  - type: SpiritCandle
+    - state: unmelted-unlit
+    - state: eyes
+      map: [ "enum.SpiritCandleVisuals.Layer" ]
+      visible: true
+  - type: SpiritCandle # holds logic and visuals
+  - type: FireVisuals
+    sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
+    normalState: unmelted-lit
+    lightColor: "#0000FF"
+  - type: ToggleableVisuals
+    spriteLayer: null
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
   - type: LimitedCharges
     maxCharges: 2
   - type: UseDelay
-    delay: 15 # as long as the status effects last
+    delay: 17 # as long as the status effects last + grace period for escape
   - type: Destructible
     thresholds:
     - trigger:

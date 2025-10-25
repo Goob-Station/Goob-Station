@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "unmelted-unlit"
+    },
+    {
+      "name": "unmelted-lit",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "eyes"
+    },
+    {
+      "name": "eye"
+    }
+  ]
+}

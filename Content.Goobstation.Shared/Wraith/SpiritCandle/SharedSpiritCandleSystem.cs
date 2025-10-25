@@ -6,7 +6,9 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 
@@ -26,6 +28,7 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -37,6 +40,8 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
 
         SubscribeLocalEvent<SpiritCandleComponent, GotEquippedHandEvent>(OnGotEquipped);
         SubscribeLocalEvent<SpiritCandleComponent, DroppedEvent>(OnDropped);
+
+        SubscribeLocalEvent<SpiritCandleComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
 
         SubscribeLocalEvent<SpiritCandleComponent, UseInHandEvent>(OnUseInHand);
 
@@ -99,6 +104,16 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
         ent.Comp.AreaUid = spawn;
     }
 
+    private void OnEntRemoved(Entity<SpiritCandleComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        if (_netManager.IsClient || !HasComp<InsideEntityStorageComponent>(ent.Owner))
+            return;
+
+        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(ent.Owner).Coordinates);
+        _transform.SetParent(spawn, ent.Owner);
+        ent.Comp.AreaUid = spawn;
+    }
+
     private void OnUseInHand(Entity<SpiritCandleComponent> ent, ref UseInHandEvent args)
     {
         if (ent.Comp.AreaUid is not {} areaUid || !TryComp<SpiritCandleAreaComponent>(areaUid, out var area))
@@ -120,6 +135,7 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
         }
 
         _charges.TryUseCharge(ent.Owner);
+        _appearance.SetData(ent.Owner, SpiritCandleVisuals.Layer, _charges.GetCurrentCharges(ent.Owner));
     }
 
     #endregion
