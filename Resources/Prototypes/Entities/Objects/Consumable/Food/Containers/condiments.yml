@@ -309,6 +309,12 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: packet-solid-
+  - type: StatusEffectOnCollideGhost # Goobstation
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
 
 - type: entity
   parent: BaseFoodCondimentPacket
@@ -608,6 +614,12 @@
   - type: Tag
     tags:
       - SaltShaker
+  - type: StatusEffectOnCollideGhost
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
 
 - type: entity
   parent: BaseFoodShaker

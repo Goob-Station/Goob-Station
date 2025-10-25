@@ -325,6 +325,9 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
   id: ItemPickaxe
 
 - type: Tag
@@ -548,6 +551,9 @@
   id: ShellShotgunHeavier
 
 - type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -603,6 +609,9 @@
 
 - type: Tag
   id: Vial
+  
+- type: Tag
+  id: WallLight
 
 - type: Tag
   id: WaterTank
@@ -621,6 +630,9 @@
 
 - type: Tag
   id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: WideSwingIgnore
 
 - type: Tag
   id: WeaponPistolCasul
@@ -669,6 +681,12 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
 
 - type: Tag
   id: DisposableBattery
