@@ -76,7 +76,7 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         if (max > 0 && curse.Stacks + stacks > max)
             stacks = Math.Max(0, max - (int) curse.Stacks);
 
-        if (stacks < 1)
+        if (stacks < 1 && curse.Stacks > max)
             return;
 
         curse.Lifetime = curse.MaxLifetime;
