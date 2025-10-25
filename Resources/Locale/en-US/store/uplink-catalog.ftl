@@ -360,7 +360,7 @@ uplink-super-surplus-bundle-name = Super Surplus Crate
 uplink-super-surplus-bundle-desc = Contains 625 telecrystals worth of completely random Syndicate items.
 
 uplink-starter-kit-name = Basic Operative Bundle
-uplink-starter-kit-desc = Contains 200 telecrystals of basic operative gear. For those operatives who just don't know what they should buy.
+uplink-starter-kit-desc = Contains everything an operative needs to get started. For those who just don't know what they should buy.
 
 # Tools
 uplink-toolbox-name = Toolbox
