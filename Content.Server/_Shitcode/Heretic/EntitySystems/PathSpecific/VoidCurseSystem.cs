@@ -36,8 +36,8 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
                     RemCompDeferred(uid, comp);
                 else
                 {
-                    comp.Lifetime = comp.MaxLifetime;
                     comp.Stacks -= 1;
+                    RefreshLifetime(comp);
                     Dirty(uid, comp);
                 }
                 continue;
@@ -54,7 +54,7 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
         }
     }
 
-    protected override void Cycle(Entity<VoidCurseComponent> ent)
+    private void Cycle(Entity<VoidCurseComponent> ent)
     {
         if (TryComp<TemperatureComponent>(ent, out var temp))
         {

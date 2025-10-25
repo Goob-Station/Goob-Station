@@ -51,9 +51,9 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         args.ModifySpeed( modifier, modifier);
     }
 
-    protected virtual void Cycle(Entity<VoidCurseComponent> ent)
+    protected void RefreshLifetime(VoidCurseComponent comp)
     {
-
+        comp.Lifetime = comp.MaxLifetime + comp.LifetimeIncreasePerLevel * comp.Stacks;
     }
 
     public void DoCurse(EntityUid uid, int stacks = 1, int max = 0)
@@ -73,14 +73,15 @@ public abstract class SharedVoidCurseSystem : EntitySystem
             return;
 
         var curse = EnsureComp<VoidCurseComponent>(uid);
+
+        if (max > 0 && curse.Stacks > max)
+            return;
+
         if (max > 0 && curse.Stacks + stacks > max)
             stacks = Math.Max(0, max - (int) curse.Stacks);
 
-        if (stacks < 1 && curse.Stacks > max)
-            return;
-
-        curse.Lifetime = curse.MaxLifetime;
         curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
+        RefreshLifetime(curse);
         Dirty(uid, curse);
 
         _modifier.RefreshMovementSpeedModifiers(uid);
