@@ -16898,3 +16898,19 @@ Entries:
         enemies.
   id: 1892
   time: '2025-10-25T16:16:20.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        Fixed body cameras and other mobile cameras "randomly" appearing and
+        disappearing, 1984 intensifies.
+    - type: Tweak
+      message: >-
+        Made camera switching a little bit faster and more consistent. Cameras
+        automatically disconnect without connection much faster, too.
+    - type: Add
+      message: >-
+        Camera name is now shown alongside camera address on the monitor status
+        (it used to appear in the camera selection with the old UI).
+  id: 1893
+  time: '2025-10-25T16:20:23.0000000+00:00'
