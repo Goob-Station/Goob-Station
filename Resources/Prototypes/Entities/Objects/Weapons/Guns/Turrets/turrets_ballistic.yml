@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [BaseWeaponBallisticTurret, BaseSyndicateContraband]
+  parent: [BaseWeaponBallisticTurret, BaseSyndicateAnchoredContraband]
   id: WeaponTurretSyndicate
   suffix: Syndicate
   components:

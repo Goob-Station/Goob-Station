@@ -52,7 +52,7 @@
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
   - type: HomingProjectile
-    homingSpeed: 540
+    homingSpeed: 1620
   - type: Ammo
     muzzleFlash: null
 
@@ -140,6 +140,8 @@
         - BulletImpassable
   - type: Ammo
     muzzleFlash: null
+  - type: TileFrictionModifier # Thanks wizden for killing physics comp damping
+    modifier: 0
 
 - type: entity
   id: ProjectileSpellCardRed
@@ -607,7 +609,7 @@
         Quantity: 25
   - type: Trail
     lerpTime: 0.05
-    frequency: 0.05
+    frequency: 0.02
     lifetime: 5
     alphaLerpAmount: 0
     color: "#28005B"

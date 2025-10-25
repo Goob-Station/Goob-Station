@@ -13,13 +13,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -27,7 +24,11 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
+using Content.Shared.Interaction;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -48,6 +49,7 @@ public sealed partial class HereticAbilitySystem
         EnsureComp<SpecialLowTempImmunityComponent>(ent);
         EnsureComp<SpecialBreathingImmunityComponent>(ent);
     }
+
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
         EnsureComp<SpecialHighTempImmunityComponent>(ent);
@@ -93,27 +95,42 @@ public sealed partial class HereticAbilitySystem
 
     private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
     {
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(ent, ref ev);
+        if (ev.Cancelled)
+            return;
+
         if (!TryUseAbility(ent, args))
             return;
 
+        var target = _transform.ToMapCoordinates(args.Target);
+        if (!_examine.InRangeUnOccluded(ent, target, SharedInteractionSystem.MaxRaycastRange))
+        {
+            // can only dash if the destination is visible on screen
+            Popup.PopupEntity(Loc.GetString("dash-ability-cant-see"), ent, ent);
+            return;
+        }
+
+        var people = GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath);
+        var xform = Transform(ent);
+
+        Spawn(args.InEffect, xform.Coordinates);
+        _transform.SetCoordinates(ent, xform, args.Target);
+        Spawn(args.OutEffect, args.Target);
+
         var condition = ent.Comp.CurrentPath == "Void";
 
-        var power = condition ? 1.5f + ent.Comp.PathStage / 5f : 1.5f;
-
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-
-        _transform.SetCoordinates(ent, args.Target);
-
-        // repeating for both sides
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        people.AddRange(GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath));
+        foreach (var pookie in people.ToHashSet())
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-            if (condition) _voidcurse.DoCurse(pookie);
+            if (condition)
+                _voidcurse.DoCurse(pookie);
+            _dmg.TryChangeDamage(pookie,
+                args.Damage,
+                true,
+                origin: ent,
+                targetPart: TargetBodyPart.All,
+                canMiss: false);
         }
 
         args.Handled = true;
@@ -124,42 +141,44 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
-        var rangeMult = 1f;
-
-        if (HasComp<AristocratComponent>(ent)) // epic boost from epic ascension
-        {
-            power *= 1.25f;
-            rangeMult *= 2f;
-        }
-
-        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult);
-        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult);
-        var farPriority = GetNearbyPeople(ent, 5f * rangeMult);
-
-        var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Cold", power);
+        var path = ent.Comp.CurrentPath;
+        var topPriority = GetNearbyPeople(ent, args.DamageRadius, path);
+        var midPriority = GetNearbyPeople(ent, args.StunRadius, path);
+        var farPriority = GetNearbyPeople(ent, args.Radius, path);
 
         // damage closest ones
         foreach (var pookie in topPriority)
         {
             // apply gaming.
-            _dmg.TryChangeDamage(pookie, damage, true, targetPart: TargetBodyPart.All);
+            _dmg.TryChangeDamage(pookie,
+                args.Damage,
+                true,
+                origin: ent,
+                targetPart: TargetBodyPart.All,
+                canMiss: false);
         }
+
+        var condition = ent.Comp.CurrentPath == "Void";
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            _stun.TryStun(pookie, TimeSpan.FromSeconds(2.5f), true);
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+            _stun.TryStun(pookie, args.StunTime, true);
+            _stun.TryKnockdown(pookie, args.KnockDownTime, true);
 
-            if (ent.Comp.CurrentPath == "Void")
+            if (condition)
                 _voidcurse.DoCurse(pookie);
         }
 
+        var coords = Transform(ent).Coordinates;
+
         // pull in farthest ones
         foreach (var pookie in farPriority)
-            _throw.TryThrow(pookie, Transform(ent).Coordinates);
+        {
+            _throw.TryThrow(pookie, coords);
+        }
+
+        Spawn(args.InEffect, coords);
 
         args.Handled = true;
     }
