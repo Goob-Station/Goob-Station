@@ -1,0 +1,9 @@
+- files: ["ui_togglecombat.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from /TG/station 13"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/misc/ui_togglecombat.ogg"
+
+- files: ["ui_toggleoffcombat.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from /TG/station 13"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/misc/ui_toggleoffcombat.ogg"

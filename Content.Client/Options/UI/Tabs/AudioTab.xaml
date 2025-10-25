@@ -42,6 +42,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <!-- Deleted by CorvaxGoob
                 <CheckBox Name="HearSelfCheckBox" Text="{Loc 'ui-options-hear-self'}" />
                 -->
+                <!-- CorvaxGoob-CombatMode-Sound-Start -->
+                <CheckBox Name="CombatModeSoundCheckBox" Text="{Loc 'ui-options-combat-mode-sound'}" />
+                <!-- CorvaxGoob-CombatMode-Sound-End -->
                 <CheckBox Name="LobbyMusicCheckBox" Text="{Loc 'ui-options-lobby-music'}" />
                 <CheckBox Name="RestartSoundsCheckBox" Text="{Loc 'ui-options-restart-sounds'}" />
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
