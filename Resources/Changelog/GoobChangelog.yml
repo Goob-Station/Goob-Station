@@ -16875,3 +16875,9 @@ Entries:
       message: replaced old door/airlock sounds with new updated sounds.
   id: 1889
   time: '2025-10-25T16:14:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: You can no longer pet people
+  id: 1890
+  time: '2025-10-25T16:14:26.0000000+00:00'
