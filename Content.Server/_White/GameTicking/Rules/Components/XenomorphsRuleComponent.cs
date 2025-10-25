@@ -31,6 +31,14 @@ public sealed partial class XenomorphsRuleComponent : Component
                     .WithVolume(-8f)
             };
 
+    [DataField] // Goobstation - play music on announcement
+    public SoundSpecifier XenomorphTakeoverSound =
+            new SoundPathSpecifier("/Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg")
+            {
+                Params = AudioParams.Default
+                    .WithVolume(-8f)
+            };
+
     [DataField]
     public Color AnnouncementColor = Color.Red;
 
