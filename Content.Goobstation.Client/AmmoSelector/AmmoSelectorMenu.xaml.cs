@@ -60,7 +60,7 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
             var button = new AmmoSelectorMenuButton
             {
                 SetSize = new Vector2(64, 64),
-                ToolTip = Loc.GetString(prototype.Desc),
+                ToolTip = Loc.GetString("asmb-desc-" + prototype.ID), // CorvaxGoob-localization // (prototype.Name) -> ("asmb-desc-" + prototype.ID)
                 ProtoId = prototype.ID
             };
 

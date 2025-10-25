@@ -1,2 +1,2 @@
-ent-PelletClusterLethalWeak = pellet (ball, lethal)
+ent-PelletClusterLethalWeak = дробь (шар, летальная)
     .desc = { ent-PelletClusterLethal.desc }

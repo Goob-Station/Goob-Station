@@ -41,11 +41,14 @@ public sealed class SelectableAmmoSystem : EntitySystem
 
     private void OnExamine(Entity<AmmoSelectorComponent> ent, ref ExaminedEvent args)
     {
-        var name = GetProviderProtoName(ent);
-        if (name == null)
+        // CorvaxGoob-localization-start
+        var entId = GetProviderProtoId(ent); // GetProviderProtoName -> GetProviderProtoId // name -> entId
+
+        if (entId == null) // name -> entId
             return;
 
-        args.PushMarkup(Loc.GetString("ammo-selector-examine-mode", ("mode", name)));
+        args.PushMarkup(Loc.GetString("ammo-selector-examine-mode", ("mode", Loc.GetString("ent-" + entId)))); // name -> loc // name -> Loc.GetString("ent-" + entId)
+        // CorvaxGoob-localization-end
     }
 
     private void OnMapInit(Entity<AmmoSelectorComponent> ent, ref MapInitEvent args)
@@ -62,9 +65,11 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if (!ent.Comp.Prototypes.Contains(args.ProtoId) || !TrySetProto(ent, args.ProtoId))
             return;
 
-        var name = GetProviderProtoName(ent);
-        if (name != null)
-            _popup.PopupClient(Loc.GetString("mode-selected", ("mode", name)), ent, args.Actor);
+        // CorvaxGoob-localization-start
+        var entId = GetProviderProtoId(ent); // GetProviderProtoName -> GetProviderProtoId // name -> entId
+        if (entId != null) // name -> entId
+            _popup.PopupClient(Loc.GetString("mode-selected", ("mode", Loc.GetString("ent-" + entId))), ent, args.Actor); // ("mode", name) -> ("mode", Loc.GetString("ent-" + entId))
+        // CorvaxGoob-localization-end
         _audio.PlayPredicted(ent.Comp.SoundSelect, ent, args.Actor);
     }
 
@@ -97,24 +102,26 @@ public sealed class SelectableAmmoSystem : EntitySystem
         return true;
     }
 
-    private string? GetProviderProtoName(EntityUid uid)
+    // CorvaxGoob-localization-start
+    private string? GetProviderProtoId(EntityUid uid) // GetProviderProtoName -> GetProviderProtoId
     {
         if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic) && basic.Proto != null)
-            return _protoManager.TryIndex(basic.Proto, out var index) ? index.Name : null;
+            return _protoManager.TryIndex(basic.Proto, out var index) ? index.ID : null; // index.Name -> index.ID
 
         if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
-            return _protoManager.TryIndex(hitscanBattery.Prototype, out var index) ? index.Name : null;
+            return _protoManager.TryIndex(hitscanBattery.Prototype, out var index) ? index.ID : null; // index.Name -> index.ID
 
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
-            return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.Name : null;
+            return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.ID : null; // index.Name -> index.ID
 
         if (TryComp(uid, out ChangelingChemicalsAmmoProviderComponent? chemicals))
-            return _protoManager.TryIndex(chemicals.Proto, out var index) ? index.Name : null;
+            return _protoManager.TryIndex(chemicals.Proto, out var index) ? index.ID : null; // index.Name -> index.ID
 
         // Add more providers if needed
 
         return null;
     }
+    // CorvaxGoob-localization-end
 
     private bool SetProviderProto(EntityUid uid, SelectableAmmoPrototype proto)
     {

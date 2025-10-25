@@ -524,10 +524,10 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private void DrawOrganDiagnostics(EntityUid ent, string name, FixedPoint2 damage)
         {
-            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            //TextInfo textInfo = new CultureInfo("en-US", false).TextInfo; // CorvaxGoob-Localization
             var groupTitleText = $"{Loc.GetString(
                 "group-organ-status",
-                ("organ", textInfo.ToTitleCase(name)),
+                ("organ", name), // CorvaxGoob-Localization // textInfo.ToTitleCase(name) -> name
                 ("capacity", damage)
             )}";
 
@@ -547,10 +547,17 @@ namespace Content.Client.HealthAnalyzer.UI
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             foreach (var (ent, data) in solutions)
             {
-                var groupTitleText = $"{Loc.GetString(
+                 // CorvaxGoob-Localization-start
+                var groupTitleText = "";
+
+                if (data.Name != null)
+                    groupTitleText = Loc.GetString(
                     "group-solution-name",
-                    ("solution", data.Name ?? Loc.GetString("group-solution-unknown"))
-                )}";
+                    ("solution", Loc.GetString("solution-type-" + data.Name))
+                    );
+                else
+                    Loc.GetString("group-solution-unknown");
+                 // CorvaxGoob-Localization-end
 
                 var groupContainer = new BoxContainer
                 {
@@ -558,7 +565,7 @@ namespace Content.Client.HealthAnalyzer.UI
                     Orientation = BoxContainer.LayoutOrientation.Vertical,
                 };
 
-                groupContainer.AddChild(CreateDiagnosticGroupTitle(textInfo.ToTitleCase(groupTitleText), "metaphysical"));
+                groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, "metaphysical")); // CorvaxGoob-Localization // textInfo.ToTitleCase(groupTitleText) -> groupTitleText
 
                 GroupsContainer.AddChild(groupContainer);
 

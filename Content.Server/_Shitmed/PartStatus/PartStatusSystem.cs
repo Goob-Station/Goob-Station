@@ -244,9 +244,11 @@ public sealed class PartStatusSystem : EntitySystem
                 locString += "-styleless";
             }
 
+            var name = Loc.GetString("body-part-" + partStatus.PartName.Replace(" ", "-")); // CorvaxGoob-Localization
+
             message.AddText("    " + Loc.GetString(locString,
                 ("possessive", possessive),
-                ("part", partStatus.PartName),
+                ("part", name), // CorvaxGoob-Localization // partStatus.PartName -> name
                 ("status", statusDescription)));
 
             message.PushNewline();

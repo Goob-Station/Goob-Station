@@ -1,4 +1,4 @@
-ent-BulletG8Demolishing = bullet (G8 demolishing "The Spear of Ares")
+ent-BulletG8Demolishing = пуля (G8 разрушительный)
     .desc = { ent-BaseBullet.desc }
-ent-BulletG8Hypercharged = bullet (G8 hypercharged "The Bolt of Zeus")
+ent-BulletG8Hypercharged = пуля (G8 перегруженный)
     .desc = { ent-BaseBulletTrigger.desc }
