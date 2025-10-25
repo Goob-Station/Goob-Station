@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 18:59:31
+  time: 10/25/2025 16:08:36
   entityCount: 19594
 maps:
 - 1
@@ -473,6 +473,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -13167,6 +13172,7 @@ entities:
     - type: BecomesStation
       id: CorvaxMaus
     - type: ImplicitRoof
+    - type: FTLDrive
   - uid: 6882
     components:
     - type: MetaData
@@ -13230,6 +13236,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -13334,6 +13345,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
   - uid: 17265
     components:
     - type: MetaData
@@ -13379,6 +13391,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -14763,6 +14780,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -17204,7 +17222,7 @@ entities:
       pos: -43.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -54884.17
+      secondsUntilStateChange: -54915.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -91729,12 +91747,12 @@ entities:
     - type: Transform
       pos: 5.5,3.5
       parent: 17265
-- proto: MagazineBoxAntiMateriel
+- proto: MagazineLargeCaliber
   entities:
-  - uid: 384
+  - uid: 6053
     components:
     - type: Transform
-      pos: -14.217636,-3.5208688
+      pos: -14.312933,-3.3701582
       parent: 2
 - proto: MagazinePistolSubMachineGun
   entities:
@@ -132495,13 +132513,6 @@ entities:
     - type: Transform
       pos: -12.669572,-1.101347
       parent: 2
-- proto: WeaponSniperHristov
-  entities:
-  - uid: 10308
-    components:
-    - type: Transform
-      pos: -14.564501,-3.3821173
-      parent: 2
 - proto: WeaponSniperMosin
   entities:
   - uid: 18896
@@ -132516,6 +132527,13 @@ entities:
     - AmmoCounter
     - BallisticAmmoProvider
     - Contraband
+- proto: WeaponSniperUncleStyopa
+  entities:
+  - uid: 384
+    components:
+    - type: Transform
+      pos: -14.595496,-3.3701582
+      parent: 2
 - proto: WeaponSubMachineGunDrozd
   entities:
   - uid: 17072

@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/17/2025 04:33:39
+  time: 10/25/2025 16:00:31
   entityCount: 24968
 maps:
 - 1
@@ -8642,7 +8642,7 @@ entities:
             0: 273
           -12,8:
             3: 12
-            5: 3072
+            4: 3072
           -11,5:
             0: 63351
           -11,6:
@@ -8651,7 +8651,7 @@ entities:
           -11,8:
             3: 1
             1: 17476
-            5: 256
+            4: 256
           -11,7:
             1: 17484
           -10,5:
@@ -8750,10 +8750,10 @@ entities:
             0: 255
             1: 57344
           -8,11:
-            4: 816
+            5: 816
             1: 34952
           -9,11:
-            4: 2176
+            5: 2176
             1: 8738
           -8,12:
             1: 34959
@@ -8869,7 +8869,7 @@ entities:
             1: 61713
           -12,9:
             0: 16
-            4: 3084
+            5: 3084
           -13,9:
             1: 39305
           -13,10:
@@ -8879,18 +8879,18 @@ entities:
             0: 12544
           -12,10:
             6: 12
-            4: 3072
+            5: 3072
           -12,11:
-            4: 12
+            5: 12
           -11,9:
-            4: 257
+            5: 257
             1: 17476
           -11,10:
             6: 1
-            4: 256
+            5: 256
             1: 17476
           -11,11:
-            4: 1
+            5: 1
             1: 17476
           -11,12:
             1: 17487
@@ -8944,7 +8944,7 @@ entities:
             1: 15
           -13,12:
             1: 34952
-            5: 48
+            4: 48
             3: 12288
           -12,13:
             1: 61455
@@ -8978,11 +8978,11 @@ entities:
             1: 64719
           -7,14:
             1: 252
-            4: 57344
+            5: 57344
             0: 1024
           -7,15:
             1: 61440
-            4: 238
+            5: 238
             0: 1024
           -7,16:
             1: 65524
@@ -9043,7 +9043,7 @@ entities:
           -14,12:
             0: 1
             1: 8738
-            5: 128
+            4: 128
             3: 32768
           -17,12:
             0: 52232
@@ -9568,7 +9568,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -9587,7 +9587,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -111716,22 +111716,22 @@ entities:
     - type: Transform
       pos: 4.5,-44.5
       parent: 2
-- proto: MagazineBoxAntiMateriel
+- proto: MagazineLargeCaliber
   entities:
-  - uid: 282
-    components:
-    - type: Transform
-      pos: -24.27222,2.4210777
-      parent: 2
   - uid: 16676
     components:
     - type: Transform
-      pos: -24.27222,2.4210777
+      pos: -24.319445,2.441084
+      parent: 2
+  - uid: 16677
+    components:
+    - type: Transform
+      pos: -24.319445,2.441084
       parent: 2
   - uid: 23948
     components:
     - type: Transform
-      pos: -24.27222,2.4210777
+      pos: -24.319445,2.441084
       parent: 2
 - proto: MailingUnit
   entities:
@@ -154818,12 +154818,12 @@ entities:
     - type: Transform
       pos: -24.442322,0.4003696
       parent: 2
-- proto: WeaponSniperHristov
+- proto: WeaponSniperUncleStyopa
   entities:
-  - uid: 16677
+  - uid: 282
     components:
     - type: Transform
-      pos: -24.559044,2.5773277
+      pos: -24.52765,2.530281
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:

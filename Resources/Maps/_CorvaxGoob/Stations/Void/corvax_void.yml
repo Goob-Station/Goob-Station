@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
-  forkId: syndicate-goob
-  forkVersion: 1e97ac059b82fc8e332fa12fab8596e6f2915bc9
-  time: 10/10/2025 17:16:29
+  engineVersion: 264.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 10/25/2025 16:06:41
   entityCount: 25218
 maps:
 - 1743
@@ -12293,6 +12293,11 @@ entities:
             9161: 73.12636,133.62149
     - type: OccluderTree
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: SpreaderGrid
@@ -15057,6 +15062,7 @@ entities:
     - type: BecomesStation
       id: CorvaxVoid
     - type: ImplicitRoof
+    - type: FTLDrive
   - uid: 1743
     components:
     - type: MetaData
@@ -63782,6 +63788,18 @@ entities:
     - type: Transform
       pos: 114.269394,158.25143
       parent: 1
+- proto: ClothingMultipleHeadphones
+  entities:
+  - uid: 126
+    components:
+    - type: Transform
+      pos: 175.75581,134.62202
+      parent: 1
+  - uid: 127
+    components:
+    - type: Transform
+      pos: 174.17769,134.63765
+      parent: 1
 - proto: ClothingNeckAtharaPin
   entities:
   - uid: 25153
@@ -63809,18 +63827,6 @@ entities:
     components:
     - type: Transform
       pos: 111.4322,71.87606
-      parent: 1
-- proto: ClothingNeckHeadphones
-  entities:
-  - uid: 126
-    components:
-    - type: Transform
-      pos: 175.75581,134.62202
-      parent: 1
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 174.17769,134.63765
       parent: 1
 - proto: ClothingNeckHorrific
   entities:
@@ -65792,8 +65798,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: CrateFoodMRE
@@ -108309,7 +108315,7 @@ entities:
       pos: 48.5,123.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -173123.75
+      secondsUntilStateChange: -173168.67
       state: Opening
     - type: Forensics
       residues: []
@@ -110361,12 +110367,12 @@ entities:
     - type: Transform
       pos: 160.5,86.5
       parent: 1
-- proto: MagazineBoxAntiMateriel
+- proto: MagazineLargeCaliber
   entities:
-  - uid: 9418
+  - uid: 9260
     components:
     - type: Transform
-      pos: 155.211,119.72934
+      pos: 155.33739,119.78886
       parent: 1
 - proto: MagazinePistolHighCapacity
   entities:
@@ -161472,12 +161478,12 @@ entities:
     - type: Transform
       pos: 116.67575,137.63043
       parent: 1
-- proto: WeaponSniperHristov
+- proto: WeaponSniperUncleStyopa
   entities:
-  - uid: 9260
+  - uid: 9418
     components:
     - type: Transform
-      pos: 155.42975,119.588715
+      pos: 155.4762,119.62038
       parent: 1
 - proto: WeaponSubMachineGunDrozd
   entities:

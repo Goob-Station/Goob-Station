@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/21/2025 10:39:31
+  time: 10/25/2025 16:11:51
   entityCount: 11330
 maps:
 - 1
@@ -261,6 +261,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -9311,6 +9316,7 @@ entities:
     - type: BecomesStation
       id: CorvaxTushkan
     - type: ImplicitRoof
+    - type: FTLDrive
   - uid: 7863
     components:
     - type: MetaData
@@ -55538,6 +55544,10 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+        goldenplunger_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: JanitorServiceLight
   entities:
   - uid: 7093
@@ -79948,12 +79958,12 @@ entities:
     - type: Transform
       pos: -41.499012,20.808199
       parent: 2
-- proto: WeaponSniperHristov
+- proto: WeaponSniperUncleStyopa
   entities:
   - uid: 8036
     components:
     - type: Transform
-      pos: -37.702473,20.646717
+      pos: -37.73844,20.52245
       parent: 2
 - proto: WelderIndustrialAdvanced
   entities:
