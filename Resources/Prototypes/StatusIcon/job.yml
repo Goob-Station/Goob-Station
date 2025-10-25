@@ -548,11 +548,9 @@
     state: Admin
   allowSelection: false
 
-# event-resctricted jobs, Goobstation
-
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCommandMaid
+  id: JobIconCommandMaid #Goobstation
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: CommandMaid
@@ -560,7 +558,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPartyMaker
+  id: JobIconPartyMaker #Goobstation
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: PartyMaker
@@ -568,7 +566,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecurityClown
+  id: JobIconSecurityClown #Goobstation
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SecurityClown
