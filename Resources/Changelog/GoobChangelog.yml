@@ -16869,3 +16869,9 @@ Entries:
       message: Fixed Mopping Puddle sounds repeating multiple times.
   id: 1888
   time: '2025-10-25T16:10:35.0000000+00:00'
+- author: caoimhan2008
+  changes:
+    - type: Tweak
+      message: replaced old door/airlock sounds with new updated sounds.
+  id: 1889
+  time: '2025-10-25T16:14:04.0000000+00:00'
