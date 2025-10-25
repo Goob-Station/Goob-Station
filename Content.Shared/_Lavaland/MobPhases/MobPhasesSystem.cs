@@ -10,17 +10,17 @@ using JetBrains.Annotations;
 
 namespace Content.Shared._Lavaland.MobPhases;
 
-public abstract class SharedMobPhasesSystem : EntitySystem
+public sealed class MobPhasesSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MobPhasesComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<MobPhasesComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<MobPhasesComponent, DamageChangedEvent>(OnDamage);
     }
 
-    private void OnInit(Entity<MobPhasesComponent> ent, ref ComponentStartup args)
+    private void OnInit(Entity<MobPhasesComponent> ent, ref MapInitEvent args)
         => ent.Comp.PhaseThresholds = ent.Comp.BasePhaseThresholds;
 
     private void OnDamage(Entity<MobPhasesComponent> ent, ref DamageChangedEvent args)
@@ -55,8 +55,11 @@ public abstract class SharedMobPhasesSystem : EntitySystem
     /// Scales all phases by one modifier. Doesn't update current phase.
     /// </summary>
     [PublicAPI]
-    private void ScaleAllPhaseThresholds(Entity<MobPhasesComponent> ent, float scale)
+    public void ScaleAllPhaseThresholds(Entity<MobPhasesComponent?> ent, float scale)
     {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return;
+
         var thresholds = new Dictionary<FixedPoint2, int>(ent.Comp.PhaseThresholds.Reverse());
         foreach (var (damageThreshold, state) in thresholds)
         {
@@ -70,14 +73,20 @@ public abstract class SharedMobPhasesSystem : EntitySystem
     /// Sets phase thresholds back to default that were set on MapInit. Doesn't update current phase.
     /// </summary>
     [PublicAPI]
-    private void UnscaleAllPhaseThresholds(Entity<MobPhasesComponent> ent)
+    public void UnscaleAllPhaseThresholds(Entity<MobPhasesComponent?> ent)
     {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return;
+
         ent.Comp.PhaseThresholds = ent.Comp.BasePhaseThresholds;
     }
 
     [PublicAPI]
-    private void SetPhaseThreshold(Entity<MobPhasesComponent> ent, FixedPoint2 damage, int phase)
+    public void SetPhaseThreshold(Entity<MobPhasesComponent?> ent, FixedPoint2 damage, int phase)
     {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return;
+
         var thresholds = new Dictionary<FixedPoint2, int>(ent.Comp.PhaseThresholds);
         foreach (var (damageThreshold, state) in thresholds)
         {

@@ -15,7 +15,7 @@ namespace Content.Shared._Lavaland.MobPhases;
 /// This number can be used in PhasesMegafaunaCondition to get
 /// some attacks to be picked only at specific phases.
 /// </summary>
-[RegisterComponent, Access(typeof(SharedMobPhasesSystem))]
+[RegisterComponent, Access(typeof(MobPhasesSystem))]
 [NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MobPhasesComponent : Component
 {

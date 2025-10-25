@@ -106,9 +106,9 @@
         size: 11
       - id: RookCross
         size: 11
-      - id: QueenCross
-        size: 11
-        weight: 0.8
+#      - id: QueenCross # TODO expand MobPhases for actions, so it can be "upgraded" to also have a chance to spawn a queen cross.
+#        size: 11
+#        weight: 0.3
   - type: ShapeSpawnerCounter
   - type: AngerShapeSpawner
     counterRange: 2,4

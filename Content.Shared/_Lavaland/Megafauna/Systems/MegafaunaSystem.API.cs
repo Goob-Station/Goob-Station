@@ -1,12 +1,10 @@
 ﻿using System.Numerics;
-using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna.Components;
-using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -38,23 +36,10 @@ public sealed partial class MegafaunaSystem
         var targetingComp = CompOrNull<MegafaunaAiTargetingComponent>(boss);
 
         var netAction = GetNetEntity(action);
-        var netTarget = GetNetEntity(targetingComp?.TargetEnt);
-        var netCoords = GetNetCoordinates(targetingComp?.TargetCoords);
+        var netTarget = HasComp<EntityTargetActionComponent>(action) ? GetNetEntity(targetingComp?.TargetEnt) : null;
+        var netCoords = HasComp<WorldTargetActionComponent>(action) ? GetNetCoordinates(targetingComp?.TargetCoords) : null;
 
         return new RequestPerformActionEvent(netAction, netTarget, netCoords);
-    }
-
-    /// <summary>
-    /// Picks a new target based on bosses AggressiveComponent.
-    /// </summary>
-    public bool TryPickTargetAggressive(
-        MegafaunaCalculationBaseArgs args,
-        List<MegafaunaEntityCondition> conditions,
-        bool setEntity,
-        bool setPosition)
-    {
-
-        return true;
     }
 
     public void PickRandomPosition(MegafaunaCalculationBaseArgs args, float radius)

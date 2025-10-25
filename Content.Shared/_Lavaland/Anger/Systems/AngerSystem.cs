@@ -6,6 +6,7 @@
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Anger.Components;
 using Content.Shared._Lavaland.Megafauna.Events;
+using Content.Shared._Lavaland.MobPhases;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Damage;
@@ -20,6 +21,7 @@ public sealed class AngerSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly MobPhasesSystem _phases = default!;
 
     private EntityQuery<AngerPlayerScalingComponent> _scalingQuery;
 
@@ -64,12 +66,17 @@ public sealed class AngerSystem : EntitySystem
         if (_scalingQuery.TryComp(ent.Owner, out var scaling)
             && aggressive.Aggressors.Count > 1)
         {
-            var scaleCount = aggressive.Aggressors.Count - 1;
-
+            var playerCount = Math.Max(1, ent.Comp2.Aggressors.Count);
             if (scaling.AngerScalingFactor != null)
-                angerMultiplier = scaleCount * scaling.AngerScalingFactor.Value;
+            {
+                for (var i = 1; i < playerCount; i++)
+                    angerMultiplier *= scaling.AngerScalingFactor.Value;
+            }
             if (scaling.HealthScalingFactor != null)
-                healthMultiplier = scaleCount * scaling.HealthScalingFactor.Value;
+            {
+                for (var i = 1; i < playerCount; i++)
+                    healthMultiplier *= scaling.HealthScalingFactor.Value;
+            }
         }
 
         // Save how much anger was added by external sources
@@ -93,7 +100,9 @@ public sealed class AngerSystem : EntitySystem
 
     public void UpdateScaledThresholds(Entity<AngerComponent?, AggressiveComponent?, AngerPlayerScalingComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3, false)
+        UpdateAggression((ent.Owner, ent.Comp1, ent.Comp2));
+
+        if (!Resolve(ent.Owner, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3, false)
             || ent.Comp3.HealthScalingFactor == null)
             return;
 
@@ -103,9 +112,10 @@ public sealed class AngerSystem : EntitySystem
         for (var i = 1; i < playerCount; i++)
             scalingMultiplier *= ent.Comp3.HealthScalingFactor.Value;
 
-        if (_threshold.TryGetDeadThreshold(ent, out var deadThreshold)
-            && deadThreshold < ent.Comp1.TotalHp * scalingMultiplier)
-            _threshold.SetMobStateThreshold(ent, ent.Comp1.TotalHp * scalingMultiplier, MobState.Dead);
+        _threshold.SetMobStateThreshold(ent.Owner, ent.Comp1.TotalHp * scalingMultiplier, MobState.Dead);
+
+        _phases.UnscaleAllPhaseThresholds(ent.Owner);
+        _phases.ScaleAllPhaseThresholds(ent.Owner, scalingMultiplier);
     }
 
     /// <summary>

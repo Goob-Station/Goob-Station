@@ -20,9 +20,9 @@ public sealed partial class AllEntityShape : EntityShape
         var result = new List<Vector2>();
         foreach (var child in Children)
         {
-            Vector2? offset = null;
-            int? size = null;
-            int? stepSize = null;
+            Vector2? offset = Offset;
+            int? size = Size;
+            float? stepSize = StepSize;
 
             if (Options != null
                 && child.OverrideGroup != null

@@ -95,7 +95,8 @@
   - type: MobPhases
     phaseThresholds:
       0:    1
-      2000: 2
+      1000: 2
+      2000: 3
   - type: BossMusic
     soundId: Hierophant
   - type: TileMovement

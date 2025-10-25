@@ -57,6 +57,7 @@
     minDelay: 7.0
     maxDelay: 20.0
     inverse: true
+  - type: EntityTargetAction # Without a target it's pretty much useless?
   - type: WorldTargetAction
     event: !type:SpawnEntityActionEvent
       spawn: LavalandHierophantChaser

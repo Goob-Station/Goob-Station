@@ -10,7 +10,6 @@
 - type: megafaunaSelector
   id: PickTargetSimple
   selector: !type:AggressivePickTargetSelector
-    setEntity: false # All Hierophant's actions are WorldTarget, and if we also pass entity it will break.
     delay: 0.0
     priority: 10
     targetConditions:

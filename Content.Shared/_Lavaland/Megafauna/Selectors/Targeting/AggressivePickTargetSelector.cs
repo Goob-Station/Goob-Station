@@ -22,26 +22,6 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
     public List<MegafaunaEntityCondition> TargetConditions = new();
 
     /// <summary>
-    /// If true, will write down EntityUid of the target to the component.
-    /// </summary>
-    /// <remarks>
-    /// Only exists because for some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
-    /// </remarks>
-    [DataField]
-    public bool SetEntity = true;
-
-    /// <summary>
-    /// If true, will write down EntityCoordinates of the target to the component.
-    /// </summary>
-    /// <remarks>
-    /// Only exists because for some reason ActionsSystem can get things wrong if
-    /// you specify too much data for specifically WorldTarget/EntityTarget actions...
-    /// </remarks>
-    [DataField]
-    public bool SetPosition = true;
-
-    /// <summary>
     /// If true, instead of just picking a target with the biggest weight,
     /// weighted random will be run between all targets to determine the result.
     /// </summary>
@@ -96,14 +76,9 @@ public sealed partial class AggressivePickTargetSelector : MegafaunaSelector
         }
 
         var comp = args.EntityManager.EnsureComponent<MegafaunaAiTargetingComponent>(args.Entity);
-        comp.TargetEnt = null;
-        comp.TargetCoords = null;
 
-        if (SetEntity)
-            comp.TargetEnt = picked.Value;
-
-        if (SetPosition)
-            comp.TargetCoords = args.EntityManager.GetComponent<TransformComponent>(picked.Value).Coordinates;
+        comp.TargetEnt = picked.Value;
+        comp.TargetCoords = args.EntityManager.GetComponent<TransformComponent>(picked.Value).Coordinates;
 
         return DelaySelector.Get(args);
     }
