@@ -16948,3 +16948,11 @@ Entries:
       message: Mechs can no longer pick up other mechs
   id: 1898
   time: '2025-10-25T16:53:44.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Added gauze packs to NanoMed and NanoMed plus - same amount as bruise
+        packs and ointments in each respective vendor.
+  id: 1899
+  time: '2025-10-25T17:14:42.0000000+00:00'
