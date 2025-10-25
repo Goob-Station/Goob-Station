@@ -16889,3 +16889,12 @@ Entries:
       message: Lavaland mobs should no longer attack carps due to factional differences
   id: 1891
   time: '2025-10-25T16:15:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard's cryo katana was replaced with a new Echo katana, which has
+        stronger physical damage and longer dash, but doesn't freeze the
+        enemies.
+  id: 1892
+  time: '2025-10-25T16:16:20.0000000+00:00'
