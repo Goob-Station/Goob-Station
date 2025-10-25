@@ -684,6 +684,65 @@
       - fiber
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieXeve
+  name: Xeve Byrd plush
+  suffix: Voodoo
+  description: "That fucking byrd that I hate."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_xeve
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Voodoo
+    targetName: Xeve Byrd
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 90
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
   parent: BaseItem
   id: DiscoBeachBall
   name: disco beach ball
