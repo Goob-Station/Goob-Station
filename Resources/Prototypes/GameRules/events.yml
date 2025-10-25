@@ -625,8 +625,11 @@
       path: /Audio/Announcements/power_off.ogg
       params:
         volume: -4
+# Goobstation Start
     duration: 50
     maxDuration: 100
+    eventType: Interference
+# Goobstation end
   - type: GameRule
     chaosScore: 80
   - type: PowerGridCheckRule
