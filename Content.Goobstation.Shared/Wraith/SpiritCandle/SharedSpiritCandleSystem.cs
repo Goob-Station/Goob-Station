@@ -2,13 +2,10 @@ using System.Linq;
 using Content.Shared.Atmos;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Eye;
-using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -31,7 +28,6 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -1,5 +1,4 @@
 using Content.Shared.StatusEffect;
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -27,9 +26,15 @@ public sealed partial class SpiritCandleComponent : Component
     [ViewVariables]
     public EntProtoId Weakened = "StatusEffectWeakenedWraith";
 
+    /// <summary>
+    /// The entity that holds the area
+    /// </summary>
     [ViewVariables]
     public EntityUid? Holder;
 
+    /// <summary>
+    /// Whether the candle has been lit or not
+    /// </summary>
     [ViewVariables]
     public bool Active;
 

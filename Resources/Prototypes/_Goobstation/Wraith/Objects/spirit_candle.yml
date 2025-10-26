@@ -53,6 +53,9 @@
 
 
 # dummy entity for detecting
+# Note for future reader:
+# This doesn't trigger collisions if wraith is not moving for some reason (im tired of testing for hours)
+# In a live round, the wraith should be moving so its not gonna be a huge problem. Hopefully someone finds a solution tho
 - type: entity
   id: SpiritCandleRevealArea
   name: spirit candle area

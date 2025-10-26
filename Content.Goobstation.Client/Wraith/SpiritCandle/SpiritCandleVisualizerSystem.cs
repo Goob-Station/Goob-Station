@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Wraith.SpiritCandle;
-using Content.Shared.Charges.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Wraith.SpiritCandle;
