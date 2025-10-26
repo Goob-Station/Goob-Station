@@ -48,12 +48,16 @@
       - !type:SpawnEntitiesBehavior
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: GuideHelp
+    guides: [ Wraith ]
+
 
 # dummy entity for detecting
 - type: entity
   id: SpiritCandleRevealArea
   name: spirit candle area
   description: You shouldn't see this.
+  categories: [ HideSpawnMenu ]
   components:
   - type: SpiritCandleArea
     whitelist:

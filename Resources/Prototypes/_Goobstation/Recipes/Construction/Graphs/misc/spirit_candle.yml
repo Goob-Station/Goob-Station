@@ -8,7 +8,7 @@
     - to: spiritCandle
       steps:
       - tag: Candle
-        name: a candle
+        name: construction-graph-candle
         icon:
           sprite: Objects/Misc/candles.rsi
           state: candle-big
