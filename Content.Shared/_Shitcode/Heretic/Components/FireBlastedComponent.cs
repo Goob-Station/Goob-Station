@@ -56,13 +56,16 @@ public sealed partial class FireBlastedComponent : Component
     public TimeSpan BonusKnockdownTime = TimeSpan.FromSeconds(0.8f);
 
     [DataField]
-    public float FireStacks = 3f;
+    public float FireStacks = 4f;
 
     [DataField]
-    public float BonusFireStacks = 2f;
+    public float BonusFireStacks = 3f;
 
     [DataField]
     public float CollisionFireStacks = 0.5f;
+
+    [DataField]
+    public float FireProtectionPenetration = 0.5f;
 
     [DataField]
     public DamageSpecifier FireBlastDamage = new()

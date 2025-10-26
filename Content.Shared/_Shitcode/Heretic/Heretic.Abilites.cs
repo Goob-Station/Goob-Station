@@ -155,6 +155,9 @@ public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent
     public float FireStacks = 3f;
 
     [DataField]
+    public float FireProtectionPenetration = 0.5f;
+
+    [DataField]
     public float HealAmount = -10f;
 
     [DataField]

@@ -131,8 +131,7 @@ public sealed class IgniteFromGasSystem : EntitySystem
                 )
                 continue;
 
-            _flammable.AdjustFireStacks(uid, ignite.FireStacksPerUpdate, flammable);
-            _flammable.Ignite(uid, uid, flammable, ignoreFireProtection: true);
+            _flammable.AdjustFireStacks(uid, ignite.FireStacksPerUpdate, flammable, true, 10f);
         }
     }
 }
