@@ -111,7 +111,7 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
         _mind.UnVisit(mindUid, mind);
 
         var dropHandItemsEvent = new DropHandItemsEvent();
-        RaiseLocalEvent(uid, ref dropHandItemsEvent);
+        RaiseLocalEvent(uid, dropHandItemsEvent);
         RaiseLocalEvent(uid, new AfterXenomorphEvolutionEvent(newXeno, mindUid, args.Caste));
 
         _adminLog.Add(LogType.Mind, $"{ToPrettyString(uid)} evolved into {ToPrettyString(newXeno)}");

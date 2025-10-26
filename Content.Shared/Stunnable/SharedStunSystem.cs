@@ -90,6 +90,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
 using Content.Goobstation.Common.Stunnable;
+using Content.Goobstation.Common.Standing;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;

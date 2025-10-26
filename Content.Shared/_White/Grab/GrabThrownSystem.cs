@@ -15,7 +15,6 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Goobstation.Common.Standing;
-using Content.Shared._White.Standing;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Components;
 
@@ -28,7 +27,7 @@ public sealed class GrabThrownSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
+    // TODO REPLACE WITH WIZDEN [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
 
     public override void Initialize()
     {
@@ -70,7 +69,7 @@ public sealed class GrabThrownSystem : EntitySystem
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
-        _layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop);
+        // TODO REPLACE WITH WIZDEN _layingDown.TryLieDown(args.OtherEntity, behavior: DropHeldItemsBehavior.AlwaysDrop);
 
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
@@ -105,7 +104,7 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _layingDown.TryLieDown(uid, behavior: behavior);
+        // TODO REPLACE WITH WIZDEN _layingDown.TryLieDown(uid, behavior: behavior);
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

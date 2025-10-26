@@ -86,7 +86,8 @@ public sealed class FootprintSystem : EntitySystem
 
         entity.Comp.Distance += Vector2.Distance(newPosition, oldPosition);
 
-        var standing = TryComp<StandingStateComponent>(entity, out var standingState) && standingState.CurrentState == StandingState.Standing;
+        // TODO, USE WIZDEN STANDING
+        var standing = true;
 
         var requiredDistance = standing ? entity.Comp.FootDistance : entity.Comp.BodyDistance;
 

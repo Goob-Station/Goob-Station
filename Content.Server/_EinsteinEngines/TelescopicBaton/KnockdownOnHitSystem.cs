@@ -19,7 +19,7 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly LayingDownSystem _laying = default!;
+    // TODO REPLACE WITH WIZDEN [Dependency] private readonly LayingDownSystem _laying = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
@@ -46,8 +46,8 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
-                    knockedDown.Add(target);
+                // TODO REPLACE WITH WIZDENS if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
+                //     knockedDown.Add(target);
                 continue;
             }
 

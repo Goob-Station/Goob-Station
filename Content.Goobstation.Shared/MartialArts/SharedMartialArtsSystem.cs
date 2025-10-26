@@ -588,10 +588,11 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         bool IsDown(EntityUid uid)
         {
-            if (!TryComp<StandingStateComponent>(uid, out var standingState))
-                return false;
+            return false;
+            // TODO REPLACE WITH WIZDENS if (!TryComp<StandingStateComponent>(uid, out var standingState))
+            //     return false;
 
-            return standingState.CurrentState != StandingState.Standing;
+            // return standingState.CurrentState != StandingState.Standing;
         }
     }
 

@@ -1340,7 +1340,7 @@ public sealed partial class WoundSystem
         {
             _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
             var ev = new DropHandItemsEvent();
-            RaiseLocalEvent(body, ref ev, false);
+            RaiseLocalEvent(body, ev, false);
             _audio.PlayPredicted(sound, body, body);
             return true;
         }

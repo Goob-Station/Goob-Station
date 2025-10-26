@@ -46,28 +46,28 @@ public sealed partial class MobStateRequirement : InvertableInteractionRequireme
     }
 }
 
-/// <summary>
-///     Requires the target to be in a specific standing state.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed partial class StandingStateRequirement : InteractionRequirement
-{
-    [DataField] public bool AllowStanding, AllowLaying, AllowKnockedDown, AllowSleep;
+// /// <summary> REPLACE WITH WIZDENS
+// ///     Requires the target to be in a specific standing state.
+// /// </summary>
+// [Serializable, NetSerializable]
+// public sealed partial class StandingStateRequirement : InteractionRequirement
+// {
+//     [DataField] public bool AllowStanding, AllowLaying, AllowKnockedDown, AllowSleep;
 
-    public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
-    {
-        if (deps.EntMan.HasComponent<SleepingComponent>(args.Target) && !AllowSleep)
-            return false;
-        if (deps.EntMan.HasComponent<KnockedDownComponent>(args.Target))
-            return AllowKnockedDown;
+//     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
+//     {
+//         if (deps.EntMan.HasComponent<SleepingComponent>(args.Target) && !AllowSleep)
+//             return false;
+//         if (deps.EntMan.HasComponent<KnockedDownComponent>(args.Target))
+//             return AllowKnockedDown;
 
-        if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
-            return false;
+//         if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
+//             return false;
 
-        return state.CurrentState == StandingState.Standing && AllowStanding
-            || state.CurrentState == StandingState.Lying && AllowLaying;
-    }
-}
+//         return state.CurrentState == StandingState.Standing && AllowStanding
+//             || state.CurrentState == StandingState.Lying && AllowLaying;
+//     }
+// }
 
 /// <summary>
 ///     Requires the target to be the user itself.

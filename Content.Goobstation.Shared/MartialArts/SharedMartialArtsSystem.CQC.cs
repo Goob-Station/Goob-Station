@@ -155,12 +155,12 @@ public partial class SharedMartialArtsSystem
                     break;
                 }
 
-                // Leg sweep
-                if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing ||
-                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                    targetStanding.CurrentState != StandingState.Standing)
-                    break;
+                // // Leg sweep TODO REPLACE WITH WIZDENS
+                // if (!TryComp<StandingStateComponent>(ent, out var standing)
+                //     || standing.CurrentState == StandingState.Standing ||
+                //     !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
+                //     targetStanding.CurrentState != StandingState.Standing)
+                //     break;
 
                 _status.TryRemoveStatusEffect(ent, "KnockedDown");
                 _standingState.Stand(ent);

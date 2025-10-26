@@ -35,7 +35,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
     {
-        _layingDown.TryLieDown(args.Target);
+        // TODO REPLACE WITH WIZDENS _layingDown.TryLieDown(args.Target);
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 
