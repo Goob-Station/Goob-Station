@@ -27,8 +27,8 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly BlindableSystem _blindSys = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
+    [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
@@ -60,7 +60,11 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         if (_mobStateQuery.TryComp(ent, out var state))
             ent.Comp.Mobstate = state.CurrentState;
 
-        RemoveDisabilities(ent);
+        if (ent.Comp.RemoveDisabilities)
+            RemoveDisabilities(ent);
+
+        if (ent.Comp.RemoveAlienEmbryo)
+            RemoveAlienEmbryo(ent);
 
         Cycle(ent);
     }
@@ -206,6 +210,11 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     }
 
     protected virtual void RemoveDisabilities(Entity<BoostedImmunityComponent> ent)
+    {
+        // go to BoostedImmunitySystem for the logic
+    }
+
+    protected virtual void RemoveAlienEmbryo(Entity<BoostedImmunityComponent> ent)
     {
         // go to BoostedImmunitySystem for the logic
     }

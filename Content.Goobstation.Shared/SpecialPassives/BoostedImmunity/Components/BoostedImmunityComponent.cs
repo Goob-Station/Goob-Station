@@ -82,6 +82,12 @@ public sealed partial class BoostedImmunityComponent : Component
     [DataField]
     public bool RemovePacifism = true;
 
+    /// <summary>
+    /// Should the entity have any present alien embryos removed and destroyed?
+    /// </summary>
+    [DataField]
+    public bool RemoveAlienEmbryo = true;
+
     [DataField]
     public float ToxinHeal = -10f;
 
