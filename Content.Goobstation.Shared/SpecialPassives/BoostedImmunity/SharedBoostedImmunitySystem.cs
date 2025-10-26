@@ -12,6 +12,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -31,6 +32,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
     private EntityQuery<StatusEffectsComponent> _statusQuery;
 
     public override void Initialize()
@@ -38,12 +40,29 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         base.Initialize();
 
         _damageableQuery = GetEntityQuery<DamageableComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         _statusQuery = GetEntityQuery<StatusEffectsComponent>();
 
+        SubscribeLocalEvent<BoostedImmunityComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BoostedImmunityComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<BoostedImmunityComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<BoostedImmunityComponent, BeforeVomitEvent>(OnBeforeVomitEvent);
+    }
+
+    private void OnMapInit(Entity<BoostedImmunityComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
+
+        if (ent.Comp.Duration.HasValue)
+            ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
+
+        if (_mobStateQuery.TryComp(ent, out var state))
+            ent.Comp.Mobstate = state.CurrentState;
+
+        RemoveDisabilities(ent);
+
+        Cycle(ent);
     }
 
     private void OnRemoved(Entity<BoostedImmunityComponent> ent, ref ComponentRemove args)
@@ -184,6 +203,11 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         }
 
         return true;
+    }
+
+    protected virtual void RemoveDisabilities(Entity<BoostedImmunityComponent> ent)
+    {
+        // go to BoostedImmunitySystem for the logic
     }
 
     #endregion
