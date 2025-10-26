@@ -180,6 +180,7 @@ public sealed partial class HereticAbilitySystem
         organ.Body = ent;
         Dirty(fleshStomach, organ);
         var metabolizer = EnsureComp<MetabolizerComponent>(fleshStomach);
+        metabolizer.UpdateInterval = TimeSpan.FromMilliseconds(100);
         metabolizer.MaxPoisonsProcessable = 10;
         metabolizer.MetabolismGroups = new() { new() { Id = "Food" }, new() { Id = "Drink" } };
         metabolizer.MetabolizerTypes = new() { "Vox" };
@@ -208,7 +209,7 @@ public sealed partial class HereticAbilitySystem
             var toHeal = -damage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
             foreach (var mimic in ent.Comp.FleshMimics)
             {
-                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal);
+                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal, toHeal);
             }
 
             return;

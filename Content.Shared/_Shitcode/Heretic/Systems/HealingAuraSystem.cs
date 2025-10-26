@@ -42,7 +42,8 @@ public sealed class HealingAuraSystem : EntitySystem
                 _heretic.IHateWoundMed((ent, damageable, null, null),
                     aura.ToHeal * multiplier,
                     aura.BoneHeal * multiplier,
-                    aura.PainHeal * multiplier);
+                    aura.PainHeal * multiplier,
+                    aura.WoundHeal * multiplier);
             }
         }
     }

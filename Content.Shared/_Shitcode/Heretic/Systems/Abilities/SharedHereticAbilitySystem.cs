@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
@@ -12,6 +13,8 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -68,6 +71,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -257,10 +261,11 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     /// <param name="toHeal">how much to heal, null = full heal</param>
     /// <param name="boneHeal">how much to heal bones, null = full heal</param>
     /// <param name="painHeal">how much to heal pain, null = full heal</param>
-    public void IHateWoundMed(Entity<DamageableComponent?, WoundableComponent?, ConsciousnessComponent?> uid,
+    public void IHateWoundMed(Entity<DamageableComponent?, BodyComponent?, ConsciousnessComponent?> uid,
         DamageSpecifier? toHeal,
         FixedPoint2? boneHeal,
-        FixedPoint2? painHeal)
+        FixedPoint2? painHeal,
+        FixedPoint2? woundHeal)
     {
         if (!Resolve(uid, ref uid.Comp1, false))
             return;
@@ -284,7 +289,35 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             _mobThreshold.SetAllowRevives(uid, false, thresholds);
         }
 
-        _wound.TryHealWoundsOnOwner(uid, toHeal ?? -AllDamage * 100, true);
+        if (Resolve(uid, ref uid.Comp2, false) && uid.Comp2.BodyType == BodyType.Complex && (boneHeal != FixedPoint2.Zero || woundHeal != FixedPoint2.Zero))
+        {
+            if (_body.TryGetRootPart(uid, out var rootPart, uid.Comp2))
+            {
+                foreach (var woundable in _wound.GetAllWoundableChildren(rootPart.Value))
+                {
+                    if (woundHeal != FixedPoint2.Zero)
+                    {
+                        _wound.TryHaltAllBleeding(woundable.Owner, woundable.Comp, true);
+                        if (woundHeal == null)
+                            _wound.ForceHealWoundsOnWoundable(woundable.Owner, out _, null, woundable.Comp);
+                        else
+                            _wound.TryHealWoundsOnWoundable(woundable.Owner, -woundHeal.Value, out _, woundable.Comp, null, true, true);
+                    }
+
+                    if (boneHeal == FixedPoint2.Zero)
+                        continue;
+
+                    if (woundable.Comp.Bone.ContainedEntities.FirstOrNull() is not { } bone ||
+                        !TryComp(bone, out BoneComponent? boneComp))
+                        continue;
+
+                    if (boneHeal != null)
+                        _trauma.ApplyDamageToBone(bone, boneHeal.Value, boneComp);
+                    else
+                        _trauma.SetBoneIntegrity(bone, boneComp.IntegrityCap, boneComp);
+                }
+            }
+        }
 
         if (painHeal != FixedPoint2.Zero && Resolve(uid, ref uid.Comp3, false))
         {
@@ -292,13 +325,13 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             {
                 foreach (var painModifier in uid.Comp3.NerveSystem.Comp.Modifiers)
                 {
-                    if (painHeal != null)
+                    if (painHeal != null && painModifier.Value.Change > -painHeal.Value)
                     {
                         // This reduces pain maybe, who the hell knows
                         _pain.TryChangePainModifier(uid.Comp3.NerveSystem.Owner,
                             painModifier.Key.Item1,
                             painModifier.Key.Item2,
-                            painHeal.Value,
+                            painModifier.Value.Change + painHeal.Value,
                             uid.Comp3.NerveSystem.Comp);
                         continue;
                     }
@@ -346,21 +379,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 // Read this method name
                 _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, uid.Comp3);
             }
-        }
-
-        if (boneHeal == FixedPoint2.Zero || !Resolve(uid, ref uid.Comp2, false))
-            return;
-
-        foreach (var woundableChild in _wound.GetAllWoundableChildren(uid, uid.Comp2))
-        {
-            if (woundableChild.Comp.Bone.ContainedEntities.FirstOrNull() is not { } bone ||
-                !TryComp(bone, out BoneComponent? boneComp))
-                continue;
-
-            if (boneHeal != null)
-                _trauma.ApplyDamageToBone(bone, boneHeal.Value, boneComp);
-            else
-                _trauma.SetBoneIntegrity(bone, boneComp.IntegrityCap, boneComp);
         }
     }
 

@@ -44,6 +44,9 @@ public sealed partial class HealingAuraComponent : Component
     [DataField]
     public FixedPoint2 BoneHeal = -3f;
 
+    [DataField]
+    public FixedPoint2 WoundHeal = -3f;
+
     /// <summary>
     /// Set this to 0 to disable self-heal
     /// </summary>

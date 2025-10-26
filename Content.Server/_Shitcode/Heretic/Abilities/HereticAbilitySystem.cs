@@ -442,17 +442,18 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (realMult <= 0f)
                 continue;
 
-            var toHeal = -AllDamage * realMult;
-            var boneHeal = -mult * flesh.BoneHealMultiplier;
-            var painHeal = -mult * flesh.PainHealMultiplier;
+            var toHeal = -realMult * AllDamage;
+            var boneHeal = -realMult * flesh.BoneHealMultiplier;
+            var painHeal = -realMult * flesh.PainHealMultiplier;
+            var woundHeal = -realMult * flesh.WoundHealMultiplier;
 
-            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal);
+            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal, woundHeal);
 
             if (!bloodQuery.TryComp(uid, out var blood))
                 continue;
 
-            var bloodHeal = -mult * flesh.BloodHealMultiplier;
-            var bleedHeal = -mult * flesh.BleedReductionMultiplier;
+            var bloodHeal = -realMult * flesh.BloodHealMultiplier;
+            var bleedHeal = -realMult * flesh.BleedReductionMultiplier;
 
             if (blood.BleedAmount > 0f)
                 _blood.TryModifyBleedAmount((uid, blood), bleedHeal);
@@ -533,7 +534,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
 
             if (damageableQuery.TryComp(uid, out var damageable))
-                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
+                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal, otherHeal);
 
             if (bloodQuery.TryComp(uid, out var blood))
             {

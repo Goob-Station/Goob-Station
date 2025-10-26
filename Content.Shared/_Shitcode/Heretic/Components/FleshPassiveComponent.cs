@@ -26,7 +26,7 @@ public sealed partial class FleshPassiveComponent : Component
     public float BaseAttackRatePerFlesh = 0.001f;
 
     [DataField]
-    public float BaseHealingPerFlesh = 0.0015f;
+    public float BaseHealingPerFlesh = 0.005f;
 
     [DataField]
     public float OrganMultiplier = 2f;
@@ -53,13 +53,16 @@ public sealed partial class FleshPassiveComponent : Component
     public float PainHealMultiplier = 5f;
 
     [DataField]
-    public float BoneHealMultiplier = 5f;
+    public float BoneHealMultiplier = 10f;
 
     [DataField]
-    public float BloodHealMultiplier = 10f;
+    public float WoundHealMultiplier = 10f;
 
     [DataField]
-    public float BleedReductionMultiplier = 1f;
+    public float BloodHealMultiplier = 20f;
+
+    [DataField]
+    public float BleedReductionMultiplier = 5f;
 
     [DataField]
     public ProtoId<TagPrototype> MeatTag = "Meat";
