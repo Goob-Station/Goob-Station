@@ -99,7 +99,7 @@ public partial class XenobiologySystem
 
         if (_containerSystem.IsEntityOrParentInContainer(ent)
             && args.NewMobState == MobState.Dead)
-            _containerSystem.TryRemoveFromContainer(ent, true);
+            _containerSystem.TryRemoveFromContainer(ent.Owner, true);
     }
 
     private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)

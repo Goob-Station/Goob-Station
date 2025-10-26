@@ -87,21 +87,23 @@
   result: InteractorCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
-  id: SlimeGrinderMachineCircuitboard
-  result: SlimeGrinderMachineCircuitboard
+  id: TeslaCoilCircuitboard
+  result: TeslaCoilCircuitboard
   parent: BaseGoldCircuitboardRecipe
   icon:
     sprite:  Structures/Power/Generation/Tesla/coil.rsi
     state: coil
-  id: TeslaCoilCircuitboard
-  result: TeslaCoilCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
+  id: SlimeGrinderMachineCircuitboard
+  result: SlimeGrinderMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: RadiationCollectorCircuitboard
+  result: RadiationCollectorCircuitboard
   icon:
     sprite:  Structures/Power/Generation/Singularity/collector.rsi
     state: ca_on
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard

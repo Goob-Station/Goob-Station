@@ -80,7 +80,7 @@ public sealed partial class DoSmokeEntityEffect : EntityEffect
             || tileRef.Tile.IsEmpty)
             return;
 
-        if (spreaderSys.RequiresFloorToSpread(SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
+        if (spreaderSys.RequiresFloorToSpread(SmokePrototype.ToString()) && tileRef.Tile.IsEmpty)
             return;
 
         var coords = grid.MapToGrid(mapCoords);
