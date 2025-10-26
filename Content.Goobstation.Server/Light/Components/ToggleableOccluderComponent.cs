@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Light.Components;
 
 /// <summary>
-///     Allows entities with OccluderComponent to toggle that component on and off.
+///     Allows entities with OccluderComponent to toggle that component on and off, early upstream merge of #30743
 /// </summary>
 [RegisterComponent]
 public sealed partial class ToggleableOccluderComponent : Component

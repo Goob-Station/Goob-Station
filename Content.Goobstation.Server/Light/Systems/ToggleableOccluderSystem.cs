@@ -5,7 +5,7 @@ using Content.Shared.DeviceLinking.Events;
 namespace Content.Goobstation.Server.Light.EntitySystems;
 
 /// <summary>
-///     Handles the logic between signals and toggling OccluderComponent
+///     Handles the logic between signals and toggling OccluderComponent, early upstream merge of #30743
 /// </summary>
 public sealed class ToggleableOccluderSystem : EntitySystem
 {
