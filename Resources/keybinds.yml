@@ -180,9 +180,6 @@ binds:
 - function: Sprint
   type: State
   key: C
-- function: ToggleStanding
-  type: State
-  key: R
 - function: ResistGrab
   type: State
   key: B
