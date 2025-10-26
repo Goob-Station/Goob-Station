@@ -4010,3 +4010,11 @@ Entries:
   id: 9158
   time: '2025-10-26T10:36:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41049
+- author: psykana
+  changes:
+  - message: Toggle internals now uses jetpack only if there's no proper gas tank
+      equipped
+    type: Tweak
+  id: 9159
+  time: '2025-10-26T15:48:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35068
