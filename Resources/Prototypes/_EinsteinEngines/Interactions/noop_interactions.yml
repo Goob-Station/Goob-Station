@@ -48,6 +48,20 @@
     # TODO: this should pull the target closer or sumth, but I need to code that action first
     !type:NoOpAction
 
+- type: Interaction
+  id: Pet
+  parent: [BaseGlobal, BaseHands]
+  priority: 1
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.4
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement
+    inverted: true
+  action:
+    !type:NoOpAction
+
 # Knocking on the target - windows, doors, etc.
 - type: Interaction
   id: KnockOn
