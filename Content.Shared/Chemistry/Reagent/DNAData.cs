@@ -90,7 +90,18 @@ public sealed partial class DnaData : ReagentData
     [DataField] // Goobstation
     public TimeSpan Freshness = TimeSpan.Zero; // Goobstation
 
-    public override ReagentData Clone() => this;
+    // Goobstation start - fix solution shallow copy
+    public DnaData(DnaData other)
+    {
+        DNA = other.DNA;
+        Freshness = other.Freshness;
+    }
+
+    public override DnaData Clone()
+    {
+        return new DnaData(this);
+    }
+    // Goobstation End
 
     public override bool Equals(ReagentData? other)
     {

@@ -131,6 +131,7 @@
 # SPDX-FileCopyrightText: 2025 Stomf <5dorkydorks@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 robinthedragon <92946919+robinthedragon@users.noreply.github.com>
 #
@@ -274,7 +275,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 3 magazines for the Estoc DMR, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
   components:
   - type: StorageFill
     contents:
@@ -284,6 +285,8 @@
         amount: 3
       - id: MagazineShotgun
         amount: 4
+      - id: MagazineRifle
+        amount: 3
       - id: MagazineShotgunSlug
         amount: 1
       - id: MagazineLightRifleBox
@@ -398,8 +401,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate voidsuit bundle
-  description: "Contains the Syndicate's signature blood red voidsuit."
+  name: syndicate hardsuit bundle
+  description: "Contains the Syndicate's signature blood red hardsuit."
   components:
   - type: StorageFill
     contents:
@@ -413,8 +416,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite voidsuit bundle
-  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
+  name: syndicate elite hardsuit bundle
+  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
@@ -495,22 +498,35 @@
       - id: SyndieTrickyBomb
         amount: 2
 
+#- type: entity
+#  parent: ClothingBackpackDuffelSyndicateBundle
+#  id: ClothingBackpackDuffelSyndicateFilledStarterKit
+#  name: basic operative bundle
+#  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: WeaponSubMachineGunC20r
+#      - id: MagazinePistolSubMachineGun
+#        amount: 3
+#      - id: MagazinePistol
+#      - id: SyndicateJawsOfLife
+#      - id: C4
+#        amount: 2
+#      - id: MedkitCombatFilled
+#      - id: EmpImplanter
+#      - id: ClothingShoesBootsMagSyndie
+#      - id: AgentIDCard
+
 - type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledStarterKit
-  name: basic operative bundle
-  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+  parent: [ ClothingBackpackDuffelBundle, BaseMajorContraband ]
+  id: ClothingBackpackDuffelAcolyteBundle
+  name: acolyte armor bundle
+  description: "Contains the Acolyte Armor, the must have of any cult leader."
   components:
   - type: StorageFill
     contents:
-      - id: WeaponSubMachineGunC20r
-      - id: MagazinePistolSubMachineGun
-        amount: 3
-      - id: MagazinePistol
-      - id: SyndicateJawsOfLife
-      - id: C4
-        amount: 2
-      - id: MedkitCombatFilled
-      - id: EmpImplanter
-      - id: ClothingShoesBootsMagSyndie
-      - id: AgentIDCard
+    - id: ClothingOuterArmorCult
+    - id: ClothingHeadHelmetCult
+    - id: ClothingShoesCult
+    - id: BedsheetCult

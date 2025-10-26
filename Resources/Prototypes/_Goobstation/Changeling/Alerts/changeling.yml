@@ -38,6 +38,8 @@
   id: AlertChangelingChemicalsSpriteView
   categories: [ HideSpawnMenu ]
   components:
+  - type: ValueRelatedAlert
+    maxSeverity: 18
   - type: Sprite
     sprite: /Textures/_Goobstation/Changeling/changeling_chemicals.rsi
     layers:

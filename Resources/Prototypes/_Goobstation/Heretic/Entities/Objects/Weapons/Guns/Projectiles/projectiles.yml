@@ -6,37 +6,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseBulletTrigger
-  id: FireballChain
-  name: twisted fireball
-  description: Uh oh.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: ChainFireball
-  - type: Reflective
-    reflective: Magic
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: fireball
-      shader: unshaded
-  - type: IgnitionSource
-    temperature: 1000
-    ignited: true
-  - type: IgniteOnCollide
-    fireStacks: 0.5
-  - type: PointLight
-    color: "#E25822"
-    radius: 2.0
-    energy: 5.0
-  - type: Projectile
-    damage:
-      types:
-        Heat: 5
-  - type: TimedDespawn
-    lifetime: 1
-
-- type: entity
   parent: BaseBullet
   id: ProjectileWaveRust
   name: patron's reach
@@ -49,7 +18,7 @@
     - state: eldritch_projectile
       shader: unshaded
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -57,6 +26,7 @@
   - type: TimedDespawn
     lifetime: 2.5
   - type: RustObjectsInRadius
+    rustStrength: -1
     rustRadius: 0.8
   - type: Trail
     lerpTime: 0.05
@@ -66,3 +36,42 @@
     sprite:
       sprite: /Textures/_Goobstation/Heretic/projectiles.rsi
       state: eldritch_projectile
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileStarBall
+  name: star ball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/projectiles.rsi
+    layers:
+    - state: star_ball
+      shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    impactEffect: EffectCosmicExplosion
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+  - type: StarBlast
+  - type: CosmicTrail
+  - type: TileFrictionModifier
+    modifier: 0

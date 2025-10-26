@@ -47,7 +47,7 @@ public sealed partial class HereticAbilitySystem
                 BreakOnHandChange = false,
                 BreakOnDropItem = false,
             };
-            _doafter.TryStartDoAfter(dargs);
+            DoAfter.TryStartDoAfter(dargs);
             args.Handled = true;
             return;
         }

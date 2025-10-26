@@ -137,6 +137,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
+  - type: StunVisuals
 
 - type: entity
   save: false
@@ -144,6 +145,8 @@
   abstract: true
   components:
   - type: Polymorphable
+  - type: OwnInteractionVerbs # Einstein Engines - Interaction Verbs.
+    allowedVerbs: [] # TODO: define something here, or don't.
 
 # Used for mobs that have health and can take damage.
 - type: entity
