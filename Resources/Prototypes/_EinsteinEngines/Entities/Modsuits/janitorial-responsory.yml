@@ -170,7 +170,6 @@
       components:
       - type: NoSlip
     - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95

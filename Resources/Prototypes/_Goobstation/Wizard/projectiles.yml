@@ -754,7 +754,7 @@
   - type: Slippery
     slipData:
       slipOnStep: false
-      paralyzeTime: 10
+      knockdownTime: 10
       launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5

@@ -166,7 +166,6 @@
       components:
       - type: NoSlip
     - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 1
       sprintModifier: 1

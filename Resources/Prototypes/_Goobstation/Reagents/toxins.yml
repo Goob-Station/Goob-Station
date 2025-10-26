@@ -84,7 +84,7 @@
           type: Yowie
           shouldHave: false
         probability: 0.05
-        paralyzeTime: 2
+        stunTime: 2
       - !type:Emote
         emote: Gasp
         probability: 0.1
@@ -220,7 +220,7 @@
       - !type:Jitter
       - !type:Paralyze
         probability: 0.5
-        paralyzeTime: 4
+        stunTime: 4
         conditions:
         - !type:ReagentThreshold
           min: 5
@@ -333,4 +333,4 @@
           type: Yowie
           shouldHave: false
         probability: 0.05
-        paralyzeTime: 2
+        stunTime: 2

@@ -342,7 +342,7 @@
         - !type:ReagentThreshold
           min: 15
         probability: 0.2
-        paralyzeTime: 4
+        stunTime: 4
       - !type:ModifyBleedAmount
         amount: -0.25
 

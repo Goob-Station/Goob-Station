@@ -27,7 +27,6 @@
       effectProto: StatusEffectDrowsiness
       time: 15
       type: Add
-      refresh: false
 
 - type: curse
   id: CurseBlood

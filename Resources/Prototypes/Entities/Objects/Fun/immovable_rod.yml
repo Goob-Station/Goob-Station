@@ -135,7 +135,7 @@
       types:
         Blunt: 70 # Goob edit
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   # - type: InputMover # Goob edit
   - type: MovementSpeedModifier
     baseWeightlessAcceleration: 5

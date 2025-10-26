@@ -104,7 +104,7 @@
           type: Yowie
           shouldHave: false
         probability: 0.05
-        paralyzeTime: 2
+        stunTime: 2
       - !type:Paralyze # more severe effects when you are overdosing
         conditions:
         - !type:OrganType
@@ -113,7 +113,7 @@
         - !type:ReagentThreshold
           min: 5
         probability: 0.05
-        paralyzeTime: 4
+        stunTime: 4
       - !type:GenericStatusEffect # tripping balls, duh
         key: SeeingRainbows
         component: SeeingRainbows
@@ -259,7 +259,7 @@
           type: Yowie
           shouldHave: false
         probability: 0.05
-        paralyzeTime: 2
+        knockdownTime: 2
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

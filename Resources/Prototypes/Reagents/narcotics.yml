@@ -139,7 +139,7 @@
   group: Narcotics
   desc: reagent-desc-ephedrine
   physicalDesc: reagent-physical-desc-powdery
-  contrabandSeverity: Minor
+  #contrabandSeverity: Minor #Not yet implemented in goob this was a result of an early cherrypick
   flavor: bitter
   color: "#D2FFFA"
   boilingPoint: 255.0
@@ -682,7 +682,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 - type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide

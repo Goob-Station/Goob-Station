@@ -31,8 +31,8 @@
     sound:
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 5
-  paralyzeTime: 1
-  dropHeldItemsBehavior: NoDrop
+  knockdownTime: 1
+  #dropHeldItemsBehavior: NoDrop # Reimplement in combo system
   canDoWhileProne: false
 
 - type: combo
@@ -66,7 +66,7 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 10
-  paralyzeTime: 1
+  knockdownTime: 1
   staminaDamage: 10
   canDoWhileProne: false
 
@@ -86,7 +86,7 @@
     minVelocity: 2
     sound:
       path: /Audio/Weapons/genhit1.ogg
-  paralyzeTime: 2
+  knockdownTime: 2
   staminaDamage: 15
   extraDamage: 25
   canDoWhileProne: false

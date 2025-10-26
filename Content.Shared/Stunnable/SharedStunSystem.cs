@@ -466,8 +466,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Set it to half the help interval so helping is actually useful...
         knocked.HelpTimer = knocked.HelpInterval / 2f;
 
-        _status.TryGetTime(uid, "KnockDown", out var timer);
-        _status.TryUpdateStatusEffectDuration(uid, "KnockedDown",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
+        _status.TryGetTime(uid, "StatusEffectStunned", out var timer);
+        _status.TryUpdateStatusEffectDuration(uid, "StatusEffectStunned",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
         _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
         Dirty(uid, knocked);
 

@@ -32,7 +32,7 @@
     - !type:ChangeStandingStateAction
       makeStanding: true
     - !type:ModifyStatusEffectAction
-      effect: KnockedDown
+      effect: StatusEffectStunned
       timeAdded: -2.5 # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
     - !type:ModifyStatusEffectAction
       effect: Stun
