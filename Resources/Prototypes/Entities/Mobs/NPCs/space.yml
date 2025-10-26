@@ -573,7 +573,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 10 # Goob edit
         mask:
         - SmallMobMask
         layer:

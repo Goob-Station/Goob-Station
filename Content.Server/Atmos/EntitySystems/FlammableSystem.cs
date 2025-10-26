@@ -370,12 +370,13 @@ namespace Content.Server.Atmos.EntitySystems
             var avgPen = (flammable.FireProtectionPenetration + otherFlammable.FireProtectionPenetration) / total; // Goobstation
 
             // swap the entity losing stacks depending on whichever has the most firestack kilos
-            var (src, dest) = flammable.FireStacks * mass1 > otherFlammable.FireStacks * mass2
-                ? (-1f, 1f)
-                : (1f, -1f);
+            // Goob edit
+            // var (src, dest) = flammable.FireStacks * mass1 > otherFlammable.FireStacks * mass2
+            //     ? (-1f, 1f)
+            //     : (1f, -1f);
             // bring each entity to the same firestack mass, firestacks being scaled by the other's mass
-            AdjustFireStacks(uid, src * avg * mass2, flammable, ignite: true, src * avgPen * mass2); // Goob edit
-            AdjustFireStacks(otherUid, dest * avg * mass1, otherFlammable, ignite: true, dest + avgPen * mass1); // Goob edit
+            SetFireStacks(uid, avg * mass2, flammable, ignite: true, avgPen * mass2); // Goob edit
+            SetFireStacks(otherUid, avg * mass1, otherFlammable, ignite: true, avgPen * mass1); // Goob edit
         }
 
         private void OnIsHot(EntityUid uid, FlammableComponent flammable, IsHotEvent args)

@@ -79,7 +79,7 @@ namespace Content.Server.Atmos.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
-        public float MaximumFireStacks = 10f;
+        public float MaximumFireStacks = 15f;
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]

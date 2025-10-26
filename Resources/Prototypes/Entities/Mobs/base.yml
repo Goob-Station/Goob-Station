@@ -247,7 +247,7 @@
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat : 1.5
+        Heat : 1.0 # Goob edit
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -282,7 +282,7 @@
         Cold: 1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 1.0 # Goob edit #per second, scales with temperature & other constants
   - type: Barotrauma
     damage:
       types:
