@@ -3,21 +3,13 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VoidConduitComponent : Component
 {
-    [DataField]
-    public EntProtoId Tile = "TileHereticVoid";
-
-    [DataField]
-    public float Delay = 1f;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float Accumulator = 1f;
-
     [DataField]
     public int Range = 8;
 
@@ -41,4 +33,8 @@ public sealed partial class VoidConduitComponent : Component
 
     [DataField]
     public SoundSpecifier AirlockDamageSound = new SoundPathSpecifier("/Audio/Weapons/smash.ogg");
+
+    [DataField]
+    public SpriteSpecifier OverlaySprite =
+        new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/void_overlay.rsi"), "voidtile");
 }

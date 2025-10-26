@@ -29,11 +29,9 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Weather;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -43,10 +41,9 @@ using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Effects;
-using Content.Shared.Movement.Components;
-using Content.Shared.Physics.Controllers;
+using Content.Shared.Heretic;
 using Content.Shared.Projectiles;
-using Content.Shared.Stunnable;
+using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -64,7 +61,6 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
@@ -78,10 +74,15 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     private static readonly EntProtoId IceTilePrototype = "IceCrust";
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
     private static readonly EntProtoId IceWallPrototype = "WallIce";
+
+    private const float ConduitDelay = 1f;
+
+    private float _accumulator;
 
     public override void Initialize()
     {
@@ -295,66 +296,84 @@ public sealed class AristocratSystem : EntitySystem
             aristocrat.UpdateTimer = 0;
         }
 
-        var airlockQuery = GetEntityQuery<AirlockComponent>();
+        _accumulator += frameTime;
 
+        if (_accumulator < ConduitDelay)
+            return;
+
+        _accumulator = 0f;
+
+        var airlockQuery = GetEntityQuery<AirlockComponent>();
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var hereticQuery = GetEntityQuery<HereticComponent>();
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
+        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
+
+        HashSet<EntityUid> ignored = new();
         var conduitQuery = EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
         while (conduitQuery.MoveNext(out var uid, out var conduit, out var xform))
         {
-            conduit.Accumulator += frameTime;
-
-            if (conduit.Accumulator < conduit.Delay)
-                continue;
-
-            conduit.Accumulator = 0f;
-
             FreezeAtmos((uid, xform));
 
-            if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-                return;
+            var (pos, rot) = _xform.GetWorldPositionRotation(xform, xformQuery);
 
-            var tiles = GetTiles(xform.Coordinates, conduit.Range);
-
-            if (tiles.Count == 0)
-                return;
+            var box = Box2.CenteredAround(pos, Vector2.One * (1f + conduit.Range * 2f));
+            var rotated = new Box2Rotated(box, rot, pos);
 
             List<EntityUid> affected = new();
-            foreach (var tile in tiles)
+            var result = _lookup.GetEntitiesIntersecting(xform.MapID, rotated);
+            foreach (var ent in result)
             {
-                var ents = _lookup.GetEntitiesInRange(tile, .1f, LookupFlags.Static | LookupFlags.Sensors);
-                var foundHereticTiles = false;
-                foreach (var ent in ents)
+                if (ignored.Contains(ent))
+                    continue;
+
+                if (hereticQuery.HasComp(ent) || ghoulQuery.HasComp(ent))
                 {
-                    var dmg = conduit.StructureDamage;
-
-                    if (airlockQuery.HasComp(ent))
+                    ignored.Add(ent);
+                    if (statusQuery.TryComp(ent, out var status))
                     {
-                        _audio.PlayPvs(conduit.AirlockDamageSound, Transform(ent).Coordinates);
-                        affected.Add(ent);
-                        _damage.TryChangeDamage(ent,
-                            dmg * _rand.NextFloat(conduit.MinMaxAirlockDamageMultiplier.X,
-                                conduit.MinMaxAirlockDamageMultiplier.Y),
-                            origin: ent);
+                        _status.TryAddStatusEffect<PressureImmunityComponent>(ent,
+                            "PressureImmunity",
+                            TimeSpan.FromSeconds(2),
+                            true,
+                            status);
                     }
-                    else if (_tag.HasTag(ent, "Window"))
-                    {
-                        _audio.PlayPvs(conduit.WindowDamageSound, Transform(ent).Coordinates);
-                        affected.Add(ent);
-                        _damage.TryChangeDamage(ent,
-                            dmg * _rand.NextFloat(conduit.MinMaxWindowDamageMultiplier.X,
-                                conduit.MinMaxWindowDamageMultiplier.Y),
-                            origin: ent);
-                    }
-
-                    if ((Prototype(ent)?.ID ?? string.Empty) == conduit.Tile)
-                        foundHereticTiles = true;
+                    continue;
                 }
 
-                if (affected.Count > 0)
-                    _color.RaiseEffect(Color.Black, affected, Filter.Pvs(uid, 3f, EntityManager));
+                if (_voidcurse.DoCurse(ent))
+                {
+                    ignored.Add(ent);
+                    affected.Add(ent);
+                    continue;
+                }
 
-                if (!foundHereticTiles)
-                    Spawn(conduit.Tile, tile);
+                var dmg = conduit.StructureDamage;
+
+                if (airlockQuery.HasComp(ent))
+                {
+                    _audio.PlayPvs(conduit.AirlockDamageSound, Transform(ent).Coordinates);
+                    ignored.Add(ent);
+                    affected.Add(ent);
+                    _damage.TryChangeDamage(ent,
+                        dmg * _rand.NextFloat(conduit.MinMaxAirlockDamageMultiplier.X,
+                            conduit.MinMaxAirlockDamageMultiplier.Y),
+                        origin: ent);
+                }
+                else if (_tag.HasTag(ent, "Window"))
+                {
+                    _audio.PlayPvs(conduit.WindowDamageSound, Transform(ent).Coordinates);
+                    ignored.Add(ent);
+                    affected.Add(ent);
+                    _damage.TryChangeDamage(ent,
+                        dmg * _rand.NextFloat(conduit.MinMaxWindowDamageMultiplier.X,
+                            conduit.MinMaxWindowDamageMultiplier.Y),
+                        origin: ent);
+                }
             }
+
+            if (affected.Count > 0)
+                _color.RaiseEffect(Color.Black, affected, Filter.Pvs(uid, 3f, EntityManager));
         }
     }
 
@@ -415,7 +434,7 @@ public sealed class AristocratSystem : EntitySystem
         var homing = EnsureComp<HomingProjectileComponent>(uid);
         homing.Target = ent;
         var multiplier = MathHelper.Lerp(10f, 0f, Math.Clamp(targetVelocity * 2f / ent.Comp1.Range, 0f, 1f));
-        homing.HomingSpeed = -216f * multiplier;
+        homing.HomingSpeed = -162f * multiplier;
         Dirty(uid, homing);
 
         affected.OldVelocity ??= physics.LinearVelocity.Length();
@@ -431,7 +450,7 @@ public sealed class AristocratSystem : EntitySystem
                   Vector2.Dot(dir, rot.Opposite().ToVec());
         var modifier = MathF.Max(0f, dot);
 
-        targetVelocity = MathF.Max(5f, targetVelocity * (2f + modifier * oldLength));
+        targetVelocity = MathF.Max(5f, targetVelocity * (3f + modifier * oldLength));
         targetVelocity = MathF.Min(targetVelocity, oldLength);
 
         if (MathF.Abs(curVelocity - targetVelocity) < 0.01f)

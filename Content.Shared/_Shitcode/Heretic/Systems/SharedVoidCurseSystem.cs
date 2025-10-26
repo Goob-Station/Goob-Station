@@ -47,8 +47,14 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        var modifier = 1f - ent.Comp.Stacks * 0.1f;
-        args.ModifySpeed( modifier, modifier);
+        var modifier = 1f - ent.Comp.Stacks * 0.14f;
+        if (TryComp(ent, out TemperatureSpeedComponent? tempSpeed) &&
+            tempSpeed.CurrentSpeedModifier != null && tempSpeed.CurrentSpeedModifier != 0f)
+            modifier /= 1.2f * tempSpeed.CurrentSpeedModifier.Value;
+
+        modifier = Math.Clamp(modifier, 0f, 1f);
+
+        args.ModifySpeed(modifier, modifier, true);
     }
 
     protected void RefreshLifetime(VoidCurseComponent comp)
@@ -56,26 +62,26 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         comp.Lifetime = comp.MaxLifetime + comp.LifetimeIncreasePerLevel * comp.Stacks;
     }
 
-    public void DoCurse(EntityUid uid, int stacks = 1, int max = 0)
+    public bool DoCurse(EntityUid uid, int stacks = 1, int max = 0)
     {
         if (stacks < 1)
-            return;
+            return false;
 
         if (!HasComp<MobStateComponent>(uid))
-            return; // ignore non mobs because holy shit
+            return false; // ignore non mobs because holy shit
 
         if (TryComp<HereticComponent>(uid, out var h) && h.CurrentPath == "Void" || HasComp<GhoulComponent>(uid))
-            return;
+            return false;
 
         var ev = new BeforeCastTouchSpellEvent(uid, false);
         RaiseLocalEvent(uid, ev, true);
         if (ev.Cancelled)
-            return;
+            return false;
 
         var curse = EnsureComp<VoidCurseComponent>(uid);
 
         if (max > 0 && curse.Stacks > max)
-            return;
+            return false;
 
         if (max > 0 && curse.Stacks + stacks > max)
             stacks = Math.Max(0, max - (int) curse.Stacks);
@@ -85,5 +91,6 @@ public abstract class SharedVoidCurseSystem : EntitySystem
         Dirty(uid, curse);
 
         _modifier.RefreshMovementSpeedModifiers(uid);
+        return true;
     }
 }

@@ -68,7 +68,7 @@
     - Wall
   components:
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 30
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
