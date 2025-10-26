@@ -4003,3 +4003,10 @@ Entries:
   id: 9157
   time: '2025-10-26T01:09:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41092
+- author: TheGrimbeeper
+  changes:
+  - message: Artifact instantly teleporting themselves fixed.
+    type: Fix
+  id: 9158
+  time: '2025-10-26T10:36:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41049
