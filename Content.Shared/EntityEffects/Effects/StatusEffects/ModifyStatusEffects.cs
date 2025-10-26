@@ -1,9 +1,8 @@
-using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffectNew;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects.StatusEffects;
+namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 
 /// <summary>
 /// Changes status effects on entities: Adds, removes or sets time.
@@ -20,17 +19,11 @@ public sealed partial class ModifyStatusEffect : EntityEffect
     [DataField]
     public float Time = 2.0f;
 
-    /// <remarks>
-    /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
-    /// </remarks>
+    /// <summary>
+    /// Delay before the effect starts. If another effect is added with a shorter delay, it takes precedence.
+    /// </summary>
     [DataField]
     public float Delay = 0f;
-
-    /// <remarks>
-    /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
-    /// </remarks>
-    [DataField]
-    public bool Refresh = true;
 
     /// <summary>
     /// Should this effect add the status effect, remove time from it, or set its cooldown?

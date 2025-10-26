@@ -86,8 +86,7 @@ public abstract partial class SharedStunSystem
             if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
                 continue;
 
-            TryStanding(uid, out knockedDown.DoAfterId);
-            DirtyField(uid, knockedDown, nameof(KnockedDownComponent.DoAfterId));
+            TryStanding(uid);
         }
     }
 
@@ -257,7 +256,6 @@ public abstract partial class SharedStunSystem
 
     public bool TryStanding(Entity<KnockedDownComponent?> entity)
     {
-        id = null;
         // If we aren't knocked down or can't be knocked down, then we did technically succeed in standing up
         if (!Resolve(entity, ref entity.Comp, false))
             return true;
@@ -401,10 +399,9 @@ public abstract partial class SharedStunSystem
             return;
 
         // If we're already trying to stand, or we fail to stand try forcing it
-        if (!TryStanding(entity.Owner, out entity.Comp.DoAfterId))
-            ForceStandUp(entity!);
+        if (!TryStanding(entity.Owner))
+            ForceStandUp((entity.Owner, entity.Comp));
 
-        DirtyField(entity, entity.Comp, nameof(KnockedDownComponent.DoAfterId));
         args.Handled = true;
     }
 

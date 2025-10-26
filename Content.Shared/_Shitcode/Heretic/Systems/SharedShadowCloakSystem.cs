@@ -140,7 +140,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         if (ent.Comp.DebuffOnEarlyReveal)
         {
-            _stun.TryAddKnockdownDuration(ent, ent.Comp.KnockdownTime);
+            _stun.TryAddStunDuration(ent, ent.Comp.KnockdownTime);
             var (walk, sprint) = ent.Comp.EarlyRemoveMoveSpeedModifiers;
             // Yeah because fuck having a generic slowdown function for people to use. lets instead use a generic speed modifier that needs an effect uid thanks wizden
             _movementMod.TryUpdateMovementSpeedModDuration(ent.Owner, MovementModStatusSystem.FlashSlowdown, ent.Comp.SlowdownTime, walk, sprint); // owner is obsolete i dont care
@@ -280,7 +280,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         _appearance.SetData(cloakEntity,
             RotationVisuals.RotationState,
-            _standing.IsDown(ent) ? RotationState.Horizontal : RotationState.Vertical);
+            _standing.IsDown(ent.Owner) ? RotationState.Horizontal : RotationState.Vertical);
     }
 
     private void ResetAbilityCooldown(EntityUid uid, TimeSpan cooldown)

@@ -243,28 +243,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
         return true;
     }
 
-    private void AddStatusEffectTime(EntityUid effect, TimeSpan delta)
-    {
-        if (!_effectQuery.Resolve(effect, ref effect.Comp))
-            return;
-
-        // It's already infinitely long
-        if (effect.Comp.EndEffectTime is null)
-            return;
-
-        TimeSpan? newEndTime = null;
-
-        if (duration is not null)
-        {
-            // Don't update time to a smaller timespan...
-            newEndTime = _timing.CurTime + duration;
-            if (effect.Comp.EndEffectTime >= newEndTime)
-                return;
-        }
-
-        SetStatusEffectEndTime(effect, newEndTime);
-    }
-
     private void UpdateStatusEffectDelay(Entity<StatusEffectComponent?> effect, TimeSpan? delay)
     {
         if (!_effectQuery.Resolve(effect, ref effect.Comp))
@@ -297,7 +275,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
             return;
 
         // If we don't have an end time set, we want to just make the status effect end in delta time from now.
-        SetStatusEffectEndTime((effect, effectComp), (effectComp.EndEffectTime ?? _timing.CurTime) + delta);
+        SetStatusEffectEndTime((effect, effect.Comp), (effect.Comp.EndEffectTime ?? _timing.CurTime) + delta);
     }
 
     private void SetStatusEffectEndTime(Entity<StatusEffectComponent?> ent, TimeSpan? endTime)

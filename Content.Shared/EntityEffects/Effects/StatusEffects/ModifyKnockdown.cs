@@ -1,29 +1,32 @@
-using Content.Shared.StatusEffectNew;
+using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 
 /// <summary>
-/// Changes status effects on entities: Adds, removes or sets time.
+/// Changes the knockdown timer on an entity or causes knockdown.
 /// </summary>
 [UsedImplicitly]
-public sealed partial class ModifyStatusEffect : EntityEffect
+public sealed partial class ModifyKnockdown : EntityEffect
 {
-    [DataField(required: true)]
-    public EntProtoId EffectProto;
-
     /// <summary>
-    /// Time for which status effect should be applied. Behaviour changes according to <see cref="Refresh" />.
+    /// Should we only affect those with crawler component? Note if this is false, it will paralyze non-crawler's instead.
     /// </summary>
     [DataField]
-    public float Time = 2.0f;
+    public bool Crawling;
 
     /// <summary>
-    /// Delay before the effect starts. If another effect is added with a shorter delay, it takes precedence.
+    /// Should we drop items when we fall?
     /// </summary>
     [DataField]
-    public float Delay = 0f;
+    public bool Drop;
+
+    /// <summary>
+    /// Time for which knockdown should be applied. Behaviour changes according to <see cref="StatusEffectMetabolismType"/>.
+    /// </summary>
+    [DataField]
+    public TimeSpan Time = TimeSpan.FromSeconds(0.5);
 
     /// <summary>
     /// Should this effect add the status effect, remove time from it, or set its cooldown?
@@ -31,48 +34,66 @@ public sealed partial class ModifyStatusEffect : EntityEffect
     [DataField]
     public StatusEffectMetabolismType Type = StatusEffectMetabolismType.Add;
 
+    /// <summary>
+    /// Should this effect add knockdown?, remove time from it?, or set its cooldown?
+    /// </summary>
+    [DataField]
+    public bool Refresh = true;
+
     /// <inheritdoc />
     public override void Effect(EntityEffectBaseArgs args)
     {
-        var statusSys = args.EntityManager.EntitySysManager.GetEntitySystem<StatusEffectsSystem>();
+        var stunSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedStunSystem>();
 
         var time = Time;
         if (args is EntityEffectReagentArgs reagentArgs)
             time *= reagentArgs.Scale.Float();
 
-        var duration = TimeSpan.FromSeconds(time);
         switch (Type)
         {
             case StatusEffectMetabolismType.Update:
-                statusSys.TryUpdateStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
+                if (Crawling)
+                {
+                    stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
+                }
+                else
+                {
+                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                }
                 break;
             case StatusEffectMetabolismType.Add:
-                statusSys.TryAddStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
+                if (Crawling)
+                {
+                    stunSys.TryCrawling(args.TargetEntity, time, false, drop: Drop);
+                }
+                else
+                {
+                    stunSys.TryKnockdown(args.TargetEntity, time, false, drop: Drop);
+                }
                 break;
             case StatusEffectMetabolismType.Remove:
-                statusSys.TryAddTime(args.TargetEntity, EffectProto, -duration);
+                    stunSys.AddKnockdownTime(args.TargetEntity, -time);
                 break;
             case StatusEffectMetabolismType.Set:
-                statusSys.TrySetStatusEffectDuration(args.TargetEntity, EffectProto, duration, TimeSpan.FromSeconds(Delay));
+                if (Crawling)
+                {
+                    stunSys.TryCrawling(args.TargetEntity, time, drop: Drop);
+                }
+                else
+                {
+                    stunSys.TryKnockdown(args.TargetEntity, time, drop: Drop);
+                }
+                stunSys.SetKnockdownTime(args.TargetEntity!, time);
                 break;
         }
     }
 
     /// <inheritdoc />
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
-        Delay > 0
-        ? Loc.GetString(
-            "reagent-effect-guidebook-status-effect-delay",
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString(
+            "reagent-effect-guidebook-knockdown",
             ("chance", Probability),
             ("type", Type),
-            ("time", Time),
-            ("key", prototype.Index(EffectProto).Name),
-            ("delay", Delay))
-        : Loc.GetString(
-            "reagent-effect-guidebook-status-effect",
-            ("chance", Probability),
-            ("type", Type),
-            ("time", Time),
-            ("key", prototype.Index(EffectProto).Name)
+            ("time", Time.TotalSeconds)
         );
 }
