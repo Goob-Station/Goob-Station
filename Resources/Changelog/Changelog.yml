@@ -4025,3 +4025,10 @@ Entries:
   id: 9160
   time: '2025-10-26T18:37:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36292
+- author: ThatGuyUSA
+  changes:
+  - message: .50 uranium pellets use their intended sprite.
+    type: Fix
+  id: 9161
+  time: '2025-10-26T18:50:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41068
