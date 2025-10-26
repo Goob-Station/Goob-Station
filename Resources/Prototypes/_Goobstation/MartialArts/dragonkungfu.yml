@@ -35,7 +35,7 @@
       path: /Audio/Weapons/genhit2.ogg
   extraDamage: 15
   staminaDamage: 30
-  knockdownTime: 6
+  paralyzeTime: 6
 
 - type: combo
   id: DragonStrike
@@ -49,4 +49,4 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 40
-  stunTime: 2 # Actual paralyze
+  paralyzeTime: 2 # Actual paralyze

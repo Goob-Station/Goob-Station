@@ -22,6 +22,8 @@
 # Note: We have a new status effect system that needs all of these status effects to be fully ported to.
 # Adding new status effects under the old system is NOT RECOMMENDED.
 
+# Todo marty kill this shit since im getting the status effect stuff in
+
 - type: statusEffect
   id: Stun
   alert: Stun

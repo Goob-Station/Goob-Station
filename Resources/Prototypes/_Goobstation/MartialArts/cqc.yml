@@ -32,7 +32,7 @@
   - Harm
   event: !type:CqcSlamPerformedEvent { }
   extraDamage: 10 #
-  knockdownTime: 12 # in seconds
+  paralyzeTime: 12 # in seconds
 
 
 - type: combo

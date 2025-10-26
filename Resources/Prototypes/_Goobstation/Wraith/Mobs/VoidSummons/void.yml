@@ -144,7 +144,8 @@
   - type: SpikerShuffle
     statusEffectsToRemove:
     - Stun
-    - StatusEffectStunned
+    - StunnedStatusEffect
+    - KnockdownStatusEffect
     - Electrocution
     - SlowedDown
     - Stutter
