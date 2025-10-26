@@ -117,7 +117,7 @@ evolutionmenu-sting-armblade-desc =
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Applies "anatomic panacea" status effect, rapidly healing all non-physical damage, as well as cleansing chemicals,
-    illness, and the influence of drugs.
+    illness, and the influence of drugs. Will also remove xenomorph embryos.
     Lasts 10 seconds.
     Effects will cease while on fire or dead.
     Costs 30 chemicals.

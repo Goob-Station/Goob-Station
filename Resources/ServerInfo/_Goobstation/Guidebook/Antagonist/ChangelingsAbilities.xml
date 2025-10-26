@@ -198,6 +198,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Treats eye damage
   - Sobers the user, removing the influence of drugs and alcohol.
   - Removes any present disabilities from the user.
+  - Removes and destroys any present xenomorph embryos in the user.
   - Cleanses 25u of chemicals from the bloodstream per tick (250 in total).
   - Heals 10 overall toxin damage per tick (100 in total).
   - Heals 10 cellular damage per tick (100 in total).
