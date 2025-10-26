@@ -56,3 +56,9 @@
     damage:
       types:
         Structural: 4
+  - type: StatusEffectOnCollideGhost
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 10

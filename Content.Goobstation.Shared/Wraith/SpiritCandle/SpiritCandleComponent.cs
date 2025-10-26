@@ -27,6 +27,12 @@ public sealed partial class SpiritCandleComponent : Component
     [ViewVariables]
     public EntProtoId Weakened = "StatusEffectWeakenedWraith";
 
+    [ViewVariables]
+    public EntityUid? Holder;
+
+    [ViewVariables]
+    public bool Active;
+
     #region Visuals
 
     [DataField] public string OneCharge = "eye";

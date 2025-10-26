@@ -3,6 +3,8 @@ using Content.Shared.Atmos;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffectNew;
@@ -29,6 +31,7 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -38,9 +41,7 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
         SubscribeLocalEvent<SpiritCandleComponent, IgnitedEvent>(OnIgnited);
         SubscribeLocalEvent<SpiritCandleComponent, ExtinguishedEvent>(OnExtinguished);
 
-        SubscribeLocalEvent<SpiritCandleComponent, GotEquippedHandEvent>(OnGotEquipped);
-        SubscribeLocalEvent<SpiritCandleComponent, DroppedEvent>(OnDropped);
-
+        SubscribeLocalEvent<SpiritCandleComponent, EntGotInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<SpiritCandleComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
 
         SubscribeLocalEvent<SpiritCandleComponent, UseInHandEvent>(OnUseInHand);
@@ -58,16 +59,29 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
         if (_netManager.IsClient)
             return;
 
-        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(ent.Owner).Coordinates);
+        ent.Comp.Active = true;
 
-        _transform.SetParent(spawn, ent.Owner);
-        ent.Comp.AreaUid = spawn;
+        if (ent.Comp.Holder is { } holder)
+        {
+            var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(holder).Coordinates);
+            _transform.SetParent(spawn, holder);
+            ent.Comp.AreaUid = spawn;
+        }
+        else
+        {
+            ent.Comp.Holder = null;
+            var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(ent.Owner).Coordinates);
+            _transform.SetParent(spawn, ent.Owner);
+            ent.Comp.AreaUid = spawn;
+        }
     }
 
     private void OnExtinguished(Entity<SpiritCandleComponent> ent, ref ExtinguishedEvent args)
     {
         if (_netManager.IsClient)
             return;
+
+        ent.Comp.Active = false;
 
         if (ent.Comp.AreaUid is not {} areaUid)
             return;
@@ -76,42 +90,39 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
         ent.Comp.AreaUid = null;
     }
 
-    private void OnGotEquipped(Entity<SpiritCandleComponent> ent, ref GotEquippedHandEvent args)
+    private void OnEntInserted(Entity<SpiritCandleComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (_netManager.IsClient)
+        if (_netManager.IsClient || !ent.Comp.Active)
             return;
 
-        if (ent.Comp.AreaUid is not {} areaUid)
-            return;
+        if (ent.Comp.AreaUid is {} areaUid)
+            QueueDel(areaUid);
 
-        QueueDel(areaUid);
-        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(args.User).Coordinates);
-        _transform.SetParent(spawn, args.User);
+        if (!HasComp<HandsComponent>(args.Container.Owner))
+        {
+            ent.Comp.AreaUid = null;
+            ent.Comp.Holder = null;
+            return;
+        }
+
+        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(args.Container.Owner).Coordinates);
+        _transform.SetParent(spawn, args.Container.Owner);
         ent.Comp.AreaUid = spawn;
-    }
-
-    private void OnDropped(Entity<SpiritCandleComponent> ent, ref DroppedEvent args)
-    {
-        if (_netManager.IsClient)
-            return;
-
-        if (ent.Comp.AreaUid is not {} areaUid)
-            return;
-
-        QueueDel(areaUid);
-        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(ent.Owner).Coordinates);
-        _transform.SetParent(spawn, ent.Owner);
-        ent.Comp.AreaUid = spawn;
+        ent.Comp.Holder = args.Container.Owner;
     }
 
     private void OnEntRemoved(Entity<SpiritCandleComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (_netManager.IsClient || !HasComp<InsideEntityStorageComponent>(ent.Owner))
+        if (_netManager.IsClient || !ent.Comp.Active)
             return;
 
-        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(ent.Owner).Coordinates);
-        _transform.SetParent(spawn, ent.Owner);
+        if (ent.Comp.AreaUid is {} areaUid)
+            QueueDel(areaUid);
+
+        var spawn = SpawnAttachedTo(ent.Comp.SpiritArea, Transform(args.Entity).Coordinates);
+        _transform.SetParent(spawn, args.Entity);
         ent.Comp.AreaUid = spawn;
+        ent.Comp.Holder = null;
     }
 
     private void OnUseInHand(Entity<SpiritCandleComponent> ent, ref UseInHandEvent args)

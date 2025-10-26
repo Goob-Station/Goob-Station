@@ -1,10 +1,16 @@
 - type: entity
   name: spirit candle
   parent: Candle
-  id: Spirit Candle
+  id: SpiritCandle
+  description: Feels vaguely ominous!
   components:
   - type: Item
     size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
     layers:
@@ -30,6 +36,9 @@
     maxCharges: 2
   - type: UseDelay
     delay: 17 # as long as the status effects last + grace period for escape
+  - type: Construction
+    graph: SpiritCandle
+    node: spiritCandle
   - type: Destructible
     thresholds:
     - trigger:
@@ -51,6 +60,7 @@
       components:
       - Wraith
   - type: Transform
+    anchored: false
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -61,5 +71,9 @@
           bounds: "-6, -6, 6, 6" # 12x12 tile area
         density: 1
         hard: false
+        layer:
+        - GhostImpassable
         mask:
         - GhostImpassable
+  - type: CollisionWake
+    enabled: false
