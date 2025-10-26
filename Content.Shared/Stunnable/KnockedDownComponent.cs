@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Stunnable;
@@ -22,6 +23,24 @@ namespace Content.Shared.Stunnable;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas:true), AutoGenerateComponentPause, Access(typeof(SharedStunSystem))]
 public sealed partial class KnockedDownComponent : Component
 {
+    /// <summary>
+    /// Goobstation old WD crawling Datafield, currently used for EE interaction verbs.
+    /// </summary>
+    [DataField("helpInterval"), AutoNetworkedField]
+    public float HelpInterval = 1f;
+
+    /// <summary>
+    /// Goobstation old WD crawling Datafield, currently used for EE interaction verbs.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public float HelpTimer = 0f;
+
+    /// <summary>
+    /// Goobstation old WD crawling Datafield, currently used for EE interaction verbs.
+    /// </summary>
+    [DataField("helpAttemptSound")]
+    public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
     /// <summary>
     /// Game time that we can stand up.
     /// </summary>

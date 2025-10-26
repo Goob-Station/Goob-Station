@@ -66,6 +66,7 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -74,8 +75,10 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
@@ -124,6 +127,10 @@ public abstract partial class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<StunnedComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<MobStateComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        // helping people up if they're knocked down
+        SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<SpeedModifierContactsComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         // New Status Effect subscriptions
         SubscribeLocalEvent<StunnedStatusEffectComponent, StatusEffectAppliedEvent>(OnStunStatusApplied);
@@ -437,6 +444,11 @@ public abstract partial class SharedStunSystem : EntitySystem
         args.Args = ev;
     }
 
+    private void OnRefreshMovespeed(EntityUid uid, SpeedModifierContactsComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
+    }
+
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
         // EE Interaction Verbs Begin
@@ -454,8 +466,9 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Set it to half the help interval so helping is actually useful...
         knocked.HelpTimer = knocked.HelpInterval / 2f;
 
-        _statusEffect.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
+        _status.TryGetTime(uid, "KnockDown", out var timer);
+        _status.TryUpdateStatusEffectDuration(uid, "KnockedDown",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
+        _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
         Dirty(uid, knocked);
 
         args.Handled = true;

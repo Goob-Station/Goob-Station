@@ -65,7 +65,7 @@ public sealed class RevenantCrushSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAftersArgs);
         _audio.PlayPredicted(ent.Comp.CrushSound, args.Target, args.Target);
 
-        _stunSystem.KnockdownOrStun(args.Target, ent.Comp.KnockdownDuration, true);
+        _stunSystem.TryKnockdown(args.Target, ent.Comp.KnockdownDuration, true);
         _damageableSystem.TryChangeDamage(args.Target, ent.Comp.InitialDamage, true);
 
         args.Handled = true;

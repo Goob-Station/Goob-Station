@@ -61,7 +61,7 @@ public sealed class RushdownSystem : EntitySystem
             if (target.Owner == ent.Owner) // skip self
                 continue;
 
-            _stun.KnockdownOrStun(target, ent.Comp.CollideKnockdown, true);
+            _stun.TryAddStunDuration(target, ent.Comp.CollideKnockdown);
         }
 
         _audio.PlayPredicted(ent.Comp.ShockwaveSound, ent.Owner, null);
