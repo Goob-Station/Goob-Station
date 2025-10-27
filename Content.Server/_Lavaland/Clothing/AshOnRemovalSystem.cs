@@ -11,7 +11,6 @@ namespace Content.Server._Lavaland.Clothing;
 /// </summary>
 public sealed class AshOnRemovalSystem : EntitySystem
 {
-
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;

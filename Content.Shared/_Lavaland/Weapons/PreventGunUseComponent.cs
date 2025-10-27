@@ -5,7 +5,7 @@ namespace Content.Shared._Lavaland.Weapons;
 /// <summary>
 /// This is used for anyone who has this component cant fire guns.
 /// </summary>
-[RegisterComponent, NetworkedComponent , AutoGenerateComponentState, AutoGenerateComponentPause  ]
+[RegisterComponent, NetworkedComponent , AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class PreventGunUseComponent : Component
 {
     [DataField, AutoNetworkedField ,AutoPausedField]

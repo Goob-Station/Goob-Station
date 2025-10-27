@@ -125,4 +125,3 @@ public sealed class ImmortalityTalismanSystem : EntitySystem
         args.Args.ModifySpeed(0,true);
     }
 }
-

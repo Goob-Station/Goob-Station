@@ -28,6 +28,7 @@ public sealed class LanguageLearnSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<LanguageLearnComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<LanguageLearnComponent, LanguageLearnDoAfterEvent>(OnUsed, after: new []{typeof(DoAfterSystem)});
         SubscribeLocalEvent<LanguageLearnComponent, ExaminedEvent>(OnExamine);
