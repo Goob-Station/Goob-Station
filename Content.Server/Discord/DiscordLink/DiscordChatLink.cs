@@ -1,6 +1,7 @@
 using Content.Server.Chat.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using NetCord;
 using NetCord.Gateway;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
