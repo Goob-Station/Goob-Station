@@ -20,25 +20,20 @@
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Basic lavaland.
-- type: lavalandMap
-  id: Lavaland
+
+- type: lavalandPlanet
+  id: LavalandPlanet
   name: lavaland-planet-name-lavaland
-  outpostPath: /Maps/_Lavaland/Lavaland/outpost_lavaland.yml
-  ruinPool: Lavaland
-  temperature: 308.4523 # 35.3023 C
-  planetColor: "#A34931"
+  mapLight: "#f0a959"
   biome: LavaLand
-  shuttleWhitelist:
-    components:
-    - MiningShuttle
   atmosphere:
-  - 10.524779 # oxygen, not enough for breathing
-  - 25.10312 # nitrogen
-  - 8.21301 # carbon dioxide
-  weather:
-  - AshfallLight
-  - AshfallHeavy
+    volume: 2500
+    immutable: True
+    temperature: 308.4523 # 35.3023 C
+    moles:
+    - 10.524779 # oxygen, not enough for breathing
+    - 25.10312 # nitrogen
+    - 8.21301 # carbon dioxide
   markers:
   - RandomTendrilLavaland
   - RandomMobLavaland
@@ -53,3 +48,28 @@
   - OreArtifactFragment
   - OreDiamond
   - BSCrystal
+  addComponents:
+  - type: FTLDestination
+    whitelist:
+      components:
+      - MiningShuttle
+  - type: WeatherScheduler # Regular ash storms
+    stages:
+    - duration: # 5-10 minutes of calm
+        min: 300
+        max: 600
+    - weather: AshfallLight # ash starts to fall, 30 second warning
+      message: ash-storm-telegraph
+      duration:
+        min: 30
+        max: 30
+    - weather: Ashfall # 1-2 minutes of damaging storm
+      message: ash-storm-alert
+      duration:
+        min: 60
+        max: 120
+    - weather: AshfallLight # ash clears away for 30 seconds
+      message: ash-storm-clearing
+      duration:
+        min: 30
+        max: 30

@@ -17,5 +17,5 @@ public sealed partial class CorporealComponent : Component
     /// The debuff applied when the component is present.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MovementSpeedDebuff = 0.66f;
+    public float MovementSpeedDebuff = 0.3f; // Goobstation change, corporeal makes you much slower.
 }
