@@ -57,20 +57,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitcode.Weapons.Misc; // Goob
 using Content.Shared.Jittering;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -90,6 +86,15 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random; // Goob - Shove
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+
+// Goobstation usings
+using Content.Shared.Movement.Components; // For InputMoverComponent
+using Robust.Shared.Random; // Shove
+using Content.Shared._Shitcode.Weapons.Misc;
+using Content.Goobstation.Common.Stunnable; // Martial Arts
+using Content.Goobstation.Common.MartialArts; // Martial Arts
+using Content.Shared.Damage.Events; // Sprinting Logs
+
 
 namespace Content.Shared.Damage.Systems;
 
@@ -139,6 +144,9 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         SubscribeLocalEvent<StaminaDamageOnCollideComponent, ThrowDoHitEvent>(OnThrowHit);
 
         SubscribeLocalEvent<StaminaDamageOnHitComponent, MeleeHitEvent>(OnMeleeHit);
+
+        // Goobstation - Grab Sprinting Toggle from Goob Mod
+        SubscribeLocalEvent<SprintingStateChangedEvent>(OnSprintingStateChanged);
 
         Subs.CVar(_config, CCVars.PlaytestStaminaDamageModifier, value => UniversalStaminaDamageModifier = value, true);
     }
@@ -438,13 +446,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (value <= 0)
             return;
-        if (source != null)
+
+        // Goobstation - Don't log stamina damage if the entity is sprinting and the damage is from themselves (sprinting)
+        if (!component.IsSprinting && source != uid)
         {
-            _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(source.Value):user} caused {value} stamina damage to {ToPrettyString(uid):target}{(with != null ? $" using {ToPrettyString(with.Value):using}" : "")}");
-        }
-        else
-        {
-            _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(uid):target} took {value} stamina damage");
+            if (source != null)
+                _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(source.Value):user} caused {value} stamina damage to {ToPrettyString(uid):target}{(with != null ? $" using {ToPrettyString(with.Value):using}" : "")}");
+            else
+                _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(uid):target} took {value} stamina damage");
         }
 
         if (visual)
@@ -632,4 +641,17 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     {
         public NetEntity Entity = entity;
     }
+
+    #region Goobstaiton - Sprinting State Change Event
+
+    private void OnSprintingStateChanged(ref SprintingStateChangedEvent ev)
+    {
+        if (TryComp<StaminaComponent>(ev.Uid, out var stamina))
+        {
+            stamina.IsSprinting = ev.IsSprinting;
+            Dirty(ev.Uid, stamina);
+        }
+    }
+
+    #endregion
 }

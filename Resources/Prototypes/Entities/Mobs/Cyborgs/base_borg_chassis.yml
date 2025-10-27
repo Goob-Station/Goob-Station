@@ -449,6 +449,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
+  - type: MiningPoints # goobstation borgs can claim mining points
 
 - type: entity
   abstract: true

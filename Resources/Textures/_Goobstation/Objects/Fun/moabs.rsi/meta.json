@@ -3,15 +3,18 @@
   "license": "CC0-1.0",
   "copyright": "Created by Arraydeess14",
   "size": {
-    "x": 32,
-    "y": 32
+    "x": 48,
+    "y": 48
   },
   "states": [
     {
-        "name": "icon"
+        "name": "dragon"
     },
     {
-        "name": "gold"
+        "name": "brb"
+    },
+    {
+        "name": "zomb"
     }
   ]
 }
