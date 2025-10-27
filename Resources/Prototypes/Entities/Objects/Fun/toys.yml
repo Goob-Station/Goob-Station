@@ -350,6 +350,7 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+  - type: GunExecutionBlacklist # Goobstation
 
 - type: entity
   parent: RevolverCapGun

@@ -11,6 +11,7 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goobstation.Shared.Sprinting;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -65,6 +66,12 @@ public abstract partial class SharedMartialArtsSystem
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
             _modifier.RefreshMovementSpeedModifiers(ent);
+            if (!TryComp(args.Target, out SprinterComponent? sprinter))
+                return;
+
+            _sprinting.ToggleSprint(args.Target, sprinter, false, false);
+            sprinter.LastSprint = _timing.CurTime + TimeSpan.FromSeconds(2); // 5s sprinting delay
+            Dirty(args.Target, sprinter);
             return;
         }
 
@@ -237,7 +244,7 @@ public abstract partial class SharedMartialArtsSystem
         if (ev.MinVelocity <= velocity)
         {
             power = GetCapoeiraPower(ev, velocity);
-            //_stamina.TryTakeStamina(uid, ev.StaminaToHeal);
+            _stamina.TryTakeStamina(uid, ev.StaminaToHeal);
             return true;
         }
 

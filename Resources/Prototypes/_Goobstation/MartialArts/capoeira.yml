@@ -99,5 +99,5 @@
   - Disarm
   - Disarm
   event: !type:KickUpPerformedEvent
-    staminaToHeal: -20
+    staminaToHeal: 0
   performOnSelf: true
