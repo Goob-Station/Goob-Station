@@ -1,0 +1,57 @@
+- type: entity
+  parent: BaseGameRule
+  id: HasturMidround
+  components:
+  - type: AntagSelection
+    agentName: hastur-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostHastur
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: hastur-role-greeting
+        color: Yellow
+        sound: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobHastur
+  - type: StationEvent
+    weight: 0.5 # Extremely rare
+    earliestStart: 45
+    minimumPlayers: 30
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 600
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: HasturMidround
+  id: TokenHastur
+  components:
+  - type: AntagSpawner
+    prototype: MobHastur
+  - type: AntagSelection
+    agentName: hastur-round-end-agent-name
+    definitions:
+    - spawnerPrototype: HasturToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: hastur-role-greeting
+        color: Yellow
+        sound: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
