@@ -17002,3 +17002,9 @@ Entries:
       message: Slime bones! Slimes are now boneless
   id: 1904
   time: '2025-10-27T04:07:35.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Cyborgs can now claim miningpoints
+  id: 1905
+  time: '2025-10-27T04:32:44.0000000+00:00'
