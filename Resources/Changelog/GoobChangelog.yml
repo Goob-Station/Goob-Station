@@ -16769,3 +16769,9 @@ Entries:
         disabler or a pistol for their standard issue self-defense firearm.
   id: 1877
   time: '2025-10-23T03:22:54.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Add
+      message: Add the printing sound when the hand labeler is used on an entity.
+  id: 1878
+  time: '2025-10-23T22:48:55.0000000+00:00'
