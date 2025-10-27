@@ -11,7 +11,7 @@ public sealed partial class SpikerShuffleComponent : Component
     public List<ProtoId<StatusEffectPrototype>> StatusEffectsToRemove = new();
 
     [DataField]
-    public ComponentRegistry ComponentsToRemove = new();
+    public ComponentRegistry? ComponentsToRemove;
 
     [ViewVariables]
     public EntProtoId StatusEffect = "StatusEffectShuffle";
