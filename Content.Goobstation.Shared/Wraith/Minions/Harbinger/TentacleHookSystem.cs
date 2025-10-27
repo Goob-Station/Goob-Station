@@ -9,6 +9,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Robust.Shared.Spawners;
@@ -97,6 +98,8 @@ public sealed class TentacleHookSystem : EntitySystem
         ent.Comp.Target = args.Target;
         Dirty(ent);
 
+
+        EntityManager.EnsureComponent<MovementModStatusEffectComponent>(args.Target);
         _movementMod.TryUpdateMovementSpeedModDuration(args.Target, SharedStunSystem.StunId, ent.Comp.DurationSlow, 0.3f);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
