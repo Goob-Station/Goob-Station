@@ -16962,3 +16962,17 @@ Entries:
       message: Brigmed now has new glasses and headset, as well as medical access.
   id: 1900
   time: '2025-10-27T01:23:12.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Add
+      message: Added 3 new Moab class balloons
+    - type: Add
+      message: Added Carp balloons
+    - type: Add
+      message: Added Premium Balloon Warrior's Package
+    - type: Tweak
+      message: Adjusted Balloon Popper's Package price
+    - type: Tweak
+      message: Adjusted Balloon layer cash drop
+  id: 1901
+  time: '2025-10-27T04:06:19.0000000+00:00'
