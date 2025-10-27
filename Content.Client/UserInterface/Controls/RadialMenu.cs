@@ -249,7 +249,8 @@ public class RadialMenuTextureButtonBase : TextureButton
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
         if (args.Function == EngineKeyFunctions.UIClick
-            || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
+            || args.Function == ContentKeyFunctions.AltActivateItemInWorld
+            || args.Function == EngineKeyFunctions.EscapeMenu) // Goob edit
             base.KeyBindUp(args);
     }
 }
@@ -296,6 +297,8 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuTextureButtonBase
     /// <inheritdoc />
     protected override bool HasPoint(Vector2 point)
     {
+        return false; // Goobstation edit
+
         if (ParentCenter == null)
         {
             return base.HasPoint(point);
@@ -307,6 +310,13 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuTextureButtonBase
 
         // comparing to squared values is faster, then making sqrt
         return distSquared > outerRadiusSquared;
+    }
+
+    /// <inheritdoc />
+    protected override void KeyBindUp(GUIBoundKeyEventArgs args) // Goobstation
+    {
+        if (args.Function == EngineKeyFunctions.EscapeMenu) // Goob edit
+            base.KeyBindUp(args);
     }
 }
 
