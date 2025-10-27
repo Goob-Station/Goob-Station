@@ -17014,3 +17014,9 @@ Entries:
       message: Assistants have been released from their chronic wasting disease.
   id: 1906
   time: '2025-10-27T10:30:36.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: All instruments should have their correct sounds again.
+  id: 1907
+  time: '2025-10-27T12:21:20.0000000+00:00'
