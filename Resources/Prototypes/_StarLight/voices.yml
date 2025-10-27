@@ -18,3 +18,31 @@
   sex: Female
   silicon: false
   voice: 3
+
+- type: voice
+  id: SEmKibXJ2YxXNjWwBbs9
+  name: TF2 Announcer
+  sex: Female
+  silicon: false
+  voice: 4
+
+- type: voice
+  id: fhG2HtuDNaqdXajIyLnq
+  name: Hatsune Miku (lol)
+  sex: Female
+  silicon: false
+  voice: 5
+
+- type: voice
+  id: RRrV00jn9iL01fWhVCrp
+  name: Johnny Silverhand
+  sex: Male
+  silicon: false
+  voice: 6
+
+- type: voice
+  id: WKgwwCtVqZG2hSmj5qI7
+  name: Billy Herrington
+  sex: Male
+  silicon: false
+  voice: 7

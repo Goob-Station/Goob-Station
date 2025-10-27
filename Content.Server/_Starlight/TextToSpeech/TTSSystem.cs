@@ -36,7 +36,7 @@ public sealed partial class TTSSystem : EntitySystem
         "The robust salvagers have once again halted the nuclear operatives."
     ];
 
-    private const int DefaultAnnounceVoice = 1;
+    private const int DefaultAnnounceVoice = 4;
     private const int MaxChars = 200;
     private const float WhisperVoiceVolumeModifier = 0.6f;
     private const int WhisperVoiceRange = 3;
@@ -116,11 +116,11 @@ public sealed partial class TTSSystem : EntitySystem
         if (!TryComp(args.Source, out TextToSpeechComponent? senderComponent)
             || senderComponent.VoicePrototypeId is not string voiceId)
         {
-            HandleRadio(args.Receivers, args.Message, 1, chime);
+            HandleRadio(args.Receivers, args.Message, 4, chime);
         }
         else
         {
-            var voice = _prototypeManager.TryIndex(voiceId, out VoicePrototype? proto) ? proto.Voice : 1;
+            var voice = _prototypeManager.TryIndex(voiceId, out VoicePrototype? proto) ? proto.Voice : 4;
             HandleRadio(args.Receivers, args.Message, voice, chime);
         }
     }
@@ -134,11 +134,11 @@ public sealed partial class TTSSystem : EntitySystem
         if (!TryComp(args.Source, out TextToSpeechComponent? senderComponent)
             || senderComponent.VoicePrototypeId is not string voiceId)
         {
-            HandleCollectiveMind(args.Receivers, args.Message, 1);
+            HandleCollectiveMind(args.Receivers, args.Message, 4);
         }
         else
         {
-            var voice = _prototypeManager.TryIndex(voiceId, out VoicePrototype? proto) ? proto.Voice : 1;
+            var voice = _prototypeManager.TryIndex(voiceId, out VoicePrototype? proto) ? proto.Voice : 4;
             HandleCollectiveMind(args.Receivers, args.Message, voice);
         }
     }
