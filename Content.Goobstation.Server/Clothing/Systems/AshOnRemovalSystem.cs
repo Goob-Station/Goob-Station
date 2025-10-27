@@ -18,22 +18,22 @@ public sealed class AshOnRemovalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequip);
     }
 
-    private void OnUnequip(Entity<AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent arg)
+    private void OnUnequip(Entity<AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent args)
     {
-
         if (!ent.Comp.Enabled)
             return;
-        var user = arg.Wearer;
+
+        var user = args.Wearer;
 
         _audio.PlayPredicted(ent.Comp.Sound, ent.Owner, user);
 
         Spawn("Ash", Transform(user).Coordinates);
         Strip(user);
-        Del(user);
-
+        QueueDel(user);
     }
 
     private void Strip(EntityUid uid)

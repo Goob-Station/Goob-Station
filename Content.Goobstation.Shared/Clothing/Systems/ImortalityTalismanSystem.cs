@@ -72,11 +72,9 @@ public sealed class ImmortalityTalismanSystem : EntitySystem
 
     private void OnActivate(ref ActivateImmortalityTalismanActionEvent arg)
     {
-        if (arg.Handled)
-            return;
-        if (!_inventory.TryGetSlotEntity(arg.Performer, "neck", out var slotEntity))
-            return;
-        if (!TryComp<ImmortalityTalismanComponent>(slotEntity, out var talisman))
+        if (arg.Handled
+            || !_inventory.TryGetSlotEntity(arg.Performer, "neck", out var slotEntity)
+            || !TryComp<ImmortalityTalismanComponent>(slotEntity, out var talisman))
             return;
 
         if (_timing.CurTime < talisman.Cooldown)

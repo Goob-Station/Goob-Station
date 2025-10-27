@@ -12,10 +12,10 @@ namespace Content.Goobstation.Server;
 /// </summary>
 public sealed class BleedingIncreaseMeleeDamageSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<BleedingIncreaseMeleeDamageComponent,GetUserMeleeDamageEvent>(OnGetMeleeDamage);
     }
 
@@ -25,12 +25,7 @@ public sealed class BleedingIncreaseMeleeDamageSystem : EntitySystem
             return;
 
         var ratio = blood.BleedAmount/blood.MaxBleedAmount;
-
         var damageModifier = ent.Comp.Modifier * ratio;
-
         args.Damage *= Math.Max(1, damageModifier); // make sure its not negative
-
     }
 }
-
-

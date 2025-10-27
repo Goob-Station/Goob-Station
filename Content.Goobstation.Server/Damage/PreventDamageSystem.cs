@@ -10,9 +10,10 @@ namespace Content.Goobstation.Server.Damage;
 public sealed class PreventDamageSystem : EntitySystem
 {
     /// <inheritdoc/>
-    [Dependency] private readonly MobThresholdSystem _mobThreshold= null!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold= default!;
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<PreventDamageComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
     }
 

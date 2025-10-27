@@ -13,11 +13,11 @@ public sealed partial class ChangeThresholdComponent : Component
     public FixedPoint2 OldCriticalThreshold = FixedPoint2.New(100);
 
     [DataField]
-    public FixedPoint2 NewCriticalThreshold = FixedPoint2.New(199);
+    public FixedPoint2 NewCriticalMultiplyer = FixedPoint2.New(2);
 
     [DataField]
     public FixedPoint2 OldDeadThreshold  = FixedPoint2.New(200);
 
     [DataField]
-    public FixedPoint2 NewDeadThreshold = FixedPoint2.New(210);
+    public FixedPoint2 NewDeadMultiplyer= FixedPoint2.New(2);
 }
