@@ -2,7 +2,7 @@
   id: Chemicals
   category: Battery
   icons:
-  - sprite: /Textures/_Mono/Interface/Alerts/generic_counter.rsi
+  - sprite: Textures/Interface/Alerts/generic_counter.rsi
     state: base
   alertViewEntity: AlertChemicalsSpriteView
   name: alerts-borer-chemical-name
@@ -15,7 +15,7 @@
   - type: GenericCounterAlert
     hideLeadingZeroes: false
   - type: Sprite
-    sprite: /Textures/_Mono/Interface/Alerts/generic_counter.rsi
+    sprite: Textures/Interface/Alerts/generic_counter.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
     - map: [ "1" ]
