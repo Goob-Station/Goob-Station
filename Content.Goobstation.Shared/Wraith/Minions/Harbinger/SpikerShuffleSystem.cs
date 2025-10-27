@@ -32,6 +32,9 @@ public sealed class SpikerShuffleSystem : EntitySystem
         foreach (var statusEffect in ent.Comp.StatusEffectsToRemove)
             _statusOld.TryRemoveStatusEffect(ent.Owner, statusEffect);
 
+        // Shitcode edit here, knockdownStatusEffect And StunnedStatusEffect
+        EntityManager.RemoveComponents(ent.Owner, ent.Comp.ComponentsToRemove);
+
         _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusEffect, out _, ent.Comp.Duration);
         _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusAbilityDisable, out _, ent.Comp.Duration); // disable using actions
 
@@ -66,4 +69,3 @@ public sealed class SpikerShuffleSystem : EntitySystem
         }
     }
 }
-

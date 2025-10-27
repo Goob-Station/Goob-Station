@@ -144,12 +144,13 @@
   - type: SpikerShuffle
     statusEffectsToRemove:
     - Stun
-    - StunnedStatusEffect
-    - KnockdownStatusEffect
     - Electrocution
     - SlowedDown
     - Stutter
     - TemporaryBlindness
+    componentsToRemove:
+    - StunnedStatusEffect
+    - KnockdownStatusEffect
   - type: ActionGrant
     actions:
     - ActionTentacleHook
