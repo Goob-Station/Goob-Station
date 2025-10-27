@@ -1,0 +1,54 @@
+- type: language
+  id: Gruntish
+  isVisibleLanguage: true
+  speech:
+    fontSize: 18
+    color: "#721f1f"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - drugo
+    - cuntu
+    - mimi
+    - moe
+    - mofu
+    - fuwa
+    - brugna
+    - ugna
+    - poka
+    - munya
+    - puni
+    - munyu
+    - Rescunt
+    - icha
+    - doki
+    - kyun
+    - kusu
+    - fuckin'
+    - oath
+    - kilatu
+    - kis
+    - ama
+    - chuu
+    - baka
+    - Gormo
+    - boop
+    - trashin
+    - kit
+    - sune
+    - yori
+    - sou
+    - Ough
+    - ye'
+    - san
+    - kun
+    - mahou
+    - yatta
+    - suki
+    - usagh
+    - fent
+    - ori
+    - uwa
+    - zaazaa
