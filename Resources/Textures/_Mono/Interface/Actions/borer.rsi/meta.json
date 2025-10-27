@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "borer actions taken from Monkestation https://github.com/Monkestation/Monkestation2.0/pull/976, edited by Cojoke",
+    "states": [
+        {
+            "name": "borer_chem"
+        },
+        {
+            "name": "borer_infest"
+        },
+        {
+            "name": "borer_bloodcheck"
+        },
+        {
+            "name": "borer_eject"
+        },
+        {
+            "name": "borer_egg"
+        },
+        {
+            "name": "borer_control"
+        }
+    ]
+}

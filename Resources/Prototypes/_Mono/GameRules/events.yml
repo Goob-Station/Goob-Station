@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseGameRule
+  id: CorticalBorerInfestation
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 7
+    duration: 1
+    minimumPlayers: 12
+    earliestStart: 20
+    reoccurrenceDelay: 35
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 100
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostCorticalBorer
+    minCount: 1
+    maxCount: 2

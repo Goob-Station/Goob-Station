@@ -104,6 +104,11 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
+      - !type:GenericStatusEffect # Mono change
+        key: CorticalBorerProtection
+        type: Add
+        time: 3 # May be too much, needs testing
+        refresh: false
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
