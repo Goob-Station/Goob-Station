@@ -66,7 +66,7 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 10
-  knockdownTime: 1
+  paralyzeTime: 1
   staminaDamage: 10
   canDoWhileProne: false
 
@@ -86,7 +86,7 @@
     minVelocity: 2
     sound:
       path: /Audio/Weapons/genhit1.ogg
-  knockdownTime: 2
+  paralyzeTime: 2
   staminaDamage: 15
   extraDamage: 25
   canDoWhileProne: false

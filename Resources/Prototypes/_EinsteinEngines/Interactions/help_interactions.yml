@@ -31,9 +31,10 @@
     actions:
     - !type:ChangeStandingStateAction
       makeStanding: true
-    - !type:ModifyStatusEffectAction
-      effect: StunnedStatusEffect
-      timeAdded: -2.5 # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
+      # Todo StunnedStatusEffectComponent removal here
+#    - !type:ModifyStatusEffectAction
+#      effect: StunnedStatusEffect
+#      timeAdded: -2.5 # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
     - !type:ModifyStatusEffectAction
       effect: Stun
       timeAdded: -2.5 # 2 seconds delay to remove 2.5 seconds of stun - should be good enough.

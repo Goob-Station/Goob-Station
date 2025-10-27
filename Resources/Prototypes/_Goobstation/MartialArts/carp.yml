@@ -56,7 +56,7 @@
   - Grab
   event: !type:SleepingCarpKneeHaulPerformedEvent
   extraDamage: 10
-  knockdownTime: 6
+  paralyzeTime: 6
   staminaDamage: 60
 
 - type: combo

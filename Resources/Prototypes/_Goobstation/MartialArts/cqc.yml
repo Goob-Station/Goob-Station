@@ -54,7 +54,7 @@
   - Grab
   - Grab
   event: !type:CqcRestrainPerformedEvent
-  knockdownTime: 10
+  paralyzeTime: 10
   staminaDamage: 30
 
 - type: combo
