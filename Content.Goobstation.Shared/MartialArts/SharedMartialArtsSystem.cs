@@ -28,6 +28,7 @@ using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.Sprinting;
 using Content.Goobstation.Shared.Stealth;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -104,6 +105,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     public override void Initialize()
     {
