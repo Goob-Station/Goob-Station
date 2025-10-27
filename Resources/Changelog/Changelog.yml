@@ -4055,3 +4055,10 @@ Entries:
   id: 9164
   time: '2025-10-23T15:29:38.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40983
+- author: Princess-Cheeseballs
+  changes:
+  - message: Explosions now scale properly with reagent quantity
+    type: Fix
+  id: 9165
+  time: '2025-10-27T22:54:45.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41153
