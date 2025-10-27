@@ -1498,17 +1498,17 @@
   worksOnTheDead: true
   metabolisms:
     Poison:
-      metabolismRate: 0.1
+      metabolismRate: 0.05 # Reduced metabolism rate so 15u = 5 minutes of suspended decomposition
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 0.5 # Reduced along with metabolism to retain original damage/u
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.05
       effects:
       - !type:ReduceRotting
-        seconds: 6
+        seconds: 1 # Previously 6, doesn't make sense for a preservative to be a regenerative, and we already have Opporozidone?
         conditions:
         - !type:MobStateCondition
           mobstate: Dead
