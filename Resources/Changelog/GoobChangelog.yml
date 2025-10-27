@@ -17055,3 +17055,21 @@ Entries:
       message: Fixed pacifists being able to use laser rifles
   id: 1910
   time: '2025-10-27T12:28:27.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: 'Wraith can now spawn naturally. '
+    - type: Add
+      message: >-
+        Added Spirit Candles. Spirit Candles can be obtained by crafting a skull
+        with a candle. They reveal Wraith roaming around you in a 12x12 area. If
+        you activate the Spirit Candle, Wraith will become corporeal and
+        weakened!
+    - type: Add
+      message: >-
+        Added Salt Lines. You can use a salt shaker or salt packet to create
+        salt lines. They take 1u to make.
+    - type: Add
+      message: Piety Vend has a skull now.
+  id: 1911
+  time: '2025-10-27T17:34:27.0000000+00:00'
