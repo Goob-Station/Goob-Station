@@ -98,7 +98,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         }
     }
 
-    protected void Cycle(Entity<BoostedImmunityComponent> ent)
+    private void Cycle(Entity<BoostedImmunityComponent> ent)
     {
         if (!TryValidFireCheck(ent)
             || !TryValidMobstateCheck(ent))
