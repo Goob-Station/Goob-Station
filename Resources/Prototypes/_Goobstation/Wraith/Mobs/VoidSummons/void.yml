@@ -149,8 +149,8 @@
     - Stutter
     - TemporaryBlindness
     componentsToRemove:
-    - StunnedStatusEffect
-    - KnockdownStatusEffect
+    - type: StunnedStatusEffect
+    - type: KnockdownStatusEffect
   - type: ActionGrant
     actions:
     - ActionTentacleHook
