@@ -410,11 +410,14 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
+    whitelist: &StandardMaterialWhitelist
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+        - Metal # Goobstation Start
+        - Wooden
+        - Plastic # Goobstation End
   - type: Lathe
     idleState: icon
     runningState: building
@@ -498,11 +501,8 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -606,11 +606,8 @@
     - SharedBoards
     - ShuttleBoardsGoob
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -679,11 +676,8 @@
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
   - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -797,11 +791,10 @@
     - SyndicateAmmoLightStatic # Goobstation
     - SyndicateAmmoHeavyStatic # Goobstation
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -836,11 +829,8 @@
       - SyndicateAmmoLightStatic # Goobstation Packs
       - SyndicateAmmoHeavyStatic # Goobstation Packs
     - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
+      whitelist: *StandardMaterialWhitelist
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -953,11 +943,8 @@
     - ClothingDurathreadArmoured
     - ClothingCasualContrabandJumpsuits
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -1136,10 +1123,5 @@
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - Metal
-        - Wooden
-        - RawMaterial
-        - Plastic
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
