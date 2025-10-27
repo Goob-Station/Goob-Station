@@ -115,6 +115,13 @@ namespace Content.Shared.Preferences
         [DataField]
         public string Name { get; set; } = "John Doe";
 
+        [DataField]
+        public string Voice { get; set; } = "";
+
+        [DataField]
+        public string SiliconVoice { get; set; } = "";
+
+
         /// <summary>
         /// Detailed text that can appear for the character if <see cref="CCVars.FlavorText"/> is enabled.
         /// </summary>
@@ -184,6 +191,8 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode.SpawnAsOverflow;
         public HumanoidCharacterProfile(
             string name,
+            string voice,
+            string siliconVoice,
             string flavortext,
             string species,
             float height, // Goobstation: port EE height/width sliders
@@ -201,6 +210,8 @@ namespace Content.Shared.Preferences
 
         {
             Name = name;
+            Voice = voice;
+            SiliconVoice = siliconVoice;
             FlavorText = flavortext;
             Species = species;
             Height = height; // Goobstation: port EE height/width sliders
@@ -234,6 +245,8 @@ namespace Content.Shared.Preferences
         /// <summary>Copy constructor</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other.Name,
+                other.Voice,
+                other.SiliconVoice,
                 other.FlavorText,
                 other.Species,
                 other.Height, // Goobstation: port EE height/width sliders
@@ -360,6 +373,16 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithGender(Gender gender)
         {
             return new(this) { Gender = gender };
+        }
+
+        public HumanoidCharacterProfile WithVoice(string id)
+        {
+            return new(this) { Voice = id };
+        }
+
+        public HumanoidCharacterProfile WithSiliconVoice(string id)
+        {
+            return new(this) { Voice = id };
         }
 
         public HumanoidCharacterProfile WithSpecies(string species)

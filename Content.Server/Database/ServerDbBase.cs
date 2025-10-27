@@ -390,6 +390,8 @@ namespace Content.Server.Database
 
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
+                profile.Voice,
+                profile.SiliconVoice,
                 profile.FlavorText,
                 profile.Species,
                 profile.Height, // Goobstation: port EE height/width sliders
@@ -428,6 +430,8 @@ namespace Content.Server.Database
             var markings = JsonSerializer.SerializeToDocument(markingStrings);
 
             profile.CharacterName = humanoid.Name;
+            profile.Voice = humanoid.Voice;
+            profile.SiliconVoice = humanoid.SiliconVoice;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
             profile.Height = humanoid.Height; // Goobstation: port EE height/width sliders
