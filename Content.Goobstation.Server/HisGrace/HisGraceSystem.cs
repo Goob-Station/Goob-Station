@@ -17,8 +17,10 @@ using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
@@ -37,7 +39,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.HisGrace;
 
-public sealed partial class HisGraceSystem : SharedHisGraceSystem
+public sealed class HisGraceSystem : SharedHisGraceSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly PopupSystem _popup = null!;
@@ -53,6 +55,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly ChatSystem _chat = null!;
     [Dependency] private readonly MobThresholdSystem _threshold = null!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = null!;
 
     public override void Initialize()
     {
@@ -148,6 +151,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var popUp = Loc.GetString("hisgrace-use-start");
         _popup.PopupEntity(popUp, args.User, args.User, PopupType.MediumCaution);
 
+        // Log activation with actor and tool format
+        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+            $"HIS GRACE ACTIVATED: {ToPrettyString(args.User):actor} activated {ToPrettyString(hisGrace):tool} at {Transform(hisGrace).Coordinates}");
+
         ChangeState(hisGrace, HisGraceState.Peckish);
         SetUnremovable(hisGrace, true);
     }
@@ -157,7 +164,14 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         hisGrace.Comp.EntitiesAbsorbed++;
 
         if (hisGrace.Comp.EntitiesAbsorbed >= hisGrace.Comp.AscensionThreshold)
+        {
+            var user = hisGrace.Comp.User ?? hisGrace.Owner;
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"HIS GRACE ASCENSION: {ToPrettyString(user):actor} reached ascension with {ToPrettyString(hisGrace):tool}. " +
+                $"Total entities consumed: {hisGrace.Comp.EntitiesAbsorbed}");
+
             ChangeState(hisGrace, HisGraceState.Ascended);
+        }
 
         if (!TryComp<MeleeWeaponComponent>(hisGrace, out var melee))
             return;
@@ -254,6 +268,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             origin: hisGrace,
             ignoreResistances: true);
 
+        // Log the death state activation
+        _adminLog.Add(LogType.AdminMessage, LogImpact.High,
+            $"HIS GRACE DEATH: {ToPrettyString(user):actor} was killed by {ToPrettyString(hisGrace):tool} due to hunger");
+
         var popup = Loc.GetString("hisgrace-death", ("target", Name(user)));
         _popup.PopupEntity(popup, user, user, PopupType.LargeCaution);
 
@@ -336,11 +354,15 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var nearbyEnts = _lookup.GetEntitiesInRange(hisGrace, 1f);
 
         // dont attack if the entity is the user, and dont if the entity is in a container (e.g, already devoured)
-        foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) // malicious foreach loop
+        foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity)
             && entity != hisGrace.Comp.User
             && !_containerSystem.IsEntityOrParentInContainer(entity)))
         {
-            /// get co-ordinates for animation
+            // Log ground attack
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Medium,
+                $"HIS GRACE GROUND ATTACK: {ToPrettyString(hisGrace):tool} attacked {ToPrettyString(entity):target} at {Transform(hisGrace).Coordinates}");
+
+            // get co-ordinates for animation
             var coordinates = _transform.GetMapCoordinates(hisGrace);
             var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
 
@@ -387,40 +409,59 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     #region Helpers
 
-    private void DoAscension(HisGraceComponent comp)
+    private void DoAscension(Entity<HisGraceComponent> hisGrace)
     {
-        if (comp.User is not { } user
+        if (hisGrace.Comp.User is not { } user
             || TerminatingOrDeleted(user))
             return;
 
         var ascensionPopup = Loc.GetString("hisgrace-ascension");
         _popup.PopupEntity(ascensionPopup, user, user, PopupType.Large);
 
+        // Log ascension with all relevant details
+        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+            $"HIS GRACE ASCENSION ACHIEVED: {ToPrettyString(user):actor} achieved ascension with {ToPrettyString(hisGrace):tool} at {Transform(hisGrace).Coordinates}. " +
+            $"Total entities consumed: {hisGrace.Comp.EntitiesAbsorbed}");
+
+        // Apply ascension effects
         EnsureComp<ThermalVisionComponent>(user);
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
 
-        UpdateSpeedMultiplier(comp, comp.SpeedAddition * comp.SpeedIncrementMultiplier * comp.SpeedIncrementMultiplier);
+        UpdateSpeedMultiplier(hisGrace, hisGrace.Comp.SpeedAddition * hisGrace.Comp.SpeedIncrementMultiplier * hisGrace.Comp.SpeedIncrementMultiplier);
 
         // le funny ascension
-        _chat.DispatchGlobalAnnouncement(Loc.GetString("hisgrace-ascension-announcement"), Name(user), true, comp.AscendSound, Color.PaleGoldenrod);
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("hisgrace-ascension-announcement"), Name(user), true, hisGrace.Comp.AscendSound, Color.PaleGoldenrod);
     }
 
     private void ChangeState(Entity<HisGraceComponent> hisGrace, HisGraceState newState)
     {
-        // self explanatory
+        // Store the old state before changing it
         var oldState = hisGrace.Comp.CurrentState;
         hisGrace.Comp.CurrentState = newState;
 
         var ev = new HisGraceStateChangedEvent(newState, oldState);
         RaiseLocalEvent(hisGrace, ref ev);
     }
-
     private bool TryDevour(Entity<HisGraceComponent> hisGrace, EntityUid target)
     {
-        if (!_state.IsIncapacitated(target)
-            || !_containerSystem.Insert(target, hisGrace.Comp.Stomach) )
+        if (!_state.IsIncapacitated(target))
+        {
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Medium,
+                $"HIS GRACE DEVOUR FAILED: {ToPrettyString(hisGrace.Comp.User ?? hisGrace.Owner):actor} failed to devour {ToPrettyString(target):target} with {ToPrettyString(hisGrace):tool} - Target not incapacitated");
             return false;
+        }
+
+        if (!_containerSystem.Insert(target, hisGrace.Comp.Stomach))
+        {
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Medium,
+                $"HIS GRACE DEVOUR FAILED: {ToPrettyString(hisGrace.Comp.User ?? hisGrace.Owner):actor} failed to devour {ToPrettyString(target):target} with {ToPrettyString(hisGrace):tool} - Container insertion failed");
+            return false;
+        }
+
+        // Log successful devour attempt
+        _adminLog.Add(LogType.AdminMessage, LogImpact.High,
+            $"HIS GRACE DEVOUR: {ToPrettyString(hisGrace.Comp.User ?? hisGrace.Owner):actor} devoured {ToPrettyString(target):target} with {ToPrettyString(hisGrace):tool}");
 
         // Hunger gained from eating an entity is 20% of their crit state.
         hisGrace.Comp.Hunger -= GetHungerValue(target, hisGrace).Value;
@@ -429,12 +470,17 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         _audio.PlayPvs(hisGrace.Comp.SoundDevour, target);
         _popup.PopupEntity(devourPopup, target, PopupType.LargeCaution);
 
-        // don't apply bonuses for enities consumed that don't have minds or aren't human (no farming sentient mice)
+        // don't apply bonuses for entities consumed that don't have minds or aren't human (no farming sentient mice)
         if (_mind.TryGetMind(target, out _, out _)
             && HasComp<HumanoidAppearanceComponent>(target))
         {
             var ev = new HisGraceEntityConsumedEvent();
             RaiseLocalEvent(hisGrace, ref ev);
+        }
+        else
+        {
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Low,
+                $"HIS GRACE NON-HUMANOID: {ToPrettyString(hisGrace.Comp.User ?? hisGrace.Owner):actor} consumed non-humanoid {ToPrettyString(target):target} with {ToPrettyString(hisGrace):tool}");
         }
 
         return true;
