@@ -48,7 +48,8 @@ public sealed class KeyringSystem : EntitySystem
     private void OnInteractUsing(Entity<KeyringComponent> keyring, ref AfterInteractEvent args)
     {
         if (args.Handled
-            || !HasComp<DoorComponent>(args.Target))
+            || !HasComp<DoorComponent>(args.Target)
+            || !args.CanReach)
             return;
 
         var doAfterArgs =
