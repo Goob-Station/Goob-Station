@@ -16956,3 +16956,9 @@ Entries:
         packs and ointments in each respective vendor.
   id: 1899
   time: '2025-10-25T17:14:42.0000000+00:00'
+- author: Cygnye
+  changes:
+    - type: Tweak
+      message: Brigmed now has new glasses and headset, as well as medical access.
+  id: 1900
+  time: '2025-10-27T01:23:12.0000000+00:00'
